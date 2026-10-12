@@ -1,8 +1,7 @@
 name: Copy to API/events issue to docs-content
 
-# **What it does**: Copies an issue in the open source repo to the docs-content repo, comments on and closes the original issue
-# **Why we have it**: OpenAPI/GraphQL schema updates cannot be made in the open source repo. Instead, we copy the issue to an internal issue (we do not transfer so that the issue does not disappear for the contributor) and close the original issue.
-# **Who does it impact**: Open source and docs-content maintainers
+# Copies public API schema issues to docs-content because updates happen internally.
+# It does not transfer them, so the issue stays visible to the contributor.
 
 on:
   issues:
@@ -26,8 +25,7 @@ jobs:
           result-encoding: string
           script: |
             const triggerer_login = context.payload.sender.login
-            // Team is addressed by numeric ID (org github = 9919, team docs = 325922)
-            // because IDs survive team renames and slugs do not.
+            // 9919 is the github org and 325922 the docs team; numeric IDs survive renames.
             const teamMembers = await github.request(
               `/organizations/9919/team/325922/members?per_page=100`
             )

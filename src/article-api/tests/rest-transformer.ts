@@ -1,6 +1,7 @@
 import { beforeAll, describe, expect, test } from 'vitest'
 
 import { get } from '@/tests/helpers/e2etest'
+import { getCurlBodyArguments } from '@/rest/lib/curl-body-arguments'
 
 const makeURL = (pathname: string, apiVersion?: string): string => {
   const params = new URLSearchParams({ pathname })
@@ -219,13 +220,36 @@ describe('REST transformer', () => {
   })
 
   test('Body parameters are formatted correctly for POST/PUT operations', async () => {
-    const res = await get(makeURL('/en/rest/actions/artifacts'))
+    const res = await get(makeURL('/en/rest/actions/cache', '2022-11-28'))
     expect(res.statusCode).toBe(200)
+
+    expect(res.body).toContain('## Set GitHub Actions cache retention limit for a repository')
+    expect(res.body).toContain('#### Body parameters')
+    expect(res.body).toContain('**`max_cache_retention_days`** (integer)')
+    expect(res.body).toContain('The maximum number of days to keep caches in this repository.')
+    expect(res.body).toContain('"max_cache_retention_days": 80')
   })
 
   test('Content-type header is included for operations that need it', async () => {
-    const res = await get(makeURL('/en/rest/actions/artifacts'))
+    const res = await get(makeURL('/en/rest/releases/assets', '2022-11-28'))
     expect(res.statusCode).toBe(200)
+
+    expect(res.body).toContain('## Upload a release asset')
+    expect(res.body).toContain('-H "Content-Type: application/octet-stream"')
+    expect(res.body).toContain('--data-binary "@example.zip"')
+    expect(res.body).not.toContain(`-d '"@example.zip"'`)
+  })
+
+  test('Multipart form bodies are formatted as curl form arguments', () => {
+    expect(
+      getCurlBodyArguments(
+        {
+          license: '@enterprise.ghl',
+          label: 'enterprise license',
+        },
+        'multipart/form-data',
+      ),
+    ).toEqual(["--form 'license=@enterprise.ghl'", "--form 'label=enterprise license'"])
   })
 
   test('Non-English language paths work correctly', async () => {

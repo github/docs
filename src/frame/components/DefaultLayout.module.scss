@@ -5,32 +5,26 @@
 
 .mainContent {
   scroll-margin-top: 5rem;
-  // Keep anything that overflows the main column from scrolling the page
-  // sideways. This backstopped the article section rules while they overshot
-  // ±1500px to reach the rails; those now span the body column and no further,
-  // so it is only a guard for wide content (tables, code) today. `clip` (not
-  // hidden/auto) creates no scroll container, so the sticky rails and secondary
-  // bar are unaffected.
+  // Clip wide content such as tables and code without creating a scroll container.
+  // Sticky rails and the secondary bar still resolve against the viewport.
   overflow-x: clip;
 }
 
-// The search results page splits into rail + results at brand's `medium`
-// breakpoint rather than waiting for `d-lg-flex` at 1012px, so the facet rail is
-// available on tablets. Applied only on /search.
+// Search results split into facet rail and results at Brand's medium breakpoint,
+// before d-lg-flex at 1012px, so filters are available on tablets. Applied only
+// on search results pages, versioned or not.
 .searchColumns {
   @media (min-width: $brand-breakpoint-medium) {
     display: flex;
   }
 }
 
-// Sticky descendants share the header/bar offset; the sub-bar adds 40px.
-// These modifiers follow the same visibility state as OverviewSubBar.
+// Sticky descendants share the header and secondary-bar offset.
+// The sub-bar adds 40px, matching OverviewSubBar visibility.
 //
-// The header half of the stack comes from --docs-header-height, not a literal
-// 65px: the Brand header is 3.5rem below 48rem and 4rem above, so a fixed px
-// stack would be wrong at one of the two sizes. The 45px is the secondary bar,
-// which is a fixed height; keep it in step with DocsSecondaryBar.module.scss
-// and SidebarNav.module.scss, which compose the same two parts.
+// The header height comes from --docs-header-height because the Brand header is
+// 3.5rem below 48rem and 4rem above. Keep the fixed 45px secondary-bar height
+// in step with DocsSecondaryBar.module.scss and SidebarNav.module.scss.
 .stickyStack {
   --docs-sticky-stack: calc(var(--docs-header-height) + 45px);
 }
@@ -62,11 +56,8 @@
   }
 }
 
-// The a11y skip link is a filled accent chip. Was primer/css
-// `color-bg-accent-emphasis color-fg-on-emphasis`, which paints the chip from
-// the PRC palette on a Brand surface. The Brand accent fill inverts between
-// modes (dark green in light, light green in dark), so onEmphasis text is
-// correct here.
+// The skip link uses the Brand accent fill so its onEmphasis text inverts with
+// the page's light and dark Brand surfaces.
 .skipButton {
   background-color: var(--brand-color-accent-primary);
   color: var(--brand-color-text-onEmphasis);

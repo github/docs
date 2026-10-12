@@ -120,6 +120,15 @@ For more information, see \`codeql database analyze<database-analyze>\`{.interpr
     expect(result.content).toContain('codeql database analyze')
   })
 
+  test('sets intro frontmatter from the Description section', async () => {
+    const result = await convertContentToDocs(testContent, {}, 'bqrs-interpret.md')
+
+    expect(result.data).toHaveProperty('intro')
+    expect(result.data.intro).toBe(
+      'A command that interprets a single BQRS file according to the provided\nmetadata and generates output in the specified format.',
+    )
+  })
+
   test('returns proper data structure', async () => {
     const result = await convertContentToDocs(testContent, {}, 'bqrs-interpret.md')
 

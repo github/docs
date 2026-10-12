@@ -53,7 +53,7 @@ const config: NextConfig = {
   },
 
   webpack: (webpackConfig, { isServer }) => {
-    webpackConfig.resolve.fallback = { fs: false, async_hooks: false }
+    webpackConfig.resolve.fallback = { fs: false, async_hooks: false, child_process: false }
     // OTel is server-only. Alias to empty stub in browser bundles.
     if (!isServer) {
       webpackConfig.resolve.alias = {
@@ -74,6 +74,9 @@ const config: NextConfig = {
         browser: './stub.ts',
       },
       async_hooks: {
+        browser: './stub.ts',
+      },
+      child_process: {
         browser: './stub.ts',
       },
       '@/observability/logger': {

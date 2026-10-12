@@ -20,7 +20,7 @@ export async function getCommitSha(owner: string, repo: string, ref: string) {
   }
 }
 
-// based on https://docs.github.com/rest/reference/git#get-a-reference
+// https://docs.github.com/rest/reference/git#get-a-reference
 export async function hasMatchingRef(owner: string, repo: string, ref: string) {
   try {
     await github.git.getRef({
@@ -151,7 +151,6 @@ export async function createIssueComment(
   }
 }
 
-// The paths of files in the repo containing any of the given strings.
 export async function getPathsWithMatchingStrings(
   strArr: string[],
   org: string,
@@ -233,7 +232,6 @@ async function searchCode(
   }
 }
 
-// Recursively gets the contents of a directory within a repo.
 export async function getDirectoryContents(
   owner: string,
   repo: string,

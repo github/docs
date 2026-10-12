@@ -27,9 +27,8 @@ inputs:
 runs:
   using: composite
   steps:
-    # Build the Slack text here so the default message can be multi-line (real
-    # newlines) and conditionally include the issue link. A caller-supplied
-    # message is passed through verbatim for backward compatibility.
+    # Build default Slack text in shell so it can include real newlines and an issue link.
+    # Caller-supplied messages pass through unchanged for backward compatibility.
     - name: Build Slack message
       id: build
       shell: bash
@@ -43,10 +42,9 @@ runs:
         GIT_REF: ${{ github.ref }}
         ACTOR: ${{ github.actor }}
       run: |
-        # Escape Slack mrkdwn control chars in interpolated context fields so a
-        # crafted branch/ref (e.g. containing <!channel>) can't inject mentions.
+        # Escape generated fields so branch/ref text like <!channel> cannot inject Slack mentions.
         esc() { printf '%s' "$1" | sed -e 's/&/\&amp;/g' -e 's/</\&lt;/g' -e 's/>/\&gt;/g'; }
-        # Unique heredoc delimiter so a custom message can't collide with it.
+        # Pick a unique heredoc delimiter so custom messages cannot collide with it.
         delim="SLACK_EOF_${RANDOM}${RANDOM}"
         {
           printf 'text<<%s\n' "$delim"

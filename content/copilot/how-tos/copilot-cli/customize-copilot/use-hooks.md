@@ -105,6 +105,6 @@ The following examples for macOS and Windows show how to configure hooks that wi
 ## Further reading
 
 * [AUTOTITLE](/copilot/reference/hooks-reference)
-* [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-cloud-agent)
-* [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-copilot-cli)
+* [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-on-github)
+* [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-cli)
 * [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/customize-the-agent-environment)

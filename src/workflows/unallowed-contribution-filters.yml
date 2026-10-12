@@ -12,6 +12,6 @@ notAllowed:
   - 'content/README.md'
 contentTypes:
   - 'content/**'
-# allows getting a list of just added files from the dorny/paths-filter action
+# Lets dorny/paths-filter return only added content files.
 added:
   - added: 'content/**'

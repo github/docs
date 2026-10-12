@@ -72,7 +72,7 @@ If you run out of free minutes or premium requests, and you have _not_ set up bi
 
 {% data variables.copilot.copilot_cloud_agent %} uses a dedicated {% data variables.copilot.copilot_cloud_agent %} premium request SKU. This SKU still pulls from your monthly allowance of premium requests, but allows for more granular budget control and monitoring.
 
-For more information about {% data variables.copilot.copilot_cloud_agent %} and {% data variables.copilot.copilot_custom_agents %}, see [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-cloud-agent) and [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-custom-agents).
+For more information about {% data variables.copilot.copilot_cloud_agent %} and {% data variables.copilot.copilot_custom_agents %}, see [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-on-github) and [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-custom-agents).
 
 ## Using more than your included premium requests
 

@@ -29,7 +29,7 @@ function readFrontmatter(markdown: string, opts: ReadFrontmatterOptions = {}) {
 
     const reason =
       e instanceof Error && 'reason' in e
-        ? // make this common error message a little easier to understand
+        ? // Normalize common YAML syntax failures to a writer-facing reason.
           (e as { reason: string }).reason.startsWith('can not read a block mapping entry;') ||
           (e as { reason: string }).reason === 'bad indentation of a mapping entry'
           ? defaultReason
@@ -49,15 +49,7 @@ function readFrontmatter(markdown: string, opts: ReadFrontmatterOptions = {}) {
 
   const validate = validateJson(schema, data)
 
-  // Combine the AJV-supplied `instancePath` and `params` into a more user-friendly frontmatter path.
-  // For example, given:
-  //   "instancePath": "/versions",
-  //   "params": { "additionalProperty": "ftp" }
-  // return:
-  //   property: 'versions.ftp'
-  //
-  // The purpose is to help users understand that the error is on the `ftp` key within the `versions` object.
-  // Note if the error is on a top-level FM property like `title`, the `instancePath` will be empty.
+  // /versions plus additionalProperty ftp becomes versions.ftp; top-level instancePath is empty.
   const cleanPropertyPath = (
     params: Record<string, unknown>,
     instancePath: string,
@@ -96,10 +88,7 @@ function readFrontmatter(markdown: string, opts: ReadFrontmatterOptions = {}) {
   return { content, data, errors }
 }
 
-// Expose gray-matter's underlying stringify method for joining a parsed
-// frontmatter object and a markdown string back into a unified string
-//
-// stringify('some string', {some: 'frontmatter'})
+// gray-matter stringify(markdown, frontmatter) joins parsed frontmatter and markdown.
 readFrontmatter.stringify = matter.stringify
 
 export default readFrontmatter

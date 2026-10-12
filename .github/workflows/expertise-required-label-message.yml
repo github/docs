@@ -1,8 +1,6 @@
 name: Expertise Required label message
 
-# **What it does**: Adds a bot comment stating a certain level of expertise is required to a docs-content issue when the `contributor-expertise-required` label is applied
-# **Why we have it**: We need a method to surface a message denoting if an issue requires a certain level of expertise in order to be resolved
-# **Who does it impact**: Open Source and Hubbers
+# Surface contributor expertise requirements directly on labeled github/docs issues.
 
 on:
   issues:

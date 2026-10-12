@@ -12,14 +12,12 @@
   pointer-events: auto;
 }
 
-.customFocus:focus:not(:focus-visible), // override primer css specificity
+.customFocus:focus:not(:focus-visible), // Beats Primer CSS specificity.
 .customFocus:focus-visible {
-  // Brand's focus colour, matching ViewMarkdownButton.module.scss — the old
-  // --fgColor-accent is undefined here and fell through to Primer's blue
-  // (#0969da -> #0377ff).
+  // Use Brand's focus color to match ViewMarkdownButton.module.scss.
   outline: 2px solid var(--brand-color-focus, #0377ff);
   outline-offset: -2px;
-  box-shadow: 0 0 0 4px inset; // A little wider for the border radius :shrug:
+  box-shadow: 0 0 0 4px inset;
 }
 
 .scrollButton {
@@ -27,8 +25,7 @@
   height: 2.5rem;
 }
 
-// When the viewport is too short to show the button permanently,
-// reveal it on keyboard focus so it remains accessible (a11y #16466).
+// Reveal the button on keyboard focus when short viewports cannot show it permanently.
 .scrollWrapper:has(.scrollButton:focus-visible) {
   opacity: 1;
   pointer-events: auto;

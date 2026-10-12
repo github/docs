@@ -107,11 +107,7 @@ async function getAllOpenPRs() {
 async function run() {
   const prData = await getAllOpenPRs()
 
-  // Get the PRs that are:
-  // - not draft
-  // - not a train
-  // - are requesting a review by docs-reviewers
-  // - have not already been reviewed on behalf of docs-reviewers
+  // Keep PRs that still need the requested docs-reviewers review.
   const prs = prData.filter(
     (pr) =>
       !pr.isDraft &&
@@ -177,10 +173,7 @@ async function run() {
 
   const projectID = projectData.organization.projectV2.id
 
-  // Get the IDs of the last 100 items on the board.
-  // Until we have a way to check from a PR whether the PR is in a project,
-  // this is how we (roughly) avoid overwriting PRs that are already on the board.
-  // If we are overwriting items, query for more items.
+  // The last 100 board items approximate membership; query more if fields get overwritten.
   const existingItemIDs = projectData.organization.projectV2.items.nodes.map(
     (node: { id: string }) => node.id,
   )
@@ -200,10 +193,7 @@ async function run() {
 
   const itemIDs = await addItemsToProject(prIDs, projectID)
 
-  // If an item already existed on the project, the existing ID will be returned.
-  // Exclude existing items going forward.
-  // Until we have a way to check from a PR whether the PR is in a project,
-  // this is how we (roughly) avoid overwriting PRs that are already on the board
+  // Existing project items reuse their IDs, so skip them before populating fields.
   const newItemIDs: string[] = []
   const newItemAuthors: string[] = []
   for (let index = 0; index < itemIDs.length; index++) {
@@ -219,7 +209,7 @@ async function run() {
     return
   }
 
-  // for...of rather than forEach because the body awaits.
+  // Use for...of because the body awaits.
   for (const [index, itemID] of newItemIDs.entries()) {
     const updateProjectV2ItemMutation = generateUpdateProjectV2ItemFieldMutation({
       item: itemID,
@@ -241,7 +231,7 @@ async function run() {
       contributorTypeID,
       contributorType,
       sizeTypeID,
-      sizeType: sizeMediumID, // We need to provide something here, defaulting to 'medium' or 'M'
+      sizeType: sizeMediumID, // The board requires size, so default to M.
       featureID,
       authorID,
       headers: {

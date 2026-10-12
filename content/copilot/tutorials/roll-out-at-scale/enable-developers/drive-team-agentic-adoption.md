@@ -9,6 +9,8 @@ contentType: tutorials
 category:
   - Roll Copilot out at scale
   - Manage Copilot for a team
+docsTeamMetrics:
+  - ai-governance
 ---
 
 After developers are using {% data variables.product.prodname_copilot_short %}, a focused rollout can help established teams add {% data variables.copilot.github_copilot_app %} and {% data variables.copilot.copilot_cli_short %} to their daily work. These tools complement IDE chat and agent mode. The goal is to help teams build repeatable agentic workflows with the tool that best fits each task.

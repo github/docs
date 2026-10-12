@@ -6880,7 +6880,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Gets artifact and log retention settings for an organization.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope or the \"Actions policies\" fine-grained permission to use this endpoint.</p>",
+      "descriptionHTML": "<p>Gets retention settings for checks, workflow runs, commit statuses, artifacts, and logs for an organization.</p>\n<p>Checks include check suites, check runs, and check annotations. These settings also apply to checks and commit statuses created by third-party integrations, and are not limited to data created by GitHub Actions.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope or the \"Actions policies\" fine-grained permission to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -6903,7 +6903,7 @@
               "properties": {
                 "days": {
                   "type": "integer",
-                  "description": "The number of days artifacts and logs are retained"
+                  "description": "The number of days checks, workflow runs, commit statuses, artifacts, and logs are retained"
                 },
                 "maximum_allowed_days": {
                   "type": "integer",
@@ -6966,11 +6966,11 @@
         {
           "type": "integer",
           "name": "days",
-          "description": "<p>The number of days to retain artifacts and logs</p>",
+          "description": "<p>The number of days to retain checks, workflow runs, commit statuses, artifacts, and logs</p>",
           "isRequired": true
         }
       ],
-      "descriptionHTML": "<p>Sets artifact and log retention settings for an organization.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope or the \"Actions policies\" fine-grained permission to use this endpoint.</p>",
+      "descriptionHTML": "<p>Sets retention settings for checks, workflow runs, commit statuses, artifacts, and logs for an organization.</p>\n<p>Checks include check suites, check runs, and check annotations. These settings also apply to checks and commit statuses created by third-party integrations, and are not limited to data created by GitHub Actions.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope or the \"Actions policies\" fine-grained permission to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -10424,7 +10424,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Gets artifact and log retention settings for a repository.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Gets retention settings for checks, workflow runs, commit statuses, artifacts, and logs for a repository.</p>\n<p>Checks include check suites, check runs, and check annotations. These settings also apply to checks and commit statuses created by third-party integrations, and are not limited to data created by GitHub Actions.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -10448,7 +10448,7 @@
               "properties": {
                 "days": {
                   "type": "integer",
-                  "description": "The number of days artifacts and logs are retained"
+                  "description": "The number of days checks, workflow runs, commit statuses, artifacts, and logs are retained"
                 },
                 "maximum_allowed_days": {
                   "type": "integer",
@@ -10516,11 +10516,11 @@
         {
           "type": "integer",
           "name": "days",
-          "description": "<p>The number of days to retain artifacts and logs</p>",
+          "description": "<p>The number of days to retain checks, workflow runs, commit statuses, artifacts, and logs</p>",
           "isRequired": true
         }
       ],
-      "descriptionHTML": "<p>Sets artifact and log retention settings for a repository.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Sets retention settings for checks, workflow runs, commit statuses, artifacts, and logs for a repository.</p>\n<p>Checks include check suites, check runs, and check annotations. These settings also apply to checks and commit statuses created by third-party integrations, and are not limited to data created by GitHub Actions.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -39657,6 +39657,90 @@
               "owner": "OWNER",
               "repo": "REPO",
               "job_id": "JOB_ID"
+            }
+          },
+          "response": {
+            "statusCode": "302",
+            "description": "<p>Response</p>"
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "302",
+          "description": "<p>Found</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Actions\" repository permissions": "read"
+          }
+        ],
+        "allowsPublicRead": true
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/actions/jobs/{job_id}/steps/{step_number}/logs",
+      "title": "Download step logs for a workflow run job",
+      "category": "actions",
+      "subcategory": "workflow-jobs",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "job_id",
+          "description": "<p>The unique identifier of the job.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "step_number",
+          "description": "<p>The zero-based position number of the step in the job.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Gets a redirect URL to download a plain text file of logs for a specific step of a workflow job. This link expires after\n1 minute. Look for <code>Location:</code> in the response header to find the URL for the download.</p>\n<p>This endpoint is intended for selective retrieval of one step. To download complete job logs, use the\n<a href=\"https://docs.github.com/rest/actions/workflow-jobs#download-job-logs-for-a-workflow-run\">job logs endpoint</a>.</p>\n<p>Anyone with read access to the repository can use this endpoint.</p>\n<p>If the repository is private, OAuth tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO",
+              "job_id": "JOB_ID",
+              "step_number": "STEP_NUMBER"
             }
           },
           "response": {

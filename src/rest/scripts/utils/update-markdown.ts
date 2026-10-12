@@ -48,9 +48,9 @@ export async function updateRestFiles() {
   })
 }
 
-// The GHES version in a file path, or null if the path isn't a GHES one.
+// GitHub Enterprise Server paths include ghes-<version>; other paths return null.
 export function getGHESVersionFromFilepath(filePath: string): string | null {
-  // Normalize path separators to handle both Unix and Windows paths
+  // Normalize Windows separators before splitting paths.
   const normalizedPath = filePath.replace(/\\/g, '/')
   const pathParts = normalizedPath.split('/')
   const ghesDir = pathParts.find((part) => part.startsWith('ghes-'))
@@ -63,40 +63,33 @@ export function getGHESVersionFromFilepath(filePath: string): string | null {
   return versionMatch ? versionMatch[1] : null
 }
 
-// The data files are split up by version, so all files must be
-// read to get a complete list of versions.
+// Read every version directory because REST data files split versions across
+// per-category JSON files.
 async function getDataFrontmatter(dataDirectory: string): Promise<RestVersions> {
   const fileList = walk(dataDirectory, { includeBasePath: true })
     .filter((file) => file.endsWith('.json'))
-    // Exclude non-category JSON files that live alongside per-category data.
-    // If new non-category files are added to version directories, update this filter.
+    // Keep non-category JSON files out of category data; add future sidecar files to this filter.
     .filter((file) => !file.endsWith('client-side-rest-api-redirects.json'))
-    // Exclude any legacy monolithic schema files. Their top-level keys are
-    // category names, not subcategories, so they would be misread here as a
-    // bogus "schema" category.
+    // Legacy monolithic schema files use category keys; without this filter, schema becomes a fake category.
     .filter((file) => !file.endsWith('schema.json'))
-    // Ignore any deprecated versions. This allows us to stop supporting
-    // the most recent deprecated version but still allow data to exist.
-    // This makes the deprecation steps easier.
+    // Ignore deprecated GitHub Enterprise Server versions so data stays on disk after support ends.
     .filter((file) => {
       const ghesVersion = getGHESVersionFromFilepath(file)
 
-      // If it's not a GHES file, include it (e.g., ghae, fpt, ghec)
       if (!ghesVersion) {
         return true
       }
 
-      // If it's a GHES file, exclude it only if the version is deprecated
       return !deprecated.includes(ghesVersion)
     })
 
   const restVersions: RestVersions = {}
 
   for (const file of fileList) {
-    const data = JSON.parse(await readFile(file, 'utf-8')) // data is RestOperationCategory
+    const data = JSON.parse(await readFile(file, 'utf-8'))
     const docsVersionName = getDocsVersion(path.basename(path.dirname(file)))
-    const category = path.basename(file, '.json') // filename IS the category
-    const subcategories = Object.keys(data) // data keys are subcategories directly
+    const category = path.basename(file, '.json')
+    const subcategories = Object.keys(data)
     for (const subcategory of subcategories) {
       if (!restVersions[category]) restVersions[category] = {}
       if (!restVersions[category][subcategory]) {
@@ -109,29 +102,16 @@ async function getDataFrontmatter(dataDirectory: string): Promise<RestVersions> 
   return restVersions
 }
 
-// Takes the version frontmatter to apply to the Markdown page for each category
-// and subcategory, in the shape:
-//
-//   {
-//     "actions": {
-//       "artifacts": {
-//         "versions": ["free-pro-team@latest", "enterprise-server@3.8", ...]
-//       }
-//     }
-//   }
+// For existing files, updateContentDirectory keeps everything but versions.
+// TODOCS defaults apply only to new files, so the content linter blocks
+// merging until a docs reviewer fills them in.
 async function getMarkdownContent(versions: RestVersions): Promise<MarkdownUpdates> {
   const markdownUpdates: MarkdownUpdates = {}
 
   for (const [category, subcategoryObject] of Object.entries(versions)) {
     const subcategories = Object.keys(subcategoryObject)
-    // The file path will be content/rest/<category>/<subcategory>.md
     for (const subcategory of subcategories) {
       const filepath = path.join('content/rest', category, `${subcategory}.md`)
-      // If the file already exists on disk, only the `versions` frontmatter
-      // property is updated. So the TODOCS placeholder values are only used
-      // when the file is newly created, which is the intention. When the TODOCS
-      // placeholder is added, it will fail the content linter CI test alerting
-      // the docs content reviewer to update the file before merging.
       markdownUpdates[filepath] = {
         data: {
           title: 'TODOCS',

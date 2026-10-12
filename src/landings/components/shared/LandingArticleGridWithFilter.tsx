@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect, useMemo } from 'react'
 import { useRouter } from 'next/router'
-import { ActionMenu, ActionList } from '@primer/react'
-import { Card, Pagination, TextInput, Token } from '@primer/react-brand'
+import { ActionMenu, Card, Pagination, TextInput, Token } from '@primer/react-brand'
 import { SearchIcon } from '@primer/octicons-react'
 import { announce } from '@primer/live-region-element'
 import cx from 'clsx'
@@ -11,6 +10,7 @@ import { ChildTocItem, TocItem } from '@/landings/types'
 import { LandingType } from '@/landings/context/LandingContext'
 import type { QueryParams } from '@/search/components/hooks/useMultiQueryParams'
 import { flattenArticles, deriveStopWords, searchArticles } from '@/landings/lib/article-search'
+import { onActionMenuItemKeyDownCapture } from '@/frame/components/lib/action-menu'
 
 import styles from './LandingArticleGridWithFilter.module.scss'
 
@@ -263,29 +263,35 @@ export const ArticleGrid = ({
         <div className={styles.controls}>
           {/* Text-style control matches the Sort by pattern. */}
           <div className={styles.categoryDropdown}>
-            <ActionMenu>
-              <ActionMenu.Button>
-                <span className={styles.categoryLabel}>
-                  {t('article_grid.filter_by_category')}:
-                </span>{' '}
-                <span className={styles.categoryValue}>
-                  {categories[selectedCategoryIndex] === ALL_CATEGORIES
-                    ? t('article_grid.all_categories')
-                    : categories[selectedCategoryIndex]}
+            <ActionMenu
+              selectionVariant="single"
+              size="small"
+              menuAlignment="start"
+              onSelect={handleFilter}
+            >
+              <ActionMenu.Button variant="subtle">
+                <span className={styles.categoryButtonLabel}>
+                  <span className={styles.categoryLabel}>
+                    {t('article_grid.filter_by_category')}:
+                  </span>{' '}
+                  <span className={styles.categoryValue}>
+                    {categories[selectedCategoryIndex] === ALL_CATEGORIES
+                      ? t('article_grid.all_categories')
+                      : categories[selectedCategoryIndex]}
+                  </span>
                 </span>
               </ActionMenu.Button>
-              <ActionMenu.Overlay width="auto">
-                <ActionList selectionVariant="single">
-                  {categories.map((category, index) => (
-                    <ActionList.Item
-                      key={index}
-                      selected={index === selectedCategoryIndex}
-                      onSelect={() => handleFilter(category)}
-                    >
-                      {category === ALL_CATEGORIES ? t('article_grid.all_categories') : category}
-                    </ActionList.Item>
-                  ))}
-                </ActionList>
+              <ActionMenu.Overlay aria-label={t('article_grid.filter_by_category')}>
+                {categories.map((category, index) => (
+                  <ActionMenu.Item
+                    key={category}
+                    value={category}
+                    selected={index === selectedCategoryIndex}
+                    onKeyDownCapture={onActionMenuItemKeyDownCapture}
+                  >
+                    {category === ALL_CATEGORIES ? t('article_grid.all_categories') : category}
+                  </ActionMenu.Item>
+                ))}
               </ActionMenu.Overlay>
             </ActionMenu>
           </div>

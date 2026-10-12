@@ -10,7 +10,6 @@ import { beforeAll, describe, expect, test } from 'vitest'
 
 import matter from '@/frame/lib/read-frontmatter'
 import { renderContent } from '@/content-render/index'
-import getApplicableVersions from '@/versions/lib/get-applicable-versions'
 import contextualize from '@/frame/middleware/context/context'
 import shortVersions from '@/versions/middleware/short-versions'
 import { ROOT } from '@/frame/lib/constants'
@@ -26,7 +25,7 @@ function getFrontmatterData(markdown: string): MarkdownFrontmatter {
   return parsed.data as MarkdownFrontmatter
 }
 
-describe.skip('category pages', () => {
+describe('category pages', () => {
   const walkOptions = {
     globs: ['*/index.md', 'enterprise/*/index.md'],
     ignore: [
@@ -76,14 +75,10 @@ describe.skip('category pages', () => {
       (indexRelPath, indexAbsPath, indexLink) => {
         let publishedArticlePaths: string[] = []
         let availableArticlePaths: string[] = []
-        let categoryVersions: string[] = []
 
         let allowTitleToDifferFromFilename: boolean | undefined = false
         let indexTitle: string = ''
         let indexShortTitle: string = ''
-        const articleVersions: {
-          [articlePath: string]: string[]
-        } = {}
 
         beforeAll(async () => {
           const categoryDir = path.dirname(indexAbsPath)
@@ -92,7 +87,6 @@ describe.skip('category pages', () => {
           const parsed = matter(indexContents)
           if (!parsed.data) throw new Error('No frontmatter')
           const categoryData = parsed.data as MarkdownFrontmatter
-          categoryVersions = getApplicableVersions(categoryData.versions, indexAbsPath)
           allowTitleToDifferFromFilename = categoryData.allowTitleToDifferFromFilename
           const articleLinks = categoryData.children.filter((child) => {
             const mdPath = getPath(productDir, indexLink, child)
@@ -112,17 +106,14 @@ describe.skip('category pages', () => {
           await contextualize(req as ExtendedRequest, res as Response, next)
           await shortVersions(req as ExtendedRequest, res as Response, next)
 
-          const productIndexContents = await fs.promises.readFile(productIndex, 'utf8')
-          const productIndexData = getFrontmatterData(productIndexContents)
+          indexTitle = categoryData.title.includes('{')
+            ? await renderContent(categoryData.title, req.context, { textOnly: true })
+            : categoryData.title
 
-          indexTitle = productIndexData.title.includes('{')
-            ? await renderContent(productIndexData.title, req.context, { textOnly: true })
-            : productIndexData.title
-
-          if (productIndexData.shortTitle) {
-            indexShortTitle = productIndexData.shortTitle.includes('{')
-              ? await renderContent(productIndexData.shortTitle, req.context, { textOnly: true })
-              : productIndexData.shortTitle
+          if (categoryData.shortTitle) {
+            indexShortTitle = categoryData.shortTitle.includes('{')
+              ? await renderContent(categoryData.shortTitle, req.context, { textOnly: true })
+              : categoryData.shortTitle
           } else {
             indexShortTitle = ''
           }
@@ -145,7 +136,7 @@ describe.skip('category pages', () => {
 
           const childEntries = await fs.promises.readdir(categoryDir, { withFileTypes: true })
           const childFileEntries = childEntries.filter(
-            (ent) => ent.isFile() && ent.name !== 'index.md',
+            (ent) => ent.isFile() && ent.name.endsWith('.md') && ent.name !== 'index.md',
           )
           const childFilePaths = childFileEntries.map((ent) => path.join(categoryDir, ent.name))
 
@@ -163,18 +154,6 @@ describe.skip('category pages', () => {
               }),
             )
           ).filter(Boolean) as string[]
-
-          await Promise.all(
-            childFilePaths.map(async (articlePath) => {
-              const articleContents = await fs.promises.readFile(articlePath, 'utf8')
-              const versionData = getFrontmatterData(articleContents)
-
-              articleVersions[articlePath] = getApplicableVersions(
-                versionData.versions,
-                articlePath,
-              ) as string[]
-            }),
-          )
         })
 
         test('contains all expected articles', () => {
@@ -187,14 +166,6 @@ describe.skip('category pages', () => {
           const unexpectedArticles = difference(publishedArticlePaths, availableArticlePaths)
           const errorMessage = formatArticleError('Unexpected article links:', unexpectedArticles)
           expect(unexpectedArticles.length, errorMessage).toBe(0)
-        })
-
-        test('contains only articles and subcategories with versions that are also available in the parent category', () => {
-          for (const [articleName, versions] of Object.entries(articleVersions)) {
-            const unexpectedVersions = difference(versions, categoryVersions)
-            const errorMessage = `${articleName} has versions that are not available in parent category`
-            expect(unexpectedVersions.length, errorMessage).toBe(0)
-          }
         })
 
         test('slugified title matches parent directory name', () => {

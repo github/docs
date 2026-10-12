@@ -6,9 +6,8 @@ import { latest } from '@/versions/lib/enterprise-server-releases'
 const GHEC = 'enterprise-cloud@latest'
 const GHES = `enterprise-server@${latest}`
 
-// A stand-in for `req.context.pages`, which is keyed by full versioned permalink.
-// `/actions/versioned` exists in all three versions, `/actions/fpt-only` only in the
-// unversioned one.
+// pages stands in for req.context.pages, keyed by full versioned permalink.
+// /actions/versioned exists in all three versions; /actions/fpt-only exists only unversioned.
 const pages = Object.fromEntries(
   [
     '/en/actions/versioned',
@@ -27,14 +26,13 @@ describe('pathNamesAVersion', () => {
     ['/en/enterprise-cloud@latest/actions/foo', true],
     ['/en/free-pro-team@latest/actions/foo', true],
     ['/en/enterprise-server@latest/actions/foo', true],
-    // Deprecated releases are not keys of `allVersions`, but naming one is still
-    // an explicit request and has to beat the cookie.
+    // Deprecated releases are absent from allVersions, but explicit version paths beat the cookie.
     ['/en/enterprise-server@3.0/actions/foo', true],
     ['/en/github-ae@latest/actions/foo', true],
-    // Legacy shapes that carry no `@`.
+    // Legacy shapes without @ still name a version.
     ['/en/enterprise-server/3.9/actions/foo', true],
     ['/en/enterprise/3.3/actions/foo', true],
-    // No version named.
+    // These paths name no version.
     ['/en/actions/foo', false],
     ['/actions/foo', false],
     ['/en', false],
@@ -56,9 +54,8 @@ describe('getVersionPreference', () => {
     expect(getVersionPreference(path, path, GHEC, pages)).toEqual({ vary: false })
   })
 
-  // The escape hatch. `getRedirect` strips `/free-pro-team@latest` before the middleware
-  // gets here, so the resolved path looks unversioned. Only the request path still shows
-  // that the reader asked for Free/Pro/Team on purpose.
+  // free-pro-team@latest is an escape hatch: getRedirect strips it before this helper runs.
+  // The original request path still proves the reader explicitly asked for Free/Pro/Team.
   test('leaves an explicit free-pro-team URL alone even after the prefix is stripped', () => {
     expect(
       getVersionPreference(
@@ -88,9 +85,8 @@ describe('getVersionPreference', () => {
     ).toEqual({ vary: true, redirectTo: `/en/${GHES}/actions/versioned` })
   })
 
-  // The partial case: this article has a version the cookie could have selected, just not
-  // the one this reader asked for. No redirect, but the response still depends on the
-  // cookie, so it must not be cached as though it were the same for everyone.
+  // If the cookie names a version the article lacks, the response still depends on the cookie.
+  // Vary prevents caches from serving that fallback response to readers with other preferences.
   test('varies without redirecting when the cookie names a version this article lacks', () => {
     expect(
       getVersionPreference('/en/actions/ghec-only', '/en/actions/ghec-only', GHES, pages),
@@ -139,8 +135,7 @@ describe('getVersionPreference', () => {
     })
   })
 
-  // The redirect target names a version, so the next request short-circuits on
-  // `pathNamesAVersion` and cannot bounce back.
+  // Versioned redirect targets short-circuit on pathNamesAVersion, so they cannot bounce back.
   test('cannot loop', () => {
     const first = getVersionPreference(
       '/en/actions/versioned',

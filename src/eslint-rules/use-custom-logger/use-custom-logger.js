@@ -13,7 +13,6 @@ module.exports = {
     const sourceCode = context.getSourceCode();
     let setupInserted = false;
 
-    // Check if the logger import is already present.
     function needsLoggerImport() {
       return !sourceCode.ast.body.some(
         (node) =>
@@ -22,18 +21,13 @@ module.exports = {
       );
     }
 
-    // Check if a logger variable is already declared.
-    // This checks for both direct declarations (const logger = ...) and
-    // destructured patterns (const { logger } = ...).
     function needsLoggerDeclaration() {
       return !sourceCode.ast.body.some((node) => {
         if (node.type === "VariableDeclaration") {
           return node.declarations.some((decl) => {
-            // Check for direct identifier: const logger = ...
             if (decl.id.type === "Identifier" && decl.id.name === "logger") {
               return true;
             }
-            // Check for destructured pattern: const { logger } = ...
             if (decl.id.type === "ObjectPattern") {
               return decl.id.properties.some(
                 (prop) =>
@@ -49,7 +43,6 @@ module.exports = {
       });
     }
 
-    // Retrieve the last import statement.
     function getLastImportNode() {
       const imports = sourceCode.ast.body.filter(
         (node) => node.type === "ImportDeclaration",
@@ -69,7 +62,6 @@ module.exports = {
           ["log", "error", "debug", "warn"].includes(callee.property.name)
         ) {
           const method = callee.property.name;
-          // Determine the replacement method: "log" should become "info".
           const newMethod = method === "log" ? "info" : method;
           context.report({
             node: callee,
@@ -78,14 +70,10 @@ module.exports = {
               const fixes = [];
               const args = node.arguments;
 
-              // Replace 'console' with 'logger'
               fixes.push(fixer.replaceText(callee.object, "logger"));
-              // Replace the property; if it's "log", change to "info"
               fixes.push(fixer.replaceText(callee.property, newMethod));
 
-              // Check if we need to transform arguments for error-level methods
-              // If the first argument appears to be an error variable (common pattern: err, error, e)
-              // and there's only one argument, we should add a descriptive message
+              // Add a message when error or warn receives one error variable; keep it as metadata.
               if (
                 (newMethod === "error" || newMethod === "warn") &&
                 args.length === 1 &&
@@ -94,8 +82,6 @@ module.exports = {
                   args[0].name,
                 )
               ) {
-                // Transform console.error(err) to logger.error('Error occurred', { err })
-                // This makes the log message more useful and follows structured logging pattern
                 const errorVarName = sourceCode.getText(args[0]);
                 fixes.push(
                   fixer.replaceText(
@@ -105,7 +91,7 @@ module.exports = {
                 );
               }
 
-              // Insert our logger setup (import + declaration) only once per file.
+              // Insert logger setup once per file.
               if (!setupInserted) {
                 setupInserted = true;
 
@@ -114,7 +100,6 @@ module.exports = {
                 const lastImport = getLastImportNode();
 
                 if (needsImport && needsDeclaration) {
-                  // Insert both import and declaration together
                   if (lastImport) {
                     fixes.push(
                       fixer.insertTextAfter(
@@ -123,7 +108,6 @@ module.exports = {
                       ),
                     );
                   } else {
-                    // No imports – insert at the top
                     fixes.push(
                       fixer.insertTextBeforeRange(
                         [0, 0],
@@ -132,7 +116,6 @@ module.exports = {
                     );
                   }
                 } else if (needsImport) {
-                  // Only insert the import
                   if (lastImport) {
                     fixes.push(
                       fixer.insertTextAfter(
@@ -149,7 +132,6 @@ module.exports = {
                     );
                   }
                 } else if (needsDeclaration) {
-                  // Only insert the logger declaration
                   if (lastImport) {
                     fixes.push(
                       fixer.insertTextAfter(

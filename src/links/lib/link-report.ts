@@ -1,6 +1,4 @@
-/**
- * Groups broken links by target so one report section covers every file that links to it.
- */
+// Group broken links by target so one report section covers every file that links to it.
 
 export interface BrokenLink {
   href: string
@@ -10,32 +8,18 @@ export interface BrokenLink {
   isAutotitle?: boolean
   isRedirect?: boolean
   redirectTarget?: string
-  /**
-   * The redirect was only found by resolving the href inside the version being checked.
-   * `update-internal-links` looks the href up exactly as written, so it can't fix these.
-   */
+  // update-internal-links cannot fix redirects found only inside the checked version.
   requiresVersionContext?: boolean
-  /**
-   * Two checked versions resolved this href to genuinely different destinations, so no
-   * single rewrite is correct for all of them. Merging keeps one target and drops the
-   * rest, which would otherwise let the report name a destination that is only right for
-   * one version.
-   */
+  // Conflicting redirect targets mean no single rewrite is correct for every version.
   hasConflictingRedirectTargets?: boolean
   statusCode?: number
   errorMessage?: string
-  /**
-   * The versions this link is broken in. Only set on a merged report, where the same link
-   * usually breaks in every version checked.
-   */
+  // Merged reports record broken versions; display logic hides them when all versions break.
   versions?: string[]
 }
 
-/**
- * A cross-page anchor link (`/path#fragment`) whose fragment doesn't match any heading on
- * the target page, along with the versions it breaks in. Reported separately from broken
- * page links because the target page exists and only the fragment is stale.
- */
+// Cross-page anchor flaws report stale fragments separately from missing pages because the
+// target page exists.
 export interface CrossPageAnchorFlaw {
   href: string
   file: string
@@ -60,7 +44,7 @@ export interface LinkReport {
   totalOccurrences: number
   timestamp: string
   actionUrl?: string
-  /** Every version this report covers. Only set on a merged report. */
+  // Merged reports record every version they cover.
   versionsChecked?: string[]
 }
 
@@ -179,8 +163,7 @@ ${errorSection}${warningSection}${anchorSection}${detailsLink}
 <!-- link-checker-pr-comment -->`
   },
 
-  // Cross-page anchor section. `blocking` reflects FAIL_ON_ANCHOR_FLAW so the wording
-  // can't claim the check is advisory once the rollout flips it to failing.
+  // FAIL_ON_ANCHOR_FLAW controls blocking wording so advisory text cannot survive rollout.
   anchorSection: (anchors: CrossPageAnchorFlaw[], blocking = false) => {
     if (anchors.length === 0) return ''
     const shown = anchors.slice(0, 10)
@@ -219,23 +202,15 @@ function groupByTarget(links: BrokenLink[]): Map<string, BrokenLink[]> {
 
 const VERSION_PREFIX_RE = /^\/[a-z-]+@[^/]+/
 
-/**
- * True when a redirect target is the same path with a version prefix bolted on.
- *
- * These aren't renames, they're the versionless link resolving into a version. Telling
- * an author to "update to the new path" here is actively wrong: hardcoding
- * `/enterprise-server@3.21/...` into content breaks as soon as 3.22 ships.
- */
+// Version-only redirects are not renames. They let shared versionless links follow the
+// reader's product version instead of hardcoding one product's path.
 function isVersionOnlyRedirect(target: string, redirectTarget: string): boolean {
   const withoutVersion = redirectTarget.replace(VERSION_PREFIX_RE, '')
   return withoutVersion === target
 }
 
-/**
- * Two redirect targets that differ only by version prefix are the same rename seen from
- * two versions, not a disagreement. `/enterprise-server@3.21/new` and
- * `/enterprise-server@3.17/new` both mean "the page moved to /new".
- */
+// Redirect targets that differ only by version prefix describe the same rename from
+// different checked versions.
 function sameDestination(a: string, b: string): boolean {
   return a.replace(VERSION_PREFIX_RE, '') === b.replace(VERSION_PREFIX_RE, '')
 }
@@ -256,9 +231,7 @@ function createRedirectSuggestion(
     )
   }
 
-  // A versionless link that lands on a versioned path is a rename plus the version the
-  // check happened to run in. Only the rename is real. Suggesting the target verbatim
-  // would bake `enterprise-server@3.21` into content that never asked for a version.
+  // Strip the checked-version prefix so versionless sources do not hardcode that release.
   const sourceIsVersionless = !VERSION_PREFIX_RE.test(target)
   const versionPrefix = redirectTarget.match(VERSION_PREFIX_RE)?.[0]
   if (sourceIsVersionless && versionPrefix) {
@@ -298,7 +271,6 @@ export function groupBrokenLinks(
     }
   })
 
-  // Sort: errors first, then alphabetically
   return groups.sort((a, b) => {
     if (a.isWarning !== b.isWarning) return a.isWarning ? 1 : -1
     return a.target.localeCompare(b.target)
@@ -349,13 +321,8 @@ function createSummary(errorCount: number, warningCount: number, totalOccurrence
   return `Found ${parts.join(' and ')} across ${totalOccurrences} occurrence${plural}.`
 }
 
-/**
- * Describe which versions a link breaks in, but only when that is news.
- *
- * Nearly every broken link breaks in every version, so printing the full list on every
- * group is noise that also blows past the issue body size limit. Say something only when a
- * link is version-specific.
- */
+// Mention versions only for version-specific breakage, because the common case breaks in
+// every checked version and can push the issue body past its size limit.
 export function describeVersions(
   versions: string[] | undefined,
   versionsChecked: string[] | undefined,
@@ -366,13 +333,8 @@ export function describeVersions(
   return versions.join(', ')
 }
 
-/**
- * Merge one report per version into a single report.
- *
- * The workflow used to concatenate each version's rendered Markdown, so a link broken in
- * every version produced an identical section per version. Merging on the link itself means
- * one section per real problem, with the versions recorded on the occurrence.
- */
+// Merge by link so one real problem produces one section, with affected versions recorded
+// on the occurrence.
 export function mergeInternalLinkReports(
   reports: { version: string; report: LinkReport }[],
   options: { actionUrl?: string; versionsChecked?: string[] } = {},
@@ -394,10 +356,7 @@ export function mergeInternalLinkReports(
           existing.isRedirect = existing.isRedirect || occurrence.isRedirect
           existing.requiresVersionContext =
             existing.requiresVersionContext || occurrence.requiresVersionContext
-          // Keeping the first target and dropping the rest is only safe while every
-          // version agrees on where the page went. Today they always do, but if that ever
-          // stops being true the report would confidently name a destination that is
-          // right for one version and wrong for the others. Flag it instead.
+          // Keep the first redirect target and flag conflicts when later versions point elsewhere.
           if (
             existing.redirectTarget &&
             occurrence.redirectTarget &&
@@ -413,9 +372,7 @@ export function mergeInternalLinkReports(
     }
   }
 
-  // A version with no broken links writes no report, so the files on disk undercount what
-  // was actually checked. Callers that know the full matrix pass it in, otherwise fall back
-  // to what was found.
+  // Supplied matrix versions preserve versions that produced no report file.
   const versionsChecked = options.versionsChecked?.length
     ? options.versionsChecked
     : reports.map((r) => r.version)
@@ -440,8 +397,7 @@ export function generateInternalLinkReport(
   const errors = groups.filter((g) => !g.isWarning)
   const warnings = groups.filter((g) => g.isWarning)
 
-  // The workflow concatenates every version's report into one issue, so without this
-  // label there's no way to tell which version a section covers.
+  // Per-version JSON reports also render standalone artifacts, so each title names its scope.
   const scope = [options.version, options.language].filter(Boolean).join(' ')
   const scopeLabel = scope ? ` (${scope})` : ''
 
@@ -482,55 +438,31 @@ export function generateExternalLinkReport(
   }
 }
 
-/**
- * How a writer actually fixes a group.
- *
- * Grouping by target URL produces one section per broken URL, which is why the report runs
- * to hundreds of sections that all look equally urgent. Grouping by fix strategy instead
- * means each section is one decision: run a command, repoint a heading anchor, or choose a
- * new destination by hand.
- */
+// Fix buckets replace hundreds of URL sections with decisions:
+// run a command, repoint a heading anchor, or choose a new destination by hand.
 export type FixStrategy = 'codemod' | 'versionless' | 'anchor' | 'decide'
 
-/**
- * Past this many docsets, listing one command per docset is noisier than a single pass over
- * all of `content`.
- */
+// Past this cap, one content-wide command is clearer than one command per docset.
+// Content-wide runs take minutes; three docsets take seconds.
 const MAX_LISTED_CODEMOD_PATHS = 8
 
-/**
- * How many rows of the codemod table to print. The codemod does this work, so the full list
- * is reference material, not a task list. Printing all of it costs more than half the issue
- * body budget, and the complete list is in the workflow artifact either way.
- */
+// The codemod handles this bucket, so the table is reference material, not a task list.
+// Printing every row can consume more than half the issue body budget.
 const MAX_CODEMOD_ROWS = 40
 
-/**
- * How many stale anchors to print. This bucket is real work, but 70-plus entries is more
- * than anyone picks up in a week, and each entry costs several times a table row because it
- * lists every file the link appears in. The rest are in the workflow artifact.
- */
+// Stale anchors need human work, but runs exceed 70 entries and each lists every file.
+// The workflow artifact keeps entries over the cap.
 const MAX_ANCHOR_GROUPS = 25
 
-/**
- * How many version-only redirects to print. This bucket needs no action at all, so the list
- * exists to show what was ruled out, not to be worked through.
- */
+// Version-only redirect rows document ruled-out links, not writer tasks.
 const MAX_VERSIONLESS_ROWS = 25
 
-/**
- * How many files to list under a single broken link. Nothing bounds how many pages reuse
- * one link, so without this a single popular link could fill the issue body on its own. The
- * busiest link in the current eight-version data appears in 31 files, so this does not
- * trigger today.
- */
+// Cap files per target so one reused link cannot fill the issue body. The busiest
+// eight-version run found 31 files for one target, so this cap truncates known input.
 const MAX_FILES_PER_GROUP = 20
 
-/**
- * Split a list at a cap and describe what is missing, so no section can grow without bound.
- * GitHub rejects issue bodies over 65,536 characters and the workflow truncates at 60,000
- * with a blind slice, which can cut a table in half.
- */
+// Split capped lists with an explicit hidden count. GitHub rejects issue bodies over
+// 65,536 characters, and the workflow truncates at 60,000 with a blind slice.
 function capGroups(
   groups: GroupedBrokenLinks[],
   max: number,
@@ -546,44 +478,29 @@ export function classifyFixStrategy(group: GroupedBrokenLinks): FixStrategy {
     .filter((target): target is string => Boolean(target))
 
   if (group.isWarning && redirectTargets.length > 0) {
-    // The path is unchanged and the redirect only adds a version. Rewriting these would
-    // hardcode a version into content, which breaks when the next release ships. The
-    // codemod leaves them alone, so promising that it fixes them is a lie.
-    //
-    // Every target has to be version-only, not just the first. A group can span versions,
-    // and a link that merely gains a version prefix in one version but points at a renamed
-    // page in another is real work. Ties go to the actionable bucket.
+    // Only all-version-only redirects land in the no-action bucket; mixed groups stay actionable.
     if (redirectTargets.every((target) => isVersionOnlyRedirect(group.target, target))) {
       return 'versionless'
     }
-    // A redirect to a genuinely different path. `update-internal-links` rewrites these
-    // with no human judgment involved, but only when it can find the redirect from the
-    // href as written. If any occurrence needed version context to resolve, the codemod
-    // would be a no-op, so send the whole group to a human instead.
+    // Version-context redirects need human review because the codemod looks up hrefs as written.
     if (group.occurrences.some((occ) => occ.requiresVersionContext)) {
       return 'decide'
     }
-    // Versions disagree about where the page went, so there is no single correct rewrite.
+    // Conflicting redirect targets need human review because no single rewrite is correct.
     if (group.occurrences.some((occ) => occ.hasConflictingRedirectTargets)) {
       return 'decide'
     }
     return 'codemod'
   }
-  // The link carries a fragment, so the stale part is likely a renamed heading.
+  // A fragment on a broken target usually means the heading moved, not the page.
   if (group.target.includes('#')) {
     return 'anchor'
   }
   return 'decide'
 }
 
-/**
- * The directories the codemod needs to be pointed at, derived from the files that actually
- * contain the links. Running it against all of `content` takes minutes; running it against
- * three docsets takes seconds.
- *
- * The checker records file paths relative to `content`, so `actions/foo.md` means
- * `content/actions/foo.md`. Paths that already name a top-level directory are left alone.
- */
+// Derive codemod directories from files that contain links so runs can stay scoped.
+// Checker paths are relative to content, and already-rooted content or data paths stay as is.
 function codemodPaths(groups: GroupedBrokenLinks[]): string[] {
   const paths = new Set<string>()
   for (const group of groups) {
@@ -596,7 +513,6 @@ function codemodPaths(groups: GroupedBrokenLinks[]): string[] {
   return [...paths].sort()
 }
 
-/** The union of versions across a group's occurrences. */
 function groupVersions(group: GroupedBrokenLinks): string[] {
   const versions = new Set<string>()
   for (const occ of group.occurrences) {
@@ -665,14 +581,8 @@ ${rows}${truncationNote}
 </details>`
 }
 
-/**
- * Version-only redirects: the path is unchanged and the redirect just adds a version.
- *
- * These are not renames. A versionless link is supposed to resolve into whichever version
- * the reader is on, and that is exactly what the redirect does. Rewriting them would pin
- * content to a version that goes stale on the next release, so the codemod leaves them
- * alone and so should writers.
- */
+// Version-only redirects are not renames. Versionless shared links follow the reader's
+// product version, and rewriting them would pin content to one product path.
 function renderVersionlessSection(groups: GroupedBrokenLinks[]): string {
   const { listed, hidden } = capGroups(groups, MAX_VERSIONLESS_ROWS)
   const rows = listed
@@ -733,10 +643,7 @@ ${blurb}
 ${sections}${truncationNote}`
 }
 
-/**
- * Render an internal report as four buckets ordered by how much work each one costs, from
- * one command down to nothing at all.
- */
+// Order internal report buckets from one command down to no action.
 function renderByFixStrategy(
   groups: GroupedBrokenLinks[],
   isExternal: boolean,
@@ -842,8 +749,7 @@ export function reportToMarkdown(report: LinkReport, isExternal = false): string
     return parts.join('\n')
   }
 
-  // Table of contents for large reports. The internal report is grouped by fix strategy
-  // instead, where the three bucket headings are the navigation.
+  // Large external reports need a table of contents; internal bucket headings navigate.
   if (isExternal && report.groups.length > 5) {
     parts.push(TEMPLATES.tableOfContents(report.groups))
     parts.push('')
@@ -857,7 +763,7 @@ export function reportToMarkdown(report: LinkReport, isExternal = false): string
     )
   }
 
-  // Self-referential links section (external report only)
+  // Self-referential links only appear in external reports.
   if (hasSelfReferentialGroups) {
     parts.push(
       TEMPLATES.selfReferentialLinks('Potential Internal Links', report.selfReferentialGroups!),

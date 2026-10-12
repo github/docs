@@ -1289,7 +1289,7 @@
           "oneOfObject": true
         }
       ],
-      "descriptionHTML": "<p>Creates an audit log streaming configuration for any of the supported streaming endpoints: Azure Blob Storage, Azure Event Hubs, Amazon S3, Splunk, Google Cloud Storage, Datadog.</p>\n<p>When using this endpoint, you must encrypt the credentials following the same encryption steps as outlined in the guide on encrypting secrets. See \"<a href=\"/rest/guides/encrypting-secrets-for-the-rest-api\">Encrypting secrets for the REST API</a>.\"</p>",
+      "descriptionHTML": "<p>Creates an audit log streaming configuration for any of the supported streaming endpoints: Azure Blob Storage, Azure Event Hubs, Amazon S3, Splunk, Google Cloud Storage, Datadog.</p>\n<p>Microsoft Agent365 and Microsoft Purview streams require Microsoft Entra authorization and cannot be created with this endpoint. Configure those destinations from the enterprise audit log streaming settings.</p>\n<p>When using this endpoint, you must encrypt the credentials following the same encryption steps as outlined in the guide on encrypting secrets. See \"<a href=\"/rest/guides/encrypting-secrets-for-the-rest-api\">Encrypting secrets for the REST API</a>.\"</p>",
       "codeExamples": [
         {
           "request": {
@@ -1539,7 +1539,8 @@
             "Splunk",
             "HTTPS Event Collector",
             "Google Cloud Storage",
-            "Datadog"
+            "Datadog",
+            "Microsoft Agent365"
           ]
         },
         {
@@ -1821,12 +1822,18 @@
                   "isRequired": true
                 }
               ]
+            },
+            {
+              "type": "object",
+              "name": "MicrosoftAgent365Config",
+              "description": "<p>Empty configuration used when pausing or resuming a Microsoft Agent365 stream.</p>",
+              "childParamsGroups": []
             }
           ],
           "oneOfObject": true
         }
       ],
-      "descriptionHTML": "<p>Updates an existing audit log stream configuration for an enterprise.</p>\n<p>When using this endpoint, you must encrypt the credentials following the same encryption steps as outlined in the guide on encrypting secrets. See \"<a href=\"/rest/guides/encrypting-secrets-for-the-rest-api\">Encrypting secrets for the REST API</a>.\"</p>",
+      "descriptionHTML": "<p>Updates an existing audit log stream configuration for an enterprise.</p>\n<p>Microsoft Agent365 streams are configured through Microsoft Entra authorization. For those streams, this endpoint can only pause or resume the stream. Authorization-managed fields cannot be updated; delete and recreate the stream to change its Entra tenant or authorization.</p>\n<p>When using this endpoint, you must encrypt the credentials following the same encryption steps as outlined in the guide on encrypting secrets. See \"<a href=\"/rest/guides/encrypting-secrets-for-the-rest-api\">Encrypting secrets for the REST API</a>.\"</p>",
       "codeExamples": [
         {
           "request": {
@@ -2740,17 +2747,18 @@
       ],
       "bodyParameters": [
         {
-          "type": "string",
+          "type": "integer or string",
           "name": "credential_id",
-          "description": "<p>The SHA-256 fingerprint of the user-owned SSH authentication key to authorize.</p>",
+          "description": "<p>The token ID of the personal access token (classic) to authorize.</p>",
           "isRequired": true
         },
         {
           "type": "string",
           "name": "credential_type",
-          "description": "",
+          "description": "<p>The type of credential to authorize.</p>",
           "isRequired": true,
           "enum": [
+            "classic_pat",
             "ssh_key"
           ]
         },
@@ -9966,6 +9974,15 @@
                           "write"
                         ]
                       },
+                      "organization_external_properties_for_repos": {
+                        "type": "string",
+                        "description": "The level of permission to grant the access token for managing external custom properties for repositories in an organization.",
+                        "enum": [
+                          "read",
+                          "write",
+                          "admin"
+                        ]
+                      },
                       "organization_announcement_banners": {
                         "type": "string",
                         "description": "The level of permission to grant the access token to view and manage announcement banners for an organization.",
@@ -10833,6 +10850,15 @@
                       "enum": [
                         "read",
                         "write"
+                      ]
+                    },
+                    "organization_external_properties_for_repos": {
+                      "type": "string",
+                      "description": "The level of permission to grant the access token for managing external custom properties for repositories in an organization.",
+                      "enum": [
+                        "read",
+                        "write",
+                        "admin"
                       ]
                     },
                     "organization_announcement_banners": {
@@ -12085,6 +12111,15 @@
                       "enum": [
                         "read",
                         "write"
+                      ]
+                    },
+                    "organization_external_properties_for_repos": {
+                      "type": "string",
+                      "description": "The level of permission to grant the access token for managing external custom properties for repositories in an organization.",
+                      "enum": [
+                        "read",
+                        "write",
+                        "admin"
                       ]
                     },
                     "organization_announcement_banners": {
@@ -15572,7 +15607,7 @@
                       },
                       {
                         "title": "code_coverage",
-                        "description": "Enforce minimum line coverage thresholds on pull requests. When configured, uploaded coverage data must meet the specified criteria before changes can be merged.",
+                        "description": "Enforce minimum line coverage thresholds on pull requests. This rule evaluates uploaded coverage data but does not wait for coverage uploads. To ensure coverage is evaluated before merging, make each status check associated with a coverage upload a required status check.",
                         "type": "object",
                         "required": [
                           "type"
@@ -17133,7 +17168,7 @@
                       },
                       {
                         "title": "code_coverage",
-                        "description": "Enforce minimum line coverage thresholds on pull requests. When configured, uploaded coverage data must meet the specified criteria before changes can be merged.",
+                        "description": "Enforce minimum line coverage thresholds on pull requests. This rule evaluates uploaded coverage data but does not wait for coverage uploads. To ensure coverage is evaluated before merging, make each status check associated with a coverage upload a required status check.",
                         "type": "object",
                         "required": [
                           "type"
@@ -20216,7 +20251,7 @@
                       },
                       {
                         "title": "code_coverage",
-                        "description": "Enforce minimum line coverage thresholds on pull requests. When configured, uploaded coverage data must meet the specified criteria before changes can be merged.",
+                        "description": "Enforce minimum line coverage thresholds on pull requests. This rule evaluates uploaded coverage data but does not wait for coverage uploads. To ensure coverage is evaluated before merging, make each status check associated with a coverage upload a required status check.",
                         "type": "object",
                         "required": [
                           "type"
@@ -26217,7 +26252,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Lists an enterprise's credential inventory: both credentials currently authorized to access the enterprise and credentials owned by enterprise members that have no current enterprise authorization. Covers personal access tokens (classic and fine-grained), OAuth App and GitHub App user tokens, SSH keys, GitHub App installations, and federated credentials, assembled on demand from the canonical sources. Results are paginated with an opaque cursor via the <code>Link</code> header; there is no total count.</p>\n<p>You must be an enterprise owner (or hold a role with the \"View enterprise credentials\" permission) to use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) require the <code>read:enterprise</code> scope to access this endpoint.</p>",
+      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-attention\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z\"></path></svg>Warning</p>\n<p>\n<strong>Closing down notice:</strong> This operation is closing down and will be removed on October 2, 2026. Please migrate to the asynchronous export: use \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/enterprise-admin/token-inventory#create-an-enterprise-token-inventory-export\">Create an enterprise token inventory export</a>\", which accepts the same filters in its request body, to start a CSV export, then \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/enterprise-admin/token-inventory#get-an-enterprise-token-inventory-export\">Get an enterprise token inventory export</a>\" to download it. For more information, see the <a href=\"https://github.blog/changelog/2026-09-21-github-enterprise-adds-credential-inventory-exports/\">changelog</a>.</p>\n</div>\n<p>Lists an enterprise's credential inventory: both credentials currently authorized to access the enterprise and credentials owned by enterprise members that have no current enterprise authorization. Covers personal access tokens (classic and fine-grained), OAuth App and GitHub App user tokens, SSH keys, GitHub App installations, and federated credentials, assembled on demand from the canonical sources. Results are paginated with an opaque cursor via the <code>Link</code> header; there is no total count.</p>\n<p>You must be an enterprise owner (or hold a role with the \"View enterprise credentials\" permission) to use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) require the <code>read:enterprise</code> scope to access this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -26992,7 +27027,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Returns a single credential from the enterprise token inventory. Use the opaque <code>inventory_id</code> returned by the list endpoint for the same enterprise.</p>\n<p>You must be an enterprise owner (or hold a role with the \"View enterprise credentials\" permission) to use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) require the <code>read:enterprise</code> scope to access this endpoint.</p>",
+      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-attention\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z\"></path></svg>Warning</p>\n<p>\n<strong>Closing down notice:</strong> This operation is closing down and will be removed on October 2, 2026. Please migrate to the asynchronous export: use \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/enterprise-admin/token-inventory#create-an-enterprise-token-inventory-export\">Create an enterprise token inventory export</a>\" to start a CSV export, optionally scoped with filters such as <code>owner</code> or <code>application</code>, then \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/enterprise-admin/token-inventory#get-an-enterprise-token-inventory-export\">Get an enterprise token inventory export</a>\" to download it. For more information, see the <a href=\"https://github.blog/changelog/2026-09-21-github-enterprise-adds-credential-inventory-exports/\">changelog</a>.</p>\n</div>\n<p>Returns a single credential from the enterprise token inventory. Use the opaque <code>inventory_id</code> returned by the list endpoint for the same enterprise.</p>\n<p>You must be an enterprise owner (or hold a role with the \"View enterprise credentials\" permission) to use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) require the <code>read:enterprise</code> scope to access this endpoint.</p>",
       "codeExamples": [
         {
           "request": {

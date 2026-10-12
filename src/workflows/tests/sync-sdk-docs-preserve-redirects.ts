@@ -17,14 +17,10 @@ const SCRIPT = path.join(process.cwd(), 'src/workflows/sync-sdk-docs/preserve-re
 const SDK_DIR = 'content/copilot/how-tos/copilot-sdk'
 const STEP_SUMMARY_FILE = 'step-summary.md'
 
-/**
- * Every invocation of the script must go through this helper. The script
- * appends its unresolved-removal warning to whatever `GITHUB_STEP_SUMMARY`
- * points at, so a child that inherited the real one would write this suite's
- * synthetic warnings into the actual Actions job summary and raise a false
- * operational alert. Pinning it to a per-fixture file both prevents that and
- * makes the summary assertable via `readStepSummary`.
- */
+// Every script invocation goes through this helper. The script appends unresolved-removal
+// warnings to GITHUB_STEP_SUMMARY, so an inherited real path would write synthetic test
+// warnings into the Actions job summary and raise a false operational alert. A per-fixture
+// file prevents that and lets tests assert the warning through readStepSummary.
 const runScript = (cwd: string, args: string[] = []) =>
   execFileSync('npx', ['tsx', SCRIPT, ...args], {
     cwd,
@@ -106,8 +102,7 @@ describe('findSuccessor', () => {
     const currentPaths = [`${SDK_DIR}/features/mcp.md`]
     const removedPaths = [`${SDK_DIR}/old/mcp.md`, `${SDK_DIR}/legacy/mcp.md`]
 
-    // Neither removal may claim the single survivor: at most one of them is its
-    // real predecessor, so assigning both would invent a wrong redirect.
+    // A many-to-one match would assign the survivor to at least one wrong predecessor.
     for (const removed of removedPaths) {
       expect(findSuccessor(removed, currentPaths, removedPaths)).toBeNull()
     }
@@ -142,8 +137,7 @@ describe('findSuccessor', () => {
   })
 
   test('does not confuse an index.md with a same-named page', () => {
-    // `hooks/index.md` and `hooks.md` are different keys, so a removed
-    // directory index must not be matched to a page called hooks.md.
+    // Directory index keys such as hooks/index.md must not match pages such as hooks.md.
     expect(
       findSuccessor(
         `${SDK_DIR}/hooks/index.md`,
@@ -252,10 +246,8 @@ describe('upsertRedirectBlock', () => {
   })
 })
 
-/**
- * End-to-end runs against a throwaway git repo. The script reconciles the
- * working tree against a git ref, so a real commit is the only honest fixture.
- */
+// End-to-end tests use a throwaway git repo because the script reconciles the working tree
+// against a git ref, so real commits keep the fixture faithful.
 describe('preserve-redirects end to end', () => {
   let repo: string
   // Each test spawns npx tsx, and a cold start on a busy CI runner can exceed the 5s default.
@@ -296,8 +288,7 @@ describe('preserve-redirects end to end', () => {
     git('config', 'user.email', 'test@example.com')
     git('config', 'user.name', 'Test')
 
-    // Pre-sync state: a page carrying a hand-added redirect, a page that will be
-    // moved, a directory index that will be renamed, and a page left untouched.
+    // Seed a hand-added redirect, a page that moves, a directory index, and an untouched page.
     write(`${SDK_DIR}/features/mcp.md`, page('MCP', ['/copilot/how-tos/copilot-sdk/old-mcp']))
     write(`${SDK_DIR}/features/moving.md`, page('Moving', ['/copilot/how-tos/copilot-sdk/ancient']))
     write(`${SDK_DIR}/use-hooks/index.md`, page('Hooks'))
@@ -310,9 +301,9 @@ describe('preserve-redirects end to end', () => {
     if (repo) fs.rmSync(repo, { recursive: true, force: true })
   })
 
+  // Report moved pages for humans because matching filenames do not prove succession.
+  // Include the removed page URL and all inherited redirects, so humans can preserve the chain.
   test('restores redirects the sync would have dropped, and reports moves', () => {
-    // Simulate the sync: wipe the tree and rebuild it without any redirect_from,
-    // moving one page and renaming one directory along the way.
     fs.rmSync(path.join(repo, SDK_DIR), { recursive: true, force: true })
     write(`${SDK_DIR}/features/mcp.md`, page('MCP'))
     write(`${SDK_DIR}/setup/moving.md`, page('Moving'))
@@ -321,19 +312,13 @@ describe('preserve-redirects end to end', () => {
 
     const output = run()
 
-    // 1. A redirect on a page that kept its path is put back.
     expect(read(`${SDK_DIR}/features/mcp.md`)).toContain('/copilot/how-tos/copilot-sdk/old-mcp')
 
-    // 2. A moved page is reported for a human, never auto-redirected: a matching
-    //    filename is not proof that one page replaced another. Both the page's
-    //    own URL and the older redirect it had inherited must be listed, or a
-    //    human fixing the obvious one would still strand the chain.
     expect(output).toContain('/copilot/how-tos/copilot-sdk/features/moving')
     expect(output).toContain('/copilot/how-tos/copilot-sdk/ancient')
     expect(output).toContain('possible replacement: /copilot/how-tos/copilot-sdk/setup/moving')
     expect(read(`${SDK_DIR}/setup/moving.md`)).not.toContain('redirect_from')
 
-    // 3. A page that never had redirects is left alone.
     expect(read(`${SDK_DIR}/features/stable.md`)).not.toContain('redirect_from')
   })
 
@@ -361,8 +346,7 @@ describe('preserve-redirects end to end', () => {
   })
 
   test('does not reflow unrelated frontmatter', () => {
-    // A long `intro` is the field most likely to be rewrapped by a YAML
-    // round-trip, which would swamp the real change in every sync diff.
+    // A long intro exposes YAML reserialization, which would swamp redirect-only diffs.
     const longIntro =
       'This intro is deliberately far longer than the eighty column default that ' +
       'js-yaml wraps folded scalars at, so any re-serialization would be obvious.'
@@ -396,7 +380,6 @@ describe('preserve-redirects end to end', () => {
       igit('commit', '-m', 'pre-sync state')
       const expected = fs.readFileSync(target, 'utf8')
 
-      // A sync rebuilds the frontmatter without the redirect.
       fs.writeFileSync(target, build(false), 'utf8')
 
       runScript(isolated, ['--sdk-docs-dir', path.join(isolated, SDK_DIR)])
@@ -412,7 +395,7 @@ describe('preserve-redirects end to end', () => {
     git('add', '-A')
     git('commit', '-m', 'sync result')
 
-    // `gone.md` disappears with no plausible successor.
+    // gone.md disappears with no plausible successor.
     write(`${SDK_DIR}/features/gone.md`, page('Gone'))
     git('add', '-A')
     git('commit', '-m', 'add page that will vanish')
@@ -428,8 +411,7 @@ describe('preserve-redirects end to end', () => {
   })
 
   test('writes the unresolved warning to the step summary it was given', () => {
-    // Self-contained: clear the file, trigger its own unresolved run, then read
-    // it back, rather than depending on a previous test having written it.
+    // This test triggers and reads its own warning instead of depending on a prior test.
     const file = path.join(repo, 'step-summary.md')
     fs.rmSync(file, { force: true })
 
@@ -440,20 +422,16 @@ describe('preserve-redirects end to end', () => {
 
     run()
 
-    // Guards the env redirect in `run`: without it these synthetic warnings
-    // would be appended to the real Actions job summary during CI.
+    // Without the env override, synthetic warnings would reach the real Actions job summary.
     const summary = stepSummary()
     expect(summary).toContain('need a redirect decision')
     expect(summary).toContain('/copilot/how-tos/copilot-sdk/features/vanishing')
-    // The inherited redirect is at risk too, so it must be reported, not just
-    // the removed page's own URL.
+    // Report the inherited redirect too, or the redirect chain can still strand users.
     expect(summary).toContain('/copilot/older-vanishing')
   })
 
   test('fails loudly when the baseline ref cannot be read', () => {
-    // Previously a failed `git ls-tree` was indistinguishable from a first sync,
-    // so the run reported "nothing to preserve" and exited 0 — dropping every
-    // redirect in the tree without a single warning.
+    // A failed baseline read must fail loudly so the script never drops redirects silently.
     let message = ''
     try {
       run(['--git-ref', 'refs/heads/no-such-ref'])
@@ -466,9 +444,7 @@ describe('preserve-redirects end to end', () => {
   })
 
   test('carries inherited redirects when a page keeps its URL but changes file', () => {
-    // `guide.md` becoming `guide/index.md` keeps the URL live, so nothing 404s
-    // and no successor guess is needed — but the redirects the old file had
-    // inherited would be stranded unless they are moved by URL identity.
+    // guide.md and guide/index.md share a live URL, so match by URL to carry inherited redirects.
     const isolated = fs.mkdtempSync(path.join(os.tmpdir(), 'sdk-redirects-reshape-'))
     const igit = (...args: string[]) =>
       execFileSync('git', args, { cwd: isolated, encoding: 'utf8' })
@@ -500,8 +476,7 @@ describe('preserve-redirects end to end', () => {
   })
 
   test('exits cleanly when the ref is valid but the SDK directory is absent', () => {
-    // The first ever sync. This is the one empty baseline that is legitimate,
-    // and it must stay distinguishable from a baseline that could not be read.
+    // A missing baseline SDK directory is valid only when the ref exists.
     const isolated = fs.mkdtempSync(path.join(os.tmpdir(), 'sdk-redirects-first-'))
     const igit = (...args: string[]) =>
       execFileSync('git', args, { cwd: isolated, encoding: 'utf8' })
@@ -514,7 +489,6 @@ describe('preserve-redirects end to end', () => {
       igit('add', '-A')
       igit('commit', '-m', 'repo without SDK docs')
 
-      // The sync has just created the tree for the first time.
       const target = path.join(isolated, SDK_DIR, 'features/new.md')
       fs.mkdirSync(path.dirname(target), { recursive: true })
       fs.writeFileSync(target, page('New'), 'utf8')
@@ -559,8 +533,7 @@ describe('preserve-redirects end to end', () => {
       igit('add', '-A')
       igit('commit', '-m', 'pre-sync state')
 
-      // The sync rewrites the page without any frontmatter at all, so there is
-      // nowhere to put the redirect back.
+      // Without frontmatter, the script has nowhere to restore the redirect.
       fs.writeFileSync(target, 'Body only, no frontmatter.\n', 'utf8')
 
       let message = ''

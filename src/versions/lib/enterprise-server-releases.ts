@@ -29,7 +29,7 @@ export const next = '3.23'
 export const nextNext = '3.24'
 
 // Keep supported GHES versions in descending order, latest first.
-export const supported = ['3.22', '3.21', '3.20', '3.19', '3.18', '3.17']
+export const supported = ['3.22', '3.21', '3.20', '3.19', '3.18']
 
 // Use the release number during an active RC; use null outside RC.
 export const releaseCandidate = null
@@ -37,6 +37,7 @@ export const releaseCandidate = null
 // Deprecated releases from 3.0 onward use functional redirects.
 // Add a newly archived release here and update the archival process.
 export const deprecatedWithFunctionalRedirects = [
+  '3.17',
   '3.16',
   '3.15',
   '3.14',

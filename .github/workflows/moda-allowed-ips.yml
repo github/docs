@@ -1,12 +1,10 @@
 name: Update Moda allowed IPs
 
-# **What it does**: Make sure that the allowed IPs in Moda are up to date.
-# **Why we have it**: The IP ranges from Fastly can change.
-# **Who does it impact**: Docs engineering.
+# Fastly IP ranges can change, so this workflow opens PRs when Moda allowed IPs drift.
 
 on:
   schedule:
-    - cron: '20 16 * * 1' # Run every Monday at 16:20 UTC / 8:20 PST
+    - cron: '20 16 * * 1'
   workflow_dispatch:
 
 permissions:

@@ -1,8 +1,7 @@
 name: Add new issues and PRs to central triage board
 
-# **What it does**: Adds newly opened or reopened issues and pull requests in github/docs to the right place for triage, and stamps the item with today's date.
-# **Why we have it**: To ensure incoming work in the public docs repo is triaged properly.
-# **Who does it impact**: Writers, FRs.
+# Adds new, reopened, and ready-for-review github/docs work to the Central Triage Group board.
+# Sets today's date so first responders can triage it.
 
 on:
   issues:
@@ -22,7 +21,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
           ITEM_URL: ${{ github.event.issue.html_url || github.event.pull_request.html_url }}
-          # Add to the Central Triage Group project board and set date to now
+          # These IDs point to the Central Triage Group board and its date field.
           PROJECT_NUMBER: '19598'
           PROJECT_ID: 'PVT_kwDNJr_OAJ4AfQ'
           DATE_FIELD_ID: 'PVTF_lADNJr_OAJ4Afc4IAbbv'

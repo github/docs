@@ -1,7 +1,6 @@
-// Full-bleed decorative band above the footer. The source art is a transparent
-// 2880x283 raster exported from Figma; the design specifies a 1600/157 box, so we
-// hold that aspect ratio and let the art crop (rather than squash) as the viewport
-// narrows. Anchored to the bottom so the peaks stay flush against the footer rule.
+// The footer band uses a 2880x283 transparent raster for the 1600/157 design box.
+// Preserve that aspect ratio and crop as viewports narrow so the peaks stay flush
+// against the footer rule.
 .footerDivider {
   width: 100%;
   aspect-ratio: 1600 / 157;
@@ -14,11 +13,9 @@
   background-size: cover;
 }
 
-// Scroll reveal. `.armed` is only applied by the component once it knows scripting is
-// running and the band is still below the fold, so the resting state above stays
-// visible for everyone else. Opacity and transform are compositor-only, so the rise
-// does not reflow the footer beneath it. MinimalFooter is positioned, so the
-// band slides under it rather than over it.
+// The component adds .armed only after scripting confirms the band starts below the
+// fold, so the resting state stays visible otherwise. Opacity and transform avoid
+// layout reflow, and MinimalFooter positioning keeps the band sliding underneath.
 .armed {
   opacity: 0;
   transform: translateY(var(--base-size-24));
@@ -32,8 +29,7 @@
   transform: none;
 }
 
-// The component declines to arm under reduced motion; this also covers the
-// preference changing after mount.
+// Reduced motion neutralizes reveal styles, including when the preference changes after mount.
 @media (prefers-reduced-motion: reduce) {
   .armed {
     opacity: 1;

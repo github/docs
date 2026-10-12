@@ -70,8 +70,9 @@ export type EventProps = {
 
 export type EventPropsByType = {
   [EventType.aiSearchResult]: {
-    // Dynamic JSON string of an array of "link" objects in the form:
-    // [{ "type": "reference" | "inline", "url": "https://..", "product": "issues" | "pages" | ... }, ...]
+    // Dynamic JSON string of an array of link objects:
+    // [{ "type": "reference" | "inline", "url": "https://..",
+    // "product": "issues" | "pages" | ... }, ...]
     ai_search_result_links_json: string
     ai_search_result_provided_answer: boolean
     ai_search_result_response_status: number
@@ -109,12 +110,12 @@ export type EventPropsByType = {
     link_samepage?: boolean
     link_container?: string
   }
-  [EventType.page]: { type: string } // no unique properties
+  [EventType.page]: { type: string } // Deliberately no unique properties.
   [EventType.preference]: {
     preference_name: string
     preference_value: string
   }
-  [EventType.print]: { type: string } // no unique properties
+  [EventType.print]: { type: string } // Deliberately no unique properties.
   [EventType.search]: {
     search_query: string
     search_context?: string
@@ -128,7 +129,7 @@ export type EventPropsByType = {
     search_result_url: string
   }
   [EventType.survey]: {
-    survey_token?: string // Honeypot, doesn't exist in schema
+    survey_token?: string // Bot trap field does not exist in schema.
     survey_vote: boolean
     survey_comment?: string
     survey_email?: string

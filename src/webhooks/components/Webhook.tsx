@@ -1,4 +1,5 @@
-import { ActionList, ActionMenu, Flash } from '@primer/react'
+import { ActionMenu } from '@primer/react-brand'
+import { onActionMenuItemKeyDownCapture } from '@/frame/components/lib/action-menu'
 import { useState, useEffect, useCallback } from 'react'
 import useSWR from 'swr'
 import { slug } from 'github-slugger'
@@ -7,6 +8,7 @@ import { announce } from '@primer/live-region-element'
 
 import { useVersion } from '@/versions/components/useVersion'
 import { HeadingLink } from '@/frame/components/article/HeadingLink'
+import { Banner } from '@/frame/components/ui/Banner'
 import { useTranslation } from '@/languages/components/useTranslation'
 import type { WebhookAction, WebhookData } from './types'
 import { ParameterTable } from '@/automated-pipelines/components/parameter-table/ParameterTable'
@@ -153,32 +155,36 @@ export function Webhook({ webhook }: Props) {
           )}
         />
         {error && (
-          <Flash className="mb-5" variant="danger">
+          <Banner className="mb-5" variant="danger">
             <p>{t('action_type_switch_error')}</p>
             <p>
               <code className={`f6 ${styles.errorCode}`}>{error.toString()}</code>
             </p>
-          </Flash>
+          </Banner>
         )}
         {webhook.actionTypes.length > 1 && (
           <div className="mb-4">
-            <div className="mb-3">
-              <ActionMenu>
+            <div className={`mb-3 ${styles.actionTypeMenu}`}>
+              <ActionMenu
+                selectionVariant="single"
+                onSelect={(value) =>
+                  handleActionTypeChange(webhook.actionTypes[Number(value)], Number(value))
+                }
+              >
                 <ActionMenu.Button className="text-normal">
                   {t('action_type')}: <span className="text-bold">{currentWebhookActionType}</span>
                 </ActionMenu.Button>
-                <ActionMenu.Overlay>
-                  <ActionList selectionVariant="single">
-                    {webhook.actionTypes.map((type, index) => (
-                      <ActionList.Item
-                        key={`${webhook.name}-${type}`}
-                        selected={index === selectedActionTypeIndex}
-                        onSelect={() => handleActionTypeChange(type, index)}
-                      >
-                        {type}
-                      </ActionList.Item>
-                    ))}
-                  </ActionList>
+                <ActionMenu.Overlay aria-label={t('action_type')}>
+                  {webhook.actionTypes.map((type, index) => (
+                    <ActionMenu.Item
+                      key={index}
+                      value={String(index)}
+                      selected={index === selectedActionTypeIndex}
+                      onKeyDownCapture={onActionMenuItemKeyDownCapture}
+                    >
+                      {type}
+                    </ActionMenu.Item>
+                  ))}
                 </ActionMenu.Overlay>
               </ActionMenu>
             </div>

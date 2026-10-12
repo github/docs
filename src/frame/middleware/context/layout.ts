@@ -7,9 +7,9 @@ export default function layoutContext(req: ExtendedRequest, res: Response, next:
   if (!req.context.page) return next()
 
   let layoutName = 'default'
-  if (req.context.page.layout) {
+  if (req.context.page.layout !== undefined) {
     if (typeof req.context.page.layout === 'boolean') {
-      // A `layout: false` value means use no layout.
+      // `layout: false` means use no layout. The schema rejects `true`.
       layoutName = ''
     } else if (typeof req.context.page.layout === 'string') {
       layoutName = req.context.page.layout

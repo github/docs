@@ -1,12 +1,9 @@
 name: 'Link Check: On PR'
 
-# **What it does**: Checks internal links in changed content files.
-# **Why we have it**: To catch broken links before they're merged.
-# **Who does it impact**: Docs content.
+# Catch broken internal links in changed content files before merge.
 
 on:
   workflow_dispatch:
-  # merge_group:
   pull_request:
     types: [opened, synchronize, reopened]
 
@@ -15,7 +12,7 @@ permissions:
   pull-requests: write
   issues: write
 
-# Cancel in-progress runs for the same PR
+# Cancel older runs for the same ref to save runner time.
 concurrency:
   group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
   cancel-in-progress: true
@@ -29,7 +26,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
-          # Fetch 2 commits so tj-actions/changed-files can diff without extra API calls
+          # Fetch 2 commits so tj-actions/changed-files can diff without extra API calls.
           fetch-depth: 2
 
       - uses: ./.github/actions/node-npm-setup
@@ -55,9 +52,8 @@ jobs:
           ACTION_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           SHOULD_COMMENT: ${{ secrets.DOCS_BOT_PAT_BASE != '' }}
           FAIL_ON_FLAW: true
-          # Cross-page anchor checking is on, but non-blocking during rollout: broken
-          # anchors are reported in the PR comment without failing the build. Flip
-          # FAIL_ON_ANCHOR_FLAW to true once false-positive/perf rates look clean.
+          # Cross-page anchor failures appear in PR comments, but rollout keeps them
+          # from failing builds while false-positive and performance rates settle.
           CHECK_ANCHORS: true
           FAIL_ON_ANCHOR_FLAW: false
           ENABLED_LANGUAGES: en

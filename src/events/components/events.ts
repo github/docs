@@ -16,7 +16,7 @@ import { sendHydroAnalyticsEvent, getOctoClientId } from './hydro-analytics'
 
 const startVisitTime = Date.now()
 
-const BATCH_INTERVAL = 5000 // 5 seconds
+const BATCH_INTERVAL = 5000 // Flush queued events every 5 seconds.
 
 let initialized = false
 let cookieValue: string | undefined
@@ -48,12 +48,11 @@ function resetPageParams() {
   scrollDirection = 1
   scrollFlipCount = 0
   maxScrollY = 0
-  // Don't reset previousPath
+  // Keep previousPath so browser-back referrers can fall back to the prior docs path.
   hoveredUrls = new Set()
 }
 
-// Temporary polyfill for crypto.randomUUID()
-// Necessary for localhost development (doesn't have https://)
+// Use crypto.randomUUID when available; fall back in contexts where the call fails.
 export function uuidv4(): string {
   try {
     return crypto.randomUUID()
@@ -98,21 +97,19 @@ export function sendEvent<T extends EventType>({
     type,
 
     context: {
-      // Primitives
       event_id: uuidv4(),
       user: getUserEventsId(),
       version,
       created: new Date().toISOString(),
       page_event_id: pageEventId,
 
-      // Content information
       referrer: getReferrer(document.referrer),
       title: document.title,
-      href: location.href, // full URL
-      hostname: location.hostname, // origin without protocol or port
-      path: location.pathname, // path without search or host
-      search: location.search, // also known as query string
-      hash: location.hash, // also known as anchor
+      href: location.href,
+      hostname: location.hostname,
+      path: location.pathname,
+      search: location.search,
+      hash: location.hash,
       path_language: getMetaContent('path-language'),
       path_version: getMetaContent('path-version'),
       path_product: getMetaContent('path-product'),
@@ -125,8 +122,7 @@ export function sendEvent<T extends EventType>({
       is_logged_in: isLoggedIn(),
       octo_client_id: getOctoClientId(),
 
-      // Device information
-      // os, os_version, browser, browser_version:
+      // Adds os, os_version, browser, and browser_version.
       ...parseUserAgent(),
       is_headless: isHeadless(),
       viewport_width: document.documentElement.clientWidth,
@@ -136,11 +132,9 @@ export function sendEvent<T extends EventType>({
       pixel_ratio: window.devicePixelRatio || 1,
       user_agent: navigator.userAgent,
 
-      // Location information
       timezone: new Date().getTimezoneOffset() / -60,
       user_language: navigator.language,
 
-      // Preference information
       application_preference: Cookies.get(TOOL_PREFERRED_COOKIE_NAME),
       color_mode_preference: getColorModePreference(),
       os_preference: Cookies.get(OS_PREFERRED_COOKIE_NAME),
@@ -152,7 +146,6 @@ export function sendEvent<T extends EventType>({
           getMetaContent('path-version'),
         ) || '',
 
-      // Event grouping
       event_group_key: eventGroupKey,
       event_group_id: eventGroupId,
     },
@@ -192,12 +185,11 @@ function queueEvent(eventBody: Record<string, unknown>) {
   eventQueue.push(eventBody)
 }
 
-// Sometimes using the back button means the internal referrer path is not there,
-// So this fills it in with a JavaScript variable
+// Browser-back navigation can omit the internal referrer path, so previousPath fills it in.
 function getReferrer(documentReferrer: string) {
   if (!previousPath) return documentReferrer
   try {
-    // new URL() throws an error if not a valid URL
+    // URL rejects malformed referrers, so invalid values pass through unchanged.
     const referrerUrl = new URL(documentReferrer)
     if (!referrerUrl.pathname || referrerUrl.pathname === '/') {
       return location.origin + previousPath
@@ -207,12 +199,7 @@ function getReferrer(documentReferrer: string) {
 }
 
 function getColorModePreference() {
-  // color mode is set as attributes on <html>, we'll use that information
-  // along with media query checking rather than parsing the cookie value
-  // set by github.com
-  //
-  // `data-color-mode` is the resolved mode; the preference attribute is what
-  // keeps `auto` reportable.
+  // HTML attributes expose the resolved mode and preserve auto preference without parsing cookies.
   const html = document.querySelector('html')
   let color_mode_preference = html?.dataset.colorModePreference || html?.dataset.colorMode
 
@@ -243,7 +230,7 @@ function getPerformance() {
 }
 
 function trackScroll() {
-  // Throttle the calculations to no more than five per second
+  // Throttle scroll calculations to no more than five per second.
   if (pauseScrolling) return
   pauseScrolling = true
   setTimeout(() => {
@@ -289,7 +276,6 @@ function sendExit() {
 function initPageAndExitEvent() {
   sendPage()
 
-  // Regular page exits
   window.addEventListener('scroll', trackScroll)
   document.addEventListener('visibilitychange', () => {
     if (document.visibilityState === 'hidden') {
@@ -299,10 +285,9 @@ function initPageAndExitEvent() {
     }
   })
 
-  // Client-side routing
   Router.events.on('routeChangeStart', async (url) => {
-    // Don't trigger page events on query string or hash changes
-    previousPath = location.pathname // pathname set to "prior" url, arg "upcoming" url
+    // At routeChangeStart, location.pathname is prior and url is upcoming; query/hash keep one page event.
+    previousPath = location.pathname
     const newPath = url?.toString().split('?')[0].split('#')[0]
     const shouldSendEvents = newPath !== previousPath
     if (shouldSendEvents) {
@@ -314,9 +299,7 @@ function initPageAndExitEvent() {
   })
 }
 
-// We want to wait for the DOM to mutate the <meta> tags
-// as well as finish routeChangeComplete (location.pathname)
-// before sending the page event in order to get accurate data
+// Wait for routeChangeComplete and meta-tag mutations so page events include the new page data.
 async function waitForPageReady() {
   const route = new Promise((resolve) => {
     const handler = () => {
@@ -377,7 +360,7 @@ function initLinkEvent() {
     const sameSite = link.origin === location.origin
     const container = target.closest(`[data-container]`) as HTMLElement | null
 
-    // We can attach `data-group-key` and `data-group-id` to any anchor element to include them in the event
+    // Any anchor can set data-group-key and data-group-id to include grouping fields.
     const eventGroupKey = link?.dataset?.groupKey || undefined
     const eventGroupId = link?.dataset?.groupId || undefined
 
@@ -392,7 +375,6 @@ function initLinkEvent() {
     })
   })
 
-  // Add tracking for scroll to top button
   document.documentElement.addEventListener('click', (evt) => {
     const target = evt.target as HTMLElement
     if (!target.closest('.ghd-scroll-to-top')) return
@@ -415,12 +397,11 @@ function initHoverEvent() {
 
     if (!link) return
 
-    // For hover events, we only want to record them for links inside the
-    // content area.
+    // Record hover events only for links inside the content area.
     const mainContent = document.querySelector('#main-content') as HTMLElement | null
     if (!mainContent || !mainContent.contains(link)) return
 
-    if (hoveredUrls.has(link.href)) return // Otherwise this is a flood of events
+    if (hoveredUrls.has(link.href)) return // Repeated hovers would flood events.
 
     if (timer) {
       window.clearTimeout(timer)
@@ -436,9 +417,8 @@ function initHoverEvent() {
     }, 500)
   })
 
-  // Doesn't matter which link you hovered on that triggered a timer,
-  // you're clearly not hovering over it anymore.
   document.documentElement.addEventListener('mouseout', () => {
+    // Any mouseout cancels the pending hover timer.
     if (timer) {
       window.clearTimeout(timer)
     }
@@ -455,7 +435,8 @@ export function initializeEvents() {
   if (!ANALYTICS_ENABLED) return
   if (initialized) return
   initialized = true
-  initPageAndExitEvent() // must come first
+  // Page events must start first because sendPage creates pageEventId for later events.
+  initPageAndExitEvent()
   initLinkEvent()
   initHoverEvent()
   initClipboardEvent()

@@ -26,6 +26,8 @@ async function retryingFetch(input: RequestInfo | URL, init?: RequestInit): Prom
   return response
 }
 
+// Failbot additional_data only accepts flat string and number values, so keep requestUuid.
+// https://github.com/github/failbotg/blob/main/docs/api.md#additional-data
 export function report(error: Error, metadata?: Record<string, unknown>) {
   if (!process.env.HAYSTACK_URL) {
     return
@@ -42,9 +44,6 @@ export function report(error: Error, metadata?: Record<string, unknown>) {
     backends,
   })
 
-  // Metadata can only be a flat object with string & number values,
-  // so only add the requestUuid.
-  // https://github.com/github/failbotg/blob/main/docs/api.md#additional-data
   const loggerContext = getLoggerContext()
 
   return failbot.report(error, {
@@ -53,7 +52,7 @@ export function report(error: Error, metadata?: Record<string, unknown>) {
   })
 }
 
-// Kept so legacy callers can keep doing `FailBot.report(myError)`.
+// Preserves FailBot.report(error) for existing callers.
 export default {
   report,
 }

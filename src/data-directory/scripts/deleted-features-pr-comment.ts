@@ -1,12 +1,6 @@
-/**
- * This script is supposed to be used in Actions. When it's run in Actions
- * there will be an env var called GITHUB_REPOSITORY. If it's not there,
- * you can use this script as a CLI tool. For example:
- *
- *  export GITHUB_TOKEN=github_pat_blablabla
- *  npm run deleted-features-pr-comment -- github docs-internal main 2ba53b6a
- *
- */
+// Produces deleted-feature Markdown as an Actions output; without GITHUB_REPOSITORY, prints it.
+// Required: GITHUB_TOKEN.
+// CLI: npm run deleted-features-pr-comment -- github docs-internal main 2ba53b6a
 
 import { context as github_context, getOctokit } from '@actions/github'
 import { setOutput } from '@actions/core'
@@ -44,7 +38,6 @@ async function main(owner: string, repo: string, baseSHA: string, headSHA: strin
     throw new Error(`GITHUB_TOKEN environment variable not set`)
   }
   const octokit = getOctokit(GITHUB_TOKEN)
-  // get the list of file changes from the PR
   const response = await octokit.rest.repos.compareCommitsWithBasehead({
     owner,
     repo,
@@ -62,10 +55,10 @@ async function main(owner: string, repo: string, baseSHA: string, headSHA: strin
 
     console.warn(`Feature involved in this PR: ${filename}; Status: ${status}`)
     if (status === 'removed') {
-      // Bad
+      // Deleted feature files can stay referenced in translated content.
       oldFilenames.push(filename)
     } else if (status === 'renamed') {
-      // Also bad
+      // Renamed feature files can stay referenced by the old name in translated content.
       const previousFilename = file.previous_filename
       oldFilenames.push(previousFilename)
     } else {

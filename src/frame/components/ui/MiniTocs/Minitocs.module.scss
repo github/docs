@@ -5,36 +5,29 @@
 .miniToc {
   li a {
     padding: 4px 0 4px 0;
-    // Docs 2026 / Figma: TOC item text is 14px. Brand sizes level-1 NavList
-    // links at 16px via a 3-class selector, so !important is needed to win; the
-    // label span inherits this.
+    // Figma sizes TOC item text at 14px. Brand sizes level-1 NavList links at
+    // 16px via a 3-class selector, so !important is needed to win.
     font-size: var(--brand-text-size-100, 0.875rem) !important;
-    // Left-align the active (green) indicator on the link's left edge with the
-    // "In this article" heading text. The heading and the NavList both indent
-    // their content 16px, but brand wraps each item in a 2px-padded div, nudging
-    // the link (and its indicator) 2px right — cancel that so they line up.
+    // Align the active indicator with the In this article heading. Brand wraps
+    // each item in a 2px-padded div, so cancel that offset.
     margin-left: -2px;
-    // Truncate long headings to a single line with an ellipsis rather than
-    // wrapping (Docs 2026). The Up next title below wraps instead.
+    // Long TOC headings truncate to one line; the Up next title wraps instead.
     display: block;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 
-    // Brand NavList.Item wraps the label in inner spans (labelArea > label);
-    // set 14px directly on them (the visible text) and propagate the truncation
-    // so the ellipsis actually renders.
+    // Brand wraps the visible label in labelArea and label spans. Set text size
+    // and truncation there so the ellipsis renders.
     span {
       font-size: var(--brand-text-size-100, 0.875rem);
       overflow: hidden;
       text-overflow: ellipsis;
     }
 
-    // Brand sizes the outer labelArea for its own 16px text (min-height: 31px).
-    // Ours is 14px — a 21px line box — so the label sat at the top of that box
-    // with ~10px of dead space under it, which reads as the item riding high in
-    // its highlight. Centre the label rather than shrink the box, so the
-    // highlight keeps the height brand gives it.
+    // Brand sizes labelArea for 16px text with a 31px min-height. Our 14px text
+    // left about 10px of dead space below the line box, making the item ride
+    // high in its highlight. Center the label and keep Brand's highlight height.
     > span {
       display: flex;
       align-items: center;
@@ -49,20 +42,17 @@
     }
   }
 
-  // The active section reads bolder in the Docs 2026 design.
   li a[aria-current]:not([aria-current="false"]) {
     font-weight: var(--base-text-weight-semibold, 600);
   }
 }
 
-// Eyebrow treatment (Docs 2026): uppercase, letter-spaced, muted section label.
-// Shared by the "In this article" and "Up next" headings.
+// Eyebrow headings share uppercase, letter-spaced, muted section-label styling
+// across In this article and Up next.
 .eyebrow {
-  // Brand's type scale bottoms out at 14px (--brand-text-size-100), so there is
-  // no brand token for this 12px eyebrow. --text-caption-size exists only in
-  // @primer/primitives files this app never imports, so the var() always fell
-  // through to its literal anyway — state the 12px outright rather than implying
-  // a token is doing work here.
+  // Brand's imported type scale bottoms out at 14px. --text-caption-size lives
+  // in @primer/primitives files this app never imports, so state 12px rather
+  // than implying a token controls it.
   font-size: 12px;
   font-weight: var(--base-text-weight-medium, 500);
   line-height: 1.5;
@@ -74,20 +64,14 @@
 
 .heading {
   margin-top: 0;
-  // Docs 2026 spacing: ~24px between the "In this article" label and the list
-  // (Figma). Overrides the `mb-1` utility on the element.
+  // Figma leaves about 24px between the In this article label and the list.
+  // This overrides the mb-1 utility on the element.
   margin-bottom: 24px !important;
 }
 
-// --- Drawer visibility ---
-//
-// The full "In this article" drawer (heading + list + Up next) is hidden by
-// default; below its reveal breakpoint the collapsed control lives in the
-// secondary bar (`OverviewMenu`). The reveal breakpoint depends on whether the
-// left doc-tree rail is collapsed:
-//   - `.drawerDefault` (rail expanded): reveal at xxl (>=1400px).
-//   - `.drawerCollapsed` (rail collapsed): reveal at ~1074px, since the freed
-//     ~326px of rail width leaves room for the drawer earlier.
+// The full drawer stays hidden below its reveal breakpoint because OverviewMenu
+// owns the secondary-bar control. The breakpoint changes with the left rail
+// state: xxl (1400px) when expanded, or about 1074px when the collapsed rail frees 326px.
 .heading,
 .miniToc,
 .upNext {
@@ -106,14 +90,11 @@
   }
 }
 
-// --- Optional "Up next" section (journey-track articles only) ---
-//
-// Base visibility (display:none + the drawer reveal) is handled by the shared
-// rules above; this block only carries the section's own styling.
+// The optional Up next section shares drawer visibility with the mini-TOC; this
+// block only adds the section's own styling.
 .upNext {
-  // A horizontal rule separates it from the "In this article" list above. Per
-  // the Figma it touches the drawer's left rail and stops partway across (not a
-  // full-width, both-sides-inset rule).
+  // A horizontal rule separates it from the In this article list above. Figma has
+  // it touch the drawer's left rail and stop partway across.
   margin-top: 24px;
   padding-top: 24px;
   position: relative;
@@ -122,9 +103,7 @@
     content: "";
     position: absolute;
     top: 0;
-    // Reach the drawer's left rail: the panel content is inset 24px from the
-    // rail (sidebarBox padding-left), so pull the rule left by that so it meets
-    // the rail's border.
+    // Reach the drawer's left rail by canceling sidebarBox's 24px content inset.
     left: -24px;
     // Stop partway across rather than spanning to the right edge.
     right: 40px;
@@ -134,8 +113,7 @@
   }
 }
 
-// Optional writer-authored "skip ahead" note (frontmatter `alternativeNextStep`),
-// rendered HTML below the next-guide link.
+// Writer-authored alternativeNextStep HTML follows the next-guide link when one exists.
 .upNextAlternative {
   margin-top: 12px;
   padding-left: 16px;
@@ -143,15 +121,12 @@
   color: var(--brand-color-text-muted, #58635b);
 }
 
-// Removed from layout instantly (no animation) once the bottom-of-article "Up
-// next" pager scrolls into view, so the TOC list scrolls up into the freed space
-// without any reflow bump.
+// Remove duplicate in-panel navigation once the bottom Up next pager appears, so
+// the TOC list can reclaim that space.
 .upNextGone {
   display: none;
 }
 
-// Fade + slide in when re-appearing after having been hidden (reader scrolls back
-// up). Applied for one animation cycle, then cleared (onAnimationEnd).
 .upNextFadeIn {
   animation: upNextFadeIn 0.2s ease;
 
@@ -178,12 +153,8 @@
   padding-left: 16px;
   font-size: var(--brand-text-size-200, 1rem);
   font-weight: var(--base-text-weight-semibold, 600);
-  // Deliberately `inherit`, not a token: this overrides @primer/css's base `a`
-  // rule (which would paint the link accent blue) and matches the body text
-  // around it. Brand's --brand-color-text-default is pure #000, darker than the
-  // #1f2328 the surrounding body copy still gets from Primer, so naming it here
-  // would make this one link darker than its neighbours. `inherit` follows the
-  // body, including once the body itself moves to brand.
+  // Use inherit so this link matches the surrounding text and active color mode.
+  // It also overrides @primer/css's base link accent blue.
   color: inherit;
   text-decoration: none;
 

@@ -66,7 +66,7 @@ The following are eligible for bypass access:
 * Repository admins, organization owners, and enterprise owners
 * The maintain or write role, or deploy keys.
 {%- ifversion ghec %}
-* {% data variables.copilot.copilot_cloud_agent %}. For more information about {% data variables.copilot.copilot_cloud_agent %}, see [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-cloud-agent#limitations-in-copilot-cloud-agents-compatibility-with-other-features).
+* {% data variables.copilot.copilot_cloud_agent %}. For more information about {% data variables.copilot.copilot_cloud_agent %}, see [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-on-github#repository-compatibility).
 {%- endif %}
 
 1. In the "Bypass list" section, click **Add bypass**, then search for and select the role, team, or app you want to grant bypass permissions, and click **Add Selected**.
@@ -127,7 +127,7 @@ You can grant certain roles, teams, or apps bypass permissions as well as the ab
 * Repository admins, organization owners, and enterprise owners
 * The maintain or write role, or deploy keys
 {%- ifversion ghec %}
-* {% data variables.copilot.copilot_cloud_agent %}. For more information about {% data variables.copilot.copilot_cloud_agent %}, see [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-cloud-agent#limitations-in-copilot-cloud-agents-compatibility-with-other-features).
+* {% data variables.copilot.copilot_cloud_agent %}. For more information about {% data variables.copilot.copilot_cloud_agent %}, see [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-on-github#repository-compatibility).
 {%- endif %}
 
 1. In the "Bypass list" section, click **Add bypass**, then search for and select the role, team, or app you want to grant bypass permissions, and click **Add Selected**.

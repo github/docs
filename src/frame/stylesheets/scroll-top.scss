@@ -1,10 +1,9 @@
 @import "src/frame/stylesheets/breakpoint-xxl.scss";
 
-// Mirrors Brand's SubdomainNavBar height so every sticky offset tracks the real
-// header. Brand defines that height in rem -- `--base-size-64` (4rem), reduced by
-// `--base-size-8` (0.5rem) below its `medium` breakpoint of 47.99rem -- so these
-// must be rem too. A px value with a px breakpoint silently drifts from the
-// actual header for any reader whose browser default font size is not 16px.
+// Brand SubdomainNavBar height uses rem, so the header portion of sticky offsets must use rem too.
+// Brand sets --base-size-64 at 4rem and subtracts --base-size-8, 0.5rem, below its medium
+// breakpoint of 47.99rem. A px value or px breakpoint drifts when readers change the browser
+// default font size.
 :root {
   --docs-header-height: 3.5rem;
 
@@ -21,6 +20,6 @@
   @include breakpoint-xxl {
     scroll-margin-top: calc(
       var(--docs-header-height) + 44px
-    ) !important; // Header + secondary bar
+    ) !important; // Include the secondary bar below the header.
   }
 }

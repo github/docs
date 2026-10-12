@@ -13,12 +13,11 @@ type Props = {
   className?: string
   supportPortalVaIframeProps?: SupportPortalVaIframeProps
   fullWidth?: boolean
-  // At which breakpoint the right rail (toc) appears beside the content.
-  // 'lg' (default, 1012px) is the classic two-column split. 'xxl' (1400px) is
-  // used by article pages whose collapsed "In this article" control lives in the
-  // secondary bar between 1012–1400, so the rail should only appear at 1400+.
-  // When the left doc-tree rail is manually collapsed, the freed ~326px lets the
-  // drawer appear earlier (~1074px) — handled via the collapsed variant below.
+  // lg is the classic 1012px split; xxl waits until 1400px.
+  // Article and automated pages use xxl because the secondary bar owns the
+  // collapsed In this article control between 1012px and 1400px.
+  // When the left doc-tree rail collapses, the freed 326px lets xxl consumers
+  // reveal the drawer at about 1074px through the collapsed variant.
   tocBreakpoint?: 'lg' | 'xxl'
 }
 export const ArticleGridLayout = ({
@@ -32,8 +31,7 @@ export const ArticleGridLayout = ({
   tocBreakpoint = 'lg',
 }: Props) => {
   const { collapsed } = useSidebarCollapsed()
-  // With the left rail collapsed there's room to bring the drawer in earlier
-  // than xxl. Only relevant to the 'xxl' consumers (article + automated pages).
+  // A collapsed left rail gives xxl consumers room to reveal the drawer before 1400px.
   const xxlCollapsed = tocBreakpoint === 'xxl' && collapsed
   const containerBoxStyles = fullWidth
     ? ''
@@ -72,12 +70,7 @@ export const ArticleGridLayout = ({
               ? xxlCollapsed
                 ? styles.sidebarColumnXxlCollapsed
                 : styles.sidebarColumnXxl
-              : // Stacked 'lg' path: the toc would sit above the content below
-                // 1012px, so keep the bottom spacing (cancelled at xl+).
-                // Currently unreachable: TocLanding is the only default-breakpoint
-                // consumer and it passes no `toc` at all, so this cell never
-                // renders for 'lg'. Kept so the component still honours its
-                // documented API for a future consumer that does pass one.
+              : // The lg fallback keeps stacked TOC spacing for future consumers that pass toc.
                 'pb-4 mb-5 pb-xl-0 mb-xl-0',
           )}
         >

@@ -111,5 +111,5 @@ For more information about how {% data variables.product.github %} mitigates the
 ## Further reading
 
 * [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/create-automations)
-* [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-cloud-agent)
+* [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-on-github)
 * To learn how to store your automation as code, review it through pull requests, or run it with a different coding agent, see [AUTOTITLE](/copilot/concepts/agents/about-github-agentic-workflows)

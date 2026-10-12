@@ -12,6 +12,12 @@ type Props = {
   className?: string
   supportPortalVaIframeProps?: SupportPortalVaIframeProps
 }
+// ArticleInlineLayout gives intro callouts the same 24px gap the grid layout gets
+// from .belowIntroPlacement because inline callouts live outside the intro wrapper.
+// Inline pages omit the mini-TOC cell because DefaultLayout passes hasDrawer=false
+// and OverviewSubBar owns In this article at every width. Rendering another cell
+// would add an empty bordered box before the intro and a duplicate nav landmark
+// at 1400px.
 export const ArticleInlineLayout = ({
   intro,
   introCallOuts,
@@ -32,24 +38,10 @@ export const ArticleInlineLayout = ({
         )}
 
         {introCallOuts && (
-          // `mt-4` (24px) matches the gap the grid layout gets from
-          // .belowIntroPlacement's own bottom margin. It is needed here because
-          // this layout puts the callouts in a separate wrapper from the intro,
-          // so the copy-markdown control is the last child of ITS wrapper and
-          // that rule cannot reach across. Without it the control sat flush on
-          // the callout box's top border.
           <div style={{ gridArea: 'intro' }} className="f4 mt-4 mb-4">
             {introCallOuts}
           </div>
         )}
-
-        {/* Deliberately no mini-TOC cell. On inline pages DefaultLayout passes
-            hasDrawer={false}, so the secondary bar's OverviewSubBar owns "In
-            this article" at every width. Rendering one here too gave an empty
-            bordered box between the title and the intro (the cell kept
-            .sidebarBox's !important border while MiniTocs' contents are
-            display:none below the drawer breakpoint), plus a second nav
-            landmark with the same label once the drawer revealed at 1400px. */}
 
         <div
           data-container="article"

@@ -21,12 +21,7 @@ type Props = {
 }
 
 export function RestAuth({ progAccess, slug, operationTitle }: Props) {
-  const { currentVersion } = useVersion()
   const { t } = useTranslation('rest_reference')
-
-  // GHES 3.8 and 3.9 lacked fine-grained tokens; both are deprecated, so this never matches.
-  if (currentVersion === 'enterprise-server@3.9' || currentVersion === 'enterprise-server@3.8')
-    return null
 
   // Some operations omit progAccess.
   if (!progAccess) return null

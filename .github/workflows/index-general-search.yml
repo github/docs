@@ -1,9 +1,7 @@
 name: Index general search in Elasticsearch
 
-# **What it does**: It scrapes the whole site and dumps the records in a
-#                   temp directory. Then it indexes that into Elasticsearch.
-# **Why we have it**: We want our search indexes kept up to date.
-# **Who does it impact**: Anyone using search on docs.
+# Keep general search indexes current by scraping docs content and indexing the records
+# into Elasticsearch.
 
 on:
   workflow_dispatch:
@@ -17,7 +15,7 @@ on:
         required: false
         default: ''
   schedule:
-    - cron: '20 16 * * 1-5' # Run Mon-Fri at 16:20 UTC / 8:20 PST
+    - cron: '20 16 * * 1-5'
   workflow_run:
     workflows: ['Purge Fastly']
     types:
@@ -26,24 +24,20 @@ on:
 permissions:
   contents: read
 
-# This allows a subsequently queued workflow run to cancel previous runs.
-# Include the triggering workflow's conclusion in the group so that runs triggered
-# by skipped Purge Fastly workflows don't cancel runs triggered by successful ones.
+# Include the Purge Fastly conclusion so skipped purge runs cannot cancel valid indexing runs.
 concurrency:
   group: '${{ github.workflow }} @ ${{ github.head_ref }} ${{ github.event_name }} ${{ github.event.workflow_run.conclusion }}'
   cancel-in-progress: true
 
 env:
   ELASTICSEARCH_URL: ${{ secrets.ELASTICSEARCH_URL }}
-  # Since we'll run in NODE_ENV=production, we need to be explicit that
-  # we don't want Hydro configured.
+  # Empty Hydro credentials keep production-mode indexing runs from sending analytics.
   HYDRO_ENDPOINT: ''
   HYDRO_SECRET: ''
 
 jobs:
   figureOutMatrix:
-    # Skip immediately if triggered by a non-successful Purge Fastly run.
-    # This prevents skipped runs from canceling valid indexing runs via concurrency.
+    # Skip non-successful Purge Fastly workflow_run events.
     if: ${{ github.repository == 'github/docs-internal' && (github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success') }}
     runs-on: ubuntu-latest
     outputs:
@@ -53,18 +47,15 @@ jobs:
         id: set-matrix
         with:
           script: |
-            // Edit this list for the definitive list of languages
-            // (other than English) we want to index in Elasticsearch.
+            // allNonEnglish is the source of truth for non-English Elasticsearch languages.
             const allNonEnglish = 'es,ja,pt,zh,ru,fr,ko,de'.split(',')
             const allPossible = ["en", ...allNonEnglish]
 
             if (context.eventName === "workflow_run") {
-              // Job-level `if` already ensures we only get here for successful runs,
-              // but keep this as a safety check.
+              // The job filter keeps non-successful workflow_run events out, so treat this as a guard.
               if (context.payload.workflow_run.conclusion === "success") {
                 return ["en"]
               }
-              // This shouldn't happen due to job-level filter, but handle gracefully.
               console.warn(`Unexpected: workflow_run with conclusion '${context.payload.workflow_run.conclusion}'`)
               return []
             }
@@ -113,15 +104,9 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
-      # When it's only English (i.e. a simple array of ['en']), this value
-      # does not matter. If it's ALL the languages, then we know we can
-      # be patient because it's a daily scheduled run and it's run by bots
-      # while humans are asleep. So there's no rush and no need to finish
-      # the whole job fast.
-      # As of June 2023, it takes about 10+ minutes to index one whole
-      # language and we have 8 non-English languages.
-      # As of May 2025, we index so many pages that we are being rate-limited by
-      # Elasticsearch. So we are shrinking this value to 2, down from 3
+      # English-only runs have one matrix item, so max-parallel does not matter.
+      # Full runs index eight non-English languages, each taking more than 10 minutes.
+      # Elasticsearch rate-limits higher concurrency, so keep this at 2.
       max-parallel: 2
       matrix:
         language: ${{ fromJSON(needs.figureOutMatrix.outputs.matrix) }}
@@ -132,7 +117,7 @@ jobs:
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
           repository: github/docs-internal-data
-          # This works because user `docs-bot` has read access to that private repo.
+          # docs-bot can read the private github/docs-internal-data repository.
           token: ${{ secrets.DOCS_BOT_PAT_BASE }}
           path: docs-internal-data
 
@@ -155,7 +140,6 @@ jobs:
         run: |
           npm run general-search-scrape-server > /tmp/stdout.log 2> /tmp/stderr.log &
 
-          # first sleep to give it a chance to start
           sleep 6
           curl --retry-connrefused --retry 6 -I http://localhost:4002/
 
@@ -169,17 +153,12 @@ jobs:
 
       - name: Scrape records into a temp directory
         env:
-          # If a reusable, or anything in the `data/*` directory is deleted
-          # you might get a
-          #
-          #   RenderError: Can't find the key 'site.data.reusables...' in the scope
-          #
-          # But that'll get fixed in the next translation pipeline. For now,
-          # let's just accept an empty string instead.
+          # Deleting a reusable or data/* entry can leave translations pointing at missing
+          # site.data keys and trigger RenderError. Accept empty strings until the next
+          # translation pipeline removes those references.
           THROW_ON_EMPTY: false
 
-          # Note that by default, this is '' (empty string) and that means
-          # the same as not set within the script.
+          # Empty VERSION makes the scrape script use its default version selection.
           VERSION: ${{ inputs.version }}
 
           DOCS_INTERNAL_DATA: docs-internal-data
@@ -210,9 +189,7 @@ jobs:
 
       - name: Index into Elasticsearch
         env:
-          # Must match what we used when scraping (npm run general-search-scrape)
-          # otherwise the script will seek other versions from disk that might
-          # not exist.
+          # Match the scrape version so the indexer reads the directory the scraper wrote.
           VERSION: ${{ inputs.version }}
         run: |
           npm run index-general-search -- /tmp/records \
@@ -222,9 +199,7 @@ jobs:
 
       - name: Check created indexes and aliases
         run: |
-          # Not using `--fail` here because I've observed that it can fail
-          # with a rather cryptic 404 error when it should, if anything, be
-          # a 200 OK with a list of no indices.
+          # Avoid --fail because an empty index list can return a 404 instead of 200 OK.
           curl --retry-connrefused --retry 5 ${{ env.ELASTICSEARCH_URL }}/_cat/indices?v
           curl --retry-connrefused --retry 5 ${{ env.ELASTICSEARCH_URL }}/_cat/indices?v
 
@@ -302,8 +277,7 @@ jobs:
           FILE_URL: ${{ github.server_url }}/${{ github.repository }}/blob/main/.github/workflows/index-general-search.yml
           WORKFLOW_NAME: ${{ github.workflow }}
         run: |
-          # Reuse the oldest open scraping-failures issue if one exists,
-          # to keep the noise down. Otherwise open a new one.
+          # Reuse the oldest open scraping-failures issue to keep the issue list quiet.
           existing_issue=$(gh issue list \
             --repo github/technical-content \
             --label "search-scraping-failures" \

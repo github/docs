@@ -209,7 +209,8 @@ describe('mergeAllOf', () => {
     const before = JSON.stringify(schema)
     const merged = mergeAllOf(schema) as { oneOf: { properties: Record<string, unknown> }[] }
 
-    // Mutating merged oneOf members must not change the source OpenAPI operation schema.
+    // Consumers can mutate merged schemas, so this must not reach back into
+    // the OpenAPI operation the schema came from.
     Object.assign(merged.oneOf[0].properties, merged.oneOf[1].properties)
     merged.oneOf[0].properties.injected = true
 

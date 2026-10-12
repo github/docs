@@ -54,12 +54,12 @@ You can start by identifying a small number of teams that are interested in usin
 
 ## Supporting users setting up their environment
 
-Once your teams have access to {% data variables.product.prodname_copilot %}, ensure they're confident with setting up their environment. {% data variables.product.github %} provides comprehensive documentation to help users set up their environment and resolve common issues. See [AUTOTITLE](/copilot/how-tos/set-up/set-up-for-self) and [AUTOTITLE](/copilot/how-tos/troubleshoot-copilot).
+Once your teams have access to {% data variables.product.prodname_copilot %}, ensure they're confident with setting up their environment. {% data variables.product.github %} provides comprehensive documentation to help users set up their environment and resolve common issues. See [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/set-up-copilot) and [AUTOTITLE](/copilot/how-tos/troubleshoot-copilot).
 
 If your company uses a corporate proxy or firewall, there are additional steps for ensuring users can connect to {% data variables.product.prodname_copilot %}:
 
 * Ensure that key URLs are added to the allowlist for the proxy server or firewall. See [AUTOTITLE](/copilot/reference/copilot-allowlist-reference).
-* Provide guidance for your users to set up their environment to connect via your proxy. You may also need to install custom SSL certificates on your users' machines. See [AUTOTITLE](/copilot/how-tos/configure-personal-settings/configure-network-settings).
+* Provide guidance for your users to set up their environment to connect via your proxy. You may also need to install custom SSL certificates on your users' machines. See [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/set-up-copilot/configure-network-settings).
 
 For more complex issues, you may also choose to designate an internal point of contact to help users resolve issues, or escalate them to {% data variables.contact.github_support %}. You should choose a point of contact who is confident troubleshooting firewall and network configuration issues.
 
@@ -78,8 +78,8 @@ You may choose to create internal onboarding materials to help teams get started
 * [AUTOTITLE](/copilot/get-started/best-practices)
 * [AUTOTITLE](/copilot/concepts/prompting/prompt-engineering)
 * [AUTOTITLE](/copilot/tutorials/roll-out-at-scale/enable-developers/copilot-app-for-teams)
-* [AUTOTITLE](/copilot/how-tos/get-code-suggestions/get-ide-code-suggestions)
-* [AUTOTITLE](/copilot/how-tos/chat-with-copilot/chat-in-ide)
+* [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/copilot-for-common-tasks/get-ide-code-suggestions)
+* [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/chat-with-copilot/chat-in-ide)
 
 You can also create a {% data variables.product.github %} repository to store these materials, and encourage teams to contribute their own resources and best practices. This can help foster a sense of community among teams that are using {% data variables.product.prodname_copilot_short %}, and make it easier for new teams to get started.
 

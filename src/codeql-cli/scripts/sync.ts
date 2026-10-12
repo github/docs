@@ -30,10 +30,7 @@ async function main() {
 
   for (const file of markdownFiles) {
     const sourceContent = await readFile(file, 'utf8')
-    // The source content is missing a "Primary Options" heading directly
-    // under "Options".
-    // Adding a node to the AST is fiddly when it is not a child of the
-    // previous heading, so append the heading to the raw Markdown instead.
+    // Source Markdown lacks a Primary Options heading under Options; raw text avoids AST insertion.
     const matchHeading = '## Options\n'
     const primaryHeadingSourceContent = sourceContent.replace(
       matchHeading,

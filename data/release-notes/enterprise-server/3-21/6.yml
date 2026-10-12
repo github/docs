@@ -71,6 +71,8 @@ sections:
       On an instance using Redis 7, AOF (append-only file) recovery did not detect or repair corruption in Redis data volumes. This occurred because recovery only checked the legacy single-file AOF path and did not account for Redis 7s multi-part AOF format, which uses a manifest to track data across multiple files.
     - |
       When an administrator ran a configured restore that changed the appliances identity (UUID), the restore could skip the storage tier and still report success, resulting in an incomplete restore of repository data.
+    - |
+      {% data reusables.release-notes.2026-10-merge-bypass-required-status-checks %} [Updated: 2026-10-07]
   changes:
     - |
       Enterprise Live Migrations skip branch protection rules by default because only part of each rule can be migrated. Partial migration of branch protection rules is opt in with `ghe-config app.elm-exporter.migrate-protected-branches true`.

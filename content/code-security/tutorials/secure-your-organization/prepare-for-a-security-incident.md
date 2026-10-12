@@ -27,9 +27,18 @@ These controls are critical for incident response, compliance, and operational t
 
 ### Audit log streaming
 
-You should stream the enterprise audit logs to a Security Information and Event Management (SIEM) system. This keeps a copy of your audit log data (including both audit events and Git events) in a system where you can run complex queries across large volumes of data and retain data beyond default retention periods.
+You should stream the enterprise audit logs, including API request events, to a Security Information and Event Management (SIEM) system. This keeps a copy of your audit log data (including web, Git and API events) in a system where you can run complex queries across large volumes of data and retain data beyond default retention periods.
+
+> [!IMPORTANT]
+> {% data reusables.audit_log.streaming-not-retroactive %}
 
 This is critical in an incident because some high-value events are not visible in the {% data variables.product.github %} audit log web UI, and logs are only available for a limited time unless you export and retain them externally.
+
+{% ifversion ghec %}
+
+To compare event availability and retention across access methods, see [Audit log data available by access method](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise#audit-log-data-available-by-access-method).
+
+{% endif %}
 
 With streamed logs, enterprise and organization owners can independently investigate activity from users, apps, tokens, and SSH keys, instead of depending on ad hoc data collection during an active response.
 
@@ -53,9 +62,9 @@ Enterprises on {% data variables.product.prodname_ghe_cloud %} can enable IP add
 
 ### Retain identity provider logs
 
-If your enterprise uses SAML or OIDC authentication, adopt a similar retention strategy for your IdP logs.
+If your enterprise or organizations use SAML or OIDC authentication, adopt a similar retention strategy for your identity provider (IdP) logs.
 
-Retained IdP logs help you investigate authentication activity and review provisioning and deprovisioning events over longer time windows, including incidents that unfold over months.
+Retained IdP logs help you investigate authentication activity and review provisioning, deprovisioning, and group membership changes over longer time windows. This is especially important if you use SCIM provisioning or need to investigate activity from several months ago.
 
 ## Familiarize yourself with tooling, limitations and common investigation areas
 

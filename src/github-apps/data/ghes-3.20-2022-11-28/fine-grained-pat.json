@@ -1019,6 +1019,20 @@
       "requestPath": "/orgs/{org}/announcement"
     }
   ],
+  "apps": [
+    {
+      "slug": "add-a-repository-to-an-app-installation",
+      "subcategory": "installations",
+      "verb": "put",
+      "requestPath": "/user/installations/{installation_id}/repositories/{repository_id}"
+    },
+    {
+      "slug": "remove-a-repository-from-an-app-installation",
+      "subcategory": "installations",
+      "verb": "delete",
+      "requestPath": "/user/installations/{installation_id}/repositories/{repository_id}"
+    }
+  ],
   "billing": [
     {
       "slug": "get-github-advanced-security-active-committers-for-an-organization",

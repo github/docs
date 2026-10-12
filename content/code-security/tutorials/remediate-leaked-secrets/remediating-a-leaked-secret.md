@@ -71,12 +71,8 @@ If you don't yet have {% data variables.product.prodname_secret_scanning %} enab
 1. Assess the **file** containing the secret and the **surrounding context**. Is the secret used in a production deployment script (higher risk) or a test file (lower risk)? Is the secret associated with a database credential or admin key (higher risk)?
 1. Assess which services or applications depend on the secret, and consider the potential for downtime or disruption if you were to immediately revoke the secret.
 
-{% ifversion secret-risk-assessment %}
-
 > [!TIP]
 > Organizations on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %} plans can perform a **free** secret risk assessment (an on-demand, point-in-time scan) that evaluates their exposure to leaked secrets. See [AUTOTITLE](/code-security/concepts/secret-security/secret-security-with-github).
-
-{% endif %}
 
 ## Step 3. Strategize remediation
 

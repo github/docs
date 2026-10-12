@@ -170,7 +170,7 @@ You’ll see {% data variables.product.prodname_copilot_short %} using tools whe
 
 ### Find out more about allowing or denying tools
 
-See [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-copilot-cli#allowed-tools).
+See [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-cli#allowed-tools).
 
 ## MCP servers
 

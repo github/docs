@@ -14,8 +14,7 @@ type Category = {
   published_articles: Article[]
 }
 
-// This middleware exposes a list of all categories and child articles at /categories.json.
-// GitHub Support uses this for internal ZenDesk search functionality.
+// /categories.json gives GitHub Support categories and child articles for Zendesk search.
 export default async function categoriesForSupport(req: ExtendedRequest, res: Response) {
   const englishSiteTree = req.context!.siteTree!.en
   const allCategories: Category[] = []
@@ -26,9 +25,7 @@ export default async function categoriesForSupport(req: ExtendedRequest, res: Re
     if (!productPage.childPages || !productPage.childPages.length) continue
     await Promise.all(
       productPage.childPages.map(async (categoryPage) => {
-        // We can't get the rendered titles from middleware/render-tree-titles
-        // here because that middleware only runs on the current version, and this
-        // middleware processes all versions.
+        // Site-tree titles are raw, so render any that contain Liquid.
         if (!req.context) return
         const name = categoryPage.page.title.includes('{')
           ? await categoryPage.page.renderProp('title', req.context, renderOpts)
@@ -42,8 +39,7 @@ export default async function categoriesForSupport(req: ExtendedRequest, res: Re
     )
   }
 
-  // Cache somewhat aggressively but note that it will be soft-purged
-  // in every prod deployment.
+  // Use the default browser and CDN cache policy.
   defaultCacheControl(res)
 
   return res.json(allCategories)
@@ -67,7 +63,6 @@ async function findArticlesPerCategory(
 
   if (!currentPage.childPages) return articlesArray
 
-  // Run recursively to find any articles deeper in the tree.
   await Promise.all(
     currentPage.childPages.map(async (childPage) => {
       await findArticlesPerCategory(childPage, articlesArray, context)

@@ -1,14 +1,10 @@
-/**
- * @purpose Writer tool
- * @description Generate a local table of contents for the GitHub Docs website
- *
- * This script creates static HTML files for each documentation version, renders page titles
- * using Liquid templating, and opens the generated TOC in your browser for easy navigation
- * during development. Supports command-line options to specify which sections should be
- * open by default.
- *
- * Usage: tsx src/dev-toc/generate.ts [-o product-ids...]
- */
+// @purpose Writer tool
+// @description Generate a local table of contents for the GitHub Docs website
+//
+// Creates static HTML for each documentation version, renders Liquid page titles, and opens the
+// generated table of contents in your browser. Use -o product-ids... to open sections by default.
+//
+// Run with: tsx src/dev-toc/generate.ts [-o product-ids...]
 
 import fs from 'fs'
 import path from 'path'

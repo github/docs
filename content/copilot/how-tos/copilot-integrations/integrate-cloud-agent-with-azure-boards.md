@@ -62,5 +62,5 @@ If you already have the Azure Boards application installed on {% data variables.
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-cloud-agent)
+* [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-on-github)
 * [AUTOTITLE](/copilot/concepts/enterprise/cloud-agent-access)

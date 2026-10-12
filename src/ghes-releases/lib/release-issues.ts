@@ -7,9 +7,6 @@ interface IssueLike {
   labels: { name: string }[]
 }
 
-/**
- * Parse and validate the issue state filter. Defaults to "all".
- */
 export function parseIssueState(value?: string): IssueState {
   if (!value) return 'all'
 
@@ -41,9 +38,7 @@ export function buildReleaseIssueListArgs(version: string, issueState: IssueStat
   ]
 }
 
-/**
- * Excludes release issues that should not produce GHES release notes.
- */
+// "public roadmap" and "not planned" issues never produce GHES release notes.
 export function isExcludedReleaseIssue(issue: IssueLike): boolean {
   return issue.labels.some((l) => EXCLUDED_RELEASE_LABELS.has(l.name.toLowerCase()))
 }

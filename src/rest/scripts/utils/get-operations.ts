@@ -7,8 +7,6 @@ interface ProgAccessData {
 
 export type SchemaInput = OpenApiSchema
 
-// Runs `process` on every operation with the programmatic access data, then
-// returns the same array.
 export async function processOperations(
   operations: Operation[],
   progAccessData: ProgAccessData,

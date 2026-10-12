@@ -14,11 +14,11 @@ category:
 
 With a server-managed deployment, you can configure your enterprise's `{% data variables.copilot.managed_setting_file %}` file to apply different governance settings to groups of users based on their enterprise team membership. The enterprise defines all settings in a central place, and team membership determines which users receive a given set of values. **If you haven't created the `{% data variables.copilot.managed_setting_file %}` file yet, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/use-managed-settings/get-started).**
 
-To make a key eligible for team overrides, you will mark it as `overridable` in `{% data variables.copilot.managed_setting_file %}`. An overridable key uses the team's value when set, or falls back to your enterprise default when the team leaves it unset.
+To let teams replace an enterprise default, mark the key as `overridable` in `{% data variables.copilot.managed_setting_file %}`. An overridable key uses the team's value when set, or falls back to your enterprise default when the team leaves it unset.
 
 ## Supported keys
 
-The `{ "overridable": <VALUE> }` syntax applies to the `model`, `permissions.disableBypassPermissionsMode`, `permissions.deny`, `permissions.ask`, `permissions.allow`, `allowedMcpServers`, `deniedMcpServers`, `extraKnownMarketplaces`, `strictKnownMarketplaces`, and `sandbox` keys.
+The `{ "overridable": <VALUE> }` syntax applies to the `model`, `autoTier`, `permissions.disableBypassPermissionsMode`, `permissions.deny`, `permissions.ask`, `permissions.allow`, `allowedMcpServers`, `deniedMcpServers`, `extraKnownMarketplaces`, `strictKnownMarketplaces`, and `sandbox` keys.
 
 `enabledPlugins` works additively. The enterprise `{% data variables.copilot.managed_setting_file %}` sets a baseline, and an enterprise team file can add more plugins on top of it.
 
@@ -64,7 +64,7 @@ You will use `copilot/{% data variables.copilot.team_mappings_file %}` and the `
     }
     ```
 
-1. Create the team settings file under `copilot/{% data variables.copilot.team_settings_directory %}`. You can include any keys you marked as overridable, plus the additive key `enabledPlugins`. Every other key stays governed by your enterprise default.
+1. Create the team settings file under `copilot/{% data variables.copilot.team_settings_directory %}`. You can include any keys you marked as overridable, more restrictive values for `autoTier`, plus the additive key `enabledPlugins`. Every other key stays governed by your enterprise default.
 
    ```json
    {

@@ -17,10 +17,8 @@ interface VersionSection {
   content: string
 }
 
-// The initial REST API version (2022-11-28) predates the changelog system
-// in rest-api-description, so it has no CHANGELOG.md entry. We hardcode
-// the "no breaking changes" description here so it always appears in the
-// generated output. Keyed by ifversion expression.
+// The initial REST API version predates rest-api-description changelogs, so
+// this fallback keeps the generated output complete. Keyed by ifversion expression.
 const INITIAL_VERSION = '2022-11-28'
 const INITIAL_VERSION_SECTIONS: Record<string, VersionSection> = {
   fpt: {
@@ -33,14 +31,10 @@ const INITIAL_VERSION_SECTIONS: Record<string, VersionSection> = {
   },
 }
 
-// Build a list of { sourceDir, ifversionExpr } tuples from allVersions.
-// For example:
-//   fpt → source dir "api.github.com", ifversion "fpt"
-//   ghec → source dir "ghec", ifversion "ghec"
-//   ghes-3.14 → source dir "ghes-3.14", ifversion "ghes = 3.14"
+// buildVersionMappings maps docs short names to rest-api-description directories
+// and Liquid ifversion expressions. Examples: fpt -> api.github.com and fpt;
+// ghec -> ghec and ghec; ghes-<release> -> ghes-<release> and ghes = <release>.
 function buildVersionMappings(versionNames: Record<string, string>): VersionMapping[] {
-  // Build reverse lookup: docs short name → source directory name
-  // e.g. "fpt" → "api.github.com", "ghec" → "ghec"
   const reverseMapping: Record<string, string> = {}
   for (const [sourceDir, docsName] of Object.entries(versionNames)) {
     reverseMapping[docsName] = sourceDir
@@ -58,11 +52,10 @@ function buildVersionMappings(versionNames: Record<string, string>): VersionMapp
     let ifversionExpr: string
 
     if (versionObj.shortName === 'ghes') {
-      // GHES versions: source dir is like "ghes-3.14", ifversion is "ghes = 3.14"
+      // GitHub Enterprise Server source directories include the release number.
       sourceDir = `ghes-${versionObj.currentRelease}`
       ifversionExpr = `ghes = ${versionObj.currentRelease}`
     } else {
-      // Non-GHES: look up source dir from reverse mapping
       sourceDir = reverseMapping[versionObj.shortName] || versionObj.shortName
       ifversionExpr = versionObj.shortName
     }
@@ -73,13 +66,10 @@ function buildVersionMappings(versionNames: Record<string, string>): VersionMapp
   return mappings
 }
 
-// Resolve the changelog file path based on whether we're using
-// rest-api-description or the local github repo.
 export function getChangelogPath(sourceRepoDir: string, releaseDir: string): string {
   if (sourceRepoDir === REST_API_DESCRIPTION_ROOT) {
     return path.join(REST_API_DESCRIPTION_ROOT, 'descriptions-next', releaseDir, 'CHANGELOG.md')
   }
-  // Local github repo dev workflow
   return path.join(
     sourceRepoDir,
     'app',
@@ -91,9 +81,8 @@ export function getChangelogPath(sourceRepoDir: string, releaseDir: string): str
   )
 }
 
-// Parse a CHANGELOG.md into an array of { version, content } objects
-// by splitting on `## Version YYYY-MM-DD` headings.
-// Strips the top-level `# REST API Breaking Changes for ...` title and intro paragraph.
+// parseVersionSections drops the title and intro, then splits at headings for
+// versions with YYYY-MM-DD dates.
 export function parseVersionSections(markdown: string): VersionSection[] {
   const lines = markdown.split('\n')
   const sections: VersionSection[] = []
@@ -102,13 +91,11 @@ export function parseVersionSections(markdown: string): VersionSection[] {
   let pastHeader = false
 
   for (const line of lines) {
-    // Skip the top-level title (# REST API Breaking Changes ...)
     if (!pastHeader && line.startsWith('# ')) {
       pastHeader = true
       continue
     }
 
-    // Skip intro paragraph lines before the first ## Version heading
     const versionMatch = line.match(/^## Version (\d{4}-\d{2}-\d{2})/)
     if (versionMatch) {
       if (currentVersion) {
@@ -138,9 +125,11 @@ export function parseVersionSections(markdown: string): VersionSection[] {
   return sections
 }
 
-// Main function: reads changelogs from each release directory, wraps them
-// in product-version gating ({% ifversion %}) and API-version filtering
-// ({% if query.apiVersion %}), and writes a combined data file.
+// syncChangelogs disables liquid-quoted-conditional-arg because generated Liquid
+// compares quoted date strings such as "YYYY-MM-DD" <= query.apiVersion, which
+// Liquid accepts.
+// It also disables search-replace and GHD046 because upstream changelogs can
+// contain docs.github.com URLs and "deprecated" terms.
 export async function syncChangelogs(
   sourceRepoDir: string,
   versionNames: Record<string, string>,
@@ -164,8 +153,7 @@ export async function syncChangelogs(
       sections = parseVersionSections(markdown)
     }
 
-    // Inject the hardcoded initial version section if the changelog
-    // doesn't already include it and we have one for this product.
+    // Inject the hardcoded initial section when the source changelog lacks it for this product.
     const hasInitialVersion = sections.some((s) => s.version === INITIAL_VERSION)
     if (!hasInitialVersion && ifversionExpr in INITIAL_VERSION_SECTIONS) {
       sections.push(INITIAL_VERSION_SECTIONS[ifversionExpr])
@@ -200,11 +188,6 @@ export async function syncChangelogs(
     return
   }
 
-  // The generated Liquid uses quoted date strings in comparisons
-  // (e.g., "2022-11-28" <= query.apiVersion) which is valid Liquid but
-  // triggers the GHD016 lint rule that flags quoted conditional args.
-  // The upstream changelogs may also contain docs.github.com URLs and
-  // "deprecated" terminology that trigger docs-domain and GHD046 rules.
   const lintDisable =
     '<!-- markdownlint-disable liquid-quoted-conditional-arg search-replace GHD046 -->\n'
   const output = `${lintDisable + outputBlocks.join('\n\n')}\n`

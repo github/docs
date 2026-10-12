@@ -31,6 +31,8 @@ If you'd like to seek Reinstatement or wish to Appeal an enforcement action on G
 * [GitHub Appeal and Reinstatement form](https://support.github.com/contact/reinstatement)
 * [npm Appeal and Reinstatement form](https://support.github.com/support/contact/product-selection/reinstatement-requests/npm-reinstatement-request)
 
+If you are unable to sign in to your GitHub account, see [Unable to sign in](https://support.github.com/contact/cannot_sign_in) to contact GitHub Support. After you verify your email, you can access the appeal and reinstatement forms.
+
 On GitHub, you may seek Reinstatement or Appeal a moderation decision for up to six months following the decision. GitHub may, in its discretion, refuse to consider any requests submitted more than six months after the decision.
 
 GitHub staff will review the information provided in the form to determine whether there is sufficient information to warrant Reinstatement or granting of an Appeal.

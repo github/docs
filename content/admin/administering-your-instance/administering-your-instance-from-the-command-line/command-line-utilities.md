@@ -1112,11 +1112,11 @@ ghe-dpages evacuate pages-server-UUID
 
 ### ghe-remove-node
 
-This utility removes a node from a cluster{% ifversion ghes > 3.17 %} or an additional node from a high availability (HA) configuration{% endif %}. For a planned replacement of a functional cluster node, set up the replacement node before using this command to remove the old node. For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-a-functional-node).{% ifversion ghes > 3.17 %} For the required HA checks and verification steps, see [Removing an additional node](/admin/monitoring-and-managing-your-instance/additional-nodes/configuring-additional-nodes#removing-an-additional-node).{% endif %}
+This utility removes a node from a cluster or an additional node from a high availability (HA) configuration. For a planned replacement of a functional cluster node, set up the replacement node before using this command to remove the old node. For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-a-functional-node). For the required HA checks and verification steps, see [Removing an additional node](/admin/monitoring-and-managing-your-instance/additional-nodes/configuring-additional-nodes#removing-an-additional-node).
 
 Before using this command for a planned removal, install the latest patch release for your feature release on every node. Every node must run the same exact release. Wait for any upgrade or configuration run to finish before starting removal. For emergency replacement of an unavailable cluster node, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-a-node-in-an-emergency).
 
-You must run this command from the primary MySQL node, which is typically the node designated as `mysql-master` in the cluster configuration file (`cluster.conf`).{% ifversion ghes > 3.17 %} In an HA configuration, run the command from the HA primary.{% endif %} You cannot remove the `mysql-master` or `redis-master` node. For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/configuring-clustering/initializing-the-cluster#about-the-cluster-configuration-file).
+You must run this command from the primary MySQL node, which is typically the node designated as `mysql-master` in the cluster configuration file (`cluster.conf`). In an HA configuration, run the command from the HA primary. You cannot remove the `mysql-master` or `redis-master` node. For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/configuring-clustering/initializing-the-cluster#about-the-cluster-configuration-file).
 
 ```shell
 ghe-remove-node HOSTNAME
@@ -1126,7 +1126,7 @@ The command does the following things:
 
 * Evacuates data from any data services running on the node, so that the remaining nodes contain copies of the data
 * Drains workloads from the node
-* Removes the node from the configuration.{% ifversion ghes > 3.17 %} If another non-primary node remains, the command runs `ghe-config-apply` and stops routing traffic to the removed node. If no non-primary node remains, the command removes cluster metadata and converts the primary to a standalone instance without running `ghe-config-apply`.{% else %} The command runs `ghe-config-apply` and stops routing traffic to the removed node.{% endif %}
+* Removes the node from the configuration. If another non-primary node remains, the command runs `ghe-config-apply` and stops routing traffic to the removed node. If no non-primary node remains, the command removes cluster metadata and converts the primary to a standalone instance without running `ghe-config-apply`.
 
 You can run the command with the following flags.
 
@@ -1136,7 +1136,7 @@ Flag | Description
 `-v/--verbose` | Prints additional information to the console.
 
 > [!NOTE]
-> {% ifversion ghes > 3.17 %}* In an HA configuration, you can use this command to remove an additional node. You cannot use it to remove the HA primary or a replica.{% endif %}
+> * In an HA configuration, you can use this command to remove an additional node. You cannot use it to remove the HA primary or a replica.
 >
 > * The target node must report `ready` in `nomad node status` to complete removal. The `--no-evacuate` flag does not remove an offline node from the configuration.
 > * This command does not support parallel execution. To remove multiple nodes, you must wait until this command has finished before running it for another node.
@@ -1468,8 +1468,6 @@ Flag | Description
 
 ## High availability
 
-{% ifversion ghes > 3.17 %}
-
 ### ghe-repl-decommission
 
 This command decommissions the database entries for the node with the specified UUID. You run this command on the new primary after performing a failover to a replica node, to remove the decommissioned node's database entries. For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/configuring-high-availability/initiating-a-failover-to-your-replica-appliance).
@@ -1477,8 +1475,6 @@ This command decommissions the database entries for the node with the specified 
 ```shell
 ghe-repl-decommission <UUID>
 ```
-
-{% endif %}
 
 ### ghe-repl-promote
 
@@ -2056,8 +2052,6 @@ We recommend writing to a file in `/data/user/tmp`.
 
 ## Database and storage
 
-{% ifversion ghes > 3.17 %}
-
 ### ghe-elasticsearch-watermarks
 
 This utility configures Elasticsearch disk watermark settings via API. This is an emergency break-glass solution that allows modification of watermark settings without requiring a configuration run.
@@ -2082,8 +2076,6 @@ To show current watermark settings:
 ```shell
 ghe-elasticsearch-watermarks status
 ```
-
-{% endif %}
 
 {% ifversion ghes > 3.20 %}
 
@@ -2165,8 +2157,6 @@ ghe-dep-graph-enable
 
 ## Monitoring
 
-{% ifversion ghes > 3.17 %}
-
 ### ghe-otelcol-validate
 
 This utility validates the OpenTelemetry Collector configuration file on {% data variables.location.product_location %}.
@@ -2174,5 +2164,3 @@ This utility validates the OpenTelemetry Collector configuration file on {% data
 ```shell
 ghe-otelcol-validate
 ```
-
-{% endif %}

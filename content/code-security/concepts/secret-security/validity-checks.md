@@ -3,9 +3,9 @@ title: Validity checks
 shortTitle: Validity checks
 intro: Validity checks{% ifversion secret-scanning-extended-metadata-checks %} and extended metadata checks{% endif %} help you prioritize remediation of exposed credentials that pose immediate security risks.
 product: |
-  {% data reusables.gated-features.secret-scanning %}{% ifversion secret-risk-assessment %}
+  {% data reusables.gated-features.secret-scanning %}
 
-  {% data variables.secret-scanning.secret-risk-assessment-cta-product %}{% endif %}
+  {% data variables.secret-scanning.secret-risk-assessment-cta-product %}
 contentType: concepts
 versions:
   fpt: '*'

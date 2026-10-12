@@ -1,29 +1,18 @@
-/**
- * This script will delete files from a translation repo of files that
- * only exist there and not "here". Here being the docs repo.
- * It will only look at *.md files in `content/` and
- * only look at *.md and *.yml files in `data/`.
- *
- * If executed with `--dry-run` it will only print what it would delete.
- *
- * To avoid deleting too many files at once, which can make PRs too big,
- * there's a `--max <number>` options which is defaulted to 100.
- *
- * To run this locally, check out a translation repo and then run it like this:
- *
- *    git clone git@github.com:github/docs-internal.ja-jp.git /tmp/docs-internal.ja-jp
- *    npm run delete-orphan-translation-files -- /tmp/docs-internal.ja-jp
- *
- * Note that it doesn't execute `git rm ...` for you. Just regular
- * file deletion. It's up to you now to commit and push.
- */
-
 import fs from 'fs'
 import path from 'path'
 
 import { program } from 'commander'
 import walkFiles from '@/workflows/walk-files'
 import { ROOT } from '@/frame/lib/constants'
+
+// Deletes orphaned translation content files from a checked-out translation repo.
+// It deletes files from the working tree only; it does not stage removals with git rm.
+//
+// Usage:
+//   npm run delete-orphan-translation-files -- /tmp/docs-internal.ja-jp
+//
+// Use --dry-run to print deletions without removing files. --max defaults to 100
+// so one run does not create an oversized PR.
 
 program
   .description('Delete orphan translation files')
@@ -86,27 +75,9 @@ function main(root: string, options: Options) {
   )
 }
 
+// Walk content only. Translated content can still use {% data variables.x %} after English
+// deletes data/variables/x.yml, so translated data files may be orphans on purpose.
 function getContentAndDataFiles(root: string) {
-  // The reason we're only looking at content files, and not data files,
-  // is because data files can be *included* in content files.
-  // Best illustrated with an imaginary example:
-  //
-  // Suppose there exists, in English, a `content/some-page.md` and
-  // a `data/variables/some-var.yml`.
-  // The English content contains: `{% data variables.some-var.some-thing %}`
-  // Soon enough, this is present in the translations too.
-  // Then, the English writer decides to stop referencing that variable
-  // in `content/some-page.md`. And additionally, since no content references
-  // the file, they also decide to `git rm data/variables/some-var.yml`.
-  // At this point, there's technically an "orphan" file in the translation
-  // repo that doesn't have an equivalent in the English repo. But! The
-  // translation's copy of `content/some-page.md` might still *refer*
-  // to `{% data variables.some-var.some-thing %}` since it hasn't yet
-  // picked up that the English content changed.
-  //
-  // In conclusion, we need to be OK with the data files in translations
-  // being potentially "full of orphans" because they might still be
-  // referred to the in the content files.
   return walkFiles(path.join(root, 'content'), ['.md'])
 }
 

@@ -1,0 +1,5 @@
+# Reference: https://github.com/github/code-scanning/issues/24741
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.24'

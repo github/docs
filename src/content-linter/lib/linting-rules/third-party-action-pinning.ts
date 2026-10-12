@@ -5,9 +5,7 @@ import { liquid } from '@/content-render/index'
 import { allVersions } from '@/versions/lib/all-versions'
 import type { RuleParams, RuleErrorCallback, MarkdownToken, Rule } from '@/content-linter/types'
 
-// Detects third-party actions in the format `owner/repo@ref`
 const actionRegex = /[\w-]+\/[\w-]+@[\w-]+/
-// Detects a full-length commit SHA (40 hexadecimal characters)
 const shaRegex = /[\w-]+\/[\w-]+@[0-9a-fA-F]{40}/
 const firstPartyPrefixes = ['actions/', './.github/actions/', 'github/', 'octo-org/', 'OWNER/']
 
@@ -46,7 +44,7 @@ export const thirdPartyActionPinning: Rule = {
         currentLanguage: 'en',
         currentVersionObj: allVersions['free-pro-team@latest'],
       }
-      // If we don't parse the Liquid first, yaml loading chokes on {% raw %} tags
+      // Parse Liquid first because yaml loading chokes on {% raw %} tags.
       const renderedYaml = await liquid.parseAndRender(token.content, context)
       try {
         const yamlObj = load(renderedYaml) as WorkflowYaml

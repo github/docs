@@ -281,6 +281,21 @@ If {% data variables.product.prodname_dependabot %} attempts to check whether de
 
 **Version updates only:** {% data reusables.dependabot.private-dependencies-note %} Additionally, {% data variables.product.prodname_dependabot %} doesn't support private {% data variables.product.prodname_dotcom %} dependencies for all package managers. See [AUTOTITLE](/code-security/reference/supply-chain-security/supported-ecosystems-and-repositories).
 
+{% ifversion dependabot-egress-allowlist %}
+
+### Request blocked by the network egress allowlist
+
+Update jobs can only reach hosts on {% data variables.product.prodname_dependabot %}'s network egress allowlist. When a request is blocked, the proxy returns `403 Forbidden` and the job log contains a line naming the host, for example `* egress not allowlisted packages.example.com`.
+
+**Resolution:** Choose the option that matches the blocked host:
+
+* For a private or organization-specific registry, define it under the top-level `registries` key in your `dependabot.yml` file. Reference it from the relevant `updates` entry to allow it for that job. Do this even if the registry allows anonymous access, and note that defining it only in a file such as `.npmrc` or `nuget.config` does not allow its host.
+* For a public registry or download host, propose adding it to the default allowlist.
+
+For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/resolve-a-blocked-host).
+
+{% endif %}
+
 ## Triggering a {% data variables.product.prodname_dependabot %} pull request manually
 
 If you unblock {% data variables.product.prodname_dependabot %}, you can manually trigger a fresh attempt to create a pull request.

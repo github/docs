@@ -55,8 +55,7 @@ const PagePathToVaFlowMapping: Record<string, string> = {
     'pages_ssl_check',
 }
 
-// Request type for context extraction. Uses Record<string, unknown> for the page
-// because the Page type doesn't include all runtime-computed properties.
+// Context extraction uses Record<string, unknown> because Page omits runtime-computed properties.
 interface ContextRequest {
   context: {
     page: Record<string, unknown> & { fullPath: string; title: string; intro: string }
@@ -86,7 +85,7 @@ export const getArticleContextFromRequest = (req: ContextRequest): ArticleContex
   const supportPortalUrl =
     process.env.NODE_ENV === 'production'
       ? 'https://support.github.com'
-      : // Assume that a developer is not testing the VA iframe locally if this env var is not set
+      : // Without SUPPORT_PORTAL_URL, local development assumes the VA iframe is disabled.
         process.env.SUPPORT_PORTAL_URL || ''
 
   const supportPortalVaIframeProps = {

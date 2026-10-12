@@ -1,13 +1,11 @@
 name: 'Weekly page benchmark'
 
-# **What it does**: Benchmarks all pages via the article API, flags errors and slow pages
-# **Why we have it**: Catch perf regressions and broken pages before users hit them
-# **Who does it impact**: Docs engineering
+# Catches slow or broken article API pages before users hit them.
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: '20 16 * * 1' # Every Monday at 16:20 UTC / 8:20 PST
+    - cron: '20 16 * * 1' # Mondays at 16:20 UTC.
 
 permissions:
   contents: read

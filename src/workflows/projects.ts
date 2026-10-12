@@ -1,16 +1,7 @@
 import { graphql } from '@octokit/graphql'
 
-// Shared functions for managing projects (memex)
-
-/**
- * The team whose members count as "Docs team" on the review board.
- *
- * Renamed from `docs` to `technical-content`. GraphQL looks teams up by slug, so a rename
- * silently turns the lookup into `null` rather than erroring, which is why the old slug
- * kept "working" right up until it didn't. Numeric team IDs survive renames, but the
- * GraphQL `team` field only accepts a slug, so this has to be updated by hand if the team
- * is renamed again.
- */
+// GraphQL resolves teams by slug, not numeric ID. A rename returns null, so
+// update this by hand if the Docs team is renamed.
 const DOCS_TEAM_SLUG = 'technical-content'
 
 export interface ProjectV2FieldNode {
@@ -106,8 +97,7 @@ export function findSingleSelectID(
   }
 }
 
-// Adds the PRs/issues to the project and returns their project item IDs. An
-// item already on the board keeps its existing ID.
+// Existing project items keep their item IDs instead of creating duplicates.
 export async function addItemsToProject(items: string[], project: string) {
   console.log(`Adding ${items} to project ${project}`)
 
@@ -137,8 +127,6 @@ export async function addItemsToProject(items: string[], project: string) {
     },
   })
 
-  // The mutation returns {"item_0":{"item":{"id":ID!}},...}.
-
   const newItemIDs = Object.entries(newItems).map((item) => item[1].item.id)
 
   return newItemIDs
@@ -153,8 +141,7 @@ export async function addItemToProject(item: string, project: string) {
 }
 
 export async function isDocsTeamMember(login: string) {
-  // docs-bot and copilot bypass the check so their PRs are treated as though a
-  // docs team member opened them.
+  // docs-bot and copilot count as Docs team members without GraphQL lookup.
   if (login === 'docs-bot' || login === 'copilot') {
     return true
   }
@@ -180,10 +167,7 @@ export async function isDocsTeamMember(login: string) {
     },
   )
 
-  // `team` is null when the slug no longer resolves, which is what a rename looks like from
-  // here. Dereferencing it threw and killed the whole job *after* the PR had already been
-  // added to the board, leaving an item with no fields populated. Fall through to the
-  // hubber fallback instead so the board stays usable, and say why.
+  // A renamed team returns null, so fall back instead of leaving the project item unpopulated.
   const team = data.organization.team
   if (!team) {
     console.warn(
@@ -224,9 +208,9 @@ export function formatDateForProject(date: Date) {
   return date.toISOString()
 }
 
-// `turnaround` days from `datePosted`, plus two days if posted on a Thursday
-// or Friday and one if posted on a Saturday. With the default turnaround of 2
-// that lands on a weekday; a larger turnaround can still land on a weekend.
+// Due dates add turnaround days, plus two days from Thursday or Friday and one
+// from Saturday. With the default turnaround of 2, that lands on a weekday.
+// Larger turnaround values can still land on a weekend.
 // Holidays are not considered.
 export function calculateDueDate(datePosted: Date, turnaround = 2) {
   let daysUntilDue
@@ -248,11 +232,8 @@ export function calculateDueDate(datePosted: Date, turnaround = 2) {
   return dueDate
 }
 
-// A GraphQL mutation that populates these fields on one project item:
-//   - "Status", "Contributor type" and "Size", passed as request variables
-//   - "Date posted", today
-//   - "Review due date", see calculateDueDate
-//   - "Feature" and "Contributor"
+// This mutation populates status, contributor type, size, date posted, review
+// due date, feature, and contributor on one project item.
 export function generateUpdateProjectV2ItemFieldMutation({
   item,
   author,
@@ -267,8 +248,7 @@ export function generateUpdateProjectV2ItemFieldMutation({
   const datePosted = new Date()
   const dueDate = calculateDueDate(datePosted, turnaround)
 
-  // Builds the mutation for a single field. literal=true means the value is a
-  // string rather than a variable reference.
+  // Literal values write strings directly instead of variable references.
   function generateMutationToUpdateField({
     item: itemId,
     fieldID,
@@ -284,8 +264,7 @@ export function generateUpdateProjectV2ItemFieldMutation({
   }) {
     const parsedValue = literal ? `${fieldType}: "${value}"` : `${fieldType}: ${value}`
 
-    // Anything outside [a-z0-9] in the mutation ID is a GraphQL parse error,
-    // so strip it. The result is still unique in practice.
+    // GraphQL mutation IDs reject characters outside a-z0-9, so strip them.
     return `
       set_${fieldID.slice(1)}_item_${itemId.replaceAll(
         /[^a-z0-9]/g,
@@ -369,7 +348,6 @@ export function generateUpdateProjectV2ItemFieldMutation({
   return mutation
 }
 
-// Guesses the affected docs sets from the files the PR changed.
 export function getFeature(data: ItemData) {
   if (data.item.__typename !== 'PullRequest') {
     return ''
@@ -377,9 +355,7 @@ export function getFeature(data: ItemData) {
 
   const paths = data.item.files.nodes.map((node) => node.path)
 
-  // For docs, docs-internal and docs-early-access, take the docs sets from the
-  // directories under `content/` that changed. Changes to data files are
-  // ignored.
+  // Docs repos derive docs sets from changed content directories and ignore data files.
   if (
     process.env.REPO === 'github/docs-internal' ||
     process.env.REPO === 'github/docs' ||
@@ -429,7 +405,6 @@ export function getFeature(data: ItemData) {
   return ''
 }
 
-// Guesses the size of an item.
 export function getSize(data: ItemData) {
   // An issue has no files to measure, so guess small.
   if (data.item.__typename !== 'PullRequest') {

@@ -22,7 +22,7 @@ export function formatErrors(errors: ErrorObject[], body: unknown) {
     created: new Date().toISOString(),
     raw: makeString(body),
 
-    // We convert to snake_case because dealing with case in SQL is unfortunate.
+    // snake_case avoids quoted mixed-case column names in SQL.
     ...Object.fromEntries(
       Object.entries(pick(error, errorKeys)).map(([key, value]) => [
         snakeCase(key),

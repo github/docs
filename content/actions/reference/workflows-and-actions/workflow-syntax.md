@@ -313,6 +313,10 @@ A boolean specifying whether the secret must be supplied.
 
 {% data reusables.actions.workflows.section-specifying-branches %}
 
+## `on.workflow_run.workflows`
+
+{% data reusables.actions.workflows.section-specifying-workflows %}
+
 ## `on.workflow_dispatch`
 
 {% data reusables.actions.workflow-dispatch %}
@@ -1639,7 +1643,7 @@ Allowed expression contexts: `github`, `needs`, and `secrets`.
 
 ## Filter pattern cheat sheet
 
-You can use special characters in path, branch, and tag filters.
+You can use special characters in path, branch, tag, and workflow name filters.
 
 * `*`: Matches zero or more characters, but does not match the `/` character. For example, `Octo*` matches `Octocat`.
 * `**`: Matches zero or more of any character.

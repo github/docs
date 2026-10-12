@@ -49,24 +49,9 @@ When the rubber duck agent is consulted, it:
 
 The rubber duck agent has read-only access to your codebase via the standard exploration tools. It cannot edit files or run commands that change your environment.
 
-## When {% data variables.product.prodname_copilot_short %} consults the rubber duck agent
-
-When the rubber duck agent is enabled, {% data variables.product.prodname_copilot_short %} is instructed to consult it at high-leverage moments rather than only when stuck. Typical situations include:
-
-* **After planning a non-trivial change, but before implementing it.** This is the highest-leverage moment to catch design flaws, while course corrections are still cheap.
-* **Mid-implementation,** to check for blind spots in a complex piece of work.
-* **After writing tests,** to validate that test coverage is comprehensive and that the behavior actually satisfies your original request.
-* **Reactively, when {% data variables.product.prodname_copilot_short %} hits repeated failures or unexpected results,** to get an independent analysis of the problem rather than retrying the same approach.
-
-For small, well-understood changes {% data variables.product.prodname_copilot_short %} typically skips the rubber duck agent.
-
-When {% data variables.product.prodname_copilot_short %} consults the rubber duck agent, it summarizes the resulting critique for you in the timeline output rather than repeating it verbatim—for example, "The critique pointed out a blind spot in my plan around X, so I updated my plan to address that."
-
 ## Manually invoking the rubber duck agent
 
-Typically {% data variables.copilot.copilot_cli_short %} consults the rubber duck agent automatically. You don't need to do anything. The timeline output shows when the main agent is getting a rubber duck critique. However, sometimes the CLI will not use the rubber duck agent. For example, it may decide that the changes are not extensive enough to warrant a critique.
-
-You can use a natural language prompt to explicitly ask {% data variables.product.prodname_copilot_short %} to get a second opinion. For example, after asking {% data variables.product.prodname_copilot_short %} to produce a plan of work, you could enter a prompt such as:
+By default, the rubber duck agent is not automatically invoked. You need to explicitly ask {% data variables.product.prodname_copilot_short %} for a critique each time you want one. For example, after asking {% data variables.product.prodname_copilot_short %} to produce a plan of work, you could enter a prompt such as:
 
 ```copilot
 Rubber duck your plan.
@@ -84,6 +69,40 @@ You can also invoke the rubber duck agent with a slash command:
 /rubber-duck What edge cases are missing?
 ```
 
+## Auto-invoking the rubber duck agent
+
+If you want {% data variables.product.prodname_copilot_short %} to proactively consult the rubber duck agent without being asked, you can turn on auto-invocation for the agent from the `/subagents` picker.
+
+1. In an interactive {% data variables.copilot.copilot_cli_short %} session, enter `/subagents`.
+1. Use the keyboard arrow keys to select the rubber duck agent, then press <kbd>Enter</kbd>.
+1. Select **Proactive invocation** then press <kbd>Enter</kbd> to toggle the setting between off and on.
+1. Use the escape key to exit the `/subagents` picker.
+
+Turning on auto-invocation for the rubber duck agent in this way updates your {% data variables.product.prodname_copilot_short %} settings file (typically `~/.copilot/settings.json`), so that your choice of setting persists for future sessions:
+
+```json
+{
+  "subagents": {
+    "agents": {
+      "rubber-duck": {
+        "autoInvoke": true
+      }
+    }
+  }
+}
+```
+
+When automatic invocation is enabled, {% data variables.product.prodname_copilot_short %} is instructed to consult the rubber duck agent at high-leverage moments rather than only when stuck. Typical situations include:
+
+* **After planning a non-trivial change, but before implementing it.** This is the highest-leverage moment to catch design flaws, while course corrections are still cheap.
+* **Mid-implementation,** to check for blind spots in a complex piece of work.
+* **After writing tests,** to validate that test coverage is comprehensive and that the behavior actually satisfies your original request.
+* **Reactively, when {% data variables.product.prodname_copilot_short %} hits repeated failures or unexpected results,** to get an independent analysis of the problem rather than retrying the same approach.
+
+For small, well-understood changes {% data variables.product.prodname_copilot_short %} typically skips the rubber duck agent.
+
+When {% data variables.product.prodname_copilot_short %} consults the rubber duck agent, it summarizes the resulting critique for you in the timeline output rather than repeating it verbatim—for example, "The critique pointed out a blind spot in my plan around X, so I updated my plan to address that."
+
 ## Benefits of using the rubber duck agent
 
 * **Catches issues early.** Most non-trivial tasks that fail have problems that a critique could have caught at the planning stage. Getting feedback before code is written is preferable to fixing problems later in the process.
@@ -98,3 +117,4 @@ You can also invoke the rubber duck agent with a slash command:
 ## Further reading
 
 * [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-custom-agents#built-in-agents)
+

@@ -31,9 +31,7 @@ You can transfer apps from a user or organization to another account. You cannot
 1. Select the {% data variables.product.prodname_github_app %} whose ownership you want to transfer.
 {% data reusables.user-settings.github_apps_advanced %}
 1. Click **Transfer ownership**.
-1. Under "New owner's {% data variables.product.prodname_dotcom %} {% ifversion fpt or enterprise-apps-public-beta %}username, organization, or enterprise name",{% else %}username or organization name",{% endif %} type the name of the account you want to transfer the {% data variables.product.prodname_github_app %} to.
-{%- ifversion fpt or enterprise-apps-public-beta %}
+1. Under "New owner's {% data variables.product.prodname_dotcom %} username, organization, or enterprise name", type the name of the account you want to transfer the {% data variables.product.prodname_github_app %} to.
 1. Select the account from the dropdown that you wish to transfer to. Be aware that enterprises and organizations can have the same name, so check that you are transferring to the correct account type.
 1. If transferring the app would uninstall it from your account, a warning will appear.
-{%- endif %}
 1. Click **Transfer this {% data variables.product.prodname_github_app %}**.

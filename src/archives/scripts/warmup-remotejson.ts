@@ -1,20 +1,7 @@
-// [start-readme]
-//
-// This calls a function directly that is used by our archived enterprise
-// middleware. Namely, the `getRemoteJSON` function. That function is
-// able to use the disk to cache responses quite aggressively. So when
-// it's been run once, with the same disk, next time it can draw from disk
-// rather than having to rely on network.
-//
-// We have this script to avoid excessive network fetches in production
-// where, due to production deploys restarting new Node services, we
-// can't rely on in-memory caching often enough.
-//
-// The list of URLs hardcoded in here is based on analyzing the URLs that
-// were logged as tags in Datadog for entries that couldn't rely on
-// in-memory cache.
-//
-// [end-readme]
+// Warms getRemoteJSON's disk cache for archived redirects.json files.
+// Production deploys restart Node services often enough that in-memory cache misses repeat.
+// Production reuses these entries only when it starts from the same warmed cache directory.
+// URLs come from Datadog tags for redirects.json requests that missed the in-memory cache.
 
 import { program } from 'commander'
 import semver, { SemVer } from 'semver'

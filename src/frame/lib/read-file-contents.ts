@@ -3,7 +3,7 @@ import fs from 'fs/promises'
 import encodeBracketedParentheses from './encode-bracketed-parentheses'
 import fm from './frontmatter'
 
-// Only cache on production so content folks still see changes faster on local dev
+// Local development skips caching so content changes appear immediately.
 const fmCache =
   process.env.NODE_ENV === 'production' ? new Map<string, ReturnType<typeof fm>>() : null
 

@@ -9,6 +9,8 @@ contentType: tutorials
 category:
   - Roll Copilot out at scale
   - Manage Copilot for a team
+docsTeamMetrics:
+  - ai-governance
 ---
 
 The {% data variables.copilot.github_copilot_app %} is a desktop application for directing agents, reviewing changes, and managing pull requests across parallel workstreams.

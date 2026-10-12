@@ -62,29 +62,15 @@ If you're using a dedicated block device as your backup target, you need to init
 
     >[!WARNING] This command will permanently erase all data on the specified device. Double-check the device name and back up any important data before proceeding.
 
-    {% ifversion ghes > 3.17 %}
-
     ```shell
     ghe-storage-init-backup /dev/YOUR_DEVICE_NAME
     ```
-
-    {% else %}
-
-    ```shell
-    /usr/local/share/enterprise/ghe-storage-init-backup /dev/YOUR_DEVICE_NAME
-    ```
-
-    {% endif %}
 
     This command:
     * Formats the device (erases all data).
     * Prepares it for use by the backup service.
     * Sets it to mount automatically at `/data/backup` on boot.{% ifversion ghes > 3.19 %}
     * If in a clustered environment, configures the node in `cluster.conf` with the `backup-server` role.{% endif %}
-
-    {% ifversion ghes = 3.17 %}
-    From {% data variables.product.prodname_ghe_server %} 3.17.4 onward, the script is installed in PATH so you can run it directly using: `ghe-storage-init-backup /dev/YOUR_DEVICE_NAME`.
-    {% endif %}
 
 #### Detach a backup disk
 

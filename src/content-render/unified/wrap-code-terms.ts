@@ -2,15 +2,8 @@ import type { Root, Element, Text, ElementContent, Parents } from 'hast'
 import { visitParents } from 'unist-util-visit-parents'
 import type { Transformer } from 'unified'
 
-// This plugin improves table rendering on reference pages by inserting a <wbr>
-// element into code terms that use camelcase, slashes, or underscores, inspired
-// by http://heap.ch/blog/2016/01/19/camelwrap/
-//
-// It runs server-side on the HTML AST so the break opportunities are present in
-// the rendered markup (both the HTML string and the hast that React renders),
-// rather than being mutated into the DOM imperatively on the client after
-// hydration. It only applies to `<code>` inside a `<table>`, matching the
-// previous client-side selector `#article-contents table code`.
+// Insert wbr elements into long code terms inside any table so columns can wrap.
+// This runs on the HTML AST, so both the HTML string and React output get the breaks.
 
 const wordsLongerThan18Chars = /[\S]{18,}/g
 const camelCaseChars = /([a-z])([A-Z])/g
@@ -23,25 +16,21 @@ const WBR = '\u0000'
 function withBreakOpportunities(value: string): string {
   return value.replace(wordsLongerThan18Chars, (str) =>
     str
-      // GraphQL code terms use camelcase
+      // GraphQL code terms break between camelCase words.
       .replace(camelCaseChars, `$1${WBR}$2`)
-      // REST code terms use underscores. To keep word breaks looking nice, only
-      // break on underscores after the 12th char so `has_organization_projects`
-      // breaks after `has_organization` instead of after `has_`.
+      // REST terms break on later underscores, so has_organization_projects stays readable.
       .replace(underscoresAfter12thChar, `$1_${WBR}`)
-      // Some Actions reference pages have tables with code terms separated by slashes.
+      // Actions terms can break after slashes.
       .replace(slashChars, `$1${WBR}`),
   )
 }
 
-// A fresh <wbr> element per insertion, so inserted nodes never share the same
-// `properties`/`children` object references (which could be mutated later).
+// Each insertion needs a fresh wbr element because HAST objects are mutable.
 function createWbrElement(): Element {
   return { type: 'element', tagName: 'wbr', properties: {}, children: [] }
 }
 
-// Replace a text node's value with a sequence of text nodes interleaved with
-// <wbr> elements at each break opportunity. Returns null when nothing changed.
+// Split one text node into text and wbr nodes. Return null when nothing changed.
 function splitTextNode(node: Text): ElementContent[] | null {
   const replaced = withBreakOpportunities(node.value)
   if (!replaced.includes(WBR)) return null
@@ -55,9 +44,7 @@ function splitTextNode(node: Text): ElementContent[] | null {
   return out
 }
 
-// Walk every descendant text node of `code`, inserting <wbr> elements in place.
-// This naturally handles the case where the code term's text lives inside a
-// child anchor element.
+// Walk descendant text nodes, so code terms inside child anchors get word breaks too.
 function insertWordBreaks(code: Element): void {
   const transform = (parent: Element): void => {
     const next: ElementContent[] = []

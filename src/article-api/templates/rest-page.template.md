@@ -85,8 +85,9 @@
 curl -L \
   -X {{ operation.verb | upcase }} \
   {{ example.request.url }}{% if example.request.acceptHeader and example.request.acceptHeader != 'application/vnd.github+json' and example.request.acceptHeader != 'application/vnd.github.v3+json' %} \
-  -H "Accept: {{ example.request.acceptHeader }}"{% endif %}{% if example.request.bodyParameters %} \
-  -d '{{ example.request.bodyParameters }}'{% endif %}
+  -H "Accept: {{ example.request.acceptHeader }}"{% endif %}{% if example.request.needsContentTypeHeader %} \
+  -H "Content-Type: {{ example.request.contentType }}"{% endif %}{% if example.request.bodyParameters.size > 0 %}{% for bodyParameter in example.request.bodyParameters %} \
+  {{ bodyParameter }}{% endfor %}{% endif %}
 ```
 
 **Response schema (Status: {{ example.response.statusCode }}):**

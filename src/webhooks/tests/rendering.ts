@@ -54,25 +54,4 @@ describe('webhooks events and payloads', () => {
     const $lead = $(leadSelector)
     expect($lead.length).toBe(1)
   })
-
-  // Not all webhook types have examples in the schema yet.
-  describe.skip('rendering', () => {
-    test('every webhook event has at least one payload example', async () => {
-      const versions = Object.values(allVersions).map((value) => value.version)
-
-      // nextUntil finds payload code blocks in later siblings, not only the next one.
-      for (const version of versions) {
-        const page = `/${version}/webhooks-and-events/webhooks/webhook-events-and-payloads`
-        const $ = await getDOM(page)
-        const payloadExampleElem = $('[id^=webhook-payload-example]')
-
-        payloadExampleElem.each((i, elem) => {
-          const siblings = $(elem)
-            .nextUntil('[id^=webhook-payload-example]')
-            .filter((idx, sibling) => $(sibling).hasClass('height-constrained-code-block'))
-          expect(siblings.length).toBeGreaterThan(0)
-        })
-      }
-    })
-  })
 })

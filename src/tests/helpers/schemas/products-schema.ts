@@ -15,19 +15,19 @@ export default {
     href: {
       description: 'the href to the product landing page',
       type: 'string',
-      pattern: '^(/|http)', // if internal, must start with a slash; if external, must start with http
+      pattern: '^(/|http)', // Internal hrefs start with /; external hrefs start with http.
     },
 
     dir: {
       description: 'the local relative path to the product directory',
       type: 'string',
-      pattern: '^content/.*?[^/]$', // must start with content, can't end with a slash
+      pattern: '^content/.*?[^/]$', // Product directories start with content and omit a trailing slash.
     },
 
     toc: {
       description: 'the local relative path to the product toc page',
       type: 'string',
-      pattern: '^content/.*?index.md$', // must start with content and end with index.md
+      pattern: '^content/.*?index.md$', // TOC files start with content and end with index.md.
     },
 
     hasEnterpriseUserVersions: {

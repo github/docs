@@ -1,8 +1,6 @@
 name: Workflow security lint
 
-# **What it does**: Runs zizmor to detect security issues in GitHub Actions workflows.
-# **Why we have it**: To catch injection vulnerabilities and other security misconfigurations before they ship.
-# **Who does it impact**: Docs engineering.
+# Runs zizmor so workflow injection vulnerabilities and security misconfigurations fail CI.
 
 on:
   pull_request:

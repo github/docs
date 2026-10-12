@@ -18,8 +18,7 @@ export async function combinedSearchRoute(req: Request, res: Response) {
     validationErrors: aiValidationErrors,
     searchParams: { query: aiQuery, debug },
   } = getSearchFromRequestParams(req, 'aiSearchAutocomplete', {
-    // Force query to override validation to allow empty string
-    // Because if query is empty, we still return top AI suggestions
+    // force lets empty autocomplete queries return the top AI suggestions.
     query: typeof req.query.query !== 'string' ? '' : req.query.query,
   })
 
@@ -51,7 +50,7 @@ export async function combinedSearchRoute(req: Request, res: Response) {
       debug,
     })
 
-    // If query is empty for general search, we don't include general results
+    // Empty queries skip Elasticsearch and use an empty general-search fallback.
     let generalSearchPromise = {} as Promise<GeneralSearchResponse>
     if (generalQuery !== '') {
       generalSearchPromise = getGeneralSearchResults({
@@ -60,7 +59,6 @@ export async function combinedSearchRoute(req: Request, res: Response) {
           query: generalQuery,
           size: GENERAL_RESULTS_SIZE,
           debug: debug || false,
-          // Keys below are hard-coded and consistent
           sort: 'best',
           aggregate: ['toplevel'],
           autocomplete: false,
@@ -77,8 +75,7 @@ export async function combinedSearchRoute(req: Request, res: Response) {
         meta: {
           found: { value: 0, relation: 'eq' },
           took: { query_msec: 0, total_msec: 0 },
-          // Mirror the requested page size so downstream page-count math
-          // (which divides by meta.size) stays finite for the empty branch.
+          // Use the requested size so page-count math stays finite.
           size: GENERAL_RESULTS_SIZE,
           page: 1,
         },

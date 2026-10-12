@@ -428,7 +428,7 @@ describe('correctTranslatedContentStrings', () => {
     })
 
     test('fixes en-dash in trim modifier', () => {
-      // {%– uses an en dash (U+2013) instead of a hyphen.
+      // U+2013 appears where the Liquid trim hyphen belongs.
       expect(fix('{%– ifversion projects-v1 %}', 'pt')).toBe('{%- ifversion projects-v1 %}')
       expect(fix('{%– endif %}', 'pt')).toBe('{%- endif %}')
     })
@@ -448,6 +448,20 @@ describe('correctTranslatedContentStrings', () => {
       )
       expect(fix('{% dadosvariables.product.github %}', 'pt')).toBe(
         '{% data variables.product.github %}',
+      )
+    })
+
+    test('fixes garbled "de ifversion" tags', () => {
+      expect(
+        fix(
+          '{% codeql-rust-available de ifversion %} A {% mais %} de codeql-rust-public-preview de ifversion B {% endif %}',
+          'pt',
+        ),
+      ).toBe(
+        '{% ifversion codeql-rust-available %} A {% elsif codeql-rust-public-preview %} B {% endif %}',
+      )
+      expect(fix('{% ifversion codeql-rust-available %} A {% endif %}', 'pt')).toBe(
+        '{% ifversion codeql-rust-available %} A {% endif %}',
       )
     })
 
@@ -1124,6 +1138,18 @@ describe('correctTranslatedContentStrings', () => {
     test('fixes sinon → else', () => {
       expect(fix('{% sinon %}', 'fr')).toBe('{% else %}')
       expect(fix('{%- sinon %}', 'fr')).toBe('{%- else %}')
+    })
+
+    test('fixes sinon left behind by tag stripping', () => {
+      expect(fix('{% ifversion fpt %}A{% sinon {% product %}%}B{% endif %}', 'fr')).toBe(
+        '{% ifversion fpt %}A{% else %}B{% endif %}',
+      )
+      expect(fix('{% ifversion fpt %}A{%- sinon {% product %}%}B{% endif %}', 'fr')).toBe(
+        '{% ifversion fpt %}A{%- else %}B{% endif %}',
+      )
+      expect(fix('{% ifversion fpt %}A{% sinon {% référentiel %}%}B{% endif %}', 'fr')).toBe(
+        '{% ifversion fpt %}A{% else %}B{% endif %}',
+      )
     })
 
     test('fixes note de fin → endnote', () => {
@@ -2282,7 +2308,7 @@ intro: |
       fix(content, 'es', english)
       const elapsed = performance.now() - start
 
-      // Generous threshold for CI; an O(n²) regression would be multi-second.
+      // Generous threshold for CI; a quadratic regression would take multiple seconds.
       expect(elapsed).toBeLessThan(500)
     })
 
@@ -2311,7 +2337,7 @@ Para más información, consulta "[AUTOTITLE](/path)".
       }
       const elapsed = performance.now() - start
 
-      // Generous threshold for CI; an O(n²) regression would be multi-second.
+      // Generous threshold for CI; a quadratic regression would take multiple seconds.
       expect(elapsed).toBeLessThan(2000)
     })
 
@@ -2325,7 +2351,7 @@ Para más información, consulta "[AUTOTITLE](/path)".
       const elapsed = performance.now() - start
 
       expect(result).toContain('{% endraw %}')
-      // Generous threshold for CI; catastrophic backtracking would be multi-second.
+      // Generous threshold for CI; catastrophic backtracking would take multiple seconds.
       expect(elapsed).toBeLessThan(2000)
     })
 
@@ -2336,7 +2362,7 @@ Para más información, consulta "[AUTOTITLE](/path)".
       fix(content, 'ru')
       const elapsed = performance.now() - start
 
-      // Generous threshold; regression would be multi-second.
+      // Generous threshold; regression would take multiple seconds.
       expect(elapsed).toBeLessThan(2000)
     })
   })
@@ -2998,6 +3024,32 @@ Para más información, consulta "[AUTOTITLE](/path)".
     })
   })
 
+  describe('universal: strips leftover CAT-tool <cN> placeholder tags', () => {
+    test('strips paired <c0>...</c0> tags around text', () => {
+      expect(fix('Use the <c0>Create an issue</c0> endpoint.', 'es')).toBe(
+        'Use the Create an issue endpoint.',
+      )
+    })
+
+    test('strips self-closing <c0/> and unmatched closing tags', () => {
+      expect(fix('See the note.<c0/> More text.</c1>', 'ja')).toBe('See the note. More text.')
+    })
+
+    test('strips nested and numbered <cN> tags', () => {
+      expect(
+        fix(
+          '<c1>repositorio especificado octocat/Spoon-Knife<c3>.<c4> Reemplace `REPO-NAME`',
+          'es',
+        ),
+      ).toBe('repositorio especificado octocat/Spoon-Knife. Reemplace `REPO-NAME`')
+    })
+
+    test('leaves content without <cN> tags unchanged', () => {
+      const correct = 'Use the Create an issue endpoint.'
+      expect(fix(correct, 'es')).toBe(correct)
+    })
+  })
+
   describe('ja: github-token-scope-descriptions.md per-file fix', () => {
     test('restores the missing endif in the security-events row', () => {
       const broken =
@@ -3325,6 +3377,32 @@ Para más información, consulta "[AUTOTITLE](/path)".
       expect(
         correctTranslatedContentStrings(broken, '', { ...context, relativePath: 'other.md' }),
       ).toBe(broken)
+    })
+  })
+
+  describe('octicon with French guillemets', () => {
+    test('fr: trims padding left by « check » after quote normalization', () => {
+      expect(fix('{% octicon « check » aria-label="Included » %}', 'fr')).toBe(
+        '{% octicon "check" aria-label="Included" %}',
+      )
+      expect(fix('{% octicon « x » aria-label="Non inclus" %}', 'fr')).toBe(
+        '{% octicon "x" aria-label="Non inclus" %}',
+      )
+    })
+
+    test('fr: leaves a correct octicon unchanged', () => {
+      const ok = '{% octicon "check" aria-label="Included" %}'
+      expect(fix(ok, 'fr')).toBe(ok)
+    })
+
+    test('leaves padded values on other attributes unchanged', () => {
+      const custom = '{% octicon "x" data-aria-label=" a " myclass=" b " title=" c " %}'
+      expect(fix(custom, 'fr')).toBe(custom)
+    })
+
+    test('leaves whitespace-only attribute values unchanged', () => {
+      const blank = '{% octicon "x" class=" " width="64" aria-label="Supported" %}'
+      expect(fix(blank, 'fr')).toBe(blank)
     })
   })
 })

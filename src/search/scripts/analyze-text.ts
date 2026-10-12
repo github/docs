@@ -1,6 +1,8 @@
 // Shows how different analyzers tokenize text. Requires an Elasticsearch index.
 // Usage: npm run analyze-text -- -V dotcom -l en "The name of the wind"
 
+import { pathToFileURL } from 'url'
+
 import { Client } from '@elastic/elasticsearch'
 import { Command, Option } from 'commander'
 import chalk from 'chalk'
@@ -45,20 +47,24 @@ program
   .addOption(
     new Option('-l, --language <LANGUAGE>', 'Which language to focus on').choices(languageKeys),
   )
-  .option('--not-language <LANGUAGE>', 'Exclude a specific language')
+  .addOption(
+    new Option('--not-language <LANGUAGE>', 'Exclude a specific language').choices(languageKeys),
+  )
   .option('-u, --elasticsearch-url <url>', 'If different from $ELASTICSEARCH_URL')
   .option('--index-prefix <PREFIX>', 'Prefix for the index name')
   .argument('<text>', 'text to tokenize')
-  .parse(process.argv)
 
-const options = program.opts<Options>()
-const args: string[] = program.args
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  program.parse(process.argv)
+  const options = program.opts<Options>()
+  const args: string[] = program.args
 
-try {
-  await main(options, args)
-} catch (err) {
-  console.error(chalk.red('Error:'), err)
-  process.exit(1)
+  try {
+    await main(options, args)
+  } catch (err) {
+    console.error(chalk.red('Error:'), err)
+    process.exit(1)
+  }
 }
 
 async function main(opts: Options, textArgs: string[]): Promise<void> {
@@ -84,11 +90,8 @@ async function main(opts: Options, textArgs: string[]): Promise<void> {
     return
   }
 
-  const { verbose, language, notLanguage } = opts
-
-  if (language && notLanguage) {
-    throw new Error("Can't combine --language and --not-language")
-  }
+  const { verbose } = opts
+  const languagesToAnalyze = getLanguagesToAnalyze(opts)
 
   if (verbose) {
     console.log(`Connecting to ${chalk.bold(safeUrlDisplay(node))}`)
@@ -102,17 +105,37 @@ async function main(opts: Options, textArgs: string[]): Promise<void> {
   if (verbose) {
     console.log(`Analyzing on version ${chalk.bold(versionKey)}`)
   }
-  const languageKey = opts.language || 'en'
   if (verbose) {
-    console.log(`Analyzing on language ${chalk.bold(languageKey)}`)
+    console.log(`Analyzing on languages ${chalk.bold(languagesToAnalyze.join(', '))}`)
   }
 
   const { indexPrefix } = opts
   const prefix = indexPrefix ? `${indexPrefix}_` : ''
 
-  const indexName = `${prefix}github-docs-${versionKey}-${languageKey}`
-  console.log(chalk.yellow(`Analyzing in ${chalk.bold(indexName)}`))
-  await analyzeVersion(client, texts, indexName)
+  for (const languageKey of languagesToAnalyze) {
+    const indexName = `${prefix}github-docs-${versionKey}-${languageKey}`
+    console.log(chalk.yellow(`Analyzing in ${chalk.bold(indexName)}`))
+    await analyzeVersion(client, texts, indexName)
+  }
+}
+
+export function getLanguagesToAnalyze({
+  language,
+  notLanguage,
+}: Pick<Options, 'language' | 'notLanguage'>): string[] {
+  if (language && notLanguage) {
+    throw new Error("Can't combine --language and --not-language")
+  }
+
+  if (language) {
+    return [language]
+  }
+
+  if (notLanguage) {
+    return languageKeys.filter((languageKey) => languageKey !== notLanguage)
+  }
+
+  return ['en']
 }
 
 function safeUrlDisplay(url: string): string {

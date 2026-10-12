@@ -5,9 +5,7 @@ import { createLogger } from '@/observability/logger'
 
 const logger = createLogger(import.meta.url)
 
-// Validates client_name and sends analytics for external requests. Returns null
-// when the request should continue, or an error response object when validation
-// failed.
+// Return null to continue; return an error object when client_name validation fails.
 export async function handleExternalSearchAnalytics(
   req: ExtendedRequest,
   searchContext: string,
@@ -19,31 +17,28 @@ export async function handleExternalSearchAnalytics(
 
   let client_name = req.query.client_name || req.body?.client_name
 
-  // Rule 1: Skip analytics for browser requests from our own frontend
+  // Skip analytics for docs.github.com frontend browser requests.
   if (!isLikelyExternalAPI && client_name === 'docs.github.com-client') {
     return null
   }
 
-  // Rule 2: Send analytics for any request with a client_name that's not 'docs.github.com-client'
-  // (This includes partner APIs and other external clients)
+  // Partner APIs and other external clients send analytics with their client_name.
   if (client_name && client_name !== 'docs.github.com-client') {
-    // Analytics will be sent at the end of this function
-  }
-  // Rule 3: For requests without client_name, require it for external API requests
-  else if (!client_name) {
+    // Later code sends analytics for external client_name values.
+  } else if (!client_name) {
     if (isLikelyExternalAPI) {
       return {
         status: 400,
         error: "Missing required parameter 'client_name' for external requests",
       }
     }
-    // For browser requests without client_name to internal environments, skip analytics
+    // Internal browser hosts without client_name skip analytics.
     else if (normalizedHost.endsWith('.github.net') || normalizedHost.endsWith('.githubapp.com')) {
       return null
     }
   }
 
-  // For localhost, ensure we have a client_name for analytics
+  // localhost gets a synthetic client_name so analytics records a client identifier.
   if (normalizedHost === 'localhost' && !client_name) {
     client_name = 'localhost'
   }
@@ -95,7 +90,6 @@ export async function handleExternalSearchAnalytics(
 function sanitizeUserAgent(userAgent: string | undefined): string {
   if (!userAgent) return 'unknown'
 
-  // Extract common client types while removing version numbers and detailed info
   const patterns = [
     { regex: /^curl/i, name: 'curl' },
     { regex: /^wget/i, name: 'wget' },
@@ -135,20 +129,18 @@ function isExternalAPIRequest(req: ExtendedRequest): boolean {
   const prefersJson =
     acceptHeader.includes('application/json') && !acceptHeader.includes('text/html')
 
-  // Common API user agents (not exhaustive, but catches common cases)
+  // Common API user agents cover common cases, not every client.
   const userAgent = headers['user-agent'] || ''
   const hasAPIUserAgent = userAgentRegex.test(userAgent)
 
-  // If it has browser-specific headers, it's likely a browser
   if (hasSecFetchHeaders || hasClientHints) {
     return false
   }
 
-  // If it prefers JSON or has a common API user agent, it's likely an API
   if (prefersJson || hasAPIUserAgent) {
     return true
   }
 
-  // Default to treating it as a browser request to be conservative
+  // Ambiguous requests default to browser handling to avoid false external-client errors.
   return false
 }

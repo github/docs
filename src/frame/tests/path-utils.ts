@@ -31,7 +31,7 @@ describe('getProductStringFromPath', () => {
   })
 
   test('extracts product from versioned paths', () => {
-    // Note: These tests use free-pro-team which is a supported version
+    // free-pro-team@latest is a supported version for these paths.
     expect(getProductStringFromPath('/en/free-pro-team@latest/admin/installation')).toBe('admin')
     expect(getProductStringFromPath('/free-pro-team@latest/actions/quickstart')).toBe('actions')
     expect(getProductStringFromPath('/en/free-pro-team@latest/github/getting-started')).toBe(
@@ -40,7 +40,7 @@ describe('getProductStringFromPath', () => {
   })
 
   test('handles enterprise landing pages (version without product)', () => {
-    // When a version is present but no product segment follows, return the version string
+    // A version without a product segment resolves to the version string.
     expect(getProductStringFromPath('/en/free-pro-team@latest')).toBe('free-pro-team@latest')
     expect(getProductStringFromPath('/enterprise-server@latest')).toBe('enterprise-server@latest')
   })
