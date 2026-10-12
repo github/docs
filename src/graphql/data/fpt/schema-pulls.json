@@ -2046,7 +2046,7 @@
       "name": "CopilotCodeReviewParameters",
       "id": "copilotcodereviewparameters",
       "href": "/graphql/reference/pulls#object-copilotcodereviewparameters",
-      "description": "<p>Request Copilot code review for new pull requests automatically if the author\nhas access to Copilot code review and their premium requests quota has not\nreached the limit.</p>",
+      "description": "<p>Request Copilot code review for new pull requests automatically if the author\nhas access to Copilot code review and AI credits.</p>",
       "isDeprecated": false,
       "fields": [
         {
@@ -9879,7 +9879,7 @@
       "name": "CopilotCodeReviewParametersInput",
       "id": "copilotcodereviewparametersinput",
       "href": "/graphql/reference/pulls#input-object-copilotcodereviewparametersinput",
-      "description": "<p>Request Copilot code review for new pull requests automatically if the author\nhas access to Copilot code review and their premium requests quota has not\nreached the limit.</p>",
+      "description": "<p>Request Copilot code review for new pull requests automatically if the author\nhas access to Copilot code review and AI credits.</p>",
       "isDeprecated": false,
       "inputFields": [
         {
