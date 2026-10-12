@@ -50,7 +50,7 @@ Anthropic models include a cache write cost in addition to cached input.
 | Model | Release status | Category | Tier | Threshold (input tokens) | Input | Cached input | Cache write | Output |
 | --- | --- | --- | --- | --- | ---: | ---: | ---: | ---: |
 | {% for entry in tables.copilot.models-and-pricing %}{% if entry.provider == "anthropic" %} |
-| {{ entry.model }} | {{ entry.release_status }} | {{ entry.category }} | {% if entry.tier %}{{ entry.tier }}{% else %}Default{% endif %} | {% if entry.threshold %}{{ entry.threshold }}{% else %}Not applicable{% endif %} | {{ entry.input }} | {{ entry.cached_input }} | {{ entry.cache_write }} | {{ entry.output }} |
+| {{ entry.model }} | {{ entry.release_status }} | {{ entry.category }} | {% if entry.tier %}{{ entry.tier }}{% else %}Default{% endif %} | {% if entry.threshold %}{{ entry.threshold | replace: '>', '&gt;' }}{% else %}Not applicable{% endif %} | {{ entry.input }} | {{ entry.cached_input }} | {{ entry.cache_write }} | {{ entry.output }} |
 | {% endif %}{% endfor %} |
 
 ### Google
