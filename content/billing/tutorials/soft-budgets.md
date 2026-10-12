@@ -43,6 +43,6 @@ When creating the budget, leave **Stop usage when budget limit is reached** unch
 
 ## 3. Review and adjust your budget
 
-After setting a soft budget, it's important to regularly monitor your spending to ensure it aligns with your budget goals. You can view your budgets at the top of the "Budgets and alerts" page.
+After setting a soft budget, it's important to regularly monitor your spending to ensure it aligns with your budget goals. You can view your budgets on the "Budgets and alerts" page.
 
 After a billing cycle, review your budget alerts and adjust the budget amount if needed. As you gain confidence in your spending patterns, you can decide whether any products require stricter controls. If so, edit the budget and enable the **Stop usage when budget limit is reached** option to convert it to a hard budget.

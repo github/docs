@@ -30,8 +30,14 @@ jobs:
           echo "Got a list of Fastly IP addresses: $ips"
 
           echo "Updating the list of allowed IPs in Moda config..."
-          yq -i ".metadata.annotations[\"moda.github.net/allowed-ips\"] = \"$ips\"" \
+          # Update the Kustomize source and the generated file together.
+          # The moda-linter check fails if they don't match.
+          for file in \
+            config/kustomize/overlays/production/services/webapp.yaml \
             config/kubernetes/production/services/webapp.yaml
+          do
+            yq -i ".metadata.annotations[\"moda.github.net/allowed-ips\"] = \"$ips\"" "$file"
+          done
           echo "Updated the list of allowed IPs in Moda config"
 
           echo "Checking if there is a change to make..."
