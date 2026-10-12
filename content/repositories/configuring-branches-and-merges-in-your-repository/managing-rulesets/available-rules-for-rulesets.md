@@ -281,6 +281,8 @@ If the workflow file is in an internal or private repository and you want to use
 
 When you add this rule to a ruleset, in your organization settings, you specify the source repository and the workflow you want to enforce.
 
+Ruleset workflows can't use most {% data variables.product.prodname_codeql %} actions, such as `github/codeql-action/init` and `github/codeql-action/analyze`; the only exception is `github/codeql-action/upload-sarif`. See [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/troubleshooting-rules#using-codeql-in-a-ruleset-workflow).
+
 ### Using "Evaluate" mode for ruleset workflows
 
 If a ruleset workflow runs in "Evaluate" mode and passes, you can set the ruleset workflow to "Active" mode and merge your pull request without triggering a new workflow run.
