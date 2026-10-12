@@ -1,6 +1,6 @@
 ---
 title: Archive pull requests
-intro: Repository administrators can archive a pull request to remove it from public view, providing a moderation option between leaving a pull request up and permanently deleting it.
+intro: Archiving a pull request removes it from public view without permanently deleting it.
 versions:
   feature: archive-pull-requests
 category:
@@ -8,19 +8,36 @@ category:
 redirect_from:
   - /communities/moderating-comments-and-conversations/archiving-pull-requests
 contentType: other
-permissions: Repository administrators
+permissions: '{% ifversion triage-archive-pull-requests %}People with triage access or higher to a repository{% else %}Repository administrators{% endif %}'
 ---
 
 ## About archiving pull requests
 
-Archiving a pull request removes it from public view while preserving its history for repository administrators. This provides a safer moderation path when they need to take a pull request out of public view without permanently deleting it.
+Archiving a pull request removes it from public view while preserving its history for {% ifversion triage-archive-pull-requests %}people with triage access or higher to the repository{% else %}repository administrators{% endif %}. This provides a safer moderation path when they need to take a pull request out of public view without permanently deleting it.
+
+{% ifversion triage-archive-pull-requests %}
+
+Anyone with the triage, write, maintain, or admin role in a repository can archive, unarchive, and view archived pull requests.
+
+{% endif %}
 
 When a pull request is archived:
+
+{% ifversion triage-archive-pull-requests %}
+
+* The pull request is only visible to people with triage access or higher to the repository. Visitors without this access receive a 404 error.
+* The pull request is automatically closed and its conversation becomes read-only. New comments, reactions, and automated comments are blocked, including comments from repository administrators.
+
+When you unarchive a pull request, it becomes visible again and people can comment and react again, but it remains closed. You can reopen it separately if needed.
+
+{% else %}
 
 * The pull request is only visible to repository administrators. Visitors without administrator access to the repository receive a 404 error.
 * The pull request is automatically closed and locked.
 
 When you unarchive a pull request, it becomes visible again, but it remains closed and locked. You can reopen and unlock it separately if needed.
+
+{% endif %}
 
 ## Archiving a pull request
 
@@ -32,7 +49,7 @@ When you unarchive a pull request, it becomes visible again, but it remains clos
 
 ## Unarchiving a pull request
 
-You can find the PR by using the `is:archived` qualifier. See, [AUTOTITLE](/search-github/searching-on-github/searching-issues-and-pull-requests#search-based-on-whether-a-pull-request-is-archived).
+You can find archived pull requests by using the `is:archived` qualifier. See [AUTOTITLE](/search-github/searching-on-github/searching-issues-and-pull-requests#search-based-on-whether-a-pull-request-is-archived).
 
 1. Open the pull request you want to unarchive.
 1. In the right sidebar, click **{% octicon "archive" aria-hidden="true" aria-label="unarchive" %} Unarchive pull request**.

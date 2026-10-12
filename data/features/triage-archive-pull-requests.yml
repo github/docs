@@ -1,0 +1,5 @@
+# Reference: https://github.blog/changelog/2026-10-08-triage-role-users-or-higher-can-now-archive-pull-requests/
+# Expanded permissions and read-only conversations for archived pull requests
+versions:
+  fpt: '*'
+  ghec: '*'
