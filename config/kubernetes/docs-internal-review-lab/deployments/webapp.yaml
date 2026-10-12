@@ -1,0 +1,75 @@
+# This file was generated with Kustomize. Please do not edit manually.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    moda.github.net/inject-unified-service-tag-env-var: docs-internal
+  name: webapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: webapp
+  template:
+    metadata:
+      annotations:
+        ad.datadoghq.com/tolerate-unready: 'true'
+        ad.datadoghq.com/webapp.logs: '[{"source":"nodejs","service":"docs-internal","tags":["env:docs-internal-review-lab"]}]'
+        fluentbit.io/parser: logfmt_sloppy
+        observability.github.com/splunk_index: docs-internal
+      labels:
+        app: webapp
+    spec:
+      containers:
+        - env:
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: POD_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+          envFrom:
+            - secretRef:
+                name: vault-secrets
+            - configMapRef:
+                name: kube-cluster-metadata
+            - configMapRef:
+                name: application-config
+          image: docs-internal
+          lifecycle:
+            preStop:
+              exec:
+                command:
+                  - sleep
+                  - '5'
+          name: webapp
+          ports:
+            - containerPort: 4000
+              name: http
+              protocol: TCP
+          readinessProbe:
+            failureThreshold: 5
+            httpGet:
+              path: /healthcheck
+              port: http
+            periodSeconds: 10
+            timeoutSeconds: 5
+          resources:
+            limits:
+              cpu: 5460m
+              memory: 3764Mi
+            requests:
+              cpu: 150m
+              memory: 2070Mi
+          startupProbe:
+            failureThreshold: 30
+            httpGet:
+              path: /healthcheck
+              port: http
+            initialDelaySeconds: 30
+            periodSeconds: 5
+            timeoutSeconds: 5
+      dnsPolicy: Default
+      terminationGracePeriodSeconds: 60

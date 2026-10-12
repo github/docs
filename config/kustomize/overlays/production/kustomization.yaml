@@ -1,0 +1,10 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - ../../base
+
+# Each patch file merges into the matching base resource by kind and name.
+patches:
+  - path: deployments/webapp.yaml
+  - path: services/webapp.yaml
