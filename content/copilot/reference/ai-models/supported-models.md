@@ -199,8 +199,6 @@ Access to evaluation models in {% data variables.copilot.copilot_auto_model_sele
 
 Utility models power background features across surfaces, and cannot be disabled or selected in the model picker. See [AUTOTITLE](/copilot/concepts/models/utility-models).
 
-{% data reusables.copilot.utility-models %}
-
 ## Models eligible for default enablement
 
 {% data reusables.copilot.model-autoenablement %}

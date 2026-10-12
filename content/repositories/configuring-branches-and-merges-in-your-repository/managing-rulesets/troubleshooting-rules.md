@@ -64,6 +64,16 @@ For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/e
 
 Ruleset workflows do not run on events triggered by the `GITHUB_TOKEN`. For more information, see [AUTOTITLE](/actions/tutorials/authenticate-with-github_token#using-the-github_token-in-a-workflow).
 
+### Using {% data variables.product.prodname_codeql %} in a ruleset workflow
+
+Ruleset workflows can't use the {% data variables.product.prodname_codeql %} actions, except `github/codeql-action/upload-sarif`. This also applies to {% data variables.product.prodname_codeql %} actions in a reusable workflow that the ruleset workflow calls. If a ruleset workflow uses them, the workflow run fails to start with an error such as:
+
+```text
+The following actions are not allowed to be used inside a required workflow: {% data reusables.actions.action-codeql-action-analyze %}, {% data reusables.actions.action-codeql-action-init %}
+```
+
+To run {% data variables.product.prodname_code_scanning %} with {% data variables.product.prodname_codeql %} across many repositories, use default setup, or add an advanced setup workflow to each repository. To block pull requests until {% data variables.product.prodname_code_scanning %} results are available, use the "Require {% data variables.product.prodname_code_scanning %} results" rule instead of a ruleset workflow. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/configure-specific-tools/code-scanning-at-scale), [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/configure-specific-tools/configuring-advanced-setup-for-code-scanning-with-codeql-at-scale), and [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/manage-your-configuration/set-merge-protection).
+
 ### Blocking repository creation
 
 A required workflow can block people from creating a repository, since a workflow can't run against a repository that's being initialized. To get around this, the ruleset either needs to have "Evaluate" as the enforcement status, or someone with bypass permissions needs to create the repository and bypass the branch protection.

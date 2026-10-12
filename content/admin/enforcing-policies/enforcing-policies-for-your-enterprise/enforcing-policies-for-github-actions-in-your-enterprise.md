@@ -94,6 +94,8 @@ When specifying actions{% ifversion actions-workflow-policy %} and reusable work
    * By default, only actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} specified in the list will be allowed. To allow all actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} while also blocking specific actions, use `*, !space-org/action@*`.
 {%- endif %}
 
+{% data reusables.actions.lockfile-allowed-actions-sha %}
+
 Policies never restrict access to local actions on the runner filesystem (where the `uses:` path start with `./`).
 
 ## Runners
