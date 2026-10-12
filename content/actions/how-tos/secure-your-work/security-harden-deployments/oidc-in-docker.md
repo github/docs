@@ -84,33 +84,6 @@ jobs:
 * The `docker/login-action` handles the OIDC token exchange and Docker login in a single step when `DOCKERHUB_OIDC_CONNECTIONID` is set and `password` is omitted.
 * The `username` field should be your Docker organization name.
 
-### Using the token as an output
-
-If your workflow needs the Docker access token as a separate output (for example, for API calls or custom authentication flows), use [`docker/oidc-action`](https://github.com/docker/oidc-action) to perform the token exchange explicitly:
-
-```yaml
-{% data reusables.actions.actions-not-certified-by-github-comment %}
-permissions:
-  id-token: write
-  contents: read
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Get Docker OIDC token
-        id: docker-oidc
-        uses: docker/oidc-action@3f002d200df5620744c973221788e401898c6f86 # v1
-        with:
-          connection_id: YOUR-CONNECTION-ID
-
-      - name: Sign in to Docker Hub
-        uses: docker/login-action@abd2ef45e78c5afb21d64d4ca52ee8550d9572c7 # v4.5.1
-        with:
-          username: YOUR-DOCKER-ORG
-          password: {% raw %}${{ steps.docker-oidc.outputs.token }}{% endraw %}
-```
-
 ### Subject claim matching
 
 Docker evaluates the `sub` claim from the {% data variables.product.prodname_dotcom %} OIDC token against the rulesets you configured. The default subject claim format is:
