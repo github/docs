@@ -8,6 +8,7 @@ versions:
   ghec: '*'
 children:
   - /control-workflow-execution
+  - /enforce-workflow-lockfiles
   - /view-metrics
   - /reuse-namespaces-on-ghecom
 redirect_from:

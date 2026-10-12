@@ -130,33 +130,27 @@ For detailed guidance on deciding whether to use `pull_request_target`, hardenin
 
 The individual jobs in a workflow can interact with (and compromise) other jobs. For example, a job querying the environment variables used by a later job, writing files to a shared directory that a later job processes, or even more directly by interacting with the Docker socket and inspecting other running containers and executing commands in them.
 
-This means that a compromise of a single action within a workflow can be very significant, as that compromised action would have access to all secrets configured on your repository, and may be able to use the `GITHUB_TOKEN` to write to the repository. Consequently, there is significant risk in sourcing actions from third-party repositories on {% data variables.product.prodname_dotcom %}. For information on some of the steps an attacker could take, see [AUTOTITLE](/actions/reference/security/secure-use).
+This means that a compromise of a single action within a workflow can be very significant, as that compromised action would have access to all secrets configured on your repository, and may be able to use the `GITHUB_TOKEN` to write to the repository. Consequently, there is significant risk in sourcing actions from third-party repositories on {% data variables.product.prodname_dotcom %}.
 
-You can help mitigate this risk by following these good practices:
+{% ifversion actions-workflow-lockfiles %}
+
+The best measure is to **lock your workflow dependencies** with a lockfile. This records the exact commit for every action your workflows depend on, including transitive dependencies, and verifies the identity of each source repository at run time. This is the strongest protection available, and supersedes SHA pinning for repositories that adopt it. For more information, see [AUTOTITLE](/actions/concepts/security/workflow-dependency-lockfiles).
+
+For repositories that **cannot** adopt a lockfile, you can:
+
+{% endif %}
 
 * **Pin actions to a full-length commit SHA**
 
-  Pinning an action to a full-length commit SHA is currently the only way to use an action as an immutable release. Pinning to a particular SHA helps mitigate the risk of a bad actor adding a backdoor to the action's repository, as they would need to generate a SHA-1 collision for a valid Git object payload. {% data reusables.actions.actions-pin-commit-sha %}
+  Pin references to actions to a commit SHA in your workflow files. This helps mitigate the risk of a bad actor adding a backdoor to the action's repository, as they would need to generate a SHA-1 collision for a valid Git object payload. {% data reusables.actions.actions-pin-commit-sha %}
 
   For an example of using a full-length commit SHA in a workflow, see [AUTOTITLE](/actions/how-tos/write-workflows/choose-what-workflows-do/find-and-customize-actions#using-shas).
-  
-  {%- ifversion actions-blocklist-sha-pinning %}
-  
-  {% data variables.product.github %} offers policies at the {% ifversion ghec or ghes %}repository, organization, and enterprise{% else %}repository and organization{% endif %} level to require actions to be pinned to a full-length commit SHA:
-    * To configure the policy at the repository level, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#managing-github-actions-permissions-for-your-repository).
-    * To configure the policy at the organization level, see [AUTOTITLE](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#managing-github-actions-permissions-for-your-organization).
-    {%- ifversion ghec or ghes %}
-    * To configure the policy at the enterprise level, see [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#policies).
-    {%- endif %}
-  {%- endif %}
-
-* **Audit the source code of the action**
-
-  Ensure that the action is handling the content of your repository and secrets as expected. For example, check that secrets are not sent to unintended hosts, or are not inadvertently logged.
 
 * **Pin actions to a tag only if you trust the creator**
 
-  Although pinning to a commit SHA is the most secure option, specifying a tag is more convenient and is widely used. If you’d like to specify a tag, then be sure that you trust the action's creators. The ‘Verified creator’ badge on {% data variables.product.prodname_marketplace %} is a useful signal, as it indicates that the action was written by a team whose identity has been verified by {% data variables.product.prodname_dotcom %}. Note that there is risk to this approach even if you trust the author, because a tag can be moved or deleted if a bad actor gains access to the repository storing the action.
+  If you’d like to specify a tag, then be sure that you trust the action's creators. The ‘Verified creator’ badge on {% data variables.product.prodname_marketplace %} is a useful signal, as it indicates that the action was written by a team whose identity has been verified by {% data variables.product.prodname_dotcom %}. Note that there is risk to this approach even if you trust the author, because a tag can be moved or deleted if a bad actor gains access to the repository storing the action.
+
+Regardless of your measures, always **audit the source code of the action**. Ensure that the action is handling the content of your repository and secrets as expected. For example, check that secrets are not sent to unintended hosts, or are not inadvertently logged.
 
 ### Reusing third-party workflows
 
