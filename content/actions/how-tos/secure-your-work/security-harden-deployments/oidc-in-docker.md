@@ -133,4 +133,4 @@ Different workflow triggers produce different subject claims. For example:
 
 You can use wildcard patterns in your rulesets to match multiple repositories or branches. For legacy subject claims, `repo:my-org/*` matches all repositories in the organization. For immutable subject claims, use `repo:my-org@OWNER-ID/*`; if the organization contains repositories using both formats, configure both patterns.
 
-For more information, see [Rulesets and subject claims](https://docs.docker.com/enterprise/security/oidc-connections/rulesets-claims/) in the Docker documentation.
+For more information, see [Rulesets and subject claims](https://docs.docker.com/security/authentication/oidc-connections/rulesets-claims/) in the Docker documentation.
