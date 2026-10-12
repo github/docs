@@ -122,7 +122,7 @@
 - name: Claude Sonnet 5.5
   task_area: General-purpose coding and agent tasks
   excels_at: Efficient task completion with fewer steps, tokens, and tool calls
-  further_reading: 'Coming soon'
+  further_reading: '[Claude Sonnet 5.5 model card](https://www-cdn.anthropic.com/870c8f525702625d2c62fc6dd04c857e3250bec1/Claude%20Sonnet%205.5%20System%20Card.pdf)'
 
 # Google
 - name: Gemini 3.7 Flash
