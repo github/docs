@@ -135,6 +135,11 @@
   excels_at: Fast, reliable answers to lightweight coding questions
   further_reading: '[Gemini 3.8 Flash model card](https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-8-Flash-Model-Card.pdf)'
 
+- name: Gemini 4 Argon
+  task_area: Complex coding, agentic, and reasoning tasks
+  excels_at: Thorough work that tests edge cases before finishing
+  further_reading: '[Gemini 4 Argon](https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-4-Argon-Model-Card.pdf)'
+
 # Microsoft
 - name: MAI-Code-1.1-Flash
   task_area: General-purpose coding and writing, image understanding

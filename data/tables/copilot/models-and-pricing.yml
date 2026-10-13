@@ -406,6 +406,19 @@
   cached_input: $0.075
   output: $3.75
 
+# Promotional pricing expires 2026-12-01. Google hasn't shared post-promo pricing yet.
+# When it does, update input, cached_input, and output below, then remove the
+# [^gemini-4-argon-promo] footnote here and in models-and-pricing.md.
+- model: 'Gemini 4 Argon[^gemini-4-argon-promo]'
+  provider: google
+  release_status: GA
+  category: Powerful
+  threshold: 'Not applicable'
+  tier: 'Default'
+  input: $2.00
+  cached_input: $0.10
+  output: $10.00
+
 # xAI
 - model: 'Grok 4.5'
   provider: xai
