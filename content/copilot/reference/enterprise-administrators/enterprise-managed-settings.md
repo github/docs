@@ -32,9 +32,10 @@ For instructions on creating the file, see [AUTOTITLE](/copilot/how-tos/administ
 | `strictKnownMarketplaces` | Restricts plugin installation to explicitly listed marketplaces | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | `telemetry` | Configures OpenTelemetry export, routing {% data variables.product.prodname_copilot_short %} usage data to a collector of your choice | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} |
 | `remoteControl` | Restricts whether sessions hosted on this device can be remotely controlled, based on the controlling client's SSO authorization status for the listed organizations. Doesn't affect the user's ability to remotely control sessions hosted on other devices | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| `forceRemoteSettingsRefresh` | Requires a fresh server-managed settings fetch on client startup | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
 | `allowedMcpServers` | Defines an allowlist of MCP servers permitted to run. Any server not matched is blocked. Omit to allow all servers, subject to any deny rules | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} |
 | `deniedMcpServers` | Defines MCP servers that are unconditionally blocked, even if they also match an entry in `allowedMcpServers` | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} |
-| `sandbox` | Enforces minimum local sandbox restrictions for command execution, filesystem and network access, credentials, and local MCP and LSP servers | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} (Agent Host, 1.138.0+) | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| `sandbox` | Enforces minimum local sandbox restrictions for command execution, filesystem and network access, credentials, and local MCP and LSP servers. Subject to minimum client version requirements. | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} (Agent Host, 1.138.0+) | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
 
 {% endrowheaders %}
 
@@ -239,11 +240,11 @@ For example, a team settings file can set `"autoTier": "intelligence"`. If the t
 
 ## forceRemoteSettingsRefresh
 
-Requires a fresh download of server-managed settings at startup in {% data variables.copilot.copilot_cli_short %} and {% data variables.product.prodname_vscode_shortname %}. Set `forceRemoteSettingsRefresh` to `true` to enable this requirement.
+Requires a fresh download of server-managed settings at startup in {% data variables.copilot.copilot_cli_short %}, {% data variables.product.prodname_vscode_shortname %}, and the {% data variables.copilot.github_copilot_app %}. Set `forceRemoteSettingsRefresh` to `true` to enable this requirement.
 
-In {% data variables.copilot.copilot_cli_short %}, this skips the normal one-hour cache and prevents fallback to an older cached policy if the download fails. An unsuccessful refresh leaves the policy unconfirmed, so affected operations are restricted. In {% data variables.product.prodname_vscode_shortname %}, {% data variables.product.prodname_copilot_short %} features are blocked until the required refresh succeeds. Users therefore need a network connection when starting the client.
+In {% data variables.copilot.copilot_cli_short %} and the {% data variables.copilot.github_copilot_app %}, this skips the normal one-hour cache and prevents fallback to an older cached policy if the download fails. An unsuccessful refresh leaves the policy unconfirmed, so affected operations are restricted. In {% data variables.product.prodname_vscode_shortname %}, {% data variables.product.prodname_copilot_short %} features are blocked until the required refresh succeeds. Users therefore need a network connection when starting the client.
 
-For the requirement to apply from a device's first startup, deliver it through device management or `{% data variables.copilot.managed_setting_file %}`. A server-delivered value can require refreshes on subsequent startups after the client has received it. Policy helper scripts cannot set this key.
+For the requirement to apply from a device's first startup, deliver it through MDM-managed or file-based settings. A server-managed value can require refreshes on subsequent startups after the client has received it. Policy helper scripts cannot set this key.
 
 In `{% data variables.copilot.managed_setting_file %}`, use a JSON Boolean, for example `"forceRemoteSettingsRefresh": true`. When configuring {% data variables.copilot.copilot_cli_short %} through the Windows registry or macOS managed preferences, store this value as a string containing `true` or `false`. Do not use a DWORD or native Boolean.
 
@@ -458,3 +459,13 @@ In {% data variables.copilot.copilot_cli_short %}, host rules and upstream proxi
 Configures macOS-specific Seatbelt options.
 
 * `keychainAccess`: `false` prevents sandboxed processes from accessing the macOS Keychain.
+
+### Minimum client version enforcement for `sandbox`
+
+When you add the `sandbox` key to managed settings, {% data variables.product.prodname_copilot_short %} enforces a local sandbox for all users in scope. These users must use a {% data variables.product.prodname_copilot_short %} client version that supports local sandbox. Until a user updates their client to at least the minimum supported version, their connections to {% data variables.product.prodname_copilot_short %} are blocked.
+
+| Supported client | Minimum version |
+| --- | --- |
+| VS Code | [1.141.0](https://github.com/microsoft/vscode/releases/tag/1.141.0) |
+| Copilot CLI | [1.0.93](https://github.com/github/copilot-cli/releases/tag/v1.0.93) |
+| GitHub Copilot App | [1.1.26](https://github.com/github/app/releases#release-v1.1.26) |
