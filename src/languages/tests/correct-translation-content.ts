@@ -3405,4 +3405,76 @@ Para más información, consulta "[AUTOTITLE](/path)".
       expect(fix(blank, 'fr')).toBe(blank)
     })
   })
+
+  describe('data keyword glued to variables or reusables', () => {
+    test('es: {% datos.variables. and a stray word between datos and variables', () => {
+      expect(fix('{% datos.variables.product.company_short %}', 'es')).toBe(
+        '{% data variables.product.company_short %}',
+      )
+      expect(fix('un {% datos existente variables.copilot.x %} de su', 'es')).toBe(
+        'un {% data variables.copilot.x %} de su',
+      )
+      const ok = '{% data variables.product.company_short %}'
+      expect(fix(ok, 'es')).toBe(ok)
+    })
+
+    test('zh: {% data变量. becomes {% data variables.', () => {
+      expect(fix('{% data变量.dependabot.github_presets %} 是规则', 'zh')).toBe(
+        '{% data variables.dependabot.github_presets %} 是规则',
+      )
+      const ok = '{% data variables.dependabot.github_presets %}'
+      expect(fix(ok, 'zh')).toBe(ok)
+    })
+
+    test('zh: space-separated data变量 restores the dot', () => {
+      expect(fix('{% data变量 dependabot.github_presets %} 是规则', 'zh')).toBe(
+        '{% data variables.dependabot.github_presets %} 是规则',
+      )
+      expect(
+        fix(
+          '{% data变量 dependabot.github_presets %} 是规则',
+          'zh',
+          '{% data variables.dependabot.github_presets %} are rules',
+        ),
+      ).toBe('{% data variables.dependabot.github_presets %} 是规则')
+    })
+
+    test('zh: space-separated data变量 with only whitespace-control data tags', () => {
+      expect(
+        fix(
+          '{%- data变量 dependabot.github_presets %} 是规则',
+          'zh',
+          '{%- data variables.dependabot.github_presets %} are rules',
+        ),
+      ).toBe('{%- data variables.dependabot.github_presets %} 是规则')
+    })
+  })
+
+  describe('octicon missing space before quoted name', () => {
+    test('restores the space, including after curly-quote normalization', () => {
+      expect(fix('{% octicon“kebab-horizontal” aria-label=“图标” %}', 'zh')).toBe(
+        '{% octicon "kebab-horizontal" aria-label="图标" %}',
+      )
+      expect(fix('{% octicon"pulse" aria-hidden="true" %}', 'ja')).toBe(
+        '{% octicon "pulse" aria-hidden="true" %}',
+      )
+    })
+
+    test('leaves a correct octicon unchanged', () => {
+      const ok = '{% octicon "pulse" aria-hidden="true" %}'
+      expect(fix(ok, 'ja')).toBe(ok)
+    })
+  })
+
+  describe('Korean data keyword and tag names', () => {
+    test('fixes {%- dada and translated eclipse and desktop tags', () => {
+      expect(fix('{%- dada variables.product.prodname_actions %}', 'ko')).toBe(
+        '{%- data variables.product.prodname_actions %}',
+      )
+      expect(fix('{% 이클립스 %}x{% endeclipse %}', 'ko')).toBe('{% eclipse %}x{% endeclipse %}')
+      expect(fix('{%- 데스크톱 %}x{% enddesktop %}', 'ko')).toBe('{%- desktop %}x{% enddesktop %}')
+      const ok = '{% data variables.product.prodname_actions %}'
+      expect(fix(ok, 'ko')).toBe(ok)
+    })
+  })
 })
