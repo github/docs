@@ -134,4 +134,4 @@ When you do not specify a repository or branch, {% data variables.product.prodna
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-cloud-agent) - Learn more about {% data variables.copilot.copilot_cloud_agent %} and how it can support you.
+* [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-on-github) - Learn more about {% data variables.copilot.copilot_cloud_agent %} and how it can support you.

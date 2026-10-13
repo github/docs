@@ -42,10 +42,48 @@ Use the `/tasks` slash command to see a list of background tasks relating to the
 Use up and down keyboard keys to navigate through the list of background tasks. For each subagent task, you can:
 
 * Press <kbd>Enter</kbd> to view details. When the subtask is complete, you will see a summary of what was done.
-* Press <kbd>k</kbd> to kill the process.
+* Press <kbd>x</kbd> to kill the process.
 * Press <kbd>r</kbd> to remove completed or killed subtasks from the list.
 
 Press <kbd>Esc</kbd> to exit the task list and return to the main CLI prompt.
+
+## Starting in fleet mode from the command line
+
+You can start {% data variables.copilot.copilot_cli_short %} in fleet mode directly from the command line by using the `--fleet` option. This is the command-line equivalent of the `/fleet` slash command. It wraps the prompt you supply, so {% data variables.product.prodname_copilot_short %} starts working on it in fleet mode straight away. You don't have to enter `/fleet` in an interactive session.
+
+The `--fleet` option is not supported in ACP server mode, so you cannot combine it with the `--acp` option.
+
+You must provide a prompt for {% data variables.product.prodname_copilot_short %} to work on. You can supply the prompt in one of three ways:
+
+* With the `-i` (interactive) option, to start an interactive session that begins in fleet mode.
+* With the `-p` (prompt) option, to run a task without an interactive session. The session exits when the task is complete.
+* By piping the prompt in through standard input.
+
+### When to use the `--fleet` option
+
+The `--fleet` option is particularly useful for automation, using the `-p` option, when you know that a task can be split into parts that run in parallel.
+
+For more information about the `-p` option and running tasks without an interactive session, see [AUTOTITLE](/copilot/how-tos/copilot-cli/automate-copilot-cli/run-cli-programmatically).
+
+### Examples
+
+Run a task in fleet mode without an interactive session:
+
+```shell copy
+copilot --fleet -p "Refactor the utils package and update everything that calls it" --allow-tool write
+```
+
+Pipe a prompt into fleet mode:
+
+```shell copy
+echo "Update the project dependencies and run the tests" | copilot --fleet
+```
+
+Start an interactive session that begins in fleet mode:
+
+```shell copy
+copilot --fleet -i "Add unit tests for every module in the src directory"
+```
 
 ## Further reading
 

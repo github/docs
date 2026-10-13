@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react'
-import cx from 'classnames'
+import cx from 'clsx'
 import { useRouter } from 'next/router'
-import { ThumbsdownIcon, ThumbsupIcon } from '@primer/octicons-react'
 
 import { useTranslation } from '@/languages/components/useTranslation'
 import { Link } from '@/frame/components/Link'
@@ -40,17 +39,13 @@ export const Survey = () => {
   const [token, setToken] = useState('')
 
   useEffect(() => {
-    // Always reset the form if navigating to a new page because what
-    // you might have said or started to say belongs exclusively to
-    // to the page you started on.
+    // Show the vote prompt on navigation because a rating belongs to the page it was given on.
     setState(ViewState.START)
     setVoteState(null)
   }, [asPath])
 
   useEffect(() => {
-    // After the form is submitted we need to manually set the focus since we
-    // remove the form inputs after submit.  The privacy policy link is the
-    // next focusable element in the footer so we focus that.
+    // Move focus to the footer privacy link because submit removes the form inputs.
     if (state === ViewState.END) {
       document
         .querySelector<HTMLAnchorElement>(
@@ -67,11 +62,8 @@ export const Survey = () => {
     }
   }
 
-  // Though we set `type="email"` on the email address input which gives us browser
-  // validation of the field, that has accessibility issues (e.g. some screen
-  // readers won't read the error message) so we need to do manual validation
-  // ourselves.
   useEffect(() => {
+    // Browser email validation hides errors from some screen readers, so this validates manually.
     const emailRegex = /[^@\s.][^@\s]*@\[?[a-z0-9.-]+\]?\.\[?[a-z0-9.-]+\]?/i
     if (!email.trim() || emailRegex.test(email)) {
       setIsEmailError(false)
@@ -111,9 +103,9 @@ export const Survey = () => {
       data-testid="survey-form"
       aria-live="polite"
     >
-      <h3 id="survey-title" className="f4 mb-3">{t`able_to_find`}</h3>
+      <h3 id="survey-title">{t`able_to_find`}</h3>
 
-      {/* Honeypot: token isn't a real field */}
+      {/* Bot trap: token is not a real survey field */}
       <input
         type="text"
         className="d-none"
@@ -141,10 +133,6 @@ export const Survey = () => {
             )}
             htmlFor="survey-yes"
           >
-            <ThumbsupIcon
-              size={16}
-              className={voteState === VoteState.YES ? 'color-fg-on-emphasis' : 'color-fg-muted'}
-            />{' '}
             {t`yes`}
           </label>
           <input
@@ -164,10 +152,6 @@ export const Survey = () => {
             )}
             htmlFor="survey-no"
           >
-            <ThumbsdownIcon
-              size={16}
-              className={voteState === VoteState.NO ? 'color-fg-on-emphasis' : 'color-fg-muted'}
-            />{' '}
             {t`no`}
           </label>
         </div>
@@ -242,22 +226,23 @@ export const Survey = () => {
         <p role="status" className="color-fg-muted f6" data-testid="survey-end">{t`feedback`}</p>
       )}
 
-      <Link
-        className="f6"
-        href={`/${locale}/site-policy/privacy-policies/github-privacy-statement`}
-        target="_blank"
-      >
-        {t`privacy_policy`}
-      </Link>
+      {(voteState || state === ViewState.END) && (
+        <Link
+          className="f6"
+          href={`/${locale}/site-policy/privacy-policies/github-privacy-statement`}
+          target="_blank"
+        >
+          {t`privacy_policy`}
+        </Link>
+      )}
     </form>
   )
 }
 
 function trackEvent(eventData: EventData) {
-  // Nota bene: convert empty strings to undefined
   return sendEvent({
     type: EventType.survey,
-    survey_token: eventData.token || undefined, // Honeypot
+    survey_token: eventData.token || undefined, // Bot trap field.
     survey_vote: eventData.vote,
     survey_comment: eventData.comment || undefined,
     survey_email: eventData.email || undefined,

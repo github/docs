@@ -39,14 +39,11 @@ GitHub Copilot includes several agentic features that go beyond suggestion and c
 
 * **Copilot code review**: Reviews pull request diffs and metadata on GitHub.com, producing feedback comments and suggested changes.
 * **Copilot cloud agent**: An asynchronous agent on GitHub.com that can create branches, write code, and open pull requests in response to assigned issues. The cloud agent runs in an ephemeral, firewalled environment with automated security scanning.
-* **Copilot CLI**: A command-line tool that can create and modify files, execute commands, and perform multi-step tasks. All actions require explicit permission prompts and are scoped to the current directory.
+* **Copilot CLI**: A command-line tool that can create and modify files, execute commands, and perform multi-step tasks. By default, filesystem access is scoped to the directory where the CLI was started. Permission prompts depend on the active permission mode. When computer use is enabled, Copilot CLI can also interact with desktop applications outside that directory scope.
 * **Copilot SDK**: A programmatic library that allows developers to build custom AI-powered applications using Copilot. The SDK communicates with Copilot CLI over JSON-RPC and supports custom agents, MCP server integrations, lifecycle hooks, and session management.
-* **{% data variables.copilot.github_copilot_app %}**: A desktop application for directing agent sessions across local repositories, git worktrees, and cloud sandboxes. The app uses {% data variables.copilot.copilot_cli %} and {% data variables.copilot.copilot_sdk %} as its foundation and adds a user interface for parallel sessions, quick chats, {% data variables.product.github %} issue and pull request workflows, automations, and canvases.
-{% ifversion spark %}
-* **GitHub Spark (preview)**: A managed app-building experience where an agent writes code and runs commands in a development environment. Spark provides a managed runtime and can add inference capabilities via the GitHub Models SDK.
-{% endif %}
+* **{% data variables.copilot.github_copilot_app %}**: A desktop application for directing agent sessions across local repositories, git worktrees, and cloud sandboxes. The app uses {% data variables.copilot.copilot_cli %} and {% data variables.copilot.copilot_sdk %} as its foundation and adds a user interface for parallel sessions, quick chats, {% data variables.product.github %} issue and pull request workflows, automations, and canvases. When computer use is enabled, the app can also interact with desktop applications.
 
-These features share common principles—human oversight, review of outputs, and responsible use—but differ in their execution environments, permissions, and data flows. The sections below describe each experience in context.
+These features share common principles—human oversight, review of outputs, and responsible use—but differ in their execution environments, permissions, and data flows. The sections below describe each in context.
 
 ## 2. Key terms
 
@@ -54,6 +51,7 @@ The following list provides a glossary of key terms related to GitHub Copilot Ag
 
 * **Code suggestion**: A specific code change proposed by Copilot code review as part of its feedback on a pull request. Code suggestions are presented as suggested changes that can be applied with a couple of clicks.
 * **Content filtering**: A safety system that scans prompts and responses to detect and block harmful, offensive, or insecure content before it is shown to the user.
+* **Computer use**: An optional capability in {% data variables.copilot.copilot_cli %} and {% data variables.copilot.github_copilot_app %} that allows an agent to interact with desktop applications. Its tools can read accessible application content and visual context through the operating system's accessibility tree or screenshots when visual context is needed, click controls, enter and edit text, press keys, scroll, drag, and navigate workflows across applications.
 * **Custom instructions**: Natural language descriptions of coding style and best practices that a repository maintainer can configure to guide Copilot code review's feedback. Custom instructions help Copilot understand the conventions and standards of a specific codebase.
 * **Hallucination**: A phenomenon where a language model generates output that sounds plausible but is factually incorrect, unsupported by the provided context, or entirely fabricated. In code review, hallucination can manifest as feedback that highlights problems that do not exist or are based on misunderstandings of the code.
 * **Large language model (LLM)**: A type of neural network trained on a large body of text data that can generate, analyze, and transform natural language and code. Copilot Agents use one or more LLMs to process context and produce responses.
@@ -65,11 +63,6 @@ The following list provides a glossary of key terms related to GitHub Copilot Ag
 * **JSON-RPC**: The communication protocol used between the Copilot SDK and Copilot CLI. The SDK sends structured requests to the CLI process, which handles model interaction and tool execution.
 * **Custom agent (SDK)**: A named agent configuration within the SDK that has its own system prompt, scoped tools, and optional MCP servers. The SDK runtime can automatically delegate to sub-agents based on user intent.
 * **Hooks (SDK)**: Lifecycle callbacks in the Copilot SDK that let developers inject custom logic at specific points during a session, such as before or after tool use, on session start or end, and on error.
-{% ifversion spark %}
-* **Managed runtime**: The fully managed hosting environment provided by GitHub Spark that scales with your application's needs and eliminates the need to manually manage infrastructure.
-* **Spark**: An application built using GitHub Spark. Sparks can range from simple utilities to full-stack web applications and can be deployed to the public internet with configurable visibility.
-* **Targeted edit**: A feature in GitHub Spark that allows you to select a specific element within your application and provide a focused prompt to refine its style, substance, or behavior, rather than applying a global change.
-{% endif %}
 
 ## 3. Key features or capabilities
 
@@ -81,11 +74,8 @@ The key features and capabilities outlined here describe what GitHub Copilot Age
 * **Ephemeral, firewalled execution**: While working on a task, the cloud agent has access to its own ephemeral development environment where it can make changes to code, execute automated tests, and run linters. A firewall is enabled by default to prevent data exfiltration.
 * **Automated security scanning**: During code generation, the cloud agent automatically analyzes newly generated code for security vulnerabilities using CodeQL, secret scanning, and dependency analysis, and attempts to resolve any issues before they are introduced.
 * **External integrations**: The cloud agent can receive information and context from MCP like workIQ and Microsoft 365, and external applications like Microsoft Teams, Linear, Slack, and Jira, enabling teams to assign tasks and track progress directly within their existing workflows.
-* **Local agentic execution (Copilot CLI)**: Copilot CLI provides a chat-like interface in the terminal that can autonomously create and modify files, execute commands, and perform multi-step tasks. All actions are scoped to the current directory and require explicit permission prompts before the agent modifies files or runs commands.
-{% ifversion spark %}
-* **Natural language app building (Spark)**: GitHub Spark offers a natural language-centric development environment for creating and deploying full-stack web applications without requiring users to write or deploy code manually. Spark provides a fully managed runtime environment that scales with your application's needs.
-* **Inference capabilities (Spark)**: Spark's SDK natively integrates with GitHub Models, allowing you to incorporate model inference into your application. If Spark determines that your application requires inference capabilities, it will add them using the Spark SDK.
-{% endif %}
+* **Local agentic execution (Copilot CLI)**: Copilot CLI provides a chat-like interface in the terminal that can autonomously create and modify files, execute commands, and perform multi-step tasks. By default, filesystem access is scoped to the directory where the CLI was started. The active permission mode determines whether the CLI prompts before modifying files or running commands.
+* **Desktop application interaction (computer use)**: In local {% data variables.copilot.copilot_cli_short %} and {% data variables.copilot.github_copilot_app_short %} sessions, computer use can read accessible application content and visual context through the operating system's accessibility tree or screenshots when visual context is needed, click controls, enter and edit text, press keys, scroll, drag, and navigate workflows across applications.
 
 ## 4. Intended uses
 
@@ -97,13 +87,10 @@ GitHub Copilot Agents can be used in multiple scenarios across a variety of indu
 * **Prototyping new projects**: The cloud agent and Copilot CLI can greenfield new concepts, helping developers explore ideas quickly.
 * **Setting up your environment (CLI)**: Copilot CLI can run commands in your terminal to set up your local environment to work on existing projects.
 * **Finding the right command (CLI)**: Copilot CLI can suggest commands to perform tasks you're trying to complete, and explain unfamiliar commands in natural language.
+* **Working with legacy and GUI-only applications (computer use)**: Computer use can help with workflows in local desktop applications that do not provide an API, command-line interface, or MCP integration. Users should describe the outcome, applications, and important constraints, then review the actions and result.
 * **Building custom AI applications (SDK)**: The Copilot SDK enables developers to build applications that leverage Copilot for code generation, natural language interaction, and task automation in their own products and workflows.
 * **Multi-agent orchestration (SDK)**: Using custom agents and sub-agents, developers can build sophisticated workflows where multiple specialized agents collaborate on complex tasks, with automatic delegation based on user intent.
 * **Extending applications with external tools (SDK)**: The SDK's MCP server support allows developers to connect their applications to external data sources and services, expanding the range of tasks their agents can perform.
-{% ifversion spark %}
-* **Building and deploying web applications (Spark)**: You can use GitHub Spark to build full-stack web applications using natural language. Spark's integrated runtime environment allows you to deploy these applications to the public internet with configurable visibility based on GitHub account permissions.
-* **Rapid prototyping (Spark)**: Spark helps developers, designers, product managers, and other builders rapidly prototype ideas without needing to build applications from scratch or construct complex mockups. Prototypes can be deployed for ease of sharing or remain unpublished.
-{% endif %}
 
 ## 5. Models and training data
 
@@ -116,10 +103,6 @@ The Copilot cloud agent uses a large language model to reason about tasks, gener
 Copilot CLI uses a large language model to reason about tasks, generate code, modify files, and execute commands in your local terminal environment. The agent has been evaluated across a variety of programming languages. English is the primary supported language for prompts and responses.
 
 The Copilot SDK communicates with Copilot CLI over JSON-RPC, using the same underlying models and capabilities. Applications built with the SDK use the same models available to the authenticated Copilot user or organization. Developers can also bring their own API keys (BYOK) to use custom model providers.
-
-{% ifversion spark %}
-GitHub Spark uses a large language model to power its agent within the development environment. The agent writes code and runs commands to build your application. Spark does not test the prompts you create within your application for inference—you must ensure that your included capabilities act as intended.
-{% endif %}
 
 ## 6. Performance
 
@@ -165,20 +148,6 @@ The Copilot SDK provides a programmatic interface to Copilot's agentic capabilit
 1. **Agent execution**: The language model reasons about the task and may invoke tools, delegate to sub-agents, or connect to MCP servers. Lifecycle hooks fire at each stage, allowing the application to inject custom logic.
 1. **Response streaming**: Responses are streamed back to the application, which can present them in any format appropriate for its interface. The SDK provides structured events for text, tool calls, errors, and completion signals.
 
-{% ifversion spark %}
-
-#### GitHub Spark
-
-GitHub Spark uses an agent-based approach to build and modify applications. This process can be broken down into a number of steps:
-
-1. **Input processing**: Input prompts are pre-processed by Copilot, augmented with contextual information from your current Spark inputs—including code from your current application, previous prompts, and any error logs from your development environment—and sent to a large language model-powered agent within your development environment. The system is designed to generate code based on submitted prompts and is not capable of conversational interactions. English is the preferred language for prompts.
-1. **Language model analysis**: The prompt is passed through a large language model, which is a neural network trained on a large body of text data. The language model analyzes the input prompt to help the agent reason about the task and leverage necessary tools.
-1. **Agent execution**: The agent runs in your development environment, accepting the prompt and additional context, and decides how to update your application. The agent can write code, run commands, and read execution outputs. All actions are taken to ensure functional, accurate code. The only output from the agent is your application code.
-
-Spark uses frameworks and SDKs that ensure modern design and secure deployments seamlessly integrated into Spark's runtime component. The design framework is flexible and modular, enabling you to modify the theme to match your desired look and feel. Spark's runtime integration uses best practices for web deployments to ensure secure, scalable deployments.
-
-{% endif %}
-
 ## 7. Limitations
 
 Understanding GitHub Copilot agentic features' limitations is crucial to determine they are used within safe and effective boundaries. While we encourage customers to leverage these features in their innovative solutions or applications, it's important to note that they were not designed for every possible scenario. We encourage users to refer to [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms) as well as the following considerations when choosing a use case:
@@ -196,16 +165,15 @@ Understanding GitHub Copilot agentic features' limitations is crucial to determi
 * **Security risks (CLI)**: Copilot CLI generates code and natural language based on the context of your local environment, which can potentially expose sensitive information or vulnerabilities if not used carefully. You should review all outputs generated by the agent thoroughly.
 * **Public code matches (CLI)**: Copilot CLI may generate code that is a match or near match of publicly available code, even if the "Suggestions matching public code" policy is set to "Block."
 * **Command execution risks (CLI)**: Additional caution is required when asking or allowing Copilot CLI to execute a command, particularly regarding the potential destructiveness of some suggested commands. You may encounter commands for file deletion or hard drive formatting, which can cause problems if used incorrectly. You are ultimately responsible for the commands executed by Copilot CLI.
+* **Interface interpretation (computer use)**: Computer use may select the wrong control, enter text in the wrong location, or have difficulty with non-standard or dynamic controls and complex workflows. Changes in timing or window state can produce different results, cause computer use to repeat an action, or prevent it from continuing.
+* **Unintended actions (computer use)**: Ambiguous instructions or unexpected on-screen content can cause computer use to take unintended actions. These actions may modify or expose data or affect connected accounts. Users should keep tasks narrow, specify important constraints, and monitor the active application.
+* **On-screen information (computer use)**: Application windows may display sensitive information or information about other people. Users should only enable computer use for applications and tasks whose visible content is appropriate to provide as context.
+* **Local and platform constraints (computer use)**: Computer use requires a local session and is available on macOS and Windows. On macOS, Accessibility and Screen Recording permissions are required. If the bundled plugin, helper, or MCP server is unavailable or disconnected, computer-use actions cannot run.
+* **Always allowed applications (computer use)**: An application that a user chooses to always allow can be controlled in later sessions without another application-level prompt. **Always allow** is not appropriate for every application, particularly applications that contain sensitive information or support high-impact actions.
 * **Inherited limitations (SDK)**: Because the Copilot SDK communicates with Copilot CLI, applications built with the SDK inherit the same model limitations, including limited scope for certain programming languages and the potential for inaccurate or insecure code generation.
 * **Custom agent complexity (SDK)**: Incorrectly configured custom agents, tools, or hooks may produce unexpected behavior. Developers are responsible for testing and validating the behavior of their custom agent configurations.
 * **MCP server trust (SDK)**: MCP servers connected through the SDK can expose tools and data from external sources. Developers must ensure that connected MCP servers are trustworthy, as malicious or misconfigured servers could introduce harmful behavior or expose sensitive data.
 * **BYOK model variance (SDK)**: When using bring-your-own-key configurations with third-party model providers, behavior may differ from GitHub-hosted models. Developers are responsible for evaluating the safety and quality of responses from their chosen provider.
-{% ifversion spark %}
-* **Interpretation of user intent (Spark)**: Spark is not always correct in its interpretation of your intent. You should always use Spark's provided preview to confirm accurate behavior within your application.
-* **Limited scope (Spark)**: Spark has been trained on a large body of code and relevant applications but may struggle with complex or truly novel applications. Spark performs best on common and personal application scenarios (for example, productivity tools, learning aids, life management utilities), and when the natural language instruction is provided in English.
-* **Public code matches (Spark)**: Spark may generate code that is a match or near match of publicly available code, even if the "Suggestions matching public code" policy is set to "Block." If this happens, Copilot will not provide code references pointing to the original source of the code.
-* **Security limitations (Spark)**: While Spark's runtime follows best practices for application deployment, it generates code probabilistically, which can potentially introduce vulnerabilities especially if those vulnerabilities are common in the training set. You should be careful when building applications that manage personal or sensitive data and always review and test the generated application thoroughly.
-{% endif %}
 
 ## 8. Evaluations
 
@@ -247,7 +215,18 @@ Copilot agentic features have been subject to RAI red teaming to identify and ad
 * **Permission prompts for file modifications**: Copilot CLI asks for permission before modifying files. You should ensure it is modifying the correct files before granting permission.
 * **Permission prompts for command execution**: Copilot CLI asks for permission before executing commands that may be dangerous. You should review these commands carefully before giving permission to run.
 * **Configurable permissions**: You can grant Copilot CLI specific permissions, or all permissions, by using the various command line options: for example, `--allow-tool=[TOOLS...]`, `--allow-all-tools`, `--allow-all` (or its slash command equivalent `/allow-all` for use in an interactive session). For more information, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference#command-line-options). Typically, when you use Copilot CLI in autopilot mode, you will grant it full permissions to allow it to complete a task autonomously, without requiring you to approve activity as it works on the task. For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/autopilot).
-* **Security considerations**: For more information about security practices while using Copilot CLI, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-copilot-cli#security-considerations).
+* **Security considerations**: For more information about security practices while using Copilot CLI, see [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-cli#security-considerations).
+
+### Computer use in {% data variables.copilot.copilot_cli %} and {% data variables.copilot.github_copilot_app %}
+
+Computer use is an optional local capability that allows an agent to interact with desktop applications on a user's behalf. Like other agentic features, computer use has limitations. Because it interprets visual interfaces, changing interfaces or unexpected on-screen content can lead to inconsistent results, stalled workflows, or unintended actions. The following controls help users limit and interrupt its access.
+
+* **Default-off activation**: The bundled computer-use plugin is disabled by default. Users must enable it before its tools are available to an agent.
+* **Managed policy**: Enterprise administrators can disable computer use through managed settings. Users cannot override the enterprise policy through local settings. For configuration details, see [AUTOTITLE](/copilot/reference/enterprise-administrators/enterprise-managed-settings#featurescomputeruse).
+* **Tool permission controls**: Computer-use application requests use the host permission system. Depending on the active permission mode, the host displays an approval prompt or approves the request automatically. Explicit deny rules take precedence, and a request fails closed if no permission handler accepts it.
+* **Operating system permissions**: On macOS, computer use guides users through granting Accessibility permission to interact with controls and Screen Recording permission to inspect windows when visual context is needed.
+* **Application approval management**: In {% data variables.copilot.github_copilot_app %}, users can review and remove saved application approvals. Removing an application deletes its saved approval for future sessions, but does not revoke access already granted in a running session. The host's permission settings determine whether later requests display a prompt or are approved automatically.
+* **Session interruption**: Users can interrupt an active local operation if computer use starts acting unexpectedly. In {% data variables.copilot.copilot_cli %}, pressing <kbd>Esc</kbd> twice interrupts the current operation. In {% data variables.copilot.github_copilot_app %}, clicking **Stop** or pressing <kbd>Esc</kbd> interrupts it.
 
 ### Copilot SDK
 
@@ -290,16 +269,6 @@ In offline mode, web-based tools such as `web_fetch` and GitHub Code Search are 
 
 If your model provider configuration is invalid, Copilot CLI exits with an error. It does not fall back to GitHub-hosted models. Common failures, such as connection refused, authentication errors, model not found, and timeouts, produce user-friendly messages with actionable guidance.
 
-{% ifversion spark %}
-
-### GitHub Spark
-
-* **Content protections**: Spark has built-in protections against harmful, hateful, or offensive content.
-* **Content reporting**: You can report problematic or offensive content via feedback, or report a spark as abuse or spam. Examples of offensive content should be reported to copilot-safety@github.com with the spark's URL.
-* **Secure runtime**: Spark's runtime integration uses best practices for web deployments to ensure secure, scalable deployments.
-
-{% endif %}
-
 ## 10. Best practices for deploying and adopting GitHub Copilot agentic features
 
 Responsible AI is a shared commitment between GitHub and its customers. While GitHub builds AI applications with safety, fairness, and transparency at the core, customers play a critical role in deploying and using these technologies responsibly within their own contexts. To support this partnership, we offer the following best practices for deployers and end users to help customers implement responsible AI effectively.
@@ -321,17 +290,14 @@ Responsible AI is a shared commitment between GitHub and its customers. While Gi
 * **Review commands before execution (CLI)**: Exercise particular caution when Copilot CLI suggests executing commands, especially those that modify or delete files. You are ultimately responsible for the commands you allow the agent to run.
 * **Keep CLI tasks well-scoped**: The more clear and well-scoped the prompt you provide, the better the results. Include a clear description of the problem, acceptance criteria, and hints on what files need to be changed.
 * **Provide feedback (CLI)**: If you encounter any issues or limitations with Copilot CLI, provide feedback using the `/feedback` command.
+* **Use direct tools when available (computer use)**: When an API, MCP server, terminal command, filesystem tool, or dedicated browser tool can complete a task, use that tool for more structured information and predictable results.
+* **Keep computer-use tasks narrow and observable**: Describe the outcome you want, the applications involved, and any important constraints. Review the active application and outcome.
+* **Limit always allowed applications**: Avoid choosing **Always allow** for applications that contain sensitive information or support high-impact actions. Review and remove saved approvals when they are no longer needed.
 * **Validate custom agent behavior (SDK)**: Thoroughly test custom agents, tools, and hooks before deploying applications built with the SDK to production. Ensure that tool configurations and system prompts produce safe, expected behavior.
 * **Audit MCP server connections (SDK)**: Only connect to MCP servers that you trust. Review the tools and data that each server exposes and ensure they align with your application's security requirements.
 * **Implement safety hooks (SDK)**: Use the SDK's lifecycle hooks to implement guardrails such as content filtering, audit logging, and tool approval workflows in your applications.
 * **Scope sessions appropriately (SDK)**: Configure each SDK session with only the tools, agents, and permissions required for the task at hand. Avoid granting broad access when narrow scoping is sufficient.
 * **Review BYOK provider policies (SDK)**: If using bring-your-own-key configurations, ensure your chosen model provider's terms of service and data handling policies meet your organization's requirements.
-{% ifversion spark %}
-* **Keep Spark prompts specific and on topic**: The more specific you can be about the intended behaviors and interactions, the better the output. Incorporating relevant context such as specific scenarios, mockups, or specifications will help Spark understand your intent. Spark incorporates context from previous prompts, so off-topic prompts may hinder performance on subsequent revisions.
-* **Use targeted edits in Spark**: Targeted edits allow you to specify elements within your application for focused refinement. Using targeted edits when possible—rather than global prompts—will result in more accurate changes and fewer side effects.
-* **Verify Spark's output**: Always use Spark's provided application preview to verify that your application behaves as intended in different scenarios. If you are comfortable with code, review the generated code to ensure it meets your quality standards.
-* **Ensure inference capabilities act as intended (Spark)**: If your Spark application uses inference capabilities via the GitHub Models SDK, you are responsible for testing the prompts you create to ensure they produce appropriate results.
-{% endif %}
 
 ## 11. Learn more about GitHub Copilot agentic features
 
@@ -341,16 +307,11 @@ For additional guidance on the responsible use of Copilot agentic features, we r
 * [AUTOTITLE](/copilot/tutorials/cloud-agent/get-the-best-results)
 * [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/customize-the-agent-environment)
 * [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-the-firewall)
-* [AUTOTITLE](/copilot/how-tos/copilot-sdk/getting-started)
+* [AUTOTITLE](/copilot/get-started/sdk-quickstart)
 * [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/configure-mcp-servers)
-* [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-copilot-cli)
-* [AUTOTITLE](/copilot/concepts/agents/github-copilot-app)
-{% ifversion spark %}
-* [AUTOTITLE](/copilot/tutorials/spark/your-first-spark)
-* [AUTOTITLE](/copilot/tutorials/spark/build-apps-with-spark)
-* [AUTOTITLE](/billing/concepts/product-billing/github-spark)
-* [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-pre-release-license-terms)
-{% endif %}
+* [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-cli)
+* [AUTOTITLE](/copilot/concepts/copilot-surfaces/github-copilot-app)
+* [AUTOTITLE](/copilot/concepts/agents/computer-use)
 * [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)
 * [Copilot Trust Center](https://copilot.github.trust.page/)
 

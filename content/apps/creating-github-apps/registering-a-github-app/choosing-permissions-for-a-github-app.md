@@ -35,9 +35,9 @@ App permissions are classified as repository, organization,{% ifversion fpt or e
 
 {% ifversion fpt or enterprise-installed-apps %}
 
-Any user, organization, or enterprise can create an app using any of the permission types. An app with enterprise permissions must be `public` or `internal` to be installed on an enterprise account. A `public` app can be installed by any enterprise, while an `internal` app can only be installed by the enterprise that owns the app or the enterprise of the organization that owns the app. There are no additional restrictions on which organizations or personal accounts an app can be installed on.
+Any user, organization, or enterprise can create an app using any of the permission types. An app with enterprise permissions must be `public` or `internal` to be installed on an enterprise account. {% ifversion fpt or ghec %}A `public` app can be installed by any enterprise, while an `internal` app can only be installed by the enterprise that owns the app or the enterprise of the organization that owns the app. There are no additional restrictions on which organizations or personal accounts an app can be installed on.
 
-There is one exception to installing an app across enterprises. If an app requests the "Enterprise organization installations" or "Enterprise organization installation repositories" permissions, the only enterprise that can install it is the one that owns the app. You cannot install the app on another enterprise, and you cannot add either permission to an app that is already installed on an enterprise other than the one that owns it.{% endif %}
+There is one exception to installing an app across enterprises. If an app requests the "Enterprise organization installations" or "Enterprise organization installation repositories" permissions, the only enterprise that can install it is the one that owns the app. You cannot install the app on another enterprise, and you cannot add either permission to an app that is already installed on an enterprise other than the one that owns it.{% endif %}{% endif %}
 
 When a user installs an app on their user account or organization, they see and grant the repository and organization permissions that the app requested.{% ifversion fpt or enterprise-installed-apps %} When they install it on their enterprise, they see and grant only the enterprise permissions that the app requested. {% endif %} They will also see a list of account permissions that the app can request for individual users. When a user authorizes an app to act on their behalf, they will see and grant the account permissions that the app requested.
 
@@ -45,7 +45,13 @@ The success of an API request with a user access token depends on the user's per
 
 For more information about specifying permissions during {% data variables.product.prodname_github_app %} registration, see [AUTOTITLE](/apps/creating-github-apps/registering-a-github-app/registering-a-github-app).
 
-Some webhooks and API access requires "Administration" permissions. If your app requires "Administration" permissions, consider explaining this requirement on your app's homepage. This will help users understand why your app needs a high level permission.
+Some webhooks and API access require "Administration" permissions. If your app requires "Administration" permissions, consider explaining this requirement on your app's homepage. This will help users understand why your app needs a high level permission.
+
+{% ifversion github-app-repository-permission-improvements %}
+
+If your app only needs "Administration" permission to create repositories, request the "Repository creation" permission instead. This more limited permission lets your app create repositories without granting access to other repository administration features. Your app is automatically given access to repositories it creates.
+
+{% endif %}
 
 ## About changes to permissions
 

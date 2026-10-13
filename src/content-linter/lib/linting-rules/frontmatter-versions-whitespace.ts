@@ -18,17 +18,14 @@ export const frontmatterVersionsWhitespace: Rule = {
     const versionsObj = fm.versions
     if (typeof versionsObj !== 'object') return
 
-    // Find the frontmatter section in the file
     const fmStartIndex = params.lines.findIndex((line) => line.trim() === '---')
     if (fmStartIndex === -1) return
 
-    // Check each version entry for whitespace issues
     for (const [key, value] of Object.entries(versionsObj)) {
       if (typeof value !== 'string') continue
 
       const hasUnwantedWhitespace = checkForUnwantedWhitespace(value)
       if (hasUnwantedWhitespace) {
-        // Find the line containing this version key
         const versionLineIndex = params.lines.findIndex((line, index) => {
           return index > fmStartIndex && line.trim().startsWith(`${key}:`) && line.includes(value)
         })
@@ -38,7 +35,6 @@ export const frontmatterVersionsWhitespace: Rule = {
           const lineNumber = versionLineIndex + 1
           const cleanedValue = getCleanedValue(value)
 
-          // Create fix info to remove unwanted whitespace
           const fixInfo = {
             editColumn: line.indexOf(value) + 1,
             deleteCount: value.length,
@@ -59,42 +55,29 @@ export const frontmatterVersionsWhitespace: Rule = {
   },
 }
 
-/**
- * Check if a version string has unwanted whitespace
- * Allows whitespace in complex expressions like '<3.6 >3.8'
- * but disallows leading/trailing whitespace
- */
+// Complex ranges like '<3.6 >3.8' keep internal spaces.
+// Empty or whitespace-only values pass unchanged, and no other value keeps edge spaces.
 function checkForUnwantedWhitespace(value: string): boolean {
-  // Don't flag if the value is just whitespace or empty
   if (!value || value.trim() === '') return false
 
-  // Check for leading or trailing whitespace
   if (value !== value.trim()) return true
 
-  // Allow whitespace around operators in complex expressions
-  // This regex matches patterns like '<3.6 >3.8', '>=2.19', etc.
+  // Operators <, >, and = make internal spacing meaningful.
   const hasOperators = /[<>=]/.test(value)
   if (hasOperators) {
-    // For operator expressions, we're more lenient about internal whitespace
-    // Only flag if there's leading/trailing whitespace (already checked above)
     return false
   }
 
-  // For simple version strings (like 'fpt', 'ghec'), no internal whitespace should be allowed
-  // This catches cases like 'f pt' where there's whitespace in the middle
+  // Simple version aliases cannot contain internal spaces such as f pt.
   return /\s/.test(value)
 }
 
-/**
- * Get the cleaned version of a value by removing appropriate whitespace
- */
 function getCleanedValue(value: string): string {
-  // For values with operators, just trim leading/trailing whitespace
+  // Range expressions keep internal operator spacing and trim only the ends.
   const hasOperators = /[<>=]/.test(value)
   if (hasOperators) {
     return value.trim()
   }
 
-  // For simple version strings, remove all whitespace
   return value.replace(/\s/g, '')
 }

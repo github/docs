@@ -1,5 +1,5 @@
 import React from 'react'
-import cx from 'classnames'
+import cx from 'clsx'
 import { SupportPortalVaIframe, SupportPortalVaIframeProps } from './SupportPortalVaIframe'
 
 import styles from './ArticleInlineLayout.module.scss'
@@ -8,16 +8,20 @@ type Props = {
   intro?: React.ReactNode
   introCallOuts?: React.ReactNode
   topper?: React.ReactNode
-  toc?: React.ReactNode
   children?: React.ReactNode
   className?: string
   supportPortalVaIframeProps?: SupportPortalVaIframeProps
 }
+// ArticleInlineLayout gives intro callouts the same 24px gap the grid layout gets
+// from .belowIntroPlacement because inline callouts live outside the intro wrapper.
+// Inline pages omit the mini-TOC cell because DefaultLayout passes hasDrawer=false
+// and OverviewSubBar owns In this article at every width. Rendering another cell
+// would add an empty bordered box before the intro and a duplicate nav landmark
+// at 1400px.
 export const ArticleInlineLayout = ({
   intro,
   introCallOuts,
   topper,
-  toc,
   children,
   className,
   supportPortalVaIframeProps,
@@ -34,18 +38,8 @@ export const ArticleInlineLayout = ({
         )}
 
         {introCallOuts && (
-          <div style={{ gridArea: 'intro' }} className="f4 mb-4">
+          <div style={{ gridArea: 'intro' }} className="f4 mt-4 mb-4">
             {introCallOuts}
-          </div>
-        )}
-
-        {toc && (
-          <div
-            data-container="toc"
-            style={{ gridArea: 'sidebar', alignSelf: 'flex-start' }}
-            className={cx(styles.sidebarBox, 'border-bottom border-lg-0 pb-4 mb-5 pb-xl-0 mb-xl-0')}
-          >
-            {toc}
           </div>
         )}
 

@@ -5689,6 +5689,10 @@
         {
           "httpStatusCode": "202",
           "description": "<p>Accepted</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
         }
       ],
       "previews": [],

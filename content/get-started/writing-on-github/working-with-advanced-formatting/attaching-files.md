@@ -19,7 +19,9 @@ category:
 > [!NOTE]
 > For public repositories, uploaded files can be accessed without authentication. In the case of private and internal repositories, only people with access to the repository can view the uploaded files.
 
-To attach a file to an issue or pull request conversation, drag and drop it into the comment box.
+You can attach files to issues, pull requests, and comments in your browser.{% ifversion fpt or ghec %} You can also attach local images and videos from the command line with {% data variables.product.prodname_cli %}. For more information, see [AUTOTITLE](/github-cli/github-cli/attaching-files-with-github-cli).{% endif %}
+
+To attach a file in your browser, drag and drop it into the comment box.
 Alternatively, you can click {% octicon "paperclip" aria-label="Attach files" %} below the issue comment box to browse, select, and add a file from your computer.
 
 ![Screenshot of the issue comment box. The "Attach files" icon is outlined in orange.](/assets/images/help/issues/attach-file.png)

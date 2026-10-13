@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router'
-import cx from 'classnames'
+import cx from 'clsx'
 import { slug as githubSlug } from 'github-slugger'
 import { CheckIcon, XIcon } from '@primer/octicons-react'
 
@@ -61,7 +61,6 @@ export function PermissionsList({
   const rootPath =
     currentVersion === DEFAULT_VERSION ? `/${locale}` : `/${locale}/${currentVersion}`
 
-  // Translated strings
   const { t } = useTranslation('rest')
   const ENDPOINTS_TH = t('rest.overview.permissions.endpoints')
   const ACCESS_TH = t('rest.overview.permissions.access')

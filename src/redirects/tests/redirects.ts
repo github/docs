@@ -67,8 +67,7 @@ describe('redirects', () => {
     })
 
     test('have faq= not converted to query=', async () => {
-      // Don't confuse `?faq=` for `?q=` just because they both start with `q=`
-      // Docs internal #21945
+      // Keep faq intact while q becomes query.
       const res = await get('/en/enterprise/admin?faq=pulls')
       expect(res.statusCode).toBe(301)
       const expected = `/en/enterprise-server@${enterpriseServerReleases.latest}/admin?faq=pulls`
@@ -115,7 +114,7 @@ describe('redirects', () => {
       const res = await get('/')
       expect(res.statusCode).toBe(302)
       expect(res.headers.location).toBe('/en')
-      // language specific caching
+      // Language redirects vary by language preference.
       expect(res.headers['cache-control']).toContain('public')
       expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
       expect(res.headers.vary).toContain('accept-language')
@@ -222,15 +221,12 @@ describe('redirects', () => {
 
     test('frontmatter redirect', async () => {
       const res = await get('/enterprise/2.12/user/articles/github-flavored-markdown')
-      expect(res.statusCode).toBe(302) // because it doesn't have a language
+      expect(res.statusCode).toBe(302) // Missing language keeps this redirect temporary.
       expect(res.headers.location).toBe('/enterprise/2.12/user/categories/writing-on-github/')
     })
   })
 
   describe('enterprise admin', () => {
-    // firstRestoredAdminGuides = 2.21
-    // lastBeforeRestoredAdminGuides = 2.20
-    // (these won't change but it's more convenient to use constants)
     const { firstRestoredAdminGuides, getPreviousReleaseNumber, latest } = enterpriseServerReleases
     const lastBeforeRestoredAdminGuides = getPreviousReleaseNumber(firstRestoredAdminGuides)
     const enterpriseAdmin = `/en/enterprise-server@${latest}/admin`
@@ -321,7 +317,7 @@ describe('redirects', () => {
       expect(res.headers.location).toBe(userArticle)
     })
 
-    // 2.16 was the first version where we moved /articles/foo to /github/<category>/foo
+    // Enterprise 2.16 is the redirect boundary for /articles/foo to /github/<category>/foo.
     test('no product does not redirect to GitHub.com product in <=2.15', async () => {
       const res = await get('/en/enterprise/2.15/user/articles/set-up-git')
       expect(res.statusCode).toBe(200)
@@ -427,7 +423,7 @@ describe('redirects', () => {
     test('no domain redirect on //example.com/', async () => {
       const res = await get(`//example.com/`)
       expect(res.statusCode).toBe(301)
-      expect(res.headers.location).toBe(`/example.com`) // should not be //example.com
+      expect(res.headers.location).toBe(`/example.com`) // Guards against //example.com.
       const res2 = await get(res.headers.location)
       expect(res2.statusCode).toBe(404)
     })

@@ -9,13 +9,15 @@ category:
   - Roll Copilot out at scale
 contentType: tutorials
 allowTitleToDifferFromFilename: true
+docsTeamMetrics:
+  - ai-governance
 ---
 
 This tutorial walks you through running a pilot end to end: setting a budget, enabling the feature for a contained group, monitoring results, and using the evidence to make and report a go or no-go decision.
 
 ## Before you start your pilot
 
-Before you enable anything, make sure you've evaluated the feature or model and confirmed it meets your compliance requirements. See [AUTOTITLE](/copilot/concepts/learning-about-new-features-and-models).
+Before you enable anything, make sure you've evaluated the feature or model and confirmed it meets your compliance requirements. See [AUTOTITLE](/copilot/concepts/enterprise/learning-about-new-features-and-models).
 
 If you're not sure whether a feature or model is safe to enable, check with security and compliance teams at your company before you start the pilot.
 
@@ -42,7 +44,7 @@ Many of the features and models you'll want to pilot are billed through usage, s
 
 A handful of active developers using a frontier model or an agentic feature could consume more than you'd expect. Work out a rough estimate of what the pilot could cost, and decide on a ceiling you're willing to spend before you enable the feature.
 
-Start by understanding how the feature or model is billed. Usage-based features consume {% data variables.product.prodname_ai_credits %}, and the cost of each interaction depends on the model and the number of tokens consumed. To understand which features count toward usage, how included credits are pooled across your enterprise, and how overages are charged, see [AUTOTITLE](/copilot/concepts/billing/usage-based-billing-for-organizations-and-enterprises).
+Start by understanding how the feature or model is billed. Usage-based features consume {% data variables.product.prodname_ai_credits %}, and the cost of each interaction depends on the model and the number of tokens consumed. To understand which features count toward usage, how included credits are pooled across your enterprise, and how overages are charged, see [AUTOTITLE](/copilot/concepts/billing-and-usage/organizations-and-enterprises/billing).
 
 To produce an estimate, combine three numbers:
 
@@ -75,7 +77,7 @@ If any of your pilot users aren't yet members, or are members but receive their 
 
 {% data variables.product.prodname_copilot_short %} policies control which features and models your users can access and how their data is handled. Configure these policies for the pilot organization *before* you turn the feature on, so that pilot users get a correctly governed experience from their very first interaction rather than a brief window where the feature is available without the guardrails you intend.
 
-Decide which features and models the pilot should allow, and set the policies at the organization level so the change only affects your pilot organization; policies set at the enterprise level apply to every organization in your enterprise. If your enterprise policy doesn't allow organizations to set their own value, an enterprise owner must change this before you can continue. To understand how policies cascade from the enterprise to organizations and who can override settings at each level, see [AUTOTITLE](/copilot/concepts/policies).
+Decide which features and models the pilot should allow, and set the policies at the organization level so the change only affects your pilot organization; policies set at the enterprise level apply to every organization in your enterprise. If your enterprise policy doesn't allow organizations to set their own value, an enterprise owner must change this before you can continue. To understand how policies cascade from the enterprise to organizations and who can override settings at each level, see [AUTOTITLE](/copilot/concepts/enterprise/policies).
 
 ### Enable the feature for a single organization
 
@@ -91,7 +93,7 @@ As an organization owner or billing manager, create a budget scoped to the pilot
 
 If you want to prevent any single pilot user from running up consumption, also set a universal user-level budget. This is the only control that is always a hard stop, and it counts a user's consumption from both the shared pool and metered usage toward the same limit. Set it to a modest amount that lets participants do real work but stops any one user from consuming an outsized share of the pilot's budget.
 
-For how budgets meter and block usage at the user, organization, and enterprise levels, see [AUTOTITLE](/copilot/concepts/billing/budgets-for-usage-based-billing).
+For how budgets meter and block usage at the user, organization, and enterprise levels, see [AUTOTITLE](/copilot/concepts/billing-and-usage/organizations-and-enterprises/budgets).
 
 ## Monitor the pilot
 
@@ -101,7 +103,7 @@ Throughout the pilot, track adoption, collect developer feedback, and watch cost
 
 Use {% data variables.product.prodname_copilot_short %} usage metrics to see how many of your pilot users are active, how often they use the feature, and how those numbers trend over the pilot period. Adoption that holds steady or grows is a strong signal; usage that spikes and then fades may mean the feature isn't fitting into developers' real workflows.
 
-* To understand what the metrics cover and how to interpret them, see [AUTOTITLE](/copilot/concepts/copilot-usage-metrics/copilot-metrics).
+* To understand what the metrics cover and how to interpret them, see [AUTOTITLE](/copilot/concepts/billing-and-usage/copilot-usage-metrics/copilot-metrics).
 * To view the dashboard for your organization or enterprise, see [AUTOTITLE](/copilot/how-tos/administer-copilot/view-usage-and-adoption).
 
 > [!TIP]

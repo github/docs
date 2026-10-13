@@ -340,7 +340,7 @@ For detailed debugging guidance, see the **[AUTOTITLE](/copilot/how-tos/copilot-
 * [Model Context Protocol Specification](https://modelcontextprotocol.io/)
 * [MCP Servers Directory](https://github.com/modelcontextprotocol/servers) - Community MCP servers
 * [GitHub MCP Server](https://github.com/github/github-mcp-server) - Official GitHub MCP server
-* [AUTOTITLE](/copilot/how-tos/copilot-sdk/getting-started) - SDK basics and custom tools
+* [AUTOTITLE](/copilot/get-started/sdk-quickstart) - SDK basics and custom tools
 * [AUTOTITLE](/copilot/how-tos/copilot-sdk/troubleshooting/debugging) - SDK-wide debugging
 
 ## See also

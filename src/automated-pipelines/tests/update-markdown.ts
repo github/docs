@@ -1,16 +1,14 @@
 import { tmpdir } from 'os'
 import { cp, rm, readFile } from 'fs/promises'
-import { existsSync } from 'fs'
+import { existsSync, mkdirSync } from 'fs'
 import path from 'path'
 
 import { afterAll, beforeAll, describe, expect, test } from 'vitest'
-import { mkdirp } from 'mkdirp'
 import matter from '@gr2m/gray-matter'
 import type { FrontmatterVersions } from '@/types'
 
 import { updateContentDirectory } from '../lib/update-markdown'
 
-// Type definitions
 type ContentItem = {
   data: {
     title: string
@@ -72,28 +70,21 @@ const indexOrder: IndexOrder = {
 }
 
 describe('automated content directory updates', () => {
-  // Before all tests, copy the content directory fixture
-  // to the operating systems temp directory. We'll be modifying
-  // that temp directory during the tests and comparing the directory
-  // structure and contents after running updateContentDirectory.
+  // Tests mutate a temp copy of src/automated-pipelines/tests/fixtures/content, then compare
+  // the resulting file tree and frontmatter after updateContentDirectory runs.
   beforeAll(async () => {
     process.env.TEST_OS_ROOT_DIR = tempDirectory
-    mkdirp.sync(`${tempContentDirectory}`)
+    mkdirSync(`${tempContentDirectory}`, { recursive: true })
     await cp('src/automated-pipelines/tests/fixtures/content', tempContentDirectory, {
       recursive: true,
     })
 
-    // The updateContentDirectory uses relative paths to the content directory
-    // because outside of testing it only runs in the docs-internal repo.
-    // Because of that, we need to update the content paths to use the
-    // full file path.
+    // Temp fixtures need absolute paths because this test runs outside the repo content root.
     const contentDataFullPath: { [key: string]: ContentItem } = {}
     for (const key of Object.keys(newContentData)) {
       contentDataFullPath[path.join(targetDirectory, key)] = newContentData[key]
     }
 
-    // Rewrites the content directory in the operating system's
-    // temp directory.
     await updateContentDirectory({
       targetDirectory,
       sourceContent: contentDataFullPath,
@@ -131,7 +122,6 @@ describe('automated content directory updates', () => {
   })
 
   test('rest/actions index file is updated as expected', async () => {
-    // workflows added and artifacts removed
     const actionsIndex = matter(
       await readFile(`${tempDirectory}/content/rest/actions/index.md`, 'utf8'),
     )

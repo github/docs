@@ -62,7 +62,7 @@ You configure hooks using a special JSON format. The JSON must contain a `versio
         "env": { "KEY": "value" },
         "timeoutSec": 30
       }
-    ],
+    ]
   }
 }
 ```

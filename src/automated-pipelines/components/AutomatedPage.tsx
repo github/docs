@@ -6,9 +6,9 @@ import { Lead } from '@/frame/components/ui/Lead'
 import { PermissionsStatement } from '@/frame/components/ui/PermissionsStatement'
 import { ArticleGridLayout } from '@/frame/components/article/ArticleGridLayout'
 import { ArticleInlineLayout } from '@/frame/components/article/ArticleInlineLayout'
-import { MiniTocs } from '@/frame/components/ui/MiniTocs'
+import { MiniTocs, UpNext } from '@/frame/components/ui/MiniTocs'
 import { useAutomatedPageContext } from '@/automated-pipelines/components/AutomatedPageContext'
-import { JourneyTrackCard, JourneyTrackNav } from '@/journeys/components'
+import { JourneyTrackNav } from '@/journeys/components'
 
 type Props = {
   children?: React.ReactNode
@@ -56,20 +56,16 @@ export const AutomatedPage = ({ children, rawChildren, fullWidth }: Props) => {
 
   const toc = hasTocContent ? (
     <>
-      {isJourneyTrack && <JourneyTrackCard journey={currentJourneyTrack} />}
       {miniTocItems.length > 1 && <MiniTocs miniTocItems={miniTocItems} />}
+      {isJourneyTrack && currentJourneyTrack && <UpNext journey={currentJourneyTrack} />}
     </>
   ) : undefined
 
   return (
-    <DefaultLayout>
+    <DefaultLayout hasDrawer={currentLayout !== 'inline'}>
       {currentLayout === 'inline' ? (
         <>
-          <ArticleInlineLayout
-            topper={<ArticleTitle>{title}</ArticleTitle>}
-            intro={introProp}
-            toc={toc}
-          >
+          <ArticleInlineLayout topper={<ArticleTitle>{title}</ArticleTitle>} intro={introProp}>
             {articleContents}
           </ArticleInlineLayout>
           {isJourneyTrack ? (
@@ -80,10 +76,11 @@ export const AutomatedPage = ({ children, rawChildren, fullWidth }: Props) => {
         </>
       ) : (
         <>
-          <div className="container-xl px-3 px-md-6 my-4">
+          <div className="px-3 px-md-6 my-4">
             <ArticleGridLayout
               fullWidth={fullWidth}
               topper={<ArticleTitle>{title}</ArticleTitle>}
+              tocBreakpoint="xxl"
               intro={introProp}
               toc={toc}
             >

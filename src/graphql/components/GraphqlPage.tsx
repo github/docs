@@ -1,5 +1,5 @@
 import type { JSX } from 'react'
-import cx from 'classnames'
+import cx from 'clsx'
 
 import { Enum } from './Enum'
 import { InputObject } from './InputObject'
@@ -28,11 +28,8 @@ type Props = {
 }
 
 export const GraphqlPage = ({ schema, pageName, objects }: Props) => {
-  const graphqlItems: JSX.Element[] = [] // In the case of the H2s for Queries
+  const graphqlItems: JSX.Element[] = []
 
-  // The queries page has two heading sections (connections and fields)
-  // So we need to add the heading component and the children under it
-  // for each section.
   if (pageName === 'queries') {
     graphqlItems.push(
       ...(schema as QueryT[]).map((item) => <Query item={item} key={item.id + item.name} />),

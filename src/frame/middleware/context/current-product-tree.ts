@@ -49,7 +49,7 @@ export default async function currentProductTree(
     req.context,
   )
   // Now make an even slimmer version that excludes all hidden pages.
-  // This is i used for sidebars.
+  // This is used for sidebars.
   req.context.currentProductTreeTitlesExcludeHidden = excludeHidden(
     req.context.currentProductTreeTitles,
   )
@@ -77,34 +77,13 @@ async function getCurrentProductTreeTitles(input: Tree, context: Context): Promi
   const enPage =
     page.languageCode !== 'en' ? context.pages![href.replace(`/${page.languageCode}`, '/en')] : null
 
-  let rawShortTitle = page.rawShortTitle // might change our minds about this
-  // A lot of translations have a short title that is identical to the
-  // English equivalent. E.g.
-  //
-  //   content/foo.md:
-  //
-  //      title: Something Something Bla
-  //      shortTitle: Something
-  //
-  //   translations/docs-internal.se-sv/content/foo.md:
-  //
-  //      title: Nånting Nånting Blä
-  //      shortTitle: Something
-  //
-  // I.e. the translations `shortTitle` hasn't been translated.
-  // If this is the case, use the long title instead.
-  if (page.languageCode !== 'en' && page.rawShortTitle) {
-    if (page.rawShortTitle === enPage!.shortTitle) {
-      rawShortTitle = page.rawTitle
-    }
-  }
   const renderedFullTitle = await executeWithFallback(
     context,
     () => liquid.parseAndRender(page.rawTitle, context),
     (enContext: Context) => liquid.parseAndRender(enPage!.rawTitle, enContext),
   )
   let renderedShortTitle = ''
-  if (rawShortTitle) {
+  if (page.rawShortTitle) {
     renderedShortTitle = await executeWithFallback(
       context,
       () => liquid.parseAndRender(page.rawShortTitle!, context),

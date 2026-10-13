@@ -9,8 +9,6 @@ category:
   - Create pull requests
 ---
 
-{% data reusables.public-preview.public-preview %}
-
 The `gh stack` extension for {% data variables.product.prodname_cli %} creates and manages stacks of pull requests from your local repository. For an introduction to stacks, see [AUTOTITLE](/pull-requests/reference/stacked-pull-requests).
 
 ## Installation
@@ -19,7 +17,7 @@ The `gh stack` extension for {% data variables.product.prodname_cli %} creates a
 gh extension install github/gh-stack
 ```
 
-The extension requires {% data variables.product.prodname_cli %} (`gh`) version 2.0 or later.
+The extension requires {% data variables.product.prodname_cli %} (`gh`) version 2.0 or later, and Git 2.36 or later.
 
 > [!NOTE]
 > The `gh stack` extension uses your {% data variables.product.prodname_cli %} authentication. If you have not authenticated yet, run `gh auth login`.
@@ -63,6 +61,8 @@ Initializes a new stack locally. In interactive mode (no arguments), the command
 
 When you provide explicit branch names, existing branches are adopted automatically and any missing branches are created. The trunk defaults to the repository's default branch unless you override it with `--base`.
 
+Branches checked out in other worktrees can be adopted. If the final branch is already checked out elsewhere, `init` leaves your current checkout unchanged and reports the owning worktree instead.
+
 The command enables `git rerere` automatically, so that conflict resolutions are remembered across rebases.
 
 | Flag | Description |
@@ -93,7 +93,11 @@ Add a new branch on top of the current stack.
 gh stack add [flags] [branch]
 ```
 
-Creates a new branch at the current HEAD, adds it to the top of the stack, and checks it out. You must run this command while on the topmost branch of a stack. If you do not provide a branch name, the command prompts for one.
+For an existing stack, creates a new branch at the current HEAD, adds it to the top of the stack, and checks it out. You must run this command while on the topmost branch of a stack. If you do not provide a branch name, the command prompts for one.
+
+If the branch name you provide is already checked out in another worktree, `add` adopts the existing branch without switching either checkout. The commit and stage shortcuts `-m`, `-A`, and `-u` are incompatible with that kind of adoption, and the command fails before staging anything or changing stack membership.
+
+When you run the command interactively from a branch that is not part of a stack, `add` offers to initialize a new stack instead. The branch name you supply, or the auto-generated name, becomes the first layer. If you don't supply a name, the standard `init` prompts are used.
 
 You can optionally stage changes and create a commit as part of the `add` flow. When you provide `-m` without an explicit branch name, the branch name is generated automatically in date and slug format, such as `03-24-add_login`.
 
@@ -139,11 +143,11 @@ View the current stack.
 gh stack view [flags]
 ```
 
-Shows all branches in the stack, their ordering, pull request links, and the most recent commit with a relative timestamp. Output is piped through a pager, which respects `GIT_PAGER` or `PAGER`, and defaults to `less -R`.
+Shows all branches in the stack, their ordering, pull request links, and the most recent commit with a relative timestamp. By default, the command opens a full-screen view in an interactive terminal and prints static output in a non-interactive terminal. The `--short` and `--json` flags print directly to standard output in either environment.
 
 | Flag | Description |
 |------|-------------|
-| `-s, --short` | Compact output (branch names only) |
+| `-s, --short` | Compact one-line-per-branch output |
 | `--json` | Output stack data as JSON |
 
 **Examples:**
@@ -154,6 +158,8 @@ gh stack view --short
 gh stack view --json
 ```
 
+`gh stack view --short` uses OSC 8 hyperlinks for pull request numbers when the terminal supports them. Otherwise, the full URL is shown for copy and paste. Set `GH_STACK_HYPERLINKS=1` or `GH_STACK_HYPERLINKS=0` to override terminal detection.
+
 ### `gh stack checkout`
 
 Check out a stack by its stack number, a pull request number, a pull request URL, or a branch name.
@@ -162,13 +168,19 @@ Check out a stack by its stack number, a pull request number, a pull request URL
 gh stack checkout [<stack-number> | <pr-number> | <pr-url> | <branch>]
 ```
 
+| Flag | Description |
+|------|-------------|
+| `--print-path` | Print the target worktree's absolute path. Requires an explicit target and never prompts. |
+
+For a target that is checked out in another worktree, `--print-path` prints that worktree's path without changing either checkout. For a target that is not checked out anywhere, the command checks out the branch in the current worktree before printing its path. Without the flag, trying to check out a target that's occupied elsewhere is an error that includes a path diagnostic, rather than a successful switch. See [Navigation](#navigation) for details on the output contract.
+
 A bare number is interpreted first as a stack or pull request number. These are repository-scoped identifiers shown in the {% data variables.product.github %} UI. If nothing matches the number, it is tried as a branch name.
 
 When you reference a remote stack, the command fetches the stack on {% data variables.product.github %}, pulls the branches, and sets up the stack locally. If the stack already exists locally and matches, the command switches to the branch. If the local and remote stacks have different compositions, you are prompted to resolve the conflict.
 
-When you provide a branch name, the command resolves it against locally tracked stacks only.
+When you provide a branch name, the command checks locally tracked stacks first. If the branch is not tracked locally, the command looks for the branch on remote stacks and pulls down the matching stack. If more than one stack matches, use a stack or pull request number to choose one explicitly.
 
-When you run the command without arguments in an interactive terminal, it opens a searchable picker listing every stack available to you, both the stacks tracked locally and the stacks that exist only on {% data variables.product.github %}. Each row shows the stack number, its bottom and top branch, base branch, a status bar summarizing how many of its pull requests are merged, open, closed, or not yet pushed, and whether the stack is available locally or only on the remote. Filter with the **All**, **Local**, and **Remote** tabs, or type `/` to search. Fully merged stacks are omitted. Selecting a remote-only stack clones it locally before switching to it.
+When you run the command without arguments in an interactive terminal, it first checks whether the current branch belongs to a stack on the remote that is not tracked locally, and offers to check it out. If there is no unique match, or you decline, it opens a searchable picker listing every stack available to you, both the stacks tracked locally and the stacks that exist only on {% data variables.product.github %}. Each row shows the stack number, its bottom and top branch, base branch, a status bar summarizing how many of its pull requests are merged, open, closed, or not yet pushed, and whether the stack is available locally or only on the remote. Filter with the **All**, **Local**, and **Remote** tabs, or type `/` to search. Fully merged stacks are omitted. Selecting a remote-only stack clones it locally before switching to it.
 
 **Examples:**
 
@@ -182,7 +194,7 @@ gh stack checkout 42
 # Check out a stack by pull request URL
 gh stack checkout https://github.com/owner/repo/pull/42
 
-# Check out a stack by branch name (local only)
+# Check out a stack by branch name
 gh stack checkout feature-auth
 
 # Interactive — pick from all available stacks (local and remote)
@@ -213,6 +225,9 @@ The command checks these conditions before opening the interface:
 1. No rebase is in progress.
 1. No pull request in the stack is queued for merge.
 1. Commit history must be linear, with no merge commits and no diverged branches.
+1. Every worktree needed by the staged actions, and by the branches that survive the cascade, must be clean and free of other Git operations.
+
+Stack branches can be distributed across worktrees. Renames run in the branch's own worktree. Fold-down cherry-picks run in the receiving branch's worktree. Cascading rebases run each branch in its own worktree. A branch that isn't checked out anywhere uses the worktree you ran `modify` from, and inserted branches are created as refs without new worktrees. Dropped and folded branches, and their worktrees, are preserved. The trunk branch is only read, so unrelated or untouched source worktrees don't need to be clean.
 
 **Operations**
 
@@ -236,6 +251,10 @@ If a rebase conflict occurs, you can either:
 
 * Resolve the conflicts, stage the files, then run `gh stack modify --continue`.
 * Run `gh stack modify --abort` to abort the operation and restore the stack to its previous state.
+
+Resolve and stage conflicts in the worktree named in the conflict message, which may be a foreign fold receiver's worktree or a rebase owner's worktree rather than the one you ran `modify` from. Both `--continue` and `--abort` can be run from any linked worktree, because they use the recorded owner rather than your current checkout. Continuing resumes any remaining structural actions as well as remaining rebases. Aborting reverses renames in their own worktrees, restores only the refs that the operation touched, and deletes only the refs it created. If a restore or a journal or catalog save fails, the recovery state is retained so you can retry.
+
+Other worktrees are never switched to a different branch. The worktree you ran `modify` from returns to its original branch, including its new name if that branch was renamed, or to the nearest surviving branch if the original is gone. If that surviving branch is checked out elsewhere, your worktree instead keeps its preserved original branch, and the command reports the surviving branch's path. Any pending state used by `gh stack submit` is only consumed for the stack that was just modified.
 
 **After modifying**
 
@@ -304,7 +323,7 @@ If every pull request in the stack has already been merged, that stack is comple
 In an interactive terminal, `submit` opens a full-screen editor on a single screen.
 
 * **Left panel.** Every branch without a pull request is included by default. Deselect any you do not want to submit with <kbd>Ctrl</kbd>+<kbd>X</kbd>. Because each pull request builds on the branch below it, deselecting a branch also deselects the ones stacked above it, and re-including a branch re-includes the ones below it that it depends on. Branches that already have a pull request, whether open, draft, queued, or merged, are shown for context but are locked. Edit those on the web.
-* **Right panel.** For the focused branch, draft the title and description, and choose whether the pull request opens ready for review or as a draft. The description is pre-filled from your repository's pull request template or commits, with a markdown preview and an `$EDITOR` escape. Focusing a locked branch shows a read-only card with a link to its pull request. Press <kbd>o</kbd> to open it in the browser.
+* **Right panel.** For the focused branch, draft the title and description, and choose whether the pull request opens ready for review or as a draft. The description is pre-filled from your repository's pull request template or commits, with a markdown preview. To edit the description in an external editor, press <kbd>Ctrl</kbd>+<kbd>E</kbd>. The extension uses the first nonempty value from the `GH_EDITOR`, `VISUAL`, and `EDITOR` environment variables, in that order. If none is set, it uses `vi` if available on your `PATH`. Focusing a locked branch shows a read-only card with a link to its pull request. Press <kbd>o</kbd> to open it in the browser.
 
 Press <kbd>Ctrl</kbd>+<kbd>S</kbd> to submit all included pull requests at once. The editor supports both keyboard and mouse input. Pass `--auto`, or run the command in a non-interactive terminal such as CI, to skip the editor and use automatically generated titles.
 
@@ -394,6 +413,8 @@ If a rebase conflict occurs, the operation pauses and prints the conflicted file
 | `--abort` | Abort the rebase and restore all branches to their state before the rebase |
 | `--remote <name>` | Remote to fetch from (defaults to the automatically detected remote) |
 | `--committer-date-is-author-date` | Set the committer date to the author date during the rebase. Alias: `--preserve-dates`. |
+
+Date-preserving rebases explicitly use Git's merge backend, so the setting persists across conflicts. `--continue` reuses the native rebase settings that were saved when the rebase started, and doesn't resend start-only date options.
 
 | Argument | Description |
 |----------|-------------|
@@ -539,6 +560,10 @@ Navigation commands move you between branches in the current stack without havin
 
 All navigation commands clamp to the bounds of the stack. Moving up from the top, or down from the bottom, does nothing and displays a message.
 
+`up`, `down`, `top`, `bottom`, `trunk`, and `checkout` with an explicit target all support `--print-path`. For a target checked out in another worktree, the command prints that worktree's path without switching to it. For a target that isn't checked out anywhere, the command checks it out in the worktree you ran it from, then prints that worktree's path. If the target is already checked out in the current worktree, the command prints the current worktree's root.
+
+When you use `--print-path` successfully, standard output contains only the raw absolute path followed by a single newline. Diagnostics are written to standard error, and a failed or ambiguous target produces no standard output at all; `--print-path` never prompts. Without the flag, navigating to a branch that's checked out elsewhere fails and reports that branch's path. If you wrap `gh stack` in a shell function to `cd` into the printed path, check the command's exit status first, quote the path, and avoid `eval`.
+
 ### `gh stack switch`
 
 Interactively switch to another branch in the stack.
@@ -682,11 +707,26 @@ gh stack feedback
 gh stack feedback "Support for reordering branches"
 ```
 
+## Worktree support
+
+`gh stack` works across linked Git worktrees in the same clone.
+
+All linked worktrees share one `gh-stack` state directory and recovery journal, stored under the repository's common directory. Native Git state, such as `HEAD`, the index, and in-progress rebase or cherry-pick markers, stays local to each worktree. Mutating commands are serialized across the whole clone, but read-only commands such as `gh stack view` remain available while a mutation runs in another worktree.
+
+Nonconflicting legacy catalogs migrate to the current format automatically, and the original files are preserved. Catalogs with conflicting definitions require manual reconciliation. Complete any in-progress legacy recovery in its original worktree before migrating, and don't mix old and new catalog versions in the same clone.
+
+`gh stack rebase` and `gh stack sync` automatically update the branches of any affected worktree that is clean, meaning it has no uncommitted changes, no other Git operation in progress, and is otherwise unchanged. They block updates to worktrees that are dirty, busy, missing, or have changed unexpectedly. Neither command stashes your changes automatically, or creates or removes worktrees for you.
+
+For commands that share a recovery journal, `--continue` and `--abort` operate on the worktree recorded in the journal, not the worktree you run the command from. If recovery fails partway through, the operation's state is retained so you can retry.
+
+For repositories created with `git init --separate-git-dir`, `gh stack` supports invocation from the main worktree, and from linked worktrees that have an absolute or relative `core.worktree` backlink to the main worktree, including settings stored in the main worktree's `config.worktree` file. The one unsupported configuration is invoking `gh stack` from a linked worktree that has no backlink to the main worktree. If an operation requires access to that worktree and can't find it, the operation fails with guidance on how to proceed; worktrees unaffected by the missing backlink continue to work normally. `gh stack` never uses a Git administration directory as a checkout destination.
+
 ## Environment variables
 
 | Variable | Values | Description |
 |----------|--------|-------------|
 | `GH_STACK_THEME` | `auto` (default), `light`, `dark` | Controls the color palette of the interactive screens for `submit`, `modify`, and `view`, and all colored command output. Colors adapt to your terminal background automatically. Set this variable to force the light or dark palette when a terminal does not report its background, which can happen in some SSH or `tmux` setups. |
+| `GH_STACK_HYPERLINKS` | `0`, `1` | Disables or enables OSC 8 hyperlinks when terminal detection is incorrect. Unsupported terminals show the full URL by default. |
 
 ```shell
 # Force the light palette for one command

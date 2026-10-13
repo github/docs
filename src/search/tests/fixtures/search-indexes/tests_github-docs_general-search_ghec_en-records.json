@@ -11,5 +11,18 @@
         ],
         "intro": "Sample intro",
         "toplevel": "Fooing"
+    },
+    "/en/enterprise-cloud@latest/bar": {
+        "objectID": "/en/enterprise-cloud@latest/bar",
+        "breadcrumbs": "bar",
+        "title": "Bar",
+        "headings": "",
+        "content": "This is another fixture hit for GHEC search filtering.",
+        "topics": [
+            "Test",
+            "Fixture"
+        ],
+        "intro": "Sample intro",
+        "toplevel": "Baring"
     }
 }

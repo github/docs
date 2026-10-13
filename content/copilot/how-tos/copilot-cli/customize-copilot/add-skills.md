@@ -43,7 +43,7 @@ Use the /frontend-design skill to create a responsive navigation bar in React.
   What skills do you have?
   ```
 
-* **Enable or disable specific skills:** use the command `/skills` and then use the up and down keys on your keyboard, and the space bar, to toggle skills on or off.
+* **Enable or disable specific skills:** use the command `/skills`, then use the up and down keys on your keyboard to select a skill, press <kbd>Enter</kbd>, and choose **Enable** or **Disable**.
 
 * **Find out more about a skill** (including its location): use the command `/skills info`.
 
@@ -53,7 +53,7 @@ Use the /frontend-design skill to create a responsive navigation bar in React.
 
 * **Remove skills:** to remove a skill that you have added directly—not via a plugin—use the command `/skills remove SKILL-DIRECTORY`. To remove skills added as part of a plugin you must manage the plugin itself. Use the `info` subcommand to find out which plugin a skill came from.
 
-The `/skills` commands above run inside an interactive session. The same list, add, and remove operations are also available from the terminal command line by using the `copilot skill` subcommand. This is useful for scripting or for setting up skills before you start a session. For example, run `copilot skill list` to list your skills, or `copilot skill add <FILE | URL | DIRECTORY>` to add one. For the full set of subcommands for {% data variables.copilot.copilot_cli_short %}, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference).
+The `/skills` commands above run inside an interactive session. The same list, add, remove, disable, and enable operations are also available from the terminal command line by using the `copilot skill` subcommand. This is useful for scripting or for setting up skills before you start a session. For example, run `copilot skill list` to list your skills, `copilot skill add <FILE | URL | DIRECTORY>` to add one, or `copilot skill disable SKILL-NAME` and `copilot skill enable SKILL-NAME` to turn a skill off and back on. For the full set of subcommands for {% data variables.copilot.copilot_cli_short %}, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference).
 
 {% data reusables.copilot.skills-compared %}
 

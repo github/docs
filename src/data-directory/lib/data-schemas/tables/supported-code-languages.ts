@@ -1,5 +1,3 @@
-// This schema enforces the structure in data/tables/supported-code-languages.yml
-
 export default {
   type: 'object',
   additionalProperties: false,
@@ -164,7 +162,7 @@ export default {
       type: 'object',
       additionalProperties: false,
       patternProperties: {
-        // Language names like C, C++, C#, Go, Java, JavaScript, etc.
+        // Matches language names like C, C++, C#, Go, Java, and JavaScript.
         '^[a-zA-Z+#]+$': {
           type: 'object',
           additionalProperties: false,
@@ -188,15 +186,15 @@ export default {
             },
             codeScanning: {
               type: 'string',
-              // Allow "supported", "not-supported", or custom text like "third-party [^1]"
+              // Accepts supported, not-supported, or custom text such as "third-party [^1]".
             },
             depGraph: {
               type: 'string',
-              // Allow "supported", "not-supported", or specific package managers like "npm, Yarn"
+              // Accepts supported, not-supported, or package managers such as "npm, Yarn".
             },
             depUpdates: {
               type: 'string',
-              // Allow "supported", "not-supported", or specific package managers
+              // Accepts supported, not-supported, or package managers.
             },
             actions: {
               type: 'string',
@@ -204,7 +202,7 @@ export default {
             },
             packages: {
               type: 'string',
-              // Allow "supported", "not-supported", or specific package managers
+              // Accepts supported, not-supported, or package managers.
             },
           },
         },

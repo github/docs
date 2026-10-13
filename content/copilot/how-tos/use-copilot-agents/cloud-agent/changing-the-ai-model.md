@@ -14,7 +14,7 @@ redirect_from:
 ---
 
 > [!NOTE]
-> For an overview of {% data variables.copilot.copilot_cloud_agent %}, see [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-cloud-agent).
+> For an overview of {% data variables.copilot.copilot_cloud_agent %}, see [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-on-github).
 
 ## Introduction
 
@@ -30,7 +30,6 @@ You may find that different models perform better, or provide more useful respon
 The following options are currently available:
 
 * Auto 
-{% data reusables.copilot.copilot-cloud-agent-auto-models %}
 {% data reusables.copilot.copilot-cloud-agent-non-auto-models %}
 
 {% data reusables.copilot.auto-model-option %}

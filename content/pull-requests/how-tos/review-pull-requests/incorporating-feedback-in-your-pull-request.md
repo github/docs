@@ -40,6 +40,12 @@ Each person who suggested a change included in the commit will be a co-author of
 1. In the commit message field, type a short, meaningful commit message that describes the change you made to the file or files.
 1. Click **Commit changes**.
 
+{% ifversion fpt or ghec %}
+## Delegating review comments to {% data variables.product.prodname_copilot_short %}
+
+If you have access to {% data variables.copilot.copilot_cloud_agent %}, you can delegate review comments to have {% data variables.product.prodname_copilot_short %} implement the feedback. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/use-cloud-agent-on-github#delegating-review-comments).
+{% endif %}
+
 ## Re-requesting a review
 
 For example, you can re-request a review after you've made substantial changes to your pull request.

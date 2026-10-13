@@ -40,7 +40,7 @@ You can use the link displayed when the research completes to view the full repo
 Alternatively, press <kbd>Ctrl</kbd>+<kbd>Y</kbd> to open the current session's most recent research report in the terminal.
 
 > [!NOTE]
-> The application used to display a report when you press <kbd>Ctrl</kbd>+<kbd>Y</kbd> is determined by the value of the `COPILOT_EDITOR`, `VISUAL`, or `EDITOR` environment variables (in that order of precedence). If none of these are set, the CLI will use vi on Linux or vim on macOS.
+> The application used to display a report when you press <kbd>Ctrl</kbd>+<kbd>Y</kbd> is determined by the value of the `COPILOT_EDITOR`, `VISUAL`, or `EDITOR` environment variables (in that order of precedence). On Linux and macOS, if none of these are set, the CLI will use vi.
 
 To share the report you can either save it to a file or create a {% data variables.product.github %} gist.
 

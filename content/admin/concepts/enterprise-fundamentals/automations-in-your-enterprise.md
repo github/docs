@@ -9,6 +9,8 @@ redirect_from:
   - /enterprise-onboarding/github-apps/automations-in-your-enterprise
 category:
   - Get started with GitHub Enterprise
+docsTeamMetrics:
+  - enterprise-onboarding
 ---
 
 Automation on {% data variables.product.github %} typically involves multiple components working together. The most important {% data variables.product.github %} native components are:

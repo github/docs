@@ -6,11 +6,16 @@ import zlib from 'zlib'
 import { fetchWithRetry } from './fetch-utils'
 import statsd from '@/observability/lib/statsd'
 
-// Store compressed Buffers instead of parsed JSON objects.
-// Redirect JSON files are 5-10 MB each when parsed but compress
-// to ~1-2 MB with deflate. We decompress on each access (~1 ms)
-// which is negligible compared to the memory savings.
+// Cache deflated raw redirect JSON strings for every URL.
+// Raw files of up to 20 MB compress to under 1 MB with deflate.
 export const cache = new Map<string, Buffer>()
+
+// Also keep recently used parsed objects, bounded by raw JSON size.
+// Inflating and parsing a 6-20 MB file costs about 15-40 ms per call.
+// Parsed heap use is about 1.4 times the raw size.
+export const PARSED_CACHE_MAX_BYTES = 24 * 1024 * 1024
+export const parsedCache = new Map<string, { value: unknown; bytes: number }>()
+let parsedCacheBytes = 0
 
 const inProd = process.env.NODE_ENV === 'production'
 
@@ -27,33 +32,56 @@ function compressStringToCache(cacheKey: string, jsonString: string): void {
   cache.set(cacheKey, zlib.deflateSync(Buffer.from(jsonString)))
 }
 
+function forgetParsed(cacheKey: string): void {
+  const entry = parsedCache.get(cacheKey)
+  if (!entry) return
+  parsedCache.delete(cacheKey)
+  parsedCacheBytes -= entry.bytes
+}
+
+function rememberParsed(cacheKey: string, value: unknown, bytes: number): void {
+  forgetParsed(cacheKey)
+  if (bytes > PARSED_CACHE_MAX_BYTES) return
+  // Callers share this object, so freeze it to prevent accidental mutation.
+  if (value && typeof value === 'object') Object.freeze(value)
+  parsedCache.set(cacheKey, { value, bytes })
+  parsedCacheBytes += bytes
+  // Map iteration follows insertion order, so the first key is least recently used.
+  for (const [key] of parsedCache) {
+    if (parsedCacheBytes <= PARSED_CACHE_MAX_BYTES) break
+    forgetParsed(key)
+  }
+}
+
+function getParsed(cacheKey: string): { value: unknown } | undefined {
+  const entry = parsedCache.get(cacheKey)
+  if (!entry) return undefined
+  // Reinsert to mark as most recently used.
+  parsedCache.delete(cacheKey)
+  parsedCache.set(cacheKey, entry)
+  return entry
+}
+
 function decompressFromCache(cacheKey: string): unknown {
   const compressed = cache.get(cacheKey)
   if (!compressed) return undefined
-  return JSON.parse(zlib.inflateSync(compressed).toString())
+  const raw = zlib.inflateSync(compressed)
+  const value = JSON.parse(raw.toString())
+  rememberParsed(cacheKey, value, raw.length)
+  return value
 }
 
-// Wrapper on `got()` that is able to both cache in memory and on disk.
-// The on-disk caching is in `.remotejson/`.
-// We use this for downloading `redirects.json` files from one of the
-// docs-ghes-<release number> repos as a proxy. A lot of those
-// .json files are large and they're also static which makes them
-// ideal for caching.
-// Note that there's 2 layers of caching here:
-//  1. Is it in memory cache?
-//  2. No, is it on disk?
-//  3. No, download from the internet then store responses in memory and disk
+// Archived redirects.json files from docs-ghes-<release> repos are large and static.
+// Lookup checks memory, then .remotejson-cache, then downloads and caches the file.
+// Production reads the prewarmed disk cache but never writes to disk.
 export default async function getRemoteJSON(
   url: string,
   config?: GetRemoteJSONConfig,
 ): Promise<unknown> {
-  // We could get fancy and make the cache key depend on the `config` too
-  // given that this is A) only used for archived enterprise stuff,
-  // and B) the config is only applicable on cache miss when doing the `got()`.
+  // The URL is enough for archived enterprise JSON because config only affects cache misses.
   const cacheKey = url
 
-  // Assume it's in the in-memory cache first.
-  // Later we'll update this if we find we need to.
+  // Metrics assume a memory hit until lookup proves otherwise.
   let fromCache = 'memory'
 
   if (!cache.has(cacheKey)) {
@@ -62,21 +90,20 @@ export default async function getRemoteJSON(
     let foundOnDisk = false
     const tempFilename = crypto.createHash('md5').update(url).digest('hex')
 
-    // Do this here instead of at the top of the file so that it becomes
-    // possible to override this in unit tests.
+    // Runtime lookup lets unit tests override the disk cache root.
     const ROOT = process.env.GET_REMOTE_JSON_DISK_CACHE_ROOT || '.remotejson-cache'
 
     const onDisk = path.join(ROOT, `${tempFilename}.json`)
 
     try {
       const body = fs.readFileSync(onDisk, 'utf-8')
-      // It might exist on disk, but it could be empty
+      // Empty disk files count as cache misses.
       if (body) {
         try {
-          // Validate JSON, then compress the raw string directly
-          // instead of parse → stringify → compress
-          JSON.parse(body)
+          // Compress the raw string after validation to avoid parse-stringify overhead.
+          const parsed = JSON.parse(body)
           compressStringToCache(cacheKey, body)
+          rememberParsed(cacheKey, parsed, Buffer.byteLength(body))
           fromCache = 'disk'
           foundOnDisk = true
         } catch (error) {
@@ -99,10 +126,7 @@ export default async function getRemoteJSON(
     }
 
     if (!foundOnDisk) {
-      // fetch will, by default, follow redirects and fetchWithRetry will throw if the ultimate
-      // response is not a 2xx.
-      // But it's possible that the page is a 200 OK but it's just not a JSON
-      // page at all. Then we can't assume we can deserialize it.
+      // A 2xx response can still be non-JSON, so content type gates deserialization.
       const retries = config?.retry?.limit || 0
       const timeout = config?.timeout?.response
 
@@ -113,11 +137,7 @@ export default async function getRemoteJSON(
           retries,
           timeout,
           throwHttpErrors: true,
-          // The `redirects.json` files are large (5-10MB) but well-cached, and
-          // the configured timeout is deliberately a short time-to-first-byte
-          // budget (got's `timeout.response` semantics). Bound only TTFB so a
-          // slow server fails fast without aborting a legitimately long body
-          // download mid-transfer.
+          // Large cached redirects.json files need a short TTFB budget without a body deadline.
           timeoutMode: 'ttfb',
         },
       )
@@ -128,19 +148,20 @@ export default async function getRemoteJSON(
       }
 
       const body = await res.text()
-      // Validate JSON, then compress raw string directly
-      JSON.parse(body)
+      const parsed = JSON.parse(body)
       compressStringToCache(cacheKey, body)
+      rememberParsed(cacheKey, parsed, Buffer.byteLength(body))
 
-      // Only write to disk for testing and local review.
-      // In production, we never write to disk. Only in-memory.
+      // Local review and tests persist downloads so later runs can reuse them.
       if (!inProd) {
         fs.mkdirSync(path.dirname(onDisk), { recursive: true })
         fs.writeFileSync(onDisk, body, 'utf-8')
       }
     }
   }
+  const parsed = getParsed(cacheKey)
   const tags = [`from_cache:${fromCache}`]
+  if (fromCache === 'memory') tags.push(`parsed_cache:${parsed ? 'hit' : 'miss'}`)
   statsd.increment('middleware.get_remote_json', 1, tags)
-  return decompressFromCache(cacheKey)
+  return parsed ? parsed.value : decompressFromCache(cacheKey)
 }

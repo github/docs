@@ -7,20 +7,24 @@ import {
   LinkExternalIcon,
   TriangleDownIcon,
 } from '@primer/octicons-react'
-import { ActionList, ActionMenu, ButtonGroup, VisuallyHidden } from '@primer/react'
+import { ActionList, ActionMenu, VisuallyHidden } from '@primer/react'
 import { Button } from '@primer/react-brand'
 import { announce } from '@primer/live-region-element'
 import { MARKDOWN_SOURCE_MENU_EVENT_GROUP } from '@/events/components/event-groups'
 import { sendEvent } from '@/events/components/events'
 import { EventType } from '@/events/types'
 import { useTranslation } from '@/languages/components/useTranslation'
-import cx from 'classnames'
+import cx from 'clsx'
 import styles from './ViewMarkdownButton.module.scss'
 
 interface CopyMarkdownMenuProps {
   currentPath: string
 }
 
+// CopyMarkdownMenu renders separate label and chevron buttons instead of a Primer ButtonGroup.
+// ButtonGroup forces border-radius: 0 and margin-inline-end: -1px, which fight
+// the fused pill styling.
+// The separate elements also keep copy and menu behavior distinct.
 export const CopyMarkdownMenu = ({ currentPath }: CopyMarkdownMenuProps) => {
   const { t } = useTranslation('pages')
 
@@ -79,85 +83,91 @@ export const CopyMarkdownMenu = ({ currentPath }: CopyMarkdownMenuProps) => {
       if (timeoutRef.current) clearTimeout(timeoutRef.current)
       timeoutRef.current = setTimeout(() => setCopied(false), 2000)
     } catch {
-      // Fallback: open in new tab if fetch or clipboard fails
+      // If fetch or clipboard fails, open the markdown source in a new tab.
       window.open(markdownUrl, '_blank')
     }
   }, [markdownUrl, t])
 
   return (
-    <div className="mb-3 ml-3">
-      <ButtonGroup>
-        <Button
-          variant="secondary"
-          size="small"
-          className={cx('text-decoration-none color-fg-default', styles.button, styles.copyButton)}
-          leadingVisual={
-            copied ? <CheckIcon aria-hidden="true" /> : <CopyIcon aria-hidden="true" />
-          }
-          onClick={handleCopyClick}
-        >
-          {t('copy_as_markdown')}
-        </Button>
-        <ActionMenu>
-          <ActionMenu.Button
-            aria-label={t('more_markdown_options')}
-            icon={TriangleDownIcon}
-            className={styles.button}
-          />
-          <ActionMenu.Overlay align="start">
-            <ActionList>
-              <ActionList.Item onSelect={handleCopyClick}>
-                <ActionList.LeadingVisual>
-                  <CopyIcon size={16} />
-                </ActionList.LeadingVisual>
-                {t('copy_as_markdown')}
-                <ActionList.Description variant="block">
-                  {t('copy_as_markdown_desc')}
-                </ActionList.Description>
-              </ActionList.Item>
-              <ActionList.LinkItem
-                href={markdownUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={handleViewClick}
-              >
-                <ActionList.LeadingVisual>
-                  <FileIcon size={16} />
-                </ActionList.LeadingVisual>
-                {t('view_as_markdown')}
-                <VisuallyHidden>{t('opens_in_new_tab')}</VisuallyHidden>
-                <ActionList.Description variant="block">
-                  {t('view_as_markdown_desc')}
-                </ActionList.Description>
-                <ActionList.TrailingVisual>
-                  <LinkExternalIcon size={16} aria-hidden="true" />
-                </ActionList.TrailingVisual>
-              </ActionList.LinkItem>
-              <ActionList.LinkItem
-                href={copilotUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={handleCopilotClick}
-              >
-                <ActionList.LeadingVisual>
-                  <CopilotIcon size={16} />
-                </ActionList.LeadingVisual>
-                {t('ask_copilot')}
-                <VisuallyHidden>{t('opens_in_new_tab')}</VisuallyHidden>
-                <ActionList.Description variant="block">
-                  {t('ask_copilot_desc')}
-                </ActionList.Description>
-                <ActionList.TrailingVisual>
-                  <LinkExternalIcon size={16} aria-hidden="true" />
-                </ActionList.TrailingVisual>
-              </ActionList.LinkItem>
-            </ActionList>
-          </ActionMenu.Overlay>
-        </ActionMenu>
-      </ButtonGroup>
+    <div className={styles.controls}>
+      <Button
+        // Brand Button has no default type; type="button" prevents submission if reused in a form.
+        type="button"
+        variant="secondary"
+        className={cx('text-decoration-none', styles.button, styles.copyButton)}
+        // The design hides the icon until the temporary success state.
+        leadingVisual={copied ? <CheckIcon aria-hidden="true" /> : undefined}
+        onClick={handleCopyClick}
+      >
+        {t('copy_as_markdown')}
+      </Button>
+      <ActionMenu>
+        {/* ActionMenu.Button requires icon to render an icon-only button. */}
+        <ActionMenu.Button
+          aria-label={t('more_markdown_options')}
+          icon={TriangleDownIcon}
+          className={cx(styles.button, styles.dropdownButton)}
+        />
+        <ActionMenu.Overlay align="start">
+          <ActionList>
+            <ActionList.Item onSelect={handleCopyClick}>
+              <ActionList.LeadingVisual>
+                <CopyIcon size={16} />
+              </ActionList.LeadingVisual>
+              {t('copy_as_markdown')}
+              <ActionList.Description variant="block">
+                {t('copy_as_markdown_desc')}
+              </ActionList.Description>
+            </ActionList.Item>
+            <ActionList.LinkItem
+              href={markdownUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={handleViewClick}
+            >
+              <ActionList.LeadingVisual>
+                <FileIcon size={16} />
+              </ActionList.LeadingVisual>
+              {t('view_as_markdown')}
+              <VisuallyHidden>{t('opens_in_new_tab')}</VisuallyHidden>
+              <ActionList.Description variant="block">
+                {t('view_as_markdown_desc')}
+              </ActionList.Description>
+              <ActionList.TrailingVisual>
+                <LinkExternalIcon size={16} aria-hidden="true" />
+              </ActionList.TrailingVisual>
+            </ActionList.LinkItem>
+            <ActionList.LinkItem
+              href={copilotUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={handleCopilotClick}
+            >
+              <ActionList.LeadingVisual>
+                <CopilotIcon size={16} />
+              </ActionList.LeadingVisual>
+              {t('ask_copilot')}
+              <VisuallyHidden>{t('opens_in_new_tab')}</VisuallyHidden>
+              <ActionList.Description variant="block">
+                {t('ask_copilot_desc')}
+              </ActionList.Description>
+              <ActionList.TrailingVisual>
+                <LinkExternalIcon size={16} aria-hidden="true" />
+              </ActionList.TrailingVisual>
+            </ActionList.LinkItem>
+          </ActionList>
+        </ActionMenu.Overlay>
+      </ActionMenu>
     </div>
   )
 }
 
-/** @deprecated Use CopyMarkdownMenu instead */
-export const ViewMarkdownButton = CopyMarkdownMenu
+// CopyMarkdownBelowIntro keeps the control below the article lede at every width,
+// so it does not depend on drawer visibility or sidebar collapse state.
+export const CopyMarkdownBelowIntro = ({ currentPath }: CopyMarkdownMenuProps) => {
+  return (
+    <div className={styles.belowIntroPlacement}>
+      <CopyMarkdownMenu currentPath={currentPath} />
+    </div>
+  )
+}

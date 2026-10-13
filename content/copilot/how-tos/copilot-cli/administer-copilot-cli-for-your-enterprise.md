@@ -12,6 +12,7 @@ category:
   - Administer Copilot CLI # Copilot CLI bespoke landing page
 docsTeamMetrics:
   - copilot-cli
+  - ai-governance
 ---
 
 {% data variables.copilot.copilot_cli_short %} brings agentic capabilities to developers' command line. When {% data variables.copilot.copilot_cli_short %} is enabled, developers can use it to ask {% data variables.product.prodname_copilot_short %} to work on tasks locally or delegate work to {% data variables.copilot.copilot_cloud_agent %}.
@@ -27,7 +28,7 @@ You can control the use of {% data variables.copilot.copilot_cli_short %} by con
 1. In the "Clients" section, for {% data variables.copilot.copilot_cli_short %}, select your preferred policy.
 
 > [!NOTE]
-> Disabling {% data variables.copilot.copilot_cli_short %} does not disable the {% data variables.copilot.github_copilot_app %}. The app is governed by its own policy. For more information, see [AUTOTITLE](/copilot/concepts/agents/github-copilot-app).
+> Disabling {% data variables.copilot.copilot_cli_short %} does not disable the {% data variables.copilot.github_copilot_app %}. The app is governed by its own policy. For more information, see [AUTOTITLE](/copilot/concepts/copilot-surfaces/github-copilot-app).
 
 ## How do other AI controls affect {% data variables.copilot.copilot_cli_short %}?
 
@@ -48,6 +49,10 @@ Separately, users can also provide their own LLM keys locally. This is not contr
 ### Custom agents
 
 Enterprise-configured custom agents are available to use with {% data variables.copilot.copilot_cli_short %}.
+
+### Content exclusion
+
+Content exclusion policies configured at the enterprise, organization, and repository levels apply to {% data variables.copilot.copilot_cli_short %}. Excluded files are not used as context. For more information, see [AUTOTITLE](/copilot/concepts/context/content-exclusion).
 
 ### MCP server policies
 
@@ -70,7 +75,6 @@ Users must have an assigned {% data variables.product.prodname_copilot %} seat t
 All other controls do **not** affect {% data variables.copilot.copilot_cli_short %}, notably:
 
 * **IDE-specific policies**: Policies configured for specific IDEs or editor extensions
-* **Content exclusions**: File path-based content exclusions
 
 ## Why can't my developers access {% data variables.copilot.copilot_cli_short %}?
 

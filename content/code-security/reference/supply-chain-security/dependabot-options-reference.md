@@ -301,6 +301,7 @@ The table below shows the package managers that support `cooldown`. The `default
 * Define directories relative to the root of the repository for most package managers.
 
 * For {% data variables.product.prodname_actions %}, use the value `/`. {% data variables.product.prodname_dependabot %} will search the `/.github/workflows` directory, as well as the `action.yml/action.yaml` file from the root directory.
+* For Dev containers, use the value `/`. {% data variables.product.prodname_dependabot %} will search the `.devcontainer.json`, `.devcontainer/devcontainer.json`, and `.devcontainer/<anything>/devcontainer.json` files from the root directory.
 
 If you need to use more than one block in the configuration file to define updates for a single target branch of an ecosystem, you must ensure that all values are unique and there is no overlap in directories defined.
 
@@ -491,8 +492,6 @@ Supported value: the numeric identifier of a milestone.
 >[!TIP]
 >If you view a milestone, the final part of the page URL, after `milestone`, is the identifier. For example: `https://github.com/<org>/<repo>/milestone/3`, see [AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/viewing-your-milestones-progress).
 
-{% ifversion dependabot-multi-ecosystem-support %}
-
 ## `multi-ecosystem-groups` {% octicon "versions" aria-label="Version updates" height="24" %}
 
 Define groups that span multiple package ecosystems to get a single {% data variables.product.prodname_dependabot %} pull request that updates all supported package ecosystems. This approach helps reduce the number of {% data variables.product.prodname_dependabot %} pull requests you receive and streamlines your dependency update workflow.
@@ -534,8 +533,6 @@ updates:
     multi-ecosystem-group: "infrastructure"
 ```
 
-{% endif %}
-
 ## `open-pull-requests-limit` {% octicon "versions" aria-label="Version updates only" height="24" %}
 
 Change the limit on the maximum number of pull requests for version updates open at any time.
@@ -545,12 +542,14 @@ Change the limit on the maximum number of pull requests for version updates open
 * If five pull requests with version updates are open, no further pull requests are raised until some of those open requests are merged or closed.
 
 > [!NOTE]
-> _Security update_ pull requests are not subject to this limit and do not count toward it. There is no limit on the number of open pull requests for security updates.
+> _Security update_ pull requests are subject to a separate, fixed limit of 10 open pull requests, which cannot be configured using `open-pull-requests-limit`.
 
 When `open-pull-requests-limit` is defined:
 
 * {% data variables.product.prodname_dependabot %} opens pull requests up to the defined integer value. A large value can be set to effectively remove the open pull request limit.
 * You can temporarily disable version updates for a package manager by setting this option to zero, see [Disabling {% data variables.product.prodname_dependabot_version_updates %}](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/configure-version-updates#disabling-dependabot-version-updates).
+
+When either limit is reached, {% data variables.product.prodname_dependabot %} reports an error and stops opening additional pull requests until some of the open pull requests are merged or closed. For more information, see [AUTOTITLE](/code-security/reference/supply-chain-security/troubleshoot-dependabot/dependabot-errors#pull-request-limit-reached).
 
 ## `package-ecosystem` {% octicon "versions" aria-label="Version updates only" height="24" %}
 
@@ -577,9 +576,7 @@ Package manager | YAML value      | Supported versions |
 | Docker         | `docker`         | v1               |
 | Docker Compose | `docker-compose`         | v2, v3               |
 | .NET SDK       | `dotnet-sdk`         | >=.NET Core 3.1           |
-| {% ifversion dependabot-helm-support %} |
 | Helm Charts            | `helm`            | v3               |
-| {% endif %} |
 | Hex            | `mix`            | v1               |
 | {% ifversion dependabot-julia-support %} |
 | Julia                  | `julia`           | >=v1.10               |
@@ -764,6 +761,8 @@ There are 2 locations in the `dependabot.yml` file where you can use the `regist
 1. At the top level, where you define the private registries you want to use and their access information, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-access-to-private-registries).
 1. Within the `updates` blocks, where you can specify which private registries each package manager should use.
 
+Each `updates` block can reference up to 100 registries from the top-level `registries` section.
+
 {% data variables.product.prodname_dependabot %} default behavior is to raise pull requests only to update dependencies stored in publicly accessible registries.
 
 When the {% data variables.product.prodname_dependabot %} configuration file has a top-level `registries` section, defining access to one or more private registries, you can configure each `package-ecosystem` to use one or more of these private registries.
@@ -808,9 +807,7 @@ Reviewers must have at least read access to the repository.
 | [`interval`](#interval) | **Required.** Defines the frequency for {% data variables.product.prodname_dependabot %}. |
 | [`day`](#day) | Specify the day to run for a **weekly** interval. |
 | [`time`](#time) | Specify the time to run. |
-| {% ifversion dependabot-schedule-updates %} |
 | [`cronjob`](#cronjob) | Defines the cron expression if the interval type is `cron`. |
-| {% endif %} |
 | [`timezone`](#timezone) | Specify the timezone of the `time` value.  |
 
 ### `interval`
@@ -830,7 +827,7 @@ Each package manager **must** define a schedule interval.
 >[!NOTE]
 > The supported values `quarterly`, `semiannually`, and `yearly` are only available on {% data variables.product.prodname_ghe_server %} from version 3.19.
 
-By default, {% data variables.product.prodname_dependabot %} randomly assigns a time to apply all the updates in the configuration file. You can use the `time` and `timezone` parameters to set a specific runtime for all intervals.  {% ifversion dependabot-schedule-updates %}If you use a `cron` interval, you can define the update time with a `cronjob` expression.{% endif %}
+By default, {% data variables.product.prodname_dependabot %} randomly assigns a time to apply all the updates in the configuration file. You can use the `time` and `timezone` parameters to set a specific runtime for all intervals. If you use a `cron` interval, you can define the update time with a `cronjob` expression.
 
 ### `day`
 
@@ -843,8 +840,6 @@ Optionally, run **weekly** updates for a package manager on a specific day of th
 Format: `hh:mm`
 
 Optionally, run all updates for a package manager at a specific time of day. By default, times are interpreted as UTC.
-
-{% ifversion dependabot-schedule-updates %}
 
 ### `cronjob`
 
@@ -876,8 +871,6 @@ updates:
       interval: "cron"
       cronjob: "0 9 * * *"
 ```
-
-{% endif %}
 
 ### `timezone`
 
@@ -1068,7 +1061,9 @@ Specify authentication details that {% data variables.product.prodname_dependabo
 
 {% endif %}
 
-The value of the `registries` key is an associative array, each element of which consists of a key that identifies a particular registry and a value which is an associative array that specifies the settings required to access that registry. The following `dependabot.yml` file configures a registry identified as `dockerhub` in the `registries` section of the file and then references this in the `updates` section of the file.
+The value of the `registries` key is an associative array, each element of which consists of a key that identifies a particular registry and a value which is an associative array that specifies the settings required to access that registry. You can define up to 100 registries in the top-level `registries` section.
+
+The following `dependabot.yml` file configures a registry identified as `dockerhub` in the `registries` section of the file and then references this in the `updates` section of the file.
 
 {% raw %}
 

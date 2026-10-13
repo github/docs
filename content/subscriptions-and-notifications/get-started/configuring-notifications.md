@@ -54,7 +54,7 @@ In addition, you can receive and triage notifications on your mobile device with
 
 ### Benefits of using an email client for notifications
 
-One benefit of using an email client is that all of your notifications can be kept indefinitely depending on your email client's storage capacity. Your inbox notifications are only kept for 5 months on {% data variables.product.prodname_dotcom %} unless you've marked them as **Saved**. **Saved** notifications are kept indefinitely. For more information about your inbox's retention policy, see [AUTOTITLE](/subscriptions-and-notifications/concepts/about-notifications#notification-retention-policy).
+One benefit of using an email client is that all of your notifications can be kept indefinitely depending on your email client's storage capacity. Your inbox notifications are only kept for 3 months on {% data variables.product.prodname_dotcom %} unless you've marked them as **Saved**. **Saved** notifications are kept indefinitely. For more information about your inbox's retention policy, see [AUTOTITLE](/subscriptions-and-notifications/concepts/about-notifications#notification-retention-policy).
 
 Sending notifications to your email client also allows you to customize your inbox according to your email client's settings, which can include custom or color-coded labels.
 
@@ -148,28 +148,10 @@ The `reply-to` address on each email notification identifies the thread and the 
 {% data reusables.notifications.access_notifications %}
 {% data reusables.notifications-v2.manage-notifications %}
 1. On the notifications settings page, choose how you receive notifications when:
-    * There are updates in repositories you're watching or in a conversation you're participating in. For more information, see [About participating and watching notifications](#about-participating-and-watching-notifications).{% ifversion automatic-watching %}
-    * You gain access to a new repository or you've joined a new team. For more information, see [Automatic watching](#automatic-watching).{% endif %}
+    * There are updates in repositories you're watching or in a conversation you're participating in. For more information, see [About participating and watching notifications](#about-participating-and-watching-notifications).
     * There are new {% data variables.product.prodname_dependabot_alerts %} in your repository. For more information, see [AUTOTITLE](/subscriptions-and-notifications/how-tos/managing-security-notifications).  {% ifversion fpt or ghec %}
     * There are workflow runs updates on repositories set up with {% data variables.product.prodname_actions %}. For more information, see [AUTOTITLE](/subscriptions-and-notifications/how-tos/managing-github-actions-notifications).{% endif %}
     * There are new deploy keys added to repositories that belong to organizations that you're an owner of. For more information, see [AUTOTITLE](/subscriptions-and-notifications/how-tos/managing-organization-notifications).
-
-{% ifversion automatic-watching %}
-
-## Automatic watching
-
-By default, anytime you gain access to a new repository, you will automatically begin watching that repository. Anytime you join a new team, you will automatically be subscribed to updates and receive notifications when that team is @mentioned. If you don't want to automatically be subscribed, you can unselect the automatic watching options in your notification settings.
-
-{% ifversion update-notification-settings-22 %}
-![Screenshot of the toggles for "Automatically watch repositories" and "Automatically watch teams".](/assets/images/help/notifications-v2/automatically-watch-repos-and-teams.png)
-{% else %}
-![Screenshot of "Automatic watching" options for teams and repositories.](/assets/images/help/notifications-v2/automatic-watching-options.png){% endif %}
-
-If "Automatically watch repositories" is disabled, then you will not automatically watch your own repositories. You must navigate to your repository page and choose the watch option.
-
-For more information, see [AUTOTITLE](/subscriptions-and-notifications/get-started/configuring-notifications#choosing-your-notification-settings).
-
-{% endif %}
 
 ## Configuring your watch settings for an individual repository
 

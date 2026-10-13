@@ -384,14 +384,17 @@ on:
 
 Runs your workflow when a pull request is added to a merge queue, which adds the pull request to a merge group. For more information see [AUTOTITLE](/pull-requests/how-tos/merge-and-close-pull-requests/merging-a-pull-request-with-a-merge-queue).
 
-For example, you can run a workflow when the `checks_requested` activity has occurred.
+You can use the `branches` or `branches-ignore` filter to configure your workflow to run only for merge groups that target specific branches. For more information, see [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#onmerge_groupbranchesbranches-ignore).
+
+For example, the following workflow runs when the `checks_requested` activity occurs for a merge group that targets `main`.
 
 ```yaml
 on:
   pull_request:
-    branches: [ "main" ]
+    branches: [main]
   merge_group:
     types: [checks_requested]
+    branches: [main]
 ```
 
 ## `milestone`
@@ -1073,7 +1076,7 @@ on: workflow_call
 > [!NOTE]
 > {% data reusables.actions.branch-requirement %}
 
-To enable a workflow to be triggered manually, you need to configure the `workflow_dispatch` event. You can manually trigger a workflow run using the {% data variables.product.github %} API, {% data variables.product.prodname_cli %}, or the {% data variables.product.github %} UI. For more information, see [AUTOTITLE](/actions/how-tos/manage-workflow-runs/manually-run-a-workflow).
+To enable a workflow to be triggered manually, you need to configure the `workflow_dispatch` event. On the {% data variables.product.github %} UI, the "Run workflow" button will be present if the workflow file exists on the default branch. Once a workflow has run at least once, you can dispatch it against any branch or tag via the {% data variables.product.github %} API or {% data variables.product.prodname_cli %}. For more information, see [AUTOTITLE](/actions/how-tos/manage-workflow-runs/manually-run-a-workflow).
 
 ```yaml
 on: workflow_dispatch

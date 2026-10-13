@@ -31,14 +31,14 @@ For push rulesets for forked repositories, the "Rulesets" page will indicate tha
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.navigate-to-branches %}
-1. To the left of the branch name, click {% octicon "shield-lock" aria-label="view rules" %}.
+1. To the right of the branch name, click {% octicon "shield-lock" aria-label="view rules" %}.
 
    > [!TIP] Only branches that have a ruleset have a {% octicon "shield" aria-label="The shield icon" %} icon adjacent to their name.
 
 1. Optionally, to filter the results click the tabs or use the "Search branches" search bar.
 1. Click the name of the ruleset you want to view.
 
-You can also view active ruselets:
+You can also view active rulesets:
 
 * By adding the `/rules` slug to the repository's URL. For example, to view the rules of the open source documentation repository at {% data variables.product.github %},  you would go to https://github.com/github/docs/rules.
 

@@ -1,14 +1,10 @@
-/**
- * @purpose Writer tool
- * @description Generate a local table of contents for the GitHub Docs website
- *
- * This script creates static HTML files for each documentation version, renders page titles
- * using Liquid templating, and opens the generated TOC in your browser for easy navigation
- * during development. Supports command-line options to specify which sections should be
- * open by default.
- *
- * Usage: tsx src/dev-toc/generate.ts [-o product-ids...]
- */
+// @purpose Writer tool
+// @description Generate a local table of contents for the GitHub Docs website
+//
+// Creates static HTML for each documentation version, renders Liquid page titles, and opens the
+// generated table of contents in your browser. Use -o product-ids... to open sections by default.
+//
+// Run with: tsx src/dev-toc/generate.ts [-o product-ids...]
 
 import fs from 'fs'
 import path from 'path'
@@ -82,17 +78,13 @@ async function main(): Promise<void> {
   for (const version of allVersionKeys) {
     req.pagePath = version === fpt ? '/' : `/${version}`
 
-    // Create a subdir for the version if one doesn't exist yet.
     const versionStaticDir = path.posix.join(staticDir, version)
     if (!fs.existsSync(versionStaticDir)) fs.mkdirSync(versionStaticDir)
 
-    // Create a versioned filename.
     const filename = path.posix.join(versionStaticDir, 'index.html')
 
-    // Create a minimal context object.
     await contextualize(req, res, next)
 
-    // Add the tree to the req.context.
     if (req.context && req.context.siteTree && req.context.currentVersion) {
       req.context.currentEnglishTree = req.context.siteTree.en[req.context.currentVersion]
     }
@@ -101,19 +93,15 @@ async function main(): Promise<void> {
       await recurse(req.context.currentEnglishTree as PageTreeNode)
     }
 
-    // Add any defaultOpenSections to the context.
     if (req.context) {
       req.context.defaultOpenSections = defaultOpenSections
     }
 
-    // Parse the layout in src/dev-toc/layout.html with the context we created above.
     const outputHtml = await liquid.parseAndRender(layout, Object.assign({}, req.context))
 
-    // Write a static file for each version.
     fs.writeFileSync(filename, outputHtml)
   }
 
-  // Default to FPT for the file to open.
   const fptFile = path.posix.join(staticDirName, fpt, 'index.html')
 
   execSync(`open ${fptFile}`)

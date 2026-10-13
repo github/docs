@@ -1,7 +1,8 @@
-/**
- * @purpose Writer tool
- * @description Create release tracking issues for a new GHES version
- */
+// @purpose Writer tool
+// @description Create release tracking issues for a new GHES version
+//
+// Creates release and deprecation issues in github/docs-content and github/technical-content.
+// Skips a release or deprecation when its issue already exists.
 import { readFileSync } from 'fs'
 import { basename } from 'path'
 import { Liquid } from 'liquidjs'
@@ -45,25 +46,15 @@ interface IssueSearchOpts {
   titleMatch?: string
 }
 
-// Required by github() to authenticate
 if (!process.env.GITHUB_TOKEN) {
   throw new Error('Error! You must have a GITHUB_TOKEN set in an .env file to run this script.')
 }
 const octokit = github()
 const liquid = new Liquid()
-// [start-readme]
-//
-// This script creates enterprise release and deprecation issues in the
-// github/docs-content and github/technical-content repositories.
-// The script checks if an issue already exists for the release or deprecation.
-//
-// [end-readme]
 
 run()
 
 async function run() {
-  // This script requires one parameters with the value
-  // of either 'release' or 'deprecation'
   const releaseType = process.argv[2]
   if (releaseType !== 'release' && releaseType !== 'deprecation') {
     throw new Error(
@@ -82,7 +73,6 @@ async function run() {
 async function createDeprecationIssue() {
   const repo = 'github/technical-content'
   console.log('Next deprecation number: ', oldestSupported)
-  // If an issue already exists for this release, do nothing
   const issueExists = await isExistingIssue(repo, {
     titleMatch: `Enterprise Server ${oldestSupported} deprecation steps`,
     labels: ['enterprise deprecation'],
@@ -99,17 +89,18 @@ async function createDeprecationIssue() {
     return
   }
 
-  // Create the deprecation issue
   const issueTemplate = readFileSync('src/ghes-releases/lib/deprecation-steps.md', 'utf8')
   const { data, content } = matter(issueTemplate)
   const { title, labels } = data
   const renderedContent = content.replaceAll('{{ release-number }}', oldestSupported)
-  const body = `GHES ${oldestSupported} deprecation occurs on ${deprecationDate}.
+  const body = `GHES ${oldestSupported} deprecation occurs on ${deprecationDate}. Don't start before that date. Late is fine.
 
 ${renderedContent}`
   await createIssue(
     repo,
-    title.replaceAll('{{ release-number }}', oldestSupported),
+    title
+      .replaceAll('{{ release-number }}', oldestSupported)
+      .replaceAll('{{ deprecation-date }}', deprecationDate),
     body,
     labels,
     oldestSupported,
@@ -123,7 +114,6 @@ async function createReleaseIssue() {
   const releaseNumber = getNextReleaseNumber(releaseDates)
   console.log('Next release number: ', releaseNumber)
 
-  // If an issue already exists for this release, do nothing
   if (
     await isExistingIssue(repo, {
       labels: ['ghes-release-automation', `GHES ${releaseNumber}`],
@@ -135,8 +125,6 @@ async function createReleaseIssue() {
   const releaseInfo = releaseDates[releaseNumber]
   const rcDate = releaseInfo.release_candidate
 
-  // Only open an issue if today is within 30 days before
-  // the release candidate date
   if (getNumberDaysUntilMilestone(rcDate || '') > 30) {
     console.log(
       `The ${releaseNumber} release candidate is not until ${rcDate}! An issue will be opened 30 days prior to the release candidate date.`,
@@ -146,8 +134,7 @@ async function createReleaseIssue() {
 
   const releaseTemplates = getReleaseTemplates()
 
-  // Set shell issues with placeholder title and body
-  // Need all issue numbers before filling in liquid templates
+  // Create placeholder issues first because Liquid templates need every issue URL.
   for (const templateName of Object.keys(releaseTemplates)) {
     const issue = await createIssue(
       repo,
@@ -160,7 +147,6 @@ async function createReleaseIssue() {
     releaseTemplates[templateName].issue = issue.data
   }
 
-  // Go back and update title and body with rendered liquid templates
   const releaseTemplateContext = getReleaseTemplateContext(
     releaseNumber,
     releaseInfo,
@@ -200,7 +186,6 @@ async function createIssue(
     throw error
   }
   if (issue.status === 201) {
-    // Write the values to disk for use in the workflow.
     console.log(
       `Issue #${issue.data.number} for the ${releaseNumber} ${releaseType} was opened: ${issue.data.html_url}`,
     )
@@ -304,15 +289,12 @@ function getReleaseTemplateContext(
     'release-code-freeze-date': releaseInfo.code_freeze || '',
     'release-rc-target-date': releaseInfo.release_candidate || '',
   }
-  // Add a context variable for each issue url
   for (const [templateName, template] of Object.entries(releaseTemplates)) {
     if (template.issue) {
       context[`${templateName}-url`] = template.issue.html_url
     }
   }
 
-  // Create a context variable for each of the
-  // 7 days before release-rc-target-date
   if (releaseInfo.release_candidate) {
     const rcTargetDate = new Date(releaseInfo.release_candidate).getTime()
     for (let i = 1; i <= 7; i++) {
@@ -346,7 +328,6 @@ function getNumberDaysUntilMilestone(milestoneDate: string): number {
   const nextMilestoneDateTime = new Date(milestoneDate).getTime()
   const todayTime = new Date(today).getTime()
   const differenceInMilliseconds = nextMilestoneDateTime - todayTime
-  // Return the difference in days
   return Math.floor(differenceInMilliseconds / (1000 * 60 * 60 * 24))
 }
 
@@ -356,10 +337,6 @@ function getNextReleaseNumber(releaseDates: ReleaseDates): string {
   return Object.keys(releaseDates)[indexOfNext]
 }
 
-// examples:
-// searchQuery: 'author:docs-bot is:open'
-// labels: ['enterprise deprecation', 'ghes 3.0']
-// titleMatch: 'GHES 3.0'
 async function isExistingIssue(
   repo: string,
   opts: IssueSearchOpts = { labels: undefined, searchQuery: undefined, titleMatch: undefined },
@@ -378,13 +355,14 @@ async function isExistingIssue(
   const issues = await octokit.request(`GET /search/issues?q=${query}`)
 
   if (titleMatch) {
-    for (const issue of issues.data.items) {
-      if (issue.title.includes(titleMatch)) {
-        console.log(`Issue ${issue.html_url} already exists for this release.`)
-        return true
-      }
-      return false
+    const match = issues.data.items.find((issue: { title: string }) =>
+      issue.title.includes(titleMatch),
+    )
+    if (match) {
+      console.log(`Issue ${match.html_url} already exists for this release.`)
+      return true
     }
+    return false
   }
 
   const issueExists = !!issues.data.items.length

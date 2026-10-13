@@ -1,5 +1,5 @@
 import React from 'react'
-import cx from 'classnames'
+import cx from 'clsx'
 import GithubSlugger from 'github-slugger'
 
 import { HeadingLink } from '@/frame/components/article/HeadingLink'

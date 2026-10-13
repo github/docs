@@ -22,7 +22,7 @@ When viewing the model settings for your organization, you may see the following
 
 * **Enabled** or **Disabled** with a {% octicon "shield" aria-label="shield" %} icon: The enterprise owner has enforced this setting. You cannot change the availability of this model.
 * **Enabled** or **Disabled** in a dropdown menu: The enterprise owner has made this model optional. You can configure the availability for your organization.
-* **Delegate to Default Policy**: This model is available for you to configure, but no one has configured it in the organization. The model inherits the default set in the "Default availability" policy for your organization. See [AUTOTITLE](/copilot/concepts/models/default-availability).
+* **Delegate to Default Policy**: This model is available for you to configure, but no one has configured it in the organization. The model inherits the default set in the "Default availability" policy for your organization. See [AUTOTITLE](/copilot/concepts/enterprise/default-model-availability).
 
 ## Configuring model availability for your organization
 

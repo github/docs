@@ -1,1 +1,5 @@
 export { MiniTocs } from './MiniTocs'
+export { UpNext } from './UpNext'
+export { OverviewMenu } from './OverviewMenu'
+export { useMiniTocItems } from './MiniTocShared'
+export { ActiveSectionProvider } from './useActiveSection'

@@ -1,7 +1,5 @@
-/**
- * @purpose Writer tool
- * @description Run the Docs content linter, specifying paths and optional rules
- */
+// @purpose Writer tool
+// @description Run the Docs content linter, specifying paths and optional rules
 import fs from 'fs'
 import path from 'path'
 import { execSync } from 'child_process'
@@ -26,7 +24,6 @@ import type {
 } from 'markdownlint'
 import type { Rule, Config } from '@/content-linter/types'
 
-// Type definitions for Markdownlint results
 interface LintError {
   lineNumber: number
   ruleNames: string[]
@@ -82,17 +79,14 @@ interface FormattedResult {
   errorContext?: string
   context?: string
   fixable?: boolean
-  // Index signature allows additional properties from LintError that may vary by rule
+  // Individual lint rules can add their own result properties.
   [key: string]: unknown
 }
 
 type FormattedResults = Record<string, FormattedResult[]>
 
-/**
- * Config that applies to all rules in all environments (CI, reports, precommit).
- */
+// Applies to all rules in CI, reports, and precommit.
 export const globalConfig = {
-  // Do not ever lint these filepaths
   excludePaths: ['content/contributing/', 'data/llms-txt/'],
 }
 
@@ -142,15 +136,16 @@ const {
 
 const ALL_CONTENT_DIR = ['content', 'data']
 
+// main casts local LintError values before applyFixes because markdownlint types the same
+// fields as non-null, and applyFixes only reads lineNumber and fixInfo.
 main()
 
 async function main() {
   if (!isOptionsValid()) return
 
-  // Get the updated paths after validation (invalid paths will have been filtered out)
   const validatedPaths = program.opts().paths
 
-  // If paths has not been specified, lint all files
+  // With no paths and no --summary-by-rule, lint files changed in the local checkout.
   const files = getFilesToLint(
     (summaryByRule && ALL_CONTENT_DIR) || validatedPaths || getChangedFiles(),
   )
@@ -169,23 +164,19 @@ async function main() {
   spinner.start()
   const start = Date.now()
 
-  // Initializes the config to pass to markdownlint based on the input options
   const { config, configuredRules } = getMarkdownLintConfig(errorsOnly, rules)
 
-  // Run Markdownlint for content directory
   const resultContent = (await markdownlint.promises.markdownlint({
     files: files.content,
     config: config.content,
     customRules: configuredRules.content,
   })) as LintResults
-  // Run Markdownlint for data directory
   const resultData = (await markdownlint.promises.markdownlint({
     files: files.data,
     config: config.data,
     customRules: configuredRules.data,
   })) as LintResults
 
-  // Run Markdownlint for content directory (frontmatter only)
   const resultFrontmatter = await markdownlint.promises.markdownlint({
     frontMatter: null,
     files: files.content,
@@ -193,7 +184,6 @@ async function main() {
     customRules: configuredRules.frontMatter,
   })
 
-  // Run Markdownlint on "lintable" Markdown strings in a YML file
   const resultYml: LintResults = {}
   for (const ymlFile of files.yml) {
     const lintableYml = await getLintableYml(ymlFile)
@@ -208,9 +198,7 @@ async function main() {
     for (const [key, value] of Object.entries(resultYmlFile)) {
       if ((value as LintError[]).length) {
         const errors = (value as LintError[]).map((error) => {
-          // Autofixing would require us to write the changes back to the YML
-          // file which Markdownlint doesn't support. So we don't support
-          // autofixing for YML files at this time.
+          // markdownlint cannot write fixes back into lintable YAML strings.
           if (error.fixInfo) delete error.fixInfo
           error.isYamlFile = true
           return error
@@ -220,13 +208,10 @@ async function main() {
     }
   }
 
-  // There are no collisions when assigning the results to the new object
-  // because the keys are filepaths and the individual runs of Markdownlint
-  // are in separate directories (content and data).
+  // Content and data paths cannot collide because they live in separate directories.
   const results: LintResults = Object.assign({}, resultContent, resultData, resultYml)
 
-  // Merge in the results for frontmatter tests, which could be
-  // in a file that already exists as a key in the `results` object.
+  // Frontmatter results can share file keys with content results.
   for (const [key, value] of Object.entries(resultFrontmatter)) {
     if (results[key]) results[key].push(...(value as LintError[]))
     else results[key] = value as LintError[]
@@ -240,9 +225,6 @@ async function main() {
         continue
       }
       const content = fs.readFileSync(file, 'utf8')
-      // The local LintError type intentionally allows null for fields that
-      // markdownlint types as non-null, so cast to markdownlint's own type at
-      // this boundary. applyFixes only reads lineNumber and fixInfo.
       const applied = applyFixes(content, results[file] as unknown as MarkdownlintLintError[])
       if (content !== applied) {
         countFixedFiles++
@@ -251,16 +233,13 @@ async function main() {
     }
   }
 
-  // The results don't yet contain severity information and are
-  // in the format received directly from Markdownlint.
+  // markdownlint results need repo-specific severity before output.
   const formattedResults = getFormattedResults(results, isPrecommit)
-  // If we applied fixes, it's important that we don't count those that
-  // might now be entirely fixed.
+  // When --fix runs, ignore files whose remaining issues were fully fixed.
   const errorFileCount = getErrorCountByFile(formattedResults, fix)
   const warningFileCount = getWarningCountByFile(formattedResults, fix)
 
-  // Used for a temporary way to allow us to see how many errors currently
-  // exist for each rule in the content directory.
+  // summaryByRule helps decide which warning rules can become errors.
   if (summaryByRule && (errorFileCount > 0 || warningFileCount > 0 || countFixedFiles > 0)) {
     reportSummaryByRule(results, config)
   } else if (errorFileCount > 0 || warningFileCount > 0 || countFixedFiles > 0) {
@@ -278,17 +257,13 @@ async function main() {
     printAnnotationResults(formattedResults, {
       skippableRules: [],
       skippableFlawProperties: [
-        // As of Feb 2024, we don't support reporting flaws for lines
-        // and columns numbers of YAML files. YAML files consist of one
-        // or more Markdown strings that can themselves constitute an
-        // entire "file."
+        // YAML lint strings can span a whole virtual file, so line and column data misleads.
         'isYamlFile' as string,
       ] as string[],
     })
   }
 
   const end = Date.now()
-  // Ensure previous console logging is not truncated
   console.log('\n')
   const took = end - start
   if (warningFileCount > 0 || errorFileCount > 0) {
@@ -323,7 +298,7 @@ async function main() {
 
   if (isPrecommit) {
     if (errorFileCount) {
-      console.log('') // Just for some whitespace before the box message
+      console.log('')
       console.log(
         boxen(
           'GIT COMMIT IS ABORTED. Please fix the errors before committing.\n\n' +
@@ -342,7 +317,7 @@ async function main() {
       .filter(([, fileResults]) => fileResults.some((flaw) => flaw.fixable))
       .map(([file]) => file)
     if (fixableFiles.length) {
-      console.log('') // Just for some whitespace before the next message
+      console.log('')
       console.log(
         `Content linting found ${fixableFiles.length} ${pluralize(fixableFiles, 'file')} ` +
           'that can be automatically fixed.\nTo apply the fixes run this command and re-add the changed files:\n',
@@ -363,7 +338,6 @@ async function main() {
   }
 }
 
-// Using unknown[] to accept arrays of any type (errors, warnings, files, etc.)
 function pluralize(
   things: unknown[] | number,
   word: string,
@@ -376,14 +350,8 @@ function pluralize(
   return word
 }
 
-// Parse filepaths and directories, only allowing
-// Markdown file types for now. Snippets of Markdown
-// in .yml files that are defined as `lintable` in
-// their associated JSON schema are also linted.
-// Certain rules cannot run on data files or yml
-// (e.g., heading linters) so we need to separate the
-// list of data files from all other files to run
-// through markdownlint individually
+// getFilesToLint separates content Markdown, data Markdown, and lintable YAML because
+// each group gets different markdownlint rules.
 function getFilesToLint(inputPaths: string[]): FileList {
   const fileList: FileList = {
     length: 0,
@@ -395,9 +363,7 @@ function getFilesToLint(inputPaths: string[]): FileList {
   const root = path.resolve(languages.en.dir)
   const contentDir = path.join(root, 'content')
   const dataDir = path.join(root, 'data')
-  // The path passed to Markdownlint is what is displayed
-  // in the error report, so we want to normalize it and
-  // and make it relative if it's absolute.
+  // markdownlint reports the path it receives, so pass repo-relative paths.
   for (const rawPath of inputPaths) {
     const absPath = path.resolve(rawPath)
     if (fs.statSync(rawPath).isDirectory()) {
@@ -417,9 +383,7 @@ function getFilesToLint(inputPaths: string[]): FileList {
           fileList.data.push(absPath)
         }
       }
-      // If it's a file but it's not part of the content or the data
-      // directory, it's probably file passed in by computing changed files
-      // from the git diff.
+      // Changed-file lists can include code, so ignore paths outside content and data.
     }
   }
 
@@ -436,7 +400,6 @@ function getFilesToLint(inputPaths: string[]): FileList {
 
       const relPath = path.relative(root, filePath)
 
-      // Skip files that match any of the excluded paths
       if (globalConfig.excludePaths.some((excludePath) => relPath.startsWith(excludePath))) {
         continue
       }
@@ -452,44 +415,27 @@ function getFilesToLint(inputPaths: string[]): FileList {
   fileList.data = cleanPaths(fileList.data)
   fileList.yml = cleanPaths(fileList.yml)
 
-  // Add a total fileList length property
   fileList.length = fileList.content.length + fileList.data.length + fileList.yml.length
 
   return fileList
 }
 
-/**
- * Return true if a directory is or is a sub-directory of a parent.
- * For example:
- *
- *   isInDir('/foo/bar', '/foo') => true
- *   isInDir('/foo/some-sub-directory', '/foo') => true
- *   isInDir('/foo/some-file.txt', '/foo') => true
- *   isInDir('/foo', '/foo') => true
- *   isInDir('/foo/barring', '/foo/bar') => false
- */
+// Match path segments, so /foo/bar matches /foo but /foo/barring does not match /foo/bar.
 function isInDir(child: string, parent: string): boolean {
-  // The simple reason why you can't use `parent.startsWith(child)`
-  // is because the parent might be `/path/to/data` and the child
-  // might be `/path/to/data-files`.
   const parentSplit = parent.split(path.sep)
   const childSplit = child.split(path.sep)
   return parentSplit.every((dir: string, i: number) => dir === childSplit[i])
 }
 
-// This is a function used during development to
-// see how many errors we have per rule. This helps
-// to identify rules that can be upgraded from
-// warning severity to error.
+// reportSummaryByRule helps identify warning rules that can become errors.
 function reportSummaryByRule(results: LintResults, config: LintConfig): void {
   const ruleCount: Record<string, number> = {}
 
-  // populate the list of rules with 0 occurrences
   for (const rule of Object.keys(config.content)) {
     if ((config.content[rule] as { severity?: string }).severity === 'error') continue
     ruleCount[rule] = 0
   }
-  // the default property is not actually a rule
+  // default is a config key, not a rule name.
   delete ruleCount.default
 
   for (const key of Object.keys(results)) {
@@ -504,18 +450,14 @@ function reportSummaryByRule(results: LintResults, config: LintConfig): void {
   }
 }
 
-/*
-  Filter out the files with one or more results and format each
-  result. Results are sorted by severity per file, with errors
-  listed first then warnings.
-*/
+// Keep only files with results, then list errors before warnings in each file.
 function getFormattedResults(
   allResults: LintResults,
   isInPrecommitMode: boolean,
 ): FormattedResults {
   const output: FormattedResults = {}
   const filteredResults = Object.entries(allResults)
-    // Each result key always has an array value, but it may be empty
+    // Empty result arrays would print blank file sections in verbose output.
     .filter(([, results]) => results.length)
   for (const [key, fileResults] of filteredResults) {
     if (verbose) {
@@ -527,7 +469,6 @@ function getFormattedResults(
         .map((flaw: LintError) => formatResult(flaw, isInPrecommitMode))
         .filter((result): result is FormattedResult => result !== null)
 
-      // Only add the file to output if there are results after filtering
       if (formattedResults.length > 0) {
         const errors = formattedResults.filter((result) => result.severity === 'error')
         const warnings = formattedResults.filter((result) => result.severity === 'warning')
@@ -539,17 +480,10 @@ function getFormattedResults(
   return output
 }
 
-// Results are formatted with the key being the filepath
-// and the value being an array of errors for that filepath.
-// Each result has a rule name, which when looked up in `allConfig`
-// will give us its severity and we filter those that are 'warning'.
 function getWarningCountByFile(results: FormattedResults, fixed = false): number {
   return getCountBySeverity(results, 'warning', fixed)
 }
 
-// Results are formatted with the key being the filepath
-// and the value being an array of results for that filepath.
-// Each result in the array has a severity of error or warning.
 function getErrorCountByFile(results: FormattedResults, fixed = false): number {
   return getCountBySeverity(results, 'error', fixed)
 }
@@ -561,8 +495,7 @@ function getCountBySeverity(
 ): number {
   return Object.values(results).filter((fileResults: FormattedResult[]) =>
     fileResults.some((result: FormattedResult) => {
-      // If --fix was applied, we don't want to know about files that
-      // no longer have errors or warnings.
+      // After --fix, ignore files whose errors or warnings disappeared.
       return result.severity === severityLookup && (!fixed || !result.fixable)
     }),
   ).length
@@ -574,13 +507,9 @@ function getCountBySeverity(
 function formatResult(object: LintError, isInPrecommitMode: boolean): FormattedResult | null {
   const formattedResult: FormattedResult = {} as FormattedResult
 
-  // Add severity to each result object
   const ruleName = object.ruleNames[1] || object.ruleNames[0]
   const ruleConfig = allConfig[ruleName] as Config | undefined
-  // Skip rules that aren't in our config. This can happen when using
-  // <!-- markdownlint-disable --> / <!-- markdownlint-enable --> comments
-  // without specifying rule names, which re-enables ALL markdownlint rules
-  // including ones we don't use (like line-length/MD013).
+  // Bare markdownlint-enable comments can re-enable unconfigured rules, such as MD013.
   if (!ruleConfig) {
     return null
   }
@@ -606,7 +535,6 @@ function formatResult(object: LintError, isInPrecommitMode: boolean): FormattedR
   }, formattedResult)
 }
 
-// Get a list of changed and staged files in the local git repo
 function getChangedFiles() {
   const changedFiles = execSync(`git diff --diff-filter=d --name-only`)
     .toString()
@@ -621,8 +549,7 @@ function getChangedFiles() {
   return [...changedFiles, ...stagedFiles]
 }
 
-// Summarizes the list of rules we have available to run with their
-// short name, long name, and description.
+// listRules prints short names, long names, and descriptions for CLI help.
 function listRules() {
   let ruleList = ''
   for (const rule of allRules) {
@@ -632,13 +559,7 @@ function listRules() {
   return ruleList
 }
 
-/*
-  Based on input options, configure the Markdownlint rules to run
-  There are a subset of rules that can't be run on data files, since
-  those Markdown files are partials included in full Markdown files.
-  Rules that can't be run on partials have the property
-  `partial-markdown-files` set to false.
-*/
+// Data Markdown files are partials, so rules with partial-markdown-files false skip them.
 function getMarkdownLintConfig(
   filterErrorsOnly: boolean,
   runRules: string[] | undefined,
@@ -660,8 +581,7 @@ function getMarkdownLintConfig(
     const customRule = (customConfig as Record<string, unknown>)[ruleName]
       ? (getCustomRule(ruleName) as MarkdownlintRule)
       : undefined
-    // search-replace is handled differently than other rules because
-    // it has nested metadata and rules.
+    // search-replace has nested metadata and pseudo-rules.
     if (
       filterErrorsOnly &&
       getSeverity(ruleConfig, isPrecommit) !== 'error' &&
@@ -670,17 +590,12 @@ function getMarkdownLintConfig(
       continue
     }
 
-    // Check if the rule should be included based on user-specified rules
     if (runRules && !shouldIncludeRule(ruleName, runRules)) continue
 
-    // There are a subset of rules run on just the frontmatter in files
     if ((githubDocsFrontmatterConfig as Record<string, unknown>)[ruleName]) {
       config.frontMatter[ruleName] = ruleConfig
       if (customRule) configuredRules.frontMatter.push(customRule)
     }
-    // Handle the special case of the search-replace rule
-    // which has nested rules each with their own
-    // severity and metadata.
     if (ruleName === 'search-replace') {
       const searchReplaceRules: NonNullable<Config['rules']> = []
       const dataSearchReplaceRules: NonNullable<Config['rules']> = []
@@ -691,14 +606,10 @@ function getMarkdownLintConfig(
       for (const searchRule of ruleConfig.rules) {
         const searchRuleSeverity = getSeverity(searchRule, isPrecommit)
         if (filterErrorsOnly && searchRuleSeverity !== 'error') continue
-        // Add search-replace rules to frontmatter configuration for rules that make sense in frontmatter
-        // This ensures rules like TODOCS detection work in frontmatter
-        // Rules with applyToFrontmatter should ONLY run in the frontmatter pass (which lints the entire file)
-        // to avoid duplicate detections
+        // applyToFrontmatter runs only in the frontmatter pass, or every match reports twice.
         if (searchRule.applyToFrontmatter) {
           frontmatterSearchReplaceRules.push(searchRule)
         } else {
-          // Only add to content rules if not a frontmatter-specific rule
           searchReplaceRules.push(searchRule)
         }
         if (searchRule['partial-markdown-files']) {
@@ -742,17 +653,13 @@ function getMarkdownLintConfig(
   return { config, configuredRules }
 }
 
-// Return the severity value of a rule but keep in mind it could be
-// running as a precommit hook, which means the severity could be
-// deliberately different.
+// Precommit can lower or raise a rule's normal severity.
 function getSeverity(ruleConfig: Config, isInPrecommitMode: boolean): string {
   return isInPrecommitMode
     ? ruleConfig.precommitSeverity || ruleConfig.severity
     : ruleConfig.severity
 }
 
-// Gets a custom rule function from the name of the rule
-// in the configuration file
 function getCustomRule(ruleName: string): Rule | MarkdownlintRule {
   const rule = customRules.find((r) => r.names.includes(ruleName))
   if (!rule)
@@ -762,21 +669,17 @@ function getCustomRule(ruleName: string): Rule | MarkdownlintRule {
   return rule
 }
 
-// Check if a rule should be included based on user-specified rules
-// Handles both short names (e.g., GHD047, MD001) and long names (e.g., table-column-integrity, heading-increment)
+// Accept both short rule IDs and long rule names.
 export function shouldIncludeRule(ruleName: string, runRules: string[]) {
-  // First check if the rule name itself is in the list
   if (runRules.includes(ruleName)) {
     return true
   }
 
-  // For custom rules, check if any of the rule's names (short or long) are in the runRules list
   const customRule = customRules.find((rule) => rule.names.includes(ruleName))
   if (customRule) {
     return customRule.names.some((name) => runRules.includes(name))
   }
 
-  // For built-in markdownlint rules, check if any of the rule's names are in the runRules list
   const builtinRule = allRules.find((rule) => rule.names.includes(ruleName))
   if (builtinRule) {
     return builtinRule.names.some((name: string) => runRules.includes(name))
@@ -785,24 +688,8 @@ export function shouldIncludeRule(ruleName: string, runRules: string[]) {
   return false
 }
 
-/*
-  The severity of the search-replace custom rule is embedded in
-  each individual search rule. This function returns the severity
-  of the individual search rule. The name we define for each search
-  rule shows up the the errorDetail property of the error object.
-  The error object returned from Markdownlint has the following structure:
-
-  {
-    lineNumber: 266,
-    ruleNames: [ 'search-replace' ],
-    ruleDescription: 'Custom rule',
-    ruleInformation: 'https://github.com/OnkarRuikar/markdownlint-rule-search-replace',
-    errorDetail: 'docs-domain: Catch occurrences of docs.github.com domain.',
-    errorContext: "column: 21 text:'docs.github.com'",
-    errorRange: [ 21, 15 ],
-    fixInfo: null
-  }
-*/
+// markdownlint-rule-search-replace stores the pseudo-rule name before the colon in
+// errorDetail, for example "docs-domain: Catch occurrences of docs.github.com domain."
 function getSearchReplaceRuleSeverity(
   ruleName: string,
   object: LintError,
@@ -811,35 +698,32 @@ function getSearchReplaceRuleSeverity(
   const pluginRuleName = object.errorDetail?.split(':')[0].trim()
   const ruleConfig = allConfig[ruleName] as Config
   const rule = ruleConfig.rules?.find((r) => r.name === pluginRuleName)
-  if (!rule) return 'error' // Default to error if rule not found
+  if (!rule) return 'error' // Unknown search-replace sub-rules default to error severity.
   return isInPrecommitMode ? rule.precommitSeverity || rule.severity : rule.severity
 }
 
 function isOptionsValid() {
-  // paths should only contain existing files and directories
   const optionPaths = program.opts().paths || []
   const validPaths = []
 
   for (const filePath of optionPaths) {
     try {
       fs.statSync(filePath)
-      validPaths.push(filePath) // Keep track of valid paths
+      validPaths.push(filePath)
     } catch {
       if ('paths'.includes(filePath)) {
         console.warn('warning: did you mean --paths')
       } else {
         console.warn(`warning: the value '${filePath}' was not found. Skipping this path.`)
       }
-      // Continue processing - don't return false here
+      // Keep going so one bad path does not abandon the rest.
     }
   }
 
-  // Update the program options to only include valid paths
   if (optionPaths.length > 0) {
     program.setOptionValue('paths', validPaths)
   }
 
-  // rules should only contain existing, correctly spelled rules
   const allRulesList = [...allRules.map((rule) => rule.names).flat(), ...Object.keys(allConfig)]
   const optionRules = program.opts().rules || []
   for (const ruleName of optionRules) {
@@ -855,7 +739,7 @@ function isOptionsValid() {
     }
   }
 
-  // Only return false if paths were specified but none are valid
+  // Bad paths fail only when none of the requested paths exist.
   return optionPaths.length === 0 || validPaths.length > 0
 }
 

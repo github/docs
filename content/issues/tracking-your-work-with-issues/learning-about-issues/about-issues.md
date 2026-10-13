@@ -16,23 +16,13 @@ category:
   - Create and work with issues
 ---
 
-You can create issues in your repository to plan, discuss, and track work. Issues are quick to create, flexible, and can be used in many ways. Issues can track bug reports, new features and ideas, and anything else you need to write down or discuss with your team, and you can use {% data variables.projects.projects_v2 %} to plan and track the work for your team. {% ifversion sub-issues %}You can also break your work down further by adding sub-issues and easily browse the full hierarchy of work to be done.{% endif %}
+You can create issues in your repository to plan, discuss, and track work. Issues are quick to create, flexible, and can be used in many ways. Issues can track bug reports, new features and ideas, and anything else you need to write down or discuss with your team, and you can use {% data variables.projects.projects_v2 %} to plan and track the work for your team. You can also break your work down further by adding sub-issues and easily browse the full hierarchy of work to be done.
 
-Issues can be created in a variety of ways, so you can choose the most convenient method for your workflow. For example, you can create an issue from a repository,{% ifversion sub-issues %} while adding sub-issues,{% endif %} convert a comment in an issue or pull request, create an issue from a specific line of code, or via a URL query. You can also create an issue from your platform of choice: through the web UI, {% data variables.product.prodname_desktop %}, {% data variables.product.prodname_cli %}, GraphQL and REST APIs, or {% data variables.product.prodname_mobile %}. See [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/creating-an-issue).
-
-{% ifversion copilot %}
-
-> [!TIP] You can also use {% data variables.copilot.copilot_chat_short %} to generate ideas, outlines, or drafts for discussions or blog posts, based on your issues. See [AUTOTITLE](/copilot/tutorials/copilot-cookbook/document-code/write-discussions-or-blog-posts).
-
-{% endif %}
-
-{% ifversion sub-issues %}
+Issues can be created in a variety of ways, so you can choose the most convenient method for your workflow. For example, you can create an issue from a repository, while adding sub-issues, convert a comment in an issue or pull request, create an issue from a specific line of code, or via a URL query. You can also create an issue from your platform of choice: through the web UI, {% data variables.product.prodname_desktop %}, {% data variables.product.prodname_cli %}, GraphQL and REST APIs, or {% data variables.product.prodname_mobile %}. See [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/creating-an-issue).
 
 ## About sub-issues
 
 {% data reusables.issues.about-sub-issues %} See [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/adding-sub-issues) and [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/browsing-sub-issues).
-
-{% endif %}
 
 ## About issue dependencies
 
@@ -40,9 +30,9 @@ You can define blocking relationships between issues using issue dependencies. I
 
 ## Metadata on issues
 
-You can add metadata to your issues, including {% ifversion issue-types %}issue types, {% endif %}labels and milestones to organize your issues.
+You can add metadata to your issues, including issue types, labels and milestones to organize your issues.
 
-See {% ifversion issue-types %}[AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/managing-issue-types-in-an-organization), {% endif %}[AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels) and [AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/about-milestones).
+See [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/managing-issue-types-in-an-organization), [AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels) and [AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/about-milestones).
 
 ## About integration with {% data variables.product.github %}
 

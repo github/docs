@@ -95,7 +95,6 @@ describe('getGHExample - GitHub CLI code generation', () => {
 
     const result = getGHExample(operation, codeSample, currentVersion, allVersions)
 
-    // The result should use --input for complex objects with arrays
     expect(result).toContain("--input - <<< '")
     expect(result).toContain('"bypass_actors": [')
     expect(result).toContain('"actor_id": 234')
@@ -104,7 +103,6 @@ describe('getGHExample - GitHub CLI code generation', () => {
     expect(result).toContain('"rules": [')
     expect(result).toContain('"type": "commit_author_email_pattern"')
 
-    // Verify the JSON structure is properly formatted
     expect(result).toContain('"name": "super cool ruleset"')
     expect(result).toContain('"target": "branch"')
     expect(result).toContain('"enforcement": "active"')

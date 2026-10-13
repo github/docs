@@ -5,16 +5,13 @@ const OptionsSyntax = /([a-zA-Z-]+)="([\w\s-]+)"*/g
 const Syntax = new RegExp(`"(?<icon>[a-zA-Z-]+)"(?<options>(?:\\s${OptionsSyntax.source})*)`)
 const SyntaxHelp = 'Syntax Error in tag \'octicon\' - Valid syntax: octicon "<name>" <key="value">'
 
-/**
- * Uses the octicons library to render the chosen icon. Also
- * supports passing attributes like `width="64"`.
- *
- * If no aria-label is provided, a default one will be auto-generated
- * based on the icon name (e.g., "check icon", "git-branch icon").
- *
- * {% octicon "check" %} <!-- auto-generates aria-label="check icon" -->
- * {% octicon "check" width="64" aria-label="Example label" %}
- */
+// The octicon tag renders a Primer Octicon and forwards attributes such as width="64".
+// Without aria-label, the tag derives one from the icon name, such as check icon.
+// Example: {% octicon "check" %}
+// Example: {% octicon "check" width="64" aria-label="Example label" %}
+// trashcan, duplicate, and clippy stay compatible with Primer's renamed icons.
+// https://github.com/primer/octicons/releases/tag/v12.0.0
+// https://github.com/primer/octicons/blob/main/CHANGELOG.md#1500
 const Octicon = {
   icon: '',
   options: {} as Record<string, string>,
@@ -25,41 +22,31 @@ const Octicon = {
       throw new TokenizationError(SyntaxHelp, tagToken)
     }
 
-    // Memoize the icon
     this.icon = match.groups.icon
-    // Breaking change in octicons 12
-    // https://github.com/primer/octicons/releases/tag/v12.0.0
     if (this.icon === 'trashcan') this.icon = 'trash'
-    // https://github.com/primer/octicons/blob/main/CHANGELOG.md#1500
     if (this.icon === 'duplicate') this.icon = 'copy'
     if (this.icon === 'clippy') this.icon = 'paste'
 
     this.options = {}
 
-    // Memoize any options passed
     if (match.groups.options) {
       let optionsMatch: RegExpExecArray | null
 
-      // Loop through each option matching the OptionsSyntax regex
       while ((optionsMatch = OptionsSyntax.exec(match.groups.options))) {
-        // Pull out the key/value ([0] is the whole input)
         const [, key, value] = optionsMatch
         this.options[key] = value
 
-        // Alias label to aria-label
         if (key === 'label') this.options['aria-label'] = value
       }
     }
   },
 
   async render(): Promise<string> {
-    // Throw an error if the requested octicon does not exist.
     if (!Object.prototype.hasOwnProperty.call(octicons, this.icon)) {
       throw new Error(`Octicon ${this.icon} does not exist`)
     }
 
-    // Auto-generate aria-label if not provided
-    // Replace non-alphanumeric characters with spaces and append " icon"
+    // The default aria-label keeps icon-only output accessible.
     if (!this.options['aria-label']) {
       const defaultLabel = `${this.icon.toLowerCase().replace(/[^a-z0-9]+/gi, ' ')} icon`
       this.options['aria-label'] = defaultLabel

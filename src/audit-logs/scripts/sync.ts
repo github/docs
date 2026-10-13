@@ -1,15 +1,8 @@
-/**
- * Required env variables:
- *
- * GITHUB_TOKEN
- *
- * Gets latest audit log event data, extracts the data we need for rendering on
- * the 3 different audit log pages, and writes out the data to files versioned
- * per page.
- */
+// Syncs audit log event data from github/audit-log-allowlists into per-version
+// page JSON and shared files.
+// Requires GITHUB_TOKEN.
 import { existsSync } from 'fs'
-import { readFile, writeFile } from 'fs/promises'
-import { mkdirp } from 'mkdirp'
+import { mkdir, readFile, writeFile } from 'fs/promises'
 import path from 'path'
 
 import { filterByAllowlistValues, filterAndUpdateGhesDataByAllowlistValues } from '../lib/index'
@@ -33,17 +26,6 @@ const AUDIT_LOG_PAGES = {
 }
 
 async function main() {
-  // get latest audit log data
-  //
-  // an array of event objects that look like this (omitting fields we won't
-  // use):
-  //
-  // {
-  //   "account.billing_date_change": {
-  //     "description": "Event description",
-  //     "docs_reference_links": "Event reference link (can be space or comma-space separated list of links)",
-  //   }
-  // }
   const owner = 'github'
   const repo = 'audit-log-allowlists'
   const ref = 'main'
@@ -51,11 +33,10 @@ async function main() {
   const schemaEvents = JSON.parse(await getContents(owner, repo, ref, schemaFilePath))
   const mainSha = await getCommitSha(owner, repo, `heads/${ref}`)
 
-  // Fetch fields.json to get global fields that should be included in all events
+  // fields.json supplies global audit log fields unless a field is feature-gated.
   const fieldsFilePath = 'allowlists/fields.json'
   const fieldsData = JSON.parse(await getContents(owner, repo, ref, fieldsFilePath))
 
-  // Extract global fields (excluding those gated by feature flags)
   if (!fieldsData.global?.include) {
     console.warn('Warning: fieldsData.global.include not found, no global fields will be added')
   }
@@ -72,34 +53,14 @@ async function main() {
   pipelineConfig.sha = mainSha
   await writeFile(configFilepath, JSON.stringify(pipelineConfig, null, 2))
 
-  // Load pages and redirects for title resolution
   console.log('Loading pages and redirects for title resolution...')
   const pageList = await loadPages(undefined, ['en'])
   const pages = await loadPageMap(pageList)
   const redirects = await loadRedirects(pageList)
   const titleContext = { pages, redirects }
 
-  // store an array of audit log event data keyed by version and audit log page,
-  // will look like this (depends on supported GHES versions):
-  //
-  // {
-  //   fpt: { user: [Array], organization: [Array] },
-  //   ghec: { user: [Array], organization: [Array], enterprise: [Array] },
-  //   'ghes-3.10': { organization: [Array], user: [Array], enterprise: [Array] },
-  //   'ghes-3.11': { organization: [Array], user: [Array], enterprise: [Array] },
-  //   'ghes-3.8': { organization: [Array], user: [Array], enterprise: [Array] },
-  //   'ghes-3.9': { organization: [Array], user: [Array], enterprise: [Array] },
-  //   'ghes-3.12': { organization: [Array], user: [Array], enterprise: [Array] }
-  // }
-  //
-  // audit log data is updated for new GHES releases so we should always have
-  // data for every supported GHES version including RC releases.  Just to be
-  // extra careful, we also fallback to the latest stable GHES version if
-  // there's an RC release in the docs site but no audit log data for that version.
   const auditLogData: VersionedAuditLogData = {}
 
-  // Wrapper around filterByAllowlistValues() because we always need all the
-  // schema events and pipeline config data.
   const filter = (allowListValues: string | string[], currentEvents: AuditLogEventT[] = []) =>
     filterByAllowlistValues({
       eventsToCheck: schemaEvents,
@@ -109,8 +70,6 @@ async function main() {
       titleContext,
       globalFields,
     })
-  // Wrapper around filterGhesByAllowlistValues() because we always need all the
-  // schema events and pipeline config data.
   const filterAndUpdateGhes = (
     allowListValue: string,
     auditLogPage: string,
@@ -137,16 +96,7 @@ async function main() {
   auditLogData.ghec.enterprise = await filter('business')
   auditLogData.ghec.enterprise = await filter('business_api_only', auditLogData.ghec.enterprise)
 
-  // GHES versions are numbered (i.e. "3.9", "3.10", etc.) and filterGhes()
-  // gives us back an object of GHES versions to page events for each version
-  // that looks like this:
-  //
-  // {
-  //   ghes-3.10': { // org, enterprise, user page events },
-  //   ghes-3.11': { // org, enterprise, user page events },
-  // }
-  //
-  // so there's no single auditLogData.ghes like the other versions.
+  // GHES data is keyed by concrete ghes-X.Y versions, not one auditLogData.ghes bucket.
   const ghesVersionsAuditLogData = {}
 
   await filterAndUpdateGhes('business', AUDIT_LOG_PAGES.ENTERPRISE, ghesVersionsAuditLogData)
@@ -160,17 +110,11 @@ async function main() {
   await filterAndUpdateGhes('org_api_only', AUDIT_LOG_PAGES.ORGANIZATION, ghesVersionsAuditLogData)
   Object.assign(auditLogData, ghesVersionsAuditLogData)
 
-  // We don't maintain the order of events as we process them so after filtering
-  // all the events based on their allowlist values, we sort them so they're in
-  // order for display on the audit log pages.
+  // Sort after filtering because allowlist processing order does not match page display order.
   for (const pageEventData of Object.values(auditLogData)) {
     for (const events of Object.values(pageEventData)) {
       events.sort((e1, e2) => {
-        // Event actions have underscores and periods (e.g.
-        // `enterprise.runner_group_runners_updated`) and we ignore them both
-        // so that for example `org_secret_scanning_custom_pattern.update` is
-        // treated as `org secrect scanning custom pattern update` and will be
-        // sorted after `org.accept_business_invitation`.
+        // Ignore punctuation so org.accept_business_invitation sorts before org_secret_scanning_custom_pattern.update.
         const a1 = e1.action.replace(/[_.]/g, ' ')
         const a2 = e2.action.replace(/[_.]/g, ' ')
         return a1.localeCompare(a2)
@@ -178,25 +122,18 @@ async function main() {
     }
   }
 
-  // as of February 2024 we don't get audit log event data for GHES RC releases
-  // so we re-use the latest GHES events for the RC release if we need to
+  // Reuse latest stable GHES data when a release candidate has no audit-log-allowlists data yet.
   if (latest === releaseCandidate && !auditLogData[`ghes-${releaseCandidate}`]) {
     auditLogData[`ghes-${releaseCandidate}`] = structuredClone(auditLogData[`ghes-${latestStable}`])
   }
 
   console.log(`\n▶️  Generating audit log data files...\n`)
 
-  // write out audit log event data to page event files per version e.g.:
-  //
-  // fpt/
-  // |- enterprise.json
-  // |- organization.json
-  // |- user.json
   for (const version of Object.keys(auditLogData)) {
     const auditLogVersionDirPath = path.join(AUDIT_LOG_DATA_DIR, version)
 
     if (!existsSync(auditLogVersionDirPath)) {
-      await mkdirp(auditLogVersionDirPath)
+      await mkdir(auditLogVersionDirPath, { recursive: true })
     }
 
     for (const page of Object.values(AUDIT_LOG_PAGES)) {
@@ -211,7 +148,6 @@ async function main() {
     }
   }
 
-  // Write deduplicated shared format
   await writeDeduplicatedAuditLogData(auditLogData)
 }
 

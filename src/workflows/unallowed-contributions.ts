@@ -24,33 +24,40 @@ const filters = load(readFileSync('src/workflows/unallowed-contribution-filters.
 main()
 
 async function main() {
-  // Files in the diff that match specific paths we don't allow
   const unallowedChangedFiles = [...JSON.parse(FILE_PATHS_NOT_ALLOWED || '')]
 
-  // Content files that are added in a forked repo won't be in the
-  // `github/docs` repo, so we don't need to check them. They will be
-  // reviewed manually by a content writer.
+  // Added content from forks is absent from github/docs, so content writers review it manually.
   const contentFilesToCheck: string[] = difference(
     JSON.parse(CHANGED_FILE_PATHS || ''),
     JSON.parse(ADDED_CONTENT_FILES || ''),
   )
 
-  // Any modifications or deletions to a file in the content directory
-  // could potentially have `type: rai` so each changed content file's
-  // frontmatter needs to be checked.
+  // Modified or deleted content can have contentType: rai, so check each file's frontmatter.
   unallowedChangedFiles.push(...checkContentType(contentFilesToCheck, 'rai'))
 
   if (unallowedChangedFiles.length === 0) return
 
-  // Format into Markdown bulleted list to use in the PR comment
   const listUnallowedChangedFiles = unallowedChangedFiles.map((file) => `\n - ${file}`).join('')
-  const listUnallowedFiles = filters.notAllowed.map((file: string) => `\n - ${file}`).join('')
-
-  const reviewMessage = `👋 Hey there spelunker. It looks like you've modified some files that we can't accept as contributions:${listUnallowedChangedFiles}\n\nYou'll need to revert all of the files you changed that match that list using [GitHub Desktop](https://docs.github.com/en/free-pro-team@latest/desktop/contributing-and-collaborating-using-github-desktop/managing-commits/reverting-a-commit-in-github-desktop) or \`git checkout origin/main <file name>\`. Once you get those files reverted, we can continue with the review process. :octocat:\n\nThe complete list of files we can't accept are:${listUnallowedFiles}\n\nWe also can't accept contributions to files in the content directory with frontmatter \`contentType: rai\`.`
+  const listUnallowedFiles = filters.notAllowed
+    .map((file: string) => `\n - ${file === '*' ? 'Anything in the root directory' : file}`)
+    .join('')
+  const reviewMessage = `👋 Hi there! It looks like you've modified some files that we can't accept as contributions:${listUnallowedChangedFiles}\n\nYou'll need to raise a new PR that doesn't include those files, before we can review.\n\nThe complete list of files we can't accept are:${listUnallowedFiles}\n\nWe also can't accept contributions to files in the content directory with frontmatter \`contentType: rai\`. You can always check out our full [contribution guidelines](https://docs.github.com/en/contributing).`
 
   let workflowFailMessage =
     "It looks like you've modified some files that we can't accept as contributions."
   let createdComment
+
+  // The invalid label triggers automatic PR closure.
+  try {
+    await octokit.rest.issues.addLabels({
+      owner,
+      repo,
+      issue_number: Number(PR_NUMBER || ''),
+      labels: ['invalid'],
+    })
+  } catch (err) {
+    console.log('Error adding the `invalid` label.', err)
+  }
 
   try {
     createdComment = await octokit.rest.issues.createComment({

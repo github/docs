@@ -1,0 +1,4 @@
+# Enterprise credential inventory and CSV export, available on GitHub Enterprise Cloud.
+
+versions:
+  ghec: '*'

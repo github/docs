@@ -5,38 +5,9 @@ interface ScopedElement extends Element {
   _scoped?: boolean
 }
 
-/**
- * Where it can mutate the AST to swap from:
- *
- *   <div class="rowheaders">
- *
- *     ...
- *     <tbody>
- *       <tr>
- *         <td>...</td>
- *         <td>...</td>
- *     ...
- *
- *   </div>
- *
- * to:
- *
- *
- *   <div class="rowheaders">
- *
- *     ...
- *     <tbody>
- *       <tr>
- *         <td scope="row">...</td>
- *         <td>...</td>
- *     ...
- *
- *   </div>
- *
- * In other words, if contained in a `.rowheaders`, the *first* `<td>`
- * in a `<tr>` should have `scope="row"`.
- *
- * */
+// In .rowheaders tables, the first cell acts as a row-scoped header for accessibility.
+// <div class="rowheaders"><tr><td>Plan</td></tr></div> becomes:
+// <div class="rowheaders"><tr><th scope="row">Plan</th></tr></div>.
 
 export default function rewriteForRowheaders() {
   return (tree: Root) =>

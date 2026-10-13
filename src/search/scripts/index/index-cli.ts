@@ -12,7 +12,7 @@ import {
 } from '@/search/lib/elasticsearch-versions'
 import { indexAISearchAutocomplete } from './lib/index-ai-search-autocomplete'
 
-// If you optionally have ELASTICSEARCH_URL set in your .env file.
+// Reads ELASTICSEARCH_URL from .env when the shell environment lacks it.
 dotenv.config()
 
 program.name('index').description('CLI scripts for indexing Docs data into Elasticsearch')
@@ -104,8 +104,7 @@ const aiSearchAutocompleteCommand = new Command('ai-search-autocomplete')
   .option('--index-prefix <prefix>', 'Prefix for the index names', '')
   .argument('<data-root>', 'path to the docs-internal-data repo')
   .action(async (dataRepoRoot: string, options) => {
-    // In the future, we may want to support multiple languages
-    // Currently (since this is an experiment), we only support english
+    // AI search autocomplete indexes English only while the experiment runs.
     const languages = ['en']
     const indexPrefix = options.indexPrefix || ''
     if (!Array.isArray(options.version)) {

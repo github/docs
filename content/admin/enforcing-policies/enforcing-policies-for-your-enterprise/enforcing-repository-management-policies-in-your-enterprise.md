@@ -209,7 +209,7 @@ By default, repository administrators can rename branches that are targeted by e
 
 To keep your repository size manageable and prevent performance issues, you can configure a file size limit for repositories in your enterprise.
 
-By default, when you enforce repository upload limits, people cannot add or update files larger than 100 MB.
+By default, people cannot add or update files larger than 100 MB, but you can raise or remove this limit. If you enforce your chosen limit for all repositories on the instance, individual repositories cannot use a different limit.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}

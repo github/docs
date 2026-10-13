@@ -1,15 +1,29 @@
-import type { PropsWithChildren } from 'react'
-import { useTheme as usePrimerTheme } from '@primer/react'
+import { useEffect, useState, type PropsWithChildren } from 'react'
 import { ThemeProvider } from '@primer/react-brand'
 
-import { getBrandColorMode } from '@/color-schemes/lib/get-brand-color-mode'
+import { getBrandColorMode, type BrandColorMode } from '@/color-schemes/lib/get-brand-color-mode'
 
+// Brand reads colorMode="auto" as "snapshot the OS on mount" rather than
+// "inherit", so this only ever passes a concrete mode.
 export const BrandThemeProvider = ({ children }: PropsWithChildren) => {
-  // We need to resolve the color scheme through PRC first, because there are
-  // otherwise many unhandled edge cases.
-  // E.g. auto mode + dark mode + light scheme.
-  const { resolvedColorScheme } = usePrimerTheme()
-  const colorMode = getBrandColorMode(resolvedColorScheme)
+  // Seeded to match SSR; reading the DOM here would break hydration.
+  const [colorMode, setColorMode] = useState<BrandColorMode>('light')
 
-  return <ThemeProvider colorMode={colorMode}>{children}</ThemeProvider>
+  useEffect(() => {
+    setColorMode(getBrandColorMode())
+    // colorModeScript re-stamps <html> when the OS flips under auto.
+    const observer = new MutationObserver(() => setColorMode(getBrandColorMode()))
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-color-mode'],
+    })
+    return () => observer.disconnect()
+  }, [])
+
+  // Brand spreads rest props last, so undefined removes the wrapper attribute but keeps context.
+  return (
+    <ThemeProvider colorMode={colorMode} data-color-mode={undefined}>
+      {children}
+    </ThemeProvider>
+  )
 }

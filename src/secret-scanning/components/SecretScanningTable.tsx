@@ -1,22 +1,22 @@
 import React, { useState, useMemo, useEffect, useRef, useCallback } from 'react'
 import { DataTable, Table } from '@primer/react/experimental'
-import { TextInput, ActionMenu, ActionList } from '@primer/react'
-import { Pagination, Button } from '@primer/react-brand'
-import debounce from 'lodash/debounce'
+import { TextInput, ActionMenu, Pagination, Button } from '@primer/react-brand'
+import { debounce } from 'lodash-es'
 import { useTranslation } from '@/languages/components/useTranslation'
 import { sendEvent } from '@/events/components/events'
 import { EventType } from '@/events/types'
 import { sanitizeSearchQuery } from '@/search/lib/sanitize-search-query'
+import { onActionMenuItemKeyDownCapture } from '@/frame/components/lib/action-menu'
 import type { SecretScanningData } from '@/types'
+import styles from './SecretScanningTable.module.scss'
 
 const PAGE_SIZE = 25
 
 // Identifies this table in the docs.v0.TableInteractionEvent analytics.
 const TABLE_INTERACTION_NAME = 'secret-scanning-patterns'
 
-// Maps DataTable column ids to the canonical analytics field name so that a
-// filter and a sort on the same column report the same
-// table_interaction_field_name. Filter keys already use these canonical names.
+// Canonical analytics field names keep filter and sort events for the same column
+// grouped together. Filter keys already use these names.
 const COLUMN_FIELD_NAMES: Record<string, string> = {
   provider: 'provider',
   supportedSecret: 'secret',
@@ -59,7 +59,7 @@ export function SecretScanningTable({ data }: { data: SecretScanningData[] }) {
   const [sortColumn, setSortColumn] = useState<string | undefined>(undefined)
   const [sortDirection, setSortDirection] = useState<'ASC' | 'DESC'>('ASC')
 
-  // Emit a TableInteractionEvent for analytics (github/docs-engineering#6593).
+  // TableInteractionEvent feeds search, filter, sort, and pagination analytics.
   const trackInteraction = useCallback(
     (interactionType: TableInteractionType, fieldName?: string, fieldValue?: string) => {
       sendEvent({
@@ -77,8 +77,7 @@ export function SecretScanningTable({ data }: { data: SecretScanningData[] }) {
   const debouncedTrackSearchRef = useRef<ReturnType<typeof debounce> | null>(null)
   useEffect(() => {
     debouncedTrackSearchRef.current = debounce((query: string) => {
-      // Sanitize before logging: users may paste a real secret into this
-      // table's search to check support, and the query is sent to analytics.
+      // Sanitize before analytics because users can paste real secrets into this support search.
       trackInteraction('search', 'search', sanitizeSearchQuery(query))
     }, 500)
     return () => {
@@ -114,15 +113,14 @@ export function SecretScanningTable({ data }: { data: SecretScanningData[] }) {
     filters.base64 !== 'all' ||
     sortColumn !== undefined
 
-  // Add stable IDs once based on original data order
+  // Stable IDs from the original order, so filtering doesn't renumber rows.
   const dataWithIds: SecretScanningRow[] = useMemo(() => {
     return data.map((entry, i) => ({ ...entry, id: `${entry.secretType}-${i}` }))
   }, [data])
 
-  // Client-side filtering — fast because data is ~200-400 entries
+  // Client-side filtering is fine at 200-400 entries.
   const filtered: SecretScanningRow[] = useMemo(() => {
     return dataWithIds.filter((entry) => {
-      // Text search across provider + secret type
       if (filters.search) {
         const q = filters.search.toLowerCase()
         const match =
@@ -132,7 +130,6 @@ export function SecretScanningTable({ data }: { data: SecretScanningData[] }) {
         if (!match) return false
       }
 
-      // Boolean filters
       if (filters.pushProtection === 'yes' && !entry.hasPushProtection) return false
       if (filters.pushProtection === 'no' && entry.hasPushProtection) return false
       if (filters.validityCheck === 'yes' && !entry.hasValidityCheck) return false
@@ -148,7 +145,6 @@ export function SecretScanningTable({ data }: { data: SecretScanningData[] }) {
     })
   }, [dataWithIds, filters])
 
-  // Sort the full filtered dataset
   const sorted: SecretScanningRow[] = useMemo(() => {
     if (!sortColumn) return filtered
     return [...filtered].sort((a, b) => {
@@ -159,13 +155,12 @@ export function SecretScanningTable({ data }: { data: SecretScanningData[] }) {
     })
   }, [filtered, sortColumn, sortDirection])
 
-  // Paginate (Pagination component uses 1-indexed pages)
+  // The Pagination component is 1-indexed.
   const pageCount = Math.ceil(sorted.length / PAGE_SIZE)
   const pageData = sorted.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE)
 
   return (
     <div>
-      {/* Filter bar */}
       <div
         role="search"
         aria-label={t('filter_aria_label')}
@@ -209,6 +204,7 @@ export function SecretScanningTable({ data }: { data: SecretScanningData[] }) {
           )}
         </div>
         <TextInput
+          fullWidth
           aria-label={t('search_aria_label')}
           placeholder={t('search_placeholder')}
           value={filters.search}
@@ -222,7 +218,6 @@ export function SecretScanningTable({ data }: { data: SecretScanningData[] }) {
         />
       </div>
 
-      {/* Results count */}
       <p
         aria-live="polite"
         aria-atomic="true"
@@ -233,7 +228,6 @@ export function SecretScanningTable({ data }: { data: SecretScanningData[] }) {
           .replace('{total}', String(data.length))}
       </p>
 
-      {/* Data table */}
       <div style={{ overflowX: 'auto' }}>
         <Table.Container>
           <Table.Title as="h2" id="secret-scanning-table-title">
@@ -269,8 +263,7 @@ export function SecretScanningTable({ data }: { data: SecretScanningData[] }) {
                 field: 'supportedSecret',
                 width: '280px',
                 renderCell: (row) => {
-                  // The middleware appends HTML for duplicates; strip it.
-                  // Also handle </br> and <br/> separators in the raw secretType.
+                  // Remove duplicate token-versions link; convert raw <br> separators to commas.
                   const cleanSecretType = row.secretType
                     .replace(/ <br\/><a href="#token-versions">Token versions<\/a>/, '')
                     .replace(/<\/?br\s*\/?>/gi, ', ')
@@ -360,7 +353,6 @@ export function SecretScanningTable({ data }: { data: SecretScanningData[] }) {
         </Table.Container>
       </div>
 
-      {/* Pagination */}
       {pageCount > 1 && (
         <Pagination
           aria-label={t('pagination_label')}
@@ -376,7 +368,6 @@ export function SecretScanningTable({ data }: { data: SecretScanningData[] }) {
   )
 }
 
-// Simple ✓/✗ icon with a11y labels
 function BoolIcon({
   value,
   label,
@@ -395,7 +386,6 @@ function BoolIcon({
   )
 }
 
-// Reusable filter dropdown (all / yes / no)
 function FilterDropdown({
   label,
   value,
@@ -406,21 +396,31 @@ function FilterDropdown({
   onChange: (v: 'all' | 'yes' | 'no') => void
 }) {
   const { t } = useTranslation('secret_scanning')
+  const selectedLabel =
+    value === 'all' ? t('filter_all') : value === 'yes' ? t('filter_yes') : t('filter_no')
   return (
-    <ActionMenu>
-      <ActionMenu.Button size="small">
-        {label}:{' '}
-        {value === 'all' ? t('filter_all') : value === 'yes' ? t('filter_yes') : t('filter_no')}
-      </ActionMenu.Button>
-      <ActionMenu.Overlay>
-        <ActionList selectionVariant="single">
+    <div className={styles.filterDropdown}>
+      <ActionMenu
+        selectionVariant="single"
+        size="small"
+        onSelect={(selectedValue) => onChange(selectedValue as 'all' | 'yes' | 'no')}
+      >
+        <ActionMenu.Button size="small">
+          {label}: {selectedLabel}
+        </ActionMenu.Button>
+        <ActionMenu.Overlay aria-label={label}>
           {(['all', 'yes', 'no'] as const).map((opt) => (
-            <ActionList.Item key={opt} selected={value === opt} onSelect={() => onChange(opt)}>
+            <ActionMenu.Item
+              key={opt}
+              value={opt}
+              selected={value === opt}
+              onKeyDownCapture={onActionMenuItemKeyDownCapture}
+            >
               {opt === 'all' ? t('filter_all') : opt === 'yes' ? t('filter_yes') : t('filter_no')}
-            </ActionList.Item>
+            </ActionMenu.Item>
           ))}
-        </ActionList>
-      </ActionMenu.Overlay>
-    </ActionMenu>
+        </ActionMenu.Overlay>
+      </ActionMenu>
+    </div>
   )
 }

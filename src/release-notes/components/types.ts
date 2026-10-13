@@ -29,7 +29,6 @@ export type ReleaseNotePatch = {
   friendlyDate: string
   title: string
   release_candidate?: boolean
-  currentWeek: boolean
   sections: Record<string, Array<ReleaseNoteSection>>
 }
 

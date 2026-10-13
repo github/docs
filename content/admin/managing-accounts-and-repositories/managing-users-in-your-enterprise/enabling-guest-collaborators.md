@@ -85,7 +85,7 @@ When guest collaborators are enabled in your IdP, you can use SCIM to provision 
 * If you use a partner IdP, use the "Roles" attribute in the {% data variables.product.prodname_emus %} application.
 * If you use the SCIM endpoints of {% data variables.product.company_short %}'s REST API to provision users, use the `roles` user attribute.
 
-For more information about partner IdPs and other identity management systems, see [AUTOTITLE](/admin/concepts/identity-and-access-management/enterprise-managed-users#identity-management-systems).
+For more information about partner IdPs and other identity management systems, see [AUTOTITLE](/admin/concepts/identity-and-access-management/enterprise-managed-users#how-does-emus-integrate-with-identity-management-systems).
 
 ## Giving guest collaborators access to resources
 

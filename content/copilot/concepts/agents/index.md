@@ -8,21 +8,17 @@ versions:
 children:
   - /cloud-agent
   - /copilot-cli
-  - /github-copilot-app
-  - /copilot-in-jetbrains
   - /code-review
+  - /computer-use
   - /about-github-agentic-workflows
   - /copilot-memory
+  - /dynamic-workflows
   - /hooks
   - /about-plugins
-  - /about-enterprise-plugin-standards
   - /about-third-party-coding-agents
   - /agent-apps
   - /openai-codex
   - /anthropic-claude
   - /about-agent-skills
-  - /enterprise-management
-  - /opentelemetry
 contentType: concepts
 ---
-

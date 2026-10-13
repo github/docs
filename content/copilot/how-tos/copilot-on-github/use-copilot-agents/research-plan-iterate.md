@@ -66,4 +66,4 @@ After research and planning, make changes on a branch, review the diff, and deci
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-cloud-agent)
+* [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-on-github)

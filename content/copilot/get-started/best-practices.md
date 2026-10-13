@@ -43,7 +43,7 @@ While {% data variables.product.prodname_copilot_short %} inline suggestions and
 
 * Answering questions about code in natural language
 * Generating large sections of code, then iterating on that code to meet your needs
-* Accomplishing specific tasks with keywords and skills. {% data variables.copilot.copilot_chat_short %} has built-in keywords and skills designed to provide important context for prompts and accomplish common tasks quickly. Different types of keywords and skills are available in different {% data variables.copilot.copilot_chat_short %} platforms. See [AUTOTITLE](/copilot/how-tos/chat-with-copilot/chat-in-ide#using-keywords-in-your-prompt){% ifversion fpt %}.{% else %} and [AUTOTITLE](/copilot/how-tos/copilot-on-github/chat-with-copilot/chat-in-github).{% endif %}
+* Accomplishing specific tasks with keywords and skills. {% data variables.copilot.copilot_chat_short %} has built-in keywords and skills designed to provide important context for prompts and accomplish common tasks quickly. Different types of keywords and skills are available in different {% data variables.copilot.copilot_chat_short %} platforms. See [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/chat-with-copilot/chat-in-ide#using-keywords-in-your-prompt){% ifversion fpt %}.{% else %} and [AUTOTITLE](/copilot/how-tos/copilot-on-github/chat-with-copilot/chat-in-github).{% endif %}
 * Completing a task as a specific persona. For example, you can tell {% data variables.copilot.copilot_chat_short %} that it is a Senior C++ Developer who cares greatly about code quality, readability, and efficiency, then ask it to review your code.
 
 ## Create thoughtful prompts
@@ -75,13 +75,13 @@ There are several adjustments you can make to steer {% data variables.product.pr
   * If you are using {% data variables.product.prodname_copilot_short %} in your IDE, open relevant files and close irrelevant files.
   * In {% data variables.copilot.copilot_chat_short %}, if a particular request is no longer helpful context, delete that request from the conversation. Alternatively, if none of the context of a particular conversation is helpful, start a new conversation.
   * If you are using {% data variables.copilot.copilot_chat_dotcom_short %}, provide specific repositories, files, symbols, and more as context. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/chat-with-copilot/chat-in-github).
-  * If you are using {% data variables.copilot.copilot_chat_short %} in your IDE, use keywords to focus {% data variables.product.prodname_copilot_short %} on a specific task or piece of context. See [AUTOTITLE](/copilot/how-tos/chat-with-copilot/chat-in-ide#using-keywords-in-your-prompt).
+  * If you are using {% data variables.copilot.copilot_chat_short %} in your IDE, use keywords to focus {% data variables.product.prodname_copilot_short %} on a specific task or piece of context. See [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/chat-with-copilot/chat-in-ide#using-keywords-in-your-prompt).
 * **Rewrite your prompts to generate different responses.** If {% data variables.product.prodname_copilot_short %} is not providing a helpful response, try rephrasing your prompt, or even breaking your request down into multiple smaller prompts.
 * **Pick the best available suggestion.** When you are using inline suggestions, {% data variables.product.prodname_copilot_short %} might offer more than one suggestion. You can use keyboard shortcuts to quickly look through all available suggestions. For the default keyboard shortcuts for your operating system, see [AUTOTITLE](/copilot/reference/keyboard-shortcuts).
 * **Provide feedback to improve future suggestions.** You can provide feedback in many ways:
   * For inline suggestions, accept or reject {% data variables.product.prodname_copilot_short %}'s suggestion.
   * For individual responses in {% data variables.copilot.copilot_chat_short %}, click the thumbs up or thumbs down icons next to the response.
-  * For {% data variables.copilot.copilot_chat_short %} in your IDE, see [AUTOTITLE](/copilot/how-tos/chat-with-copilot/chat-in-ide#sharing-feedback) for instructions specific to your environment.
+  * For {% data variables.copilot.copilot_chat_short %} in your IDE, see [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/chat-with-copilot/chat-in-ide#sharing-feedback) for instructions specific to your environment.
   * For {% data variables.copilot.copilot_chat_dotcom_short %}, leave a comment on the [feedback discussion](https://github.com/orgs/community/discussions/110314).
 
 ## Stay up-to-date on {% data variables.product.prodname_copilot_short %}'s features

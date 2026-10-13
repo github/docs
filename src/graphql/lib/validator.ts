@@ -1,7 +1,5 @@
-// the tests in tests/graphql.ts use this schema to ensure the integrity
-// of the data in src/graphql/data/*.json
+// src/graphql/tests/validate-schema.ts reads these schemas to validate generated data.
 
-// JSON Schema type definitions for AJV validation
 interface JSONSchema {
   type?: string
   required?: string[]
@@ -16,7 +14,6 @@ interface ValidatorSchema extends JSONSchema {
   properties: Record<string, JSONSchema>
 }
 
-// PREVIEWS
 export const previewsValidator: ValidatorSchema = {
   type: 'object',
   required: [
@@ -53,7 +50,6 @@ export const previewsValidator: ValidatorSchema = {
   },
 }
 
-// UPCOMING CHANGES
 export const upcomingChangesValidator: ValidatorSchema = {
   type: 'object',
   required: ['location', 'description', 'reason', 'date', 'criticality', 'owner'],
@@ -82,8 +78,6 @@ export const upcomingChangesValidator: ValidatorSchema = {
   },
 }
 
-// SCHEMAS
-// many GraphQL schema members have these core properties
 const coreProps: JSONSchema = {
   properties: {
     name: {
@@ -111,7 +105,6 @@ const coreProps: JSONSchema = {
   },
 }
 
-// some GraphQL schema members have the core properties plus an 'args' object
 const corePropsPlusArgs = dup(coreProps)
 
 corePropsPlusArgs.properties!.args = {
@@ -122,7 +115,6 @@ corePropsPlusArgs.properties!.args = {
   },
 }
 
-// the args object can have defaultValue prop
 corePropsPlusArgs.properties!.args.items!.properties!.defaultValue = {
   type: 'boolean',
 }
@@ -133,13 +125,11 @@ delete corePropsNoType.properties!.type
 const corePropsNoDescription = dup(coreProps)
 delete corePropsNoDescription.properties!.description
 
-// QUERIES
 const queries = dup(corePropsPlusArgs) as ValidatorSchema
 
 queries.type = 'object'
 queries.required = ['name', 'type', 'id', 'href', 'description']
 
-// MUTATIONS
 const mutations = dup(corePropsNoType) as ValidatorSchema
 
 mutations.type = 'object'
@@ -161,7 +151,6 @@ mutations.properties.returnFields = {
   },
 }
 
-// OBJECTS
 const objects = dup(corePropsNoType) as ValidatorSchema
 
 objects.type = 'object'
@@ -194,7 +183,6 @@ objects.properties.implements = {
   },
 }
 
-// INTERFACES
 const interfaces = dup(corePropsNoType) as ValidatorSchema
 
 interfaces.type = 'object'
@@ -208,7 +196,6 @@ interfaces.properties.fields = {
   },
 }
 
-// ENUMS
 const enums = dup(corePropsNoType) as ValidatorSchema
 
 enums.type = 'object'
@@ -230,7 +217,6 @@ enums.properties.values = {
   },
 }
 
-// UNIONS
 const unions = dup(corePropsNoType) as ValidatorSchema
 
 unions.type = 'object'
@@ -255,7 +241,6 @@ unions.properties.possibleTypes = {
   },
 }
 
-// INPUT OBJECTS
 const inputObjects = dup(corePropsNoType) as ValidatorSchema
 
 inputObjects.type = 'object'
@@ -269,18 +254,15 @@ inputObjects.properties.inputFields = {
   },
 }
 
-// SCALARS
 const scalars = dup(corePropsNoType) as ValidatorSchema
 
 scalars.type = 'object'
 scalars.required = ['name', 'id', 'href', 'description']
 
-// Deep clone utility function with proper typing
 function dup<T>(obj: T): T {
   return JSON.parse(JSON.stringify(obj))
 }
 
-// Schema validator collection with proper typing
 interface SchemaValidators {
   queries: ValidatorSchema
   mutations: ValidatorSchema

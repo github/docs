@@ -87,15 +87,15 @@ Use `/model` to choose from available models based on your task complexity:
 | Model | Best For | Tradeoffs |
 | ----- | -------- | --------- |
 | **Auto** | Reduced rate limiting and lower latency and errors | See [AUTOTITLE](/copilot/concepts/models/auto-model-selection) |
-| **Claude Opus 4.5** (default) | Complex architecture, difficult debugging, nuanced refactoring | Most capable but more costly |
-| **Claude Sonnet 4.5** | Day-to-day coding, most routine tasks | Fast, cost-effective, handles most work well |
-| **GPT-5.2 Codex** | Code generation, code review, straightforward implementations | Excellent for reviewing code produced by other models |
+| **{% data variables.copilot.copilot_claude_opus_5 %}** | Complex architecture, difficult debugging, nuanced refactoring | Most capable but more costly |
+| **{% data variables.copilot.copilot_claude_sonnet_5 %}** | Day-to-day coding, most routine tasks | Fast, cost-effective, handles most work well |
+| **{% data variables.copilot.copilot_gpt_53_codex %}** | Code generation, code review, straightforward implementations | Excellent for reviewing code produced by other models |
 
 **Recommendations:**
 
 * **Auto** intelligently chooses models based on real-time system health and model performance (reducing rate limiting and providing lower latency and errors), and the complexity of the task you have given {% data variables.product.prodname_copilot_short %}.
-* **Opus 4.5** is ideal for tasks requiring deep reasoning, complex system design, subtle bug investigation, or extensive context understanding.
-* **Switch to Sonnet 4.5** for routine tasks where speed and cost efficiency matter—it handles the majority of everyday coding effectively.
+* **{% data variables.copilot.copilot_claude_opus_5 %}** is ideal for tasks requiring deep reasoning, complex system design, subtle bug investigation, or extensive context understanding.
+* **Switch to {% data variables.copilot.copilot_claude_sonnet_5 %}** for routine tasks where speed and cost efficiency matter—it handles the majority of everyday coding effectively.
 * **Use Codex** for high-volume code generation and as a second opinion for reviewing code produced by other models.
 
 You can switch models mid-session with `/model` as task complexity changes.
@@ -114,7 +114,7 @@ You can configure {% data variables.copilot.copilot_cli_short %} to use your own
 * Cost estimates are hidden when using your own provider. Token usage (input, output, and cache counts) is still displayed.
 * `/delegate` only works if you are also signed in to {% data variables.product.github %}. It transfers the session to {% data variables.product.github %}'s server-side {% data variables.product.prodname_copilot_short %}, not your provider.
 
-See [Using your own model provider](/copilot/concepts/agents/copilot-cli/about-copilot-cli#using-your-own-model-provider).
+See [Using your own model provider](/copilot/concepts/copilot-surfaces/copilot-cli#using-your-own-model-provider).
 
 ### Set {% data variables.product.prodname_ai_credit_singular %} session limits
 
@@ -336,7 +336,7 @@ Pair with {% data variables.copilot.copilot_cli_short %} to develop tests.
 ### Code review assistance
 
 * ``/security-review Review my current local changes for security issues. Prioritize high-severity findings and suggest remediations I can apply before opening a pull request.``
-* ``/review Use Opus 4.5 and Codex 5.2 to review the changes in my current branch against `main`. Focus on potential bugs and security issues.``
+* ``/review Use {% data variables.copilot.copilot_claude_opus_5 %} and {% data variables.copilot.copilot_gpt_53_codex %} to review the changes in my current branch against `main`. Focus on potential bugs and security issues.``
 * Triage high-severity findings first, validate your fixes, then continue through your normal pull request review workflow.
 
 ### Git operations
@@ -514,7 +514,7 @@ Here is what you will learn:
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-copilot-cli)
+* [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-cli)
 * [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/overview)
 * [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference)
 * [{% data variables.product.prodname_copilot_short %} plans and pricing](https://github.com/features/copilot/plans)

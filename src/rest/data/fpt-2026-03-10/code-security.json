@@ -413,7 +413,8 @@
                     "description": "The enforcement status for a security configuration",
                     "enum": [
                       "enforced",
-                      "unenforced"
+                      "unenforced",
+                      "enterprise_enforced"
                     ]
                   },
                   "url": {
@@ -731,7 +732,8 @@
           "description": "<p>The enforcement status for a security configuration</p>",
           "enum": [
             "enforced",
-            "unenforced"
+            "unenforced",
+            "enterprise_enforced"
           ],
           "default": "enforced"
         }
@@ -1078,7 +1080,8 @@
                   "description": "The enforcement status for a security configuration",
                   "enum": [
                     "enforced",
-                    "unenforced"
+                    "unenforced",
+                    "enterprise_enforced"
                   ]
                 },
                 "url": {
@@ -1540,7 +1543,8 @@
                         "description": "The enforcement status for a security configuration",
                         "enum": [
                           "enforced",
-                          "unenforced"
+                          "unenforced",
+                          "enterprise_enforced"
                         ]
                       },
                       "url": {
@@ -1945,7 +1949,8 @@
                   "description": "The enforcement status for a security configuration",
                   "enum": [
                     "enforced",
-                    "unenforced"
+                    "unenforced",
+                    "enterprise_enforced"
                   ]
                 },
                 "url": {
@@ -2262,7 +2267,8 @@
           "description": "<p>The enforcement status for a security configuration</p>",
           "enum": [
             "enforced",
-            "unenforced"
+            "unenforced",
+            "enterprise_enforced"
           ]
         }
       ],
@@ -2606,7 +2612,8 @@
                   "description": "The enforcement status for a security configuration",
                   "enum": [
                     "enforced",
-                    "unenforced"
+                    "unenforced",
+                    "enterprise_enforced"
                   ]
                 },
                 "url": {
@@ -3240,7 +3247,8 @@
                       "description": "The enforcement status for a security configuration",
                       "enum": [
                         "enforced",
-                        "unenforced"
+                        "unenforced",
+                        "enterprise_enforced"
                       ]
                     },
                     "url": {
@@ -3346,7 +3354,7 @@
         },
         {
           "name": "status",
-          "description": "<p>A comma-separated list of statuses. If specified, only repositories with these attachment statuses will be returned.</p>\n<p>Can be: <code>all</code>, <code>attached</code>, <code>attaching</code>, <code>removed</code>, <code>enforced</code>, <code>failed</code>, <code>updating</code>, <code>removed_by_enterprise</code></p>",
+          "description": "<p>A comma-separated list of statuses. If specified, only repositories with these attachment statuses will be returned.</p>\n<p>Can be: <code>all</code>, <code>attached</code>, <code>attaching</code>, <code>removed</code>, <code>enforced</code>, <code>failed</code>, <code>updating</code>, <code>removed_by_enterprise</code>, <code>enterprise_enforced</code></p>",
           "in": "query",
           "required": false,
           "schema": {
@@ -3464,7 +3472,8 @@
                       "enforced",
                       "failed",
                       "updating",
-                      "removed_by_enterprise"
+                      "removed_by_enterprise",
+                      "enterprise_enforced"
                     ]
                   },
                   "repository": {
@@ -4285,7 +4294,8 @@
                     "description": "The enforcement status for a security configuration",
                     "enum": [
                       "enforced",
-                      "unenforced"
+                      "unenforced",
+                      "enterprise_enforced"
                     ]
                   },
                   "url": {
@@ -5030,7 +5040,8 @@
                   "description": "The enforcement status for a security configuration",
                   "enum": [
                     "enforced",
-                    "unenforced"
+                    "unenforced",
+                    "enterprise_enforced"
                   ]
                 },
                 "url": {
@@ -5484,7 +5495,8 @@
                         "description": "The enforcement status for a security configuration",
                         "enum": [
                           "enforced",
-                          "unenforced"
+                          "unenforced",
+                          "enterprise_enforced"
                         ]
                       },
                       "url": {
@@ -5569,7 +5581,7 @@
           "isRequired": true
         }
       ],
-      "descriptionHTML": "<p>Detach code security configuration(s) from a set of repositories.\nRepositories will retain their settings but will no longer be associated with the configuration.</p>\n<p>The authenticated user must be an administrator or security manager for the organization to use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>write:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Detach code security configuration(s) from a set of repositories.\nRepositories will retain their settings but will no longer be associated with the configuration.</p>\n<p>The authenticated user must be an administrator or security manager for the organization to use this endpoint.</p>\n<p>Repositories with active enterprise-enforced attachments are skipped unless the authenticated user can manage the enterprise's code security settings; the rest are detached. Inactive enterprise-enforced attachments, such as failed attachments, are detached. The request still returns <code>204</code> if every repository is skipped.</p>\n<p>OAuth app tokens and classic PATs require the <code>write:org</code> scope. Managing enterprise-enforced configurations also requires <code>admin:enterprise</code> and is not supported by fine-grained PATs or GitHub App access tokens.</p>",
       "codeExamples": [
         {
           "request": {
@@ -6004,7 +6016,8 @@
                   "description": "The enforcement status for a security configuration",
                   "enum": [
                     "enforced",
-                    "unenforced"
+                    "unenforced",
+                    "enterprise_enforced"
                   ]
                 },
                 "url": {
@@ -6733,7 +6746,8 @@
                   "description": "The enforcement status for a security configuration",
                   "enum": [
                     "enforced",
-                    "unenforced"
+                    "unenforced",
+                    "enterprise_enforced"
                   ]
                 },
                 "url": {
@@ -6907,7 +6921,7 @@
           "description": "<p>An array of repository IDs to attach the configuration to. You can only provide a list of repository ids when the <code>scope</code> is set to <code>selected</code>.</p>"
         }
       ],
-      "descriptionHTML": "<p>Attach a code security configuration to a set of repositories. If the repositories specified are already attached to a configuration, they will be re-attached to the provided configuration.</p>\n<p>If insufficient GHAS licenses are available to attach the configuration to a repository, only free features will be enabled.</p>\n<p>The authenticated user must be an administrator or security manager for the organization to use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>write:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Attach a code security configuration to a set of repositories. If the repositories specified are already attached to a configuration, they will be re-attached to the provided configuration.</p>\n<p>If insufficient GHAS licenses are available to attach the configuration to a repository, only free features will be enabled.</p>\n<p>The authenticated user must be an administrator or security manager for the organization to use this endpoint.</p>\n<p>Directly applying an enterprise-enforced configuration also requires permission to manage the enterprise's code security settings. Without it, the request returns <code>403</code> and no repositories change.</p>\n<p>When applying a different configuration, repositories with active enterprise-enforced attachments are skipped unless the authenticated user can manage the enterprise's code security settings; the remaining repositories are updated. The request still returns <code>202</code> if every repository is skipped.</p>\n<p>OAuth app tokens and classic PATs require the <code>write:org</code> scope. Directly applying an enterprise-enforced configuration also requires <code>admin:enterprise</code> and is not supported by fine-grained PATs or GitHub App access tokens.</p>",
       "codeExamples": [
         {
           "request": {
@@ -6941,6 +6955,10 @@
         {
           "httpStatusCode": "202",
           "description": "<p>Accepted</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
         }
       ],
       "previews": [],
@@ -6995,7 +7013,7 @@
           ]
         }
       ],
-      "descriptionHTML": "<p>Sets a code security configuration as a default to be applied to new repositories in your organization.</p>\n<p>This configuration will be applied to the matching repository type (all, none, public, private and internal) by default when they are created.</p>\n<p>The authenticated user must be an administrator or security manager for the organization to use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>write:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Sets a code security configuration as a default to be applied to new repositories in your organization.</p>\n<p>This configuration will be applied to the matching repository type (all, none, public, private and internal) by default when they are created.</p>\n<p>The authenticated user must be an administrator or security manager for the organization to use this endpoint. Setting an enterprise-enforced configuration as the default also requires permission to manage the enterprise's code security settings.</p>\n<p>A default set with this endpoint is an organization default, even if the configuration is owned or enforced by the enterprise. An enterprise-enforced configuration set as an enterprise-level default for the same repository visibility takes precedence.</p>\n<p>OAuth app tokens and classic PATs require the <code>write:org</code> scope; setting an enterprise-enforced configuration as the default also requires <code>admin:enterprise</code>. Fine-grained PATs and GitHub App access tokens cannot perform that action.</p>",
       "codeExamples": [
         {
           "request": {
@@ -7367,7 +7385,8 @@
                       "description": "The enforcement status for a security configuration",
                       "enum": [
                         "enforced",
-                        "unenforced"
+                        "unenforced",
+                        "enterprise_enforced"
                       ]
                     },
                     "url": {
@@ -7477,7 +7496,7 @@
         },
         {
           "name": "status",
-          "description": "<p>A comma-separated list of statuses. If specified, only repositories with these attachment statuses will be returned.</p>\n<p>Can be: <code>all</code>, <code>attached</code>, <code>attaching</code>, <code>detached</code>, <code>removed</code>, <code>enforced</code>, <code>failed</code>, <code>updating</code>, <code>removed_by_enterprise</code></p>",
+          "description": "<p>A comma-separated list of statuses. If specified, only repositories with these attachment statuses will be returned.</p>\n<p>Can be: <code>all</code>, <code>attached</code>, <code>attaching</code>, <code>detached</code>, <code>removed</code>, <code>enforced</code>, <code>failed</code>, <code>updating</code>, <code>removed_by_enterprise</code>, <code>enterprise_enforced</code></p>",
           "in": "query",
           "required": false,
           "schema": {
@@ -7595,7 +7614,8 @@
                       "enforced",
                       "failed",
                       "updating",
-                      "removed_by_enterprise"
+                      "removed_by_enterprise",
+                      "enterprise_enforced"
                     ]
                   },
                   "repository": {
@@ -8085,7 +8105,8 @@
                     "enforced",
                     "failed",
                     "updating",
-                    "removed_by_enterprise"
+                    "removed_by_enterprise",
+                    "enterprise_enforced"
                   ]
                 },
                 "configuration": {
@@ -8378,7 +8399,8 @@
                       "description": "The enforcement status for a security configuration",
                       "enum": [
                         "enforced",
-                        "unenforced"
+                        "unenforced",
+                        "enterprise_enforced"
                       ]
                     },
                     "url": {

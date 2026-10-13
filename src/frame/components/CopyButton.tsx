@@ -6,15 +6,13 @@ type CopyButtonProps = ComponentPropsWithoutRef<'button'> & {
   'data-clipboard'?: string
 }
 
-// React replacement for the imperative `copy-code.ts` enhancer. The code-block
-// header (`content-render/unified/code-header.ts`) emits this button into the
-// HTML AST next to a hidden `<pre data-clipboard="<id>">` holding the raw code.
-// When the article body is rendered from hast (instead of dangerouslySetInnerHTML),
-// `MarkdownContent` maps that `<button class="js-btn-copy">` to this component so
-// React owns the node rather than a post-hydration `document.querySelectorAll`.
-//
-// Analytics is intentionally NOT sent here: a global delegated click listener in
-// `events/components/events.ts` already records `.js-btn-copy` clicks.
+// React replacement for the imperative copy-code.ts enhancer. The code-block
+// header in content-render/unified/code-header.ts emits this button into the HTML
+// AST next to a hidden pre[data-clipboard] element that holds the raw code.
+// MarkdownContent maps button.js-btn-copy to CopyButton so React owns the node
+// instead of a post-hydration document.querySelectorAll pass.
+// Do not send analytics here: events/components/events.ts already records
+// .js-btn-copy clicks through its delegated click listener.
 export function CopyButton({ className, children, ...props }: CopyButtonProps) {
   const [copied, setCopied] = useState(false)
   const buttonRef = useRef<HTMLButtonElement>(null)
@@ -31,9 +29,7 @@ export function CopyButton({ className, children, ...props }: CopyButtonProps) {
   const handleClick = useCallback(async () => {
     if (!clipboardId) return
 
-    // The hidden <pre> is a sibling of this button inside the code-block header,
-    // so look it up locally to avoid copying a different block that happens to
-    // share the same content hash.
+    // Look up the sibling hidden pre locally so a reused content hash cannot copy another block.
     const scope: Element | Document = buttonRef.current?.parentElement ?? document
     const pre = scope.querySelector<HTMLElement>(`pre[data-clipboard="${CSS.escape(clipboardId)}"]`)
     const text = pre?.innerText
@@ -42,8 +38,7 @@ export function CopyButton({ className, children, ...props }: CopyButtonProps) {
     try {
       await navigator.clipboard.writeText(text)
     } catch {
-      // Clipboard write can be blocked (permissions, insecure context, etc.).
-      // Don't show a false "Copied!" state.
+      // A blocked clipboard write must not show a false Copied state.
       return
     }
 

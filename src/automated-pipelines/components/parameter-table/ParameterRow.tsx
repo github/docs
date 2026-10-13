@@ -1,4 +1,4 @@
-import cx from 'classnames'
+import cx from 'clsx'
 
 import { useTranslation } from '@/languages/components/useTranslation'
 import { ChildBodyParametersRows } from './ChildBodyParametersRows'
@@ -15,17 +15,9 @@ type Props = {
   clickedBodyParameterName?: string | undefined
 }
 
-// Webhooks have these same properties in common that we describe separately in its
-// own section on the webhooks page:
-//
-//  https://docs.github.com/en/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#webhook-payload-object-common-properties
-//
-// Since there's more details for these particular properties, we chose not
-// show their child properties for each webhook and we also don't grab this
-// information from the schema.
-//
-// We use this list of common properties to make sure we don't try and request
-// the child properties for these specific properties.
+// The webhooks page documents common webhook payload properties in one shared section.
+// Skipping their child properties here avoids duplicate schema lookups and repeated docs.
+// https://docs.github.com/en/webhooks/webhook-events-and-payloads
 const NO_CHILD_WEBHOOK_PROPERTIES = [
   'action',
   'enterprise',
@@ -46,8 +38,6 @@ export function ParameterRow({
 }: Props) {
   const { t } = useTranslation(['parameter_table'])
 
-  // This will be true if `rowParams` does not have a key called `default`
-  // and it will be true if it does and its actual value is `undefined`.
   const hasDefault = rowParams.default !== undefined
   return (
     <>
@@ -58,14 +48,11 @@ export function ParameterRow({
               {rowParams.name ? (
                 <>
                   <code className={`text-bold f5`}>{rowParams.name}</code>
-                  {/* This whitespace is important otherwise, when the CSS is
-                      ignored, the plain text becomes `foobar` if the HTML
-                      was `<code>foo</code><span>bar</span>`.
-                   */}{' '}
+                  {/* Keeps <code>foo</code><span>bar</span> from rendering as foobar without CSS. */}{' '}
                   <span className="color-fg-muted pl-2 f5">
                     {Array.isArray(rowParams.type) ? rowParams.type.join(' or ') : rowParams.type}
                   </span>
-                  {/* Ditto about the important explicit whitespace */}{' '}
+                  {/* Keeps readable text spacing if CSS fails to load. */}{' '}
                   {rowParams.isRequired ? (
                     <span className="color-fg-attention f5 pl-3">{t('required')}</span>
                   ) : null}
@@ -75,7 +62,7 @@ export function ParameterRow({
                   <span className="color-fg-muted pl-1 f5">
                     {Array.isArray(rowParams.type) ? rowParams.type.join(' or ') : rowParams.type}
                   </span>
-                  {/* Ditto about the important explicit whitespace */}{' '}
+                  {/* Keeps readable text spacing if CSS fails to load. */}{' '}
                   {rowParams.isRequired ? (
                     <span className="color-fg-attention f5 pl-3">{t('required')}</span>
                   ) : null}
@@ -96,10 +83,7 @@ export function ParameterRow({
                     <span>{t('default')}: </span>
                     <code>
                       {typeof rowParams.default === 'string'
-                        ? // In the schema, the default value for strings can
-                          // potentially be the empty string so we handle this case
-                          // in particular by rendering it as "".  Otherwise we would
-                          // display an empty code block which could be confusing.
+                        ? // Empty string defaults need visible quotes.
                           rowParams.default || '""'
                         : JSON.stringify(rowParams.default)}
                     </code>
@@ -143,16 +127,7 @@ export function ParameterRow({
         />
       )}
 
-      {/* These conditions tell us:
-
-            1. the param is an object or array AND:
-            2. the param has no child param groups AND:
-            3. the param isn't one of the common webhook properties
-
-          If all these are true, then that means we haven't yet loaded the
-          nested parameters so we show a stub <details> element that triggers
-          an API request to get the nested parameter data.
-       */}
+      {/* Empty child groups mark unloaded nested params except shared webhook props; details lazy-loads them. */}
       {rowParams.type &&
       (rowParams.type.includes('object') || rowParams.type.includes('array of')) &&
       rowParams.childParamsGroups &&

@@ -7,9 +7,7 @@ import { ExtendedRequest } from '@/types'
 const redirectPatterns = Object.values(languages)
   .map((language) => language.redirectPatterns || [])
   .flat()
-// If the enabled languages have `.redirectPatterns`, combine them
-// into one which we only need to use to determine if we should bother
-// doing the redirect at all.
+// Combine enabled language redirectPatterns for a cheap precheck before scanning every pattern.
 const combinedRedirectPatternRegex =
   redirectPatterns.length > 0
     ? new RegExp(redirectPatterns.map((rex) => rex.source).join('|'))
@@ -19,26 +17,20 @@ const allRedirectPatterns = Object.values(languages)
   .map((language) =>
     (language.redirectPatterns || []).map((redirectPattern) => [language.code, redirectPattern]),
   )
-  .flat() as [string, RegExp][] // Seems TypeScript didn't understand the .flat()
+  .flat() as [string, RegExp][] // flat() loses tuple type inference.
 
-// This middleware handles redirects for mistyped language codes
-//
-// Examples:
-// /jp*    -> /ja*
-// /zh-TW* -> /zh*
+// Redirect mistyped language codes, for example /jp* -> /ja* and /zh-TW* -> /zh*.
 export default function languageCodeRedirects(
   req: ExtendedRequest,
   res: Response,
   next: NextFunction,
 ) {
-  // Only in the unlikely event that the `req.path` starts with one of these
-  // prefixes do we bother looking up what the redirect should be.
+  // Only paths matching the combined precheck need per-language pattern lookup.
   if (req.path.startsWith('/_next/static')) return next()
   if (!combinedRedirectPatternRegex) return next()
   if (!combinedRedirectPatternRegex.test(req.path)) return next()
 
-  // This loop is almost never ever used so it doesn't have to be
-  // particularly smart or fast.
+  // This rare path favors clarity over optimizing the pattern scan.
   const matched = allRedirectPatterns.find(([, pattern]) => pattern.test(req.path))
   if (matched) {
     const [code, pattern] = matched

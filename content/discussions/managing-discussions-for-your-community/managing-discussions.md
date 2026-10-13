@@ -20,7 +20,7 @@ category:
 
 Organization owners can choose the permissions required to create a discussion in repositories owned by the organization. Similarly, to choose the permissions required to create an organization discussion, organization owners can change the permissions required in the source repository. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/managing-discussion-creation-for-repositories-in-your-organization).
 
-As a discussions maintainer, you can create community resources to encourage discussions that are aligned with the overall project goal and maintain a friendly open forum for collaborators. Creating{% ifversion fpt or ghec %} a code of conduct or{% endif %} contribution guidelines for collaborators to follow will help facilitate a collaborative and productive forum. For more information on creating community resources, see{% ifversion fpt or ghec %} [AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project), and{% endif %} [AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors).
+As a discussions maintainer, you can create community resources to encourage discussions that are aligned with the overall project goal and maintain a friendly open forum for collaborators. Creating a code of conduct or contribution guidelines for collaborators to follow will help facilitate a collaborative and productive forum. For more information on creating community resources, see [AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project) and [AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors).
 
 When a discussion yields an idea or bug that is ready to be worked on, you can create a new issue from a discussion. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/creating-an-issue#creating-an-issue-from-discussion).
 
@@ -160,18 +160,3 @@ You can close a discussion when the discussion has been resolved, is no longer r
 {% data reusables.discussions.click-discussion-in-list %}
 1. At the bottom of the discussion, below the comment box, click **Close discussion**.
 1. Optionally, to change the reason for closing the discussion, select the {% octicon "triangle-down" aria-label="The down triangle octicon" %} dropdown next to "Close discussion" and click a reason.
-
-{% ifversion ghes < 3.18 %}
-
-## Converting issues based on labels
-
-You can convert all issues with the same label to discussions in bulk. Future issues with this label will also automatically convert to the discussion and category you configure.
-
-1. Navigate to the main page of the repository or, for organization discussions, the source repository.
-{% data reusables.repositories.sidebar-issues %}
-{% data reusables.project-management.labels %}
-1. Next to the label you want to convert to issues, click **Convert issues**.
-1. Select the **Choose a category** drop-down menu, and click a category for your discussion.
-1. Click **I understand, convert this issue to a discussion**.
-
-{% endif %}

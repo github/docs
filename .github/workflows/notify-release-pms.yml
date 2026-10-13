@@ -1,10 +1,7 @@
 name: Notify release PMs
 
-# **What it does**: Posts review notification comments on release issues
-# in github/releases for generated GHES release notes.
-# **Why we have it**: So comments are always posted by docs-bot, without
-# needing to distribute a PAT to individual team members.
-# **Who does it impact**: Docs content (GHES release DRIs).
+# Docs-bot posts generated GHES release-note review comments on github/releases issues
+# so PMs do not need a shared PAT.
 
 on:
   workflow_dispatch:

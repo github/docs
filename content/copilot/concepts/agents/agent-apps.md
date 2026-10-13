@@ -13,9 +13,11 @@ contentType: concepts
 
 ## Introduction
 
-{% data reusables.copilot.agent-apps-intro %} {% data variables.copilot.agent_apps_caps %} are powered by {% data variables.copilot.copilot_cloud_agent %}. To learn more, see [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-cloud-agent).
+{% data reusables.copilot.agent-apps-intro %} {% data variables.copilot.agent_apps_caps %} are powered by {% data variables.copilot.copilot_cloud_agent %}. To learn more, see [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-on-github).
 
 For example, an {% data variables.copilot.agent_app %} could analyze your product analytics, scan your application for security vulnerabilities, or add feature flags to a pull request, then connect back to the partner's systems to complete the task.
+
+You can view available apps on [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=apps&category=agent-apps).
 
 ## Where you can use {% data variables.copilot.agent_apps %}
 
@@ -37,6 +39,8 @@ To use an {% data variables.copilot.agent_app %}, the {% data variables.product.
 
 * When you install an {% data variables.copilot.agent_app %}, {% data variables.product.github %} highlights that the app includes agent features and asks you if you want to enable them. For more information, see [AUTOTITLE](/apps/using-github-apps/about-using-github-apps).
 * If the app is installed in an organization owned by an enterprise, an administrator must also enable the "{% data variables.copilot.agent_apps %}" {% data variables.product.prodname_copilot_short %} policy before the agent features become available. For more information, see the "Next steps" section.
+
+{% data reusables.copilot.model-access-agent-apps %} See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-availability-of-default-models).
 
 ## Billing
 

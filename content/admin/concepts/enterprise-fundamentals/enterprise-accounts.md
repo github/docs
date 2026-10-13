@@ -97,6 +97,6 @@ Users can also authorize {% data variables.product.prodname_github_apps %} to us
 
 ## Next steps
 
-Learn how to set up these features with our [AUTOTITLE](/enterprise-cloud@latest/enterprise-onboarding) journey for {% data variables.product.prodname_ghe_cloud %}.
+Learn how to set up these features with our [AUTOTITLE](/enterprise-cloud@latest/admin/enterprise-onboarding) journey for {% data variables.product.prodname_ghe_cloud %}.
 
 {% endif %}

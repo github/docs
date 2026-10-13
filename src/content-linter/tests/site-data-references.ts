@@ -5,25 +5,17 @@ import { describe, expect, test, vi } from 'vitest'
 import patterns from '@/frame/lib/patterns'
 import { getDataByLanguage, getDeepDataByLanguage } from '@/data-directory/lib/get-data'
 
-// Given syntax like {% data foo.bar %} or {% indented_data_reference foo.bar spaces=3 %},
-// the following regex returns just the dotted path: foo.bar
+// Extracts dotted data paths from data and indented_data_reference Liquid tags.
 
-// Note this regex allows nonstandard whitespace between terms; it does not enforce a single space.
-// In other words, it will allow {%data foo.bar %} or {%   data foo.bar   %}.
-// We should enforce a single space someday, but the content will need a lot of cleanup first, and
-// we should have a more purpose-driven validation test for that instead of enforcing it here.
+// Content cleanup needs a purpose-built test before this rejects nonstandard Liquid spacing.
 const getDataPathRegex =
   /{%\s*?(?:data|indented_data_reference)\s+?(\S+?)\s*?(?:spaces=\d\d?\s*?)?%}/
 
 const rawLiquidPattern = /{%\s*raw\s*%}.*?{%\s*endraw\s*%}/gs
 
+// Strip raw Liquid blocks so examples inside {% raw %} do not count as real references.
+// Example: "{% raw %}{% data reusables.foo %}{% endraw %}" returns no references.
 const getDataReferences = (content: string): string[] => {
-  // When looking for things like `{% data reusables.foo %}` in the
-  // content, we first have to exclude any Liquid that isn't real.
-  // E.g.
-  //   {% raw %}
-  //     Here's an example: {% data reusables.foo.bar %}
-  //  {% endraw %}
   const withoutRawLiquidBlocks = content.replace(rawLiquidPattern, '')
   const refs = withoutRawLiquidBlocks.match(patterns.dataReference) || []
   return refs.map((ref: string) => ref.replace(getDataPathRegex, '$1'))
@@ -33,7 +25,7 @@ describe('data references', () => {
   vi.setConfig({ testTimeout: 60 * 1000 })
 
   test('every data reference found in English variable files is defined and has a value', async () => {
-    // value can be any type returned by getDataByLanguage - we check if it's a string
+    // getDataByLanguage can return any YAML type, so the string check happens below.
     let errors: Array<{ key: string; value: unknown; variableFile: string }> = []
     const allVariables = getDeepDataByLanguage('variables', 'en')
     const variables = Object.values(allVariables)
@@ -54,12 +46,12 @@ describe('data references', () => {
       }),
     )
 
-    errors = uniqWith(errors, isEqual) // remove duplicates
+    errors = uniqWith(errors, isEqual)
     expect(errors.length, JSON.stringify(errors, null, 2)).toBe(0)
   })
 })
 
-// object is the allVariables object with dynamic keys, value is the nested object we're searching for
+// Search allVariables by object identity because getDataByLanguage returns the nested value only.
 function getFilenameByValue(object: Record<string, unknown>, value: unknown): string | undefined {
   return Object.keys(object).find((key) => object[key] === value)
 }

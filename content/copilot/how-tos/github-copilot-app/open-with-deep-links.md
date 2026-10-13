@@ -227,7 +227,7 @@ The following app links can be wrapped in the hosted launcher. Query strings and
 
 | App link shape | Opens | Notes |
 | --- | --- | --- |
-| `ghapp://` | Home | Opens the app home route. |
+| `ghapp://` | New | Opens the **New** view to start a new session. |
 | `ghapp://chats` | Chats | Opens Chats. |
 | `ghapp://mywork` | My work | Opens issues and pull requests in My work. |
 | `ghapp://github.com/OWNER/REPO` | Repository setup | Opens or clones the repository. |

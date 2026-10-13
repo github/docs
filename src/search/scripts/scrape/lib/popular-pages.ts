@@ -24,20 +24,15 @@ export default async function getPopularPages(
   }
   const rollupRaw = await fs.readFile(filePath, 'utf-8')
 
-  // First iterate through the array of objects, not making an assumption
-  // that the first one is the biggest one.
+  // Find the biggest count after filtering because rollups are not guaranteed to be sorted.
   const all: { [key: string]: number } = {}
   for (const [path, count] of Object.entries(JSON.parse(rollupRaw))) {
     if (!path) {
-      // Can happen if the SQL query is, for some unknown reason, finding
-      // a path that is either `null` or an empty string. Treat it as a
-      // junk entry and skip it.
+      // Skip null or empty SQL rollup paths as junk entries.
       continue
     }
     if (path === 'index') {
-      // That's the home page which doesn't count. It doesn't count because
-      // people don't arrive on that for the information they seek. It's
-      // merely a navigation tool.
+      // Skip the homepage because it serves navigation rather than specific search intent.
       continue
     }
     if (path.startsWith('early-access/')) {
@@ -50,14 +45,10 @@ export default async function getPopularPages(
   const biggestCount = Math.max(...Object.values(all))
   const popularPages: PopularPages = {}
   for (const [path, count] of Object.entries(all)) {
-    // Don't bother writing massively long floating point numbers
-    // because reducing it makes the JSON records smaller and we don't
-    // need any more precision than 7 significant figures.
+    // Seven decimal places keep records smaller without useful popularity precision loss.
     const ratio = Number((count / biggestCount).toFixed(7))
 
-    // The reason we're heeding redirects is because it's possible
-    // that the JSON file is older/"staler" than the
-    // content itself.
+    // Apply redirects because rollups can lag behind content changes.
     popularPages[redirects[path] || path] = ratio
   }
 

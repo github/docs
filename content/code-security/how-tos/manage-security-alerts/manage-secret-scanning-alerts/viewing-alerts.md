@@ -49,7 +49,7 @@ You can apply various filters to the alerts list to help you find the alerts you
 |{% ifversion fpt or ghec %}|
 |`results`|Display alerts for supported secrets and custom patterns (`default`), or for generic patterns (`generic`) such as private keys, and AI-detected generic secrets such as passwords. See [AUTOTITLE](/code-security/reference/secret-security/supported-secret-scanning-patterns#supported-provider-patterns), and for more information about AI-detected generic secrets, see [AUTOTITLE](/code-security/responsible-use/security-and-quality-ai-features).|
 |{% elsif ghes %}|
-|`results`|Display alerts for supported secrets and custom patterns (`default`), or generic patterns such as private keys (`generic`). See [AUTOTITLE](/code-security/reference/secret-security/supported-secret-scanning-patterns#supported-provider-patterns).|
+|`results`|Display alerts for supported secrets and custom patterns (`default`), or generic patterns such as private keys (`generic`){% ifversion secret-scanning-ai-generic-secret-detection %}, and AI-detected generic secrets such as passwords{% endif %}. See [AUTOTITLE](/code-security/reference/secret-security/supported-secret-scanning-patterns#supported-provider-patterns).|
 |{% endif %}|
 |`secret-type`|Display alerts for a specific secret type (`SECRET-NAME`), for example, `secret-type:github_personal_access_token`. For a list of supported secret types, see [AUTOTITLE](/code-security/reference/secret-security/supported-secret-scanning-patterns#supported-provider-patterns).|
 |`sort`|Display alerts from newest to oldest (`created-desc`), oldest to newest (`created-asc`), most recently updated (`updated-desc`), or least recently updated (`updated-asc`).|

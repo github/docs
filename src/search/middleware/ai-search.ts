@@ -14,7 +14,6 @@ router.post(
   }),
 )
 
-// Redirect to most recent version
 router.post('/', (req, res) => {
   res.safeRedirect(307, req.originalUrl.replace('/ai-search', '/ai-search/v1'))
 })

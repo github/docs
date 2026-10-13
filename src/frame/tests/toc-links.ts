@@ -20,11 +20,9 @@ describe('toc links', () => {
 
     for (const pageVersion of Object.keys(allVersions)) {
       for (const page of englishIndexPages) {
-        // skip page if it doesn't have a permalink for the current product version
         if (!page.permalinks.some((permalink: Permalink) => permalink.pageVersion === pageVersion))
           continue
 
-        // build fake context object for rendering the page
         const context = {
           page,
           pages,
@@ -34,7 +32,6 @@ describe('toc links', () => {
           currentVersionObj: allVersions[pageVersion],
         }
 
-        // ensure all toc pages can render
         try {
           await renderContent(page.markdown, context)
         } catch (err) {

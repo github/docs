@@ -21,12 +21,6 @@ category:
 
 You can create and participate in issues, pull requests, and team discussions, depending on the type of conversation you'd like to have.
 
-{% ifversion copilot %}
-
-> [!TIP] You can also use {% data variables.copilot.copilot_chat_short %} to generate ideas, outlines, or drafts for discussions, based on your pull requests and issues. See [AUTOTITLE](/copilot/tutorials/copilot-cookbook/document-code/write-discussions-or-blog-posts).
-
-{% endif %}
-
 ### {% data variables.product.prodname_github_issues %}
 
 * Are useful for discussing specific details of a project such as bug reports, planned improvements and feedback
@@ -144,6 +138,6 @@ For issues, for example, you can tag issues with labels for quicker searching an
 
 For pull requests, you can create draft pull requests if your proposed changes are still a work in progress. Draft pull requests cannot be merged until they're marked as ready for review. For more information, see [AUTOTITLE](/pull-requests/reference/pull-requests#draft-pull-requests).
 
-For {% data variables.product.prodname_discussions %}, you can{% ifversion fpt or ghec %} set up a code of conduct and{% endif %} pin discussions that contain important information for your community. For more information, see [AUTOTITLE](/discussions/collaborating-with-your-community-using-discussions/about-discussions).
+For {% data variables.product.prodname_discussions %}, you can set up a code of conduct and pin discussions that contain important information for your community. For more information, see [AUTOTITLE](/discussions/collaborating-with-your-community-using-discussions/about-discussions).
 
 To learn some advanced formatting features that will help you communicate, see [AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github).

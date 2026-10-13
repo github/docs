@@ -10,10 +10,13 @@ children:
   - /overview
   - /allowing-tools
   - /voice-input
+  - /computer-use
   - /connecting-vs-code
   - /delegate-tasks-to-cca
   - /browse-issues-prs-gists
+  - /ask-a-side-question
   - /roll-back-changes
+  - /work-with-multiple-sessions
   - /invoke-custom-agents
   - /steer-agents
   - /steer-remotely

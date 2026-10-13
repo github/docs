@@ -60,7 +60,7 @@ Below is a list of the MCP skills that are currently available in {% data variab
 | `get_me`                    | Tell me about myself.                                                                                                                                 |
 | `search_users`              | Search for users with the name "Mona Octocat"                                                                                       |
 
-For more information about using MCP skills in {% data variables.copilot.copilot_chat_short %}, see [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp-in-your-ide/use-the-github-mcp-server).
+For more information about using MCP skills in {% data variables.copilot.copilot_chat_short %}, see [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/copilot-for-common-tasks/use-the-github-mcp-server).
 
 {% endwebui %}
 
@@ -70,7 +70,7 @@ This version of this article is for {% data variables.product.prodname_copilot_s
 
 {% data reusables.copilot.about-copilot-enhancements %}
 
-For information about how to get started with {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode %}, see [AUTOTITLE](/copilot/how-tos/chat-with-copilot/chat-in-ide).
+For information about how to get started with {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode %}, see [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/chat-with-copilot/chat-in-ide).
 
 ## Slash commands
 
@@ -114,7 +114,7 @@ Below is a list of some of the most common chat participants for using {% data v
 | Variable    | Description |
 |--------------|----------------------------------------------------------------------------------------------|
 | `@azure`     | Has context about Azure services and how to use, deploy and manage them. Use `@azure` when you want help with Azure. The `@azure` chat participant is currently in {% data variables.release-phases.public_preview %} and is subject to change. |
-| `@github`    | Allows you to use {% data variables.product.github %}-specific {% data variables.product.prodname_copilot_short %} skills. See [AUTOTITLE](/copilot/how-tos/chat-with-copilot/chat-in-ide#using-github-skills-for-copilot). |
+| `@github`    | Allows you to use {% data variables.product.github %}-specific {% data variables.product.prodname_copilot_short %} skills. See [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/chat-with-copilot/chat-in-ide#using-github-skills-for-copilot). |
 | `@terminal`  | Has context about the {% data variables.product.prodname_vscode %} terminal shell and its contents. Use `@terminal` when you want help creating or debugging terminal commands. |
 | `@vscode`    | Has context about {% data variables.product.prodname_vscode %} commands and features. Use `@vscode` when you want help with {% data variables.product.prodname_vscode %}. |
 
@@ -126,7 +126,7 @@ This version of this article is for {% data variables.product.prodname_copilot_s
 
 {% data reusables.copilot.about-copilot-enhancements %}
 
-For information about how to get started with {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vs %}, see [AUTOTITLE](/copilot/how-tos/chat-with-copilot/chat-in-ide).
+For information about how to get started with {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vs %}, see [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/chat-with-copilot/chat-in-ide).
 
 ## Slash commands
 
@@ -162,7 +162,7 @@ This version of this article is for {% data variables.product.prodname_copilot_s
 
 {% data reusables.copilot.about-copilot-enhancements %}
 
-For information about how to get started with {% data variables.copilot.copilot_chat_short %} in JetBrains, see [AUTOTITLE](/copilot/how-tos/chat-with-copilot/chat-in-ide).
+For information about how to get started with {% data variables.copilot.copilot_chat_short %} in JetBrains, see [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/chat-with-copilot/chat-in-ide).
 
 ## Slash commands
 
@@ -190,7 +190,7 @@ This version of this article is for {% data variables.product.prodname_copilot_s
 
 {% data reusables.copilot.about-copilot-enhancements %}
 
-For information about how to get started with {% data variables.copilot.copilot_chat_short %} in Xcode, see [AUTOTITLE](/copilot/how-tos/chat-with-copilot/chat-in-ide).
+For information about how to get started with {% data variables.copilot.copilot_chat_short %} in Xcode, see [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/chat-with-copilot/chat-in-ide).
 
 ## Slash commands
 

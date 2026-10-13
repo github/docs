@@ -1,8 +1,5 @@
-// We actually don't rely and use /favicon.ico but it's nevertheless a
-// very common request. Same with /apple-touch-icon.png.
-// Because we store our images, including those not for the Markdown text,
-// in the `assets/images/site` directory, we will use a custom
-// solution to serve this directly.
+// Browsers request /favicon.ico and Apple touch icons even though pages do not link them.
+// Serve these root icon URLs directly from assets/images/site.
 import fs from 'fs'
 
 import type { Response, NextFunction } from 'express'
@@ -36,10 +33,7 @@ const MAP: {
   },
 }
 
-// It's the same image but it's fine. By default, when Safari tries to
-// to figure out which apple touch icons are available it will
-// try to load this by default. For example, if you in desktop Safari
-// click share icon, it will load this to serve as a preview icon.
+// Safari probes precomposed Apple touch icon names for desktop share previews.
 MAP['/apple-touch-icon-precomposed.png'] = MAP['/apple-touch-icon.png']
 MAP['/apple-touch-icon-120x120-precomposed.png'] = MAP['/apple-touch-icon-120x120.png']
 MAP['/apple-touch-icon-152x152-precomposed.png'] = MAP['/apple-touch-icon-152x152.png']
@@ -51,9 +45,7 @@ function getBuffer(filePath: string) {
   }
   return () => {
     if (!buffer) {
-      // Yes, sync and a bit slow, but the headers we send will
-      // make sure these requests are rare because the payload
-      // will be sticky in the CDN and stickly in the browser too.
+      // Sync reads are rare because assetCacheControl keeps icons in the CDN and browser cache.
       buffer = fs.readFileSync(filePath)
     }
     return buffer
@@ -63,11 +55,10 @@ function getBuffer(filePath: string) {
 export default function favicons(req: ExtendedRequest, res: Response, next: NextFunction) {
   if (!MAP[req.path]) return next()
 
-  // This makes sure the CDN caching survives each production deployment.
+  // The manual surrogate key keeps CDN caching through production deploys.
   setFastlySurrogateKey(res, SURROGATE_ENUMS.MANUAL)
 
-  // Manually settings a Cache-Control because no other middleware
-  // will get a chance to do this later since we terminate here.
+  // Set asset caching here because this middleware sends the response.
   assetCacheControl(res)
 
   const { contentType, buffer } = MAP[req.path]

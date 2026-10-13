@@ -16,9 +16,7 @@ async function main(): Promise<void> {
 
   const OUTPUT_KEY = 'branch'
 
-  // If being run from a PR, this becomes 'my-cool-branch'.
-  // If run on main, with the `workflow_dispatch` action for
-  // example, the value becomes 'main'.
+  // Use the matching docs-early-access branch when it exists; 404 falls back to main.
   const github = getOctokit(GITHUB_TOKEN)
 
   for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
@@ -39,7 +37,7 @@ async function main(): Promise<void> {
         setOutput(OUTPUT_KEY, 'main')
         return
       }
-      // Retry on network/server errors (5xx, timeouts, etc.)
+      // Retry any non-404 failure until MAX_RETRIES is reached.
       if (attempt < MAX_RETRIES) {
         console.warn(
           `Attempt ${attempt}/${MAX_RETRIES} failed with error: ${err instanceof Error ? err.message : String(err)}. Retrying in ${RETRY_DELAY_SECONDS}s...`,

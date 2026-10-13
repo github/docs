@@ -6,9 +6,6 @@ import type { Components } from 'hast-util-to-jsx-runtime'
 
 import { renderHTMLString } from '@/frame/components/ui/RenderedHTML/render-html-string'
 
-// Renders the helper output to a static HTML string so we can assert on the
-// real React serialization. The plain parse -> hast -> React path is what every
-// RenderedHTML call site relies on.
 function render(html: string) {
   return renderToStaticMarkup(renderHTMLString(html))
 }
@@ -40,11 +37,7 @@ describe('renderHTMLString', () => {
     expect(out).toBe('<em>hi</em>')
   })
 
-  // The cases below lock down the hast -> React property mapping that every
-  // migrated call site depends on. The legacy raw-innerHTML path handed a string
-  // straight to the browser parser; RenderedHTML hands hast to React, so
-  // attribute handling (style strings, SVG camelCasing, booleans, class) must
-  // round-trip correctly.
+  // Every migrated call site depends on hast-to-React attributes round-tripping.
   test('converts an inline style string into a React style object', () => {
     expect(render('<p style="color:red;display:none">x</p>')).toBe(
       '<p style="color:red;display:none">x</p>',

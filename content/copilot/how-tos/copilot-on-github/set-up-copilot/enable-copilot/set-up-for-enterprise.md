@@ -17,13 +17,13 @@ redirect_from:
 contentType: how-tos
 category:
   - Configure Copilot
+docsTeamMetrics:
+  - ai-governance
 ---
 
 ## Enable {% data variables.product.prodname_copilot %}
 
-To purchase {% data variables.product.prodname_copilot %} for your enterprise, [contact {% data variables.product.github %}'s Sales team](https://github.com/enterprise/contact?ref_product=copilot&ref_type=engagement&ref_style=text).
-
-A member of the Sales team will work with you to set up {% data variables.product.prodname_copilot_short %} for your enterprise.
+{% data reusables.copilot.plans.subscribe-for-enterprise %}
 
 ## Set policies
 
@@ -42,7 +42,7 @@ If your corporate network restricts users' traffic, add the required URLs to the
 
 If you route traffic via a proxy server, you may need to ask users to configure proxy settings in their environment. You may also need to install custom certificates on your users' machines. For more information, see [AUTOTITLE](/copilot/concepts/network-settings).
 
-If your enterprise is on {% data variables.enterprise.data_residency_site %}, users will also need to configure their environment to authenticate from their development environment. See [AUTOTITLE](/copilot/how-tos/configure-personal-settings/authenticate-to-ghecom).
+If your enterprise is on {% data variables.enterprise.data_residency_site %}, users will also need to configure their environment to authenticate from their development environment. See [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/set-up-copilot/authenticate-to-ghecom).
 
 ## Assign licenses
 

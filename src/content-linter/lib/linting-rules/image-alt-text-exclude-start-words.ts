@@ -5,10 +5,6 @@ import type { RuleParams, RuleErrorCallback, MarkdownToken, Rule } from '../../t
 
 const excludeStartWords = ['image', 'graphic']
 
-/*
-  Images should have meaningful alternative text (alt text)
-  and should not begin with words like "image" or "graphic".
- */
 export const imageAltTextExcludeStartWords: Rule = {
   names: ['GHD031', 'image-alt-text-exclude-words'],
   description: 'Alternate text for images should not begin with words like "image" or "graphic"',
@@ -16,10 +12,7 @@ export const imageAltTextExcludeStartWords: Rule = {
   parser: 'markdownit',
   function: (params: RuleParams, onError: RuleErrorCallback) => {
     forEachInlineChild(params, 'image', function forToken(token: MarkdownToken) {
-      // If the alt text is empty, there is nothing to check and you can't
-      // produce a valid range.
-      // We can safely return early because the image-alt-text-length rule
-      // will fail this one.
+      // Empty alt text belongs to image-alt-text-length and cannot produce a range.
       if (!token.content) return
 
       const imageAltText = token.content.trim()

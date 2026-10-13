@@ -1,7 +1,7 @@
 ---
 title: Securely using pull_request_target
 shortTitle: Securely using pull_request_target
-intro: Learn about the security risks of the `pull_request_target event`.
+intro: Learn about the security risks of the `pull_request_target` event.
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,17 +11,15 @@ category:
   - Secure your workflows
 ---
 
-This guide helps you assess whether your workflow should use the `pull_request_target` event and understand the security risks involved. It also explains the protection {% data variables.product.github %} applies to [`actions/checkout`](https://github.com/actions/checkout) v7 and later to reduce these risks by default, and when to opt out of that protection if necessary.
+This guide helps you assess whether your workflow should use the `pull_request_target` event and understand the security risks involved. It also explains the protections that {% data variables.product.github %} applies to these risks by default, and how to opt out of those protections if necessary.
 
-Read [`pull_request_target`](/actions/reference/workflows-and-actions/events-that-trigger-workflows#pull_request_target) before you check out pull request code from one of these workflows, or before you set the `allow-unsafe-pr-checkout` input on `actions/checkout`.
-
-## The risks of the pull_request_target event
+## Risks of `pull_request_target`
 
 Workflows triggered by `pull_request_target` run with elevated trust: the job receives the base repository's `GITHUB_TOKEN` and access to repository and organization secrets. This is the same trust given to events like `push` that only collaborators can trigger, and it is what makes `pull_request_target` useful for automation that responds to pull requests from forks, such as labeling, triage, or for posting authenticated status checks.
 
 To understand why this is safe by default, and how that safety is commonly broken, review `pull_request_target` against [`pull_request`](/actions/reference/workflows-and-actions/events-that-trigger-workflows#pull_request).
 
-The `pull_request` event (along with `pull_request_review` and `pull_request_review_comment`) is unusual: it runs the workflow file from the **merge commit of the pull request**. For a pull request opened from a fork, that commit is controlled by someone without write access to the base repository. To run untrusted workflow code safely, {% data variables.product.github %} restricts these events to a read-only `GITHUB_TOKEN`, withholds access to other secrets, and applies fork approval policies to prevent compute abuse. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/events-that-trigger-workflows#pull_request). By default, `actions/checkout` in a `pull_request` workflow also checks out the pull request's merge commit, so the code checked out and the workflow that runs are consistent.
+The `pull_request` event (along with `pull_request_review` and `pull_request_review_comment`) is unusual: it runs the workflow file from the **merge commit of the pull request**. For a pull request opened from a fork, that commit is controlled by someone without write access to the base repository. To run untrusted workflow code safely, {% data variables.product.github %} restricts these events to a read-only `GITHUB_TOKEN`, withholds access to other secrets, and applies fork approval policies to prevent compute abuse. By default, `actions/checkout` in a `pull_request` workflow also checks out the pull request's merge commit, so the code checked out and the workflow that runs are consistent.
 
 `pull_request_target` makes one critical and subtle change: the workflow, and any subsequent `actions/checkout` call that does not specify a `ref`, is taken from the **base repository's default branch**, not from the pull request. Because only trusted code from the default branch runs, it is safe to grant secrets and a read/write token. No code from the fork is executed by default.
 
@@ -53,7 +51,47 @@ This pattern is known as a "pwn request" and has been the root cause of multiple
 
 Pwn requests are also not unique to `pull_request_target`. Any event that runs with secrets can introduce a pwn request if it checks out or downloads and executes untrusted code. For example, an `issue_comment` or `workflow_run` workflow that fetches and runs a fork's pull request code is vulnerable in the same way. A `workflow_run` workflow should treat artifacts uploaded by other workflows as untrusted data, since their contents can come from a fork.
 
-## Deciding whether to use pull_request_target
+{% ifversion default-pull-req-target-policy %}
+
+## Default policy for `pull_request_target`
+
+To help protect your workflows from untrusted pull requests, {% data variables.product.company_short %} provides a default event policy that blocks the `pull_request_target` event in public repositories.
+
+### How the default policy works
+
+For public repositories that do not already have an applicable Actions event policy, GitHub adds a default policy that blocks workflows triggered by `pull_request_target`. For more information about policies, see [AUTOTITLE](/actions/concepts/about-actions-policies).
+
+<!-- expires 2026-11-02 -->
+<!-- default policy flips to active -->
+
+The default policy:
+
+* Does not apply to private or internal repositories.
+* Does not replace an applicable event policy that you have already configured.
+* Currently runs in **evaluate** mode. In this mode, workflow runs continue, but you can use policy insights to identify runs that would be blocked after enforcement.
+
+On November 2, 2026, GitHub will enforce the default policy for affected repositories that were using the default `pull_request_target` policy before general availability.
+
+<!-- end expires 2026-11-02 -->
+
+### Reviewing the impact before enforcement
+
+While the policy is in evaluate mode, review your policy insights to identify workflows that use `pull_request_target` and would be blocked when the policy is enforced.
+
+For each affected workflow, decide whether `pull_request_target` is still required:
+
+* If the workflow does not need `pull_request_target`, update it to use a safer event where appropriate, such as `pull_request`.
+* If the workflow must continue to use `pull_request_target`, create or update an applicable Actions event policy that explicitly allows `pull_request_target`.
+* If you do not want to allow `pull_request_target`, leave the default policy in place. After enforcement, {% data variables.product.company_short %} will block workflows triggered by that event.
+
+> [!WARNING]
+> Only allow `pull_request_target` when it is necessary. Workflows triggered by this event should not check out, build, or run code from an untrusted pull request with access to repository secrets or a privileged `GITHUB_TOKEN`.
+
+For more information about configuring event policies and viewing insights, see [AUTOTITLE](/actions/how-tos/administer/control-workflow-execution). To manage policies programmatically, see [AUTOTITLE](/rest/actions/policies).
+
+{% endif %}
+
+## Deciding whether to use `pull_request_target`
 
 Some workflows need to check out fork pull request code with elevated trust, and this is why `pull_request_target` was created in the first place. For example, generating coverage reports that require a private artifact registry or producing and running authenticated checks against the changes introduced from the pull request. Consider the questions below before using `pull_request_target` or opting into the `allow-unsafe-pr-checkout` flag in `actions/checkout`.
 
@@ -61,13 +99,13 @@ Some workflows need to check out fork pull request code with elevated trust, and
 
 * **Is the checked-out code ever executed?** This is the flaw that introduces pwn request vulnerabilities. It is most commonly introduced with `actions/checkout` by checking out a pull request head into the working directory and then running it. Unless the `path` input is set, `actions/checkout` writes the code into the `$GITHUB_WORKSPACE` directory, which is typically the working directory where subsequent commands run. Execution is not limited to your own steps: build and test commands such as `npm install` and `npm run build`, as well as configuration files and dependencies the code brings with it, can all run attacker-controlled code. Execution does not require an obvious build step. **You must ensure the checked-out code is only ever inspected as data and never executed before using a `pull_request_target` event**.
 
-## Hardening a pull_request_target workflow
+## Hardening a `pull_request_target` workflow
 
 If you have confirmed you need `pull_request_target`, apply these controls to limit the impact of this high-risk event. These apply whether or not your workflow checks out pull request code.
 
 * **Restrict secrets.** Confirm that the permissions set on the `GITHUB_TOKEN` have the least privileges and that only the necessary repository and organization secrets are used for the workflow. For more information, see [AUTOTITLE](/actions/tutorials/authenticate-with-github_token#modifying-the-permissions-for-the-github_token).
 
-* **Understand the impact to caching.** To reduce the risk of cache poisoning, workflows triggered by `pull_request_target` have read-only access to the cache in the default branch's scope. These workflows can restore existing cache entries but cannot create or overwrite them, so they cannot affect the execution of other, unrelated, workflows through the shared cache. If such a workflow attempts to save a cache, the save fails but the step and the job continue, and the failure is reported as a warning in the workflow log. If your workflow needs to populate the cache, save it from a workflow that runs on a trusted trigger such as `push`. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/dependency-caching#cache-access-for-low-trust-workflow-triggers).
+* **Understand the impact to caching.** To reduce the risk of cache poisoning, workflows triggered by `pull_request_target` have read-only access to the cache in the default branch's scope. These workflows can restore existing cache entries but cannot create or overwrite them, so they cannot affect the execution of other, unrelated, workflows through the shared cache. If such a workflow attempts to save a cache, the save fails but the step and the job continue, and the failure is reported as a warning in the workflow log. If your workflow needs to populate the cache, save it from a workflow that runs on a trusted trigger such as `push`.{% ifversion actions-cache-mode %} A workflow or job can opt out of this read-only restriction by explicitly declaring a write-capable `cache-mode`, but doing so on a `pull_request_target` workflow reintroduces the cache-poisoning risk this restriction is designed to prevent.{% endif %} For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/dependency-caching#cache-access-for-low-trust-workflow-triggers).
 
 * **Ensure the underlying compute is isolated and ephemeral.** If self-hosted runners are used, you must confirm that the runner environment is properly restricted from internal resources and is not reused across {% data variables.product.prodname_actions %} runs. For more information, see [AUTOTITLE](/actions/reference/security/secure-use#hardening-for-self-hosted-runners).
 
@@ -75,14 +113,8 @@ If you have confirmed you need `pull_request_target`, apply these controls to li
 
 ## Opting out of built-in protections
 
-If you have worked through the questions above and confirmed your workflow requires `pull_request_target` and uses it safely, you can opt out of the `actions/checkout` protection. Setting `allow-unsafe-pr-checkout: true` as an `actions/checkout` input allows checking out pull request head refs from forks. Only do this after confirming the checked-out code is never executed. The input is intentionally named to be easy to spot in code review and static analysis.
+If you have worked through the questions above and confirmed your workflow requires `pull_request_target` and uses it safely, you can opt out of the {% ifversion default-pull-req-target-policy %}default event policy and {% endif %}`actions/checkout` protection.
+
+Setting `allow-unsafe-pr-checkout: true` as an `actions/checkout` input allows checking out pull request head refs from forks. Only do this after confirming the checked-out code is never executed. The input is intentionally named to be easy to spot in code review and static analysis.
 
 This protection only covers fork pull request refs. Checking out other untrusted code, such as an unrelated third-party repository, fetching code with `git fetch` or `gh pr checkout`, or running a downloaded artifact, is not covered by the `actions/checkout` checks.
-
-{% ifversion fpt or ghec %}
-
-## Restricting the use of pull_request_target
-
-If a repository has no legitimate use for `pull_request_target`, restricting the event removes the risk regardless of how individual workflows are written. Administrators can use workflow execution protections to control which events and actors can trigger workflows. For more information, see the workflow execution protections documentation for repositories ([AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/actions-policies/workflow-execution-protections)){% ifversion ghec %}, organizations ([AUTOTITLE](/organizations/managing-organization-settings/actions-policies/workflow-execution-protections)), and across your enterprise ([AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/actions-policies/workflow-execution-protections)){% else %} and organizations ([AUTOTITLE](/organizations/managing-organization-settings/actions-policies/workflow-execution-protections)){% endif %}.
-
-{% endif %}

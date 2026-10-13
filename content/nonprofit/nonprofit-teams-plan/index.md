@@ -1,6 +1,7 @@
 ---
 title: GitHub Team plan for nonprofits
 intro: Learn how to apply for a free GitHub Team plan for nonprofits.
+allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
 shortTitle: Free GitHub Team plan for nonprofits

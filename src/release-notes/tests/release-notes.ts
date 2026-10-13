@@ -5,8 +5,7 @@ import enterpriseServerReleases from '@/versions/lib/enterprise-server-releases'
 import { get, getDOM } from '@/tests/helpers/e2etest'
 import Page from '@/frame/lib/page'
 
-// The English content page's `versions:` frontmatter is the source
-// of (convenient) truth about which versions of this page is available.
+// The English page versions frontmatter defines the versions this page supports.
 const page = await Page.init({
   basePath: 'content',
   relativePath: 'admin/release-notes.md',
@@ -21,7 +20,7 @@ describe('server', () => {
     const res = await get('/admin/release-notes')
     expect(res.statusCode).toBe(302)
     expect(res.headers.location).toBe(
-      // Note that English is the default fallback for redirects
+      // English remains the default fallback for redirects.
       `/en/enterprise-server@${enterpriseServerReleases.latest}/admin/release-notes`,
     )
   })
@@ -43,9 +42,7 @@ describe('archived release notes', () => {
   vi.setConfig({ testTimeout: 60 * 1000 })
 
   beforeAll(async () => {
-    // The first page load takes a long time so let's get it out of the way in
-    // advance to call out that problem specifically rather than misleadingly
-    // attributing it to the first test
+    // Warm up, so the slow first page load isn't blamed on the first test.
     await get('/')
 
     nock('https://github.github.com')

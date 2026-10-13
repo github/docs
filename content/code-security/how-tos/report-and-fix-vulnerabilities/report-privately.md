@@ -24,7 +24,7 @@ category:
 
 > [!NOTE]
 > * If you have admin or security permissions for a public repository, you don’t need to submit a vulnerability report. Instead, create a draft security advisory directly. See [AUTOTITLE](/code-security/how-tos/report-and-fix-vulnerabilities/fix-reported-vulnerabilities/create-repository-advisory).
-> * Private vulnerability reporting is separate from a repository’s `SECURITY.md` file. You can only report vulnerabilities privately for repositories where this feature is enabled, and you don’t need to follow the instructions in `SECURITY.md`.
+> * Private vulnerability reporting is separate from a repository’s `SECURITY.md` file. You can only report vulnerabilities privately for repositories where this feature is enabled. If the repository has a security policy, the policy is displayed above the reporting form so you can review the maintainer's guidance before submitting.
 
 If a public repository has private vulnerability reporting enabled, anyone can submit a private vulnerability report to the repository maintainers.
 

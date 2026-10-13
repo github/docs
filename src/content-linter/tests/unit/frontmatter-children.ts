@@ -10,7 +10,7 @@ const NO_CHILDREN = 'src/content-linter/tests/fixtures/frontmatter-children/no-c
 
 const ruleName = frontmatterChildren.names[1]
 
-// Configure the test fixture to not split frontmatter and content
+// Disable frontMatter stripping so the rule can parse frontmatter itself.
 const fmOptions = { markdownlintOptions: { frontMatter: null } }
 
 describe(ruleName, () => {

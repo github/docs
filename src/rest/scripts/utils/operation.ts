@@ -1,8 +1,9 @@
-import httpStatusCodes from 'http-status-code'
+import { STATUS_CODES } from 'node:http'
+
 import { get, isPlainObject } from 'lodash-es'
 import { parseTemplate } from 'url-template'
-import mergeAllOf from 'json-schema-merge-allof'
 
+import { mergeAllOf } from '@/rest/scripts/utils/merge-all-of'
 import { renderContent } from './render-content'
 import getCodeSamples from './create-rest-examples'
 import operationSchema from './operation-schema'
@@ -20,7 +21,6 @@ export default class Operation {
   category: string
   subcategory: string
   parameters: OpenApiParameter[]
-  // Body parameters are dynamically generated from OpenAPI schema
   bodyParameters: TransformedParam[]
   descriptionHTML?: string
   codeExamples?: MergedExample[]
@@ -28,6 +28,9 @@ export default class Operation {
   previews?: string[]
   progAccess?: Record<string, unknown>
 
+  // The constructor clones parameters so renderParameterDescriptions can delete
+  // deprecated, example, and examples without mutating this.#operation.parameters,
+  // which renderCodeExamples reads through getParameterExamples.
   constructor(
     verb: string,
     requestPath: string,
@@ -35,9 +38,7 @@ export default class Operation {
     globalServers?: OpenApiServer[],
   ) {
     this.#operation = operation
-    // The global server object sets metadata including the base url for
-    // all operations in a version. Individual operations can override
-    // the global server url at the operation level.
+    // Operation-level servers override global version servers.
     this.serverUrl = (
       operation.servers ? operation.servers[0].url : globalServers?.[0]?.url
     ) as string
@@ -55,8 +56,6 @@ export default class Operation {
 
     this.serverUrl = this.serverUrl.replace('http:', 'http(s):')
 
-    // Attach some global properties to the operation object to use
-    // during processing
     this.#operation.serverUrl = this.serverUrl
     this.#operation.requestPath = requestPath
     this.#operation.verb = verb
@@ -66,10 +65,6 @@ export default class Operation {
     this.title = operation.summary as string
     this.category = operation['x-github'].category
     this.subcategory = operation['x-github'].subcategory
-    // Shallow-clone each parameter so that renderParameterDescriptions() can
-    // safely delete fields (e.g. deprecated, example, examples) without
-    // mutating this.#operation.parameters, which renderCodeExamples() reads
-    // concurrently via getParameterExamples().
     this.parameters = (operation.parameters || []).map((p) => ({ ...p }))
     this.bodyParameters = []
     return this
@@ -131,10 +126,8 @@ export default class Operation {
         responseKeys.map(async (responseCode) => {
           const response = responses[responseCode]
           const httpStatusCode = responseCode
-          const httpStatusMessage = httpStatusCodes.getMessage(Number(responseCode), 'HTTP/2')
-          // The OpenAPI should be updated to provide better descriptions, but
-          // until then, we can catch some known generic descriptions and replace
-          // them with the default http status message.
+          const httpStatusMessage = STATUS_CODES[Number(responseCode)] || 'Unknown'
+          // Use default HTTP messages when OpenAPI omits a description or sets it to "response".
           const responseDescription =
             !response.description || response.description?.toLowerCase() === 'response'
               ? await renderContent(httpStatusMessage)
@@ -157,13 +150,12 @@ export default class Operation {
       return Promise.all(
         this.parameters.map(async (param) => {
           param.description = await renderContent(param.description ?? '')
-          // Remove fields that are not used at runtime to keep schema.json lean
+          // Drop fields the runtime does not read to keep schema.json lean.
           delete param.deprecated
           delete param.example
           delete param.examples
           delete param['x-multi-segment']
-          // Strip unused parameter schema sub-fields; only type, default, and
-          // enum are consumed by renderers
+          // Keep only parameter schema subfields that renderers consume: type, default, and enum.
           if (param.schema && typeof param.schema === 'object') {
             const { type, default: defaultVal, enum: enumVal } = param.schema
             param.schema = { type }
@@ -179,16 +171,15 @@ export default class Operation {
     }
   }
 
+  // renderBodyParameterDescriptions uses the first content type because
+  // markdown/render-raw is the only operation with multiple content types, and
+  // its request body parameter types match.
   async renderBodyParameterDescriptions(): Promise<void> {
     if (!this.#operation.requestBody) return
 
-    // There is currently only one operation with more than one content type
-    // and the request body parameter types are the same for both.
-    // Operation Id: markdown/render-raw
     const contentType = Object.keys(this.#operation.requestBody.content)[0]
     const schema = get(this.#operation, `requestBody.content.${contentType}.schema`, {})
-    // Merges any instances of allOf in the schema using a deep merge
-    const mergedAllofSchema = mergeAllOf(schema as Parameters<typeof mergeAllOf>[0])
+    const mergedAllofSchema = mergeAllOf(schema)
     try {
       this.bodyParameters = isPlainObject(schema)
         ? await getBodyParams(mergedAllofSchema as Parameters<typeof getBodyParams>[0], true)
@@ -207,14 +198,12 @@ export default class Operation {
       this.previews = await Promise.all(
         previews.map(async (preview) => {
           const note = preview.note
-            // remove extra leading and trailing newlines
             .replace(/```\n\n\n/gm, '```\n')
             .replace(/```\n\n/gm, '```\n')
             .replace(/\n\n\n```/gm, '\n```')
             .replace(/\n\n```/gm, '\n```')
 
-            // convert single-backtick code snippets to fully fenced triple-backtick blocks
-            // example: This is the description.\n\n`application/vnd.github.machine-man-preview+json`
+            // Fence preview MIME snippets such as application/vnd.github.machine-man-preview+json.
             .replace(/\n`application/, '\n```\napplication')
             .replace(/json`$/, 'json\n```')
           return await renderContent(note)

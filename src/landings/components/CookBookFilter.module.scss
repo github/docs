@@ -1,18 +1,60 @@
-.textInput {
-  min-width: 100%;
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem;
+}
+
+.search {
+  flex: 1 1 16rem;
+  min-width: 0;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 0;
+
+  // Brand adds a wrapper around each trigger and keeps its overlay inline.
+  > div {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  [role="menu"] {
+    width: max-content;
+    min-width: 0;
+    max-width: calc(100vw - 2rem);
+  }
+
+  // Brand's max-content item text otherwise forces long options past the viewport.
+  :global([class*="ActionMenu__item-text"]) {
+    width: auto;
+  }
+
+  // Brand caps the button's label span at 200px and hides overflow, which wraps
+  // longer labels (like "Category: Author and optimize with Copilot") onto
+  // multiple lines instead of keeping them on one.
+  :global([class*="ActionMenu__button"]) > span:first-of-type {
+    max-width: none;
+    white-space: nowrap;
+  }
 }
 
 .categoryLabel {
-  color: var(--fgColor-default, var(--color-fg-default, #1f2328));
+  color: var(--brand-color-text-default);
   display: inline-block;
 }
 
 .complexityLabel {
-  color: var(--fgColor-default, var(--color-fg-default, #1f2328));
+  color: var(--brand-color-text-default);
   display: inline-block;
 }
 
 .surfaceLabel {
-  color: var(--fgColor-default, var(--color-fg-default, #1f2328));
+  color: var(--brand-color-text-default);
   display: inline-block;
 }

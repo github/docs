@@ -21,7 +21,7 @@ docsTeamMetrics:
 * Use the `/chronicle` slash command to generate standup reports, get personalized tips, and receive suggestions for improving your `.github/copilot-instructions.md` file.
 * Ask {% data variables.product.prodname_copilot_short %} questions about your past interactions.
 
-This article explains how to use these features from {% data variables.copilot.copilot_cli_short %}. For a deeper dive into how session data is stored and synced, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/chronicle). For querying your sessions from {% data variables.product.prodname_vscode_shortname %}, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/use-copilot-agents/manage-and-track-agents).
+This article explains how to use these features from {% data variables.copilot.copilot_cli_short %}. For a deeper dive into how session data is stored and synced, see [AUTOTITLE](/copilot/concepts/security-governance-and-network-settings/session-data). For querying your sessions from {% data variables.product.prodname_vscode_shortname %}, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/use-copilot-agents/manage-and-track-agents).
 
 ## Resuming a previous session
 
@@ -99,7 +99,7 @@ When you type `/chronicle` without arguments, a picker is displayed that lets yo
 | ---------- | ----------- |
 | `standup`    | Generate a standup report from your recent work. |
 | `tips`       | Get personalized tips based on your usage patterns. |
-| `cost tips`  | Get feedback on your token spend and suggestions for reducing costs. |
+| `cost-tips`  | Get feedback on your token spend and suggestions for reducing costs. |
 | `search`     | Search your session history for specific topics or keywords. |
 | `improve`    | Suggest improvements to your {% data variables.product.prodname_copilot_short %} custom instructions file. |
 | `reindex`    | Rebuild the local session store from your session history, and sync session data to your account. |
@@ -160,12 +160,12 @@ You can focus the tips on a specific area by appending context after `/chronicle
 /chronicle tips for better prompting
 ```
 
-### `/chronicle cost tips`
+### `/chronicle cost-tips`
 
 This analyzes your token usage across recent sessions to show where tokens are being spent and suggests ways to reduce costs. {% data variables.product.prodname_copilot_short %} looks at patterns like prompt length, tool call frequency, and continuation steps to identify opportunities for more efficient usage.
 
 ```copilot copy
-/chronicle cost tips
+/chronicle cost-tips
 ```
 
 ### `/chronicle search`
@@ -232,8 +232,46 @@ Have I worked on anything related to authentication in the last month?
 
 {% data variables.product.prodname_copilot_short %} uses full-text search across your session history to find relevant sessions, then summarizes what you did.
 
+## Deleting sessions
+
+The simplest way to delete sessions is to use the `/session` slash command in an interactive CLI session.
+
+* `/session delete` deletes the current session and starts a new one in its place.
+* `/session delete SESSION-ID` deletes a specific session. This shows a preview first; add `--yes` to confirm, for example `/session delete SESSION-ID --yes`.
+* `/session delete-all` deletes all of your local sessions except the current one. Add `--yes` to confirm: `/session delete-all --yes`. Sessions that are in use by another process are skipped.
+* `/session prune --older-than DAYS` deletes sessions older than the specified number of days. Add `--dry-run` to preview what would be deleted.
+
+When you delete a session that has been synced to your account, `/session delete` asks whether you also want to delete the synced (remote) copy. Deleting the synced copy also removes the session from your `/chronicle` insights and query results. The `/session delete-all` and `/session prune` subcommands only affect local sessions and do not delete synced data. To remove synced data for those sessions, manually delete it from {% data variables.product.prodname_dotcom_the_website %}.
+
+For the full list of `/session` subcommands, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference).
+
+### Deleting session data manually
+
+* **Local data**: To remove data for a particular CLI session locally, delete the relevant session directory from `~/.copilot/session-state/`. To clear all local session data, delete everything under `~/.copilot/session-state/`. After doing this you must manually reindex the session store. See [Reindexing the session store](#reindexing-the-session-store) later in this article. Deleting local files does not affect session data that has been synced to your account. You cannot delete synced data locally.
+* **Synced data**: You can delete or hide synced CLI sessions from {% data variables.product.prodname_dotcom_the_website %}. Hiding a session removes it from your session index so it no longer appears in query results. Deleting a session removes it from your session list on {% data variables.product.prodname_dotcom_the_website %}. Deletion applies to CLI, {% data variables.product.prodname_vscode_shortname %}, and {% data variables.copilot.github_copilot_app %} sessions.
+
+## Reindexing the session store
+
+The session store is populated incrementally during a CLI session. Data for a session is written to disk in a session-specific subdirectory of `~/.copilot/session-state/`. This also happens periodically during a session, and also when the session ends.
+
+You can reindex the session store from the session files on disk. Reindexing also syncs your session data to your account.
+
+Situations where you might need to reindex include:
+
+* **Indexing old sessions**: If you have old session files on disk that were created before the session store existed, reindexing will populate the session store with data from those sessions.
+* **Session deletion**: To delete a session from your history, use the `/session delete`, `/session delete-all`, or `/session prune` slash commands. For a synced session, `/session delete` can also remove the synced copy, which removes the session from your `/chronicle` insights.
+* **Migrating/recovering sessions**: If you moved your session files to another machine, or restored them from a backup, without also moving/restoring the session store file (`~/.copilot/session-store.db`), you can use the reindex command to recreate the session store.
+* **File corruption**: If the session store file (`~/.copilot/session-store.db`) becomes corrupted, or is accidentally deleted, you can recover the session store from the session files.
+* **Unexpected termination**: If a session terminates unexpectedly (for example, due to a crash or power loss) before data held in memory has been flushed to the session store you may be able to populate the session store with the missing data if it was written to disk, in the session files, prior to the termination.
+
+To reindex the session store, use the following slash command in an interactive CLI session:
+
+```copilot copy
+/chronicle reindex
+```
+
 ## Further reading
 
-* [AUTOTITLE](/copilot/concepts/agents/copilot-cli/chronicle)
+* [AUTOTITLE](/copilot/concepts/security-governance-and-network-settings/session-data)
 * [AUTOTITLE](/copilot/how-tos/copilot-on-github/use-copilot-agents/manage-and-track-agents)
 * [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference)

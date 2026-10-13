@@ -9,8 +9,6 @@ versions:
 contentType: reference
 ---
 
-{% data reusables.elm.preview-note %}
-
 ## Data that is migrated
 
 {% data variables.product.prodname_elm_short %} migrates almost all repository-level data. Organization-level resources, such as teams, projects, and organizations settings and webhooks, are excluded from the migration and must be configured manually on the target.

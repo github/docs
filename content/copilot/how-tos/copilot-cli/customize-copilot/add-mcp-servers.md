@@ -91,7 +91,7 @@ copilot mcp add context7 -- npx -y @upstash/context7-mcp
 Add a local server with environment variables:
 
 ```shell copy
-copilot mcp add github -e GITHUB_PERSONAL_ACCESS_TOKEN=YOUR_GITHUB_PAT -- docker run -i --rm -e GITHUB_PERSONAL_ACCESS_TOKEN ghcr.io/github/github-mcp-server
+copilot mcp add github --env GITHUB_PERSONAL_ACCESS_TOKEN=YOUR_GITHUB_PAT -- docker run -i --rm -e GITHUB_PERSONAL_ACCESS_TOKEN ghcr.io/github/github-mcp-server
 ```
 
 Add a remote HTTP server:
@@ -179,7 +179,7 @@ The same server can also be configured with the bare top-level format:
 ```
 
 > [!NOTE]
-> Project-level MCP servers are loaded only after you confirm folder trust on first launch. They are silently skipped in untrusted directories. For more information on folder trust, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-copilot-cli#trusted-directories).
+> Project-level MCP servers are loaded only after you confirm folder trust on first launch. They are silently skipped in untrusted directories. For more information on folder trust, see [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-cli#trusted-directories).
 
 In prompt mode (`copilot -p`), project-level MCP servers are loaded automatically if the current directory is already trusted. If the directory is not trusted, project-level MCP servers are skipped by default. To load them anyway, set the `GITHUB_COPILOT_PROMPT_MODE_WORKSPACE_MCP` environment variable to `true`, since prompt mode cannot show an interactive trust prompt. For more information, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference#environment-variables).
 
@@ -211,7 +211,7 @@ You can manage your configured MCP servers using the `/mcp` commands in interact
 
 ### Using `/mcp` commands in interactive mode
 
-* **List configured MCP servers:** Use the command `/mcp show`. This displays all configured MCP servers and their current status.
+* **List configured MCP servers:** Use the command `/mcp`. This opens the plugins dashboard showing all configured MCP servers and their current status. Use `/mcp list` to print the same information as plain text.
 
 * **View details about a specific server:** Use the command `/mcp show SERVER-NAME`. This displays the status of the specified server and the list of tools it provides.
 
@@ -219,7 +219,7 @@ You can manage your configured MCP servers using the `/mcp` commands in interact
 
 * **Delete a server:** Use the command `/mcp delete SERVER-NAME`.
 
-* **Disable a server:** Use the command `/mcp disable SERVER-NAME`. A disabled server remains configured but is not used by {% data variables.product.prodname_copilot_short %} for the current session.
+* **Disable a server:** Use the command `/mcp disable SERVER-NAME`. A disabled server remains configured but is not used by {% data variables.product.prodname_copilot_short %}. This setting persists across sessions.
 
 * **Enable a previously disabled server:** Use the command `/mcp enable SERVER-NAME`.
 
@@ -251,6 +251,20 @@ You can also manage MCP servers from the terminal without entering interactive m
 
   Removes the server from the user configuration.
 
+* **Disable a server:**
+
+  ```shell copy
+  copilot mcp disable SERVER-NAME
+  ```
+
+  A disabled server remains configured but is not used by {% data variables.product.prodname_copilot_short %}. This setting persists across sessions.
+
+* **Enable a previously disabled server:**
+
+  ```shell copy
+  copilot mcp enable SERVER-NAME
+  ```
+
 ## Using MCP servers
 
 Once you have added an MCP server, {% data variables.product.prodname_copilot_short %} can automatically use the tools it provides when relevant to your prompt. You can also directly reference an MCP server and specific tools in a prompt to ensure they are used.
@@ -258,5 +272,5 @@ Once you have added an MCP server, {% data variables.product.prodname_copilot_sh
 ## Further reading
 
 * [AUTOTITLE](/copilot/concepts/context/mcp)
-* [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp-in-your-ide/extend-copilot-chat-with-mcp)
+* [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/customize-copilot/extend-copilot-with-tools-and-context/extend-copilot-chat-with-mcp)
 * [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/configure-mcp-servers)

@@ -22,17 +22,12 @@ interface GlossaryTerm {
   slug: string
 }
 
-// for any translated page, first get corresponding English markdown
-// then get the headings on both the translated and English pageMap
-// finally, create a map of translation:English for all headings on the page
 export default function getEnglishHeadings(
   page: PageWithMarkdown,
   context: Context,
 ): Record<string, string> | undefined {
-  // Special handling for glossaries, because their headings are
-  // generated programmatically.
+  // Glossary headings come from data, not page markdown.
   if (page.relativePath.endsWith('/github-glossary.md')) {
-    // Return an object of `{ localized-term: english-slug }`
     const languageGlossary = getDataByLanguage('glossaries.external', 'en') as GlossaryTerm[]
     return languageGlossary.reduce((prev: Record<string, string>, curr: GlossaryTerm) => {
       prev[curr.term] = curr.slug
@@ -50,11 +45,10 @@ export default function getEnglishHeadings(
   )
   if (!englishPage) return
 
-  // FIX  there may be bugs if English headings are updated before translations sync up :/
+  // English heading changes can misalign with unsynced translations.
   const englishHeadings = getHeadings(englishPage.markdown)
   if (!englishHeadings.length) return
 
-  // return a map from translation:English
   const headingMap: Record<string, string> = {}
   for (let i = 0; i < translatedHeadings.length; i++) {
     const k = translatedHeadings[i]

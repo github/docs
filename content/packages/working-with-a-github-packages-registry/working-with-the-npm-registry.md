@@ -69,7 +69,7 @@ If your instance has subdomain isolation enabled:
 {% endif %}
 
 ```shell
-//{% ifversion fpt or ghec %}npm.pkg.github.com{% else %}npm.HOSTNAME/{% endif %}/:_authToken=TOKEN
+//{% ifversion fpt or ghec %}npm.pkg.github.com{% else %}npm.HOSTNAME{% endif %}/:_authToken=TOKEN
 ```
 
 {% ifversion ghes %}
@@ -161,7 +161,7 @@ You can use `publishConfig` element in the `package.json` file to specify the re
 
    ```shell
    "publishConfig": {
-     "registry": "https://{% ifversion fpt or ghec %}npm.pkg.github.com{% else %}npm. HOSTNAME/{% endif %}"
+     "registry": "https://{% ifversion fpt or ghec %}npm.pkg.github.com{% else %}npm.HOSTNAME/{% endif %}"
    },
    ```
 
@@ -225,23 +225,23 @@ You also need to add the `.npmrc` file to your project so that all requests to i
 
 ### Installing packages from other organizations
 
-By default, you can only use {% data variables.product.prodname_registry %} packages from one organization. If you'd like to route package requests to multiple organizations and users, you can add additional lines to your `.npmrc` file, replacing {% ifversion ghes %}`HOSTNAME` with the host name of {% data variables.location.product_location %} and {% endif %}`NAMESPACE` with the name of the personal account or organization {% ifversion packages-npm-v2 %}to which the package is scoped{% else %}that owns the repository containing the project{% endif %}.
+By default, you can only use {% data variables.product.prodname_registry %} packages from one organization. If you'd like to route package requests to multiple organizations and users, you can add additional lines to your `.npmrc` file, replacing {% ifversion ghes %}`HOSTNAME` with the host name of {% data variables.location.product_location %} and {% endif %}`NAMESPACE1` and `NAMESPACE2` with the names of the personal accounts or organizations {% ifversion packages-npm-v2 %}to which the packages are scoped{% else %}that own the repositories containing the projects{% endif %}.
 
 {% ifversion ghes %}
 If your instance has subdomain isolation enabled:
 {% endif %}
 
 ```shell
-@NAMESPACE:registry=https://{% ifversion fpt or ghec %}npm.pkg.github.com{% else %}npm.HOSTNAME{% endif %}
-@NAMESPACE:registry=https://{% ifversion fpt or ghec %}npm.pkg.github.com{% else %}npm.HOSTNAME{% endif %}
+@NAMESPACE1:registry=https://{% ifversion fpt or ghec %}npm.pkg.github.com{% else %}npm.HOSTNAME{% endif %}
+@NAMESPACE2:registry=https://{% ifversion fpt or ghec %}npm.pkg.github.com{% else %}npm.HOSTNAME{% endif %}
 ```
 
 {% ifversion ghes %}
 If your instance has subdomain isolation disabled:
 
 ```shell
-@NAMESPACE:registry=https://HOSTNAME/_registry/npm
-@NAMESPACE:registry=https://HOSTNAME/_registry/npm
+@NAMESPACE1:registry=https://HOSTNAME/_registry/npm
+@NAMESPACE2:registry=https://HOSTNAME/_registry/npm
 ```
 
 {% endif %}

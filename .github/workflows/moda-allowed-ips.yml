@@ -1,12 +1,10 @@
 name: Update Moda allowed IPs
 
-# **What it does**: Make sure that the allowed IPs in Moda are up to date.
-# **Why we have it**: The IP ranges from Fastly can change.
-# **Who does it impact**: Docs engineering.
+# Fastly IP ranges can change, so this workflow opens PRs when Moda allowed IPs drift.
 
 on:
   schedule:
-    - cron: '20 16 * * 1' # Run every Monday at 16:20 UTC / 8:20 PST
+    - cron: '20 16 * * 1'
   workflow_dispatch:
 
 permissions:
@@ -21,6 +19,8 @@ jobs:
       - name: Check out the repository
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
       - name: Update list of allowed IPs
+        env:
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
         run: |
           echo "Getting a list of Fastly IP addresses...."
           ips=$( \
@@ -30,8 +30,14 @@ jobs:
           echo "Got a list of Fastly IP addresses: $ips"
 
           echo "Updating the list of allowed IPs in Moda config..."
-          yq -i ".metadata.annotations[\"moda.github.net/allowed-ips\"] = \"$ips\"" \
+          # Update the Kustomize source and the generated file together.
+          # The moda-linter check fails if they don't match.
+          for file in \
+            config/kustomize/overlays/production/services/webapp.yaml \
             config/kubernetes/production/services/webapp.yaml
+          do
+            yq -i ".metadata.annotations[\"moda.github.net/allowed-ips\"] = \"$ips\"" "$file"
+          done
           echo "Updated the list of allowed IPs in Moda config"
 
           echo "Checking if there is a change to make..."
@@ -41,10 +47,13 @@ jobs:
           fi
 
           echo "Change found; making a pull request..."
+          git config --global user.name "docs-bot"
+          git config --global user.email "77750099+docs-bot@users.noreply.github.com"
+
           branchname=update-allowed-ips-$(date +%s)
           git checkout -b $branchname
           git commit -am "Update list of allowed IPs"
-          git push
+          git push origin "$branchname"
           gh pr create \
             --title "Update list of allowed IPs" \
             --body "This PR updates the list of allowed IPs in Moda. It is automatically generated.

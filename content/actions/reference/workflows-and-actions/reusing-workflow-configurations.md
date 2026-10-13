@@ -81,6 +81,9 @@ When you call a reusable workflow, you can only use the following keywords in th
 * [`jobs.<job_id>.if`](/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idif)
 * [`jobs.<job_id>.concurrency`](/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idconcurrency)
 * [`jobs.<job_id>.permissions`](/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idpermissions)
+{%- ifversion actions-cache-mode %}
+* [`jobs.<job_id>.cache-mode`](/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idcache-mode)
+{%- endif %}
 
   > [!NOTE]
   >

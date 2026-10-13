@@ -1,4 +1,3 @@
-import semver from 'semver'
 import { TokenKind } from 'liquidjs'
 import type { TagToken } from 'liquidjs'
 import { addError } from 'markdownlint-rule-helpers'
@@ -8,7 +7,6 @@ import { allVersions, allVersionShortnames } from '@/versions/lib/all-versions'
 import { supported, next, nextNext, deprecated } from '@/versions/lib/enterprise-server-releases'
 import allowedVersionOperators from '@/content-render/liquid/ifversion-supported-operators'
 import { getDeepDataByLanguage } from '@/data-directory/lib/get-data'
-import getApplicableVersions from '@/versions/lib/get-applicable-versions'
 import { getLiquidTokens, getPositionData } from '../helpers/liquid-utils'
 import type { RuleParams, RuleErrorCallback } from '@/content-linter/types'
 
@@ -21,27 +19,13 @@ type AllFeatures = Record<string, Feature>
 
 const allShortnames: string[] = Object.keys(allVersionShortnames)
 const getAllPossibleVersionNames = memoize((): Set<string> => {
-  // This function might appear "slow" but it's wrapped in a memoizer
-  // so it's only every executed once for all files that the
-  // Liquid linting rule functions on.
-  // The third argument passed to getDeepDataByLanguage() is only
-  // there for the sake of being able to write a unit test on these
-  // lint functions.
+  // Memoization loads features once, and process.env.ROOT lets tests read fixtures.
   return new Set([...Object.keys(getAllFeatures()), ...allShortnames])
 })
 
 const getAllFeatures = memoize(
   (): AllFeatures => getDeepDataByLanguage('features', 'en', process.env.ROOT) as AllFeatures,
 )
-
-const allVersionNames: string[] = Object.keys(allVersions)
-
-function isAllVersions(versions: string[]): boolean {
-  if (versions.length === allVersionNames.length) {
-    return versions.every((version) => allVersionNames.includes(version))
-  }
-  return false
-}
 
 function memoize<T>(func: () => T): () => T {
   let cached: T | null = null
@@ -109,7 +93,7 @@ export const liquidIfVersionTags = {
           lineNumber,
           ifVersionErrors.join('. '),
           token.content,
-          null, // getRange(token.content, args),
+          null,
           null, // No fix possible
         )
       }
@@ -117,22 +101,19 @@ export const liquidIfVersionTags = {
   },
 }
 
+// Conditions join clauses with "or" or "and".
+// Each clause is a version name, "not" plus a version name, or a product range.
+// Feature-based versioning supports only the first two formats.
+// Examples: fpt, not ghec, and ghes > 3.0.
 function validateIfversionConditionals(cond: string, possibleVersionNames: Set<string>): string[] {
   const validateVersion = (version: string): boolean => possibleVersionNames.has(version)
 
   const errors: string[] = []
 
-  // Where `cond` is an array of strings, where each string may have one of the following space-separated formats:
-  // * Length 1: `<version>` (example: `fpt`)
-  // * Length 2: `not <version>` (example: `not ghae`)
-  // * Length 3: `<version> <operator> <release>` (example: `ghes > 3.0`)
-  //
-  // Note that Lengths 1 and 2 may be used with feature-based versioning, but NOT Length 3.
   const condParts = cond.split(/ (or|and) /).filter((part) => !(part === 'or' || part === 'and'))
 
   for (const str of condParts) {
     const strParts = str.split(' ')
-    // if length = 1, this should be a valid short version or feature version name.
     if (strParts.length === 1) {
       const version = strParts[0]
       const isValidVersion = validateVersion(version)
@@ -141,7 +122,6 @@ function validateIfversionConditionals(cond: string, possibleVersionNames: Set<s
       }
     }
 
-    // if length = 2, this should be 'not' followed by a valid short version name.
     if (strParts.length === 2) {
       const [notKeyword, version] = strParts
       const isValidVersion = validateVersion(version)
@@ -156,9 +136,7 @@ function validateIfversionConditionals(cond: string, possibleVersionNames: Set<s
       }
     }
 
-    // if length = 3, this should be a range in the format: ghes > 3.0
-    // where the first item is `ghes` (currently the only version with numbered releases),
-    // the second item is a supported operator, and the third is a supported GHES release.
+    // Only products with numbered releases support semantic comparisons.
     if (strParts.length === 3) {
       const [version, operator, release] = strParts
       const hasSemanticVersioning = Object.values(allVersions).some(
@@ -169,17 +147,13 @@ function validateIfversionConditionals(cond: string, possibleVersionNames: Set<s
           `Found "${version}" inside "${cond}" with a "${operator}" operator, but "${version}" does not support semantic comparisons"`,
         )
       }
-      // but the allowedVersionOperators array has a more specific type that TypeScript can't infer
+      // TypeScript cannot infer allowedVersionOperators as a generic readonly string array.
       if (!(allowedVersionOperators as readonly string[]).includes(operator)) {
         errors.push(
           `Found a "${operator}" operator inside "${cond}", but "${operator}" is not supported`,
         )
       }
-      // Check that the versions in conditionals are supported
-      // versions of GHES or the first deprecated version. Allowing
-      // the first deprecated version to exist in code ensures
-      // allows us to deprecate the version before removing
-      // the old liquid content.
+      // Accept the first deprecated GHES release so content can remove old Liquid.
       if (
         !(
           supported.includes(release) ||
@@ -196,101 +170,4 @@ function validateIfversionConditionals(cond: string, possibleVersionNames: Set<s
   }
 
   return errors
-}
-
-// The reason this function is exported is because it's sufficiently
-// complex that it needs to be tested in isolation.
-export function validateIfversionConditionalsVersions(
-  cond: string,
-  allFeatures: AllFeatures,
-): string[] {
-  // Suppose the cond is `ghes >3.1 or some-cool-feature` we need to open
-  // that `some-cool-feature` and if that has `{ghes:'>3.0', ghec:'*', fpt:'*'}`
-  // then *combined* versions will be `{ghes:'>3.0', ghec:'*', fpt:'*'}`.
-
-  // If the conditions use `and` then we bail because it's too complex to handle.
-  // Note, don't use \b (word boundary) regex because it would match `foo-and-bar`.
-  if (/\sand\s/.test(cond)) {
-    return []
-  }
-
-  const errors: string[] = []
-  const versions: Record<string, string> = {}
-  let hasFutureLessThan: boolean = false
-  for (const part of cond.split(/\sor\s/)) {
-    // For example `fpt or not ghec` or `not ghes or ghec or not fpt`
-    if (/(^|\s)not(\s|$)/.test(part)) {
-      // Bail because it's too complex to handle.
-      return []
-    }
-    for (const [ver, value] of Object.entries(getVersionsObject(part.trim(), allFeatures))) {
-      // If the version value is something like `<=3.0` and the versioning is set
-      // to `<3.19` then it means the version can *potentially* match a version
-      // that doesn't exist yet, but will, in the future.
-      if (/<=?[\d.]+/.test(value)) {
-        hasFutureLessThan = true
-      }
-
-      if (ver in versions) {
-        versions[ver] = lowestVersion(value, versions[ver])
-      } else {
-        versions[ver] = value
-      }
-    }
-  }
-
-  const applicableVersions: string[] = []
-  try {
-    applicableVersions.push(...getApplicableVersions(versions))
-  } catch {
-    // Do nothing
-  }
-
-  if (isAllVersions(applicableVersions) && !hasFutureLessThan) {
-    errors.push(
-      `The Liquid ifversion condition '${cond}' includes all possible versions and will always be true`,
-    )
-  }
-  return errors
-}
-
-function getVersionsObject(part: string, allFeatures: AllFeatures): Record<string, string> {
-  const versions: Record<string, string> = {}
-  if (part in allFeatures) {
-    for (const [shortName, version] of Object.entries(allFeatures[part].versions)) {
-      const versionOperator: string =
-        version in allFeatures
-          ? Object.values(getVersionsObject(version, allFeatures))[0] || '*'
-          : (version as string)
-      if (shortName in versions) {
-        versions[shortName] = lowestVersion(versionOperator, versions[shortName])
-      } else {
-        versions[shortName] = versionOperator
-      }
-    }
-  } else if (allShortnames.includes(part)) {
-    versions[part] = '*'
-  } else if (allShortnames.some((v) => part.startsWith(v))) {
-    const shortNamed = allShortnames.find((v) => part.startsWith(v))
-    if (shortNamed) {
-      const rest = part.replace(shortNamed, '').trim()
-      versions[shortNamed] = rest
-    }
-  } else {
-    throw new Error(`The version '${part}' is neither a short version name or a feature name`)
-  }
-  return versions
-}
-
-function lowestVersion(version1: string, version2: string): string {
-  if (version1 === '*' || version2 === '*') {
-    return '*'
-  }
-  const min1 = semver.minVersion(version1)
-  const min2 = semver.minVersion(version2)
-  if (min1 && min2 && semver.lt(min1, min2)) {
-    return version1
-  } else {
-    return version2
-  }
 }

@@ -13,6 +13,7 @@ versions:
   ghes: '*'
   ghec: '*'
 children:
+  - /lock-workflow-dependencies
   - /use-artifact-attestations
   - /security-harden-deployments
 contentType: how-tos

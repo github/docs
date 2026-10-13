@@ -26,7 +26,7 @@ In autopilot mode, {% data variables.product.prodname_copilot_short %} keeps on 
 * The agent determines that the task is complete.
 * A problem occurs that prevents further progress.
 * You press <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the agent from continuing.
-* The maximum continuation limit is reached (if set).
+* The maximum continuation limit is reached. By default, autopilot mode pauses after 5 automatic continuation messages. You can adjust this limit with the `--max-autopilot-continues` option.
 
 To switch into autopilot mode during an interactive session, press <kbd>Shift</kbd>+<kbd>Tab</kbd> and cycle through the available modes until you reach autopilot mode, then enter your prompt. Use the same keypress to switch from autopilot mode back to the standard interactive mode.
 
@@ -35,7 +35,7 @@ To switch into autopilot mode during an interactive session, press <kbd>Shift</k
 * **Hands-off automation:** {% data variables.product.prodname_copilot_short %} completes tasks without needing your input after the initial instruction.
 * **Efficiency:** Ideal for well-defined tasks like writing tests, refactoring files, or fixing CI failures. Autopilot is particularly suited for large tasks that require long-running, multi-step sessions.
 * **Batch operations:** Useful for scripting and CI workflows where you want {% data variables.product.prodname_copilot_short %} to run to completion.
-* **Safety:** Autopilot mode allows {% data variables.product.prodname_copilot_short %} to take multiple self-directed steps to finish your task. `--max-autopilot-continues` limits how many steps it can take before stopping, to avoid infinite loops. Also, in autopilot mode, {% data variables.product.prodname_copilot_short %} cannot carry out any actions that require permission unless you explicitly grant it full permissions.
+* **Safety:** Autopilot mode allows {% data variables.product.prodname_copilot_short %} to take multiple self-directed steps to finish your task. By default, it pauses after 5 continuation messages; use `--max-autopilot-continues` to change this limit and avoid infinite loops. Also, in autopilot mode, {% data variables.product.prodname_copilot_short %} cannot carry out any actions that require permission unless you explicitly grant it full permissions.
 
 ## Things to consider
 
@@ -53,11 +53,11 @@ When entering autopilot mode, if you have not already granted {% data variables.
 
 ```text
 1. Enable all permissions (recommended)
-2. Continue with limited permissions
+2. Use Manual Approval for this session
 3. Cancel (Esc)
 ```
 
-You will get the best results from autopilot mode if you enable all permissions. If you choose to continue with limited permissions, {% data variables.product.prodname_copilot_short %} will automatically deny any tool requests that require approval, which may prevent it from completing certain tasks. You can change your mind later and grant full permissions, during an autopilot session, by using the `/allow-all` command (or its alias `/yolo`).
+You will get the best results from autopilot mode if you enable all permissions. If you choose manual approval, {% data variables.product.prodname_copilot_short %} will automatically deny any tool requests that require approval, which may prevent it from completing certain tasks. You can change your mind later and grant full permissions, during an autopilot session, by using the `/allow-all` command (or its alias `/yolo`).
 
 Before granting {% data variables.product.prodname_copilot_short %} wide-ranging permissions, consider using local sandboxing, or running the session in a cloud sandbox, to limit what {% data variables.product.prodname_copilot_short %} can access.
 
@@ -102,7 +102,7 @@ For example:
 
 * When the interactive session starts, if you're prompted to trust the files in the current folder, accept this option.
 * Press <kbd>Shift</kbd>+<kbd>Tab</kbd> to switch to plan mode, enter a prompt describing what you want to achieve, then work with {% data variables.product.prodname_copilot_short %} to create a detailed plan.
-* Once you have a plan that you are happy with, use the option that the CLI presents to "Accept plan and build on autopilot".
+* Once you have a plan that you are happy with, use the option that the CLI presents to "Accept plan and continue in Autopilot execution mode".
 * If you're prompted about permissions, choose the option to enable all permissions.
 * Leave {% data variables.product.prodname_copilot_short %} to implement the plan. You can check in on its progress periodically.
 

@@ -91,13 +91,19 @@ Scheduled events can be delayed during periods of high loads of {% data variable
 
 High load times include the start of every hour. If the load is sufficiently high enough, some queued jobs may be dropped. To decrease the chance of delay, schedule your workflow to run at a different time of the hour. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule).
 
+### Scheduled workflow stopped running
+
+A scheduled (`cron`) workflow can stop running even though it is still enabled and manual or `workflow_dispatch` runs still work.
+
+This can happen when the workflow's associated `actor` account is suspended, deleted, or deprovisioned. To restart it, a user with `write` access to the repository can commit a change to the `cron` schedule. See [AUTOTITLE](/actions/reference/workflows-and-actions/events-that-trigger-workflows#actor-for-scheduled-workflows).
+
 ### Filtering and diff limits
 
 Specific events allow for filtering by branch, tag, and/or paths you can customize. Workflow run creation will be skipped if the filter conditions apply to filter out the workflow.
 
 You can use special characters with filters. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/workflow-syntax#filter-pattern-cheat-sheet).
 
-For path filtering, evaluating diffs is limited to the first 300 files. If there are files changed that are not matched in the first 300 files returned by the filter, the workflow will not be run. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/workflow-syntax#git-diff-comparisons).
+For path filtering, evaluating diffs is limited to the first {% ifversion actions-paths-filter-limit %}3,000{% else %}300{% endif %} files. If there are files changed that are not matched in the first {% ifversion actions-paths-filter-limit %}3,000{% else %}300{% endif %} files returned by the filter, the workflow will not be run. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/workflow-syntax#git-diff-comparisons).
 
 ## Troubleshoot workflow execution
 

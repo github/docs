@@ -13,42 +13,32 @@ describe('secret scanning article body api', () => {
     expect(res.statusCode).toBe(200)
     expect(res.headers['content-type']).toContain('text/markdown')
 
-    // Check for expected content
     expect(res.body).toContain('# Supported secret scanning patterns')
     expect(res.body).toContain('## Supported secrets')
 
-    // Verify HTML comments are stripped
-    expect(res.body).not.toMatch(/<!--.*?-->/)
+    // A substring check also catches multiline, empty, and unterminated comments.
+    expect(res.body).not.toContain('<!--')
 
-    // Verify HTML icon spans are not present (would be replaced with ✓/✗)
+    // Icon spans become plain ✓/✗ characters.
     expect(res.body).not.toMatch(/<span[^>]*aria-label="Supported"/)
     expect(res.body).not.toMatch(/<span[^>]*aria-label="Unsupported"/)
-    // Verify no raw HTML span tags remain
     expect(res.body).not.toMatch(/<span[^>]*>/)
 
-    // Verify table content is present with providers
     expect(res.body).toMatch(/|\s*Provider\s*|/)
     expect(res.body).toMatch(/\| (Adafruit|AWS|Alibaba|Amazon)/)
 
-    // Verify Copilot secret scanning section is present (feature-flagged for fpt/ghec)
-    // Note: This may not appear if feature flags aren't loaded in the test environment
     const hasCopilotSection = res.body.match(/###.*Copilot secret scanning/i)
     const hasGenericPassword = res.body.match(/\|\s*Generic\s*\|\s*password\s*\|/)
     if (hasCopilotSection) {
-      // If Copilot section is present, verify it has the expected content
       expect(hasGenericPassword).toBeTruthy()
     }
 
-    // Verify correct section title (should be "Default patterns" for fpt if feature flags load correctly)
-    // Accept either title since CI may not load feature flags consistently
     const hasDefaultPatterns = res.body.includes('### Default patterns')
     const hasHighConfidence = res.body.includes('### High confidence patterns')
 
-    // In fixture mode (CI), the page may have minimal content without these sections
-    // Just verify the main table exists; section headings are optional
+    // Fixture mode may omit section headings, but it must keep the main table.
     expect(res.body).toContain('## Supported secrets')
 
-    // If either section is present, verify mutual exclusivity
     if (hasDefaultPatterns) {
       expect(hasHighConfidence).toBe(false)
     }

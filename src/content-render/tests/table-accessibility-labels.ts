@@ -4,8 +4,7 @@ import { describe, expect, test } from 'vitest'
 import { renderContent } from '@/content-render/index'
 import { EOL } from 'os'
 
-// Use platform-specific line endings for realistic tests when templates have
-// been loaded from disk
+// Disk-loaded templates use platform line endings, so tests do too.
 const nl = (str: string) => str.replace(/\n/g, EOL)
 
 describe('table accessibility labels', () => {
@@ -170,7 +169,7 @@ Some additional context here.
     const tables = $('table')
     expect(tables.length).toBe(2)
     expect($(tables[0]).attr('aria-labelledby')).toBe('first-heading')
-    // Second table should not get the same heading since the first table is in between
+    // A prior table stops heading lookup, so the second table stays unlabeled.
     expect($(tables[1]).attr('aria-labelledby')).toBeUndefined()
   })
 

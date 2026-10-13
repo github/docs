@@ -11,6 +11,8 @@ redirect_from:
 contentType: how-tos
 category:
   - Enable GitHub features for your enterprise
+docsTeamMetrics:
+  - enterprise-onboarding
 ---
 
 You can create a {% data variables.product.prodname_github_app %} under your enterprise account. The app can only be installed on{% ifversion enterprise-installed-apps %} your enterprise or{% endif %} organizations within your enterprise, and can only be authorized by members of your enterprise. The app can't be installed on user accounts.

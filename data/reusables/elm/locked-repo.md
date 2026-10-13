@@ -2,4 +2,4 @@ If a cutover fails after the source repository has been archived, the {% data va
 
 Be aware that unarchiving a repository will cause additional load on the instance, as all issues and pull requests in the repository will be reindexed in Elasticsearch. 
 
-After the source repository is unarchived, you can either retry cutover using `elm migration cutover-to-destination --migration-id MIGRATION-ID`, or abort the migration with `elm migration cancel --migration-id MIGRATION-ID` and start a new migration when you're ready.
+After the source repository is unarchived, you can either retry cutover using `gh elm migration cutover --migration-id MIGRATION-ID`, or abort the migration with `gh elm migration cancel --migration-id MIGRATION-ID` and start a new migration when you're ready.

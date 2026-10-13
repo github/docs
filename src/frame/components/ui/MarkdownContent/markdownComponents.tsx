@@ -1,22 +1,19 @@
 import type { ComponentProps } from 'react'
 import type { Components } from 'hast-util-to-jsx-runtime'
+import { Image } from '@primer/react-brand'
 
 import { CopyButton } from '@/frame/components/CopyButton'
 import { CodeTabsGroup } from '@/frame/components/CodeTabsGroup'
 import { ToggleableContent } from '@/tools/components/ToggleableContent'
 import { isToggleClass } from '@/tools/components/SelectionContext'
 
-// Map specific elements in the HTML AST to interactive React components instead
-// of inert markup enhanced by post-hydration DOM mutation (#6619). Shared by
-// every hast rendering path (the article body via MarkdownContent and the
-// HTML-string fragments via RenderedHTML) so the same element always becomes the
-// same component, and SSR/client hydration stay in sync.
-//
-// The className checks are cheap and run first, so only the handful of
-// interactive/toggleable elements become components; every other div/span/button
-// renders as a plain element with no hook. Unrecognized classes fall through to
-// plain elements, so fragments that never contain pickers or copy buttons (e.g.
-// GraphQL/REST descriptions) are unaffected.
+const EMOJI_SRC = 'https://github.githubassets.com/images/icons/emoji'
+
+// Shared HTML AST paths map picker and copy-button markup to React components
+// instead of post-hydration DOM mutation. Article bodies and RenderedHTML
+// fragments use this map, so SSR and hydration stay in sync.
+// Class checks run first; unrecognized classes fall through to plain elements,
+// so GraphQL and REST descriptions without pickers stay plain.
 export const markdownComponents = {
   button(props: ComponentProps<'button'>) {
     const classes = String(props.className || '').split(/\s+/)
@@ -34,6 +31,25 @@ export const markdownComponents = {
       return <ToggleableContent tag="div" {...props} />
     }
     return <div {...props} />
+  },
+  // Emoji stay plain so the fixed inline size in images.scss applies.
+  // Omit aspectRatio, borderRadius, and animate, so Image renders one bare img
+  // and leaves the picture and source markup from the content pipeline intact.
+  // Missing alt becomes empty, which marks the image decorative.
+  img(props: ComponentProps<'img'>) {
+    const { src, alt = '', srcSet, ...rest } = props
+    if (typeof src !== 'string' || src.startsWith(EMOJI_SRC)) {
+      return <img {...props} alt={alt} />
+    }
+    return (
+      <Image
+        src={src}
+        alt={alt}
+        // Brand mistypes srcSet as an object, but forwards it to img unchanged.
+        srcSet={srcSet as ComponentProps<typeof Image>['srcSet']}
+        {...rest}
+      />
+    )
   },
   span(props: ComponentProps<'span'>) {
     if (isToggleClass(props.className)) {

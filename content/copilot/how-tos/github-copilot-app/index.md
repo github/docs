@@ -11,13 +11,14 @@ sidebarLink:
   text: All articles
   href: /copilot/how-tos/github-copilot-app
 introLinks:
-  overview: /copilot/concepts/agents/github-copilot-app
+  overview: /copilot/concepts/copilot-surfaces/github-copilot-app
   quickstart: /copilot/get-started/quickstart-copilot-app
 redirect_from:
   - /copilot/how-tos/github-app
 children:
   - /customize-github-copilot-app
   - /agent-sessions
+  - /computer-use
   - /working-with-canvas-extensions
   - /managing-issues-and-pull-requests
   - /using-automations

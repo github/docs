@@ -1,5 +1,5 @@
 import { program } from 'commander'
-import { execSync } from 'child_process'
+import { execFileSync } from 'child_process'
 import { updateContentFiles } from '@/ghes-releases/scripts/deprecate/update-content'
 import { updateDataFiles } from '@/ghes-releases/scripts/deprecate/update-data'
 import { updateAutomatedConfigFiles } from '@/ghes-releases/scripts/deprecate/update-automated-pipelines'
@@ -41,9 +41,16 @@ program
       console.error('You must provide a GHES version with the -v flag.')
       process.exit(1)
     }
-    execSync(
-      `src/ghes-releases/scripts/deprecate/create-docs-ghes-version-repo.sh ${options.version}`,
-    )
+    try {
+      execFileSync(
+        'src/ghes-releases/scripts/deprecate/create-docs-ghes-version-repo.sh',
+        [options.version],
+        { stdio: 'inherit' },
+      )
+    } catch {
+      // The script already printed its error.
+      process.exit(1)
+    }
   })
 
 program.parse(process.argv)

@@ -49,9 +49,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   const schema = getGraphqlBreakingChanges(currentVersion)
   if (!schema) throw new Error(`No graphql breaking changes schema found for ${currentVersion}`)
 
-  // Gets the miniTocItems in the article context. At this point it will only
-  // include miniTocItems that exist in Markdown pages in
-  // content/graphql/reference/*
+  // Start from the current page's Markdown headings, then append the generated ones.
   const automatedPageContext = getAutomatedPageContextFromRequest(req)
   const slugger = new GithubSlugger()
   const headings = Object.fromEntries(
@@ -69,7 +67,6 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   )
   const titles = Object.values(headings).map((heading) => heading.title)
   const changelogMiniTocItems = await getAutomatedPageMiniTocItems(titles, req.context!, 2)
-  // Update the existing context to include the miniTocItems from GraphQL
   automatedPageContext.miniTocItems.push(...changelogMiniTocItems)
 
   return {

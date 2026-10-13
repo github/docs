@@ -4,7 +4,7 @@ import { productMap } from '@/products/lib/all-products'
 import { deprecated } from '@/versions/lib/enterprise-server-releases'
 
 const pathRegExps: RegExp[] = [
-  // Disallow indexing of WIP products
+  // WIP and hidden products stay out of search indexes.
   ...Object.values(productMap)
     .filter((product) => product.wip || product.hidden)
     .map((product) => [
@@ -12,7 +12,7 @@ const pathRegExps: RegExp[] = [
       ...product.versions!.map((version) => new RegExp(`^/.*?${version}/${product.id}`, 'i')),
     ]),
 
-  // Disallow indexing of deprecated enterprise versions
+  // Deprecated enterprise versions stay out of search indexes.
   ...deprecated.map((version) => [
     new RegExp(`^/.*?/enterprise-server@${version}/.*?`, 'i'),
     new RegExp(`^/.*?/enterprise/${version}/.*?`, 'i'),

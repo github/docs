@@ -1,13 +1,11 @@
 name: Add docs-reviewers request to the docs-content review board
 
-# **What it does**: Adds PRs in github/github and github/audit-log-allowlists that requested a review from docs-reviewers to the docs-content review board
-# **Why we have it**: To catch docs-reviewers requests in github/audit-log-allowlists
-# **Who does it impact**: docs-content maintainers
+# Catches audit-log-allowlists docs-reviewers requests that the regular board misses.
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: '20 16 * * 1-5' # Run Mon-Fri at 16:20 UTC / 8:20 PST
+    - cron: '20 16 * * 1-5' # Weekdays at 16:20 UTC.
 
 permissions:
   contents: read

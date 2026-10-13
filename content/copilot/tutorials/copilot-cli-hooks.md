@@ -12,6 +12,7 @@ category:
 allowTitleToDifferFromFilename: true
 docsTeamMetrics:
   - copilot-cli
+  - ai-governance
 ---
 
 This tutorial is for DevOps engineers, platform teams, and engineering leaders who support developers using {% data variables.copilot.copilot_cli_short %}.
@@ -399,15 +400,6 @@ fi
 
 COMMAND="$(echo "$TOOL_ARGS_RAW" | jq -r '.command // empty')"
 
-# ---------------------------------------------------------------------------
-# Demo-only deny rule for safe testing.
-# This blocks a harmless test command so you can validate the deny flow.
-# Remove this rule after confirming your hooks work as expected.
-# ---------------------------------------------------------------------------
-if echo "$COMMAND" | grep -q "COPILOT_HOOKS_DENY_DEMO"; then
-  deny "Blocked demo command (test rule). Remove this rule after validating hooks."
-fi
-
 deny() {
   local reason="$1"
 
@@ -435,6 +427,15 @@ deny() {
 
   exit 0
 }
+
+# ---------------------------------------------------------------------------
+# Demo-only deny rule for safe testing.
+# This blocks a harmless test command so you can validate the deny flow.
+# Remove this rule after confirming your hooks work as expected.
+# ---------------------------------------------------------------------------
+if echo "$COMMAND" | grep -q "COPILOT_HOOKS_DENY_DEMO"; then
+  deny "Blocked demo command (test rule). Remove this rule after validating hooks."
+fi
 
 # Privilege escalation
 if echo "$COMMAND" | grep -qE '\b(sudo|su|runas)\b'; then

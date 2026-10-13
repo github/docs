@@ -36,7 +36,7 @@ Open **[Automations](https://github.com/copilot/app/launch?open=ghapp%3A%2F%2Fau
 
 To use cloud {% data variables.copilot.copilot_automations %}, make sure the following settings are enabled.
 
-* {% data variables.copilot.copilot_cloud_agent %} must be enabled for the repository. If you have {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %}, an administrator must enable the {% data variables.copilot.copilot_cloud_agent %} policy. See [AUTOTITLE](/copilot/concepts/agents/cloud-agent/access-management).
+* {% data variables.copilot.copilot_cloud_agent %} must be enabled for the repository. If you have {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %}, an administrator must enable the {% data variables.copilot.copilot_cloud_agent %} policy. See [AUTOTITLE](/copilot/concepts/enterprise/cloud-agent-access).
 * The organization must allow both {% data variables.copilot.copilot_cloud_agent %} and {% data variables.copilot.copilot_automations %} in the repository (both are enabled by default). See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/add-copilot-cloud-agent).
 * If you want to create {% data variables.copilot.copilot_automations %} that can listen to events triggered by users without write access, disable the "Only allow automations to be triggered by users with write access" setting in {% data variables.copilot.copilot_cloud_agent %} repository settings.
 

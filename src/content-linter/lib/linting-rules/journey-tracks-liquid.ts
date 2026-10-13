@@ -13,7 +13,6 @@ export const journeyTracksLiquid = {
     if (!fm || !fm.journeyTracks || !Array.isArray(fm.journeyTracks)) return
     if (!fm.layout || fm.layout !== 'journey-landing') return
 
-    // Find the base journeyTracks line
     const journeyTracksLine: string | undefined = params.lines.find((line: string) =>
       line.trim().startsWith('journeyTracks:'),
     )
@@ -23,17 +22,14 @@ export const journeyTracksLiquid = {
 
     for (let trackIndex = 0; trackIndex < fm.journeyTracks.length; trackIndex++) {
       const track = (fm.journeyTracks as Array<Record<string, unknown>>)[trackIndex]
-      // Try to find the line number for this specific journey track so we can use that for the error
-      // line number.  Getting the exact line number is probably more work than it's worth for this
-      // particular rule.
+      // Approximate the track location instead of parsing every nested frontmatter node.
 
-      // Look for the track by finding the nth occurrence of track-like patterns after journeyTracks
       let trackLineNumber: number = baseLineNumber
       if (journeyTracksLine) {
         let trackCount: number = 0
         for (let i = params.lines.indexOf(journeyTracksLine) + 1; i < params.lines.length; i++) {
           const line: string = params.lines[i].trim()
-          // Look for track indicators (array item with id, title, or description)
+          // Track entries can start with id, title, or a bare array marker followed by id or title.
           if (
             line.startsWith('- id:') ||
             line.startsWith('- title:') ||
@@ -51,7 +47,7 @@ export const journeyTracksLiquid = {
         }
       }
 
-      // Simple validation - just check if liquid can parse each string property
+      // Liquid parsing is the rule's only validation.
       const properties = [
         { name: 'title', value: track.title },
         { name: 'description', value: track.description },
@@ -76,10 +72,8 @@ export const journeyTracksLiquid = {
         for (let guideIndex = 0; guideIndex < track.guides.length; guideIndex++) {
           const guideObj = track.guides[guideIndex]
 
-          // Validate guide is an object with expected properties
           if (!guideObj || typeof guideObj !== 'object') continue
 
-          // Validate href property
           if ('href' in guideObj && typeof guideObj.href === 'string') {
             try {
               liquid.parse(guideObj.href)
@@ -93,7 +87,6 @@ export const journeyTracksLiquid = {
             }
           }
 
-          // Validate alternativeNextStep property if present
           if (
             'alternativeNextStep' in guideObj &&
             typeof guideObj.alternativeNextStep === 'string'

@@ -31,10 +31,9 @@ export type Check = {
   fragment: string | undefined
   fragmentFound?: boolean
   fragmentCandidates?: string[]
-  // If the URL lead to a redirect, this is its URL (starting with /en/...)
+  // Redirect destination with the /en prefix, when the source URL redirects.
   redirectPageURL?: string
-  // If the URL lead to a redirect, this is what the new URL should be
-  // (for example /the/new/pathname#my-fragment)
+  // Suggested replacement URL without /en, preserving any fragment.
   redirect?: string
 }
 
@@ -49,8 +48,7 @@ export async function validateDocsUrl(docsUrls: DocsUrls, { checkFragments = fal
       throw new Error(`URL doesn't start with '/': ${url} (identifier: ${identifier})`)
     }
     const pathname = url.split('?')[0]
-    // If the url is just '/' we want to check the homepage,
-    // which is `/en`, not `/en/`.
+    // The homepage resolves at /en, not /en/.
     const [pageURL, fragment] = `/en${pathname === '/' ? '' : pathname}`.split('#')
 
     const page = pages[pageURL]
@@ -69,7 +67,7 @@ export async function validateDocsUrl(docsUrls: DocsUrls, { checkFragments = fal
         pages,
       })
       if (redirect && isEnterpriseCloudRedirectOnly(pageURL, redirect)) {
-        // Ignore this one. It just added enterprise-cloud@latest to the URL.
+        // Skip redirects that only add the Enterprise Cloud prefix; they are not reported.
         continue
       }
       if (redirect) {
@@ -108,8 +106,7 @@ export async function validateDocsUrl(docsUrls: DocsUrls, { checkFragments = fal
 }
 
 function isEnterpriseCloudRedirectOnly(originalUrl: string, redirectUrl: string) {
-  // A lot of URLs don't work in free-pro-team so all they do is redirect
-  // from {OLD-URL} to "/enterprise-count@latest/{OLD-URL}"
+  // Many URLs only redirect by adding /enterprise-cloud@latest under free-pro-team.
   return redirectUrl.replace('/enterprise-cloud@latest', '') === originalUrl
 }
 
@@ -123,8 +120,7 @@ async function renderInnerHTML(page: Page, permalink: Permalink) {
     language: permalink.languageCode,
     pagePath,
     cookies: {},
-    // The contextualize() middleware will create a new one.
-    // Here it just exists for the sake of TypeScript.
+    // contextualize replaces this placeholder, but TypeScript needs the key upfront.
     context: {},
   }
   await contextualize(req as ExtendedRequest, res as Response, next)

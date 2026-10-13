@@ -14,10 +14,7 @@ import {
   LockIcon,
 } from '@primer/octicons-react'
 
-/**
- * Mapping of octicon names to their React components
- * This is the single source of truth for all supported octicons
- */
+// Derive the type and validation array from this map so supported octicons stay in sync.
 export const OCTICON_COMPONENTS = {
   bug: BugIcon,
   lightbulb: LightBulbIcon,
@@ -34,30 +31,15 @@ export const OCTICON_COMPONENTS = {
   lock: LockIcon,
 } as const
 
-/**
- * Valid octicon types derived from the component mapping
- */
 export type ValidOcticon = keyof typeof OCTICON_COMPONENTS
 
-/**
- * Array of all valid octicon names for validation, derived from component mapping
- */
 export const VALID_OCTICONS = Object.keys(OCTICON_COMPONENTS) as ValidOcticon[]
 
-/**
- * Helper function to validate and cast octicon values
- * @param octicon - The octicon string to validate
- * @returns True if the octicon is valid, false otherwise
- */
 export function isValidOcticon(octicon: string | null): octicon is ValidOcticon {
   return octicon !== null && (octicon as ValidOcticon) in OCTICON_COMPONENTS
 }
 
-/**
- * Get the React component for a given octicon name
- * @param octicon - The octicon name
- * @returns The corresponding React component, or CopilotIcon as fallback
- */
+// Unknown names render CopilotIcon instead of breaking page rendering.
 export function getOcticonComponent(octicon: ValidOcticon | undefined) {
   if (!octicon || !isValidOcticon(octicon)) {
     return CopilotIcon

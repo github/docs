@@ -16,6 +16,12 @@ redirect_from:
   - /copilot/tutorials/copilot-chat-cookbook/refactoring-code/translating-code-to-a-different-programming-language
   - /copilot/tutorials/copilot-chat-cookbook/refactoring-code/translate-code
   - /copilot/tutorials/copilot-chat-cookbook/refactor-code/translate-code
+  - /copilot/tutorials/modernize-legacy-code
+  - /copilot/using-github-copilot/guides-on-using-github-copilot/modernizing-legacy-code-with-github-copilot
+  - /copilot/tutorials/modernizing-legacy-code-with-github-copilot
+  - /copilot/tutorials/migrate-a-project
+  - /copilot/using-github-copilot/guides-on-using-github-copilot/using-copilot-to-migrate-a-project
+  - /copilot/tutorials/using-copilot-to-migrate-a-project
 contentType: tutorials
 ---
 
@@ -24,8 +30,6 @@ There are many reasons why you might want to move code from one programming lang
 For ease of maintaining code, you might want to move code to a language that is more widely used in your organization. For example, if few people in your organization know an older language such as Perl, you might want to move any Perl code that's still in use to a more commonly used language such as Python or JavaScript.
 
 {% data variables.product.prodname_copilot_short %} can help you translate code from one language to another. Translating a standalone file, such as a script, is straightforward. This process is described in this article.
-
-Translating a project containing multiple files is a more complex process, and is described in [AUTOTITLE](/copilot/tutorials/migrate-a-project).
 
 ## Example scenario
 
