@@ -94,6 +94,13 @@ export function correctTranslatedContentStrings(
   if (context.code === 'es') {
     content = content.replace(/\{%:/g, '{%')
 
+    // The translator replaced the space after "data" with a dot, as in {% datos.variables.x %},
+    // or inserted a stray word, as in {% datos existente variables.x %}.
+    content = content.replace(
+      /\{%(-?)\s*datos(?:\.|\s+existente\s+)(variables|reusables)\./g,
+      '{%$1 data $2.',
+    )
+
     content = content.replaceAll('{% advertencia %}', '{% warning %}')
     content = content.replaceAll('{% siVersion ', '{% ifversion ')
     content = content.replaceAll('{%- siVersion ', '{%- ifversion ')
@@ -671,6 +678,9 @@ export function correctTranslatedContentStrings(
   }
 
   if (context.code === 'zh') {
+    // Chinese "变量" ("variables") glued to "data" with no space.
+    // Also the space-separated form, as in {% data变量 x.y %}, which loses the dot.
+    content = content.replace(/\{%(-?)\s*data变量(?:\.|\s+)/g, '{%$1 data variables.')
     content = content.replaceAll('{% 数据variables', '{% data variables')
     content = content.replaceAll('{% 数据 variables', '{% data variables')
     content = content.replaceAll('{%数据variables', '{% data variables')
@@ -1247,6 +1257,13 @@ export function correctTranslatedContentStrings(
   }
 
   if (context.code === 'ko') {
+    // Misspelled "data" keyword and translated IDE/app tag names
+    content = content.replaceAll('{% dada variables', '{% data variables')
+    content = content.replaceAll('{%- dada variables', '{%- data variables')
+    content = content.replaceAll('{% 이클립스 %}', '{% eclipse %}')
+    content = content.replaceAll('{%- 이클립스 %}', '{%- eclipse %}')
+    content = content.replaceAll('{% 데스크톱 %}', '{% desktop %}')
+    content = content.replaceAll('{%- 데스크톱 %}', '{%- desktop %}')
     content = content.replaceAll('{% 경고 %}', '{% warning %}')
     content = content.replaceAll('{% datda variables', '{% data variables')
     content = content.replaceAll('{%- datda variables', '{%- data variables')
@@ -1610,6 +1627,9 @@ export function correctTranslatedContentStrings(
   content = content.replace(/\{%-?[^%]*?-?%\}/g, (match) => {
     return match.replace(/[«»“”„]/g, '"').replace(/[‘’‚]/g, "'")
   })
+
+  // The translator dropped the space between octicon and its quoted name.
+  content = content.replace(/\{%(-?)\s*octicon(?=")/g, '{%$1 octicon ')
 
   // French « check » becomes " check " after quote normalization.
   content = content.replace(

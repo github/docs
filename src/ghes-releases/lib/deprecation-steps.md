@@ -74,7 +74,11 @@ If the date in the [release date list](https://github.com/github/enterprise-rele
 
 ## Step 6: Dry-run the scrape
 
-Update your translation clones to the latest `main`. Then hide the search components so they don't get scraped into the static archive: in `src/frame/components/page-header/Header.tsx`, temporarily set the `SubdomainNavBar.Search` component's `className` to `"visually-hidden"`. Also wrap the `SearchOverlay` in `src/search/components/input/SearchOverlayContainer.tsx` in a `<div className="visually-hidden">`.
+Update your translation clones to the latest `main`.
+
+Hide the search components so they don't get scraped into the static archive: in `src/frame/components/page-header/Header.tsx`, temporarily set the `SubdomainNavBar.Search` component's `className` to `"visually-hidden"`. Also wrap the `SearchOverlay` in `src/search/components/input/SearchOverlayContainer.tsx` in a `<div className="visually-hidden">`.
+
+Turn off analytics too. Archived pages keep running their scraped JavaScript, and `/api/events` rejects their events because the version is no longer supported. In `src/frame/lib/constants.ts`, temporarily set `ANALYTICS_ENABLED` to `false`. That stops requests to both `/api/events` and `collector.githubapp.com`.
 
 Build, then scrape a few pages locally:
 
@@ -89,7 +93,7 @@ Serve the output over HTTP to review it. Opening the files directly doesn't work
 python3 -m http.server 8080 --bind 127.0.0.1 -d tmpArchivalDir_{{ release-number }}/{{ release-number }}
 ```
 
-Confirm that a few pages in a couple of languages render, styles load, and the version dropdowns work. Offer to open the pages for the human in their browser.
+Confirm that a few pages in a couple of languages render, styles load, and the version dropdowns work. Also confirm that the browser's network tab shows no requests to `/api/events` or `collector.githubapp.com`, including after you click a tool picker or code tab. Offer to open the pages for the human in their browser.
 
 🛑 **HUMAN**: Review the dry-run output before the full scrape.
 
@@ -103,10 +107,10 @@ Scrape every page. This takes 20-30 minutes and overwrites the dry-run output:
 npm run deprecate-ghes-archive
 ```
 
-Revert the search component edits:
+Revert the search component and analytics edits:
 
 ```shell
-git checkout src/frame/components/page-header/Header.tsx src/search/components/input/SearchOverlayContainer.tsx
+git checkout src/frame/components/page-header/Header.tsx src/search/components/input/SearchOverlayContainer.tsx src/frame/lib/constants.ts
 ```
 
 ## Step 8: Publish the archive
@@ -265,8 +269,7 @@ To keep your clones elsewhere instead, clone the repositories below and map each
 
 ## Reference: Re-scraping a page or all pages
 
-Occasionally a change needs to land in an already-archived version. The archive script always scrapes the current oldest supported version, so check out the `enter
-ise-{{ release-number }}-deprecation` tag, which points at history from before the version left `supported`, and re-scrape with `npm run deprecate-ghes-archive`. To scrape a single page, use the `--page <relative path>` option, passing the path without a version or language prefix. Upload the new files to `github/docs-ghes-{{ release-number }}` for each language.
+Occasionally a change needs to land in an already-archived version. The archive script always scrapes the current oldest supported version, so check out the `enterprise-{{ release-number }}-deprecation` tag, which points at history from before the version left `supported`. Repeat the Step 6 search and analytics edits, run `npm run build`, and re-scrape with `npm run deprecate-ghes-archive`. To scrape a single page, use the `--page <relative path>` option, passing the path without a version or language prefix. Revert the edits as in Step 7, then upload the new files to `github/docs-ghes-{{ release-number }}` for each language.
 
 Human: After uploading, purge the Fastly cache. From Okta, open Fastly, select `docs`, and click "Purge" then "Purge URL", or "Purge All" for a whole path. Enter the URL or path and do a soft purge.
 

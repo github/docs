@@ -96,13 +96,6 @@ const context = {
       // Keep in sync with get-document-type.ts.
       enum: ['homepage', 'early-access', 'product', 'category', 'subcategory', 'article'],
     },
-    page_type: {
-      type: 'string',
-      description: 'Optional page type from the content frontmatter.',
-      // Keep in sync with the YAML frontmatter docs:
-      // content/contributing/writing-for-github-docs/using-yaml-frontmatter.md.
-      enum: ['overview', 'quick_start', 'tutorial', 'how_to', 'reference', 'rai'],
-    },
     content_type: {
       type: 'string',
       description: 'Optional content type from the content frontmatter (EDI content models).',
@@ -415,7 +408,8 @@ const search = {
     },
     search_client: {
       type: 'string',
-      description: 'The client name identifier when the request is not from docs.github.com.',
+      description:
+        "The client name identifier when the request is not from docs.github.com, or 'unknown' when the request sends no client_name.",
     },
   },
 }

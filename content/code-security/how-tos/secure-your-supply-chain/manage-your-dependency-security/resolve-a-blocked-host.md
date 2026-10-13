@@ -15,7 +15,7 @@ This reduces the risk that a malicious dependency or build script can send repos
 
 Most jobs are unaffected. The allowlist already covers public registries, mirrors, CDNs, and download hosts for supported ecosystems, as well as {% data variables.product.github %}'s infrastructure. Registries configured and referenced for a job are also allowed automatically.
 
-A registry counts as configured only when you declare it under the top-level `registries` key in your `dependabot.yml` file. Defining a registry solely in an ecosystem-native configuration file, such as `.npmrc`, `nuget.config`, `pip.conf`, or Maven's `settings.xml`, does not allow its host. The package manager reads the registry from that file and tries to reach it, but the proxy blocks the request.
+A registry counts as configured only when you declare it under the top-level `registries` key in your `dependabot.yml` file{% ifversion org-private-registry-anonymous %}, or when an organization owner adds it as an organization-level private registry{% endif %}. Defining a registry solely in an ecosystem-native configuration file, such as `.npmrc`, `nuget.config`, `pip.conf`, or Maven's `settings.xml`, does not allow its host. The package manager reads the registry from that file and tries to reach it, but the proxy blocks the request.
 
 ## Identifying a blocked request in job logs
 
@@ -42,10 +42,14 @@ Two independent sets of hosts are allowed for each job.
 
 Declare the registry even if it allows anonymous access. It is the declaration in `dependabot.yml`, not the presence of credentials, that makes the host reachable.
 
+{% ifversion org-private-registry-anonymous %}
+Organization owners can also allow a registry's host for jobs across the organization by adding the registry as an organization-level private registry. For a registry that doesn't require authentication, use the **Anonymous** authentication method. No credentials are stored or sent. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/manage-usage-and-access/giving-org-access-private-registries#configuring-an-anonymous-private-registry).
+{% endif %}
+
 This split determines where a blocked host belongs.
 
 * **A public registry or download host** that other users' jobs could legitimately need belongs in the defaults. See [Adding a host to the defaults](#adding-a-host-to-the-defaults).
-* **A private or organization-specific registry** belongs in your `dependabot.yml` file, never in the defaults. Configure it under `registries` so it is allowed only for the jobs that need it. See [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-access-to-private-registries).
+* **A private or organization-specific registry** belongs in your `dependabot.yml` file, never in the defaults. Configure it under `registries` so it is allowed only for the jobs that need it. See [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-access-to-private-registries).{% ifversion org-private-registry-anonymous %} Alternatively, an organization owner can add it as an organization-level private registry.{% endif %}
 
 ## Adding a host to the defaults
 

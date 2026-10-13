@@ -63,10 +63,6 @@ export function prepareData(body: Record<string, unknown>): {
 
   // BI dashboards expect react_app and marketing page_type for analytics_v0_page_view.
   context.react_app = 'docs'
-  // Preserve the docs page type because BI expects page_type to be marketing.
-  if (context.page_type) {
-    context.docs_page_type = context.page_type
-  }
   context.page_type = 'marketing'
 
   return { type: typeof type === 'string' ? type : 'unknown', context }

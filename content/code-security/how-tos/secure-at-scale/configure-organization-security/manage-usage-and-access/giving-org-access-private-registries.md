@@ -57,6 +57,9 @@ You need to be an **organization owner** to set up access to private registries 
    {% ifversion org-private-registry-oidc %}
    * **OIDC (OpenID Connect)**: Use short-lived credentials from a cloud identity provider instead of storing long-lived secrets. When you select this option, choose a provider and fill in the provider-specific fields. For more information, see [Configuring OIDC authentication for a private registry](#configuring-oidc-authentication-for-a-private-registry).
    {% endif %}
+   {% ifversion org-private-registry-anonymous %}
+   * **Anonymous**: Use this option for a registry that doesn't require authentication. No credentials are stored or sent to the registry. For more information, see [Configuring an anonymous private registry](#configuring-an-anonymous-private-registry).
+   {% endif %}
 1. Define which repositories in the organization can access the private registry using these details: all, private and internal, or selected repositories only.
 1. When you have finished defining the private registry, select **Add Registry** to save the registry information.
 
@@ -126,6 +129,23 @@ When you select **OIDC** as the authentication method for a private registry, ch
 The authentication type of a private registry cannot be changed after creation. To switch from OIDC to another authentication method, or vice versa, delete the existing registry and create a new one.
 
 For more information about how OIDC works, see [AUTOTITLE](/actions/concepts/security/openid-connect).
+
+{% endif %}
+
+{% ifversion org-private-registry-anonymous %}
+
+### Configuring an anonymous private registry
+
+Some registries, such as internal mirrors, don't require authentication. You can add these registries at the organization level with the **Anonymous** authentication method so that {% data variables.product.prodname_dependabot %} can use them without a token, password, or OIDC configuration.
+
+{% ifversion dependabot-egress-allowlist %}
+{% data variables.product.prodname_dependabot %} update jobs can only connect to hosts on an egress allowlist. Adding an anonymous registry allows {% data variables.product.prodname_dependabot %} to reach the registry's host for jobs in repositories that have access to the registry, without storing a secret or sending credentials. For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/resolve-a-blocked-host).
+{% endif %}
+
+When you select **Anonymous**, the credential fields are removed from the form. You still define the registry's **URL** and **Type**. You also choose which repositories can access the registry.
+
+
+After you create an anonymous registry, you can only update its URL and whether it replaces the default registry for the ecosystem. You can't change the authentication method of an existing registry. To switch to or from **Anonymous**, delete the registry and create a new one.
 
 {% endif %}
 

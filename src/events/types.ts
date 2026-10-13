@@ -36,7 +36,6 @@ export type EventProps = {
     path_product?: string
     path_article: string
     page_document_type: string
-    page_type: string
     content_type: string
     docs_team_metrics?: string
     status: number

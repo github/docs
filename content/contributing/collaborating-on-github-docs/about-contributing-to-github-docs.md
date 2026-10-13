@@ -16,12 +16,21 @@ The documentation repository is the place to discuss and collaborate on the docu
 
 ## Issues
 
+> [!NOTE]
+> For larger updates, we highly recommend that you open an issue first, to give us the opportunity to review your proposal before you go ahead and raise a pull request.
+
 [Issues](/issues/tracking-your-work-with-issues/learning-about-issues/about-issues) are used to track tasks that contributors can help with. If an issue has a `triage` label, we haven't reviewed it yet, and you shouldn't begin work on it.
 
 If you've found something in the documentation content, or something about the docs.github.com website, that should be updated, search the open issues to see if someone else has reported the same thing. If it's something new, open an issue using a [template](https://github.com/github/docs/issues/new/choose). We'll use the issue to have a conversation about the problem you'd like to be fixed.<!-- markdownlint-disable-line search-replace -->
 
+### Working on other contributors' issues
+
 > [!NOTE]
-> For larger updates, we highly recommend that you open an issue first, to give us the opportunity to review your proposal before you go ahead and raise a pull request.
+> We will close any pull requests raised against existing issues without a `help wanted` label.
+
+To make sure all of our contributors have the best experience, please don't raise any pull requests against an existing issue that another user has raised until it's been marked with a `help wanted` label. We need to properly assess all issues before we can accept community contributions, and determine whether it's something we need to fix internally, or how many articles are affected and what the scope of the fix will be.
+
+You can still raise a pull request and an issue at the same time, if you're confident about the nature of your contribution.
 
 ## Pull requests
 

@@ -115,7 +115,6 @@ export function sendEvent<T extends EventType>({
       path_product: getMetaContent('path-product'),
       path_article: getMetaContent('path-article'),
       page_document_type: getMetaContent('page-document-type'),
-      page_type: getMetaContent('page-type'),
       content_type: getMetaContent('page-content-type'),
       docs_team_metrics: getMetaContent('docs-team-metrics') || undefined,
       status: Number(getMetaContent('status') || 0),
@@ -156,7 +155,7 @@ export function sendEvent<T extends EventType>({
   queueEvent(body)
 
   // Hydro handles cross-subdomain tracking.
-  sendHydroAnalyticsEvent(body)
+  if (ANALYTICS_ENABLED) sendHydroAnalyticsEvent(body)
 
   if (type === EventType.exit) {
     flushQueue()
@@ -225,7 +224,7 @@ function getPerformance() {
     firstContentfulPaint: paint ? paint.startTime / 1000 : undefined,
     domInteractive: nav ? nav.domInteractive / 1000 : undefined,
     domComplete: nav ? nav.domComplete / 1000 : undefined,
-    render: nav ? (nav.responseEnd - nav.requestStart) / 1000 : undefined,
+    render: nav ? Math.max(0, nav.responseEnd - nav.requestStart) / 1000 : undefined,
   }
 }
 

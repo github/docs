@@ -109,23 +109,12 @@ describe('prepareData', () => {
     expect(result.context.react_app).toBe('docs')
   })
 
-  test('adds page_type field when not present', () => {
+  test('sets page_type to marketing', () => {
     const body = {
       type: 'page',
       context: { event_id: '123' },
     }
     const result = prepareData(body)
     expect(result.context.page_type).toBe('marketing')
-    expect(result.context.docs_page_type).toBeUndefined()
-  })
-
-  test('preserves existing page_type as docs_page_type and sets page_type to marketing', () => {
-    const body = {
-      type: 'page',
-      context: { event_id: '123', page_type: 'article' },
-    }
-    const result = prepareData(body)
-    expect(result.context.page_type).toBe('marketing')
-    expect(result.context.docs_page_type).toBe('article')
   })
 })
