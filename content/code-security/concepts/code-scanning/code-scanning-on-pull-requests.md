@@ -1,7 +1,7 @@
 ---
-title: CodeQL pull request alert metrics
-shortTitle: Pull request alert metrics
-intro: Understand {% data variables.product.prodname_codeql %}'s performance in pull requests across your organizations.
+title: Code scanning on pull requests
+shortTitle: Code scanning on pull requests
+intro: Understand how {% data variables.product.prodname_codeql %}{% ifversion ai-powered-security-detections %} and AI Scan{% endif %} find and help prevent vulnerabilities in pull requests across your organizations.
 permissions: '{% data reusables.permissions.security-overview %}'
 product: '{% data reusables.gated-features.security-overview-fpt-cs-only %}'
 contentType: concepts
@@ -11,13 +11,21 @@ versions:
   ghes: '*'
 category:
   - Secure at scale
+redirect_from:
+  - /code-security/concepts/code-scanning/pull-request-alert-metrics
 ---
 
 ## Overview
 
-The metrics overview for {% data variables.product.prodname_codeql %} pull request alerts on security overview helps you understand how well {% data variables.product.prodname_codeql %} is preventing vulnerabilities in pull requests in your organization or across organizations in your enterprise. You can view the entire dataset or filter for specific criteria, making it easy to identify repositories where you may need to take action to find and reduce security risks.
+The "Code scanning on pull requests" report in security overview helps you understand how well {% data variables.product.prodname_code_scanning %} is preventing vulnerabilities in pull requests in your organization or across organizations in your enterprise. You can view the entire dataset or filter for specific criteria, making it easy to identify repositories where you may need to take action to find and reduce security risks.
+
+{% ifversion ai-powered-security-detections %}
+The report has separate **{% data variables.product.prodname_codeql %}** and **AI Scan** tabs.
+{% endif %}
 
 ## Available metrics
+
+### {% data variables.product.prodname_codeql %} metrics
 
 The overview shows you a summary of how many vulnerabilities prevented by {% data variables.product.prodname_codeql %} have been caught in pull requests. The metrics are only tracked for pull requests that have been merged into the default branches of repositories in your organizations.
 
@@ -43,6 +51,22 @@ You can also view:
 > [!NOTE] Metrics for {% data variables.copilot.copilot_autofix_short %} are omitted because {% data variables.copilot.copilot_autofix_short %} is available only on {% data variables.product.github %} cloud platforms.
 {% endif %}
 
+{% ifversion ai-powered-security-detections %}
+
+### AI Scan metrics
+
+The **AI Scan** tab shows:
+
+* **Total findings:** The number of AI Scan findings.
+* **Findings with Autofix suggestions:** The number and percentage of findings that had a {% data variables.copilot.copilot_autofix_short %} suggestion.
+* **AI Scan findings in pull requests:** A chart that groups findings over time by **Autofix suggested** and **Autofix not suggested**.
+* **Outcomes of findings with an Autofix suggestion:** The share of findings where a fix was applied or the finding was dismissed.
+* **Outcomes of findings without an Autofix suggestion:** The share of findings where a fix was applied or the finding was dismissed.
+
+The date range and filters that you select apply to all AI Scan metrics displayed in the report.
+
+{% endif %}
+
 ## Visibility
 
 You can see {% data variables.product.prodname_code_scanning %} metrics for a repository if you have:
@@ -53,4 +77,4 @@ You can see {% data variables.product.prodname_code_scanning %} metrics for a re
 
 ## Next steps
 
-To find your pull request alert metrics, see [AUTOTITLE](/code-security/how-tos/view-and-interpret-data/analyze-organization-data/viewing-metrics-for-pull-request-alerts).
+To view the "Code scanning on pull requests" report, see [AUTOTITLE](/code-security/how-tos/view-and-interpret-data/analyze-organization-data/viewing-metrics-for-pull-request-alerts).
