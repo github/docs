@@ -23,7 +23,18 @@ When you enable OTel monitoring, you can send data from users' {% data variables
 * **Metrics** are numeric measurements that help you identify patterns over time. For example, token usage metrics track the number of input and output tokens used in model calls.
 * **Events** record individual actions at a specific point in time. For example, an edit feedback event records whether a user accepted or rejected an agent edit.
 
-By default, the data does not include prompts, responses, or tool arguments. You can choose to capture this content, but it may contain sensitive information, such as code, file contents, and user prompts.
+By default, the data does not include directly identifying attributes, prompts, responses, tool arguments, tool results, or raw policy details. Enterprise administrators can independently enable the following capture classes through managed settings:
+
+* **Identity** adds the authenticated {% data variables.product.prodname_copilot_short %} account name, local operating-system account, and machine name. This lets you attribute activity without collecting conversation or tool content.
+* **Prompts** include user, system, and developer prompt content and associated model input.
+* **Responses** include assistant response and supported reasoning content.
+* **Tool arguments** include raw arguments, commands, tool schemas, and identifiers for tools, MCP servers, plugins, and hooks.
+* **Tool output** includes tool results and execution error details.
+* **Policy detail** includes unbounded policy information such as raw sandbox filesystem paths. Bounded policy posture and outcomes remain available when this class is disabled.
+
+Fine-grained capture controls are supported in {% data variables.copilot.copilot_cli_short %}, the {% data variables.copilot.github_copilot_app %}, and {% data variables.product.prodname_vscode_shortname %} sessions using Agent Host. {% data variables.product.prodname_vscode_shortname %}'s local agent harness supports identity capture and the legacy all-or-nothing content capture setting, but does not independently apply the five content capture classes.
+
+Captured content may contain sensitive information, including source code, file contents, user prompts, commands, tool results, and workspace or user-profile paths. Enable only the classes required for your use case.
 
 ## Enabling OpenTelemetry
 
@@ -35,7 +46,7 @@ To collect OTel data from users' {% data variables.product.prodname_copilot_shor
 
 ### Configuring users' clients
 
-Enterprises can enforce OTel configuration across supported clients with managed settings. These settings are enforced across users' clients and cannot be overridden. The `telemetry` property includes keys for enabling and configuring OpenTelemetry.
+Enterprises can enforce OTel configuration across supported clients with managed settings. Explicit managed values take precedence over local settings, SDK configuration, and environment variables. The `telemetry` property includes keys for enabling and routing OpenTelemetry and independently controlling identity and sensitive content capture.
 
 For more information, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/use-managed-settings/get-started) and [AUTOTITLE](/copilot/reference/enterprise-administrators/enterprise-managed-settings).
 

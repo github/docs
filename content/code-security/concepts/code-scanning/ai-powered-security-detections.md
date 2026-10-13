@@ -79,4 +79,11 @@ You do not need to select a model to enable AI Scan.
 
 Organization owners and security managers can review the effective enablement status of AI Scan for pull requests in the "Coverage" view of security overview. See [AUTOTITLE](/code-security/how-tos/view-and-interpret-data/analyze-organization-data/assessing-adoption-code-security).
 
+People with access to security overview can also monitor AI Scan findings across an organization or enterprise:
+
+* The **Prevention** tab on the overview dashboard shows trends in AI Scan findings, how many findings were resolved, and how often developers accepted a {% data variables.copilot.copilot_autofix_short %} suggestion.
+* The **AI Scan** tab in the "Code scanning on pull requests" report shows findings over time, the availability of {% data variables.copilot.copilot_autofix_short %} suggestions, and the outcomes of findings with and without suggestions.
+
+For more information, see [AUTOTITLE](/code-security/concepts/code-scanning/code-scanning-on-pull-requests).
+
 You can use the REST API to manage the organization or repository `ai-scan` setting. See [AUTOTITLE](/rest/code-scanning/code-scanning#get-the-ai-scan-setting-for-an-organization).

@@ -59,7 +59,7 @@ jobs:
               owner: 'github',
               repo: process.env.TEAM_CONTENT_REPO,
               title: `@${context.payload.sender.login} confirm that \#${issueNo} should be in the public github/docs repo`,
-              body: `@${context.payload.sender.login} opened https://github.com/github/docs/issues/${issueNo} publicly in the github/docs repo, instead of the private github/${process.env.TEAM_CONTENT_REPO} repo.\n\n@${context.payload.sender.login}, please confirm that this belongs in the public repo and that no sensitive information was disclosed by commenting below and closing the issue.\n\nIf this was not intentional and sensitive information was shared, please delete https://github.com/github/docs/issues/${issueNo} and notify us in the \#docs-open-source channel.\n\nThanks!`,
+              body: `@${context.payload.sender.login} opened https://github.com/github/docs/issues/${issueNo} publicly in the github/docs repo, instead of the private github/${process.env.TEAM_CONTENT_REPO} repo.\n\n@${context.payload.sender.login}, if this specifically belongs in the public repo, and no sensitive information is disclosed, please ignore this message. Otherwise, please ${context.payload.pull_request ? 'close the pull request and recreate it internally in https://github.com/github/docs-content.' : 'close the issue and reopen it internally in https://github.com/github/docs-content, or transfer it there.'}\n\nIf sensitive information was shared, please close https://github.com/github/docs/issues/${issueNo} and notify us in the \#docs-open-source channel, so we can delete it. Thanks!`,
               labels: ['OS confirmation', 'skip FR board'],
             });
 

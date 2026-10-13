@@ -46,13 +46,18 @@ Across all public repositories owned by your organization, you can set a maximum
 
 This setting helps maintainers manage contribution volume by preventing users from opening an excessive number of pull requests, which can overwhelm review queues and trigger unnecessary CI runs. The limit only applies to users without write access—users with write access or higher are not affected.
 
-Draft pull requests do not count toward a user's limit. Only open, non-draft pull requests are counted when determining whether a user has reached the maximum.
+You can choose whether draft pull requests count toward a user's limit. If you enable **Count draft pull requests toward the limit**, both draft and non-draft open pull requests count toward the maximum. Otherwise, only open, non-draft pull requests count.
 
 The organization-level limit takes precedence, but if a repository owned by your organization has its own pull request limit configured after the organization-level limit, the repository-level limit overrides the organization-level limit. See [AUTOTITLE](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository#limiting-concurrent-open-pull-requests-for-users-without-write-access).
 
 ### Configuring the pull request limit
 
-To configure the pull request limit, navigate to the **Interaction limits** settings page following the same steps described in [Limiting interactions in your organization](#limiting-interactions-in-your-organization), then under **Pull request limits**, select the maximum number of concurrent open pull requests allowed for users without write access. You can also use the REST API to configure the pull request limit. See [AUTOTITLE](/rest/interactions/orgs#update-pull-request-creation-cap-for-an-org).
+To configure the pull request limit, navigate to the **Interaction limits** settings page following the same steps described in [Limiting interactions in your organization](#limiting-interactions-in-your-organization), then:
+
+1. Under **Pull request limits**, select the maximum number of concurrent open pull requests allowed for users without write access.
+1. Optionally, select **Count draft pull requests toward the limit** to include draft pull requests in the maximum.
+
+You can also use the REST API to configure the pull request limit. See [AUTOTITLE](/rest/interactions/orgs#update-pull-request-creation-cap-for-an-org).
 
 {% endif %}
 

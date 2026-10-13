@@ -61,6 +61,34 @@ Policy hook files use the same hook configuration format as user and project hoo
 
 Policy hooks are intended for use by enterprise IT administrators and require elevated privileges to install. End users cannot modify them. Policy hooks always run on the host, even when the session sandbox is enabled—see [Sandboxed sessions](#sandboxed-sessions).
 
+### Agent-scoped hooks
+
+> [!NOTE]
+> **{% data variables.copilot.copilot_cli_short %} only.**
+
+Declare a `hooks` event map in a custom agent's frontmatter to run command or HTTP hooks only while that agent is selected. These hooks run in addition to session, user, repository, plugin, and policy hooks.
+
+```yaml
+---
+name: formatter
+description: Formats changed files
+hooks:
+  PostToolUse:
+    - type: command
+      command: ./scripts/format-changed-files.sh
+      windows: ./scripts/format-changed-files.ps1
+---
+Format the files you change.
+```
+
+| Behavior | Details |
+|----------|---------|
+| Event names | Runtime names such as `postToolUse` and aliases such as `PostToolUse` are accepted. |
+| Commands | `command` is the fallback. `windows`, `linux`, and `osx` override it per platform. Paths resolve from the repository root. |
+| Subagent `Stop` | A subagent's scoped `Stop` (`agentStop`) hooks run at `SubagentStop`. After eight consecutive scoped blocks, further blocks are ignored. |
+| Trust | Repository and inherited-agent hooks require workspace admission. Hook-disable settings, enterprise restrictions, and timeouts still apply. |
+| Unsupported | Remote or organization-hosted agent definitions do not run scoped hooks. |
+
 ## Cloud agent execution environment
 
 This section applies to **{% data variables.copilot.copilot_cloud_agent %} only**. It describes constraints that affect how you write hook scripts and configure hook entries for cloud agent jobs.
@@ -699,7 +727,7 @@ The `preToolUse` hook can control tool execution by writing a JSON object to std
 
 | Field | Values | Description |
 |-------|--------|-------------|
-| `permissionDecision` | `"allow"`, `"deny"`, `"ask"` | Whether the tool executes. Empty output uses default behavior. Under cloud agent, `"ask"` is treated as `"deny"` because no user is available to answer. |
+| `permissionDecision` | `"allow"`, `"deny"`, `"ask"` | Whether the tool executes. Empty output uses default behavior. Under cloud agent, `"ask"` is treated as `"deny"` because no user is available to answer. In {% data variables.copilot.copilot_cli_short %} autopilot mode, no prompt is shown and `"ask"` is denied, so the agent sees that the CLI was unable to ask the user for confirmation. |
 | `permissionDecisionReason` | string | Reason shown to the agent. Required when decision is `"deny"`. |
 | `modifiedArgs` | object | Substitute tool arguments to use instead of the originals. |
 
