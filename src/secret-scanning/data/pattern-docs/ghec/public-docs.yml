@@ -4648,7 +4648,7 @@
   supportedSecret: Starlink Public API V2 Client Secret
   secretType: starlink_public_api_v2_secret
   isPublic: true
-  isPrivateWithGhas: false
+  isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
   hasExtendedMetadata: false
