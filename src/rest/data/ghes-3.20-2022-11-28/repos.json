@@ -36424,7 +36424,7 @@
                     "allOf": [
                       {
                         "title": "copilot_code_review",
-                        "description": "Request Copilot code review for new pull requests automatically if the author has access to Copilot code review and their premium requests quota has not reached the limit.",
+                        "description": "Request Copilot code review for new pull requests automatically if the author has access to Copilot code review and AI credits.",
                         "type": "object",
                         "required": [
                           "type"
@@ -38048,7 +38048,7 @@
                         },
                         {
                           "title": "copilot_code_review",
-                          "description": "Request Copilot code review for new pull requests automatically if the author has access to Copilot code review and their premium requests quota has not reached the limit.",
+                          "description": "Request Copilot code review for new pull requests automatically if the author has access to Copilot code review and AI credits.",
                           "type": "object",
                           "required": [
                             "type"
@@ -39144,7 +39144,7 @@
             {
               "type": "object",
               "name": "copilot_code_review",
-              "description": "<p>Request Copilot code review for new pull requests automatically if the author has access to Copilot code review and their premium requests quota has not reached the limit.</p>",
+              "description": "<p>Request Copilot code review for new pull requests automatically if the author has access to Copilot code review and AI credits.</p>",
               "childParamsGroups": [
                 {
                   "type": "string",
@@ -40590,7 +40590,7 @@
                       },
                       {
                         "title": "copilot_code_review",
-                        "description": "Request Copilot code review for new pull requests automatically if the author has access to Copilot code review and their premium requests quota has not reached the limit.",
+                        "description": "Request Copilot code review for new pull requests automatically if the author has access to Copilot code review and AI credits.",
                         "type": "object",
                         "required": [
                           "type"
@@ -42092,7 +42092,7 @@
                       },
                       {
                         "title": "copilot_code_review",
-                        "description": "Request Copilot code review for new pull requests automatically if the author has access to Copilot code review and their premium requests quota has not reached the limit.",
+                        "description": "Request Copilot code review for new pull requests automatically if the author has access to Copilot code review and AI credits.",
                         "type": "object",
                         "required": [
                           "type"
@@ -43193,7 +43193,7 @@
             {
               "type": "object",
               "name": "copilot_code_review",
-              "description": "<p>Request Copilot code review for new pull requests automatically if the author has access to Copilot code review and their premium requests quota has not reached the limit.</p>",
+              "description": "<p>Request Copilot code review for new pull requests automatically if the author has access to Copilot code review and AI credits.</p>",
               "childParamsGroups": [
                 {
                   "type": "string",
@@ -44640,7 +44640,7 @@
                       },
                       {
                         "title": "copilot_code_review",
-                        "description": "Request Copilot code review for new pull requests automatically if the author has access to Copilot code review and their premium requests quota has not reached the limit.",
+                        "description": "Request Copilot code review for new pull requests automatically if the author has access to Copilot code review and AI credits.",
                         "type": "object",
                         "required": [
                           "type"
