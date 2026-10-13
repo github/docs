@@ -1,0 +1,40 @@
+# Production overrides for config/kustomize/base/deployments/webapp.yaml.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webapp
+  annotations:
+    moda.github.net/allow-missing-ready-pods: '0'
+spec:
+  replicas: 6
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      # Keep old pods serving until replacements pass readiness.
+      # Overprovisioning makes the temporary extra capacity safe.
+      maxUnavailable: 0
+      # Scale surge capacity with replica count changes.
+      maxSurge: '100%'
+  template:
+    metadata:
+      annotations:
+        ad.datadoghq.com/webapp.logs: '[{"source":"nodejs","service":"docs-internal","tags":["env:production"]}]'
+    spec:
+      containers:
+        - name: webapp
+          # Retune using 2 weeks of data:
+          # https://app.datadoghq.com/dashboard/6vx-iun-ghs/moda-resource-recommendations?tpl_var_kube_namespace%5B0%5D=docs-internal-production&from_ts=0&to_ts=1209600000&live=true
+          # Moda budget uses requests times replicas times clusters.
+          resources:
+            requests:
+              # requests.cpu: median pod p99 (0.32 cores) * 2 for failover headroom.
+              cpu: 640m
+              # requests.memory: highest-peak pod p99 (4740Mi) * 1.1 for working-set padding.
+              memory: 5214Mi
+            limits:
+              # limits.cpu: highest warmup peak (2.42 cores) * 3.
+              # This startup headroom does not count toward budget.
+              cpu: 7260m
+              # limits.memory: highest-peak pod max (4813Mi) * 2.
+              # Over the limit means OOMKill; memory is not compressible.
+              memory: 9626Mi

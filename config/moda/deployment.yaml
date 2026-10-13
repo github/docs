@@ -191,6 +191,21 @@ environments:
       region: iad
     extra_completed_message: ':yew: Review at https://docs-internal-staging-yew.githubapp.com/'
 
+  - name: docs-internal-review-lab
+    require_pipeline: false
+    require_vault: true
+    secret_environment: staging
+    required_review_tasks: []
+    auto_deploy: true
+    skip_auto_merge: true
+    proxima: true
+    resource_path: config/kubernetes/docs-internal-review-lab
+    url: https://docs-internal-{{BRANCH}}.octoca.ts.net
+    timeout: 900
+    cluster_selector:
+      name: rl-1-test-cnc-01-az1
+    extra_completed_message: 'Review at {{ENVIRONMENT_URL}}. This environment is deleted after 24 hours.'
+
 required_builds:
   - docs-internal-moda-config-bundle / docs-internal-moda-config-bundle
   - docs-internal-docker-image / docs-internal-docker-image

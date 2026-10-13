@@ -1,70 +1,33 @@
+# This file was generated with Kustomize. Please do not edit manually.
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: webapp
   annotations:
     moda.github.net/allow-missing-ready-pods: '0'
     moda.github.net/inject-unified-service-tag-env-var: docs-internal
+  name: webapp
 spec:
   replicas: 6
-  strategy:
-    type: RollingUpdate
-    rollingUpdate:
-      # Keep old pods serving until replacements pass readiness.
-      # Overprovisioning makes the temporary extra capacity safe.
-      maxUnavailable: 0
-      # Scale surge capacity with replica count changes.
-      maxSurge: '100%'
   selector:
     matchLabels:
       app: webapp
+  strategy:
+    rollingUpdate:
+      maxSurge: 100%
+      maxUnavailable: 0
+    type: RollingUpdate
   template:
     metadata:
-      labels:
-        app: webapp
       annotations:
-        # Use logfmt_sloppy because internal logs write unstructured stdout and stderr.
-        # https://thehub.github.com/epd/engineering/dev-practicals/observability/logging/
+        ad.datadoghq.com/tolerate-unready: 'true'
+        ad.datadoghq.com/webapp.logs: '[{"source":"nodejs","service":"docs-internal","tags":["env:production"]}]'
         fluentbit.io/parser: logfmt_sloppy
         observability.github.com/splunk_index: docs-internal
-        ad.datadoghq.com/webapp.logs: '[{"source":"nodejs","service":"docs-internal","tags":["env:production"]}]'
-        ad.datadoghq.com/tolerate-unready: 'true'
+      labels:
+        app: webapp
     spec:
-      dnsPolicy: Default
-      # This 60-second total covers preStop, then request drain and OTEL shutdown after SIGTERM.
-      terminationGracePeriodSeconds: 60
       containers:
-        - name: webapp
-          image: docs-internal
-          # Retune using 2 weeks of data:
-          # https://app.datadoghq.com/dashboard/6vx-iun-ghs/moda-resource-recommendations?tpl_var_kube_namespace%5B0%5D=docs-internal-production&from_ts=0&to_ts=1209600000&live=true
-          # Moda budget uses requests times replicas times clusters.
-          resources:
-            requests:
-              # requests.cpu: median pod p99 (0.32 cores) * 2 for failover headroom.
-              cpu: 640m
-              # requests.memory: highest-peak pod p99 (4740Mi) * 1.1 for working-set padding.
-              memory: 5214Mi
-            limits:
-              # limits.cpu: highest warmup peak (2.42 cores) * 3.
-              # This startup headroom does not count toward budget.
-              cpu: 7260m
-              # limits.memory: highest-peak pod max (4813Mi) * 2.
-              # Over the limit means OOMKill; memory is not compressible.
-              memory: 9626Mi
-          ports:
-            - name: http
-              containerPort: 4000
-              protocol: TCP
-          envFrom:
-            - secretRef:
-                name: vault-secrets
-            - configMapRef:
-                name: kube-cluster-metadata
-            # Moda creates application-config from config/moda/configuration/*/env.yaml.
-            - configMapRef:
-                name: application-config
-          env:
+        - env:
             - name: POD_NAME
               valueFrom:
                 fieldRef:
@@ -73,36 +36,46 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: metadata.namespace
-          # Sleep before shutdown so Moda drains connections before old pods exit.
-          # https://thehub.github.com/engineering/products-and-services/internal/moda/feature-documentation/pod-lifecycle/#required-prestop-hook
+          envFrom:
+            - secretRef:
+                name: vault-secrets
+            - configMapRef:
+                name: kube-cluster-metadata
+            - configMapRef:
+                name: application-config
+          image: docs-internal
           lifecycle:
             preStop:
               exec:
-                command: ['sleep', '5']
-          # warmServer() loads about 3500 content files × 9 languages × 9 versions.
-          # Startup averages 25 seconds and peaked at 48 seconds in Datadog docs.warm_server.
-          # The server starts listening after warmup, so probes fail at TCP level during boot.
-          # No app-level readiness flag is needed.
-          startupProbe:
-            httpGet:
-              path: /healthcheck
-              port: http
-            # Avoid probes during the average 25-second warmup.
-            initialDelaySeconds: 30
-            periodSeconds: 5
-            # Total runway: 30s + 30 × 5s = 180s.
-            # Covers peak startup plus resource contention when multiple pods boot during a deploy.
-            failureThreshold: 30
-            timeoutSeconds: 5
+                command:
+                  - sleep
+                  - '5'
+          name: webapp
+          ports:
+            - containerPort: 4000
+              name: http
+              protocol: TCP
           readinessProbe:
+            failureThreshold: 5
             httpGet:
               path: /healthcheck
               port: http
             periodSeconds: 10
-            # 5 × 10s = 50s before the pod leaves the load balancer.
-            # The healthcheck always returns 200, so failures mean the process is hung or under extreme pressure.
-            failureThreshold: 5
             timeoutSeconds: 5
-          # Skip livenessProbe because healthcheck returns 200 unless the process is fully hung.
-          # Readiness removes hung pods from load balancing.
-          # Liveness restarts risk killing pods during GC pauses or transient load spikes.
+          resources:
+            limits:
+              cpu: 7260m
+              memory: 9626Mi
+            requests:
+              cpu: 640m
+              memory: 5214Mi
+          startupProbe:
+            failureThreshold: 30
+            httpGet:
+              path: /healthcheck
+              port: http
+            initialDelaySeconds: 30
+            periodSeconds: 5
+            timeoutSeconds: 5
+      dnsPolicy: Default
+      terminationGracePeriodSeconds: 60

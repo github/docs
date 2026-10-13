@@ -9414,7 +9414,7 @@
         },
         {
           "name": "COPILOT_CODE_REVIEW",
-          "description": "<p>Request Copilot code review for new pull requests automatically if the author\nhas access to Copilot code review and their premium requests quota has not\nreached the limit.</p>"
+          "description": "<p>Request Copilot code review for new pull requests automatically if the author\nhas access to Copilot code review and AI credits.</p>"
         },
         {
           "name": "CREATION",

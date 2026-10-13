@@ -1,0 +1,16 @@
+# This file was generated with Kustomize. Please do not edit manually.
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    service: router
+  name: router
+spec:
+  ports:
+    - name: http
+      port: 80
+      protocol: TCP
+      targetPort: http
+  selector:
+    app: webapp
+  type: ClusterIP

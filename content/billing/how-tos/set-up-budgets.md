@@ -65,7 +65,7 @@ You can set budgets and receive alerts when your usage of a product reaches 75%,
 1. To receive an alert if your budget has reached 75%, 90% and 100% thresholds, select **Receive budget threshold alerts** under "Alerts". When the budget has reached the specific threshold, you will be notified via email and a banner on {% data variables.product.github %}. You may opt out at any time.
 {% data reusables.billing.budget-create-button %}
 
-To edit or delete a budget, on the "Budget and alerts" page, click **Edit** or **Delete** next to the budget you want to edit or delete. Follow the prompts.
+To edit or delete a budget, on the "Budgets and alerts" page, click {% octicon "kebab-horizontal" aria-label="View actions" %} next to the budget, then click **{% octicon "pencil" aria-hidden="true" aria-label="pencil" %} Edit** or **{% octicon "trash" aria-hidden="true" aria-label="trash" %} Delete**. Follow the prompts.
 
 ### Managing included usage alerts for your personal account
 
@@ -91,13 +91,13 @@ You can set budgets and receive alerts when your usage of a product or license t
 
 ### Viewing budgets
 
-If you are an organization owner, enterprise owner, or billing manager, any account-level budget is listed at the top of the "Budgets and alerts" page, followed by budgets for smaller scopes.
+If you are an organization owner, enterprise owner, or billing manager, all of your account's budgets appear in one list on the "Budgets and alerts" page. Each row shows the budget's scope, spending against the budget amount, and status.
 
 {% data reusables.billing.nav-to-org-or-ent %}
 {% data reusables.billing.access-org-or-ent-page %}
 
 1. Click **Budgets and alerts**.
-1. Optionally, in the enterprise view only, to filter by scope, select **Scope**, then choose a scope.
+1. Optionally, to find specific budgets, choose a scope from the scope dropdown, or use the search bar to filter by scope, product, SKU, or user.
 
 ### Creating a budget
 
