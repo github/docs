@@ -408,7 +408,8 @@ const search = {
     },
     search_client: {
       type: 'string',
-      description: 'The client name identifier when the request is not from docs.github.com.',
+      description:
+        "The client name identifier when the request is not from docs.github.com, or 'unknown' when the request sends no client_name.",
     },
   },
 }

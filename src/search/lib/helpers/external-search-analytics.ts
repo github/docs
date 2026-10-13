@@ -73,7 +73,7 @@ export async function handleExternalSearchAnalytics(
         },
         search_query: 'REDACTED',
         search_context: searchContext,
-        search_client: client_name as string,
+        search_client: (client_name as string) || 'unknown',
       },
     }
 
