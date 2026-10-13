@@ -26,6 +26,8 @@ category:
 
 You can unlock and access your account by updating your account's payment method and resuming paid status. We do not ask you to pay for the time elapsed in locked mode.
 
+A failed authorization hold when you try to sign up for {% data variables.product.prodname_copilot_short %} or increase a budget can also lock your personal account billing and block {% data variables.product.prodname_actions %} or other free-tier access. This can happen even if you plan to stay on {% data variables.product.prodname_free_user %}, have removed the payment method, or see no active {% data variables.product.prodname_copilot_short %} plan or balance in the "Billing and licensing" section under your account's settings page.
+
 You can downgrade your user account or organization to {% data variables.product.prodname_free_team %} to continue with the same advanced features in public repositories. For more information, see [AUTOTITLE](/billing/how-tos/manage-plan-and-licenses/downgrade-plan).
 
 ## Unlocking an account's features due to a declined payment
@@ -40,8 +42,10 @@ If the new billing information is approved, we will immediately charge you for t
 
 When initiating a subscription or trial, we verify the entered payment method using an authorization hold. If the hold is unsuccessful, the chosen subscription or trial will not activate.
 
-If your account's advanced features are locked due to a failed authorization hold, you'll need to update your billing information to trigger a new authorization.
+If you want to continue with the chosen subscription, update your billing information to trigger a new authorization.
 
 {% data reusables.billing.manage-payment-info %}
 
 If the new authorization is successful, the account will automatically unlock and you will be able to proceed with the chosen subscription.
+
+If the "Billing and licensing" section under your account's settings page shows no active subscription, balance, or payment issue to resolve, contact {% data variables.contact.contact_support %} to request a review of the billing lock.
