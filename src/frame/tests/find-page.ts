@@ -25,7 +25,6 @@ describe('find page', () => {
     }
     const redirectToFind = '/some-old-path'
 
-    // add named keys
     const pageMap = {
       [englishPermalink]: page,
     }

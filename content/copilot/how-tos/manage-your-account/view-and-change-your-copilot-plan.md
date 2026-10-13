@@ -65,7 +65,7 @@ You can upgrade or downgrade your {% data variables.product.prodname_copilot_sho
 
 You can cancel your {% data variables.product.prodname_copilot_short %} plan at any time. You’ll retain access to your current features until your billing cycle ends. You will automatically be downgraded to {% data variables.copilot.copilot_free_short %} at the end of your billing cycle.
 
-{% data reusables.copilot.free-access-cancellation-note %} If you have access to {% data variables.product.prodname_copilot_short %} through an organization or enterprise, you will not be able to cancel your plan. In these cases, you can disable {% data variables.product.prodname_copilot_short %} in your environment. See [AUTOTITLE](/copilot/how-tos/configure-personal-settings/configure-in-ide).
+{% data reusables.copilot.free-access-cancellation-note %} If you have access to {% data variables.product.prodname_copilot_short %} through an organization or enterprise, you will not be able to cancel your plan. In these cases, you can disable {% data variables.product.prodname_copilot_short %} in your environment. See [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/set-up-copilot/configure-in-ide).
 
 {% data reusables.copilot.copilot-one-account-short %}
 

@@ -12,10 +12,6 @@ interface ErrorMessageInfo {
   columnNumber: number
 }
 
-/*
-  Attempts to parse all liquid in the frontmatter of a file
-  to verify the syntax is correct.
-*/
 export const frontmatterLiquidSyntax = {
   names: ['GHD017', 'frontmatter-liquid-syntax'],
   description: 'Frontmatter properties must use valid Liquid',
@@ -24,9 +20,6 @@ export const frontmatterLiquidSyntax = {
     const fm = getFrontmatter(params.lines)
     if (!fm) return
 
-    // Currently this list is hardcoded, but in the future we plan to
-    // use a custom key in the frontmatter to determine which keys
-    // contain Liquid.
     const keysWithLiquid = ['title', 'shortTitle', 'intro', 'product', 'permissions'].filter(
       (key) => Boolean(fm[key]),
     )
@@ -37,16 +30,13 @@ export const frontmatterLiquidSyntax = {
       try {
         liquid.parse(value)
       } catch (error) {
-        // If the error source is not a Liquid error but rather a
-        // ReferenceError or bad type we should allow that error to be thrown
+        // Let non-Liquid parser errors propagate.
         if (!isLiquidError(error)) throw error
         const { errorDescription, columnNumber } = getErrorMessageInfo((error as Error).message)
         const lineNumber = params.lines.findIndex((line) => line.trim().startsWith(`${key}:`)) + 1
-        // Add the key length plus 3 to the column number to account colon and
-        // for the  space after the key and column number starting at 1.
-        // If there is no space after the colon, a YAMLException will be thrown.
+        // Offset for the key, colon, space, and 1-based column; missing spaces throw YAMLException.
         const startRange = columnNumber + key.length + 3
-        // If the range is greater than the length of the line, we need to adjust the range to the end of the line
+        // Clamp the range to the line length when Liquid reports past the end.
         const endRange =
           startRange + value.length - 1 > params.lines[lineNumber - 1].length
             ? params.lines[lineNumber - 1].length - startRange + 1
@@ -65,10 +55,6 @@ export const frontmatterLiquidSyntax = {
   },
 }
 
-/*
-  Attempts to parse all liquid in the Markdown content of a file
-  to verify the syntax is correct.
-*/
 export const liquidSyntax = {
   names: ['GHD018', 'liquid-syntax'],
   description: 'Markdown content must use valid Liquid',
@@ -77,17 +63,13 @@ export const liquidSyntax = {
     try {
       liquid.parse(params.lines.join('\n'))
     } catch (error) {
-      // If the error source is not a Liquid error but rather a
-      // ReferenceError or bad type we should allow that error to be thrown
+      // Let non-Liquid parser errors propagate.
       if (!isLiquidError(error)) throw error
       const { errorDescription, lineNumber, columnNumber } = getErrorMessageInfo(
         (error as Error).message,
       )
       const line = params.lines[lineNumber - 1]
-      // We don't have enough information to know the length of the full
-      // liquid tag without doing some regex testing and making assumptions
-      // about if the end tag is correctly formed, so we just give a
-      // range from the start of the tag to the end of the line.
+      // Without a trustworthy closing tag, report from the tag start through the line end.
       const range: [number, number] = [columnNumber, line.slice(columnNumber - 1).length]
       addError(
         onError,
@@ -103,8 +85,6 @@ export const liquidSyntax = {
 
 function getErrorMessageInfo(message: string): ErrorMessageInfo {
   const [errorDescription, lineString, columnString] = message.split(',')
-  // There has to be a line number so we'll default to line 1 if the message
-  // doesn't contain a line number.
   if (!columnString || !lineString)
     throw new Error('Liquid error message does not contain line or column number')
   const lineNumber = parseInt(lineString.trim().replace('line:', ''), 10)

@@ -95,5 +95,5 @@ After you trigger {% data variables.copilot.copilot_cloud_agent %} from a Linear
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-cloud-agent)
+* [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-on-github)
 * [AUTOTITLE](/copilot/concepts/enterprise/cloud-agent-access)

@@ -8,9 +8,6 @@
 - model: 'Claude Haiku 4.5'
   new_multiplier: '0.33'
 
-- model: 'Claude Opus 4.7'
-  new_multiplier: '27'
-
 - model: 'Claude Opus 4.8'
   new_multiplier: '27'
 
@@ -19,9 +16,6 @@
 
 - model: 'Gemini 3 Pro'
   new_multiplier: '6'
-
-- model: 'Gemini 3.5 Flash'
-  new_multiplier: '14'
 
 - model: 'GPT-4o'
   new_multiplier: '0.33'

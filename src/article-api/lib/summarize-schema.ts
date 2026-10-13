@@ -28,6 +28,7 @@ type JsonSchema = {
 
 const MAX_DEPTH = 4
 
+// Type arrays render as prose, so ["object","null"] becomes "object or null".
 function renderTypeConstraints(schema: JsonSchema): string {
   const parts: string[] = []
 
@@ -60,12 +61,7 @@ function renderTypeConstraints(schema: JsonSchema): string {
   return parts.join(', ') || 'object'
 }
 
-// When a titled object type has already been fully expanded once in a schema,
-// later occurrences are rendered as a short "(see above)" reference instead of
-// being re-expanded. Large REST response schemas reuse shared types (e.g.
-// `Simple User` recurs dozens of times), so this keeps output compact and fast
-// to render. Returns true if the caller should emit a reference; marks the
-// title as seen when it is about to be expanded for the first time.
+// Large REST response schemas can reuse titled objects such as Simple User dozens of times.
 function shouldReference(
   title: string | undefined,
   canExpand: boolean,
@@ -120,7 +116,6 @@ function renderProperties(
   for (const [name, prop] of Object.entries(props)) {
     const reqStr = req.has(name) ? 'required, ' : ''
 
-    // Check for composition keywords at property level
     const compositionKey = (['oneOf', 'anyOf', 'allOf'] as const).find((k) => prop[k])
     if (compositionKey) {
       const label = compositionKey.replace('Of', ' of')
@@ -164,7 +159,6 @@ function renderProperties(
         )
       }
     } else if (prop.properties && depth < MAX_DEPTH) {
-      // renderTypeConstraints handles string[] types (e.g. ["object","null"] → "object or null")
       const label = prop.title ? `\`${prop.title}\`` : renderTypeConstraints(prop)
       if (shouldReference(prop.title, true, seen)) {
         lines.push(`${prefix}* \`${name}\`: ${reqStr}${label} (see above)`)
@@ -173,7 +167,6 @@ function renderProperties(
         lines.push(renderProperties(prop, indent + 1, depth + 1, seen))
       }
     } else {
-      // renderTypeConstraints handles string[] types (e.g. ["string","null"] → "string or null")
       lines.push(`${prefix}* \`${name}\`: ${reqStr}${renderTypeConstraints(prop)}`)
     }
   }
@@ -181,27 +174,18 @@ function renderProperties(
   return lines.filter(Boolean).join('\n')
 }
 
-/**
- * Converts a JSON Schema response object into a readable markdown bullet list.
- * Includes type, required, format, enum, default, constraints — but omits
- * examples and descriptions to keep the output compact.
- */
+// Omits examples and descriptions to keep response-schema output compact.
 export function summarizeSchema(schema: JsonSchema): string {
   if (!schema || typeof schema !== 'object') return ''
 
-  // Tracks titled object types already expanded once in this schema. Later
-  // occurrences are rendered as a "(see above)" reference to keep output
-  // compact and fast to render (shared types can recur dozens of times).
   const seen = new Set<string>()
 
-  // Handle top-level composition
   for (const keyword of ['oneOf', 'anyOf', 'allOf'] as const) {
     if (schema[keyword]) {
       return renderCompositionVariants(keyword, schema[keyword]!, 0, 0, seen)
     }
   }
 
-  // Handle top-level array
   const schemaTypes = Array.isArray(schema.type) ? schema.type : schema.type ? [schema.type] : []
   const isNullable = schemaTypes.includes('null')
   const primaryType = schemaTypes.find((t) => t !== 'null')
@@ -215,7 +199,6 @@ export function summarizeSchema(schema: JsonSchema): string {
     const constraintStr = constraints.length ? ` (${constraints.join(', ')})` : ''
     const itemTitle = items.title
 
-    // Composition inside items
     const compositionKey = (['oneOf', 'anyOf', 'allOf'] as const).find((k) => items[k])
     if (compositionKey) {
       const label = compositionKey.replace('Of', ' of')
@@ -248,13 +231,8 @@ export function summarizeSchema(schema: JsonSchema): string {
     return `Array${constraintStr} of ${renderTypeConstraints(items)}${isNullable ? ' or null' : ''}`
   }
 
-  // Handle top-level object
   if (schema.properties) {
-    // Note: we deliberately do NOT pre-mark schema.title here. Unlike the
-    // array-items case above, a top-level object emits no visible titled
-    // header, so pre-marking would make a self-referential property render a
-    // dangling "(see above)" pointing at nothing. Letting it expand one
-    // depth-bounded level is correct and clearer.
+    // A top-level object emits no visible titled header, so recursive properties expand first.
     return renderProperties(schema, 0, 0, seen)
   }
 

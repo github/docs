@@ -166,8 +166,7 @@ describe('generateInternalLinkReport', () => {
   })
 
   test('labels the title with version and language when supplied', () => {
-    // The workflow concatenates every version's report into one issue, so an
-    // unlabelled title leaves no way to tell the sections apart.
+    // Concatenated version reports need labelled titles so sections stay identifiable.
     const report = generateInternalLinkReport([{ href: '/broken', file: 'a.md', lines: [1] }], {
       version: 'enterprise-server@3.21',
       language: 'en',
@@ -191,8 +190,7 @@ describe('createRedirectSuggestion', () => {
   ]
 
   test('does not tell authors to hardcode a version', () => {
-    // Following "update to the new path" here bakes 3.21 into content, which breaks
-    // as soon as 3.22 ships.
+    // Updating to the new path would bake 3.21 into content and break on the next release.
     const report = generateInternalLinkReport(
       linkTo('/admin/all-releases', '/enterprise-server@3.21/admin/all-releases'),
     )
@@ -377,7 +375,7 @@ describe('generatePRComment', () => {
 
     const comment = generatePRComment(links)
 
-    // Redirects now show a compact summary with info icon
+    // Redirects get a compact summary with an info icon.
     expect(comment).toContain('redirect')
     expect(comment).toContain('ℹ️')
   })
@@ -463,8 +461,7 @@ describe('generatePRComment', () => {
   })
 
   test('anchor wording tracks the blocking mode', () => {
-    // The comment must not claim the check is advisory once FAIL_ON_ANCHOR_FLAW flips it
-    // to failing, and vice versa.
+    // FAIL_ON_ANCHOR_FLAW controls whether anchor text says advisory or failing.
     const brokenAnchors = [
       { href: '/a#x', file: 'content/a.md', lines: [1], versions: ['free-pro-team@latest'] },
     ]
@@ -483,17 +480,14 @@ describe('generateSampleReports', () => {
   test('generates valid sample reports', () => {
     const samples = generateSampleReports()
 
-    // Internal report
     expect(samples.internal.report.groups.length).toBeGreaterThan(0)
     expect(samples.internal.markdown).toContain('Internal Link Check')
     expect(samples.internal.markdown).toContain('/old/broken/path')
 
-    // External report
     expect(samples.external.report.groups.length).toBeGreaterThan(0)
     expect(samples.external.markdown).toContain('External Link Check')
     expect(samples.external.markdown).toContain('example.com')
 
-    // PR comment
     expect(samples.prComment).toContain('Link Check Results')
     expect(samples.prComment).toContain('link-checker-pr-comment')
   })
@@ -580,7 +574,7 @@ describe('internal report grouped by fix strategy', () => {
     expect(markdown).toContain(
       'npm run update-internal-links -- content/admin --keep-stale-fragments --dont-set-autotitle',
     )
-    // content/issues only appears in the manual bucket, so it is not a codemod target.
+    // content/issues appears only in the manual bucket, so it is not a codemod target.
     expect(markdown).not.toContain('npm run update-internal-links -- content/issues ')
   })
 
@@ -696,7 +690,7 @@ describe('mergeInternalLinkReports', () => {
     const markdown = reportToMarkdown(merged)
 
     expect(markdown).toContain('**Only in:** ghes')
-    // The shared link breaks everywhere, so saying so on every group would be noise.
+    // Shared links that break everywhere omit per-group version labels to reduce noise.
     expect(markdown).not.toContain('**Only in:** fpt, ghes')
   })
 })
@@ -722,7 +716,7 @@ describe('describeVersions', () => {
 
 describe('codemod table truncation', () => {
   const links: BrokenLink[] = [
-    // `/old-0` appears in five files, so it should survive truncation.
+    // /old-0 appears in five files, so it must survive truncation.
     ...Array.from({ length: 5 }, (_, f) => ({
       href: '/old-0',
       file: `actions/busy-${f}.md`,
@@ -813,7 +807,7 @@ describe('version-only redirects', () => {
 describe('section caps', () => {
   test('caps stale anchors, keeping the busiest ones and counting the rest', () => {
     const anchors: BrokenLink[] = [
-      // `/page-0#gone` appears in four files, so it must survive the cut.
+      // /page-0#gone appears in four files, so it must survive the cut.
       ...Array.from({ length: 4 }, (_, f) => ({
         href: '/page-0#gone',
         file: `actions/busy-${f}.md`,
@@ -860,8 +854,7 @@ describe('section caps', () => {
 
 describe('version-only classification across versions', () => {
   test('a link that is version-only in one version and renamed in another is codemod work', () => {
-    // Merged reports put every version's occurrences in one group. Classifying on the first
-    // redirect target alone would file this under "no action" and hide the rename.
+    // Classifying only the first merged redirect target would hide the later rename.
     const mixed: BrokenLink[] = [
       {
         href: '/admin/overview',
@@ -909,8 +902,7 @@ describe('version-only classification across versions', () => {
 
 describe('per-link file list cap', () => {
   test('caps the file table under one link and counts the rest', () => {
-    // Nothing bounds how many pages reuse a link, so one popular link could otherwise
-    // fill the whole issue body.
+    // One popular link could otherwise fill the whole issue body.
     const many: BrokenLink[] = Array.from({ length: 30 }, (_, i) => ({
       href: '/page#gone',
       file: `actions/page-${i}.md`,
@@ -938,7 +930,7 @@ describe('versions checked when some come back clean', () => {
     generateInternalLinkReport([{ href, file: 'actions/a.md', lines: [1] }])
 
   test('a caller-supplied version list wins over what was found on disk', () => {
-    // A clean version uploads no report, so counting files undercounts the matrix.
+    // Clean versions upload no report, so counting report files undercounts the matrix.
     const merged = mergeInternalLinkReports(
       [
         { version: 'free-pro-team@latest en', report: report('/a#gone') },
@@ -949,7 +941,7 @@ describe('versions checked when some come back clean', () => {
 
     expect(merged.versionsChecked).toHaveLength(3)
     expect(merged.summary).toContain('Checked 3 versions')
-    // Two of three versions is now worth saying out loud, where two of two was not.
+    // Two of three checked versions merit a version-specific label.
     expect(reportToMarkdown(merged)).toContain('**Only in:**')
   })
 

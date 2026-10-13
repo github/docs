@@ -25,7 +25,7 @@ Security campaigns are created and managed from the **{% data variables.product.
 
 You choose the alerts that you want to include in the campaign by using either:
 
-* **Campaign templates**: Campaign templates contain filters for the most common alert selections. {% ifversion security-campaigns-autofix %}For code campaigns, they also all include the requirement that {% data variables.copilot.copilot_autofix %} is supported for all the alert types included (that is, `autofix:supported`).{% endif %}
+* **Campaign templates**: Campaign templates contain filters for the most common alert selections. {% ifversion security-campaigns-autofix %}When agentic autofix is disabled, they also use `autofix:supported` to include only alerts for rules supported by {% data variables.copilot.copilot_autofix %}.{% endif %}
 * **Custom filters**: Creating a campaign using custom filters lets you define your own criteria for selecting alerts for the campaign, and lets you tailor your campaign to your organization's specific needs.
 
 {% data reusables.code-scanning.campaigns-api %}
@@ -74,7 +74,11 @@ All the template filters use `is:open` to include only alerts that need to be re
 Additional default filters for {% data variables.product.prodname_code_scanning %} alerts:
 
 * `autofilter:true` includes only alerts that appear to be in application code. {% ifversion security-campaigns-autofix %}
-* `autofix:supported` includes only alerts that are for rules that are supported for {% data variables.copilot.copilot_autofix %}.{% endif %}
+
+> [!NOTE]
+> When agentic autofix is enabled for your organization or enterprise, the `autofix` filter is unavailable, and adding `autofix:supported` does not change the results. For alerts in repositories where {% data variables.copilot.copilot_cloud_agent %} and {% data variables.copilot.copilot_autofix_short %} are available, you can use **Assign to {% data variables.product.prodname_copilot_short %}** for any {% data variables.product.prodname_code_scanning %} alert in a campaign.
+
+{% endif %}
 
 For more information about filtering alerts, see [AUTOTITLE](/code-security/tutorials/secure-your-organization/best-practice-fix-alerts-at-scale#2-select-alerts-for-your-campaign) and [AUTOTITLE](/code-security/how-tos/manage-security-alerts/remediate-alerts-at-scale/filtering-alerts-in-security-overview).
 
@@ -84,11 +88,11 @@ For more information about filtering alerts, see [AUTOTITLE](/code-security/tuto
 
 {% endif %}
 
-In addition to the core filters, you will usually want to add a filter to limit results to a specific rule name, severity, or tag.
+Use `autofilter:true` with `rule:`, `tag:`, or `severity:` to scope your campaign.
 
-* `is:open autofilter:true {% ifversion security-campaigns-autofix %}autofix:supported {% endif %}rule:java/log-injection` to show only alerts for log injection in Java code. See [AUTOTITLE](/code-security/reference/code-scanning/codeql/codeql-queries).
-* `is:open autofilter:true {% ifversion security-campaigns-autofix %}autofix:supported {% endif %}tag:external/cwe/cwe-117` to show only alerts for "CWE 117: Improper Output Neutralization for Logs". This includes log injection in Java and other languages.
-* `is:open autofilter:true {% ifversion security-campaigns-autofix %}autofix:supported {% endif %}severity:critical` to show only alerts with a security severity of critical.
+* `is:open autofilter:true rule:java/log-injection` to show only alerts for log injection in Java code. See [AUTOTITLE](/code-security/reference/code-scanning/codeql/codeql-queries).
+* `is:open autofilter:true tag:external/cwe/cwe-117` to show only alerts for "CWE 117: Improper Output Neutralization for Logs". This includes log injection in Java and other languages.
+* `is:open autofilter:true severity:critical` to show only alerts with a security severity of critical.
 
 {% ifversion security-campaigns-secrets %}
 

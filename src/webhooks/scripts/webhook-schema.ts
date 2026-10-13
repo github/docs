@@ -1,10 +1,8 @@
-// This schema is used to validate each generated webhook object at build time
-
+// Defines the build-time schema for every generated webhook object.
 export default {
   type: 'object',
   required: ['availability', 'bodyParameters', 'category', 'descriptionHtml', 'summaryHtml'],
   properties: {
-    // Properties from the source OpenAPI schema that this module depends on
     action: {
       description: 'The webhook action type',
       type: ['string', 'null'],

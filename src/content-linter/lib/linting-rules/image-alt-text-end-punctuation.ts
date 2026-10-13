@@ -16,10 +16,7 @@ export const imageAltTextEndPunctuation: Rule = {
     forEachInlineChild(params, 'image', function forToken(token: MarkdownToken) {
       const imageAltText = token.content?.trim()
 
-      // If the alt text is empty, there is nothing to check and you can't
-      // produce a valid range.
-      // We can safely return early because the image-alt-text-length rule
-      // will fail this one.
+      // Empty alt text belongs to image-alt-text-length and cannot produce a range.
       if (!imageAltText) return
 
       if (isStringPunctuated(imageAltText)) return

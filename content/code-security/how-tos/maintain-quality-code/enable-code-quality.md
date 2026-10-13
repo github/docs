@@ -56,3 +56,9 @@ For the available access options, and how filtering and enforcement work, see [A
 Your changes are saved automatically and begin to propagate immediately. In large organizations, it can take several minutes for the changes to apply across all repositories.
 
 If you're rolling out the feature across many teams, we recommend you pilot on a small group and tune your quality thresholds before you enable everywhere. See [AUTOTITLE](/code-security/how-tos/maintain-quality-code/roll-out-at-scale).
+
+## Scan frequency after enablement
+
+When you enable {% data variables.product.prodname_code_quality_short %}, an initial {% data variables.product.prodname_codeql %} scan runs on the default branch. Weekly scheduled {% data variables.product.prodname_codeql %} scans start only after a push or pull request triggers a scan. Pushes and pull requests from before enablement do not count as activity.
+
+Weekly scheduled scans pause if no push or pull request has triggered a scan in the last 180 days. Initial scans, scans triggered by configuration or language changes, and scheduled scans do not count as activity. A new push- or pull-request-triggered scan resumes the weekly schedule.

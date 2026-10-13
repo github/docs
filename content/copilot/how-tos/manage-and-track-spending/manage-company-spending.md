@@ -37,7 +37,7 @@ To track {% data variables.product.prodname_ai_credits_short %} consumption, nav
 
 ### Controlling usage with budgets
 
-You can set budgets at the user, cost center, and enterprise level to control how {% data variables.product.prodname_ai_credits_short %} are consumed. For an overview of how budget controls work, see [AUTOTITLE](/copilot/concepts/billing/budgets-for-usage-based-billing). For guidance on choosing the right configuration, see [AUTOTITLE](/copilot/tutorials/budgets/optimizing-your-budget-configuration).
+You can set budgets at the user, cost center, and enterprise level to control how {% data variables.product.prodname_ai_credits_short %} are consumed. For an overview of how budget controls work, see [AUTOTITLE](/copilot/concepts/billing-and-usage/organizations-and-enterprises/budgets). For guidance on choosing the right configuration, see [AUTOTITLE](/copilot/tutorials/budgets/optimizing-your-budget-configuration).
 
 ## Mapping spending to groups of users
 

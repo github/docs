@@ -90,25 +90,28 @@ The message body is a JSON array that contains one or more objects, with each ob
 
 The list of valid values for `source` are:
 
-* Content
-* Commit
-* Pull_request_title
-* Pull_request_description
-* Pull_request_comment
-* Issue_title
-* Issue_description
-* Issue_comment
-* Discussion_title
-* Discussion_body
-* Discussion_comment
-* Commit_comment
-* Gist_content
-* Gist_comment
-* Wiki_content
-* Wiki_commit
-* Npm
-* Manual_submission
-* Unknown
+* `content`
+* `commit`
+* `pull_request_title`
+* `pull_request_description`
+* `pull_request_comment`
+* `issue_title`
+* `issue_description`
+* `issue_comment`
+* `discussion_title`
+* `discussion_body`
+* `discussion_comment`
+* `commit_comment`
+* `gist_content`
+* `gist_comment`
+* `wiki_content`
+* `wiki_commit`
+* `npm`
+* `manual_submission`
+* `action_logs`
+* `unknown`
+
+A `source` of `action_logs` means the match was found in the logs of a {% data variables.product.prodname_actions %} workflow run in a public repository.
 
 ### Implement signature verification in your secret alert service
 

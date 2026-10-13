@@ -11,7 +11,6 @@ import { CopilotIcon, BugIcon, RocketIcon } from '@primer/octicons-react'
 describe('octicons reference', () => {
   describe('VALID_OCTICONS', () => {
     test('contains expected octicon names', () => {
-      // Test that we have the expected number of octicons and they're all defined
       expect(VALID_OCTICONS.length).toBeGreaterThan(0)
       expect(VALID_OCTICONS).toEqual(expect.arrayContaining(['bug', 'rocket', 'copilot']))
     })
@@ -60,7 +59,6 @@ describe('octicons reference', () => {
       const testOcticon: string | null = 'bug'
 
       if (isValidOcticon(testOcticon)) {
-        // This should compile without type errors
         const validOcticon: ValidOcticon = testOcticon
         expect(validOcticon).toBe('bug')
       }
@@ -79,15 +77,13 @@ describe('octicons reference', () => {
     })
 
     test('returns CopilotIcon as fallback for invalid octicons', () => {
-      // TypeScript should prevent this, but test runtime behavior
+      // Runtime content can bypass TypeScript, so invalid names still need a fallback.
       expect(getOcticonComponent('invalid' as ValidOcticon)).toBe(CopilotIcon)
     })
   })
 
   describe('type safety', () => {
     test('ValidOcticon type includes all expected values', () => {
-      // This test ensures the type system prevents invalid octicons at compile time
-      // Test a few key octicons to verify the type works correctly
       const testOcticons: ValidOcticon[] = ['bug', 'rocket', 'copilot']
 
       for (const octicon of testOcticons) {
@@ -123,21 +119,15 @@ describe('octicons reference', () => {
     })
 
     test('ValidOcticon type matches OCTICON_COMPONENTS keys', () => {
-      // This test ensures the type system is correctly derived from the object
       const testOcticon: ValidOcticon = 'bug'
       expect(OCTICON_COMPONENTS[testOcticon]).toBeDefined()
 
-      // Type check - this should compile without errors
       const allKeys: ValidOcticon[] = Object.keys(OCTICON_COMPONENTS) as ValidOcticon[]
       expect(allKeys.length).toBeGreaterThan(0)
     })
 
     test('adding new octicon only requires updating OCTICON_COMPONENTS', () => {
-      // This test documents the single source of truth approach
-      // If you add a new octicon to OCTICON_COMPONENTS:
-      // 1. ValidOcticon type automatically includes it
-      // 2. VALID_OCTICONS array automatically includes it
-      // 3. All validation functions work with it
+      // OCTICON_COMPONENTS drives the type, validation array, and validation helpers.
 
       const componentCount = Object.keys(OCTICON_COMPONENTS).length
       const validOcticonsCount = VALID_OCTICONS.length

@@ -1,11 +1,12 @@
 name: 'Sync Copilot SDK docs'
 
+# Syncs Copilot SDK docs after copilot-sdk docs changes and opens an update PR.
+# Supports manual dry runs and pull request validation without publishing.
+
 on:
-  # Event-driven sync — triggered by copilot-sdk when docs/ changes are pushed
   repository_dispatch:
     types: [sync-sdk-docs]
 
-  # Manual trigger for on-demand syncs and testing
   workflow_dispatch:
     inputs:
       dry_run:
@@ -19,7 +20,6 @@ on:
         default: 'main'
         type: string
 
-  # PR validation — dry-run only, verifies scripts work on CI
   pull_request:
     types: [opened, synchronize, reopened]
     paths:
@@ -50,6 +50,22 @@ jobs:
       - name: Checkout docs-internal
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
 
+      # Publishing runs must start from the default branch because preserve-redirects.ts reads
+      # live URLs from git HEAD. workflow_dispatch from another branch could write stale redirects.
+      - name: Verify publishing runs start from the default branch
+        if: github.event_name != 'pull_request' && inputs.dry_run != 'true'
+        run: |
+          if [ "$GITHUB_REF_NAME" != "$DEFAULT_BRANCH" ]; then
+            echo "::error::This run would push and open a PR, but it started from" \
+              "'$GITHUB_REF_NAME' rather than the default branch '$DEFAULT_BRANCH'." \
+              "HEAD is the baseline for redirect preservation, so syncing from another" \
+              "branch can drop or invent redirects. Re-run from '$DEFAULT_BRANCH', or" \
+              "use the dry_run input to test from a branch."
+            exit 1
+          fi
+        env:
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+
       - name: Fetch SDK docs from copilot-sdk
         env:
           GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
@@ -78,10 +94,9 @@ jobs:
       - name: Copy SDK docs
         run: |
           mkdir -p "$SDK_DOCS_TARGET"
-          # Pages relocated out of this tree into hand-authored content are not
-          # excluded here — they are removed by the RELOCATED_PAGES map in
-          # src/workflows/sync-sdk-docs/normalize-sdk-docs.ts, which also
-          # repoints inbound links at their new URLs.
+          # Keep relocated pages in the rsync input. RELOCATED_PAGES in
+          # src/workflows/sync-sdk-docs/normalize-sdk-docs.ts removes them and
+          # repoints inbound links.
           rsync -av --exclude='.validation/' --exclude='developer-docs/' "$SDK_TMP/docs/" "$SDK_DOCS_TARGET/"
           echo "Copied $(find "$SDK_DOCS_TARGET" -name '*.md' | wc -l | tr -d ' ') markdown files"
 
@@ -91,11 +106,21 @@ jobs:
             --content-dir content \
             --sdk-docs-dir "$SDK_DOCS_TARGET"
 
+      - name: Preserve redirects
+        run: |
+          # --git-ref HEAD points preserve-redirects.ts at the currently live URLs. Publishing runs
+          # have already verified HEAD is the default branch; pull_request runs stay dry-run only.
+          # Removed pages still produce a PR for redirect review. The script writes at-risk URLs and
+          # a copy-pasteable redirect_from block to the run summary either way.
+          npx tsx src/workflows/sync-sdk-docs/preserve-redirects.ts \
+            --sdk-docs-dir "$SDK_DOCS_TARGET" \
+            --git-ref HEAD
+
       - name: Convert Mermaid diagrams to PNG
         env:
           PUPPETEER_CHROMIUM_REVISION: ''
         run: |
-          # Puppeteer needs --no-sandbox on GitHub Actions runners
+          # Puppeteer needs --no-sandbox on GitHub Actions runners.
           echo '{ "args": ["--no-sandbox", "--disable-setuid-sandbox"] }' > /tmp/puppeteer-config.json
           npx tsx src/workflows/sync-sdk-docs/convert-mermaid.ts \
             --sdk-docs-dir "$SDK_DOCS_TARGET" \
@@ -109,7 +134,6 @@ jobs:
             echo "No assets directory — nothing to clean."
             exit 0
           fi
-          # Collect image filenames referenced in the current SDK docs
           REFERENCED=$(grep -roh '/assets/images/help/copilot/copilot-sdk/[^)]*' "$SDK_DOCS_TARGET" \
             | sed 's|.*/||' | sort -u)
           STALE=0
@@ -154,7 +178,6 @@ jobs:
             git diff --cached --stat
           fi
 
-      # --- PR-only: upload artifacts for review ---
       - name: Upload normalized docs (PR validation)
         if: github.event_name == 'pull_request'
         uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
@@ -165,7 +188,6 @@ jobs:
             ${{ env.ASSETS_TARGET }}
           retention-days: 7
 
-      # --- Push and PR (only on schedule/dispatch, not dry-run, and changes exist) ---
       - name: Commit and push
         if: >-
           env.has_changes == 'true'
@@ -177,7 +199,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          # Fetch the sync branch if it exists so force-with-lease knows the remote state
+          # Fetch the sync branch if it exists so force-with-lease knows the remote state.
           git fetch origin "$SYNC_BRANCH" 2>/dev/null || true
 
           git checkout -B "$SYNC_BRANCH"
@@ -212,7 +234,7 @@ jobs:
           - Normalizes code fence languages and list formatting
 
           > [!NOTE]
-          > This PR is auto-generated. Do not edit it directly — make changes in the [copilot-sdk docs](https://github.com/github/copilot-sdk/tree/main/docs) instead.
+          > This PR is auto-generated. Do not edit it directly — make changes in the [copilot-sdk docs](https://github.com/github/copilot-sdk/tree/main/docs) instead. Exception: \`redirect_from\` cannot come from upstream, so add redirects here.
 
           ---
           _Generated by the [sync-sdk-docs workflow run]($GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID)._"

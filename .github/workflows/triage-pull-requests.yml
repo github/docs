@@ -1,11 +1,9 @@
 name: Triage new pull requests
 
-# **What it does**: Adds triage label to new pull requests in the open source repository.
-# **Why we have it**: Update project board for new pull requests for triage.
-# **Who does it impact**: Docs open source.
+# Labels opened or reopened public docs pull requests for triage.
 
 on:
-  # Needed in lieu of `pull_request` so that PRs from a fork can be triaged.
+  # pull_request_target lets PRs from forks be triaged.
   pull_request_target:
     types:
       - reopened

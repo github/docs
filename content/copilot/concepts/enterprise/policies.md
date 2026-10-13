@@ -10,6 +10,8 @@ redirect_from:
   - /copilot/concepts/policies
 category:
   - Manage Copilot for a team
+docsTeamMetrics:
+  - ai-governance
 ---
 
 ## How do policies work?
@@ -37,6 +39,12 @@ For model policies on a {% data variables.product.prodname_team %} plan, a user'
 A user's individual plan is cancelled when they are added to a {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} plan, so a user's personal policies cannot conflict with an enterprise's or organization's.
 
 To see details for each policy, see [AUTOTITLE](/copilot/reference/enterprise-administrators/policy-conflicts).
+
+## What is the default status of policies?
+
+{% data reusables.copilot.default-availability-policies %}
+
+For more information, see [AUTOTITLE](/copilot/concepts/enterprise/default-availability).
 
 ## Where do policies apply?
 

@@ -12,6 +12,7 @@ category:
 allowTitleToDifferFromFilename: true
 docsTeamMetrics:
   - copilot-cli
+  - ai-governance
 ---
 
 This tutorial is for DevOps engineers, platform teams, and engineering leaders who support developers using {% data variables.copilot.copilot_cli_short %}.

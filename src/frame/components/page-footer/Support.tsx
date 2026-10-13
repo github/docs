@@ -6,16 +6,10 @@ import { useMainContext } from '@/frame/components/context/MainContext'
 
 import styles from './SupportSection.module.scss'
 
-// The footer's help column. Expert services and Blog moved here out of the legal
-// strip in the Docs 2026 design — the design groups these with the other help
-// destinations.
-//
-// Below the 2-column breakpoint the design collapses this into a disclosure. Rather
-// than render <details> at every width and fight the UA's content hiding (which
-// modern Chrome exposes via ::details-content and older browsers via the children),
-// we render the plain heading + list on the server and swap to a disclosure once we
-// know the viewport is narrow. That keeps SSR and the first client render identical,
-// and leaves the links reachable when JavaScript never runs.
+// The Docs 2026 design groups Expert services and Blog with help destinations.
+// Below the two-column breakpoint, swap the server-rendered plain list to a
+// disclosure only after client media matching, so hydration matches and links stay
+// reachable without JavaScript.
 export const Support = () => {
   const { t } = useTranslation('support')
   const { t: tFooter } = useTranslation('footer')
@@ -24,7 +18,7 @@ export const Support = () => {
 
   useEffect(() => {
     if (typeof window === 'undefined' || !window.matchMedia) return
-    // Mirrors the first grid breakpoint in SupportSection.module.scss.
+    // Keep this query in sync with the first grid breakpoint in SupportSection.module.scss.
     const mql = window.matchMedia('(max-width: 767px)')
     const handle = (event: MediaQueryListEvent | MediaQueryList) => setIsNarrow(event.matches)
     handle(mql)

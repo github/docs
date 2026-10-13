@@ -4,6 +4,181 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Field <code>fullDatabaseId</code> was added to object type <code>Repository</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-10-08"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>AddedToStackEvent</code> was added</p>",
+          "<p><code>AddedToStackEvent</code> object implements <code>Node</code> interface</p>",
+          "<p>Field <code>actor</code> was added to object type <code>AddedToStackEvent</code></p>",
+          "<p>Field <code>createdAt</code> was added to object type <code>AddedToStackEvent</code></p>",
+          "<p>Field <code>id</code> was added to object type <code>AddedToStackEvent</code></p>",
+          "<p>Field <code>pullRequest</code> was added to object type <code>AddedToStackEvent</code></p>",
+          "<p>Field <code>stackId</code> was added to object type <code>AddedToStackEvent</code></p>",
+          "<p>Field <code>stackNumber</code> was added to object type <code>AddedToStackEvent</code></p>",
+          "<p>Type <code>RemovedFromStackEvent</code> was added</p>",
+          "<p><code>RemovedFromStackEvent</code> object implements <code>Node</code> interface</p>",
+          "<p>Field <code>actor</code> was added to object type <code>RemovedFromStackEvent</code></p>",
+          "<p>Field <code>createdAt</code> was added to object type <code>RemovedFromStackEvent</code></p>",
+          "<p>Field <code>id</code> was added to object type <code>RemovedFromStackEvent</code></p>",
+          "<p>Field <code>pullRequest</code> was added to object type <code>RemovedFromStackEvent</code></p>",
+          "<p>Field <code>stackId</code> was added to object type <code>RemovedFromStackEvent</code></p>",
+          "<p>Field <code>stackNumber</code> was added to object type <code>RemovedFromStackEvent</code></p>",
+          "<p>Type <code>RerequestReviewsInput</code> was added</p>",
+          "<p>Input field <code>botIds</code> of type '[ID!]<code>was added to input object type</code>RerequestReviewsInput'</p>",
+          "<p>Input field <code>clientMutationId</code> of type <code>String</code> was added to input object type <code>RerequestReviewsInput</code></p>",
+          "<p>Input field <code>pullRequestId</code> of type <code>ID!</code> was added to input object type <code>RerequestReviewsInput</code></p>",
+          "<p>Input field <code>teamIds</code> of type '[ID!]<code>was added to input object type</code>RerequestReviewsInput'</p>",
+          "<p>Input field <code>userIds</code> of type '[ID!]<code>was added to input object type</code>RerequestReviewsInput'</p>",
+          "<p>Type <code>RerequestReviewsPayload</code> was added</p>",
+          "<p>Field <code>actor</code> was added to object type <code>RerequestReviewsPayload</code></p>",
+          "<p>Field <code>clientMutationId</code> was added to object type <code>RerequestReviewsPayload</code></p>",
+          "<p>Field <code>pullRequest</code> was added to object type <code>RerequestReviewsPayload</code></p>",
+          "<p>Field <code>requestedReviewersEdge</code> was added to object type <code>RerequestReviewsPayload</code></p>",
+          "<p>Field <code>rerequestReviews</code> was added to object type <code>Mutation</code></p>",
+          "<p>Argument <code>input: RerequestReviewsInput!</code> added to field <code>Mutation.rerequestReviews</code></p>",
+          "<p>Member <code>AddedToStackEvent</code> was added to Union type <code>PullRequestTimelineItems</code></p>",
+          "<p>Member <code>RemovedFromStackEvent</code> was added to Union type <code>PullRequestTimelineItems</code></p>",
+          "<p>Argument <code>isWithdrawn: Boolean</code> added to field <code>Query.securityAdvisories</code></p>",
+          "<p>Argument 'severities: [SecurityAdvisorySeverity!]<code>added to field</code>Query.securityAdvisories'</p>",
+          "<p>Field <code>cveId</code> was added to object type <code>SecurityAdvisory</code></p>",
+          "<p>Field <code>githubReviewedAt</code> was added to object type <code>SecurityAdvisory</code></p>",
+          "<p>Field <code>nvdPublishedAt</code> was added to object type <code>SecurityAdvisory</code></p>",
+          "<p>Field <code>repositoryAdvisoryUrl</code> was added to object type <code>SecurityAdvisory</code></p>",
+          "<p>Field <code>sourceCodeLocation</code> was added to object type <code>SecurityAdvisory</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-10-05"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Input field <code>id</code> of type <code>String</code> was added to input object type 'ProjectV2Iteration'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-10-01"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>AddRelatesToInput</code> was added</p>",
+          "<p>Input field <code>clientMutationId</code> of type <code>String</code> was added to input object type <code>AddRelatesToInput</code></p>",
+          "<p>Input field <code>issueId</code> of type <code>ID!</code> was added to input object type <code>AddRelatesToInput</code></p>",
+          "<p>Input field <code>relatedIssueId</code> of type <code>ID!</code> was added to input object type <code>AddRelatesToInput</code></p>",
+          "<p>Type <code>AddRelatesToPayload</code> was added</p>",
+          "<p>Field <code>clientMutationId</code> was added to object type <code>AddRelatesToPayload</code></p>",
+          "<p>Field <code>issue</code> was added to object type <code>AddRelatesToPayload</code></p>",
+          "<p>Field <code>relatedIssue</code> was added to object type <code>AddRelatesToPayload</code></p>",
+          "<p>Type <code>IssueRelatesToOrder</code> was added</p>",
+          "<p>Input field <code>direction</code> of type <code>OrderDirection!</code> was added to input object type <code>IssueRelatesToOrder</code></p>",
+          "<p>Input field <code>field</code> of type <code>IssueRelatesToOrderField!</code> was added to input object type <code>IssueRelatesToOrder</code></p>",
+          "<p>Type <code>IssueRelatesToOrderField</code> was added</p>",
+          "<p>Enum value 'CREATED_AT<code>was added to enum</code>IssueRelatesToOrderField'</p>",
+          "<p>Enum value 'RELATES_TO_ADDED_AT<code>was added to enum</code>IssueRelatesToOrderField'</p>",
+          "<p>Type <code>RemoveRelatesToInput</code> was added</p>",
+          "<p>Input field <code>clientMutationId</code> of type <code>String</code> was added to input object type <code>RemoveRelatesToInput</code></p>",
+          "<p>Input field <code>issueId</code> of type <code>ID!</code> was added to input object type <code>RemoveRelatesToInput</code></p>",
+          "<p>Input field <code>relatedIssueId</code> of type <code>ID!</code> was added to input object type <code>RemoveRelatesToInput</code></p>",
+          "<p>Type <code>RemoveRelatesToPayload</code> was added</p>",
+          "<p>Field <code>clientMutationId</code> was added to object type <code>RemoveRelatesToPayload</code></p>",
+          "<p>Field <code>issue</code> was added to object type <code>RemoveRelatesToPayload</code></p>",
+          "<p>Field <code>relatedIssue</code> was added to object type <code>RemoveRelatesToPayload</code></p>",
+          "<p>Field <code>relatesTo</code> was added to object type <code>Issue</code></p>",
+          "<p>Argument <code>after: String</code> added to field <code>Issue.relatesTo</code></p>",
+          "<p>Argument <code>before: String</code> added to field <code>Issue.relatesTo</code></p>",
+          "<p>Argument <code>first: Int</code> added to field <code>Issue.relatesTo</code></p>",
+          "<p>Argument <code>last: Int</code> added to field <code>Issue.relatesTo</code></p>",
+          "<p>Argument <code>orderBy: IssueRelatesToOrder</code> (with default value) added to field <code>Issue.relatesTo</code></p>",
+          "<p>Field <code>addRelatesTo</code> was added to object type <code>Mutation</code></p>",
+          "<p>Argument <code>input: AddRelatesToInput!</code> added to field <code>Mutation.addRelatesTo</code></p>",
+          "<p>Field <code>removeRelatesTo</code> was added to object type <code>Mutation</code></p>",
+          "<p>Argument <code>input: RemoveRelatesToInput!</code> added to field <code>Mutation.removeRelatesTo</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-09-28"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>IssueEventRationale</code> was removed</p>",
+          "<p>Type <code>IssueEventWithRationale</code> was removed</p>",
+          "<p>Type <code>CodeCoverageParameters</code> was added</p>",
+          "<p>Field <code>maxCoverageDrop</code> was added to object type <code>CodeCoverageParameters</code></p>",
+          "<p>Field <code>minimumCoverage</code> was added to object type <code>CodeCoverageParameters</code></p>",
+          "<p>Type <code>CodeCoverageParametersInput</code> was added</p>",
+          "<p>Input field <code>maxCoverageDrop</code> of type <code>Float</code> was added to input object type <code>CodeCoverageParametersInput</code></p>",
+          "<p>Input field <code>minimumCoverage</code> of type <code>Float</code> was added to input object type <code>CodeCoverageParametersInput</code></p>",
+          "<p>Type <code>CodeQualityParameters</code> was added</p>",
+          "<p>Field <code>severity</code> was added to object type <code>CodeQualityParameters</code></p>",
+          "<p>Type <code>CodeQualityParametersInput</code> was added</p>",
+          "<p>Input field <code>severity</code> of type <code>CodeQualitySeverity!</code> was added to input object type <code>CodeQualityParametersInput</code></p>",
+          "<p>Type <code>CodeQualitySeverity</code> was added</p>",
+          "<p>Enum value <code>ALL</code> was added to enum <code>CodeQualitySeverity</code></p>",
+          "<p>Enum value <code>ERRORS</code> was added to enum <code>CodeQualitySeverity</code></p>",
+          "<p>Enum value <code>NOTES</code> was added to enum <code>CodeQualitySeverity</code></p>",
+          "<p>Enum value <code>WARNINGS</code> was added to enum <code>CodeQualitySeverity</code></p>",
+          "<p>Field <code>eventRationales</code> (deprecated) was removed from object type <code>Issue</code></p>",
+          "<p>Field <code>rationale</code> (deprecated) was removed from object type <code>IssueFieldAddedEvent</code></p>",
+          "<p>Field <code>rationale</code> (deprecated) was removed from object type <code>IssueFieldChangedEvent</code></p>",
+          "<p>Field <code>rationale</code> (deprecated) was removed from object type <code>IssueFieldRemovedEvent</code></p>",
+          "<p>Field <code>rationale</code> (deprecated) was removed from object type <code>IssueTypeAddedEvent</code></p>",
+          "<p>Field <code>rationale</code> (deprecated) was removed from object type <code>IssueTypeChangedEvent</code></p>",
+          "<p>Field <code>rationale</code> (deprecated) was removed from object type <code>IssueTypeRemovedEvent</code></p>",
+          "<p>Field <code>rationale</code> (deprecated) was removed from object type <code>LabeledEvent</code></p>",
+          "<p><code>PendingAssigneeSuggestion</code> object implements <code>Node</code> interface</p>",
+          "<p>Field <code>id</code> was added to object type <code>PendingAssigneeSuggestion</code></p>",
+          "<p><code>PendingCloseSuggestion</code> object implements <code>Node</code> interface</p>",
+          "<p>Field <code>id</code> was added to object type <code>PendingCloseSuggestion</code></p>",
+          "<p><code>PendingFieldSuggestion</code> object implements <code>Node</code> interface</p>",
+          "<p>Field <code>id</code> was added to object type <code>PendingFieldSuggestion</code></p>",
+          "<p><code>PendingLabelSuggestion</code> object implements <code>Node</code> interface</p>",
+          "<p>Field <code>id</code> was added to object type <code>PendingLabelSuggestion</code></p>",
+          "<p><code>PendingTypeSuggestion</code> object implements <code>Node</code> interface</p>",
+          "<p>Field <code>id</code> was added to object type <code>PendingTypeSuggestion</code></p>",
+          "<p>Enum value 'TRIAGE_PLUS<code>was added to enum</code>RepositoryPermission'</p>",
+          "<p>Enum value 'CODE_COVERAGE<code>was added to enum</code>RepositoryRuleType'</p>",
+          "<p>Enum value 'CODE_QUALITY<code>was added to enum</code>RepositoryRuleType'</p>",
+          "<p>Member <code>CodeCoverageParameters</code> was added to Union type <code>RuleParameters</code></p>",
+          "<p>Member <code>CodeQualityParameters</code> was added to Union type <code>RuleParameters</code></p>",
+          "<p>Input field <code>codeCoverage</code> of type <code>CodeCoverageParametersInput</code> was added to input object type <code>RuleParametersInput</code></p>",
+          "<p>Input field <code>codeQuality</code> of type <code>CodeQualityParametersInput</code> was added to input object type <code>RuleParametersInput</code></p>",
+          "<p>Field <code>rationale</code> (deprecated) was removed from object type <code>UnlabeledEvent</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-09-21"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Type <code>ProofOfPresenceRequirement</code> was removed</p>",
           "<p>Type <code>UpdateEnterpriseProofOfPresenceRequiredSettingInput</code> was removed</p>",
           "<p>Type <code>UpdateEnterpriseProofOfPresenceRequiredSettingPayload</code> was removed</p>",

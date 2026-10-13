@@ -152,6 +152,10 @@ On {% data variables.product.prodname_ghe_cloud %}, during a security incident, 
 
 During a security incident, enterprise owners{% ifversion single_user_cred_revocation %} and organization owners{% endif %} can respond quickly with bulk actions. {% ifversion single_user_cred_revocation %}You can take action against individual members, a specific credential type, or against all members in bulk.{% endif %} These actions affect user SSH keys, {% data variables.product.prodname_oauth_app %} user access tokens, {% data variables.product.prodname_github_app %} user access tokens, {% data variables.product.pat_v1_plural %}, and {% data variables.product.pat_v2_plural %}. They do **not** affect {% data variables.product.prodname_github_app %} installation access tokens, deploy keys, or `GITHUB_TOKEN`.
 
+{% ifversion enterprise-token-inventory %}
+Before taking action, review your enterprise credential inventory to identify affected credentials and choose the narrowest appropriate response. See [AUTOTITLE](/admin/managing-iam/respond-to-incidents/reviewing-credentials-in-your-enterprise).
+{% endif %}
+
 > [!WARNING] {% ifversion single_user_cred_revocation %}Bulk actions are{% else %}These are{% endif %} high-impact actions that should be reserved for major security incidents. They are likely to break automations, and it could take months of work to restore your original state.
 
 {% ifversion single_user_cred_revocation %}

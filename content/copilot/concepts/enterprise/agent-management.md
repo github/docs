@@ -9,6 +9,8 @@ category:
   - Learn about Copilot
 redirect_from:
   - /copilot/concepts/agents/enterprise-management
+docsTeamMetrics:
+  - ai-governance
 ---
 
 ## Overview

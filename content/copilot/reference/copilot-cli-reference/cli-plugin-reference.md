@@ -28,8 +28,8 @@ You can use the following commands in the terminal to manage plugins for {% data
 | `copilot plugin uninstall NAME` (aliases `remove`, `rm`) | Remove a plugin |
 | `copilot plugin list`                          | List installed plugins |
 | `copilot plugin update NAME`                   | Update a named plugin. Use `--all` to update all installed plugins at once. |
-| `copilot plugin enable NAME`                   | Enable a previously disabled plugin |
-| `copilot plugin disable NAME`                  | Disable a plugin without uninstalling it |
+| `copilot plugin enable NAME`                   | Enable a previously disabled plugin. The change persists to configuration and applies to future sessions. This works for marketplace installs and direct installs (from `owner/repo`, a URL, or a local path) alike. |
+| `copilot plugin disable NAME`                  | Disable a plugin without uninstalling it. A `--plugin-dir` mount stays read-only since it has no persisted activation to change. |
 | `copilot plugin marketplace add SPECIFICATION` | Register a marketplace. The marketplace's own name, from its `marketplace.json` manifest, becomes its registration key—there is no option to set a custom local name. |
 | `copilot plugin marketplace list`              | List registered marketplaces |
 | `copilot plugin marketplace browse NAME`       | Browse marketplace plugins |
@@ -89,7 +89,10 @@ MCP servers install from a policy-configured registry, which requires authentica
 > [!NOTE]
 > Path-sourced plugins in a local (directory-source) marketplace load live from their real directory—editing one takes effect on `/restart` or in a new session, with no `copilot plugin update` needed.
 
-First-party plugins—those installed from the built-in `copilot-plugins` and `awesome-copilot` marketplaces—automatically update at the start of each session in a trusted working directory. Disable this behavior with the `autoUpdate` setting (set to `false`) or the `COPILOT_AUTO_UPDATE=false` environment variable. Auto-update is also skipped by default in CI. See [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-config-dir-reference#configuration-file-settings).
+First-party plugins—those installed from the built-in `awesome-copilot` marketplace—automatically update at the start of each session in a trusted working directory. Disable this behavior with the `autoUpdate` setting (set to `false`) or the `COPILOT_AUTO_UPDATE=false` environment variable. Auto-update is also skipped by default in CI. See [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-config-dir-reference#configuration-file-settings).
+
+> [!NOTE]
+> `copilot-plugins` previously shipped as a second built-in default marketplace alongside `awesome-copilot`. It's now an ordinary, non-default marketplace (`github/copilot-plugins`) that you register yourself with `copilot plugin marketplace add github/copilot-plugins`. If you installed plugins from it before this change, a one-time migration adds it to your own `extraKnownMarketplaces` with `autoUpdate: true` so those plugins keep updating. A fresh install that never used `copilot-plugins` must register it manually before installing plugins from it.
 
 A marketplace you've added yourself can opt into the same session-start auto-update by setting `autoUpdate: true` on its `extraKnownMarketplaces` entry in your user settings. This opt-in applies only to interactive and `-p` sessions—SDK and server sessions don't auto-update. It is honored from your own user settings or from managed (MDM/server) settings, but a repository-level `autoUpdate` setting is accepted and ignored—it can't enable or redirect auto-update for a marketplace. On a same-name collision, a built-in first-party marketplace wins, then a managed entry (which replaces the whole same-named user entry, so a managed entry without `"autoUpdate": true` removes the user's opt-in), then the user's own entry. See [Repository settings](/copilot/reference/copilot-cli-reference/cli-config-dir-reference#repository-settings-githubcopilotsettingsjson).
 
@@ -97,11 +100,11 @@ In interactive mode, `/plugin` flags an installed plugin or marketplace when a n
 
 ### `copilot plugin marketplace` (alias `marketplaces`) subcommands
 
-Built-in default marketplaces ship with the runtime and can't be removed.
+The built-in `awesome-copilot` default marketplace ships with the runtime and can't be removed.
 
 | Subcommand              | Description                                                                 |
 |--------------------------|-------------------------------------------------------------------------------|
-| `list [--json]`         | List every registered marketplace, including built-in defaults               |
+| `list [--json]`         | List every registered marketplace, including the built-in default            |
 | `add SOURCE`            | Add a marketplace (`owner/repo`, `owner/repo#ref`, a URL, or a local path)    |
 | `remove NAME [--force]` | Remove a marketplace; `--force` also uninstalls plugins sourced from it   |
 | `browse NAME [--json]`  | List the plugins offered by a marketplace's catalog                        |
@@ -111,9 +114,9 @@ In interactive mode, run `/plugin marketplace update [NAME]` (alias `/plugin mar
 
 ## `plugin.json`
 
-All plugins consist of a plugin directory containing a manifest file named `plugin.json`. Agent Plugins 1.0 requires the manifest at the plugin root. Legacy plugins support the alternative locations listed in [File locations](#file-locations). See [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/plugins-creating).
+All plugins consist of a plugin directory containing a manifest file named `plugin.json`. Agent Plugins requires the manifest at the plugin root. A root `plugin.json` that targets Agent Plugins takes precedence over `.plugin/plugin.json` and `.claude-plugin/plugin.json` per spec §5.1. Legacy plugins support the alternative locations listed in [File locations](#file-locations). See [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/plugins-creating).
 
-{% data variables.copilot.copilot_cli_short %} supports both the legacy plugin manifest and the Agent Plugins 1.0 manifest. The exact `$schema` value `https://agent-plugins.org/schemas/1.0.0/plugin.schema.json` opts a plugin into Agent Plugins 1.0 semantics. A manifest without this value uses the legacy format and loads as before.
+{% data variables.copilot.copilot_cli_short %} supports both the legacy plugin manifest and the Agent Plugins manifest. {% data variables.copilot.copilot_cli_short %} recognizes the canonical `$schema` values for Agent Plugins (Open Plugin Spec) v1.0.0 (`https://agent-plugins.org/schemas/1.0.0/plugin.schema.json`) and v1.1.0 (`https://agent-plugins.org/schemas/1.1.0/plugin.schema.json`), opting a plugin into Agent Plugins semantics. A manifest without one of these exact values uses the legacy format and loads as before. If a plugin declares an Agent Plugins version that {% data variables.copilot.copilot_cli_short %} doesn't support, the CLI rejects the plugin instead of silently falling back to legacy mode. A rejected plugin contributes no hooks, LSP servers, MCP servers, skills, commands, agents, rules, or extension directories.
 
 ### Agent Plugins 1.0 manifest fields
 
@@ -123,7 +126,7 @@ The following fields are allowed:
 
 | Field         | Type     | Required | Description |
 |---------------|----------|----------|-------------|
-| `$schema`     | string   | Yes | Must be `https://agent-plugins.org/schemas/1.0.0/plugin.schema.json`. |
+| `$schema`     | string   | Yes | Must be a recognized Agent Plugins `$schema` URL (v1.0.0 or v1.1.0). Unsupported Agent Plugins versions are rejected. |
 | `name`        | string   | Yes | Plugin name. See [Name constraints](#name-constraints). |
 | `version`     | string   | No | Version string. Semantic Versioning is recommended. |
 | `description` | string   | No | Brief description. |
@@ -152,9 +155,9 @@ Agent Plugins 1.0 defines two portable component types:
 * Skills in immediate subdirectories of `skills/` that contain a `SKILL.md` file.
 * MCP servers in `mcp.json` at the plugin root.
 
-These locations are fixed and cannot be configured in `plugin.json`. The root `mcp.json` must declare `https://agent-plugins.org/schemas/1.0.0/mcp.schema.json` in its `$schema` field. The CLI accepts `stdio`, `streamable-http`, and `sse` MCP transport names.
+These locations are fixed and cannot be configured in `plugin.json`. Skills load only from `skills/`—there is no root `SKILL.md` fallback (legacy plugins fall back to a root `SKILL.md` when no `skills/` directory exists). The root `mcp.json` must declare a recognized Agent Plugins `$schema` version (matching the same version as `plugin.json`) in its `$schema` field. The top-level envelope is closed, and each server entry is validated against its transport schema; invalid server entries are skipped individually while valid entries still load. The CLI accepts `stdio`, `streamable-http`, and `sse` MCP transport names.
 
-For `stdio` servers, the CLI provides `PLUGIN_ROOT` and `PLUGIN_DATA` in the subprocess environment. It expands `${PLUGIN_ROOT}` and `${PLUGIN_DATA}` in the server's `args`, `env` values, and `cwd`. `PLUGIN_DATA` points to a persistent, writable directory for the installed plugin.
+For `stdio` servers, the CLI provides `PLUGIN_ROOT` and `PLUGIN_DATA` in the subprocess environment. It expands `${PLUGIN_ROOT}` and `${PLUGIN_DATA}` (plus the `CLAUDE_PLUGIN_DATA` and `COPILOT_PLUGIN_DATA` aliases) in the server's `args`, `env` values, and `cwd`. `PLUGIN_DATA` points to a persistent, writable directory for the installed plugin. Remote `http`, `sse`, and `streamable-http` server config values are passed through literally, with no placeholder or environment-variable expansion.
 
 Agent Plugins 1.0 does not define portable agents, hooks, commands, rules, or LSP servers. These remain client-specific. Client-specific manifest data belongs in `extensions`, keyed by reverse-domain namespace. Client-specific files belong in a top-level directory with the same namespace. Clients ignore namespaces they do not support.
 
@@ -209,6 +212,26 @@ These tell the CLI where to find your plugin's components. All are optional. The
 | `extensions`| string \| string[] \| object | —          | Path(s) to extension directories. Use `{ paths: [...], exclusive: true }` to suppress built-in extensions. In [Agent Plugins 1.0 manifests](#agent-plugins-10-manifest-fields), this field has a different meaning. |
 | `mcpServers`| string \| object   | —          | Path to an MCP configuration file (e.g., `.mcp.json`), or inline server definitions. |
 | `lspServers`| string \| object   | —          | Path to an LSP configuration file, or inline server definitions. |
+
+#### Plugin-shipped agent MCP servers
+
+An agent bundled inside a plugin can declare its own `mcp-servers` in its frontmatter, scoping an MCP server to just that agent instead of exposing it through the plugin's shared `mcpServers` configuration. Within that `mcp-servers` block, `${PLUGIN_ROOT}` (or its `${CLAUDE_PLUGIN_ROOT}`/`${COPILOT_PLUGIN_ROOT}` aliases) expands to the plugin's root directory, so the server's `command` or `args` can point at a script bundled with the plugin:
+
+```markdown
+---
+name: Plugin Linter
+description: Runs the plugin's bundled linter via its own MCP server
+mcp-servers:
+    plugin-linter:
+        command: node
+        args: ["${PLUGIN_ROOT}/tools/serve.js"]
+        tools: ["*"]
+---
+
+You are a linting specialist for this plugin's bundled rules.
+```
+
+This substitution only applies to `mcp-servers` in a plugin-shipped agent's own frontmatter—it doesn't extend to `${PLUGIN_DATA}` or to the server's environment variables. Workspace and user agents have no plugin root, so their frontmatter is left unchanged.
 
 ### LSP server configuration
 
@@ -347,12 +370,12 @@ Both the `github` and `url` source types accept an optional `sha` field to pin i
 |----------------------|------|
 | Installed plugins    | `~/.copilot/installed-plugins/MARKETPLACE/PLUGIN-NAME` (installed via a marketplace) and `~/.copilot/installed-plugins/_direct/SOURCE-ID/` (installed directly) |
 | Marketplace cache    | Platform cache directory: `~/.cache/copilot/marketplaces/` (Linux), `~/Library/Caches/copilot/marketplaces/` (macOS). Overridable with `COPILOT_CACHE_HOME`. |
-| Plugin manifest      | Agent Plugins 1.0: `plugin.json` at the plugin root. Legacy plugins: `.plugin/plugin.json`, `plugin.json`, `.github/plugin/plugin.json`, or `.claude-plugin/plugin.json` (checked in this order). |
+| Plugin manifest      | Agent Plugins (v1.0.0 or v1.1.0): `plugin.json` at the plugin root. A root manifest targeting Agent Plugins takes precedence over `.plugin/plugin.json` and `.claude-plugin/plugin.json` per spec §5.1. Legacy plugins: `.plugin/plugin.json`, `plugin.json`, `.github/plugin/plugin.json`, or `.claude-plugin/plugin.json` (checked in this order). |
 | Marketplace manifest | `marketplace.json`, `.plugin/marketplace.json`, `.github/plugin/marketplace.json`, or `.claude-plugin/marketplace.json` (checked in this order) |
 | Agents               | Legacy plugins: `agents/` (default, overridable in manifest). |
-| Skills               | Agent Plugins 1.0: `skills/` (fixed). Legacy plugins: `skills/` (default, overridable in manifest). |
+| Skills               | Agent Plugins: `skills/` (fixed, no root `SKILL.md` fallback). Legacy plugins: `skills/` (default, overridable in manifest), falling back to a root `SKILL.md` when no `skills/` directory exists. |
 | Hooks configuration  | Legacy plugins: `hooks.json` or `hooks/hooks.json`. |
-| MCP configuration    | Agent Plugins 1.0: `mcp.json`. Legacy plugins: `.mcp.json`, `.github/mcp.json`, or the `mcpServers` manifest field. |
+| MCP configuration    | Agent Plugins: `mcp.json`. Legacy plugins: `.mcp.json`, `.github/mcp.json`, or the `mcpServers` manifest field. |
 | LSP configuration    | Legacy plugins: `lsp.json` or `.github/lsp.json`. |
 | Plugin data          | For Agent Plugins 1.0 MCP servers, `${PLUGIN_DATA}` (also available as `${COPILOT_PLUGIN_DATA}` and `${CLAUDE_PLUGIN_DATA}`) points to a persistent, writable directory unique to each installed plugin. Use this for plugin-specific runtime data instead of paths inside the installed-plugins cache directory. |
 
@@ -386,8 +409,9 @@ The following diagram illustrates the loading order and precedence rules.
   │  3. <parents>/.github/agents/    (inherited, monorepo)              │
   │  4. <project>/.claude/agents/    (project)                          │
   │  5. <parents>/.claude/agents/    (inherited, monorepo)              │
-  │  6. PLUGIN: agents/ dirs         (plugin, by install order)         │
-  │  7. Remote org/enterprise agents (remote, via API)                  │
+  │  6. <add-dir>/.github/agents/    (added root, --add-dir)            │
+  │  7. PLUGIN: agents/ dirs         (plugin, by install order)         │
+  │  8. Remote org/enterprise agents (remote, via API)                  │
   └──────────────────────┬──────────────────────────────────────────────┘
                          │
   ┌──────────────────────▼──────────────────────────────────────────────┐

@@ -36,7 +36,7 @@ The locations where hooks run, and where you can store hook configuration files,
   * **Repository-level hook files** — `.github/hooks/*.json` in the repository root.
   * **User-level hook files** — `*.json` files in the user-level hooks directory. By default this is `~/.copilot/hooks/` on macOS and Linux, or `%USERPROFILE%\.copilot\hooks\` on Windows. If `COPILOT_HOME` is set, it is `$COPILOT_HOME/hooks/`.
   * **Inline `hooks` block in repository settings** — the `hooks` field at the top level of `.github/copilot/settings.json` (Git committed) or `.github/copilot/settings.local.json` (typically gitignored and user specific) in the repository. Cross-tool `.claude/settings.json` and `.claude/settings.local.json` files in the repository are also read.
-  * **Inline `hooks` block in user-level config** — the `hooks` field at the top level of `~/.copilot/settings.json`.
+  * **Inline `hooks` block in user-level config** — the `hooks` field at the top level of `~/.copilot/settings.json`. The CLI no longer reads `~/.copilot/config.json` for hooks.
   * **Hooks contributed by installed plugins** — declared by each plugin in its own `hooks.json` (or under `hooks/hooks.json`) inside the plugin's installation directory.
 
 * **{% data variables.copilot.copilot_cloud_agent %}** — hooks run inside the ephemeral Linux sandbox that cloud agent provisions for each job. The sandbox is non-interactive, has a constrained network, and is destroyed when the job ends. A subset of events fires, and only `bash` (or `command`) entries are honored.
@@ -59,7 +59,7 @@ Policy hooks are discovered from two sources:
 
 Policy hook files use the same hook configuration format as user and project hooks (`{ "version": 1, "hooks": { ... } }`). On POSIX systems, policy files must be owned by root and must not be group- or world-writable.
 
-Policy hooks are intended for use by enterprise IT administrators and require elevated privileges to install. End users cannot modify them.
+Policy hooks are intended for use by enterprise IT administrators and require elevated privileges to install. End users cannot modify them. Policy hooks always run on the host, even when the session sandbox is enabled—see [Sandboxed sessions](#sandboxed-sessions).
 
 ## Cloud agent execution environment
 
@@ -171,6 +171,17 @@ Progress messages are display-only and do not affect hook output or decision log
 * Each progress message must be on its own line and must be valid JSON on that single line. Multi-line / pretty-printed progress objects are not recognized as progress and will be left in the output stream, where they will likely cause the final `JSON.parse` to fail.
 * The final decision object, by contrast, may span multiple lines—only progress *recognition* is line-oriented; what remains after progress stripping is parsed as one JSON document, not as line-delimited JSON.
 * If the leftover output is empty, or fails to parse as JSON, the hook is treated as having produced no output and falls through to default behavior. Two or more non-progress JSON objects on stdout (for example, two `echo '{"permissionDecision": ...}'` calls) will therefore concatenate into invalid JSON and be ignored—emit exactly one final decision object.
+
+#### Sandboxed sessions
+
+> [!NOTE]
+> **{% data variables.copilot.copilot_cli_short %} only.**
+
+When the session sandbox is enabled, command hooks from the repository, your user settings, and plugins run inside it, with the same access as the agent's shell commands. A hook can also read the directory it was loaded from, so a plugin can run the scripts it ships, and a plugin hook can write to its data directory (`$COPILOT_PLUGIN_DATA`).
+
+A hook's `cwd` and `env` fields don't widen that access: a `cwd` outside the session's grants gives the hook no access there, and variables such as `TMPDIR` or `PATH` set in the hook's `env` grant nothing. When a hook fails in the sandbox, {% data variables.product.prodname_copilot_short %} shows a warning once per hook and session. To give a hook more access, add the required paths to `sandbox.userPolicy` in your settings. See [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-config-dir-reference#user-settings-copilotsettingsjson).
+
+Policy hooks always run on the host, outside the sandbox, even when the session sandbox is enabled. A policy hook should not run scripts from the workspace.
 
 ### HTTP hooks
 
@@ -290,7 +301,22 @@ Each hook event delivers a JSON payload to the hook handler. Two payload formats
 }
 ```
 
+**Output:**
+
+```typescript
+{
+    additionalContext?: string;
+}
+```
+
+Only `additionalContext` is consumed for `sessionStart` (command and HTTP variants). Return `{}` or empty for no action.
+
+When multiple `sessionStart` hooks run, successful hooks that return a non-empty string `additionalContext` contribute in execution order, separated by exactly `"\n\n"`. An empty or whitespace-only string does not erase already-accumulated context; if every hook returns only empty or whitespace-only strings, the last one is kept. The combined string (including separators) is bounded by the same 10 MiB hook-output limit—a contribution that would cross it is dropped, the previously accumulated context is kept, and a size-only warning is logged and raised in the session.
+
 ### `sessionEnd` / `SessionEnd`
+
+> [!NOTE]
+> **{% data variables.copilot.copilot_cli_short %} only — `/clear` in interactive mode.** `/clear` closes the old session and fires its `sessionEnd` hooks with `reason: "user_exit"` while the CLI keeps running. The replacement session has its own independent lifecycle. Because the CLI itself isn't exiting, these hooks dispatch detached—they run in the background with their full `timeoutSec` while `/clear` returns immediately, so a hook doing real work is neither cut short nor able to stall the prompt. A detached hook still running when you later quit the CLI is terminated along with the process.
 
 **camelCase input:**
 
@@ -548,6 +574,20 @@ Tools with no Claude equivalent keep their runtime names.
 }
 ```
 
+**Output:**
+
+```typescript
+{
+    additionalContext?: string;
+}
+```
+
+If `additionalContext` is returned, it is prepended to the subagent's first user message, giving hooks a way to inject project-specific context, policies, or instructions into every subagent invocation.
+
+When multiple `subagentStart` hooks run, they accumulate the same way as `sessionStart`: successful hooks with a non-empty string `additionalContext` contribute in execution order joined by `"\n\n"`, empty or whitespace-only strings don't erase already-accumulated context, and the combined string is bounded by the 10 MiB hook-output limit (an over-limit contribution is dropped, the prior context is kept, and a size-only warning is logged and raised in the session).
+
+**Matcher:** Supports an optional `matcher` field that filters by agent name. The value is treated as a regular expression wrapped as `^(?:matcher)$` and tested against `agentName`. The pattern must match the **entire** agent name, not just a substring. If the pattern is not a valid regular expression, the hook is skipped entirely (it will not fire for any agent).
+
 ### `subagentStop` / `SubagentStop`
 
 Fires when a subagent completes normally, before returning results to the parent. `stopReason` is currently always `"end_turn"`. This hook fires before large-response spill handling, so `response` (or `last_assistant_message` in the {% data variables.product.prodname_vscode_shortname %} compatible format) carries the full final subagent response text.
@@ -678,6 +718,8 @@ When {% data variables.copilot.copilot_cli_short %} can show the hook-permission
 * A valid `block` decision wins over `modifiedResponse`: if a hook returns both, the subagent continues and the rewrite is discarded.
 * Rewrites do not compose across multiple matching hooks. Every hook receives the same original `response`, and the last hook to return `modifiedResponse` wins—chaining a redactor and a formatter does not feed the redacted text into the formatter.
 * The output field names (`decision`, `reason`, `modifiedResponse`) are the same for both the camelCase and {% data variables.product.prodname_vscode_shortname %} compatible configs.
+* Command and HTTP hooks keep the permissive behavior of other hook events: unsupported verdict fields and non-object JSON outputs are ignored, and `reason` only takes effect alongside a `block` decision with a nonempty string.
+* SDK callback outputs are validated before merging: an invalid `decision`, a `reason` without `block`, a `block` without a nonempty `reason`, or a non-object output fails the subagent hook. An explicit `null` in an optional field is treated as absent.
 
 > [!NOTE]
 > **Runaway guard.** After 8 consecutive `block` continuations, the CLI overrides the hook and ends the turn anyway, to prevent an unbounded loop. Use the `stop_hook_active` input field on `agentStop` to detect that this turn was already forced to continue, and self-limit before hitting the cap.

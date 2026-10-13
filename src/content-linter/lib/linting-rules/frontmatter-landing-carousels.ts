@@ -11,39 +11,35 @@ interface Frontmatter {
   [key: string]: unknown
 }
 
+// Try content-root paths before paths relative to the current file.
 function isValidArticlePath(articlePath: string, currentFilePath: string): boolean {
   const ROOT = process.env.ROOT || '.'
 
-  // Strategy 1: Always try as an absolute path from content root first
   const contentDir = path.join(ROOT, 'content')
   const normalizedPath = articlePath.startsWith('/') ? articlePath.substring(1) : articlePath
 
-  // Check for direct .md file
   const absolutePath: string = path.join(contentDir, `${normalizedPath}.md`)
   if (fs.existsSync(absolutePath) && fs.statSync(absolutePath).isFile()) {
     return true
   }
 
-  // Check for index.md file in directory (for landing pages)
+  // A directory with an index.md in it is a landing page.
   const indexPath: string = path.join(contentDir, normalizedPath, 'index.md')
   if (fs.existsSync(indexPath) && fs.statSync(indexPath).isFile()) {
     return true
   }
 
-  // Strategy 2: Fall back to relative path from current file's directory
   const currentDir: string = path.dirname(currentFilePath)
 
-  // Check for relative .md file
   const relativePath: string = path.join(currentDir, `${normalizedPath}.md`)
   try {
     if (fs.existsSync(relativePath) && fs.statSync(relativePath).isFile()) {
       return true
     }
   } catch {
-    // Continue to next strategy
+    // Fall through to the relative index lookup when the file check throws.
   }
 
-  // Check for relative index.md file
   const relativeIndexPath: string = path.join(currentDir, normalizedPath, 'index.md')
   try {
     return fs.existsSync(relativeIndexPath) && fs.statSync(relativeIndexPath).isFile()
@@ -58,7 +54,6 @@ export const frontmatterLandingCarousels = {
     'Only landing pages can have carousels, there should be no duplicate articles, and all articles must exist',
   tags: ['frontmatter', 'landing', 'carousels'],
   function: (params: RuleParams, onError: RuleErrorCallback) => {
-    // Using any for frontmatter as it's a dynamic YAML object with varying properties
     const fm = getFrontmatter(params.lines) as Frontmatter | null
     if (!fm) return
 
@@ -85,7 +80,6 @@ export const frontmatterLandingCarousels = {
       )
     }
 
-    // Check each carousel for duplicates and invalid paths
     for (const [carouselKey, articles] of Object.entries(fm.carousels!)) {
       if (!Array.isArray(articles)) continue
 
@@ -100,7 +94,6 @@ export const frontmatterLandingCarousels = {
           seen.add(item)
         }
 
-        // Validate that the article path exists
         if (!isValidArticlePath(item, params.name)) {
           invalidPaths.push(item)
         }

@@ -1,22 +1,9 @@
 import type { Element, Node, Parent } from 'hast'
 import { visitParents } from 'unist-util-visit-parents'
 
-/**
- * Where it can mutate the AST to swap from:
- *
- *   <ol>
- *     <li>
- *       <img src="..." />
- *
- * to:
- *
- *   <ol>
- *     <li>
- *       <div class="procedural-image-wrapper">
- *         <img src="..." />
- *
- *
- * */
+// Procedural list images get a wrapper so tight list items keep the expected spacing.
+// <li><img src="step.png"></li> becomes:
+// <li><div class="procedural-image-wrapper"><img src="step.png"></div></li>.
 
 function isImgElement(node: Node): node is Element {
   return node.type === 'element' && (node as Element).tagName === 'img'
@@ -31,18 +18,15 @@ function insideOlLi(ancestors: Parent[]): boolean {
   return false
 }
 
+// When a writer leaves a blank line before a list image, Markdown wraps it in a paragraph,
+// possibly with a link in between. The visitor skips that branch because the paragraph
+// already adds spacing, and div wrappers inside paragraphs cause hydration mismatches.
 function visitor(node: Element, ancestors: Parent[]): void {
   if (!insideOlLi(ancestors)) return
   const parent = ancestors.at(-1)
   if (!parent || !parent.children) return
 
-  // When the image is already inside a <p> (the writer left a blank line before
-  // it), the paragraph already provides spacing. Wrapping a <div> inside that
-  // <p> produces invalid HTML (`<div>` cannot be a descendant of `<p>`), which
-  // the browser silently repairs for dangerouslySetInnerHTML but causes a React
-  // hydration mismatch when the content is rendered as real elements. So only
-  // add the wrapper for the no-<p> (tight list) case it was designed for.
-  if ((parent as Element).tagName === 'p') return
+  if (ancestors.some((ancestor) => (ancestor as Element).tagName === 'p')) return
 
   const shallowClone: Element = Object.assign({}, node)
   shallowClone.tagName = 'div'

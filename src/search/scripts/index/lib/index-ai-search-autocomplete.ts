@@ -29,7 +29,7 @@ export async function indexAISearchAutocomplete(options: Options) {
   const client = getElasticsearchClient(undefined, options.verbose, {
     requestTimeout: 5 * 60 * 1000,
   })
-  await client.ping() // Will throw if not available
+  await client.ping()
 
   console.log(
     'Indexing AI search autocomplete for languages: %O and versions: %O',
@@ -79,7 +79,7 @@ type LoadOptions = {
 }
 
 function loadQueriesWithPriority(options: LoadOptions): TermsWithFrequency {
-  // The {version} in the paths uses the version's 'plan' name, e.g. `free-pro-team` instead of `fpt`
+  // The {version} path segment uses the plan name, such as free-pro-team instead of fpt.
   const internalDataVersion = getPlanVersionFromIndexVersion(options.version)
 
   if (!internalDataVersion) {
@@ -101,15 +101,13 @@ function loadQueriesWithPriority(options: LoadOptions): TermsWithFrequency {
 
   let popularity = topQueries.length + allQueries.length
 
-  // Assign higher popularity to topQueries
   for (const term of topQueries) {
     terms[term] = popularity
     popularity -= 1
   }
 
-  // Assign remaining popularity to allQueries using the order they have in the JSON
   for (const term of allQueries) {
-    // Don't read in the topQueries again (duplicates)
+    // topQueries already supplied the highest-priority entries.
     if (!(term in terms)) {
       terms[term] = popularity
       popularity -= 1

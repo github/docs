@@ -39,7 +39,9 @@ This guide is a sister to [AUTOTITLE](/copilot/how-tos/copilot-sdk/setup/scaling
 | `baseDirectory` | Isolating `COPILOT_HOME` per runtime instance | Ignored when connecting to an existing runtime. |
 | `sessionFs` | Routing session filesystem storage off local disk | Pair with per-session filesystem providers. |
 | `RuntimeConnection.forUri(url)` | Sharing one already-running runtime | Language names vary; see samples below. |
-| Per-session `gitHubToken` | Scoping auth to the requesting user | Prefer this over a single shared user token. |
+| Per-session GitHub token or provider | Scoping auth to the requesting user | Prefer a rotating provider for short-lived credentials; use a static `gitHubToken` only when rotation is unnecessary. |
+
+For callback-backed credentials, see [AUTOTITLE](/copilot/how-tos/copilot-sdk/auth/authenticate#rotating-session-scoped-github-tokens). Each session owns its provider registration, so concurrent sessions can use different GitHub hosts and accounts without sharing callback state.
 
 ### `mode: "empty"`
 
@@ -299,9 +301,12 @@ Session-level isolation means the runtime keeps user-specific model and state in
 | Session state | Per session ID under `COPILOT_HOME/session-state/{sessionId}`. |
 | GitHub identity | Per-session when `gitHubToken` is set on the session. |
 | Tools | Explicit in `mode: "empty"`; ambient in `mode: "copilot-cli"`. |
+| Skills | In `mode: "empty"` no runtime-bundled built-in skills are eligible by default; callers can allow selected built-ins or opt into their own custom skills. Ambient in `mode: "copilot-cli"`. |
 | Host filesystem | Shared by the runtime process if host tools are available. |
 
 `mode: "empty"` is what makes shared runtime patterns viable: no ambient OS tools are exposed unless your application registers or allows them. With `mode: "copilot-cli"`, OS filesystem access is shared through the host process, so do not use that mode for multi-user server mode.
+
+Under `mode: "empty"` the SDK excludes every runtime-bundled built-in skill by default (it sends an empty `includedBuiltinSkills` list on the post-create/post-resume options patch, alongside the empty `installedPlugins` list). Set `includedBuiltinSkills` (or the language-specific casing) to explicitly allow selected built-ins, just as `availableTools` allows selected runtime-bundled tools. A caller can also opt into its **own** custom skills—for example by enabling skills and pointing at its own skill directories—and those remain usable.
 
 Session state is stored under `COPILOT_HOME/session-state/{sessionId}` unless you route it through `sessionFs`. Use unique session IDs that include your own tenant or user boundary, and enforce access control before resuming or deleting sessions.
 

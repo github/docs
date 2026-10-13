@@ -38,8 +38,7 @@ describe('toError', () => {
   it('should convert undefined to an Error via JSON.stringify', () => {
     const result = toError(undefined)
     expect(result).toBeInstanceOf(Error)
-    // JSON.stringify(undefined) returns undefined (not a string),
-    // so new Error(undefined) has an empty message
+    // JSON.stringify(undefined) makes new Error(undefined) use an empty message.
     expect(result.message).toBe('')
   })
 
@@ -54,7 +53,6 @@ describe('toError', () => {
     circular.self = circular
     const result = toError(circular)
     expect(result).toBeInstanceOf(Error)
-    // String() on an object returns '[object Object]'
     expect(result.message).toBe('[object Object]')
   })
 })

@@ -1,16 +1,7 @@
 import { graphql } from '@octokit/graphql'
 
-// Shared functions for managing projects (memex)
-
-/**
- * The team whose members count as "Docs team" on the review board.
- *
- * Renamed from `docs` to `technical-content`. GraphQL looks teams up by slug, so a rename
- * silently turns the lookup into `null` rather than erroring, which is why the old slug
- * kept "working" right up until it didn't. Numeric team IDs survive renames, but the
- * GraphQL `team` field only accepts a slug, so this has to be updated by hand if the team
- * is renamed again.
- */
+// GraphQL resolves teams by slug, not numeric ID. A rename returns null, so
+// update this by hand if the Docs team is renamed.
 const DOCS_TEAM_SLUG = 'technical-content'
 
 export interface ProjectV2FieldNode {
@@ -71,7 +62,6 @@ export interface ItemData {
   }
 }
 
-// Pull out the node ID of a project field
 export function findFieldID(fieldName: string, data: ProjectV2Data) {
   const field = data.organization.projectV2.fields.nodes.find(
     (fieldNode) => fieldNode.name === fieldName,
@@ -84,7 +74,6 @@ export function findFieldID(fieldName: string, data: ProjectV2Data) {
   }
 }
 
-// Pull out the node ID of a single select field value
 export function findSingleSelectID(
   singleSelectName: string,
   fieldName: string,
@@ -108,9 +97,7 @@ export function findSingleSelectID(
   }
 }
 
-// Given a list of PR/issue node IDs and a project node ID,
-// adds the PRs/issues to the project
-// and returns the node IDs of the project items
+// Existing project items keep their item IDs instead of creating duplicates.
 export async function addItemsToProject(items: string[], project: string) {
   console.log(`Adding ${items} to project ${project}`)
 
@@ -140,10 +127,6 @@ export async function addItemsToProject(items: string[], project: string) {
     },
   })
 
-  // The output of the mutation is
-  // {"item_0":{"projectNextItem":{"id":ID!}},...}
-  // Pull out the ID for each new item
-
   const newItemIDs = Object.entries(newItems).map((item) => item[1].item.id)
 
   return newItemIDs
@@ -157,14 +140,11 @@ export async function addItemToProject(item: string, project: string) {
   return newItemID
 }
 
-// Given a GitHub login, returns a bool indicating
-// whether the login is part of the docs team
 export async function isDocsTeamMember(login: string) {
-  // Returns true if login is docs-bot or copilot, to bypass the checks and make PRs opened by docs-bot or copilot be treated as though they were made by a docs team member
+  // docs-bot and copilot count as Docs team members without GraphQL lookup.
   if (login === 'docs-bot' || login === 'copilot') {
     return true
   }
-  // Get all members of the docs team
   const data: TeamMemberData = await graphql(
     `
       query ($slug: String!) {
@@ -187,10 +167,7 @@ export async function isDocsTeamMember(login: string) {
     },
   )
 
-  // `team` is null when the slug no longer resolves, which is what a rename looks like from
-  // here. Dereferencing it threw and killed the whole job *after* the PR had already been
-  // added to the board, leaving an item with no fields populated. Fall through to the
-  // hubber fallback instead so the board stays usable, and say why.
+  // A renamed team returns null, so fall back instead of leaving the project item unpopulated.
   const team = data.organization.team
   if (!team) {
     console.warn(
@@ -206,8 +183,6 @@ export async function isDocsTeamMember(login: string) {
   return teamMembers.includes(login)
 }
 
-// Given a GitHub login, returns a bool indicating
-// whether the login is part of the GitHub org
 export async function isGitHubOrgMember(login: string) {
   const data: OrgMemberData = await graphql(
     `
@@ -229,14 +204,14 @@ export async function isGitHubOrgMember(login: string) {
   return Boolean(data.user.organization)
 }
 
-// Formats a date object into the required format for projects
 export function formatDateForProject(date: Date) {
   return date.toISOString()
 }
 
-// Given a date object and optional turnaround time
-// Calculate the date {turnaround} business days from now
-// (excluding weekends; not considering holidays)
+// Due dates add turnaround days, plus two days from Thursday or Friday and one
+// from Saturday. With the default turnaround of 2, that lands on a weekday.
+// Larger turnaround values can still land on a weekend.
+// Holidays are not considered.
 export function calculateDueDate(datePosted: Date, turnaround = 2) {
   let daysUntilDue
   switch (datePosted.getDay()) {
@@ -257,14 +232,8 @@ export function calculateDueDate(datePosted: Date, turnaround = 2) {
   return dueDate
 }
 
-// Given a project item node ID and author login
-// generates a GraphQL mutation to populate:
-//   - "Status" (as variable passed with the request)
-//   - "Date posted" (as today)
-//   - "Review due date" (as today + {turnaround} weekdays)
-//   - "Contributor type" (as variable passed with the request)
-//   - "Feature" (as {feature})
-//   - "Author" (as {author})"
+// This mutation populates status, contributor type, size, date posted, review
+// due date, feature, and contributor on one project item.
 export function generateUpdateProjectV2ItemFieldMutation({
   item,
   author,
@@ -279,8 +248,7 @@ export function generateUpdateProjectV2ItemFieldMutation({
   const datePosted = new Date()
   const dueDate = calculateDueDate(datePosted, turnaround)
 
-  // Build the mutation to update a single project field
-  // Specify literal=true to indicate that the value should be used as a string, not a variable
+  // Literal values write strings directly instead of variable references.
   function generateMutationToUpdateField({
     item: itemId,
     fieldID,
@@ -296,8 +264,7 @@ export function generateUpdateProjectV2ItemFieldMutation({
   }) {
     const parsedValue = literal ? `${fieldType}: "${value}"` : `${fieldType}: ${value}`
 
-    // Strip all non-alphanumeric out of the item ID when creating the mutation ID to avoid a GraphQL parsing error
-    // (statistically, this should still give us a unique mutation ID)
+    // GraphQL mutation IDs reject characters outside a-z0-9, so strip them.
     return `
       set_${fieldID.slice(1)}_item_${itemId.replaceAll(
         /[^a-z0-9]/g,
@@ -381,19 +348,14 @@ export function generateUpdateProjectV2ItemFieldMutation({
   return mutation
 }
 
-// Guess the affected docs sets based on the files that the PR changed
 export function getFeature(data: ItemData) {
-  // For issues, just use an empty string
   if (data.item.__typename !== 'PullRequest') {
     return ''
   }
 
   const paths = data.item.files.nodes.map((node) => node.path)
 
-  // For docs and docs-internal and docs-early-access PRs,
-  // determine the affected docs sets by looking at which
-  // directories under `content/` were affected.
-  // (Ignores changes to the data files.)
+  // Docs repos derive docs sets from changed content directories and ignore data files.
   if (
     process.env.REPO === 'github/docs-internal' ||
     process.env.REPO === 'github/docs' ||
@@ -411,7 +373,7 @@ export function getFeature(data: ItemData) {
     return feature
   }
 
-  // for github/github PRs, try to classify the OpenAPI files
+  // For github/github, classify by the OpenAPI files instead.
   if (process.env.REPO === 'github/github') {
     const features: Set<string> = new Set([])
     if (paths.some((path: string) => path.startsWith('app/api/description'))) {
@@ -443,14 +405,13 @@ export function getFeature(data: ItemData) {
   return ''
 }
 
-// Guess the size of an item
 export function getSize(data: ItemData) {
-  // We need to set something in case this is an issue, so just guesstimate small
+  // An issue has no files to measure, so guess small.
   if (data.item.__typename !== 'PullRequest') {
     return 'S'
   }
 
-  // for github/github PRs, estimate the size based on the number of OpenAPI files that were changed
+  // For github/github, size by the count and line changes of OpenAPI files.
   if (process.env.REPO === 'github/github') {
     let numFiles = 0
     let numChanges = 0
@@ -471,7 +432,7 @@ export function getSize(data: ItemData) {
       return 'L'
     }
   } else {
-    // Otherwise, estimated the size based on all files
+    // Otherwise size by the count and line changes of all changed files.
     let numFiles = 0
     let numChanges = 0
     for (const node of data.item.files.nodes) {

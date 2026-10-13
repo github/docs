@@ -7,9 +7,7 @@ const makeURL = (pathname: string): string =>
 
 describe('article body api', () => {
   beforeAll(() => {
-    // If you didn't set the `ROOT` variable, the tests will fail rather
-    // cryptically. So as a warning for engineers running these tests,
-    // alert in case it was accidentally forgotten.
+    // Warn early because missing fixture roots otherwise fail with unclear errors.
     if (!process.env.ROOT) {
       console.warn(
         'WARNING: The article body tests require the ROOT environment variable to be set to the fixture root',
@@ -28,9 +26,7 @@ describe('article body api', () => {
   test('body includes title and intro', async () => {
     const res = await get(makeURL('/en/get-started/start-your-journey/hello-world'))
     expect(res.statusCode).toBe(200)
-    // Body should start with the page title as H1
     expect(res.body).toMatch(/^# Hello World/)
-    // Body should include the intro after the title
     expect(res.body).toContain('Follow this Hello World exercise to get started with')
   })
 
@@ -38,7 +34,6 @@ describe('article body api', () => {
     const res = await get(makeURL('/en/get-started/start-your-journey/hello-world'))
     expect(res.statusCode).toBe(200)
 
-    // Check that octicons without aria-label get auto-generated ones
     expect(res.body).toContain('aria-label="check icon"')
     expect(res.body).toContain('aria-label="git branch icon"')
   })
@@ -47,7 +42,6 @@ describe('article body api', () => {
     const res = await get(makeURL('/en/get-started/start-your-journey/hello-world'))
     expect(res.statusCode).toBe(200)
 
-    // Check that custom aria-labels are preserved
     expect(res.body).toContain('aria-label="Supported"')
     expect(res.body).toContain('aria-label="Not supported"')
   })
@@ -56,7 +50,6 @@ describe('article body api', () => {
     const res = await get(makeURL('/en/get-started/start-your-journey/hello-world'))
     expect(res.statusCode).toBe(200)
 
-    // Check that octicons with width attribute still get aria-labels
     expect(res.body).toContain('aria-label="rocket icon"')
     expect(res.body).toContain('width="32"')
   })
@@ -68,13 +61,10 @@ describe('article body api', () => {
     expect(error).toBe("No page found for '/en/never/heard/of'")
   })
 
-  // Removed: non-article pages test - landing pages are now supported via transformers
-
   test('glossary page renders glossary terms', async () => {
     const res = await get(makeURL('/en/get-started/learning-about-github/github-glossary'))
     expect(res.statusCode).toBe(200)
-    // Glossary terms come from the glossaries middleware context,
-    // not from the markdown body itself.
+    // Glossary terms come from middleware context, not the markdown body.
     expect(res.body).toContain('## foo')
     expect(res.body).toContain('## check')
     expect(res.body).toContain('Foo is an intentionally meaningless placeholder')

@@ -43,7 +43,7 @@ describe('Versions frontmatter', () => {
 
 describe('general cases', () => {
   test('wildcard * is no longer used', () => {
-    // docs engineering 3110
+    // versions: * shorthand is invalid; plan keys and feature-based frontmatter are explicit.
     expect.assertions(2)
     try {
       getApplicableVersions('*')
@@ -65,7 +65,7 @@ describe('general cases', () => {
       const applicableVersions = getApplicableVersions(versions)
       expect(applicableVersions.every((v) => Object.keys(allVersions).includes(v)))
     }
-    // Same thing but as an array each time
+    // Feature arrays follow the same rules as a single feature name.
     for (const possibleFeature of possibleFeatures) {
       const versions: Versions = { feature: [possibleFeature] }
       const applicableVersions = getApplicableVersions(versions)

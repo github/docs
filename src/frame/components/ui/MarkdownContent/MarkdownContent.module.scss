@@ -5,11 +5,25 @@
 @import "./stylesheets/images.scss";
 
 .markdownBody {
+  // Article body prose uses Mona Sans from @primer/react-brand's body font var.
+  // Base size stays 16px from @primer/css $h4-size; line-height matches the Figma spec.
+  font-family: var(--brand-body-fontFamily);
+  line-height: 1.6;
+
   :not(h1, h2, h3, h4, h5, h6, [role="tablist"]) {
     > a {
       text-decoration: underline;
       text-underline-offset: 25%;
     }
+  }
+
+  // Plain blockquotes that content-render/unified/alerts.ts does not convert to
+  // .ghd-alert callouts get a brand-aligned left rule and muted text. They stay
+  // distinct from .ghd-alert's colored 0.25em border and Octicon title.
+  blockquote {
+    border-left: var(--brand-borderWidth-thick, 2px) solid
+      var(--brand-color-border-default, #b6bfb8);
+    color: var(--brand-color-text-muted, #58635b);
   }
 
   summary {
@@ -58,7 +72,8 @@
 
   :global(.ghd-codetab-fallback-label) {
     margin-bottom: 0.75rem;
-    color: var(--fgColor-muted, #59636e);
+    // Intentionally use Brand muted text here instead of Primer's fgColor-muted palette.
+    color: var(--brand-color-text-muted, #58635b);
     font-size: 0.875rem;
     font-weight: 600;
   }

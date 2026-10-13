@@ -106,7 +106,6 @@ children:
   - /enforcing-policies
   - /monitoring-activity-in-your-enterprise
   - /monitoring-and-managing-your-instance
-  - /github-copilot
   - /managing-github-apps-for-your-enterprise
   - /managing-github-actions-for-your-enterprise
   - /configuring-packages

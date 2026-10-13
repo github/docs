@@ -1,20 +1,13 @@
-/**
- * Integration with @github/hydro-analytics-client for cross-subdomain tracking.
- *
- * This sends events to collector.githubapp.com alongside our existing analytics.
- * The client auto-collects: page, title, client_id, referrer, user_agent,
- * screen_resolution, browser_resolution, browser_languages, pixel_ratio, timestamp, tz_seconds
- *
- * We send all other docs-specific context fields, including:
- * - path_language, path_version, path_product, path_article
- * - page_document_type, page_type, content_type
- * - color_mode_preference, is_logged_in, experiment_variation, is_headless
- * - event_id, page_event_id, octo_client_id
- * - Plus any event-specific properties (exit metrics, link_url, etc.)
- *
- * All functions are wrapped in try/catch to ensure that issues with the
- * hydro-analytics-client or collector don't affect our primary analytics.
- */
+// @github/hydro-analytics-client sends cross-subdomain events to collector.githubapp.com.
+//
+// The client auto-collects page, title, client_id, referrer, user_agent,
+// screen_resolution, browser_resolution, browser_languages, pixel_ratio,
+// timestamp, and tz_seconds. We send every other docs-specific context field.
+//
+// The two entry points, getOctoClientId and sendHydroAnalyticsEvent, are wrapped
+// in try/catch so a problem with the client cannot affect our primary analytics.
+// That only covers synchronous throws: the client fires its request without
+// awaiting it, so a collector network failure never reaches us.
 
 import {
   AnalyticsClient,
@@ -22,10 +15,7 @@ import {
 } from '@github/hydro-analytics-client'
 import { EventType } from '../types'
 
-/**
- * Safe wrapper around hydro-analytics-client's getOrCreateClientId.
- * Returns undefined if the client fails for any reason.
- */
+// getOctoClientId returns undefined if the Hydro client fails for any reason.
 export function getOctoClientId(): string | undefined {
   try {
     return hydroGetOrCreateClientId()
@@ -40,7 +30,6 @@ const hydroClient = new AnalyticsClient({
   clientId: getOctoClientId(),
 })
 
-// Fields that hydro-analytics-client already collects automatically
 const AUTO_COLLECTED_FIELDS = new Set([
   'referrer',
   'user_agent',
@@ -55,11 +44,7 @@ const AUTO_COLLECTED_FIELDS = new Set([
   'title',
 ])
 
-/**
- * Flatten a nested event body into a single-level context object,
- * excluding fields that hydro-analytics-client already auto-collects,
- * and adding fields required for analytics_v0_page_view compatibility.
- */
+// analytics_v0_page_view needs a flat context without fields Hydro already auto-collects.
 export function prepareData(body: Record<string, unknown>): {
   type: string
   context: Record<string, string>
@@ -76,10 +61,9 @@ export function prepareData(body: Record<string, unknown>): {
       .map(([key, value]) => [key, String(value)]),
   )
 
-  // Add fields required for analytics_v0_page_view compatibility
-  // These are expected by the BI team's dashboards
+  // BI dashboards expect react_app and marketing page_type for analytics_v0_page_view.
   context.react_app = 'docs'
-  // Preserve our page_type as docs_page_type, then set page_type to 'marketing' for BI
+  // Preserve the docs page type because BI expects page_type to be marketing.
   if (context.page_type) {
     context.docs_page_type = context.page_type
   }
@@ -88,13 +72,10 @@ export function prepareData(body: Record<string, unknown>): {
   return { type: typeof type === 'string' ? type : 'unknown', context }
 }
 
-/**
- * Send an event to hydro-analytics-client.
- * For page events, sends as a page view. For all other events, sends as a custom event.
- *
- * This is wrapped in try/catch to ensure that if the hydro collector is down
- * or errors, it doesn't affect our primary analytics pipeline.
- */
+// Hydro treats page events as page views and all other docs events as custom events.
+//
+// Wrapped in try/catch so a broken hydro client cannot affect our primary
+// analytics pipeline.
 export function sendHydroAnalyticsEvent(body: Record<string, unknown>): void {
   try {
     const { type, context } = prepareData(body)

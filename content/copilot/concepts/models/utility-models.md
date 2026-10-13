@@ -18,7 +18,3 @@ Utility models:
 * **Are** subject to per-user rate limits.
 
 These characteristics ensure that {% data variables.product.prodname_copilot_short %} features work smoothly regardless of your model policies and billing controls.
-
-## List of utility models
-
-Utility models are typically selected for being fast and lightweight. {% data reusables.copilot.utility-models %}

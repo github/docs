@@ -164,7 +164,7 @@ Define the private registry configuration in a `dependabot.yml` file. For more i
 
 To ensure the private registry is listed as the dependency source in the project's `yarn.lock` file, run `yarn install` on a machine with private registry access. Yarn should update the `resolved` field to include the private registry URL.
 
-```yaml copy
+```text copy
 encoding@^0.1.11:
   version "0.1.13"
   resolved "https://private_registry_url/encoding/-/encoding-0.1.13.tgz#56574afdd791f54a8e9b2785c0582a2d26210fa9"
@@ -205,7 +205,7 @@ To ensure the private registry is listed as the dependency source in the project
 
 {% raw %}
 
-```yaml copy
+```text copy
 encoding@^0.1.11:
   version "0.1.13"
   resolved "https://private_registry_url/encoding/-/encoding-0.1.13.tgz#56574afdd791f54a8e9b2785c0582a2d26210fa9"
@@ -232,15 +232,15 @@ If the `yarn.lock` file doesn't list the private registry as the dependency sour
 
 To allow the NuGet ecosystem to only access private registries, you can configure the `dependabot.yml` file. For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-access-to-private-registries#nuget-feed).
 
-The NuGet ecosystem additionally requires a `nuget.config` file to be checked into the repository, with either a `< clear />` tag in `<packageSources>` section or a key `nuget.org` as true in the `disabledPackageSources` section of the `nuget.config` file.
+The NuGet ecosystem additionally requires a `nuget.config` file to be checked into the repository, with either a `<clear />` tag in `<packageSources>` section or a key `nuget.org` as true in the `disabledPackageSources` section of the `nuget.config` file.
 
-This is an example of a `< clear />` tag in the `packageSources` section of the `nuget.config`.
+This is an example of a `<clear />` tag in the `packageSources` section of the `nuget.config`.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <configuration>
  <packageSources>
-   < clear />
+   <clear />
    <add key="example-nuget" value="https://private_registry_url/nuget/example-nuget/index.json" />
  </packageSources>
 </configuration>
@@ -298,7 +298,7 @@ Define the private registry configuration in a `dependabot.yml` file. For more i
 
 Add the private registry URL to the `[global]` section of the `pip.conf` file and check the file into the repository.
 
-   ```yaml copy
+   ```text copy
    [global]
    timeout = 60
    index-url = https://private_registry_url
@@ -338,7 +338,7 @@ To configure Pipenv to only access private registries, remove `replaces-base` fr
 
 Add the private registry URL to the `[[source]]` section of the `Pipfile` file and check the file into the repository.
 
-```yaml copy
+```text copy
 [[source]]
 url = "https://private_registry_url"
 verify_ssl = true
@@ -351,7 +351,7 @@ To configure Poetry to only access private registries, set `replaces-base: true`
 
 Add the private registry url to the `[[tool.poetry.source]]` section of the `pyproject.toml` file and checked it in the repository.
 
-```yaml copy
+```text copy
 [[tool.poetry.source]]
 name = "private"
 url = "https://private_registry_url"

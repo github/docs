@@ -1,5 +1,4 @@
-// A generic hook for getting and setting a query parameter without reloading the page
-// The `queryParam` variable returned from this method are stateful and will be set to the query param on page load
+// Shallow URL updates keep query controls in sync without reloading the page.
 
 import { useRouter } from 'next/router'
 import { useState, useEffect } from 'react'
@@ -11,7 +10,6 @@ type UseQueryParamReturn<T extends string | boolean> = {
   setQueryParam: (value: T) => void
 }
 
-// Overloads so we can use this for a boolean or string query param
 export function useQueryParam(queryParamKey: string, isBoolean: true): UseQueryParamReturn<boolean>
 export function useQueryParam(queryParamKey: string, isBoolean?: false): UseQueryParamReturn<string>
 export function useQueryParam(
@@ -24,7 +22,7 @@ export function useQueryParam(
   const [debug, setDebug] = useState<boolean>(false)
   const queryParam: string | boolean = isBoolean ? queryParamString === 'true' : queryParamString
 
-  // Only set the initial query param values on page load, the rest of the time we use React state
+  // Read URL values only on route changes, so React state owns later edits.
   useEffect(() => {
     let initialQueryParam = ''
     const paramValue = router.query[queryParamKey]

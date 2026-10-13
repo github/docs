@@ -1,5 +1,3 @@
-// This schema enforces the structure in auto-model-selection.yml
-
 const autoModelSelectionSchema = {
   type: 'array',
   items: {

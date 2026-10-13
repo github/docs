@@ -16,6 +16,7 @@ children:
   - /accessing-a-projects-community-profile
   - /adding-a-code-of-conduct-to-your-project
   - /setting-guidelines-for-repository-contributors
+  - /adding-an-accessibility-page-to-your-repository
   - /adding-a-license-to-a-repository
   - /adding-support-resources-to-your-project
   - /creating-a-default-community-health-file

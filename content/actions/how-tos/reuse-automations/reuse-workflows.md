@@ -72,8 +72,14 @@ You can define inputs and secrets, which can be passed from the caller workflow 
 
    In the example above, `personal_access_token` is a secret that's defined at the repository or organization level.
 
+   To use an environment secret in a reusable workflow, set `environment` on the job in the reusable workflow. The job that calls the reusable workflow can't use the `environment` keyword. For more information, see [AUTOTITLE](/actions/how-tos/deploy/configure-and-manage-deployments/manage-environments).
+
+   The caller workflow must still pass the secret. Use `secrets: inherit` or pass the secret by name, for example {% raw %}`MY_SECRET: ${{ secrets.MY_SECRET }}`{% endraw %}. You can pass a secret by name even if it only exists in the environment.
+
+   If an environment secret has the same name as a repository or organization secret, the environment secret takes precedence. This applies when the caller uses either `secrets: inherit` or {% raw %}`${{ secrets.MY_SECRET }}`{% endraw %}. The job that sets `environment` receives the environment secret's value.
+
    > [!WARNING]
-   > Environment secrets cannot be passed from the caller workflow as `on.workflow_call` does not support the `environment` keyword. If you include `environment` in the reusable workflow at the job level, the environment secret will be used, and not the secret passed from the caller workflow. For more information, see [AUTOTITLE](/actions/how-tos/deploy/configure-and-manage-deployments/manage-environments) and [AUTOTITLE](/actions/reference/workflows-and-actions/workflow-syntax#onworkflow_call).
+   > If the caller workflow doesn't pass an environment secret, the secret resolves to an empty string in the reusable workflow. The workflow run doesn't show an error. To make the workflow run fail instead, set `required: true` for the secret in [`on.workflow_call.secrets`](/actions/reference/workflows-and-actions/workflow-syntax#onworkflow_callsecrets). This setting only checks whether the caller workflow passes the secret. It doesn't check whether the secret has a value.
 
 1. Pass the input or secret from the caller workflow.
 
@@ -307,7 +313,7 @@ For more information on using job outputs, see [AUTOTITLE](/actions/reference/wo
 
 ## Controlling cache access in reusable workflows
 
-You can use the `cache-mode` key to grant a reusable workflow the least amount of {% data variables.product.prodname_actions %} cache access it needs. The value can be `read`, `write`, `write-only`, or `none`. If you omit `cache-mode`, a `read` or `write` default is used based on the trigger type. For the full syntax and the meaning of each value, see [AUTOTITLE](/actions/reference/workflows-and-actions/workflow-syntax#cache-mode). For trigger-dependent defaults, see [AUTOTITLE](/actions/reference/dependency-caching-reference#defaults).
+You can use the `cache-mode` key to grant a reusable workflow the least amount of {% data variables.product.prodname_actions %} cache access it needs. The value can be `read`, `write`, `write-only`, or `none`. If you omit `cache-mode`, a `read` or `write` default is used based on the trigger type. For the full syntax and the meaning of each value, see [AUTOTITLE](/actions/reference/workflows-and-actions/workflow-syntax#cache-mode). For trigger-dependent defaults, see [AUTOTITLE](/actions/reference/workflows-and-actions/dependency-caching#defaults).
 
 When a caller workflow calls a reusable workflow, `cache-mode` propagates to the called workflow. An explicit `cache-mode` on the calling job, or inherited from the caller workflow, limits the cache access the called workflow can request.
 
@@ -315,7 +321,7 @@ If the calling job neither sets nor inherits an explicit `cache-mode`, the calle
 
 If a called workflow declares a `cache-mode` that requests access beyond this explicit limit, the run does not start and {% data variables.product.github %} reports a validation error. For example, a caller that allows at most `read` cannot call a workflow that declares `write`. Because `read` grants restore access and `write-only` grants save access, the two are non-overlapping capabilities, so a mismatch between them is also an over-request. For example, a `write-only` caller cannot call a workflow that declares `read`.
 
-For more information about cache access and the four modes, see [AUTOTITLE](/actions/reference/dependency-caching-reference#controlling-cache-access-with-cache-mode).
+For more information about cache access and the four modes, see [AUTOTITLE](/actions/reference/workflows-and-actions/dependency-caching#controlling-cache-access-with-cache-mode).
 
 {% endif %}
 

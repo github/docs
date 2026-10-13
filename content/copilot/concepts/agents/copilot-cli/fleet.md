@@ -17,7 +17,11 @@ docsTeamMetrics:
 
 The `/fleet` slash command in {% data variables.copilot.copilot_cli_short %} is designed to take an implementation plan and break it down into smaller, independent tasks that can be executed in parallel by subagents. This allows for faster completion of complex requests that involve multiple steps.
 
-This article gives an overview of the `/fleet` slash command. For details of how to use it, see [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/speed-up-task-completion).
+This article gives a conceptual overview of the `/fleet` slash command.
+
+You can also start fleet mode directly from the command line by using the `--fleet` option. This is the command-line equivalent of the `/fleet` slash command.
+
+For information on using the `/fleet` slash command, and the `--fleet` command line option, see [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/speed-up-task-completion).
 
 ## How `/fleet` works
 
@@ -62,7 +66,7 @@ A typical workflow for using `/fleet` in autopilot mode might look like this:
 
 1. Press <kbd>Shift</kbd>+<kbd>Tab</kbd> to switch into plan mode and work with {% data variables.copilot.copilot_cli_short %} to create an implementation plan.
 1. Recognize that the completed plan contains multiple elements and looks like a good candidate for `/fleet`.
-1. Select the **Accept plan and build on autopilot + /fleet** option that's displayed when the plan is complete.
+1. Select the **Accept plan and continue in Autopilot execution mode + /fleet** option that's displayed when the plan is complete.
 
 For more information about autopilot mode, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/autopilot).
 

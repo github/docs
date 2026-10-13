@@ -1,96 +1,103 @@
+@import "@primer/css/support/variables/layout.scss";
+@import "@primer/css/support/mixins/layout.scss";
 @import "src/frame/stylesheets/breakpoint-xxl.scss";
 @import "@primer/react-brand/lib/design-tokens/scss/tokens/functional/size/breakpoints.scss";
 
 .sidebarFull {
-  @include breakpoint-xxl {
-    // Fixed width for consistent sidebar layout
+  @include breakpoint(lg) {
+    // Keep the desktop rail width fixed so article layout stays stable.
     width: 326px;
-    // 109px accounts for the header (65px) + the Docs 2026 secondary bar (44px)
-    height: calc(100vh - 109px);
-    top: 109px;
+    // Match top to the header plus 45px secondary bar so sticky activation does
+    // not jump. Use --docs-header-height because Brand header height changes.
+    height: calc(100vh - var(--docs-header-height) - 45px);
+    top: calc(var(--docs-header-height) + 45px);
   }
 }
 
-// When the mobile nav is expanded inline, the rail spans the full width and
-// flows in the page (no fixed height / sticky) below the xxl breakpoint. At xxl
-// the desktop rail takes over, so revert to the fixed rail width even if the
-// mobile-open state is momentarily still set (e.g. mid-resize) — otherwise the
-// full-width rail covers the article content.
+// Size the nav instead of the rail because d-lg-block forces display: block with
+// !important. The nav can distribute the fixed product title and scrollable list.
+.sidebarNavColumn {
+  @include breakpoint(lg) {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+  }
+}
+
+// Prevent the product-title header from shrinking so the list gets the remaining height.
+.sidebarHeaderFixed {
+  @include breakpoint(lg) {
+    flex-shrink: 0;
+  }
+}
+
+// When mobile nav expands inline, it flows at full width below lg. Revert at lg so
+// the desktop rail does not cover article content during resize.
 .sidebarFullMobileOpen {
   width: 100%;
 
-  @include breakpoint-xxl {
+  @include breakpoint(lg) {
     width: 326px;
   }
 }
 
 .sidebarContentFull {
-  @include breakpoint-xxl {
+  @include breakpoint(lg) {
     width: 326px;
-    // 219px accounts for header (65px) + secondary bar (44px) + sidebar header (110px)
-    height: calc(100vh - 219px);
+    // Fill the remaining rail height and scroll internally so the list reaches the viewport bottom.
+    flex: 1 1 0;
+    min-height: 0;
   }
 }
 
 .sidebarContentOverlay {
-  // Padding to account for header + sidebar header so content isn't cut off
+  // Reserve space for sticky headers so overlay content stays visible.
   padding-bottom: 185px;
 }
 
 .sidebarContentOverlayRest {
-  // Extra padding for REST pages (includes API version picker)
+  // Reserve extra space for the REST API version picker.
   padding-bottom: 250px;
 }
 
 .sidebarContentFullWithPadding {
-  // Padding to account for header + sidebar header so content isn't cut off
-  padding-bottom: 185px;
+  // Add only a small end gap because flex sizing already fills the rail.
+  padding-bottom: 24px;
 }
 
 .sidebarContentFullWithPaddingRest {
-  // Extra padding for REST pages (includes API version picker)
-  padding-bottom: 250px;
+  padding-bottom: 24px;
 }
 
-// Docs 2026 search facet rail. Unlike the doc-tree rail this renders at every
-// width: below brand's `medium` breakpoint it is a full-width block holding the
-// "Show filters" disclosure, and from `medium` up it becomes the sidebar column.
-//
-// From `medium` up its right divider is the SINGLE border around the filters —
-// the panel inside drops its own, so they don't read as a box within a box.
-//
-// It also deliberately does NOT reuse .sidebarFull's sticky offsets. Those assume
-// a 109px header stack (65px header + 44px secondary bar), but DocsSecondaryBar
-// returns null on /search, so the rail would otherwise sit 44px too low.
+// Search filters must stay reachable at every width, unlike the doc-tree rail.
+// Below Brand's medium breakpoint, SidebarSearchAggregates provides Show filters.
+// From medium up, this rail owns the single right divider around filters. It also
+// uses header-only sticky offsets because search has no DocsSecondaryBar.
 .searchRail {
-  // Display is set here rather than with a `d-block` utility: those carry
-  // `!important`, which would beat the `display: flex` below and leave the rail
-  // a block box, so the filter panel could never bound itself to the viewport.
+  // Set display here because d-block uses !important and would beat the flex state below.
   display: block;
   width: 100%;
 
-  // A search with no hits has no facets to offer, so SidebarSearchAggregates renders
-  // nothing — but the column would still reserve its width and draw its divider, leaving
-  // an empty 300px gutter beside the "0 results" message. Collapse it when there is no
-  // filter group inside. Browsers without :has() simply keep the old empty column.
+  // SidebarSearchAggregates renders no fieldset for zero-result searches, so hide
+  // the empty gutter. Browsers without :has() keep the empty column.
   &:not(:has(fieldset)) {
     display: none;
   }
 
   @media (min-width: $brand-breakpoint-medium) {
     position: sticky;
-    top: 65px;
+    top: var(--docs-header-height);
     display: flex;
     flex-direction: column;
     width: 300px;
-    height: calc(100vh - 65px);
+    height: calc(100vh - var(--docs-header-height));
     flex-shrink: 0;
     overflow: hidden;
     border-right: var(--brand-borderWidth-thin) solid
       var(--brand-color-border-subtle);
 
-    // The nav has to join the same flex column, otherwise it sizes to its content
-    // and the filter card has no bounded height to scroll within.
+    // Join the nav to the flex column so the filter card gets a bounded scroll height.
     > nav {
       display: flex;
       flex: 1;
@@ -111,4 +118,16 @@
     flex-direction: column;
     min-height: 0;
   }
+}
+
+// Replace Primer's border-right utility because !important would paint a Primer
+// divider beside Brand nav items.
+.railDivider {
+  border-right: var(--brand-borderWidth-thin, 1px) solid
+    var(--brand-color-border-default);
+}
+
+// Replace Primer's color-fg-default utility so the product title matches Brand nav items.
+.productTitle {
+  color: var(--brand-color-text-default);
 }

@@ -1,8 +1,7 @@
 name: Reviewers - Dependabot
 
-# **What it does**: Automatically add reviewers based on paths, for docs-internal and docs repos.
-# **Why we have it**: So dependabot maintainers can be notified about relevant pull requests.
-# **Who does it impact**: dependabot-updates-reviewers.
+# Dependabot docs paths request dependabot-updates-reviewers
+# so maintainers see relevant PRs.
 
 on:
   pull_request:

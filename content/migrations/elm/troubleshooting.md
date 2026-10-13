@@ -121,7 +121,7 @@ The operator must use a {% data variables.product.pat_v1 %} for each endpoint:
 
 * The **source operator token** must be created on {% data variables.product.prodname_ghe_server %}.
 * The **target operator token** must be created on {% data variables.enterprise.data_residency_site %}.
-* Both tokens have the scopes specified in [AUTOTITLE](/migrations/elm/migrate-your-repository#2-create-the-tokens-used-by-the-operator-who-will-perform-the-migration).
+* Both tokens have the scopes specified in [AUTOTITLE](/migrations/elm/migrate-your-repository#2-create-operator-tokens-with-enterprise-access).
 * The token owner must be an administrator of the corresponding enterprise. Selecting a scope does not grant the user administrative access.
 * {% data variables.product.pat_v2_caps_plural %} are not supported.
 

@@ -17,7 +17,7 @@ describe('glossary', () => {
     const $: CheerioAPI = await getDOM('/get-started/learning-about-github/github-glossary')
     const internalLink = $('#article-contents a[href="/en/get-started/foo"]')
     expect(internalLink.length).toBe(1)
-    // That link used AUTOTITLE so it should be "expanded"
+    // AUTOTITLE expands this fixture link to the page title.
     expect(internalLink.text()).toBe('Fooing Around')
   })
 
@@ -29,7 +29,6 @@ describe('glossary', () => {
   })
 
   test('liquid in one of the description depends on version', async () => {
-    // fpt
     {
       const $: CheerioAPI = await getDOM('/get-started/learning-about-github/github-glossary')
       const paragraphs = $('#article-contents p')
@@ -40,7 +39,6 @@ describe('glossary', () => {
       expect(paragraphTexts).toContain('status check on HubGit.')
     }
 
-    // ghes
     {
       const $: CheerioAPI = await getDOM(
         '/enterprise-server@latest/get-started/learning-about-github/github-glossary',

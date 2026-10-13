@@ -53,7 +53,7 @@ describe('generateAISearchLinksJson', () => {
     const sources = [{ url: 'https://docs.github.com/en/billing/managing-billing' }]
     const aiResponse = 'Learn about [Billing](https://docs.github.com/en/billing/managing-billing).'
     const result = generateAISearchLinksJson(sources, aiResponse)
-    // Note: The inline link appears first because it's processed first
+    // Inline links appear first because generateAISearchLinksJson processes them first.
     expect(JSON.parse(result)).toEqual([
       {
         type: 'inline',
@@ -94,8 +94,10 @@ describe('generateAISearchLinksJson', () => {
     const aiResponse = 'Visit [GitHub](https://github.com/).'
     const result = generateAISearchLinksJson(sources, aiResponse)
     expect(JSON.parse(result)).toEqual([
-      { type: 'inline', url: 'https://github.com/', product: '' }, // Non-docs inline link
-      { type: 'reference', url: 'https://github.com/features/actions', product: '' }, // Non-docs reference link
+      // Non-docs inline links have no product.
+      { type: 'inline', url: 'https://github.com/', product: '' },
+      // Non-docs reference links have no product.
+      { type: 'reference', url: 'https://github.com/features/actions', product: '' },
     ])
   })
 

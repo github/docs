@@ -56,9 +56,9 @@ See [AUTOTITLE](/organizations/managing-organization-settings/managing-the-forki
 
 ## Visibility of forks
 
-A fork's visibility is tied to the upstream repository's repository network. Public repository forks are public, and private repository forks are private.{% ifversion ghec or ghes %} Forks of internal repositories are private.{% endif %} You cannot change the visibility of a fork by itself.
+A fork's visibility depends on the upstream repository. Public repository forks are public, and private repository forks are private.{% ifversion ghec or ghes %} For internal repositories, the visibility of a fork depends on its owner: a fork owned by an organization is internal, while a fork owned by a personal account is private.{% endif %} You cannot change the visibility of a fork by itself.
 
-All repositories in a repository network share the same visibility setting. A repository network includes the upstream repository, its forks, and forks of those forks. See [AUTOTITLE](/repositories/viewing-activity-and-data-for-your-repository/understanding-connections-between-repositories).
+A repository network includes the upstream repository, its forks, and forks of those forks. Repositories in the network share Git data and remain connected to the upstream repository. See [AUTOTITLE](/repositories/viewing-activity-and-data-for-your-repository/understanding-connections-between-repositories).
 
 Deleting a repository or changing its visibility can affect the network. If you delete a fork, code contributions from that fork can remain accessible to the repository network.
 
@@ -74,9 +74,6 @@ Visibility changes can separate forks into new repository networks so that exist
 | A public repository is deleted | An active public fork becomes the new upstream repository for the network. |
 | A public repository is made private | Its public forks stay public in a separate network. |
 | A private repository is made public | Private forks stay private but disconnect into separate private networks. |
-| {% ifversion ghec or ghes %} |
-| An internal repository changes visibility | Forks owned by organizations or personal accounts remain private. |
-| {% endif %} |
 
 Changing a public repository to private can also affect stars, watchers, dependency graph, {% data variables.product.prodname_dependabot_alerts %}, and {% data variables.product.prodname_code_scanning %} availability. Review repository visibility settings carefully before changing them.
 
@@ -105,8 +102,9 @@ Forks are powerful collaboration tools, but they can expose code and history in 
 * Forks have their own permissions separate from the upstream repository.
 * Owners of an upstream repository can read all forks in the repository network.
 * Organization owners may have administrative access to forks created in personal namespaces.
-* Removing someone's access to the upstream repository does not always delete forks in other organizations.
-* Commits can remain accessible in the repository network even after a fork is deleted.
+* Organization owners of a repository that has been forked have read permission to forks created in organizations, but do not have the ability to delete the fork or its branches.
+* Forks created in another organization will not be deleted when individual access is removed from the upstream repository.
+* Git data from any repository in a network may be accessed from any repository in the same network, including the upstream repository, even after a fork is deleted.
 
 Before allowing forks for sensitive work, review the permissions and visibility model for your repository or organization.
 

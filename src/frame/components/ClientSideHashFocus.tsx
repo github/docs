@@ -1,10 +1,7 @@
 import { useEffect } from 'react'
 
-// When an in-page anchor link is clicked (e.g. href="#section-id"),
-// browsers scroll to the target but may not move keyboard focus to it.
-// This component listens for hash changes and programmatically focuses
-// the target element so screen reader and keyboard users land at the
-// correct position.
+// Hash links such as href="#section-id" can scroll without moving keyboard focus.
+// Focusing the target keeps screen reader and keyboard users at the anchor.
 export function ClientSideHashFocus() {
   useEffect(() => {
     const handleHashChange = () => {
@@ -17,8 +14,7 @@ export function ClientSideHashFocus() {
       }
     }
 
-    // Handle initial page load with a hash (e.g. direct link to
-    // docs.github.com/en/discussions#guides-2)
+    // Direct links such as /en/discussions#guides-2 need this before hashchange fires.
     handleHashChange()
 
     window.addEventListener('hashchange', handleHashChange)

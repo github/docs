@@ -21,9 +21,7 @@ Use `/settings` to:
 * **Change a setting with a single command** — Run `/settings KEY VALUE` to change a particular setting without opening the editor.
 * **Check a setting's value** — Run `/settings show KEY` to display the current value of a setting.
 
-You can also use `/config`, which is an alias of `/settings`.
-
-Changes you make with `/settings` or `/config` are written to your personal settings file (by default, `~/.copilot/settings.json`) and persist across sessions.
+Changes you make with `/settings`, `/config KEY VALUE`, or `/config unset KEY` are written to your personal settings file (by default, `~/.copilot/settings.json`) and persist across sessions.
 
 ## Opening the settings editor
 

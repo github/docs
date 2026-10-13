@@ -6,13 +6,11 @@ intro: Learn how {% data variables.copilot.copilot_cloud_agent %} can carry out 
 versions:
   feature: copilot
 children:
-  - /about-cloud-agent
   - /agent-management
   - /about-custom-agents
   - /about-automations
   - /about-automation-rationale-and-approvals
   - /mcp-and-cloud-agent
-  - /risks-and-mitigations
 contentType: concepts
 redirect_from:
   - /copilot/concepts/agents/coding-agent

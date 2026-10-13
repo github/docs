@@ -1,1 +1,1 @@
-See [AUTOTITLE](/copilot/get-started/what-is-github-copilot#get-access).
+See [AUTOTITLE](/copilot/get-started/about-github-copilot#get-access).

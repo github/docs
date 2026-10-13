@@ -1,0 +1,4 @@
+# Proof of Presence for enterprise sudo actions.
+versions:
+  ghec: '*'
+  ghes: '>=3.23'

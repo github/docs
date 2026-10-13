@@ -1,16 +1,13 @@
 import { describe, expect, it, vi } from 'vitest'
 
-import { getBodyParams } from '../get-body-params'
+import { getBodyParams, type Schema } from '@/rest/scripts/utils/get-body-params'
 
-// Mock render-content so tests don't require the full content-render pipeline
+// renderContent returns input because these tests cover schema transformation, not rendering.
 vi.mock('../render-content', () => ({
   renderContent: async (template: string) => template,
 }))
 
 describe('getBodyParams — OAS 3.1 nullable handling', () => {
-  // ── Bug #3 ──────────────────────────────────────────────────────────────────
-  // anyOf: [{type:"null"}, {type:"object"}] → type should render as "object or null"
-
   it('renders anyOf [{type:"null"},{type:"object"}] as "object or null"', async () => {
     const schema = {
       type: 'object',
@@ -58,9 +55,7 @@ describe('getBodyParams — OAS 3.1 nullable handling', () => {
     expect(params[0].type).toBe('object or null')
   })
 
-  it('renders anyOf [{type:"null"},{type:"string"}] as "string" (no object found, falls back to first non-null via existing path)', async () => {
-    // When anyOf has no object, it uses the existing fallback: param.anyOf[0].type
-    // The null entry is at index 0, so this tests the non-null fallback path
+  it('renders anyOf [{type:"string"},{type:"null"}] as "string" (no object, falls back to anyOf[0])', async () => {
     const schema = {
       type: 'object',
       properties: {
@@ -72,13 +67,42 @@ describe('getBodyParams — OAS 3.1 nullable handling', () => {
     const params = await getBodyParams(schema, false)
     expect(params).toHaveLength(1)
     expect(params[0].name).toBe('label')
-    // No object found in anyOf → falls back to anyOf[0].type = 'string'
     expect(params[0].type).toBe('string')
   })
 
-  // ── OAS 3.1 type: ["string", "null"] scalar ─────────────────────────────
-  // This is already handled by existing code (paramType array normalization).
-  // These tests verify the existing OAS 3.1 scalar nullable path still works.
+  it('preserves required fields from all object-only top-level oneOf alternatives', async () => {
+    const schema: Schema = {
+      oneOf: [
+        {
+          type: 'object',
+          properties: {
+            first: { type: 'string', description: 'First value' },
+          },
+          required: ['first'],
+        },
+        {
+          type: 'object',
+          properties: {
+            middle: { type: 'string', description: 'Middle value' },
+          },
+          required: ['middle'],
+        },
+        {
+          type: 'object',
+          properties: {
+            last: { type: 'string', description: 'Last value' },
+          },
+          required: ['last'],
+        },
+      ],
+    }
+    const params = await getBodyParams(schema, true)
+    expect(params.map(({ name, isRequired }) => [name, isRequired])).toEqual([
+      ['first', true],
+      ['middle', true],
+      ['last', true],
+    ])
+  })
 
   it('renders type: ["string", "null"] as "string or null"', async () => {
     const schema = {
@@ -111,7 +135,6 @@ describe('getBodyParams — OAS 3.1 nullable handling', () => {
     expect(params[0].type).toBe('integer or null')
   })
 
-  // ── anyOf without null ────────────────────────────────────────────────────
   it('renders anyOf [{type:"object"}] without null (no hasNull) as just "object"', async () => {
     const schema = {
       type: 'object',
@@ -132,11 +155,9 @@ describe('getBodyParams — OAS 3.1 nullable handling', () => {
     const params = await getBodyParams(schema, false)
     expect(params).toHaveLength(1)
     expect(params[0].type).toBe('object')
-    // Confirm "null" is NOT in the type
     expect(params[0].type).not.toContain('null')
   })
 
-  // ── Existing OAS 3.0 nullable path still works ───────────────────────────
   it('still handles OAS 3.0 nullable: true', async () => {
     const schema = {
       type: 'object',
@@ -153,7 +174,6 @@ describe('getBodyParams — OAS 3.1 nullable handling', () => {
     expect(params[0].type).toBe('string or null')
   })
 
-  // ── Normal non-nullable object body params ───────────────────────────────
   it('renders a plain string param without null', async () => {
     const schema = {
       type: 'object',

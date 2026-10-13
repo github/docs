@@ -5,10 +5,9 @@ import { createLogger } from '@/observability/logger'
 
 const logger = createLogger(import.meta.url)
 
-// Process-level cache for stat results — file sizes don't change between deploys.
+// Process-level cache avoids repeated stat calls; asset files do not change while it runs.
 const statCache = new Map<string, number | null>()
 
-// Matches any <img> tags with an href that starts with `/assets/` or '/public/'
 function isAssetOrPublicImg(node: Node): node is Element {
   return (
     node.type === 'element' &&
@@ -21,9 +20,8 @@ function isAssetOrPublicImg(node: Node): node is Element {
   )
 }
 
-// Content authors write images like `![Alt](/assets/images/foo.png`, but
-// for caching purposes we want to rewrite those so they can be cached
-// indefinitely.
+// Cache-busted asset and public image URLs support indefinite caching.
+// /assets/images/help.png becomes /assets/cb-1234/images/help.png.
 export default function rewriteImgSources() {
   return (tree: Node) => {
     visit(tree, 'element', (node: Node) => {
@@ -43,7 +41,7 @@ function getNewSrc(node: Element): string | undefined {
 
   const filePath = src.slice(1)
 
-  // Check cache first — avoids repeated statSync for the same image
+  // Reuse stat results to avoid repeated statSync calls for the same image.
   if (statCache.has(filePath)) {
     const cachedSize = statCache.get(filePath)
     if (!cachedSize) return

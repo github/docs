@@ -7,17 +7,14 @@ import { getEnvInputs } from '@/workflows/get-env-inputs'
 import { createReportIssue, linkReports } from '@/workflows/issue-report'
 import { getAllRuleNames } from '@/content-linter/lib/helpers/rule-utils'
 
-// GitHub issue body size limit is ~65k characters, so we'll use 60k as a safe limit
+// GitHub issue bodies max out near 65k characters, so reports stop at 60k.
 const MAX_ISSUE_BODY_SIZE = 60000
 
 // If the number of warnings exceeds this number, print a warning so we can give them attention
 const MAX_WARNINGS_BEFORE_ALERT = 20
 
-/**
- * Config that only applies to automated weekly reports.
- */
+// Config that only applies to automated weekly reports.
 export const reportingConfig = {
-  // Include only rules with these severities in reports
   includeSeverities: ['error', 'warning'],
   // Include these rules regardless of severity in reports
   includeRules: ['expired-content'],
@@ -29,18 +26,13 @@ interface LintFlaw {
   errorDetail?: string
 }
 
-/**
- * Determines if a lint result should be included in the automated report
- */
 function shouldIncludeInReport(flaw: LintFlaw): boolean {
   const allRuleNames = getAllRuleNames(flaw)
 
-  // Check if severity should be included
   if (reportingConfig.includeSeverities.includes(flaw.severity)) {
     return true
   }
 
-  // Check if any rule name is in the include list that overrides severity
   const hasIncludedRule = allRuleNames.some((ruleName: string) =>
     reportingConfig.includeRules.includes(ruleName),
   )
@@ -51,19 +43,8 @@ function shouldIncludeInReport(flaw: LintFlaw): boolean {
   return false
 }
 
-// [start-readme]
-//
-// This script runs once a week via a scheduled GitHub Action to lint
-// the entire content and data directories based on our
-// markdownlint.js rules.
-//
-// If errors or warnings are found, it will open up a new issue in the
-// docs-content repo with the label "broken content markdown report".
-//
-// The Content FR will go through the issue and update the content and
-// data files accordingly.
-//
-// [end-readme]
+// The weekly report turns content and data lint results into a docs-content issue for
+// Content FR.
 
 program
   .description(
@@ -84,23 +65,19 @@ async function main() {
   const { REPORT_REPOSITORY, REPORT_AUTHOR, REPORT_LABEL } = process.env
 
   const octokit = github()
-  // `GITHUB_TOKEN` is optional. If you need the token to post a comment
-  // or open an issue report, you might get cryptic error messages from Octokit.
+  // Validate GITHUB_TOKEN early because Octokit auth errors are cryptic.
   getEnvInputs(['GITHUB_TOKEN'])
 
   core.info(`Creating issue for configured lint rules...`)
 
   const parsedResults = JSON.parse(lintResults)
 
-  // Keep track of warnings so we can print an alert when they exceed a manageable number
   let totalWarnings = 0
 
-  // Filter results based on reporting configuration
   const filteredResults: Record<string, LintFlaw[]> = {}
   for (const [file, flaws] of Object.entries(parsedResults)) {
     const filteredFlaws = (flaws as LintFlaw[]).filter((flaw) => shouldIncludeInReport(flaw))
 
-    // Only include files that have remaining flaws after filtering
     if (filteredFlaws.length > 0) {
       totalWarnings += filteredFlaws.filter((flaw) => flaw.severity === 'warning').length
       filteredResults[file] = filteredFlaws
@@ -119,7 +96,6 @@ async function main() {
   for (const [file, flaws] of Object.entries(filteredResults)) {
     const fileEntry = `File: \`${file}\`:\n\`\`\`json\n${JSON.stringify(flaws, null, 2)}\n\`\`\`\n`
 
-    // Check if adding this file would exceed the size limit
     if (reportBody.length + fileEntry.length > MAX_ISSUE_BODY_SIZE) {
       truncated = true
       break
@@ -129,7 +105,6 @@ async function main() {
     filesIncluded++
   }
 
-  // Add truncation notice if needed
   if (truncated) {
     const remaining = totalFiles - filesIncluded
     reportBody += `\n---\n\n⚠️ **Output truncated**: Showing ${filesIncluded} of ${totalFiles} files with lint issues. ${remaining} additional files have been omitted to stay within GitHub's issue size limits.\n`

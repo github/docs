@@ -23,7 +23,6 @@ const enterpriseServerVersions = Object.keys(allVersions).filter((v) =>
   v.startsWith('enterprise-server@'),
 )
 
-// get the `free-pro-team` segment of `free-pro-team@latest`
 const nonEnterpriseDefaultPlan = nonEnterpriseDefaultVersion.split('@')[0]
 
 const opts = {
@@ -80,16 +79,13 @@ describe('Page class', () => {
   })
 
   describe('page.render(context)', () => {
-    // Most of our Liquid versioning tests are in https://github.com/docs/render-content,
-    // But they don't have access to our currently supported versions, which we're testing here.
-    // This test ensures that this works as expected: {% if enterpriseServerVersions contains currentVersion %}
+    // Test {% if enterpriseServerVersions contains currentVersion %} here; docs/render-content lacks version data.
     test('renders the expected Enterprise Server versioned content', async () => {
       const page = await Page.init({
         relativePath: 'page-versioned-for-all-enterprise-releases.md',
         basePath: path.join(__dirname, '../../../src/fixtures/fixtures'),
         languageCode: 'en',
       })
-      // set version to the latest enterprise version
       const context: TestContext = {
         currentVersion: `enterprise-server@${enterpriseServerReleases.latest}`,
         currentLanguage: 'en',
@@ -105,8 +101,7 @@ describe('Page class', () => {
         'This text should only render on non-Enterprise',
       )
 
-      // change version to the oldest enterprise version, re-render, and test again;
-      // the results should be the same
+      // Re-render with the oldest Enterprise Server version; the text must stay the same.
       context.currentVersion = `enterprise-server@${enterpriseServerReleases.oldestSupported}`
       context.currentPath = `/${context.currentLanguage}/${context.currentVersion}/${page!.relativePath}`
       rendered = await page!.render(context)
@@ -118,8 +113,7 @@ describe('Page class', () => {
         'This text should only render on non-Enterprise',
       )
 
-      // change version to non-enterprise, re-render, and test again;
-      // the results should be the opposite
+      // Re-render with the non-enterprise version; the text must invert.
       context.currentVersion = nonEnterpriseDefaultVersion
       context.currentPath = `/${context.currentLanguage}/${context.currentVersion}/${page!.relativePath}`
       rendered = await page!.render(context)
@@ -139,7 +133,6 @@ describe('Page class', () => {
         basePath: path.join(__dirname, '../../../src/fixtures/fixtures'),
         languageCode: 'en',
       })
-      // set version to 3.0
       const context: TestContext = {
         currentVersion: 'enterprise-server@3.0',
         currentLanguage: 'en',
@@ -327,37 +320,17 @@ describe('Page class', () => {
       expect(page!.versions.ghes).toBe('*')
     })
 
+    // Feature versions must combine with frontmatter versions so latest GHES remains applicable.
     test('feature versions frontmatter', async () => {
-      // This fixture file has the frontmatter:
-      //
-      // versions:
-      //   fpt: '*'
-      //   ghes: '*'
-      //   feature: 'placeholder'
-      //
-      // and placeholder.yml has:
-      //
-      // versions:
-      //   ghes: '<3.0'
-      //
-      // So we expect to get the versioning from both.
       const page = await Page.init({
         relativePath: 'feature-versions-frontmatter.md',
         basePath: path.join(__dirname, '../../../src/fixtures/fixtures'),
         languageCode: 'en',
       })
 
-      // Test the raw page data.
       expect(page!.versions.fpt).toBe('*')
       expect(page!.versions.ghes).toBe('>2.21')
 
-      // Test the resolved versioning, where GHES releases specified in frontmatter and in
-      // feature versions are combined (i.e., one doesn't overwrite the other).
-      // We can't test that GHES 2.21 is _not_ included here (which it shouldn't be),
-      // because lib/get-applicable-versions only returns currently supported versions,
-      // so as soon as 2.21 is deprecated, a test for that _not_ to exist will not be meaningful.
-      // But by testing that the _latest_ GHES version is returned, we can ensure that the
-      // the frontmatter GHES `*` is not being overwritten by the placeholder's GHES `<3.0`.
       expect(page!.applicableVersions.includes('free-pro-team@latest')).toBe(true)
       expect(page!.applicableVersions.includes(`enterprise-server@${latest}`)).toBe(true)
       expect(page!.applicableVersions.includes('feature')).toBe(false)
@@ -436,7 +409,9 @@ describe('catches errors thrown in Page class', () => {
       })
     }
 
-    expect(getPage).rejects.toThrowError(/`versions` frontmatter.*? product is not available in/)
+    await expect(getPage).rejects.toThrowError(
+      /`versions` frontmatter.*? product is not available in/,
+    )
   })
 
   describe('versioning optional attributes', () => {
@@ -469,7 +444,6 @@ describe('catches errors thrown in Page class', () => {
       expect(page!.product).toBe('')
       expect(page!.permissions).toBe('')
 
-      // Change to FPT
       context.page.version = nonEnterpriseDefaultVersion
       context.version = nonEnterpriseDefaultVersion
       context.currentPath = '/en/optional/attributes'

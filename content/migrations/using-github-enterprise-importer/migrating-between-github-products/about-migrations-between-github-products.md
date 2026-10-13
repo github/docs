@@ -13,9 +13,9 @@ allowTitleToDifferFromFilename: true
 
 ## About migrations between {% data variables.product.company_short %} products
 
-With {% data variables.product.prodname_importer_proper_name %}, you can migrate data from {% data variables.product.prodname_ghe_server %} to {% data variables.product.prodname_ghe_cloud %}, or migrate data from {% data variables.product.prodname_dotcom_the_website %} to another account on {% data variables.product.prodname_ghe_cloud %}.
+With {% data variables.product.prodname_importer_proper_name %}, you can migrate data from {% data variables.product.prodname_ghe_server %} to {% data variables.product.prodname_ghe_cloud %}, migrate data from {% data variables.product.prodname_dotcom_the_website %} to another account on {% data variables.product.prodname_ghe_cloud %}, or migrate repositories between two enterprises on {% data variables.enterprise.data_residency_site %}.
 
-If your migration source is an account on {% data variables.product.prodname_dotcom_the_website %}, you can migrate individual repositories between organizations, or migrate entire organizations between enterprises. If your migration source is {% data variables.product.prodname_ghe_server %}, you can migrate individual repositories.
+If your migration source is an account on {% data variables.product.prodname_dotcom_the_website %}, you can migrate individual repositories between organizations, or migrate entire organizations between enterprises. If your migration source is {% data variables.product.prodname_ghe_server %} or {% data variables.enterprise.data_residency_site %}, you can migrate individual repositories.
 
 The data that {% data variables.product.prodname_importer_proper_name %} migrates depends on the source of the migration and whether you are migrating a repository or organization.
 
@@ -133,6 +133,10 @@ When you migrate a repository directly, teams and team access to repositories ar
 * {% data reusables.enterprise-migration-tool.git-repo-size-limit %}
 * **40 GiB limit for metadata ({% data variables.release-phases.public_preview %}):** The {% data variables.product.prodname_importer_secondary_name %} cannot migrate repositories with more than 40 GiB of metadata. Metadata includes issues, pull requests, releases, and attachments. In most cases, large metadata is caused by binary assets attached to releases. You can exclude releases from the migration with the `migrate-repo` command's `--skip-releases` flag, and then move your releases manually after the migration.
 {% data reusables.enterprise-migration-tool.limitations-of-migration-tooling %}
+
+### Commit signature verification
+
+{% data reusables.enterprise-migration-tool.commit-signature-verification %}
 
 ## Getting started
 

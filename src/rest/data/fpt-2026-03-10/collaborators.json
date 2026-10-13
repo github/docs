@@ -51,6 +51,7 @@
             "enum": [
               "pull",
               "triage",
+              "triage_plus",
               "push",
               "maintain",
               "admin"
@@ -404,7 +405,7 @@
         {
           "type": "string",
           "name": "permission",
-          "description": "<p>The permission to grant the collaborator. <strong>Only valid on organization-owned repositories.</strong> We accept the following permissions to be set: <code>pull</code>, <code>triage</code>, <code>push</code>, <code>maintain</code>, <code>admin</code> and you can also specify a custom repository role name, if the owning organization has defined any.</p>",
+          "description": "<p>The permission to grant the collaborator. <strong>Only valid on organization-owned repositories.</strong> We accept the following permissions to be set: <code>pull</code>, <code>triage</code>, <code>triage_plus</code>, <code>push</code>, <code>maintain</code>, <code>admin</code> and you can also specify a custom repository role name, if the owning organization has defined any.</p>",
           "default": "push"
         }
       ],
@@ -1505,6 +1506,7 @@
                     "write",
                     "admin",
                     "triage",
+                    "triage_plus",
                     "maintain"
                   ]
                 },
@@ -3061,6 +3063,7 @@
                       "write",
                       "admin",
                       "triage",
+                      "triage_plus",
                       "maintain"
                     ]
                   },
@@ -4268,6 +4271,7 @@
                     "write",
                     "admin",
                     "triage",
+                    "triage_plus",
                     "maintain"
                   ]
                 },
@@ -5516,6 +5520,7 @@
                       "write",
                       "admin",
                       "triage",
+                      "triage_plus",
                       "maintain"
                     ]
                   },

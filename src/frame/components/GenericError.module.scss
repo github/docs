@@ -1,3 +1,18 @@
 .logoContainer {
   z-index: 3;
 }
+
+// The header border owns the full shorthand because primer/css sets it with !important.
+.headerBorder {
+  border-bottom: 1px solid var(--brand-color-border-muted);
+}
+
+// Brand text color for the wordmark logo and GitHub Docs link.
+.fgDefault {
+  color: var(--brand-color-text-default);
+}
+
+// Brand muted color for the footer copyright line.
+.fgMuted {
+  color: var(--brand-color-text-muted);
+}

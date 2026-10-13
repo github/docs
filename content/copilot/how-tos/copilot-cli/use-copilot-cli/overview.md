@@ -16,7 +16,7 @@ docsTeamMetrics:
   - copilot-cli
 ---
 
-The command-line interface (CLI) for {% data variables.product.prodname_copilot %} allows you to use {% data variables.product.prodname_copilot_short %} directly from your terminal. For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-copilot-cli).
+The command-line interface (CLI) for {% data variables.product.prodname_copilot %} allows you to use {% data variables.product.prodname_copilot_short %} directly from your terminal. For more information, see [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-cli).
 
 ## Prerequisite
 
@@ -30,11 +30,11 @@ Install {% data variables.copilot.copilot_cli_short %}. See [AUTOTITLE](/copilot
    {% data variables.product.prodname_copilot_short %} will ask you to confirm that you trust the files in this folder.
 
    > [!IMPORTANT]
-   > During this {% data variables.copilot.copilot_cli %} session, {% data variables.product.prodname_copilot_short %} may attempt to read, modify, and execute files in and below this folder. You should only proceed if you trust the files in this location. For more information about trusted directories, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-copilot-cli#trusted-directories).
+   > During this {% data variables.copilot.copilot_cli %} session, {% data variables.product.prodname_copilot_short %} may attempt to read, modify, and execute files in and below this folder. You should only proceed if you trust the files in this location. For more information about trusted directories, see [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-cli#trusted-directories).
 
 1. Choose one of the options:
 
-   **1. Yes, proceed**:
+   **1. Yes**:
 
    {% data variables.product.prodname_copilot_short %} can work with the files in this location for this session only.
 
@@ -42,7 +42,7 @@ Install {% data variables.copilot.copilot_cli_short %}. See [AUTOTITLE](/copilot
 
    You trust the files in this folder for this and future sessions. You won't be asked again when you start {% data variables.copilot.copilot_cli_short %} from this folder. Only choose this option if you are sure that it will always be safe for {% data variables.product.prodname_copilot_short %} to work with files in this location.
 
-   **3. No, exit (Esc)**:
+   **3. No (Esc)**:
 
    End your {% data variables.copilot.copilot_cli_short %} session.
 
@@ -53,7 +53,7 @@ Install {% data variables.copilot.copilot_cli_short %}. See [AUTOTITLE](/copilot
 
    As an alternative to typing, you can speak your prompt. See [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/voice-input).
 
-   For some examples of prompts, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-copilot-cli).
+   For some examples of prompts, see [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-cli).
 
 1. When {% data variables.product.prodname_copilot_short %} wants to use a tool that could modify or execute files—{% data reusables.cli.tools-needing-approval %}—it will ask you to approve the use of the tool.
 
@@ -135,7 +135,7 @@ You can prepend your input with `!` to directly run shell commands, without maki
 
 ### Schedule prompts to run later
 
-You can schedule prompts to run in the future using the `/every` and `/after` slash commands. The `/every` command schedules a prompt to run repeatedly at a specified interval, while the `/after` command schedules a one-shot prompt to run once after a specified delay. For example:
+You can schedule prompts to run in the future using the `/every` and `/after` slash commands. The `/every` command schedules a prompt to run repeatedly, while the `/after` command schedules a one-shot prompt to run once after a specified delay. For example:
 
 ```shell
 /every 1h Run frontend tests and report any failures

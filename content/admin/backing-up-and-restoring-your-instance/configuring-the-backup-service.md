@@ -62,29 +62,15 @@ If you're using a dedicated block device as your backup target, you need to init
 
     >[!WARNING] This command will permanently erase all data on the specified device. Double-check the device name and back up any important data before proceeding.
 
-    {% ifversion ghes > 3.17 %}
-
     ```shell
     ghe-storage-init-backup /dev/YOUR_DEVICE_NAME
     ```
-
-    {% else %}
-
-    ```shell
-    /usr/local/share/enterprise/ghe-storage-init-backup /dev/YOUR_DEVICE_NAME
-    ```
-
-    {% endif %}
 
     This command:
     * Formats the device (erases all data).
     * Prepares it for use by the backup service.
     * Sets it to mount automatically at `/data/backup` on boot.{% ifversion ghes > 3.19 %}
     * If in a clustered environment, configures the node in `cluster.conf` with the `backup-server` role.{% endif %}
-
-    {% ifversion ghes = 3.17 %}
-    From {% data variables.product.prodname_ghe_server %} 3.17.4 onward, the script is installed in PATH so you can run it directly using: `ghe-storage-init-backup /dev/YOUR_DEVICE_NAME`.
-    {% endif %}
 
 #### Detach a backup disk
 
@@ -179,3 +165,13 @@ Once the service is configured, you can define a backup schedule.
 {% endif %}
 
 The first run will be a full backup. Future runs will be incremental. If a new backup attempt starts while a previous one is still running, it may be skipped or fail. In that case, adjust the schedule to avoid overlap.
+
+{% ifversion ghes > 3.19 %}
+
+<!-- The linked article is versioned `ghes: '>=3.20'`, so this whole section must stay gated to matching versions. Without the gate, the link is unresolvable in 3.19 and earlier and rendering fails. -->
+
+## Using Elasticsearch snapshots for search index data
+
+By default, search index data is backed up by copying files directly from disk. You can optionally configure {% data variables.location.product_location %} to use Elasticsearch's native, incremental snapshot functionality with a customer-managed cloud storage provider instead. For more information, see [AUTOTITLE](/admin/backing-up-and-restoring-your-instance/configuring-elasticsearch-snapshots).
+
+{% endif %}

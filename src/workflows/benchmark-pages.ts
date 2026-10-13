@@ -1,24 +1,13 @@
-/**
- * Benchmarks page load times across the local docs server.
- *
- * Hits every page via the article API and/or HTML routes, across
- * configurable languages and versions. Reports errors and slow pages.
- *
- * Assumes the server is already running on --port (default 4000).
- *
- * Usage:
- *   npx tsx src/workflows/benchmark-pages.ts [options]
- *
- * Options:
- *   --port <number>        Server port (default: 4000)
- *   --langs <codes>        Comma-separated language codes, or "all" (default: en)
- *   --versions <slugs>     Comma-separated version slugs, or "all" (default: free-pro-team@latest)
- *   --modes <modes>        Comma-separated: article-body, article-meta, html, or "all" (default: article-body)
- *   --sample <number>      Random sample size per lang/version (default: all pages)
- *   --slow <ms>            Threshold in ms to flag as slow (default: 500)
- *   --concurrency <n>      Max concurrent requests (default: 1)
- *   --json <path>          Write JSON results to file (for CI consumption)
- */
+// Benchmarks latency against an already-running local docs server.
+//
+// Usage:
+//   npx tsx src/workflows/benchmark-pages.ts [options]
+//
+// Defaults: port 4000, language en, version free-pro-team@latest, mode
+// article-body, slow threshold 500 ms, concurrency 1.
+// Modes: article-body, article-meta, html, or all.
+// Use --langs and --versions for comma-separated lists or all, --sample to limit
+// pages per language and version, and --json to write CI-readable results.
 
 import { parseArgs } from 'node:util'
 
@@ -116,7 +105,6 @@ function percentile(sorted: number[], p: number): number {
 }
 
 async function main() {
-  // Check server
   try {
     const res = await fetch(`${BASE}/api/pagelist/versions`)
     if (!res.ok) throw new Error()
@@ -125,7 +113,6 @@ async function main() {
     process.exit(1)
   }
 
-  // Resolve versions and languages
   let versions: string[]
   if (args.versions === 'all') {
     const res = await fetch(`${BASE}/api/pagelist/versions`)
@@ -183,7 +170,6 @@ async function main() {
     }
   }
 
-  // Report problems
   const errors = all.filter((r) => r.status >= 400)
   const slow = all.filter((r) => r.timeMs >= SLOW_MS).sort((a, b) => b.timeMs - a.timeMs)
 
@@ -214,7 +200,6 @@ async function main() {
     console.log(`\n✅ All clear!`)
   }
 
-  // Write JSON for CI consumption
   if (args.json) {
     const fs = await import('fs')
     const allTimes = all.map((r) => r.timeMs).sort((a, b) => a - b)

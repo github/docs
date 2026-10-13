@@ -20,20 +20,20 @@ In an interactive {% data variables.copilot.copilot_cli_short %} session you can
 
 There are two slash commands for this:
 
-* `/every` — schedule a prompt to be sent **repeatedly** at a fixed interval.
+* `/every` — schedule a prompt to be sent **repeatedly**, either at a fixed interval or at a cadence determined by {% data variables.product.prodname_copilot_short %}.
 * `/after` — schedule a prompt to be sent **once**, after a specified period of time.
 
 Both commands are only available inside an interactive {% data variables.copilot.copilot_cli_short %} session: the schedules fire only while the session in which they were created is running. For ways to run {% data variables.copilot.copilot_cli_short %} on a schedule when no session is open, see [Running a prompt from an external scheduler](#running-a-prompt-from-an-external-scheduler) at the end of this article.
 
 ## Scheduling a recurring prompt with `/every`
 
-In an interactive {% data variables.copilot.copilot_cli_short %} session, type `/every` followed by an interval of time and the prompt you want to be submitted.
+In an interactive {% data variables.copilot.copilot_cli_short %} session, type `/every` followed by the prompt you want to be submitted. To use a fixed interval, include the interval before the prompt.
 
 ```copilot
-/every INTERVAL PROMPT
+/every [INTERVAL] PROMPT
 ```
 
-The prompt will be submitted after the interval you specified has elapsed and then again on the same cadence until you delete the schedule entry or you end the interactive CLI session.
+If you specify an interval, the prompt will be submitted after the interval has elapsed and then again on the same cadence until you delete the schedule entry or you end the interactive CLI session.
 
 ### Examples
 
@@ -48,6 +48,10 @@ The prompt will be submitted after the interval you specified has elapsed and th
 > [!NOTE]
 > `/loop` is an alias of `/every`. So you can enter `/loop` instead of `/every`, if you prefer, and the effect is the same.
 
+### Self-paced scheduling
+
+If you use `/every` with a prompt but no interval or time—for example, `/every keep checking the deployment and let me know once it's healthy`—{% data variables.product.prodname_copilot_short %} creates a self-paced schedule instead of an error. After each run, {% data variables.product.prodname_copilot_short %} decides when to run the prompt again based on the task, rather than following a fixed interval, and stops on its own once it decides there's nothing left to watch. Because the model chooses the cadence, a self-paced schedule can run more or less often than a fixed interval would, so keep an eye on it and delete it (as described in [Managing scheduled prompts](#managing-scheduled-prompts)) if it runs more than you expect.
+
 ## Scheduling a once-only prompt with `/after`
 
 Type `/after` followed by a delay and the prompt you want to submit:
@@ -57,6 +61,9 @@ Type `/after` followed by a delay and the prompt you want to submit:
 ```
 
 The prompt fires once, after the delay has elapsed, and is then removed from the schedule list.
+
+> [!NOTE]
+> `/after` does not support self-paced scheduling. If you pass a prompt to `/after`, you must supply a delay or time.
 
 ### Examples
 

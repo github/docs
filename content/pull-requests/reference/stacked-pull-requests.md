@@ -9,8 +9,6 @@ category:
   - Create pull requests
 ---
 
-{% data reusables.public-preview.public-preview %}
-
 {% data reusables.pull_requests.pr-stack-definition %}
 
 Every pull request in a stack is evaluated against rules for the **base of the stack** — typically `main` — regardless of which branch it directly targets. This means mid-stack pull requests are held to the same standard as the bottom pull request.
@@ -57,6 +55,15 @@ Stack metadata, such as the stack's base branch, is available in workflow expres
 
 For the full set of metadata fields and patterns to reduce redundant CI usage, see [AUTOTITLE](/pull-requests/how-tos/merge-and-close-pull-requests/optimizing-ci-for-stacked-pull-requests).
 
+## Rebasing
+
+When a rebase is available or needed, the merge box will indicate this by displaying a **Rebase stack** button. For example, this may happen when changes to a pull request make the stack non-linear. When the bottom pull request is merged, a rebase happens automatically and you typically won't need to rebase manually.   
+
+When a stack is rebased, you can expect the following: 
+
+* Rebasing the stack generates signed commits. 
+* Rebasing a stack doesn't count as a new, reviewable commit if the diff does not change. Approvals are retained in this situation, even when the **Dismiss stale pull request approvals when new commits are pushed** rule is enabled.  
+
 ## Merge requirements
 
 Before a pull request in a stack can merge, all of the following must be true:
@@ -67,11 +74,13 @@ Before a pull request in a stack can merge, all of the following must be true:
 
 For example, in the stack `main ← PR1 ← PR2 ← PR3`, merging PR #3 requires PR #1 and PR #2 to also pass checks, have required reviews, and satisfy all branch protection rules.
 
+> [!NOTE] Stacked pull requests support merging with **bypass rules**, but only the bottom pull request can be merged this way. You cannot merge the whole stack with bypass rules. See [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository#granting-bypass-permissions-for-your-branch-or-tag-ruleset)
+
 ## Merge methods
 
 Stacks support all three merge methods. In each case, the pull requests land as a single atomic operation:
 
-* **Merge commit** creates one merge commit for the entire group of pull requests being merged, preserving each pull request's full commit history.
+* **Merge commit** creates one merge commit for each pull requests being merged, preserving each pull request's full commit history.
 * **Squash** creates one clean, squashed commit per pull request. Merging `n` pull requests creates `n` squashed commits on the base branch.
 * **Rebase** replays the commits from each pull request onto the base branch, creating a linear history without merge commits.
 
@@ -80,7 +89,7 @@ Stacks support all three merge methods. In each case, the pull requests land as 
 Stacks fully support merge queues. All pull requests in the stack are added to the queue in the correct order. If a pull request is removed or ejected from the queue, all pull requests above it in the stack are also removed. 
 
 > [!NOTE]
-> To keep a stack together, the merge queue allows the merge group to exceed its configured maximum size by up to 50 percent. If the stack is too large to fit within that buffer, it will automatically be split across consecutive merge groups.
+> To keep a stack together, the merge queue allows the merge group to exceed its configured maximum size by up to 50 percent. If the stack is too large to fit within that buffer, it will automatically be put into the next merge group as a single unit.
 
 ## Linear history
 

@@ -273,7 +273,7 @@ describe('stripHiddenBlocks', () => {
     const { content, removed } = stripHiddenBlocks(input)
 
     expect(removed).toBe(1)
-    // A blank line is inserted so "before" and "after" stay separate paragraphs.
+    // Insert a blank line so "before" and "after" stay separate paragraphs.
     expect(content).toBe(['before', '', 'after'].join('\n'))
   })
 
@@ -281,8 +281,7 @@ describe('stripHiddenBlocks', () => {
     const outer = '````'
     const input = [
       outer,
-      // These lines are sample text inside the four-backtick fence, so the
-      // markers and the inner fence must not be interpreted.
+      // The markers and inner fence are sample text inside the four-backtick fence.
       '<!-- docs-validate: hidden -->',
       `${FENCE}go`,
       'sample',

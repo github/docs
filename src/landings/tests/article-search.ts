@@ -93,7 +93,7 @@ describe('deriveStopWords', () => {
     ]
     // "copilot" appears in 3/3 = 100%, always a stop word
     expect(deriveStopWords(articles, 0.5)).toContain('copilot')
-    // At threshold 1.0, only words in every single article qualify
+    // With threshold 1.0, only words in every article qualify.
     const strict = deriveStopWords(articles, 1.0)
     expect(strict).toContain('copilot')
     expect(strict).not.toContain('agents')

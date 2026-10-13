@@ -114,7 +114,7 @@ You can configure {% data variables.copilot.copilot_cli_short %} to use your own
 * Cost estimates are hidden when using your own provider. Token usage (input, output, and cache counts) is still displayed.
 * `/delegate` only works if you are also signed in to {% data variables.product.github %}. It transfers the session to {% data variables.product.github %}'s server-side {% data variables.product.prodname_copilot_short %}, not your provider.
 
-See [Using your own model provider](/copilot/concepts/agents/copilot-cli/about-copilot-cli#using-your-own-model-provider).
+See [Using your own model provider](/copilot/concepts/copilot-surfaces/copilot-cli#using-your-own-model-provider).
 
 ### Set {% data variables.product.prodname_ai_credit_singular %} session limits
 
@@ -514,7 +514,7 @@ Here is what you will learn:
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-copilot-cli)
+* [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-cli)
 * [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/overview)
 * [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference)
 * [{% data variables.product.prodname_copilot_short %} plans and pricing](https://github.com/features/copilot/plans)

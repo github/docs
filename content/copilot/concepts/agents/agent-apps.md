@@ -13,7 +13,7 @@ contentType: concepts
 
 ## Introduction
 
-{% data reusables.copilot.agent-apps-intro %} {% data variables.copilot.agent_apps_caps %} are powered by {% data variables.copilot.copilot_cloud_agent %}. To learn more, see [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-cloud-agent).
+{% data reusables.copilot.agent-apps-intro %} {% data variables.copilot.agent_apps_caps %} are powered by {% data variables.copilot.copilot_cloud_agent %}. To learn more, see [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-on-github).
 
 For example, an {% data variables.copilot.agent_app %} could analyze your product analytics, scan your application for security vulnerabilities, or add feature flags to a pull request, then connect back to the partner's systems to complete the task.
 

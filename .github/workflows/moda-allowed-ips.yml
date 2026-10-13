@@ -1,12 +1,10 @@
 name: Update Moda allowed IPs
 
-# **What it does**: Make sure that the allowed IPs in Moda are up to date.
-# **Why we have it**: The IP ranges from Fastly can change.
-# **Who does it impact**: Docs engineering.
+# Fastly IP ranges can change, so this workflow opens PRs when Moda allowed IPs drift.
 
 on:
   schedule:
-    - cron: '20 16 * * 1' # Run every Monday at 16:20 UTC / 8:20 PST
+    - cron: '20 16 * * 1'
   workflow_dispatch:
 
 permissions:
@@ -32,8 +30,14 @@ jobs:
           echo "Got a list of Fastly IP addresses: $ips"
 
           echo "Updating the list of allowed IPs in Moda config..."
-          yq -i ".metadata.annotations[\"moda.github.net/allowed-ips\"] = \"$ips\"" \
+          # Update the Kustomize source and the generated file together.
+          # The moda-linter check fails if they don't match.
+          for file in \
+            config/kustomize/overlays/production/services/webapp.yaml \
             config/kubernetes/production/services/webapp.yaml
+          do
+            yq -i ".metadata.annotations[\"moda.github.net/allowed-ips\"] = \"$ips\"" "$file"
+          done
           echo "Updated the list of allowed IPs in Moda config"
 
           echo "Checking if there is a change to make..."

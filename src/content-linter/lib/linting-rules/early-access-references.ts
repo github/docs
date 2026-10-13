@@ -13,15 +13,12 @@ interface Frontmatter {
 const ERROR_MESSAGE =
   'An early access reference appears to be used in a non-early access doc. Remove early access references or disable this rule.'
 
-// Early access content is allowed to use early access references
-// There are several existing allowed references to `early access`
-// as a GitHub feature. This rule focuses on references to early
-// access pages.
+// The rule allows early access files to reference early access pages.
+// Other files keep feature-name mentions.
 const isEarlyAccessFilepath = (filepath: string): boolean => filepath.includes('early-access')
 
 const EARLY_ACCESS_REGEX = /early-access/gi
-// This is a pattern seen in link paths for articles about
-// early access. This pattern is ok.
+// This path fragment identifies articles about early access, not page references.
 const EARLY_ACCESS_ARTICLE_REGEX = /-early-access-/
 
 export const earlyAccessReferences: Rule = {
@@ -33,7 +30,6 @@ export const earlyAccessReferences: Rule = {
   function: (params: RuleParams, onError: RuleErrorCallback) => {
     if (isEarlyAccessFilepath(params.name)) return
 
-    // Find errors in content
     for (let i = 0; i < params.lines.length; i++) {
       const line = params.lines[i]
       const matches = line.match(EARLY_ACCESS_REGEX)
@@ -60,21 +56,17 @@ export const frontmatterEarlyAccessReferences: Rule = {
     const filepath = params.name
     if (isEarlyAccessFilepath(filepath)) return
 
-    // Find errors in frontmatter
     const fm = getFrontmatter(params.lines) as Frontmatter | null
     if (!fm) return
 
-    // The redirect_from property is allowed to contain early-access paths
+    // redirect_from preserves early-access paths for redirects.
     delete fm.redirect_from
 
-    // The landing page must link to early-access content so the
-    // children property doesn't need to be checked in that case.
-    // Also exclude fixture index files.
+    // The home page links to early access content, and fixture indexes mirror that pattern.
     if (filepath === 'content/index.md' || filepath.includes('fixtures/content/index.md'))
       delete fm.children
 
-    // Convert updated frontmatter back to a string
-    // to search for 'early-access'.'
+    // YAML serialization lets the rule search every remaining frontmatter value.
     const fmStrings = dump(fm).split('\n')
 
     for (const line of fmStrings) {

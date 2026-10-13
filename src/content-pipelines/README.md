@@ -40,10 +40,10 @@ You can request changes on the automated PR as you would any other PR. If you se
 The config file (defined in `src/content-pipelines/config.yml`) contains the important information, so you only need to pass an `--id` to the script:
 
 ```bash
-# Dry run — run the agent and update content locally, but don't save the SHA
+# Dry run: run the agent and update content locally, but don't save the SHA
 npx tsx src/content-pipelines/scripts/update.ts --id copilot-cli --dry-run
 
-# Full run — save the SHA (affects the next run)
+# Full run: save the SHA (affects the next run)
 npx tsx src/content-pipelines/scripts/update.ts --id copilot-cli
 
 # Force a full scan (ignore stored SHA)

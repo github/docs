@@ -7,7 +7,6 @@ redirect_from:
   - /github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on
   - /github/authenticating-to-github/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on
   - /authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on
-  - /authentication/authenticating-with-single-sign-on/authorizing-credentials-for-single-sign-on-with-a-github-app
 versions:
   ghec: '*'
 shortTitle: '{% data variables.product.pat_generic_caps %} with SSO'
@@ -19,6 +18,10 @@ You must authorize your {% data variables.product.pat_v1 %} after creation befor
 {% data reusables.saml.must-authorize-linked-identity %}
 
 {% data reusables.saml.authorized-creds-info %}
+
+Enterprise administrators can use a {% data variables.product.prodname_github_app %} to authorize credentials for multiple organizations. See [AUTOTITLE](/authentication/authenticating-with-single-sign-on/authorizing-credentials-for-single-sign-on-with-a-github-app).
+
+## Authorizing a {% data variables.product.pat_v1 %}
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}

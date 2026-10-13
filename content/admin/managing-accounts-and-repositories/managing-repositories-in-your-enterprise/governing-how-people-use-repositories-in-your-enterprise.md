@@ -10,6 +10,8 @@ category:
   - Manage accounts and repositories
 redirect_from:
   - /enterprise-onboarding/govern-people-and-repositories/create-repository-policies
+docsTeamMetrics:
+  - enterprise-onboarding
 ---
 
 {% data reusables.enterprise.repo-policy-rules-preview %}

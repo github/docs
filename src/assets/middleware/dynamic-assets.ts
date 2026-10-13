@@ -13,35 +13,20 @@ import { createLogger } from '@/observability/logger'
 
 const logger = createLogger(import.meta.url)
 
-/**
- * This is the indicator that is a virtual part of the URL.
- * Similar to `/cb-1234/` in asset URLs, it's just there to tell the
- * middleware that the image can be aggressively cached. It's not
- * part of the actual file-on-disk path.
- * Similarly, `/mw-1000/` is virtual and will be observed and removed from
- * the pathname before trying to look it up as disk-on-file.
- * The exact pattern needs to match how it's set in whatever Markdown
- * processing code that might make dynamic asset URLs.
- * So if you change this, make sure you change the code that expects
- * to be able to inject this into the URL.
- */
+// Markdown processing injects a max-width segment such as /mw-1440/ into dynamic asset URLs.
+// Like /cb-1234/, it marks cacheable work and is not part of the file path on disk.
+// Keep this pattern in sync with the Markdown code that builds dynamic asset URLs.
 const maxWidthPathPartRegex = /\/mw-(\d+)\//
-/**
- *
- * Why not any free number? If we allowed it to be any integer number
- * someone would put our backend servers at risk by doing something like:
- *
- *    const makeURL = () => `${BASE}/assets/mw-${Math.floor(Math.random()*1000)}/foo.png`
- *    await Promise.all([...Array(10000).keys()].map(makeURL))
- *
- * Which would be lots of distinctly different and valid URLs that the
- * CDN can never really "protect us" on because they're too often distinct.
- *
- * At the moment, the only business need is for 1,000 pixels, so the array
- * only has one. But can change in the future and make this sentence moot.
- */
+// Restrict widths to product-supported sizes, so attackers cannot create many
+// distinct resize URLs that bypass CDN reuse.
 const VALID_MAX_WIDTHS = [1440, 1000]
 
+// WebP effort 5 keeps output smaller without using sharp's slowest CPU setting.
+// CDN caching lets production pay the conversion cost once per image.
+// https://www.peterbe.com/plog/comparing-different-efforts-with-webp-in-sharp
+// Lossy WebP is acceptable because these images are rendered for viewing, not source editing.
+// Lossless output is slightly crisper but averages 1.8x larger.
+// Sharp's default 80% quality and lossy mode make our images 2.8x smaller than PNGs on average.
 export default async function dynamicAssets(
   req: ExtendedRequest,
   res: Response,
@@ -53,39 +38,16 @@ export default async function dynamicAssets(
     return res.status(405).type('text/plain').send('Method Not Allowed')
   }
 
-  // To protect from possible denial of service, we never allow what
-  // we're going to do (the image file operation), if the whole thing
-  // won't be aggressively cached.
-  // If we didn't do this, someone making 2 requests, ...
-  //
-  //    > GET /assets/images/site/logo.web?random=10476583
-  //    > GET /assets/images/site/logo.web?random=20196996
-  //
-  // ...would be treated as 2 distinct backend requests. Sure, each one
-  // would be cached in the CDN, but that's not helping if someone does...
-  //
-  //    while (true) {
-  //       startFetchThread(`/assets/images/site/logo.web?whatever=${rand()}`)
-  //    }
-  //
-  // So we "force" any deviation of the URL to a redirect to the canonical
-  // URL (which, again, is heavily cached).
+  // Query strings create distinct dynamic asset URLs, so redirect them to the canonical cached URL.
   if (Object.keys(req.query).length > 0) {
-    // Cache the 404 so it won't be re-attempted over and over
+    // Cache the redirect so repeated noncanonical URLs do not keep reaching the backend.
     defaultCacheControl(res)
 
-    // This redirects to the same URL we're currently on, but with the
-    // query string part omitted.
-    // For example:
-    //
-    //    > GET /assets/images/site/logo.web?foo=bar
-    //    < 302
-    //    < location: /assets/images/site/logo.web
-    //
+    // /assets/images/site/logo.webp?foo=bar redirects to /assets/images/site/logo.webp.
     return res.safeRedirect(302, req.path)
   }
 
-  // From PNG to WEBP, if the PNG exists
+  // Dynamic WebP files are generated from PNG sources on demand.
   if (req.path.endsWith('.webp')) {
     const { url, maxWidth, error } = deconstructImageURL(req.path)
     if (error) {
@@ -104,49 +66,15 @@ export default async function dynamicAssets(
         }
       }
 
-      // The default in sharp.webp() for effort is 4. It's a sensible
-      // balance between time and compression.
-      // If you make it low, it makes the webp conversion faster.
-      // If you make it high, the webp conversion is slower but the
-      // resulting WEBP file are smaller.
-      // Given that our App Service containers aren't very strong in
-      // terms of CPU, we avoid the highest effort. But given how
-      // well our CDN protects repeated requests for the same image,
-      // we can pay this cost once and reap it for a very long time.
-      // Be mindful at the highest (6), it can be extremely slow so
-      // let's avoid that for now.
-      //
-      // For more information about the effort option, see:
-      // https://www.peterbe.com/plog/comparing-different-efforts-with-webp-in-sharp
-      //
       let effort = 5
       if (process.env.NODE_ENV === 'test') {
-        // When running tests, we want to make the conversion as fast
-        // as possible because the resulting WEBP buffer will most
-        // likely never be enjoyed by network or human eyes.
+        // Tests need fast conversion because the WebP buffer is not user-visible.
         effort = 1
       } else if (process.env.NODE_ENV === 'development') {
-        // If you're doing local development (or review), the
-        // network is not precious (localhost:4000) and you have no
-        // CDN to cache it for you. Make it low but not too unrealistically
-        // low.
+        // Development has no CDN reuse, so reduce conversion CPU cost.
         effort = 1
       }
 
-      // Note that by default, sharp will use a lossy compression.
-      // (i.e. `{lossless: false}` in the options)
-      // The difference is that a lossless image is slightly crisper
-      // but becomes on average 1.8x larger.
-      // Given how we serve images, no human would be able to tell the
-      // difference simply by looking at the image as it appears as an
-      // image tag in the web page.
-      // Also given that rendering-for-viewing is the "end of the line"
-      // for the image meaning it just ends up being viewed and not
-      // resaved as a source file. If we had intention to overwrite all
-      // original PNG source files to WEBP, we should consider lossless
-      // to preserve as much quality as possible at the source level.
-      // The default quality is 80% which, combined with `lossless:false`
-      // makes our images 2.8x smaller than the average PNG.
       const buffer = await image.webp({ effort }).toBuffer()
       assetCacheControl(res)
       return res.type('image/webp').send(buffer)
@@ -162,23 +90,13 @@ export default async function dynamicAssets(
     }
   }
 
-  // Cache the 404 so it won't be re-attempted over and over
+  // Cache the 404 so repeated missing assets do not keep reaching the backend.
   defaultCacheControl(res)
 
-  // There's a preceeding middleware that sets the Surrogate-Key to
-  // "manual-purge" based on the URL possibly having the `/cb-xxxxx/`
-  // checksum in it. But, if it failed, we don't want that. So
-  // undo that if it was set.
-  // It's handy too to not overly cache 404s in the CDN because
-  // it could be that the next prod deployment fixes the missing image.
-  // For example, a PR landed that introduced the *reference* to the image
-  // but forgot to check in the new image, then a follow-up PR adds the image.
+  // Missing dynamic assets use the language surrogate key, not manual-purge, so a later deploy can add the image.
   setFastlySurrogateKey(res, makeLanguageSurrogateKey(), true)
 
-  // Don't use something like `next(404)` because we don't want a fancy
-  // HTML "Page not found" page response because a failed asset lookup
-  // is impossibly a typo in the browser address bar or an accidentally
-  // broken link, like it might be to a regular HTML page.
+  // Keep missing asset responses plain text instead of rendering the HTML page-not-found response.
   res.status(404).type('text/plain').send('Asset not found')
 }
 

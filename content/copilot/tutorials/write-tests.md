@@ -23,7 +23,7 @@ category:
 Before getting started you must have the following:
 * A [{% data variables.product.prodname_copilot %} subscription plan](/copilot/get-started/plans).
 * {% data variables.product.prodname_vs %}, {% data variables.product.prodname_vscode %}, or any JetBrains IDE.
-* The [{% data variables.product.prodname_copilot %} extension](/copilot/how-tos/set-up/install-copilot-extension) installed in your IDE.
+* The [{% data variables.product.prodname_copilot %} extension](/copilot/how-tos/copilot-in-your-ide/set-up-copilot/install-copilot-extension) installed in your IDE.
 
 ## Writing unit tests with {% data variables.copilot.copilot_chat_short %}
 

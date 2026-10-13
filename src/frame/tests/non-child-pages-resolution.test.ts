@@ -2,15 +2,13 @@ import { describe, expect, test } from 'vitest'
 import path from 'path'
 import fs from 'fs'
 
-// ROOT is the project root directory
-// From src/frame/tests/ -> ../../.. gets to project root
 const ROOT = path.resolve(__dirname, '../../..')
 
-/**
- * Tests for non-child page resolution:
- * `/content/` prefix in children frontmatter resolves to absolute content paths,
- * allowing cross-product directory and article inclusion.
- */
+// Tests for non-child page resolution: /content/ in children frontmatter resolves to an absolute
+// content path, so a page can pull in a directory or article from another product.
+//
+// This file imports no production code. Behavior tests reimplement logic from create-tree.ts and
+// current-product-tree.ts, and the rest only check fixtures, so none exercises the real path.
 
 describe('Non-child page resolution', () => {
   describe('/content/ prefix in children frontmatter', () => {
@@ -34,7 +32,6 @@ describe('Non-child page resolution', () => {
       const basePath = '/Users/test/docs-internal/content'
       const child = '/content/actions/workflows'
 
-      // Simulate the logic from create-tree.ts
       let childPath: string
       if (child.startsWith('/content/')) {
         const absoluteChildPath = child.slice('/content/'.length)
@@ -50,7 +47,6 @@ describe('Non-child page resolution', () => {
       const basePath = '/Users/test/docs-internal/content'
       const child = '/content/get-started/foo/bar'
 
-      // Simulate the logic from create-tree.ts
       let childPath: string
       if (child.startsWith('/content/')) {
         const absoluteChildPath = child.slice('/content/'.length)
@@ -66,7 +62,6 @@ describe('Non-child page resolution', () => {
       const originalPath = '/Users/test/docs-internal/content/get-started'
       const child = '/local-child'
 
-      // Simulate the logic from create-tree.ts
       let childPath: string
       if (child.startsWith('/content/')) {
         const absoluteChildPath = child.slice('/content/'.length)
@@ -143,18 +138,15 @@ describe('Non-child page resolution', () => {
 
   describe('translation behavior', () => {
     test('cross-product children paths are language-agnostic', () => {
-      // The /content/ prefix paths should work regardless of the current language
-      // The actual translation is handled by the page loading system
+      // Translation happens after /content/ cross-product path resolution.
       const child = '/content/actions/using-workflows/storing-workflow-data-as-artifacts'
 
-      // Path should not include language prefix
       expect(child.startsWith('/content/')).toBe(true)
       expect(child).not.toMatch(/\/content\/(en|ja|es|pt|zh|ru|ko|fr|de)\//)
     })
 
     test('resolved paths use content directory, not translations', () => {
-      // Cross-product children are resolved from the main content directory
-      // Translations are handled separately by the page rendering system
+      // Cross-product children resolve from the main content directory before translations apply.
       const basePath = '/Users/test/docs-internal/content'
       const child = '/content/actions/workflows'
 
@@ -166,7 +158,6 @@ describe('Non-child page resolution', () => {
 
   describe('crossProductChild flag', () => {
     test('flag is set for /content/ prefix paths', () => {
-      // Simulate the logic from create-tree.ts
       const child = '/content/actions/workflows'
       const isCrossProduct = child.startsWith('/content/')
       expect(isCrossProduct).toBe(true)
@@ -179,7 +170,6 @@ describe('Non-child page resolution', () => {
     })
 
     test('crossProductChild flag excludes items from sidebar', () => {
-      // Simulate the sidebarTree filtering logic
       const childPages = [
         { href: '/en/get-started/foo', title: 'Foo', crossProductChild: false },
         { href: '/en/actions/workflows', title: 'Workflows', crossProductChild: true },
@@ -193,11 +183,8 @@ describe('Non-child page resolution', () => {
   })
 
   describe('descendant-of-sibling filtering in sidebar', () => {
+    // When a bespoke landing page lists a parent group and its articles, the sidebar drops those articles.
     test('filters out children that are descendants of another sibling', () => {
-      // Simulate the sidebarTree descendant filtering logic.
-      // When a bespoke landing page lists both individual articles and their
-      // parent group as children, the individual articles should be filtered out
-      // from the sidebar (they appear nested under their parent group instead).
       const childPages = [
         {
           href: '/en/get-started/copilot/add-custom-instructions',
@@ -213,13 +200,11 @@ describe('Non-child page resolution', () => {
         (child) => !siblingHrefs.some((sh) => sh !== child.href && child.href.startsWith(`${sh}/`)),
       )
 
-      // The two individual articles under /copilot/ should be removed
       expect(dedupedChildPages).toHaveLength(2)
       expect(dedupedChildPages.map((c) => c.title)).toEqual(['Copilot', 'Actions'])
     })
 
     test('does not filter children that are not descendants of any sibling', () => {
-      // Normal case: no overlapping paths, nothing should be filtered
       const childPages = [
         { href: '/en/get-started/copilot', title: 'Copilot' },
         { href: '/en/get-started/actions', title: 'Actions' },
@@ -235,7 +220,6 @@ describe('Non-child page resolution', () => {
     })
 
     test('handles multiple overlapping groups correctly', () => {
-      // Multiple groups each with their own individual articles listed
       const childPages = [
         { href: '/en/get-started/copilot/article-a', title: 'Article A' },
         { href: '/en/get-started/copilot', title: 'Copilot' },

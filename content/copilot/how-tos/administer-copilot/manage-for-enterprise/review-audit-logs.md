@@ -23,6 +23,8 @@ versions:
 contentType: how-tos
 category:
   - Manage Copilot for a team
+docsTeamMetrics:
+  - ai-governance
 ---
 
 You can use the audit log to review actions taken in your enterprise. The audit log includes a record of:

@@ -37,20 +37,15 @@ describe('AI Search Routes', () => {
       done = readerDone
 
       if (value) {
-        // Decode the Uint8Array chunk into a string
         const chunkStr = decoder.decode(value, { stream: true })
         chunks.push(chunkStr)
       }
     }
 
-    // Combine all chunks into a single string
     const fullResponse = chunks.join('')
-    // Split the response into individual chunk lines
     const chunkLines = fullResponse.split('\n').filter((line) => line.trim() !== '')
 
-    // Assertions:
-
-    // 1. First chunk should be the SOURCES chunk
+    // The first chunk carries SOURCES metadata.
     expect(chunkLines.length).toBeGreaterThan(0)
     const firstChunkMatch = chunkLines[0].match(/^Chunk: (.+)$/)
     expect(firstChunkMatch).not.toBeNull()
@@ -61,7 +56,7 @@ describe('AI Search Routes', () => {
     expect(Array.isArray(sourcesChunk.sources)).toBe(true)
     expect(sourcesChunk.sources.length).toBe(3)
 
-    // 2. Subsequent chunks should be MESSAGE_CHUNKs
+    // Later chunks carry MESSAGE_CHUNK text.
     for (let i = 1; i < chunkLines.length; i++) {
       const line = chunkLines[i]
       const messageChunk = JSON.parse(line)
@@ -70,7 +65,7 @@ describe('AI Search Routes', () => {
       expect(typeof messageChunk.text).toBe('string')
     }
 
-    // 3. Verify the complete message is expected
+    // Concatenating MESSAGE_CHUNK text reconstructs the response.
     const expectedMessage =
       'Creating a repository on GitHub is something you should already know how to do :shrug:'
     const receivedMessage = chunkLines
@@ -126,7 +121,6 @@ describe('AI Search Routes', () => {
   })
 
   test('should handle streaming response correctly', async () => {
-    // This test verifies the streaming response processing works
     const body = { query: 'test streaming query', version: 'dotcom' }
     const response = await fetch('http://localhost:4000/api/ai-search/v1', {
       method: 'POST',
@@ -137,7 +131,6 @@ describe('AI Search Routes', () => {
     expect(response.ok).toBe(true)
     expect(response.headers.get('content-type')).toBe('application/x-ndjson')
 
-    // Verify we can read the stream without errors
     if (response.body) {
       const reader = response.body.getReader()
       const decoder = new TextDecoder()

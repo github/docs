@@ -41,8 +41,6 @@ describe('front matter', () => {
     return customErrorMessage
   }
 
-  // Test content with .featuredLinks front matter
-
   const pagesWithFeaturedLinks = pageList.filter((page) => page.featuredLinks)
   test.each(pagesWithFeaturedLinks)(
     '$relativePath .featuredLinks have pristine links',
@@ -51,8 +49,7 @@ describe('front matter', () => {
 
       const trouble = []
       for (const links of Object.values(page.featuredLinks!)) {
-        // Some thing in `.featuredLinks` are not arrays.
-        // For example `popularHeading`. So just skip them.
+        // .featuredLinks includes scalars such as popularHeading, so only check arrays.
         if (!Array.isArray(links)) continue
 
         trouble.push(
@@ -68,8 +65,9 @@ describe('front matter', () => {
     },
   )
 
-  // Test content with .introLinks front matter
-
+  // Intro links can include conditional absolute CTA URLs such as try_ghec_for_free:
+  // https://github.com/account/enterprises/new on /en/enterprise-cloud@latest/admin.
+  // checkURL only handles docs-relative URLs.
   const pagesWithIntroLinks = pageList.filter((page) => page.introLinks)
   test.each(pagesWithIntroLinks)('$relativePath .introLinks have pristine links', async (page) => {
     const redirectsContext = { redirects, pages }
@@ -79,14 +77,8 @@ describe('front matter', () => {
       const links = Array.isArray(linksRaw) ? linksRaw : [linksRaw]
       trouble.push(
         ...links
-          // At the present, we're not able to check when the URI
-          // contains an `elsif` Liquid tag. So just skip them.
+          // Skip URIs with elsif Liquid because checkURL cannot resolve conditional targets.
           .filter((uri) => !containsLiquidElseIf(uri))
-          // On /en/enterprise-cloud@latest/admin we have,
-          //
-          //   try_ghec_for_free: '{% ifversion ghec %}https://github.com/account/enterprises/new{% endif %}'
-          //
-          // Ignore those too.
           .filter((uri) => !uri.includes('https://'))
           .map((uri, i) => checkURL(uri, i, redirectsContext))
           .filter((item): item is NonNullable<typeof item> => Boolean(item)),

@@ -61,6 +61,9 @@ sections:
     - |
       Users can see the progress of a repository being migrated with Enterprise Live Migrations (ELM). A banner indicates when the migration is in progress and the repository is still editable, when the repository has entered read-only cutover, and when the migration is complete, with a link to the destination repository. 
   known_issues:
+    # https://github.com/github/ghes/issues/19970
+    - |
+      On appliances with 84 GB or more of RAM, MySQL could consume most available memory after an upgrade because the default InnoDB buffer pool scales with available RAM. Before adding RAM to increase memory headroom, contact GitHub Support about setting an appropriate `mysql.max-memory` limit. [Updated: 2026-09-24]
     - |
       During an upgrade of GitHub Enterprise Server, custom firewall rules are removed. If you use custom firewall rules, you must reapply them after upgrading.
     - |
@@ -76,7 +79,7 @@ sections:
     - |
       Running a config apply as part of the steps for [AUTOTITLE](/admin/monitoring-and-managing-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-a-node-in-an-emergency) may fail with errors if the node being replaced is still reachable. If this occurs, shut down the node and repeat the steps.
     - |
-      When restoring data originally backed up from a 3.13 or greater appliance version, the Elasticsearch indices need to be reindexed before some of the data will show up.  This happens via a nightly scheduled job.  It can also be forced by running `/usr/local/share/enterprise/ghe-es-search-repair`.
+      When restoring data originally backed up from a 3.13 or greater appliance version, the Elasticsearch indices need to be reindexed before some of the data will show up.  This happens via a scheduled job that runs on the first Saturday of each month.  It can also be forced by running `/usr/local/share/enterprise/ghe-es-search-repair`.
     - |
       When initializing a new GHES cluster, nodes with the `consul-server` role should be added to the cluster before adding additional nodes. Adding all nodes simultaneously creates a race condition between nomad server registration and nomad client registration.
     - |

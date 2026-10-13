@@ -17,7 +17,7 @@ redirect_from:
 
 You can use third-party coding agents alongside {% data variables.copilot.copilot_cloud_agent %} to work asynchronously on your development tasks. You can assign an existing issue or give a prompt to an agent, which will work on the required changes and create a pull request. When the agent finishes, it will request a review from you, and you can leave pull request comments to ask the agent to iterate.
 
-Coding agents are subject to the same security protections, mitigations, and limitations as {% data variables.copilot.copilot_cloud_agent %}. To learn more about how you can use coding agents, see [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-cloud-agent).
+Coding agents are subject to the same security protections, mitigations, and limitations as {% data variables.copilot.copilot_cloud_agent %}. To learn more about how you can use coding agents, see [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-on-github).
 
 ### Where you can use coding agents
 
@@ -49,7 +49,7 @@ The following third-party agents are supported on {% data variables.product.gith
 
 When starting a task with a third-party agent, you can select the AI model used by the agent. You may find that different models perform better, or provide more useful responses, depending on the type of task. For help deciding which model to use, see [AUTOTITLE](/copilot/reference/ai-models/model-comparison).
 
-You can also select **Auto**, which allows {% data variables.copilot.copilot_auto_model_selection %} to choose the best available model on your behalf. See [AUTOTITLE](/copilot/concepts/models/auto-model-selection).
+You can also select **Auto**, which chooses between the supported models below. Choosing **Auto** with third-party agents does **not** leverage {% data variables.copilot.copilot_auto_model_selection %}. See [AUTOTITLE](/copilot/concepts/models/auto-model-selection).
 
 The following models are available for each agent:
 
@@ -79,7 +79,7 @@ Security validation does not require a {% data variables.product.prodname_GHAS %
 
 Coding agents consume **{% data variables.product.prodname_actions %} minutes** and **{% data variables.product.prodname_ai_credits_short %}**. Each agent session consumes {% data variables.product.prodname_ai_credits_short %} based on the model used and the number of tokens processed.
 
-Within your included {% data variables.product.prodname_actions %} minutes and {% data variables.product.prodname_ai_credits_short %}, you can use agents without incurring additional costs. See [AUTOTITLE](/copilot/concepts/billing/organizations-and-enterprises/usage-based-billing).
+Within your included {% data variables.product.prodname_actions %} minutes and {% data variables.product.prodname_ai_credits_short %}, you can use agents without incurring additional costs. See [AUTOTITLE](/copilot/concepts/billing-and-usage/organizations-and-enterprises/billing).
 
 ## Partner agents
 

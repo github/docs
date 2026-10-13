@@ -11,6 +11,8 @@ redirect_from:
 allowTitleToDifferFromFilename: true
 category:
   - Get started with GitHub Enterprise
+docsTeamMetrics:
+  - enterprise-onboarding
 ---
 
 You can use innersource practices to drive collaboration and productivity in your enterprise. Innersource makes it easy for all employees to discover and reuse work. This allows development teams to learn from each other's work, share their expertise, and avoid duplicating effort to recreate common services.

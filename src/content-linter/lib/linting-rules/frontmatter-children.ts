@@ -10,12 +10,8 @@ interface Frontmatter {
   [key: string]: unknown
 }
 
-/**
- * Check if a child path is valid.
- * Supports both:
- * - Relative paths (e.g., /local-child) resolved from current directory
- * - Absolute /content/ paths (e.g., /content/actions/workflows) resolved from content root
- */
+// Child paths such as /local-child resolve relative to the current file.
+// Paths such as /content/actions/workflows resolve from the content root.
 function isValidChildPath(childPath: string, currentFilePath: string): boolean {
   const ROOT = process.env.ROOT || '.'
   const contentDir = path.resolve(ROOT, 'content')
@@ -23,35 +19,30 @@ function isValidChildPath(childPath: string, currentFilePath: string): boolean {
   let resolvedPath: string
 
   if (childPath.startsWith('/content/')) {
-    // Absolute path from content root - strip /content/ prefix
     const absoluteChildPath = childPath.slice('/content/'.length)
     resolvedPath = path.resolve(contentDir, absoluteChildPath)
   } else {
-    // Relative path from current file's directory
     const currentDir: string = path.dirname(currentFilePath)
     const normalizedPath = childPath.startsWith('/') ? childPath.substring(1) : childPath
     resolvedPath = path.resolve(currentDir, normalizedPath)
   }
 
-  // Security check: ensure resolved path stays within content directory
-  // This prevents path traversal attacks using sequences like '../'
+  // Reject paths that resolve outside content to prevent traversal with ../.
   if (!resolvedPath.startsWith(contentDir + path.sep) && resolvedPath !== contentDir) {
     return false
   }
 
-  // Check for direct .md file
   const mdPath = `${resolvedPath}.md`
   if (fs.existsSync(mdPath) && fs.statSync(mdPath).isFile()) {
     return true
   }
 
-  // Check for index.md file in directory
   const indexPath = path.join(resolvedPath, 'index.md')
   if (fs.existsSync(indexPath) && fs.statSync(indexPath).isFile()) {
     return true
   }
 
-  // Check if the path exists as a directory (may have children)
+  // Accept directories because they may contain nested children.
   if (fs.existsSync(resolvedPath) && fs.statSync(resolvedPath).isDirectory()) {
     return true
   }

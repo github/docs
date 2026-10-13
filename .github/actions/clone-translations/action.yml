@@ -10,58 +10,41 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    - name: Clone Spanish
-      uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
-      with:
-        repository: github/docs-internal.es-es
-        token: ${{ inputs.token }}
-        path: translations/es-es
+    # Clone in parallel; sequential actions/checkout steps took about 30s.
+    - name: Clone all translations
+      shell: bash
+      working-directory: ${{ github.workspace }}
+      env:
+        TOKEN: ${{ inputs.token }}
+      run: |
+        auth=$(printf 'x-access-token:%s' "$TOKEN" | base64 | tr -d '\n')
+        echo "::add-mask::$auth"
+        # Pass auth through the environment so the token stays out of process
+        # arguments and out of the clones' git config.
+        export GIT_CONFIG_COUNT=1
+        export GIT_CONFIG_KEY_0=http.https://github.com/.extraheader
+        export GIT_CONFIG_VALUE_0="AUTHORIZATION: basic $auth"
 
-    - name: Clone Japanese
-      uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
-      with:
-        repository: github/docs-internal.ja-jp
-        token: ${{ inputs.token }}
-        path: translations/ja-jp
+        clone() {
+          local lang=$1
+          for attempt in 1 2 3; do
+            rm -rf "translations/$lang"
+            git clone --quiet --depth 1 "https://github.com/github/docs-internal.$lang.git" "translations/$lang" \
+              && return 0
+            echo "Clone of $lang failed on attempt $attempt"
+            sleep $((attempt * 5))
+          done
+          return 1
+        }
 
-    - name: Clone Portuguese
-      uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
-      with:
-        repository: github/docs-internal.pt-br
-        token: ${{ inputs.token }}
-        path: translations/pt-br
+        pids=()
+        for lang in es-es ja-jp pt-br zh-cn ru-ru fr-fr ko-kr de-de; do
+          clone "$lang" &
+          pids+=($!)
+        done
 
-    - name: Clone Simplified Chinese
-      uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
-      with:
-        repository: github/docs-internal.zh-cn
-        token: ${{ inputs.token }}
-        path: translations/zh-cn
-
-    - name: Clone Russian
-      uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
-      with:
-        repository: github/docs-internal.ru-ru
-        token: ${{ inputs.token }}
-        path: translations/ru-ru
-
-    - name: Clone French
-      uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
-      with:
-        repository: github/docs-internal.fr-fr
-        token: ${{ inputs.token }}
-        path: translations/fr-fr
-
-    - name: Clone Korean
-      uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
-      with:
-        repository: github/docs-internal.ko-kr
-        token: ${{ inputs.token }}
-        path: translations/ko-kr
-
-    - name: Clone German
-      uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
-      with:
-        repository: github/docs-internal.de-de
-        token: ${{ inputs.token }}
-        path: translations/de-de
+        status=0
+        for pid in "${pids[@]}"; do
+          wait "$pid" || status=1
+        done
+        exit $status

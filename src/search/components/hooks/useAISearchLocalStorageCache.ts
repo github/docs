@@ -10,12 +10,10 @@ interface CacheIndexEntry {
   timestamp: number
 }
 
-/**
- * We cache AI Search response as individual entries in localStorage, with a separate index to track the keys.
- * This allows the cache to be updated without having to read a single large entry into memory and parse it each time a key is accessed
- *
- * Cached items are cached under a prefix, for a fixed number of days
- */
+// AI Search responses are individual localStorage entries with a separate key index.
+// Cache updates avoid reading and parsing one large entry on every access.
+//
+// Entries live under a prefix and expire after a fixed number of days.
 export function useAISearchLocalStorageCache<T = unknown>(
   cacheKeyPrefix: string = 'ai-query-cache',
   maxEntries: number = 1000,
@@ -23,15 +21,15 @@ export function useAISearchLocalStorageCache<T = unknown>(
 ) {
   const cacheIndexKey = `${cacheKeyPrefix}-index`
 
-  // Generates a unique key based on the query string, version, and language
   const generateCacheKey = (query: string, version: string, language: string): string => {
     query = query.trim().toLowerCase()
-    // Simple hash function to generate a unique key from the query
+    // Hashing keeps cache keys short while version and language separate entries.
     let hash = 0
     for (let i = 0; i < query.length; i++) {
       const char = query.charCodeAt(i)
       hash = (hash << 5) - hash + char
-      hash |= 0 // Convert to 32bit integer
+      // Keep the hash in signed 32-bit range.
+      hash |= 0
     }
     return `${cacheKeyPrefix}-${Math.abs(hash)}-${version}-${language}`
   }
@@ -56,7 +54,6 @@ export function useAISearchLocalStorageCache<T = unknown>(
       if (now < expirationTime) {
         return cachedItem.data
       } else {
-        // Item expired, remove it
         localStorage.removeItem(key)
         updateCacheIndex((index) => index.filter((entry) => entry.key !== key))
         return null
@@ -83,13 +80,11 @@ export function useAISearchLocalStorageCache<T = unknown>(
         }
       }
 
-      // Remove existing entry for this key if any
       index = index.filter((entry) => entry.key !== key)
       index.push({ key, timestamp: now })
 
-      // If cache exceeds max entries, remove oldest entries
+      // Keep the newest entries when the cache exceeds maxEntries.
       if (index.length > maxEntries) {
-        // Sort entries by timestamp
         index.sort((a, b) => a.timestamp - b.timestamp)
         const excess = index.length - maxEntries
         const entriesToRemove = index.slice(0, excess)
@@ -99,7 +94,6 @@ export function useAISearchLocalStorageCache<T = unknown>(
         index = index.slice(excess)
       }
 
-      // Store updated index
       localStorage.setItem(cacheIndexKey, JSON.stringify(index))
     },
     [cacheKeyPrefix, maxEntries],

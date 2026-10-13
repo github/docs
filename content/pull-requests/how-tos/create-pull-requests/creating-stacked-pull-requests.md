@@ -9,8 +9,6 @@ category:
   - Create pull requests
 ---
 
-{% data reusables.public-preview.public-preview %}
-
 Create stacked pull requests with the `gh stack` extension in {% data variables.product.prodname_cli %} or on the {% data variables.product.github %} website.  
 
 > [!NOTE]

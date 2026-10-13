@@ -10,14 +10,7 @@ export interface LiquidToken {
   getPosition?: () => [number, number]
 }
 
-/**
- * Custom error class for Liquid rendering errors with proper type safety.
- * Use this instead of creating Error objects and mutating them with type assertions.
- *
- * @example
- * const error = new LiquidError('Unknown tag', 'ParseError')
- * error.token = { file: '/content/test.md', getPosition: () => [1, 5] }
- */
+// Use LiquidError instead of mutating Error objects with type assertions.
 export class LiquidError extends Error {
   token?: LiquidToken
   originalError?: Error
@@ -48,22 +41,16 @@ const isEmptyTitleError = (error: unknown): error is EmptyTitleError =>
 const isFallbackableError = (error: unknown): boolean =>
   isLiquidError(error) || isAutotitleError(error) || isEmptyTitleError(error)
 
-/**
- * Creates an HTML comment with translation fallback error information
- * Includes detailed debugging information for translators
- */
+// HTML comments expose fallback errors to translators without rendering visible page text.
 export function createTranslationFallbackComment(error: Error, property: string): string {
   const errorType = error.name || 'UnknownError'
   const errorDetails: string[] = []
 
-  // Add basic error information
   errorDetails.push(`TRANSLATION_FALLBACK`)
   errorDetails.push(`prop=${property}`)
   errorDetails.push(`type=${errorType}`)
 
-  // Extract detailed error information based on error type
   if (isLiquidError(error)) {
-    // For Liquid errors, we can extract rich debugging information
     if (error.token) {
       if (error.token.file) {
         errorDetails.push(`file=${error.token.file}`)
@@ -75,13 +62,10 @@ export function createTranslationFallbackComment(error: Error, property: string)
       }
     }
 
-    // Include the original error message if available
     const originalMessage = error.originalError?.message || error.message
     if (originalMessage) {
-      // Clean up the message but keep useful information
       let cleanMessage = originalMessage.replace(/\n/g, ' ').replace(/\s+/g, ' ').trim()
 
-      // Limit message length to keep comment manageable
       if (cleanMessage.length > 200) {
         cleanMessage = `${cleanMessage.substring(0, 200)}...`
       }
@@ -89,7 +73,6 @@ export function createTranslationFallbackComment(error: Error, property: string)
       errorDetails.push(`msg="${cleanMessage.replace(/"/g, "'")}"`)
     }
   } else if (isAutotitleError(error)) {
-    // For AUTOTITLE errors, include the error message
     if (error.message) {
       const cleanMessage = error.message
         .replace(/\n/g, ' ')
@@ -99,27 +82,17 @@ export function createTranslationFallbackComment(error: Error, property: string)
       errorDetails.push(`msg="${cleanMessage.replace(/"/g, "'")}"`)
     }
   } else if (isEmptyTitleError(error)) {
-    // For empty title errors, include the property info
     errorDetails.push(`msg="Content became empty after rendering"`)
   }
 
   return `<!-- ${errorDetails.join(' ')} -->`
 }
 
-// Returns a string by wrapping `renderContent()`. The input string to
-// `renderContent` is one that contains Liquid and Markdown. The output
-// is HTML.
-// But what the wrapper does is that it watches out for possible Liquid
-// related rendering errors AND if the context has been prepared with a
-// sync callable that can yield the English equivalent.
-// So it's up to how the `context` is prepared if it has a `getEnglishPage`
-// function. This means, we can know, in the middleware (which is a
-// higher level than `lib/`) how to use the URL to figure out the
-// equivalent English page instance.
+// Render translated Liquid and fall back to the English Page when translation
+// errors can use English safely. Middleware sets getEnglishPage because it can
+// resolve the English page from the URL.
 export async function renderContentWithFallback(
-  // Typed as the @/types Page interface (not the Page class) for caller
-  // compatibility. The runtime contract is stricter: the value must be an
-  // actual Page instance (enforced by the `page instanceof Page` check below).
+  // Callers pass the Page interface, but fallback rendering needs a Page instance.
   page: PageType,
   property: string,
   context: Context,
@@ -139,20 +112,16 @@ export async function renderContentWithFallback(
     }
     return output
   } catch (error) {
-    // Only bother trying to fallback if it was an error we *can* fall back
-    // on English for.
+    // Fall back only for errors the English page can mask.
     if (isFallbackableError(error) && context.getEnglishPage) {
       const enPage = context.getEnglishPage(context)
       const englishTemplate = (enPage as unknown as Record<string, string>)[property]
-      // If you don't change the context, it'll confuse the liquid plugins
-      // like `data.ts` that uses `environment.scope.currentLanguage`
+      // Set currentLanguage to en so Liquid plugins such as data.ts read English data.
       const enContext = Object.assign({}, context, { currentLanguage: 'en' })
 
-      // Render the English fallback content
       const fallbackContent = await renderContent(englishTemplate, enContext, options)
 
-      // Add HTML comment with error details for non-English languages
-      // Skip for textOnly rendering to avoid breaking plain text output
+      // HTML fallback comments break textOnly output, so add them only for non-English HTML.
       if (context.currentLanguage !== 'en' && !options?.textOnly) {
         const errorComment = createTranslationFallbackComment(error as Error, property)
         return `${errorComment}\n${fallbackContent}`
@@ -164,21 +133,14 @@ export async function renderContentWithFallback(
   }
 }
 
-// Returns the result of executing the first function, but if it fails
-// return the result of executing the second function.
-// In particular, "fails" means if it's deemed an error thrown that we
-// can fall back for.
-// When it executes the fallback function, it creates a shallow copy of
-// the original `context` but with the `currentLanguage:'en'` set on it.
-//
-// You can use this function to do things like this:
-//
-//   const title = await executeWithFallback(
-//     context,
-//     () => renderContent(track.title, context, renderOpts),
-//     (enContext) => renderContent(enTrack.title, enContext, renderOpts)
-//   )
-//
+// Run the fallback with an English context when the callable fails with a
+// fallbackable translation error.
+// Example:
+// const title = await executeWithFallback(
+//   context,
+//   () => renderContent(track.title, context, renderOpts),
+//   (enContext) => renderContent(enTrack.title, enContext, renderOpts),
+// )
 export async function executeWithFallback<T>(
   context: Context,
   callable: (context: Context) => T | Promise<T>,
@@ -191,8 +153,7 @@ export async function executeWithFallback<T>(
       const enContext = Object.assign({}, context, { currentLanguage: 'en' })
       const fallbackContent = await Promise.resolve(fallback(enContext))
 
-      // Add HTML comment with error details for non-English languages
-      // Only for HTML content (detected by presence of HTML tags)
+      // Only HTML fallback content can carry a comment without changing plain-text output.
       if (typeof fallbackContent === 'string' && /<[^>]+>/.test(fallbackContent)) {
         const errorComment = createTranslationFallbackComment(error as Error, 'content')
         return `${errorComment}\n${fallbackContent}` as T

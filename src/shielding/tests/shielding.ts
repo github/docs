@@ -30,8 +30,7 @@ describe('junk paths', () => {
 
   test('double-slash with query params does not open redirect', async () => {
     const res = await get('//evil.com?a=1&b=2&c=3')
-    // With 3 unrecognized query keys, the query string middleware redirects
-    // using res.safeRedirect which normalizes // to /
+    // With 3 unrecognized query keys, safeRedirect normalizes // to /.
     expect(res.headers.location).not.toMatch(/^\/\//)
   })
 
@@ -96,7 +95,7 @@ describe('index.md and .md suffixes', () => {
     // .md is stripped and request flows through with Accept: text/markdown
     {
       const res = await get('/en/get-started.md')
-      // Should not redirect — serves markdown directly (or 404 if page doesn't exist)
+      // Serves markdown directly or returns 404 when the page does not exist.
       expect(res.statusCode).not.toBe(301)
       expect(res.statusCode).not.toBe(302)
     }

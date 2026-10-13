@@ -1,6 +1,6 @@
 ---
-title: Configuring the retention period for GitHub Actions artifacts and logs in your organization
-intro: 'You can configure the retention period for {% data variables.product.prodname_actions %} artifacts and logs in your organization.'
+title: Configuring the retention period for checks, workflow runs, commit statuses, artifacts, and logs in your organization
+intro: 'Control how long checks, workflow runs, commit statuses, artifacts, and logs are retained in your organization.'
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization
 versions:
@@ -8,6 +8,7 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Configure retention period
+allowTitleToDifferFromFilename: true
 category:
   - Configure organization features
 ---
