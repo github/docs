@@ -224,7 +224,7 @@ function getPerformance() {
     firstContentfulPaint: paint ? paint.startTime / 1000 : undefined,
     domInteractive: nav ? nav.domInteractive / 1000 : undefined,
     domComplete: nav ? nav.domComplete / 1000 : undefined,
-    render: nav ? (nav.responseEnd - nav.requestStart) / 1000 : undefined,
+    render: nav ? Math.max(0, nav.responseEnd - nav.requestStart) / 1000 : undefined,
   }
 }
 
