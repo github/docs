@@ -65,12 +65,123 @@ jobs:
 
             core.setOutput('did_warn', 'true')
 
-      - name: Send Slack notification if a GitHub employee who isn't on the Technical Content team opens an issue in public
-        if: ${{ steps.membership_check.outputs.did_warn && github.repository == 'github/docs' }}
+      - name: Resolve Slack user ID from username
+        id: slack_user
+        if: ${{ steps.membership_check.outputs.did_warn == 'true' }}
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+        with:
+          github-token: ${{ github.token }}
+          script: |
+            const githubLogin = context.payload.sender.login.toLowerCase();
+
+            core.info(`Looking up Slack user for @${githubLogin}...`);
+            core.setOutput('slack_user_id', '');
+            core.setOutput('slack_mention', `GitHub user \`${context.payload.sender.login}\``);
+
+            const token = process.env.SLACK_BOT_TOKEN;
+            if (!token) {
+              throw new Error('SLACK_DOCS_BOT_TOKEN is not configured.');
+            }
+
+            let cursor = '';
+            let pages = 0;
+            const matches = [];
+
+            do {
+              core.info(`Fetching Slack users.list page ${pages + 1}...`);
+              const url = new URL('https://slack.com/api/users.list');
+              url.searchParams.set('limit', '200');
+              if (cursor) {
+                url.searchParams.set('cursor', cursor);
+              }
+
+              const response = await fetch(url, {
+                headers: {
+                  Authorization: `Bearer ${token}`,
+                },
+              });
+
+              if (!response.ok) {
+                throw new Error(`Slack users.list returned HTTP ${response.status}.`);
+              }
+
+              const result = await response.json();
+              if (!result.ok) {
+                throw new Error(`Slack users.list failed: ${result.error || 'unknown error'}.`);
+              }
+
+              if (!Array.isArray(result.members)) {
+                throw new Error('Slack users.list response did not include a members array.');
+              }
+
+              pages += 1;
+              matches.push(...result.members.filter((member) =>
+                !member.deleted &&
+                !member.is_bot &&
+                !member.is_app_user &&
+                typeof member.id === 'string' &&
+                typeof member.name === 'string' &&
+                member.name.toLowerCase() === githubLogin
+              ));
+
+              cursor = result.response_metadata?.next_cursor || '';
+            } while (cursor);
+
+            core.info(`Checked ${pages} pages of users.list. Found ${matches.length} match(es) for @${githubLogin}.`);
+            if (matches.length !== 1) {
+              core.warning(`Expected one Slack username matching @${githubLogin}; found ${matches.length}. No DM will be sent.`);
+              return;
+            }
+
+            core.info(`Will DM Slack user ${matches[0].id}.`);
+            core.setOutput('slack_user_id', matches[0].id);
+            core.setOutput('slack_mention', `<@${matches[0].id}>`);
+
+      - name: DM the author in Slack
+        id: slack_dm
+        if: ${{ steps.slack_user.outputs.slack_user_id != '' }}
+        uses: slackapi/slack-github-action@dcb1066f776dd043e64d0e8ba94ca15cc7e1875d # v4.0.0
+        with:
+          method: chat.postMessage
+          token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+          errors: true
+          payload: |
+            channel: ${{ steps.slack_user.outputs.slack_user_id }}
+            text: ${{ toJSON(format('You opened {0} publicly in github/docs instead of the private repo. An internal confirmation issue was created.', github.event.issue.html_url || github.event.pull_request.html_url)) }}
+
+      - name: Log Slack DM result
+        if: ${{ !cancelled() && steps.membership_check.outputs.did_warn == 'true' }}
+        env:
+          SLACK_USER_ID: ${{ steps.slack_user.outputs.slack_user_id }}
+          SLACK_LOOKUP_OUTCOME: ${{ steps.slack_user.outcome }}
+          SLACK_DM_OUTCOME: ${{ steps.slack_dm.outcome }}
+          SLACK_DM_OK: ${{ steps.slack_dm.outputs.ok }}
+          SLACK_DM_RESPONSE: ${{ steps.slack_dm.outputs.response }}
+          SLACK_DM_TS: ${{ steps.slack_dm.outputs.ts }}
+        run: |
+          echo "Slack user lookup outcome: ${SLACK_LOOKUP_OUTCOME:-not run}"
+          if [ -z "$SLACK_USER_ID" ]; then
+            echo "Slack DM skipped because no Slack user ID was resolved."
+          elif [ "$SLACK_DM_OK" = "true" ]; then
+            echo "Slack DM sent successfully (timestamp: ${SLACK_DM_TS:-unavailable})."
+          else
+            echo "Slack DM did not return success (step outcome: ${SLACK_DM_OUTCOME:-unknown})."
+            if [ -n "$SLACK_DM_RESPONSE" ]; then
+              printf '%s\n' "$SLACK_DM_RESPONSE" | jq -r 'if type == "object" and (.error | type) == "string" then "Slack API error: " + .error else "Slack API response did not include an error field." end'
+            else
+              echo "Slack DM API response was unavailable."
+            fi
+          fi
+
+      - name: Notify the docs-open-source channel
+        id: slack_channel_notification
+        if: ${{ !cancelled() && steps.membership_check.outputs.did_warn == 'true' }}
         uses: slackapi/slack-github-action@dcb1066f776dd043e64d0e8ba94ca15cc7e1875d # v4.0.0
         env:
-          SLACK_MESSAGE: <@${{ github.actor }}> opened https://github.com/github/docs/issues/${{ github.event.number || github.event.issue.number }} publicly on the github/docs repo instead of a private repo. They have been notified via a new issue in the private repo to confirm this was intentional.
           SLACK_CHANNEL_ID: ${{ secrets.DOCS_OPEN_SOURCE_SLACK_CHANNEL_ID }}
+          SLACK_MESSAGE: ${{ format('{0} opened {1} publicly in github/docs instead of the private repo. An internal confirmation issue was created.', steps.slack_user.outputs.slack_mention, github.event.issue.html_url || github.event.pull_request.html_url) }}
         with:
           method: chat.postMessage
           token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
@@ -78,6 +189,25 @@ jobs:
           payload: |
             channel: ${{ toJSON(env.SLACK_CHANNEL_ID) }}
             text: ${{ toJSON(env.SLACK_MESSAGE) }}
+
+      - name: Log Slack channel notification result
+        if: ${{ !cancelled() && steps.membership_check.outputs.did_warn == 'true' }}
+        env:
+          SLACK_CHANNEL_OUTCOME: ${{ steps.slack_channel_notification.outcome }}
+          SLACK_CHANNEL_OK: ${{ steps.slack_channel_notification.outputs.ok }}
+          SLACK_CHANNEL_RESPONSE: ${{ steps.slack_channel_notification.outputs.response }}
+          SLACK_CHANNEL_TS: ${{ steps.slack_channel_notification.outputs.ts }}
+        run: |
+          if [ "$SLACK_CHANNEL_OK" = "true" ]; then
+            echo "Slack channel notification sent successfully (timestamp: ${SLACK_CHANNEL_TS:-unavailable})."
+          else
+            echo "Slack channel notification did not return success (step outcome: ${SLACK_CHANNEL_OUTCOME:-unknown})."
+            if [ -n "$SLACK_CHANNEL_RESPONSE" ]; then
+              printf '%s\n' "$SLACK_CHANNEL_RESPONSE" | jq -r 'if type == "object" and (.error | type) == "string" then "Slack API error: " + .error else "Slack API response did not include an error field." end'
+            else
+              echo "Slack channel API response was unavailable."
+            fi
+          fi
 
       - name: Check out repo
         if: ${{ failure() && github.event_name != 'pull_request_target' }}
