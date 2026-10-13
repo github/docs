@@ -115,7 +115,6 @@ export function sendEvent<T extends EventType>({
       path_product: getMetaContent('path-product'),
       path_article: getMetaContent('path-article'),
       page_document_type: getMetaContent('page-document-type'),
-      page_type: getMetaContent('page-type'),
       content_type: getMetaContent('page-content-type'),
       docs_team_metrics: getMetaContent('docs-team-metrics') || undefined,
       status: Number(getMetaContent('status') || 0),
