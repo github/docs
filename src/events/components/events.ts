@@ -156,7 +156,7 @@ export function sendEvent<T extends EventType>({
   queueEvent(body)
 
   // Hydro handles cross-subdomain tracking.
-  sendHydroAnalyticsEvent(body)
+  if (ANALYTICS_ENABLED) sendHydroAnalyticsEvent(body)
 
   if (type === EventType.exit) {
     flushQueue()
