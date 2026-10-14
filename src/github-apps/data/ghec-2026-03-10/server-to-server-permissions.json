@@ -1,4 +1,32 @@
 {
+  "enterprise_copilot_settings": {
+    "title": "Copilot settings",
+    "displayTitle": "Enterprise permissions for \"Copilot settings\"",
+    "permissions": [
+      {
+        "category": "copilot",
+        "slug": "add-enterprise-teams-to-the-copilot-subscription-for-an-enterprise",
+        "subcategory": "copilot-user-management",
+        "verb": "post",
+        "requestPath": "/enterprises/{enterprise}/copilot/billing/selected_enterprise_teams",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "copilot",
+        "slug": "remove-enterprise-teams-from-the-copilot-subscription-for-an-enterprise",
+        "subcategory": "copilot-user-management",
+        "verb": "delete",
+        "requestPath": "/enterprises/{enterprise}/copilot/billing/selected_enterprise_teams",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      }
+    ]
+  },
   "enterprise_copilot_usage": {
     "title": "Copilot usage records",
     "displayTitle": "Enterprise permissions for \"Copilot usage records\"",

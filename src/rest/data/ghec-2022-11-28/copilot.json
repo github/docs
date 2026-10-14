@@ -5349,10 +5349,17 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": false,
-        "serverToServer": false,
+        "userToServerRest": true,
+        "serverToServer": true,
         "fineGrainedPat": false,
-        "permissions": []
+        "permissions": [
+          {
+            "\"Copilot settings\" enterprise permissions": "write"
+          },
+          {
+            "\"Enterprise administration\" enterprise permissions": "write"
+          }
+        ]
       }
     },
     {
@@ -5486,10 +5493,17 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": false,
-        "serverToServer": false,
+        "userToServerRest": true,
+        "serverToServer": true,
         "fineGrainedPat": false,
-        "permissions": []
+        "permissions": [
+          {
+            "\"Copilot settings\" enterprise permissions": "write"
+          },
+          {
+            "\"Enterprise administration\" enterprise permissions": "write"
+          }
+        ]
       }
     },
     {

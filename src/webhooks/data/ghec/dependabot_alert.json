@@ -494,5 +494,67 @@
     ],
     "action": "reopened",
     "category": "dependabot_alert"
+  },
+  "withdrawn": {
+    "descriptionHtml": "<p>A Dependabot alert was withdrawn because the advisory or the vulnerable version\nrange that produced it is no longer valid. The alert contains identifiers\ncaptured before deletion for matching external records, rather than the full\nalert payload used by other actions. Its alert URLs identify the deleted alert\nand may no longer resolve.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to Dependabot alerts.</p>\n<p>For more information about Dependabot alerts, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/code-security/dependabot/dependabot-alerts/about-dependabot-alerts\">About Dependabot alerts</a>.\" For information about the API to manage Dependabot alerts, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/dependabot/alerts\">Dependabot alerts</a>\" in the REST API documentation.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Dependabot alerts\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "withdrawn"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "alert",
+        "description": "<p>Identifiers for a withdrawn Dependabot alert, captured before deletion so that\nconsumers can reconcile external records. This is not a full alert representation.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-cloud@latest/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-cloud@latest/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "withdrawn",
+    "category": "dependabot_alert"
   }
 }
