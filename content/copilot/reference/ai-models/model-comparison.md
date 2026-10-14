@@ -101,7 +101,7 @@ These models are suited to tasks that require step-by-step reasoning, complex de
 For long-horizon autonomous coding and knowledge-work, also consider {% data variables.copilot.copilot_gpt_6_astra %} or {% data variables.copilot.copilot_claude_fable_51 %}.
 
 > [!NOTE]
-> Unlike other Claude models, Anthropic retains prompts and outputs for {% data variables.copilot.copilot_claude_fable_51 %} by default. See [AUTOTITLE](/copilot/reference/ai-models/model-hosting#anthropic-models).
+> Anthropic retains prompts and outputs for {% data variables.copilot.copilot_claude_fable_5 %} and {% data variables.copilot.copilot_claude_fable_51 %} by default. See [AUTOTITLE](/copilot/reference/ai-models/model-hosting#anthropic-models).
 
 ### When to use these models
 
