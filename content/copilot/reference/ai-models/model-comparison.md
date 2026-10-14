@@ -23,11 +23,12 @@ contentType: reference
 
 > [!NOTE]
 > * Different models consume {% data variables.product.prodname_ai_credits_short %} at different rates based on their token pricing. For details, see [AUTOTITLE](/copilot/reference/copilot-billing/models-and-pricing).
-> * Choosing the **Auto** option when selecting a model automatically selects the optimum model for your task, based on model availability and task complexity.  If you are on a paid {% data variables.product.prodname_copilot_short %} plan, you qualify for a discount on model costs when you use the **Auto** option. See [AUTOTITLE](/copilot/concepts/models/auto-model-selection).
+> * Choosing the **Auto** option when selecting a model automatically selects the optimum model for your task, based on model availability and task complexity. If you are on a paid {% data variables.product.prodname_copilot_short %} plan, you qualify for a discount on model costs when you use the **Auto** option. See [AUTOTITLE](/copilot/concepts/models/auto-model-selection).
+> * Model availability varies by {% data variables.product.prodname_copilot_short %} plan. See [Supported AI models in {% data variables.product.prodname_copilot %}](/copilot/reference/ai-models/supported-models) for current plan availability and pricing.
 
 ### Recommended models by task
 
-Use this table to find a suitable model quickly, see more detail in the sections below.
+Use this table to find a suitable model quickly. The task recommendations below are examples, not an exhaustive list; see the supported models page for current availability.
 
 | Model                                              | Task area             | Excels at (primary use case) | Further reading             |
 |----------------------------------------------------|-----------------------|------------------------------|-----------------------------|
@@ -37,13 +38,13 @@ Use this table to find a suitable model quickly, see more detail in the sections
 
 ## Task: General-purpose coding and writing
 
-Use these models for common development tasks that require a balance of quality, speed, and cost efficiency. These models are a good default when you don't have specific requirements.
+Use these models for common development tasks that benefit from a balance of quality, speed, and capability.
 
-| Model                                             | Why it's a good fit                                                                                                                             |
-|---------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
-| {% data variables.copilot.copilot_gpt_53_codex %} | Delivers higher-quality code on complex engineering tasks like features, tests, debugging, refactors, and reviews without lengthy instructions. |
-| {% data variables.copilot.copilot_gpt_5_mini %}   | Reliable default for most coding and writing tasks. Fast, accurate, and works well across languages and frameworks.                             |
-| {% data variables.copilot.copilot_gpt_56_terra %} | Balanced all-round choice for everyday interactive and agentic coding.                                                                          |
+| Model                                                 | Why it's a good fit                                                                                  |
+|-------------------------------------------------------|------------------------------------------------------------------------------------------------------|
+| {% data variables.copilot.copilot_gpt_56_terra %}     | Balanced choice for everyday interactive and agentic coding.                                        |
+| {% data variables.copilot.copilot_claude_sonnet_55 %} | Efficient task completion with fewer steps, tokens, and tool calls.                                 |
+| {% data variables.copilot.copilot_gpt_6_sol %}        | All-round development tasks that benefit from careful, multistep validation.                         |
 
 ### When to use these models
 
@@ -51,7 +52,7 @@ Use one of these models if you want to:
 
 * Write or review functions, short files, or code diffs.
 * Generate documentation, comments, or summaries.
-* Explain errors or unexpected behavior quickly.
+* Explain errors or unexpected behavior.
 * Work in a non-English programming environment.
 
 ### When to use a different model
@@ -60,14 +61,15 @@ If you're working on complex refactoring, architectural decisions, or multi-step
 
 ## Task: Fast help with simple or repetitive tasks
 
-These models are optimized for speed and responsiveness. They’re ideal for quick edits, utility functions, syntax help, and lightweight prototyping. You’ll get fast answers without waiting for unnecessary depth or long reasoning chains.
+These models are suitable for quick edits, utility functions, syntax help, and lightweight prototyping. Compare model pricing and plan availability before choosing a model.
 
 ### Recommended models
 
-| Model                                                 | Why it's a good fit                                                                                        |
-|-------------------------------------------------------|------------------------------------------------------------------------------------------------------------|
-| {% data variables.copilot.copilot_gpt_56_luna %}      | Lightweight, cost-efficient option for smaller, faster tasks. The lowest-cost model in the GPT-5.6 family. |
-| {% data variables.copilot.copilot_claude_haiku_45 %}  | Balances fast responses with quality output. Ideal for small tasks and lightweight code explanations.      |
+| Model                                                 | Why it's a good fit                                                                  |
+|-------------------------------------------------------|--------------------------------------------------------------------------------------|
+| {% data variables.copilot.copilot_gpt_6_luna %}       | Quick responses for smaller, faster tasks.                                          |
+| {% data variables.copilot.copilot_claude_haiku_55 %} | Fast, reliable answers to lightweight coding questions.                             |
+| {% data variables.copilot.copilot_gemini_38_flash %} | Fast answers for lightweight coding tasks.                                          |
 
 ### When to use these models
 
@@ -85,16 +87,18 @@ For tasks that need stronger general-purpose reasoning or more structured output
 
 ## Task: Deep reasoning and debugging
 
-These models are designed for tasks that require step-by-step reasoning, complex decision-making, or high-context awareness. They work well when you need structured analysis, thoughtful code generation, or multi-file understanding.
+These models are suited to tasks that require step-by-step reasoning, complex decision-making, or high-context awareness, including multi-file analysis.
 
 ### Recommended models
 
-| Model                                                 | Why it's a good fit                                                                                                                                             |
-|-------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| {% data variables.copilot.copilot_gpt_5_mini %}       | Delivers deep reasoning and debugging with faster responses and lower resource usage than GPT-5. Ideal for interactive sessions and step-by-step code analysis. |
-| {% data variables.copilot.copilot_gpt_55 %}           | Great at complex reasoning, code analysis, and technical decision-making.                                                                                       |
-| {% data variables.copilot.copilot_gpt_56_sol %}       | The highest reasoning ceiling in the GPT-5.6 family. Best for complex reasoning over large codebases and demanding, long-running agentic work. |
-| {% data variables.copilot.copilot_claude_sonnet_46 %} | Reliable completions and smarter reasoning under pressure.                                                                     |
+| Model                                                 | Why it's a good fit                                                                                                         |
+|-------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|
+| {% data variables.copilot.copilot_gpt_61_sol %}       | Advanced, efficient reasoning for complex coding tasks.                                                                    |
+| {% data variables.copilot.copilot_gpt_56_sol %}       | Complex reasoning over large codebases and long-running agentic work.                                                      |
+| {% data variables.copilot.copilot_claude_opus_55 %}   | Efficient multistep tasks, error recovery, and collaboration.                                                              |
+| {% data variables.copilot.copilot_gemini_4_argon %}   | Complex coding, agentic, and reasoning tasks; thorough work that tests edge cases.                                          |
+
+For long-horizon autonomous coding and knowledge-work, also consider {% data variables.copilot.copilot_gpt_6_astra %} or {% data variables.copilot.copilot_claude_fable_51 %}.
 
 ### When to use these models
 
@@ -113,16 +117,15 @@ For general development workflows or content generation, see [General-purpose co
 
 ## Task: Working with visuals (diagrams, screenshots)
 
-Use these models when you want to ask questions about screenshots, diagrams, UI components, or other visual input. These models support multimodal input and are well suited for front-end work or visual debugging.
+Use a model that supports image input when asking questions about screenshots, diagrams, UI components, or other visual content. The current comparison data identifies MAI-Code-1.1-Flash as supporting image understanding; availability of image input can also depend on the Copilot experience you're using.
 
-| Model                                                 | Why it's a good fit                                                                                                                                                       |
-|-------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| {% data variables.copilot.copilot_gpt_5_mini %}       | Reliable default for most coding and writing tasks. Fast, accurate, and supports multimodal input for visual reasoning tasks. Works well across languages and frameworks. |
-| {% data variables.copilot.copilot_claude_sonnet_46 %} | Reliable completions and smarter reasoning under pressure.                                                                               |
+| Model                 | Why it's a good fit                                                |
+|-----------------------|--------------------------------------------------------------------|
+| MAI-Code-1.1-Flash[^mai-models] | Fast code completions and explanations, instruction following, tool use, and image understanding. |
 
 ### When to use these models
 
-Use one of these models if you want to:
+Use a model with image input if you want to:
 
 * Ask questions about diagrams, screenshots, or UI components.
 * Get feedback on visual drafts or workflows.
@@ -149,7 +152,7 @@ Some models have behaviors, limitations, or safeguards that are useful to unders
 
 [^kimi-k3]: For important information about {% data variables.copilot.copilot_kimi_k3 %} behavior and safeguards, see [Model-specific considerations](#kimi-k3).
 
-Choosing the right model helps you get the most out of {% data variables.product.prodname_copilot_short %}. If you're not sure which model to use, start with a general-purpose option like {% data variables.copilot.copilot_gpt_5_mini %}, then adjust based on your needs.
+If you're not sure which model to use, start with **Auto** so {% data variables.copilot.copilot_chat_short %} can select a model based on availability and task complexity. You can also choose a general-purpose model and switch when your task needs faster responses, deeper reasoning, or image input.
 
 * For detailed model specs and pricing, see [AUTOTITLE](/copilot/reference/ai-models/supported-models).
 * To switch between models, refer to [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/chat-with-copilot/change-the-chat-model) or [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/copilot-for-common-tasks/change-the-completion-model).
