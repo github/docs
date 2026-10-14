@@ -1158,6 +1158,67 @@ test.describe('survey', () => {
     await page.getByRole('button', { name: 'Cancel' }).click()
   })
 
+  test('events queued after the page was hidden once still send on the next hide', async ({
+    page,
+  }) => {
+    const sentTypes: string[] = []
+
+    // Install the route before interacting with the page to avoid event races.
+    await page.route('**/api/events', (route, request) => {
+      const postData = request.postData()
+      if (postData) {
+        for (const eventBody of JSON.parse(postData)) sentTypes.push(eventBody.type)
+      }
+      route.fulfill({})
+    })
+
+    await page.addInitScript(() => {
+      window.GHDOCSPLAYWRIGHT = 1
+    })
+
+    await page.goto('/get-started/foo/for-playwright')
+
+    const setVisibility = (state: 'hidden' | 'visible') =>
+      page.evaluate((visibilityState) => {
+        Object.defineProperty(document, 'visibilityState', {
+          configurable: true,
+          get() {
+            return visibilityState
+          },
+        })
+        document.dispatchEvent(new Event('visibilitychange'))
+      }, state)
+
+    await setVisibility('hidden')
+    await setVisibility('visible')
+    await expect.poll(() => sentTypes).toContain('exit')
+
+    // Vote and hide in one task so the 5 second batch timer can't flush the vote instead.
+    const typesSentOnSecondHide = await page.evaluate(async () => {
+      const beacons: Blob[] = []
+      const originalSendBeacon = navigator.sendBeacon
+      navigator.sendBeacon = (url, data) => {
+        if (url === '/api/events') beacons.push(data as Blob)
+        return true
+      }
+      document.querySelector<HTMLElement>('[for=survey-yes]')!.click()
+      Object.defineProperty(document, 'visibilityState', {
+        configurable: true,
+        get() {
+          return 'hidden'
+        },
+      })
+      document.dispatchEvent(new Event('visibilitychange'))
+      navigator.sendBeacon = originalSendBeacon
+      const batches = await Promise.all(beacons.map((beacon) => beacon.text()))
+      return batches.flatMap((batch) =>
+        JSON.parse(batch).map((eventBody: { type: string }) => eventBody.type),
+      )
+    })
+
+    expect(typesSentOnSecondHide).toContain('survey')
+  })
+
   test('vote on one page, then go to another and it should reset', async ({ page }) => {
     // Install the route before interacting with the page to avoid event races.
     await page.route('**/api/events', (route) => {
