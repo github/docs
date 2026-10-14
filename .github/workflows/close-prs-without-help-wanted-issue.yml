@@ -19,7 +19,7 @@ jobs:
       }}
     runs-on: ubuntu-latest
     steps:
-      - name: Close the pull request if a linked issue lacks the help wanted label
+      - name: Close the pull request if a linked issue opened by someone else lacks the help wanted label
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         with:
           script: |
@@ -31,8 +31,14 @@ jobs:
                 repository(owner: $owner, name: $repo) {
                   pullRequest(number: $number) {
                     state
+                    author {
+                      login
+                    }
                     closingIssuesReferences(first: 100) {
                       nodes {
+                        author {
+                          login
+                        }
                         labels(first: 100) {
                           nodes {
                             name
@@ -61,11 +67,13 @@ jobs:
               return
             }
 
+            const pullRequestAuthor = pullRequest.author?.login?.toLowerCase()
             const issuesWithoutHelpWanted = closingIssues.filter(issue =>
-              !issue.labels.nodes.some(label => label.name.toLowerCase() === 'help wanted'),
+              !issue.labels.nodes.some(label => label.name.toLowerCase() === 'help wanted') &&
+              (!pullRequestAuthor || issue.author?.login?.toLowerCase() !== pullRequestAuthor),
             )
             if (!issuesWithoutHelpWanted.length) {
-              console.log('Every linked issue has the help wanted label')
+              console.log('Every linked issue has the help wanted label or was opened by the pull request author')
               return
             }
 
