@@ -68,3 +68,32 @@ You can then perform offline verification with the following command:
 ```bash copy
 gh attestation verify PATH/TO/YOUR/BUILD/ARTIFACT-BINARY -R ORGANIZATION_NAME/REPOSITORY_NAME --bundle sha256:ae57936def59bc4c75edd3a837d89bcefc6d3a5e31d55a6fa7a71624f92c3c3b.jsonl --custom-trusted-root trusted_root.jsonl
 ```
+
+### Confirming the repository in an offline environment
+
+When you verify offline, `gh attestation verify` compares the `-R` value only with the repository and owner names recorded in the attestation's signing certificate. These are the names that the repository and owner had when the attestation was created. The command can't detect whether the repository or owner has since been renamed, or whether a different repository or owner now uses that name.
+
+To make sure an attestation comes from the repository that currently has the name, download its bundle from the attestation API, as described in Step 1. The attestation API returns only attestations from that repository.
+
+The signing certificate also records the repository's ID. A repository keeps its ID when it's renamed, and a new repository that takes the old name gets a different ID. If you verify a bundle from another source, such as a bundle published alongside the artifact, compare this ID with the ID of the repository you expect.
+
+1. On a machine that is online, get the ID of the repository that you expect the artifact to come from.
+
+   ```bash copy
+   gh api repos/ORGANIZATION_NAME/REPOSITORY_NAME --jq .id
+   ```
+
+1. In your offline environment, add the `--format json` and `--jq` flags to the verification command to print the repository ID from each verified attestation.
+
+   For `-R`, replace `ORGANIZATION_NAME/REPOSITORY_NAME` with the owner and repository names recorded in the signing certificate. If the repository or owner has been renamed, these differ from the current names used for the API lookup.
+
+   ```bash copy
+   gh attestation verify PATH/TO/YOUR/BUILD/ARTIFACT-BINARY \
+     -R ORGANIZATION_NAME/REPOSITORY_NAME \
+     --bundle PATH/TO/YOUR/BUNDLE.jsonl \
+     --custom-trusted-root trusted_root.jsonl \
+     --format json \
+     --jq '.[].verificationResult.signature.certificate.sourceRepositoryIdentifier'
+   ```
+
+1. Check that each ID in the output matches the ID from the first step. Don't trust an attestation whose ID doesn't match, because another repository that used the same name created it.
