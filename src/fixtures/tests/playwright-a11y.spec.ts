@@ -79,3 +79,48 @@ test.describe('search filters (narrow viewport)', () => {
     expect(accessibilityScanResults.violations).toEqual([])
   })
 })
+
+// The search overlay has never been axe-scanned: the `search` entry above covers the
+// results page, and nothing opened the dialog. It is now a hand-rolled listbox with
+// virtual focus, so its ARIA is worth asserting rather than assuming.
+test.describe('search overlay', () => {
+  test.skip(!SEARCH_TESTS, 'No local Elasticsearch, no tests involving search')
+
+  test('open suggestions listbox passes axe', async ({ page }) => {
+    await page.goto('/')
+    await turnOffExperimentsInPage(page)
+
+    await page.getByTestId('toggle-search').click()
+    await page.getByTestId('overlay-search-input').fill('serve playwright')
+    await expect(page.getByTestId('view-all-results')).toBeVisible()
+
+    // Scoped to the dialog: the page behind the scrim has its own entry, and scanning
+    // both would attribute unrelated violations to this component.
+    const accessibilityScanResults = await new AxeBuilder({ page })
+      .include('[role="dialog"]')
+      .analyze()
+
+    expect(accessibilityScanResults.violations).toEqual([])
+  })
+
+  test('listbox with an option selected passes axe', async ({ page }) => {
+    await page.goto('/')
+    await turnOffExperimentsInPage(page)
+
+    await page.getByTestId('toggle-search').click()
+    const input = page.getByTestId('overlay-search-input')
+    await input.fill('serve playwright')
+    await expect(page.getByTestId('view-all-results')).toBeVisible()
+
+    // aria-activedescendant only points at something once a row is selected, so the
+    // unselected scan above cannot catch a broken reference.
+    await page.keyboard.press('ArrowDown')
+    await expect(input).toHaveAttribute('aria-activedescendant', /search-option-/)
+
+    const accessibilityScanResults = await new AxeBuilder({ page })
+      .include('[role="dialog"]')
+      .analyze()
+
+    expect(accessibilityScanResults.violations).toEqual([])
+  })
+})
