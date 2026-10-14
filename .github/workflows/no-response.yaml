@@ -1,5 +1,4 @@
 name: Stale check for no response from author
-
 # Public issues and PRs with no author response close after stale reminders
 # so maintainers do not recheck them manually.
 
