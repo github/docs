@@ -462,7 +462,7 @@ Specify your own labels for all pull requests raised for a package manager.  For
 {% data variables.product.prodname_dependabot %} default behavior:
 
 * All pull requests have a `dependencies` label.
-* If you define more than one package manager, an additional label for the ecosystem or language is added to each pull request. For example: `java` for Gradle updates and `submodules` for git submodule updates.
+* An additional label for the ecosystem or language is added to each pull request, including when you define only one package manager. For example: `java` for Gradle updates and `submodules` for git submodule updates.
 * If semantic version (SemVer) labels are present in the repository, they will be applied automatically to indicate the type of version update (`major`, `minor`, or `patch`).
 * {% data variables.product.prodname_dependabot %} creates these default labels automatically, as necessary in your repository.
 
