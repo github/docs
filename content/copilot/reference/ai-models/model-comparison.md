@@ -24,7 +24,7 @@ contentType: reference
 > [!NOTE]
 > * Different models consume {% data variables.product.prodname_ai_credits_short %} at different rates based on their token pricing. For details, see [AUTOTITLE](/copilot/reference/copilot-billing/models-and-pricing).
 > * Choosing the **Auto** option when selecting a model automatically selects the optimum model for your task, based on model availability and task complexity. If you are on a paid {% data variables.product.prodname_copilot_short %} plan, you qualify for a discount on model costs when you use the **Auto** option. See [AUTOTITLE](/copilot/concepts/models/auto-model-selection).
-> * Model availability varies by {% data variables.product.prodname_copilot_short %} plan. See [Supported AI models in {% data variables.product.prodname_copilot %}](/copilot/reference/ai-models/supported-models) for current plan availability and pricing.
+> * Model availability varies by {% data variables.product.prodname_copilot_short %} plan and by client. For example, some recommended models are not available on {% data variables.product.prodname_dotcom_the_website %}. See [AUTOTITLE](/copilot/reference/ai-models/supported-models).
 
 ### Recommended models by task
 
@@ -99,6 +99,9 @@ These models are suited to tasks that require step-by-step reasoning, complex de
 | {% data variables.copilot.copilot_gemini_4_argon %}   | Complex coding, agentic, and reasoning tasks; thorough work that tests edge cases.                                          |
 
 For long-horizon autonomous coding and knowledge-work, also consider {% data variables.copilot.copilot_gpt_6_astra %} or {% data variables.copilot.copilot_claude_fable_51 %}.
+
+> [!NOTE]
+> Unlike other Claude models, Anthropic retains prompts and outputs for {% data variables.copilot.copilot_claude_fable_51 %} by default. See [AUTOTITLE](/copilot/reference/ai-models/model-hosting#anthropic-models).
 
 ### When to use these models
 
