@@ -28,11 +28,6 @@
   excels_at: Codebase exploration and is especially effective when using grep-style tools
   further_reading: '[GPT-5.4 mini model card](https://deploymentsafety.openai.com/gpt-5-4-thinking/gpt-5-4-thinking.pdf)'
 
-- name: GPT-5.4 nano
-  task_area: Fast help with simple or repetitive tasks
-  excels_at: Lightweight model for simple coding tasks
-  further_reading: '[GPT-5.4 nano model documentation](https://developers.openai.com/api/docs/models/gpt-5.4-nano)'
-
 - name: GPT-5.5
   task_area: Deep reasoning and debugging
   excels_at: Multi-step problem solving and architecture-level code analysis
