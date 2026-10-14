@@ -85,9 +85,57 @@ jobs:
               throw new Error('SLACK_DOCS_BOT_TOKEN is not configured.');
             }
 
+            const sleep = (milliseconds) =>
+              new Promise((resolve) => setTimeout(resolve, milliseconds));
+            const maxRetries = 5;
+            const minimumRequestIntervalMs = 1000;
+            let lastRequestAt = 0;
+
+            async function fetchUsersPage(url) {
+              for (let attempt = 0; attempt <= maxRetries; attempt += 1) {
+                const spacingDelay = Math.max(
+                  0,
+                  minimumRequestIntervalMs - (Date.now() - lastRequestAt),
+                );
+                if (spacingDelay > 0) {
+                  await sleep(spacingDelay);
+                }
+
+                lastRequestAt = Date.now();
+                const response = await fetch(url, {
+                  headers: {
+                    Authorization: `Bearer ${token}`,
+                  },
+                });
+
+                if (response.status === 429) {
+                  if (attempt === maxRetries) {
+                    throw new Error('Slack users.list remained rate-limited after retries.');
+                  }
+
+                  const retryAfterSeconds = Number(response.headers.get('retry-after'));
+                  const retryDelayMs =
+                    Number.isFinite(retryAfterSeconds) && retryAfterSeconds > 0
+                      ? retryAfterSeconds * 1000
+                      : Math.min(1000 * 2 ** attempt, 30000);
+
+                  core.warning(`Slack rate-limited users.list; retrying in ${retryDelayMs} ms.`);
+                  await sleep(retryDelayMs);
+                  continue;
+                }
+
+                if (!response.ok) {
+                  throw new Error(`Slack users.list returned HTTP ${response.status}.`);
+                }
+
+                return response.json();
+              }
+
+              throw new Error('Slack users.list request did not complete.');
+            }
+
             let cursor = '';
             let pages = 0;
-            const matches = [];
 
             do {
               core.info(`Fetching Slack users.list page ${pages + 1}...`);
@@ -97,17 +145,7 @@ jobs:
                 url.searchParams.set('cursor', cursor);
               }
 
-              const response = await fetch(url, {
-                headers: {
-                  Authorization: `Bearer ${token}`,
-                },
-              });
-
-              if (!response.ok) {
-                throw new Error(`Slack users.list returned HTTP ${response.status}.`);
-              }
-
-              const result = await response.json();
+              const result = await fetchUsersPage(url);
               if (!result.ok) {
                 throw new Error(`Slack users.list failed: ${result.error || 'unknown error'}.`);
               }
@@ -117,27 +155,26 @@ jobs:
               }
 
               pages += 1;
-              matches.push(...result.members.filter((member) =>
+              const match = result.members.find((member) =>
                 !member.deleted &&
                 !member.is_bot &&
                 !member.is_app_user &&
                 typeof member.id === 'string' &&
                 typeof member.name === 'string' &&
                 member.name.toLowerCase() === githubLogin
-              ));
+              );
+
+              if (match) {
+                core.info(`Found the Slack username after ${pages} page(s).`);
+                core.setOutput('slack_user_id', match.id);
+                core.setOutput('slack_mention', `<@${match.id}>`);
+                return;
+              }
 
               cursor = result.response_metadata?.next_cursor || '';
             } while (cursor);
 
-            core.info(`Checked ${pages} pages of users.list. Found ${matches.length} match(es) for @${githubLogin}.`);
-            if (matches.length !== 1) {
-              core.warning(`Expected one Slack username matching @${githubLogin}; found ${matches.length}. No DM will be sent.`);
-              return;
-            }
-
-            core.info(`Will DM Slack user ${matches[0].id}.`);
-            core.setOutput('slack_user_id', matches[0].id);
-            core.setOutput('slack_mention', `<@${matches[0].id}>`);
+            core.warning(`No active Slack username matched @${githubLogin}; no DM will be sent.`);
 
       - name: DM the author in Slack
         id: slack_dm
