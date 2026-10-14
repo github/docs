@@ -361,7 +361,8 @@ This example workflow shows how configuration variables set at the repository, e
 
 > [!NOTE]
 > Configuration variables at the environment level are automatically available after their environment is declared by the runner.
-
+> [!NOTE]
+> The `vars` context is not available inside a composite action. To use a repository variable inside a composite action, pass it as an `input` from the calling workflow. For example, pass `${{ vars.MY_VAR }}` as `with: my-var: ${{ vars.MY_VAR }}` in the calling workflow, then use `${{ inputs.my-var }}` inside the composite action.
 {% data reusables.actions.actions-vars-context-example-usage %}
 
 ## `job` context
