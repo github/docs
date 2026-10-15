@@ -19,7 +19,7 @@ More than just a model picker, {% data variables.copilot.copilot_auto_model_sele
 
 ### Auto with task optimization
 
-> [!NOTE] {% data variables.copilot.copilot_auto_model_selection_short_cap_a %} with task optimization is generally available in {% data variables.copilot.copilot_chat_short %} on the {% data variables.product.github %} website, in {% data variables.product.prodname_vscode_shortname %}, in {% data variables.copilot.copilot_cli_short %}, in {% data variables.copilot.github_copilot_app %}, and in JetBrains IDEs.
+> [!NOTE] {% data variables.copilot.copilot_auto_model_selection_short_cap_a %} with task optimization is generally available in {% data variables.copilot.copilot_chat_short %} on the {% data variables.product.github %} website, in {% data variables.product.prodname_vscode_shortname %}, in {% data variables.copilot.copilot_cli_short %}, in the {% data variables.copilot.github_copilot_app %}, and in JetBrains IDEs.
 
 {% data variables.copilot.copilot_auto_model_selection_short_cap_a %} with task optimization combines two systems to provide high quality results and better reliability. One system tracks real-time system health and availability, while the other evaluates task complexity. Putting these together, {% data variables.copilot.copilot_auto_model_selection_short %} routes the task to the optimal model.
 
@@ -81,14 +81,14 @@ When you select **Auto**, {% data variables.copilot.copilot_auto_model_selection
 {% data variables.copilot.copilot_auto_model_selection_short_cap_a %}, with task optimization, is generally available in these {% data variables.product.prodname_copilot_short %} products:
 * {% data variables.copilot.copilot_chat_short %}, on the {% data variables.product.github %} website and supported IDEs
 * {% data variables.copilot.copilot_cli_short %}
-* {% data variables.copilot.github_copilot_app %}
+* The {% data variables.copilot.github_copilot_app %}
 * {% data variables.copilot.copilot_cloud_agent %}
 
-> [!NOTE] Auto tiers are only available on {% data variables.product.prodname_vscode_shortname %}, {% data variables.copilot.copilot_cli_short %}, and {% data variables.copilot.github_copilot_app %} .
+> [!NOTE] Auto tiers are only available on {% data variables.product.prodname_vscode_shortname %}, {% data variables.copilot.copilot_cli_short %}, and the {% data variables.copilot.github_copilot_app %} .
 
 > [!TIP]
 > You can see which model was used for each {% data variables.product.prodname_copilot_short %} response.
-> * In **{% data variables.copilot.copilot_chat_short %}** and **{% data variables.copilot.github_copilot_app %}**, hover over the response.
+> * In **{% data variables.copilot.copilot_chat_short %}** and **the {% data variables.copilot.github_copilot_app %}**, hover over the response.
 > * In **{% data variables.copilot.copilot_cli_short %}**, the model used for each response displays in the terminal.
 > * In **{% data variables.copilot.copilot_cloud_agent %}**, the model used for each response displays at the end of the response.
 

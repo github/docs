@@ -2,7 +2,7 @@
 title: Driving team adoption of agentic GitHub Copilot
 shortTitle: Drive agentic adoption
 allowTitleToDifferFromFilename: true
-intro: 'Help established teams build sustained habits with {% data variables.copilot.github_copilot_app %} and {% data variables.copilot.copilot_cli_short %}, then measure adoption and business impact.'
+intro: 'Help established teams build sustained habits with the {% data variables.copilot.github_copilot_app %} and {% data variables.copilot.copilot_cli_short %}, then measure adoption and business impact.'
 versions:
   feature: copilot
 contentType: tutorials
@@ -13,7 +13,7 @@ docsTeamMetrics:
   - ai-governance
 ---
 
-After developers are using {% data variables.product.prodname_copilot_short %}, a focused rollout can help established teams add {% data variables.copilot.github_copilot_app %} and {% data variables.copilot.copilot_cli_short %} to their daily work. These tools complement IDE chat and agent mode. The goal is to help teams build repeatable agentic workflows with the tool that best fits each task.
+After developers are using {% data variables.product.prodname_copilot_short %}, a focused rollout can help established teams add the {% data variables.copilot.github_copilot_app %} and {% data variables.copilot.copilot_cli_short %} to their daily work. These tools complement IDE chat and agent mode. The goal is to help teams build repeatable agentic workflows with the tool that best fits each task.
 
 This playbook is for people who coordinate {% data variables.product.prodname_copilot_short %} adoption for established teams. It guides you through a two-week onboarding sprint to test workflow fit and establish usage habits. A two-week sprint provides an early signal of adoption, not enough evidence to prove long-term productivity or cost impact.
 
@@ -37,7 +37,7 @@ Avoid selecting only enthusiasts. Include a representative mix of experience lev
 Select a real project with enough suitable work for participants to use agentic tools several times during the sprint. Then prepare access:
 
 1. Confirm that each participant receives their {% data variables.product.prodname_copilot_short %} license through the organization whose policies will govern the sprint.
-1. Work with the appropriate enterprise and organization owners to enable the separate policies for {% data variables.copilot.github_copilot_app %} and {% data variables.copilot.copilot_cli_short %}.
+1. Work with the appropriate enterprise and organization owners to enable the separate policies for the {% data variables.copilot.github_copilot_app %} and {% data variables.copilot.copilot_cli_short %}.
 1. Confirm the scope before enabling a policy. Organization policies apply to everyone who receives their license through that organization, not only the selected team. Enterprise policies can also restrict which settings organization owners can change. For more information, see [AUTOTITLE](/copilot/concepts/enterprise/policies).
 1. Ask participants to install and sign in to both tools before the kickoff. See [AUTOTITLE](/copilot/get-started/quickstart-copilot-app) and [AUTOTITLE](/copilot/how-tos/copilot-cli/set-up-copilot-cli).
 1. Confirm that each participant can access the project and use the tools under the intended policies and managed settings.
@@ -47,7 +47,7 @@ If you are enabling these tools for the first time, treat the sprint as part of 
 
 ### Define activation and outcome targets
 
-Set an **activation** target for the onboarding sprint. For example, set a target for each participant to use either {% data variables.copilot.github_copilot_app_short %} or {% data variables.copilot.copilot_cli_short %} on at least three separate days in each week of the sprint. Repeated use gives participants time to try the tools on different tasks and decide where they fit into daily work.
+Set an **activation** target for the onboarding sprint. For example, set a target for each participant to use either the {% data variables.copilot.github_copilot_app_short %} or {% data variables.copilot.copilot_cli_short %} on at least three separate days in each week of the sprint. Repeated use gives participants time to try the tools on different tasks and decide where they fit into daily work.
 
 Pair the activation target with one or two **outcomes** that matter to the team. For example:
 
@@ -65,8 +65,8 @@ Do not use the amount of generated code as a success target. More generated code
 Instead of asking participants to "use AI more," give the team two or three **approved workflows** that match their current work. For example:
 
 * Use {% data variables.copilot.copilot_cli_short %} to investigate a failure, plan a multi-file change, run tests, or review local changes.
-* Use {% data variables.copilot.github_copilot_app_short %} to work from an issue, make changes in an agent session, and open a pull request.
-* Move between the tools when useful, for example by opening {% data variables.copilot.github_copilot_app_short %} from {% data variables.copilot.copilot_cli_short %} with `copilot app`.
+* Use the {% data variables.copilot.github_copilot_app_short %} to work from an issue, make changes in an agent session, and open a pull request.
+* Move between the tools when useful, for example by opening the {% data variables.copilot.github_copilot_app_short %} from {% data variables.copilot.copilot_cli_short %} with `copilot app`.
 
 For each workflow, document the required human review, testing, and approval steps. If your enterprise uses custom instructions, agents, managed settings, or approved Model Context Protocol (MCP) servers, configure them before the sprint.
 
@@ -94,7 +94,7 @@ In the first week, remove setup barriers and create shared experiences. In the s
 
 1. **Launch with the whole team.** Explain the outcomes you want to improve, the activation target, and the guardrails participants must follow.
 1. **Demonstrate real work.** Ask the manager, team lead, or experienced contributor to complete one of the selected workflows in the team's codebase. Show where human review and approval remain required.
-1. **Complete a first task together.** Pair participants so that everyone starts a session in {% data variables.copilot.github_copilot_app_short %} or {% data variables.copilot.copilot_cli_short %} and completes a small, low-risk task.
+1. **Complete a first task together.** Pair participants so that everyone starts a session in the {% data variables.copilot.github_copilot_app_short %} or {% data variables.copilot.copilot_cli_short %} and completes a small, low-risk task.
 1. **Use the tools during normal work.** Ask participants to use at least one selected workflow on the number of days in your activation target. Avoid creating artificial exercises after the first task.
 1. **Check operations.** Confirm that policies and managed settings behave as intended. Review support and safety reports, and check usage-based spending against the agreed limit.
 

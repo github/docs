@@ -3,7 +3,7 @@ title: Repository configuration for the GitHub Copilot app
 shortTitle: Repository configuration
 allowTitleToDifferFromFilename: true
 intro: 'Define repository-specific instructions, scripts, and automation behavior for the {% data variables.copilot.github_copilot_app %}.'
-product: '{% data reusables.gated-features.github-app %}<br><a href="https://github.com/features/ai/github-app" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Download {% data variables.copilot.github_copilot_app %}</span> {% octicon "link-external" height:16 %}</a>'
+product: '{% data reusables.gated-features.github-app %}<br><a href="https://github.com/features/ai/github-app" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Download the {% data variables.copilot.github_copilot_app %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
 contentType: reference

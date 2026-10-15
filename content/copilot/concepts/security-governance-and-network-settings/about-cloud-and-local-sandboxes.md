@@ -65,7 +65,7 @@ The CLI's built-in file tools—first-party commands that are part of the CLI, r
 
 In the {% data variables.copilot.github_copilot_app %}, project settings define the local sandboxing default for new local repository and working tree sessions. You can also change sandboxing for an active local session without changing the project default.
 
-For more information about enabling local sandboxing in {% data variables.copilot.copilot_cli_short %} and {% data variables.copilot.github_copilot_app_short %}, see [AUTOTITLE](/copilot/how-tos/cloud-and-local-sandboxes/using-local-sandboxing).
+For more information about enabling local sandboxing in {% data variables.copilot.copilot_cli_short %} and the {% data variables.copilot.github_copilot_app_short %}, see [AUTOTITLE](/copilot/how-tos/cloud-and-local-sandboxes/using-local-sandboxing).
 
 ### Configuring local sandboxing
 
