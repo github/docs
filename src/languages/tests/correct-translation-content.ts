@@ -35,6 +35,26 @@ async function render(content: string, currentVersion: string) {
 }
 
 describe('correctTranslatedContentStrings', () => {
+  describe('misplaced endif in inline conditional', () => {
+    test('[per-file] commit-signature-verification: endif moved before data tags', () => {
+      function fixAt(content: string, code: string, relativePath: string) {
+        return correctTranslatedContentStrings(content, '', {
+          code,
+          relativePath,
+          skipOrphanStripping: true,
+        })
+      }
+      const path = 'data/reusables/enterprise-migration-tool/commit-signature-verification.md'
+      const broken =
+        'contact {% ifversion fpt %}{% endif %}{% data variables.contact.contact_support_page %}{% else %}{% data variables.contact.contact_ent_support %}.'
+      const fixed =
+        'contact {% ifversion fpt %}{% data variables.contact.contact_support_page %}{% else %}{% data variables.contact.contact_ent_support %}{% endif %}.'
+      expect(fixAt(broken, 'es', path)).toBe(fixed)
+      expect(fixAt(fixed, 'es', path)).toBe(fixed)
+      expect(fixAt(broken, 'es', 'data/reusables/other.md')).toBe(broken)
+    })
+  })
+
   describe('Spanish (es)', () => {
     test('fixes colon-prefix tags', () => {
       expect(fix('{%: ifversion ghec %}', 'es')).toBe('{% ifversion ghec %}')
