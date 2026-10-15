@@ -181,11 +181,11 @@ Understanding GitHub Copilot agentic features' limitations is crucial to determi
 
 ### Performance and quality evaluations
 
-GitHub Copilot Agents are evaluated across its supported surfaces using a combination of industry-standard benchmarks (e.g., SWE-Bench) and internally developed evaluation suites. Benchmark tasks are sourced from public open-source repositories and synthetic scenarios; no real user queries or customer code are used. Each evaluation includes multiple independent runs to account for nondeterminism in model outputs. Key metrics include resolution rate (percentage of tasks successfully completed), token efficiency, latency, and tool call reliability. Models are re-evaluated when updates are made and monitored continuously in production via error rates, response latency, and aggregate usage patterns. 
+GitHub Copilot Agents are evaluated across its supported surfaces using a combination of industry-standard benchmarks (e.g., SWE-Bench) and internally developed evaluation suites. Benchmark tasks are sourced from public open-source repositories and synthetic scenarios; no real user queries or customer code are used. Each evaluation includes multiple independent runs to account for nondeterminism in model outputs. Key metrics include resolution rate (percentage of tasks successfully completed), token efficiency, latency, and tool call reliability. Models are re-evaluated when updates are made and monitored continuously in production via error rates, response latency, and aggregate usage patterns.
 
 ### Performance and quality evaluation methods
 
-New models for GitHub Copilot Agents undergo a staged evaluation process before deployment. Integrator teams run benchmark suites specific to their surface, testing the model on representative coding tasks such as bug fixes, code generation, and multi-file refactoring. Results are reviewed against established baselines and existing production models. Models must meet or exceed baseline performance across key metrics like resolution rate, token efficiency, and latency, before advancing to the next stage. A cross-functional review board makes a formal go/no-go decision before any model is approved for user-facing deployment. 
+New models for GitHub Copilot Agents undergo a staged evaluation process before deployment. Integrator teams run benchmark suites specific to their surface, testing the model on representative coding tasks such as bug fixes, code generation, and multi-file refactoring. Results are reviewed against established baselines and existing production models. Models must meet or exceed baseline performance across key metrics like resolution rate, token efficiency, and latency, before advancing to the next stage. A cross-functional review board makes a formal go/no-go decision before any model is approved for user-facing deployment.
 
 ### Risk and safety evaluations
 
@@ -214,7 +214,7 @@ Copilot agentic features have been subject to RAI red teaming to identify and ad
 * **Directory-scoped access**: By default, Copilot CLI only has access to files and folders in, and below, the directory from which it was invoked. If the agent wishes to access files outside the current directory, it will ask for permission.
 * **Permission prompts for file modifications**: Copilot CLI asks for permission before modifying files. You should ensure it is modifying the correct files before granting permission.
 * **Permission prompts for command execution**: Copilot CLI asks for permission before executing commands that may be dangerous. You should review these commands carefully before giving permission to run.
-* **Configurable permissions**: You can grant Copilot CLI specific permissions, or all permissions, by using the various command line options: for example, `--allow-tool=[TOOLS...]`, `--allow-all-tools`, `--allow-all` (or its slash command equivalent `/allow-all` for use in an interactive session). For more information, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference#command-line-options). Typically, when you use Copilot CLI in autopilot mode, you will grant it full permissions to allow it to complete a task autonomously, without requiring you to approve activity as it works on the task. For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/autopilot).
+* **Configurable permissions**: You can grant Copilot CLI specific permissions, or all permissions, by using the various command line options: for example, `--allow-tool=[TOOLS...]`, `--allow-all-tools`, `--allow-all` (or its slash command equivalent `/allow-all` for use in an interactive session). For more information, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference#command-line-options). Typically, when you use Copilot CLI in autopilot mode, you will grant it full permissions to allow it to complete a task autonomously, without requiring you to approve activity as it works on the task. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/use-autopilot-mode)
 * **Security considerations**: For more information about security practices while using Copilot CLI, see [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-cli#security-considerations).
 
 ### Computer use in {% data variables.copilot.copilot_cli %} and {% data variables.copilot.github_copilot_app %}
@@ -311,7 +311,7 @@ For additional guidance on the responsible use of Copilot agentic features, we r
 * [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/configure-mcp-servers)
 * [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-cli)
 * [AUTOTITLE](/copilot/concepts/copilot-surfaces/github-copilot-app)
-* [AUTOTITLE](/copilot/concepts/agents/computer-use)
+* [AUTOTITLE](/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/computer-use)
 * [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)
 * [Copilot Trust Center](https://copilot.github.trust.page/)
 

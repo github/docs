@@ -23,7 +23,7 @@ You can create and manage {% data variables.copilot.copilot_automations %} from:
 * The **Agents** tab in a repository on {% data variables.product.github %}, in the **{% data variables.copilot.copilot_automations_cap %}** pane.
 * The **[{% data variables.copilot.copilot_automations_cap %}](https://github.com/copilot/app/launch?open=ghapp%3A%2F%2Fautomations)** tab in the {% data variables.copilot.github_copilot_app %}.
 
-For an overview of {% data variables.copilot.copilot_automations %}, including triggers, tools, visibility, and security, see [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-automations).
+For an overview of {% data variables.copilot.copilot_automations %}, including triggers, tools, visibility, and security, see [AUTOTITLE](/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/about-automations).
 
 The {% data variables.copilot.github_copilot_app %} supports two types of {% data variables.copilot.copilot_automations %}:
 

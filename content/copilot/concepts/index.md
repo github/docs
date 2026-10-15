@@ -7,9 +7,9 @@ versions:
 children:
   - /copilot-surfaces
   - /agents
+  - /agent-capabilities
   - /prompting
   - /context
-  - /tools
   - /models
   - /billing-and-usage
   - /security-governance-and-network-settings

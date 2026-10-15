@@ -35,7 +35,7 @@ Benefits of using {% data variables.copilot.copilot_auto_model_selection_short %
 
 #### Auto tier options
 
-When using auto with task optimization, there are three tiers available. Use these tiers to adjust how {% data variables.copilot.copilot_auto_model_selection_short %} preferentially routes models for each prompt. 
+When using auto with task optimization, there are three tiers available. Use these tiers to adjust how {% data variables.copilot.copilot_auto_model_selection_short %} preferentially routes models for each prompt.
 
 | Tier | Priority | Typical use |
 | --- | --- | --- |
@@ -44,11 +44,11 @@ When using auto with task optimization, there are three tiers available. Use the
 | **Intelligence** | Quality | Built for complex tasks. |
 
 With tiers, {% data variables.copilot.copilot_auto_model_selection_short %} still considers the prompt for each task. The same models remain available in each tier, but tiered routing changes how preferred models are selected for each task.  Examples for each tier:
-* **Efficiency**: All prompts are routed to the most cost-efficient and appropriately capable model for the task. 
+* **Efficiency**: All prompts are routed to the most cost-efficient and appropriately capable model for the task.
 * **Balance**: For each prompt, the model is selected by considering cost, quality, and latency, to provide cost effective and efficient performance appropriate to the complexity of each prompt.
 * **Intelligence**: Prompts are evaluated for which model would provide the highest quality response. A simple prompt could still be routed to a smaller model, while a complex prompt is routed to the most capable model for that task.
 
-Usage is still charged based on the model auto selects, regardless of tier, alongside the 10% discount for users on paid plans. See [Discount for auto model selection](#discount-for-using-auto-model-selection). 
+Usage is still charged based on the model auto selects, regardless of tier, alongside the 10% discount for users on paid plans. See [Discount for auto model selection](#discount-for-using-auto-model-selection).
 
 ### Auto optimized for model reliability and availability
 

@@ -24,7 +24,7 @@ category:
 * **On the default branch**, rules-based scans identify existing quality debt across your codebase, with autofixes you can apply directly or assign to {% data variables.copilot.copilot_cloud_agent %} to resolve on your behalf. AI-powered analysis also runs on recently changed files, flagging issues that fall outside existing rule sets, including languages not yet covered by {% data variables.product.prodname_codeql %} queries.
 
 > [!NOTE]
-> On pull requests, {% data variables.product.prodname_code_quality_short %} posts rules-based {% data variables.product.prodname_codeql %} findings only. If you also want AI-powered reviews of your pull requests, you can enable {% data variables.copilot.copilot_code-review %} separately. See [AUTOTITLE](/copilot/concepts/agents/code-review).
+> On pull requests, {% data variables.product.prodname_code_quality_short %} posts rules-based {% data variables.product.prodname_codeql %} findings only. If you also want AI-powered reviews of your pull requests, you can enable {% data variables.copilot.copilot_code-review %} separately. See [AUTOTITLE](/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/code-review).
 
 ## Use cases
 

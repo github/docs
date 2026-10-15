@@ -22,7 +22,7 @@ docsTeamMetrics:
 
 This capability is useful for workflows in legacy and GUI-only software that do not provide an API, command-line interface, or MCP integration. It is available for local sessions on macOS and Windows.
 
-For information about its capabilities, controls, and limitations, see [AUTOTITLE](/copilot/concepts/agents/computer-use).
+For information about its capabilities, controls, and limitations, see [AUTOTITLE](/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/computer-use).
 
 ## Checking computer use status
 

@@ -87,7 +87,7 @@ To export the session as an interactive HTML file, type:
 
 As with Markdown export, if you don't specify a file path the file is saved in the current working directory, with the name `copilot-session-SESSIONID.html`.
 
-If you have used the `/research` slash command in the current session, you can also use the `/share` command to share a research report. For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/research#viewing-and-sharing-a-research-report).
+If you have used the `/research` slash command in the current session, you can also use the `/share` command to share a research report. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/research-with-copilot-cli#viewing-and-sharing-a-research-report).
 
 ## Using the `/chronicle` slash command
 

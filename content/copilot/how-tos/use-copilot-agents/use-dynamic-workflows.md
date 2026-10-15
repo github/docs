@@ -17,7 +17,7 @@ docsTeamMetrics:
 
 This article explains how to create, use, and share dynamic workflows in {% data variables.copilot.copilot_cli %} and the {% data variables.copilot.github_copilot_app %}.
 
-For an overview of what dynamic workflows are and how they work, see [AUTOTITLE](/copilot/concepts/agents/dynamic-workflows).
+For an overview of what dynamic workflows are and how they work, see [AUTOTITLE](/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/dynamic-workflows).
 
 ## Prerequisite
 
@@ -52,7 +52,7 @@ If you don't have any dynamic workflows yet, you can create one. See [Creating a
    ```
 
    > [!IMPORTANT]
-   > Setting limits on a dynamic workflow is optional but recommended, as it helps control resource usage and prevent excessive consumption of {% data variables.product.prodname_ai_credits_short %}. For more information about the limits you can set, see [AUTOTITLE](/copilot/concepts/agents/dynamic-workflows#limiting-a-dynamic-workflow).
+   > Setting limits on a dynamic workflow is optional but recommended, as it helps control resource usage and prevent excessive consumption of {% data variables.product.prodname_ai_credits_short %}. For more information about the limits you can set, see [AUTOTITLE](/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/dynamic-workflows#limiting-a-dynamic-workflow).
 
 1. Depending on your current permission approval settings, {% data variables.product.prodname_copilot_short %} asks you to approve the dynamic workflow run before it starts. Choose **Yes**.
 
@@ -89,7 +89,7 @@ If the extension provides another way to start its workflow, such as a slash com
 
 1. Watch the phases and progress messages reported by the workflow. When it completes, the command prints its result, if it returns one, and exits. If it pauses or stops without completing, the command reports the run's status and run ID. To interrupt a run, press <kbd>Ctrl</kbd>+<kbd>C</kbd>.
 
-The workflow's configured limits and your personal default limits still apply. See [AUTOTITLE](/copilot/concepts/agents/dynamic-workflows#limiting-a-dynamic-workflow).
+The workflow's configured limits and your personal default limits still apply. See [AUTOTITLE](/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/dynamic-workflows#limiting-a-dynamic-workflow).
 
 ### Saving the result to a file
 

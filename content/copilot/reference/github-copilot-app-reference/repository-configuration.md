@@ -122,7 +122,7 @@ Set automation options under `automation`:
 * `automation.auto_issue_session` (`boolean`) controls whether the app automatically starts a session with issue context. If omitted, the effective default is `true`.
 * `automation.remote_control` (`boolean`) controls whether sessions can be accessed from the {% data variables.product.github %} web interface or {% data variables.product.prodname_mobile %}. If omitted, the effective default is `false`.
 
-If your {% data variables.product.prodname_copilot_short %} seat comes from an organization, the applicable "Store local sessions in the Cloud" policy must be set to "View and control" for remote control to be available. Enterprise-managed `remoteControl` settings can further restrict remote control even when `automation.remote_control` is `true`. For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-remote-control) and [AUTOTITLE](/copilot/reference/enterprise-administrators/enterprise-managed-settings).
+If your {% data variables.product.prodname_copilot_short %} seat comes from an organization, the applicable "Store local sessions in the Cloud" policy must be set to "View and control" for remote control to be available. Enterprise-managed `remoteControl` settings can further restrict remote control even when `automation.remote_control` is `true`. For more information, see [AUTOTITLE](/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/about-remote-control) and [AUTOTITLE](/copilot/reference/enterprise-administrators/enterprise-managed-settings).
 
 ## Runtime environment variables for scripts
 

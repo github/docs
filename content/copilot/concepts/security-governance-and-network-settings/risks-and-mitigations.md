@@ -64,7 +64,7 @@ To mitigate this risk, {% data variables.copilot.copilot_cloud_agent %} is desig
 
 ## Automations run without a person initiating each task
 
-{% data variables.copilot.copilot_automations_cap %} run {% data variables.copilot.copilot_cloud_agent %} automatically, on a schedule or in response to events, without a person initiating each task. See [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-automations). This introduces some additional risks, which {% data variables.product.github %} mitigates as follows.
+{% data variables.copilot.copilot_automations_cap %} run {% data variables.copilot.copilot_cloud_agent %} automatically, on a schedule or in response to events, without a person initiating each task. See [AUTOTITLE](/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/about-automations). This introduces some additional risks, which {% data variables.product.github %} mitigates as follows.
 
 * **Work is attributed to the person who created the automation.** Pull requests opened and code pushed by an {% data variables.copilot.copilot_automation %} are attributed to the user who created the {% data variables.copilot.copilot_automation %}. As when that user creates a pull request themselves, they can't approve it, which preserves the expected "Required approvals" controls.
 * **You control which tools an automation can use.** When an {% data variables.copilot.copilot_automation %} is triggered by an event, input from untrusted users could become part of the prompt. To limit the impact of prompt injection, you choose exactly which tools an {% data variables.copilot.copilot_automation %} can use, so it can only take the actions the task requires.

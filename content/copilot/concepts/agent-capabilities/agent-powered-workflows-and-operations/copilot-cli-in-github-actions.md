@@ -1,10 +1,12 @@
 ---
-title: About using Copilot CLI in GitHub Actions
+title: Copilot CLI in GitHub Actions
 shortTitle: Copilot CLI in Actions
 allowTitleToDifferFromFilename: true
 intro: 'You can run {% data variables.copilot.copilot_cli_short %} in a {% data variables.product.prodname_actions %} workflow using either a {% data variables.product.pat_generic %} or the built-in `GITHUB_TOKEN`. The two approaches differ in how {% data variables.product.prodname_ai_credits_short %} are billed and what setup is required.'
 versions:
   feature: copilot
+redirect_from:
+  - /copilot/concepts/agents/copilot-cli/copilot-cli-in-github-actions
 contentType: concepts
 category:
   - Learn about Copilot CLI # Copilot CLI bespoke page

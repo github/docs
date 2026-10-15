@@ -6,10 +6,7 @@ intro: Learn how {% data variables.copilot.copilot_cloud_agent %} can carry out 
 versions:
   feature: copilot
 children:
-  - /agent-management
   - /about-custom-agents
-  - /about-automations
-  - /about-automation-rationale-and-approvals
   - /mcp-and-cloud-agent
 contentType: concepts
 redirect_from:

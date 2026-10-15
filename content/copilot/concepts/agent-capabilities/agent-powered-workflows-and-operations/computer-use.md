@@ -4,6 +4,8 @@ shortTitle: Computer use
 intro: '{% data variables.product.prodname_copilot_short %} can interact with desktop applications to automate tasks that cannot be completed with a more direct tool.'
 versions:
   feature: copilot
+redirect_from:
+  - /copilot/concepts/agents/computer-use
 contentType: concepts
 category:
   - Learn about Copilot

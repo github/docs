@@ -96,7 +96,7 @@ You can also manually ask {% data variables.product.prodname_copilot_short %} to
 1. Open an active session.
 1. In the prompt box, type `/rubber-duck` and ask for a critique of your current plan, implementation, or tests.
 
-For more information on the rubber duck agent, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/rubber-duck).
+For more information on the rubber duck agent, see [AUTOTITLE](/copilot/concepts/agent-capabilities/choosing-and-delegating-agent-work/getting-a-second-opinion).
 
 ## Using `/chronicle` with app sessions
 

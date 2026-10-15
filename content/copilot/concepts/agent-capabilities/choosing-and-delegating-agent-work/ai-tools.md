@@ -3,12 +3,13 @@ title: Choosing the right AI tool for your task
 shortTitle: AI tools
 intro: 'Understand {% data variables.product.github %}''s AI tools and how they can be used to help develop software.'
 versions:
-  fpt: '*'
+  feature: copilot
 redirect_from:
   - /copilot/using-github-copilot/guides-on-using-github-copilot/choosing-the-right-ai-tool-for-your-task
   - /copilot/tutorials/choosing-the-right-ai-tool-for-your-task
   - /copilot/concepts/choosing-the-right-ai-tool-for-your-task
   - /copilot/concepts/ai-tools
+  - /copilot/concepts/tools/ai-tools
 contentType: concepts
 category: 
   - Learn about Copilot

@@ -13,7 +13,7 @@ category:
 
 ## Introduction
 
-{% data variables.copilot.github_agentic_workflows %} let you automate repository tasks using AI-powered workflows. For an overview of {% data variables.copilot.github_agentic_workflows %}, see [AUTOTITLE](/copilot/concepts/agents/about-github-agentic-workflows).
+{% data variables.copilot.github_agentic_workflows %} let you automate repository tasks using AI-powered workflows. For an overview of {% data variables.copilot.github_agentic_workflows %}, see [AUTOTITLE](/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/about-github-agentic-workflows).
 
 In this guide, you'll add a pre-built agentic workflow—a daily repository status report—to an existing repository. This takes about 10 minutes and gives you a working example of automated agents running in {% data variables.product.prodname_actions %}.
 

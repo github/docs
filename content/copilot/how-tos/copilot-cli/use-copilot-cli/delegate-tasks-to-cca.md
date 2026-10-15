@@ -28,7 +28,7 @@ There are two ways to use autopilot mode:
 * **Interactively:** In an interactive session, press <kbd>Shift</kbd>+<kbd>Tab</kbd> until you see "autopilot" in the status bar. If prompted to choose permissions for autopilot mode, allow full permissions, then enter your prompt.
 * **Programmatically:** Pass the CLI a prompt directly in a command, and include the `--autopilot` option. For example, to use autopilot mode with full permissions, restricting it to 10 continuations, enter `{% data reusables.cli.autopilot-programmatic-prompt %}`.
 
-For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/autopilot).
+For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/use-autopilot-mode).
 
 ## Delegate tasks to {% data variables.copilot.copilot_cloud_agent %}
 

@@ -1,11 +1,13 @@
 ---
-title: About Copilot automations
+title: Copilot automations
 shortTitle: About automations
 allowTitleToDifferFromFilename: true
 intro: '{% data variables.copilot.copilot_automations_cap %} let you run {% data variables.copilot.copilot_cloud_agent %} automatically, on a schedule or in response to events in a repository.'
 product: '{% data reusables.gated-features.copilot-automations %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=engagement&ref_style=button&utm_source=docs-about-cca-automations&utm_medium=docs&utm_campaign=msbuild-2026" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
+redirect_from:
+  - /copilot/concepts/agents/cloud-agent/about-automations
 contentType: concepts
 category:
   - Learn about Copilot
@@ -72,7 +74,7 @@ You can manually select the tools you want to enable, or you can use the **Sugge
 
 An {% data variables.copilot.copilot_automation %} can only take action in the single repository it is scoped to.
 
-When an {% data variables.copilot.copilot_automation %} changes an issue, it can explain each change and rate its confidence, applying high-confidence changes automatically and proposing others for your review. See [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-automation-rationale-and-approvals).
+When an {% data variables.copilot.copilot_automation %} changes an issue, it can explain each change and rate its confidence, applying high-confidence changes automatically and proposing others for your review. See [AUTOTITLE](/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/about-automation-rationale-and-approvals).
 
 ## Configuration inherited from the repository
 
@@ -112,4 +114,4 @@ For more information about how {% data variables.product.github %} mitigates the
 
 * [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/create-automations)
 * [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-on-github)
-* To learn how to store your automation as code, review it through pull requests, or run it with a different coding agent, see [AUTOTITLE](/copilot/concepts/agents/about-github-agentic-workflows)
+* To learn how to store your automation as code, review it through pull requests, or run it with a different coding agent, see [AUTOTITLE](/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/about-github-agentic-workflows)
