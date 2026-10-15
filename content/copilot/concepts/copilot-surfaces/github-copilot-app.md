@@ -2,7 +2,7 @@
 title: GitHub Copilot app
 shortTitle: GitHub Copilot app
 intro: 'The {% data variables.copilot.github_copilot_app %} is a desktop application for agent-driven development that brings parallel workstreams, {% data variables.product.github %} integration, and PR lifecycle management into one place.'
-product: '{% data reusables.gated-features.github-app %}<br><a href="https://github.com/features/ai/github-app" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Download the {% data variables.copilot.github_copilot_app %}</span> {% octicon "link-external" height:16 %}</a>'
+product: '{% data reusables.gated-features.github-app %}<br>{% data reusables.copilot.github-app-download-button %}'
 versions:
   feature: copilot
 contentType: concepts

@@ -89,7 +89,7 @@ Used for:
 
 {% data variables.product.prodname_copilot %} uses {% data variables.copilot.copilot_gemini %} models hosted on Google Cloud Platform (GCP). When using {% data variables.copilot.copilot_gemini %} models, prompts and metadata are sent to GCP, which makes the [following data commitment](https://cloud.google.com/vertex-ai/generative-ai/docs/data-governance): _{% data variables.copilot.copilot_gemini %} doesn't use your prompts, or its responses, as data to train its models._
 
-To provide better service quality and reduce latency, {% data variables.product.github %} uses Google's Durable Caching. Cached data is encrypted and held for up to 24 hours. Cached data is never used to train or fine-tune models.
+To provide better service quality and reduce latency, {% data variables.product.github %} uses [Google's Durable Caching](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/zero-data-retention#durable-data-caching). Cached data is encrypted and held for up to 24 hours. Cached data is never used to train or fine-tune models.
 
 When using {% data variables.copilot.copilot_gemini %} models, input prompts and output completions continue to run through {% data variables.product.prodname_copilot %}'s content filters for public code matching, when applied, along with those for harmful or offensive content.
 
