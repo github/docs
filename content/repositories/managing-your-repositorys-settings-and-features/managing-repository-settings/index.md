@@ -15,7 +15,6 @@ children:
   - /managing-the-push-policy-for-your-repository
   - /managing-git-lfs-objects-in-archives-of-your-repository
   - /enabling-anonymous-git-read-access-for-a-repository
-  - /about-email-notifications-for-pushes-to-your-repository
   - /configuring-autolinks-to-reference-external-resources
   - /managing-auto-closing-issues
 shortTitle: Manage repository settings
