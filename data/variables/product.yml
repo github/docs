@@ -216,7 +216,7 @@ prodname_secret_protection: 'Secret Protection'
 prodname_cs_or_sp: 'Secret Protection or Code Security'
 prodname_cs_and_sp: 'Secret Protection and Code Security'
 UI_advanced_security: '{% data variables.product.prodname_AS %}'
-UI_advanced_security_ent: '{% data variables.product.prodname_AS %} Code security'
+UI_advanced_security_ent: '{% data variables.product.prodname_AS %}'
 UI_code_security_scanning: 'Code Security'
 UI_secret_protection_scanning: 'Secret Protection'
 
