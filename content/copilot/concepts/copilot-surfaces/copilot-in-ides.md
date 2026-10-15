@@ -1,7 +1,7 @@
 ---
 title: GitHub Copilot in IDEs
 shortTitle: Copilot in IDEs
-intro: 'Get contextual AI assistance from {% data variables.product.prodname_copilot %} throughout your IDE workflow, from exploring an approach to writing, reviewing, and improving code.'
+intro: 'Use {% data variables.product.prodname_copilot_short %} in your IDE to get assistance as you code, collaborate with agents, and delegate work locally, in the background, or in the cloud.'
 versions:
   feature: copilot
 defaultTool: vscode
@@ -14,66 +14,43 @@ redirect_from:
   - /copilot/concepts/agents/copilot-in-jetbrains
 ---
 
-{% data variables.product.prodname_copilot %} integrates with supported IDEs to help you throughout the development process. {% data variables.product.prodname_copilot_short %} can explain concepts, complete code, propose edits, and validate files with agent mode.
+{% data variables.product.prodname_copilot %} integrates with supported IDEs to help you throughout the development process. You can work alongside {% data variables.product.prodname_copilot_short %} in your editor, or delegate tasks to agents and review their results.
 
 The available features and entry points vary by IDE. For a detailed comparison, see [AUTOTITLE](/copilot/reference/copilot-feature-matrix).
 
-## How {% data variables.product.prodname_copilot_short %} helps in your IDE
+## {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_vscode_shortname %}
 
-You can work with {% data variables.product.prodname_copilot_short %} in three main ways:
+{% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_vscode_shortname %} brings AI assistance and agent-driven development into the environment where you write, run, debug, and review code.
 
-* **Code suggestions** help you write and edit code without leaving the editor.
-* **Chat** lets you ask questions, explain or refactor code, generate tests, and explore possible solutions.
-* **Agentic experiences** can plan and complete multi-step tasks by reading files, editing code, and running commands in your local development environment.
+### Benefits of using {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_vscode_shortname %}
 
-These experiences complement each other. For example, you might use chat to understand an unfamiliar codebase, ask an agent to implement a change across several files, and use inline suggestions to refine the result.
+* **Stay in your development environment.** Work with agents alongside your editor, terminal, tests, source control, and debugger, so you can inspect and validate results with the tools you already use.
+* **Choose how much work to delegate.** Move between code suggestions, focused edits, interactive chat, planning, and autonomous agent work as your task evolves.
+* **Work on multiple tasks.** Run isolated agent sessions in parallel and use the Agents window to follow progress across projects.
+* **Use the environment your project needs.** Run agents where your code and tools live, whether on your machine or in a connected remote environment, so they work with the right operating system, runtimes, and dependencies.
+* **Choose your models and tools.** Use models provided with {% data variables.product.prodname_copilot_short %}, bring your own API key, or add models and tools through {% data variables.product.prodname_vscode_shortname %} extensions.
 
-## Code suggestions
+### What you can do with {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_vscode_shortname %}
 
-{% data variables.product.prodname_copilot_short %} can suggest code directly in the editor as you work. Depending on your IDE, these suggestions can include inline suggestions and {% data variables.copilot.next_edit_suggestions %}.
+Choose the most appropriate workflow for your task, from getting focused assistance in the editor to delegating work to agents.
 
-### Inline suggestions
+* **Code suggestions:** Get suggestions directly in the editor as you work. See [AUTOTITLE](/copilot/how-tos/get-code-suggestions/get-ide-code-suggestions).
+* **Chat:** Ask questions about your codebase, compare approaches, and plan complex changes using context from your open files and workspace. Use inline chat for quick help within your code. See [AUTOTITLE](/copilot/how-tos/chat-with-copilot/chat-in-ide).
+* **Agent mode:** Ask an agent to find relevant code, edit files, run commands, and validate its work, while you review changes and redirect it as it works. See [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/use-copilot-agents/use-agent-mode).
+* **Parallel agent sessions:** Start, monitor, and review multiple agent sessions across projects from the Agents window. See [Agents window](https://code.visualstudio.com/docs/agents/run/agents-window) in the {% data variables.product.prodname_vscode_shortname %} documentation.
+* **Cloud agent sessions:** Manage {% data variables.copilot.copilot_cloud_agent %} sessions directly from your IDE. See [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/use-copilot-agents/use-cloud-agent-in-your-ide).
+* **Models and agent harnesses:** Choose a model based on the speed, reasoning, and cost your task needs. Use models included with {% data variables.product.prodname_copilot_short %}, bring your own key (BYOK), or install an extension that provides more models. You can also choose an agent harness. See [AUTOTITLE](/copilot/concepts/models/bring-your-own-key) and [Agent harnesses](https://code.visualstudio.com/docs/agents/run/agent-harnesses) in the {% data variables.product.prodname_vscode_shortname %} documentation.
+* **Local, remote, and containerized environments:** Run agents on your machine, in a Dev Container (Experimental), or on a remote machine over SSH or a dev tunnel. You can check progress from the Agents window, including in a browser on another device.
+* **Customizations:** Add project-specific context and capabilities with custom instructions, agent skills, hooks, Model Context Protocol (MCP) servers, and extensions.
+* **Terminal:** Run {% data variables.copilot.copilot_cli %} in the integrated terminal for a terminal-first agent experience.
 
-Inline suggestions appear as dimmed text at your cursor position. {% data variables.product.prodname_copilot_short %} uses the code around your cursor and other available context to predict what you are likely to write next.
+For a full overview, see [Build with AI in VS Code](https://code.visualstudio.com/docs/agents/overview) in the {% data variables.product.prodname_vscode_shortname %} documentation.
 
-Suggestions can complete part of a line, an entire line, or a larger block of code. You can also write a natural-language comment describing the code you want, then let {% data variables.product.prodname_copilot_short %} suggest an implementation.
+## Using {% data variables.product.prodname_copilot_short %} in other IDEs
 
-You remain responsible for reviewing and testing suggested code before using it.
+For most supported IDEs, the **{% data variables.product.prodname_copilot %} extension or plugin** is the primary entry point. It connects {% data variables.product.prodname_copilot_short %} to your editor and provides the features supported by that IDE. To install the appropriate integration, see [AUTOTITLE](/copilot/how-tos/set-up/install-copilot-extension).
 
-### {% data variables.copilot.next_edit_suggestions_caps %}
-
-{% data variables.copilot.next_edit_suggestions_caps %} predict both where you are likely to make your next change and what that change could be. They are based on the edits you are currently making and can help you apply related changes elsewhere in a file.
-
-For example, after you rename a method or change a data structure, {% data variables.product.prodname_copilot_short %} might suggest updating another location affected by that change.
-
-Availability and configuration vary by IDE. For instructions on using inline and next edit suggestions, see [AUTOTITLE](/copilot/how-tos/get-code-suggestions/get-ide-code-suggestions).
-
-{% data reusables.copilot.supported-languages %}
-
-## Chat and agentic experiences
-
-{% data variables.copilot.copilot_chat %} provides a conversational interface in your IDE. Because chat can use context from your project, you can ask questions about selected code, open files, or your wider codebase.
-
-You can use chat to:
-
-* Explain unfamiliar code.
-* Suggest fixes for bugs.
-* Refactor or document code.
-* Generate tests.
-* Compare implementation approaches.
-* Answer questions about programming languages and development tools.
-
-For larger tasks, an agentic experience can break your request into steps and use tools to complete the work. Depending on your IDE and configuration, an agent can inspect your project, edit multiple files, run terminal commands, and respond to errors encountered while working.
-
-Agentic changes are made in your local development environment. Review the proposed changes and the output of any commands before accepting the result.
-
-For instructions on using chat and agents, see [AUTOTITLE](/copilot/how-tos/chat-with-copilot/chat-in-ide).
-
-## Choosing an entry point
-
-For most IDEs, the **{% data variables.product.prodname_copilot %} extension or plugin** is the primary entry point. It connects {% data variables.product.prodname_copilot_short %} directly to your editor and provides the features supported by that IDE. You can install the appropriate integration by following [AUTOTITLE](/copilot/how-tos/set-up/install-copilot-extension).
-
-You can also run **{% data variables.copilot.copilot_cli %}** in an IDE's integrated terminal if the terminal environment meets the requirements for {% data variables.copilot.copilot_cli_short %}. Integration between CLI sessions and the IDE varies.
+You can also run {% data variables.copilot.copilot_cli %} in an IDE's integrated terminal if the terminal environment meets the requirements for {% data variables.copilot.copilot_cli_short %}. Integration between CLI sessions and the IDE varies.
 
 ### Entry points in JetBrains IDEs
 
