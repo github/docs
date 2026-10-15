@@ -16,7 +16,7 @@ redirect_from:
 
 The Azure Boards {% data variables.product.github %} integration allows you to invoke {% data variables.copilot.copilot_cloud_agent %} without leaving your workspace. From within a Azure Boards work item you can initiate {% data variables.copilot.copilot_cloud_agent_short %} sessions and open pull requests, using the context of your work item description and comments.
 
-For information about additional {% data variables.product.prodname_copilot_short %} integrations, see [AUTOTITLE](/copilot/concepts/tools/about-copilot-integrations).
+For information about additional {% data variables.product.prodname_copilot_short %} integrations, see [AUTOTITLE](/copilot/concepts/agent-capabilities/choosing-and-delegating-agent-work/about-copilot-integrations).
 
 > [!NOTE]
 > * {% data variables.product.prodname_copilot %} uses AI. Check for mistakes. See [AUTOTITLE](/copilot/responsible-use/agents).

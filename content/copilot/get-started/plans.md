@@ -51,7 +51,7 @@ category:
 
 ## {% data variables.product.prodname_copilot_short %} plans overview
 
-The table below provides an overview of differences between plans. All plans include {% data variables.copilot.copilot_cli_short %} and {% data variables.copilot.github_copilot_app_short %}. 
+The table below provides an overview of differences between plans. All plans include {% data variables.copilot.copilot_cli_short %} and the {% data variables.copilot.github_copilot_app_short %}.
 
 {% rowheaders %}
 
@@ -163,7 +163,7 @@ On {% data variables.copilot.copilot_free_short %} and {% data variables.copilot
 | Audit logs                                                                                       | {% octicon "x" aria-label="Not included" %}     | {% octicon "x" aria-label="Not included" %}        | {% octicon "x" aria-label="Not included" %}    | {% octicon "check" aria-label="Included" %}         | {% octicon "check" aria-label="Included" %}    |
 | Content exclusion                                                                                | {% octicon "x" aria-label="Not included" %}     | {% octicon "x" aria-label="Not included" %}        | {% octicon "x" aria-label="Not included" %}    | {% octicon "x" aria-label="Not included" %}         | {% octicon "x" aria-label="Not included" %}    |
 | {% data variables.copilot.copilot_cli_short %}                                                   | {% octicon "check" aria-label="Included" %}     | {% octicon "check" aria-label="Included" %}        | {% octicon "check" aria-label="Included" %}    | {% octicon "check" aria-label="Included" %}         | {% octicon "check" aria-label="Included" %}    |
-| {% data variables.copilot.github_copilot_app_short %}                                                   | {% octicon "check" aria-label="Included" %}     | {% octicon "check" aria-label="Included" %}        | {% octicon "check" aria-label="Included" %}    | {% octicon "check" aria-label="Included" %}         | {% octicon "check" aria-label="Included" %}    |
+| The {% data variables.copilot.github_copilot_app_short %}                                                   | {% octicon "check" aria-label="Included" %}     | {% octicon "check" aria-label="Included" %}        | {% octicon "check" aria-label="Included" %}    | {% octicon "check" aria-label="Included" %}         | {% octicon "check" aria-label="Included" %}    |
 | {% data variables.product.prodname_spark %} ({% data variables.release-phases.public_preview %}) | {% octicon "x" aria-label="Not included" %}     | {% octicon "x" aria-label="Not included" %}        | {% octicon "x" aria-label="Not included" %}    | {% octicon "check" aria-label="Included" %}         | {% octicon "x" aria-label="Not included" %}    |
 
 {% endrowheaders %}
@@ -260,7 +260,7 @@ For a full explanation of how {% data variables.product.prodname_ai_credits_shor
 | Audit logs                                                                                       | {% octicon "check" aria-label="Included" %}         | {% octicon "check" aria-label="Included" %}           |
 | Content exclusion                                                                                | {% octicon "check" aria-label="Included" %}         | {% octicon "check" aria-label="Included" %}           |
 | {% data variables.copilot.copilot_cli_short %}                                                   | {% octicon "check" aria-label="Included" %}         | {% octicon "check" aria-label="Included" %}           |
-| {% data variables.copilot.github_copilot_app_short %}                                                  | {% octicon "check" aria-label="Included" %}         | {% octicon "check" aria-label="Included" %}           |
+| The {% data variables.copilot.github_copilot_app_short %}                                                  | {% octicon "check" aria-label="Included" %}         | {% octicon "check" aria-label="Included" %}           |
 | {% data variables.product.prodname_spark %} ({% data variables.release-phases.public_preview %}) | {% octicon "x" aria-label="Not included" %}         | {% octicon "check" aria-label="Included" %}           |
 
 {% endrowheaders %}

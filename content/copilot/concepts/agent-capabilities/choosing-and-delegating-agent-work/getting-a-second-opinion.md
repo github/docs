@@ -1,22 +1,22 @@
 ---
-title: About the rubber duck agent
-shortTitle: About rubber duck
+title: Getting a second opinion with the rubber duck agent
+shortTitle: Getting a second opinion
 allowTitleToDifferFromFilename: true
-intro: 'The rubber duck agent is a built-in critic that gives {% data variables.product.prodname_copilot_short %} a constructive second opinion on its own plans, code, and tests—using a different AI model from the one driving your session.'
-product: '{% data reusables.gated-features.copilot-cli %}'
+intro: 'Use the rubber duck agent to get an independent critique of plans, code, and tests in {% data variables.copilot.copilot_cli %} or the {% data variables.copilot.github_copilot_app %}.'
 versions:
   feature: copilot
+redirect_from:
+  - /copilot/concepts/agents/copilot-cli/rubber-duck
 contentType: concepts
 category:
-  - Learn about Copilot # Copilot discovery page
-  - Learn about Copilot CLI # Copilot CLI bespoke page
+  - Learn about Copilot
 docsTeamMetrics:
   - copilot-cli
 ---
 
 ## Introduction
 
-Rubber duck is a built-in agent in {% data variables.copilot.copilot_cli %} that acts as a constructive critic. While working on a task, the main CLI agent for a session can pass its current plan, design, implementation, or tests over to the rubber duck agent for review. The rubber duck agent looks for blind spots, design flaws, and substantive issues, and reports back with concrete, actionable feedback. {% data variables.product.prodname_copilot_short %} then takes that critique into account before continuing.
+Rubber duck is a built-in agent available in {% data variables.copilot.copilot_cli %} and the {% data variables.copilot.github_copilot_app %}. It acts as a constructive critic. While working on a task, the main agent for a session can pass its current plan, design, implementation, or tests to the rubber duck agent for review. The rubber duck agent looks for blind spots, design flaws, and substantive issues, and reports back with concrete, actionable feedback. {% data variables.product.prodname_copilot_short %} then takes that critique into account before continuing.
 
 The rubber duck agent is designed to review proposed changes, not to make file changes itself. The main agent for the session decides what to do with the feedback.
 
@@ -28,11 +28,11 @@ The rubber duck agent applies a similar idea to {% data variables.product.prodna
 
 ## Second opinion from another model
 
-A key design feature of the rubber duck agent is that it deliberately runs on a **different AI model from the one driving your session**. {% data variables.copilot.copilot_cli %} picks a critic model that contrasts with the current session model. For example, if you have chosen to use a Claude model for your session, the rubber duck agent may use a GPT model as the critic. {% data variables.copilot.copilot_cli_short %} only uses the rubber duck agent if a suitable model is available to provide a useful critique.
+A key design feature of the rubber duck agent is that it deliberately runs on a **different AI model from the one driving your session**. {% data variables.product.prodname_copilot_short %} picks a critic model that contrasts with the current session model. For example, if you have chosen to use a Claude model for your session, the rubber duck agent may use a GPT model as the critic. {% data variables.product.prodname_copilot_short %} only uses the rubber duck agent if a suitable model is available to provide a useful critique.
 
 The benefit of using a different model is that the critic is less likely to share the same blind spots, biases, or failure modes as the model that produced the work. You effectively get two independent perspectives on the same problem.
 
-The appropriate critic model is selected automatically each time the rubber duck agent is invoked, based on your current session model. If you switch session models mid-session (for example, with the `/model` command), the next invocation of the rubber duck agent picks the appropriate critic for the new session model.
+The appropriate critic model is selected automatically each time the rubber duck agent is invoked, based on your current session model. If you switch models during a session, the next invocation of the rubber duck agent picks the appropriate critic for the new session model.
 
 ## What the rubber duck agent does
 
@@ -71,7 +71,7 @@ You can also invoke the rubber duck agent with a slash command:
 
 ## Auto-invoking the rubber duck agent
 
-If you want {% data variables.product.prodname_copilot_short %} to proactively consult the rubber duck agent without being asked, you can turn on auto-invocation for the agent from the `/subagents` picker.
+In {% data variables.copilot.copilot_cli_short %}, if you want {% data variables.product.prodname_copilot_short %} to proactively consult the rubber duck agent without being asked, you can turn on auto-invocation for the agent from the `/subagents` picker.
 
 1. In an interactive {% data variables.copilot.copilot_cli_short %} session, enter `/subagents`.
 1. Use the keyboard arrow keys to select the rubber duck agent, then press <kbd>Enter</kbd>.
@@ -101,7 +101,7 @@ When automatic invocation is enabled, {% data variables.product.prodname_copilot
 
 For small, well-understood changes {% data variables.product.prodname_copilot_short %} typically skips the rubber duck agent.
 
-When {% data variables.product.prodname_copilot_short %} consults the rubber duck agent, it summarizes the resulting critique for you in the timeline output rather than repeating it verbatim—for example, "The critique pointed out a blind spot in my plan around X, so I updated my plan to address that."
+When {% data variables.product.prodname_copilot_short %} consults the rubber duck agent, it summarizes the resulting critique in the session output rather than repeating it verbatim—for example, "The critique pointed out a blind spot in my plan around X, so I updated my plan to address that."
 
 ## Benefits of using the rubber duck agent
 
@@ -117,4 +117,3 @@ When {% data variables.product.prodname_copilot_short %} consults the rubber duc
 ## Further reading
 
 * [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-custom-agents#built-in-agents)
-

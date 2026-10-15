@@ -1,5 +1,5 @@
 ---
-title: About third-party coding agents
+title: Third-party coding agents
 allowTitleToDifferFromFilename: true
 shortTitle: Third-party coding agents
 intro: 'You can use third-party coding agents alongside {% data variables.copilot.copilot_cloud_agent %} to work asynchronously on your development tasks on {% data variables.product.github %}.'
@@ -9,6 +9,9 @@ versions:
 contentType: concepts
 redirect_from:
   - /copilot/concepts/agents/about-third-party-agents
+  - /copilot/concepts/agents/about-third-party-coding-agents
+  - /copilot/concepts/agents/anthropic-claude
+  - /copilot/concepts/agents/openai-codex
 ---
 
 > [!NOTE] Third-party coding agents are currently in {% data variables.release-phases.public_preview %}.
@@ -40,28 +43,46 @@ These policies do not apply to **local** agents in {% data variables.product.pro
 
 ## Supported coding agents
 
-The following third-party agents are supported on {% data variables.product.github %}:
-
-* [{% data variables.product.prodname_anthropic_claude %}](/copilot/concepts/agents/anthropic-claude)
-* [{% data variables.product.prodname_openai_codex %}](/copilot/concepts/agents/openai-codex)
-
-## AI models for third-party agents
-
 When starting a task with a third-party agent, you can select the AI model used by the agent. You may find that different models perform better, or provide more useful responses, depending on the type of task. For help deciding which model to use, see [AUTOTITLE](/copilot/reference/ai-models/model-comparison).
 
-You can also select **Auto**, which chooses between the supported models below. Choosing **Auto** with third-party agents does **not** leverage {% data variables.copilot.copilot_auto_model_selection %}. See [AUTOTITLE](/copilot/concepts/models/auto-model-selection).
+The following third-party agents are supported on {% data variables.product.github %}.
 
-The following models are available for each agent:
+### {% data variables.product.prodname_anthropic_claude %}
+
+> [!NOTE]
+> The {% data variables.product.prodname_anthropic_claude %} coding agent is currently in {% data variables.release-phases.public_preview %}.
+
+The {% data variables.product.prodname_anthropic_claude %} coding agent uses the Claude Agent SDK and can be powered by your existing {% data variables.product.prodname_copilot_short %} subscription. For information about {% data variables.product.prodname_anthropic_claude %}, see the [{% data variables.product.prodname_anthropic_claude %} documentation](https://platform.claude.com/docs/en/agent-sdk/overview).
+
+#### {% data variables.product.prodname_anthropic_claude %} supported models
+
+* Auto
+{% data reusables.copilot.anthropic-claude-agent-models %}
+
+If you select **Auto**, it will choose one of the available models listed above. **Auto** in {% data variables.product.prodname_anthropic_claude %} coding agent does **not** leverage {% data variables.copilot.copilot_auto_model_selection %}.
 
 ### {% data variables.product.prodname_openai_codex %}
+
+> [!NOTE]
+> {% data variables.product.prodname_openai_codex %} integration is currently in {% data variables.release-phases.public_preview %}.
+
+The {% data variables.product.prodname_openai_codex %} coding agent and the {% data variables.product.prodname_vscode_shortname %} {% data variables.product.prodname_openai_codex %} integration use the Codex SDK and can be powered by your existing {% data variables.product.prodname_copilot_short %} subscription. For more information about how {% data variables.product.prodname_openai_codex %} works, see the [{% data variables.product.prodname_openai_codex %} documentation](https://developers.openai.com/codex).
+
+#### {% data variables.product.prodname_openai_codex %} supported models
 
 * Auto
 {% data reusables.copilot.openai-codex-agent-models %}
 
-### {% data variables.product.prodname_anthropic_claude %}
+If you select **Auto**, it will choose one of the available models listed above. **Auto** in {% data variables.product.prodname_openai_codex %} coding agent does **not** leverage {% data variables.copilot.copilot_auto_model_selection %}.
 
-* Auto
-{% data reusables.copilot.anthropic-claude-agent-models %}
+#### {% data variables.product.prodname_vscode_shortname %} extension
+
+> [!NOTE]
+> The "Sign in with {% data variables.product.prodname_copilot_short %}" option in the {% data variables.product.prodname_openai_codex %} {% data variables.product.prodname_vscode_shortname %} extension is only available to {% data variables.copilot.copilot_pro_plus %} and {% data variables.copilot.copilot_max_short %} subscribers.
+
+Use "Sign in with {% data variables.product.prodname_copilot_short %}" when launching the extension. You can see this integration in the [Agent Sessions view](https://code.visualstudio.com/docs/copilot/chat/chat-sessions#_agent-sessions-view) in {% data variables.product.prodname_vscode_shortname %} Insiders along with progress on their running tasks. All usage is subject to {% data variables.product.github %} rate limits and billing.
+
+A subset of available models may only be available in the {% data variables.product.prodname_openai_codex %} extension. Model availability and visibility is not governed by {% data variables.product.prodname_copilot_short %} model configuration policies.
 
 ## Security validation
 

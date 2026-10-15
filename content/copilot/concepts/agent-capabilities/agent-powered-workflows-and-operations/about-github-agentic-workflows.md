@@ -1,9 +1,12 @@
 ---
-title: About GitHub Agentic Workflows
+title: GitHub Agentic Workflows
 shortTitle: Agentic Workflows
+allowTitleToDifferFromFilename: true
 intro: 'Automate repetitive repository work with natural language instructions executed by AI coding agents in {% data variables.product.prodname_actions %}.'
 versions:
   feature: copilot
+redirect_from:
+  - /copilot/concepts/agents/about-github-agentic-workflows
 contentType: concepts
 category:
   - Learn about Copilot

@@ -10,13 +10,15 @@ category:
   - Secure your dependencies
 ---
 
-{% data reusables.code-security.open-source-license-compliance-public-preview-note %}
-
 ## Overview
 
 Open source license compliance helps you **track dependency licenses** and **enforce policy** for the open source software in your supply chain. You can use license compliance to reduce legal and operational risk, catching nonconforming dependencies **before** changes are merged.
 
-## How license policy works
+## Who can use license compliance
+
+License compliance is available for GitHub Enterprise Cloud customers, including data resident GHEC. To enforce license compliance policy on a repository, the repository must have a {% data variables.product.prodname_GH_code_security %} license.
+
+## How license compliance policy works
 
 You can define an enterprise policy that controls which licenses your dependencies are allowed to use.
 

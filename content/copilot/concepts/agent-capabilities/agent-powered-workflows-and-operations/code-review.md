@@ -1,5 +1,5 @@
 ---
-title: About GitHub Copilot code review
+title: GitHub Copilot code review
 shortTitle: Code review
 allowTitleToDifferFromFilename: true
 intro: '{% data variables.product.prodname_copilot_short %} reviews your pull requests, identifies issues, and suggests fixes you can apply in a couple of clicks.'
@@ -11,6 +11,7 @@ redirect_from:
   - /copilot/concepts/code-review/code-review
   - /copilot/concepts/code-review
   - /copilot/how-tos/use-copilot-agents/request-a-code-review/manage-tools
+  - /copilot/concepts/agents/code-review
 contentType: concepts
 category:
   - Learn about Copilot

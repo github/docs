@@ -1,11 +1,13 @@
 ---
-title: About agent apps
+title: Agent apps
 shortTitle: Agent apps
 allowTitleToDifferFromFilename: true
 intro: '{% data variables.copilot.agent_apps_caps %} let you use partner-built agents directly in your workflows on {% data variables.product.github %}, powered by your {% data variables.product.prodname_copilot_short %} subscription.'
 product: '{% data reusables.copilot.plans.permission-paid-plans-no-purchase-link %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=button&utm_source=docs-about-agent-apps&utm_medium=docs&utm_campaign=msbuild-2026" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
+redirect_from:
+  - /copilot/concepts/agents/agent-apps
 contentType: concepts
 ---
 

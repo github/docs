@@ -4,6 +4,8 @@ shortTitle: Tool search
 intro: 'Tool search keeps your context small by letting {% data variables.copilot.copilot_cli_short %} load external tools only when a task needs them.'
 versions:
   feature: copilot
+redirect_from:
+  - /copilot/concepts/agents/copilot-cli/tool-search
 contentType: concepts
 category:
   - Learn about Copilot # Copilot discovery page

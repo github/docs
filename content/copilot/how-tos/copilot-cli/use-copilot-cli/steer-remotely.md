@@ -17,7 +17,7 @@ docsTeamMetrics:
 
 Remote control lets you connect to a running {% data variables.copilot.copilot_cli_short %} session from any browser or from {% data variables.product.prodname_mobile %}. You can view session output, respond to permission requests, and continue working in the session without being at the machine where the session is running.
 
-This article explains how to enable and use remote control. For more conceptual information, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-remote-control).
+This article explains how to enable and use remote control. For more conceptual information, see [AUTOTITLE](/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/about-remote-control).
 
 {% data reusables.copilot.copilot-cli.synced-sessions-view-only %}
 

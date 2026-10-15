@@ -50,7 +50,7 @@ sections:
     - |
       Running a config apply as part of the steps for [Replacing a node in an emergency](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-a-node-in-an-emergency) may fail with errors if the node being replaced is still reachable. If this occurs, shut down the node and repeat the steps.
     - |
-      When restoring data originally backed up from a 3.13 or greater appliance version, the Elasticsearch indices need to be reindexed before some of the data will show up. This happens via a nightly scheduled job. It can also be forced by running `/usr/local/share/enterprise/ghe-es-search-repair`.
+      When restoring data originally backed up from a 3.13 or greater appliance version, the Elasticsearch indices need to be reindexed before some of the data will show up. This happens via a scheduled job that runs on the first Saturday of each month. It can also be forced by running `/usr/local/share/enterprise/ghe-es-search-repair`.
     - |
       When initializing a new GHES cluster, nodes with the `consul-server` role should be added to the cluster before adding additional nodes. Adding all nodes simultaneously creates a race condition between nomad server registration and nomad client registration.
     - |
@@ -67,3 +67,6 @@ sections:
       On instances with multiple Git storage nodes in a voting configuration, including cluster and geo-replication high availability topologies, upgrading may fail to correctly install Actions that ship with the new version. In some cases, previous versions of these Actions remain on the instance. To resolve this issue, run the following commands on the primary node: `ghe-config --unset 'app.actions.actions-repos-sha1sum'`, `ghe-config-apply`, and `/usr/local/share/enterprise/ghe-run-init-actions-graph`.
     - |
       When restoring an instance with `ghe-restore` while the replication controller is enabled, the storage directory is not restored.
+  errata:
+    - |
+      The known issues incorrectly indicated that Elasticsearch indices are reindexed by a nightly scheduled job after restoring data backed up from GitHub Enterprise Server 3.13 or later. The scheduled job runs on the first Saturday of each month. [Updated: 2026-10-15]

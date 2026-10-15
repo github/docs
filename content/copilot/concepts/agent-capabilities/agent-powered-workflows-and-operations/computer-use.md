@@ -4,6 +4,8 @@ shortTitle: Computer use
 intro: '{% data variables.product.prodname_copilot_short %} can interact with desktop applications to automate tasks that cannot be completed with a more direct tool.'
 versions:
   feature: copilot
+redirect_from:
+  - /copilot/concepts/agents/computer-use
 contentType: concepts
 category:
   - Learn about Copilot
@@ -16,7 +18,7 @@ category:
 
 {% data variables.product.prodname_copilot_short %} can interact with desktop applications on your behalf by reading accessible application content and visual context, clicking controls, entering and editing text, pressing keys, scrolling, dragging, and navigating workflows across applications.
 
-Computer use is available in {% data variables.copilot.copilot_cli %} and {% data variables.copilot.github_copilot_app %} on macOS and Windows.
+Computer use is available in {% data variables.copilot.copilot_cli %} and the {% data variables.copilot.github_copilot_app %} on macOS and Windows.
 
 Computer use expands the tasks {% data variables.product.prodname_copilot_short %} can help automate, including workflows in legacy and GUI-only software that do not provide an API, command-line interface, or MCP integration.
 
@@ -48,13 +50,13 @@ Computer use is disabled by default. You must enable it before an agent can use 
 
 Computer use follows the tool permission settings for the {% data variables.product.prodname_copilot_short %} surface where your session is running. These settings determine whether {% data variables.product.prodname_copilot_short %} asks for approval before controlling a desktop application. You can change the tool permission settings for each surface. If prompted to approve access to an application, you can grant access for the current session, save the approval for future sessions, or deny access.
 
-If you choose **Always allow** for a specific application, {% data variables.product.prodname_copilot_short %} stores the decision locally. The decision applies to both {% data variables.copilot.copilot_cli %} and {% data variables.copilot.github_copilot_app %} on the same computer. In the app, you can review the list of always allowed applications and remove individual approvals. Removing an application deletes its saved approval for future sessions in both the app and CLI. It does not revoke access already granted in a running session.
+If you choose **Always allow** for a specific application, {% data variables.product.prodname_copilot_short %} stores the decision locally. The decision applies to both {% data variables.copilot.copilot_cli %} and the {% data variables.copilot.github_copilot_app %} on the same computer. In the app, you can review the list of always allowed applications and remove individual approvals. Removing an application deletes its saved approval for future sessions in both the app and CLI. It does not revoke access already granted in a running session.
 
 Permission rules that deny a tool take precedence over automatic or saved approvals.
 
 Enterprise administrators can disable computer use through managed settings. Enabling computer use locally does not override an enterprise policy. For configuration details, see [AUTOTITLE](/copilot/reference/enterprise-administrators/enterprise-managed-settings#featurescomputeruse).
 
-You can interrupt an active operation if computer use starts acting unexpectedly. In {% data variables.copilot.copilot_cli %}, press <kbd>Esc</kbd> twice. In {% data variables.copilot.github_copilot_app %}, click **Stop** or press <kbd>Esc</kbd>.
+You can interrupt an active operation if computer use starts acting unexpectedly. In {% data variables.copilot.copilot_cli %}, press <kbd>Esc</kbd> twice. In the {% data variables.copilot.github_copilot_app %}, click **Stop** or press <kbd>Esc</kbd>.
 
 On macOS, computer use guides you through granting:
 

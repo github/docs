@@ -1,11 +1,13 @@
 ---
-title: About remote control of {% data variables.copilot.copilot_cli %} sessions
+title: Remote control of {% data variables.copilot.copilot_cli %} sessions
 shortTitle: About remote control
+allowTitleToDifferFromFilename: true
 intro: 'Remote control lets you monitor and steer a {% data variables.copilot.copilot_cli_short %} session from {% data variables.product.prodname_dotcom_the_website %} or {% data variables.product.prodname_mobile %}, even after you''ve stepped away from your machine.'
 versions:
   feature: copilot
 redirect_from:
   - /copilot/concepts/agents/copilot-cli/about-remote-access
+  - /copilot/concepts/agents/copilot-cli/about-remote-control
 contentType: concepts
 category:
   - Learn about Copilot # Copilot discovery page

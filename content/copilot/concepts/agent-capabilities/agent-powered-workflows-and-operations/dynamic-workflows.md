@@ -3,6 +3,8 @@ title: Dynamic workflows
 intro: 'Use {% data variables.product.prodname_copilot %} to orchestrate work on complex tasks, potentially combining deterministic operations, agents, tools, API calls, and user interactions.'
 versions:
   feature: copilot
+redirect_from:
+  - /copilot/concepts/agents/dynamic-workflows
 contentType: concepts
 category:
   - Learn about Copilot # Copilot discovery page

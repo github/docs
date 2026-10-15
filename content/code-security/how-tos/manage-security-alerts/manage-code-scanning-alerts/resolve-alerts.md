@@ -35,12 +35,18 @@ With a {% data variables.copilot.copilot_enterprise %} license, you can ask {% d
 
 ## Fixing alerts with {% data variables.product.prodname_copilot_short %}
 
-> [!NOTE]
-> This feature is in {% data variables.release-phases.public_preview %} and subject to change. {% data variables.copilot.copilot_cloud_agent %} and {% data variables.copilot.copilot_autofix_short %} must be available in the repository. {% data reusables.copilot.preview-features-policy %}
+You can assign a {% data variables.product.prodname_code_scanning %} alert to {% data variables.product.prodname_copilot_short %} to have it fix the alert for you. Assigning the alert starts an agent session that explores your codebase, generates and validates a fix, and opens a pull request.
 
-You can assign a {% data variables.product.prodname_code_scanning %} alert to {% data variables.product.prodname_copilot_short %} to have it fix the alert for you. Assigning the alert starts an agent session: {% data variables.copilot.copilot_cloud_agent %} explores your codebase, generates a fix, validates it, and opens a pull request.
+{% data variables.copilot.agentic_autofix_caps %} is only available for backlog alerts on the default branch of a repository.
 
-Each agentic autofix session is billed as a {% data variables.copilot.copilot_cloud_agent %} session and consumes {% data variables.product.prodname_ai_credits_short %}. See [AUTOTITLE](/copilot/concepts/billing-and-usage).
+### Prerequisites
+
+Before you assign an alert, {% data variables.copilot.agentic_autofix %} must be enabled for the repository. See [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-code-scanning-alerts/managing-access-to-agentic-autofix-for-code-scanning).
+
+* You don't need a {% data variables.product.prodname_copilot %} license to use this feature.
+* {% data variables.copilot.agentic_autofix_caps %} consumes Code Security AI Credits and {% data variables.product.prodname_actions %} minutes. See [AUTOTITLE](/billing/concepts/product-billing/github-advanced-security#how-ai-feature-usage-is-billed).
+
+### Assigning a single alert
 
 To assign an individual alert to {% data variables.product.prodname_copilot_short %}:
 
@@ -48,16 +54,27 @@ To assign an individual alert to {% data variables.product.prodname_copilot_shor
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-code-scanning-alerts %}
 1. Click the name of an alert.
-1. At the top of the page, click **{% octicon "agent" aria-label="Open agents panel" %} Assign to {% data variables.product.prodname_copilot_short %}**.
+1. Towards the top of the page, under "Assignees", click **{% octicon "agent" aria-label="Open agents panel" %} Assign to {% data variables.product.prodname_copilot_short %}**.
 
-You can also assign alerts to {% data variables.product.prodname_copilot_short %} in bulk:
+### Assigning multiple alerts at once
 
-* From the {% data variables.product.prodname_code_scanning %} alerts backlog or from a security campaign, select between 1 and 25 alerts and assign them to {% data variables.product.prodname_copilot_short %}, which works to resolve the selected alerts in a single pull request. See [AUTOTITLE](/code-security/how-tos/manage-security-alerts/remediate-alerts-at-scale/fixing-alerts-in-security-campaign).
-* Using the REST API, by setting the alert's assignee to `copilot-swe-agent[bot]`. See [AUTOTITLE](/rest/code-scanning/code-scanning#update-a-code-scanning-alert).
+To assign multiple alerts at once:
 
-Typically within a few minutes, {% data variables.product.prodname_copilot_short %} opens a draft pull request authored by {% data variables.product.prodname_copilot_short %}, with a summary of the fix and the validation steps taken. Review the agent session log for details, and comment on the pull request, mentioning {% data variables.product.prodname_copilot_short %}, to ask it to iterate.
+1. From the {% data variables.product.prodname_code_scanning %} alerts backlog or a security campaign, select up to 25 alerts.
+1. Above the list of alerts, click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} Assign to {% data variables.product.prodname_copilot_short %}**.
 
-{% data variables.copilot.copilot_cloud_agent %} validates fixes on a best-effort basis. If it can't validate a fix, or thinks the alert might be a false positive, it says so in the pull request.
+One assignment creates one agent session and one pull request for the selected alerts. See [AUTOTITLE](/code-security/how-tos/manage-security-alerts/remediate-alerts-at-scale/fixing-alerts-in-security-campaign).
+
+### What happens after you assign an alert
+
+* {% data variables.product.prodname_copilot_short %} typically opens a draft pull request within a few minutes.
+* The pull request, authored by {% data variables.product.prodname_copilot_short %}, summarizes the fix and validation steps.
+* Review the agent session log for details, and interact with {% data variables.product.prodname_copilot_short %} there.
+* You can also ask {% data variables.product.prodname_copilot_short %} to iterate by mentioning it in a pull request comment.
+
+{% data variables.product.prodname_copilot_short %} validates fixes on a best-effort basis. If it can't validate a fix, or thinks the alert might be a false positive, it says so in the pull request.
+
+You can also assign an alert with the REST API. Set the alert's assignee to `copilot-swe-agent[bot]`. See [AUTOTITLE](/rest/code-scanning/code-scanning#update-a-code-scanning-alert).
 
 {% endif %}
 
@@ -65,7 +82,9 @@ Typically within a few minutes, {% data variables.product.prodname_copilot_short
 
 ## Generating a suggested fix
 
-{% ifversion copilot %}If {% data variables.copilot.copilot_cloud_agent %} isn't available in your repository, you can still use {% data variables.copilot.copilot_autofix %} to generate a one-step suggested fix for the alert.{% else %}{% data variables.copilot.copilot_autofix %} can generate fixes for alerts identified by {% data variables.product.prodname_code_scanning %} analysis. Most {% data variables.product.prodname_codeql %} alert types are supported.{% endif %}
+{% ifversion copilot %}If {% data variables.copilot.agentic_autofix %} isn't enabled for your repository, you can still use {% data variables.copilot.copilot_autofix %} to generate a one-step suggested fix where supported.{% else %}{% data variables.copilot.copilot_autofix %} can generate fixes for alerts identified by {% data variables.product.prodname_code_scanning %} analysis. Most {% data variables.product.prodname_codeql %} alert types are supported.{% endif %}
+
+{% data variables.copilot.copilot_autofix %} is also only available for backlog alerts on the default branch of a repository.
 
 {% data reusables.rai.code-scanning.copilot-autofix-note %}
 
