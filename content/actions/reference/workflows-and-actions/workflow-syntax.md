@@ -329,13 +329,25 @@ A boolean specifying whether the secret must be supplied.
 
 {% data reusables.actions.workflow-dispatch-inputs-example %}
 
+## `on.workflow_dispatch.inputs.<input_id>.description`
+
+A string description of the input parameter.
+
 ## `on.workflow_dispatch.inputs.<input_id>.required`
 
 A boolean specifying whether the input must be supplied.
 
+## `on.workflow_dispatch.inputs.<input_id>.default`
+
+The default value for this input, used when the workflow is triggered manually without a value being supplied for the input.
+
 ## `on.workflow_dispatch.inputs.<input_id>.type`
 
 The value of this parameter is a string specifying the data type of the input. This must be one of: `boolean`, `choice`, `number`, `environment` or `string`.
+
+## `on.workflow_dispatch.inputs.<input_id>.options`
+
+A list of strings containing the options shown in the dropdown list for this input when the workflow is triggered manually. This can only be used when the input's `type` is `choice`.
 
 ## `permissions`
 
