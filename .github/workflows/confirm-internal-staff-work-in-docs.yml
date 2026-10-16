@@ -55,7 +55,7 @@ jobs:
 
             const issueNo = context.number || context.issue.number
 
-            await github.rest.issues.create({
+            const confirmationIssue = await github.rest.issues.create({
               owner: 'github',
               repo: process.env.TEAM_CONTENT_REPO,
               title: `@${context.payload.sender.login} confirm that \#${issueNo} should be in the public github/docs repo`,
@@ -63,6 +63,7 @@ jobs:
               labels: ['OS confirmation', 'skip FR board'],
             });
 
+            core.setOutput('confirmation_issue_url', confirmationIssue.data.html_url);
             core.setOutput('did_warn', 'true')
 
       - name: Resolve Slack user ID from username
@@ -218,7 +219,7 @@ jobs:
           errors: true
           payload: |
             channel: ${{ steps.slack_user.outputs.slack_user_id }}
-            text: ${{ toJSON(format('You opened {0} publicly in github/docs instead of the private repo. An internal confirmation issue was created.', github.event.issue.html_url || github.event.pull_request.html_url)) }}
+            text: ${{ toJSON(format('You opened {0} publicly in github/docs instead of the private repo. An internal confirmation issue was created. <{1}|View the issue>.', github.event.issue.html_url || github.event.pull_request.html_url, steps.membership_check.outputs.confirmation_issue_url)) }}
 
       - name: Log Slack DM result
         if: ${{ !cancelled() && steps.membership_check.outputs.did_warn == 'true' }}

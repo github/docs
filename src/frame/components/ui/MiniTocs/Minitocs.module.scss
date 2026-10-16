@@ -11,18 +11,14 @@
     // Align the active indicator with the In this article heading. Brand wraps
     // each item in a 2px-padded div, so cancel that offset.
     margin-left: -2px;
-    // Long TOC headings truncate to one line; the Up next title wraps instead.
+    // Long TOC headings wrap onto multiple lines rather than truncating.
     display: block;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    overflow-wrap: anywhere;
 
     // Brand wraps the visible label in labelArea and label spans. Set text size
-    // and truncation there so the ellipsis renders.
+    // there too.
     span {
       font-size: var(--brand-text-size-100, 0.875rem);
-      overflow: hidden;
-      text-overflow: ellipsis;
     }
 
     // Brand sizes labelArea for 16px text with a 31px min-height. Our 14px text
@@ -34,8 +30,8 @@
       min-width: 0;
     }
 
-    // The inner label is the bit that actually truncates; as a flex child it
-    // needs min-width: 0 to shrink below its content width.
+    // As a flex child the inner label needs min-width: 0 to shrink below its
+    // content width so it wraps.
     span span {
       display: block;
       min-width: 0;

@@ -9593,6 +9593,21 @@
       }
     ]
   },
+  "repository_license_policy": {
+    "title": "Repository license policy",
+    "displayTitle": "Repository permissions for \"Repository license policy\"",
+    "permissions": [
+      {
+        "category": "dependency-graph",
+        "slug": "check-license-compliance-for-packages",
+        "subcategory": "license-compliance",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/license-compliance/package-checks",
+        "additional-permissions": false,
+        "access": "read"
+      }
+    ]
+  },
   "repository_advisories": {
     "title": "Repository security advisories",
     "displayTitle": "Repository permissions for \"Repository security advisories\"",

@@ -37,7 +37,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Returns aggregate usage metrics for your GitHub Enterprise Server 3.5+ instance for a specified time period up to 365 days.</p>\n<p>To use this endpoint, your GitHub Enterprise Server instance must be connected to GitHub Enterprise Cloud using GitHub Connect. You must enable Server Statistics, and for the API request provide your enterprise account name or organization name connected to the GitHub Enterprise Server. For more information, see \"<a href=\"/admin/configuration/configuring-github-connect/enabling-server-statistics-for-your-enterprise\">Enabling Server Statistics for your enterprise</a>\" in the GitHub Enterprise Server documentation.</p>\n<p>OAuth app tokens and personal access tokens (classic) need:</p>\n<ul>\n<li>the <code>read:enterprise</code> scope if you connected your GitHub Enterprise Server to an enterprise account and enabled Server Statistics</li>\n<li>the <code>read:org</code> scope if you connected your GitHub Enterprise Server to an organization account and enabled Server Statistics</li>\n</ul>",
+      "descriptionHTML": "<p>Returns aggregate usage metrics for your GitHub Enterprise Server 3.5+ instance for a specified time period up to 365 days.</p>\n<p>To use this endpoint, your GitHub Enterprise Server instance must be connected to GitHub Enterprise Cloud using GitHub Connect. You must enable Server Statistics, and for the API request provide your enterprise account name or organization name connected to the GitHub Enterprise Server. For more information, see \"<a href=\"/admin/configuration/configuring-github-connect/enabling-server-statistics-for-your-enterprise\">Enabling Server Statistics for your enterprise</a>\" in the GitHub Enterprise Server documentation.</p>\n<p>OAuth app tokens and personal access tokens (classic) need:</p>\n<ul>\n<li>the <code>read:enterprise</code> scope if you connected your GitHub Enterprise Server to an enterprise account and enabled Server Statistics</li>\n<li>the <code>read:org</code> scope if you connected your GitHub Enterprise Server to an organization account and enabled Server Statistics</li>\n</ul>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThe \"Enterprise administration\" fine-grained permission is not available to callers. To use this API, you must use an OAuth app token or a personal access token (classic), or another supported fine-grained permission.</p>\n</div>",
       "codeExamples": [
         {
           "request": {
@@ -555,7 +555,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Gets the audit log for an enterprise.</p>\n<p>This endpoint has a rate limit of 1,750 queries per hour per user and IP address. If your integration receives a rate limit error (typically a 403 or 429 response), it should wait before making another request to the GitHub API. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/rate-limits-for-the-rest-api\">Rate limits for the REST API</a>\" and \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/best-practices-for-integrators\">Best practices for integrators</a>.\"</p>\n<p>The authenticated user must be an enterprise admin to use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:audit_log</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Gets the audit log for an enterprise.</p>\n<p>This endpoint has a rate limit of 1,750 queries per hour per user and IP address. If your integration receives a rate limit error (typically a 403 or 429 response), it should wait before making another request to the GitHub API. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/rate-limits-for-the-rest-api\">Rate limits for the REST API</a>\" and \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/best-practices-for-integrators\">Best practices for integrators</a>.\"</p>\n<p>The authenticated user must be an enterprise admin to use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:audit_log</code> scope to use this endpoint.</p>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThe \"Enterprise administration\" fine-grained permission is not available to callers. To use this API, you must use an OAuth app token or a personal access token (classic).</p>\n</div>",
       "codeExamples": [
         {
           "request": {
@@ -7707,7 +7707,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Lists the license consumption information for all users, including those from connected servers, associated with an enterprise.</p>\n<p>The authenticated user must be an enterprise admin to use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:enterprise</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Lists the license consumption information for all users, including those from connected servers, associated with an enterprise.</p>\n<p>The authenticated user must be an enterprise admin to use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:enterprise</code> scope to use this endpoint.</p>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThe \"Enterprise administration\" fine-grained permission is not available to callers. To use this API, you must use an OAuth app token or a personal access token (classic).</p>\n</div>",
       "codeExamples": [
         {
           "request": {
@@ -7941,7 +7941,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Gets information about the status of a license sync job for an enterprise.</p>\n<p>The authenticated user must be an enterprise admin to use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:enterprise</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Gets information about the status of a license sync job for an enterprise.</p>\n<p>The authenticated user must be an enterprise admin to use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:enterprise</code> scope to use this endpoint.</p>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThe \"Enterprise administration\" fine-grained permission is not available to callers. To use this API, you must use an OAuth app token or a personal access token (classic).</p>\n</div>",
       "codeExamples": [
         {
           "request": {
@@ -8082,7 +8082,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Gets the GitHub Advanced Security active committers for an enterprise per repository. The authenticated user must be an enterprise admin or billing manager.</p>\n<p>Each distinct user login across all repositories is counted as a single Advanced Security seat, so the <code>total_advanced_security_committers</code> is not the sum of active_users for each repository.</p>\n<p>The total number of repositories with committer information is tracked by the <code>total_count</code> field.</p>",
+      "descriptionHTML": "<p>Gets the GitHub Advanced Security active committers for an enterprise per repository. The authenticated user must be an enterprise admin or billing manager.</p>\n<p>Each distinct user login across all repositories is counted as a single Advanced Security seat, so the <code>total_advanced_security_committers</code> is not the sum of active_users for each repository.</p>\n<p>The total number of repositories with committer information is tracked by the <code>total_count</code> field.</p>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThe \"Enterprise administration\" fine-grained permission is not available to callers. To use this API, you must use an OAuth app token or a personal access token (classic).</p>\n</div>",
       "codeExamples": [
         {
           "request": {
@@ -9974,6 +9974,13 @@
                           "write"
                         ]
                       },
+                      "organization_copilot_requests": {
+                        "type": "string",
+                        "description": "The level of permission to grant the access token to make Copilot requests billed to the organization where the app is installed. This property is in public preview and is subject to change.",
+                        "enum": [
+                          "read"
+                        ]
+                      },
                       "organization_external_properties_for_repos": {
                         "type": "string",
                         "description": "The level of permission to grant the access token for managing external custom properties for repositories in an organization.",
@@ -10850,6 +10857,13 @@
                       "enum": [
                         "read",
                         "write"
+                      ]
+                    },
+                    "organization_copilot_requests": {
+                      "type": "string",
+                      "description": "The level of permission to grant the access token to make Copilot requests billed to the organization where the app is installed. This property is in public preview and is subject to change.",
+                      "enum": [
+                        "read"
                       ]
                     },
                     "organization_external_properties_for_repos": {
@@ -12111,6 +12125,13 @@
                       "enum": [
                         "read",
                         "write"
+                      ]
+                    },
+                    "organization_copilot_requests": {
+                      "type": "string",
+                      "description": "The level of permission to grant the access token to make Copilot requests billed to the organization where the app is installed. This property is in public preview and is subject to change.",
+                      "enum": [
+                        "read"
                       ]
                     },
                     "organization_external_properties_for_repos": {
@@ -14289,7 +14310,7 @@
           "oneOfObject": true
         }
       ],
-      "descriptionHTML": "<p>Create a repository ruleset for an enterprise.</p>",
+      "descriptionHTML": "<p>Create a repository ruleset for an enterprise.</p>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThe \"Enterprise administration\" fine-grained permission is not available to callers. To use this API, you must use an OAuth app token or a personal access token (classic).</p>\n</div>",
       "codeExamples": [
         {
           "request": {
@@ -15877,7 +15898,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Get a repository ruleset for an enterprise.</p>\n<p><strong>Note:</strong> To prevent leaking sensitive information, the <code>bypass_actors</code> property is only returned if the user\nmaking the API request has write access to the ruleset.</p>",
+      "descriptionHTML": "<p>Get a repository ruleset for an enterprise.</p>\n<p><strong>Note:</strong> To prevent leaking sensitive information, the <code>bypass_actors</code> property is only returned if the user\nmaking the API request has write access to the ruleset.</p>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThe \"Enterprise administration\" fine-grained permission is not available to callers. To use this API, you must use an OAuth app token or a personal access token (classic).</p>\n</div>",
       "codeExamples": [
         {
           "request": {
@@ -18932,7 +18953,7 @@
           "oneOfObject": true
         }
       ],
-      "descriptionHTML": "<p>Update a ruleset for an enterprise.</p>",
+      "descriptionHTML": "<p>Update a ruleset for an enterprise.</p>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThe \"Enterprise administration\" fine-grained permission is not available to callers. To use this API, you must use an OAuth app token or a personal access token (classic).</p>\n</div>",
       "codeExamples": [
         {
           "request": {
@@ -20521,7 +20542,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Delete a ruleset for an enterprise.</p>",
+      "descriptionHTML": "<p>Delete a ruleset for an enterprise.</p>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThe \"Enterprise administration\" fine-grained permission is not available to callers. To use this API, you must use an OAuth app token or a personal access token (classic).</p>\n</div>",
       "codeExamples": [
         {
           "request": {

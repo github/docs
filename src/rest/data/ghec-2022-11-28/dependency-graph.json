@@ -546,6 +546,232 @@
       }
     }
   ],
+  "license-compliance": [
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/license-compliance/package-checks",
+      "title": "Check license compliance for packages",
+      "category": "dependency-graph",
+      "subcategory": "license-compliance",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "array of strings",
+          "name": "purls",
+          "description": "<p>Package URLs to check against the license compliance policy. Duplicate package URLs are checked once.</p>",
+          "isRequired": true
+        }
+      ],
+      "descriptionHTML": "<p>Checks whether packages identified by the supplied package URLs (PURLs) are allowed by the repository's license compliance policy.</p>\n<p>For requests made on behalf of a user, that user must have write access to the repository or the \"View repository license policy\" permission.\nOAuth apps and classic personal access tokens require the <code>repo</code> scope.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example 1: Status Code 200",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "purls": [
+                "pkg:npm/lodash@4.17.21"
+              ]
+            },
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Package license compliance results.</p>",
+            "example": {
+              "purls": {
+                "pkg:npm/lodash@4.17.21": {
+                  "status": "allowed",
+                  "license": "MIT",
+                  "reason": "allowed_license"
+                }
+              }
+            },
+            "schema": {
+              "type": "object",
+              "title": "Package license compliance results",
+              "description": "License compliance results keyed by the original submitted package URLs.",
+              "properties": {
+                "purls": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "object",
+                    "properties": {
+                      "status": {
+                        "type": "string",
+                        "description": "The package's license compliance result. Returns `unknown` for malformed package URLs, unsupported ecosystems, or package URLs that cannot be used for license lookup.",
+                        "enum": [
+                          "allowed",
+                          "denied",
+                          "unknown"
+                        ]
+                      },
+                      "license": {
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "description": "The resolved SPDX license expression, or null if unresolved. A package explicitly allowed by policy can return `allowed` with a null license."
+                      },
+                      "reason": {
+                        "type": "string",
+                        "description": "The reason for the compliance result. Returns `unknown` if no specific reason is available.",
+                        "enum": [
+                          "allowed_license",
+                          "allowed_package",
+                          "denied_license",
+                          "unsupported_package_ecosystem",
+                          "unknown"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "status",
+                      "license",
+                      "reason"
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "purls"
+              ]
+            }
+          }
+        },
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example 2: Status Code 200",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "purls": []
+            },
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Package license compliance results.</p>",
+            "example": {
+              "purls": {}
+            },
+            "schema": {
+              "type": "object",
+              "title": "Package license compliance results",
+              "description": "License compliance results keyed by the original submitted package URLs.",
+              "properties": {
+                "purls": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "object",
+                    "properties": {
+                      "status": {
+                        "type": "string",
+                        "description": "The package's license compliance result. Returns `unknown` for malformed package URLs, unsupported ecosystems, or package URLs that cannot be used for license lookup.",
+                        "enum": [
+                          "allowed",
+                          "denied",
+                          "unknown"
+                        ]
+                      },
+                      "license": {
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "description": "The resolved SPDX license expression, or null if unresolved. A package explicitly allowed by policy can return `allowed` with a null license."
+                      },
+                      "reason": {
+                        "type": "string",
+                        "description": "The reason for the compliance result. Returns `unknown` if no specific reason is available.",
+                        "enum": [
+                          "allowed_license",
+                          "allowed_package",
+                          "denied_license",
+                          "unsupported_package_ecosystem",
+                          "unknown"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "status",
+                      "license",
+                      "reason"
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "purls"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>Package license compliance results.</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>License compliance policy not found.</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
+        },
+        {
+          "httpStatusCode": "503",
+          "description": "<p>Service unavailable</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Repository license policy\" repository permissions": "read"
+          }
+        ]
+      }
+    }
+  ],
   "sboms": [
     {
       "serverUrl": "https://api.github.com",
