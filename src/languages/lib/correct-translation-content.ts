@@ -68,6 +68,18 @@ export function correctTranslatedContentStrings(
   }
 
   if (
+    context.dottedPath === 'reusables.enterprise-migration-tool.commit-signature-verification' ||
+    context.relativePath?.endsWith(
+      'data/reusables/enterprise-migration-tool/commit-signature-verification.md',
+    )
+  ) {
+    content = content.replace(
+      /(\{%-?\s*ifversion [^%]*?-?%\})\{%-?\s*endif\s*-?%\}(\{%-?\s*data [^%]*?-?%\})(\{%-?\s*else\s*-?%\})(\{%-?\s*data [^%]*?-?%\})(?!\{%-?\s*endif)/g,
+      '$1$2$3$4{% endif %}',
+    )
+  }
+
+  if (
     context.code === 'es' &&
     (context.dottedPath === 'reusables.gated-features.dependabot-custom-auto-triage-rules' ||
       context.relativePath?.endsWith(

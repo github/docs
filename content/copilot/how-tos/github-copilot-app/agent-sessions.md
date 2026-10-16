@@ -3,7 +3,7 @@ title: Working with agent sessions in the GitHub Copilot app
 shortTitle: Agent sessions
 intro: 'Run multiple isolated agent sessions simultaneously, each with its own branch, and steer them using different session modes, models, and tools.'
 allowTitleToDifferFromFilename: true
-product: '{% data reusables.gated-features.github-app %}<br><a href="https://github.com/features/ai/github-app" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Download the {% data variables.copilot.github_copilot_app %}</span> {% octicon "link-external" height:16 %}</a>'
+product: '{% data reusables.gated-features.github-app %}<br>{% data reusables.copilot.github-app-download-button %}'
 versions:
   feature: copilot
 contentType: how-tos
