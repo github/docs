@@ -337,6 +337,18 @@ A boolean specifying whether the input must be supplied.
 
 The value of this parameter is a string specifying the data type of the input. This must be one of: `boolean`, `choice`, `number`, `environment` or `string`.
 
+## `on.workflow_dispatch.inputs.<input_id>.description`
+
+A string description of the input parameter.
+
+## `on.workflow_dispatch.inputs.<input_id>.default`
+
+The default value is used when an input parameter isn't specified in a workflow file.
+
+## `on.workflow_dispatch.inputs.<input_id>.options`
+
+A sequence of strings that sets the options of the dropdown list. This applies only when the input `type` is `choice`.
+
 ## `permissions`
 
 {% data reusables.actions.jobs.section-assigning-permissions-to-jobs %}
