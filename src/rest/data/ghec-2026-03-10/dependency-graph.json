@@ -587,7 +587,7 @@
         {
           "request": {
             "contentType": "application/json",
-            "description": "Example",
+            "description": "Example 1: Status Code 200",
             "acceptHeader": "application/vnd.github.v3+json",
             "bodyParameters": {
               "purls": [
@@ -611,6 +611,78 @@
                   "reason": "allowed_license"
                 }
               }
+            },
+            "schema": {
+              "type": "object",
+              "title": "Package license compliance results",
+              "description": "License compliance results keyed by the original submitted package URLs.",
+              "properties": {
+                "purls": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "object",
+                    "properties": {
+                      "status": {
+                        "type": "string",
+                        "description": "The package's license compliance result. Returns `unknown` for malformed package URLs, unsupported ecosystems, or package URLs that cannot be used for license lookup.",
+                        "enum": [
+                          "allowed",
+                          "denied",
+                          "unknown"
+                        ]
+                      },
+                      "license": {
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "description": "The resolved SPDX license expression, or null if unresolved. A package explicitly allowed by policy can return `allowed` with a null license."
+                      },
+                      "reason": {
+                        "type": "string",
+                        "description": "The reason for the compliance result. Returns `unknown` if no specific reason is available.",
+                        "enum": [
+                          "allowed_license",
+                          "allowed_package",
+                          "denied_license",
+                          "unsupported_package_ecosystem",
+                          "unknown"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "status",
+                      "license",
+                      "reason"
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "purls"
+              ]
+            }
+          }
+        },
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example 2: Status Code 200",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "purls": []
+            },
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Package license compliance results.</p>",
+            "example": {
+              "purls": {}
             },
             "schema": {
               "type": "object",
