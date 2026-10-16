@@ -302,6 +302,14 @@ Each hook event delivers a JSON payload to the hook handler. Two payload formats
 * **camelCase format** — Configure the event name in camelCase (for example, `sessionStart`). Fields use camelCase.
 * **{% data variables.product.prodname_vscode_shortname %} compatible format** — Configure the event name in PascalCase (for example, `SessionStart`). Fields use snake_case to match the {% data variables.product.prodname_vscode_shortname %} {% data variables.product.prodname_copilot_short %} extension format.
 
+Hooks that fire inside a subagent include extra fields in their input. Root-agent hook inputs are unchanged.
+
+| Field (camelCase) | Field ({% data variables.product.prodname_vscode_shortname %} compatible) | Description |
+|-------------------|------------------------|-------------|
+| `agentId` | `agent_id` | Identifier of the subagent firing the hook. |
+| `agentType` | `agent_type` | Subagent type, when known. |
+| `parentAgentId` | `parent_agent_id` | Identifier of the parent agent, when known. |
+
 ### `sessionStart` / `SessionStart`
 
 **camelCase input:**

@@ -37,6 +37,13 @@ The `/ask` command is not available for remote sessions.
 
 The dialog does not have an input field for follow-up questions. To ask another question, dismiss the dialog and enter another `/ask YOUR-QUESTION` command.
 
+While an answer is displayed, you can also:
+
+* Press <kbd>Ctrl</kbd>+<kbd>E</kbd> to expand the dialog so you can read more of a long answer, or collapse it again.
+* Press <kbd>Ctrl</kbd>+<kbd>Y</kbd> to copy the entire answer to your clipboard.
+
+To reopen the last completed answer in the session, enter `/ask` or `/btw` without a question.
+
 ## Further reading
 
 * [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference#slash-commands-in-the-interactive-interface)
