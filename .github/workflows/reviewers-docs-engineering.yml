@@ -51,10 +51,8 @@ jobs:
       # Detect PRs that only change package-lock.json. Contributors often create
       # cross-platform npm install churn while editing content.
       # Comment with reset instructions instead of adding them to the engineering review board.
-      # Dependabot security updates can change only the lockfile when package.json
-      # does not name the transitive dependency.
-      # Those PRs are intentional, so reset instructions would be wrong and
-      # keeping them off the board would leave them without engineering triage.
+      # Dependabot and docs-bot PRs can change only the lockfile on purpose, for example
+      # to fix a transitive dependency. Skip the check for them so they still get engineering triage.
       - name: Detect lockfile-only churn
         id: detect
         env:
@@ -64,8 +62,8 @@ jobs:
           CHANGED_FILES: ${{ github.event.pull_request.changed_files }}
           REPO: ${{ github.repository }}
         run: |
-          if [ "$PR_AUTHOR" = "dependabot[bot]" ]; then
-            echo "Author is Dependabot; skipping lockfile churn detection."
+          if [ "$PR_AUTHOR" = "dependabot[bot]" ] || [ "$PR_AUTHOR" = "docs-bot" ]; then
+            echo "Author is $PR_AUTHOR; skipping lockfile churn detection."
             echo "lockfile_only=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi

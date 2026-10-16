@@ -23,7 +23,7 @@ Local BYOK is available in the following clients.
 | JetBrains | [Bring your own key (BYOK) support for JetBrains IDEs and Xcode](https://github.blog/changelog/2025-09-11-bring-your-own-key-byok-support-for-jetbrains-ides-and-xcode-in-public-preview/#try-it-out) on {% data variables.product.prodname_blog %} |
 | Xcode | [Bring your own key (BYOK) support for JetBrains IDEs and Xcode](https://github.blog/changelog/2025-09-11-bring-your-own-key-byok-support-for-jetbrains-ides-and-xcode-in-public-preview/#try-it-out) on {% data variables.product.prodname_blog %} |
 | {% data variables.copilot.copilot_cli_short %} | [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/use-byok-models) |
-| {% data variables.copilot.github_copilot_app %} | [AUTOTITLE](/copilot/how-tos/github-copilot-app/use-byok-models) |
+| The {% data variables.copilot.github_copilot_app %} | [AUTOTITLE](/copilot/how-tos/github-copilot-app/use-byok-models) |
 | {% data variables.copilot.copilot_sdk_short %} | [AUTOTITLE](/copilot/how-tos/copilot-sdk/auth/byok) |
 
 For users on a {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} plan, the ability to use local BYOK in IDEs can be disabled by an enterprise or organization policy.

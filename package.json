@@ -322,7 +322,7 @@
     "mdast-util-gfm": "^3.1.0",
     "micromark-extension-gfm": "^3.0.0",
     "mockdate": "^3.0.5",
-    "nock": "^14.0.11",
+    "nock": "^15.0.1",
     "nodemon": "3.1.10",
     "ora": "^9.3.0",
     "patch-package": "^8.0.1",

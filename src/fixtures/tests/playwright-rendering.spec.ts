@@ -1,5 +1,5 @@
 import dotenv from 'dotenv'
-import { test, expect } from '@playwright/test'
+import { test, expect, type Page } from '@playwright/test'
 import { turnOffExperimentsInPage } from '../helpers/turn-off-experiments'
 import { contrastRatio } from '@/fixtures/helpers/color-contrast'
 import {
@@ -298,7 +298,7 @@ test('do a search from home page and click on "Foo" page', async ({ page }) => {
   await page.getByTestId('toggle-search').click()
   await page.getByTestId('overlay-search-input').fill('serve playwright')
   await page.waitForTimeout(1000)
-  await page.getByText('View more results').click()
+  await page.getByTestId('view-all-results').click()
 
   await expect(page).toHaveURL(
     /\/search\?search-overlay-input=serve\+playwright&query=serve\+playwright/,
@@ -321,7 +321,7 @@ test('open search, and perform a general search', async ({ page }) => {
   await page.getByTestId('overlay-search-input').fill('serve playwright')
   // Wait 1 second for results to load, because the UI blocks submitting the query until then.
   await page.waitForTimeout(1000)
-  await page.getByText('View more results').click()
+  await page.getByTestId('view-all-results').click()
 
   await expect(page).toHaveURL(
     /\/search\?search-overlay-input=serve\+playwright&query=serve\+playwright/,
@@ -344,11 +344,567 @@ test('open search, and select a general search article', async ({ page }) => {
   await page.getByTestId('overlay-search-input').fill('serve playwright')
   const searchOverlay = page.getByTestId('general-autocomplete-suggestions')
   await expect(searchOverlay.getByText('For Playwright')).toBeVisible()
-  await page.keyboard.press('ArrowDown')
+
+  // Walk down to "For Playwright" rather than assuming a fixed number of presses — AI rows
+  // render above docs rows, so this keeps working if the groups are reordered again.
+  const input = page.getByTestId('overlay-search-input')
+  const targetId = await searchOverlay
+    .locator('[role="option"][id^="search-option-general-"]', { hasText: 'For Playwright' })
+    .first()
+    .getAttribute('id')
+  expect(targetId).toBeTruthy()
+
+  for (let i = 0; i < 15; i++) {
+    if ((await input.getAttribute('aria-activedescendant')) === targetId) break
+    await page.keyboard.press('ArrowDown')
+  }
+  await expect(input).toHaveAttribute('aria-activedescendant', targetId as string)
+
+  // Select the general search item, "For Playwright"
   await page.keyboard.press('Enter')
 
   await expect(page).toHaveURL(/\/get-started\/foo\/for-playwright$/)
   await expect(page).toHaveTitle(/For Playwright/)
+})
+
+test('open search, and arrow down to the pinned "View all results" option', async ({ page }) => {
+  test.skip(!SEARCH_TESTS, 'No local Elasticsearch, no tests involving search')
+
+  await page.goto('/')
+  await turnOffExperimentsInPage(page)
+
+  await page.getByTestId('toggle-search').click()
+  const input = page.getByTestId('overlay-search-input')
+  await input.fill('serve playwright')
+  await expect(page.getByTestId('view-all-results')).toBeVisible()
+
+  // Count across the dialog: the pinned view-all joins the listbox through aria-owns, so it
+  // is not a DOM descendant of #search-listbox.
+  const optionCount = await page.locator('[role="dialog"] [role="option"]').count()
+
+  // The pinned control is the final stop, not an unreachable footer link. Stepping once
+  // more past it returns to "nothing selected" rather than wrapping.
+  for (let i = 0; i < optionCount; i++) {
+    await page.keyboard.press('ArrowDown')
+  }
+  await expect(input).toHaveAttribute('aria-activedescendant', 'search-option-view-all')
+  await expect(page.getByTestId('view-all-results')).toHaveAttribute('aria-selected', 'true')
+  // Pinned outside the scroller, so it stays on screen even when selected last.
+  await expect(page.getByTestId('view-all-results')).toBeInViewport()
+
+  await page.keyboard.press('ArrowDown')
+  await expect(input).not.toHaveAttribute('aria-activedescendant', /.+/)
+
+  // ArrowUp from nothing selected lands on the last option, which is this one.
+  await page.keyboard.press('ArrowUp')
+  await expect(input).toHaveAttribute('aria-activedescendant', 'search-option-view-all')
+
+  await page.keyboard.press('Enter')
+  await expect(page).toHaveURL(/\/search\?.*query=serve\+playwright/)
+})
+
+test('search overlay keeps aria-activedescendant resolvable across the whole cycle', async ({
+  page,
+}) => {
+  test.skip(!SEARCH_TESTS, 'No local Elasticsearch, no tests involving search')
+
+  await page.goto('/')
+  await turnOffExperimentsInPage(page)
+
+  await page.getByTestId('toggle-search').click()
+  const input = page.getByTestId('overlay-search-input')
+  await input.fill('serve playwright')
+  await expect(page.getByTestId('view-all-results')).toBeVisible()
+
+  const optionCount = await page.locator('[role="dialog"] [role="option"]').count()
+  expect(optionCount).toBeGreaterThan(0)
+
+  // Walk past both ends in both directions. At every step the active descendant must
+  // either be absent or name a live element inside the controlled region — the class of
+  // bug that phantom indices used to produce silently.
+  for (const key of ['ArrowDown', 'ArrowUp']) {
+    for (let i = 0; i < optionCount + 2; i++) {
+      await page.keyboard.press(key)
+      const check = await page.evaluate(() => {
+        const el = document.querySelector('[data-testid="overlay-search-input"]')!
+        const activeId = el.getAttribute('aria-activedescendant')
+        if (!activeId) return { ok: true, activeId: null }
+        const controls = document.getElementById(el.getAttribute('aria-controls')!)
+        const target = document.getElementById(activeId)
+        // Inside the listbox, or owned by it: the pinned view-all joins through aria-owns.
+        const owned = (controls?.getAttribute('aria-owns') || '').split(/\s+/).includes(activeId)
+        return {
+          ok: !!target && !!controls && (controls.contains(target) || owned),
+          activeId,
+          selectedCount: document.querySelectorAll('[role="option"][aria-selected="true"]').length,
+        }
+      })
+      expect(
+        check.ok,
+        `${key} step ${i}: ${check.activeId} did not resolve inside the listbox`,
+      ).toBe(true)
+      if (check.activeId) {
+        expect(check.selectedCount).toBe(1)
+      }
+    }
+  }
+})
+
+// The dialog's own contract. Search is mocked, so these run without Elasticsearch: they
+// test the modal and its keyboard model, not search relevance.
+test.describe('search dialog', () => {
+  const HITS = [
+    { title: 'Bar Usually Comes After Foo', url: '/en/get-started/foo/bar' },
+    { title: 'For Playwright', url: '/en/get-started/foo/for-playwright' },
+  ]
+
+  async function mockSearch(page: Page, { delayMs = 0, fail = false } = {}) {
+    await page.route('**/api/search/combined-search/v1**', async (route) => {
+      if (fail) return route.fulfill({ status: 500, body: '{"error":"mocked"}' })
+      const query = new URL(route.request().url()).searchParams.get('query') || ''
+      if (delayMs) await new Promise((resolve) => setTimeout(resolve, delayMs))
+      try {
+        await route.fulfill({
+          status: 200,
+          contentType: 'application/json',
+          body: JSON.stringify({
+            aiAutocompleteSuggestions: {
+              meta: {},
+              hits: [{ term: `how do I ${query.trim()}?`, highlights: [] }],
+            },
+            generalSearchResults: { meta: { found: { value: 2 } }, hits: HITS },
+          }),
+        })
+      } catch {
+        // The page may have navigated away while a delayed response was pending.
+      }
+    })
+  }
+
+  // Every id aria-activedescendant names must exist in the DOM.
+  async function expectActiveDescendantResolves(page: Page) {
+    const id = await page.getByTestId('overlay-search-input').getAttribute('aria-activedescendant')
+    if (id) await expect(page.locator(`[id="${id}"]`)).toHaveCount(1)
+    return id
+  }
+
+  test('traps focus, locks page scroll, and returns focus to the opener', async ({ page }) => {
+    await page.goto('/get-started/foo/bar')
+    await turnOffExperimentsInPage(page)
+
+    const opener = page.getByTestId('toggle-search')
+    await opener.click()
+    const input = page.getByTestId('overlay-search-input')
+    await expect(input).toBeFocused()
+    expect(await page.evaluate(() => document.body.style.overflow)).toBe('hidden')
+
+    // Tab cycles inside the dialog rather than escaping to the page behind the scrim.
+    const dialog = page.locator('[role="dialog"][aria-modal="true"]')
+    for (let i = 0; i < 6; i++) {
+      await page.keyboard.press('Tab')
+      expect(await dialog.evaluate((el) => el.contains(document.activeElement))).toBe(true)
+    }
+
+    // A press on the scrim closes it. (5, 5) is outside the centred card at this width.
+    await page.mouse.click(5, 5)
+    await expect(input).toHaveCount(0)
+    await expect(opener).toBeFocused()
+    expect(await page.evaluate(() => document.body.style.overflow)).toBe('')
+  })
+
+  test('the close button dismisses the dialog at a phone viewport', async ({ page }) => {
+    // Below `md` the dialog covers the viewport, so there is no scrim to press.
+    await page.setViewportSize({ width: 375, height: 812 })
+    await page.goto('/get-started/foo/bar')
+    await turnOffExperimentsInPage(page)
+
+    await page.getByTestId('toggle-search').click()
+    await expect(page.getByTestId('overlay-search-input')).toBeVisible()
+    await page.getByRole('button', { name: 'Close search' }).click()
+
+    await expect(page.getByTestId('overlay-search-input')).toHaveCount(0)
+    await expect(page).not.toHaveURL(/search-overlay-open/)
+  })
+
+  test('selecting a result straight after typing still navigates', async ({ page }) => {
+    await mockSearch(page)
+    await page.goto('/')
+    await turnOffExperimentsInPage(page)
+
+    await page.getByTestId('toggle-search').click()
+    const input = page.getByTestId('overlay-search-input')
+    await input.fill('foo')
+    await expect(page.locator('#search-option-general-1')).toBeVisible()
+
+    // One more keystroke queues the input's debounced URL write. Selecting before it fires
+    // used to let that write — a replace of the current page — cancel the navigation.
+    await input.press('End')
+    await input.pressSequentially(' x', { delay: 0 })
+    // The query row and one suggestion, then general-0 and general-1.
+    for (let i = 0; i < 4; i++) await input.press('ArrowDown', { delay: 0 })
+    await input.press('Enter', { delay: 0 })
+
+    await expect(page).toHaveURL(/\/get-started\/foo\/for-playwright/)
+    await expect(page.locator('h1')).toHaveText('For Playwright')
+  })
+
+  test('closing straight after typing leaves the overlay closed in the URL', async ({ page }) => {
+    await mockSearch(page)
+    await page.goto('/get-started/foo/bar')
+    await turnOffExperimentsInPage(page)
+
+    await page.getByTestId('toggle-search').click()
+    const input = page.getByTestId('overlay-search-input')
+    await input.pressSequentially('foo', { delay: 0 })
+    await input.press('Escape', { delay: 0 })
+
+    await expect(input).toHaveCount(0)
+    // Past the 100ms debounce: a stale queued write used to put the param back.
+    await page.waitForTimeout(300)
+    await expect(page).not.toHaveURL(/search-overlay-open/)
+  })
+
+  test('clicking a row keeps focus, and the arrow keys, on the input', async ({ page }) => {
+    await mockSearch(page)
+    await page.goto('/')
+    await turnOffExperimentsInPage(page)
+
+    await page.getByTestId('toggle-search').click()
+    const input = page.getByTestId('overlay-search-input')
+    await input.fill('foo')
+    const row = page.locator('#search-option-general-0')
+    await expect(row).toBeVisible()
+
+    // Press without releasing on the row, so no click (and no navigation) fires.
+    const box = await row.boundingBox()
+    await page.mouse.move(box!.x + 40, box!.y + box!.height / 2)
+    await page.mouse.down()
+    await expect(input).toBeFocused()
+    await page.mouse.move(5, 5)
+    await page.mouse.up()
+  })
+
+  test('rows hidden behind the autocomplete spinner are not arrow-reachable', async ({ page }) => {
+    test.setTimeout(30_000)
+    await page.goto('/')
+    await turnOffExperimentsInPage(page)
+    await mockSearch(page)
+
+    await page.getByTestId('toggle-search').click()
+    const input = page.getByTestId('overlay-search-input')
+    await input.fill('foo')
+    await expect(page.locator('#search-option-general-0')).toBeVisible()
+
+    // Slow the next response past the 1s spinner threshold.
+    await page.unroute('**/api/search/combined-search/v1**')
+    await mockSearch(page, { delayMs: 4000 })
+    await input.pressSequentially('b')
+    await expect(page.locator('#search-option-general-0')).toHaveCount(0, { timeout: 3000 })
+
+    for (let i = 0; i < 3; i++) {
+      await input.press('ArrowDown')
+      const id = await expectActiveDescendantResolves(page)
+      expect(id ?? '').not.toMatch(/^search-option-(ai|general)-/)
+    }
+  })
+
+  test('the docs fallback row shows the query without template braces', async ({ page }) => {
+    await mockSearch(page, { fail: true })
+    await page.goto('/')
+    await turnOffExperimentsInPage(page)
+
+    await page.getByTestId('toggle-search').click()
+    await page.getByTestId('overlay-search-input').fill('repository')
+    await expect(page.locator('#search-option-search-docs')).toHaveText(
+      'Search docs for "repository"',
+    )
+  })
+
+  test('Copilot sources are not arrow-reachable until the answer finishes', async ({ page }) => {
+    test.setTimeout(30_000)
+    // A stream that sends its sources, then stalls before the answer. route.fulfill sends
+    // the whole body at once, so the pause needs a real ReadableStream.
+    await page.addInitScript(() => {
+      const realFetch = window.fetch
+      window.fetch = async (input, init) => {
+        const url =
+          typeof input === 'string' ? input : input instanceof URL ? input.href : input.url
+        if (!url.includes('/api/ai-search/v1')) return realFetch(input, init)
+        const encoder = new TextEncoder()
+        const body = new ReadableStream({
+          async start(controller) {
+            controller.enqueue(
+              encoder.encode(
+                '{"chunkType":"SOURCES","sources":[{"title":"For Playwright","index":"/en/get-started","url":"http://localhost:4000/en/get-started/foo/for-playwright"}]}\n',
+              ),
+            )
+            await new Promise((resolve) => setTimeout(resolve, 2500))
+            controller.enqueue(
+              encoder.encode('{"chunkType":"MESSAGE_CHUNK","text":"An answer."}\n'),
+            )
+            controller.close()
+          },
+        })
+        return new Response(body, {
+          status: 200,
+          headers: { 'Content-Type': 'application/x-ndjson' },
+        })
+      }
+    })
+    await mockSearch(page)
+    await page.goto('/')
+    await turnOffExperimentsInPage(page)
+
+    await page.getByTestId('toggle-search').click()
+    const input = page.getByTestId('overlay-search-input')
+    await input.fill('foo')
+    await expect(page.locator('#search-option-general-0')).toBeVisible()
+    await input.press('Enter') // nothing selected: ask Copilot
+
+    // Mid-stream: the sources have arrived but are not rendered, so they must not be reachable.
+    await page.waitForTimeout(800)
+    for (let i = 0; i < 2; i++) {
+      await input.press('ArrowDown')
+      const id = await expectActiveDescendantResolves(page)
+      expect(id ?? '').not.toMatch(/^search-option-reference-/)
+    }
+
+    // Once the answer finishes, the source row renders and becomes reachable.
+    await expect(page.locator('#search-option-reference-0')).toBeVisible({ timeout: 10_000 })
+  })
+
+  test('the selected row keeps a visible outline in forced-colors mode', async ({ page }) => {
+    await page.emulateMedia({ forcedColors: 'active' })
+    await mockSearch(page)
+    await page.goto('/')
+    await turnOffExperimentsInPage(page)
+
+    await page.getByTestId('toggle-search').click()
+    const input = page.getByTestId('overlay-search-input')
+    await input.fill('foo')
+    await expect(page.locator('#search-option-general-0')).toBeVisible()
+
+    const outlineOf = (selector: string) =>
+      page.locator(selector).evaluate((element) => getComputedStyle(element).outlineStyle)
+
+    await input.press('ArrowDown')
+    await expect(input).toHaveAttribute('aria-activedescendant', 'search-option-ai-0')
+    expect(await outlineOf('#search-option-ai-0')).toBe('solid')
+
+    // ArrowUp past the first row clears the selection, and the next one lands on view-all.
+    await input.press('ArrowUp')
+    await expect(input).not.toHaveAttribute('aria-activedescendant', /.+/)
+    await input.press('ArrowUp')
+    await expect(input).toHaveAttribute('aria-activedescendant', 'search-option-view-all')
+    expect(await outlineOf('#search-option-view-all')).toBe('solid')
+  })
+
+  test('announces loading while the spinner replaces the rows', async ({ page }) => {
+    test.setTimeout(30_000)
+    await page.goto('/')
+    await turnOffExperimentsInPage(page)
+    await mockSearch(page)
+
+    await page.getByTestId('toggle-search').click()
+    const input = page.getByTestId('overlay-search-input')
+    await input.fill('foo')
+    await expect(page.locator('#search-option-general-0')).toBeVisible()
+    const status = page.getByRole('dialog').getByRole('status')
+    await expect(status).toHaveText('')
+
+    // Slow the next response past the 1s spinner threshold.
+    await page.unroute('**/api/search/combined-search/v1**')
+    await mockSearch(page, { delayMs: 4000 })
+    await input.pressSequentially('b')
+    await expect(status).toHaveText('Loading search results', { timeout: 3000 })
+    await expect(status).toHaveText('', { timeout: 10_000 })
+  })
+
+  // Holds the Copilot answer, one source and one sentence, until the test releases it.
+  async function holdCopilotStream(page: Page) {
+    await page.addInitScript(() => {
+      const realFetch = window.fetch
+      let release = () => {}
+      const released = new Promise<void>((resolve) => {
+        release = resolve
+      })
+      ;(window as unknown as { releaseCopilot: () => void }).releaseCopilot = () => release()
+      window.fetch = async (input, init) => {
+        const url =
+          typeof input === 'string' ? input : input instanceof URL ? input.href : input.url
+        if (!url.includes('/api/ai-search/v1')) return realFetch(input, init)
+        await released
+        return new Response(
+          '{"chunkType":"SOURCES","sources":[{"title":"For Playwright","index":"/en/get-started","url":"http://localhost:4000/en/get-started/foo/for-playwright"}]}\n' +
+            '{"chunkType":"MESSAGE_CHUNK","text":"An answer."}\n',
+          { status: 200, headers: { 'Content-Type': 'application/x-ndjson' } },
+        )
+      }
+    })
+  }
+
+  async function releaseCopilot(page: Page) {
+    await page.evaluate(() =>
+      (window as unknown as { releaseCopilot: () => void }).releaseCopilot(),
+    )
+  }
+
+  test('announces loading before the first Copilot chunk arrives', async ({ page }) => {
+    await holdCopilotStream(page)
+    await mockSearch(page)
+    await page.goto('/')
+    await turnOffExperimentsInPage(page)
+
+    await page.getByTestId('toggle-search').click()
+    const input = page.getByTestId('overlay-search-input')
+    await input.fill('foo')
+    await expect(page.locator('#search-option-general-0')).toBeVisible()
+    await input.press('Enter') // nothing selected: ask Copilot
+
+    const loading = page.locator('[aria-live="assertive"]', {
+      hasText: 'Loading Copilot response...',
+    })
+    await expect(loading).toBeAttached()
+
+    await releaseCopilot(page)
+    await expect(page.getByText('An answer.')).toBeVisible()
+    await expect(loading).toHaveCount(0)
+  })
+
+  test('the selected source row keeps a visible outline in forced-colors mode', async ({
+    page,
+  }) => {
+    await page.emulateMedia({ forcedColors: 'active' })
+    await holdCopilotStream(page)
+    await mockSearch(page)
+    await page.goto('/')
+    await turnOffExperimentsInPage(page)
+
+    await page.getByTestId('toggle-search').click()
+    const input = page.getByTestId('overlay-search-input')
+    await input.fill('foo')
+    await expect(page.locator('#search-option-general-0')).toBeVisible()
+    await input.press('Enter') // nothing selected: ask Copilot
+    await releaseCopilot(page)
+
+    const source = page.locator('#search-option-reference-0')
+    await expect(source).toBeVisible()
+    await expect(async () => {
+      await input.press('ArrowDown')
+      await expect(input).toHaveAttribute('aria-activedescendant', 'search-option-reference-0', {
+        timeout: 100,
+      })
+    }).toPass({ timeout: 5000 })
+    expect(await source.evaluate((element) => getComputedStyle(element).outlineStyle)).toBe('solid')
+  })
+
+  test('the Copilot answer sits outside the listbox, under real headings', async ({ page }) => {
+    await page.route('**/api/ai-search/v1', (route) =>
+      route.fulfill({
+        status: 200,
+        headers: { 'Content-Type': 'application/x-ndjson' },
+        body:
+          '{"chunkType":"SOURCES","sources":[{"title":"For Playwright","index":"/en/get-started","url":"http://localhost:4000/en/get-started/foo/for-playwright"}]}\n' +
+          '{"chunkType":"MESSAGE_CHUNK","text":"An answer."}\n',
+      }),
+    )
+    await mockSearch(page)
+    await page.goto('/')
+    await turnOffExperimentsInPage(page)
+
+    await page.getByTestId('toggle-search').click()
+    const input = page.getByTestId('overlay-search-input')
+    await input.fill('foo')
+    await expect(page.locator('#search-option-general-0')).toBeVisible()
+    await input.press('Enter') // nothing selected: ask Copilot
+    await expect(page.locator('#search-option-reference-0')).toBeVisible()
+
+    // Some screen readers expose only options inside a listbox, so the answer's prose and
+    // buttons live outside it, and get headings again.
+    const listbox = page.getByRole('listbox')
+    await expect(listbox.locator('#ask-ai-result-container')).toHaveCount(0)
+    await expect(listbox.getByRole('button')).toHaveCount(0)
+    const dialog = page.getByRole('dialog')
+    await expect(dialog.getByRole('heading', { name: 'Ask Copilot', level: 3 })).toBeVisible()
+    await expect(dialog.getByRole('heading', { name: 'Copilot Sources', level: 3 })).toBeVisible()
+    // The sources stay options, reachable from the input.
+    await input.press('ArrowDown')
+    await expect(input).toHaveAttribute('aria-activedescendant', 'search-option-reference-0')
+  })
+
+  test('Back after picking a result leaves the dialog closed', async ({ page }) => {
+    await mockSearch(page)
+    await page.goto('/get-started/foo/bar')
+    await turnOffExperimentsInPage(page)
+
+    await page.getByTestId('toggle-search').click()
+    await page.getByTestId('overlay-search-input').fill('foo')
+    await page.locator('#search-option-general-1').click()
+    await expect(page).toHaveURL(/\/get-started\/foo\/for-playwright/)
+
+    // The entry we left must not still say the overlay is open.
+    await page.goBack()
+    await expect(page).toHaveURL(/\/get-started\/foo\/bar/)
+    await expect(page).not.toHaveURL(/search-overlay-open/)
+    await expect(page.getByTestId('overlay-search-input')).toHaveCount(0)
+  })
+
+  test('the rule under the field marks when the input has focus', async ({ page }) => {
+    await page.goto('/get-started/foo/bar')
+    await turnOffExperimentsInPage(page)
+
+    await page.getByTestId('toggle-search').click()
+    const input = page.getByTestId('overlay-search-input')
+    await expect(input).toBeFocused()
+    const rule = page.locator('[role="dialog"] hr')
+    // Solid while the input has focus...
+    await expect(rule).toHaveCSS('background-image', 'none')
+
+    // ...and back to the dashed rule once focus moves elsewhere in the dialog.
+    await page.getByRole('button', { name: 'Close search' }).focus()
+    await expect(rule).not.toHaveCSS('background-image', 'none')
+  })
+
+  test('the focus rule stays visible when search fails', async ({ page }) => {
+    // Error states used to remove the rule, and the input's focus marker with it.
+    await mockSearch(page, { fail: true })
+    await page.goto('/')
+    await turnOffExperimentsInPage(page)
+
+    await page.getByTestId('toggle-search').click()
+    const input = page.getByTestId('overlay-search-input')
+    await input.fill('repository')
+    await expect(page.locator('#search-option-search-docs')).toBeVisible()
+    await expect(input).toBeFocused()
+
+    const rule = page.locator('[role="dialog"] hr')
+    await expect(rule).toBeVisible()
+    await expect(rule).toHaveCSS('background-image', 'none')
+  })
+
+  test.describe('in a German-language browser', () => {
+    test.use({ locale: 'de-DE' })
+
+    test('the result count follows the page language, not the browser', async ({ page }) => {
+      await page.route('**/api/search/combined-search/v1**', (route) =>
+        route.fulfill({
+          status: 200,
+          contentType: 'application/json',
+          body: JSON.stringify({
+            aiAutocompleteSuggestions: { meta: {}, hits: [] },
+            generalSearchResults: { meta: { found: { value: 1234567 } }, hits: HITS },
+          }),
+        }),
+      )
+      await page.goto('/')
+      await turnOffExperimentsInPage(page)
+
+      await page.getByTestId('toggle-search').click()
+      await page.getByTestId('overlay-search-input').fill('foo')
+      // An English page: "1,234,567", not the browser's "1.234.567".
+      await expect(page.getByTestId('view-all-results')).toHaveText('View all 1,234,567 results')
+    })
+  })
 })
 
 test('open search, and get auto-complete results', async ({ page }) => {
@@ -361,7 +917,7 @@ test('open search, and get auto-complete results', async ({ page }) => {
   let listGroup = page.getByTestId('ai-autocomplete-suggestions')
 
   await expect(listGroup).toBeVisible()
-  let listItems = listGroup.locator('li')
+  let listItems = listGroup.locator('[role="option"]')
   await expect(listItems).toHaveCount(4)
 
   // The first list mirrors queries.json fixture topQueries.
@@ -384,7 +940,7 @@ test('open search, and get auto-complete results', async ({ page }) => {
   await page.waitForTimeout(1000)
 
   listGroup = page.getByTestId('ai-autocomplete-suggestions')
-  listItems = listGroup.locator('li')
+  listItems = listGroup.locator('[role="option"]')
   await expect(listItems).toHaveCount(3)
   await expect(listGroup).toBeVisible()
   expectedTexts = [
@@ -406,7 +962,7 @@ test('search from enterprise-cloud and filter by top-level Fooing', async ({ pag
   await page.getByTestId('toggle-search').click()
   await page.getByTestId('overlay-search-input').fill('fixture')
   await page.waitForTimeout(1000)
-  await page.getByText('View more results').click()
+  await page.getByTestId('view-all-results').click()
 
   const matchingResult = page
     .getByTestId('search-result')
@@ -910,7 +1466,10 @@ test.describe('test nav at different viewports', () => {
     await page.getByTestId('toggle-search').click()
     await page.getByTestId('overlay-search-input').fill('serve playwright')
     await page.waitForTimeout(1000)
-    await page.getByText('View more results').click()
+    // Pinned outside the scroller, so it must be on screen without scrolling. The click
+    // alone would not catch a regression — Playwright scrolls it into view first.
+    await expect(page.getByTestId('view-all-results')).toBeInViewport()
+    await page.getByTestId('view-all-results').click()
 
     await expect(page).toHaveURL(
       /\/search\?search-overlay-input=serve\+playwright&query=serve\+playwright/,
@@ -931,7 +1490,10 @@ test.describe('test nav at different viewports', () => {
     await page.getByTestId('toggle-search').click()
     await page.getByTestId('overlay-search-input').fill('serve playwright')
     await page.waitForTimeout(1000)
-    await page.getByText('View more results').click()
+    // Pinned outside the scroller, so it must be on screen without scrolling. The click
+    // alone would not catch a regression — Playwright scrolls it into view first.
+    await expect(page.getByTestId('view-all-results')).toBeInViewport()
+    await page.getByTestId('view-all-results').click()
 
     await expect(page).toHaveURL(
       /\/search\?search-overlay-input=serve\+playwright&query=serve\+playwright/,
@@ -1158,6 +1720,67 @@ test.describe('survey', () => {
     await page.getByRole('button', { name: 'Cancel' }).click()
   })
 
+  test('events queued after the page was hidden once still send on the next hide', async ({
+    page,
+  }) => {
+    const sentTypes: string[] = []
+
+    // Install the route before interacting with the page to avoid event races.
+    await page.route('**/api/events', (route, request) => {
+      const postData = request.postData()
+      if (postData) {
+        for (const eventBody of JSON.parse(postData)) sentTypes.push(eventBody.type)
+      }
+      route.fulfill({})
+    })
+
+    await page.addInitScript(() => {
+      window.GHDOCSPLAYWRIGHT = 1
+    })
+
+    await page.goto('/get-started/foo/for-playwright')
+
+    const setVisibility = (state: 'hidden' | 'visible') =>
+      page.evaluate((visibilityState) => {
+        Object.defineProperty(document, 'visibilityState', {
+          configurable: true,
+          get() {
+            return visibilityState
+          },
+        })
+        document.dispatchEvent(new Event('visibilitychange'))
+      }, state)
+
+    await setVisibility('hidden')
+    await setVisibility('visible')
+    await expect.poll(() => sentTypes).toContain('exit')
+
+    // Vote and hide in one task so the 5 second batch timer can't flush the vote instead.
+    const typesSentOnSecondHide = await page.evaluate(async () => {
+      const beacons: Blob[] = []
+      const originalSendBeacon = navigator.sendBeacon
+      navigator.sendBeacon = (url, data) => {
+        if (url === '/api/events') beacons.push(data as Blob)
+        return true
+      }
+      document.querySelector<HTMLElement>('[for=survey-yes]')!.click()
+      Object.defineProperty(document, 'visibilityState', {
+        configurable: true,
+        get() {
+          return 'hidden'
+        },
+      })
+      document.dispatchEvent(new Event('visibilitychange'))
+      navigator.sendBeacon = originalSendBeacon
+      const batches = await Promise.all(beacons.map((beacon) => beacon.text()))
+      return batches.flatMap((batch) =>
+        JSON.parse(batch).map((eventBody: { type: string }) => eventBody.type),
+      )
+    })
+
+    expect(typesSentOnSecondHide).toContain('survey')
+  })
+
   test('vote on one page, then go to another and it should reset', async ({ page }) => {
     // Install the route before interacting with the page to avoid event races.
     await page.route('**/api/events', (route) => {
@@ -1269,6 +1892,7 @@ test('open search, and ask Copilot (Ask AI) a question', async ({ page }) => {
 
   await page.getByTestId('toggle-search').click()
   await page.getByTestId('overlay-search-input').fill('How do I create a Repository?')
+  // Pressing enter with nothing selected asks Copilot
   await page.keyboard.press('Enter')
 
   await expect(page.getByText('Creating a repository on GitHub')).toBeVisible()
@@ -1303,12 +1927,15 @@ test('open search, Ask AI returns 400 error and shows general search results', a
 
   await page.getByTestId('toggle-search').click()
   await page.getByTestId('overlay-search-input').fill('foo')
+  // Pressing enter with nothing selected asks Copilot
   await page.keyboard.press('Enter')
 
-  // Search suggestions render as ActionList buttons, so scope Foo and Bar to the suggestion group.
+  // Wait for the general search results to appear inside the overlay's suggestions
+  // group. Scope the lookup to the group rather than matching page-level links of the
+  // same name.
   const generalSuggestions = page.getByTestId('general-autocomplete-suggestions')
-  await expect(generalSuggestions.getByRole('button', { name: 'Foo' })).toBeVisible()
-  await expect(generalSuggestions.getByRole('button', { name: 'Bar' })).toBeVisible()
+  await expect(generalSuggestions.getByRole('option', { name: 'Foo' })).toBeVisible()
+  await expect(generalSuggestions.getByRole('option', { name: 'Bar' })).toBeVisible()
 
   // Wait for the canned 400 response before checking the paragraph.
   await page.waitForTimeout(1000)

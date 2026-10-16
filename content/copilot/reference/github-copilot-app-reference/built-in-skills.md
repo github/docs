@@ -3,7 +3,7 @@ title: Built-in skills for the GitHub Copilot app
 shortTitle: Built-in skills
 allowTitleToDifferFromFilename: true
 intro: 'Use this reference to find built-in agent skills available in the {% data variables.copilot.github_copilot_app %}.'
-product: '{% data reusables.gated-features.github-app %}<br><a href="https://github.com/features/ai/github-app" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Download {% data variables.copilot.github_copilot_app %}</span> {% octicon "link-external" height:16 %}</a>'
+product: '{% data reusables.gated-features.github-app %}<br>{% data reusables.copilot.github-app-download-button %}'
 versions:
   feature: copilot
 contentType: reference

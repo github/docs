@@ -20,7 +20,7 @@ category:
 
 ## Introduction
 
-You can configure {% data variables.copilot.copilot_code-review_short %} to review pull requests automatically, set your {% data variables.product.prodname_copilot_short %} review effort, and control who can request reviews. For an overview, see [AUTOTITLE](/copilot/concepts/agents/code-review#automatic-pull-request-reviews).
+You can configure {% data variables.copilot.copilot_code-review_short %} to review pull requests automatically, set your {% data variables.product.prodname_copilot_short %} review effort, and control who can request reviews. For an overview, see [AUTOTITLE](/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/code-review#automatic-pull-request-reviews).
 
 ## Configuring automatic code review for your own pull requests
 
@@ -35,11 +35,11 @@ You can set {% data variables.copilot.copilot_code-review_short %} to review the
 1. Optionally, to review each new push to a pull request that {% data variables.product.prodname_copilot_short %} is already reviewing, enable **Review new pushes**.
 1. Optionally, to review pull requests while they are still marked as drafts, enable **Review draft pull requests**.
 
-A pull request can qualify for automatic review from several independent sources: your user settings, repository rulesets, or organization rulesets. These sources are evaluated separately. If more than one source applies, {% data variables.product.prodname_copilot_short %} still posts a single review. Your user settings cannot disable push or draft reviews that a ruleset has enabled. For more information, see [AUTOTITLE](/copilot/concepts/agents/code-review#automatic-pull-request-reviews).
+A pull request can qualify for automatic review from several independent sources: your user settings, repository rulesets, or organization rulesets. These sources are evaluated separately. If more than one source applies, {% data variables.product.prodname_copilot_short %} still posts a single review. Your user settings cannot disable push or draft reviews that a ruleset has enabled. For more information, see [AUTOTITLE](/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/code-review#automatic-pull-request-reviews).
 
 ## Configuring your {% data variables.product.prodname_copilot_short %} review effort
 
-You can choose the {% data variables.product.prodname_copilot_short %} review effort that {% data variables.copilot.copilot_code-review_short %} uses for the reviews you request. Your choice applies to automatic reviews and to reviews you request manually. For an overview of the levels and how {% data variables.product.prodname_copilot_short %} decides which to use, see [AUTOTITLE](/copilot/concepts/agents/code-review#review-effort-level).
+You can choose the {% data variables.product.prodname_copilot_short %} review effort that {% data variables.copilot.copilot_code-review_short %} uses for the reviews you request. Your choice applies to automatic reviews and to reviews you request manually. For an overview of the levels and how {% data variables.product.prodname_copilot_short %} decides which to use, see [AUTOTITLE](/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/code-review#review-effort-level).
 
 {% data reusables.user-settings.copilot-settings %}
 {% data reusables.copilot.code-review.user-settings-sidebar %}
@@ -76,7 +76,7 @@ You can configure how {% data variables.copilot.copilot_code-review_short %} com
    * **Lite**: Standard review.
    * **Balanced**: Deeper analysis of complex logic, security-sensitive code, and cross-service changes.
 
-   Balanced reviews use more {% data variables.product.prodname_ai_credits_short %}, and may consume marginally more {% data variables.product.prodname_actions %} minutes. See [AUTOTITLE](/copilot/concepts/agents/code-review#estimated-consumption).
+   Balanced reviews use more {% data variables.product.prodname_ai_credits_short %}, and may consume marginally more {% data variables.product.prodname_actions %} minutes. See [AUTOTITLE](/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/code-review#estimated-consumption).
 1. To choose whether {% data variables.product.prodname_copilot_short %} can approve pull requests in your repository, configure the settings under "Auto-approval."
    * **Allow {% data variables.product.prodname_copilot_short %} to approve pull requests**: Toggle on to let {% data variables.product.prodname_copilot_short %} submit approving reviews.
    * **Allow {% data variables.product.prodname_copilot_short %} approvals to count toward merge requirements**: Toggle on so {% data variables.product.prodname_copilot_short %} approvals can satisfy pull request approval requirements.
@@ -85,7 +85,7 @@ You can configure how {% data variables.copilot.copilot_code-review_short %} com
    > [!NOTE]
    > {% data reusables.copilot.automatic-approvals-public-preview %}
 
-1. To prevent people from using an external {% data variables.product.prodname_copilot_short %} license to request reviews in this repository, enable **Only allow {% data variables.copilot.copilot_code-review_short %} to be triggered by authorized users**. If this setting is enabled for your organization, you cannot turn it off for the repository. See [AUTOTITLE](/copilot/concepts/agents/code-review#reviews-requested-with-an-external-copilot-license).
+1. To prevent people from using an external {% data variables.product.prodname_copilot_short %} license to request reviews in this repository, enable **Only allow {% data variables.copilot.copilot_code-review_short %} to be triggered by authorized users**. If this setting is enabled for your organization, you cannot turn it off for the repository. See [AUTOTITLE](/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/code-review#reviews-requested-with-an-external-copilot-license).
 
 ## Configuring automatic code review for repositories in an organization
 
@@ -121,7 +121,7 @@ You can configure how {% data variables.copilot.copilot_code-review_short %} com
    * **Lite**: Standard review.
    * **Balanced**: Deeper analysis of complex logic, security-sensitive code, and cross-service changes.
 
-    Balanced reviews use more {% data variables.product.prodname_ai_credits_short %}, and may consume marginally more {% data variables.product.prodname_actions %} minutes. See [AUTOTITLE](/copilot/concepts/agents/code-review#estimated-consumption).
+    Balanced reviews use more {% data variables.product.prodname_ai_credits_short %}, and may consume marginally more {% data variables.product.prodname_actions %} minutes. See [AUTOTITLE](/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/code-review#estimated-consumption).
 1. To choose how {% data variables.product.prodname_ai_credits_short %} usage associated with members who have paid {% data variables.product.prodname_copilot_short %} licenses is billed, next to **Choose how members with a {% data variables.product.prodname_copilot_short %} license are billed**, select an option.
    * **Member**: Use the member's {% data variables.product.prodname_copilot_short %} entitlement. If the member's quota is exhausted, the code review fails. This is the default.
    * **Organization**: Bill the organization.
@@ -132,7 +132,7 @@ You can configure how {% data variables.copilot.copilot_code-review_short %} com
    * **Let repositories decide**: Repository admins can decide this in repository settings.
    * **Enable for selected repositories**: {% data variables.product.prodname_copilot_short %} approvals can count toward merge requirements only in the repositories you select. If you choose this option, also assign the repositories you want to enable this for.
    * **Disabled everywhere**: {% data variables.product.prodname_copilot_short %} approvals cannot count toward merge requirements in any repository in the organization.
-   
+
    > [!NOTE]
    > {% data reusables.copilot.automatic-approvals-public-preview %}
 

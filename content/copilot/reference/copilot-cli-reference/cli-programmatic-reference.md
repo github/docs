@@ -53,7 +53,7 @@ There are a number of command-line options that are particularly useful when run
 
 ## Running dynamic workflows
 
-Use `copilot workflow run WORKFLOW-NAME` to run a dynamic workflow from a script. To find out about dynamic workflows, see [AUTOTITLE](/copilot/concepts/agents/dynamic-workflows).
+Use `copilot workflow run WORKFLOW-NAME` to run a dynamic workflow from a script. To find out about dynamic workflows, see [AUTOTITLE](/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/dynamic-workflows).
 
 Use `--args` for inline JSON or an `@`-prefixed JSON file path. Arguments are not read from standard input.
 

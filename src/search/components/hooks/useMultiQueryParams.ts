@@ -130,5 +130,13 @@ export function useMultiQueryParams(options?: {
     [router],
   )
 
-  return { params, updateParams }
+  // Call before navigating away, or the queued `router.replace` cancels the `router.push`.
+  const cancelPendingUpdate = useCallback(() => {
+    if (pushTimeoutRef.current) {
+      clearTimeout(pushTimeoutRef.current)
+      pushTimeoutRef.current = null
+    }
+  }, [])
+
+  return { params, updateParams, cancelPendingUpdate }
 }

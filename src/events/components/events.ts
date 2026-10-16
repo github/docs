@@ -279,6 +279,8 @@ function initPageAndExitEvent() {
   document.addEventListener('visibilitychange', () => {
     if (document.visibilityState === 'hidden') {
       sendExit()
+      // sendExit only flushes the first time, so later hides still need a flush.
+      flushQueue()
     } else {
       flushQueue()
     }

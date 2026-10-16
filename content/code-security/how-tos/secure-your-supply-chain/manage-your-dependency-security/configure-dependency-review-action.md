@@ -18,6 +18,12 @@ category:
 
 The "{% data variables.dependency-review.action_name %}" refers to the specific action that can report on differences in a pull request within the {% data variables.product.prodname_actions %} context. It can also add enforcement mechanisms to the {% data variables.product.prodname_actions %} workflow. For more information, see [AUTOTITLE](/code-security/concepts/supply-chain-security/dependency-review#about-the-dependency-review-action).
 
+{% ifversion open-source-license-compliance %}
+
+For organizations using {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_GH_code_security %} enabled, enterprise-wide management of license policy is available. This feature uses a similar pull-request based approach to {% data variables.dependency-review.action_name %} but adds auditability, centralized policy management, and ruleset-based enforcement of license policy. For more information, see [AUTOTITLE](/code-security/concepts/supply-chain-security/open-source-license-compliance).
+
+{% endif %}
+
 {% ifversion ghec %}
 
 > [!NOTE]
