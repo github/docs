@@ -71,6 +71,18 @@ There are many further steps you can take to additionally secure {% data variabl
 
 For more information, see [AUTOTITLE](/actions/reference/security/secure-use#writing-workflows) and [AUTOTITLE](/actions/reference/security/secure-use).
 
+{% ifversion actions-workflow-lockfiles %}
+
+## Lock the dependencies your build systems run
+
+When a workflow references an action by a tag or branch, the code that runs is whatever that reference points to at the time of the build, which may not be the code you reviewed.
+
+A workflow dependency lockfile pins every action your workflows use, including transitive dependencies, to a verified commit. For more information, see [AUTOTITLE](/actions/concepts/security/workflow-dependency-lockfiles).
+
+If you are responsible for multiple repositories, you can require lockfiles with an {% data variables.product.prodname_actions %} policy at the enterprise, organization, or repository level. See [AUTOTITLE](/actions/how-tos/administer/enforce-workflow-lockfiles).
+
+{% endif %}
+
 ## Next steps
 
 * [AUTOTITLE](/code-security/tutorials/implement-supply-chain-best-practices/end-to-end-supply-chain-overview)

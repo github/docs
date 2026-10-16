@@ -179,7 +179,7 @@ The same server can also be configured with the bare top-level format:
 ```
 
 > [!NOTE]
-> Project-level MCP servers are loaded only after you confirm folder trust on first launch. They are silently skipped in untrusted directories. For more information on folder trust, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-copilot-cli#trusted-directories).
+> Project-level MCP servers are loaded only after you confirm folder trust on first launch. They are silently skipped in untrusted directories. For more information on folder trust, see [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-cli#trusted-directories).
 
 In prompt mode (`copilot -p`), project-level MCP servers are loaded automatically if the current directory is already trusted. If the directory is not trusted, project-level MCP servers are skipped by default. To load them anyway, set the `GITHUB_COPILOT_PROMPT_MODE_WORKSPACE_MCP` environment variable to `true`, since prompt mode cannot show an interactive trust prompt. For more information, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference#environment-variables).
 

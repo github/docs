@@ -1,14 +1,11 @@
 name: Close issue/PR on adding invalid label
 
-# **What it does**: This action closes invalid pull requests in the open-source repository.
-# **Why we have it**: We get lots of spam in the open-source repository.
-# **Who does it impact**: Open-source contributors.
+# Closes public issues and PRs when the invalid label is added.
 
 on:
   issues:
     types: [labeled]
-  # Needed in lieu of `pull_request` so that PRs from a fork can be
-  # closed when marked as invalid.
+  # pull_request_target lets the workflow close forked PRs after the invalid label is added.
   pull_request_target:
     types: [labeled]
 

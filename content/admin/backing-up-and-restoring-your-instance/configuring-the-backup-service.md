@@ -121,6 +121,20 @@ If the device was already initialized using `ghe-storage-init-backup`, you can r
 
    This will mount the device at `/data/backup` and ensures it's mounted automatically in the future.
 
+{% ifversion backup-service-cluster-ha %}
+{% # Pre-GA, backup-service was only supported on standalone topologies making this step irrelevant %}
+
+1. If using a cluster or high availability (HA) configuration, set the `backup-server` role for the node on which the disk is mounted and apply the configuration.
+
+   Replace `HOSTNAME` with the hostname of the node on which the disk is mounted, as listed in `cluster.conf`.
+
+   ```shell
+   ghe-config cluster.HOSTNAME.backup-server true
+   ghe-config-apply
+   ```
+
+{% endif %}
+
 ### Configuring backup settings
 
 After the backup target is mounted, the Backup Service page will become available in the {% data variables.enterprise.management_console %} in the "Backup" section. {% ifversion ghes > 3.19 %} If your instance is part of a clustered environment, the Backup Service page will be available after `ghe-config-apply`. {% endif %}

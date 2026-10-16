@@ -113,7 +113,7 @@ describe('Translation Error Comments', () => {
         expect(result).toContain(
           'msg="Could not find target page for [AUTOTITLE] link to invalid-link"',
         )
-        // Should not contain file/line/col since AUTOTITLE errors don't have tokens
+        // AUTOTITLE errors do not expose token file, line, or col data.
         expect(result).not.toContain('file=')
         expect(result).not.toContain('line=')
         expect(result).not.toContain('col=')
@@ -143,7 +143,7 @@ describe('Translation Error Comments', () => {
         expect(result).toContain('prop=rawIntro')
         expect(result).toContain('type=RenderError')
         expect(result).toContain('msg="Generic liquid error without token info"')
-        // Should not contain file/line/col since no token
+        // Errors without tokens do not expose file, line, or col data.
         expect(result).not.toContain('file=')
         expect(result).not.toContain('line=')
         expect(result).not.toContain('col=')
@@ -186,7 +186,6 @@ describe('Translation Error Comments', () => {
         expect(result).toContain('msg="')
         expect(result).toContain('...')
 
-        // Extract the message part to verify truncation
         const msgMatch = result.match(/msg="([^"]*)"/)
         expect(msgMatch).toBeTruthy()
         if (msgMatch?.[1]) {
@@ -205,13 +204,13 @@ describe('Translation Error Comments', () => {
 
       test('handles error with unknown type', () => {
         const error = new Error('Some error')
-        // No name property (will default to 'Error')
+        // Plain Error uses its inherited name as the fallback comment type.
 
         const result = createTranslationFallbackComment(error, 'content')
 
         expect(result).toContain('type=Error')
         expect(result).toContain('prop=content')
-        // Non-liquid errors without specific handling don't get messages
+        // Non-liquid errors without specific handling omit messages.
         expect(result).not.toContain('msg=')
       })
 
@@ -292,7 +291,7 @@ describe('Translation Error Comments', () => {
   describe('Integration Tests', () => {
     describe('renderContentWithFallback', () => {
       test('adds HTML comment when translation fails and fallback succeeds', async () => {
-        // Mock a simple page object that satisfies instanceof Page check
+        // Page.prototype makes the mock satisfy instanceof Page.
         const mockPage = Object.create(Page.prototype)
         mockPage.rawTitle = '{% badtag %}'
 
@@ -305,7 +304,7 @@ describe('Translation Error Comments', () => {
           },
         }
 
-        // Mock renderContent to simulate error for Japanese, success for English
+        // Japanese rendering fails and English rendering succeeds, so fallback runs.
         mockRenderContent.mockImplementation(
           (template: string, innerContext: Record<string, unknown>) => {
             if (innerContext.currentLanguage !== 'en' && template.includes('badtag')) {

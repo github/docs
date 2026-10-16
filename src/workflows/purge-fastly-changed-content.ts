@@ -30,14 +30,13 @@ const PURGE_MAX_RATE_LIMIT_RETRIES = 5
 // every POP at the same instant, so a request arriving in between can repopulate
 // an already-purged edge node from the not-yet-purged shield, leaving the edge
 // holding pre-deploy content again. The second pass evicts that copy.
-// https://www.fastly.com/documentation/guides/concepts/cache/purging#race-conditions
+// https://www.fastly.com/documentation/guides/full-site-delivery/purging/purging-a-url/
 const PURGE_PASSES = 2
 
 // The second pass waits long enough for repopulated edge copies to exist.
 // Otherwise the second purge runs too early, and re-population happens after it.
-// purge-fastly.ts uses the same 20s because Fastly's suggested 2s has been too
-// short in practice. This does not stagger keys within a pass because spacing
-// protects the backend during whole-language purges, and this only purges changed pages.
+// Fastly's suggested 2s has been too short in practice.
+// Manual purges in purge-fastly.ts share this timing.
 const DELAY_BEFORE_SECOND_PURGE = 20 * 1000
 
 // Jitter ceiling in ms keeps retries with the same reset timestamp from re-bursting.
@@ -196,16 +195,15 @@ export function chunk<T>(items: T[], size: number): T[][] {
   return batches
 }
 
-// Hard-purge one batch of at most 256 surrogate keys. Fastly's batch endpoint is
-// service-scoped; omitting the soft-purge header makes it a hard purge, so every
-// object tagged with any listed key is evicted and the next request is a fresh
-// miss. Retries on HTTP 429, honoring Fastly's rate-limit hint.
+// Soft purges can fail to clear content when origin returns 304 Not Modified,
+// because a 304 extends the stale object.
 // https://www.fastly.com/documentation/reference/api/purging/
-async function hardPurgeKeyBatch(
+async function purgeKeyBatch(
   keys: string[],
   fastlyToken: string,
   serviceId: string,
-  rateLimitDelayFn: (response: Response, attempt: number) => number = rateLimitDelayMs,
+  soft: boolean,
+  rateLimitDelayFn: (response: Response, attempt: number) => number,
 ): Promise<void> {
   for (let attempt = 0; ; attempt++) {
     const response = await fetchWithRetry(
@@ -216,6 +214,7 @@ async function hardPurgeKeyBatch(
           'fastly-key': fastlyToken,
           accept: 'application/json',
           'content-type': 'application/json',
+          ...(soft ? { 'fastly-soft-purge': '1' } : {}),
         },
         body: JSON.stringify({ surrogate_keys: keys }),
       },
@@ -249,20 +248,29 @@ async function hardPurgeKeyBatch(
   }
 }
 
-// Hard-purge every key in batches of at most 256, one batch at a time, then do
-// it all again after a delay to clear anything the origin shield repopulated.
-// Collects failures so one bad batch doesn't drop the rest, then
-// throws at the end if any failed so the workflow's failure alerting fires.
-export async function hardPurgeSurrogateKeys(
+type PurgeSurrogateKeysOptions = {
+  soft?: boolean
+  rateLimitDelayFn?: (response: Response, attempt: number) => number
+  sleepFn?: (ms: number) => Promise<void>
+}
+
+// Purge every batch twice, so the second pass clears edge copies refilled from the shield.
+// Collect failures so one bad batch doesn't skip the rest,
+// then throw so the workflow's failure alerting fires.
+export async function purgeSurrogateKeys(
   keys: string[],
   fastlyToken: string,
   serviceId: string,
-  rateLimitDelayFn: (response: Response, attempt: number) => number = rateLimitDelayMs,
-  sleepFn: (ms: number) => Promise<void> = sleep,
+  {
+    soft = false,
+    rateLimitDelayFn = rateLimitDelayMs,
+    sleepFn = sleep,
+  }: PurgeSurrogateKeysOptions = {},
 ): Promise<void> {
   const batches = chunk(keys, MAX_KEYS_PER_PURGE)
   const errors: Error[] = []
   let attempts = 0
+  const mode = soft ? 'Soft' : 'Hard'
 
   const purgeAllBatches = async (pass: number): Promise<void> => {
     for (const [index, batch] of batches.entries()) {
@@ -271,9 +279,9 @@ export async function hardPurgeSurrogateKeys(
         `(${batch.length} key(s))`
       attempts++
       try {
-        console.log(`Hard-purging ${label}...`)
-        await hardPurgeKeyBatch(batch, fastlyToken, serviceId, rateLimitDelayFn)
-        console.log(`Hard-purged ${label}.`)
+        console.log(`${mode}-purging ${label}...`)
+        await purgeKeyBatch(batch, fastlyToken, serviceId, soft, rateLimitDelayFn)
+        console.log(`${mode}-purged ${label}.`)
       } catch (error) {
         console.error(error)
         errors.push(error instanceof Error ? error : new Error(String(error)))
@@ -343,7 +351,7 @@ async function main() {
   }
 
   console.log(`Hard-purging ${keys.length} page key(s)...`)
-  await hardPurgeSurrogateKeys(keys, FASTLY_TOKEN, FASTLY_SERVICE_ID)
+  await purgeSurrogateKeys(keys, FASTLY_TOKEN, FASTLY_SERVICE_ID)
   console.log(`Hard-purged ${keys.length} page key(s).`)
 }
 

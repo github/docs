@@ -44,5 +44,5 @@ Thorough reviews go beyond reading the diff top to bottom. {% data variables.pro
 * [AUTOTITLE](/pull-requests/get-started/reviewing-pull-requests-quickstart)
 * [AUTOTITLE](/pull-requests/how-tos/review-pull-requests/reviewing-dependency-changes-in-a-pull-request) 
 {% ifversion fpt or ghec %}
-* [AUTOTITLE](/copilot/concepts/agents/code-review).
+* [AUTOTITLE](/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/code-review).
 {% endif %}

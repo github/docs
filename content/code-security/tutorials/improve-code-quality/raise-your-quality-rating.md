@@ -68,8 +68,6 @@ Once you've picked a rule, decide how to handle each finding:
 | Multiple findings for the same rule are legitimate. | Select up to 25 findings on a page, then click **Assign to {% data variables.product.prodname_copilot_short %}**. | {% data variables.product.prodname_copilot_short %} opens a pull request containing fixes for the selected findings. Assigning to {% data variables.product.prodname_copilot_short %} consumes {% data variables.product.prodname_ai_credits_short %}|
 | A finding doesn't apply. For example, it's in legacy code, an intentional pattern, or a false positive. | Click **Dismiss**. | The finding is considered resolved and removed from the list of open findings. |
 
-{% data reusables.code-quality.agentic-autofix-preview-note %}
-
 In our example, we assign the 40 "Overwritten property" findings to {% data variables.product.prodname_copilot_short %} in batches of up to 25. We review the resulting pull requests and merge them once the CI checks pass.
 
 ## Step 4: Communicate impact

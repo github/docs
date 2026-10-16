@@ -122,6 +122,17 @@
   pointer-events: none;
 }
 
+// ...unless the header box ends in a tool/platform picker. Primer's UnderlineNav
+// draws its own closing rule as an inset box-shadow, so drop ours to avoid a
+// double rule; the tab rule must stay under the selected-tab indicator. Match
+// both pickers by name: `$="-picker"` would also match the version picker.
+.heroIntro:has(
+    [data-testid="tool-picker"],
+    [data-testid="platform-picker"]
+  )::after {
+  content: none;
+}
+
 // With xxl and a collapsed left rail, the freed 326px allows the drawer layout
 // at about 1074px. Use one column below 1074px and two columns at or above it.
 .containerBoxXxlCollapsed {

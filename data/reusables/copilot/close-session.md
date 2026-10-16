@@ -1,1 +1,1 @@
-Sessions that are running are ended, saved, and removed from the sidebar. Sessions that are not running are simply removed from the sidebar. Sessions you remove in this way are not displayed in the sidebar in future sessions unless you resume the session—for example, from the <code>>/resume</code> session picker.
+The session is permanently deleted, whether or not it was still running. You won't be able to resume a session that's been removed this way.

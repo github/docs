@@ -7,7 +7,6 @@ versions:
 redirect_from:
   - /billing/using-the-enhanced-billing-platform-for-enterprises/about-the-billing-cycle
   - /billing/using-the-billing-platform/viewing-your-subscriptions-and-billing-date
-  - /billing/using-the-billing-platform/changing-the-duration-of-your-billing-cycle
   - /billing/using-the-new-billing-platform/viewing-your-subscriptions-and-billing-date
   - /billing/using-the-new-billing-platform/about-the-billing-cycle
   - /billing/managing-your-billing/about-the-billing-cycle
@@ -57,6 +56,10 @@ Changes you make mid-cycle, such as adding or removing users, seats, or resource
 
 * **Within the same billing account**: No double-billing. Moving users or resources between organizations under the same account is handled automatically.
 * **Between different billing accounts**: Each account is billed according to its own cycle. You may see charges in both accounts if the move overlaps billing periods.
+
+## Changing your billing cycle
+
+In some cases, you can change your billing cycle from monthly to annual, or vice versa. For information about when you can change your billing cycle and how to make the change, see [AUTOTITLE](/billing/how-tos/manage-plan-and-licenses/change-billing-cycle).
 
 ## Where to find usage details for specific products
 

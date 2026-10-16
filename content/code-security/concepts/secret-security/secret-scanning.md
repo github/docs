@@ -69,9 +69,7 @@ Beyond the default detection of partner and provider secrets, you can expand and
 
 ### About validity checks
 
-Validity checks help you prioritize which secrets to remediate first by verifying whether a detected secret is still active. When you enable validity checks, {% data variables.product.prodname_secret_scanning %} may contact the secret's issuing service to determine if the credential has been revoked.
-
-Validity checks are separate from {% data variables.product.prodname_secret_scanning %}'s partner program. While partner secrets are automatically reported to service providers for revocation, validity checks verify the status of secrets you manage in your own alerts. For more information, see [AUTOTITLE](/code-security/concepts/secret-security/validity-checks).
+Validity checks help you prioritize which secrets to remediate first by verifying whether a detected secret is still active. When you enable validity checks, {% data variables.product.prodname_secret_scanning %} may contact the secret's issuing service to determine if the credential has been revoked. For more information, see [AUTOTITLE](/code-security/concepts/secret-security/validity-checks).
 
 {% endif %}
 

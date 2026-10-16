@@ -31,7 +31,7 @@ Validity checks help you prioritize alerts by telling you which secrets are `act
 
 By default, {% data variables.product.company_short %} checks the validity of {% data variables.product.company_short %} tokens and displays the validation status of the token in the alert view.
 
-{% ifversion secret-scanning-validity-check-partner-patterns %}Organizations using {% data variables.product.prodname_team %}, {% data variables.product.prodname_ghe_cloud %} with a license for {% data variables.product.prodname_GH_secret_protection %}, or {% data variables.product.prodname_ghe_server %} with a license for {% data variables.product.prodname_GH_secret_protection %} can also enable validity checks for partner patterns. For more information, see [Checking a secret's validity](/code-security/tutorials/remediate-leaked-secrets/evaluating-alerts#checking-a-secrets-validity).{% endif %}
+{% ifversion secret-scanning-validity-check-partner-patterns %}Organizations using {% data variables.product.prodname_team %}, {% data variables.product.prodname_ghe_cloud %} with a license for {% data variables.product.prodname_GH_secret_protection %}, or {% data variables.product.prodname_ghe_server %} with a license for {% data variables.product.prodname_GH_secret_protection %} can also enable validity checks for partner patterns. {% endif %}
 
 {% data reusables.secret-scanning.validity-check-table %}
 

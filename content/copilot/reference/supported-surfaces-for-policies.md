@@ -18,7 +18,7 @@ A dedicated policy exists to enable or disable each supported feature or surface
 
 {% rowheaders %}
 
-| Policy name | IDEs | {% data variables.copilot.copilot_cloud_agent %} | Third-party agents | {% data variables.copilot.copilot_cli_short %} | {% data variables.copilot.github_copilot_app %} | {% data variables.copilot.copilot_chat_dotcom_short %} | {% data variables.copilot.copilot_code-review_short %} | {% data variables.product.prodname_spark_short %} |
+| Policy name | IDEs | {% data variables.copilot.copilot_cloud_agent %} | Third-party agents | {% data variables.copilot.copilot_cli_short %} | The {% data variables.copilot.github_copilot_app %} | {% data variables.copilot.copilot_chat_dotcom_short %} | {% data variables.copilot.copilot_code-review_short %} | {% data variables.product.prodname_spark_short %} |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Editor preview features | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
 | {% data variables.product.prodname_copilot_short %} can search the web | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |

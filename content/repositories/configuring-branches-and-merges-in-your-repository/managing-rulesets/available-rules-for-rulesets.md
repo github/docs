@@ -57,6 +57,7 @@ You can configure various settings for your merge queue rule.
 * **Build concurrency:** Limit the number of queued pull requests requesting checks and workflow runs at the same time.
   * This setting controls when merge queue dispatches the `merge_group.checks_requested` webhook event, which triggers {% data variables.product.prodname_actions %} workflows that are configured to run on `merge_group`. For more information, see [AUTOTITLE](/webhooks/webhook-events-and-payloads#merge_group).
   * For example, if there are 5 pull requests added to the queue and the build concurrency setting is 3, merge queue will dispatch the `checks_requested` event for the first 3 pull requests. When it receives a result for one of those pull requests, merge queue will dispatch the event for the 4th pull request, and so on.
+  * If you set build concurrency to `0`, the merge queue does not dispatch new `merge_group.checks_requested` webhook events. Pull requests waiting for a merge queue build do not progress until you increase the setting to at least `1`.
 * **Minimum/maximum group size:** The number of pull requests that will be merged together in a group.
 * **Wait time to meet minimum group size (minutes):** The time the merge queue will wait after the first pull request is added to the queue for the minimum group size to be met. After this time has elapsed, the minimum group size will be ignored and a smaller group will be merged.
 * **Require all queue entries to pass required checks:**
@@ -247,6 +248,10 @@ If your repositories are configured with {% data variables.product.prodname_code
 
 For more information, see [AUTOTITLE](/code-security/concepts/code-quality/code-quality) and [AUTOTITLE](/code-security/how-tos/maintain-quality-code/set-pr-thresholds).
 
+## Require license compliance results before merging
+
+This enables the license compliance feature on the targeted repositories. License compliance checks added or changed dependencies against a policy of permitted licenses and will block pull requests which add dependencies whose licenses are not allowed. For more information, see [AUTOTITLE](/code-security/concepts/supply-chain-security/open-source-license-compliance).
+
 ## Restrict code coverage
 
 > [!NOTE]
@@ -280,6 +285,8 @@ To use this rule, you must first create a workflow file. The workflow file needs
 If the workflow file is in an internal or private repository and you want to use the workflow in other repositories in the organization, you will need to allow access to the workflow from outside the repository. For more information, see [Allowing access to components in an internal repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-an-internal-repository) or [Allowing access to components in a private repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-a-private-repository).
 
 When you add this rule to a ruleset, in your organization settings, you specify the source repository and the workflow you want to enforce.
+
+Ruleset workflows can't use most {% data variables.product.prodname_codeql %} actions, such as `github/codeql-action/init` and `github/codeql-action/analyze`; the only exception is `github/codeql-action/upload-sarif`. See [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/troubleshooting-rules#using-codeql-in-a-ruleset-workflow).
 
 ### Using "Evaluate" mode for ruleset workflows
 

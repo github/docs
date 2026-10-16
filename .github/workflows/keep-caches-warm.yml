@@ -1,7 +1,7 @@
 name: Keep caches warm
 
-# Main-branch runs warm node_modules, Next.js, remote JSON, and pageinfo caches that
-# pull request workflows and production deployments can reuse.
+# Main-branch runs warm node_modules, Next.js, and remote JSON caches that pull
+# request workflows can reuse.
 
 on:
   workflow_dispatch:
@@ -27,9 +27,6 @@ jobs:
         run: npm run build
 
       - uses: ./.github/actions/warmup-remotejson-cache
-        if: github.repository == 'github/docs-internal'
-
-      - uses: ./.github/actions/precompute-pageinfo
         if: github.repository == 'github/docs-internal'
 
       - uses: ./.github/actions/create-workflow-failure-issue

@@ -45,10 +45,10 @@ All input requests and output responses processed by {% data variables.product.p
 Used for:
 
 * {% data variables.copilot.copilot_claude_haiku_45 %}
+* {% data variables.copilot.copilot_claude_haiku_55 %}
 * {% data variables.copilot.copilot_claude_sonnet_46 %}
 * {% data variables.copilot.copilot_claude_sonnet_5 %}
 * {% data variables.copilot.copilot_claude_sonnet_55 %}
-* {% data variables.copilot.copilot_claude_opus_47 %}
 * {% data variables.copilot.copilot_claude_opus_48 %}
 * {% data variables.copilot.copilot_claude_opus_48_fast %}
 * {% data variables.copilot.copilot_claude_opus_5 %}
@@ -83,14 +83,13 @@ When using {% data variables.copilot.copilot_claude %}, input prompts and output
 
 Used for:
 
-* {% data variables.copilot.copilot_gemini_35_flash %}
-* {% data variables.copilot.copilot_gemini_36_flash %}
 * {% data variables.copilot.copilot_gemini_37_flash %}
 * {% data variables.copilot.copilot_gemini_38_flash %}
+* {% data variables.copilot.copilot_gemini_4_argon %}
 
 {% data variables.product.prodname_copilot %} uses {% data variables.copilot.copilot_gemini %} models hosted on Google Cloud Platform (GCP). When using {% data variables.copilot.copilot_gemini %} models, prompts and metadata are sent to GCP, which makes the [following data commitment](https://cloud.google.com/vertex-ai/generative-ai/docs/data-governance): _{% data variables.copilot.copilot_gemini %} doesn't use your prompts, or its responses, as data to train its models._
 
-To provide better service quality and reduce latency, {% data variables.product.github %} uses [prompt caching](https://cloud.google.com/vertex-ai/generative-ai/docs/data-governance#customer_data_retention_and_achieving_zero_data_retention).
+To provide better service quality and reduce latency, {% data variables.product.github %} uses [Google's Durable Caching](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/zero-data-retention#durable-data-caching). Cached data is encrypted and held for up to 24 hours. Cached data is never used to train or fine-tune models.
 
 When using {% data variables.copilot.copilot_gemini %} models, input prompts and output completions continue to run through {% data variables.product.prodname_copilot %}'s content filters for public code matching, when applied, along with those for harmful or offensive content.
 
@@ -138,20 +137,17 @@ Open-weight models have publicly available weights. {% data reusables.copilot.op
 
 Used for:
 
-* {% data variables.copilot.copilot_kimi_k27_code %}
 * {% data variables.copilot.copilot_kimi_k3 %}
 
-{% data variables.copilot.copilot_kimi_k27_code %} and {% data variables.copilot.copilot_kimi_k3 %} were developed by Moonshot AI. They are open-weight models that may be less aligned than other {% data variables.product.prodname_copilot_short %} models, with an elevated risk of geographic bias. Before you enable either model, review the [{% data variables.copilot.copilot_kimi_k27_code %} model card](https://huggingface.co/moonshotai/Kimi-K2.7-Code) or the [{% data variables.copilot.copilot_kimi_k3 %} model card](https://huggingface.co/moonshotai/Kimi-K3) and run your own evaluations before enabling.
-
-{% data variables.copilot.copilot_kimi_k27_code %} is hosted on Azure AI Foundry infrastructure managed by {% data variables.product.github %} and Microsoft.
+{% data variables.copilot.copilot_kimi_k3 %} was developed by Moonshot AI. It is an open-weight model that may be less aligned than other {% data variables.product.prodname_copilot_short %} models, with an elevated risk of geographic bias. Before you enable the model, review the [{% data variables.copilot.copilot_kimi_k3 %} model card](https://huggingface.co/moonshotai/Kimi-K3) and run your own evaluations.
 
 {% data variables.copilot.copilot_kimi_k3 %} is hosted by {% data variables.product.github %} on Fireworks AI.
 
-Both models are covered by zero data retention agreements with the hosting providers. Fireworks AI and Azure AI Foundry do not use prompts or completions to train models, and prompts and completions are not sent to Moonshot AI.
+{% data variables.copilot.copilot_kimi_k3 %} is covered by a zero data retention agreement with the hosting provider. Fireworks AI does not use prompts or completions to train models, and prompts and completions are not sent to Moonshot AI.
 
 {% data variables.product.github %} does not use {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} customer data to train AI models. For individual subscribers—{% data variables.copilot.copilot_free_short %}, {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, and {% data variables.copilot.copilot_max_short %} users—{% data variables.product.github %} may use {% data variables.product.prodname_copilot_short %} interaction data, including prompts (inputs), suggestions (outputs), and code snippets generated during {% data variables.product.prodname_copilot_short %} sessions to train and improve AI models, in accordance with our [AUTOTITLE](/free-pro-team@latest/site-policy/privacy-policies/github-general-privacy-statement) and applicable user settings. Individual subscribers can opt out of having their data used for AI model training. To manage this setting, see [AUTOTITLE](/copilot/how-tos/manage-your-account/manage-policies#model-training-and-improvements).
 
-When using {% data variables.copilot.copilot_kimi_k27_code %} or {% data variables.copilot.copilot_kimi_k3 %}, input prompts and output completions continue to run through {% data variables.product.prodname_copilot %}'s content filters.
+When using {% data variables.copilot.copilot_kimi_k3 %}, input prompts and output completions continue to run through {% data variables.product.prodname_copilot %}'s content filters.
 
 ## Inline suggestions
 

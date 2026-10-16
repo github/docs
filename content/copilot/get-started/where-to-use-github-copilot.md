@@ -29,7 +29,7 @@ If you’re not sure where to start, choose a surface based on the coding work y
 
 | Where | Use it for | Get started |
 | ----- | ---------- | ----------- |
-| **{% data variables.copilot.github_copilot_app %}** | Managing your developer and agent-driven work across parallel tasks, multiple repositories, and the pull request lifecycle in one dedicated workspace. | [AUTOTITLE](/copilot/get-started/quickstart-copilot-app) |
+| **The {% data variables.copilot.github_copilot_app %}** | Managing your developer and agent-driven work across parallel tasks, multiple repositories, and the pull request lifecycle in one dedicated workspace. | [AUTOTITLE](/copilot/get-started/quickstart-copilot-app) |
 | **{% data variables.copilot.copilot_cli %}** | Working with {% data variables.product.prodname_copilot_short %} from the terminal, including repeatable command-line workflows. | [AUTOTITLE](/copilot/get-started/cli-quickstart) |
 | **Your IDE**<br>({% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, {% data variables.product.prodname_jetbrains_ides %}, Eclipse, and XCode) | Getting inline suggestions, chatting about nearby code, and using an agent that can edit files for you. | [AUTOTITLE](/copilot/get-started/quickstart-for-using-github-copilot-in-your-ide) |
 | **{% data variables.copilot.copilot_sdk %}** | Building custom applications that use the same primitives as {% data variables.product.prodname_copilot_short %}. | [AUTOTITLE](/copilot/get-started/sdk-quickstart) |
@@ -73,7 +73,7 @@ The surfaces also share the same foundation. The {% data variables.product.prodn
 Your choices hold across the workflow, including:
 
 * **Which model**: Different models suit different kinds of work, and you can switch models for chat and agents. See [AUTOTITLE](/copilot/how-tos/use-ai-models/change-the-chat-model).
-* **Which agents**: {% data variables.product.prodname_copilot_short %} agents and agents from other providers work in the same repositories, open pull requests, and go through review. {% data variables.product.prodname_copilot_short %} applies the same security protections, mitigations, and limitations to third-party agents as it does to {% data variables.copilot.copilot_cloud_agent %}. See [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-cloud-agent) and [AUTOTITLE](/copilot/concepts/agents/about-third-party-coding-agents).
+* **Which agents**: {% data variables.product.prodname_copilot_short %} agents and agents from other providers work in the same repositories, open pull requests, and go through review. {% data variables.product.prodname_copilot_short %} applies the same security protections, mitigations, and limitations to third-party agents as it does to {% data variables.copilot.copilot_cloud_agent %}. See [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-cloud-agent) and [AUTOTITLE](/copilot/concepts/agent-capabilities/about-agents/about-third-party-coding-agents).
 * **What {% data variables.product.prodname_copilot_short %} can see**: Custom instructions, agent skills, and MCP servers connect {% data variables.product.prodname_copilot_short %} to your conventions and to the tools your team uses. See [AUTOTITLE](/copilot/concepts/context/mcp).
 * **What {% data variables.product.prodname_copilot_short %} remembers**: For supported features, {% data variables.copilot.copilot_memory %} can reuse repository facts and your preferences in later work. See [AUTOTITLE](/copilot/concepts/agents/copilot-memory).
 

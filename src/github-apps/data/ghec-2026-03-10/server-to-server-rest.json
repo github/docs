@@ -2643,6 +2643,18 @@
   ],
   "copilot": [
     {
+      "slug": "add-enterprise-teams-to-the-copilot-subscription-for-an-enterprise",
+      "subcategory": "copilot-user-management",
+      "verb": "post",
+      "requestPath": "/enterprises/{enterprise}/copilot/billing/selected_enterprise_teams"
+    },
+    {
+      "slug": "remove-enterprise-teams-from-the-copilot-subscription-for-an-enterprise",
+      "subcategory": "copilot-user-management",
+      "verb": "delete",
+      "requestPath": "/enterprises/{enterprise}/copilot/billing/selected_enterprise_teams"
+    },
+    {
       "slug": "get-copilot-content-exclusion-rules-for-an-enterprise",
       "subcategory": "copilot-content-exclusion-management",
       "verb": "get",
@@ -5853,6 +5865,12 @@
       "subcategory": "review-requests",
       "verb": "delete",
       "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/requested_reviewers"
+    },
+    {
+      "slug": "rerequest-reviewers-for-a-pull-request",
+      "subcategory": "review-requests",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/requested_reviewers/rerequest"
     },
     {
       "slug": "list-reviews-for-a-pull-request",

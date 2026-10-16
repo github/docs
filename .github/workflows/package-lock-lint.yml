@@ -1,10 +1,12 @@
 name: Package lock lint
 
 # This workflow catches manual package.json edits that leave package-lock.json out of sync.
+# It also blocks Microsoft package feed URLs, which break installs outside GitHub.
 
 on:
   pull_request:
     paths:
+      - .npmrc
       - package.json
       - package-lock.json
       - .github/workflows/package-lock-lint.yml
@@ -24,6 +26,18 @@ jobs:
     steps:
       - name: Check out repo
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+
+      - name: Check for package feed URLs
+        run: |
+          status=0
+          grep -inE 'https?://[^/"]*(pkgs\.visualstudio\.com|pkgs\.dev\.azure\.com|packagefeedproxy\.microsoft\.io)' .npmrc package-lock.json || status=$?
+          if [ "$status" -eq 0 ]; then
+            echo "::error::Found Microsoft package feed URLs. Use https://registry.npmjs.org/ instead."
+            exit 1
+          elif [ "$status" -ne 1 ]; then
+            echo "::error::Could not scan .npmrc and package-lock.json for package feed URLs."
+            exit "$status"
+          fi
 
       - name: Setup Node.js
         uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0

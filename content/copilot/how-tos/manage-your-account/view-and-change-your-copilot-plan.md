@@ -25,9 +25,9 @@ category:
   - Configure Copilot
 ---
 
-You can view your current plan details in your {% data variables.product.github %} account settings. From there, you can change or cancel your plan.
+You can view your current plan details in your {% data variables.product.github %} account settings. The billing and licensing steps described in this article apply only if you can sign in to the personal account billed for the plan.
 
-If you have access to {% data variables.product.prodname_copilot %} through an organization or enterprise, you will not be able to modify your plan.
+If you have access to {% data variables.product.prodname_copilot %} through an organization or enterprise, your plan can be modified by an organization or enterprise owner. See [AUTOTITLE](/enterprise-cloud@latest/copilot/how-tos/administer-copilot).
 
 ## Viewing your {% data variables.product.prodname_copilot_short %} plan
 
@@ -74,5 +74,7 @@ You can cancel your {% data variables.product.prodname_copilot_short %} plan at 
 
 1. In the "{% data variables.product.prodname_copilot %}" section, select the **Manage subscription** dropdown on the right and then click **Cancel subscription**.
 1. Select **Cancel {% data variables.copilot.copilot_pro_short %}/{% data variables.copilot.copilot_pro_plus_short %}/{% data variables.copilot.copilot_max_short %}** to cancel your plan at the end of your current billing cycle.
+
+If you can't sign in to the personal account billed for your plan—for example, because you no longer have access to its work or school email or are blocked by account recovery—try the available account recovery methods. See [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/recovering-your-account-if-you-lose-your-2fa-credentials). If you still can't access the account or identify which account is being charged, contact {% data variables.contact.contact_support_page %} to request help stopping future {% data variables.product.prodname_copilot_short %} charges or to request removal of the payment method from the locked account.
 
 {% data reusables.billing.billing-info %}

@@ -6880,7 +6880,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Gets artifact and log retention settings for an organization.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope or the \"Actions policies\" fine-grained permission to use this endpoint.</p>",
+      "descriptionHTML": "<p>Gets retention settings for checks, workflow runs, commit statuses, artifacts, and logs for an organization.</p>\n<p>Checks include check suites, check runs, and check annotations. These settings also apply to checks and commit statuses created by third-party integrations, and are not limited to data created by GitHub Actions.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope or the \"Actions policies\" fine-grained permission to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -6903,7 +6903,7 @@
               "properties": {
                 "days": {
                   "type": "integer",
-                  "description": "The number of days artifacts and logs are retained"
+                  "description": "The number of days checks, workflow runs, commit statuses, artifacts, and logs are retained"
                 },
                 "maximum_allowed_days": {
                   "type": "integer",
@@ -6966,11 +6966,11 @@
         {
           "type": "integer",
           "name": "days",
-          "description": "<p>The number of days to retain artifacts and logs</p>",
+          "description": "<p>The number of days to retain checks, workflow runs, commit statuses, artifacts, and logs</p>",
           "isRequired": true
         }
       ],
-      "descriptionHTML": "<p>Sets artifact and log retention settings for an organization.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope or the \"Actions policies\" fine-grained permission to use this endpoint.</p>",
+      "descriptionHTML": "<p>Sets retention settings for checks, workflow runs, commit statuses, artifacts, and logs for an organization.</p>\n<p>Checks include check suites, check runs, and check annotations. These settings also apply to checks and commit statuses created by third-party integrations, and are not limited to data created by GitHub Actions.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope or the \"Actions policies\" fine-grained permission to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -10424,7 +10424,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Gets artifact and log retention settings for a repository.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Gets retention settings for checks, workflow runs, commit statuses, artifacts, and logs for a repository.</p>\n<p>Checks include check suites, check runs, and check annotations. These settings also apply to checks and commit statuses created by third-party integrations, and are not limited to data created by GitHub Actions.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -10448,7 +10448,7 @@
               "properties": {
                 "days": {
                   "type": "integer",
-                  "description": "The number of days artifacts and logs are retained"
+                  "description": "The number of days checks, workflow runs, commit statuses, artifacts, and logs are retained"
                 },
                 "maximum_allowed_days": {
                   "type": "integer",
@@ -10516,11 +10516,11 @@
         {
           "type": "integer",
           "name": "days",
-          "description": "<p>The number of days to retain artifacts and logs</p>",
+          "description": "<p>The number of days to retain checks, workflow runs, commit statuses, artifacts, and logs</p>",
           "isRequired": true
         }
       ],
-      "descriptionHTML": "<p>Sets artifact and log retention settings for a repository.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Sets retention settings for checks, workflow runs, commit statuses, artifacts, and logs for a repository.</p>\n<p>Checks include check suites, check runs, and check annotations. These settings also apply to checks and commit statuses created by third-party integrations, and are not limited to data created by GitHub Actions.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {

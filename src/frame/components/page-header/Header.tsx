@@ -37,12 +37,11 @@ export const Header = ({ isNarrowMenuOpen, onNarrowMenuToggle }: Props) => {
   const router = useRouter()
   const { error } = useMainContext()
   const { languages } = useLanguages()
-  // This context already excludes unavailable languages, including early-access pages.
-  // Omit the slot itself so Brand does not render an empty divided language cell.
+  // useLanguages excludes unavailable languages, including early access; hide the slot under two.
   const languagePickerVisible = Object.keys(languages).length > 1
   const { currentVersion } = useVersion()
   const { t } = useTranslation(['header', 'search'])
-  const { params, updateParams } = useMultiQueryParams()
+  const { params, updateParams, cancelPendingUpdate } = useMultiQueryParams()
   const { hasAccount } = useHasAccount()
   const signupCTAVisible =
     hasAccount === false &&
@@ -95,9 +94,7 @@ export const Header = ({ isNarrowMenuOpen, onNarrowMenuToggle }: Props) => {
           onClick={handleClick}
           leadingComponent={<VersionPicker variant="header" onNavigate={closeNarrowMenu} />}
           trailingComponent={
-            languagePickerVisible ? (
-              <LanguagePicker variant="header" onNavigate={closeNarrowMenu} />
-            ) : undefined
+            languagePickerVisible ? <LanguagePicker onNavigate={closeNarrowMenu} /> : undefined
           }
         >
           <SubdomainNavBar.Search
@@ -121,6 +118,7 @@ export const Header = ({ isNarrowMenuOpen, onNarrowMenuToggle }: Props) => {
           setIsSearchOpen={setIsSearchOpen}
           params={params}
           updateParams={updateParams}
+          cancelPendingParamsUpdate={cancelPendingUpdate}
           searchButtonRef={searchButtonRef}
         />
       </div>

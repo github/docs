@@ -51,24 +51,32 @@ jobs:
       # Detect PRs that only change package-lock.json. Contributors often create
       # cross-platform npm install churn while editing content.
       # Comment with reset instructions instead of adding them to the engineering review board.
-      # Dependabot security updates can change only the lockfile when package.json
-      # does not name the transitive dependency.
-      # Those PRs are intentional, so reset instructions would be wrong and
-      # keeping them off the board would leave them without engineering triage.
+      # Dependabot and docs-bot PRs can change only the lockfile on purpose, for example
+      # to fix a transitive dependency. Skip the check for them so they still get engineering triage.
       - name: Detect lockfile-only churn
         id: detect
         env:
           GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
           PR_AUTHOR: ${{ github.event.pull_request.user.login }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          CHANGED_FILES: ${{ github.event.pull_request.changed_files }}
+          REPO: ${{ github.repository }}
         run: |
-          if [ "$PR_AUTHOR" = "dependabot[bot]" ]; then
-            echo "Author is Dependabot; skipping lockfile churn detection."
+          if [ "$PR_AUTHOR" = "dependabot[bot]" ] || [ "$PR_AUTHOR" = "docs-bot" ]; then
+            echo "Author is $PR_AUTHOR; skipping lockfile churn detection."
             echo "lockfile_only=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
-          changed=$(gh pr diff "$PR" --name-only)
+          # `gh pr diff` fails above 300 files, and `gh pr view --json files` stops at 100.
+          changed=$(gh api --paginate "repos/$REPO/pulls/$PR_NUMBER/files" --jq '.[].filename')
           echo "Changed files:"
           echo "$changed"
+          # The files API returns at most 3,000 files. If the list is incomplete, request review anyway.
+          if [ "$(echo "$changed" | grep -c .)" -lt "$CHANGED_FILES" ]; then
+            echo "Listed fewer files than the PR changes; skipping lockfile churn detection."
+            echo "lockfile_only=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
           lockfile=$(echo "$changed" | grep -c '^package-lock\.json$' || true)
           other_eng=$(echo "$changed" | grep -cE '(\.tsx?$|\.scss$|^src/|^package\.json$|^\.github/|^config/|^\.devcontainer/|Dockerfile)' || true)
           if [ "$lockfile" -gt 0 ] && [ "$other_eng" -eq 0 ]; then

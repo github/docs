@@ -25,7 +25,7 @@ category:
 
 ## Introduction
 
-This guide describes how to use {% data variables.copilot.copilot_chat_short %} and agents to automate coding tasks by breaking them into steps, using tools to read files, edit code, and run commands, and self-correcting when something goes wrong. You can also ask general questions about software development, or specific questions about the code in your project. For more information, see [AUTOTITLE](/copilot/concepts/chat).
+This guide describes how to use {% data variables.copilot.copilot_chat_short %} and agents to automate coding tasks by breaking them into steps, using tools to read files, edit code, and run commands, and self-correcting when something goes wrong. You can also ask general questions about software development, or specific questions about the code in your project. For more information, see [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-in-ides).
 
 To learn how to use {% data variables.product.prodname_copilot_short %} for agent-driven workflows in a desktop app, see [AUTOTITLE](/copilot/get-started/quickstart-copilot-app).
 
@@ -315,13 +315,13 @@ The following agents are available:
 * **Ask mode**: Get quick answers and assistance without making code changes.
 * **Plan mode**: Collaborate on planning before implementation—{% data variables.product.prodname_copilot_short %} analyzes your request and builds a structured plan for your review. See [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/use-copilot-agents/use-plan-mode).
 * **Edit mode**: Make controlled edits across multiple files that you review and accept individually.
-* **{% data variables.copilot.copilot_cli_short %}**: Runs {% data variables.product.prodname_copilot_short %} through {% data variables.copilot.copilot_cli_short %}, providing a terminal-first agentic experience with support for multiple isolation modes, live session progress, and tool call visibility. For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-copilot-cli).
+* **{% data variables.copilot.copilot_cli_short %}**: Runs {% data variables.product.prodname_copilot_short %} through {% data variables.copilot.copilot_cli_short %}, providing a terminal-first agentic experience with support for multiple isolation modes, live session progress, and tool call visibility. For more information, see [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-cli).
 * **{% data variables.copilot.custom_agents_caps_short %}**: Use personalized agents tailored to your specific needs. See [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/use-copilot-agents/use-custom-agents).
 
 {% data variables.copilot.copilot_edits_short %} lets you make changes across multiple files directly from a single {% data variables.copilot.copilot_chat_short %} prompt, using edit mode and agent mode.
 
 > [!TIP]
-> You can also access {% data variables.product.prodname_copilot_short %} from JetBrains AI Assistant without installing the {% data variables.product.prodname_copilot_short %} plugin. For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-in-jetbrains).
+> You can also access {% data variables.product.prodname_copilot_short %} from JetBrains AI Assistant without installing the {% data variables.product.prodname_copilot_short %} plugin. For more information, see [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-in-ides).
 
 ### Using edit mode
 

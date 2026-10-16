@@ -35,7 +35,7 @@ Each display name is scoped to a single {% data variables.product.prodname_githu
 
 Choose a name that will avoid conflicts and will help users identify custom properties from the external system. If you're publishing an app on behalf of a third-party system, you may want to respond to conflicts or allow users to choose their own display name as part of the setup flow on your system.
 
-The display name must between 1 and 15 characters and contain only letters and numbers. For all requirements, see the [Register an app installation for external properties](/rest/orgs/custom-properties#register-an-app-installation-for-external-custom-properties) endpoint of the REST API.
+The display name must be between 1 and 15 characters and contain only letters and numbers. For all requirements, see the [Register an app installation for external properties](/rest/orgs/custom-properties#register-an-app-installation-for-external-custom-properties) endpoint of the REST API.
 
 ## 2. Register a {% data variables.product.prodname_github_app %}
 
@@ -83,14 +83,21 @@ The automation can run on a schedule or listen for events. The webhook you selec
 
 In the automation, the {% data variables.product.prodname_github_app %} must obtain an installation access token and use the token to send data from the external system to {% data variables.product.github %}'s external properties API endpoints. See [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-as-a-github-app-installation).
 
-See the following endpoints of the REST API. You will find information on request size limits and error codes that your automation should account for.
+A typical flow would be to:
 
-* [Register an app installation for external custom properties](/rest/orgs/custom-properties#register-an-app-installation-for-external-custom-properties) (the app must register its display name before it can update properties, unless an organization administrator is expected to do this)
-* [Get registered app installations for external custom properties](/rest/orgs/custom-properties#get-registered-app-installations-for-external-custom-properties)
-* [Get all external custom properties for a {% data variables.product.prodname_github_app %} installation in an organization](/rest/orgs/custom-properties#get-all-external-custom-properties-for-a-github-app-installation-in-an-organization)
-* [Create or update external custom property values for organization repositories](/rest/orgs/custom-properties#create-or-update-external-custom-property-values-for-organization-repositories)
-* [Create or update external custom property values for a property across organization repositories](/rest/orgs/custom-properties#create-or-update-external-custom-property-values-for-a-property-across-organization-repositories)
-* [Remove all external custom property values for a property across all organization repositories](/rest/orgs/custom-properties#remove-all-external-custom-property-values-for-a-property-across-all-organization-repositories)
+1. **Register the app installation** with a display name before updating properties, unless an organization administrator will register it. See [Register an app installation for external custom properties](/rest/orgs/custom-properties#register-an-app-installation-for-external-custom-properties).
+1. **Create or update property values for one or more repositories**. See:
+   
+   * [Create or update external custom property values for organization repositories](/rest/orgs/custom-properties#create-or-update-external-custom-property-values-for-organization-repositories)
+   * [Create or update external custom property values for a property across organization repositories](/rest/orgs/custom-properties#create-or-update-external-custom-property-values-for-a-property-across-organization-repositories)
+
+You might also need to:
+
+* **Remove all values for one property across all organization repositories**. See [Remove all external custom property values for a property across all organization repositories](/rest/orgs/custom-properties#remove-all-external-custom-property-values-for-a-property-across-all-organization-repositories).
+* **Get the external custom properties for the app installation** to verify the property definitions. See [Get all external custom properties for a {% data variables.product.prodname_github_app %} installation in an organization](/rest/orgs/custom-properties#get-all-external-custom-properties-for-a-github-app-installation-in-an-organization).
+* **Get the registered app installations** to verify registration details. See [Get registered app installations for external custom properties](/rest/orgs/custom-properties#get-registered-app-installations-for-external-custom-properties).
+
+Check the linked REST API references for request size limits and error codes that your automation needs to handle.
 
 ## 4. Install the app
 

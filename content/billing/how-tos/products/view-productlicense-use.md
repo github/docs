@@ -94,14 +94,20 @@ The metered usage chart and usage break down table both show your current choice
 > [!NOTE]
 > Enterprise owners and billing managers can filter AI usage data by user. Organization owners cannot view user-level data directly—to see per-user consumption, download a usage report instead. See [Downloading usage reports](#downloading-usage-reports).
 
-If you use {% data variables.product.prodname_copilot_short %}, an additional **AI usage** view is listed under **Usage**. You can use this view to dig deeper into how your enterprise is consuming {% data variables.product.prodname_ai_credits_short %} and where additional spend is occurring. For example:
+If your account uses {% data variables.product.prodname_ai_credits_short %}, an additional **AI usage** view is listed under **Usage**. You can use this view to understand included and metered usage across products, including {% data variables.product.prodname_copilot_short %} and {% data variables.product.prodname_AS %}.
+
+To review combined AI Scan and agentic autofix usage, open the **AI usage** view, under "Group by," select **Products**, then review **{% data variables.product.prodname_AS %}**. These features share the Code Security AI Credits SKU, so their usage is reported together within the product total, not as separate totals for each feature.
+
+You can use the view to answer questions such as:
 
 * What's our total {% data variables.product.prodname_ai_credits_short %} consumption across all users?
 * Which users are the heaviest consumers, and are they within their budget?
 * Which models are driving the most spend?
 * How widespread is adoption in the organizations where we rolled out {% data variables.product.prodname_copilot_short %}?
 
-To understand how {% data variables.product.prodname_ai_credits_short %} are pooled across your enterprise and what the usage data represents, see [AUTOTITLE](/copilot/concepts/billing-and-usage/organizations-and-enterprises/billing).
+For information about {% data variables.product.prodname_copilot_short %} allowances and how {% data variables.product.prodname_ai_credits_short %} are pooled across your enterprise, see [AUTOTITLE](/copilot/concepts/billing-and-usage/organizations-and-enterprises/billing).
+
+For information about {% data variables.product.prodname_AS %} AI-credit billing, see [AUTOTITLE](/billing/concepts/product-billing/github-advanced-security#how-ai-feature-usage-is-billed).
 
 {% endif %}
 

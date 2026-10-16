@@ -3,12 +3,12 @@ import { describe, expect, test } from 'vitest'
 import { getDOMCached as getDOM } from '@/tests/helpers/e2etest'
 
 describe('sidebar custom links', () => {
-  test.skip('page with sidebarLink frontmatter shows custom link in sidebar', async () => {
+  test('page with sidebarLink frontmatter shows custom link in sidebar', async () => {
     const $ = await getDOM('/get-started/sidebar-test')
 
     const customLink = $('[data-testid="sidebar"] a:contains("All sidebar test items")')
     expect(customLink.length).toBe(1)
-    expect(customLink.attr('href')).toBe('/get-started/sidebar-test')
+    expect(customLink.attr('href')).toBe('/en/get-started/sidebar-test')
   })
 
   test('page without sidebarLink frontmatter does not show custom link', async () => {
@@ -19,19 +19,19 @@ describe('sidebar custom links', () => {
     expect(customLinks.length).toBe(0)
   })
 
-  test.skip('sidebarLink with custom text appears correctly', async () => {
+  test('sidebarLink with custom text appears correctly', async () => {
     const $ = await getDOM('/get-started/sidebar-test')
 
     const customLink = $('[data-testid="sidebar"] a:contains("All sidebar test items")')
     expect(customLink.text().trim()).toBe('All sidebar test items')
   })
 
-  test.skip('sidebarLink appears in correct location within sidebar', async () => {
+  test('sidebarLink appears in correct location within sidebar', async () => {
     const $ = await getDOM('/get-started/sidebar-test')
 
     const customLink = $('[data-testid="sidebar"] a:contains("All sidebar test items")')
     expect(customLink.length).toBe(1)
-    expect(customLink.attr('href')).toBe('/get-started/sidebar-test')
+    expect(customLink.attr('href')).toBe('/en/get-started/sidebar-test')
 
     const testSection = customLink.closest('[role="group"], ul')
     const allLinks = testSection.find('a')

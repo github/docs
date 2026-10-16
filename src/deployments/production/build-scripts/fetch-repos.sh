@@ -11,6 +11,10 @@ set -e
 
 # Docker build mounts DOCS_BOT_PAT_BASE at /run/secrets/DOCS_BOT_PAT_BASE.
 GITHUB_TOKEN=$(cat /run/secrets/DOCS_BOT_PAT_BASE)
+auth=$(printf 'x-access-token:%s' "$GITHUB_TOKEN" | base64 | tr -d '\n')
+export GIT_CONFIG_COUNT=1
+export GIT_CONFIG_KEY_0=http.https://github.com/.extraheader
+export GIT_CONFIG_VALUE_0="AUTHORIZATION: basic $auth"
 
 echo "Fetching early access..."
 clone_or_use_cached_repo "docs-early-access" "docs-early-access" "main"
@@ -44,12 +48,13 @@ else
   echo "✅  All translations fetched."
 fi
 
-# The Dockerfile copies translations/ into the image, and each .git/config keeps
-# the token-bearing clone URL. Nothing reads translation git metadata at runtime.
+# The Dockerfile copies translations/ into the image. Nothing reads translation
+# git metadata at runtime.
 rm -rf ./*/.git
 
 # Return to the docs-internal root after cloning translations.
 cd ..
 
-# Remove the token from the shell environment.
+# Remove the token and Git authentication settings from the shell environment.
+unset GIT_CONFIG_COUNT GIT_CONFIG_KEY_0 GIT_CONFIG_VALUE_0 auth
 unset GITHUB_TOKEN

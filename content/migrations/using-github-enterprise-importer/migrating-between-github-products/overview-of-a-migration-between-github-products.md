@@ -140,6 +140,7 @@ For repository migrations, we recommend creating a test organization to use as a
 * [Reinstalling {% data variables.product.prodname_github_apps %}](#reinstalling-github-apps)
 * [Recreating teams](#recreating-teams)
 * [Reclaiming mannequins](#reclaiming-mannequins)
+* [Restoring commit signature verification](#restoring-commit-signature-verification)
 
 ### Checking the migration status
 
@@ -262,3 +263,7 @@ Teams are not migrated as part of a repository migration. You must manually recr
 ### Reclaiming mannequins
 
 {% data reusables.enterprise-migration-tool.reclaiming-mannequins %}
+
+### Restoring commit signature verification
+
+{% data reusables.enterprise-migration-tool.commit-signature-verification %}

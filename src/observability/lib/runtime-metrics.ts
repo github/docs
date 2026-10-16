@@ -3,13 +3,15 @@
 // and event-loop p50 and p99 delay for blocked-loop detection.
 // Starts only when StatsD sends real metrics through MODA_PROD_SERVICE_ENV.
 import v8 from 'node:v8'
-import { monitorEventLoopDelay, PerformanceObserver } from 'node:perf_hooks'
+import { constants, monitorEventLoopDelay, PerformanceObserver } from 'node:perf_hooks'
 
 import statsd from './statsd'
 
 export const INTERVAL_MS = 10_000
 
 let started = false
+
+type GcTypeTag = 'minor' | 'major' | 'other'
 
 function isMetricsEnabled(): boolean {
   return process.env.MODA_PROD_SERVICE_ENV === 'true' && process.env.NODE_ENV !== 'test'
@@ -35,8 +37,7 @@ export function startRuntimeMetrics(): void {
   const gcObserver = new PerformanceObserver((list) => {
     for (const entry of list.getEntries()) {
       const kind = (entry as unknown as { detail?: { kind?: number } }).detail?.kind
-      // perf_hooks GC kinds: 1 minor, 4 major, 8 incremental, 16 weak callbacks.
-      const tag = kind === 1 ? 'minor' : kind === 2 ? 'major' : 'other'
+      const tag = getGcTypeTag(kind)
       statsd.histogram('node.gc.pause', entry.duration, [`gc_type:${tag}`])
     }
   })
@@ -56,4 +57,15 @@ export function startRuntimeMetrics(): void {
 
 export function _resetForTesting(): void {
   started = false
+}
+
+export function getGcTypeTag(kind: number | undefined): GcTypeTag {
+  switch (kind) {
+    case constants.NODE_PERFORMANCE_GC_MINOR:
+      return 'minor'
+    case constants.NODE_PERFORMANCE_GC_MAJOR:
+      return 'major'
+    default:
+      return 'other'
+  }
 }

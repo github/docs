@@ -15,6 +15,9 @@ permissions: {}
 
 jobs:
   set-vault-keys:
+    # Merge queue already built and checked this SHA. Repo-sync and admin merges bypass the queue and still build.
+    # The actor check only skips a duplicate build and grants no access.
+    if: ${{ !(github.event_name == 'push' && github.ref == 'refs/heads/main' && github.actor == 'github-merge-queue[bot]') }} # zizmor: ignore[bot-conditions]
     permissions: {}
     runs-on: ubuntu-latest
     outputs:

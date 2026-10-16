@@ -4,14 +4,18 @@ import { get } from '@/tests/helpers/e2etest'
 describe('URL encoding for version paths', () => {
   // SharePoint encodes @ as %40: /en/enterprise-cloud@latest becomes /en/enterprise-cloud%40latest.
   test('handles URL-encoded @ symbol in enterprise-cloud version', async () => {
-    const encodedUrl = '/en/enterprise-cloud%40latest/copilot/concepts/chat'
+    // SharePoint encodes @ as %40, so /en/enterprise-cloud@latest becomes /en/enterprise-cloud%40latest
+    const encodedUrl =
+      '/en/enterprise-cloud%40latest/copilot/concepts/copilot-surfaces/copilot-on-github'
     const res = await get(encodedUrl)
 
     // Encoded @ may render directly or redirect to the decoded URL, but it must not 404.
     expect([200, 301, 302]).toContain(res.statusCode)
 
     if (res.statusCode === 301 || res.statusCode === 302) {
-      expect(res.headers.location).toBe('/en/enterprise-cloud@latest/copilot/concepts/chat')
+      expect(res.headers.location).toBe(
+        '/en/enterprise-cloud@latest/copilot/concepts/copilot-surfaces/copilot-on-github',
+      )
     }
   })
 
@@ -30,15 +34,19 @@ describe('URL encoding for version paths', () => {
   })
 
   test('handles URL-encoded @ symbol in second path segment', async () => {
-    const encodedUrl = '/enterprise-cloud%40latest/copilot/concepts/chat'
+    const encodedUrl =
+      '/enterprise-cloud%40latest/copilot/concepts/copilot-surfaces/copilot-on-github'
     const res = await get(encodedUrl)
 
     expect([301, 302]).toContain(res.statusCode)
-    expect(res.headers.location).toBe('/en/enterprise-cloud@latest/copilot/concepts/chat')
+    expect(res.headers.location).toBe(
+      '/en/enterprise-cloud@latest/copilot/concepts/copilot-surfaces/copilot-on-github',
+    )
   })
 
   test('normal @ symbol paths continue to work', async () => {
-    const normalUrl = '/en/enterprise-cloud@latest/copilot/concepts/chat'
+    const normalUrl =
+      '/en/enterprise-cloud@latest/copilot/concepts/copilot-surfaces/copilot-on-github'
     const res = await get(normalUrl)
 
     expect(res.statusCode).toBe(200)
@@ -54,8 +62,9 @@ describe('URL encoding for version paths', () => {
   })
 
   test('Express URL properties are correctly updated after decoding', async () => {
-    // Updating req.url must also refresh Express request properties such as req.path and req.query.
-    const encodedUrl = '/en/enterprise-cloud%40latest/copilot/concepts/chat?test=value'
+    // Test that req.path, req.query, etc. are properly updated when req.url is modified
+    const encodedUrl =
+      '/en/enterprise-cloud%40latest/copilot/concepts/copilot-surfaces/copilot-on-github?test=value'
     const res = await get(encodedUrl)
 
     // Middleware updates req.path from enterprise-cloud%40latest to enterprise-cloud@latest.

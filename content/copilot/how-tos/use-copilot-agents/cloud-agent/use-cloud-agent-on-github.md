@@ -18,7 +18,7 @@ category:
 
 You can start {% data variables.copilot.copilot_cloud_agent %} sessions from several places on {% data variables.product.github %}. Once a session is running, you can monitor its progress, steer it with follow-up prompts, and iterate on the resulting pull request—all without leaving the browser.
 
-For more information about {% data variables.copilot.copilot_cloud_agent %}, see [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-cloud-agent).
+For more information about {% data variables.copilot.copilot_cloud_agent %}, see [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-on-github).
 
 You can also start partner-built agents from these same entry points using {% data variables.copilot.agent_apps %}. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/use-agent-apps).
 
@@ -156,7 +156,7 @@ You can delegate review comments to have {% data variables.product.prodname_copi
 1. Navigate to the first review comment you want {% data variables.product.prodname_copilot_short %} to implement.
    * To delegate one comment, click **Fix with {% data variables.product.prodname_copilot_short %}**.
    * To delegate multiple comments, click **Add to batch**. Continue to add the comments you want {% data variables.product.prodname_copilot_short %} to work on.
-1. In the **Manage batch** panel, add any additional instructions, and optionally select a model with the model picker. 
+1. In the **Manage batch** panel, add any additional instructions, and optionally select a model with the model picker.
 1. Choose how you want {% data variables.product.prodname_copilot_short %} to apply the changes:
    * To commit the changes directly to the branch, click **{% octicon "agent" aria-label="The Agents icon" %} Fix and commit**.
    * To have {% data variables.product.prodname_copilot_short %} create a new pull request with the changes, click **Fix and open pull request** from the dropdown menu.
@@ -197,6 +197,6 @@ Use the feedback buttons on {% data variables.product.prodname_copilot_short %}'
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-cloud-agent)
+* [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-on-github)
 * [AUTOTITLE](/copilot/tutorials/cloud-agent/get-the-best-results)
 * [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/troubleshoot-cloud-agent)

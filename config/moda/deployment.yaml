@@ -1,17 +1,16 @@
-# Deploy configuration reference: https://thehub.github.com/epd/engineering/products-and-services/internal/moda/reference/deployment-yaml/
+# Moda deployment reference:
+# https://thehub.github.com/epd/engineering/products-and-services/internal/moda/reference/deployment-yaml/
 
 environments:
   - name: production
     require_pipeline: true
-    # Bumped from default 10m because pod scheduling occasionally pushes
-    # rollouts past the timeout even though the deploy itself succeeds.
+    # Allow extra rollout time because pod scheduling can exceed Moda's default timeout.
     timeout: 1200
     cluster_selector:
       profile: general
       region: iad
 
-  # 15 staging environments, evergreens only
-  # they should all contain the same configs
+  # All 15 evergreen staging environments must contain the same configs.
   - name: staging-balsam
     require_pipeline: false
     notify_still_locked: true # Notify last person to lock this after an hour
@@ -192,12 +191,27 @@ environments:
       region: iad
     extra_completed_message: ':yew: Review at https://docs-internal-staging-yew.githubapp.com/'
 
+  - name: docs-internal-review-lab
+    require_pipeline: false
+    require_vault: true
+    secret_environment: staging
+    required_review_tasks: []
+    auto_deploy: false
+    skip_auto_merge: true
+    proxima: true
+    resource_path: config/kubernetes/docs-internal-review-lab
+    url: https://docs-internal-{{BRANCH}}.octoca.ts.net
+    timeout: 900
+    cluster_selector:
+      name: rl-1-test-cnc-01-az1
+    extra_completed_message: 'Review at {{ENVIRONMENT_URL}}. This environment is deleted after 24 hours.'
+
 required_builds:
   - docs-internal-moda-config-bundle / docs-internal-moda-config-bundle
   - docs-internal-docker-image / docs-internal-docker-image
   - docs-internal-docker-security / docs-internal-docker-security
 
-# Make the pipeline start automatically when a PR is enqueued
+# Start the production rollout pipeline when a PR enters the merge queue.
 auto_start_pipeline: production_rollout
 
 pipelines:

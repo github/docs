@@ -11,7 +11,7 @@ category:
 ---
 
 > [!NOTE]
-> {% data reusables.cli.public-preview-sandbox %}
+> {% data reusables.cli.public-preview-cloud-sandbox %}
 
 ## How sandbox usage is measured
 

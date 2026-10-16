@@ -1,6 +1,7 @@
 ---
 title: Open Source Projects for Good
 intro: Nonprofit organizations can partner with open source collaborators to build solutions together.
+allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
 children:

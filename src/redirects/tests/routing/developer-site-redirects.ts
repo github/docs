@@ -93,28 +93,31 @@ describe('developer redirects', () => {
   })
 
   describe('fixtures', () => {
-    test.each(['developer', 'rest', 'graphql'])('%s redirects', async (label) => {
-      const FIXTURES = {
-        developer: './src/fixtures/fixtures/developer-redirects.json',
-        rest: './src/fixtures/fixtures/rest-redirects.json',
-        graphql: './src/fixtures/fixtures/graphql-redirects.json',
-      }
-      if (!(label in FIXTURES)) throw new Error('unrecognized label')
-      const fixtures = readJsonFile(FIXTURES[label as keyof typeof FIXTURES])
-      // Avoid Promise.all here; event loop context switching makes it slower.
-      for (let [oldPath, newPath] of Object.entries(fixtures as Record<string, string>)) {
-        // Versioned developer Enterprise paths support up to 2.21; versionless paths use latest.
-        newPath = (newPath as string).replace(
+    const FIXTURES = {
+      developer: './src/fixtures/fixtures/developer-redirects.json',
+      rest: './src/fixtures/fixtures/rest-redirects.json',
+      graphql: './src/fixtures/fixtures/graphql-redirects.json',
+    }
+    for (const [label, file] of Object.entries(FIXTURES)) {
+      const fixtures = readJsonFile(file) as Record<string, string>
+      // Versioned developer Enterprise paths support up to 2.21; versionless paths use latest.
+      const cases = Object.entries(fixtures).map(([oldPath, newPath]) => [
+        oldPath,
+        newPath.replace(
           '/enterprise-server/',
           `/enterprise-server@${enterpriseServerReleases.latest}/`,
-        )
-        const res = await get(oldPath)
-        const sameFirstPrefix = oldPath.split('/')[1] === (newPath as string).split('/')[1]
-        expect(res.statusCode, `${oldPath} did not redirect to ${newPath}`).toBe(
-          sameFirstPrefix ? 301 : 302,
-        )
-        expect(res.headers.location).toBe(newPath)
-      }
-    })
+        ),
+      ])
+      describe(`${label} redirects`, () => {
+        test.each(cases)('%s', async (oldPath, newPath) => {
+          const res = await get(oldPath)
+          const sameFirstPrefix = oldPath.split('/')[1] === newPath.split('/')[1]
+          expect(res.statusCode, `${oldPath} did not redirect to ${newPath}`).toBe(
+            sameFirstPrefix ? 301 : 302,
+          )
+          expect(res.headers.location).toBe(newPath)
+        })
+      })
+    }
   })
 })

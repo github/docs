@@ -142,6 +142,13 @@ Tests that make HTTP requests to `localhost:4000`:
 - Vitest automatically starts/stops server via hooks
 - Disable with `START_VITEST_SERVER=false` for manual server control
 
+Unit tests that don't make HTTP requests can skip the server. This avoids the build, Elasticsearch, and translations:
+```bash
+START_VITEST_SERVER=false npm test -- src/languages/tests/correct-translation-content.ts
+```
+
+In CI, `.github/workflows/test.yml` sets `START_VITEST_SERVER=false` and skips the build for suites with no HTTP tests. If you add an HTTP test to one of those suites, remove the suite from that list.
+
 Manual server for debugging:
 ```bash
 # Terminal 1

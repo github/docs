@@ -100,7 +100,7 @@ To grant access to an enterprise team:
 
 ### Granting access to {% data variables.copilot.agent_apps %}
 
-{% data reusables.copilot.agent-apps-intro %} See [AUTOTITLE](/copilot/concepts/agents/agent-apps).
+{% data reusables.copilot.agent-apps-intro %} See [AUTOTITLE](/copilot/concepts/agent-capabilities/about-agents/agent-apps).
 
 Ensure models you want to enable specifically for apps are set to **Delegate to Enterprise Teams/Apps** in your enterprise's model policies.
 

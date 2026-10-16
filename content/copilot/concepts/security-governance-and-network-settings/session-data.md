@@ -79,7 +79,7 @@ The following controls are available:
 | Surface | Share | Delete | Archive |
 | --- | --- | --- | --- |
 | {% data variables.copilot.copilot_cli_short %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
-| {% data variables.copilot.github_copilot_app %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| The {% data variables.copilot.github_copilot_app %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 
 For {% data variables.copilot.copilot_cli_short %}, deleting a local session that has been synced to your account prompts you to choose whether to also delete the synced copy. For the {% data variables.copilot.github_copilot_app %}, deleting a local session also deletes its synced copy immediately.
 
@@ -94,13 +94,13 @@ The following controls are available:
 | Session source | Share | Delete | Archive |
 | --- | --- | --- | --- |
 | Synced {% data variables.copilot.copilot_cli_short %} session | {% octicon "check" aria-label="Supported" %} (Unshared by default) | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
-| Synced {% data variables.copilot.github_copilot_app %} session | {% octicon "check" aria-label="Supported" %} (Unshared by default) | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| Synced session from the {% data variables.copilot.github_copilot_app %} | {% octicon "check" aria-label="Supported" %} (Unshared by default) | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | {% data variables.copilot.copilot_cloud_agent %} session | {% octicon "check" aria-label="Supported" %} (Shared by default) | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} |
 
 For more information, see:
 
 * **{% data variables.copilot.copilot_cli_short %}**: [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/chronicle)
-* **{% data variables.copilot.github_copilot_app %}**: [AUTOTITLE](/copilot/how-tos/github-copilot-app/agent-sessions)
+* **The {% data variables.copilot.github_copilot_app %}**: [AUTOTITLE](/copilot/how-tos/github-copilot-app/agent-sessions)
 * **{% data variables.copilot.copilot_cloud_agent %}**: [AUTOTITLE](/copilot/how-tos/copilot-on-github/use-copilot-agents/manage-and-track-agents)
 
 For information about the session data controls available for {% data variables.product.prodname_copilot_short %} in an IDE, see the documentation for that IDE.

@@ -108,18 +108,15 @@ Create one budget for each product, SKU, or group of SKUs that you want to contr
 
 After creating your cost center budgets, check existing enterprise-wide budgets to ensure they don't conflict with or override your new cost center budgets. When budgets overlap, the most restrictive one applies, so a low budget at a higher scope can block a cost center before its own budget is reached.
 
-Navigate to the "Budgets and alerts" page. You'll see two lists of budgets:
-
-* **Enterprise budgets**: Limits that apply to the whole enterprise account
-* **Other budgets**: Limits for specific repositories, organizations, or cost centers
+Navigate to the "Budgets and alerts" page. All budgets appear in one list. Use the search bar or the scope dropdown to narrow it by scope.
 
 #### Check enterprise budgets
 
-Review whether any enterprise budgets apply to the same products or SKUs as your new cost center budgets. If an enterprise budget is very low, it might block usage for your cost center before the cost center's own budget is reached. Consider deleting or adjusting conflicting enterprise budgets.
+Filter the list to enterprise-level budgets. Review whether any enterprise budgets apply to the same products or SKUs as your new cost center budgets. If an enterprise budget is very low, it might block usage for your cost center before the cost center's own budget is reached. Consider deleting or adjusting conflicting enterprise budgets.
 
 #### View your cost center budgets
 
-Filter the other budgets list to show a scope of **Cost Centers**. You should see your new cost center with a row for each budget you created. Initially, usage will be near zero, but within a few days you'll see costs accumulating as users and repositories consume products beyond the allowance in their plan.
+Filter the list to cost center budgets. You should see your new cost center with a row for each budget you created. Initially, usage will be near zero, but within a few days you'll see costs accumulating as users and repositories consume products beyond the allowance in their plan.
 
 ### Troubleshooting budget conflicts
 

@@ -36,7 +36,7 @@ clone_or_use_cached_repo() {
     echo "Cloning repository '$repo_name' from branch '$branch'..."
 
     # Production deploys only need the most recent commit.
-    if ! git clone --depth 1 --branch "$branch" "https://${GITHUB_TOKEN}@github.com/github/$repo_url.git" "$repo_name"; then
+    if ! git clone --depth 1 --branch "$branch" "https://github.com/github/$repo_url.git" "$repo_name"; then
       echo "❌ Failed to clone repository '$repo_name'"
       return 1
     fi

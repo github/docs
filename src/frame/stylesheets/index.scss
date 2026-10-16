@@ -90,6 +90,11 @@ html[data-color-mode] body {
     // light fill (#e4ebe6) while the digit is already patched to white by the
     // line above — 1.2:1, i.e. invisible.
     --brand-color-border-muted: #191f1b;
+
+    // Used by both UnderlineNav tab strips (underline-nav-brand.scss) for the
+    // hover fill and selected-tab bar. Literal hex for the same reason as above.
+    --brand-color-canvas-subtle: #0f1511;
+    --brand-NavList-activeIndicator-color: #5fed83;
   }
 }
 

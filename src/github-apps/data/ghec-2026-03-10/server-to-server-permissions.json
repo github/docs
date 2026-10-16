@@ -1,4 +1,32 @@
 {
+  "enterprise_copilot_settings": {
+    "title": "Copilot settings",
+    "displayTitle": "Enterprise permissions for \"Copilot settings\"",
+    "permissions": [
+      {
+        "category": "copilot",
+        "slug": "add-enterprise-teams-to-the-copilot-subscription-for-an-enterprise",
+        "subcategory": "copilot-user-management",
+        "verb": "post",
+        "requestPath": "/enterprises/{enterprise}/copilot/billing/selected_enterprise_teams",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "copilot",
+        "slug": "remove-enterprise-teams-from-the-copilot-subscription-for-an-enterprise",
+        "subcategory": "copilot-user-management",
+        "verb": "delete",
+        "requestPath": "/enterprises/{enterprise}/copilot/billing/selected_enterprise_teams",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      }
+    ]
+  },
   "enterprise_copilot_usage": {
     "title": "Copilot usage records",
     "displayTitle": "Enterprise permissions for \"Copilot usage records\"",
@@ -10174,6 +10202,17 @@
         "additional-permissions": true
       },
       {
+        "category": "repos",
+        "slug": "create-a-fork",
+        "subcategory": "forks",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/forks",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
         "category": "git",
         "slug": "create-a-blob",
         "subcategory": "blobs",
@@ -13101,6 +13140,17 @@
       },
       {
         "category": "pulls",
+        "slug": "rerequest-reviewers-for-a-pull-request",
+        "subcategory": "review-requests",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/requested_reviewers/rerequest",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "pulls",
         "slug": "list-reviews-for-a-pull-request",
         "subcategory": "reviews",
         "verb": "get",
@@ -13265,6 +13315,17 @@
         "subcategory": "repos",
         "verb": "post",
         "requestPath": "/orgs/{org}/repos",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "repos",
+        "slug": "create-a-fork",
+        "subcategory": "forks",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/forks",
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,

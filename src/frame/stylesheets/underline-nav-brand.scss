@@ -1,0 +1,112 @@
+// Docs 2026: Primer Brand tokens for @primer/react's UnderlineNav.
+//
+// Brand ships no UnderlineNav, so the two places we render one are RETOKENED
+// rather than replaced — the in-article tool/platform picker
+// (InArticlePicker.module.scss) and the code-language tabs
+// (MarkdownContent.module.scss, .ghd-codetabs-nav). Include this mixin on the
+// wrapper of any new one so we never reintroduce a Primer-coloured tab strip.
+//
+// UnderlineNav paints entirely from plain custom properties read off the
+// element, so everything here is a declaration that inherits into PRC's hashed
+// subtree — we never name a `prc-*` class, which carries a build hash. Source
+// of truth for every property:
+// node_modules/@primer/react/dist/internal/components/UnderlineTabbedInterface-*.css
+//
+// These override the MODERN Primer names, not the legacy `--color-*` ones, and
+// that distinction is load-bearing: this app imports @primer/primitives'
+// functional themes (index.scss:19-22), so `--borderColor-*` / `--fgColor-*` /
+// `--overlay-bgColor` all resolve on PRC's FIRST leg and its `var(--color-*)`
+// fallbacks never fire. Overriding only the legacy spelling would silently do
+// nothing. The legacy leg is kept as a real safety net if brand CSS fails to load.
+@mixin underline-nav-brand-tokens {
+  // Active indicator — the 2px bar under the selected tab.
+  //
+  // WCAG 1.4.11 non-text contrast (3:1) makes this load-bearing: primitives'
+  // own value is #fd8c73 light / #f78166 dark, and the light one is 2.29:1 on
+  // the article canvas. It replaces a --color-severe-emphasis orange with the
+  // token brand's own nav surfaces use, so selected tab, current article
+  // (doc-tree sidebar) and current section (mini-TOC) all agree.
+  //
+  // vs the article canvas (--brand-color-canvas-default): 4.65:1 light
+  // (#08872b on #ffffff) and 13.93:1 dark (#5fed83 on #000000). The dark value
+  // only lands because index.scss patches this token for `auto` — measured, a
+  // visitor with no colour-mode cookie keeps `auto` on <html> even with JS on,
+  // and brand's palette then resolves light. Without that patch it would be
+  // brand's light green on a black canvas, which is still 4.51:1. All three
+  // clear 3:1, so the 1.4.11 protection holds in every state.
+  --underlineNav-borderColor-active: var(
+    --brand-NavList-activeIndicator-color,
+    var(--color-severe-emphasis)
+  );
+
+  // The strip's closing rule. PRC draws it as `box-shadow: inset 0 -1px`, not a
+  // border, so a border scan won't find it. On the picker this is also the
+  // article header box's closing rule — ArticleGridLayout.module.scss drops
+  // `.heroIntro::after` in its favour, and that ::after painted
+  // --brand-color-border-muted, so the box keeps closing on the same value.
+  // Decorative separator, not a state indicator: 3:1 does not apply.
+  --borderColor-muted: var(
+    --brand-color-border-muted,
+    var(--color-border-muted)
+  );
+
+  // Label colour, rest AND selected — PRC never recolours the selected label, it
+  // only bumps its weight and paints the bar. 21:1 in both modes.
+  --fgColor-default: var(--brand-color-text-default, var(--color-fg-default));
+
+  // Leading icons and counters — but not dead where they are unused: it also
+  // cascades into the overflow menu's secondary text. 6.27:1 / 9.18:1.
+  --fgColor-muted: var(--brand-color-text-muted, var(--color-fg-muted));
+
+  // Tab hover fill. Primer's is a blue-tinted alpha wash, which would leave the
+  // strip the one grey in the article with no green in it. Label stays >18:1.
+  --bgColor-neutral-muted: var(
+    --brand-color-canvas-subtle,
+    var(--color-neutral-subtle)
+  );
+
+  // Focus ring only — in UnderlineNav this property appears solely in
+  // `:focus-visible { box-shadow: inset 0 0 0 2px … }`. On the picker it is on
+  // screen for every keyboard selection, because InArticlePicker.tsx moves focus
+  // to the newly selected tab (WCAG 2.4.3). Brand's focus blue keeps "focused"
+  // visually distinct from "selected" green. 4.13:1 light / 6.81:1 dark.
+  --fgColor-accent: var(--brand-color-focus, var(--color-accent-fg));
+
+  // Overflow menu surface. UnderlineNav applies `background: var(--overlay-bgColor)`
+  // as an INLINE style, so this property is the only way in. Also fixes a real
+  // defect: primitives' dark overlay (#010409) was tuned to lift off Primer's
+  // #0d1117 canvas and sits at ~1:1 on the brand true-black one.
+  --overlay-bgColor: var(
+    --brand-color-canvas-overlay,
+    var(--color-canvas-overlay)
+  );
+  // Inert today: PRC sets the LoadingCounter's border-color but never its
+  // border-width or border-style, so nothing renders. Declared so no
+  // Primer-resolved colour survives in the component's computed tree if a
+  // consumer ever passes counters.
+  --borderColor-default: var(
+    --brand-color-border-default,
+    var(--color-border-default)
+  );
+
+  // Type and geometry. Two are pure renames — brand's text-size-100 (0.875rem)
+  // and stack-padding-condensed (1rem) are byte-identical to PRC's literals, so
+  // they only matter if brand retunes its scale. Three are real (small) changes:
+  // lineHeight 1.4285 -> 1.5, semibold 600 -> 525 (brand tunes Mona Sans'
+  // variable weight axis there), and the hover fill's corner radius
+  // 0.1875rem -> 0.25rem, brand's nearest step. The visible selected label and
+  // the hidden `[data-content]::before` that reserves its width read the SAME
+  // weight property, so the no-reflow trick still holds.
+  --text-body-size-medium: var(--brand-text-size-100, 0.875rem);
+  --text-body-lineHeight-medium: var(--brand-text-lineHeight-100, 1.4285);
+  --base-text-weight-semibold: var(--brand-text-weight-semibold, 600);
+  --borderRadius-medium: var(--brand-borderRadius-small, 0.1875rem);
+  --stack-padding-normal: var(--brand-stack-padding-condensed, 1rem);
+
+  // PRC reads this one twice with mismatched fallbacks: `min-height: var(…, 48px)`
+  // (absolute) but the indicator's `bottom: calc(… var(…, var(--base-size-48, 3rem)) …)`
+  // (root-relative, and --base-size-48 IS defined, by brand). They agree only at a
+  // 16px root, so a reader who enlarges browser text (WCAG 1.4.4) detaches the bar
+  // from the rule. Defining the first link keeps both chains together at any root.
+  --control-xlarge-size: var(--base-size-48, 3rem);
+}

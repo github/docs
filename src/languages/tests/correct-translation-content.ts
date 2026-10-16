@@ -35,6 +35,26 @@ async function render(content: string, currentVersion: string) {
 }
 
 describe('correctTranslatedContentStrings', () => {
+  describe('misplaced endif in inline conditional', () => {
+    test('[per-file] commit-signature-verification: endif moved before data tags', () => {
+      function fixAt(content: string, code: string, relativePath: string) {
+        return correctTranslatedContentStrings(content, '', {
+          code,
+          relativePath,
+          skipOrphanStripping: true,
+        })
+      }
+      const path = 'data/reusables/enterprise-migration-tool/commit-signature-verification.md'
+      const broken =
+        'contact {% ifversion fpt %}{% endif %}{% data variables.contact.contact_support_page %}{% else %}{% data variables.contact.contact_ent_support %}.'
+      const fixed =
+        'contact {% ifversion fpt %}{% data variables.contact.contact_support_page %}{% else %}{% data variables.contact.contact_ent_support %}{% endif %}.'
+      expect(fixAt(broken, 'es', path)).toBe(fixed)
+      expect(fixAt(fixed, 'es', path)).toBe(fixed)
+      expect(fixAt(broken, 'es', 'data/reusables/other.md')).toBe(broken)
+    })
+  })
+
   describe('Spanish (es)', () => {
     test('fixes colon-prefix tags', () => {
       expect(fix('{%: ifversion ghec %}', 'es')).toBe('{% ifversion ghec %}')
@@ -428,7 +448,7 @@ describe('correctTranslatedContentStrings', () => {
     })
 
     test('fixes en-dash in trim modifier', () => {
-      // {%– uses an en dash (U+2013) instead of a hyphen.
+      // U+2013 appears where the Liquid trim hyphen belongs.
       expect(fix('{%– ifversion projects-v1 %}', 'pt')).toBe('{%- ifversion projects-v1 %}')
       expect(fix('{%– endif %}', 'pt')).toBe('{%- endif %}')
     })
@@ -2308,7 +2328,7 @@ intro: |
       fix(content, 'es', english)
       const elapsed = performance.now() - start
 
-      // Generous threshold for CI; an O(n²) regression would be multi-second.
+      // Generous threshold for CI; a quadratic regression would take multiple seconds.
       expect(elapsed).toBeLessThan(500)
     })
 
@@ -2337,7 +2357,7 @@ Para más información, consulta "[AUTOTITLE](/path)".
       }
       const elapsed = performance.now() - start
 
-      // Generous threshold for CI; an O(n²) regression would be multi-second.
+      // Generous threshold for CI; a quadratic regression would take multiple seconds.
       expect(elapsed).toBeLessThan(2000)
     })
 
@@ -2351,7 +2371,7 @@ Para más información, consulta "[AUTOTITLE](/path)".
       const elapsed = performance.now() - start
 
       expect(result).toContain('{% endraw %}')
-      // Generous threshold for CI; catastrophic backtracking would be multi-second.
+      // Generous threshold for CI; catastrophic backtracking would take multiple seconds.
       expect(elapsed).toBeLessThan(2000)
     })
 
@@ -2362,7 +2382,7 @@ Para más información, consulta "[AUTOTITLE](/path)".
       fix(content, 'ru')
       const elapsed = performance.now() - start
 
-      // Generous threshold; regression would be multi-second.
+      // Generous threshold; regression would take multiple seconds.
       expect(elapsed).toBeLessThan(2000)
     })
   })
@@ -3377,6 +3397,104 @@ Para más información, consulta "[AUTOTITLE](/path)".
       expect(
         correctTranslatedContentStrings(broken, '', { ...context, relativePath: 'other.md' }),
       ).toBe(broken)
+    })
+  })
+
+  describe('octicon with French guillemets', () => {
+    test('fr: trims padding left by « check » after quote normalization', () => {
+      expect(fix('{% octicon « check » aria-label="Included » %}', 'fr')).toBe(
+        '{% octicon "check" aria-label="Included" %}',
+      )
+      expect(fix('{% octicon « x » aria-label="Non inclus" %}', 'fr')).toBe(
+        '{% octicon "x" aria-label="Non inclus" %}',
+      )
+    })
+
+    test('fr: leaves a correct octicon unchanged', () => {
+      const ok = '{% octicon "check" aria-label="Included" %}'
+      expect(fix(ok, 'fr')).toBe(ok)
+    })
+
+    test('leaves padded values on other attributes unchanged', () => {
+      const custom = '{% octicon "x" data-aria-label=" a " myclass=" b " title=" c " %}'
+      expect(fix(custom, 'fr')).toBe(custom)
+    })
+
+    test('leaves whitespace-only attribute values unchanged', () => {
+      const blank = '{% octicon "x" class=" " width="64" aria-label="Supported" %}'
+      expect(fix(blank, 'fr')).toBe(blank)
+    })
+  })
+
+  describe('data keyword glued to variables or reusables', () => {
+    test('es: {% datos.variables. and a stray word between datos and variables', () => {
+      expect(fix('{% datos.variables.product.company_short %}', 'es')).toBe(
+        '{% data variables.product.company_short %}',
+      )
+      expect(fix('un {% datos existente variables.copilot.x %} de su', 'es')).toBe(
+        'un {% data variables.copilot.x %} de su',
+      )
+      const ok = '{% data variables.product.company_short %}'
+      expect(fix(ok, 'es')).toBe(ok)
+    })
+
+    test('zh: {% data变量. becomes {% data variables.', () => {
+      expect(fix('{% data变量.dependabot.github_presets %} 是规则', 'zh')).toBe(
+        '{% data variables.dependabot.github_presets %} 是规则',
+      )
+      const ok = '{% data variables.dependabot.github_presets %}'
+      expect(fix(ok, 'zh')).toBe(ok)
+    })
+
+    test('zh: space-separated data变量 restores the dot', () => {
+      expect(fix('{% data变量 dependabot.github_presets %} 是规则', 'zh')).toBe(
+        '{% data variables.dependabot.github_presets %} 是规则',
+      )
+      expect(
+        fix(
+          '{% data变量 dependabot.github_presets %} 是规则',
+          'zh',
+          '{% data variables.dependabot.github_presets %} are rules',
+        ),
+      ).toBe('{% data variables.dependabot.github_presets %} 是规则')
+    })
+
+    test('zh: space-separated data变量 with only whitespace-control data tags', () => {
+      expect(
+        fix(
+          '{%- data变量 dependabot.github_presets %} 是规则',
+          'zh',
+          '{%- data variables.dependabot.github_presets %} are rules',
+        ),
+      ).toBe('{%- data variables.dependabot.github_presets %} 是规则')
+    })
+  })
+
+  describe('octicon missing space before quoted name', () => {
+    test('restores the space, including after curly-quote normalization', () => {
+      expect(fix('{% octicon“kebab-horizontal” aria-label=“图标” %}', 'zh')).toBe(
+        '{% octicon "kebab-horizontal" aria-label="图标" %}',
+      )
+      expect(fix('{% octicon"pulse" aria-hidden="true" %}', 'ja')).toBe(
+        '{% octicon "pulse" aria-hidden="true" %}',
+      )
+    })
+
+    test('leaves a correct octicon unchanged', () => {
+      const ok = '{% octicon "pulse" aria-hidden="true" %}'
+      expect(fix(ok, 'ja')).toBe(ok)
+    })
+  })
+
+  describe('Korean data keyword and tag names', () => {
+    test('fixes {%- dada and translated eclipse and desktop tags', () => {
+      expect(fix('{%- dada variables.product.prodname_actions %}', 'ko')).toBe(
+        '{%- data variables.product.prodname_actions %}',
+      )
+      expect(fix('{% 이클립스 %}x{% endeclipse %}', 'ko')).toBe('{% eclipse %}x{% endeclipse %}')
+      expect(fix('{%- 데스크톱 %}x{% enddesktop %}', 'ko')).toBe('{%- desktop %}x{% enddesktop %}')
+      const ok = '{% data variables.product.prodname_actions %}'
+      expect(fix(ok, 'ko')).toBe(ok)
     })
   })
 })

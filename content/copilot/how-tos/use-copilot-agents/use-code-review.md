@@ -24,13 +24,13 @@ category:
 
 {% data variables.product.prodname_copilot %} can review your code and provide feedback. Where possible, {% data variables.product.prodname_copilot_short %}'s feedback includes suggested changes which you can apply with a couple of clicks.
 
-For a full introduction to {% data variables.copilot.copilot_code-review %}, see [AUTOTITLE](/copilot/concepts/agents/code-review).
+For a full introduction to {% data variables.copilot.copilot_code-review %}, see [AUTOTITLE](/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/code-review).
 
-{% data variables.copilot.copilot_code-review_short %} uses {% data variables.product.prodname_actions %} to run agentic capabilities. For more information, see [Agentic capabilities for {% data variables.copilot.copilot_code-review_short %}](/copilot/concepts/agents/code-review#usage-of-github-actions-runners-for-agentic-capabilities-in-code-review).
+{% data variables.copilot.copilot_code-review_short %} uses {% data variables.product.prodname_actions %} to run agentic capabilities. For more information, see [Agentic capabilities for {% data variables.copilot.copilot_code-review_short %}](/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/code-review#usage-of-github-actions-runners-for-agentic-capabilities-in-code-review).
 
 {% webui %}
 
-{% data variables.copilot.copilot_code-review_short %} is also available for organization members without a {% data variables.product.prodname_copilot_short %} license, when enabled by an enterprise administrator or organization owner. See [{% data variables.copilot.copilot_code-review_short %} for organization members without a {% data variables.product.prodname_copilot_short %} license](/copilot/concepts/agents/code-review#copilot-code-review-without-a-copilot-license).
+{% data variables.copilot.copilot_code-review_short %} is also available for organization members without a {% data variables.product.prodname_copilot_short %} license, when enabled by an enterprise administrator or organization owner. See [{% data variables.copilot.copilot_code-review_short %} for organization members without a {% data variables.product.prodname_copilot_short %} license](/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/code-review#copilot-code-review-without-a-copilot-license).
 
 ## Using {% data variables.copilot.copilot_code-review_short %}
 
@@ -89,7 +89,7 @@ With review effort levels, you can choose the level of thoroughness of {% data v
 
 You can select {% data variables.product.prodname_copilot_short %} review effort in the pull request before you request a review from {% data variables.product.prodname_copilot_short %}, under the **Reviewers** section where {% data variables.product.prodname_copilot_short %} appears as a reviewer. You can also set a default {% data variables.product.prodname_copilot_short %} review effort in your settings. Organization owners and repository administrators can set a default {% data variables.product.prodname_copilot_short %} review effort for automatic reviews.
 
-For more information, see [AUTOTITLE](/copilot/concepts/agents/code-review#review-effort-level).
+For more information, see [AUTOTITLE](/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/code-review#review-effort-level).
 
 ## Pull request approvals from {% data variables.product.prodname_copilot_short %}
 

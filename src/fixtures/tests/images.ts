@@ -37,6 +37,7 @@ describe('render Markdown image tags', () => {
     expect(src).toMatch(/^\/assets\/cb-\w+\/images\/_fixtures\/screenshot\.png$/)
     const alt = imgs.attr('alt')
     expect(alt).toBe('This is the alt text')
+    expect(imgs.attr('class')).toMatch(/Image/)
 
     const res = await get(srcset!.split(' ')[0], { responseType: 'buffer' })
     expect(res.statusCode).toBe(200)
@@ -69,6 +70,16 @@ describe('render Markdown image tags', () => {
     expect(imageSpan.length).toBe(1)
   })
 
+  // A div inside a paragraph is invalid HTML and breaks hydration.
+  test('linked image in a list paragraph has no wrapper', async () => {
+    const $: CheerioAPI = await getDOM('/get-started/images/images-in-lists')
+
+    const link = $('#article-contents ol > li > p > a[href="https://github.com"]')
+    expect(link.length).toBe(1)
+    expect($('div', link).length).toBe(0)
+    expect($('img', link).attr('alt')).toBe('Linked test image')
+  })
+
   test("links directly to images aren't rewritten", async () => {
     const $: CheerioAPI = await getDOM('/get-started/images/link-to-image')
     // The fixture has one article link; header links are out of scope.
@@ -78,5 +89,35 @@ describe('render Markdown image tags', () => {
     expect(links.attr('href'), '/assets/images/_fixtures/screenshot.png')
     const res = await head(links.attr('href')!)
     expect(res.statusCode).toBe(200)
+  })
+
+  test('emoji images stay plain img elements', async () => {
+    const $: CheerioAPI = await getDOM('/get-started/images/emoji-and-decorative-images')
+    const emoji = $(
+      '#article-contents img[src^="https://github.githubassets.com/images/icons/emoji"]',
+    )
+    expect(emoji.length).toBe(1)
+    expect(emoji.attr('alt')).toBe(':strawberry:')
+    expect(emoji.attr('class')).toBeUndefined()
+  })
+
+  test('images without alt text render an empty alt', async () => {
+    const $: CheerioAPI = await getDOM('/get-started/images/emoji-and-decorative-images')
+    const imgs = $('#article-contents img[src*="/images/_fixtures/screenshot.png"]')
+    expect(imgs.length).toBe(1)
+    expect(imgs.attr('alt')).toBe('')
+    expect(imgs.attr('class')).toMatch(/Image/)
+  })
+
+  test('images in RenderedHTML intros use the Brand Image component', async () => {
+    const $: CheerioAPI = await getDOM('/get-started/images/emoji-and-decorative-images')
+    const lead = $('[data-container="lead"]')
+    const image = $('img[src*="/images/_fixtures/electrocat.png"]', lead)
+    expect(image.length).toBe(1)
+    expect(image.attr('alt')).toBe('Intro image')
+    expect(image.attr('class')).toMatch(/Image/)
+    const emoji = $('img[src^="https://github.githubassets.com/images/icons/emoji"]', lead)
+    expect(emoji.length).toBe(1)
+    expect(emoji.attr('class')).toBeUndefined()
   })
 })

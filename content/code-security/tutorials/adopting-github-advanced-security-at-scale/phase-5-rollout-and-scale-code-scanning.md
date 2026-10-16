@@ -33,7 +33,7 @@ To successfully manage and use {% data variables.product.prodname_code_scanning 
 
 You'll also need SMEs if you need to use advanced setup for {% data variables.product.prodname_code_scanning %}. These SMEs will need knowledge of {% data variables.product.prodname_code_scanning %} alerts, as well as topics like {% data variables.product.prodname_actions %} and customizing {% data variables.product.prodname_code_scanning %} workflows for particular frameworks. For custom configurations of advanced setup, consider running meetings on complicated topics to scale the knowledge of several SMEs at once.
 
-For {% data variables.product.prodname_code_scanning %} alerts from {% data variables.product.prodname_codeql %} analysis, you can use security overview to see how {% data variables.product.prodname_codeql %} is performing in pull requests in repositories across your organization, and to identify repositories where you may need to take action. For more information, see [AUTOTITLE](/code-security/concepts/code-scanning/pull-request-alert-metrics).
+For {% data variables.product.prodname_code_scanning %} alerts from {% data variables.product.prodname_codeql %} analysis, you can use security overview to see how {% data variables.product.prodname_codeql %} is performing in pull requests in repositories across your organization, and to identify repositories where you may need to take action. For more information, see [AUTOTITLE](/code-security/concepts/code-scanning/code-scanning-on-pull-requests).
 
 {% ifversion copilot-chat-ghas-alerts %}
 

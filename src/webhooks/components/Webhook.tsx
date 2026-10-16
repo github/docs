@@ -1,7 +1,5 @@
 import { ActionMenu } from '@primer/react-brand'
 import { onActionMenuItemKeyDownCapture } from '@/frame/components/lib/action-menu'
-// Webhook keeps the error callout on Primer React because Brand lacks Flash, Banner, or Alert.
-import { Flash } from '@primer/react'
 import { useState, useEffect, useCallback } from 'react'
 import useSWR from 'swr'
 import { slug } from 'github-slugger'
@@ -10,6 +8,7 @@ import { announce } from '@primer/live-region-element'
 
 import { useVersion } from '@/versions/components/useVersion'
 import { HeadingLink } from '@/frame/components/article/HeadingLink'
+import { Banner } from '@/frame/components/ui/Banner'
 import { useTranslation } from '@/languages/components/useTranslation'
 import type { WebhookAction, WebhookData } from './types'
 import { ParameterTable } from '@/automated-pipelines/components/parameter-table/ParameterTable'
@@ -156,12 +155,12 @@ export function Webhook({ webhook }: Props) {
           )}
         />
         {error && (
-          <Flash className="mb-5" variant="danger">
+          <Banner className="mb-5" variant="danger">
             <p>{t('action_type_switch_error')}</p>
             <p>
               <code className={`f6 ${styles.errorCode}`}>{error.toString()}</code>
             </p>
-          </Flash>
+          </Banner>
         )}
         {webhook.actionTypes.length > 1 && (
           <div className="mb-4">
