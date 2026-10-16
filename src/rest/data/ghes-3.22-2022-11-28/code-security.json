@@ -6151,8 +6151,24 @@
           "description": "<p>Accepted</p>"
         },
         {
+          "httpStatusCode": "400",
+          "description": "<p>Bad Request</p>"
+        },
+        {
           "httpStatusCode": "403",
           "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "409",
+          "description": "<p>Conflict because security configuration work is already in progress for the\norganization, security configuration changes are blocked for the organization,\nor another organization in the same enterprise is applying security configurations.</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed because the body does not match the request schema, <code>scope</code>\nis <code>selected</code> but <code>selected_repository_ids</code> is missing or empty, or a non-empty\n<code>selected_repository_ids</code> array is provided for another scope.</p>"
         }
       ],
       "previews": [],
