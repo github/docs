@@ -84,7 +84,7 @@ When you select **Auto**, {% data variables.copilot.copilot_auto_model_selection
 * The {% data variables.copilot.github_copilot_app %}
 * {% data variables.copilot.copilot_cloud_agent %}
 
-> [!NOTE] Auto tiers are only available on {% data variables.product.prodname_vscode_shortname %}, {% data variables.copilot.copilot_cli_short %}, and the {% data variables.copilot.github_copilot_app %} .
+> [!NOTE] Auto tiers are only available on {% data variables.copilot.copilot_chat_short %} on the {% data variables.product.github %} website, {% data variables.product.prodname_vscode_shortname %}, {% data variables.copilot.copilot_cli_short %}, and the {% data variables.copilot.github_copilot_app %} .
 
 > [!TIP]
 > You can see which model was used for each {% data variables.product.prodname_copilot_short %} response.
