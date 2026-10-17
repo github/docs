@@ -1,3 +1,51 @@
+
+const form = document.getElementById("chatForm");
+const input = document.getElementById("message");
+const messages = document.getElementById("messages");
+
+function addMessage(text, type) {
+  const element = document.createElement("div");
+  element.className = type;
+  element.textContent = text;
+  messages.appendChild(element);
+  messages.scrollTop = messages.scrollHeight;
+}
+
+function reply(text) {
+  const t = text.toLowerCase();
+
+  if (t.includes("привіт")) {
+    return "Привіт! 👋 Я Zayrox_KrytoiBot!";
+  }
+
+  if (t.includes("майнкрафт")) {
+    return "🎮 Ідея: створи Minecraft Shorts, де таємничий портал змінює світ кожні 5 секунд!";
+  }
+
+  if (t.includes("переклади") || t.includes("переклад")) {
+    return 'Напиши текст для перекладу. Наприклад, "Hello" українською — "Привіт".';
+  }
+
+  if (t.includes("математ")) {
+    return "🧮 Напиши математичний приклад. Це демо-версія, тому складні приклади можуть потребувати справжнього AI.";
+  }
+
+  return "💙 Я отримав твоє повідомлення! Зараз працює демо-режим. Щоб давати розумні відповіді на будь-які запитання, потрібно підключити AI через сервер.";
+}
+
+form.addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  const text = input.value.trim();
+  if (!text) return;
+
+  addMessage(text, "user");
+  input.value = "";
+
+  setTimeout(() => {
+    addMessage(reply(text), "bot");
+  }, 300);
+});
 ---
 title: Quickstart for GitHub Pages
 intro: You can use {% data variables.product.prodname_pages %} to showcase open source projects, host a blog, or even share your résumé. This guide will help get you started on creating your next website.
