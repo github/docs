@@ -12,6 +12,7 @@ const CURLY_QUOTE_MAP: Record<string, string> = {
 }
 
 const CHECKED_FIELDS = ['title', 'intro']
+const BLOCK_SCALAR_PATTERN = /^\s*[|>][-+1-9]*\s*(#.*)?$/
 
 export const frontmatterCurlyQuotes: Rule = {
   names: ['GHD034', 'frontmatter-curly-quotes'],
@@ -23,15 +24,10 @@ export const frontmatterCurlyQuotes: Rule = {
 
     const fmStart = params.lines.indexOf('---')
 
-    for (const field of CHECKED_FIELDS) {
-      const idx = fmLines.findIndex((ln: string) => ln.trim().startsWith(`${field}:`))
-      if (idx === -1) continue
-
-      const line = fmLines[idx]
-      if (!CURLY_QUOTE_PATTERN.test(line)) continue
+    const checkLine = (line: string, lineNumber: number, field: string) => {
+      if (!CURLY_QUOTE_PATTERN.test(line)) return
       CURLY_QUOTE_PATTERN.lastIndex = 0
 
-      const lineNumber = fmStart + idx + 1
       const fixedLine = line.replace(CURLY_QUOTE_PATTERN, (ch) => CURLY_QUOTE_MAP[ch] || ch)
 
       addError(
@@ -47,6 +43,25 @@ export const frontmatterCurlyQuotes: Rule = {
           insertText: fixedLine,
         },
       )
+    }
+
+    for (const field of CHECKED_FIELDS) {
+      const idx = fmLines.findIndex((ln: string) => ln.trim().startsWith(`${field}:`))
+      if (idx === -1) continue
+
+      const line = fmLines[idx]
+      checkLine(line, fmStart + idx + 1, field)
+
+      const value = line.trim().slice(field.length + 1)
+      if (!BLOCK_SCALAR_PATTERN.test(value)) continue
+
+      // Block scalar text sits on the following lines, indented deeper than the key.
+      const keyIndent = line.length - line.trimStart().length
+      for (let j = idx + 1; j < fmLines.length - 1; j++) {
+        const next = fmLines[j]
+        if (next.trim() && next.length - next.trimStart().length <= keyIndent) break
+        checkLine(next, fmStart + j + 1, field)
+      }
     }
   },
 }
