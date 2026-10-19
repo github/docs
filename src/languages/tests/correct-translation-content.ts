@@ -2111,6 +2111,38 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('Cell1 | | Cell2', 'es')).toBe('Cell1 |\n| Cell2')
     })
 
+    test('keeps empty table cells that the English source also has', () => {
+      const english = '| `displayName` | `string` | | Human-readable name |'
+      const translated = '| `displayName` | `string` | | 名前 |'
+      expect(fix(translated, 'ja', english)).toBe(translated)
+    })
+
+    test('fixes collapsed rows on a page that also has empty table cells', () => {
+      const english = [
+        '| `displayName` | `string` | | Human-readable name |',
+        '| `name` | `string` | Yes | Unique name |',
+        '',
+        '| Agent | Config |',
+        '| Subagent | Runtime |',
+      ].join('\n')
+      const translated = [
+        '| `displayName` | `string` | | 名前 |',
+        '| `name` | `string` | Yes | 一意 | | `tools` | `string[]` | No | ツール |',
+        '',
+        '| エージェント | 構成 | | サブエージェント | ランタイム |',
+      ].join('\n')
+      expect(fix(translated, 'ja', english)).toBe(
+        [
+          '| `displayName` | `string` | | 名前 |',
+          '| `name` | `string` | Yes | 一意 |',
+          '| `tools` | `string[]` | No | ツール |',
+          '',
+          '| エージェント | 構成 |',
+          '| サブエージェント | ランタイム |',
+        ].join('\n'),
+      )
+    })
+
     test('fixes final catch-all double-brace patterns', () => {
       expect(fix('{{% data variables.product.github %}', 'es')).toBe(
         '{% data variables.product.github %}',

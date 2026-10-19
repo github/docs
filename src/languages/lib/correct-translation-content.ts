@@ -1967,7 +1967,28 @@ export function correctTranslatedContentStrings(
     }
   }
 
-  content = content.replaceAll(' | | ', ' |\n| ')
+  // ' | | ' is also a legitimate empty table cell, so keep a row whose empty-cell layout matches an English row.
+  {
+    const rowShape = (line: string) =>
+      line
+        .split('|')
+        .map((cell) => (cell.trim() ? 'x' : ''))
+        .join('|')
+    const englishRowShapes = new Set(
+      englishContent
+        .split('\n')
+        .filter((line) => line.includes(' | | '))
+        .map(rowShape),
+    )
+    content = content
+      .split('\n')
+      .map((line) =>
+        line.includes(' | | ') && !englishRowShapes.has(rowShape(line))
+          ? line.replaceAll(' | | ', ' |\n| ')
+          : line,
+      )
+      .join('\n')
+  }
 
   // Run after specific fixes. Swap only when no tag sits between, so nesting survives.
   {
