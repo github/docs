@@ -793,7 +793,6 @@ Use `--model=MODEL` or the `COPILOT_MODEL` environment variable to select the AI
 | Model | Best for |
 |-------|----------|
 | `claude-sonnet-5.5` | General-purpose coding (default) |
-| `gpt-5.4` | Complex reasoning tasks |
 | `gpt-6.1-sol` | Recommended, opt-in (not the automatic default) |
 | `gpt-6-astra` | Recommended, opt-in (not the automatic default) |
 | `gpt-6-luna` | Recommended, opt-in (not the automatic default) |
@@ -801,7 +800,6 @@ Use `--model=MODEL` or the `COPILOT_MODEL` environment variable to select the AI
 | `claude-haiku-5.5` | Fast, lightweight operations |
 | `claude-haiku-4.5` | Fast, lightweight operations |
 | `gpt-5.3-codex` | Code-focused tasks |
-| `gemini-3.7-flash` | Fast Google Gemini responses |
 | `gemini-3.8-flash` | Fast Google Gemini responses |
 
 You can also switch models during an interactive session using the `/model` slash command.
@@ -1355,12 +1353,12 @@ Custom agents are specialized AI agents defined in Markdown files. For user, pro
 | Agent | Default model | Description |
 |-------|--------------|-------------|
 | `code-review` | claude-sonnet-4.6 | High signal-to-noise code review. Analyzes diffs for bugs, security issues, and logic errors. Will not modify code. |
-| `explore` | gpt-5.4-mini | Fast codebase exploration. Searches files, reads code, and answers questions. Returns focused answers under 300 words. Safe to run in parallel. |
+| `explore` | gpt-5.6-luna | Fast codebase exploration. Searches files, reads code, and answers questions. Returns focused answers under 300 words. Safe to run in parallel. |
 | `general-purpose` | claude-sonnet-4.6 | Full-capability agent for complex multi-step tasks. Runs in a separate context window. |
 | `research` | claude-haiku-4.5 | Executes thorough searches based on instructions. Searches {% data variables.product.github %} repositories, fetches files, verifies claims, and reports detailed findings with citations. |
 | `rubber-duck` | complementary model | Use a complementary model to provide a constructive critique of proposals, designs, implementations, or tests. Identifies weak points and suggests improvements. See [AUTOTITLE](/copilot/concepts/agent-capabilities/choosing-and-delegating-agent-work/getting-a-second-opinion). |
 | `security-review` | claude-sonnet-4.6 | Security-focused code review. Analyzes changes for high-confidence vulnerabilities across 11 categories. Only flags issues with >80% confidence of exploitability. Reports severity and confidence scores. Will not modify code. |
-| `task` | gpt-5.6-luna (falls back to gpt-5.4-mini, then claude-haiku-4.5) | Command execution (tests, builds, lints). Returns brief summary on success, full output on failure. |
+| `task` | gpt-5.6-luna (falls back to claude-haiku-4.5) | Command execution (tests, builds, lints). Returns brief summary on success, full output on failure. |
 
 `code-review` and `security-review` never forward a full review to another review agent: launching one already fulfills a request to "use" or "call" a reviewer, so it performs the review itself instead of delegating the whole task to a nested `code-review` or `security-review` subagent, recursively, across the entire delegation chain. `code-review` still hands off to the dedicated `security-review` specialist for security-focused portions of a request, and both agents may delegate narrow, independently scoped fact-finding work to non-review agents such as `explore`.
 

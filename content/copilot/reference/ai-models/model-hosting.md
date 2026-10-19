@@ -18,12 +18,8 @@ contentType: reference
 
 Used for:
 
-* {% data variables.copilot.copilot_gpt_5_mini %}
 * {% data variables.copilot.copilot_gpt_53_codex %}
-* {% data variables.copilot.copilot_gpt_54 %}
-* {% data variables.copilot.copilot_gpt_54_mini %}
 * {% data variables.copilot.copilot_gpt_54_nano %}
-* {% data variables.copilot.copilot_gpt_55 %}
 * {% data variables.copilot.copilot_gpt_56_luna %}
 * {% data variables.copilot.copilot_gpt_56_sol %}
 * {% data variables.copilot.copilot_gpt_56_terra %}
@@ -83,7 +79,6 @@ When using {% data variables.copilot.copilot_claude %}, input prompts and output
 
 Used for:
 
-* {% data variables.copilot.copilot_gemini_37_flash %}
 * {% data variables.copilot.copilot_gemini_38_flash %}
 * {% data variables.copilot.copilot_gemini_4_argon %}
 

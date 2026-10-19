@@ -50,7 +50,7 @@ Tool search is enabled by default and activates automatically whenever you're on
 | Family | Supported versions |
 | ------ | ------------------ |
 | Claude (Anthropic) | Mythos Preview, Fable, Haiku 4.5+, Sonnet 4.0+, Opus 4.0+ |
-| GPT (OpenAI) | GPT-5.4 and later |
+| GPT (OpenAI) | Version 5.4 and later |
 
 On any other model, all tools are loaded up front.
 
