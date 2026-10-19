@@ -137,7 +137,7 @@ Cloud sandboxing is built on Azure Container Apps Sandboxes, with {% data variab
 To start a cloud-backed session, run the following command:
 
 ```shell copy
-copilot ‑‑cloud ‑‑experimental
+copilot --cloud --experimental
 ```
 
 > [!NOTE]
