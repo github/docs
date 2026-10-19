@@ -1,12 +1,45 @@
 import { describe, expect, test } from 'vitest'
+import { load } from 'js-yaml'
 
 import {
   extractYaml,
   extractSkipReason,
   parseNoteEntries,
   loadExistingEntriesFromString,
+  extractPreservedBlocks,
   buildReleaseNotesYaml,
 } from '@/ghes-releases/lib/parse-release-notes'
+
+const handEditedFile = `date: '2026-05-12'
+release_candidate: true
+deprecated: true
+intro: |
+  Custom intro written by hand.
+sections:
+
+  features:
+
+    - heading: APIs
+      notes:
+        # https://github.com/github/releases/issues/100
+        - |
+          New endpoint added.
+
+  known_issues:
+    - |
+      First known issue.
+    - |
+      Second known issue.
+
+  closing_down:
+    # https://github.com/github/releases/issues/300
+    - |
+      Legacy API deprecated.
+
+  errata:
+    - |
+      An erratum about a removed note.
+`
 
 describe('extractYaml', () => {
   test('extracts YAML from a fenced code block', () => {
@@ -254,6 +287,37 @@ sections:
     expect(result.entries).toHaveLength(1)
     expect(result.entries[0].notes).toEqual(['First note.', 'Second note from same issue.'])
   })
+
+  test('does not attribute errata or known issues to the previous source URL', () => {
+    const result = loadExistingEntriesFromString(handEditedFile)
+    const closing = result.entries.filter((e) => e.heading === 'Closing down')
+    expect(closing).toEqual([
+      {
+        heading: 'Closing down',
+        notes: ['Legacy API deprecated.'],
+        sourceUrl: 'https://github.com/github/releases/issues/300',
+      },
+    ])
+    const allNotes = result.entries.flatMap((e) => e.notes)
+    expect(allNotes).not.toContain('An erratum about a removed note.')
+  })
+})
+
+describe('extractPreservedBlocks', () => {
+  test('returns the header and the sections the generator does not write', () => {
+    const preserved = extractPreservedBlocks(handEditedFile)
+    expect(preserved).not.toBeNull()
+    expect(preserved!.header).toContain("date: '2026-05-12'")
+    expect(preserved!.header).toContain('deprecated: true')
+    expect(preserved!.header).toContain('Custom intro written by hand.')
+    expect(preserved!.knownIssues).toContain('Second known issue.')
+    expect(preserved!.otherSections).toHaveLength(1)
+    expect(preserved!.otherSections[0]).toMatch(/^ {2}errata:/)
+  })
+
+  test('returns null when there is no sections key', () => {
+    expect(extractPreservedBlocks("date: '2026-05-12'\n")).toBeNull()
+  })
 })
 
 describe('buildReleaseNotesYaml', () => {
@@ -345,5 +409,88 @@ describe('buildReleaseNotesYaml', () => {
     expect(yaml).toContain('# https://github.com/github/releases/issues/999')
     expect(yaml).toContain('- |')
     expect(yaml).toContain('Line one of the note.')
+  })
+
+  test('keeps hand-edited header, known issues, and errata on a rerun', () => {
+    const { entries } = loadExistingEntriesFromString(handEditedFile)
+    const preserved = extractPreservedBlocks(handEditedFile)!
+    const yaml = buildReleaseNotesYaml(entries, true, featureHeadings, preserved)
+    const parsed = load(yaml) as {
+      date: string
+      deprecated: boolean
+      intro: string
+      sections: Record<string, string[]>
+    }
+
+    expect(parsed.date).toBe('2026-05-12')
+    expect(parsed.deprecated).toBe(true)
+    expect(parsed.intro).toBe('Custom intro written by hand.\n')
+    expect(parsed.sections.known_issues).toEqual(['First known issue.\n', 'Second known issue.\n'])
+    expect(parsed.sections.errata).toEqual(['An erratum about a removed note.\n'])
+    expect(parsed.sections.closing_down).toEqual(['Legacy API deprecated.\n'])
+    expect(parsed.sections.features).toEqual([
+      { heading: 'APIs', notes: ['New endpoint added.\n'] },
+    ])
+  })
+
+  test('keeps grouped known issues and errata out of generated entries across reruns', () => {
+    const groupedFile = `date: '2026-05-12'
+release_candidate: false
+deprecated: false
+intro: |
+sections:
+
+  features:
+
+    - heading: APIs
+      notes:
+        # https://github.com/github/releases/issues/100
+        - |
+          New endpoint added.
+
+  known_issues:
+    - heading: APIs
+      notes:
+        - |
+          A grouped API known issue.
+
+  errata:
+    - heading: Repositories
+      notes:
+        - |
+          A grouped erratum.
+`
+    const { entries } = loadExistingEntriesFromString(groupedFile)
+    expect(entries).toEqual([
+      {
+        heading: 'APIs',
+        notes: ['New endpoint added.'],
+        sourceUrl: 'https://github.com/github/releases/issues/100',
+      },
+    ])
+
+    const firstRun = buildReleaseNotesYaml(
+      entries,
+      false,
+      featureHeadings,
+      extractPreservedBlocks(groupedFile)!,
+    )
+    const secondRun = buildReleaseNotesYaml(
+      loadExistingEntriesFromString(firstRun).entries,
+      false,
+      featureHeadings,
+      extractPreservedBlocks(firstRun)!,
+    )
+    expect(secondRun).toBe(firstRun)
+    const parsed = load(secondRun) as { sections: Record<string, unknown> }
+    expect(parsed.sections.features).toEqual([
+      { heading: 'APIs', notes: ['New endpoint added.\n'] },
+    ])
+    expect(parsed.sections.known_issues).toEqual([
+      { heading: 'APIs', notes: ['A grouped API known issue.\n'] },
+    ])
+    expect(parsed.sections.errata).toEqual([
+      { heading: 'Repositories', notes: ['A grouped erratum.\n'] },
+    ])
   })
 })

@@ -13,10 +13,12 @@ import { load } from 'js-yaml'
 
 import {
   type NoteEntry,
+  type PreservedBlocks,
   extractYaml,
   extractSkipReason,
   parseNoteEntries,
-  loadExistingEntries,
+  loadExistingEntriesFromString,
+  extractPreservedBlocks,
   buildReleaseNotesYaml,
   appendNoteLines,
 } from '@/ghes-releases/lib/parse-release-notes'
@@ -570,10 +572,13 @@ program
       // Existing entries make generation incremental by default.
       const allEntries: NoteEntry[] = []
       let existingCoveredUrls = new Set<string>()
+      let preserved: PreservedBlocks | undefined
 
       if (!force && !stdout && fs.existsSync(outputPath)) {
-        const existing = loadExistingEntries(outputPath)
-        if (existing && existing.entries.length > 0) {
+        const existingContent = fs.readFileSync(outputPath, 'utf8')
+        preserved = extractPreservedBlocks(existingContent) ?? undefined
+        const existing = loadExistingEntriesFromString(existingContent)
+        if (existing.entries.length > 0) {
           // Regenerate a single issue by dropping its previous source URL entry first.
           if (singleIssue) {
             const issueUrl = `https://github.com/github/releases/issues/${singleIssue}`
@@ -629,7 +634,7 @@ program
           if (!fs.existsSync(outputDir)) {
             fs.mkdirSync(outputDir, { recursive: true })
           }
-          const yamlOutput = buildReleaseNotesYaml(allEntries, rc, featureHeadings)
+          const yamlOutput = buildReleaseNotesYaml(allEntries, rc, featureHeadings, preserved)
           fs.writeFileSync(outputPath, yamlOutput, 'utf8')
         } catch (err) {
           console.error(`  ⚠ Failed to write output file: ${(err as Error).message}`)
