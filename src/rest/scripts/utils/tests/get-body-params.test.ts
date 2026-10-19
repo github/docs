@@ -324,4 +324,87 @@ describe('getBodyParams — OAS 3.1 nullable handling', () => {
     expect(params[0].type).toBe('string')
     expect(params[0].isRequired).toBe(true)
   })
+
+  it('recurses into array items with type ["object", "null"]', async () => {
+    const schema: Schema = {
+      type: 'object',
+      properties: {
+        assignees: {
+          type: 'array',
+          items: {
+            type: ['object', 'null'],
+            properties: {
+              login: { type: 'string', description: 'The login' },
+            },
+          },
+        },
+      },
+    }
+    const params = await getBodyParams(schema, false)
+    expect(params).toHaveLength(1)
+    expect(params[0].type).toBe('array of objects')
+    expect(params[0].childParamsGroups?.map(({ name }) => name)).toEqual(['login'])
+  })
+
+  it('renders a nullable array of ["string", "null"] items as "array of strings or null"', async () => {
+    const schema: Schema = {
+      type: 'object',
+      properties: {
+        bullets: {
+          type: ['array', 'null'],
+          items: { type: ['string', 'null'] },
+        },
+      },
+    }
+    const params = await getBodyParams(schema, false)
+    expect(params).toHaveLength(1)
+    expect(params[0].type).toBe('array of strings or null')
+  })
+
+  it('adds supported values for enum array items with type ["string", "null"]', async () => {
+    const schema: Schema = {
+      type: 'object',
+      properties: {
+        tags: {
+          type: 'array',
+          description: 'Tags.',
+          items: { type: ['string', 'null'], enum: ['a', 'b'] },
+        },
+      },
+    }
+    const params = await getBodyParams(schema, false)
+    expect(params).toHaveLength(1)
+    expect(params[0].description).toContain('Supported values are: <code>a</code>, <code>b</code>')
+  })
+
+  it('adds supported values without a prefix when nullable enum items have no array description', async () => {
+    const schema: Schema = {
+      type: 'object',
+      properties: {
+        tags: {
+          type: 'array',
+          items: { type: ['string', 'null'], enum: ['a', 'b'] },
+        },
+      },
+    }
+    const params = await getBodyParams(schema, false)
+    expect(params).toHaveLength(1)
+    expect(params[0].description).toBe('Supported values are: <code>a</code>, <code>b</code>')
+  })
+
+  it('recurses into top-level array items with type ["object", "null"]', async () => {
+    const schema: Schema = {
+      type: 'array',
+      items: {
+        type: ['object', 'null'],
+        properties: {
+          id: { type: 'integer', description: 'The ID' },
+        },
+      },
+    }
+    const params = await getBodyParams(schema, true)
+    expect(params).toHaveLength(1)
+    expect(params[0].type).toBe('array')
+    expect(params[0].childParamsGroups?.map(({ name }) => name)).toEqual(['id'])
+  })
 })
