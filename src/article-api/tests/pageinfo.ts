@@ -62,6 +62,17 @@ describe('pageinfo api', () => {
     expect(meta.title).toBe('Broken frontmatter translation fallback')
   })
 
+  // Japanese frontmatter has an empty title and a numeric intro, so each key falls back to English.
+  test('mistyped translation frontmatter values fall back to English', async () => {
+    const res = await get(makeURL('/ja/get-started/foo/mistyped-frontmatter-translation'))
+    expect(res.statusCode).toBe(200)
+    const meta = JSON.parse(res.body) as PageMetadata
+    expect(meta.title).toBe('Mistyped frontmatter translation fallback')
+    expect(meta.intro).toBe(
+      'Demonstrates falling back to English when a translated frontmatter value has the wrong type.',
+    )
+  })
+
   test('a pathname that does not exist', async () => {
     const res = await get(makeURL('/en/never/heard/of'))
     expect(res.statusCode).toBe(404)
