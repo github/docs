@@ -1,5 +1,17 @@
-import { describe, expect, test } from 'vitest'
-import { prepareData } from '../components/hydro-analytics'
+import { beforeEach, describe, expect, test, vi } from 'vitest'
+import { prepareData, sendHydroAnalyticsEvent } from '../components/hydro-analytics'
+
+const { mockSendEvent, mockSendPageView } = vi.hoisted(() => ({
+  mockSendEvent: vi.fn(),
+  mockSendPageView: vi.fn(),
+}))
+vi.mock('@github/hydro-analytics-client', () => ({
+  AnalyticsClient: class {
+    sendEvent = mockSendEvent
+    sendPageView = mockSendPageView
+  },
+  getOrCreateClientId: () => 'test-client-id',
+}))
 
 describe('prepareData', () => {
   test('flattens nested context into top level', () => {
@@ -116,5 +128,44 @@ describe('prepareData', () => {
     }
     const result = prepareData(body)
     expect(result.context.page_type).toBe('marketing')
+  })
+
+  test('does not forward survey email, comment, or bot trap fields', () => {
+    const body = {
+      type: 'survey',
+      context: { event_id: '123' },
+      survey_vote: true,
+      survey_comment: 'Great article',
+      survey_email: 'reader@example.com',
+      survey_token: 'filled-by-bot',
+    }
+    const result = prepareData(body)
+    expect(result.context.survey_vote).toBe('true')
+    expect(result.context.survey_comment).toBeUndefined()
+    expect(result.context.survey_email).toBeUndefined()
+    expect(result.context.survey_token).toBeUndefined()
+  })
+})
+
+describe('sendHydroAnalyticsEvent', () => {
+  beforeEach(() => {
+    mockSendEvent.mockClear()
+    mockSendPageView.mockClear()
+  })
+
+  test('sends survey events without a bot trap value', () => {
+    sendHydroAnalyticsEvent({ type: 'survey', context: { event_id: '123' }, survey_vote: true })
+    expect(mockSendEvent).toHaveBeenCalledTimes(1)
+    expect(mockSendEvent.mock.calls[0][0]).toBe('survey')
+  })
+
+  test('skips survey events that fill the bot trap', () => {
+    sendHydroAnalyticsEvent({
+      type: 'survey',
+      context: { event_id: '123' },
+      survey_vote: true,
+      survey_token: 'filled-by-bot',
+    })
+    expect(mockSendEvent).not.toHaveBeenCalled()
   })
 })
