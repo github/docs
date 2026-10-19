@@ -28,7 +28,12 @@ export default function GroupedEvents({ auditLogEvents, category, categoryNote }
       .filter((link) => link && link !== 'N/A')
       .map(normalizeReferenceLink)
 
-    const titles = event.docs_reference_titles ? event.docs_reference_titles.split(', ') : links
+    // Titles can contain ', ', so a single link keeps its whole title.
+    const titles = !event.docs_reference_titles
+      ? links
+      : links.length === 1
+        ? [event.docs_reference_titles]
+        : event.docs_reference_titles.split(', ')
 
     return links.map((link, index) => (
       <span key={link}>
