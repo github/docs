@@ -3135,6 +3135,18 @@
   ],
   "dependency-graph": [
     {
+      "slug": "get-the-license-compliance-policy-for-an-enterprise",
+      "subcategory": "license-compliance",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/license-compliance/policies/{policy_id}"
+    },
+    {
+      "slug": "set-the-license-compliance-policy-for-an-enterprise",
+      "subcategory": "license-compliance",
+      "verb": "put",
+      "requestPath": "/enterprises/{enterprise}/license-compliance/policies/{policy_id}"
+    },
+    {
       "slug": "get-a-diff-of-the-dependencies-between-commits",
       "subcategory": "dependency-review",
       "verb": "get",
