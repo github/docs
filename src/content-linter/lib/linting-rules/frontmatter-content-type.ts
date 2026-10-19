@@ -17,6 +17,14 @@ const KNOWN_CONTENT_TYPE_DIRS = new Set([
   GETTING_STARTED_STRING,
 ])
 
+// Products qualify when they have all of these, even if they also have other directories.
+const REQUIRED_CONTENT_TYPE_DIRS = ['concepts', 'how-tos', 'reference', 'tutorials']
+
+// responsible-use-of... variants resolve to rai, matching dirToContentType.
+function isKnownDir(name: string): boolean {
+  return KNOWN_CONTENT_TYPE_DIRS.has(name) || name.includes(RESPONSIBLE_USE_STRING)
+}
+
 // Cache qualifying products so every file in the lint run reuses the directory scan.
 let qualifyingProducts: Set<string> | null = null
 
@@ -31,17 +39,14 @@ function getQualifyingProducts(): Set<string> {
     if (entry.name === 'early-access') continue
 
     const productPath = path.join(contentDir, entry.name)
-    const subdirs = fs
-      .readdirSync(productPath, { withFileTypes: true })
-      .filter((e) => e.isDirectory())
+    const subdirs = new Set(
+      fs
+        .readdirSync(productPath, { withFileTypes: true })
+        .filter((e) => e.isDirectory())
+        .map((e) => e.name),
+    )
 
-    // Flat products do not need contentType directory validation.
-    if (subdirs.length === 0) continue
-
-    // responsible-use-of... variants resolve to rai, matching dirToContentType.
-    const isKnownDir = (name: string) =>
-      KNOWN_CONTENT_TYPE_DIRS.has(name) || name.includes(RESPONSIBLE_USE_STRING)
-    if (subdirs.every((sub) => isKnownDir(sub.name))) {
+    if (REQUIRED_CONTENT_TYPE_DIRS.every((dir) => subdirs.has(dir))) {
       products.add(entry.name)
     }
   }
@@ -94,6 +99,9 @@ export const frontmatterContentType = {
     } else if (segments.length === 2) {
       // Skip non-index files under a qualifying product instead of requiring contentType other.
       return
+    } else if (!isKnownDir(segments[1])) {
+      // Skip directories that are not content types instead of requiring contentType other.
+      return
     } else {
       expectedType = dirToContentType(segments[1])
     }
@@ -106,7 +114,9 @@ export const frontmatterContentType = {
     const errorLine =
       contentTypeLine !== -1 ? contentTypeLine + 1 : fmOpenLine !== -1 ? fmOpenLine + 1 : 1
 
-    const fixHint = `Run \`npx tsx src/content-render/scripts/add-content-type.ts --paths ${product}\` to fix.`
+    // Scope the fix to this file because a product-wide run rewrites pages this rule skips.
+    const fixPath = path.posix.join('content', ...segments)
+    const fixHint = `Run \`npx tsx src/content-render/scripts/add-content-type.ts --paths ${fixPath}\` to fix.`
 
     if (!fm.contentType) {
       addError(
