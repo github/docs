@@ -959,6 +959,11 @@ export function correctTranslatedContentStrings(
       /(\{%-?\s*indented_data_reference\s+)повторн[а-яё]*(?:\s+[а-яё]+)*\./g,
       '$1reusables.',
     )
+    // Genitive-case transliteration of octicon
+    content = content.replaceAll('{% октикона ', '{% octicon ')
+    content = content.replaceAll('{%- октикона ', '{%- octicon ')
+    content = content.replaceAll('{% oктикoнa ', '{% octicon ')
+    content = content.replaceAll('{%- oктикoнa ', '{%- octicon ')
     content = content.replaceAll('{% еще %}', '{% else %}')
     content = content.replaceAll('{%- еще %}', '{%- else %}')
     content = content.replaceAll('{% ещё %}', '{% else %}')
@@ -1330,6 +1335,11 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{%- 들여쓰기_데이터_참조 ', '{%- indented_data_reference ')
     content = content.replaceAll('{% 옥티콘 ', '{% octicon ')
     content = content.replaceAll('{%- 옥티콘 ', '{%- octicon ')
+    // "자료" (material) substituted for "data" in data variables/reusables tags
+    content = content.replaceAll('{% 자료 변수.', '{% data variables.')
+    content = content.replaceAll('{%- 자료 변수.', '{%- data variables.')
+    content = content.replaceAll('{% 자료 재사용 가능.', '{% data reusables.')
+    content = content.replaceAll('{%- 자료 재사용 가능.', '{%- data reusables.')
     content = content.replaceAll('{% 행 머리글 %}', '{% rowheaders %}')
     content = content.replaceAll('{%- 행 머리글 %}', '{%- rowheaders %}')
     content = content.replaceAll('{% 행머리글 %}', '{% rowheaders %}')

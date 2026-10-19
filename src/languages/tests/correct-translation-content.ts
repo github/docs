@@ -929,6 +929,14 @@ describe('correctTranslatedContentStrings', () => {
       )
     })
 
+    test('fixes октикона → octicon', () => {
+      expect(fix('{% октикона "плюс" aria-label="plus" %}', 'ru')).toBe(
+        '{% octicon "плюс" aria-label="plus" %}',
+      )
+      expect(fix('{%- октикона "plus" %}', 'ru')).toBe('{%- octicon "plus" %}')
+      expect(fix('{% octicon "plus" %}', 'ru')).toBe('{% octicon "plus" %}')
+    })
+
     test('fixes translated raw/endraw', () => {
       expect(fix('{% необработанного %}', 'ru')).toBe('{% raw %}')
       expect(fix('{%- необработанного %}', 'ru')).toBe('{%- raw %}')
@@ -1409,6 +1417,18 @@ describe('correctTranslatedContentStrings', () => {
     test('fixes 그렇지 않으면 → else', () => {
       expect(fix('{% 그렇지 않으면 %}', 'ko')).toBe('{% else %}')
       expect(fix('{%- 그렇지 않으면 %}', 'ko')).toBe('{%- else %}')
+    })
+
+    test('fixes 자료 → data in variables/reusables tags', () => {
+      expect(fix('{% 자료 변수.product.prodname_vs %}', 'ko')).toBe(
+        '{% data variables.product.prodname_vs %}',
+      )
+      expect(fix('{%- 자료 재사용 가능.enterprise.save %}', 'ko')).toBe(
+        '{%- data reusables.enterprise.save %}',
+      )
+      expect(fix('{% data variables.product.prodname_vs %}', 'ko')).toBe(
+        '{% data variables.product.prodname_vs %}',
+      )
     })
 
     test('fixes 옥티콘 → octicon', () => {
