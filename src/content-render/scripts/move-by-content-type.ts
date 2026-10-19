@@ -405,6 +405,7 @@ contentType: ${placeholderContentType}
 
     for (const productDir of productDirs) {
       const productName = path.basename(productDir)
+      const retainedChildren = new Set<string>()
 
       try {
         const entries = await fs.readdir(productDir, { withFileTypes: true })
@@ -412,12 +413,44 @@ contentType: ${placeholderContentType}
         for (const entry of entries) {
           if (entry.isDirectory() && !validContentTypeDirs.has(entry.name)) {
             const oldDirPath = path.join(productDir, entry.name)
+            const relativeOldDirPath = path.relative(process.cwd(), oldDirPath)
 
             try {
+              // Unmoved articles and typed indexes would be lost; untyped category indexes go with the directory.
+              const remaining: string[] = []
+              for (const file of walkFiles(oldDirPath, ['.md'], { includeEarlyAccess: true })) {
+                if (path.basename(file) !== 'index.md') {
+                  remaining.push(file)
+                  continue
+                }
+                const { data } = readFrontmatter(await fs.readFile(file, 'utf-8'))
+                if (!data || data.contentType) remaining.push(file)
+              }
+              if (remaining.length > 0) {
+                const examples = remaining
+                  .slice(0, 3)
+                  .map((file) => path.relative(process.cwd(), file))
+                  .join(', ')
+                console.log(
+                  chalk.yellow(
+                    `⚠ Not deleting ${relativeOldDirPath}: ${remaining.length} unmoved articles remain (${examples})`,
+                  ),
+                )
+                skipped.push({
+                  file: relativeOldDirPath,
+                  reason: `Not deleted: ${remaining.length} unmoved articles remain`,
+                })
+                try {
+                  await fs.access(path.join(oldDirPath, 'index.md'))
+                  retainedChildren.add(`/${entry.name}`)
+                } catch {
+                  // A category without an index cannot be listed as a child.
+                }
+                continue
+              }
+
               await fs.rm(oldDirPath, { recursive: true, force: true })
-              console.log(
-                chalk.gray(`✓ Deleted old directory: ${path.relative(process.cwd(), oldDirPath)}`),
-              )
+              console.log(chalk.gray(`✓ Deleted old directory: ${relativeOldDirPath}`))
 
               if (!deletedByProduct.has(productName)) deletedByProduct.set(productName, [])
               deletedByProduct.get(productName)!.push(`/${productName}/${entry.name}`)
@@ -446,7 +479,11 @@ contentType: ${placeholderContentType}
           }
 
           if (newChildren.length > 0) {
-            data.children = newChildren
+            // Retained categories stay reachable in the tree until their remaining articles move.
+            const keptChildren = Array.isArray(data.children)
+              ? data.children.filter((child: string) => retainedChildren.has(child))
+              : []
+            data.children = [...newChildren, ...keptChildren]
             updated = true
           }
 
