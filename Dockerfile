@@ -4,7 +4,7 @@
 
 # Update the base image digest from the gh-base-noble package page:
 # https://github.com/github/gh-base-image/pkgs/container/gh-base-image%2Fgh-base-noble
-FROM ghcr.io/github/gh-base-image/gh-base-noble:20261007-171807-gaf2071665@sha256:57e57e0d0dd8cf12cbf047aa5ae7ead850f562bc66bace621598a460b803efc7 AS base
+FROM ghcr.io/github/gh-base-image/gh-base-noble:20261016-181622-g7dfd3798b@sha256:d41c754579434b9b6479a3d3786a6a84ad7be50ce64626bbc07579ab4c36302b AS base
 # Install curl for NodeSource setup.
 # Install git for early-access and translation clones.
 # Ubuntu's nodejs package lags the Node LTS release line.
@@ -79,7 +79,7 @@ COPY --chown=node:node --from=clones $APP_HOME/content content/
 COPY --chown=node:node --from=clones $APP_HOME/translations translations/
 COPY --chown=node:node --from=prod_deps $APP_HOME/node_modules node_modules/
 COPY --chown=node:node --from=build $APP_HOME/.next .next/
-COPY --chown=node:node --from=warmup_cache $APP_HOME/.remotejson-cache ./
+COPY --chown=node:node --from=warmup_cache $APP_HOME/.remotejson-cache .remotejson-cache/
 # Expose the build SHA at runtime when callers pass --build-arg BUILD_SHA=abc123.
 ARG BUILD_SHA
 ENV BUILD_SHA=$BUILD_SHA

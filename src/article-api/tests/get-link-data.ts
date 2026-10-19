@@ -6,10 +6,12 @@ function createMockPage(options: {
   title?: string
   intro?: string
   permalinks?: Partial<Permalink>[]
+  applicableVersions?: string[]
 }): Page {
   const page = {
     title: options.title || 'Test Title',
     intro: options.intro,
+    applicableVersions: options.applicableVersions || ['free-pro-team@latest'],
     permalinks: (options.permalinks || []) as Permalink[],
     renderTitle: vi.fn().mockResolvedValue(options.title || 'Test Title'),
     renderProp: vi.fn().mockResolvedValue(options.intro || ''),
@@ -23,7 +25,7 @@ function createContext(currentVersion = 'free-pro-team@latest'): Context {
 
 describe('getLinkData', () => {
   describe('when page is not found', () => {
-    test('returns href as both href and title when page not resolved', async () => {
+    test('returns null when page not resolved', async () => {
       const resolvePath = vi.fn().mockReturnValue(undefined)
       const context = createContext()
 
@@ -35,10 +37,31 @@ describe('getLinkData', () => {
         resolvePath,
       )
 
-      expect(result).toEqual({
-        href: '/en/missing-page',
-        title: '/en/missing-page',
+      expect(result).toBeNull()
+    })
+  })
+
+  describe('when page is not available in the current version', () => {
+    test('returns null', async () => {
+      const page = createMockPage({
+        title: 'Public monitoring',
+        applicableVersions: ['free-pro-team@latest', 'enterprise-cloud@latest'],
+        permalinks: [
+          { languageCode: 'en', pageVersion: 'free-pro-team@latest', href: '/en/page' },
+          {
+            languageCode: 'en',
+            pageVersion: 'enterprise-cloud@latest',
+            href: '/en/enterprise-cloud@latest/page',
+          },
+        ],
       })
+      const resolvePath = vi.fn().mockReturnValue(page)
+      const context = createContext('enterprise-server@3.19')
+
+      const result = await getLinkData('/page', 'en', '/en/current', context, resolvePath)
+
+      expect(result).toBeNull()
+      expect(page.renderTitle).not.toHaveBeenCalled()
     })
   })
 
@@ -50,7 +73,7 @@ describe('getLinkData', () => {
 
       const result = await getLinkData('/en/some-page', 'en', '/en/current', context, resolvePath)
 
-      expect(result.title).toBe('My Page Title')
+      expect(result?.title).toBe('My Page Title')
       expect(page.renderTitle).toHaveBeenCalledWith(context, { unwrap: true })
     })
 
@@ -64,7 +87,7 @@ describe('getLinkData', () => {
 
       const result = await getLinkData('/en/some-page', 'en', '/en/current', context, resolvePath)
 
-      expect(result.intro).toBe('This is the intro text')
+      expect(result?.intro).toBe('This is the intro text')
       expect(page.renderProp).toHaveBeenCalledWith('intro', context, { textOnly: true })
     })
 
@@ -75,7 +98,7 @@ describe('getLinkData', () => {
 
       const result = await getLinkData('/en/some-page', 'en', '/en/current', context, resolvePath)
 
-      expect(result.intro).toBe('')
+      expect(result?.intro).toBe('')
       expect(page.renderProp).not.toHaveBeenCalled()
     })
 
@@ -97,7 +120,7 @@ describe('getLinkData', () => {
         resolvePath,
       )
 
-      expect(result.href).toBe('/en/resolved-path')
+      expect(result?.href).toBe('/en/resolved-path')
     })
 
     test('falls back to original href when no matching permalink', async () => {
@@ -116,7 +139,7 @@ describe('getLinkData', () => {
         resolvePath,
       )
 
-      expect(result.href).toBe('/en/original-href')
+      expect(result?.href).toBe('/en/original-href')
     })
   })
 

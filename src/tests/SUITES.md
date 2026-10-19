@@ -52,6 +52,7 @@ Note: for build-gating suites (data-directory, content-linter, generated-referen
 | Suite | Covers | Prereqs | Admin-merge risk |
 |---|---|---|---|
 | playwright-rendering | Client-side JS behavior: navigation, sidebar, search, platform/tool pickers, code tabs, hovercards, responsive layouts, versioning, and Liquid features. | Built app on :4000, Elasticsearch, and Chromium downloaded from a CDN. | **Medium**: real client-side regressions, but the CDN Chromium download flakes (disabled before for that). Confirm a red isn't the browser install. |
+| playwright-header | Site header behavior: layouts at each viewport, plan and language pickers, the narrow utility menu, opening Docs search and returning focus, skip links, and signup visibility. | Built app on :4000 with fixture content, and Chromium. Combined search is mocked in `beforeEach`, so the tests don't need Elasticsearch. | **Medium**: the header is on every page, so reds are usually real. Not a required check yet. Confirm a red isn't the browser install. |
 | playwright-a11y | Accessibility violations on a set of representative pages via axe-core, with and without experimental feature flags. | Local Next.js fixture server; Chromium. | **Low**: explicitly non-blocking; a red may be real a11y or an axe false positive. Doesn't gate PRs. |
 | playwright-secret-scanning | Client-side accessibility and UI behavior of the secret-scanning patterns reference page. | CDN Chromium, dev server on :4000, and ES fixtures. | **Medium**: real UI/a11y regressions, but CDN Chromium flake adds noise. |
 

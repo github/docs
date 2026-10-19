@@ -5252,7 +5252,7 @@
         },
         {
           "name": "requiredReviewers",
-          "description": "<p>This field is in beta and subject to change. A collection of reviewers and\nassociated file patterns. Each reviewer has a list of file patterns which\ndetermine the files that reviewer is required to review.</p>",
+          "description": "<p>A collection of reviewers and associated file patterns. Each reviewer has a\nlist of file patterns which determine the files that reviewer is required to review.</p>",
           "type": "[RequiredReviewerConfiguration!]",
           "id": "requiredreviewerconfiguration",
           "href": "/graphql/reference/pulls#object-requiredreviewerconfiguration"
@@ -10559,7 +10559,7 @@
         },
         {
           "name": "requiredReviewers",
-          "description": "<p>This argument is in beta and subject to change. A collection of reviewers and\nassociated file patterns. Each reviewer has a list of file patterns which\ndetermine the files that reviewer is required to review.</p>",
+          "description": "<p>A collection of reviewers and associated file patterns. Each reviewer has a\nlist of file patterns which determine the files that reviewer is required to review.</p>",
           "type": "[RequiredReviewerConfigurationInput!]",
           "id": "requiredreviewerconfigurationinput",
           "href": "/graphql/reference/pulls#input-object-requiredreviewerconfigurationinput"

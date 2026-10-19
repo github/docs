@@ -107,6 +107,64 @@ describe('resolvePath', () => {
     })
   })
 
+  describe('content-root absolute paths', () => {
+    test('resolves /content/ href to the language-prefixed page', () => {
+      const page = createMockPage('pull-requests/x.md')
+      const context = createContext({
+        '/en/pull-requests/x': page,
+      })
+      const result = resolvePath('/content/pull-requests/x', 'en', '/en/copilot', context)
+      expect(result).toBe(page)
+    })
+
+    test('resolves /content/ href through a versioned key', () => {
+      const page = createMockPage('admin/x.md')
+      const context = createContext({
+        '/en/enterprise-cloud@latest/admin/x': page,
+      })
+      const result = resolvePath('/content/admin/x/', 'en', '/en/copilot', context)
+      expect(result).toBe(page)
+    })
+
+    test('resolves /content/ href for a non-English language', () => {
+      const enPage = createMockPage('pull-requests/x.md')
+      const jaPage = createMockPage('pull-requests/x.md')
+      const context = createContext({
+        '/en/pull-requests/x': enPage,
+        '/ja/pull-requests/x': jaPage,
+      })
+      const result = resolvePath('/content/pull-requests/x', 'ja', '/ja/copilot', context)
+      expect(result).toBe(jaPage)
+    })
+
+    test('skips /content/ children not available in the current version', () => {
+      const ghesVersion = 'enterprise-server@3.20'
+      const dotcomOnly = {
+        ...createMockPage('pull-requests/dotcom-only.md'),
+        applicableVersions: ['free-pro-team@latest', 'enterprise-cloud@latest'],
+      } as unknown as Page
+      const everywhere = {
+        ...createMockPage('rest/everywhere.md'),
+        applicableVersions: ['free-pro-team@latest', 'enterprise-cloud@latest', ghesVersion],
+      } as unknown as Page
+      const pages = {
+        '/en/pull-requests/dotcom-only': dotcomOnly,
+        '/en/rest/everywhere': everywhere,
+      }
+      const ghesContext = { pages, currentVersion: ghesVersion } as unknown as Context
+      const dotcomContext = { pages, currentVersion: 'free-pro-team@latest' } as unknown as Context
+      const pathname = `/en/${ghesVersion}/pull-requests`
+
+      expect(
+        resolvePath('/content/pull-requests/dotcom-only', 'en', pathname, ghesContext),
+      ).toBeUndefined()
+      expect(resolvePath('/content/rest/everywhere', 'en', pathname, ghesContext)).toBe(everywhere)
+      expect(
+        resolvePath('/content/pull-requests/dotcom-only', 'en', '/en/pull-requests', dotcomContext),
+      ).toBe(dotcomOnly)
+    })
+  })
+
   describe('not found cases', () => {
     test('returns undefined when page does not exist', () => {
       const context = createContext({

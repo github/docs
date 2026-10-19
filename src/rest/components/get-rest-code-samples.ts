@@ -375,7 +375,7 @@ function findMatchingQueryKey(exampleObj: CodeExamples | CodeExamples[], matchKe
   return match
 }
 
-function getRequiredQueryParamsPath(operation: Operation, codeSample: CodeSample) {
+export function getRequiredQueryParamsPath(operation: Operation, codeSample: CodeSample) {
   const requiredQueryParams = new URLSearchParams()
   for (const param of operation.parameters) {
     if (param.in === 'query' && param.required === true) {
@@ -388,7 +388,7 @@ function getRequiredQueryParamsPath(operation: Operation, codeSample: CodeSample
   return requiredQueryParams.toString()
 }
 
-function getAcceptHeader(codeSample: CodeSample) {
+export function getAcceptHeader(codeSample: CodeSample) {
   const contentType = codeSample?.response?.contentType
 
   if (!contentType || contentType === 'application/json') {
