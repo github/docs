@@ -7,25 +7,14 @@ import { USER_LANGUAGE_COOKIE_NAME } from '@/frame/lib/constants'
 import type { ExtendedRequest, Languages } from '@/types'
 import { updateLoggerContext } from '@/observability/logger/lib/logger-context'
 
-const chineseRegions = [
-  'CN', // Mainland
-  'HK', // Hong Kong
-  'SG', // Singapore
-  'TW', // Taiwan
-]
-
+// Match on the primary subtag alone so bare 'zh', script tags like 'zh-Hans', and
+// lowercase regions all resolve to the one zh site.
 function translationExists(language: parserLanguage) {
-  if (language.code === 'zh') {
-    return language.region && chineseRegions.includes(language.region)
-  }
-
-  return languageKeys.includes(language.code)
+  return languageKeys.includes(getLanguageCode(language))
 }
 
 function getLanguageCode(language: parserLanguage) {
-  return language.code === 'cn' && language.region && chineseRegions.includes(language.region)
-    ? 'zh'
-    : language.code
+  return language.code.toLowerCase()
 }
 
 function getUserLanguage(browserLanguages: parserLanguage[]) {
