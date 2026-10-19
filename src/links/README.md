@@ -37,7 +37,7 @@ The `src/links` directory manages:
 
 - **`check-links-pr.ts`**: Fast validation of internal links in changed files. Built to finish in under 10 minutes on a typical PR.
 - **`check-links-internal.ts`**: Comprehensive check of all internal links across every version and language. Runs on a schedule.
-- **`check-links-external.ts`**: Validates external URLs, with aggressive caching to keep the cost down. Runs on a schedule.
+- **`check-links-external.ts`**: Validates external URLs in content files and reusables, with aggressive caching to keep the cost down. Runs on a schedule.
 - **`check-github-github-links.ts`**: Ensures that we don't accidentally link to private `github/github` URLs in public documentation.
 - **`update-internal-links.ts`**: A CLI wrapper around the library function to perform bulk updates on the content files.
 

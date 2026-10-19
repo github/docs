@@ -115,7 +115,8 @@
                           "oidc_aws",
                           "oidc_jfrog",
                           "oidc_cloudsmith",
-                          "oidc_gcp"
+                          "oidc_gcp",
+                          "anonymous"
                         ],
                         "type": "string"
                       },
@@ -342,7 +343,7 @@
         {
           "type": "string",
           "name": "auth_type",
-          "description": "<p>The authentication type for the private registry. Defaults to <code>token</code> if not specified. Use <code>oidc_azure</code>, <code>oidc_aws</code>, <code>oidc_jfrog</code>, <code>oidc_cloudsmith</code>, or <code>oidc_gcp</code> for OIDC authentication.</p>",
+          "description": "<p>The authentication type for the private registry. Defaults to <code>token</code> if not specified. Use <code>oidc_azure</code>, <code>oidc_aws</code>, <code>oidc_jfrog</code>, <code>oidc_cloudsmith</code>, or <code>oidc_gcp</code> for OIDC authentication. Use <code>anonymous</code> for registries that do not require authentication; <code>username</code>, <code>encrypted_value</code>, and <code>key_id</code> must be omitted.</p>",
           "enum": [
             "token",
             "username_password",
@@ -350,7 +351,8 @@
             "oidc_aws",
             "oidc_jfrog",
             "oidc_cloudsmith",
-            "oidc_gcp"
+            "oidc_gcp",
+            "anonymous"
           ]
         },
         {
@@ -429,7 +431,7 @@
           "description": "<p>The GCP service account email to impersonate. Optional for <code>oidc_gcp</code> auth type. If omitted, the federated token is used directly (direct WIF).</p>"
         }
       ],
-      "descriptionHTML": "<p>Creates a private registry configuration with an encrypted value for an organization. Encrypt your secret using <a href=\"https://libsodium.gitbook.io/doc/bindings_for_other_languages\">LibSodium</a>. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.18/rest/guides/encrypting-secrets-for-the-rest-api\">Encrypting secrets for the REST API</a>.\"\nFor OIDC-based registries (<code>oidc_azure</code>, <code>oidc_aws</code>, <code>oidc_jfrog</code>, <code>oidc_cloudsmith</code>, or <code>oidc_gcp</code>), the <code>encrypted_value</code> and <code>key_id</code> fields should be omitted.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Creates a private registry configuration with an encrypted value for an organization. Encrypt your secret using <a href=\"https://libsodium.gitbook.io/doc/bindings_for_other_languages\">LibSodium</a>. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.18/rest/guides/encrypting-secrets-for-the-rest-api\">Encrypting secrets for the REST API</a>.\"\nFor OIDC-based registries (<code>oidc_azure</code>, <code>oidc_aws</code>, <code>oidc_jfrog</code>, <code>oidc_cloudsmith</code>, or <code>oidc_gcp</code>), the <code>encrypted_value</code> and <code>key_id</code> fields should be omitted.\nFor anonymous registries (<code>anonymous</code>), the <code>username</code>, <code>encrypted_value</code>, and <code>key_id</code> fields must be omitted.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -504,7 +506,8 @@
                     "oidc_aws",
                     "oidc_jfrog",
                     "oidc_cloudsmith",
-                    "oidc_gcp"
+                    "oidc_gcp",
+                    "anonymous"
                   ],
                   "type": "string"
                 },
@@ -689,7 +692,8 @@
                     "oidc_aws",
                     "oidc_jfrog",
                     "oidc_cloudsmith",
-                    "oidc_gcp"
+                    "oidc_gcp",
+                    "anonymous"
                   ],
                   "type": "string"
                 },
@@ -998,7 +1002,8 @@
                     "oidc_aws",
                     "oidc_jfrog",
                     "oidc_cloudsmith",
-                    "oidc_gcp"
+                    "oidc_gcp",
+                    "anonymous"
                   ],
                   "type": "string"
                 },
@@ -1232,7 +1237,8 @@
             "oidc_aws",
             "oidc_jfrog",
             "oidc_cloudsmith",
-            "oidc_gcp"
+            "oidc_gcp",
+            "anonymous"
           ]
         },
         {
@@ -1311,7 +1317,7 @@
           "description": "<p>The GCP service account email to impersonate. Optional for <code>oidc_gcp</code> auth type. If omitted, the federated token is used directly (direct WIF).</p>"
         }
       ],
-      "descriptionHTML": "<p>Updates a private registry configuration with an encrypted value for an organization. Encrypt your secret using <a href=\"https://libsodium.gitbook.io/doc/bindings_for_other_languages\">LibSodium</a>. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.18/rest/guides/encrypting-secrets-for-the-rest-api\">Encrypting secrets for the REST API</a>.\"\nFor OIDC-based registries (<code>oidc_azure</code>, <code>oidc_aws</code>, <code>oidc_jfrog</code>, <code>oidc_cloudsmith</code>, or <code>oidc_gcp</code>), the <code>encrypted_value</code> and <code>key_id</code> fields should be omitted.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Updates a private registry configuration with an encrypted value for an organization. Encrypt your secret using <a href=\"https://libsodium.gitbook.io/doc/bindings_for_other_languages\">LibSodium</a>. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.18/rest/guides/encrypting-secrets-for-the-rest-api\">Encrypting secrets for the REST API</a>.\"\nFor OIDC-based registries (<code>oidc_azure</code>, <code>oidc_aws</code>, <code>oidc_jfrog</code>, <code>oidc_cloudsmith</code>, or <code>oidc_gcp</code>), the <code>encrypted_value</code> and <code>key_id</code> fields should be omitted.\nFor anonymous registries (<code>anonymous</code>), the <code>username</code>, <code>encrypted_value</code>, and <code>key_id</code> fields must be omitted, and <code>auth_type</code> cannot be changed to or from <code>anonymous</code>.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
       "codeExamples": [],
       "statusCodes": [
         {

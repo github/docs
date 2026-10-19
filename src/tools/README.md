@@ -16,6 +16,7 @@ The primary goal is to provide a personalized reading experience by:
 The available options are defined in static configuration files:
 - **`all-tools.ts`**: Maps internal IDs (e.g., `cli`, `webui`) to display names. The order of keys in this file determines the display order in the UI, often sorted by usage analytics.
 - **`all-platforms.ts`**: Defines operating systems (Mac, Windows, Linux).
+- **`os-download.ts`**: Detects the reader's OS and CPU architecture for OS-aware download buttons. Uses User-Agent Client Hints when available and falls back to the user agent string.
 
 ### Components (`src/tools/components`)
 
@@ -23,6 +24,22 @@ The UI is built with React components that interact with the global application 
 - **`ToolPicker.tsx`**: The dropdown or tab interface for selecting a tool.
 - **`PlatformPicker.tsx`**: The interface for selecting an operating system.
 - **`InArticlePicker.tsx`**: A specialized picker that appears within the article body (often used for "Prerequisites" sections).
+- **`OsDownloadLink.tsx`**: Renders links with the `js-os-download` class. After hydration, it swaps `href` to the matching `data-os-download-<key>` attribute and the label to "Download for {os}". If detection fails, the link keeps its original `href`. See `data/reusables/copilot/github-app-download-button.md` for an example.
+
+### OS-aware download links
+
+Add the `js-os-download` class and one or more of these data attributes to a link in Markdown or a reusable:
+
+| Attribute | Used for |
+| --- | --- |
+| `data-os-download-mac` | macOS on Apple silicon, and macOS when the architecture is unknown |
+| `data-os-download-mac-intel` | macOS on Intel |
+| `data-os-download-windows` | Windows on x64, and Windows when the architecture is unknown |
+| `data-os-download-windows-arm` | Windows on Arm |
+| `data-os-download-linux` | Linux on x64, and Linux when the architecture is unknown |
+| `data-os-download-linux-arm` | Linux on Arm |
+
+Wrap the label text in `<span class="js-os-download-label">` to have it replaced with "Download for {os}". iOS, Android, ChromeOS, and missing attributes keep the original `href`.
 
 ### State Management
 

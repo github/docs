@@ -1,11 +1,9 @@
 type DocumentType = 'homepage' | 'product' | 'category' | 'subcategory' | 'article' | 'early-access'
 
-// Derives the document type from the number of segments in the relative path,
-// meaning the content path starting at the product directory.
-// For example: actions/index.md or github/getting-started-with-github/quickstart.md
+// Index-page depth maps to homepage, product, category, subcategory, or early-access.
+// For example: index.md, actions/index.md, or early-access/index.md.
 export default function getDocumentType(relativePath: string): DocumentType {
-  // A non-index file is ALWAYS considered an article in this approach,
-  // even if it's at the category level (like actions/quickstart.md)
+  // Non-index files are articles even at category depth, such as actions/quickstart.md.
   if (!relativePath.endsWith('index.md')) {
     return 'article'
   }
@@ -25,7 +23,7 @@ export default function getDocumentType(relativePath: string): DocumentType {
     'subcategory',
   ]
 
-  // Anything beyond the largest depth is assumed to be a subcategory
+  // Depth beyond the largest known depth maps to subcategory.
   return isEarlyAccess
     ? earlyAccessDocs[Math.min(segmentLength, earlyAccessDocs.length) - 1]
     : publicDocs[Math.min(segmentLength, publicDocs.length) - 1]

@@ -13,7 +13,7 @@ const platforms = [
   { value: 'linux', label: 'Linux' },
 ]
 
-// Note: platform === os
+// Content calls this preference platform, but the stored preference name is os.
 
 export const PlatformPicker = () => {
   const { defaultPlatform, detectedPlatforms } = useArticleContext()
@@ -28,9 +28,7 @@ export const PlatformPicker = () => {
     setDefaultUA(userAgent)
   }, [])
 
-  // Defensively, just in case some article happens to have an array
-  // but for some reasons, it might be empty, let's not have a picker
-  // at all.
+  // Articles with no detected platforms do not need a picker.
   if (!detectedPlatforms.length) return null
 
   const options = platforms.filter((platform) => detectedPlatforms.includes(platform.value))
@@ -46,9 +44,7 @@ export const PlatformPicker = () => {
       cookieKey={OS_PREFERRED_COOKIE_NAME}
       queryStringKey={platformQueryKey}
       onValue={(value: string) => {
-        // Visibility is driven by React state via ToggleableContent/MiniTocs
-        // (#6619); the article body is React-owned on both the hast and string
-        // paths, so no imperative DOM mutation is needed.
+        // React state drives visibility because the article body is React-owned.
         setPlatform(value)
       }}
       preferenceName="os"

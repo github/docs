@@ -13,7 +13,7 @@ docsTeamMetrics:
   - copilot-cli
 ---
 
-For background on authentication options and how billing works when running {% data variables.copilot.copilot_cli_short %} in {% data variables.product.prodname_actions %}, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/copilot-cli-in-github-actions).
+For background on authentication options and how billing works when running {% data variables.copilot.copilot_cli_short %} in {% data variables.product.prodname_actions %}, see [AUTOTITLE](/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/copilot-cli-in-github-actions).
 
 ## Enabling the policy
 

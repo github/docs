@@ -8,11 +8,9 @@ export type LeadPropsT = {
   children: string | ReactNode
   className?: string
   as?: keyof JSX.IntrinsicElements
-  // 'hero' is the Docs 2026 article lede (Lead.module.scss — Mona Sans 16px,
-  // muted). Every other surface that renders a Lead — the landings, the
-  // REST/automated intros, the generic error page — stays on the legacy `f2`
-  // scale, which is ~50% larger. Scoped rather than global because the Figma
-  // hero spec was drawn for the article page only.
+  // The hero variant matches the article lede Figma spec in Lead.module.scss.
+  // Landings, REST and automated intros, and the error page keep the f2 scale
+  // because that spec targets article pages only.
   variant?: 'default' | 'hero'
 }
 

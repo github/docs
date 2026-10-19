@@ -76,21 +76,13 @@ Here is an example of an issue created for a large initiative, front-end work, i
 
 ![Screenshot of an issue called "Front-end work for Project Octocat." The issue body includes a list of tasks to complete.](/assets/images/help/issues/quickstart-create-large-initiative-issue.png)
 
-{% ifversion sub-issues %}
-
 ### Sub-issues example
 
 {% data reusables.issues.about-sub-issues %} See [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/adding-sub-issues) and [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/browsing-sub-issues).
 
-{% ifversion issue-types %}
-
 You can use issue types to classify work in repositories across the organization, such as tasks, bugs, and features. See [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/managing-issue-types-in-an-organization).
 
-{% endif %}
-
    ![Screenshot of the sub-issues section below the issue description.](/assets/images/help/issues/sub-issue.png)
-
-{% endif %}
 
 ### Task list example
 
@@ -193,8 +185,8 @@ You have now learned about the tools {% data variables.product.prodname_dotcom %
 * [AUTOTITLE](/issues/planning-and-tracking-with-projects/learning-about-projects) for learning more about projects
 * [AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view) for learning how to customize views for projects
 * [AUTOTITLE](/issues/tracking-your-work-with-issues) for learning more about different ways to create and manage issues
-* [AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates) for learning more about issue templates{% ifversion issue-types %}
-* [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/managing-issue-types-in-an-organization) for managing issue types{% endif %}
-* [AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels) for learning how to create, edit and delete labels{% ifversion sub-issues %}
-* [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/adding-sub-issues) for learning about adding sub-issues{% endif %}
+* [AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates) for learning more about issue templates
+* [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/managing-issue-types-in-an-organization) for managing issue types
+* [AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels) for learning how to create, edit and delete labels
+* [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/adding-sub-issues) for learning about adding sub-issues
 * [AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/about-tasklists) for learning more about task lists

@@ -1,15 +1,4 @@
-// Mocks the VA portal so you can test the VA integration without access to a
-// staging VA portal. You can't point at the production one either, because it
-// is hardened to https://docs.github.com and will reject your localhost:4000.
-//
-// To test locally:
-//
-//   1. Add `SUPPORT_PORTAL_URL=http://localhost:4000` to your `.env` file
-//   2. `npm run dev`
-//   3. Navigate to a page listed in the `PagePathToVaFlowMapping` object in
-//      the `ArticleContext`.
-//
-// This mocking is not secure. It is only for local development.
+// Local-only Virtual Assistant portal mock; the production portal rejects localhost:4000.
 
 import type { Response, NextFunction } from 'express'
 

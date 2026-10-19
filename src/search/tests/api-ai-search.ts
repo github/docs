@@ -45,7 +45,7 @@ describe('AI Search Routes', () => {
     const fullResponse = chunks.join('')
     const chunkLines = fullResponse.split('\n').filter((line) => line.trim() !== '')
 
-    // 1. First chunk should be the SOURCES chunk
+    // The first chunk carries SOURCES metadata.
     expect(chunkLines.length).toBeGreaterThan(0)
     const firstChunkMatch = chunkLines[0].match(/^Chunk: (.+)$/)
     expect(firstChunkMatch).not.toBeNull()
@@ -56,7 +56,7 @@ describe('AI Search Routes', () => {
     expect(Array.isArray(sourcesChunk.sources)).toBe(true)
     expect(sourcesChunk.sources.length).toBe(3)
 
-    // 2. Subsequent chunks should be MESSAGE_CHUNKs
+    // Later chunks carry MESSAGE_CHUNK text.
     for (let i = 1; i < chunkLines.length; i++) {
       const line = chunkLines[i]
       const messageChunk = JSON.parse(line)
@@ -65,7 +65,7 @@ describe('AI Search Routes', () => {
       expect(typeof messageChunk.text).toBe('string')
     }
 
-    // 3. Verify the complete message is expected
+    // Concatenating MESSAGE_CHUNK text reconstructs the response.
     const expectedMessage =
       'Creating a repository on GitHub is something you should already know how to do :shrug:'
     const receivedMessage = chunkLines

@@ -55,7 +55,7 @@ Avoid conflicting instructions. For example, this is a simple `.github/copilot-i
 > [!TIP]
 > Keep instructions concise and actionable. Lengthy instructions can dilute effectiveness.
 
-For more information, see [AUTOTITLE](/copilot/concepts/prompting/response-customization?tool=webui).
+For more information, see [AUTOTITLE](/copilot/concepts/prompting-and-context/custom-instructions).
 
 ### Configure allowed tools
 
@@ -114,7 +114,7 @@ You can configure {% data variables.copilot.copilot_cli_short %} to use your own
 * Cost estimates are hidden when using your own provider. Token usage (input, output, and cache counts) is still displayed.
 * `/delegate` only works if you are also signed in to {% data variables.product.github %}. It transfers the session to {% data variables.product.github %}'s server-side {% data variables.product.prodname_copilot_short %}, not your provider.
 
-See [Using your own model provider](/copilot/concepts/agents/copilot-cli/about-copilot-cli#using-your-own-model-provider).
+See [Using your own model provider](/copilot/concepts/copilot-surfaces/copilot-cli#using-your-own-model-provider).
 
 ### Set {% data variables.product.prodname_ai_credit_singular %} session limits
 
@@ -434,9 +434,9 @@ Then fix each issue one by one, checking them off as you go.
 
 ### Autonomous task completion
 
-Switch into autopilot mode to allow {% data variables.product.prodname_copilot_short %} to work autonomously on a task until it is complete. This is ideal for long-running tasks that don't require constant supervision. For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/autopilot).
+Switch into autopilot mode to allow {% data variables.product.prodname_copilot_short %} to work autonomously on a task until it is complete. This is ideal for long-running tasks that don't require constant supervision. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/use-autopilot-mode).
 
-Optionally, you can usually speed up large tasks by using the `/fleet` slash command at the start of your prompt to allow {% data variables.product.prodname_copilot_short %} to break the task into parallel subtasks that are run by subagents. For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/fleet).
+Optionally, you can usually speed up large tasks by using the `/fleet` slash command at the start of your prompt to allow {% data variables.product.prodname_copilot_short %} to break the task into parallel subtasks that are run by subagents. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/speed-up-task-completion).
 
 ## 7. Team guidelines
 
@@ -514,7 +514,7 @@ Here is what you will learn:
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-copilot-cli)
+* [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-cli)
 * [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/overview)
 * [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference)
 * [{% data variables.product.prodname_copilot_short %} plans and pricing](https://github.com/features/copilot/plans)

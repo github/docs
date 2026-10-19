@@ -25,6 +25,10 @@ docsTeamMetrics:
 
 {% data reusables.copilot.plans.subscribe-for-enterprise %}
 
+As an enterprise owner, contact {% data variables.contact.contact_support_page %} if the enterprise **Licensing** page shows **Contact support to enable**, or if the **{% data variables.product.prodname_copilot_short %}** card or **Manage** or **Enable** controls are missing. Also contact {% data variables.contact.github_support %} if activation remains unavailable after a trial expires, a plan change, or moving an organization into a new enterprise. Activation may need to be enabled for your enterprise first.
+
+After {% data variables.contact.github_support %} confirms the change, allow a short time for the change to propagate. Then return to the enterprise **Licensing** page and retry enabling {% data variables.product.prodname_copilot_short %}.
+
 ## Set policies
 
 You will use enterprise policies to manage two aspects of governance:
@@ -42,7 +46,7 @@ If your corporate network restricts users' traffic, add the required URLs to the
 
 If you route traffic via a proxy server, you may need to ask users to configure proxy settings in their environment. You may also need to install custom certificates on your users' machines. For more information, see [AUTOTITLE](/copilot/concepts/network-settings).
 
-If your enterprise is on {% data variables.enterprise.data_residency_site %}, users will also need to configure their environment to authenticate from their development environment. See [AUTOTITLE](/copilot/how-tos/configure-personal-settings/authenticate-to-ghecom).
+If your enterprise is on {% data variables.enterprise.data_residency_site %}, users will also need to configure their environment to authenticate from their development environment. See [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/set-up-copilot/authenticate-to-ghecom).
 
 ## Assign licenses
 

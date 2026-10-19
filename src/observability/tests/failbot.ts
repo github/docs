@@ -13,7 +13,8 @@ describe('FailBot', () => {
 
     nock('https://haystack.example.com')
       .post('/')
-      .reply(200, (uri, requestBody) => {
+      .reply(200, async (request: Request) => {
+        const requestBody = await request.json()
         requestBodiesSent.push(requestBody)
         return requestBody
       })
@@ -34,14 +35,11 @@ describe('FailBot', () => {
       process.env.HAYSTACK_URL = 'https://haystack.example.com'
       const err = new Error('Kaboom')
       const backendPromises = FailBot.report(err, { foo: 'bar' })
-      // Production code doesn't need to await what `FailBot.report()` returns.
-      // In vitest we await now,
-      // so we can assert the POST requests happened.
+      // Tests await backend promises so assertions observe the POST request.
       if (backendPromises) {
         await Promise.all(await backendPromises)
       }
 
-      // What `.report()` returns doesn't matter, only that it POSTed.
       expect(requestBodiesSent.length).toBe(1)
 
       expect(requestBodiesSent[0]).toMatchObject({

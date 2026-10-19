@@ -1,8 +1,6 @@
 name: Sync GraphQL schema
 
-# **What it does**: This updates our GraphQL schemas.
-# **Why we have it**: We want our GraphQL docs up to date.
-# **Who does it impact**: Docs engineering, people reading GraphQL docs.
+# Keeps GraphQL docs current with schema changes from github/github.
 
 on:
   workflow_dispatch:
@@ -30,7 +28,7 @@ jobs:
       - name: Run updater scripts
         id: sync
         env:
-          # need to use a token from a user with access to github/github for this step
+          # DOCS_BOT_PAT_BASE can read github/github.
           GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
           NODE_OPTIONS: '--max-old-space-size=8192'
         run: npm run sync-graphql
@@ -38,13 +36,12 @@ jobs:
         id: create-pull-request
         uses: peter-evans/create-pull-request@98357b18bf14b5342f975ff684046ec3b2a07725 # pin @v8.0.0
         env:
-          # Disable pre-commit hooks; they don't play nicely here
+          # Disable Husky because create-pull-request commits inside Actions.
           HUSKY: '0'
         with:
-          # Need to use a token with repo and workflow scopes for this step.
-          # Token should be a PAT because actions performed with GITHUB_TOKEN
-          # don't trigger other workflows and this action force pushes updates
-          # from the default branch.
+          # DOCS_BOT_PAT_BASE has repo and workflow scopes.
+          # GITHUB_TOKEN does not trigger follow-up workflows.
+          # create-pull-request force-pushes updates from the default branch.
           token: ${{ secrets.DOCS_BOT_PAT_BASE }}
           commit-message: 'Update GraphQL data files'
           title: GraphQL schema update

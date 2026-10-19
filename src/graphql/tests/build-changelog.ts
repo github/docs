@@ -3,10 +3,12 @@ import fs from 'fs/promises'
 import { afterEach, describe, expect, test } from 'vitest'
 import { load } from 'js-yaml'
 import MockDate from 'mockdate'
+import type { Change } from '@graphql-inspector/core'
 
 import {
   createChangelogEntry,
   cleanPreviewTitle,
+  cleanMessagesFromChanges,
   previewAnchor,
   prependDatedEntry,
   ensureYearPage,
@@ -59,8 +61,6 @@ describe('creating a changelog from old schema and new schema', () => {
   })
 
   test('ignores unknown change types without throwing errors', async () => {
-    // Create a minimal test that would generate an unknown change type
-    // This test ensures the system gracefully handles new change types
     const oldSchemaString = `
     type Query {
       field: String
@@ -76,8 +76,7 @@ describe('creating a changelog from old schema and new schema', () => {
     }
     `
 
-    // This should generate TypeDescriptionAdded change type
-    // which should be silently ignored if not in CHANGES_TO_REPORT
+    // CHANGES_TO_REPORT omits TypeDescriptionAdded, so createChangelogEntry ignores it.
     const entry: ChangelogEntry | null = await createChangelogEntry(
       oldSchemaString,
       newSchemaString,
@@ -86,14 +85,10 @@ describe('creating a changelog from old schema and new schema', () => {
       [],
     )
 
-    // Should return null since TypeDescriptionAdded is not in CHANGES_TO_REPORT
-    // and will be silently ignored without throwing an error
     expect(entry).toBeNull()
   })
 
   test('handles new directive usage change types gracefully', async () => {
-    // Test that verifies the system can handle new directive-related change types
-    // that were previously causing errors in the pipeline
     const oldSchemaString = `
     directive @example on FIELD_DEFINITION
 
@@ -110,8 +105,7 @@ describe('creating a changelog from old schema and new schema', () => {
     }
     `
 
-    // This should generate DirectiveUsage* change types that are not in CHANGES_TO_REPORT
-    // The system should silently ignore these and not throw errors
+    // CHANGES_TO_REPORT omits added field directives, so createChangelogEntry ignores this one.
     const entry: ChangelogEntry | null = await createChangelogEntry(
       oldSchemaString,
       newSchemaString,
@@ -120,7 +114,6 @@ describe('creating a changelog from old schema and new schema', () => {
       [],
     )
 
-    // Should return null since directive usage changes are typically ignored
     expect(entry).toBeNull()
   })
 
@@ -219,18 +212,35 @@ upcoming_changes:
 
 describe('Preparing preview links', () => {
   test('fixes preview names', () => {
-    // These two are special cases
+    // UpdateRefsPreview and MergeInfoPreview are hand-written title exceptions.
     expect(cleanPreviewTitle('UpdateRefsPreview')).toEqual('Update refs preview')
     expect(cleanPreviewTitle('MergeInfoPreview')).toEqual('Merge info preview')
-    // Previews that don't end in " preview" have it added
     expect(cleanPreviewTitle('something interesting')).toEqual('something interesting preview')
-    // Other things are left as-is
     expect(cleanPreviewTitle('nice preview')).toEqual('nice preview')
   })
 
   test('creates anchors from preview titles', () => {
     expect(previewAnchor('Merge info preview')).toEqual('merge-info-preview')
     expect(previewAnchor('some.punct123 preview')).toEqual('somepunct123-preview')
+  })
+})
+
+describe('cleaning change messages', () => {
+  test('wraps each quoted name in its own code span', () => {
+    const messages = [
+      "Enum value 'CREATED_AT' was added to enum 'IssueRelatesToOrderField'",
+      "Input field 'botIds' of type '[ID!]' was added to input object type 'RerequestReviewsInput'",
+      "Argument 'ids: [ID!]' added to field 'Query.f'",
+      "Type 'ProjectV2Field' was added",
+    ]
+    const changes = messages.map((message) => ({ message }) as Change)
+
+    expect(cleanMessagesFromChanges(changes)).toEqual([
+      'Enum value `CREATED_AT` was added to enum `IssueRelatesToOrderField`',
+      'Input field `botIds` of type `[ID!]` was added to input object type `RerequestReviewsInput`',
+      'Argument `ids: [ID!]` added to field `Query.f`',
+      'Type `ProjectV2Field` was added',
+    ])
   })
 })
 
@@ -253,7 +263,6 @@ describe('updating the changelog file', () => {
 
     prependDatedEntry(exampleEntry, testTargetPath)
     const newContents: string = await fs.readFile(testTargetPath, 'utf8')
-    // reset the file:
     await fs.writeFile(testTargetPath, previousContents.toString())
 
     expect(exampleEntry).toEqual({
@@ -299,10 +308,8 @@ describe('ensureYearPage', () => {
 
     ensureYearPage('2026', tmpDir)
 
-    // Should not modify the existing file
     const yearPage = await fs.readFile(`${tmpDir}/2026.md`, 'utf8')
     expect(yearPage).toContain('title: existing')
-    // index.md should be unchanged
     const updatedIndex = await fs.readFile(`${tmpDir}/index.md`, 'utf8')
     expect(updatedIndex).toBe(indexContent)
   })
@@ -325,7 +332,7 @@ describe('ignored changes tracking', () => {
     }
     `
 
-    // This should generate a TypeDescriptionAdded change type that gets ignored
+    // Ignored-change tracking records TypeDescriptionAdded.
     await createChangelogEntry(oldSchemaString, newSchemaString, [], [], [])
 
     const ignoredChanges: IgnoredChange[] = getLastIgnoredChanges() as unknown as IgnoredChange[]
@@ -350,7 +357,7 @@ describe('ignored changes tracking', () => {
     }
     `
 
-    // This should generate multiple DirectiveUsage changes that get ignored
+    // Ignored-change summary groups multiple DirectiveUsage changes under one type.
     await createChangelogEntry(oldSchemaString, newSchemaString, [], [], [])
 
     const summary = getIgnoredChangesSummary()
@@ -369,7 +376,6 @@ describe('ignored changes tracking', () => {
     }
     `
 
-    // No changes should be generated
     await createChangelogEntry(schemaString, schemaString, [], [], [])
 
     const summary = getIgnoredChangesSummary()

@@ -4,7 +4,9 @@ shortTitle: Give access to private registries
 intro: If your organization uses private registries, you can improve the results of {% data variables.product.prodname_code_scanning %} analysis and enable {% data variables.product.prodname_dependabot %} to maintain more dependencies by setting up access to these registries.
 allowTitleToDifferFromFilename: true
 versions:
-  feature: org-private-registry
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 redirect_from:
   - /code-security/securing-your-organization/enabling-security-features-in-your-organization/giving-org-access-private-registries
 contentType: how-tos
@@ -55,6 +57,9 @@ You need to be an **organization owner** to set up access to private registries 
    {% ifversion org-private-registry-oidc %}
    * **OIDC (OpenID Connect)**: Use short-lived credentials from a cloud identity provider instead of storing long-lived secrets. When you select this option, choose a provider and fill in the provider-specific fields. For more information, see [Configuring OIDC authentication for a private registry](#configuring-oidc-authentication-for-a-private-registry).
    {% endif %}
+   {% ifversion org-private-registry-anonymous %}
+   * **Anonymous**: Use this option for a registry that doesn't require authentication. No credentials are stored or sent to the registry. For more information, see [Configuring an anonymous private registry](#configuring-an-anonymous-private-registry).
+   {% endif %}
 1. Define which repositories in the organization can access the private registry using these details: all, private and internal, or selected repositories only.
 1. When you have finished defining the private registry, select **Add Registry** to save the registry information.
 
@@ -83,6 +88,13 @@ Any private registries used by the build must also be accessible to the workflow
 
 {% data variables.product.prodname_dependabot %} can use any of the org-level private registries, as well as uses any private registries defined in the `dependabot.yml` file in the repo.
 
+For each update job, {% data variables.product.prodname_dependabot %} supplies credentials only for organization-level private registry types that apply to the job's package ecosystem. Depending on the ecosystem, the applicable registry types can include Git source credentials in addition to credentials for the ecosystem's package registry.
+
+> [!NOTE]
+> The number of applicable organization-level private registry credentials provided to any single update job is capped at 100 for performance reasons.
+
+For a multi-ecosystem group, {% data variables.product.prodname_dependabot %} runs a separate update job for each ecosystem and combines the results into one pull request. Each ecosystem's update job has its own 100-registry limit, just as it would if the ecosystems were configured as separate updates.
+
 {% data variables.product.prodname_dependabot %} cannot check for security or version updates for code stored in a private registry unless it can access the registry. If you do not configure access to the private registry, then {% data variables.product.prodname_dependabot %} cannot raise pull requests to update any of the dependencies stored in the registry.
 
 When you configure access to one or more private registries, {% data variables.product.prodname_dependabot %} can propose pull requests to upgrade a vulnerable dependency or to maintain a dependency, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-access-to-private-registries) and [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-private-registries).
@@ -104,10 +116,9 @@ See [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-depe
 
 ### Configuring OIDC authentication for a private registry
 
-OIDC (OpenID Connect) authentication allows {% data variables.product.prodname_dependabot %} to use short-lived credentials from your cloud identity provider to access private registries, eliminating the need to store long-lived secrets. With OIDC, credentials are generated dynamically for each {% data variables.product.prodname_dependabot %} update job. You must configure a trust relationship between your cloud provider and {% data variables.product.github %} before {% data variables.product.prodname_dependabot %} can authenticate.
+OIDC (OpenID Connect) authentication allows {% data variables.product.prodname_dependabot %} and {% data variables.product.prodname_code_scanning %} default setup to use short-lived credentials from your cloud identity provider to access private registries. Each feature is limited to its supported registry types.
 
-> [!NOTE]
-> OIDC authentication for organization-level private registries is currently supported by {% data variables.product.prodname_dependabot %}. It is not supported by {% data variables.product.prodname_code_scanning %} default setup.
+With OIDC, credentials are generated dynamically for update or analysis jobs, eliminating the need to store long-lived secrets. You must configure a trust relationship between your cloud provider and {% data variables.product.github %} before either feature can authenticate.
 
 When you select **OIDC** as the authentication method for a private registry, choose one of the supported providers and fill in the required fields:
 
@@ -120,6 +131,23 @@ When you select **OIDC** as the authentication method for a private registry, ch
 The authentication type of a private registry cannot be changed after creation. To switch from OIDC to another authentication method, or vice versa, delete the existing registry and create a new one.
 
 For more information about how OIDC works, see [AUTOTITLE](/actions/concepts/security/openid-connect).
+
+{% endif %}
+
+{% ifversion org-private-registry-anonymous %}
+
+### Configuring an anonymous private registry
+
+Some registries, such as internal mirrors, don't require authentication. You can add these registries at the organization level with the **Anonymous** authentication method so that {% data variables.product.prodname_dependabot %} and {% data variables.product.prodname_code_scanning %} default setup can use them without a token, password, or OIDC configuration. 
+
+{% ifversion dependabot-egress-allowlist %}
+{% data variables.product.prodname_dependabot %} update jobs can only connect to hosts on an egress allowlist. Adding an anonymous registry allows {% data variables.product.prodname_dependabot %} to reach the registry's host for jobs in repositories that have access to the registry, without storing a secret or sending credentials. For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/resolve-a-blocked-host).
+{% endif %}
+
+When you select **Anonymous**, the credential fields are removed from the form. You still define the registry's **URL** and **Type**. You also choose which repositories can access the registry.
+
+
+After you create an anonymous registry, you can only update its URL and whether it replaces the default registry for the ecosystem. You can't change the authentication method of an existing registry. To switch to or from **Anonymous**, delete the registry and create a new one.
 
 {% endif %}
 

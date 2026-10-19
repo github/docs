@@ -12,9 +12,8 @@ const VERSIONLESS_REDIRECTS_FILE = path.join(
   '../../../../src/fixtures/fixtures/versionless-redirects.txt',
 )
 
-// This test checks the default versioning redirect fallbacks described in lib/all-versions.ts.
-// The fixture now contains mock URLs instead of live URLs to prevent test failures when content is moved.
-// This ensures the redirect logic works correctly without being dependent on real content files.
+// These tests cover default versioning redirect fallbacks from lib/all-versions.ts.
+// The fixture uses mock URLs, so moved content cannot break them.
 describe('versioned redirects', () => {
   vi.setConfig({ testTimeout: 60 * 1000 })
 

@@ -2,7 +2,9 @@
 title: Browsing sub-issues
 intro: Learn how to navigate issue hierarchy in your repositories.
 versions:
-  feature: sub-issues
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 contentType: concepts
 category:
   - Create and work with issues

@@ -1,5 +1,5 @@
-// Docs 2026 homepage hero: a left-aligned title block stacked above a muted
-// search band, both inside bordered rails. No background image — the mountains
+// The homepage hero stacks a left-aligned title block above a muted search band,
+// both inside bordered rails. No background image; the mountains
 // graphic is a separate, out-of-scope band.
 .hero {
   border-bottom: var(--brand-borderWidth-thin, 1px) solid
@@ -26,9 +26,8 @@
   margin: 1rem 0 0;
 }
 
-// Search entry that mimics an input but opens the shared SearchOverlay on
-// activation. A full-width muted band with the placeholder on the left and a
-// trailing "/" key hint, separated from the title by a top border.
+// The search entry mimics an input but opens the shared SearchOverlay on activation.
+// The slash key hint sits in a muted band separated from the title by a top border.
 .searchRow {
   display: flex;
   align-items: center;

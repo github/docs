@@ -24,22 +24,19 @@ import { ExtendedRequest } from '@/types'
 const logger = createLogger(import.meta.url)
 
 const OLD_PUBLIC_AZURE_BLOB_URL = 'https://githubdocs.azureedge.net'
-// Old Azure Blob Storage `enterprise` container.
+// Old Azure Blob Storage enterprise container.
 const OLD_AZURE_BLOB_ENTERPRISE_DIR = `${OLD_PUBLIC_AZURE_BLOB_URL}/enterprise`
-// Old Azure Blob storage `github-images` container with
-// the root directory of 'enterprise'.
+// Old Azure Blob Storage github-images container rooted at enterprise.
 const OLD_GITHUB_IMAGES_ENTERPRISE_DIR = `${OLD_PUBLIC_AZURE_BLOB_URL}/github-images/enterprise`
 const OLD_DEVELOPER_SITE_CONTAINER = `${OLD_PUBLIC_AZURE_BLOB_URL}/developer-site`
-// This is the new repo naming convention we use for each archived enterprise
-// version. E.g. https://github.github.com/docs-ghes-2.10
+// Archived enterprise repositories use https://github.github.com/docs-ghes-2.10.
 const ENTERPRISE_GH_PAGES_URL_PREFIX = 'https://github.github.com/docs-ghes-'
 
 type ArchivedRedirects = {
   [url: string]: string | null
 }
-// These files are huge so lazy-load them. But note that the
-// `readJsonFileLazily()` function will, at import-time, check that
-// the path does exist.
+// Lazy-load the large redirect files.
+// readCompressedJsonFileFallbackLazily verifies the path at import time.
 const archivedRedirects = readCompressedJsonFileFallbackLazily(
   './src/redirects/lib/static/archived-redirects-from-213-to-217.json',
 ) as () => ArchivedRedirects
@@ -51,51 +48,23 @@ const archivedFrontmatterValidURLS = readCompressedJsonFileFallbackLazily(
   './src/redirects/lib/static/archived-frontmatter-valid-urls.json',
 ) as () => ArchivedFrontmatterURLs
 
-// Combine all the things you need to make sure the response is
-// aggressively cached.
 const cacheAggressively = (res: Response) => {
   archivedCacheControl(res)
 
-  // This sets a custom Fastly surrogate key so that this response
-  // won't get updated in every deployment.
-  // Essentially, this sets a surrogate key such that Fastly
-  // doesn't do soft-purges on these responses on every
-  // automated deployment.
+  // Manual surrogate keys avoid Fastly soft purges on every automated deployment.
   setFastlySurrogateKey(res, SURROGATE_ENUMS.MANUAL)
 }
 
-// The way `got` does retries:
-//
-//   sleep = 1000 * Math.pow(2, retry - 1) + Math.random() * 100
-//
-// So, it means:
-//
-//   1. ~1000ms
-//   2. ~2000ms
-//   3. ~4000ms
-//
-// ...if the limit we set is 3.
-// Our own timeout, in @/frame/middleware/timeout.ts defaults to 10 seconds.
-// So there's no point in trying more attempts than 3 because it would
-// just timeout on the 10s. (i.e. 1000 + 2000 + 4000 + 8000 > 10,000)
+// Got sleeps about 1s, 2s, then 4s for three retries.
+// A fourth retry would exceed MAX_REQUEST_TIMEOUT, which defaults to 10 seconds in production.
 const retryConfiguration = { limit: 3 }
-// According to our Datadog metrics, the *average* time for the
-// the 'archive_enterprise_proxy' metric is ~70ms (excluding spikes)
-// which is much less than 3000ms.
-// We have observed errors of timeout, in production, when it was
-// set to 500ms and then 1500ms. Let's be more conservative here to
-// avoid unnecessary error reporting during occasional slow responses.
+// Datadog reports archive_enterprise_proxy averages about 70ms excluding spikes.
+// Production timed out at 500ms and 1500ms, so 3000ms avoids noise from slow responses.
 const timeoutConfiguration = { response: 3000 }
 
-// Monitoring thresholds for logging response times
-// Log warnings when responses exceed half the timeout threshold
-const WARN_RESPONSE_THRESHOLD = timeoutConfiguration.response / 2 // 1500ms
-// Log info for responses that are noticeably slow but not concerning
-const SLOW_RESPONSE_THRESHOLD = 500 // ms
-
-// This module handles requests for deprecated GitHub Enterprise versions
-// by routing them to static content in
-// one of the docs-ghes-<release number> repos.
+const WARN_RESPONSE_THRESHOLD = timeoutConfiguration.response / 2
+// Log successful responses slower than 500ms.
+const SLOW_RESPONSE_THRESHOLD = 500
 
 export default async function archivedEnterpriseVersions(
   req: ExtendedRequest,
@@ -109,14 +78,14 @@ export default async function archivedEnterpriseVersions(
 
   const redirectCode = pathLanguagePrefixed(req.path) ? 301 : 302
 
-  // Redirects for releases 3.0+
   if (deprecatedWithFunctionalRedirects.includes(requestedVersion)) {
     const redirectTo = req.context ? getRedirect(req.path, req.context) : undefined
     if (redirectTo) {
       if (redirectCode === 302) {
-        languageCacheControl(res) // call first to get `vary`
+        // languageCacheControl sets vary; archivedCacheControl extends the cache duration.
+        languageCacheControl(res)
       }
-      archivedCacheControl(res) // call second to extend duration
+      archivedCacheControl(res)
       return res.safeRedirect(redirectCode, redirectTo)
     }
 
@@ -124,11 +93,7 @@ export default async function archivedEnterpriseVersions(
     try {
       redirectJson = (await getRemoteJSON(getProxyPath('redirects.json', requestedVersion), {
         retry: retryConfiguration,
-        // This is allowed to be different compared to the other requests
-        // we make because downloading the `redirects.json` once is very
-        // useful because it caches so well.
-        // And, as of 2021 that `redirects.json` is 10MB so it's more likely
-        // to time out.
+        // Cache misses use a 1-second time-to-first-byte limit; body transfer may take longer.
         timeout: { response: 1000 },
       })) as Record<string, string>
     } catch (err) {
@@ -143,13 +108,14 @@ export default async function archivedEnterpriseVersions(
     const newRedirectTo = redirectJson[withoutLanguage]
     if (newRedirectTo && newRedirectTo !== withoutLanguage) {
       if (redirectCode === 302) {
-        languageCacheControl(res) // call first to get `vary`
+        // languageCacheControl sets vary; archivedCacheControl extends the cache duration.
+        languageCacheControl(res)
       }
-      archivedCacheControl(res) // call second to extend duration
+      archivedCacheControl(res)
       return res.safeRedirect(redirectCode, `/${language}${newRedirectTo}`)
     }
   }
-  // For releases 2.13 and lower, redirect language-prefixed URLs like /en/enterprise/2.10 -> /enterprise/2.10
+  // Earlier releases redirect /en/enterprise/2.10 to /enterprise/2.10.
   if (
     req.path.startsWith('/en/') &&
     versionSatisfiesRange(requestedVersion, `<${firstVersionDeprecatedOnNewSite}`)
@@ -158,30 +124,21 @@ export default async function archivedEnterpriseVersions(
     return res.safeRedirect(redirectCode, req.baseUrl + req.path.replace(/^\/en/, ''))
   }
 
-  // Redirects for releases 2.13 - 2.17
   if (
     versionSatisfiesRange(requestedVersion, `>=${firstVersionDeprecatedOnNewSite}`) &&
     versionSatisfiesRange(requestedVersion, `<=${lastVersionWithoutArchivedRedirectsFile}`)
   ) {
     const [language, withoutLanguagePath] = splitByLanguage(req.path)
 
-    // `archivedRedirects` is a callable because it's a lazy function
-    // and memoized so calling it is cheap.
-
+    // archivedRedirects is lazy and memoized, so calling it here is cheap.
     const newPath = withoutLanguagePath && archivedRedirects()[withoutLanguagePath]
-    // Some entries in the lookup exists purely for the sake of injecting
-    // language.
-    // E.g. '/enterprise/2.15/user'
-    // URLs like this only need to redirect the original `req.path`
-    // didn't already have a language
+    // Null entries inject /en when the original request has no language prefix.
     if (newPath !== undefined && (newPath || !language)) {
       const redirect = `/${language || 'en'}${newPath || withoutLanguagePath}`
       cacheAggressively(res)
       return res.safeRedirect(redirectCode, redirect)
     }
   }
-  // Redirects for 2.18 - 3.0. Starting with 2.18, we updated the archival
-  // script to create a redirects.json file
   if (
     versionSatisfiesRange(requestedVersion, `>${lastVersionWithoutArchivedRedirectsFile}`) &&
     !deprecatedWithFunctionalRedirects.includes(requestedVersion)
@@ -190,11 +147,7 @@ export default async function archivedEnterpriseVersions(
     try {
       redirectJson = (await getRemoteJSON(getProxyPath('redirects.json', requestedVersion), {
         retry: retryConfiguration,
-        // This is allowed to be different compared to the other requests
-        // we make because downloading the `redirects.json` once is very
-        // useful because it caches so well.
-        // And, as of 2021 that `redirects.json` is 10MB so it's more likely
-        // to time out.
+        // Cache misses use a 1-second time-to-first-byte limit; body transfer may take longer.
         timeout: { response: 1000 },
       })) as Record<string, string>
     } catch (err) {
@@ -205,15 +158,13 @@ export default async function archivedEnterpriseVersions(
       throw err
     }
 
-    // make redirects found via redirects.json redirect with a 301
     if (redirectJson[req.path]) {
       res.set('x-robots-tag', 'noindex')
       cacheAggressively(res)
       return res.safeRedirect(redirectCode, redirectJson[req.path])
     }
   }
-  // Short-circuit requests that will never resolve on the upstream
-  // GitHub Pages repos, avoiding unnecessary network requests.
+  // Short-circuit impossible archive paths to avoid unnecessary upstream requests.
   const earlyNotFound = getEarlyNotFoundReason(req.path, requestedVersion)
   if (earlyNotFound) {
     statsd.increment('middleware.archived_early_not_found', 1, [
@@ -224,9 +175,7 @@ export default async function archivedEnterpriseVersions(
     return res.status(404).type('text').send('Page not found')
   }
 
-  // Requests without a language prefix for versions > 2.17 will always
-  // 404 upstream (the archive repos store pages under /en/, /zh/, etc.).
-  // Skip the fetch and let downstream middleware handle the redirect.
+  // Archive repos after 2.17 require language prefixes; redirects handle unlanguaged paths.
   if (
     versionSatisfiesRange(requestedVersion, `>${lastVersionWithoutArchivedRedirectsFile}`) &&
     !pathLanguagePrefixed(req.path)
@@ -235,7 +184,6 @@ export default async function archivedEnterpriseVersions(
     return next()
   }
 
-  // Retrieve the page from the archived repo
   const doGet = () =>
     fetchWithRetry(
       getProxyPath(req.path, requestedVersion),
@@ -265,14 +213,13 @@ export default async function archivedEnterpriseVersions(
     })
   }
 
-  // Warn on 404s, which are expected for missing archived pages.
-  // Everything else is a genuine upstream failure.
+  // Missing archived pages are expected 404s; other upstream failures need error logs.
   if (r.status !== 200) {
     let upstreamBody: string | undefined
     try {
       upstreamBody = await readBodyWithTimeout(r, () => r.text(), timeoutConfiguration.response)
     } catch {
-      // A body we cannot read should not change how we handle the error.
+      // Ignore unreadable bodies so the original upstream status controls error handling.
     }
     const level = r.status === 404 ? 'warn' : 'error'
     logger[level]('Failed to fetch archived enterprise content', {
@@ -286,7 +233,7 @@ export default async function archivedEnterpriseVersions(
     })
   }
 
-  // Log successful responses with timing for monitoring trends
+  // Log slow successful responses for monitoring trends.
   if (r.status === 200 && responseTime > SLOW_RESPONSE_THRESHOLD) {
     logger.info('Archived enterprise content response', {
       version: requestedVersion,
@@ -303,7 +250,7 @@ export default async function archivedEnterpriseVersions(
     )
     res.set('x-robots-tag', 'noindex')
 
-    // make stubbed redirect files (which exist in versions <2.13) redirect with a 301
+    // Stubbed redirect files in releases before 2.13 return a static redirect target.
     const staticRedirect = body.match(patterns.staticRedirect)
     if (staticRedirect) {
       cacheAggressively(res)
@@ -314,15 +261,12 @@ export default async function archivedEnterpriseVersions(
 
     cacheAggressively(res)
 
-    // Releases 3.2 and higher contain image asset paths with the
-    // old Azure Blob Storage URL. These need to be rewritten to
-    // the new archived enterprise repo URL.
+    // Releases 3.2 through 3.9 contain old Azure Blob image URLs that need archive URLs.
     if (
       versionSatisfiesRange(requestedVersion, `>=${firstReleaseStoredInBlobStorage}`) &&
       versionSatisfiesRange(requestedVersion, `<=3.9`)
     ) {
-      // `x-host` is a custom header set by Fastly.
-      // GLB automatically deletes the `x-forwarded-host` header.
+      // Fastly sets x-host, and GLB removes x-forwarded-host.
       const host = req.get('x-host') || req.get('x-forwarded-host') || req.get('host')
       const modifiedBody = body
         .replaceAll(
@@ -337,11 +281,7 @@ export default async function archivedEnterpriseVersions(
       return res.send(modifiedBody)
     }
 
-    // Releases 3.1 and lower were previously hosted in the
-    // help-docs-archived-enterprise-versions repo. Only the images
-    // were stored in the old Azure Blob Storage `github-images` container.
-    // The image paths all need to be updated to reference the images in the
-    // new archived enterprise repo's root assets directory.
+    // Releases before 3.2 need github-images Azure Blob paths rewritten to archive root assets.
     if (versionSatisfiesRange(requestedVersion, `<${firstReleaseStoredInBlobStorage}`)) {
       let modifiedBody = body.replaceAll(
         `${OLD_GITHUB_IMAGES_ENTERPRISE_DIR}/${requestedVersion}`,
@@ -352,12 +292,11 @@ export default async function archivedEnterpriseVersions(
           `${OLD_DEVELOPER_SITE_CONTAINER}/${requestedVersion}`,
           `${ENTERPRISE_GH_PAGES_URL_PREFIX}${requestedVersion}/developer`,
         )
-        // Update all hrefs to add /developer to the path
         modifiedBody = modifiedBody.replaceAll(
           `="/enterprise/${requestedVersion}`,
           `="/enterprise/${requestedVersion}/developer`,
         )
-        // The changelog is the only thing remaining on developer.github.com
+        // The changelog remains on developer.github.com.
         modifiedBody = modifiedBody.replaceAll(
           'href="/changes',
           'href="https://developer.github.com/changes',
@@ -369,46 +308,35 @@ export default async function archivedEnterpriseVersions(
         `="${ENTERPRISE_GH_PAGES_URL_PREFIX}${requestedVersion}/assets`,
       )
 
-      // Fix broken hrefs on the 2.16 landing page
+      // The 2.16 landing page has hrefs missing the version segment.
       if (requestedVersion === '2.16' && req.path === '/en/enterprise/2.16') {
         modifiedBody = modifiedBody.replaceAll('ref="/en/enterprise', 'ref="/en/enterprise/2.16')
       }
 
-      // Remove the search results container from the page
+      // The empty search results container blocks clicks on page links.
       modifiedBody = modifiedBody.replaceAll('<div id="search-results-container"></div>', '')
 
       return res.send(modifiedBody)
     }
 
-    // In all releases, some assets were incorrectly scraped and contain
-    // deep relative paths. For example, releases 3.4+ use the webp format
-    // for images. The URLs for those images were never rewritten to pull
-    // from the Azure Blob Storage container. This may be due to not
-    // updating our scraping tool to handle the new image types. There
-    // are additional images in older versions that also have a relative path.
-    // We want to update the URLs in the format
-    // "../../../../../../assets/" to prefix the assets directory with the
-    // new archived enterprise repo URL.
+    // Deep relative asset paths like "../../../../../../assets/" need archive repo prefixes.
     let modifiedBody = body.replaceAll(
       /="(\.\.\/)*assets/g,
       `="${ENTERPRISE_GH_PAGES_URL_PREFIX}${requestedVersion}/assets`,
     )
 
-    // Fix broken hrefs on the 2.16 landing page
+    // The 2.16 landing page has hrefs missing the version segment.
     if (requestedVersion === '2.16' && req.path === '/en/enterprise/2.16') {
       modifiedBody = modifiedBody.replaceAll('ref="/en/enterprise', 'ref="/en/enterprise/2.16')
     }
 
-    // Remove the search results container from the page, which removes a white
-    // box that prevents clicking on page links
+    // The empty search results container blocks clicks on page links.
     modifiedBody = modifiedBody.replaceAll('<div id="search-results-container"></div>', '')
 
     return res.send(modifiedBody)
   }
 
-  // In releases 2.13 - 2.17, we lost access to frontmatter redirects
-  //  during the archival process. This workaround finds potentially
-  // relevant frontmatter redirects in currently supported pages
+  // Releases 2.13 through 2.17 need supported-page frontmatter redirects after data loss.
   if (
     versionSatisfiesRange(requestedVersion, `>=${firstVersionDeprecatedOnNewSite}`) &&
     versionSatisfiesRange(requestedVersion, `<=${lastVersionWithoutArchivedRedirectsFile}`)
@@ -433,62 +361,39 @@ function getProxyPath(reqPath: string, requestedVersion: string) {
     `/enterprise/${requestedVersion}/developer`,
   )
 
-  // This was the last release supported on developer.github.com
+  // Developer pages keep the developer-site path layout from the archived release.
   if (isDeveloperPage) {
     const enterprisePath = `/enterprise/${requestedVersion}`
     const newReqPath = reqPath.replace(enterprisePath, '')
     return ENTERPRISE_GH_PAGES_URL_PREFIX + requestedVersion + newReqPath
   }
 
-  // Releases 2.18 and higher
+  // Releases 2.18 and later store redirects.json at the repo root and pages at <path>/index.html.
   if (versionSatisfiesRange(requestedVersion, `>${lastVersionWithoutArchivedRedirectsFile}`)) {
     const newReqPath = reqPath.includes('redirects.json') ? `/${reqPath}` : `${reqPath}/index.html`
     return ENTERPRISE_GH_PAGES_URL_PREFIX + requestedVersion + newReqPath
   }
 
-  // Releases 2.13 - 2.17
-  // redirect.json files don't exist for these versions
+  // Releases 2.13 through 2.17 lack redirects.json files.
   if (versionSatisfiesRange(requestedVersion, `>=2.13`)) {
     return `${ENTERPRISE_GH_PAGES_URL_PREFIX + requestedVersion + reqPath}/index.html`
   }
 
-  // Releases 2.12 and lower
+  // Releases 2.12 and earlier omit the /enterprise/<version> path prefix.
   const enterprisePath = `/enterprise/${requestedVersion}`
   const newReqPath = reqPath.replace(enterprisePath, '')
   return ENTERPRISE_GH_PAGES_URL_PREFIX + requestedVersion + newReqPath
 }
 
-// Module-level global cache object.
-// Gets populated lazily inside getFallbackRedirect().
+// Caches fallback redirect lookups across requests.
 const fallbackRedirectLookups = new Map()
 
+// archived-frontmatter-valid-urls.json maps valid destinations to acceptable source URLs.
+// getFallbackRedirect inverts that structure once, so lookups avoid scanning every destination.
+// Example source /enterprise/2.13/other/old/thing redirects to destination
+// /enterprise/2.13/foo/bar.
+// The JSON omits language prefixes, so lookups strip the request language and add it back.
 function getFallbackRedirect(req: ExtendedRequest) {
-  // The file `lib/redirects/static/archived-frontmatter-valid-urls.json` which
-  // we depend on here, is structured like this:
-  //
-  //  {
-  //   "/enterprise/2.13/foo/bar": [
-  //     "/enterprise/2.13/other/old/thing",
-  //     "/enterprise/2.13/more/redirectable/url",
-  //     "/enterprise/2.13/etc/etc"
-  //   ],
-  //   ...
-  //
-  // The keys are valid URLs that it can redirect to. I.e. these are
-  // URLs that we definitely know are valid and will be found
-  // in one of the docs-ghes-<release number> repos.
-  // The array values are possible URLs we deem acceptable redirect
-  // sources.
-  // But to avoid an unnecessary, O(n), loop every time, we turn this
-  // structure around to become:
-  //
-  //   {
-  //     "/enterprise/2.13/other/old/thing": "/enterprise/2.13/foo/bar",
-  //     "/enterprise/2.13/more/redirectable/url": "/enterprise/2.13/foo/bar",
-  //     "/enterprise/2.13/etc/etc": "/enterprise/2.13/foo/bar",
-  //     ...
-  //
-  // Now potential lookups are fast.
   if (!fallbackRedirectLookups.size) {
     for (const [destination, sources] of Object.entries(archivedFrontmatterValidURLS())) {
       for (const source of sources) {
@@ -497,14 +402,6 @@ function getFallbackRedirect(req: ExtendedRequest) {
     }
   }
 
-  // But before we proceed, remember that the
-  // file lib/redirects/static/archived-frontmatter-valid-urls.json never
-  // contains a language prefix.
-  // E.g. only `/enterprise/2.13/foo/bar` but the requested URL can be
-  // `/en/enterprise/2.13/foo/bar`, `/pt/enterprise/2.13/foo/bar`,
-  // or just `/enterprise/2.13/foo/bar`.
-  // Whatever it is, pop the language prefix, operate, and put it back
-  // again. In the end, it always has to have a language prefix.
   const [language, withoutLanguage] = splitPathByLanguage(req.path)
   const fallback = fallbackRedirectLookups.get(withoutLanguage)
   if (fallback) {
@@ -523,43 +420,34 @@ function splitByLanguage(uri: string) {
   return [language, withoutLanguage]
 }
 
-// Regex to extract any language-like prefix from the path, including
-// "cn" which was the old Chinese language code used in archives ≤3.2.
+// Matches language-like path prefixes, including the old Chinese cn code from archives through 3.2.
 const archiveLanguagePrefixRegex = new RegExp(`^/(${Object.keys(allLanguages).join('|')}|cn)(/|$)`)
 
-// Detects request paths that will never resolve on the upstream GitHub
-// Pages archive repos, so we can 404 immediately without making a
-// network request. Returns a short reason string, or null if the
-// request looks plausible.
+// Identifies request paths that cannot resolve on upstream GitHub Pages archive repos.
+// Returning a reason lets callers log and skip the network request.
 function getEarlyNotFoundReason(reqPath: string, version: string): string | null {
-  // Double slashes in the path never resolve (e.g. ".../about-2fa//index.html")
+  // Double slashes never resolve, such as /about-2fa//index.html.
   if (reqPath.includes('//')) {
     return 'double-slash'
   }
 
-  // A duplicated "/developer/developer/" segment means a broken crawler URL
-  // from the old developer.github.com site.
+  // Duplicated /developer/developer/ segments come from broken developer.github.com crawler URLs.
   if (reqPath.includes('/developer/developer/')) {
     return 'developer-developer'
   }
 
-  // Check if the language in the path actually exists in this version's
-  // archive. Each language has a `firstArchivedVersion` indicating when
-  // it was first included in the GHES archives.
+  // firstArchivedVersion records when each archive language became available.
   const langMatch = reqPath.match(archiveLanguagePrefixRegex)
   if (langMatch) {
     const lang = langMatch[1]
 
-    // "cn" was the old Chinese language code; those archives are ancient
-    // and effectively dead traffic. Always 404.
+    // cn was the old Chinese language code; always 404 it as dead archive traffic.
     if (lang === 'cn') {
       return 'language-not-in-version'
     }
-
     const langDef = allLanguages[lang]
     if (langDef?.firstArchivedVersion) {
-      // 404 if the requested version is older than when this language
-      // was first archived (e.g. /zh/ on v3.0 → 404 because zh started in 3.3)
+      // 404 languages before firstArchivedVersion, such as /zh/ on 3.0 because zh starts in 3.3.
       if (!versionSatisfiesRange(version, `>=${langDef.firstArchivedVersion}`)) {
         return 'language-not-in-version'
       }

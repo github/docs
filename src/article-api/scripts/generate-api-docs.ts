@@ -25,7 +25,7 @@ function extractApiDocs(file: string): ApiDoc[] {
 
   const content = readFileSync(file, 'utf8')
 
-  // Get the router method definitions with JSDOC-style comments
+  // Router comments are still JSDoc-style because this script extracts their tags.
   const routeRegex =
     /\/\*\*\s*([\s\S]*?)\s*\*\/\s*router\.(get|post|put|delete)\s*\(\s*['"]([^'"]*)['"]/g
   let match
@@ -41,20 +41,19 @@ function extractApiDocs(file: string): ApiDoc[] {
       .trim()
       .replace(/^\*\s*/, '')
 
-    // We currently support params, returns, examples, and throws.
     const params = extractParams(commentBlock)
     const returns = extractReturns(commentBlock)
     const examples = extractExample(commentBlock)
     const throws = extractThrows(commentBlock)
 
     apiDocs.push({
-      method, // GET, POST, etc
-      path: file.includes('article.ts') ? `/api/article${path}` : `/api/pagelist${path}`, // Prepend base path
-      description, // defined in the top of the block comment
-      params, // defined from @params
-      returns, // defined from @returns
-      examples, // defined from @example
-      throws, // defined from @throws
+      method,
+      path: file.includes('article.ts') ? `/api/article${path}` : `/api/pagelist${path}`,
+      description,
+      params,
+      returns,
+      examples,
+      throws,
     })
   }
 
@@ -103,7 +102,7 @@ function extractReturns(commentBlock: string): string {
 function extractExample(commentBlock: string): string {
   const exampleMatch = commentBlock.match(/@example\b([\s\S]*?)(?=\s*\*\s*@|\s*\*\/|$)/)
   if (exampleMatch) {
-    // Clean up the example text by removing leading asterisks and spaces from each line, preserving tabs
+    // Preserves tabs in examples while removing comment asterisks.
     return exampleMatch[1]
       .split('\n')
       .map((line) => line.replace(/^\s*\*\s?/, ''))

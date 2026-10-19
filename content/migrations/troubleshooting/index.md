@@ -2,6 +2,7 @@
 title: Troubleshooting migrations
 shortTitle: Troubleshoot migrations
 intro: 'Troubleshoot common issues when migrating repositories with {% data variables.product.prodname_importer_proper_name %}.'
+allowTitleToDifferFromFilename: true
 versions:
   ghec: '*'
 children:

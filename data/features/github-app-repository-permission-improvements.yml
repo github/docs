@@ -1,0 +1,8 @@
+# https://github.com/github/releases/issues/11043
+# GitHub Apps have a separate repository creation permission, and repository
+# administrators can add repositories to an existing approved installation
+# regardless of the app's permissions.
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.24'

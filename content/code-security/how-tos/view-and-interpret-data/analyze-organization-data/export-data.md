@@ -1,7 +1,7 @@
 ---
 title: Exporting data from security overview
 shortTitle: Export data
-intro: From security overview, you can export CSV files of the data used for your organization or enterprise's overview, risk, coverage, and {% data variables.product.prodname_codeql %} pull request insights pages.
+intro: From security overview, you can export CSV files of the data used for your organization or enterprise's overview, risk, coverage, and code scanning pull request insights pages.
 permissions: '{% data reusables.permissions.security-overview %}'
 product: '{% data reusables.gated-features.security-overview-fpt-both %}'
 versions:
@@ -19,6 +19,12 @@ category:
 
 The CSV file you download will contain data corresponding to the filters you have applied to security overview. For example, if you add the filter `dependabot-alerts:enabled`, your file will only contain data for repositories that have enabled {% data variables.product.prodname_dependabot_alerts %}.
 
+{% ifversion ai-powered-security-detections %}
+CSV files exported from the "Coverage" view include a `Code Scanning AI Scan for pull requests` column. The value for each repository is `enabled` or `not-enabled`.
+
+In the "Code scanning on pull requests" report, CSV export is available on the **{% data variables.product.prodname_codeql %}** tab. CSV export is not yet available on the **AI Scan** tab.
+{% endif %}
+
 > [!NOTE]
 > In the "Teams" column of the CSV file, each repository will list a maximum of 20 teams with write access to that repository. If more than 20 teams have write access to a repository, the data will be truncated.
 
@@ -27,7 +33,7 @@ The CSV file you download will contain data corresponding to the filters you hav
 {% data reusables.profile.access_org %}
 1. In the "Organizations" section, select the organization for which you would like to download security overview data.
 {% data reusables.organizations.security-overview %}
-1. In the sidebar, click **{% octicon "graph" aria-hidden="true" aria-label="graph" %} Overview**, **{% octicon "meter" aria-hidden="true" aria-label="meter" %} Coverage**, **{% octicon "shield" aria-hidden="true" aria-label="shield" %} Risk**, or **{% octicon "graph" aria-hidden="true" aria-label="graph" %} {% data variables.product.prodname_codeql %} pull requests**.
+1. In the sidebar, click **{% octicon "graph" aria-hidden="true" aria-label="graph" %} Overview**, **{% octicon "meter" aria-hidden="true" aria-label="meter" %} Coverage**, **{% octicon "shield" aria-hidden="true" aria-label="shield" %} Risk**, or **{% octicon "graph" aria-hidden="true" aria-label="graph" %} {% ifversion ai-powered-security-detections %}Code scanning on pull requests{% else %}{% data variables.product.prodname_codeql %} pull requests{% endif %}**.
 1. Next to the search bar, click **{% octicon "download" aria-hidden="true" aria-label="download" %} Export CSV**.
 
     It may take a moment for {% data variables.product.github %} to generate the CSV file of your data. Once the CSV file generates, the file will automatically start downloading, and a banner will appear confirming your report is ready. If you are downloading the CSV from the overview page, you will also receive an email when your report is ready, containing a link to download the CSV.

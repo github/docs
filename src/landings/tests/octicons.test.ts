@@ -77,7 +77,7 @@ describe('octicons reference', () => {
     })
 
     test('returns CopilotIcon as fallback for invalid octicons', () => {
-      // TypeScript should prevent this, but test runtime behavior
+      // Runtime content can bypass TypeScript, so invalid names still need a fallback.
       expect(getOcticonComponent('invalid' as ValidOcticon)).toBe(CopilotIcon)
     })
   })
@@ -127,11 +127,7 @@ describe('octicons reference', () => {
     })
 
     test('adding new octicon only requires updating OCTICON_COMPONENTS', () => {
-      // This test documents the single source of truth approach
-      // If you add a new octicon to OCTICON_COMPONENTS:
-      // 1. ValidOcticon type automatically includes it
-      // 2. VALID_OCTICONS array automatically includes it
-      // 3. All validation functions work with it
+      // OCTICON_COMPONENTS drives the type, validation array, and validation helpers.
 
       const componentCount = Object.keys(OCTICON_COMPONENTS).length
       const validOcticonsCount = VALID_OCTICONS.length

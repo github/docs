@@ -1,12 +1,7 @@
 name: Purge Fastly
 
-# **What it does**:
-#   On production deploy, hard-purge the changed English content pages by key.
-#   On demand, soft or hard purge language keys, a single key, or entire cache.
-# **Why we have it**: So a just-deployed change is visible right away, and so
-#   docs engineering can clear a bad cache state without the Fastly UI.
-# **Who does it impact**: Writers and engineers. A full purge impacts all readers
-#   and spikes origin traffic while the cache refills, so it's gated below.
+# Production deploys hard-purge changed English content, and manual runs clear bad Fastly cache state.
+# Full-cache purges affect all readers and spike origin traffic, so they stay gated below.
 
 on:
   deployment_status:
@@ -16,13 +11,13 @@ on:
         description: "Languages: Comma separated languages, e.g. 'en,es,ja,pt,zh,ru,fr,ko,de'. Blank = all languages."
         required: false
         default: 'en'
-      hard:
-        description: 'Hard purge: Evict immediately instead of the default soft purge. Use when a soft purge fails to clear stale content.'
+      soft:
+        description: 'Soft purge: Mark stale instead of evicting. Readers keep getting the old copy while Fastly refetches. Off by default, so purges evict immediately.'
         type: boolean
         required: false
         default: false
       everything:
-        description: 'Everything: Hard-purge the entire Fastly cache... every key, all readers. Ignores the languages/hard inputs. To confirm, type exactly: "purge everything". Otherwise leave blank.'
+        description: 'Everything: Hard-purge the entire Fastly cache... every key, all readers. Ignores the languages/soft inputs. To confirm, type exactly: "purge everything". Otherwise leave blank.'
         required: false
         default: ''
 
@@ -30,9 +25,8 @@ permissions:
   contents: read
   deployments: read
 
-# Serialize full-cache purges so two can't overlap and leave the cache in an
-# unknown state. Every other run (per-deploy, per-language) gets a unique group
-# so those never block each other.
+# Serialize full-cache purges so concurrent runs cannot leave the cache in an unknown state.
+# Per-deploy and per-language runs get unique groups so they never block each other.
 concurrency:
   group: ${{ (inputs.everything == 'purge everything' && 'purge-fastly-all') || format('purge-fastly-{0}', github.run_id) }}
   cancel-in-progress: false
@@ -43,11 +37,8 @@ env:
 
 jobs:
   send-purges:
-    # Run when workflow_dispatch is the event
-    # or when deployment_status is the event and it's a successful production deploy.
-    # NOTE: This workflow triggers on all deployment_status events,
-    # including staging, but only runs for production.
-    # Non-production deploys will show as "skipped" - this is expected behavior.
+    # This workflow sees every deployment_status event, but only production successes purge.
+    # Non-production deployments skip this job.
     if: >-
       ${{
         github.repository == 'github/docs-internal' &&
@@ -62,11 +53,8 @@ jobs:
       - uses: ./.github/actions/node-npm-setup
 
       - name: Validate confirmation input
-        # A full-cache purge only triggers on the exact string "purge everything".
-        # Any other non-empty value (e.g. a typo) would otherwise be silently
-        # ignored and fall through to a normal soft purge that finishes green, so
-        # an operator could think they evicted the whole cache when they didn't.
-        # Fail loudly instead.
+        # A full-cache purge requires the exact string "purge everything"; typos must fail
+        # instead of falling through to a green language purge.
         env:
           EVERYTHING_INPUT: ${{ inputs.everything }}
         run: |
@@ -80,21 +68,20 @@ jobs:
         run: npm run wait-for-build
 
       - name: Purge Fastly (manual)
-        # Raw inputs are passed through the environment and quoted, never spliced
-        # into the command string, so a value like `en' --everything` can't break
-        # out of its argument and inject another flag.
+        # Raw inputs pass through the environment as quoted arguments.
+        # A value like en' --everything cannot break out and inject another flag.
         if: ${{ github.event_name == 'workflow_dispatch' }}
         env:
           LANGUAGES_INPUT: ${{ inputs.languages }}
-          HARD_INPUT: ${{ inputs.hard }}
+          SOFT_INPUT: ${{ inputs.soft }}
           EVERYTHING_INPUT: ${{ inputs.everything }}
         run: |
           args=()
           if [ -n "$LANGUAGES_INPUT" ]; then
             args+=(--languages "$LANGUAGES_INPUT")
           fi
-          if [ "$HARD_INPUT" = "true" ]; then
-            args+=(--hard)
+          if [ "$SOFT_INPUT" = "true" ]; then
+            args+=(--soft)
           fi
           if [ "$EVERYTHING_INPUT" = "purge everything" ]; then
             args+=(--everything)
@@ -102,8 +89,7 @@ jobs:
           npm run purge-fastly -- "${args[@]}"
 
       - name: Hard-purge changed English content pages
-        # On prod deploys, evict the surrogate keys of the English content pages
-        # whose content/ files changed in this deploy.
+        # Production deploys purge surrogate keys for English pages whose content/ files changed.
         if: ${{ github.event_name == 'deployment_status' }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

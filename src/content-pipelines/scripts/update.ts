@@ -1,20 +1,15 @@
-// [start-readme]
+// Clones an external source repository, detects changed docs, and runs the
+// content-pipeline-update Copilot agent to update reference articles.
 //
-// This script clones an external source repository, detects whether its docs
-// have changed since the last processed commit, and if so runs the
-// content-pipeline-update Copilot agent to update our reference articles.
-//
-// The workflow (.github/workflows/content-pipelines.yml) calls this script in CI.
-// You can also run it locally for testing and iteration:
+// .github/workflows/content-pipelines.yml calls this script in CI.
+// Run it locally with:
 //
 //   npx tsx src/content-pipelines/scripts/update.ts --id copilot-cli
 //   npx tsx src/content-pipelines/scripts/update.ts --id copilot-cli --dry-run
 //   npx tsx src/content-pipelines/scripts/update.ts --id copilot-cli --full-scan
 //
-// Defaults (source-repo, source-path, target-articles) are read from
-// src/content-pipelines/config.yml. You can override any value via CLI flags.
-//
-// [end-readme]
+// src/content-pipelines/config.yml supplies source-repo, source-path, and
+// target-articles defaults. CLI flags override them.
 
 import { execSync, execFileSync } from 'child_process'
 import fs from 'fs'
@@ -149,8 +144,7 @@ async function main(): Promise<void> {
     const repoUrl = `https://github.com/${SOURCE_REPO}.git`
 
     try {
-      // execFileSync passes the token as an argument instead of embedding it in the URL,
-      // where it would leak into error messages and logs.
+      // Use http.extraHeader for token, not clone URL; Git includes clone URLs in errors and logs.
       const args = ['clone']
       if (token) {
         args.push(
@@ -200,9 +194,7 @@ async function main(): Promise<void> {
       diff = '(diff unavailable)'
     }
 
-    // Empty means no doc files changed.
-    // A leading "(" means the diff itself failed,
-    // so fall through and run the agent anyway.
+    // Empty output means no doc files changed; a leading "(" means diff failed, so run the agent.
     if (!nameStatus.startsWith('(') && !nameStatus.trim()) {
       console.log(
         `No changes in ${SOURCE_PATH} between ${storedSha.slice(0, 7)} and ${currentSha.slice(0, 7)}. Skipping agent run.`,
@@ -222,8 +214,7 @@ async function main(): Promise<void> {
       diff,
     ].join('\n')
   } else {
-    // Initial run or full scan, so list every source doc.
-    // Incremental runs get this inventory from git diff --name-status instead.
+    // Initial and full scans list all docs; incremental scans use git diff --name-status.
     const sourceDocs = path.join(sourceDir, SOURCE_PATH)
     let fileList: string
     try {

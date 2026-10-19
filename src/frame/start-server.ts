@@ -1,6 +1,5 @@
-// IMPORTANT: OTel tracing MUST be the first import. It patches Node.js
-// built-ins (http, etc.) at load time via auto-instrumentation.
-// Moving this after any framework import will silently break tracing.
+// Import tracing before framework code so auto-instrumentation can patch Node.js built-ins.
+// Moving it later silently breaks OTel tracing.
 import '@/observability/lib/tracing'
 
 import http from 'http'
@@ -44,17 +43,13 @@ async function checkPortAvailability() {
   }
 }
 
+// startServer warms the idempotent server cache before listen, so development restarts do not
+// block the first page refresh.
+// The SIGTERM timer forces exit after 25s because the preStop hook sleeps 5s and Kubernetes
+// SIGKILLs at 60s, while the deploy controller can time out on old terminating pods.
 async function startServer() {
   const app = createApp()
 
-  // Warm up as soon as possible.
-  // The `warmServer()` function is idempotent and it will soon be used
-  // by some middleware, but there's no point in having a started server
-  // without this warmed up. Besides, by starting this slow thing now,
-  // it can start immediately instead of waiting for the first request
-  // to trigger it to warm up. That way, when in development and triggering
-  // a `nodemon` restart, there's a good chance the warm up has come some
-  // way before you manage to reach for your browser to do a page refresh.
   await warmServer([])
 
   // Workaround for https://github.com/expressjs/express/issues/1101
@@ -65,8 +60,7 @@ async function startServer() {
   process.once('SIGTERM', () => {
     logger.info('Received SIGTERM, beginning graceful shutdown', { pid: process.pid, port })
 
-    // Force-close idle keep-alive sockets so server.close() doesn't hang
-    // waiting for them to disconnect naturally.
+    // Force-close idle keep-alive sockets so server.close() does not wait for natural disconnects.
     try {
       server.closeIdleConnections()
     } catch (err) {
@@ -77,11 +71,6 @@ async function startServer() {
       logger.info('HTTP server closed')
     })
 
-    // If in-flight requests haven't drained within 25s, force exit.
-    // Kubernetes sends SIGKILL at terminationGracePeriodSeconds (60s),
-    // but the deploy controller may time out before that if an old pod
-    // stays in "Terminating" state too long. The preStop hook sleeps 5s,
-    // so 25s here keeps total shutdown well under the 60s grace period.
     setTimeout(() => {
       logger.warn('Graceful shutdown timed out, forcing exit')
       try {

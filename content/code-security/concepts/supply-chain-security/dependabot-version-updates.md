@@ -63,6 +63,12 @@ For each action in the file, {% data variables.product.prodname_dependabot %} ch
 
 {% data variables.product.prodname_dependabot %} also checks workflow files for uses of reusable workflows, and updates the Git reference for these called reusable workflows.
 
+{% ifversion actions-workflow-lockfiles %}
+
+If a workflow has been onboarded to a workflow dependency lockfile, {% data variables.product.prodname_dependabot %} also regenerates the matching lockfile entry in the same pull request, so the pinned commit in the lockfile always matches the updated reference in the workflow file. This needs no additional configuration. For more information, see [AUTOTITLE](/actions/how-tos/secure-your-work/lock-workflow-dependencies).
+
+{% endif %}
+
 To enable this feature, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/auto-update-actions).
 
 ## About automatic deactivation of {% data variables.product.prodname_dependabot_updates %}

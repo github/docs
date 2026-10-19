@@ -3,10 +3,8 @@ import { expect, test, describe } from 'vitest'
 import { get, post } from '@/tests/helpers/e2etest'
 
 describe('AI Search Local Proxy Middleware', () => {
+  // Under NODE_ENV=test, frame/middleware/api.ts mounts aiSearch directly; this only proves the route answers.
   test('should successfully proxy to docs.github.com when CSE_COPILOT_ENDPOINT is not localhost', async () => {
-    // Under NODE_ENV=test, frame/middleware/api.ts mounts the real aiSearch
-    // middleware rather than the proxy, so nothing here reaches the proxy. This
-    // is a smoke test that the route exists and answers.
     const body = { query: 'test query', version: 'dotcom' }
     const response = await post('/api/ai-search/v1', {
       body: JSON.stringify(body),
@@ -63,6 +61,7 @@ describe('AI Search Local Proxy Middleware', () => {
     expect([200, 500, 502, 503, 504]).toContain(response.statusCode)
   })
 
+  // fetch forbids Connection, Transfer-Encoding and Upgrade, so this test cannot send them.
   test('should filter hop-by-hop headers correctly', async () => {
     const response = await post('/api/ai-search/v1', {
       body: JSON.stringify({ query: 'test', version: 'dotcom' }),
@@ -70,9 +69,6 @@ describe('AI Search Local Proxy Middleware', () => {
         'Content-Type': 'application/json',
         'User-Agent': 'test-agent',
         'X-Custom-Header': 'test-value',
-        // fetch forbids Connection, Transfer-Encoding and Upgrade, so a client
-        // cannot send the hop-by-hop headers the proxy filters. These are
-        // forwarded as-is.
       },
     })
 

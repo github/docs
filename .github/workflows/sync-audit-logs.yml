@@ -1,8 +1,6 @@
 name: Sync Audit Log data
 
-# **What it does**: This updates our Audit Logs schema.
-# **Why we have it**: We want our Audit Logs up to date.
-# **Who does it impact**: Docs engineering, people reading Audit Logs.
+# Keeps Audit Logs schema docs current with github/audit-log-allowlists.
 
 on:
   workflow_dispatch:
@@ -13,7 +11,7 @@ permissions:
   contents: write
   pull-requests: write
 
-# This allows a subsequently queued workflow run to interrupt previous runs
+# Cancel older syncs so stale schema data does not open older PRs.
 concurrency:
   group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
   cancel-in-progress: true
@@ -29,7 +27,7 @@ jobs:
 
       - name: Run updater script
         env:
-          # need to use a token from a user with access to github/audit-log-allowlists for this step
+          # DOCS_BOT_PAT_BASE can read github/audit-log-allowlists.
           GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
         run: |
           npm run sync-audit-log
@@ -47,14 +45,12 @@ jobs:
 
       - name: Create and merge pull request
         env:
-          # Needed for gh
           GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
         run: |
           echo "Creating a new branch if needed..."
           branchname=audit-logs-schema-update-${{ steps.audit-log-allowlists.outputs.COMMIT_SHA }}
           remotesha=$(git ls-remote --heads origin $branchname)
           if [ -n "$remotesha" ]; then
-            # output is not empty, it means the remote branch exists
             echo "Branch $branchname already exists in 'github/docs-internal'. Exiting..."
             exit 0
           fi
@@ -94,14 +90,14 @@ jobs:
             --head=$branchname
           echo "Created pull request"
 
-          # can't approve your own PR, approve with Actions
+          # docs-bot cannot approve its own PR, so GITHUB_TOKEN approves it.
           echo "Approving pull request..."
           unset GITHUB_TOKEN
           gh auth login --with-token <<< "${{ secrets.GITHUB_TOKEN }}"
           gh pr review --approve
           echo "Approved pull request"
 
-          # Actions can't merge the PR so back to docs-bot to merge the PR
+          # GITHUB_TOKEN cannot enable auto-merge here, so docs-bot enables it.
           echo "Setting pull request to auto merge..."
           unset GITHUB_TOKEN
           gh auth login --with-token <<< "${{ secrets.DOCS_BOT_PAT_BASE }}"

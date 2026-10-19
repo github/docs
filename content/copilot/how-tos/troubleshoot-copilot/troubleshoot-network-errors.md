@@ -14,7 +14,7 @@ category:
   - Troubleshooting Copilot
 ---
 
-If you're working on company equipment and connecting to a corporate network, you may be connecting to the Internet via a VPN or an HTTP proxy server. In some cases, these types of network setups may prevent {% data variables.product.prodname_copilot %} from connecting to {% data variables.product.prodname_dotcom %}'s server. For more information about the options for setting up proxies with {% data variables.product.prodname_copilot %}, see [AUTOTITLE](/copilot/how-tos/configure-personal-settings/configure-network-settings).
+If you're working on company equipment and connecting to a corporate network, you may be connecting to the Internet via a VPN or an HTTP proxy server. In some cases, these types of network setups may prevent {% data variables.product.prodname_copilot %} from connecting to {% data variables.product.prodname_dotcom %}'s server. For more information about the options for setting up proxies with {% data variables.product.prodname_copilot %}, see [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/set-up-copilot/configure-network-settings).
 
 This article provides guidance for common issues related to HTTP proxies and custom certificates. If you use a firewall, this may also interfere with {% data variables.product.prodname_copilot %}'s connection. For more information, see [AUTOTITLE](/copilot/how-tos/troubleshoot-copilot/troubleshoot-firewall-settings).
 
@@ -46,14 +46,14 @@ If you're unable to connect and the `curl` requests don't help to identify the e
 
 If there is a problem with your proxy setup, you may see the following error: `{% data variables.product.prodname_copilot %} could not connect to server. Extension activation failed: "read ETIMEDOUT" or "read ECONNRESET"`. This error can be caused by a range of network issues.
 
-If you know you are connecting via a proxy, make sure the proxy is configured correctly in your environment. For more information, see [AUTOTITLE](/copilot/how-tos/configure-personal-settings/configure-network-settings#configuring-proxy-settings-for-copilot).
+If you know you are connecting via a proxy, make sure the proxy is configured correctly in your environment. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/set-up-copilot/configure-network-settings#configuring-proxy-settings-for-copilot).
 
 > [!NOTE] If you are an employee of a company with a proxy server, your company must also configure proxy settings for {% data variables.product.prodname_copilot_short %} at the company level. See [AUTOTITLE](/copilot/reference/copilot-allowlist-reference).
 
 {% data variables.product.prodname_copilot %} uses custom code to connect to proxies. This means a proxy setup supported by your editor is not necessarily supported by {% data variables.product.prodname_copilot %}. Some common causes for errors related to proxies are:
 
 * If your proxy's URL starts `https://`, it is not currently supported by {% data variables.product.prodname_copilot %}.
-* You may need to authenticate to the proxy. {% data variables.product.prodname_copilot %} supports basic authentication or authentication with Kerberos. If you are using Kerberos, ensure you have a valid ticket for the proxy service and that you are using the correct service principal name for the service. For more information, see [AUTOTITLE](/copilot/how-tos/configure-personal-settings/configure-network-settings).
+* You may need to authenticate to the proxy. {% data variables.product.prodname_copilot %} supports basic authentication or authentication with Kerberos. If you are using Kerberos, ensure you have a valid ticket for the proxy service and that you are using the correct service principal name for the service. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/set-up-copilot/configure-network-settings).
 * {% data variables.product.prodname_copilot %} may reject custom certificates. For more information, see [Troubleshooting certificate-related errors](#troubleshooting-certificate-related-errors).
 
 ## Troubleshooting certificate-related errors
@@ -63,11 +63,11 @@ Depending on your proxy setup, you may encounter errors like "certificate signat
 Some possible ways to resolve certificate-related errors are:
 * Configure a different proxy that does not intercept secure connections.
 * If you are using a corporate proxy, contact your IT department to see if they can configure the proxy to not intercept secure connections.
-* Ensure the custom certificates are properly installed in your operating system's trust store. For more information, see [AUTOTITLE](/copilot/how-tos/configure-personal-settings/configure-network-settings#installing-custom-certificates). If the certificates are installed on your machine but {% data variables.product.prodname_copilot %} isn't detecting them, it may help you to know the mechanisms that {% data variables.product.prodname_copilot %} uses to find certificates.
+* Ensure the custom certificates are properly installed in your operating system's trust store. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/set-up-copilot/configure-network-settings#installing-custom-certificates). If the certificates are installed on your machine but {% data variables.product.prodname_copilot %} isn't detecting them, it may help you to know the mechanisms that {% data variables.product.prodname_copilot %} uses to find certificates.
   * On Windows, {% data variables.product.prodname_copilot_short %} uses the [win-ca package](https://www.npmjs.com/package/win-ca).
   * On macOS, {% data variables.product.prodname_copilot_short %} uses the [mac-ca package](https://www.npmjs.com/package/mac-ca).
   * On Linux, {% data variables.product.prodname_copilot_short %} checks the standard OpenSSL files `/etc/ssl/certs/ca-certificates.crt` and `/etc/ssl/certs/ca-bundle.crt`.
-* Configure {% data variables.product.prodname_copilot %} to ignore certificate errors. In your proxy settings, you can deselect **Proxy Strict SSL** in {% data variables.product.prodname_vscode %}, or select **Accept non-trusted certificates automatically** in a JetBrains IDE. For more information, see [AUTOTITLE](/copilot/how-tos/configure-personal-settings/configure-network-settings#configuring-proxy-settings-for-copilot).
+* Configure {% data variables.product.prodname_copilot %} to ignore certificate errors. In your proxy settings, you can deselect **Proxy Strict SSL** in {% data variables.product.prodname_vscode %}, or select **Accept non-trusted certificates automatically** in a JetBrains IDE. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/set-up-copilot/configure-network-settings#configuring-proxy-settings-for-copilot).
 
   > [!WARNING] Ignoring certificate errors can cause security issues and is not recommended.
 

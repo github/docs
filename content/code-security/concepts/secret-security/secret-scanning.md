@@ -22,14 +22,10 @@ category:
 
 When credentials like API keys and passwords are committed to repositories as hardcoded secrets, they become targets for unauthorized access. {% data variables.product.prodname_secret_scanning_caps %} automatically detects credential leaks so you can secure them before they're exploited.
 
-{% ifversion secret-risk-assessment %}
-
 > [!TIP]
 > At any time, you can run a free assessment of your organization's code for leaked secrets. 
 >
 > To generate a report, open {% data reusables.security-overview.navigate-to-risk-assessment %}.
-
-{% endif %}
 
 ## How secret scanning protects your code
 
@@ -73,9 +69,7 @@ Beyond the default detection of partner and provider secrets, you can expand and
 
 ### About validity checks
 
-Validity checks help you prioritize which secrets to remediate first by verifying whether a detected secret is still active. When you enable validity checks, {% data variables.product.prodname_secret_scanning %} may contact the secret's issuing service to determine if the credential has been revoked.
-
-Validity checks are separate from {% data variables.product.prodname_secret_scanning %}'s partner program. While partner secrets are automatically reported to service providers for revocation, validity checks verify the status of secrets you manage in your own alerts. For more information, see [AUTOTITLE](/code-security/concepts/secret-security/validity-checks).
+Validity checks help you prioritize which secrets to remediate first by verifying whether a detected secret is still active. When you enable validity checks, {% data variables.product.prodname_secret_scanning %} may contact the secret's issuing service to determine if the credential has been revoked. For more information, see [AUTOTITLE](/code-security/concepts/secret-security/validity-checks).
 
 {% endif %}
 

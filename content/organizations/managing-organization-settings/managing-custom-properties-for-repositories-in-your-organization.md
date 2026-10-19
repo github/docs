@@ -37,7 +37,19 @@ This feature is available with {% data variables.copilot.copilot_business_short 
 
 {% data reusables.repositories.custom-property-allowed-characters %}
 
-## Adding custom properties
+{% ifversion external-custom-properties %}
+
+## Syncing custom properties with an external system
+
+> [!NOTE] {% data reusables.organizations.external-properties-preview %}
+
+{% data reusables.organizations.external-properties-intro %}
+
+For setup instructions, see [AUTOTITLE](/organizations/managing-organization-settings/sync-external-custom-properties).
+
+{% endif %}
+
+## Adding custom properties on {% data variables.product.github %}
 
 You can add custom properties to your organization and set values for those properties for repositories in your organization.
 

@@ -1,5 +1,5 @@
 ---
-title: Controlling who can execute {% data variables.product.prodname_actions %} workflows
+title: Governing execution of {% data variables.product.prodname_actions %} workflows
 shortTitle: Control workflow execution
 intro: Control who can trigger {% data variables.product.prodname_actions %} workflows and which events are permitted to run them across an enterprise, organization, and repository.
 versions:
@@ -77,6 +77,18 @@ Only the allowed actors will be able to run the specified workflows in the targe
 ### Restrict events
 
 Event rules control which events are permitted, such as `push`, `pull_request`, `pull_request_target`, and `workflow_dispatch`.
+
+{% ifversion actions-workflow-lockfiles %}
+
+### Require lockfile
+
+The **Require lockfile** protection blocks runs of workflows with `uses:` dependencies on other actions, unless the dependencies are pinned in a dependency lockfile. This ensures that the targeted workflows run predictable, vetted code, rather than whatever a tag or branch points to at run time. See [AUTOTITLE](/actions/concepts/security/workflow-dependency-lockfiles).
+
+Generate and verify lockfiles in the repositories you're targeting before you set this protection to **Active**. Otherwise, you'll block workflow runs in repositories that aren't ready. For a staged rollout, see [AUTOTITLE](/actions/how-tos/administer/enforce-workflow-lockfiles).
+
+You can keep **Require actions to be pinned to a full-length commit SHA** enabled when adopting lockfiles. For dependencies covered by a lockfile, {% data variables.product.github %} evaluates this requirement using the locked commit SHA. Keeping the policy enabled during a staged rollout preserves SHA-pinning enforcement for workflows that have not yet adopted lockfiles.
+
+{% endif %}
 
 ## Evaluating policies
 

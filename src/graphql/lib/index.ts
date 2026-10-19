@@ -13,27 +13,23 @@ import type {
 } from '@/graphql/components/types'
 import { ALL_KIND_KEYS, CATEGORIES, isValidCategory, type SchemaKindKey } from './categories'
 
-// GraphqlContext describes the per-request context object that getMiniToc and
-// getGraphqlSchema read language/version from.
 export interface GraphqlContext {
   currentLanguage: string
   currentVersion: string
   [key: string]: unknown
 }
 
-// The GraphQL schema JSON is keyed by member type (e.g. "queries", "objects",
-// "enums"), each holding a list of schema members.
+// GraphQL schema JSON groups members by schema kind.
 type GraphqlSchemaData = Record<string, GraphqlT[]>
 
 export const GRAPHQL_DATA_DIR = 'src/graphql/data'
-/* ADD LANGUAGE KEY */
 const previews = new Map<string, PreviewT[]>()
 const upcomingChanges = new Map<string, BreakingChangesT>()
 const changelog = new Map<string, ChangelogItemT[]>()
 const changelogMiniTocs = new Map<string, MiniTocItem[]>()
-// Per-category schema files. Key: `${graphqlVersion}:${category}` → bucket.
+// Per-category schema cache keys combine graphqlVersion and category.
 const graphqlCategorySchemas = new Map<string, GraphqlSchemaData>()
-// All objects across categories (for interface implementer lookup).
+// Interface renderers need object items from every category to list implementers.
 const allObjectsByVersion = new Map<string, GraphqlT[]>()
 const miniTocs = new Map<string, Map<string, Map<string, MiniTocItem[]>>>()
 
@@ -41,9 +37,7 @@ for (const language of Object.keys(languages)) {
   miniTocs.set(language, new Map())
 }
 
-// Returns the per-category schema bucket `{queries, mutations, ...}` for a
-// given category slug (e.g. 'repos', 'issues'). Throws via the loader if the
-// category slug is not valid for this version.
+// Reject invalid category slugs before the loader reads a missing schema file.
 export function getGraphqlSchema(version: string, category: string): GraphqlSchemaData {
   if (!isValidCategory(category)) {
     throw new Error(`Invalid GraphQL category: ${category}`)
@@ -65,9 +59,7 @@ function getGraphqlSchemaByCategory(graphqlVersion: string, category: string): G
   return graphqlCategorySchemas.get(key)!
 }
 
-// Returns all object-kind items across every category for the given version.
-// Used by the interface renderer to list implementers regardless of which
-// category page is being rendered.
+// Interface renderers need objects from every category to list implementers.
 export function getAllGraphqlObjects(version: string): GraphqlT[] {
   const graphqlVersion: string = getGraphqlVersion(version)
   if (!allObjectsByVersion.has(graphqlVersion)) {
@@ -81,7 +73,6 @@ export function getAllGraphqlObjects(version: string): GraphqlT[] {
   return allObjectsByVersion.get(graphqlVersion)!
 }
 
-// Returns the canonical render order of kinds within a category page.
 export function getKindOrder(): SchemaKindKey[] {
   return ALL_KIND_KEYS
 }
@@ -100,17 +91,11 @@ export function getGraphqlChangelog(version: string): ChangelogItemT[] {
   return changelog.get(graphqlVersion)!
 }
 
-/**
- * Return changelog entries filtered by year.
- */
 export function getGraphqlChangelogByYear(version: string, year: number): ChangelogItemT[] {
   const all = getGraphqlChangelog(version)
   return all.filter((entry) => entry.date.startsWith(String(year)))
 }
 
-/**
- * Return the distinct years present in the changelog, sorted descending (newest first).
- */
 export function getGraphqlChangelogYears(version: string): number[] {
   const all = getGraphqlChangelog(version)
   const years = new Set<number>()

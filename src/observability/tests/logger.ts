@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
 import { createLogger } from '@/observability/logger'
 
-// Mock only the logger-context for most tests, but we'll test integration without mocks
+// Most tests mock logger context; integration coverage lives in logger-integration.ts.
 vi.mock('@/observability/logger/lib/logger-context')
 
 function stripAnsi(s: string): string {
@@ -212,11 +212,11 @@ describe('createLogger', () => {
 
       logger.error('Multiple errors', error1, error2)
 
-      // In development mode, each error triggers a separate console.log + console.error
+      // Development logging prints one console.log and one console.error per Error.
       expect(consoleLogs).toHaveLength(2)
       expect(consoleErrors).toHaveLength(2)
 
-      // Both log entries should have the same message
+      // Both Error entries share the combined message.
       expectDevLog(consoleLogs, 'ERROR', 'Multiple errors: First error, Second error')
       expect(consoleErrors[0]).toBe(error1)
       expect(consoleErrors[1]).toBe(error2)
@@ -430,7 +430,7 @@ describe('createLogger', () => {
       vi.stubEnv('KUBE_NODE_HOSTNAME', 'ghe-k8s-node-42')
       vi.stubEnv('LOG_LIKE_PRODUCTION', 'true')
 
-      // Reset modules so pod-identity is re-evaluated with the new env vars
+      // Reset modules so pod-identity reads the stubbed environment.
       vi.resetModules()
       const { createLogger: freshCreateLogger } = await import('@/observability/logger')
 
@@ -530,7 +530,7 @@ describe('createLogger', () => {
       const logOutput = consoleLogs[0]
       expect(logOutput).toContain('included.error="Cannot read property"')
       expect(logOutput).toContain('included.error_name=TypeError')
-      // When .code is undefined, error_code is present but empty
+      // Undefined error.code serializes as an empty error_code field.
       expect(logOutput).toMatch(/included\.error_code= /)
       expect(logOutput).toContain('included.error_stack=')
     })

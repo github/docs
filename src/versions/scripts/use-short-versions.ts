@@ -37,47 +37,40 @@ interface OperatorsMap {
 }
 
 const operatorsMap: OperatorsMap = {
-  // old: new
   '==': '=',
   ver_gt: '>',
   ver_lt: '<',
-  '!=': '!=', // noop
+  '!=': '!=', // Already matches ifversion syntax.
 }
 
-// [start-readme]
-//
-// Run this script to convert long form Liquid conditionals (e.g., {% if currentVersion == "free-pro-team" %}) to
-// the new custom tag (e.g., {% ifversion fpt %}) and also use the short names in versions frontmatter.
-//
-// [end-readme]
+// Converts long-form Liquid conditionals to ifversion tags and short version names
+// in versions frontmatter.
 
 async function main() {
   if (dryRun)
     console.log('This is a dry run! The script will not write any files. Use for debugging.\n')
 
-  // 1. UPDATE MARKDOWN FILES (CONTENT AND REUSABLES)
+  // Markdown files need both Liquid conditionals and versions frontmatter converted.
   console.log('Updating Liquid conditionals and versions frontmatter in Markdown files...\n')
   for (const file of markdownFiles) {
-    // A. UPDATE LIQUID CONDITIONALS IN CONTENT
-    // Create an { old: new } conditionals object so we can get the replacements and
-    // make the replacements separately and not do both in nested loops.
+    // Collect replacements before editing so nested loops do not rewrite generated conditionals.
     const content = fs.readFileSync(file, 'utf8')
     const contentReplacements = getLiquidReplacements(content, file)
     const newContent = makeLiquidReplacements(contentReplacements, content)
 
-    // B. UPDATE FRONTMATTER VERSIONS PROPERTY
+    // Frontmatter versions need short plan names in addition to Liquid updates.
     const { data } = frontmatter(newContent) as { data: VersionData }
     if (data.versions && typeof data.versions !== 'string') {
       const versions = data.versions as Record<string, string>
       for (const [plan, value] of Object.entries(versions)) {
-        // Update legacy versioning while we're here
+        // Normalize legacy versions before writing short plan names.
         const valueToUse = value
           .replace('2.23', '3.0')
           .replace(`>=${oldestSupported}`, '*')
           .replace(/>=?2\.20/, '*')
           .replace(/>=?2\.19/, '*')
 
-        // Find the relevant version from the master list so we can access the short name.
+        // Find the version config before replacing the plan with its short name.
         const versionObj = allVersionKeys.find(
           (version) => version.plan === plan || version.shortName === plan,
         )
@@ -98,19 +91,19 @@ async function main() {
         frontmatter.stringify(
           newContent,
           data,
-          // lineWidth is a js-yaml option passed through gray-matter, not in gray-matter's type definitions
+          // lineWidth is a js-yaml option passed through gray-matter, not in its types.
           { lineWidth: 10000 } as unknown as Parameters<typeof frontmatter.stringify>[2],
         ),
       )
     }
   }
 
-  // 2. UPDATE LIQUID CONDITIONALS IN DATA YAML FILES
+  // YAML data files need Liquid conditional and versions-key rewrites.
   console.log('Updating Liquid conditionals in YAML files...\n')
   for (const file of yamlFiles) {
     const yamlContent = fs.readFileSync(file, 'utf8')
     const yamlReplacements = getLiquidReplacements(yamlContent, file)
-    // Update any `versions` properties in the YAML as well
+    // YAML versions keys use short plan names too.
     const newYamlContent = makeLiquidReplacements(yamlReplacements, yamlContent)
       .replace(/("|')?free-pro-team("|')?:/g, 'fpt:')
       .replace(/("|')?enterprise-server("|')?:/g, 'ghes:')
@@ -131,7 +124,7 @@ try {
   process.exit(1)
 }
 
-// Remove verbose input properties for readability in debugging output
+// Remove verbose input properties for readable debugging output.
 function removeInputProps(arrayOfObjects: TopLevelToken[]): TopLevelToken[] {
   return arrayOfObjects.map((obj) => {
     const record = obj as unknown as Record<string, unknown>
@@ -143,29 +136,28 @@ function removeInputProps(arrayOfObjects: TopLevelToken[]): TopLevelToken[] {
   })
 }
 
+// makeLiquidReplacements also collapses "ghes and ghes" from old deprecation-script
+// guards. Example: enterpriseServerVersions contains currentVersion plus
+// currentVersion ver_gt enterprise-server@3.XX becomes ghes > 3.XX.
 function makeLiquidReplacements(replacementsObj: ReplacementsMap, text: string): string {
   let newText = text
   for (const [oldCond, newCond] of Object.entries(replacementsObj)) {
     const oldCondRegex = new RegExp(`({%-?)\\s*?${RegExp.escape(oldCond)}\\s*?(-?%})`, 'g')
     newText = newText
       .replace(oldCondRegex, `$1 ${newCond} $2`)
-      // Content files use an old-school hack to ensure our old regex deprecation script DTRT, for example:
-      // `if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.21"`
-      // This script will change the above to `if ghes and ghes > 2.21`.
-      // But we don't need the hack for the new deprecation script, because it will change `if ghes > 2.21` to `if ghes`.
-      // So we can update this to the simpler `{% if ghes > 2.21 %}`.
+      // Collapse duplicated GHES guards from old deprecation-script conditionals.
       .replace(/ghes and ghes/g, 'ghes')
   }
 
   return newText
 }
 
-// Versions map:
-// if currentVersion == "myVersion@myRelease" -> ifversion myVersionShort OR ifversion myVersionShort = @myRelease
-// if currentVersion != "myVersion@myRelease" -> ifversion not myVersionShort OR ifversion myVersionShort != @myRelease
-// if currentVersion ver_gt "myVersion@myRelease -> ifversion myVersionShort > myRelease
-// if currentVersion ver_lt "myVersion@myRelease -> ifversion myVersionShort < myRelease
-// if enterpriseServerVersions contains currentVersion -> ifversion ghes
+// getLiquidReplacements maps long currentVersion conditionals to ifversion conditionals:
+// currentVersion == enterprise-server@3.XX -> ifversion ghes = 3.XX
+// currentVersion != free-pro-team@latest -> ifversion not fpt
+// currentVersion ver_gt enterprise-server@3.XX -> ifversion ghes > 3.XX
+// currentVersion ver_lt enterprise-server@3.XX -> ifversion ghes < 3.XX
+// enterpriseServerVersions contains currentVersion -> ifversion ghes
 function getLiquidReplacements(content: string, file: string): ReplacementsMap {
   const replacements: ReplacementsMap = {}
 
@@ -191,22 +183,18 @@ function getLiquidReplacements(content: string, file: string): ReplacementsMap {
     .map((xtoken) => xtoken.content)
   for (const token of conditionalTokens) {
     const newToken = token.startsWith('if') ? ['ifversion'] : ['elsif']
-    // Everything from here on pushes to the `newToken` array to construct the new conditional.
     for (const op of token.replace(/(if|elsif) /, '').split(/ (or|and) /)) {
       if (op === 'or' || op === 'and') {
         newToken.push(op)
         continue
       }
 
-      // This string will always resolve to `ifversion ghes`.
+      // enterpriseServerVersions contains currentVersion maps to ifversion ghes.
       if (op.includes('enterpriseServerVersions contains currentVersion')) {
         newToken.push('ghes')
         continue
       }
 
-      // For the rest, we need to check the release string.
-
-      // E.g., [ 'currentVersion', '==', '"enterprise-server@3.0"'].
       const opParts = op.split(' ')
 
       if (!(opParts.length === 3 && opParts[0] === 'currentVersion')) {
@@ -215,10 +203,8 @@ function getLiquidReplacements(content: string, file: string): ReplacementsMap {
       }
 
       const operator = opParts[1]
-      // Remove quotes around the version and then split it on the at sign.
       const [plan, release] = opParts[2].slice(1, -1).split('@')
 
-      // Find the relevant version from the master list so we can access the short name.
       const versionObj = allVersionKeys.find((version) => version.plan === plan)
 
       if (!versionObj) {
@@ -226,7 +212,6 @@ function getLiquidReplacements(content: string, file: string): ReplacementsMap {
         process.exit(1)
       }
 
-      // Handle numbered releases!
       if (versionObj.hasNumberedReleases) {
         const newOperator: string | undefined = operatorsMap[operator]
         if (!newOperator) {
@@ -236,60 +221,54 @@ function getLiquidReplacements(content: string, file: string): ReplacementsMap {
           process.exit(1)
         }
 
-        // Account for this one weird version included in a couple content files
+        // Some content still references 1.19, so treat it as deprecated for this conversion.
         deprecated.push('1.19')
 
-        // E.g., ghes > 2.20
         const availableInAllGhes = deprecated.includes(release) && newOperator === '>'
 
-        // We can change > deprecated releases, like ghes > 2.19, to just ghes.
-        // These are now available for all ghes releases.
+        // A greater-than check against a deprecated release matches every supported GHES release.
         if (availableInAllGhes) {
           newToken.push(versionObj.shortName)
           continue
         }
 
-        // E.g., ghes < 2.20
         const lessThanDeprecated = deprecated.includes(release) && newOperator === '<'
-        // E.g., ghes < 2.21
         const lessThanOldestSupported = release === oldestSupported && newOperator === '<'
-        // E.g., ghes = 2.20
         const equalsDeprecated = deprecated.includes(release) && newOperator === '='
         const hasDeprecatedContent =
           lessThanDeprecated || lessThanOldestSupported || equalsDeprecated
 
-        // Remove these by hand.
+        // Deprecated-only content needs manual removal instead of conversion.
         if (hasDeprecatedContent) {
           console.error(`Found content that needs to be removed! See "${token} in "${file}`)
           process.exit(1)
         }
 
-        // Override for legacy 2.23, which should be 3.0
+        // Legacy 2.23 conditionals map to the first 3.0 release.
         const releaseToUse = release === '2.23' ? '3.0' : release
 
         newToken.push(`${versionObj.shortName} ${newOperator} ${releaseToUse}`)
         continue
       }
 
-      // Turn != into nots, now that we can assume this is not a numbered release.
+      // Non-numbered inequality maps to ifversion not.
       if (operator === '!=') {
         newToken.push(`not ${versionObj.shortName}`)
         continue
       }
 
-      // We should only have equality conditionals left.
+      // Non-numbered releases only support equality after inequality handling.
       if (operator !== '==') {
         console.error(`Expected == but found ${operator} in "${op}" in ${token}`)
         process.exit(1)
       }
 
-      // Handle `latest`!
       if (release === 'latest') {
         newToken.push(versionObj.shortName)
         continue
       }
 
-      // Handle all other non-standard releases, like github-ae@next and github-ae@issue-12345
+      // Keep non-standard non-numbered releases in the condition name, such as github-ae@next.
       newToken.push(`${versionObj.shortName}-${release}`)
     }
 

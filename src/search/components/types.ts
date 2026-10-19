@@ -8,7 +8,6 @@ export interface SearchContextT {
   }
 }
 
-// Parts of the search query that are set to the search context
 export type SearchQueryContentT = {
   query: string
   debug: boolean

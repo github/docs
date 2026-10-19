@@ -21,9 +21,7 @@ type Props = {
 }
 export default function ReleaseNotes({ mainContext, ghesContext }: Props) {
   if (!ghesContext) {
-    // (Jan 2024) If we some day have more types of release notes, we'll
-    // need to make this more forgiving.
-    // This component used to cater for GHAE too when that existed.
+    // GHES is the only supported release-notes product.
     throw new Error('GHES is the only option')
   }
   return (
@@ -41,8 +39,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (
   const req = context.req as unknown as ExtendedRequest
   const res = context.res as unknown as Response
 
-  // `allVersions[X]` carries more than the components need,
-  // so pick only the keys they use.
+  // allVersions entries carry more than these components need, so pick only the keys they use.
   const currentVersion = pick(req.context!.allVersions?.[req.context!.currentVersion!] || {}, [
     'plan',
     'planTitle',

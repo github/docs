@@ -1,9 +1,4 @@
-// [start-readme]
-//
-// Run this script to generate the updated data files for the rest,
-// github-apps, and webhooks automated pipelines.
-//
-// [end-readme]
+// Generates data files for the REST, GitHub Apps, and webhooks automated pipelines.
 
 import { mkdir, rm, readdir, copyFile, readFile, writeFile, rename } from 'fs/promises'
 import path from 'path'
@@ -77,8 +72,7 @@ async function main() {
   await rm(TEMP_OPENAPI_DIR, { recursive: true, force: true })
   await mkdir(TEMP_OPENAPI_DIR, { recursive: true })
 
-  // If the source repo is github, this is the local development workflow
-  // and the files in github must be bundled and dereferenced first.
+  // Bundle and dereference github/github schemas for the local development workflow.
   if (sourceRepos.includes('github')) {
     await getBundledFiles()
   }
@@ -86,10 +80,6 @@ async function main() {
     ? GITHUB_REP_DIR
     : REST_API_DESCRIPTION_ROOT
 
-  // When we get the dereferenced OpenAPI files from the open-source
-  // rest description repo (REST_API_DESCRIPTION_ROOT), we need to
-  // remove any versions that are deprecated because that repo contains
-  // all past versions.
   const sourceDirectory = sourceRepos.includes('github')
     ? TEMP_BUNDLED_OPENAPI_DIR
     : REST_DESCRIPTION_DIR
@@ -107,15 +97,12 @@ async function main() {
   await rm(TEMP_BUNDLED_OPENAPI_DIR, { recursive: true, force: true })
   await normalizeDataVersionNames(TEMP_OPENAPI_DIR)
 
-  // The REST_API_DESCRIPTION_ROOT repo contains all current and
-  // deprecated versions. We need to remove the deprecated versions
-  // so that we don't spend time generating data files for them.
+  // rest-api-description includes deprecated versions, so remove them before generating data files.
   if (sourceRepos.includes(REST_API_DESCRIPTION_ROOT)) {
     const derefDir = await readdir(TEMP_OPENAPI_DIR)
     const currentOpenApiVersions = Object.values(allVersions).map((elem) => elem.openApiVersionName)
 
     for (const schema of derefDir) {
-      // if the schema does not start with a current version name, delete it
       if (!currentOpenApiVersions.find((version) => schema.startsWith(version))) {
         await rm(path.join(TEMP_OPENAPI_DIR, schema), { recursive: true, force: true })
       }
@@ -146,8 +133,7 @@ async function main() {
     await syncRestRedirects()
   }
 
-  // If the source repo is REST_API_DESCRIPTION_ROOT, we want to update
-  // the pipeline config files with the SHA of the synced commit.
+  // When syncing from rest-api-description, store the synced commit SHA in each pipeline config.
   if (sourceRepos.includes(REST_API_DESCRIPTION_ROOT)) {
     const syncedSha = execSync('git rev-parse HEAD', {
       cwd: REST_API_DESCRIPTION_ROOT,
@@ -172,13 +158,11 @@ async function main() {
 }
 
 async function getBundledFiles(): Promise<void> {
-  // Get the github/github repo branch name and pull latest
   const githubBranch = execSync('git rev-parse --abbrev-ref HEAD', { cwd: GITHUB_REP_DIR })
     .toString()
     .trim()
 
-  // Only pull master branch because development mode branches are assumed
-  // to be up-to-date during active work.
+  // Pull only master; development branches are assumed current during active work.
   if (githubBranch === 'master') {
     execSync('git pull', { cwd: GITHUB_REP_DIR })
   }
@@ -189,7 +173,6 @@ async function getBundledFiles(): Promise<void> {
   console.log(
     `\n🏃‍♀️🏃🏃‍♀️Running \`bin/openapi bundle\` in branch '${githubBranch}' of your github/github checkout to generate the dereferenced OpenAPI schema files.\n`,
   )
-  // Build the command for the bundle script in `github/github`.
   const bundlerOptions = await getBundlerOptions()
   const bundleCommand = `bundle -v -w${
     next ? ' -n' : ''
@@ -222,15 +205,13 @@ async function getBundlerOptions(): Promise<string> {
 }
 
 async function validateInputParameters(): Promise<void> {
-  // The `--versions` option cannot be used
-  // with the `--include-deprecated` option
+  // The bundler cannot combine --versions with --include-deprecated.
   if (includeDeprecated && versions) {
     const errorMsg = `🛑 You cannot use the versions option with the include-deprecated option. This is not currently supported in the bundler.\nPlease reach out to #technical-content if a new use case should be supported.`
     throw new Error(errorMsg)
   }
 
-  // The `--decorate-only` option cannot be used
-  // with the `--include-deprecated` or `--include-unpublished` options
+  // --include-deprecated and --include-unpublished need the github/github bundler.
   if ((includeDeprecated || includeUnpublished) && !sourceRepos.includes('github')) {
     const errorMsg = `🛑 You cannot use the decorate-only option with  include-unpublished or include-deprecated because the include-unpublished and include-deprecated options are only available when running the bundler. The decorate-only option skips running the bundler.\nPlease reach out to #technical-content if a new use case should be supported.`
     throw new Error(errorMsg)
@@ -251,9 +232,8 @@ async function validateInputParameters(): Promise<void> {
   }
 }
 
-// Version names in the incoming data vary by the team that owns it. This
-// renames the files using the versionMapping in src/rest/lib/config.json, and
-// rewrites a calendar date suffix from .2022-11-28 to -2022-11-28.
+// Version names vary by owning team. normalizeDataVersionNames reads versionMapping
+// in src/rest/lib/config.json and rewrites .YYYY-MM-DD to -YYYY-MM-DD.
 export async function normalizeDataVersionNames(sourceDirectory: string): Promise<void> {
   const schemas = await readdir(sourceDirectory)
 
@@ -262,13 +242,11 @@ export async function normalizeDataVersionNames(sourceDirectory: string): Promis
     const matchingSourceVersion = Object.keys(VERSION_NAMES).find((version) =>
       baseName.startsWith(version),
     )
-    // Update the version name to use docs convention, e.g.,
-    // api.github.com.2022-11-28 -> fpt.2022-11-28
+    // Convert api.github.com.YYYY-MM-DD to fpt.YYYY-MM-DD.
     const docsBaseName = baseName.replace(
       matchingSourceVersion!,
       VERSION_NAMES[matchingSourceVersion!],
     )
-    // Match a calendar version if it exists, e.g., .2022-11-28
     const regex = /.\d{4}-\d{2}-\d{2}/
     const matches = baseName.match(regex)
     const versionName = matches ? docsBaseName.replace(matches[0], '') : docsBaseName

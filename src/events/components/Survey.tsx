@@ -29,6 +29,8 @@ type EventData = {
 
 export const Survey = () => {
   const { asPath, locale } = useRouter()
+  // Query and hash changes, like search or picker tabs, stay on the same page.
+  const [pathname] = asPath.split(/[?#]/)
   const { t } = useTranslation('survey')
   const [state, setState] = useState<ViewState>(ViewState.START)
   const [voteState, setVoteState] = useState<VoteState | null>(null)
@@ -39,16 +41,16 @@ export const Survey = () => {
   const [token, setToken] = useState('')
 
   useEffect(() => {
-    // Send the reader back to the vote prompt on every navigation,
-    // because a rating belongs to the page it was given on.
+    // Reset the vote and form fields on navigation because feedback belongs to the page it was given on.
     setState(ViewState.START)
     setVoteState(null)
-  }, [asPath])
+    setComment('')
+    setEmail('')
+    setIsEmailError(false)
+  }, [pathname])
 
   useEffect(() => {
-    // After the form is submitted we need to manually set the focus since we
-    // remove the form inputs after submit.  The privacy policy link is the
-    // next focusable element in the footer so we focus that.
+    // Move focus to the footer privacy link because submit removes the form inputs.
     if (state === ViewState.END) {
       document
         .querySelector<HTMLAnchorElement>(
@@ -65,11 +67,8 @@ export const Survey = () => {
     }
   }
 
-  // Though we set `type="email"` on the email address input which gives us browser
-  // validation of the field, that has accessibility issues (e.g. some screen
-  // readers won't read the error message) so we need to do manual validation
-  // ourselves.
   useEffect(() => {
+    // Browser email validation hides errors from some screen readers, so this validates manually.
     const emailRegex = /[^@\s.][^@\s]*@\[?[a-z0-9.-]+\]?\.\[?[a-z0-9.-]+\]?/i
     if (!email.trim() || emailRegex.test(email)) {
       setIsEmailError(false)
@@ -111,7 +110,7 @@ export const Survey = () => {
     >
       <h3 id="survey-title">{t`able_to_find`}</h3>
 
-      {/* Honeypot: token isn't a real field */}
+      {/* Bot trap: token is not a real survey field */}
       <input
         type="text"
         className="d-none"
@@ -248,7 +247,7 @@ export const Survey = () => {
 function trackEvent(eventData: EventData) {
   return sendEvent({
     type: EventType.survey,
-    survey_token: eventData.token || undefined, // Honeypot
+    survey_token: eventData.token || undefined, // Bot trap field.
     survey_vote: eventData.vote,
     survey_comment: eventData.comment || undefined,
     survey_email: eventData.email || undefined,

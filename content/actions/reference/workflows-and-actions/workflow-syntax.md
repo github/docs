@@ -313,6 +313,10 @@ A boolean specifying whether the secret must be supplied.
 
 {% data reusables.actions.workflows.section-specifying-branches %}
 
+## `on.workflow_run.workflows`
+
+{% data reusables.actions.workflows.section-specifying-workflows %}
+
 ## `on.workflow_dispatch`
 
 {% data reusables.actions.workflow-dispatch %}
@@ -684,7 +688,7 @@ We strongly recommend that you include the version of the action you are using b
 
 Some actions require inputs that you must set using the [`with`](#jobsjob_idstepswith) keyword. Review the action's README file to determine the inputs required.
 
-Actions are either JavaScript files or Docker containers. If the action you're using is a Docker container you must run the job in a Linux environment. For more details, see [`runs-on`](#jobsjob_idruns-on).
+Actions can be JavaScript, composite, or Docker container actions. If the action you're using is a Docker container you must run the job in a Linux environment. For more details, see [`runs-on`](#jobsjob_idruns-on).
 
 ### Example: Using versioned actions
 
@@ -1639,7 +1643,7 @@ Allowed expression contexts: `github`, `needs`, and `secrets`.
 
 ## Filter pattern cheat sheet
 
-You can use special characters in path, branch, and tag filters.
+You can use special characters in path, branch, tag, and workflow name filters.
 
 * `*`: Matches zero or more characters, but does not match the `/` character. For example, `Octo*` matches `Octocat`.
 * `**`: Matches zero or more of any character.

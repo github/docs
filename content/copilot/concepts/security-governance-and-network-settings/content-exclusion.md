@@ -44,7 +44,7 @@ The {% data variables.copilot.copilot_business_short %} and {% data variables.co
 | Azure Data Studio                               | {% octicon "x" aria-label="Not supported" %}  | Not applicable                                 |
 | The {% data variables.product.github %} website | Not applicable                                | {% octicon "check" aria-label="Supported" %}   |
 | {% data variables.product.prodname_mobile %}    | Not applicable                                | {% octicon "check" aria-label="Supported" %}   |
-| {% data variables.copilot.github_copilot_app %} | Not applicable                                | {% octicon "check" aria-label="Supported" %}   |
+| The {% data variables.copilot.github_copilot_app %} | Not applicable                                | {% octicon "check" aria-label="Supported" %}   |
 | {% data variables.copilot.copilot_cli %}        | Not applicable                                | {% octicon "check" aria-label="Supported" %}   |
 
 Content exclusions also apply to {% data variables.copilot.copilot_code-review_short %} on the {% data variables.product.github %} website.

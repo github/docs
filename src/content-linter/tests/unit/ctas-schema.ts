@@ -59,9 +59,8 @@ describe(ctasSchema.names.join(' - '), () => {
 `
     const result = await runRule(ctasSchema, { strings: { markdown } })
     const errors = result.markdown
-    expect(errors.length).toBe(2) // Should have errors for 'Trial' and 'Button'
+    expect(errors.length).toBe(2)
 
-    // Check that both expected errors are present (order may vary)
     const errorMessages = errors.map((error) => error.errorDetail)
     expect(errorMessages.some((msg) => msg.includes('Invalid value for ref_type: "Trial"'))).toBe(
       true,
@@ -79,15 +78,14 @@ try_ghec_for_free: '{% ifversion ghec %}https://github.com/account/enterprises/n
 `
     const result = await runRule(ctasSchema, { strings: { markdown } })
     const errors = result.markdown
-    expect(errors.length).toBe(1) // Should detect and try to convert the old CTA format
+    expect(errors.length).toBe(1)
     expect(errors[0].fixInfo).toBeDefined()
 
-    // The extracted URL should not include the curly brace from the Liquid tag.
     const fixedUrl = errors[0].fixInfo?.insertText
     expect(fixedUrl).toBeDefined()
     expect(fixedUrl).not.toContain('{')
     expect(fixedUrl).not.toContain('}')
-    expect(fixedUrl).toContain('ref_product=ghec') // Should have converted old format correctly
+    expect(fixedUrl).toContain('ref_product=ghec')
   })
 
   test('old CTA format autofix preserves original URL structure', async () => {
@@ -99,11 +97,10 @@ try_ghec_for_free: '{% ifversion ghec %}https://github.com/account/enterprises/n
     expect(errors.length).toBe(1)
     expect(errors[0].fixInfo).toBeDefined()
 
-    // The fixed URL should not introduce extra slashes
     const fixedUrl = errors[0].fixInfo?.insertText
     expect(fixedUrl).toBeDefined()
-    expect(fixedUrl).toMatch(/^https:\/\/github\.com\?ref_product=/) // Should not have github.com/?
-    expect(fixedUrl).not.toMatch(/github\.com\/\?/) // Should not contain extra slash before query
+    expect(fixedUrl).toMatch(/^https:\/\/github\.com\?ref_product=/)
+    expect(fixedUrl).not.toMatch(/github\.com\/\?/)
   })
 
   test('mixed parameter scenarios - new format takes precedence over old', async () => {
@@ -115,13 +112,12 @@ try_ghec_for_free: '{% ifversion ghec %}https://github.com/account/enterprises/n
     expect(errors.length).toBe(1)
     expect(errors[0].fixInfo).toBeDefined()
 
-    // Should preserve existing new format parameters, only convert old ones not already covered
     const fixedUrl = errors[0].fixInfo?.insertText
     expect(fixedUrl).toBeDefined()
-    expect(fixedUrl).toContain('ref_product=copilot') // Preserved from new format
-    expect(fixedUrl).toContain('ref_type=trial') // Preserved from new format
-    expect(fixedUrl).not.toContain('ref_cta=') // Old parameter removed
-    expect(fixedUrl).not.toContain('ref_loc=') // Old parameter removed
+    expect(fixedUrl).toContain('ref_product=copilot')
+    expect(fixedUrl).toContain('ref_type=trial')
+    expect(fixedUrl).not.toContain('ref_cta=')
+    expect(fixedUrl).not.toContain('ref_loc=')
   })
 
   test('hash fragment preservation during conversion', async () => {
@@ -135,7 +131,7 @@ try_ghec_for_free: '{% ifversion ghec %}https://github.com/account/enterprises/n
 
     const fixedUrl = errors[0].fixInfo?.insertText
     expect(fixedUrl).toBeDefined()
-    expect(fixedUrl).toContain('#pricing') // Hash fragment preserved
+    expect(fixedUrl).toContain('#pricing')
     expect(fixedUrl).toContain('ref_product=copilot')
   })
 
@@ -150,11 +146,11 @@ try_ghec_for_free: '{% ifversion ghec %}https://github.com/account/enterprises/n
 
     const fixedUrl = errors[0].fixInfo?.insertText
     expect(fixedUrl).toBeDefined()
-    expect(fixedUrl).toContain('utm_source=docs') // UTM preserved
-    expect(fixedUrl).toContain('utm_campaign=trial') // UTM preserved
-    expect(fixedUrl).toContain('other_param=value') // Other params preserved
-    expect(fixedUrl).toContain('ref_product=copilot') // New CTA params added
-    expect(fixedUrl).not.toContain('ref_cta=') // Old CTA params removed
+    expect(fixedUrl).toContain('utm_source=docs')
+    expect(fixedUrl).toContain('utm_campaign=trial')
+    expect(fixedUrl).toContain('other_param=value')
+    expect(fixedUrl).toContain('ref_product=copilot')
+    expect(fixedUrl).not.toContain('ref_cta=')
   })
 
   test('multiple query parameter types handled correctly', async () => {
@@ -163,8 +159,8 @@ try_ghec_for_free: '{% ifversion ghec %}https://github.com/account/enterprises/n
 `
     const result = await runRule(ctasSchema, { strings: { markdown } })
     const errors = result.markdown
-    expect(errors.length).toBe(1) // Only old format conversion error
+    expect(errors.length).toBe(1)
     expect(errors[0].errorDetail).toContain('old parameter format')
-    expect(errors[0].fixInfo).toBeDefined() // Should have autofix
+    expect(errors[0].fixInfo).toBeDefined()
   })
 })

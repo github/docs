@@ -3,6 +3,11 @@ import { addError, filterTokens } from 'markdownlint-rule-helpers'
 import { getRange } from '../helpers/utils'
 import type { RuleParams, RuleErrorCallback, MarkdownToken, Rule } from '../../types'
 
+// Match hardcoded Enterprise version paths on legacy Docs hosts and root-relative links.
+// Match /enterprise/2.19/admin/blah, https://docs.github.com/enterprise/11.10.340/admin/blah,
+// and http://help.github.com/enterprise/2.8/admin/blah.
+// Ignore https://someservice.com/enterprise/1.0/blah
+// and /github/site-policy/enterprise/2.2/admin/blah.
 export const internalLinksOldVersion: Rule = {
   names: ['GHD006', 'internal-links-old-version'],
   description: 'Internal links must not have a hardcoded version using old versioning syntax',
@@ -18,23 +23,10 @@ export const internalLinksOldVersion: Rule = {
       for (const child of token.children || []) {
         if (child.type !== 'link_open') continue
         if (!child.attrs) continue
-        // Things matched by this RegExp:
-        //  - /enterprise/2.19/admin/blah
-        //  - https://docs.github.com/enterprise/11.10.340/admin/blah
-        //  - http://help.github.com/enterprise/2.8/admin/blah
-        //
-        // Things intentionally NOT matched by this RegExp:
-        //  - https://someservice.com/enterprise/1.0/blah
-        //  - /github/site-policy/enterprise/2.2/admin/blah
         const versionLinkRegEx =
           /(?:(?:https?:\/\/(?:help|docs|developer)\.github\.com)(?:\/enterprise\/\d+(\.\d+)+\/[^)\s]*)?|^\/enterprise\/\d+(\.\d+)+\/[^)\s]*)(?=\s|$)/gm
-        // Example child.attrs:
-        // [
-        //  ['href', 'get-started'], ['target', '_blank'],
-        //  ['rel', 'canonical'],
-        // ]
         const hrefsWithHardcodedVersion = child.attrs
-          // The attribute could also be `target` or `rel`
+          // markdown-it attrs also include target and rel, so filter for href.
           .filter((attr) => attr[0] === 'href')
           .filter((attr) => attr[1].startsWith('/') || !attr[1].startsWith('//'))
           .filter((attr) => attr[1].match(versionLinkRegEx))

@@ -90,4 +90,66 @@ describe(frontmatterCurlyQuotes.names.join(' - '), () => {
     const errors = result.test
     expect(errors.length).toBe(2)
   })
+
+  test('curly quotes in block scalar intro trigger warning', async () => {
+    const strings = {
+      test: [
+        '---',
+        'title: A normal title',
+        'intro: >-',
+        '  Learn how to configure',
+        '',
+        '  your organization\u2019s settings.',
+        'versions:',
+        "  fpt: '*'",
+        '---',
+        '',
+        'Some content.',
+      ].join('\n'),
+    }
+    const result = await runRule(frontmatterCurlyQuotes, { strings, ...fmOptions })
+    const errors = result.test
+    expect(errors.length).toBe(1)
+    expect(errors[0].lineNumber).toBe(6)
+    expect(errors[0].fixInfo).toBeTruthy()
+    expect(errors[0].fixInfo!.lineNumber).toBe(6)
+    expect(errors[0].fixInfo!.insertText).toBe("  your organization's settings.")
+  })
+
+  test('curly double quotes in literal block scalar intro trigger warning', async () => {
+    const strings = {
+      test: [
+        '---',
+        'title: A normal title',
+        'intro: |',
+        '  Learn about the \u201cupstream\u201d repository.',
+        '---',
+        '',
+        'Some content.',
+      ].join('\n'),
+    }
+    const result = await runRule(frontmatterCurlyQuotes, { strings, ...fmOptions })
+    const errors = result.test
+    expect(errors.length).toBe(1)
+    expect(errors[0].lineNumber).toBe(4)
+  })
+
+  test('block scalar check stops at the next key', async () => {
+    const strings = {
+      test: [
+        '---',
+        'title: A normal title',
+        'intro: >',
+        '  Learn about the "upstream" repository.',
+        'redirect_from:',
+        '  - /the-repository\u2019s-settings',
+        '---',
+        '',
+        'Some content.',
+      ].join('\n'),
+    }
+    const result = await runRule(frontmatterCurlyQuotes, { strings, ...fmOptions })
+    const errors = result.test
+    expect(errors.length).toBe(0)
+  })
 })

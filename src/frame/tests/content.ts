@@ -36,7 +36,7 @@ describe('content files', () => {
 
       const orphanedFiles = contentFiles.filter((file) => !relativeFiles.includes(file))
 
-      // Filter out intentional test fixture files that are meant to be orphaned
+      // These fixture files intentionally stay outside the tree.
       const allowedOrphanedFiles = [
         path.join(contentDir, 'article-one.md'),
         path.join(contentDir, 'article-two.md'),

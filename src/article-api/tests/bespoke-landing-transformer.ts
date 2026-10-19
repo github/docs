@@ -7,7 +7,6 @@ const makeURL = (pathname: string): string =>
 
 describe('bespoke landing transformer', () => {
   test('renders a bespoke landing page with all sections', async () => {
-    // /en/get-started/article-grid-bespoke is a bespoke landing page
     const res = await get(makeURL('/en/get-started/article-grid-bespoke'))
     expect(res.statusCode).toBe(200)
     expect(res.headers['content-type']).toContain('text/markdown')

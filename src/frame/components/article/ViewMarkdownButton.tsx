@@ -21,6 +21,10 @@ interface CopyMarkdownMenuProps {
   currentPath: string
 }
 
+// CopyMarkdownMenu renders separate label and chevron buttons instead of a Primer ButtonGroup.
+// ButtonGroup forces border-radius: 0 and margin-inline-end: -1px, which fight
+// the fused pill styling.
+// The separate elements also keep copy and menu behavior distinct.
 export const CopyMarkdownMenu = ({ currentPath }: CopyMarkdownMenuProps) => {
   const { t } = useTranslation('pages')
 
@@ -79,35 +83,26 @@ export const CopyMarkdownMenu = ({ currentPath }: CopyMarkdownMenuProps) => {
       if (timeoutRef.current) clearTimeout(timeoutRef.current)
       timeoutRef.current = setTimeout(() => setCopied(false), 2000)
     } catch {
-      // Fallback: open in new tab if fetch or clipboard fails
+      // If fetch or clipboard fails, open the markdown source in a new tab.
       window.open(markdownUrl, '_blank')
     }
   }, [markdownUrl, t])
 
   return (
-    // Two separate buttons, NOT a Primer ButtonGroup. They read as a single pill
-    // — the chevron is the pill's right-hand end — but ButtonGroup imposes its
-    // own fusing (border-radius: 0 on the inner buttons, margin-inline-end: -1px
-    // on the wrappers), which fights the radii the module sets. They stay
-    // separate elements because they do separate things: the label copies in one
-    // click, the chevron opens the menu.
     <div className={styles.controls}>
       <Button
-        // Brand's Button does not default this, so the label would submit an
-        // enclosing form if this control were ever reused inside one.
+        // Brand Button has no default type; type="button" prevents submission if reused in a form.
         type="button"
         variant="secondary"
         className={cx('text-decoration-none', styles.button, styles.copyButton)}
-        // No icon at rest, per the design. The checkmark is the success state
-        // and reverts on its own after a couple of seconds.
+        // The design hides the icon until the temporary success state.
         leadingVisual={copied ? <CheckIcon aria-hidden="true" /> : undefined}
         onClick={handleCopyClick}
       >
         {t('copy_as_markdown')}
       </Button>
       <ActionMenu>
-        {/* `icon` is load-bearing: ActionMenu.Button renders an icon-only
-            button off it, so it must stay even though the styling is ours. */}
+        {/* ActionMenu.Button requires icon to render an icon-only button. */}
         <ActionMenu.Button
           aria-label={t('more_markdown_options')}
           icon={TriangleDownIcon}
@@ -167,11 +162,8 @@ export const CopyMarkdownMenu = ({ currentPath }: CopyMarkdownMenuProps) => {
   )
 }
 
-// The single placement of the copy-markdown control: below the article lede, at
-// every width and in both article layouts. It used to move into the right-hand
-// "In this article" drawer once that drawer appeared, with a second copy here as
-// the fallback; it now lives in one place, so there is no visibility pairing and
-// no dependence on the sidebar collapse state.
+// CopyMarkdownBelowIntro keeps the control below the article lede at every width,
+// so it does not depend on drawer visibility or sidebar collapse state.
 export const CopyMarkdownBelowIntro = ({ currentPath }: CopyMarkdownMenuProps) => {
   return (
     <div className={styles.belowIntroPlacement}>

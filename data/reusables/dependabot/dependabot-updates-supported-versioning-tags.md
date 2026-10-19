@@ -38,9 +38,7 @@ The `dependabot.yml` file doesn't control the versioning tags that you can use, 
 | Dev containers      | `devcontainers` | SemVer 2.0.0 (prerelease not used in practice) | `ghcr.io/devcontainers/features/node@1.6.1`, `ghcr.io/devcontainers/features/python@1.6` |
 | .NET SDK            | `dotnet-sdk`   | `preview.N`, `rc.N`, `alpha.N` | `dotnet-sdk@9.0.100-preview.7.24407.12`, `dotnet-sdk@9.0.100-rc.2.24474.11` |
 | {% data variables.product.prodname_actions %} | `github-actions` | Any SemVer prerelease identifier (commonly `alpha`, `beta`, `rc`) | `my-org/my-action@v1.0.0-beta.1`, `my-org/deploy@v2.0.0-rc1`, `my-org/lint@v3.0.0-alpha` |
-| {% ifversion dependabot-helm-support %} |
 | Helm Charts         | `helm`         | Any SemVer prerelease identifier (commonly `alpha`, `beta`, `rc`) | `ingress-nginx@4.11.0-beta.0`, `cert-manager@1.15.0-alpha.1`, `prometheus@25.0.0-rc1` |
-| {% endif %} |
 | Hex                 | `mix`          | Any SemVer prerelease identifier (commonly `alpha`, `beta`, `rc`, `dev`) | `phoenix/phoenix@1.7.0-rc.0`, `elixir-ecto/ecto@3.11.0-beta.1`, `elixir-plug/plug@1.15.0-alpha.1` |
 | {% ifversion dependabot-julia-support %} |
 | Julia               | `julia`        | Any SemVer prerelease identifier (commonly `rc`, `DEV`, `beta`) | `HTTP@1.10.0-rc1`, `Plots@2.0.0-DEV`, `DataFrames@1.6.0-beta.1` |
@@ -105,9 +103,7 @@ The following details describe how {% data variables.product.prodname_dependabot
 * **Conda:** Follows conda version spec (similar to PEP 440). Epoch versions (`N!...`) and local versions (`+local`) are supported. Post-release (`post`) suffixes are recognized.
 {% endif %}
 * **.NET SDK:** Prerelease identifiers follow the `preview.N`, `rc.N`, `alpha.N` pattern. Prerelease updates require `allowPrerelease: true` in `global.json`.
-{% ifversion dependabot-helm-support %}
 * **Helm Charts:** Follows SemVer prerelease conventions. Chart version prefixes (for example, `chart-v`) and build digests (`+sha256:...`) are stripped before comparison.
-{% endif %}
 {% ifversion dependabot-pre-commit-support %}
 * **pre-commit:** Resolves hook versions from git tags. Prerelease detection uses both Gem::Version heuristic and the GitHub Release API `prerelease` flag. SHA-pinned hooks are also supported.
 {% endif %}

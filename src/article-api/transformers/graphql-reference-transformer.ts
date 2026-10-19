@@ -16,9 +16,6 @@ import { loadTemplate } from '@/article-api/lib/load-template'
 import { fastTextOnly } from '@/content-render/unified/text-only'
 import { extractManualContent } from '@/article-api/lib/graphql-helpers'
 
-/**
- * Renders GraphQL reference pages: schema items with their fields and arguments.
- */
 export class GraphQLReferenceTransformer implements PageTransformer {
   templateName = 'graphql-reference.template.md'
 
@@ -31,25 +28,22 @@ export class GraphQLReferenceTransformer implements PageTransformer {
     return isReference && isNotIndex
   }
 
+  // React category pages render kinds in a fixed order.
+  // Their mini-TOCs and anchors need kind-disambiguated slugs.
+  // They prevent collisions between names such as Repository object and repository query.
   async transform(page: Page, pathname: string, context: Context): Promise<string> {
     const currentVersion = context.currentVersion!
 
     const pathParts = pathname.split('/').filter(Boolean)
     const graphqlIndex = pathParts.indexOf('graphql')
-    const pageType = pathParts[graphqlIndex + 2] // category slug like 'repos', 'issues', etc.
+    const pageType = pathParts[graphqlIndex + 2]
 
     const { getGraphqlSchema, getAllGraphqlObjects } = await import('@/graphql/lib/index')
     const { isValidCategory, ALL_KIND_KEYS, KIND_SLUG_PREFIX } =
       await import('@/graphql/lib/categories')
 
-    // Category pages render every kind in a fixed section order. The mini-toc
-    // and in-page anchors use kind-disambiguated slugs so items sharing a
-    // case-insensitive name across kinds (e.g. `Repository` object vs
-    // `repository` query) don't collide.
     if (!isValidCategory(pageType)) {
-      // Defensive: legacy kind URLs redirect to /graphql/reference, so this
-      // transformer should never see them. Returning empty content lets the
-      // 404 path handle anything unexpected.
+      // Kind URLs redirect to /graphql/reference; empty content lets the 404 path handle misses.
       return ''
     }
 
@@ -59,9 +53,7 @@ export class GraphQLReferenceTransformer implements PageTransformer {
     const intro = page.intro ? await page.renderProp('intro', context, { textOnly: true }) : ''
     const manualContent = await extractManualContent(page, context)
 
-    // Flatten every kind into a single alphabetical list. Each prepared item
-    // carries its kind label so the template can render a "name - kind"
-    // disambiguator next to the heading without grouping by kind sections.
+    // Flatten kinds into one alphabetical list; keep labels to disambiguate same-name items.
     const KIND_DISPLAY: Record<string, string> = {
       queries: 'query',
       mutations: 'mutation',
@@ -116,8 +108,7 @@ export class GraphQLReferenceTransformer implements PageTransformer {
     })
   }
 
-  // Dispatch an item to the appropriate prepare* helper based on kind. The
-  // resulting slug is kind-disambiguated to match the in-page anchors.
+  // prepareByKind assigns kind-disambiguated slugs that match the in-page anchors.
   private async prepareByKind(
     kind: string,
     item: { name: string; [k: string]: unknown },
@@ -161,14 +152,11 @@ export class GraphQLReferenceTransformer implements PageTransformer {
       default:
         prepared = {}
     }
-    // Override `slug` with the kind-disambiguated form used by the React page.
+    // Match the React page's kind-disambiguated slug format.
     prepared.slug = `${slugPrefix}-${(prepared.slug as string | undefined) ?? item.name.toLowerCase()}`
     return prepared
   }
 
-  /**
-   * Prepare a query item for rendering
-   */
   private async prepareQuery(query: QueryT): Promise<Record<string, unknown>> {
     return {
       name: query.name,
@@ -189,9 +177,6 @@ export class GraphQLReferenceTransformer implements PageTransformer {
     }
   }
 
-  /**
-   * Prepare a mutation item for rendering
-   */
   private async prepareMutation(mutation: MutationT): Promise<Record<string, unknown>> {
     return {
       name: mutation.name,
@@ -206,9 +191,6 @@ export class GraphQLReferenceTransformer implements PageTransformer {
     }
   }
 
-  /**
-   * Prepare an object item for rendering
-   */
   private async prepareObject(object: ObjectT): Promise<Record<string, unknown>> {
     return {
       name: object.name,
@@ -223,9 +205,6 @@ export class GraphQLReferenceTransformer implements PageTransformer {
     }
   }
 
-  /**
-   * Prepare an interface item for rendering
-   */
   private async prepareInterface(item: InterfaceT): Promise<Record<string, unknown>> {
     return {
       name: item.name,
@@ -237,9 +216,6 @@ export class GraphQLReferenceTransformer implements PageTransformer {
     }
   }
 
-  /**
-   * Prepare an enum item for rendering
-   */
   private async prepareEnum(item: EnumT): Promise<Record<string, unknown>> {
     return {
       name: item.name,
@@ -254,9 +230,6 @@ export class GraphQLReferenceTransformer implements PageTransformer {
     }
   }
 
-  /**
-   * Prepare a union item for rendering
-   */
   private async prepareUnion(item: UnionT): Promise<Record<string, unknown>> {
     return {
       name: item.name,
@@ -268,9 +241,6 @@ export class GraphQLReferenceTransformer implements PageTransformer {
     }
   }
 
-  /**
-   * Prepare an input object item for rendering
-   */
   private async prepareInputObject(item: InputObjectT): Promise<Record<string, unknown>> {
     return {
       name: item.name,
@@ -282,9 +252,6 @@ export class GraphQLReferenceTransformer implements PageTransformer {
     }
   }
 
-  /**
-   * Prepare a scalar item for rendering
-   */
   private async prepareScalar(item: ScalarT): Promise<Record<string, unknown>> {
     return {
       name: item.name,
@@ -297,7 +264,6 @@ export class GraphQLReferenceTransformer implements PageTransformer {
 
   private static STANDARD_PAGINATION_ARGS = new Set(['after', 'before', 'first', 'last'])
 
-  // True when the field's only arguments are after, before, first and last.
   private hasOnlyStandardPaginationArgs(field: FieldT): boolean {
     if (!field.arguments || field.arguments.length !== 4) return false
     return field.arguments.every((arg) =>
@@ -305,9 +271,6 @@ export class GraphQLReferenceTransformer implements PageTransformer {
     )
   }
 
-  /**
-   * Prepare fields for rendering
-   */
   private async prepareFields(fields: FieldT[]): Promise<Array<Record<string, unknown>>> {
     return fields.map((field) => {
       const hasPaginationOnly = this.hasOnlyStandardPaginationArgs(field)

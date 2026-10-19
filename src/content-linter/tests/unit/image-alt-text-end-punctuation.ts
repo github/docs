@@ -54,13 +54,11 @@ describe(imageAltTextEndPunctuation.names.join(' - '), () => {
     const markdown = [
       '# Heading',
       '',
-      // Completely empty
+      // The incorrect-alt-text-length rule owns empty alt text.
       '![](/images/this-is-ok.png)',
     ].join('\n')
     const result = await runRule(imageAltTextEndPunctuation, { strings: { markdown } })
     const errors = result.markdown
-    // This rule is not concerned with empty alt text. The
-    // incorrect-alt-text-length rule catches that instead.
     expect(errors.length).toBe(0)
   })
 })

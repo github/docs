@@ -194,8 +194,25 @@ Within each server definition, the following fields are available/required:
       <td nowrap>No</td>
       <td>The timeout for server requests in milliseconds (default: 90 seconds).</td>
     </tr>
+    <tr>
+      <td nowrap><code>initializationTimeoutMs</code></td>
+      <td nowrap>No</td>
+      <td>The timeout for the server's startup handshake in milliseconds (default: 60 seconds). If a server needs more time for initial project analysis, increase this value.</td>
+    </tr>
   </tbody>
 </table>
+
+To disable an LSP server for everyone who uses the repository, add an entry to the repository's `.github/lsp.json` file. This entry can override a server configured by a lower-priority source, such as a plugin or user configuration. Use the existing server name and set `"disabled": true` instead of providing a full server definition:
+
+```json
+{
+  "lspServers": {
+    "SERVER-NAME": {
+      "disabled": true
+    }
+  }
+}
+```
 
 ### Example server definition: `typescript-language-server` LSP server
 

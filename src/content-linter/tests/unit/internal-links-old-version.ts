@@ -22,9 +22,9 @@ describe(internalLinksOldVersion.names.join(' - '), () => {
 
   test('links without old hardcoded versions pass', async () => {
     const markdown = [
-      // External links with enterprise in them
+      // External links with enterprise paths stay external.
       '[External link](https://someservice.com/enterprise/1.0/admin/yes)',
-      // Current versioning links are excluded from this test
+      // Current versioning paths stay valid.
       '[New versioning](/github/site-policy/enterprise/2.2/yes)',
     ].join('\n')
     const result = await runRule(internalLinksOldVersion as Rule, { strings: { markdown } })

@@ -1,8 +1,5 @@
-/*
- * The header variant's styling is shared with the language picker and lives in
- * @/frame/components/page-header/HeaderPicker.module.scss. Only the default
- * (non-header) variant is styled here.
- */
+// The header variant shares HeaderPicker.module.scss with the language picker.
+// This file styles the default variant.
 
 .itemsWidth {
   width: 14rem;

@@ -1,13 +1,11 @@
 import { describe, test, expect, vi, beforeEach } from 'vitest'
 
-// These mocks are declared before any dynamic import so that vi.mock hoisting
-// places them ahead of the first evaluation of the module under test.
+// Declare mocks before dynamic imports so vi.mock hoisting beats module evaluation.
 
 vi.mock('fs', async (importOriginal) => {
   const real = await importOriginal<typeof import('fs')>()
   const readFile = vi.fn()
-  // Only intercept readdirSync calls for the REST content dir (used at module
-  // scope in index.ts). All other callers (all-products, etc.) get real fs.
+  // Only intercept the REST content dir; all other readdirSync callers get real fs.
   const readdirSync = vi.fn((...args: Parameters<typeof real.readdirSync>) => {
     const p = String(args[0])
     if (p === 'content/rest' || p.endsWith('/content/rest')) {
@@ -35,9 +33,7 @@ vi.mock('@/languages/lib/languages-server', async (importOriginal) => {
   }
 })
 
-// getOpenApiVersion is mocked with a spy; the rest of the module is real so
-// transitive dependencies (all-products, non-enterprise-default-version, etc.)
-// continue to work correctly.
+// Mock getOpenApiVersion only; transitive dependencies keep their real behavior.
 vi.mock('@/versions/lib/all-versions', async (importOriginal) => {
   const real = await importOriginal<typeof import('@/versions/lib/all-versions')>()
   return {
@@ -65,8 +61,7 @@ function enoent(path = 'fake'): NodeJS.ErrnoException {
 const FAKE_DATA: Record<string, string[]> = { ops: ['GET /repos'] }
 const FAKE_JSON = JSON.stringify(FAKE_DATA)
 
-// Each test re-imports a fresh module instance so that the module-level state
-// (pinnedCache, lruCache, inflight) starts out empty.
+// Each test re-imports a fresh module so cache state starts empty.
 
 type GetRest = (
   version: string,
@@ -134,7 +129,6 @@ describe('two-tier cache routing', () => {
     await getRest('enterprise-server@3.10', undefined, 'actions')
 
     expect(pinnedCache.size).toBe(0)
-    // lruCache is a QuickLRU which exposes .size
     expect(lruCache.size).toBe(1)
   })
 
@@ -146,8 +140,7 @@ describe('two-tier cache routing', () => {
     await getRest('free-pro-team@latest', undefined, 'actions')
     await getRest('free-pro-team@latest', undefined, 'actions')
 
-    // readFile must still have been called exactly twice (once for .br, once for .json)
-    // on the first call; the second call must be a cache hit.
+    // The first call reads .br and .json once; the second call must hit cache.
     expect(vi.mocked(fsMock.promises.readFile)).toHaveBeenCalledTimes(2)
   })
 })
@@ -191,7 +184,7 @@ describe('pinned cache compression', () => {
 
 describe('in-flight deduplication', () => {
   test('N concurrent cold-cache requests for same key share one readFile call', async () => {
-    // Use a deferred to keep all three getRest() calls in flight simultaneously.
+    // Use a deferred to keep all three getRest calls in flight simultaneously.
     let resolveJson!: (v: string) => void
     const deferred = new Promise<string>((r) => {
       resolveJson = r
@@ -202,8 +195,7 @@ describe('in-flight deduplication', () => {
       return deferred as unknown as Promise<Buffer>
     })
 
-    // Launch 3 concurrent calls before the deferred resolves, so all three are
-    // in flight at once and share the single inflight promise.
+    // Launch 3 calls before the deferred resolves so they share the inflight promise.
     const allPromise = Promise.all([
       getRest('free-pro-team@latest', undefined, 'actions'),
       getRest('free-pro-team@latest', undefined, 'actions'),
@@ -217,8 +209,7 @@ describe('in-flight deduplication', () => {
     expect(results[1]).toEqual(FAKE_DATA)
     expect(results[2]).toEqual(FAKE_DATA)
 
-    // All 3 callers share one loadCategoryFile() call, so there are exactly 2
-    // readFile calls: one for .br (rejected) and one for .json, not 6.
+    // One shared loadCategoryFile call means 2 readFile calls, not 6.
     expect(vi.mocked(fsMock.promises.readFile)).toHaveBeenCalledTimes(2)
   })
 })
@@ -235,7 +226,7 @@ describe('loadCategoryFile brotli fallback', () => {
   })
 
   test('.br corrupt (bad bytes) → brotliDecompress throws → falls back to .json', async () => {
-    // Buffer.from('not brotli') is not valid brotli; brotliDecompressAsync will throw.
+    // Buffer.from('not brotli') is not valid brotli, so decompression throws.
     vi.mocked(fsMock.promises.readFile)
       .mockResolvedValueOnce(Buffer.from('not brotli') as unknown as Buffer) // .br (corrupt)
       .mockResolvedValueOnce(FAKE_JSON as unknown as Buffer) // .json fallback

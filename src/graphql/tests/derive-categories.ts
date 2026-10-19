@@ -2,14 +2,12 @@ import { describe, expect, test } from 'vitest'
 
 import processSchemas from '../scripts/utils/process-schemas'
 
-// Minimal `@docsCategory` directive declaration so `buildASTSchema` can parse
-// the fixtures below. Mirrors the real declaration emitted by github/github.
+// Minimal @docsCategory lets buildASTSchema parse fixtures and mirrors github/github output.
 const DIRECTIVE = `
 directive @docsCategory(name: String!) on ENUM | FIELD_DEFINITION | INPUT_OBJECT | INTERFACE | OBJECT | UNION
 `
 
-// Run processSchemas over an inline IDL and return a flat name -> category map
-// across every kind, so tests can assert where a type landed.
+// A flat name to category map lets each fixture assert where every kind landed.
 async function categoriesFor(idl: string): Promise<Record<string, string>> {
   const data = await processSchemas(`${DIRECTIVE}\n${idl}`, [])
   const out: Record<string, string> = {}
@@ -21,7 +19,7 @@ async function categoriesFor(idl: string): Promise<Record<string, string>> {
   return out
 }
 
-// Every fixture needs a Query root; a `viewer` field keeps it non-empty.
+// GraphQL fixtures need a non-empty Query root.
 const QUERY = `
 type Query {
   viewer: String
@@ -53,7 +51,7 @@ describe('reference-based category derivation (PASS 1.5 rule c)', () => {
   })
 
   test('enum inherits from an annotated object field argument', async () => {
-    // Mirrors Issue.timelineItems(itemTypes: [IssueTimelineItemsItemType!]).
+    // Mirrors Issue.timelineItems with itemTypes [IssueTimelineItemsItemType!].
     const cats = await categoriesFor(`
       ${QUERY}
       type Issue @docsCategory(name: "issues") {
@@ -74,7 +72,7 @@ describe('reference-based category derivation (PASS 1.5 rule c)', () => {
       input NestedParametersInput { value: String }
     `)
     expect(cats.RuleParametersInput).toBe('repos')
-    // Propagates another hop through the still-uncategorized input chain.
+    // NestedParametersInput proves inheritance propagates through an uncategorized input chain.
     expect(cats.NestedParametersInput).toBe('repos')
   })
 
@@ -117,8 +115,7 @@ describe('reference-based category derivation (PASS 1.5 rule c)', () => {
   })
 
   test('interfaces are not a referrer source', async () => {
-    // Interface is annotated and references the enum, but no object does, so
-    // the enum must not inherit the interface's category.
+    // Interfaces are not referrer sources, so their referenced enums stay in other.
     const cats = await categoriesFor(`
       ${QUERY}
       interface Rulable @docsCategory(name: "repos") {

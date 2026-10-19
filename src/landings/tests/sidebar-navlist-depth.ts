@@ -2,11 +2,10 @@ import { describe, expect, test } from 'vitest'
 
 import { flattenDescendants, MAX_NAVLIST_LEVEL } from '../components/sidebar-navlist-depth'
 
-// The sidebar renders on @primer/react-brand NavList, which supports at most 5
-// nesting levels, and a level-5 item that contains a SubNav is dropped. SidebarProduct
-// guards against this: at MAX_NAVLIST_LEVEL it stops nesting and flattens the
-// remaining subtree into leaf links so no page becomes unreachable. These tests
-// pin that reachability guarantee.
+// @primer/react-brand NavList supports at most 5 nesting levels; a level-5 item
+// that contains a SubNav drops its children. SidebarProduct stops nesting at
+// MAX_NAVLIST_LEVEL and flattens the remaining subtree into leaf links so every
+// page stays reachable. These tests protect that guarantee.
 
 type TestNode = { title: string; href: string; childPages: TestNode[] }
 
@@ -35,8 +34,7 @@ describe('sidebar NavList depth guard', () => {
   })
 
   test('an over-deep subtree loses no pages when flattened', () => {
-    // A chain deeper than the cap: every node past the cap must still be reachable
-    // as a flat leaf, i.e. flattening the capped node surfaces all of them.
+    // Nodes deeper than the cap must surface as flat leaves instead of disappearing.
     const deepLeaf = node('/1/2/3/4/5/6/7')
     const chain = node('/1', [
       node('/1/2', [
@@ -47,9 +45,8 @@ describe('sidebar NavList depth guard', () => {
     ])
 
     const flattened = flattenDescendants(chain).map((n) => n.href)
-    // Nothing is dropped: the deepest page is present.
     expect(flattened).toContain('/1/2/3/4/5/6/7')
-    // And the count equals the total descendant node count (6 below the root).
+    // Six descendants below the root must remain reachable.
     expect(flattened).toHaveLength(6)
   })
 })

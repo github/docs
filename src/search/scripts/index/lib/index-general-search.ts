@@ -45,7 +45,7 @@ export async function indexGeneralSearch(sourceDirectory: string, opts: Options)
   const client = getElasticsearchClient(opts.elasticsearchUrl, opts.verbose, {
     requestTimeout: 5 * 60 * 1000,
   })
-  await client.ping() // Will throw if not available
+  await client.ping()
 
   let versions: string[] | 'all' = []
   if ('version' in opts) {

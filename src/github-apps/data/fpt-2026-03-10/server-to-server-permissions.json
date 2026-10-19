@@ -2079,6 +2079,78 @@
       }
     ]
   },
+  "organization_external_properties_for_repos": {
+    "title": "External custom properties for repositories",
+    "displayTitle": "Organization permissions for \"External custom properties for repositories\"",
+    "permissions": [
+      {
+        "category": "orgs",
+        "slug": "get-registered-app-installations-for-external-custom-properties",
+        "subcategory": "custom-properties",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/properties/installations",
+        "access": "admin",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "orgs",
+        "slug": "register-an-app-installation-for-external-custom-properties",
+        "subcategory": "custom-properties",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/properties/installations",
+        "access": "admin",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "orgs",
+        "slug": "get-all-external-custom-properties-for-a-github-app-installation-in-an-organization",
+        "subcategory": "custom-properties",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/properties/installations/schema",
+        "access": "read",
+        "user-to-server": false,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "orgs",
+        "slug": "create-or-update-external-custom-property-values-for-organization-repositories",
+        "subcategory": "custom-properties",
+        "verb": "patch",
+        "requestPath": "/orgs/{org}/properties/installations/values",
+        "access": "write",
+        "user-to-server": false,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "orgs",
+        "slug": "create-or-update-external-custom-property-values-for-a-property-across-organization-repositories",
+        "subcategory": "custom-properties",
+        "verb": "patch",
+        "requestPath": "/orgs/{org}/properties/installations/values/{property_name}",
+        "access": "write",
+        "user-to-server": false,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "orgs",
+        "slug": "remove-all-external-custom-property-values-for-a-property-across-all-organization-repositories",
+        "subcategory": "custom-properties",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/properties/installations/values/{property_name}",
+        "access": "write",
+        "user-to-server": false,
+        "server-to-server": true,
+        "additional-permissions": false
+      }
+    ]
+  },
   "organization_copilot_seat_management": {
     "title": "GitHub Copilot Business",
     "displayTitle": "Organization permissions for \"GitHub Copilot Business\"",
@@ -4597,6 +4669,17 @@
       },
       {
         "category": "actions",
+        "slug": "download-step-logs-for-a-workflow-run-job",
+        "subcategory": "workflow-jobs",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/actions/jobs/{job_id}/steps/{step_number}/logs",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "actions",
         "slug": "get-the-customization-template-for-an-oidc-subject-claim-for-a-repository",
         "subcategory": "oidc",
         "verb": "get",
@@ -6589,7 +6672,7 @@
         "requestPath": "/user/repos",
         "access": "write",
         "user-to-server": true,
-        "server-to-server": false,
+        "server-to-server": true,
         "additional-permissions": true
       },
       {
@@ -8024,6 +8107,17 @@
         "additional-permissions": true
       },
       {
+        "category": "repos",
+        "slug": "create-a-fork",
+        "subcategory": "forks",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/forks",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
         "category": "git",
         "slug": "create-a-blob",
         "subcategory": "blobs",
@@ -8963,6 +9057,34 @@
       }
     ]
   },
+  "installation_repositories": {
+    "title": "GitHub App installation repository access",
+    "displayTitle": "Repository permissions for \"GitHub App installation repository access\"",
+    "permissions": [
+      {
+        "category": "apps",
+        "slug": "add-a-repository-to-an-app-installation",
+        "subcategory": "installations",
+        "verb": "put",
+        "requestPath": "/user/installations/{installation_id}/repositories/{repository_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "apps",
+        "slug": "remove-a-repository-from-an-app-installation",
+        "subcategory": "installations",
+        "verb": "delete",
+        "requestPath": "/user/installations/{installation_id}/repositories/{repository_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      }
+    ]
+  },
   "issues": {
     "title": "Issues",
     "displayTitle": "Repository permissions for \"Issues\"",
@@ -9424,6 +9546,39 @@
         "subcategory": "reactions",
         "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/reactions/{reaction_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "issues",
+        "slug": "list-issues-related-to-an-issue",
+        "subcategory": "issues",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/relates_to",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "issues",
+        "slug": "add-a-related-issue",
+        "subcategory": "issues",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/relates_to",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "issues",
+        "slug": "remove-a-related-issue",
+        "subcategory": "issues",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/relates_to/{issue_id}",
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
@@ -10835,6 +10990,17 @@
       },
       {
         "category": "pulls",
+        "slug": "rerequest-reviewers-for-a-pull-request",
+        "subcategory": "review-requests",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/requested_reviewers/rerequest",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "pulls",
         "slug": "list-reviews-for-a-pull-request",
         "subcategory": "reviews",
         "verb": "get",
@@ -11006,6 +11172,17 @@
       },
       {
         "category": "repos",
+        "slug": "create-a-fork",
+        "subcategory": "forks",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/forks",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "repos",
         "slug": "create-a-repository-using-a-template",
         "subcategory": "repos",
         "verb": "post",
@@ -11023,7 +11200,7 @@
         "requestPath": "/user/repos",
         "access": "write",
         "user-to-server": true,
-        "server-to-server": false,
+        "server-to-server": true,
         "additional-permissions": true
       }
     ]

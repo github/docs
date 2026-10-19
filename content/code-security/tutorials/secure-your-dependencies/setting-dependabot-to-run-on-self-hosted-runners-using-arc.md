@@ -2,7 +2,9 @@
 title: Setting up Dependabot to run on self-hosted action runners using the Actions Runner Controller
 intro: You can configure the {% data variables.product.prodname_actions_runner_controller %} to run {% data variables.product.prodname_dependabot %} on self-hosted runners.
 versions:
-  feature: dependabot-arc-support
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 permissions: '{% data reusables.permissions.dependabot-various-tasks %}'
 contentType: tutorials
 allowTitleToDifferFromFilename: true

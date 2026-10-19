@@ -2,7 +2,7 @@ import chalk from 'chalk'
 import { readFile } from 'fs/promises'
 import { allVersions } from '@/versions/lib/all-versions'
 
-// Translate the docs versioning nomenclature back to the OpenAPI names
+// Map docs version names back to OpenAPI names.
 const invertedVersionMapping = JSON.parse(
   await readFile('src/rest/lib/config.json', 'utf8'),
 ).versionMapping
@@ -40,7 +40,7 @@ log(
 )
 log(
   `${chalk.cyan.bold('  - REST Two versions:')}  ${chalk.magenta(
-    'npm run sync-rest -- --versions ghes-3.7 ghes-3.8 && npm run dev',
+    'npm run sync-rest -- --versions ghes-3.21 ghes-3.22 && npm run dev',
   )}`,
 )
 log(
@@ -67,7 +67,7 @@ log(
 )
 log(
   `${chalk.cyan.bold('  - Webhooks Two versions:')}  ${chalk.magenta(
-    'npm run sync-webhooks -- --versions ghes-3.7 ghes-3.8 && npm run dev',
+    'npm run sync-webhooks -- --versions ghes-3.21 ghes-3.22 && npm run dev',
   )}`,
 )
 log(chalk.green.bold('\nFor more info and additional options, run:\n'))

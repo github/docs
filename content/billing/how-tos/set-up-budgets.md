@@ -41,9 +41,26 @@ We recommend that you avoid creating overlapping budgets for the use of a produc
 
 For {% data variables.product.prodname_copilot_short %} under usage-based billing, user-level budgets add another layer to consider. A user-level budget can block a user even when the enterprise or cost center budget still has capacity. It is the first check in the evaluation sequence. When planning your budget configuration, account for how user-level budgets, cost center budgets, and the enterprise spending limit interact. See [AUTOTITLE](/copilot/concepts/billing-and-usage/organizations-and-enterprises/budgets#how-billing-flows-through-budgets).
 
+{% ifversion fpt or ghec %}
+
+For {% data variables.product.prodname_AS %} AI features, choose the budget that matches the spending you want to control:
+
+* Use a **Bundled {% data variables.product.prodname_ai_credits_short %} budget** to set one spending limit across all features that use {% data variables.product.prodname_ai_credits_short %}. If **Stop usage when budget limit is reached** is enabled, usage by another product can exhaust this budget and stop AI Scan and agentic autofix.
+* Use a **Code Security AI Credits** SKU-level budget to set an independent spending limit for AI Scan and agentic autofix.
+
+Usually, choose one of these budgets as your primary control. If both hard budgets apply, exhausting either budget blocks further Code Security AI Credits usage.
+
+When no Code Security AI Credits quota remains because of a hard budget, AI Scan fails and agentic autofix cannot start a session. Usage resumes when the limiting budget is increased or a new billing cycle begins.
+
+For more information about AI Scan, see [AUTOTITLE](/code-security/concepts/code-scanning/ai-powered-security-detections).
+
+{% endif %}
+
 ## Managing budgets for your personal account
 
 You can set budgets and receive alerts when your usage of a product reaches 75%, 90%, or 100% of a defined budget. Budgets can be set for a specific repository or for your whole account.
+
+The personal-account guidance for Code Security AI Credits does not apply to repositories in the personal namespace of a {% data variables.enterprise.prodname_managed_user %}. For details about feature availability for these repositories, see [AUTOTITLE](/billing/concepts/product-billing/github-advanced-security#how-ai-feature-usage-is-billed).
 
 {% data reusables.user-settings.access_billing_settings_url %}
 
@@ -53,7 +70,8 @@ You can set budgets and receive alerts when your usage of a product reaches 75%,
 
    * To limit spending at a Product-level, in "Product-level budget" choose a product from the dropdown, for example: {% data variables.product.prodname_codespaces %}.
    * To limit spending at a SKU-level, in "SKU-level budget" choose a Product and then a SKU, for example: {% data variables.product.prodname_codespaces %} and {% data variables.product.prodname_codespaces %} storage.
-   * To limit spending on {% data variables.product.prodname_ai_credits_short %} across all features, enable "Bundled {% data variables.product.prodname_ai_credits_short %} budget" or to limit spending for a specific feature, set a SKU-level budget for the feature (such as {% data variables.product.prodname_copilot_short %} {% data variables.product.prodname_ai_credits_short %}, {% data variables.product.prodname_spark_short %} {% data variables.product.prodname_ai_credits_short %}, or {% data variables.copilot.copilot_cloud_agent %}).
+   * To limit spending across all AI-credit SKUs, select **Bundled {% data variables.product.prodname_ai_credits_short %} budget**.
+   * To limit spending for one SKU, select **SKU-level budget**. Examples include {% data variables.product.prodname_copilot_short %} {% data variables.product.prodname_ai_credits_short %}, {% data variables.product.prodname_spark_short %} {% data variables.product.prodname_ai_credits_short %}, {% data variables.copilot.copilot_cloud_agent %}, and Code Security AI Credits.
 
 1. Under "Budget scope", set the scope of spending for this budget.
 1. Under "Budget", set a budget amount.
@@ -65,7 +83,7 @@ You can set budgets and receive alerts when your usage of a product reaches 75%,
 1. To receive an alert if your budget has reached 75%, 90% and 100% thresholds, select **Receive budget threshold alerts** under "Alerts". When the budget has reached the specific threshold, you will be notified via email and a banner on {% data variables.product.github %}. You may opt out at any time.
 {% data reusables.billing.budget-create-button %}
 
-To edit or delete a budget, on the "Budget and alerts" page, click **Edit** or **Delete** next to the budget you want to edit or delete. Follow the prompts.
+To edit or delete a budget, on the "Budgets and alerts" page, click {% octicon "kebab-horizontal" aria-label="View actions" %} next to the budget, then click **{% octicon "pencil" aria-hidden="true" aria-label="pencil" %} Edit** or **{% octicon "trash" aria-hidden="true" aria-label="trash" %} Delete**. Follow the prompts.
 
 ### Managing included usage alerts for your personal account
 
@@ -91,13 +109,13 @@ You can set budgets and receive alerts when your usage of a product or license t
 
 ### Viewing budgets
 
-If you are an organization owner, enterprise owner, or billing manager, any account-level budget is listed at the top of the "Budgets and alerts" page, followed by budgets for smaller scopes.
+If you are an organization owner, enterprise owner, or billing manager, all of your account's budgets appear in one list on the "Budgets and alerts" page. Each row shows the budget's scope, spending against the budget amount, and status.
 
 {% data reusables.billing.nav-to-org-or-ent %}
 {% data reusables.billing.access-org-or-ent-page %}
 
 1. Click **Budgets and alerts**.
-1. Optionally, in the enterprise view only, to filter by scope, select **Scope**, then choose a scope.
+1. Optionally, to find specific budgets, choose a scope from the scope dropdown, or use the search bar to filter by scope, product, SKU, or user.
 
 ### Creating a budget
 
@@ -108,7 +126,9 @@ As the owner of an enterprise or organization account, or as a billing manager, 
 
    * **Product-level budget**: Limits spending on a single product (for example, {% data variables.product.prodname_codespaces %}).
    * **SKU-level budget**: Limits spending on a specific SKU within a product (for example, {% data variables.product.prodname_GH_secret_protection %} within {% data variables.product.prodname_GHAS %}).
-   * **Bundled {% data variables.product.prodname_ai_credits_short %} budget**: Limits spending across all SKUs that consume {% data variables.product.prodname_ai_credits_short %}, including {% data variables.product.prodname_copilot_short %}, {% data variables.copilot.copilot_cloud_agent %}, and {% data variables.product.prodname_spark_short %}. Available where overage spend is enabled.
+   * **Bundled {% data variables.product.prodname_ai_credits_short %} budget**: Limits spending across all SKUs that consume {% data variables.product.prodname_ai_credits_short %}, including {% data variables.product.prodname_copilot_short %}, {% data variables.copilot.copilot_cloud_agent %}, {% data variables.product.prodname_spark_short %}, and {% data variables.product.prodname_AS %} AI features. Available where overage spend is enabled.
+
+   To limit spending on AI Scan and agentic autofix, select **SKU-level budget**. In the product dropdown, select **{% data variables.product.prodname_AS %}**, then in the SKU dropdown, select **Code Security AI Credits**.
 
 1. Under "Budget scope", set the scope of spending for this budget.
 
@@ -130,7 +150,7 @@ As the owner of an enterprise or organization account, or as a billing manager, 
 
 1. Under "Budget", set a budget amount or license count.
 
-   To stop any usage and further spending once the budget limit is reached, select **Stop usage when budget limit is reached** or **Limit usage when budget limit is reached**, if available. **This option is available for metered products and for {% data variables.product.prodname_AS %} SKU-level budgets**. For {% data variables.product.prodname_AS %}, this option prevents new enablement on additional repositories. It doesn't disable {% data variables.product.prodname_AS %} on repositories where it is already active. See [AUTOTITLE](/billing/concepts/product-billing/github-advanced-security#hard-budgets-for-github-advanced-security-skus).
+   To stop any usage and further spending once the budget limit is reached, select **Stop usage when budget limit is reached** or **Limit usage when budget limit is reached**, if available. **This option is available for metered products and for {% data variables.product.prodname_AS %} SKU-level budgets**. For active-committer license budgets for {% data variables.product.prodname_code_security %} and {% data variables.product.prodname_secret_protection %}, this option prevents new enablement on additional repositories. It doesn't disable these products on repositories where they are already active. See [AUTOTITLE](/billing/concepts/product-billing/github-advanced-security#hard-budgets-for-github-advanced-security-skus).
 
    >[!IMPORTANT] If you do not select one of these options, you will be notified by email if you exceed your budget, but usage **will not** be stopped.
 

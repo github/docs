@@ -3,7 +3,7 @@ title: Getting started with the GitHub Copilot app
 shortTitle: Copilot app quickstart
 allowTitleToDifferFromFilename: true
 intro: 'Sign in to the {% data variables.copilot.github_copilot_app %}, connect a repository or local folder, and create your first agent session to make code changes.'
-product: '{% data reusables.gated-features.github-app %}<br><a href="https://github.com/features/ai/github-app" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Download {% data variables.copilot.github_copilot_app %}</span> {% octicon "link-external" height:16 %}</a>'
+product: '{% data reusables.gated-features.github-app %}<br>{% data reusables.copilot.github-app-download-button %}'
 versions:
   feature: copilot
 contentType: get-started
@@ -15,7 +15,7 @@ category:
   - Author and optimize with Copilot
 ---
 
-For a conceptual overview of the {% data variables.copilot.github_copilot_app %}, see [AUTOTITLE](/copilot/concepts/agents/github-copilot-app).
+For a conceptual overview of the {% data variables.copilot.github_copilot_app %}, see [AUTOTITLE](/copilot/concepts/copilot-surfaces/github-copilot-app).
 
 In this quickstart, you will:
 
@@ -35,13 +35,16 @@ In this quickstart, you will:
 
 ## Installing the {% data variables.copilot.github_copilot_app %}
 
-1. Visit the [download page for {% data variables.copilot.github_copilot_app %}](https://github.com/features/ai/github-app).
-1. Download the app for your platform.
+Download and install the {% data variables.copilot.github_copilot_app %} for your operating system. For other operating systems and architectures, see the [download page](https://github.com/features/ai/github-app).
+
+{% data reusables.copilot.github-app-download-button %}
 
 ## Opening the {% data variables.copilot.github_copilot_app %} for the first time
 
 1. Open the {% data variables.copilot.github_copilot_app %}.
-1. Click **Sign in to {% data variables.product.github %}** and follow the prompts to authenticate. If you use {% data variables.product.prodname_ghe_server %}, choose **Use GitHub Enterprise** and enter your server address when prompted.
+1. Click **Sign in to {% data variables.product.github %}** and follow the prompts to authenticate. 
+
+   If you use {% data variables.product.prodname_ghe_cloud %} with data residency, choose **Use GitHub Enterprise** and enter your `*.ghe.com` hostname when prompted. {% data variables.product.prodname_ghe_server %} is not supported by the {% data variables.copilot.github_copilot_app %}.
 1. If you do not have a {% data variables.product.prodname_copilot_short %} plan, choose whether to sign up for a plan or continue with your own model provider.
     * If you choose to use your own model provider, select a provider, enter any required credentials, then click **Save and continue**.
 1. When prompted, select one or more repositories based on your recent {% data variables.product.github %} activity. You can also add a local folder or repository, or skip this step and add projects later.

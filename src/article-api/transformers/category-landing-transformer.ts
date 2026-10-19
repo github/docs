@@ -10,10 +10,6 @@ interface CategoryPage extends Page {
   children?: string[]
 }
 
-/**
- * Transforms category-landing pages into markdown format.
- * Handles spotlight sections and recursively collects all descendant articles.
- */
 export class CategoryLandingTransformer implements PageTransformer {
   templateName = 'landing-page.template.md'
 
@@ -32,8 +28,7 @@ export class CategoryLandingTransformer implements PageTransformer {
     })
   }
 
-  // Walks the page tree from the given parent hrefs, collecting every non-index
-  // descendant. The visited set guards against circular references.
+  // Collect every non-index descendant; the visited set prevents circular references.
   private async getAllDescendantArticles(
     parentHrefs: string[],
     languageCode: string,
@@ -54,14 +49,14 @@ export class CategoryLandingTransformer implements PageTransformer {
 
       if (!parentPage.relativePath.endsWith('index.md')) {
         const linkData = await getLinkData(href, languageCode, pathname, context, resolvePath)
-        if (linkData.href) {
+        if (linkData) {
           allArticles.push(linkData)
         }
       }
 
       const children = parentPage.children
       if (children && Array.isArray(children) && children.length > 0) {
-        // Get the parent's permalink to use as the base path for resolving children
+        // Resolve child hrefs relative to the parent page, not the original landing page.
         const parentPermalink = parentPage.permalinks.find(
           (p) => p.languageCode === languageCode && p.pageVersion === context.currentVersion,
         )
@@ -93,7 +88,7 @@ export class CategoryLandingTransformer implements PageTransformer {
     const spotlight = categoryPage.spotlight
     if (spotlight && spotlight.length > 0) {
       const links = await Promise.all(
-        spotlight.map(async (item) => {
+        spotlight.map(async (item): Promise<LinkData | null> => {
           const linkData = await getLinkData(
             item.article,
             languageCode,
@@ -101,6 +96,7 @@ export class CategoryLandingTransformer implements PageTransformer {
             context,
             resolvePath,
           )
+          if (!linkData) return null
           return {
             ...linkData,
             intro: linkData.intro
@@ -110,7 +106,7 @@ export class CategoryLandingTransformer implements PageTransformer {
         }),
       )
 
-      const validLinks = links.filter((l) => l.href)
+      const validLinks = links.filter((l): l is LinkData => l !== null)
       if (validLinks.length > 0) {
         sections.push({
           title: 'Spotlight',

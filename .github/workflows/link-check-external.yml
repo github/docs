@@ -2,7 +2,7 @@ name: 'Link Check: External'
 
 on:
   schedule:
-    - cron: '20 16 * * 1' # Run every Monday at 16:20 UTC / 8:20 PST
+    - cron: '20 16 * * 1'
   workflow_dispatch:
     inputs:
       max_urls:
@@ -17,9 +17,9 @@ jobs:
   check-external-links:
     if: github.repository == 'github/docs-internal'
     runs-on: ubuntu-latest
-    timeout-minutes: 180 # 3 hours for external checks
-    # Serialize publishing so two overlapping runs can't both create a
-    # "rolling" issue, or write their results out of order.
+    timeout-minutes: 180 # External checks can take hours over all URLs.
+    # Serialize the full external link check so overlapping runs cannot publish duplicate
+    # rolling issues or write results out of order.
     concurrency:
       group: broken-external-links-report
       cancel-in-progress: false
@@ -77,8 +77,7 @@ jobs:
             const repo = 'docs-content'
             const label = 'broken link report'
 
-            // GitHub rejects issue bodies over 65536 characters with a 422.
-            // Truncate and point at the run artifact for the full contents.
+            // GitHub rejects issue bodies over 65536 characters with a 422, so truncate and point at the run artifact.
             const MAX_BODY_SIZE = 60000
             const runUrl = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`
             let body = fs.readFileSync('artifacts/external-link-report.md', 'utf8')
@@ -88,9 +87,7 @@ jobs:
               core.warning(`Report exceeded ${MAX_BODY_SIZE} characters, so it was truncated.`)
             }
 
-            // Reuse a single rolling issue instead of opening a new one every
-            // week, which floods the first responders' board. Find the open
-            // report issues (newest first).
+            // Reuse one rolling issue so weekly failures do not flood the first responders' board; sort newest first.
             const open = await github.paginate(github.rest.issues.listForRepo, {
               owner,
               repo,
@@ -114,8 +111,7 @@ jobs:
               return
             }
 
-            // Refresh the newest open report in place and close any older
-            // duplicates so exactly one canonical issue remains.
+            // Refresh the newest open report and close duplicates so one canonical issue remains.
             const [canonical, ...superseded] = reportIssues
             await github.rest.issues.update({
               owner,
@@ -126,8 +122,7 @@ jobs:
             })
             core.info(`Updated rolling report issue: ${canonical.html_url}`)
 
-            // Attempt every duplicate even if one fails, so a single transient
-            // API error doesn't leave the rest open.
+            // Close duplicates independently so one transient API error cannot leave the rest open.
             const results = await Promise.allSettled(
               superseded.map(async (issue) => {
                 await github.rest.issues.createComment({
@@ -169,8 +164,7 @@ jobs:
             const repo = 'docs-content'
             const label = 'broken link report'
 
-            // A clean run means the open report is stale. Leaving it open would
-            // keep fixed failures on the first responders' board.
+            // Close stale reports so fixed failures leave the first responders' board.
             const open = await github.paginate(github.rest.issues.listForRepo, {
               owner,
               repo,

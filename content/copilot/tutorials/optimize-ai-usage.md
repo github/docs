@@ -67,7 +67,7 @@ Well-structured prompts have three qualities:
 
 This added guidance doesn't meaningfully increase token usage, but it can significantly reduce the number of agent runs needed to reach the right outcome.
 
-For prompt engineering best practices, see [AUTOTITLE](/copilot/concepts/prompting/prompt-engineering).
+For prompt engineering best practices, see [AUTOTITLE](/copilot/concepts/prompting-and-context/prompt-engineering).
 
 ## 3. Keep your context lean
 
@@ -88,7 +88,7 @@ When you need the thread to keep going but it has grown large, run `/compact` in
 
 In addition, you can use `/context` to check current usage at any time.
 
-See [AUTOTITLE](/copilot/concepts/agents/copilot-cli/context-management).
+See [AUTOTITLE](/copilot/concepts/prompting-and-context/context-management).
 
 ### Give {% data variables.product.prodname_copilot_short %} a map of your project
 
@@ -98,7 +98,7 @@ A well-maintained custom instructions file, such as an `AGENTS.md` or `.github/c
 
 Large tool sets (for example, a full MCP server's worth of tools) add to the context on every request. Where it fits your workflow, enable only the toolsets relevant to the task.
 
-See [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp-in-your-ide/configure-toolsets).
+See [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/customize-copilot/extend-copilot-with-tools-and-context/configure-toolsets).
 
 ## 4. Preserve the cache
 

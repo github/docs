@@ -22,10 +22,7 @@ export async function syncWebhookData(
     webhookSchemas.map(async (schemaName) => {
       const file = path.join(sourceDirectory, schemaName)
       const schema: WebhookFile = JSON.parse(await readFile(file, 'utf-8'))
-      // In OpenAPI version 3.1, the schema data is under the `webhooks`
-      // key, but in 3.0 the schema data was in `x-webhooks`.
-      // We just fallback to `x-webhooks` for now since there's
-      // currently no difference in the schema data between versions.
+      // OpenAPI 3.1 stores webhook data under webhooks and 3.0 under x-webhooks; both use the same shape.
       const webhookSchemaData = schema.webhooks ?? schema['x-webhooks']
       if (!webhookSchemaData) {
         console.log(
@@ -51,12 +48,7 @@ export async function syncWebhookData(
         await mkdir(targetDirectory, { recursive: true })
       }
 
-      // Write one JSON file per webhook category (e.g. check_run.json) instead
-      // of a single monolithic schema.json. This allows the server to load only
-      // the requested webhook on demand rather than the entire version schema.
-      //
-      // childParamsGroups are split into a separate file ({category}.child-params.json)
-      // so the landing page never loads them. They are fetched on drill-down only.
+      // Split categories, such as check_run.json, from childParamsGroups sidecars.
       await Promise.all(
         Object.entries(data).map(async ([category, categoryData]) => {
           const childParams: Record<string, Record<string, unknown[]>> = {}
@@ -97,10 +89,7 @@ export async function syncWebhookData(
             await writeFile(childParamsPath, JSON.stringify(childParams, null, 2))
             console.log(`✅ Wrote ${childParamsPath}`)
           } else {
-            // Remove any stale sidecar from a previous sync where this category
-            // had child params but no longer does. getWebhook() probes for this
-            // file unconditionally, so leaving it would reintroduce removed
-            // nested params on drill-down.
+            // Remove stale child-param sidecars so drill-down pages do not show removed nested params.
             for (const stalePath of [childParamsPath, `${childParamsPath}.br`]) {
               if (existsSync(stalePath)) {
                 await unlink(stalePath)
@@ -126,10 +115,8 @@ async function processWebhookSchema(webhooks: Webhook[]): Promise<void> {
   }
 }
 
-// Create an object with all webhooks where the key is the webhook name.
-// Webhooks typically have a property called `action` that describes the
-// events that trigger the webhook. Some webhooks (like `ping`) don't have
-// action types -- in that case we set the value of action to 'default'.
+// Groups webhooks by category and action type.
+// Webhooks without action types, such as ping, use default.
 async function formatWebhookData(
   webhooks: Webhook[],
 ): Promise<Record<string, Record<string, Webhook>>> {

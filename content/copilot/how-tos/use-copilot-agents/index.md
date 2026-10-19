@@ -6,10 +6,10 @@ versions:
   feature: copilot
 children:
   - /cloud-agent
-  - /request-a-code-review
   - /copilot-memory
+  - /use-code-review
+  - /use-dynamic-workflows
 redirect_from:
   - /copilot/how-tos/agents
 contentType: how-tos
 ---
-

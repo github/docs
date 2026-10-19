@@ -50,6 +50,7 @@ The operator must authenticate to both the source and destination enterprise wit
 1. On **{% data variables.product.prodname_ghe_server %}**, create a {% data variables.product.pat_v1 %} and select the required scope:
 
    * `admin:enterprise`
+   * `admin:org`
 
    You will use this token as the **Source token** when configuring the {% data variables.product.prodname_elm_cli %}.
 

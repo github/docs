@@ -7,8 +7,7 @@ import {
 
 describe('oneOf handling in webhook parameters', () => {
   test('should handle oneOf fields correctly for secret_scanning_alert_location details', async () => {
-    // Mirrors the secret_scanning_alert_location details field in the real
-    // OpenAPI schema.
+    // The mock mirrors the real secret_scanning_alert_location details field.
     const mockSchema = {
       type: 'object',
       properties: {
@@ -215,7 +214,7 @@ describe('oneOf handling in webhook parameters', () => {
     expect(detailsParam).toBeDefined()
     expect(detailsParam?.childParamsGroups?.length).toBe(2)
 
-    // When titles are missing, the name should be undefined or handled gracefully
+    // Untitled oneOf options still render object variants without names.
     if (detailsParam?.childParamsGroups) {
       for (const param of detailsParam.childParamsGroups) {
         expect(param.type).toBe('object')

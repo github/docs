@@ -41,8 +41,6 @@ describe('getOrphanedTables', () => {
   })
 
   test('counts a deeper sub-key reference as using the table file', () => {
-    // A reference to `tables.copilot.copilot-matrix.ides` should mark the
-    // `copilot.copilot-matrix` file as used.
     const orphans = getOrphanedTables(
       [table('copilot.copilot-matrix')],
       ['{% for row in tables.copilot.copilot-matrix.ides %}'],
@@ -51,8 +49,6 @@ describe('getOrphanedTables', () => {
   })
 
   test('does not let a longer key falsely mark a shorter, unrelated table', () => {
-    // `tables.copilot.annual-subscriber-model-multipliers` must NOT mark
-    // `copilot.model-multipliers` as used.
     const orphans = getOrphanedTables(
       [table('copilot.model-multipliers')],
       ['{% data tables.copilot.annual-subscriber-model-multipliers %}'],

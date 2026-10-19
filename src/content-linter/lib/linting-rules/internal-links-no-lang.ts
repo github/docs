@@ -14,13 +14,8 @@ export const internalLinksNoLang: Rule = {
       for (const child of token.children!) {
         if (child.type !== 'link_open') continue
 
-        // Example child.attrs:
-        // [
-        //  ['href', 'get-started'], ['target', '_blank'],
-        //  ['rel', 'canonical'],
-        // ]
         const hrefsWithLanguageCode = child
-          // The attribute could also be `target` or `rel`.
+          // markdown-it attrs also include target and rel, so filter for href.
           .attrs!.filter((attr: [string, string]) => attr[0] === 'href')
           .filter((attr: [string, string]) => attr[1].startsWith('/') || !attr[1].startsWith('//'))
           .filter((attr: [string, string]) =>

@@ -60,7 +60,7 @@ For more information, see [AUTOTITLE](/code-security/concepts/supply-chain-secur
 
 ### Configuring the runner type for {% data variables.product.prodname_dependabot %}
 
-You can configure which type of runner {% data variables.product.prodname_dependabot %} uses to scan for version and security updates. By default, {% data variables.product.prodname_dependabot %} uses standard **{% data variables.product.company_short %}-hosted runners**. You can configure {% data variables.product.prodname_dependabot %} to use **self-hosted runners** with custom labels, which allows you to integrate with existing runner infrastructure such as {% data variables.product.prodname_actions_runner_controller %} (ARC).
+You can configure which type of runner {% data variables.product.prodname_dependabot %} uses to scan for version and security updates. By default, {% data variables.product.prodname_dependabot %} uses standard **{% data variables.product.company_short %}-hosted runners**. You can configure {% data variables.product.prodname_dependabot %} to use **labeled runners**, which allows you to integrate with existing runner infrastructure such as {% data variables.product.prodname_actions_runner_controller %} (ARC).
 
 > [!NOTE]
 > * For security reasons, {% data variables.product.prodname_dependabot %} uses {% data variables.product.company_short %}-hosted runners for public repositories, even when you configure labeled runners.
@@ -71,9 +71,9 @@ To configure the runner type:
 1. Under "{% data variables.product.prodname_dependabot %}", next to "Runner type", select {% octicon "pencil" aria-label="Edit runner type" %}.
 1. In the "Edit runner type for {% data variables.product.prodname_dependabot %}" dialog, select the runner type you want {% data variables.product.prodname_dependabot %} to use:
    * **Standard {% data variables.product.company_short %} runner**.
-   * **Labeled runner**: If you select this option, {% data variables.product.prodname_dependabot %} will use self-hosted runners that match the label you specify.
+   * **Labeled runner**: If you select this option, {% data variables.product.prodname_dependabot %} will use {% ifversion fpt or ghec %}self-hosted or {% data variables.actions.hosted_runners %}{% else %}self-hosted runners{% endif %} that match the label you specify.
 1. If you selected **Labeled runner**:
-   * In "Runner label", enter the label assigned to your self-hosted runners. {% data variables.product.prodname_dependabot %} will use runners with this label. By default, the `dependabot` label is used, but you can specify a custom label to match your existing runner infrastructure.
+   * In "Runner label", enter the label assigned to your runners. {% data variables.product.prodname_dependabot %} will use runners with this label. By default, the `dependabot` label is used, but you can specify a custom label to match your existing runner infrastructure.
    * Optionally, in "Runner group name", enter the name of a runner group if you want to target a specific group of runners.
 1. Click **Save runner selection**.
 

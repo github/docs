@@ -2,13 +2,7 @@ import fs from 'fs/promises'
 
 import { describe, expect, test } from 'vitest'
 
-/*
- * Verify that a list of file paths are present and optionally have a CODEOWNERS entry
- *
- * name: Readable description of file(s)
- * path: Path to secure files (must match entry in CODEOWNERS if code owner required)
- * requiredCodeOwner: (optional) Name of code owner if a code owner is required
- */
+// path must match the CODEOWNERS entry when requiredCodeOwner is set.
 type SecureFile = {
   name: string
   path: string

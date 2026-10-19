@@ -91,6 +91,14 @@ Place `{% data variables.copilot.managed_setting_file %}` in the following locat
 1. For {% data variables.copilot.copilot_cli_short %} on macOS and Linux, make the file a regular file owned by `root`, and ensure it is not group-writable or world-writable. Do not use a symbolic link. The CLI rejects files that do not meet these requirements.
 1. Ask users to restart supported clients so the updated policy is loaded at startup.
 
+## Requiring fresh server-managed settings on startup
+
+Use `forceRemoteSettingsRefresh` when a time-sensitive policy change must reach supported clients before {% data variables.product.prodname_copilot_short %} starts. The setting is supported in {% data variables.copilot.copilot_cli_short %}, the {% data variables.copilot.github_copilot_app %}, and {% data variables.product.prodname_vscode_shortname %}.
+
+MDM-managed and file-based delivery can apply this requirement before the client signs in for the first time. A server-managed value begins requiring refreshes on subsequent startups after the client has received it once.
+
+For client-specific behavior, value formats, and limitations, see [`forceRemoteSettingsRefresh`](/copilot/reference/enterprise-administrators/enterprise-managed-settings#forceremotesettingsrefresh) in the enterprise managed settings reference.
+
 ## Precedence of deployment methods
 
 When multiple settings sources are present, settings earlier in this list take precedence over settings later in the list:

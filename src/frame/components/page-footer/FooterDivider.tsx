@@ -2,15 +2,10 @@ import { useEffect, useRef } from 'react'
 
 import styles from './FooterDivider.module.scss'
 
-// Decorative isometric band that sits directly above the footer.
-// Figma Docs 2026 node 123-6013, layer "page-divider".
-// Purely ornamental, so it carries no accessible name and is hidden from AT.
-//
-// It fades and rises into place the first time it scrolls into view. The band is
-// only *armed* (hidden) once we know scripting is running and it is still
-// below the fold, so it can never be left permanently invisible: without JavaScript,
-// with reduced motion, or on a page short enough that the footer is already on
-// screen, it just renders in place with no animation.
+// The decorative footer band from Figma Docs 2026 node 123-6013, layer page-divider,
+// is hidden from assistive tech because it adds no content. It arms only after
+// scripting confirms it starts below the fold, so it stays visible without JavaScript,
+// when reduced motion is enabled at mount, or when short content puts it on screen.
 export const FooterDivider = () => {
   const ref = useRef<HTMLDivElement>(null)
 
@@ -18,12 +13,10 @@ export const FooterDivider = () => {
     const el = ref.current
     if (!el || typeof IntersectionObserver === 'undefined') return
     if (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return
-    // Already on screen: arming now would hide it and reveal it again a frame later,
-    // which reads as a flicker rather than a reveal.
+    // Skip arming when the band already appears because hiding it for one frame reads as flicker.
     if (el.getBoundingClientRect().top < window.innerHeight) return
 
-    // Toggled on the node rather than through React state: this is presentational
-    // only, so there is no reason to re-render the whole footer subtree for it.
+    // Toggle node classes because the presentation-only reveal does not need a footer rerender.
     el.classList.add(styles.armed)
 
     const observer = new IntersectionObserver(
@@ -35,8 +28,7 @@ export const FooterDivider = () => {
           }
         }
       },
-      // Hold off until a sliver is genuinely in view rather than firing the instant
-      // the band touches the viewport edge.
+      // Wait for visible overlap so the reveal does not fire at the viewport edge.
       { rootMargin: '0px 0px -8% 0px' },
     )
     observer.observe(el)

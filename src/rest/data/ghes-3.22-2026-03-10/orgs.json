@@ -2373,6 +2373,22 @@
                               "write"
                             ]
                           },
+                          "organization_copilot_requests": {
+                            "type": "string",
+                            "description": "The level of permission to grant the access token to make Copilot requests billed to the organization where the app is installed. This property is in public preview and is subject to change.",
+                            "enum": [
+                              "read"
+                            ]
+                          },
+                          "organization_external_properties_for_repos": {
+                            "type": "string",
+                            "description": "The level of permission to grant the access token for managing external custom properties for repositories in an organization.",
+                            "enum": [
+                              "read",
+                              "write",
+                              "admin"
+                            ]
+                          },
                           "organization_announcement_banners": {
                             "type": "string",
                             "description": "The level of permission to grant the access token to view and manage announcement banners for an organization.",
@@ -18018,7 +18034,7 @@
                                 },
                                 "required_reviewers": {
                                   "type": "array",
-                                  "description": "> [!NOTE]\n> `required_reviewers` is in beta and subject to change.\n\nA collection of reviewers and associated file patterns. Each reviewer has a list of file patterns which determine the files that reviewer is required to review.",
+                                  "description": "A collection of reviewers and associated file patterns. Each reviewer has a list of file patterns which determine the files that reviewer is required to review.",
                                   "items": {
                                     "title": "RequiredReviewerConfiguration",
                                     "description": "A reviewing team, and file patterns describing which files they must approve changes to.",
@@ -18508,7 +18524,7 @@
                         },
                         {
                           "title": "copilot_code_review",
-                          "description": "Request Copilot code review for new pull requests automatically if the author has access to Copilot code review and their premium requests quota has not reached the limit.",
+                          "description": "Request Copilot code review for new pull requests automatically if the author has access to Copilot code review and AI credits.",
                           "type": "object",
                           "required": [
                             "type"
@@ -19188,7 +19204,7 @@
                     {
                       "type": "array of objects",
                       "name": "required_reviewers",
-                      "description": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\n<code>required_reviewers</code> is in beta and subject to change.</p>\n</div>\n<p>A collection of reviewers and associated file patterns. Each reviewer has a list of file patterns which determine the files that reviewer is required to review.</p>",
+                      "description": "<p>A collection of reviewers and associated file patterns. Each reviewer has a list of file patterns which determine the files that reviewer is required to review.</p>",
                       "childParamsGroups": [
                         {
                           "type": "array of strings",
@@ -19794,7 +19810,7 @@
             {
               "type": "object",
               "name": "copilot_code_review",
-              "description": "<p>Request Copilot code review for new pull requests automatically if the author has access to Copilot code review and their premium requests quota has not reached the limit.</p>",
+              "description": "<p>Request Copilot code review for new pull requests automatically if the author has access to Copilot code review and AI credits.</p>",
               "childParamsGroups": [
                 {
                   "type": "string",
@@ -20664,7 +20680,7 @@
                               },
                               "required_reviewers": {
                                 "type": "array",
-                                "description": "> [!NOTE]\n> `required_reviewers` is in beta and subject to change.\n\nA collection of reviewers and associated file patterns. Each reviewer has a list of file patterns which determine the files that reviewer is required to review.",
+                                "description": "A collection of reviewers and associated file patterns. Each reviewer has a list of file patterns which determine the files that reviewer is required to review.",
                                 "items": {
                                   "title": "RequiredReviewerConfiguration",
                                   "description": "A reviewing team, and file patterns describing which files they must approve changes to.",
@@ -21154,7 +21170,7 @@
                       },
                       {
                         "title": "copilot_code_review",
-                        "description": "Request Copilot code review for new pull requests automatically if the author has access to Copilot code review and their premium requests quota has not reached the limit.",
+                        "description": "Request Copilot code review for new pull requests automatically if the author has access to Copilot code review and AI credits.",
                         "type": "object",
                         "required": [
                           "type"
@@ -22162,7 +22178,7 @@
                               },
                               "required_reviewers": {
                                 "type": "array",
-                                "description": "> [!NOTE]\n> `required_reviewers` is in beta and subject to change.\n\nA collection of reviewers and associated file patterns. Each reviewer has a list of file patterns which determine the files that reviewer is required to review.",
+                                "description": "A collection of reviewers and associated file patterns. Each reviewer has a list of file patterns which determine the files that reviewer is required to review.",
                                 "items": {
                                   "title": "RequiredReviewerConfiguration",
                                   "description": "A reviewing team, and file patterns describing which files they must approve changes to.",
@@ -22652,7 +22668,7 @@
                       },
                       {
                         "title": "copilot_code_review",
-                        "description": "Request Copilot code review for new pull requests automatically if the author has access to Copilot code review and their premium requests quota has not reached the limit.",
+                        "description": "Request Copilot code review for new pull requests automatically if the author has access to Copilot code review and AI credits.",
                         "type": "object",
                         "required": [
                           "type"
@@ -23337,7 +23353,7 @@
                     {
                       "type": "array of objects",
                       "name": "required_reviewers",
-                      "description": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\n<code>required_reviewers</code> is in beta and subject to change.</p>\n</div>\n<p>A collection of reviewers and associated file patterns. Each reviewer has a list of file patterns which determine the files that reviewer is required to review.</p>",
+                      "description": "<p>A collection of reviewers and associated file patterns. Each reviewer has a list of file patterns which determine the files that reviewer is required to review.</p>",
                       "childParamsGroups": [
                         {
                           "type": "array of strings",
@@ -23943,7 +23959,7 @@
             {
               "type": "object",
               "name": "copilot_code_review",
-              "description": "<p>Request Copilot code review for new pull requests automatically if the author has access to Copilot code review and their premium requests quota has not reached the limit.</p>",
+              "description": "<p>Request Copilot code review for new pull requests automatically if the author has access to Copilot code review and AI credits.</p>",
               "childParamsGroups": [
                 {
                   "type": "string",
@@ -24805,7 +24821,7 @@
                               },
                               "required_reviewers": {
                                 "type": "array",
-                                "description": "> [!NOTE]\n> `required_reviewers` is in beta and subject to change.\n\nA collection of reviewers and associated file patterns. Each reviewer has a list of file patterns which determine the files that reviewer is required to review.",
+                                "description": "A collection of reviewers and associated file patterns. Each reviewer has a list of file patterns which determine the files that reviewer is required to review.",
                                 "items": {
                                   "title": "RequiredReviewerConfiguration",
                                   "description": "A reviewing team, and file patterns describing which files they must approve changes to.",
@@ -25295,7 +25311,7 @@
                       },
                       {
                         "title": "copilot_code_review",
-                        "description": "Request Copilot code review for new pull requests automatically if the author has access to Copilot code review and their premium requests quota has not reached the limit.",
+                        "description": "Request Copilot code review for new pull requests automatically if the author has access to Copilot code review and AI credits.",
                         "type": "object",
                         "required": [
                           "type"

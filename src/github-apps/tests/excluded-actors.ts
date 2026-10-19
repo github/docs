@@ -1,5 +1,9 @@
 import { describe, expect, test } from 'vitest'
-import { isActorExcluded, actorTypeMap } from '../scripts/sync'
+import {
+  isActorExcluded,
+  actorTypeMap,
+  isOperationExcludedForFineGrainedPat,
+} from '../scripts/sync'
 
 describe('excluded_actors filtering', () => {
   test('returns false when excludedActors is undefined', () => {
@@ -44,8 +48,6 @@ describe('excluded_actors filtering', () => {
     expect(isActorExcluded(['UserProgrammaticAccess'], 'fine_grained_pat', actorTypeMap)).toBe(true)
     expect(isActorExcluded(['github_app'], 'server_to_server', actorTypeMap)).toBe(true)
     expect(isActorExcluded(['user_access_token'], 'user_to_server', actorTypeMap)).toBe(true)
-
-    // Test fallback when no mapping exists
     expect(isActorExcluded(['some_unmapped_actor'], 'some_unmapped_actor')).toBe(true)
     expect(isActorExcluded(['some_unmapped_actor'], 'different_actor')).toBe(false)
   })
@@ -84,8 +86,6 @@ describe('excluded_actors filtering', () => {
     ).toBe(true)
     expect(isActorExcluded(['github_app'], 'server_to_server', actorTypeMap)).toBe(true)
     expect(isActorExcluded(['user_access_token'], 'user_to_server', actorTypeMap)).toBe(true)
-
-    // Test fallback when no mapping exists
     expect(isActorExcluded(['some_unmapped_actor'], 'some_unmapped_actor')).toBe(true)
     expect(isActorExcluded(['some_unmapped_actor'], 'different_actor')).toBe(false)
   })
@@ -115,5 +115,37 @@ describe('excluded_actors filtering', () => {
 
     const bothValues = ['fine_grained_personal_access_token', 'UserProgrammaticAccess']
     expect(isActorExcluded(bothValues, 'fine_grained_pat', actorTypeMap)).toBe(true)
+  })
+})
+
+describe('isOperationExcludedForFineGrainedPat', () => {
+  const progActorResources = {
+    checks: { excluded_actors: ['fine_grained_personal_access_token'] },
+    contents: {},
+  }
+
+  test('keeps operations that have no permission sets', () => {
+    expect(isOperationExcludedForFineGrainedPat([], progActorResources)).toBe(false)
+  })
+
+  test('excludes operations when every permission set excludes fine-grained PATs', () => {
+    expect(isOperationExcludedForFineGrainedPat([{ checks: 'read' }], progActorResources)).toBe(
+      true,
+    )
+  })
+
+  test('keeps operations when any permission set allows fine-grained PATs', () => {
+    expect(
+      isOperationExcludedForFineGrainedPat(
+        [{ checks: 'read' }, { contents: 'read' }],
+        progActorResources,
+      ),
+    ).toBe(false)
+  })
+
+  test('keeps operations whose permissions have no excluded actors', () => {
+    expect(isOperationExcludedForFineGrainedPat([{ contents: 'read' }], progActorResources)).toBe(
+      false,
+    )
   })
 })

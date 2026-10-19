@@ -2,6 +2,7 @@ import { slug } from 'github-slugger'
 
 import { HeadingLink } from '@/frame/components/article/HeadingLink'
 import { useTranslation } from '@/languages/components/useTranslation'
+import { normalizeReferenceLink } from '@/audit-logs/lib/reference-links'
 import type { AuditLogEventT } from '../types'
 
 import styles from './GroupedEvents.module.scss'
@@ -25,9 +26,14 @@ export default function GroupedEvents({ auditLogEvents, category, categoryNote }
       .split(/[,\s]+/)
       .map((link) => link.trim())
       .filter((link) => link && link !== 'N/A')
-      .map((link) => (link.startsWith('/') ? link : `/${link}`))
+      .map(normalizeReferenceLink)
 
-    const titles = event.docs_reference_titles ? event.docs_reference_titles.split(', ') : links
+    // Titles can contain ', ', so a single link keeps its whole title.
+    const titles = !event.docs_reference_titles
+      ? links
+      : links.length === 1
+        ? [event.docs_reference_titles]
+        : event.docs_reference_titles.split(', ')
 
     return links.map((link, index) => (
       <span key={link}>

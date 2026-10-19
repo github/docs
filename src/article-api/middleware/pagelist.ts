@@ -14,8 +14,6 @@ import { languages, languageKeys } from '@/languages/lib/languages'
 
 const router = express.Router()
 
-// pagelistValidationMiddleware is used for every route to normalize the lang and version from the path
-
 /**
  * Get all available product versions for the docs site.
  * @route GET /api/pagelist/versions
@@ -64,7 +62,7 @@ router.get(
   catchMiddlewareError(async function (req: ExtendedRequest, res: Response) {
     defaultCacheControl(res)
 
-    // Remove redirectPatterns from output as they are RegExp objects and not JSON serializable
+    // JSON serializes RegExp redirectPatterns as empty objects, so omit them.
     const sanitizedLanguages = Object.fromEntries(
       Object.entries(languages).map(([code, lang]) => {
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -82,7 +80,7 @@ router.get(
   }) as RequestHandler,
 )
 
-// If no version or lang is provided we'll assume english and fpt and redirect there
+// Bare pagelist requests redirect to English free-pro-team@latest.
 router.get(
   '/',
   pagelistValidationMiddleware as RequestHandler,
@@ -97,7 +95,7 @@ router.get(
   }),
 )
 
-// handles paths with fragments that could be the language or the version
+// One-segment pagelist requests redirect after validation finds the language or version.
 router.get(
   '/:someParam',
   pagelistValidationMiddleware as RequestHandler,
@@ -143,8 +141,7 @@ router.get(
       versionMatcher(key, req.context!.currentVersion!, req.context!.currentLanguage!),
     )
 
-    // if we've filtered it out of existence, there's no articles to return so we must've
-    // gotten a bad language or version
+    // An empty filtered pagelist means the language or version failed validation.
     if (!filteredPermalinks.length) {
       const { lang, productVersion } = req.params
 
@@ -164,7 +161,7 @@ router.get(
     incrementPagelistLookup(req.context!.currentVersion!, req.context!.currentLanguage!)
     defaultCacheControl(res)
 
-    // new line added at the end so `wc` works as expected with `-l` and `-w`.
+    // Keep a trailing newline so wc -l counts the last path.
     res.type('text').send(filteredPermalinks.join('\n').concat('\n'))
   }),
 )

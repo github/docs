@@ -87,15 +87,11 @@ For organizations on {% data variables.product.prodname_ghe_cloud %}, if your or
 
 See [AUTOTITLE](/enterprise-cloud@latest/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-allowed-ip-addresses-for-your-organization) and [AUTOTITLE](/enterprise-cloud@latest/admin/configuring-settings/hardening-security-for-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list).
 
-{% ifversion secret-risk-assessment %}
-
 ### Run a secret risk assessment
 
 Run a free, on-demand scan for an organization's repositories that gives you a point-in-time view of the total number of currently exposed secrets across your organization.
 
 See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/configure-specific-tools/assess-your-secret-risk).
-
-{% endif %}
 
 ## Near-term actions
 

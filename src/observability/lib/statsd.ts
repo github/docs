@@ -11,17 +11,15 @@ const {
 
 const mock = NODE_ENV === 'test' || MODA_PROD_SERVICE_ENV !== 'true'
 
-// MODA_APP_NAME gets set when the deploy target is Moda
+// Moda deploys set MODA_APP_NAME for tagging.
 const modaApp = MODA_APP_NAME ? `moda_app_name:${MODA_APP_NAME}` : false
 
 const tagCandidates = ['app:docs', modaApp]
 export const tags: string[] = tagCandidates.filter((tag): tag is string => Boolean(tag))
 
 const statsd = new StatsD({
-  // hot-shots falls back to DD_AGENT_HOST and DD_DOGSTATSD_PORT,
-  // then to localhost:8125.
-  // Moda defines DD_DOGSTATSD_PORT but not DD_AGENT_HOST,
-  // and needs the host set to the Kubernetes node name from KUBE_NODE_HOSTNAME.
+  // hot-shots falls back to localhost:8125 when neither host variable is set.
+  // Moda sets only DD_DOGSTATSD_PORT, so use KUBE_NODE_HOSTNAME as the DogStatsD host.
   host: DD_AGENT_HOST || KUBE_NODE_HOSTNAME,
   port: DD_DOGSTATSD_PORT ? parseInt(DD_DOGSTATSD_PORT, 10) : undefined,
   prefix: 'docs.',
@@ -31,10 +29,8 @@ const statsd = new StatsD({
 
 export default statsd
 
-// hot-shots v14 changed asyncTimer/timer to inject a TimerContext as the
-// final argument of the wrapped function. This adapter lets callers keep
-// passing functions with their original signatures by appending an ignored
-// TimerContext parameter.
+// hot-shots asyncTimer and timer append TimerContext to wrapped functions.
+// This adapter preserves callers' original signatures by dropping that extra argument.
 export function adaptForTimer<P extends unknown[], R>(
   fn: (...args: P) => Promise<R>,
 ): (...args: [...P, TimerContext]) => Promise<R> {

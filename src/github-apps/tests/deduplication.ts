@@ -146,7 +146,7 @@ describe('GitHub Apps deduplication', () => {
       }
 
       const uniqueEntries = entries.length
-      // We expect at least 70% dedup rate based on issue analysis (~84% reported)
+      // The 70% threshold leaves room for normal generated-data churn.
       const dedupRate = 1 - uniqueEntries / totalReferences
       expect(dedupRate).toBeGreaterThan(0.7)
     })

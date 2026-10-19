@@ -21,7 +21,7 @@ describe('search-replace rule in frontmatter', () => {
 
     const todosErrors = errors.filter((e) => e.errorDetail && /TODOCS/.test(e.errorDetail))
     expect(todosErrors.length).toBe(1)
-    expect(todosErrors[0].lineNumber).toBe(2) // title: TODOCS
+    expect(todosErrors[0].lineNumber).toBe(2)
   })
 
   test('multiple TODOCS in frontmatter are all detected', async () => {
@@ -48,9 +48,9 @@ describe('search-replace rule in frontmatter', () => {
 
     const todosErrors = errors.filter((e) => e.errorDetail && /TODOCS/.test(e.errorDetail))
     expect(todosErrors.length).toBe(3)
-    expect(todosErrors[0].lineNumber).toBe(2) // title: TODOCS
-    expect(todosErrors[1].lineNumber).toBe(3) // shortTitle: TODOCS
-    expect(todosErrors[2].lineNumber).toBe(4) // intro: TODOCS
+    expect(todosErrors[0].lineNumber).toBe(2)
+    expect(todosErrors[1].lineNumber).toBe(3)
+    expect(todosErrors[2].lineNumber).toBe(4)
   })
 
   test('domain rules work in frontmatter', async () => {
@@ -79,9 +79,9 @@ describe('search-replace rule in frontmatter', () => {
       (e) => e.errorDetail && /docs-domain|help-domain|developer-domain/.test(e.errorDetail),
     )
     expect(domainErrors.length).toBe(3)
-    expect(domainErrors[0].lineNumber).toBe(2) // docs domain in title
-    expect(domainErrors[1].lineNumber).toBe(3) // help domain in shortTitle
-    expect(domainErrors[2].lineNumber).toBe(4) // developer domain in intro
+    expect(domainErrors[0].lineNumber).toBe(2)
+    expect(domainErrors[1].lineNumber).toBe(3)
+    expect(domainErrors[2].lineNumber).toBe(4)
   })
 
   test('deprecated liquid syntax in frontmatter is detected', async () => {
@@ -109,7 +109,7 @@ describe('search-replace rule in frontmatter', () => {
       (e) => e.errorDetail && /site\.data|octicon/.test(e.errorDetail),
     )
     expect(deprecatedErrors.length).toBe(2)
-    expect(deprecatedErrors[0].lineNumber).toBe(2) // site.data syntax
-    expect(deprecatedErrors[1].lineNumber).toBe(3) // octicon syntax
+    expect(deprecatedErrors[0].lineNumber).toBe(2)
+    expect(deprecatedErrors[1].lineNumber).toBe(3)
   })
 })

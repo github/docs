@@ -1,6 +1,4 @@
-{% ifversion code-scanning-actions-language %}
 * [AUTOTITLE](/code-security/reference/code-scanning/codeql/codeql-queries/actions-built-in-queries)
-{% endif %}
 * [AUTOTITLE](/code-security/reference/code-scanning/codeql/codeql-queries/c-cpp-built-in-queries)
 * [AUTOTITLE](/code-security/reference/code-scanning/codeql/codeql-queries/csharp-built-in-queries)
 * [AUTOTITLE](/code-security/reference/code-scanning/codeql/codeql-queries/go-built-in-queries)

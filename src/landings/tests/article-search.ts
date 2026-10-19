@@ -93,7 +93,7 @@ describe('deriveStopWords', () => {
     ]
     // "copilot" appears in 3/3 = 100%, always a stop word
     expect(deriveStopWords(articles, 0.5)).toContain('copilot')
-    // At threshold 1.0, only words in every single article qualify
+    // With threshold 1.0, only words in every article qualify.
     const strict = deriveStopWords(articles, 1.0)
     expect(strict).toContain('copilot')
     expect(strict).not.toContain('agents')
@@ -125,6 +125,19 @@ describe('searchArticles', () => {
   test('returns empty array when no articles match', () => {
     const results = searchArticles(articles, 'xyznonexistent', [])
     expect(results).toHaveLength(0)
+  })
+
+  test('ignores unrelated long intros that contain every query bigram', () => {
+    const withNoise = [
+      makeArticle(
+        'About enterprise plugin policies',
+        'Enterprise administrators can define policies that restrict which plugins members can install, keeping availability consistent.',
+        '/policies',
+      ),
+      makeArticle('Understanding pricing', 'Learn how plans are charged', '/pricing'),
+    ]
+    const results = searchArticles(withNoise, 'pricing', [])
+    expect(results.map((a) => a.fullPath)).toEqual(['/pricing'])
   })
 
   test('searches title, intro, and category fields', () => {

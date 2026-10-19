@@ -1,14 +1,7 @@
 name: Don't delete assets
 
-# **What it does**:
-#   If the PR (against main) involves deletion of assets, if any of
-#   them are deletions or renames, post a comment, and ultimately
-#   fail the check.
-# **Why we have it**:
-#    If you delete the reference to an image, the English content is fine
-#    because it no longer tries to serve an image that doesn't exist.
-#    But this is not the case for translations.
-# **Who does it impact**: Docs content.
+# Fails asset-deletion PRs because translations still reference deleted English assets.
+# The comment script exempts generated copilot-sdk assets that sync pipelines recreate.
 
 on:
   workflow_dispatch:
@@ -25,7 +18,7 @@ permissions:
 
 jobs:
   dont-delete-assets:
-    # It's 'docs-bot' that creates those PR from "Delete orphaned assets"
+    # The Orphaned files check workflow opens docs-bot PRs that delete assets on purpose.
     if: github.event.pull_request.user.login != 'docs-bot' && (github.repository == 'github/docs-internal' || github.repository == 'github/docs')
     runs-on: ubuntu-latest
     steps:

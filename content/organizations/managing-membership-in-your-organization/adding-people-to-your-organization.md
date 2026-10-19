@@ -17,7 +17,10 @@ category:
 
 {% endif %}
 
-If your organization [requires members to use two-factor authentication](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization), users must [enable two-factor authentication](/authentication/securing-your-account-with-two-factor-authentication-2fa) before you can add them to the organization.
+If your organization requires members to use two-factor authentication (2FA), the requirements for adding a user depend on how you add them:
+
+* **Web UI**: The user must enable 2FA before you can add them to the organization.
+* **REST API**: You can use `PUT /orgs/{org}/memberships/{username}` to add a user who has not enabled 2FA. The user cannot access organization resources until they enable 2FA. See [AUTOTITLE](/rest/orgs/members#set-organization-membership-for-a-user).
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}

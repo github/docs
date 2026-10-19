@@ -62,8 +62,8 @@ function filterMode(mode = ''): CssColorMode | undefined {
   }
 }
 
-// `?? {}` rather than a default parameter: a default only covers `undefined`, and
-// the cookie can carry an explicit `null` (`{"light_theme":null}`).
+// Use ?? {} because a default parameter covers undefined, but the cookie can carry
+// explicit null, for example {"light_theme":null}.
 function filterTheme(
   theme?: { name?: string; color_mode?: string } | null,
 ): SupportedTheme | undefined {
@@ -102,6 +102,8 @@ export function getComponentTheme(cookieValue = ''): ComponentColorTheme {
   }
 }
 
+// setTimeout(0) defers cookie reads until after Primer React's effect, which otherwise
+// overrides the cookie color mode and reverts the page to auto.
 export function useTheme() {
   const [theme, setTheme] = useState<ColorModeThemes>({
     css: defaultCSSTheme,
@@ -109,10 +111,6 @@ export function useTheme() {
   })
 
   useEffect(() => {
-    // setTimeout(0) defers this past Primer React's own useEffect,
-    // which otherwise overrides the cookie's color mode and reverts the page to auto.
-    // Primer's migration to CSS variables should remove the need for this.
-    // https://github.com/primer/react/issues/2229
     setTimeout(() => {
       const cookieValue = Cookies.get(COLOR_MODE_COOKIE_NAME)
       const css = getCssTheme(cookieValue)

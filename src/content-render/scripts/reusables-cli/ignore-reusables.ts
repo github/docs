@@ -1,5 +1,4 @@
-// List of reusables to ignore when checking for potential uses of reusables
-// Make sure paths are relative to the root of the repo
+// List repo-relative reusables excluded from potential-use checks.
 export const reusablesToIgnore = [
-  'data/reusables/copilot/trial-period.md', // Just a number, so it pops up in unrelated files
+  'data/reusables/copilot/trial-period.md', // This numeric reusable matches unrelated files.
 ]

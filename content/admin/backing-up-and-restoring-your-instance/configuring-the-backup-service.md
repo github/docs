@@ -62,29 +62,15 @@ If you're using a dedicated block device as your backup target, you need to init
 
     >[!WARNING] This command will permanently erase all data on the specified device. Double-check the device name and back up any important data before proceeding.
 
-    {% ifversion ghes > 3.17 %}
-
     ```shell
     ghe-storage-init-backup /dev/YOUR_DEVICE_NAME
     ```
-
-    {% else %}
-
-    ```shell
-    /usr/local/share/enterprise/ghe-storage-init-backup /dev/YOUR_DEVICE_NAME
-    ```
-
-    {% endif %}
 
     This command:
     * Formats the device (erases all data).
     * Prepares it for use by the backup service.
     * Sets it to mount automatically at `/data/backup` on boot.{% ifversion ghes > 3.19 %}
     * If in a clustered environment, configures the node in `cluster.conf` with the `backup-server` role.{% endif %}
-
-    {% ifversion ghes = 3.17 %}
-    From {% data variables.product.prodname_ghe_server %} 3.17.4 onward, the script is installed in PATH so you can run it directly using: `ghe-storage-init-backup /dev/YOUR_DEVICE_NAME`.
-    {% endif %}
 
 #### Detach a backup disk
 
@@ -134,6 +120,20 @@ If the device was already initialized using `ghe-storage-init-backup`, you can r
    ```
 
    This will mount the device at `/data/backup` and ensures it's mounted automatically in the future.
+
+{% ifversion backup-service-cluster-ha %}
+{% # Pre-GA, backup-service was only supported on standalone topologies making this step irrelevant %}
+
+1. If using a cluster or high availability (HA) configuration, set the `backup-server` role for the node on which the disk is mounted and apply the configuration.
+
+   Replace `HOSTNAME` with the hostname of the node on which the disk is mounted, as listed in `cluster.conf`.
+
+   ```shell
+   ghe-config cluster.HOSTNAME.backup-server true
+   ghe-config-apply
+   ```
+
+{% endif %}
 
 ### Configuring backup settings
 

@@ -1,8 +1,8 @@
 import cx from 'clsx'
 import { useRouter } from 'next/router'
-import { IconButton } from '@primer/react'
 import { SidebarCollapseIcon, SidebarExpandIcon } from '@primer/octicons-react'
 
+import { IconButton } from '@/frame/components/ui/IconButton'
 import { useMainContext } from '@/frame/components/context/MainContext'
 import { useTranslation } from '@/languages/components/useTranslation'
 import { useSidebarCollapsed } from '@/frame/components/sidebar/SidebarCollapseContext'
@@ -11,28 +11,27 @@ import { BreadcrumbsScroller } from './BreadcrumbsScroller'
 
 import styles from './DocsSecondaryBar.module.scss'
 
-// The Docs 2026 secondary bar: sits below the main header, above the doc-tree
-// rail + article content. Holds the nav trigger and the breadcrumb trail. The
-// same sidebar collapse/expand icon is used on both desktop (collapses the rail)
-// and mobile (expands the nav inline).
+// The Docs 2026 secondary bar sits below the main header, above the doc-tree rail
+// and article content. It holds the nav trigger and breadcrumb trail. Desktop uses
+// the shared sidebar icon to collapse the rail; mobile uses it to expand inline nav.
 //
-// It also hosts the collapsed "In this article" control (`OverviewMenu`), which
-// renders as `OverviewSubBar` below — a row beneath this bar, placed inside the
+// It also hosts the collapsed In this article control, OverviewMenu, which renders
+// as OverviewSubBar below. DefaultLayout's LayoutBody places that row inside the
 // content column so it sits beside the doc-tree drawer rather than above it.
+//
+// DocsSecondaryBar hides on search by product id because src/pages/search.tsx and
+// src/pages/[versionId]/search.tsx share the search rail's sticky offset, while only
+// the unversioned route matches router.route === '/search'.
 export const DocsSecondaryBar = () => {
   const router = useRouter()
   const { isHomepageVersion, currentProduct } = useMainContext()
   const { t } = useTranslation('header')
   const { collapsed, toggleCollapsed, mobileNavOpen, toggleMobileNav } = useSidebarCollapsed()
 
-  // Product id rather than router.route: there are two search pages
-  // (src/pages/search.tsx and src/pages/[versionId]/search.tsx), so a route test for
-  // '/search' left this bar rendering on versioned search URLs only. The search rail's
-  // sticky offset assumes this bar is absent, so the two have to agree.
   const isSearchResultsPage = currentProduct?.id === 'search'
   const isEarlyAccessPage = currentProduct && currentProduct.id === 'early-access'
 
-  // Mirror the visibility rule of the header subnav this replaces.
+  // Homepage and search layouts do not reserve space for this bar.
   if (isHomepageVersion || isSearchResultsPage) {
     return null
   }
@@ -43,7 +42,6 @@ export const DocsSecondaryBar = () => {
         <div className={styles.leftSegment}>
           {!isEarlyAccessPage && (
             <div className={styles.toggleCell}>
-              {/* Desktop: collapse/expand the whole rail. */}
               <IconButton
                 data-testid="sidebar-collapse-toggle"
                 className={cx(styles.desktopOnly, styles.toggleIcon)}
@@ -54,7 +52,6 @@ export const DocsSecondaryBar = () => {
                 aria-expanded={!collapsed}
                 onClick={toggleCollapsed}
               />
-              {/* Mobile: expand/collapse the inline nav, using the same icon. */}
               <IconButton
                 data-testid="sidebar-mobile-toggle"
                 className={cx(styles.mobileOnly, styles.toggleIcon)}
@@ -67,11 +64,7 @@ export const DocsSecondaryBar = () => {
               />
             </div>
           )}
-          {/* Remount per route so the scroller re-anchors to the new trail's end.
-              Its anchor effect only fires on mount + outer-width change; a
-              client-side nav to a longer trail grows the inner scroll width
-              without changing the outer width, so without this the stale
-              scrollLeft would leave the new current page off-screen. */}
+          {/* key remounts per route because width-stable trails can grow without re-anchoring. */}
           <BreadcrumbsScroller key={router.asPath} />
         </div>
       </div>
@@ -79,16 +72,14 @@ export const DocsSecondaryBar = () => {
   )
 }
 
-// The "In this article" control as its own row directly beneath the breadcrumb
-// bar. It is rendered INSIDE the content column (see DefaultLayout's LayoutBody)
-// rather than as a page-wide row, so on desktop it starts at the doc-tree
-// drawer's right edge and runs to the screen edge — sharing that horizontal band
-// with the drawer instead of cutting across above it. When the drawer is absent
-// (collapsed, or below lg) the content column is full width, so the row is too.
+// OverviewSubBar renders In this article directly beneath the breadcrumb bar,
+// inside DefaultLayout's LayoutBody content column. On desktop it starts at the
+// doc-tree drawer edge instead of cutting across above it. Without a drawer,
+// collapsed or below lg, the row spans full width.
 //
-// It shows wherever the right-rail drawer isn't holding the mini-TOC: below xxl
-// with the rail expanded, below ~1074 with it collapsed, and at every width on
-// pages without a drawer (e.g. REST reference).
+// It shows wherever the right-rail drawer is not holding the mini-TOC: below xxl
+// with the rail expanded, below ~1074px with it collapsed, and at every width on
+// pages without a drawer such as REST reference.
 export const OverviewSubBar = ({ hasDrawer = false }: { hasDrawer?: boolean }) => {
   const router = useRouter()
   const { isHomepageVersion } = useMainContext()
@@ -97,7 +88,7 @@ export const OverviewSubBar = ({ hasDrawer = false }: { hasDrawer?: boolean }) =
 
   const isSearchResultsPage = router.route === '/search'
 
-  // Match the bar's own visibility rule — the two are a pair.
+  // Homepage and the unversioned search route do not render this row.
   if (isHomepageVersion || isSearchResultsPage) {
     return null
   }

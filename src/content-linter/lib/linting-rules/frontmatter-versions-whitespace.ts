@@ -55,35 +55,29 @@ export const frontmatterVersionsWhitespace: Rule = {
   },
 }
 
-// Allows whitespace in complex expressions like '<3.6 >3.8' but disallows
-// leading and trailing whitespace.
+// Complex ranges like '<3.6 >3.8' keep internal spaces.
+// Empty or whitespace-only values pass unchanged, and no other value keeps edge spaces.
 function checkForUnwantedWhitespace(value: string): boolean {
-  // Don't flag if the value is just whitespace or empty
   if (!value || value.trim() === '') return false
 
   if (value !== value.trim()) return true
 
-  // Values containing <, > or = are treated as ranges like '<3.6 >3.8', where
-  // internal whitespace is meaningful.
+  // Operators <, >, and = make internal spacing meaningful.
   const hasOperators = /[<>=]/.test(value)
   if (hasOperators) {
-    // Leading and trailing whitespace was already checked above.
     return false
   }
 
-  // For simple version strings (like 'fpt', 'ghec'), no internal whitespace should be allowed
-  // This catches cases like 'f pt' where there's whitespace in the middle
+  // Simple version aliases cannot contain internal spaces such as f pt.
   return /\s/.test(value)
 }
 
 function getCleanedValue(value: string): string {
-  // Values containing <, > or = keep their internal whitespace and are only
-  // trimmed at the ends.
+  // Range expressions keep internal operator spacing and trim only the ends.
   const hasOperators = /[<>=]/.test(value)
   if (hasOperators) {
     return value.trim()
   }
 
-  // For simple version strings, remove all whitespace
   return value.replace(/\s/g, '')
 }

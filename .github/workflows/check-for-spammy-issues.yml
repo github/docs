@@ -1,8 +1,6 @@
 name: Check for Spammy Issues
 
-# **What it does**: This action closes low value issues in the open-source repository.
-# **Why we have it**: We get lots of spam in the open-source repository.
-# **Who does it impact**: Open-source contributors.
+# Closes low-value public issues so spam does not stay open in github/docs.
 
 on:
   issues:
@@ -39,24 +37,15 @@ jobs:
                 username: context.payload.sender.login,
               });
 
-              // Do not perform this workflow with GitHub employees. This return
-              // statement only gets hit if the user is a GitHub employee
+              // Skip GitHub employees so legitimate internal reports stay open.
               return
             } catch (err) {
-              // An error will be thrown if the user is not a GitHub employee
-              // If a user is not a GitHub employee, we should check to see if title has at least the minimum required number of words in it and if it does, we can exit the workflow
-
+              // The membership lookup throws for non-employees, so fall through to title checks.
               if (titleWordCount >= titleWordCountMin && !titleHasUrl && !titleHasDollarSign) {
                 return
               }
             }
 
-            //
-            // Assuming the user is not a GitHub employee and the issue title
-            // does not contain the minimum number of words required, proceed.
-            //
-
-            // Close the issue and add the invalid label
             await github.rest.issues.update({
               owner: owner,
               repo: repo,
@@ -65,7 +54,6 @@ jobs:
               state: 'closed'
             });
 
-            // Comment on the issue
             await github.rest.issues.createComment({
               owner: owner,
               repo: repo,
@@ -73,7 +61,6 @@ jobs:
               body: `This issue may have been opened accidentally. I'm going to close it now, but feel free to open a new issue with a more descriptive title! Make sure not to include full URLs in your issue titles, and use paths instead.`
             });
 
-            // Add the issue to the Done column on the triage board
             try {
               await github.rest.projects.createCard({
                 column_id: 11167427,

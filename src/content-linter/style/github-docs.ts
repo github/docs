@@ -162,7 +162,7 @@ const githubDocsConfig = {
     'partial-markdown-files': true,
     'yml-files': true,
   },
-  // GHD044 removed - octicon aria-labels are now auto-generated
+  // GHD044 stays unused because octicon aria-labels are auto-generated.
   'code-annotation-comment-spacing': {
     // GHD045
     severity: 'error',
@@ -221,8 +221,10 @@ export const githubDocsFrontmatterConfig = {
   },
   'liquid-ifversion-tags': {
     // GHD020
+    // customConfig spreads this object last, so these flags replace the githubDocsConfig entry.
     severity: 'error',
-    'partial-markdown-files': false,
+    'partial-markdown-files': true,
+    'yml-files': true,
   },
   'liquid-ifversion-versions': {
     // GHD022
@@ -315,8 +317,7 @@ export const githubDocsFrontmatterConfig = {
   },
 }
 
-// Configures rules from the `github/markdownlint-github` repo
-// created by the accessibility team.
+// Rules from github/markdownlint-github come from the accessibility team.
 const githubMarkdownlintConfig = {
   'no-default-alt-text': {
     severity: 'error',
@@ -330,8 +331,7 @@ const githubMarkdownlintConfig = {
   },
 }
 
-// Configures rules from the open-source Markdownlint extension
-// search-replace:
+// search-replace rule docs:
 // https://www.npmjs.com/package/markdownlint-rule-search-replace
 export const searchReplaceConfig = {
   'search-replace': {
@@ -345,7 +345,7 @@ export const searchReplaceConfig = {
         precommitSeverity: 'warning',
         'partial-markdown-files': true,
         'yml-files': true,
-        applyToFrontmatter: true, // Critical for content quality - prevents placeholders in titles, intros, etc.
+        applyToFrontmatter: true, // Catch placeholders in titles, intros, and similar metadata.
       },
       {
         name: 'docs-domain',
@@ -355,7 +355,7 @@ export const searchReplaceConfig = {
         severity: 'error',
         'partial-markdown-files': true,
         'yml-files': true,
-        applyToFrontmatter: true, // Should not appear in frontmatter
+        applyToFrontmatter: true, // Catch this domain in frontmatter.
       },
       {
         name: 'help-domain',
@@ -365,25 +365,21 @@ export const searchReplaceConfig = {
         severity: 'error',
         'partial-markdown-files': true,
         'yml-files': true,
-        applyToFrontmatter: true, // Should not appear in frontmatter
+        applyToFrontmatter: true, // Catch this domain in frontmatter.
       },
       {
         name: 'developer-domain',
         message: 'Catch occurrences of developer.github.com domain.',
-        // Do not match developer.github.com/changes or
-        // developer.github.com/enterprise/[0-9] or
-        // developer.github.com/enterprise/{{something}} (e.g. liquid).
-        // There are occurrences that will likely always remain in the content.
+        // Allow /changes, /enterprise/3.17, and /enterprise/{{ currentVersion }} paths.
         searchPattern: '/developer\\.github\\.com(?!\\/(changes|enterprise\\/([0-9]|{))).*/g',
         searchScope: 'all',
         severity: 'error',
         'partial-markdown-files': true,
         'yml-files': true,
-        applyToFrontmatter: true, // Should not appear in frontmatter
+        applyToFrontmatter: true, // Catch this domain in frontmatter.
       },
       {
-        // Catches usage of old liquid data reusable syntax. For example:
-        // {{ site.data.variables.product_releases }}
+        // Catches deprecated site.data syntax, such as {{ site.data.variables.product_releases }}.
         name: 'deprecated liquid syntax: site.data',
         message: 'Catch occurrences of deprecated liquid data syntax.',
         searchPattern: '/{{\\s*?site\\.data\\.([a-zA-Z0-9-_]+(?:\\.[a-zA-Z0-9-_]+)+)\\s*?}}/g',
@@ -391,12 +387,10 @@ export const searchReplaceConfig = {
         severity: 'error',
         'partial-markdown-files': true,
         'yml-files': true,
-        applyToFrontmatter: true, // Can appear in frontmatter strings
+        applyToFrontmatter: true, // Can appear in frontmatter strings.
       },
       {
-        // Catches usage of old octicon variable syntax. For example:
-        // - {{ octicon-plus }}
-        // - {{ octicon-plus An example label }}
+        // Catches octicon-<icon-name> syntax, such as {{ octicon-plus An example label }}.
         name: 'deprecated liquid syntax: octicon-<icon-name>',
         message:
           'The octicon liquid syntax used is deprecated. Use this format instead `octicon "<octicon-name>" aria-label="<Octicon aria label>"`',
@@ -404,7 +398,7 @@ export const searchReplaceConfig = {
         severity: 'error',
         'partial-markdown-files': true,
         'yml-files': true,
-        applyToFrontmatter: true, // Can appear in frontmatter strings
+        applyToFrontmatter: true, // Can appear in frontmatter strings.
       },
     ],
   },

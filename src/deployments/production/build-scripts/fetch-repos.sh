@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
-# Called from the production Dockerfile. The Dockerfile only COPYs what it
-# needs, but these scripts still run as if from the docs-internal root.
+# The production Dockerfile copies only required files, but these scripts still run from the
+# docs-internal root.
 
 echo "Fetching and resolving early-access, and translations repos"
 
@@ -9,19 +9,23 @@ set -e
 
 . ./build-scripts/clone-or-use-cached-repo.sh
 
-# From the --secret mounted by the Docker build.
+# Docker build mounts DOCS_BOT_PAT_BASE at /run/secrets/DOCS_BOT_PAT_BASE.
 GITHUB_TOKEN=$(cat /run/secrets/DOCS_BOT_PAT_BASE)
+auth=$(printf 'x-access-token:%s' "$GITHUB_TOKEN" | base64 | tr -d '\n')
+export GIT_CONFIG_COUNT=1
+export GIT_CONFIG_KEY_0=http.https://github.com/.extraheader
+export GIT_CONFIG_VALUE_0="AUTHORIZATION: basic $auth"
 
 echo "Fetching early access..."
 clone_or_use_cached_repo "docs-early-access" "docs-early-access" "main"
 echo "Merging early access..."
 . ./build-scripts/merge-early-access.sh
 
-# Clone into `translations/` inside the Dockerfile's WORKDIR, the docs-internal root.
+# Clone translations under the Dockerfile WORKDIR, the docs-internal root.
 mkdir -p translations
 cd translations
 
-# Temporarily turn off exit-on-error so we can collect all PIDs
+# Disable exit-on-error so the script can collect every background clone failure.
 set +e
 
 pids=""
@@ -35,7 +39,6 @@ for pid in $pids; do
   wait "$pid" || failures=$((failures+1))
 done
 
-# Restore strict mode
 set -e
 
 if [ "$failures" -gt 0 ]; then
@@ -45,8 +48,13 @@ else
   echo "✅  All translations fetched."
 fi
 
-# Go back to the root of the docs-internal repo
+# The Dockerfile copies translations/ into the image. Nothing reads translation
+# git metadata at runtime.
+rm -rf ./*/.git
+
+# Return to the docs-internal root after cloning translations.
 cd ..
 
-# Don't leave the token in the environment.
+# Remove the token and Git authentication settings from the shell environment.
+unset GIT_CONFIG_COUNT GIT_CONFIG_KEY_0 GIT_CONFIG_VALUE_0 auth
 unset GITHUB_TOKEN

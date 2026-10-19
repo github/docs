@@ -9,6 +9,8 @@ versions:
 shortTitle: Custom properties
 category:
   - Manage accounts and repositories
+docsTeamMetrics:
+  - enterprise-onboarding
 ---
 
 Custom properties allow you to decorate your repositories with information such as compliance frameworks, data sensitivity, or project details. Custom properties are private and can only be viewed by people with read permissions to the repository. An enterprise can have up to 100 property definitions. An allowed value list can have up to 200 items.
@@ -42,7 +44,19 @@ When you create a single-select or multi-select property, {% data variables.prod
 This feature is available with {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %}. By default, suggestions are enabled for enterprise-level properties and each organization can decide whether to enable suggestions. Enterprise owners can instead enable or disable suggestions everywhere with the **Repository custom property suggestions** policy. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-enterprise-policies).
 {% endif %}
 
-## Adding custom properties
+{% ifversion external-custom-properties %}
+
+## Syncing custom properties with an external system
+
+> [!NOTE] {% data reusables.organizations.external-properties-preview %}
+
+{% data reusables.organizations.external-properties-intro %}
+
+External custom properties are configured separately for each organization. For setup instructions, see [AUTOTITLE](/organizations/managing-organization-settings/sync-external-custom-properties).
+
+{% endif %}
+
+## Adding custom properties on {% data variables.product.github %}
 
 You can add custom properties to your enterprise to make those properties available in all of your organizations.
 

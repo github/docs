@@ -8,15 +8,10 @@ import { SearchResultsAggregations } from './Aggregations'
 
 import styles from './SidebarSearchAggregates.module.scss'
 
-// The facet filters, responsive per the Docs 2026 design. From brand's `medium`
-// breakpoint up this is the rail card; below it the card collapses behind a
-// "Show filters" disclosure, because the filters are otherwise unreachable on a
-// narrow viewport.
-//
-// The facet markup is rendered exactly once and restyled per breakpoint, never
-// a rail copy plus a drawer copy. Two copies would duplicate every checkbox id
-// and make the strict-mode `getByText('Fooing (1)')` click in
-// src/fixtures/tests/playwright-rendering.spec.ts ambiguous.
+// The facet filters follow the Docs 2026 responsive design. From Brand medium up this
+// renders as the rail card; below it, Show filters exposes filters on narrow viewports.
+// The facet markup renders once and restyles per breakpoint. Two copies would make
+// getByText('Fooing (1)') ambiguous in src/fixtures/tests/playwright-rendering.spec.ts.
 export function SidebarSearchAggregates() {
   const { search } = useSearchContext()
   const { t } = useTranslation('search_results')
@@ -27,19 +22,14 @@ export function SidebarSearchAggregates() {
   // Skip the mount pass so we don't steal focus on first paint.
   const mounted = useRef(false)
 
-  // Move focus into the panel when it opens and back to the toggle when it
-  // closes. Above `medium` the toggle is display:none and never fires, so this
-  // only ever runs for the disclosure.
+  // Focus the panel on open and the toggle on close; above medium the hidden toggle never fires.
   useEffect(() => {
     if (!mounted.current) {
       mounted.current = true
       return
     }
     if (open) {
-      // preventScroll matters here: the panel is tall, and letting the browser
-      // scroll it into view pushes the disclosure bar and the "Filter" heading
-      // off the top of a phone viewport, leaving the reader mid-list with no
-      // visible way back out.
+      // preventScroll keeps the tall panel from pushing the disclosure and Filter heading away.
       panelRef.current?.focus({ preventScroll: true })
     } else {
       toggleRef.current?.focus({ preventScroll: true })
@@ -47,10 +37,7 @@ export function SidebarSearchAggregates() {
   }, [open])
 
   const { results } = search
-  // `aggregations` is truthy but empty (`{ toplevel: [] }`) for a zero-hit search, and
-  // SearchResultsAggregations renders nothing in that case, so checking only for the
-  // object left an empty bordered rail on desktop and a disclosure that opened onto an
-  // empty box on mobile. Check for facets to actually show.
+  // Zero-hit searches return { toplevel: [] }; require facets to avoid an empty rail.
   if (!results?.aggregations?.toplevel?.length) {
     return null
   }
@@ -66,15 +53,14 @@ export function SidebarSearchAggregates() {
         data-testid="search-filter-toggle"
         onClick={() => setOpen((prev) => !prev)}
       >
-        {/* Decorative: the button is named by the visible label beside it. */}
+        {/* Decorative icon; the visible label names the button. */}
         <span className={styles.toggleIcon} aria-hidden="true">
           {open ? <XIcon size={16} /> : <FilterIcon size={16} />}
         </span>
         <span className={styles.toggleLabel}>{open ? t('hide_filters') : t('show_filters')}</span>
       </button>
 
-      {/* Closed below `medium`, this is display:none rather than visually
-          hidden, so the facets leave the accessibility tree with the layout. */}
+      {/* Closed below medium, this uses display:none so facets leave the accessibility tree. */}
       <div
         id={panelId}
         ref={panelRef}

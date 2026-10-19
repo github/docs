@@ -1,23 +1,18 @@
-import type { Context, Page, ResolvedArticle } from '@/types'
+import type { Context, Page } from '@/types'
 import type { PageTransformer, TemplateData, Section, LinkData } from './types'
 import { renderContent } from '@/content-render/index'
 import { loadTemplate } from '@/article-api/lib/load-template'
 import { getAllTocItems, flattenTocItems } from '@/article-api/lib/get-all-toc-items'
+import { resolveCarouselLinks } from '@/article-api/lib/resolve-carousel-links'
 
 interface DiscoveryPage extends Page {
   rawIntroLinks?: Record<string, string>
   introLinks?: Record<string, string>
-  carousels?: Record<string, ResolvedArticle[]>
   rawCarousels?: Record<string, string[]>
   includedCategories?: string[]
   children?: string[]
 }
 
-/**
- * Transforms discovery-landing pages into markdown format.
- * Handles recommended carousel, intro links, article grids with
- * category filtering, and children listings.
- */
 export class DiscoveryLandingTransformer implements PageTransformer {
   templateName = 'landing-page.template.md'
 
@@ -47,37 +42,13 @@ export class DiscoveryLandingTransformer implements PageTransformer {
     const discoveryPage = page as DiscoveryPage
     const sections: Section[] = []
 
-    // Process carousels (each carousel becomes a section)
-    const carousels = discoveryPage.carousels ?? discoveryPage.rawCarousels
+    // resolve-carousels overwrites page.carousels on the shared Page with another version's links.
+    const carousels = discoveryPage.rawCarousels
     if (carousels && typeof carousels === 'object') {
-      const { default: getPageLinkData } = await import('@/frame/lib/get-link-data')
-
       for (const [carouselKey, articles] of Object.entries(carousels)) {
         if (!Array.isArray(articles) || articles.length === 0) continue
 
-        let links: LinkData[]
-        if (typeof articles[0] === 'object' && 'title' in articles[0]) {
-          // Already resolved articles
-          links = articles.map((item) => ({
-            href: typeof item === 'string' ? item : item.href,
-            title: (typeof item === 'object' && item.title) || '',
-            intro: (typeof item === 'object' && item.intro) || '',
-          }))
-        } else {
-          // Raw paths that need resolution
-          const linkData = await getPageLinkData(articles as string[], context, {
-            title: true,
-            intro: true,
-          })
-          links = (linkData || []).map(
-            (item: { href: string; title?: string; intro?: string }) => ({
-              href: item.href,
-              title: item.title || '',
-              intro: item.intro || '',
-            }),
-          )
-        }
-
+        const links = await resolveCarouselLinks(articles, page, context)
         const validLinks = links.filter((l) => l.href && l.title)
         if (validLinks.length > 0) {
           const sectionTitle = carouselKey.charAt(0).toUpperCase() + carouselKey.slice(1)
@@ -125,10 +96,7 @@ export class DiscoveryLandingTransformer implements PageTransformer {
       }
     }
 
-    // Articles section: recursively gather descendant articles within
-    // this product section. The basePath guard prevents cross-product
-    // recursion (e.g. /rest listing /enterprise-admin children that
-    // point outside the /rest hierarchy).
+    // getAllTocItems sets basePath to keep /rest from recursing into /enterprise-admin children.
     if (discoveryPage.children && discoveryPage.children.length > 0) {
       const tocItems = await getAllTocItems(page, context)
 
@@ -138,7 +106,7 @@ export class DiscoveryLandingTransformer implements PageTransformer {
       if (discoveryPage.includedCategories && discoveryPage.includedCategories.length > 0) {
         const includedCategories = discoveryPage.includedCategories.map((c) => c.toLowerCase())
 
-        // Build a map of href → category from the full tree
+        // includedCategories filters by category metadata from the full TOC tree.
         const categoryMap = new Map<string, string[]>()
         interface TocNode {
           href: string

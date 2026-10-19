@@ -79,23 +79,23 @@ Choosing a larger context window or higher reasoning will impact {% data variabl
 | Model | 1 million token context window | Configurable reasoning |
 | --- | --- | --- |
 | {% data variables.copilot.copilot_claude_sonnet_46 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
-| {% data variables.copilot.copilot_claude_opus_47 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | {% data variables.copilot.copilot_claude_opus_48 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | {% data variables.copilot.copilot_claude_opus_5 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | {% data variables.copilot.copilot_claude_opus_55 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | {% data variables.copilot.copilot_claude_sonnet_5 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| {% data variables.copilot.copilot_claude_sonnet_55 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| {% data variables.copilot.copilot_claude_haiku_55 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | {% data variables.copilot.copilot_claude_opus_48_fast %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} |
 | {% data variables.copilot.copilot_claude_fable_5 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | {% data variables.copilot.copilot_claude_fable_51 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | {% data variables.copilot.copilot_gpt_53_codex %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
-| {% data variables.copilot.copilot_gpt_54 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
-| {% data variables.copilot.copilot_gpt_55 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | {% data variables.copilot.copilot_gpt_56_luna %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | {% data variables.copilot.copilot_gpt_56_sol %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | {% data variables.copilot.copilot_gpt_56_terra %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | {% data variables.copilot.copilot_gpt_6_astra %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | {% data variables.copilot.copilot_gpt_6_luna %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | {% data variables.copilot.copilot_gpt_6_sol %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| {% data variables.copilot.copilot_gpt_61_sol %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | {% data variables.copilot.copilot_kimi_k3 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 
 {% endrowheaders %}
@@ -115,7 +115,7 @@ The following table shows which models are available in each client.
 {% endrowheaders %}
 
 > [!NOTE]
-> In {% data variables.product.prodname_vscode %} you can add more models than those that are available by default with your {% data variables.product.prodname_copilot_short %} subscription. See [AUTOTITLE](/copilot/how-tos/use-ai-models/change-the-chat-model?tool=vscode#adding-more-models).
+> In {% data variables.product.prodname_vscode %} you can add more models than those that are available by default with your {% data variables.product.prodname_copilot_short %} subscription. See [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/chat-with-copilot/change-the-chat-model?tool=vscode#adding-more-models).
 
 ## Minimum IDE versions for recent models
 
@@ -125,27 +125,24 @@ Some {% data variables.product.prodname_copilot_short %} models require minimum 
 
 | Model                                                    | {% data variables.product.prodname_vscode %} | {% data variables.product.prodname_vs %} | JetBrains IDEs | Xcode | Eclipse |
 |----------------------------------------------------------|----------------------------------------------|------------------------------------------|----------------|-------|---------|
-| {% data variables.copilot.copilot_gemini_35_flash %}     | `v1.115.0` | `17.14.22` or `18.1.0`         | `1.5.62` | `0.46.0` | `0.14.0` |
-| {% data variables.copilot.copilot_gemini_36_flash %}     | `v1.128.0` | `17.14.22` or `18.1.0`         | TBD | TBD | TBD |
-| {% data variables.copilot.copilot_gemini_37_flash %}     | `v1.128.0` | `17.14.22` or `18.1.0`         | TBD | TBD | TBD |
 | {% data variables.copilot.copilot_gemini_38_flash %}     | TBD | `17.14.22` or `18.1.0`         | TBD | TBD | TBD |
+| {% data variables.copilot.copilot_gemini_4_argon %}      | TBD | `17.14.22` or `18.1.0`         | TBD | TBD | TBD |
 | {% data variables.copilot.copilot_gpt_53_codex %}        | `v1.104.1` | `17.14.19`                     | `1.5.61` | `0.45.0` | `0.13.0` |
-| {% data variables.copilot.copilot_gpt_54 %}              | `v1.104.1` | `17.14.19`                     | `1.5.66` | `0.47.0` | `0.15.0` |
-| {% data variables.copilot.copilot_gpt_54_mini %}         | `v1.104.1` | `17.14.19`                     | `1.5.66` | `0.47.0` | `0.15.0` |
-| {% data variables.copilot.copilot_gpt_55 %}              | `v1.117` | `17.14.19`                     | `1.5.66` | `0.47.0` | `0.15.0` |
 | {% data variables.copilot.copilot_gpt_56_luna %}         | `1.128.0` | TBD | TBD | TBD | TBD |
 | {% data variables.copilot.copilot_gpt_56_sol %}          | `1.128.0` | TBD | TBD | TBD | TBD |
 | {% data variables.copilot.copilot_gpt_56_terra %}        | `1.128.0` | TBD | TBD | TBD | TBD |
 | {% data variables.copilot.copilot_gpt_6_astra %}         | `1.136.1` | `17.14.19` | TBD | TBD | TBD |
 | {% data variables.copilot.copilot_gpt_6_luna %}          | TBD | `17.14.19` | TBD | TBD | TBD |
 | {% data variables.copilot.copilot_gpt_6_sol %}           | TBD | `17.14.19` | TBD | TBD | TBD |
+| {% data variables.copilot.copilot_gpt_61_sol %}          | TBD | `17.14.19` | TBD | TBD | TBD |
 | {% data variables.copilot.copilot_claude_opus_48 %}      | `v1.118` | `17.14.6`                     | TBD | TBD | TBD |
 | {% data variables.copilot.copilot_claude_opus_5 %}       | `v1.128.0` | `17.14.22` | TBD | TBD | TBD |
 | {% data variables.copilot.copilot_claude_opus_55 %}      | TBD | `17.14.6` | TBD | TBD | TBD |
 | {% data variables.copilot.copilot_claude_sonnet_5 %}  | `v1.124` | `17.14.6` | TBD | TBD | TBD |
+| {% data variables.copilot.copilot_claude_sonnet_55 %} | TBD | `17.14.6` | TBD | TBD | TBD |
+| {% data variables.copilot.copilot_claude_haiku_55 %}  | TBD | TBD | TBD | TBD | TBD |
 | {% data variables.copilot.copilot_claude_fable_5 %}      | `v1.124` | `17.14.6`                    | TBD | TBD | TBD |
 | {% data variables.copilot.copilot_claude_fable_51 %}    | TBD | TBD                    | TBD | TBD | TBD |
-| {% data variables.copilot.copilot_kimi_k27_code %}     | `v1.127` | `17.14.6`            | `1.9.1-251` | TBD | TBD |
 | {% data variables.copilot.copilot_kimi_k3 %}     | `v1.131` | TBD            | TBD | TBD | TBD |
 | {% data variables.copilot.copilot_mai_code_1_1_flash %}  | `v1.121` | TBD                            | TBD | TBD | TBD |
 | {% data variables.copilot.copilot_grok_45 %}             | TBD | `17.14.19` | TBD | TBD | TBD |
@@ -196,8 +193,6 @@ Access to evaluation models in {% data variables.copilot.copilot_auto_model_sele
 ## Utility models
 
 Utility models power background features across surfaces, and cannot be disabled or selected in the model picker. See [AUTOTITLE](/copilot/concepts/models/utility-models).
-
-{% data reusables.copilot.utility-models %}
 
 ## Models eligible for default enablement
 

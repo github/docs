@@ -46,4 +46,4 @@ You can also start sessions automatically, on a schedule or in response to event
 
 {% data variables.product.prodname_copilot_short %} will start working on the task in the background. Some entry points open a pull request automatically. In other cases, you can prompt {% data variables.product.prodname_copilot_short %} to open a pull request, or create a pull request when {% data variables.product.prodname_copilot_short %} finishes work, from the session logs.
 
-For more information, see [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-cloud-agent).
+For more information, see [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-on-github).

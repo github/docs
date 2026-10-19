@@ -1,10 +1,7 @@
 name: Sync CodeQL CLI
 
-# **What it does**: This workflow is run manually approximately every two weeks.
-#   When run, this workflow syncs the CodeQL CLI automated pipeline with the semmle-code
-#   repository, and creates a pull request if there are updates.
-# **Why we have it**: So we can automate CodeQL CLI documentation.
-# **Who does it impact**: Anyone making CodeQL CLI changes in `github/semmle-code`, and wanting to get them published on the docs site.
+# Updates CodeQL CLI docs from github/semmle-code and opens a PR when files change.
+# Run it manually about every two weeks to publish upstream changes.
 
 on:
   workflow_dispatch:
@@ -19,7 +16,7 @@ permissions:
   contents: write
   pull-requests: write
 
-# This allows a subsequently queued workflow run to interrupt previous runs
+# Cancel older syncs so stale CodeQL CLI data does not open older PRs.
 concurrency:
   group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
   cancel-in-progress: true
@@ -31,11 +28,12 @@ jobs:
     steps:
       - name: Checkout repository code
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          # 'Create pull request' pushes with the PAT, so no token stays in .git/config.
+          persist-credentials: false
       - name: Checkout semmle-code repo
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
-          # By default, only the most recent commit of the `main` branch
-          # will be checked out
           token: ${{ secrets.DOCS_BOT_PAT_BASE }}
           repository: github/semmle-code
           path: semmle-code
@@ -53,13 +51,9 @@ jobs:
 
       - name: Install pandoc
         run: |
-          # Remove all previous pandoc versions
           sudo apt-get purge --auto-remove pandoc
-          # Download pandoc
           wget https://github.com/jgm/pandoc/releases/download/3.0.1/pandoc-3.0.1-1-amd64.deb
-          # Install pandoc
           sudo dpkg -i pandoc-3.0.1-1-amd64.deb
-          # Output the pandoc version installed
           pandoc -v
           rm pandoc-3.0.1-1-amd64.deb
 
@@ -72,10 +66,13 @@ jobs:
 
       - name: Create pull request
         env:
-          # Needed for gh
           GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          # A PAT push triggers CI on the PR; GITHUB_TOKEN events do not start workflows.
+          GIT_CONFIG_COUNT: 1
+          GIT_CONFIG_KEY_0: url.https://x-access-token:${{ secrets.DOCS_BOT_PAT_BASE }}@github.com/.insteadOf
+          GIT_CONFIG_VALUE_0: https://github.com/
         run: |
-          # If nothing to commit, exit now. It's fine. No orphans.
+          # Exit before branch creation so a no-op sync does not leave an orphan branch.
           changes=$(git diff --name-only | wc -l)
           untracked=$(git status --untracked-files --short | wc -l)
           if [[ $changes -eq 0 ]] && [[ $untracked -eq 0 ]]; then
@@ -87,21 +84,21 @@ jobs:
           git config --global user.email "77750099+docs-bot@users.noreply.github.com"
 
           branchname=codeql-cli-update-${{ steps.semmle-code.outputs.OPENAPI_COMMIT_SHA }}
+          labels="codeql-cli-pipeline,skip FR board,ready-for-doc-review,workflow-generated"
 
           git checkout -b $branchname
           git add .
           git commit -m "Update CodeQL CLI data"
 
-          # Force-push to handle reruns where the branch already exists on the
-          # remote from a prior failed attempt. Plain --force is safe here
-          # because these branches are exclusively managed by this workflow.
+          # Force-push reruns over failed attempts; this workflow exclusively owns these branches.
           git push --force -u origin $branchname
 
-          # If a PR already exists for this branch (e.g. a previous run
-          # succeeded but the workflow still reported failure), skip creation.
+          # Skip PR creation when a prior run already opened one for this branch.
           existing_pr=$(gh pr list --repo github/docs-internal --head "$branchname" --json number --jq '.[0].number')
           if [[ -n "$existing_pr" ]]; then
             echo "Pull request #$existing_pr already exists for branch $branchname. Skipping PR creation."
+            # The prior run may have failed before it applied labels.
+            gh pr edit "$existing_pr" --repo github/docs-internal --add-label "$labels"
             exit 0
           fi
 
@@ -114,7 +111,7 @@ jobs:
 
             If CI does not pass or other problems arise, contact #technical-content on slack.' \
             --repo github/docs-internal \
-            --label "codeql-cli-pipeline,skip FR board,ready-for-doc-review,workflow-generated"
+            --label "$labels"
 
       - uses: ./.github/actions/create-workflow-failure-issue
         id: create-failure-issue

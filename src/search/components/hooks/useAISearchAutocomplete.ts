@@ -25,7 +25,8 @@ type UseCombinedSearchReturn = {
   clearAutocompleteResults: () => void
 }
 
-const DEBOUNCE_TIME = 100 // In milliseconds
+// Wait 100 milliseconds after typing before fetching autocomplete results.
+const DEBOUNCE_TIME = 100
 
 // Cached for the current page session only, so backspacing reuses results
 // instead of hitting the API again.
@@ -100,7 +101,7 @@ export function useCombinedSearchResults({
           currentVersion,
           queryValue,
           debug,
-          controller.signal, // Pass in the signal to allow the request to be aborted
+          controller.signal,
         )
 
         const results = {
@@ -114,8 +115,7 @@ export function useCombinedSearchResults({
         setSearchOptions(results)
         setSearchLoading(false)
       } catch (error: unknown) {
-        // Aborted fetch() requests reject with a DOMException (not always an
-        // Error instance), so match on the name rather than the prototype.
+        // Aborted fetches can reject with DOMException instead of Error, so match the name.
         if (
           typeof error === 'object' &&
           error !== null &&
@@ -137,7 +137,6 @@ export function useCombinedSearchResults({
     [router, currentVersion, debug],
   )
 
-  // Entry function called when the user types in the search input
   const updateAutocompleteResults = useCallback((queryValue: string) => {
     // Don't debounce an empty input: show the (possibly cached) options at once.
     if (queryValue === '') {
@@ -159,7 +158,6 @@ export function useCombinedSearchResults({
     setSearchError(false)
   }, [])
 
-  // Cleanup function to cancel any ongoing requests when unmounting
   useEffect(() => {
     return () => {
       abortControllerRef.current?.abort()

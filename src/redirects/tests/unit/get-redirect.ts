@@ -18,13 +18,9 @@ type TestContext = {
 const previousEnterpriserServerVersion = supported[1]
 
 describe('getRedirect basics', () => {
+  // Static developer.json redirects must win before legacy enterprise prefixes are normalized.
+  // For /enterprise/3.0/foo/bar, lookup happens before /enterprise-server@3.0 rewriting.
   test('should sometimes not correct the version prefix', () => {
-    // This essentially tests legacy entries that come from the
-    // `developer.json` file. Normally, we would have first
-    // rewritten `/enterprise/3.0` to `/enterprise-server@3.0`
-    // and then, from there, worried about the remaining `/foo/bar`
-    // part.
-    // But some redirects from `developer.json` as old and static.
     const uri = '/enterprise/3.0/foo/bar'
     const ctx: TestContext = {
       pages: {},
@@ -72,7 +68,7 @@ describe('getRedirect basics', () => {
       },
     }
     expect(getRedirect('/free-pro-team@latest', ctx as unknown as Context)).toBe('/en')
-    // Language is fine, but the version needs to be "removed"
+    // free-pro-team@latest is versionless, so the language prefix remains.
     expect(getRedirect('/en/free-pro-team@latest', ctx as unknown as Context)).toBe('/en')
     expect(getRedirect('/free-pro-team@latest/pizza', ctx as unknown as Context)).toBe('/en/pizza')
     expect(getRedirect('/free-pro-team@latest/foo', ctx as unknown as Context)).toBe('/en/bar')
@@ -108,7 +104,7 @@ describe('getRedirect basics', () => {
       },
       redirects: {},
     }
-    // Replacing `/user` with `` worked because there exits a page of such name.
+    // The /user prefix can drop because the resulting page exists.
     expect(
       getRedirect(
         `/enterprise-server@${previousEnterpriserServerVersion}/user/foo/bar`,
@@ -142,12 +138,12 @@ describe('getRedirect basics', () => {
         ctx as unknown as Context,
       ),
     ).toBe(`/en/enterprise-server@${previousEnterpriserServerVersion}/something`)
-    // but also respect redirects if there are some
+    // Respect redirects after normalizing the old enterprise prefix.
     expect(
       getRedirect(`/enterprise/${previousEnterpriserServerVersion}/foo`, ctx as unknown as Context),
     ).toBe(`/en/enterprise-server@${previousEnterpriserServerVersion}/bar`)
 
-    // Unique snowflake pattern
+    // /enterprise/github paths map to enterprise-server github/admin paths.
     expect(getRedirect('/enterprise/github/admin/foo', ctx as unknown as Context)).toBe(
       `/en/enterprise-server@${latest}/github/admin/foo`,
     )
@@ -158,8 +154,7 @@ describe('getRedirect basics', () => {
       pages: {},
       redirects: {},
     }
-    // Nothing's needed here because it's not /admin/guides and
-    // it already has the enterprise-server prefix.
+    // No admin/guides rewrite applies when the path already has enterprise-server.
     expect(
       getRedirect(
         `/en/enterprise-server@${latest}/admin/something/else`,
@@ -179,16 +174,14 @@ describe('getRedirect basics', () => {
         [`/enterprise-server@${latestStable}/foo`]: `/enterprise-server@${latestStable}/bar`,
       },
     }
-    // Nothing's needed here because it's not /admin/guides and
-    // it already has the enterprise-server prefix.
+    // enterprise-server without a version resolves to latest stable before redirect lookup.
     expect(getRedirect('/enterprise-server/foo', ctx as unknown as Context)).toBe(
       `/en/enterprise-server@${latestStable}/bar`,
     )
   })
 
+  // Functional redirects cover enterprise-server 3.0 and later without lookup entries.
   test('should work for some deprecated enterprise-server URLs too', () => {
-    // Starting with enterprise-server 3.0, we have made redirects become
-    // a *function* rather than a lookup on a massive object.
     const ctx: TestContext = {
       pages: {},
       redirects: {},
@@ -282,7 +275,7 @@ describe('github-ae@latest', () => {
     const ctx: TestContext = {
       pages: {
         '/en/foo': true,
-        // Note the lack of an enterprise-cloud page here
+        // No enterprise-cloud page exists here, so GitHub AE falls back to Free/Pro/Team.
       },
       redirects: {
         '/food': '/foo',

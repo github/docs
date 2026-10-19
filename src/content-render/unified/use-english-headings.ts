@@ -1,5 +1,4 @@
 import GithubSlugger from 'github-slugger'
-import { encode } from 'html-entities'
 import { toString } from 'hast-util-to-string'
 import { visit } from 'unist-util-visit'
 import type { Element, Root } from 'hast'
@@ -10,7 +9,7 @@ interface UseEnglishHeadingsOptions {
   englishHeadings?: Record<string, string>
 }
 
-// replace translated IDs and links in headings with English
+// Translated pages keep English heading IDs so inbound anchors stay stable.
 export default function useEnglishHeadings({ englishHeadings }: UseEnglishHeadingsOptions) {
   if (!englishHeadings) return
   return (tree: Root) => {
@@ -18,11 +17,10 @@ export default function useEnglishHeadings({ englishHeadings }: UseEnglishHeadin
       if (!['h2', 'h3', 'h4'].includes(node.tagName)) return
       slugger.reset()
       const text: string = toString(node)
-      const englishHeading: string = englishHeadings[encode(text)]
+      const englishHeading: string = englishHeadings[text]
       const englishSlug: string = slugger.slug(englishHeading)
       if (englishSlug) {
-        // only use English slug if there is one, otherwise we'll end up with
-        // empty IDs
+        // Leave the existing ID when no English slug exists.
         node.properties.id = englishSlug
       }
     })

@@ -6,19 +6,16 @@ import {
   resetCache,
 } from '@/content-linter/lib/linting-rules/frontmatter-content-type'
 
-// Disable frontMatter stripping so the rule can parse frontmatter itself
+// Disable frontMatter stripping so the rule can parse frontmatter itself.
 const fmOptions = { markdownlintOptions: { frontMatter: null } }
 
-// Helper: build a Markdown string with valid frontmatter
 function md(fmLines: string[], body = 'Some content.'): string {
   return ['---', ...fmLines, '---', '', body].join('\n')
 }
 
-// Use the fixture content directory so the qualifying-products scan is
-// hermetic and won't break if the real content/ layout changes.
-// The fixture tree includes:
-//   content/copilot/{how-tos,concepts,tutorials,reference,get-started,getting-started,responsible-use}  → qualifies
-//   content/actions/{category,using-workflows}  → does NOT qualify
+// Fixture content keeps qualifying product scans independent of the real content tree.
+// content/copilot has how-tos, concepts, tutorials, reference, get-started,
+// getting-started, and responsible-use; content/actions lacks required dirs.
 const FIXTURE_ROOT = 'src/fixtures/fixtures'
 
 describe('GHD065 - frontmatter-content-type', () => {
@@ -32,13 +29,10 @@ describe('GHD065 - frontmatter-content-type', () => {
     process.env.ROOT = savedRoot
   })
 
-  // Clear the qualifying-products cache between tests so that each
-  // test starts with a fresh filesystem scan.
+  // Reset the qualifying-products cache so each test scans the fixture filesystem.
   beforeEach(() => {
     resetCache()
   })
-
-  // Passing cases
 
   test('file with correct contentType matching directory passes', async () => {
     const strings = {
@@ -69,7 +63,7 @@ describe('GHD065 - frontmatter-content-type', () => {
   })
 
   test('file with contentType "get-started" in getting-started directory passes', async () => {
-    // Some products use "getting-started" instead of "get-started" as directory name
+    // Some products use getting-started instead of get-started as the directory name.
     const strings = {
       'content/copilot/getting-started/test-file.md': md([
         'title: Getting Started',
@@ -98,8 +92,7 @@ describe('GHD065 - frontmatter-content-type', () => {
   })
 
   test('file outside qualifying product is not checked', async () => {
-    // actions in fixtures has non-EDI subdirs (category/, using-workflows/),
-    // so it does NOT qualify and the rule should skip it entirely.
+    // The actions fixture only has category and using-workflows, so the rule skips it.
     const strings = {
       'content/actions/category/test-file.md': md(['title: Test', 'versions:', "  fpt: '*'"]),
     }
@@ -116,8 +109,6 @@ describe('GHD065 - frontmatter-content-type', () => {
     const errors = result['data/reusables/test.md']
     expect(errors).toEqual([])
   })
-
-  // Failing cases
 
   test('missing contentType in qualifying product triggers error', async () => {
     const strings = {

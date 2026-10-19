@@ -1,6 +1,6 @@
 import { ValidOcticon, isValidOcticon } from './lib/octicons'
 
-// Re-export ValidOcticon and isValidOcticon for compatibility with existing imports
+// Keep these re-exports for existing imports.
 export type { ValidOcticon }
 export { isValidOcticon }
 
@@ -19,7 +19,7 @@ export type BaseTocItem = {
   intro?: string | null
 }
 
-// Recursive: children can have their own children.
+// Child items can nest recursively.
 export type ChildTocItem = BaseTocItem & {
   octicon?: ValidOcticon | null
   category?: string[] | null
@@ -40,8 +40,7 @@ export type TocItem = BaseTocItem & {
 
 export type ArticleCardItems = ChildTocItem[]
 
-// Matches the data shape returned by getTocItems(), including every property that
-// may be present in the source data.
+// Preserve every getTocItems() property that landings receive from source data.
 export type RawTocItem = {
   title: string
   fullPath: string

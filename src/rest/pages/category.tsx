@@ -30,6 +30,8 @@ type Props = {
   restOperations: Operation[]
 }
 
+// Category landing pages (index.md) render TocLanding instead of the REST reference
+// sidebar because their categories have no mini-TOC items at that level.
 export default function Category({
   mainContext,
   automatedPageContext,
@@ -41,10 +43,6 @@ export default function Category({
   return (
     <MainContext.Provider value={mainContext}>
       <AutomatedPageContext.Provider value={automatedPageContext}>
-        {/* When the page is the rest product landing page, we don't want to
-        render the rest-specific sidebar because toggling open the categories
-        won't have the minitoc items at that level. These are pages that have
-        category - subcategory - and operations */}
         {relativePath?.endsWith('index.md') ? (
           <TocLandingContext.Provider value={tocLandingContext}>
             <TocLanding />
@@ -68,7 +66,6 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   const tocLandingContext = getTocLandingContextFromRequest(
     req as unknown as Parameters<typeof getTocLandingContextFromRequest>[0],
   )
-  // e.g. the `activity` from `/en/rest/activity/events`
   const category = context.params!.category as string
   let subcategory = context.params!.subcategory as string
   const currentVersion = context.params!.versionId as string
@@ -79,8 +76,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
     ? queryApiVersion
     : allVersions[currentVersion].latestApiVersion
 
-  // For pages with category level only operations like /rest/billing, we set
-  // the subcategory's value to be the category for the call to getRest()
+  // Category-only pages like /rest/billing use the category as the getRest subcategory.
   if (!subcategory) {
     subcategory = category
   }
@@ -88,19 +84,14 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   const categoryData = await getRest(currentVersion, apiVersion, category)
   const restOperations = (categoryData && categoryData[subcategory]) || []
 
-  // Build the TocLanding table of contents for every operation in the category.
-  // The operations come back grouped by subcategory, so walk the subcategories,
-  // take the minitoc items for each one's operations, and collect them.
+  // TocLanding needs one child item per operation grouped under each REST subcategory.
   const restCategoryOperations = categoryData || {}
   const restCategoryTocItems = []
 
   for (const [subCat, subCatOperations] of Object.entries(restCategoryOperations)) {
     let versionPathSegment: string
 
-    // If 'free-pro-team@latest' is in the URL, after clicking the link the
-    // sidebar isn't expanded to whatever subcategory or operation you clicked
-    // and 'free-pro-team@latest' is still in the browser address bar so
-    // manually removing.
+    // Omit free-pro-team@latest; otherwise clicked links keep it and the sidebar stays collapsed.
     if (context.params?.versionId === nonEnterpriseDefaultVersion) {
       versionPathSegment = '/'
     } else {
@@ -108,12 +99,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
     }
 
     const fullSubcategoryPath = `/${context.locale}${versionPathSegment}rest/${context.params?.category}/${subCat}`
-    // The actual page titles are available from the tocLandingContext so we
-    // can use this information as we build our REST toc items.  If we relied
-    // only on the API information, we would need to cleanup subcategory names
-    // (e.g. they're all lowercase and use hyphens as word separators) and we
-    // would also end up using words we wouldn't want to like "Repos" instead
-    // of "GitHub Repositories" for example.
+    // Use tocLandingContext titles; OpenAPI slugs turn repos into Repos, not GitHub Repositories.
     let fullSubcategoryTitle
 
     const pageTocItem = tocLandingContext.tocItems.find(
@@ -123,9 +109,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
     if (pageTocItem) {
       fullSubcategoryTitle = pageTocItem.title
     } else {
-      // Shouldn't happen but provide a reasonable fallback just in case.  E.g.
-      // for Organizations, a subcategory is 'outside-collaborators' and we
-      // convert that to 'Outside collaborators' for a toc item title.
+      // Fallback titleizes slugs such as outside-collaborators for missing toc entries.
       fullSubcategoryTitle = `${subCat[0].toUpperCase()}${subCat.slice(1).replaceAll('-', ' ')}`
     }
 
@@ -150,23 +134,6 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
       })
     }
 
-    // TocLanding expects a collection of objects that looks like this:
-    //
-    // {
-    //   fullPath: '/en/rest/activity/events',
-    //   title: 'Events',
-    //   childTocItems: [
-    //     {
-    //       fullPath: '/en/rest/activity/events#list-public-events',
-    //       title: 'List public events'
-    //     },
-    //     {
-    //       fullPath: '/en/rest/activity/events#list-public-events-for-a-network-of-repositories',
-    //       title: 'List public events for a network of repositories'
-    //     },
-    //     ...
-    //   ]
-    // }
     restCategoryTocItems.push({
       fullPath: fullSubcategoryPath,
       title: fullSubcategoryTitle,
@@ -174,13 +141,10 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
     })
   }
 
-  // Gets the miniTocItems in the article context. At this point it will only
-  // include miniTocItems generated from the Markdown pages in
-  // content/rest/*
+  // Article context starts with mini-TOC items from content/rest Markdown.
   const { miniTocItems } = getAutomatedPageContextFromRequest(req)
 
-  // Build mini-TOC items from the operation titles, using the request context
-  // for the language and version, and append them to the article's mini-TOC.
+  // Append operation title anchors to the article mini-TOC.
   if (restOperations) {
     const { restOperationsMiniTocItems } = (await getRestMiniTocItems(
       category,

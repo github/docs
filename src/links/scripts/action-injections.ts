@@ -1,5 +1,4 @@
-// Dependency injection for scripts that call .github/actions/ code.
-// Swaps the Actions-platform pieces for local-machine equivalents.
+// Scripts that call .github/actions code locally use these Actions-platform replacements.
 
 import fs from 'fs'
 import path from 'path'
@@ -15,7 +14,6 @@ export type CoreInject = {
   setOutput: (name: string, value: unknown) => void
   setFailed: (message: string) => void
 }
-// Directs core logging to console
 export function getCoreInject(debug: boolean): CoreInject {
   return {
     info: console.log,
@@ -36,7 +34,7 @@ export function getCoreInject(debug: boolean): CoreInject {
   }
 }
 
-// Writes strings that would be uploaded as artifacts to a local logs/ directory
+// Local runs write would-be artifacts to logs/ when debug output is enabled.
 const cwd = new URL('', import.meta.url).pathname
 const logsPath = path.join(cwd, '..', '..', 'logs')
 if (!fs.existsSync(logsPath)) {
@@ -54,5 +52,5 @@ export function getUploadArtifactInject(debug: boolean) {
   }
 }
 
-// Uses local process.env GITHUB_TOKEN to create an octokit instance
+// Local scripts authenticate with process.env.GITHUB_TOKEN through the shared GitHub client.
 export const octokitInject = github()

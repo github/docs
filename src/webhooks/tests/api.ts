@@ -6,9 +6,7 @@ import { makeLanguageSurrogateKey } from '@/frame/middleware/set-fastly-surrogat
 describe('webhooks v1 middleware', () => {
   test('basic get webhook', async () => {
     const sp = new URLSearchParams()
-    // Based on live data which isn't ideal but it should rarely change at least.
-    // Just check that we find the webhook and that the result has the `category`
-    // field which all webhook types should have.
+    // Live data can change, so assert only the stable category field on an existing webhook.
     sp.set('category', 'branch_protection_rule')
     sp.set('version', 'free-pro-team@latest')
     const res = await get(`/api/webhooks/v1?${sp}`)
@@ -18,7 +16,6 @@ describe('webhooks v1 middleware', () => {
     expect(actionTypes.length).toBeGreaterThan(2)
     expect(Object.keys(results[actionTypes[0]]).includes('category')).toBeTruthy()
 
-    // Check that it can be cached at the CDN
     expect(res.headers['set-cookie']).toBeUndefined()
     expect(res.headers['cache-control']).toContain('public')
     expect(res.headers['cache-control']).toMatch(/max-age=[1-9]/)
@@ -64,7 +61,7 @@ describe('webhooks v1 middleware', () => {
 
   test('drill-down endpoint returns childParamsGroups', async () => {
     const sp = new URLSearchParams()
-    // projects_v2_item is known to have non-empty childParamsGroups
+    // projects_v2_item is known to have non-empty childParamsGroups.
     sp.set('category', 'projects_v2_item')
     sp.set('version', 'free-pro-team@latest')
     const res = await get(`/api/webhooks/v1?${sp}`)

@@ -19,19 +19,20 @@ import nonEnterpriseDefaultVersion from '@/versions/lib/non-enterprise-default-v
 import { getDataByLanguage, getUIDataMerged } from '@/data-directory/lib/get-data'
 import { updateLoggerContext } from '@/observability/logger/lib/logger-context'
 
-// This doesn't change just because the request changes, so compute it once.
+// Enterprise Server version keys do not depend on each request, so compute them once.
 const enterpriseServerVersions = Object.keys(allVersions).filter((version) =>
   version.startsWith('enterprise-server@'),
 )
 
-// Supply all route handlers with a baseline `req.context` object
-// Note that additional middleware in middleware/index.ts adds to this context object
+// middleware/index.ts depends on contextualize setting baseline req.context.
+// For non-English pages, contextualize adds getEnglishPage for renderContentWithFallback.
+// It handles fallback-eligible Liquid, autotitle, and empty-title errors.
 export default async function contextualize(
   req: ExtendedRequest,
   res: Response,
   next: NextFunction,
 ) {
-  // Ensure that we load some data only once on first request
+  // warmServer caches this data after the first request.
   const { redirects, siteTree, pages: pageMap } = await warmServer([])
 
   const context: Context = {}
@@ -40,17 +41,14 @@ export default async function contextualize(
   req.context.process = { env: {} }
 
   if (req.pagePath && req.pagePath.endsWith('.md')) {
-    // req.pagePath is used later in the rendering pipeline to
-    // locate the file in the tree so it cannot have .md
+    // The rendering pipeline resolves req.pagePath in the tree without the .md suffix.
     req.pagePath = req.pagePath.replace(/\/index\.md$/, '').replace(/\.md$/, '')
     req.context.markdownRequested = true
-    // Track that markdown was requested via URL suffix, not Accept header.
-    // This avoids adding a misleading Vary: accept cache header.
+    // markdownViaUrl avoids a misleading Vary: accept header for URL suffix requests.
     req.context.markdownViaUrl = true
   }
 
-  // define each context property explicitly for code-search friendliness
-  // e.g. searches for "req.context.page" will include results from this file
+  // Explicit req.context property assignments keep code search results discoverable.
   req.context.currentLanguage = req.language
   req.context.userLanguage = req.userLanguage
   req.context.currentVersion = getVersionStringFromPath(req.pagePath) as string
@@ -62,8 +60,7 @@ export default async function contextualize(
   req.context.allVersions = allVersions
   req.context.currentPathWithoutLanguage = getPathWithoutLanguage(req.pagePath)
 
-  // define property for writers to link to the current page in a different version
-  // includes any type of rendered page not just "articles"
+  // currentArticle lets writers link any rendered page, not only articles, in another version.
   req.context.currentArticle = getPathWithoutVersion(req.context.currentPathWithoutLanguage)
   req.context.currentPath = req.pagePath
   req.context.query = req.query
@@ -83,20 +80,15 @@ export default async function contextualize(
   req.context.nonEnterpriseDefaultVersion = nonEnterpriseDefaultVersion
   req.context.initialRestVersioningReleaseDate =
     allVersions[nonEnterpriseDefaultVersion].apiVersions[0]
-  // The default REST API version that requests use when no X-GitHub-Api-Version header is specified
-  // This is the oldest supported version (last in the sorted descending array)
+  // apiVersions sorts newest first, so the last item is the default without X-GitHub-Api-Version.
   const apiVersions = allVersions[nonEnterpriseDefaultVersion].apiVersions
   req.context.defaultRestApiVersion = apiVersions[apiVersions.length - 1]
 
   const restDate = new Date(req.context.initialRestVersioningReleaseDate)
   req.context.initialRestVersioningReleaseDateLong = restDate.toUTCString().split(' 00:')[0]
 
-  // Non-English pages need this so that `Page.render`, when it calls
-  // `renderContentWithFallback`, can fall back to the English content when the
-  // translation hits a fallback-eligible error (Liquid, autotitle, empty title).
   if (req.language !== 'en') {
-    // This is a function so the lookup only happens when a translated page
-    // actually needs to fall back. Most requests never need it.
+    // getEnglishPage delays the lookup until a translated page needs fallback content.
     req.context.getEnglishPage = (ctx) => {
       if (!ctx.enPage) {
         const { page } = ctx

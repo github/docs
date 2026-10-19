@@ -8,8 +8,8 @@ import { getElasticSearchIndex } from '@/search/lib/elasticsearch-indexes'
 
 import type { Options, Config, Page, Redirects } from '@/search/scripts/scrape/types'
 
-// Build a search data file for every combination of product version and
-// language, e.g. `github-docs_general-search_fpt_en-records.json`.
+// Builds search data files for the selected product versions and languages, such as
+// github-docs_general-search_fpt_en-records.json.
 export default async function scrapeIntoIndexJson({
   language,
   notLanguage,
@@ -35,8 +35,7 @@ export default async function scrapeIntoIndexJson({
   for (const page of indexablePages) {
     const href = page.relativePath.replace('index.md', '').replace('.md', '')
     for (let redirectFrom of page.redirect_from || []) {
-      // Remember that each redirect_from as a prefix / and often it ends
-      // with a trailing /
+      // redirect_from values start with / and often end with /.
       if (redirectFrom.startsWith('/')) redirectFrom = redirectFrom.slice(1)
       if (redirectFrom.endsWith('/')) redirectFrom = redirectFrom.slice(0, -1)
       redirects[redirectFrom] = href
@@ -56,7 +55,7 @@ export default async function scrapeIntoIndexJson({
     for (const indexVersion of versionsToBuild) {
       const { indexName } = getElasticSearchIndex('generalSearch', indexVersion, languageCode)
 
-      // The page version will be the new version, e.g., free-pro-team@latest, enterprise-server@3.7
+      // The page version uses allVersions keys such as free-pro-team@latest.
       const { records, failedPages } = await buildRecords(
         indexName,
         indexablePages,

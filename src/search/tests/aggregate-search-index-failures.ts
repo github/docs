@@ -78,7 +78,7 @@ describe('aggregateFailures', () => {
 
     const result = aggregateFailures(failures)
     expect(result.hasFailures).toBe(true)
-    // Should count unique pages, not total failures
+    // Count unique pages, not every language and version failure.
     expect(result.totalCount).toBe(1)
     expect(result.message).toContain('1 page(s) failed')
     expect(result.message).toContain('versions: dotcom, ghes-3.19')
@@ -261,8 +261,7 @@ describe('aggregateFailures', () => {
     ]
 
     const result = aggregateFailures(failures)
-    // Alphabetically 'aaa rare' sorts first, so ordering by count is what puts
-    // the common error above it.
+    // aaa rare sorts first alphabetically, so count order must put zzz common first.
     expect(result.message.indexOf('zzz common')).toBeLessThan(result.message.indexOf('aaa rare'))
   })
 
@@ -376,8 +375,7 @@ describe('aggregateFailures', () => {
     const workflowUrl = 'https://github.com/github/docs-internal/actions/runs/12345678901'
     const result = aggregateFailures(failures, workflowUrl)
     expect(result.totalCount).toBe(2000)
-    // The footer is reserved for up front, so the cap holds for the whole
-    // message rather than just the page list.
+    // Reserving the footer up front keeps the cap on the whole message, not only the page list.
     expect(result.message.length).toBeLessThanOrEqual(30000)
     expect(result.message).toContain(workflowUrl)
     expect(result.message).toMatch(/and \d+ more page\(s\) not listed/)
@@ -407,8 +405,7 @@ describe('aggregateFailures', () => {
     const bullets = result.message.split('\n').filter((line) => line.startsWith('•')).length
     const errorLines = result.message.split('\n').filter((line) => line.includes('↳')).length
 
-    // Errors are only worth showing for the pages that fit, so the long ones
-    // must not push pages out of the list.
+    // Long errors must not push pages out of the list.
     expect(bullets).toBeGreaterThan(400)
     expect(errorLines).toBeLessThan(bullets)
   })

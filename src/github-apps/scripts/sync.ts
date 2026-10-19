@@ -13,7 +13,7 @@ import { validateJson } from '@/tests/lib/validate-json-schema'
 const ENABLED_APPS_DIR = 'src/github-apps/data'
 const CONFIG_FILE = 'src/github-apps/lib/config.json'
 
-// Actor type mapping from generic names to actual YAML values
+// Map generic actor names to excluded_actors values.
 export const actorTypeMap: Record<string, string> = {
   fine_grained_pat: 'fine_grained_personal_access_token',
   server_to_server: 'github_app',
@@ -134,8 +134,7 @@ export async function syncGitHubAppsData(
     for (const pageType of Object.keys(appsDataConfig.pages)) {
       githubAppsData[pageType] = {}
     }
-    // Because the information used on the apps page doesn't require any
-    // rendered content we can parse the dereferenced files directly
+    // Apps pages only need operation metadata here, so parse dereferenced OpenAPI files directly.
     for (const [requestPath, operationsAtPath] of Object.entries(schemaData.paths)) {
       for (const [verb, operation] of Object.entries(operationsAtPath)) {
         if (!progAccessData[operation.operationId]) continue
@@ -163,21 +162,14 @@ export async function syncGitHubAppsData(
           addAppData(githubAppsData['user-to-server-rest'], category, appDataOperation)
         }
 
-        if (isFineGrainedPat) {
-          const allPermissionSetsExcluded = progAccessData[operation.operationId].permissions.every(
-            (permissionSet) =>
-              Object.keys(permissionSet).every((permissionName) =>
-                isActorExcluded(
-                  progActorResources[permissionName]?.excluded_actors,
-                  'fine_grained_pat',
-                  actorTypeMap,
-                ),
-              ),
+        if (
+          isFineGrainedPat &&
+          !isOperationExcludedForFineGrainedPat(
+            progAccessData[operation.operationId].permissions,
+            progActorResources,
           )
-
-          if (!allPermissionSetsExcluded) {
-            addAppData(githubAppsData['fine-grained-pat'], category, appDataOperation)
-          }
+        ) {
+          addAppData(githubAppsData['fine-grained-pat'], category, appDataOperation)
         }
 
         for (const permissionSet of progAccessData[operation.operationId].permissions) {
@@ -191,12 +183,6 @@ export async function syncGitHubAppsData(
               progAccessData[operation.operationId].permissions,
             )
 
-            // Filter out metadata permissions when combined with other permissions
-            // The metadata permission is automatically granted with any other repository permission,
-            // so documenting it for operations that require additional permissions is misleading.
-            // This fixes the issue where mutating operations (PUT, DELETE) incorrectly appeared
-            // to only need metadata access when they actually require write permissions.
-            // See: https://github.com/github/docs-engineering/issues/5212
             if (
               shouldFilterMetadataPermission(
                 permissionName,
@@ -241,11 +227,7 @@ export async function syncGitHubAppsData(
             const isExcluded = isActorExcluded(excludedActors, 'fine_grained_pat', actorTypeMap)
 
             if (isFineGrainedPat && !isExcluded) {
-              // Hardcoded exception: exclude repository_projects from fine-grained PAT permissions
-              // This is because fine-grained PATs can only operate on organization-level Projects (classic),
-              // not repository-level Projects (classic). Users cannot grant the repository Projects (classic)
-              // fine-grained permission in the fine-grained PAT UI.
-              // See: https://github.com/github/docs-engineering/issues/4613
+              // Fine-grained PATs grant org Projects (classic), not repo Projects (classic).
               if (permissionName === 'repository_projects') {
                 continue
               }
@@ -275,7 +257,6 @@ export async function syncGitHubAppsData(
     const versionName = path.basename(schemaName, '.json')
     const targetDirectory = path.join(ENABLED_APPS_DIR, versionName)
 
-    // When a new version is added, we need to create the directory for it
     if (!existsSync(targetDirectory)) {
       await mkdir(targetDirectory, { recursive: true })
     }
@@ -302,16 +283,16 @@ export async function syncGitHubAppsData(
   await writeDeduplicatedAppsFormat()
 }
 
-async function writeDeduplicatedAppsFormat() {
+// The deduplicated format stores repeated operation and permission objects once.
+// version-index.json maps each version and page to those shared entries.
+export async function writeDeduplicatedAppsFormat() {
   console.log(`\n▶️  Writing deduplicated GitHub Apps data...\n`)
 
-  // Read all the per-version files we just wrote to build the shared format
   const versions = fs.readdirSync(ENABLED_APPS_DIR).filter((f) => {
     const fullPath = path.join(ENABLED_APPS_DIR, f)
     return fs.statSync(fullPath).isDirectory() && f !== 'shared'
   })
 
-  // Pool for unique leaf objects (operations and permission entries)
   const entriesPool: unknown[] = []
   const entriesMap = new Map<string, number>()
 
@@ -324,9 +305,7 @@ async function writeDeduplicatedAppsFormat() {
     return index
   }
 
-  // version-index structure:
-  // For rest pages: { version: { pageType: { category: number[] } } }
-  // For permission pages: { version: { pageType: { permName: { title, displayTitle, indices: number[] } } } }
+  // REST pages map categories to indices; permission pages map names to metadata and indices.
   const versionIndex: Record<string, Record<string, unknown>> = {}
   let totalItems = 0
 
@@ -339,9 +318,7 @@ async function writeDeduplicatedAppsFormat() {
       const pageType = path.basename(file, '.json')
       const data = JSON.parse(fs.readFileSync(path.join(versionDir, file), 'utf8'))
       const isPermissions = pageType.includes('permissions')
-
       if (isPermissions) {
-        // Permission data: { permName: { title, displayTitle, permissions: [...] } }
         const pageIndex: Record<
           string,
           { title: string; displayTitle: string; indices: number[] }
@@ -359,7 +336,6 @@ async function writeDeduplicatedAppsFormat() {
         }
         versionIndex[version][pageType] = pageIndex
       } else {
-        // Rest data: { category: [...operations] }
         const pageIndex: Record<string, number[]> = {}
         for (const [category, operations] of Object.entries(
           data as Record<string, AppDataOperation[]>,
@@ -547,7 +523,7 @@ export function calculateAdditionalPermissions(
   )
 }
 
-// Without this, a mutating operation appears to need only metadata access.
+// Metadata is redundant when any other permission applies, so hide it in those rows.
 export function shouldFilterMetadataPermission(
   permissionName: string,
   permissionSets: Array<Record<string, string>>,
@@ -585,6 +561,26 @@ export function isActorExcluded(
 
   return false
 }
+
+// Operations with no permission sets need no permissions, so they still work with fine-grained PATs.
+export function isOperationExcludedForFineGrainedPat(
+  permissionSets: Array<Record<string, string>>,
+  progActorResources: ProgActorResources,
+): boolean {
+  return (
+    permissionSets.length > 0 &&
+    permissionSets.every((permissionSet) =>
+      Object.keys(permissionSet).every((permissionName) =>
+        isActorExcluded(
+          progActorResources[permissionName]?.excluded_actors,
+          'fine_grained_pat',
+          actorTypeMap,
+        ),
+      ),
+    )
+  )
+}
+
 function addAppData(
   storage: Record<string, AppDataOperation[] | PermissionData>,
   category: string,
@@ -621,6 +617,7 @@ async function validateAppData(
   }
 }
 
+// Use gitHubSourceDirectory locally; use owner, repo, branch, and path remotely.
 interface ProgActorResourceContentOptions {
   owner?: string
   repo?: string
@@ -629,11 +626,6 @@ interface ProgActorResourceContentOptions {
   gitHubSourceDirectory?: string | null
 }
 
-// When getting files from the GitHub repo locally (or in a Codespace)
-// you can pass the full or relative path to the `github` repository
-// directory on disk.
-// When the source directory is `rest-api-description` (which is more common)
-// you can pass the `owner`, `repo`, `branch`, and `path` (repository path)
 async function getProgActorResourceContent({
   owner,
   repo,

@@ -1836,6 +1836,22 @@
                           "write"
                         ]
                       },
+                      "organization_copilot_requests": {
+                        "type": "string",
+                        "description": "The level of permission to grant the access token to make Copilot requests billed to the organization where the app is installed. This property is in public preview and is subject to change.",
+                        "enum": [
+                          "read"
+                        ]
+                      },
+                      "organization_external_properties_for_repos": {
+                        "type": "string",
+                        "description": "The level of permission to grant the access token for managing external custom properties for repositories in an organization.",
+                        "enum": [
+                          "read",
+                          "write",
+                          "admin"
+                        ]
+                      },
                       "organization_announcement_banners": {
                         "type": "string",
                         "description": "The level of permission to grant the access token to view and manage announcement banners for an organization.",
@@ -2813,6 +2829,22 @@
                         "write"
                       ]
                     },
+                    "organization_copilot_requests": {
+                      "type": "string",
+                      "description": "The level of permission to grant the access token to make Copilot requests billed to the organization where the app is installed. This property is in public preview and is subject to change.",
+                      "enum": [
+                        "read"
+                      ]
+                    },
+                    "organization_external_properties_for_repos": {
+                      "type": "string",
+                      "description": "The level of permission to grant the access token for managing external custom properties for repositories in an organization.",
+                      "enum": [
+                        "read",
+                        "write",
+                        "admin"
+                      ]
+                    },
                     "organization_announcement_banners": {
                       "type": "string",
                       "description": "The level of permission to grant the access token to view and manage announcement banners for an organization.",
@@ -3599,6 +3631,24 @@
             },
             {
               "type": "string",
+              "name": "organization_copilot_requests",
+              "description": "<p>The level of permission to grant the access token to make Copilot requests billed to the organization where the app is installed. This property is in public preview and is subject to change.</p>",
+              "enum": [
+                "read"
+              ]
+            },
+            {
+              "type": "string",
+              "name": "organization_external_properties_for_repos",
+              "description": "<p>The level of permission to grant the access token for managing external custom properties for repositories in an organization.</p>",
+              "enum": [
+                "read",
+                "write",
+                "admin"
+              ]
+            },
+            {
+              "type": "string",
               "name": "organization_announcement_banners",
               "description": "<p>The level of permission to grant the access token to view and manage announcement banners for an organization.</p>",
               "enum": [
@@ -4249,6 +4299,22 @@
                       "enum": [
                         "read",
                         "write"
+                      ]
+                    },
+                    "organization_copilot_requests": {
+                      "type": "string",
+                      "description": "The level of permission to grant the access token to make Copilot requests billed to the organization where the app is installed. This property is in public preview and is subject to change.",
+                      "enum": [
+                        "read"
+                      ]
+                    },
+                    "organization_external_properties_for_repos": {
+                      "type": "string",
+                      "description": "The level of permission to grant the access token for managing external custom properties for repositories in an organization.",
+                      "enum": [
+                        "read",
+                        "write",
+                        "admin"
                       ]
                     },
                     "organization_announcement_banners": {
@@ -5639,6 +5705,24 @@
             },
             {
               "type": "string",
+              "name": "organization_copilot_requests",
+              "description": "<p>The level of permission to grant the access token to make Copilot requests billed to the organization where the app is installed. This property is in public preview and is subject to change.</p>",
+              "enum": [
+                "read"
+              ]
+            },
+            {
+              "type": "string",
+              "name": "organization_external_properties_for_repos",
+              "description": "<p>The level of permission to grant the access token for managing external custom properties for repositories in an organization.</p>",
+              "enum": [
+                "read",
+                "write",
+                "admin"
+              ]
+            },
+            {
+              "type": "string",
               "name": "organization_announcement_banners",
               "description": "<p>The level of permission to grant the access token to view and manage announcement banners for an organization.</p>",
               "enum": [
@@ -6427,6 +6511,22 @@
                               "enum": [
                                 "read",
                                 "write"
+                              ]
+                            },
+                            "organization_copilot_requests": {
+                              "type": "string",
+                              "description": "The level of permission to grant the access token to make Copilot requests billed to the organization where the app is installed. This property is in public preview and is subject to change.",
+                              "enum": [
+                                "read"
+                              ]
+                            },
+                            "organization_external_properties_for_repos": {
+                              "type": "string",
+                              "description": "The level of permission to grant the access token for managing external custom properties for repositories in an organization.",
+                              "enum": [
+                                "read",
+                                "write",
+                                "admin"
                               ]
                             },
                             "organization_announcement_banners": {
@@ -7796,6 +7896,22 @@
                         "write"
                       ]
                     },
+                    "organization_copilot_requests": {
+                      "type": "string",
+                      "description": "The level of permission to grant the access token to make Copilot requests billed to the organization where the app is installed. This property is in public preview and is subject to change.",
+                      "enum": [
+                        "read"
+                      ]
+                    },
+                    "organization_external_properties_for_repos": {
+                      "type": "string",
+                      "description": "The level of permission to grant the access token for managing external custom properties for repositories in an organization.",
+                      "enum": [
+                        "read",
+                        "write",
+                        "admin"
+                      ]
+                    },
                     "organization_announcement_banners": {
                       "type": "string",
                       "description": "The level of permission to grant the access token to view and manage announcement banners for an organization.",
@@ -8783,6 +8899,22 @@
                         "write"
                       ]
                     },
+                    "organization_copilot_requests": {
+                      "type": "string",
+                      "description": "The level of permission to grant the access token to make Copilot requests billed to the organization where the app is installed. This property is in public preview and is subject to change.",
+                      "enum": [
+                        "read"
+                      ]
+                    },
+                    "organization_external_properties_for_repos": {
+                      "type": "string",
+                      "description": "The level of permission to grant the access token for managing external custom properties for repositories in an organization.",
+                      "enum": [
+                        "read",
+                        "write",
+                        "admin"
+                      ]
+                    },
                     "organization_announcement_banners": {
                       "type": "string",
                       "description": "The level of permission to grant the access token to view and manage announcement banners for an organization.",
@@ -9766,6 +9898,22 @@
                       "enum": [
                         "read",
                         "write"
+                      ]
+                    },
+                    "organization_copilot_requests": {
+                      "type": "string",
+                      "description": "The level of permission to grant the access token to make Copilot requests billed to the organization where the app is installed. This property is in public preview and is subject to change.",
+                      "enum": [
+                        "read"
+                      ]
+                    },
+                    "organization_external_properties_for_repos": {
+                      "type": "string",
+                      "description": "The level of permission to grant the access token for managing external custom properties for repositories in an organization.",
+                      "enum": [
+                        "read",
+                        "write",
+                        "admin"
                       ]
                     },
                     "organization_announcement_banners": {
@@ -11749,6 +11897,22 @@
                               "write"
                             ]
                           },
+                          "organization_copilot_requests": {
+                            "type": "string",
+                            "description": "The level of permission to grant the access token to make Copilot requests billed to the organization where the app is installed. This property is in public preview and is subject to change.",
+                            "enum": [
+                              "read"
+                            ]
+                          },
+                          "organization_external_properties_for_repos": {
+                            "type": "string",
+                            "description": "The level of permission to grant the access token for managing external custom properties for repositories in an organization.",
+                            "enum": [
+                              "read",
+                              "write",
+                              "admin"
+                            ]
+                          },
                           "organization_announcement_banners": {
                             "type": "string",
                             "description": "The level of permission to grant the access token to view and manage announcement banners for an organization.",
@@ -13081,7 +13245,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Add a single repository to an installation. The authenticated user must have admin access to the repository.</p>\n<p>This endpoint only works for PATs (classic) with the <code>repo</code> scope.</p>",
+      "descriptionHTML": "<p>Add a single repository to an installation. The authenticated user must have admin access to the repository.</p>",
       "codeExamples": [
         {
           "request": {
@@ -13118,10 +13282,14 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": false,
-        "serverToServer": false,
-        "fineGrainedPat": false,
-        "permissions": []
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"GitHub App installation repository access\" repository permissions": "write"
+          }
+        ]
       }
     },
     {
@@ -13152,7 +13320,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Remove a single repository from an installation. The authenticated user must have admin access to the repository. The installation must have the <code>repository_selection</code> of <code>selected</code>.</p>\n<p>This endpoint only works for PATs (classic) with the <code>repo</code> scope.</p>",
+      "descriptionHTML": "<p>Remove a single repository from an installation. The authenticated user must have admin access to the repository. The installation must have the <code>repository_selection</code> of <code>selected</code>.</p>\n<p>To use a PAT (classic) with this endpoint, the <code>repo</code> scope is required</p>",
       "codeExamples": [
         {
           "request": {
@@ -13193,10 +13361,14 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": false,
-        "serverToServer": false,
-        "fineGrainedPat": false,
-        "permissions": []
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"GitHub App installation repository access\" repository permissions": "write"
+          }
+        ]
       }
     }
   ],
@@ -13848,6 +14020,22 @@
                               "enum": [
                                 "read",
                                 "write"
+                              ]
+                            },
+                            "organization_copilot_requests": {
+                              "type": "string",
+                              "description": "The level of permission to grant the access token to make Copilot requests billed to the organization where the app is installed. This property is in public preview and is subject to change.",
+                              "enum": [
+                                "read"
+                              ]
+                            },
+                            "organization_external_properties_for_repos": {
+                              "type": "string",
+                              "description": "The level of permission to grant the access token for managing external custom properties for repositories in an organization.",
+                              "enum": [
+                                "read",
+                                "write",
+                                "admin"
                               ]
                             },
                             "organization_announcement_banners": {
@@ -14807,6 +14995,22 @@
                               "enum": [
                                 "read",
                                 "write"
+                              ]
+                            },
+                            "organization_copilot_requests": {
+                              "type": "string",
+                              "description": "The level of permission to grant the access token to make Copilot requests billed to the organization where the app is installed. This property is in public preview and is subject to change.",
+                              "enum": [
+                                "read"
+                              ]
+                            },
+                            "organization_external_properties_for_repos": {
+                              "type": "string",
+                              "description": "The level of permission to grant the access token for managing external custom properties for repositories in an organization.",
+                              "enum": [
+                                "read",
+                                "write",
+                                "admin"
                               ]
                             },
                             "organization_announcement_banners": {

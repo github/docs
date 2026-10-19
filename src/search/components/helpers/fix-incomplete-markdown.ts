@@ -89,7 +89,6 @@ function fixEmphasis(content: string): string {
     }
   }
 
-  // Close any remaining tokens in reverse order
   while (stack.length > 0) {
     const { token } = stack.pop()!
     content += token
@@ -111,7 +110,7 @@ function fixTables(content: string): string {
         if (i + 1 < lines.length && /^\s*\|[-\s|:]*$/.test(lines[i + 1])) {
           inTable = true
           headerPipeCount = (lines[i].match(/\|/g) || []).length
-          i += 1 // Move to separator line
+          i += 1
         } else {
           i += 1
           continue

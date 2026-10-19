@@ -9,8 +9,6 @@ category:
   - Create pull requests
 ---
 
-{% data reusables.public-preview.public-preview %}
-
 {% data reusables.pull_requests.pr-stack-invitation %}
 
 {% data reusables.pull_requests.pr-stack-definition %}

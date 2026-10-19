@@ -7,15 +7,13 @@ import nonEnterpriseDefaultVersion from '@/versions/lib/non-enterprise-default-v
 
 describe.each(allVersionKeys)('pagelist api for %s', async (versionKey) => {
   beforeAll(() => {
-    // If you didn't set the `ROOT` variable, the tests will fail rather
-    // cryptically. So as a warning for engineers running these tests,
-    // alert in case it was accidentally forgotten.
+    // Warn early because missing fixture roots otherwise fail with unclear errors.
     if (!process.env.ROOT) {
       console.warn(
         'WARNING: The pagelist tests require the ROOT environment variable to be set to the fixture root',
       )
     }
-    // Ditto for fixture-based translations to work
+    // Fixture translations need their own root.
     if (!process.env.TRANSLATIONS_FIXTURE_ROOT) {
       console.warn(
         'WARNING: The pagelist tests require the TRANSLATIONS_FIXTURE_ROOT environment variable to be set',
@@ -29,13 +27,11 @@ describe.each(allVersionKeys)('pagelist api for %s', async (versionKey) => {
     expect(res.statusCode).toBe(200)
   })
 
-  // there's a large assortment of possible URLs,
-  // even "/en" is an acceptable URL, so regexes capture lots
+  // Even /en is acceptable, so the permalink regex must stay broad.
   test('contains valid urls matching the requested version', async () => {
     let expression
 
-    // if we're testing the default version, it may be missing
-    // from the url altogether so we need a slightly different regex
+    // Default-version permalinks may omit the version segment.
     if (versionKey === nonEnterpriseDefaultVersion)
       expression = new RegExp(`/\\w{2}(/${versionKey})?/?.*`)
     else expression = new RegExp(`/\\w{2}/${versionKey}/?.*`)

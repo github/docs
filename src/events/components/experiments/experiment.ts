@@ -20,7 +20,6 @@ export function shouldShowExperiment(
   isStaff: boolean,
   routerQuery: ParsedUrlQuery,
 ) {
-  // Accept either EXPERIMENTS.<experiment_key> or EXPERIMENTS.<experiment_key>.key
   if (typeof experimentKey === 'object') {
     experimentKey = experimentKey.key
   }
@@ -28,7 +27,7 @@ export function shouldShowExperiment(
   const experiments = getActiveExperiments('all')
   for (const experiment of experiments) {
     if (experiment.key === experimentKey) {
-      // Respect isActive so flipping it to false actually stops the experiment
+      // getActiveExperiments('all') includes inactive experiments, so isActive=false stops them.
       if (!experiment.isActive) return false
       if (controlGroupOverride[experiment.key]) {
         const controlGroup = getExperimentControlGroupFromSession(
@@ -70,10 +69,9 @@ export function shouldShowExperiment(
   return false
 }
 
-// Allow developers to override their experiment group for the current session
 export const controlGroupOverride = {} as { [key in ExperimentNames]: 'treatment' | 'control' }
 if (typeof window !== 'undefined') {
-  // @ts-expect-error globally available function
+  // @ts-expect-error -- window.overrideControlGroup is a global debugging hook.
   window.overrideControlGroup = (
     experimentKey: ExperimentNames,
     controlGroup: 'treatment' | 'control',
@@ -101,8 +99,7 @@ export function getExperimentControlGroupFromSession(
   } else if (process.env.NODE_ENV === 'test') {
     return CONTROL_VARIATION
   }
-  // We hash the user's events ID to ensure that the user is always in the same group for a given experiment
-  // This works because the hash is a deterministic and the user's ID is stored in a cookie for 365 days
+  // Hash the 365-day events cookie ID so each browser stays in one group per experiment.
   const id = getUserEventsId()
   const hash = murmur(experimentKey).hash(id).result()
   const modHash = hash % 100
@@ -113,8 +110,7 @@ export function getExperimentVariationForContext(locale: string, version: string
   const experiments = getActiveExperiments(locale, version)
   for (const experiment of experiments) {
     if (experiment.includeVariationInContext) {
-      // A query string containing `feature=<turnOnWithURLParam>`, or a staff
-      // reader when alwaysShowForStaff is set, forces the treatment variation.
+      // feature=<turnOnWithURLParam> or staff readers with alwaysShowForStaff force treatment.
       if (
         (experiment.turnOnWithURLParam &&
           window.location?.search
@@ -131,7 +127,6 @@ export function getExperimentVariationForContext(locale: string, version: string
     }
   }
 
-  // When no experiment has `includeVariationInContext: true`
   return CONTROL_VARIATION
 }
 
@@ -143,10 +138,8 @@ export function initializeExperiments(
   if (experimentsInitialized) return
   experimentsInitialized = true
 
-  // Replace any occurrence of 'enterprise-server@latest' with the actual latest version
   for (const [experimentKey, experiment] of Object.entries(EXPERIMENTS)) {
     if (experiment.limitToVersions?.includes('enterprise-server@latest')) {
-      // Sort the versions in descending order so that the latest enterprise-server version is first
       const latestEnterpriseServerVersion = Object.keys(allVersions)
         .filter((version) => version.startsWith('enterprise-server@'))
         .sort((a, b) => {
@@ -184,15 +177,14 @@ export function initializeExperiments(
       experiment.percentOfUsersToGetExperiment,
     )
 
-    // In any environment, it is useful to see if a given experiment is "on" or "off"
+    // Log the group in every environment so developers can confirm which variation they see.
     console.log(
       `Experiment ${experiment.key} is in the "${controlGroup === TREATMENT_VARIATION ? TREATMENT_VARIATION : CONTROL_VARIATION}" group for this browser.\nCall function window.overrideControlGroup('${experiment.key}', 'treatment' | 'control') to change your group for this session.`,
     )
   }
 }
 
-// If we have an experiment enabled that supports turnOnWithURLParam, we need to listen to
-// all clicks on links to ensure we forward the `feature` query param to the new page
+// Experiments with turnOnWithURLParam keep the feature query parameter across link navigation.
 export function initializeForwardFeatureUrlParam(router: NextRouter, currentVersion: string) {
   const experiments = getActiveExperiments(router.locale || 'en', currentVersion)
 

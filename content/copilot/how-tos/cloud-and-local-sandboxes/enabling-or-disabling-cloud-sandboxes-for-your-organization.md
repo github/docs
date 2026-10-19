@@ -14,7 +14,7 @@ category:
 ---
 
 > [!NOTE]
-> {% data reusables.cli.public-preview-sandbox %}
+> {% data reusables.cli.public-preview-cloud-sandbox %}
 
 ## About enabling and disabling cloud sandboxes
 

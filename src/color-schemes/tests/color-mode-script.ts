@@ -3,17 +3,15 @@ import { describe, expect, test } from 'vitest'
 import { colorModeScript } from '../lib/color-mode-script'
 import { getCssTheme, SupportedTheme } from '../components/useTheme'
 
-// The inline script runs before any bundle loads, so it reimplements
-// `useTheme`'s validation instead of importing it. These tests assert the two
-// stay in sync.
+// The inline script runs before any bundle loads, so it reimplements useTheme validation
+// instead of importing it. These tests assert the two stay in sync.
 function runScript(
   rawCookie: string,
   { prefersDark = false, matchMedia = true, legacyListener = false } = {},
 ) {
   const attrs: Record<string, string> = {}
   const listeners: Array<(event: { matches: boolean }) => void> = []
-  // `matches` reads this through a getter, so `flipSystemPreference` changes
-  // what an already-registered handler sees.
+  // matches reads os through a getter, so flipSystemPreference changes what handlers see.
   const os = { prefersDark }
   const subscribe = (handler: (event: { matches: boolean }) => void) => {
     listeners.push(handler)
@@ -61,8 +59,7 @@ function cookieFor(value: object) {
 
 function expectMatchesGetCssTheme(rawCookie: string, cookieValue: string, prefersDark = false) {
   const css = getCssTheme(cookieValue)
-  // Primitives select on the (mode, theme) pair, so the effective theme has to
-  // land on the attribute for the resolved mode.
+  // Primer primitives use mode and theme together, so resolved mode gets the effective theme.
   const mode = css.colorMode === 'auto' ? (prefersDark ? 'dark' : 'light') : css.colorMode
   const theme = mode === 'dark' ? css.darkTheme : css.lightTheme
   const resolved = theme.startsWith('dark') ? 'dark' : 'light'
@@ -111,7 +108,7 @@ describe('colorModeScript', () => {
   })
 
   test('survives an explicitly null theme without discarding the mode', () => {
-    // A default parameter covers `undefined`, not `null`.
+    // A default parameter covers undefined, not null.
     const value = { color_mode: 'dark', light_theme: null }
     expectMatchesGetCssTheme(cookieFor(value), JSON.stringify(value))
     expect(runScript(cookieFor(value)).attrs['data-color-mode']).toBe('dark')
@@ -159,7 +156,7 @@ describe('colorModeScript', () => {
     })
 
     test('falls back to the deprecated addListener when addEventListener is absent', () => {
-      // Pre-14 Safari exposes only `addListener`, so this branch is live.
+      // Older Safari exposes only addListener, so this branch is live.
       const run = runScript(cookieFor({ color_mode: 'auto' }), { legacyListener: true })
       expect(run.attrs['data-color-mode']).toBe('light')
       expect(run.listeners).toHaveLength(1)
@@ -172,8 +169,7 @@ describe('colorModeScript', () => {
     })
 
     test('still writes the attributes when matchMedia is unavailable', () => {
-      // The script's DOM block sits in a try/catch, so an unguarded matchMedia
-      // call would leave <html> with no attributes at all.
+      // Guard matchMedia so the DOM try/catch still writes html attributes when it is unavailable.
       const { attrs } = runScript(cookieFor({ color_mode: 'auto' }), { matchMedia: false })
       expect(attrs['data-color-mode']).toBe('light')
       expect(attrs['data-color-mode-preference']).toBe('auto')
@@ -211,8 +207,7 @@ describe('colorModeScript', () => {
           dark_theme: { name: 'dark_high_contrast', color_mode: 'dark' },
         }),
       )
-      // Resolved dark by the DAY theme, so data-dark-theme carries that, not the
-      // separately configured night theme.
+      // The resolved day theme supplies data-dark-theme, not the separately configured night theme.
       expect(attrs['data-color-mode']).toBe('dark')
       expect(attrs['data-dark-theme']).toBe('dark_dimmed')
     })
@@ -237,10 +232,9 @@ describe('colorModeScript', () => {
       expect(runScript(value, { prefersDark: true }).attrs['data-color-mode']).toBe('dark')
     })
 
+    // html classifies dark themes with startsWith("dark"); Primer React checks includes("dark").
+    // A theme name like high_contrast_dark would split those classifications.
     test('every supported theme classifies the same under both operators', () => {
-      // <html> must classify a theme's lightness the same way @primer/react does
-      // for its own wrapper: `startsWith('dark')` here, `includes('dark')` there.
-      // A name like `high_contrast_dark` would split them.
       for (const name of Object.values(SupportedTheme)) {
         expect(`${name} startsWith:${name.startsWith('dark')}`).toBe(
           `${name} startsWith:${name.includes('dark')}`,

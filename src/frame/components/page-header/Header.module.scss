@@ -6,19 +6,17 @@
 .stickyContainer {
   position: sticky;
   top: 0;
-  // Sticky ladder, top to bottom: this header (3) > the Docs 2026 secondary bar
-  // (2, DocsSecondaryBar.module.scss) > sticky table headers (1, table.scss).
+  // z-index order keeps this header above DocsSecondaryBar.module.scss at 2 and
+  // sticky table headers in table.scss at 1.
   //
-  // 3 rather than 2 because Brand's ActionMenu is NOT portalled: the plan and
-  // language dropdowns render inside this container, and they are taller than
-  // the header, so they overlap the secondary bar. At an equal z-index the bar
-  // wins on DOM order and paints a 45px band straight through the open menu,
-  // swallowing clicks on the rows behind it.
+  // Use 3 rather than 2 because Brand's ActionMenu is not portalled. The plan and
+  // language dropdowns render inside this container and overlap the secondary bar.
+  // At the same z-index, DOM order lets the bar paint a 45px band through the open
+  // menu and swallow clicks on rows behind it.
   //
-  // This also sets a stacking context, which is what keeps the search overlay's
-  // backdrop (z-index 1000) from escaping: the container composites as a whole
-  // at 3, so Primer's portalled dialog -- also 3, but appended to <body> after
-  // this -- still wins on DOM order and stays clickable above the backdrop.
+  // This stacking context also keeps the search overlay backdrop at z-index 1000
+  // contained. The container composites at 3, so Primer's portalled dialog, also 3
+  // and appended to body after this header, still wins on DOM order and stays clickable.
   z-index: 3;
 }
 
@@ -40,17 +38,16 @@
   }
 }
 
-// Brand's own stagger step: its narrow-menu links animate in at
-// `calc(var(--animation-order) * 80ms)`, one slot each.
+// Brand's narrow-menu links animate one slot each at
+// calc(var(--animation-order) * 80ms).
 $narrow-menu-stagger-step: 80ms;
 
 @media screen and (max-width: 48rem) {
-  // Brand hardcodes the narrow menu's CTA area to stagger slot 10 -- the moment
-  // ten `SubdomainNavBar.Link` children have finished cascading in. Docs passes
-  // zero links (its navigation is the sidebar doc tree), so that 800ms is spent
-  // waiting out a queue that does not exist: the plan and language pickers ride
-  // the panel's 500ms fade while "Sign up" lands nearly a second later. One slot
-  // keeps the CTA arriving deliberately after the pickers, without the dead time.
+  // Brand hardcodes the narrow menu's CTA area to stagger slot 10, after ten
+  // SubdomainNavBar.Link children have cascaded in. Docs passes zero links because
+  // navigation lives in the sidebar doc tree, so that 800ms waits for a queue that
+  // does not exist. One slot keeps the CTA after the plan and language pickers
+  // without delaying Sign up nearly a second.
   //
   // Brand's class name is CSS-module-hashed and it exposes no test id for this
   // element, so match the stable part of the name. An attribute selector is not
@@ -58,8 +55,8 @@ $narrow-menu-stagger-step: 80ms;
   // `.stickyContainer` is hashed, and it is also what wins the specificity
   // (two selectors vs. Brand's single class) without `!important`.
   //
-  // Only the delay is overridden -- duration, fill mode, easing and the
-  // keyframes stay exactly as Brand ships them.
+  // Override only the delay; duration, fill mode, easing, and keyframes stay as
+  // Brand ships them.
   .stickyContainer [class*="SubdomainNavBar-button-area--visible"] {
     animation-delay: calc(1 * #{$narrow-menu-stagger-step});
   }

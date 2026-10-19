@@ -76,7 +76,7 @@ Additional default filters for {% data variables.product.prodname_code_scanning 
 * `autofilter:true` includes only alerts that appear to be in application code. {% ifversion security-campaigns-autofix %}
 
 > [!NOTE]
-> When agentic autofix is enabled for your organization or enterprise, the `autofix` filter is unavailable, and adding `autofix:supported` does not change the results. For alerts in repositories where {% data variables.copilot.copilot_cloud_agent %} and {% data variables.copilot.copilot_autofix_short %} are available, you can use **Assign to {% data variables.product.prodname_copilot_short %}** for any {% data variables.product.prodname_code_scanning %} alert in a campaign.
+> When {% data variables.copilot.agentic_autofix %} is enabled for your organization, the `autofix` filter is unavailable. Adding `autofix:supported` does not change the results. For alerts in repositories where {% data variables.copilot.agentic_autofix %} is enabled, you can use **Assign to {% data variables.product.prodname_copilot_short %}** for any {% data variables.product.prodname_code_scanning %} alert in a campaign.
 
 {% endif %}
 
@@ -125,7 +125,7 @@ The new campaign is shown in the sidebar of the **{% data variables.product.prod
 
 {% ifversion code-secret-alert-assignees %}
 > [!TIP]
-> You can assign a campaign alert to anyone with **write** access to the repository, see [Assigning alerts](/code-security/concepts/security-at-scale/about-security-campaigns#about-assigning-alerts-to-users-and-copilot-cloud-agent).
+> You can assign a campaign alert to anyone with **write** access to the repository. See [Assigning alerts](/code-security/concepts/security-at-scale/about-security-campaigns#about-assigning-alerts).
 {% endif %}
 
 {% else %}

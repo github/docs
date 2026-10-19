@@ -1,8 +1,6 @@
 name: Stale check for stalled pull requests in the docs-internal repository
 
-# **What it does**: Identifies pull requests that have been inactive for 30 days.
-# **Why we have it**: We want to avoid pull requests that are stalled and not being reviewed.
-# **Who does it impact**: Everyone that works in the internal repository.
+# Marks internal PRs stale after 30 inactive days and closes them 14 days later without a response.
 
 on:
   schedule:

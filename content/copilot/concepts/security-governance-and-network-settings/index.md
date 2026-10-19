@@ -8,6 +8,7 @@ children:
   - /content-exclusion
   - /session-data
   - /about-cloud-and-local-sandboxes
+  - /understanding-local-sandboxing
   - /risks-and-mitigations
   - /network-settings
 contentType: concepts

@@ -44,6 +44,16 @@ If you leave your codespace running without interaction, or if you exit your cod
 
 When a codespace times out, your data is preserved from the last time your changes were saved. For more information, see [Saving changes in a codespace](#saving-changes-in-a-codespace).
 
+## Maximum lifetime of a codespace
+
+A codespace has a maximum lifetime of 12 hours, regardless of your idle timeout policy or settings. This limit applies even while you are actively using the codespace.
+
+As a codespace approaches this 12-hour limit, you will see the following warning:
+
+> Your codespace must be stopped soon. Stop and then reconnect to your codespace to keep working.
+
+Your data is saved, then the codespace automatically stops. To continue working, restart the codespace. For more information, see [AUTOTITLE](/codespaces/developing-in-a-codespace/stopping-and-starting-a-codespace#restarting-a-codespace).
+
 ## Rebuilding a codespace
 
 You can rebuild your codespace to implement changes you've made to your dev container configuration. For most uses, you can create a new codespace as an alternative to rebuilding a codespace. By default, when you rebuild your codespace, {% data variables.product.prodname_github_codespaces %} will reuse images from your cache to speed up the rebuild process. Alternatively, you can perform a full rebuild, which clears your cache and rebuilds the container with fresh images.

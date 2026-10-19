@@ -31,8 +31,7 @@ export function updateDataFiles() {
   updateFeatureData()
 }
 
-// Removes empty data/reusables files and removes the deleted
-// reusable from any content or data/reusables files that reference it.
+// Remove empty reusable files and their Liquid references so content does not use deleted data.
 function updateReusableData() {
   const deletedDataFiles = []
 
@@ -44,16 +43,12 @@ function updateReusableData() {
       deletedDataFiles.push(file)
     }
   }
-  // Map the format:
-  // data/reusables/actions/actions-runner-controller-unsupported-customization.md
-  // to the format:
-  // {% data reusables.code-scanning.beta-org-enable-all %}
+  // Example: data/reusables/actions/runner.md becomes {% data reusables.actions.runner %}.
   const reusableNames = deletedDataFiles.map(
     (file) => `{% data ${file.replace('.md', '').split('/').slice(1).join('.')} %}`,
   )
   const existingDataReusables = difference(dataReusables, deletedDataFiles)
 
-  // Remove deleted reusables from content and data resuables files
   for (const file of [...existingDataReusables, ...contentFiles]) {
     const originalContent = fs.readFileSync(file, 'utf8')
     let content = originalContent
@@ -70,9 +65,7 @@ function updateReusableData() {
   }
 }
 
-// Removes deprecated data/feature files and outputs a list of data/features
-// available in all versions. That list is only used for review during a GHES
-// deprecation.
+// Lists all-version data/features for human review during GHES deprecation.
 function updateFeatureData() {
   const allFeatureFiles = new Set()
 

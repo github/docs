@@ -1,23 +1,16 @@
-/* Accessibility fixes for tooltip text spacing and other a11y improvements */
-
-/* Fix tooltip text spacing inheritance - Issue #11442 */
+// Tooltips inherit the user's custom text-spacing preferences for accessibility.
 .tooltipped {
   &::before,
   &::after {
-    /* Allow tooltips to inherit user's custom text spacing preferences */
     letter-spacing: inherit !important;
     word-spacing: inherit !important;
     line-height: inherit !important;
   }
 
-  /* WCAG 1.4.13: Make tooltip content hoverable with the mouse pointer.
-     Primer's .tooltipped uses pointer-events:none on the ::after pseudo-
-     element and a 6px margin gap between the trigger and the tooltip.
-     This makes it impossible to hover the tooltip content itself.
-
-     Fix: re-enable pointer-events and replace the directional margin with
-     a transparent border so the hover hit-area is contiguous while the
-     visual appearance is unchanged. */
+  // WCAG 1.4.13 requires tooltip content to stay hoverable with the mouse pointer.
+  // Primer's .tooltipped sets pointer-events: none on ::after and leaves a 6px
+  // margin gap between the trigger and tooltip, so replace the margin with a
+  // transparent border and keep the visual appearance unchanged.
   &::after {
     pointer-events: auto !important;
   }
@@ -43,16 +36,14 @@
   }
 }
 
-/* Enhanced focus indicators for high contrast mode */
 @media (prefers-contrast: high) {
   .tooltipped {
     &:focus-visible::before,
     &:focus-visible::after {
-      // --color-focus-outset is defined nowhere in this app, which made the whole
-      // `outline` shorthand invalid at computed-value time — so the longhands reset
-      // and `outline-style: none` won, leaving high-contrast users with NO focus
-      // ring at all, in either colour mode. Brand's focus token, matching the same
-      // repair already made in annotate.scss.
+      // --color-focus-outset is undefined here. It invalidates the outline shorthand
+      // at computed-value time, resets the longhands, and lets outline-style: none
+      // remove the focus ring in both color modes. Use Brand's focus token to match
+      // annotate.scss.
       outline: var(--brand-borderWidth-thick, 2px) solid
         var(--brand-color-focus, #0377ff);
       outline-offset: 2px;
@@ -60,8 +51,6 @@
   }
 }
 
-/* Responsive tooltip text for Copilot prompt links */
-/* Show long tooltip text on small screens and up (544px+) */
 .copilot-prompt-long {
   display: none;
   visibility: hidden;
@@ -72,7 +61,6 @@
   }
 }
 
-/* Show short tooltip text only on extra small screens (below 544px) */
 .copilot-prompt-short {
   display: inline-block;
   visibility: visible;

@@ -4,4 +4,4 @@ If you are using a {% data variables.copilot.copilot_pro_short %}, {% data varia
 
 ## Authenticating to an account on {% data variables.enterprise.data_residency_site %}
 
-{% data reusables.copilot.sign-in-ghecom %} See [AUTOTITLE](/copilot/how-tos/configure-personal-settings/authenticate-to-ghecom).
+{% data reusables.copilot.sign-in-ghecom %} See [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/set-up-copilot/authenticate-to-ghecom).

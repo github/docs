@@ -9,8 +9,7 @@ type RestMethodT = {
 }
 
 export function RestMethod({ verb, requestPath }: RestMethodT) {
-  // If the path is long, we want to break it up into multiple lines,
-  // breaking before the / character.
+  // Insert word breaks before slashes and after underscores so long paths wrap in narrow layouts.
   const displayPath =
     requestPath.length > 25
       ? requestPath.replaceAll('/', '<wbr/>/').replaceAll('_', '_<wbr/>')

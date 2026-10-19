@@ -2,21 +2,9 @@ import { visitParents } from 'unist-util-visit-parents'
 import type { Root, Element } from 'hast'
 import type { Transformer } from 'unified'
 
-/**
- * Where it can mutate the AST to swap from:
- *
- *   <thead>
- *     <tr>
- *       <th>...</th>
- *       <th>...</th>
- *
- * to:
- *   <thead>
- *     <tr>
- *       <th scope="col">...</th>
- *       <th scope="col">...</th>
- *
- * */
+// Header cells in table heads need column scope for screen reader navigation.
+// <thead><tr><th>Name</th></tr></thead> becomes:
+// <thead><tr><th scope="col">Name</th></tr></thead>.
 
 export default function rewriteTheadThScope(): Transformer<Root> {
   return (tree: Root) =>

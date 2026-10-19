@@ -1,10 +1,7 @@
 import { useState, useEffect } from 'react'
 
 interface IOptions {
-  /**
-   * Reset the status after a certain number of milliseconds. This is useful
-   * for showing a temporary success message.
-   */
+  // Reset copied status after this many milliseconds for temporary success messages.
   successDuration?: number
 }
 

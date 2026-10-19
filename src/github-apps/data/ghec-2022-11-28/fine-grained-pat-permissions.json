@@ -730,6 +730,24 @@
         "access": "write"
       },
       {
+        "category": "copilot",
+        "slug": "get-model-policies-for-an-organization",
+        "subcategory": "copilot-model-policy-management",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/copilot/model-policies",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "copilot",
+        "slug": "update-model-policies-for-an-organization",
+        "subcategory": "copilot-model-policy-management",
+        "verb": "patch",
+        "requestPath": "/orgs/{org}/copilot/model-policies",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
         "category": "orgs",
         "slug": "list-saml-sso-authorizations-for-an-organization",
         "subcategory": "orgs",
@@ -1880,6 +1898,30 @@
         "requestPath": "/users/{username}/events/orgs/{org}",
         "additional-permissions": false,
         "access": "read"
+      }
+    ]
+  },
+  "organization_external_properties_for_repos": {
+    "title": "External custom properties for repositories",
+    "displayTitle": "Organization permissions for \"External custom properties for repositories\"",
+    "permissions": [
+      {
+        "category": "orgs",
+        "slug": "get-registered-app-installations-for-external-custom-properties",
+        "subcategory": "custom-properties",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/properties/installations",
+        "additional-permissions": false,
+        "access": "admin"
+      },
+      {
+        "category": "orgs",
+        "slug": "register-an-app-installation-for-external-custom-properties",
+        "subcategory": "custom-properties",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/properties/installations",
+        "additional-permissions": false,
+        "access": "admin"
       }
     ]
   },
@@ -4205,6 +4247,15 @@
         "requestPath": "/repos/{owner}/{repo}/actions/jobs/{job_id}/rerun",
         "additional-permissions": false,
         "access": "write"
+      },
+      {
+        "category": "actions",
+        "slug": "download-step-logs-for-a-workflow-run-job",
+        "subcategory": "workflow-jobs",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/actions/jobs/{job_id}/steps/{step_number}/logs",
+        "additional-permissions": false,
+        "access": "read"
       },
       {
         "category": "actions",
@@ -6985,6 +7036,15 @@
         "access": "read"
       },
       {
+        "category": "repos",
+        "slug": "create-a-fork",
+        "subcategory": "forks",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/forks",
+        "additional-permissions": true,
+        "access": "read"
+      },
+      {
         "category": "git",
         "slug": "create-a-blob",
         "subcategory": "blobs",
@@ -7796,6 +7856,30 @@
       }
     ]
   },
+  "installation_repositories": {
+    "title": "GitHub App installation repository access",
+    "displayTitle": "Repository permissions for \"GitHub App installation repository access\"",
+    "permissions": [
+      {
+        "category": "apps",
+        "slug": "add-a-repository-to-an-app-installation",
+        "subcategory": "installations",
+        "verb": "put",
+        "requestPath": "/user/installations/{installation_id}/repositories/{repository_id}",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "apps",
+        "slug": "remove-a-repository-from-an-app-installation",
+        "subcategory": "installations",
+        "verb": "delete",
+        "requestPath": "/user/installations/{installation_id}/repositories/{repository_id}",
+        "additional-permissions": false,
+        "access": "write"
+      }
+    ]
+  },
   "issues": {
     "title": "Issues",
     "displayTitle": "Repository permissions for \"Issues\"",
@@ -8175,6 +8259,33 @@
         "subcategory": "reactions",
         "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/reactions/{reaction_id}",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "issues",
+        "slug": "list-issues-related-to-an-issue",
+        "subcategory": "issues",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/relates_to",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "issues",
+        "slug": "add-a-related-issue",
+        "subcategory": "issues",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/relates_to",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "issues",
+        "slug": "remove-a-related-issue",
+        "subcategory": "issues",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/relates_to/{issue_id}",
         "additional-permissions": false,
         "access": "write"
       },
@@ -9323,6 +9434,15 @@
       },
       {
         "category": "pulls",
+        "slug": "rerequest-reviewers-for-a-pull-request",
+        "subcategory": "review-requests",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/requested_reviewers/rerequest",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "pulls",
         "slug": "list-reviews-for-a-pull-request",
         "subcategory": "reviews",
         "verb": "get",
@@ -9464,6 +9584,15 @@
       },
       {
         "category": "repos",
+        "slug": "create-a-fork",
+        "subcategory": "forks",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/forks",
+        "additional-permissions": true,
+        "access": "write"
+      },
+      {
+        "category": "repos",
         "slug": "create-a-repository-using-a-template",
         "subcategory": "repos",
         "verb": "post",
@@ -9479,6 +9608,21 @@
         "requestPath": "/user/repos",
         "additional-permissions": true,
         "access": "write"
+      }
+    ]
+  },
+  "repository_license_policy": {
+    "title": "Repository license policy",
+    "displayTitle": "Repository permissions for \"Repository license policy\"",
+    "permissions": [
+      {
+        "category": "dependency-graph",
+        "slug": "check-license-compliance-for-packages",
+        "subcategory": "license-compliance",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/license-compliance/package-checks",
+        "additional-permissions": false,
+        "access": "read"
       }
     ]
   },

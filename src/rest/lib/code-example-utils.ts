@@ -1,6 +1,5 @@
-// The part of a code example these label helpers need. RestCodeSamples copies
-// `sample.request.description` up to a top-level `description` and keeps the
-// original `request` object as-is.
+// RestCodeSamples copies sample.request.description to description and keeps the original request.
+// These helpers only require that subset of each code example.
 export interface CodeExample {
   request?: {
     contentType?: string
@@ -30,7 +29,7 @@ export function shouldShowResponseContentType(examples: CodeExample[]): boolean 
   )
 }
 
-// Labels each example option with whichever content types vary across the set.
+// Label each example option with whichever content types vary across the set.
 export function generateExampleOptions(examples: CodeExample[]): ExampleOption[] {
   const responseContentTypesDiffer = shouldShowResponseContentType(examples)
   const requestContentTypesDiffer = shouldShowRequestContentType(examples)

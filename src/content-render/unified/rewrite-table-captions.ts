@@ -2,27 +2,9 @@ import { visit } from 'unist-util-visit'
 import type { Node, Parent } from 'unist'
 import type { Element, Text } from 'hast'
 
-/**
- * Adds aria-labelledby to tables, pointing at the nearest preceding heading,
- * so screen readers announce a table name when users navigate with the 'T'
- * shortcut key.
- *
- * Transforms this structure:
- *
- *   <h2 id="supported-platforms">Supported platforms</h2>
- *   <table>
- *     <thead>...</thead>
- *     <tbody>...</tbody>
- *   </table>
- *
- * Into this:
- *
- *   <h2 id="supported-platforms">Supported platforms</h2>
- *   <table aria-labelledby="supported-platforms">
- *     <thead>...</thead>
- *     <tbody>...</tbody>
- *   </table>
- */
+// Label otherwise unnamed tables from the nearest heading for screen reader table navigation.
+// <h2 id="limits">Limits</h2><table>...</table> becomes:
+// <h2 id="limits">Limits</h2><table aria-labelledby="limits">...</table>.
 
 interface HeadingInfo {
   id: string
@@ -72,7 +54,7 @@ function findPrecedingHeading(parent: Parent, tableIndex: number): HeadingInfo |
       }
     }
 
-    // Stop searching if we hit another table or significant content block
+    // A previous table, section, article, or div breaks the heading association.
     if (
       isTableElement(node) ||
       (node.type === 'element' && ['section', 'article', 'div'].includes((node as Element).tagName))
@@ -107,7 +89,7 @@ export default function addTableAccessibilityLabels() {
         return
       }
 
-      // Skip tables that already have accessibility attributes or captions
+      // Preserve existing accessible names from ARIA attributes or captions.
       if (hasExistingAccessibilityAttributes(node) || hasExistingCaption(node)) {
         return
       }

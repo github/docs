@@ -102,5 +102,5 @@ These settings help administrators manage {% data variables.product.prodname_cop
 
 ## Next steps
 
-* Start using {% data variables.product.prodname_copilot_short %}. See [AUTOTITLE](/copilot/how-tos/set-up).
+* Start using {% data variables.product.prodname_copilot_short %}. See [AUTOTITLE](/copilot/get-started/where-to-use-github-copilot).
 * View the {% data variables.product.prodname_copilot_short %} features available to you by navigating to your {% data variables.product.prodname_copilot_short %} settings at [https://github.com/settings/copilot/features](https://github.com/settings/copilot/features?ref_product=copilot&ref_type=engagement&ref_style=text).

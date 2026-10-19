@@ -3,9 +3,9 @@ title: Security overview
 shortTitle: Security overview
 intro: You can gain insights into the overall security landscape of your organization or enterprise and identify repositories that require intervention using security overview.
 product: |
-  {% data reusables.gated-features.security-overview-general %}{% ifversion secret-risk-assessment %}
+  {% data reusables.gated-features.security-overview-general %}
 
-  {% data variables.secret-scanning.secret-risk-assessment-cta-product %}{% endif %}
+  {% data variables.secret-scanning.secret-risk-assessment-cta-product %}
 redirect_from:
   - /code-security/security-overview/exploring-security-alerts
   - /code-security/security-overview/about-the-security-overview
@@ -72,11 +72,11 @@ Security overview has multiple views that provide different ways to explore enab
 
 * **Overview:** visualize trends in **Detection**, **Remediation**, and **Prevention** of security alerts. For information about accessing and using the dashboard, see [AUTOTITLE](/code-security/how-tos/view-and-interpret-data/analyze-organization-data/viewing-security-insights). For detailed explanations of metrics and calculations, see [AUTOTITLE](/code-security/reference/security-at-scale/overview-dashboard-metrics).
 * **Risk:** explore the risk from security alerts of all types or focus on a single alert type and identify your risk from specific vulnerable dependencies, code weaknesses, or leaked secrets, see [AUTOTITLE](/code-security/how-tos/view-and-interpret-data/analyze-organization-data/assessing-code-security-risk).
-* **Coverage:** assess the adoption of security features across repositories in the organization, see [AUTOTITLE](/code-security/how-tos/view-and-interpret-data/analyze-organization-data/assessing-adoption-code-security).{% ifversion secret-risk-assessment %}
-* **Assessments:** regardless of the enablement status of {% data variables.product.prodname_AS %} features, organizations on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %} can run a free report to scan the code in the organization for leaked secrets, see [AUTOTITLE](/code-security/concepts/secret-security/secret-security-with-github).{% endif %}{% ifversion security-campaigns %}
+* **Coverage:** assess the adoption of security features across repositories in the organization, see [AUTOTITLE](/code-security/how-tos/view-and-interpret-data/analyze-organization-data/assessing-adoption-code-security).
+* **Assessments:** regardless of the enablement status of {% data variables.product.prodname_AS %} features, organizations on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %} can run a free report to scan the code in the organization for leaked secrets, see [AUTOTITLE](/code-security/concepts/secret-security/secret-security-with-github).{% ifversion security-campaigns %}
 * **Campaigns:** coordinate and measure targeted remediation efforts, grouping related security tasks across repositories, assigning owners, and tracking progress toward defined risk‑reduction goals.{% endif %}
 * **Enablement:** see how quickly different teams are adopting security features.
-* **{% data variables.product.prodname_codeql %} pull requests:** assess the impact of running {% data variables.product.prodname_codeql %} on pull requests and how development teams are resolving {% data variables.product.prodname_code_scanning %} alerts, see [AUTOTITLE](/code-security/how-tos/view-and-interpret-data/analyze-organization-data/viewing-metrics-for-pull-request-alerts).{% ifversion dependabot-metrics %}
+* **{% ifversion ai-powered-security-detections %}Code scanning on pull requests{% else %}{% data variables.product.prodname_codeql %} pull requests{% endif %}:** assess the impact of running {% data variables.product.prodname_codeql %}{% ifversion ai-powered-security-detections %} and AI Scan{% endif %} on pull requests, and how development teams resolve {% ifversion ai-powered-security-detections %}alerts and findings{% else %}{% data variables.product.prodname_code_scanning %} alerts{% endif %}, see [AUTOTITLE](/code-security/how-tos/view-and-interpret-data/analyze-organization-data/viewing-metrics-for-pull-request-alerts).{% ifversion dependabot-metrics %}
 * **{% data variables.product.prodname_dependabot %}**: prioritize and track critical vulnerabilities by identifying, remediating, and measuring security improvements across repositories.{% endif %}
 * **{% data variables.product.prodname_secret_scanning_caps %}:** find out which types of secret are blocked by push protection and which teams are bypassing push protection, see [AUTOTITLE](/code-security/how-tos/view-and-interpret-data/analyze-organization-data/viewing-metrics-for-secret-scanning-push-protection) and [AUTOTITLE](/code-security/how-tos/secure-your-secrets/manage-bypass-requests/review-bypass-requests).
 

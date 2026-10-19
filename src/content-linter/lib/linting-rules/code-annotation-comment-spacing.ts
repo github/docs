@@ -42,13 +42,12 @@ export const codeAnnotationCommentSpacing = {
         }
 
         if (commentMatch && restOfLine !== null && commentChar !== null) {
-          // Skip shebang lines (#!/...)
+          // Treat shebang lines as executable directives, not code comments.
           if (trimmedLine.startsWith('#!')) {
             continue
           }
 
           if (restOfLine === '' || restOfLine.startsWith(' ')) {
-            // If it starts with a space, make sure it's exactly one space
             if (restOfLine.startsWith(' ') && restOfLine.length > 1 && restOfLine[1] === ' ') {
               const lineNumber: number = token.lineNumber + index + 1
               const fixedLine: string = line.replace(

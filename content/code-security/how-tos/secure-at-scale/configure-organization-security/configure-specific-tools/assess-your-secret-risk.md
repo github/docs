@@ -5,7 +5,9 @@ intro: Determine your organization's exposure to leaked secrets by generating a 
 product: '{% data reusables.gated-features.secret-risk-assessment-report %} <br><a href="https://github.com/get_started?with=risk-assessment&ref_product=code-scanning&ref_type=engagement&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Get started with security risk assessments</span> {% octicon "link-external" height:16 %}</a>'
 permissions: '{% data reusables.permissions.secret-risk-assessment-report-generation %}'
 versions:
-  feature: secret-risk-assessment
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 redirect_from:
   - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/assess-your-secret-risk
   - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets

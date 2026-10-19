@@ -48,7 +48,6 @@ function main() {
   ghRules.sort((a, b) => a.ruleId.localeCompare(b.ruleId))
   ghdRules.sort((a, b) => a.ruleId.localeCompare(b.ruleId))
 
-  // Add rules in order: MD rules, then GH rules, then GHD rules, then search-replace rules
   for (const { row } of mdRules) {
     markdown.push(row)
   }

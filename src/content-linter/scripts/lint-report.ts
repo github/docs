@@ -7,7 +7,7 @@ import { getEnvInputs } from '@/workflows/get-env-inputs'
 import { createReportIssue, linkReports } from '@/workflows/issue-report'
 import { getAllRuleNames } from '@/content-linter/lib/helpers/rule-utils'
 
-// GitHub issue body size limit is ~65k characters, so we'll use 60k as a safe limit
+// GitHub issue bodies max out near 65k characters, so reports stop at 60k.
 const MAX_ISSUE_BODY_SIZE = 60000
 
 // If the number of warnings exceeds this number, print a warning so we can give them attention
@@ -33,7 +33,6 @@ function shouldIncludeInReport(flaw: LintFlaw): boolean {
     return true
   }
 
-  // Check if any rule name is in the include list that overrides severity
   const hasIncludedRule = allRuleNames.some((ruleName: string) =>
     reportingConfig.includeRules.includes(ruleName),
   )
@@ -44,19 +43,8 @@ function shouldIncludeInReport(flaw: LintFlaw): boolean {
   return false
 }
 
-// [start-readme]
-//
-// This script runs once a week via a scheduled GitHub Action to lint
-// the entire content and data directories based on our
-// markdownlint.js rules.
-//
-// If errors or warnings are found, it will open up a new issue in the
-// docs-content repo with the label "broken content markdown report".
-//
-// The Content FR will go through the issue and update the content and
-// data files accordingly.
-//
-// [end-readme]
+// The weekly report turns content and data lint results into a docs-content issue for
+// Content FR.
 
 program
   .description(
@@ -77,15 +65,13 @@ async function main() {
   const { REPORT_REPOSITORY, REPORT_AUTHOR, REPORT_LABEL } = process.env
 
   const octokit = github()
-  // `GITHUB_TOKEN` is optional. If you need the token to post a comment
-  // or open an issue report, you might get cryptic error messages from Octokit.
+  // Validate GITHUB_TOKEN early because Octokit auth errors are cryptic.
   getEnvInputs(['GITHUB_TOKEN'])
 
   core.info(`Creating issue for configured lint rules...`)
 
   const parsedResults = JSON.parse(lintResults)
 
-  // Keep track of warnings so we can print an alert when they exceed a manageable number
   let totalWarnings = 0
 
   const filteredResults: Record<string, LintFlaw[]> = {}

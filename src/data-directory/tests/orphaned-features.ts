@@ -49,7 +49,6 @@ describe('orphaned features detection', () => {
   })
 
   test('helper functions handle nested directories', () => {
-    // Create a temporary nested structure to test
     const tempDir = path.join(__dirname, 'temp-nested-test')
     const nestedVariablesDir = path.join(tempDir, 'variables', 'nested')
     const nestedReusablesDir = path.join(tempDir, 'reusables', 'nested')
@@ -78,7 +77,6 @@ describe('orphaned features detection', () => {
   })
 
   test('helper functions ignore non-target files', () => {
-    // Create a temporary directory with mixed file types
     const tempDir = path.join(__dirname, 'temp-mixed-files')
     fs.mkdirSync(tempDir, { recursive: true })
 
@@ -90,12 +88,10 @@ describe('orphaned features detection', () => {
     fs.writeFileSync(path.join(tempDir, 'README.md'), '# README')
 
     try {
-      // getVariableFiles should only find .yml files (excluding README.yml)
       const variableFiles = getVariableFiles(tempDir)
       expect(variableFiles).toHaveLength(1)
       expect(variableFiles[0]).toMatch(/test\.yml$/)
 
-      // getReusableFiles should only find .md files (excluding README.md)
       const reusableFiles = getReusableFiles(tempDir)
       expect(reusableFiles).toHaveLength(1)
       expect(reusableFiles[0]).toMatch(/test\.md$/)
@@ -105,13 +101,9 @@ describe('orphaned features detection', () => {
   })
 
   test('verify fix addresses the original issue scenario', () => {
-    // This test simulates the original issue where features were used only in variables
-    // but not detected by the orphaned features script
-
     const variablesDir = path.join(fixturesDir, 'data', 'variables')
     const featuresDir = path.join(fixturesDir, 'data', 'features')
 
-    // Verify our test setup has the scenario described in the issue
     expect(fs.existsSync(path.join(featuresDir, 'used-in-variables.yml'))).toBe(true)
     expect(fs.existsSync(path.join(featuresDir, 'truly-orphaned.yml'))).toBe(true)
 
@@ -121,8 +113,6 @@ describe('orphaned features detection', () => {
     const variableFiles = getVariableFiles(variablesDir)
     expect(variableFiles.length).toBeGreaterThan(0)
 
-    // This proves that the fix would catch features used in variables files
-    // because the orphaned features script now scans these files
     const foundFeatureUsage = variableFiles.some((filePath) => {
       const content = fs.readFileSync(filePath, 'utf-8')
       return content.includes('used-in-variables')
@@ -132,8 +122,6 @@ describe('orphaned features detection', () => {
   })
 
   test('functions correctly identify different file types in same directory', () => {
-    // Create a directory with both .yml and .md files to ensure each function
-    // only picks up its target file types
     const tempDir = path.join(__dirname, 'temp-mixed-target-files')
     fs.mkdirSync(tempDir, { recursive: true })
 
@@ -148,7 +136,6 @@ describe('orphaned features detection', () => {
     fs.writeFileSync(path.join(tempDir, 'other.txt'), 'other content')
 
     try {
-      // Each function should only find its target file type
       const variableFiles = getVariableFiles(tempDir)
       const reusableFiles = getReusableFiles(tempDir)
 

@@ -24,7 +24,7 @@ For more information, see [AUTOTITLE](/copilot/concepts/agents/about-plugins).
 
 ## Finding plugins
 
-Plugins are collected together in marketplaces. A marketplace is a registry of plugins that you can browse and install from. You can add a marketplace to your CLI configuration, which allows you to use the CLI to browse and install plugins from that marketplace—see [Adding plugin marketplaces](#adding-plugin-marketplaces). {% data variables.product.prodname_copilot_short %} comes with two marketplaces already registered by default: `copilot-plugins` and `awesome-copilot`.
+Plugins are collected together in marketplaces. A marketplace is a registry of plugins that you can browse and install from. You can add a marketplace to your CLI configuration, which allows you to use the CLI to browse and install plugins from that marketplace—see [Adding plugin marketplaces](#adding-plugin-marketplaces). {% data variables.product.prodname_copilot_short %} comes with one marketplace already registered by default: `awesome-copilot`.
 
 To use the CLI to browse the plugins in one of your registered marketplaces:
 
@@ -79,6 +79,8 @@ Alternatively, in an interactive session, enter:
 copilot plugin list                    # View installed plugins
 copilot plugin update PLUGIN-NAME      # Update plugin to latest version
 copilot plugin uninstall PLUGIN-NAME   # Remove plugin completely
+copilot plugin disable PLUGIN-NAME     # Disable a plugin without uninstalling it
+copilot plugin enable PLUGIN-NAME      # Re-enable a previously disabled plugin
 ```
 
 ## Adding plugin marketplaces

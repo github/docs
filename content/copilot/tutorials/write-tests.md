@@ -23,7 +23,7 @@ category:
 Before getting started you must have the following:
 * A [{% data variables.product.prodname_copilot %} subscription plan](/copilot/get-started/plans).
 * {% data variables.product.prodname_vs %}, {% data variables.product.prodname_vscode %}, or any JetBrains IDE.
-* The [{% data variables.product.prodname_copilot %} extension](/copilot/how-tos/set-up/install-copilot-extension) installed in your IDE.
+* The [{% data variables.product.prodname_copilot %} extension](/copilot/how-tos/copilot-in-your-ide/set-up-copilot/install-copilot-extension) installed in your IDE.
 
 ## Writing unit tests with {% data variables.copilot.copilot_chat_short %}
 
@@ -337,4 +337,4 @@ Or:
 
 > Write a unit test for the refund logic in `refund.js`, following the structure in the existing test suite.
 
-For more information about using {% data variables.copilot.copilot_spaces %}, see [AUTOTITLE](/copilot/concepts/context/spaces).
+For more information about using {% data variables.copilot.copilot_spaces %}, see [AUTOTITLE](/copilot/concepts/prompting-and-context/spaces).

@@ -1,5 +1,5 @@
 import type { Context, Page } from '@/types'
-import type { PageTransformer, TemplateData, Section } from './types'
+import type { PageTransformer, TemplateData, Section, LinkData } from './types'
 import { renderContent } from '@/content-render/index'
 import { loadTemplate } from '@/article-api/lib/load-template'
 import { resolvePath } from '@/article-api/lib/resolve-path'
@@ -9,11 +9,7 @@ interface CategoryPage extends Page {
   children?: string[]
 }
 
-/**
- * Transformer for pages that have children but no specific layout: category,
- * subcategory, product and homepage. Lists each child with its title and intro.
- * Corresponds to the TocLanding component in the web UI.
- */
+// This mirrors the TocLanding web UI for child-listing pages without a specific layout.
 export class TocTransformer implements PageTransformer {
   templateName = 'landing-page.template.md'
 
@@ -55,7 +51,7 @@ export class TocTransformer implements PageTransformer {
         }),
       )
 
-      const validLinks = links.filter((l) => l.href)
+      const validLinks = links.filter((l): l is LinkData => l !== null)
       if (validLinks.length > 0) {
         sections.push({
           title: 'Links',

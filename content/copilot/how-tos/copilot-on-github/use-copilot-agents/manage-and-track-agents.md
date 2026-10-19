@@ -115,7 +115,7 @@ When you start a session from {% data variables.copilot.copilot_chat_short %}, i
 
 When a session is complete, or when you are viewing a pull request {% data variables.product.prodname_copilot_short %} created, you can ask what changed, what was validated, and why, and {% data variables.product.prodname_copilot_short %} will answer by drawing on the session logs. You can also start another session directly from {% data variables.copilot.copilot_chat_short %}.
 
-For more information, see [AUTOTITLE](/copilot/concepts/chat) and [AUTOTITLE](/copilot/tutorials/explore-pull-requests).
+For more information, see [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-on-github) and [AUTOTITLE](/copilot/tutorials/explore-pull-requests).
 
 ## Further reading
 

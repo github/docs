@@ -10,7 +10,7 @@ category:
   - Author and optimize with Copilot
 ---
 
-{% data variables.copilot.copilot_code-review_short %} is also available for organization members without a {% data variables.product.prodname_copilot_short %} license, when enabled by an enterprise administrator or organization owner. See [{% data variables.copilot.copilot_code-review_short %} for organization members without a {% data variables.product.prodname_copilot_short %} license](/copilot/concepts/agents/code-review#copilot-code-review-without-a-copilot-license).
+{% data variables.copilot.copilot_code-review_short %} is also available for organization members without a {% data variables.product.prodname_copilot_short %} license, when enabled by an enterprise administrator or organization owner. See [{% data variables.copilot.copilot_code-review_short %} for organization members without a {% data variables.product.prodname_copilot_short %} license](/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/code-review#copilot-code-review-without-a-copilot-license).
 
 ## Request a review from {% data variables.product.prodname_copilot_short %}
 
@@ -85,5 +85,5 @@ To make these available for {% data variables.copilot.copilot_code-review_short 
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/concepts/agents/code-review)
+* [AUTOTITLE](/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/code-review)
 * [AUTOTITLE](/copilot/how-tos/copilot-on-github/use-copilot-agents/review-copilot-output)

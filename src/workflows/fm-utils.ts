@@ -1,7 +1,6 @@
 import { existsSync, readFileSync } from 'fs'
 import matter from '@gr2m/gray-matter'
 
-// The file paths whose frontmatter `contentType` matches `contentType`.
 export function checkContentType(filePaths: string[], contentType: string) {
   const unallowedChangedFiles = []
   for (const filePath of filePaths) {

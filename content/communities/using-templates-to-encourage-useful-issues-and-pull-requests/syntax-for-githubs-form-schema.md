@@ -132,6 +132,7 @@ You can use a `textarea` element to add a multi-line text field to your form. Co
 | Key | Description | Required | Type | Default | Valid values |
 | --- | ----------- | -------- | ---- | ------- | ------- |
 {% data reusables.form-schema.required-key %}
+{% data reusables.form-schema.min-length-key %}
 
 #### Example of `textarea`
 
@@ -150,6 +151,7 @@ body:
     render: bash
   validations:
     required: true
+    min_length: 100
 ```
 
 ### `input`
@@ -174,6 +176,7 @@ You can use an `input` element to add a single-line text field to your form.
 | Key | Description | Required | Type | Default | Valid values |
 | --- | ----------- | -------- | ---- | ------- | ------- |
 {% data reusables.form-schema.required-key %}
+{% data reusables.form-schema.min-length-key %}
 
 #### Example of `input`
 
@@ -187,6 +190,7 @@ body:
     placeholder: "Example: Whenever I visit the personal account page (1-2 times a week)"
   validations:
     required: true
+    min_length: 20
 ```
 
 ### `dropdown`

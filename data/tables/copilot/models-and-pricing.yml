@@ -12,25 +12,15 @@
 # - input: Input token price per 1M tokens.
 # - cached_input: Cached input token price per 1M tokens.
 # - output: Output token price per 1M tokens.
-# - threshold: Input token threshold for pricing tier (OpenAI and Google only).
-# - tier: Pricing tier label (OpenAI and Google only).
+# - threshold: Input token threshold for pricing tier (OpenAI, Google, and xAI; Anthropic
+#   only for models with more than one pricing tier).
+# - tier: Pricing tier label (same scope as threshold).
 # - cache_write: Cache write price per 1M tokens. Applies to Anthropic models and
 #   to GPT-5.6 and later OpenAI model families. Use "Not applicable" for models
 #   that have no cache write cost.
 # - notes: Optional notes about the model.
 
 # OpenAI
-- model: 'GPT-5 mini'
-  provider: openai
-  release_status: GA
-  category: Lightweight
-  threshold: Not applicable
-  tier: Default
-  input: $0.25
-  cached_input: $0.025
-  output: $2.00
-  cache_write: Not applicable
-
 - model: GPT-5.3-Codex
   provider: openai
   release_status: GA
@@ -42,39 +32,6 @@
   output: $14.00
   cache_write: Not applicable
 
-- model: 'GPT-5.4'
-  provider: openai
-  release_status: GA
-  category: Versatile
-  threshold: '≤ 272K'
-  tier: Default
-  input: $2.50
-  cached_input: $0.25
-  output: $15.00
-  cache_write: Not applicable
-
-- model: GPT-5.4
-  provider: openai
-  release_status: GA
-  category: Versatile
-  threshold: '> 272K'
-  tier: Long context
-  input: $5.00
-  cached_input: $0.50
-  output: $22.50
-  cache_write: Not applicable
-
-- model: GPT-5.4 mini
-  provider: openai
-  release_status: GA
-  category: Lightweight
-  threshold: Not applicable
-  tier: Default
-  input: $0.75
-  cached_input: $0.075
-  output: $4.50
-  cache_write: Not applicable
-
 - model: GPT-5.4 nano
   provider: openai
   release_status: GA
@@ -84,28 +41,6 @@
   input: $0.20
   cached_input: $0.02
   output: $1.25
-  cache_write: Not applicable
-
-- model: GPT-5.5
-  provider: openai
-  release_status: GA
-  category: Powerful
-  threshold: '≤ 272K'
-  tier: Default
-  input: $5.00
-  cached_input: $0.50
-  output: $30.00
-  cache_write: Not applicable
-
-- model: GPT-5.5
-  provider: openai
-  release_status: GA
-  category: Powerful
-  threshold: '> 272K'
-  tier: 'Long context'
-  input: $10.00
-  cached_input: $1.00
-  output: $45.00
   cache_write: Not applicable
 
 - model: GPT-5.6 Luna
@@ -240,6 +175,28 @@
   output: $15.00
   cache_write: $5.00
 
+- model: GPT-6.1 Sol
+  provider: openai
+  release_status: GA
+  category: Powerful
+  threshold: '≤ 272K'
+  tier: Default
+  input: $2.00
+  cached_input: $0.10
+  output: $10.00
+  cache_write: $2.50
+
+- model: GPT-6.1 Sol
+  provider: openai
+  release_status: GA
+  category: Powerful
+  threshold: '> 272K'
+  tier: 'Long context'
+  input: $4.00
+  cached_input: $0.20
+  output: $15.00
+  cache_write: $5.00
+
 # Anthropic
 - model: Claude Haiku 4.5
   provider: anthropic
@@ -249,6 +206,28 @@
   cached_input: $0.10
   output: $5.00
   cache_write: $1.25
+
+- model: Claude Haiku 5.5
+  provider: anthropic
+  release_status: GA
+  category: Lightweight
+  threshold: '≤ 100K'
+  tier: Default
+  input: $0.10
+  cached_input: $0.01
+  output: $0.50
+  cache_write: $0.125
+
+- model: Claude Haiku 5.5
+  provider: anthropic
+  release_status: GA
+  category: Lightweight
+  threshold: '> 100K'
+  tier: Long context
+  input: $0.50
+  cached_input: $0.05
+  output: $2.50
+  cache_write: $0.625
 
 - model: Claude Sonnet 4
   provider: anthropic
@@ -267,15 +246,6 @@
   cached_input: $0.30
   output: $15.00
   cache_write: $3.75
-
-- model: Claude Opus 4.7
-  provider: anthropic
-  release_status: GA
-  category: Powerful
-  input: $5.00
-  cached_input: $0.50
-  output: $25.00
-  cache_write: $6.25
 
 - model: Claude Opus 4.8
   provider: anthropic
@@ -313,6 +283,15 @@
   output: $10.00
   cache_write: $2.50
 
+- model: Claude Sonnet 5.5
+  provider: anthropic
+  release_status: GA
+  category: Versatile
+  input: $2.00
+  cached_input: $0.10
+  output: $10.00
+  cache_write: $2.50
+
 - model: Claude Opus 4.8 (fast mode) (preview)
   provider: anthropic
   release_status: GA
@@ -341,36 +320,6 @@
   cache_write: $12.50
 
 # Google
-- model: 'Gemini 3.5 Flash'
-  provider: google
-  release_status: GA
-  category: Lightweight
-  threshold: 'Not applicable'
-  tier: 'Default'
-  input: $1.50
-  cached_input: $0.15
-  output: $9.00
-
-- model: 'Gemini 3.6 Flash[^gemini-flash-promo]'
-  provider: google
-  release_status: GA
-  category: Versatile
-  threshold: 'Not applicable'
-  tier: 'Default'
-  input: $0.75
-  cached_input: $0.075
-  output: $3.75
-
-- model: 'Gemini 3.7 Flash[^gemini-flash-promo]'
-  provider: google
-  release_status: GA
-  category: Versatile
-  threshold: 'Not applicable'
-  tier: 'Default'
-  input: $0.75
-  cached_input: $0.075
-  output: $3.75
-
 - model: 'Gemini 3.8 Flash[^gemini-flash-promo]'
   provider: google
   release_status: GA
@@ -380,6 +329,19 @@
   input: $0.75
   cached_input: $0.075
   output: $3.75
+
+# Promotional pricing expires 2026-12-01. Google hasn't shared post-promo pricing yet.
+# When it does, update input, cached_input, and output below, then remove the
+# [^gemini-4-argon-promo] footnote here and in models-and-pricing.md.
+- model: 'Gemini 4 Argon[^gemini-4-argon-promo]'
+  provider: google
+  release_status: GA
+  category: Powerful
+  threshold: 'Not applicable'
+  tier: 'Default'
+  input: $2.00
+  cached_input: $0.10
+  output: $10.00
 
 # xAI
 - model: 'Grok 4.5'
@@ -452,14 +414,6 @@
   output: $1.20
 
 # Open-weight models
-- model: 'Kimi K2.7 Code'
-  provider: moonshot_ai
-  release_status: GA
-  category: Versatile
-  input: $0.95
-  cached_input: $0.19
-  output: $4.00
-
 - model: 'Kimi K3'
   provider: moonshot_ai
   release_status: GA

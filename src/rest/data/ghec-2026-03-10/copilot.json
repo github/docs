@@ -3060,6 +3060,363 @@
       }
     }
   ],
+  "copilot-model-policy-management": [
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/copilot/model-policies",
+      "title": "Get model policies for an organization",
+      "category": "copilot",
+      "subcategory": "copilot-model-policy-management",
+      "parameters": [
+        {
+          "name": "org",
+          "description": "<p>The organization name. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Use this endpoint to retrieve the effective Copilot model policy for every\nmodel available to an organization, whether explicitly configured or\ndetermined by default availability.</p>\n<p>For a model without an effective explicit policy that is eligible for\ndefault availability, the enterprise default is used when it is configured.\nOtherwise, the organization's default is used. A model that is not eligible\nfor default availability and has no effective explicit policy is disabled.\nFor more information, see\n<a href=\"https://docs.github.com/enterprise-cloud@latest/copilot/concepts/enterprise/default-availability#default-availability-of-models\">About default availability of Copilot models</a>.</p>\n<p>The organization must either be independent or belong to an enterprise that is not\nusing enterprise teams for model policy.</p>\n<p>Organization owners can use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> or <code>repo</code> scope to use this endpoint.\nOrganization SAML authorization and OAuth app access restrictions also apply.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "org": "ORG"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>OK</p>",
+            "example": {
+              "default_availability": {
+                "policy_state": "disabled",
+                "editable": true
+              },
+              "models": [
+                {
+                  "model_name": "gpt-5.6-sol",
+                  "display_name": "OpenAI GPT-5.6 Sol",
+                  "policy_state": "enabled"
+                },
+                {
+                  "model_name": "gpt-5",
+                  "display_name": "GPT-5",
+                  "policy_state": "disabled"
+                }
+              ]
+            },
+            "schema": {
+              "type": "object",
+              "required": [
+                "models",
+                "default_availability"
+              ],
+              "properties": {
+                "default_availability": {
+                  "type": "object",
+                  "description": "The effective default availability for models reported as `delegate_to_default`.",
+                  "required": [
+                    "policy_state",
+                    "editable"
+                  ],
+                  "properties": {
+                    "policy_state": {
+                      "type": "string",
+                      "description": "The effective default availability. The enterprise default is used when it\nis configured. Otherwise, the organization's default is used.",
+                      "enum": [
+                        "enabled",
+                        "disabled"
+                      ]
+                    },
+                    "editable": {
+                      "type": "boolean",
+                      "description": "Whether the organization can update its default availability."
+                    }
+                  }
+                },
+                "models": {
+                  "type": "array",
+                  "description": "The effective policies for all models available to the organization.",
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "model_name",
+                      "display_name",
+                      "policy_state"
+                    ],
+                    "properties": {
+                      "model_name": {
+                        "type": "string",
+                        "description": "The public identifier of the model."
+                      },
+                      "display_name": {
+                        "type": "string",
+                        "description": "The human-readable name of the model."
+                      },
+                      "policy_state": {
+                        "type": "string",
+                        "description": "The policy state after applying inheritance. `enabled` and `disabled` are\nexplicit policies configured for the organization or inherited from its\nenterprise. `delegate_to_default` means the model has no explicit policy and\nfollows `default_availability`. `unconfigured` means the model has no explicit\npolicy and is not eligible for default availability, so it is disabled.",
+                        "enum": [
+                          "enabled",
+                          "disabled",
+                          "delegate_to_default",
+                          "unconfigured"
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "401",
+          "description": "<p>Requires authentication</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Administration\" organization permissions": "write"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "patch",
+      "requestPath": "/orgs/{org}/copilot/model-policies",
+      "title": "Update model policies for an organization",
+      "category": "copilot",
+      "subcategory": "copilot-model-policy-management",
+      "parameters": [
+        {
+          "name": "org",
+          "description": "<p>The organization name. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "object",
+          "name": "default_availability",
+          "description": "<p>The organization's default availability for eligible models without an explicit\npolicy. It cannot be updated when it is inherited from the enterprise.</p>",
+          "childParamsGroups": [
+            {
+              "type": "string",
+              "name": "policy_state",
+              "description": "",
+              "isRequired": true,
+              "enum": [
+                "enabled",
+                "disabled"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "array of objects",
+          "name": "models",
+          "description": "<p>The model policies to update. Each <code>model_name</code> must be unique.</p>",
+          "childParamsGroups": [
+            {
+              "type": "string",
+              "name": "model_name",
+              "description": "<p>The public identifier of a model returned by the get endpoint.</p>",
+              "isRequired": true
+            },
+            {
+              "type": "string",
+              "name": "policy_state",
+              "description": "<p>The explicit policy state to set for the organization.</p>",
+              "isRequired": true,
+              "enum": [
+                "enabled",
+                "disabled"
+              ]
+            }
+          ]
+        }
+      ],
+      "descriptionHTML": "<p>Use this endpoint to set explicit Copilot model policies and default\navailability for an organization. All policies in the request are updated atomically,\nmeaning if any change in the request cannot be applied, none of the changes are saved.</p>\n<p>Use the <code>model_name</code> values returned by the \"Get model policies for an organization\"\nendpoint. Models with an inherited enterprise policy are locked and cannot be updated.\nDefault availability cannot be updated when its <code>editable</code> value is <code>false</code>.</p>\n<p>The response contains the effective policies for all models available to the\norganization, not only the policies updated by the request.</p>\n<p>The organization must either be independent or belong to an enterprise that is not\nusing enterprise teams for model policy.</p>\n<p>Organization owners can use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> or <code>repo</code> scope to use this endpoint.\nOrganization SAML authorization and OAuth app access restrictions apply.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "default_availability": {
+                "policy_state": "disabled"
+              },
+              "models": [
+                {
+                  "model_name": "gpt-5.6-sol",
+                  "policy_state": "enabled"
+                },
+                {
+                  "model_name": "gpt-5",
+                  "policy_state": "disabled"
+                }
+              ]
+            },
+            "parameters": {
+              "org": "ORG"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>OK</p>",
+            "example": {
+              "default_availability": {
+                "policy_state": "disabled",
+                "editable": true
+              },
+              "models": [
+                {
+                  "model_name": "gpt-5.6-sol",
+                  "display_name": "OpenAI GPT-5.6 Sol",
+                  "policy_state": "enabled"
+                },
+                {
+                  "model_name": "gpt-5",
+                  "display_name": "GPT-5",
+                  "policy_state": "disabled"
+                }
+              ]
+            },
+            "schema": {
+              "type": "object",
+              "required": [
+                "models",
+                "default_availability"
+              ],
+              "properties": {
+                "default_availability": {
+                  "type": "object",
+                  "description": "The effective default availability for models reported as `delegate_to_default`.",
+                  "required": [
+                    "policy_state",
+                    "editable"
+                  ],
+                  "properties": {
+                    "policy_state": {
+                      "type": "string",
+                      "description": "The effective default availability. The enterprise default is used when it\nis configured. Otherwise, the organization's default is used.",
+                      "enum": [
+                        "enabled",
+                        "disabled"
+                      ]
+                    },
+                    "editable": {
+                      "type": "boolean",
+                      "description": "Whether the organization can update its default availability."
+                    }
+                  }
+                },
+                "models": {
+                  "type": "array",
+                  "description": "The effective policies for all models available to the organization.",
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "model_name",
+                      "display_name",
+                      "policy_state"
+                    ],
+                    "properties": {
+                      "model_name": {
+                        "type": "string",
+                        "description": "The public identifier of the model."
+                      },
+                      "display_name": {
+                        "type": "string",
+                        "description": "The human-readable name of the model."
+                      },
+                      "policy_state": {
+                        "type": "string",
+                        "description": "The policy state after applying inheritance. `enabled` and `disabled` are\nexplicit policies configured for the organization or inherited from its\nenterprise. `delegate_to_default` means the model has no explicit policy and\nfollows `default_availability`. `unconfigured` means the model has no explicit\npolicy and is not eligible for default availability, so it is disabled.",
+                        "enum": [
+                          "enabled",
+                          "disabled",
+                          "delegate_to_default",
+                          "unconfigured"
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "401",
+          "description": "<p>Requires authentication</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Administration\" organization permissions": "write"
+          }
+        ]
+      }
+    }
+  ],
   "copilot-usage-metrics": [
     {
       "serverUrl": "https://api.github.com",
@@ -3766,7 +4123,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Use this endpoint to retrieve Copilot agent session activity records for a specific enterprise. The endpoint provides comprehensive observability into Copilot session data across your enterprise.</p>\n<p>The response includes detailed usage records aggregated and forwarded from all Copilot clients where your end users operate under enterprise-paid Copilot licenses. This includes cloud agents operating on github.com and data resident deployments on ghe.com, Copilot CLI, VS Code, Visual Studio, and partner IDEs such as those provided by JetBrains and Eclipse.</p>\n<p>Only EMU (GHEC and GHEC with Data Residency) enterprise owners can access this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:enterprise</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Use this endpoint to retrieve Copilot agent session activity records for a specific enterprise. The endpoint provides comprehensive observability into Copilot session data across your enterprise.</p>\n<p>The response includes detailed usage records aggregated and forwarded from all Copilot clients where your end users operate under enterprise-paid Copilot licenses. This includes cloud agents operating on github.com and data resident deployments on ghe.com, Copilot CLI, VS Code, Visual Studio, and partner IDEs such as those provided by JetBrains and Eclipse.</p>\n<p>Only EMU (GHEC and GHEC with Data Residency) enterprise owners can access this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:enterprise</code> scope to use this endpoint.</p>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThe \"Enterprise administration\" fine-grained permission is not available to callers. To use this API, you must use an OAuth app token or a personal access token (classic), or another supported fine-grained permission.</p>\n</div>",
       "codeExamples": [
         {
           "request": {
@@ -5346,10 +5703,17 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": false,
-        "serverToServer": false,
+        "userToServerRest": true,
+        "serverToServer": true,
         "fineGrainedPat": false,
-        "permissions": []
+        "permissions": [
+          {
+            "\"Copilot settings\" enterprise permissions": "write"
+          },
+          {
+            "\"Enterprise administration\" enterprise permissions": "write"
+          }
+        ]
       }
     },
     {
@@ -5483,10 +5847,17 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": false,
-        "serverToServer": false,
+        "userToServerRest": true,
+        "serverToServer": true,
         "fineGrainedPat": false,
-        "permissions": []
+        "permissions": [
+          {
+            "\"Copilot settings\" enterprise permissions": "write"
+          },
+          {
+            "\"Enterprise administration\" enterprise permissions": "write"
+          }
+        ]
       }
     },
     {

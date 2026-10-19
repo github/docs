@@ -75,7 +75,6 @@ describe('Webhooks transformer', () => {
     const res = await get(makeURL('/en/webhooks/webhook-events-and-payloads'))
     expect(res.statusCode).toBe(200)
 
-    // AUTOTITLE should be replaced with actual titles
     expect(res.body).not.toContain('[AUTOTITLE]')
   })
 
@@ -92,7 +91,6 @@ describe('Webhooks transformer', () => {
     const res = await get(makeURL('/en/webhooks/webhook-events-and-payloads'))
     expect(res.statusCode).toBe(200)
 
-    // Using actual descriptions from real webhook data
     expect(res.body).toContain('A check run was completed')
   })
 
@@ -106,16 +104,16 @@ describe('Webhooks transformer', () => {
     expect(res.body).toContain('**Required.**')
   })
 
+  // Payload examples are omitted to keep article API output small.
   test('webhooks show payload examples when available', async () => {
     const res = await get(makeURL('/en/webhooks/webhook-events-and-payloads'))
     expect(res.statusCode).toBe(200)
 
-    // Payload examples are deliberately omitted from the article API output to save space.
-    // The property tables describe the payload structure instead.
     expect(res.body).not.toContain('### Webhook payload example')
     expect(res.body).not.toMatch(/```json/)
   })
 
+  // sender and repository appear in at least 60% of webhook events, so extract them.
   test('common parameters are extracted into a shared section', async () => {
     const res = await get(makeURL('/en/webhooks/webhook-events-and-payloads'))
     expect(res.statusCode).toBe(200)
@@ -123,8 +121,6 @@ describe('Webhooks transformer', () => {
     expect(res.body).toContain('## Common payload parameters')
     expect(res.body).toContain('Most webhook events include these standard parameters')
 
-    // Common params like 'sender' and 'repository' should appear in the common section
-    // (they're in 60%+ of webhook events)
     const commonSection = res.body.split('## Common payload parameters')[1]?.split('\n## ')[0] || ''
     expect(commonSection).toContain('`sender`')
     expect(commonSection).toContain('`repository`')
@@ -134,18 +130,15 @@ describe('Webhooks transformer', () => {
     const res = await get(makeURL('/en/webhooks/webhook-events-and-payloads'))
     expect(res.statusCode).toBe(200)
 
-    // Find individual webhook sections after the common section
     const sections = res.body.split('\n## ')
     const webhookSections = sections.filter(
-      (s: string) => !s.startsWith('Common payload parameters') && !s.startsWith(sections[0]), // skip content before first ##
+      (s: string) => !s.startsWith('Common payload parameters') && !s.startsWith(sections[0]),
     )
 
-    // In individual webhook parameter tables, common params should not appear
+    // Common parameters move to the shared section, so individual tables omit sender.
     for (const section of webhookSections.slice(0, 3)) {
-      // If the section has a parameter table
       if (section.includes('#### Webhook payload object parameters')) {
         const tableContent = section.split('#### Webhook payload object parameters')[1] || ''
-        // 'sender' should NOT appear in individual tables
         expect(tableContent).not.toMatch(/\|\s*`sender`\s*\|/)
       }
     }
@@ -155,8 +148,6 @@ describe('Webhooks transformer', () => {
     const res = await get(makeURL('/en/get-started/start-your-journey/hello-world'))
     expect(res.statusCode).toBe(200)
 
-    // Regular pages should not be transformed by webhooks transformer
-    // They should have their normal HTML-like structure
     expect(res.body).toContain('Hello World')
   })
 })

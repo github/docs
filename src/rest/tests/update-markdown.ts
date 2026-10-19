@@ -41,8 +41,7 @@ describe('GHES version extraction for update-markdown', () => {
   })
 
   test('demonstrates the original bug scenario', () => {
-    // The old substring match found '3.1' inside 'ghes-3.10' and wrongly
-    // treated 3.10 as deprecated.
+    // Exact extraction prevents matching 3.1 inside ghes-3.10 and deprecating 3.10.
     const filePath = 'src/rest/data/ghes-3.10-2022-11-28/schema.json'
     const extractedVersion = getGHESVersionFromFilepath(filePath)
 

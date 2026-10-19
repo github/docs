@@ -8,13 +8,11 @@ export default function earlyAccessContext(
   res: Response,
   next: NextFunction,
 ) {
-  // Use req.pagePath instead of req.path because req.path is the path
-  // normalized after "converting" that `/_next/data/...` path to the
-  // equivalent path if it had *not* been a client-side routing fetch.
+  // handleNextDataPath sets converted routes in req.pagePath; req.path keeps the /_next/data URL.
   const url = req.pagePath!.split('/').slice(2)
   if (
     !(
-      // Is it `/early-access` or `/enterprise-cloud@latest/early-access`?
+      // Match /early-access and versioned /early-access routes.
       (
         (url.length === 2 && url[1] === 'early-access') ||
         (url.length === 1 && url[0] === 'early-access')
@@ -45,7 +43,7 @@ export default function earlyAccessContext(
     .sort()
     .map((permalink) => `- [${permalink.title}](${permalink.href})`)
 
-  // Only read by the separate EA repo, in local development.
+  // Only the separate early access repo reads this, in local development.
   req.context.earlyAccessPageLinks = earlyAccessPageLinks.length
     ? earlyAccessPageLinks.join('\n')
     : '_None for this version!_'

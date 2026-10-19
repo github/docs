@@ -20,7 +20,7 @@ While {% data variables.product.prodname_copilot_short %} is working on a task, 
 
 ## Queue a prompt to be processed next
 
-You can also queue a message instead of steering with it, by pressing <kbd>Ctrl</kbd>+<kbd>Enter</kbd> (or <kbd>Ctrl</kbd>+<kbd>Q</kbd>) instead of <kbd>Enter</kbd>. A queued message waits until the current task finishes, then runs as the next turn, instead of being folded into the task that's in progress. For more information about queued prompts, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/cancel-and-roll-back).
+You can also queue a message instead of steering with it, by pressing <kbd>Ctrl</kbd>+<kbd>Enter</kbd> (or <kbd>Ctrl</kbd>+<kbd>Q</kbd>) instead of <kbd>Enter</kbd>. A queued message waits until the current task finishes, then runs as the next turn, instead of being folded into the task that's in progress. For information about canceling operations with queued prompts, see [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/roll-back-changes#canceling-an-operation).
 
 Steering lets you:
 
