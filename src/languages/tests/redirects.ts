@@ -8,9 +8,8 @@ const langs = languageKeys.filter((lang) => lang !== 'en')
 
 describe('redirects', () => {
   test.each(langs)('redirects to %s if accept-language', async (lang) => {
-    const acceptLanguage = lang === 'zh' ? 'zh-CN' : lang
     const res = await get('/get-started', {
-      headers: { 'accept-language': acceptLanguage },
+      headers: { 'accept-language': lang },
       followRedirects: false,
     })
     expect(res.statusCode).toBe(302)
@@ -19,6 +18,18 @@ describe('redirects', () => {
     expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
     expect(res.headers['set-cookie']).toBeUndefined()
   })
+
+  test.runIf(langs.includes('zh')).each(['zh-CN', 'zh-Hans,en;q=0.8', 'zh-cn,en-us;q=0.5'])(
+    'redirects to zh if accept-language is %s',
+    async (acceptLanguage) => {
+      const res = await get('/get-started', {
+        headers: { 'accept-language': acceptLanguage },
+        followRedirects: false,
+      })
+      expect(res.statusCode).toBe(302)
+      expect(res.headers.location).toBe('/zh/get-started')
+    },
+  )
 
   test.each(langs)('redirects to %s if USER_LANGUAGE_COOKIE_NAME', async (lang) => {
     const res = await get('/get-started', {

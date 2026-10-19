@@ -5,7 +5,7 @@ import { debounce } from 'lodash-es'
 import { useTranslation } from '@/languages/components/useTranslation'
 import { sendEvent } from '@/events/components/events'
 import { EventType } from '@/events/types'
-import { sanitizeSearchQuery } from '@/search/lib/sanitize-search-query'
+import { sanitizeSecretScanningSearchQuery } from '@/search/lib/sanitize-search-query'
 import { onActionMenuItemKeyDownCapture } from '@/frame/components/lib/action-menu'
 import type { SecretScanningData } from '@/types'
 import styles from './SecretScanningTable.module.scss'
@@ -78,7 +78,7 @@ export function SecretScanningTable({ data }: { data: SecretScanningData[] }) {
   useEffect(() => {
     debouncedTrackSearchRef.current = debounce((query: string) => {
       // Sanitize before analytics because users can paste real secrets into this support search.
-      trackInteraction('search', 'search', sanitizeSearchQuery(query))
+      trackInteraction('search', 'search', sanitizeSecretScanningSearchQuery(query))
     }, 500)
     return () => {
       debouncedTrackSearchRef.current?.flush()

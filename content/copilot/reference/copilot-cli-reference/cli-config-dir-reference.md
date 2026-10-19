@@ -590,7 +590,7 @@ Each line is a glob pattern matched against model IDs, or a `fallback:` directiv
 # .github/allowed_models.txt
 fallback: gpt-6-astra
 gpt-6-astra
-gpt-5.4
+gpt-6-sol
 claude-sonnet-*
 ```
 

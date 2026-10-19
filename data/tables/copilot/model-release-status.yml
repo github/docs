@@ -15,27 +15,11 @@
 # - release_status: Release status
 
 # OpenAI models
-- name: 'GPT-5 mini'
-  provider: 'OpenAI'
-  release_status: 'GA'
-
 - name: 'GPT-5.3-Codex'
   provider: 'OpenAI'
   release_status: 'GA'
 
-- name: 'GPT-5.4'
-  provider: 'OpenAI'
-  release_status: 'GA'
-
-- name: 'GPT-5.4 mini'
-  provider: 'OpenAI'
-  release_status: 'GA'
-
 - name: 'GPT-5.4 nano'
-  provider: 'OpenAI'
-  release_status: 'GA'
-
-- name: 'GPT-5.5'
   provider: 'OpenAI'
   release_status: 'GA'
 
@@ -114,10 +98,6 @@
   release_status: 'GA'
 
 # Google models
-
-- name: 'Gemini 3.7 Flash'
-  provider: 'Google'
-  release_status: 'GA'
 
 - name: 'Gemini 3.8 Flash'
   provider: 'Google'

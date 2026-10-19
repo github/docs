@@ -350,6 +350,49 @@ describe('correctTranslatedContentStrings', () => {
 
     test('strips stray の割り当て and の場合', () => {
       expect(fix('{%- assign x = y -%} の割り当て', 'ja')).toBe('{%- assign x = y -%}')
+      expect(fix('{%- if featureData.overview %} の場合', 'ja')).toBe(
+        '{%- if featureData.overview %}',
+      )
+      expect(fix('{%- featureData.overview %} の場合', 'ja')).toBe('{%- if featureData.overview %}')
+      expect(fix('{%- roleColumns = "read,admin" | split: "," -%} の割り当て', 'ja')).toBe(
+        '{%- assign roleColumns = "read,admin" | split: "," -%}',
+      )
+      expect(fix("{%- assign currentDate = 'now' | date: '%s' %} の割り当て", 'ja')).toBe(
+        "{%- assign currentDate = 'now' | date: '%s' %}",
+      )
+    })
+
+    test('strips の割り当て inside an assign tag', () => {
+      const broken =
+        '{%- roleColumns = "read,triage,write,maintain,admin" の割り当て | split: "," -%}'
+      const fixed = '{%- assign roleColumns = "read,triage,write,maintain,admin" | split: "," -%}'
+      expect(fix(broken, 'ja')).toBe(fixed)
+      expect(fix('{%- featureKey = x の割り当て -%}', 'ja')).toBe('{%- assign featureKey = x -%}')
+      expect(
+        fix('{%- if featureData.overview の場合 または featureData.details の場合 %}', 'ja'),
+      ).toBe('{%- if featureData.overview or featureData.details %}')
+    })
+
+    test('preserves の割り当て and の場合 in quoted Liquid values', () => {
+      const tags = [
+        '{% assign label = "既存のissueの割り当て" %}',
+        '{% assign label = "既存の issue の割り当て" %}',
+        "{% assign label = 'AWS S3 の場合' %}",
+      ]
+      for (const tag of tags) {
+        expect(fix(tag, 'ja')).toBe(tag)
+      }
+    })
+
+    test('preserves の場合 and の割り当て in prose', () => {
+      const prose = [
+        '* AWS S3 の場合は、次の環境変数を設定します。',
+        '#### 既存の issue の割り当て',
+        '{% data variables.product.prodname_dotcom %} の場合は、',
+      ]
+      for (const line of prose) {
+        expect(fix(line, 'ja')).toBe(line)
+      }
     })
 
     test('adds missing if keyword', () => {

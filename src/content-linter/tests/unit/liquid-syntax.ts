@@ -23,6 +23,15 @@ describe(frontmatterLiquidSyntax.names.join(' - '), () => {
     expect(errors.map((error) => error.lineNumber)).toEqual([2, 3, 4, 5])
     expect(errors[0].errorRange).toEqual([9, 40])
   })
+  test('Liquid error message that contains a comma reports the full description', async () => {
+    const markdown = ['---', 'title: "{% data foo }, and more"', '---'].join('\n')
+    const result = await runRule(frontmatterLiquidSyntax, { strings: { markdown }, ...fmOptions })
+    const errors = result.markdown
+    expect(errors.length).toBe(1)
+    expect(errors[0].lineNumber).toBe(2)
+    expect(errors[0].errorDetail).toContain('tag "{% data foo }, and more" not closed')
+    expect(errors[0].errorRange).toEqual([9, 23])
+  })
   test('Frontmatter that contains valid Liquid passes', async () => {
     const markdown = [
       '---',
@@ -68,6 +77,26 @@ describe(liquidSyntax.names.join(' - '), () => {
     expect(errors.length).toBe(1)
     expect(errors[0].lineNumber).toBe(4)
     expect(errors[0].errorRange).toEqual([1, 33])
+  })
+  test('Unknown codetab language in Markdown content fails', async () => {
+    const markdown = [
+      '---',
+      'title: Title',
+      '---',
+      '{% codetabs %}',
+      '{% codetab bash %}',
+      'x',
+      '{% endcodetab %}',
+      '{% endcodetabs %}',
+    ].join('\n')
+    const result = await runRule(liquidSyntax, { strings: { markdown } })
+    const errors = result.markdown
+    expect(errors.length).toBe(1)
+    expect(errors[0].lineNumber).toBe(5)
+    expect(errors[0].errorRange).toEqual([1, 18])
+    expect(errors[0].errorDetail).toContain(
+      "Unknown codetab language 'bash'. Valid values: typescript, python",
+    )
   })
   test('Valid Liquid syntax in Markdown content passes', async () => {
     const markdown = [

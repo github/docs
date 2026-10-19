@@ -1793,6 +1793,8 @@ test.describe('survey', () => {
     await page.locator('[for=survey-yes]').click()
     await expect(page.getByRole('button', { name: 'Send' })).toBeVisible()
     await expect(page.locator('[for=survey-comment]')).toBeVisible()
+    await page.locator('[name=survey-comment]').fill('Comment for the first page')
+    await page.locator('[name=survey-email]').fill('test@example.com')
 
     await page
       .getByTestId('product-sidebar')
@@ -1800,6 +1802,29 @@ test.describe('survey', () => {
       .click()
     await expect(page.getByRole('button', { name: 'Send' })).not.toBeVisible()
     await expect(page.locator('[for=survey-comment]')).not.toBeVisible()
+
+    await page.locator('[for=survey-yes]').click()
+    await expect(page.locator('[name=survey-comment]')).toHaveValue('')
+    await expect(page.locator('[name=survey-email]')).toHaveValue('')
+  })
+
+  test('switching a tool tab keeps the vote and unsent feedback', async ({ page }) => {
+    await page.route('**/api/events', (route) => {
+      route.fulfill({})
+    })
+
+    await page.goto('/get-started/liquid/tool-specific')
+    await turnOffExperimentsInPage(page)
+
+    await page.locator('[for=survey-yes]').click()
+    await page.locator('[name=survey-comment]').fill('Comment for this page')
+    await page.locator('[name=survey-email]').fill('test@example.com')
+
+    await page.getByTestId('tool-picker').getByRole('link', { name: 'GitHub CLI' }).click()
+    await expect(page).toHaveURL(/\?tool=cli/)
+    await expect(page.getByRole('button', { name: 'Send' })).toBeVisible()
+    await expect(page.locator('[name=survey-comment]')).toHaveValue('Comment for this page')
+    await expect(page.locator('[name=survey-email]')).toHaveValue('test@example.com')
   })
 })
 

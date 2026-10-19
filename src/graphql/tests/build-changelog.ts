@@ -3,10 +3,12 @@ import fs from 'fs/promises'
 import { afterEach, describe, expect, test } from 'vitest'
 import { load } from 'js-yaml'
 import MockDate from 'mockdate'
+import type { Change } from '@graphql-inspector/core'
 
 import {
   createChangelogEntry,
   cleanPreviewTitle,
+  cleanMessagesFromChanges,
   previewAnchor,
   prependDatedEntry,
   ensureYearPage,
@@ -220,6 +222,25 @@ describe('Preparing preview links', () => {
   test('creates anchors from preview titles', () => {
     expect(previewAnchor('Merge info preview')).toEqual('merge-info-preview')
     expect(previewAnchor('some.punct123 preview')).toEqual('somepunct123-preview')
+  })
+})
+
+describe('cleaning change messages', () => {
+  test('wraps each quoted name in its own code span', () => {
+    const messages = [
+      "Enum value 'CREATED_AT' was added to enum 'IssueRelatesToOrderField'",
+      "Input field 'botIds' of type '[ID!]' was added to input object type 'RerequestReviewsInput'",
+      "Argument 'ids: [ID!]' added to field 'Query.f'",
+      "Type 'ProjectV2Field' was added",
+    ]
+    const changes = messages.map((message) => ({ message }) as Change)
+
+    expect(cleanMessagesFromChanges(changes)).toEqual([
+      'Enum value `CREATED_AT` was added to enum `IssueRelatesToOrderField`',
+      'Input field `botIds` of type `[ID!]` was added to input object type `RerequestReviewsInput`',
+      'Argument `ids: [ID!]` added to field `Query.f`',
+      'Type `ProjectV2Field` was added',
+    ])
   })
 })
 

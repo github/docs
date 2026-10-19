@@ -5,7 +5,7 @@ import fs from 'fs'
 import { chunk, last } from 'lodash-es'
 import { visit } from 'unist-util-visit'
 import type { Test } from 'unist-util-visit'
-import type { Node, Parent } from 'unist'
+import type { Node, Parent, Position } from 'unist'
 import type { Element, Nodes } from 'hast'
 import { h } from 'hastscript'
 import { fromMarkdown } from 'mdast-util-from-markdown'
@@ -13,10 +13,8 @@ import { toHast } from 'mdast-util-to-hast'
 import type { Root } from 'mdast'
 import { header } from './code-header'
 import findPage from '@/frame/lib/find-page'
-import { createLogger } from '@/observability/logger'
+import { autotitleResolutionError, getNewHref } from './rewrite-local-links'
 import type { Context } from '@/types'
-
-const logger = createLogger(import.meta.url)
 
 interface LanguageConfig {
   comment: 'number' | 'slash' | 'xml' | 'percent' | 'hyphen'
@@ -53,6 +51,7 @@ interface ElementNode {
       [key: string]: unknown
     }
   }
+  position?: Position
 }
 
 const languages = load(fs.readFileSync('./data/code-languages.yml', 'utf8')) as Record<
@@ -93,10 +92,22 @@ function createAnnotatedNode(node: ElementNode, context: Context): Element {
 
   validate(lang, code)
 
-  const lines = code.split('\n').filter(hasChar)
+  const allLines = code.split('\n')
+  const lines = allLines.filter(hasChar)
   const groups = chunkBy(lines, matchComment(lang))
 
   const rows = chunk(groups, 2)
+
+  // Code starts on the line after the opening fence, and blank lines are dropped from groups.
+  const codeStart = (node.position?.start.line || 0) + 1
+  const sourceLines = allLines.flatMap((text, i) => (hasChar(text) ? [codeStart + i] : []))
+  let offset = 0
+  const groupSourceLines = groups.map((group) => {
+    const groupLines = sourceLines.slice(offset, offset + group.length)
+    offset += group.length
+    return groupLines
+  })
+  const noteSourceLines = chunk(groupSourceLines, 2).map(([noteLines]) => noteLines)
 
   for (const [note, codeBlock] of rows) {
     if (note === undefined || codeBlock === undefined) {
@@ -106,7 +117,7 @@ function createAnnotatedNode(node: ElementNode, context: Context): Element {
     }
   }
 
-  return template({ lang, code, rows, context })
+  return template({ lang, code, rows, context, noteSourceLines })
 }
 
 function validate(lang: string, code: string): void {
@@ -191,11 +202,13 @@ function template({
   code,
   rows,
   context,
+  noteSourceLines,
 }: {
   lang: string
   code: string
   rows: string[][][]
   context: Context
+  noteSourceLines: number[][]
 }): Element {
   return h(
     'div',
@@ -204,7 +217,7 @@ function template({
     h(
       'div',
       { className: 'annotate-beside' },
-      rows.map(([note, codeBlock]) =>
+      rows.map(([note, codeBlock], i) =>
         h('div', { className: 'annotate-row' }, [
           h(
             'div',
@@ -215,7 +228,7 @@ function template({
           h(
             'div',
             { className: 'annotate-note' },
-            mdToHast(note.map(removeComment(lang)).join('\n'), context),
+            mdToHast(note.map(removeComment(lang)).join('\n'), context, noteSourceLines[i]),
           ),
         ]),
       ),
@@ -227,32 +240,31 @@ function template({
   )
 }
 
-function mdToHast(text: string, context: Context): Nodes {
+function mdToHast(text: string, context: Context, sourceLines: number[]): Nodes {
   const mdast: Root = fromMarkdown(text)
 
-  processAutotitleInMdast(mdast, context)
+  processAutotitleInMdast(mdast, context, sourceLines)
 
   return toHast(mdast)
 }
 
-function processAutotitleInMdast(mdast: Root, context: Context): void {
+// rewriteLocalLinks runs before annotation notes exist, so notes need the same href rewrite here.
+function processAutotitleInMdast(mdast: Root, context: Context, sourceLines: number[]): void {
+  const { currentLanguage, autotitleLanguage, currentVersion } = context
+  if (!currentLanguage || !currentVersion) return
   visit(mdast, 'link', (node) => {
     if (node.url && node.url.startsWith('/')) {
+      const originalHref = node.url
+      node.url = getNewHref(node, autotitleLanguage || currentLanguage, currentVersion) || node.url
       for (const child of node.children) {
         if (child.type === 'text' && /^\s*AUTOTITLE\s*$/.test(child.value)) {
           const page = findPage(node.url, context.pages, context.redirects)
-          if (page) {
-            try {
-              // rawTitle avoids async title rendering while annotation notes convert to HAST.
-              child.value = page.rawTitle || 'AUTOTITLE'
-            } catch (error) {
-              // Keep AUTOTITLE when title lookup fails.
-              logger.warn('Could not resolve AUTOTITLE', {
-                url: node.url,
-                error: error instanceof Error ? error.message : String(error),
-              })
-            }
+          if (!page) {
+            const line = sourceLines[(node.position?.start.line || 1) - 1] || sourceLines[0] || 1
+            throw autotitleResolutionError(originalHref, line, context)
           }
+          // rawTitle avoids async title rendering while annotation notes convert to HAST.
+          child.value = page.rawTitle || 'AUTOTITLE'
         }
       }
     }

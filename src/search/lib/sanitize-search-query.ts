@@ -5,6 +5,19 @@
 export function sanitizeSearchQuery(query: string): string {
   if (!query) return query
 
+  return redactLongMixedStrings(redactStructuredSecrets(query))
+}
+
+// Users paste real provider secrets into the secret scanning table search, and many are shorter
+// than 40 characters or split by base64 + and / characters.
+export function sanitizeSecretScanningSearchQuery(query: string): string {
+  if (!query) return query
+
+  // The long-string rule splits credentials at punctuation, so redact short secrets before it.
+  return redactLongMixedStrings(redactShortSecrets(redactStructuredSecrets(query)))
+}
+
+function redactStructuredSecrets(query: string): string {
   let sanitized = query
 
   // Email addresses can identify users in logs.
@@ -35,11 +48,18 @@ export function sanitizeSearchQuery(query: string): string {
     '[IP]',
   )
 
-  // Private key headers reveal pasted secrets.
-  sanitized = sanitized.replace(/-----BEGIN( [A-Z]+)? PRIVATE KEY-----/g, '[SSH_KEY]')
+  // The key body is the secret, so redact the whole block, including truncated pastes with no END line.
+  sanitized = sanitized.replace(
+    /-----BEGIN[A-Z ]*PRIVATE KEY(?: BLOCK)?-----[\s\S]*?(?:-----END[A-Z ]*PRIVATE KEY(?: BLOCK)?-----|$)/g,
+    '[SSH_KEY]',
+  )
 
+  return sanitized
+}
+
+function redactLongMixedStrings(query: string): string {
   // Long mixed-character strings often indicate API keys or other secrets.
-  sanitized = sanitized.replace(/\b[A-Za-z0-9_-]{40,}\b/g, (match) => {
+  return query.replace(/\b[A-Za-z0-9_-]{40,}\b/g, (match) => {
     // Mixed case and numbers avoid over-redacting ordinary long words.
     const hasLowerCase = /[a-z]/.test(match)
     const hasUpperCase = /[A-Z]/.test(match)
@@ -52,6 +72,15 @@ export function sanitizeSearchQuery(query: string): string {
     }
     return match
   })
+}
 
-  return sanitized
+// Azure secrets use . and ~, so include them to avoid leaving short ends behind.
+function redactShortSecrets(query: string): string {
+  return query.replace(/[A-Za-z0-9+/=._~-]{16,}/g, (match) => {
+    // Pattern names rarely mix uppercase with digits, use base64 punctuation, or contain hex runs.
+    const hasUpperCaseAndNumbers = /[A-Z]/.test(match) && /[0-9]/.test(match)
+    const hasBase64Punctuation = /[+/=]/.test(match)
+    const hasHexRun = /[0-9a-f]{16,}/.test(match)
+    return hasUpperCaseAndNumbers || hasBase64Punctuation || hasHexRun ? '[SECRET]' : match
+  })
 }

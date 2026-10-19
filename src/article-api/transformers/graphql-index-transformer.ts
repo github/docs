@@ -13,23 +13,25 @@ export class GraphQLIndexTransformer implements PageTransformer {
     return page.relativePath.endsWith('graphql/reference/index.md')
   }
 
-  async transform(page: Page, _pathname: string, context: Context): Promise<string> {
+  async transform(page: Page, pathname: string, context: Context): Promise<string> {
     const intro = page.intro ? await page.renderProp('intro', context, { textOnly: true }) : ''
 
     const manualContent = await extractManualContent(page, context)
 
+    // Children are relative to this page. Skip resolvePath because it falls back to top-level products like /actions.
+    const basePath = pathname.replace(/\/$/, '')
     const children = page.children || []
-    const childrenLinks = children
-      .map((child) => {
-        const childPath = child.startsWith('/') ? child : `/${child}`
-        const childName = childPath.split('/').pop() || ''
-        const displayName = childName
-          .split('-')
-          .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-          .join(' ')
-        return `- [${displayName}](${childPath})`
-      })
-      .join('\n')
+    const links = await Promise.all(
+      children.map(async (child) => {
+        const href = `${basePath}${child.startsWith('/') ? child : `/${child}`}`
+        const childPage = context.pages?.[href]
+        // A missing page means the category does not exist in this version.
+        if (!childPage) return null
+        const title = await childPage.renderTitle(context, { unwrap: true })
+        return `- [${title}](${href})`
+      }),
+    )
+    const childrenLinks = links.filter(Boolean).join('\n')
 
     const templateData: Record<string, unknown> = {
       pageTitle: page.title,

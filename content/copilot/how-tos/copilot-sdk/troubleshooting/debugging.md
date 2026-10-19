@@ -176,7 +176,7 @@ var client = new CopilotClient(new CopilotClientOptions
 1. Or specify the full path:
 
 {% codetabs %}
-{% codetab javascript %}
+{% codetab typescript %}
 
    ```typescript
    const client = new CopilotClient({
@@ -237,7 +237,7 @@ var client = new CopilotClient(new CopilotClientOptions
 1. Or provide a token programmatically:
 
 {% codetabs %}
-{% codetab javascript %}
+{% codetab typescript %}
 
    ```typescript
    const client = new CopilotClient({

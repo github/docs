@@ -5,6 +5,7 @@ import { difference } from 'lodash-es'
 
 import { checkContentType } from '@/workflows/fm-utils'
 import github from '@/workflows/github'
+import { formatFileList } from '@/workflows/lib/format-file-list'
 
 const core = coreLib
 const octokit = github()
@@ -37,7 +38,7 @@ async function main() {
 
   if (unallowedChangedFiles.length === 0) return
 
-  const listUnallowedChangedFiles = unallowedChangedFiles.map((file) => `\n - ${file}`).join('')
+  const listUnallowedChangedFiles = formatFileList(unallowedChangedFiles)
   const listUnallowedFiles = filters.notAllowed
     .map((file: string) => `\n - ${file === '*' ? 'Anything in the root directory' : file}`)
     .join('')

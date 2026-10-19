@@ -84,9 +84,10 @@ export async function validateDocsUrl(docsUrls: DocsUrls, { checkFragments = fal
       }
     }
 
-    if (checkFragments && fragment) {
-      const permalink = (redirectedPage || page).permalinks[0]
-      const html = await renderInnerHTML(redirectedPage || page, permalink)
+    const targetPage = redirectedPage || page
+    if (checkFragments && fragment && targetPage) {
+      const permalink = targetPage.permalinks[0]
+      const html = await renderInnerHTML(targetPage, permalink)
       const $ = load(html)
       check.fragmentFound = $(`#${fragment}`).length > 0 || $(`a[name="${fragment}"]`).length > 0
       if (!check.fragmentFound) {

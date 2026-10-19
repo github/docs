@@ -1,4 +1,4 @@
-// Validates external URLs in content files with caching for weekly runs.
+// Validates external URLs in content and reusable files with caching for weekly runs.
 // Usage: npm run check-links-external
 // Usage: npm run check-links-external -- --max 100
 // GITHUB_TOKEN creates issue reports and checks GitHub API repo URLs.
@@ -35,6 +35,11 @@ const DEFAULT_DOMAIN_CONCURRENCY = 10
 
 const excludedLinksSet = new Set(excludedLinks.map(({ is }) => is).filter(Boolean))
 const excludedLinksPrefixes = excludedLinks.map(({ startsWith }) => startsWith).filter(Boolean)
+
+// The REST changelog sync overwrites this file with upstream absolute docs.github.com URLs, so editors cannot convert them.
+const SELF_REFERENTIAL_EXEMPT_FILES = new Set([
+  'data/reusables/rest-api/breaking-changes-changelog.md',
+])
 
 function isExcludedLink(href: string): boolean {
   if (excludedLinksSet.has(href)) return true
@@ -273,7 +278,10 @@ async function extractAllExternalLinks(): Promise<Map<string, LinkOccurrence[]>>
   const links = new Map<string, LinkOccurrence[]>()
 
   const files = await Array.fromAsync(
-    fs.promises.glob('content/**/*.md', { exclude: ['**/README.md'] }),
+    // Generated CodeQL query tables add hundreds of codeql.github.com URLs that editors cannot fix by hand.
+    fs.promises.glob(['content/**/*.md', 'data/reusables/**/*.md'], {
+      exclude: ['**/README.md', 'data/reusables/**/codeql-query-tables/**'],
+    }),
   )
   console.log(`Found ${files.length} Markdown files to scan`)
 
@@ -351,14 +359,15 @@ async function main() {
   console.log(`Cache: ${freshCount} fresh, ${staleCount} stale entries`)
   console.log('')
 
-  console.log('Extracting external links from content files...')
+  console.log('Extracting external links from content and reusable files...')
   const allLinks = await extractAllExternalLinks()
 
   // Report docs.github.com links separately because they can become internal links.
   const selfReferentialLinks = new Map<string, LinkOccurrence[]>()
   for (const [url, occurrences] of allLinks) {
     if (isDocsGithubUrl(url)) {
-      selfReferentialLinks.set(url, occurrences)
+      const convertible = occurrences.filter((occ) => !SELF_REFERENTIAL_EXEMPT_FILES.has(occ.file))
+      if (convertible.length > 0) selfReferentialLinks.set(url, convertible)
       allLinks.delete(url)
     }
   }

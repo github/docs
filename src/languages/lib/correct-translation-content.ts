@@ -337,9 +337,10 @@ export function correctTranslatedContentStrings(
         return `${dash} assign ${varName} = ${value.trim()} %}`
       },
     )
-    content = content.replaceAll(' の割り当て', '')
-    content = content.replaceAll(' の場合', '')
-
+    // Inside Liquid tags these phrases are leftovers that break parsing, but quoted values are real text.
+    content = content.replace(/\{%(?:(?!%\}|\{%)[\s\S])*%\}/g, (tag) =>
+      tag.replace(/("[^"]*"|'[^']*')|[ \t]+の(?:割り当て|場合)/g, (_m, quoted) => quoted ?? ''),
+    )
     content = content.replace(
       /\{%-?\s*((?:featureData|supportLevel|languageData|entry)\.\w+)\s*-?%\}/g,
       (match, condition) => {
@@ -349,12 +350,17 @@ export function correctTranslatedContentStrings(
       },
     )
     content = content.replace(
-      /\{%-?\s*(featureKey|featureData|supportLevel|languageData|groupName|groupVersions)\s*=\s*([^%]+?)-?%\}/g,
+      /\{%-?\s*(featureKey|featureData|supportLevel|languageData|groupName|groupVersions|roleColumns)\s*=\s*([^%]+?)-?%\}/g,
       (match, varName, value) => {
         const dash = match.startsWith('{%-') ? '{%-' : '{%'
         const closeDash = match.endsWith('-%}') ? '-%}' : '%}'
         return `${dash} assign ${varName} = ${value.trim()} ${closeDash}`
       },
+    )
+    // Restrict to logic tags because these phrases are common in correct prose and after data tags.
+    content = content.replace(
+      /(\{%-?\s*(?:assign|for|if|elsif|unless|case|when)\s(?:(?!%\}|\{%)[\s\S])*%\})[ \t]*の(?:割り当て|場合)/g,
+      '$1',
     )
     content = content.replaceAll('{% 行ヘッダー %}', '{% rowheaders %}')
     content = content.replaceAll('{%- 行ヘッダー %}', '{%- rowheaders %}')

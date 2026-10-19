@@ -244,7 +244,7 @@ export function previewAnchor(previewTitle: string): string {
 export function cleanMessagesFromChanges(changes: Change[]): string[] {
   return changes.map(function (change): string {
     // Wrap quoted GraphQL names in Markdown code spans for changelog rendering.
-    return change.message.replace(/'([a-zA-Z. :!]+)'/g, '`$1`')
+    return change.message.replace(/'([^']+)'/g, '`$1`')
   })
 }
 

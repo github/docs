@@ -121,7 +121,8 @@ export const UnrenderedMarkdownContent = ({
           if (openLinksInNewTab) {
             e.stopPropagation()
             e.preventDefault()
-            window.open(href, '_blank')
+            // window.open ignores the anchor's rel attribute, so the features string must repeat it.
+            window.open(href, '_blank', 'noopener,noreferrer')
           }
         }}
         data-group-key={eventGroupKey}

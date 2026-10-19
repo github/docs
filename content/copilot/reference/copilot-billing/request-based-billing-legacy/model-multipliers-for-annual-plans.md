@@ -34,7 +34,6 @@ The following table shows the model multipliers per supported model.
 > The multiplier for these models are subject to change.
 >
 > * {% data variables.copilot.copilot_claude_sonnet_46 %}
-> * {% data variables.copilot.copilot_gpt_54_mini %}
 > 
 > If you use {% data variables.copilot.copilot_auto_model_selection_short %} in {% data variables.copilot.copilot_chat_short %}, {% data variables.copilot.copilot_cli_short %}, the {% data variables.copilot.github_copilot_app %}, or {% data variables.copilot.copilot_cloud_agent %}, you qualify for a 10% discount. For example, if a model has a multiplier of 1x you'll be billed at 0.9x instead.
 

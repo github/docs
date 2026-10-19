@@ -6,8 +6,11 @@ import {
   resolveInternalLinkKey,
   checkAssetLink,
   isAssetLink,
+  createLiquidContext,
+  extractLinksWithLiquid,
 } from '../lib/extract-links'
 import { latestStable } from '@/versions/lib/enterprise-server-releases'
+import { getFeaturesByVersion } from '@/versions/middleware/features'
 import type { Page } from '@/types'
 
 describe('extractLinksFromMarkdown', () => {
@@ -794,5 +797,31 @@ describe('resolveInternalLinkKey version precedence', () => {
     expect(resolveInternalLinkKey('/get-started/shared', pageMap, 'enterprise-server@3.17')).toBe(
       '/en/get-started/shared',
     )
+  })
+})
+
+describe('extractLinksWithLiquid with createLiquidContext', () => {
+  const fptFeatures = getFeaturesByVersion('free-pro-team@latest')
+  const fptFeature = Object.keys(fptFeatures).find((name) => fptFeatures[name])
+
+  test('renders version short names and feature flags for the version', async () => {
+    expect(fptFeature).toBeDefined()
+    const content = `
+{% ifversion fpt %}[a](/x/fpt){% endif %}
+{% ifversion fpt or ghec %}[b](/x/b){% else %}[c](/x/c){% endif %}
+{% ifversion ${fptFeature} %}[d](/x/feature){% endif %}
+`
+    const result = await extractLinksWithLiquid(content, createLiquidContext())
+    const hrefs = result.internalLinks.map((link) => link.href)
+
+    expect(hrefs).toEqual(['/x/fpt', '/x/b', '/x/feature'])
+  })
+
+  test('renders the matching branch for GHES', async () => {
+    const content = `{% ifversion ghes %}[a](/x/ghes){% else %}[b](/x/other){% endif %}`
+    const context = createLiquidContext(`enterprise-server@${latestStable}`)
+    const result = await extractLinksWithLiquid(content, context)
+
+    expect(result.internalLinks.map((link) => link.href)).toEqual(['/x/ghes'])
   })
 })
