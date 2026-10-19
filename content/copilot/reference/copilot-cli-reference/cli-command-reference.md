@@ -1702,7 +1702,7 @@ Except for the two Git file variables, each variable is read on every platform. 
 
 These are not the only automatic grants. With **Allow dev tool access** enabled, {% data variables.copilot.copilot_cli_short %} grants selected user-profile application directories, including `~/.local/bin` and `~/.local/lib` on macOS and Linux and the immediate subdirectories of `%LOCALAPPDATA%\Programs` on Windows. It also grants tool-specific caches and registries, some of which are writable, such as npm's cache and shared build caches.
 
-Run `/sandbox policy` to see the resolved paths grouped by source and access. The **Dev tools** section lists tools detected in the current directory and their paths. Add a command, such as `/sandbox policy npm install`, to inspect its developer-tool access without running it. The report does not create missing caches. For the concepts behind how the policy is assembled, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/understanding-local-sandboxing).
+Run `/sandbox policy` to see the resolved paths grouped by source and access. The **Dev tools** section lists tools detected in the current directory and their paths. Add a command, such as `/sandbox policy npm install`, to inspect its developer-tool access without running it. The report does not create missing caches. For the concepts behind how the policy is assembled, see [AUTOTITLE](/copilot/concepts/security-governance-and-network-settings/understanding-local-sandboxing).
 
 ## OpenTelemetry monitoring
 

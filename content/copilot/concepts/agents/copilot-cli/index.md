@@ -10,7 +10,6 @@ children:
   - /about-custom-agents
   - /lsp-servers
   - /about-cli-extensions
-  - /understanding-local-sandboxing
 contentType: concepts
 docsTeamMetrics:
   - copilot-cli
