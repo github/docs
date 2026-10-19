@@ -163,6 +163,10 @@ describe('GraphQL transformer', { timeout: 10000 }, () => {
       expect(res.body).toContain('# Reference')
 
       expect(res.body).toMatch(/(GitHub|HubGit) GraphQL API schema/)
+
+      expect(res.body).toContain('[Organizations](/en/graphql/reference/orgs)')
+      expect(res.body).not.toContain('](/en/actions)')
+      expect(res.body).not.toContain('](/en/orgs)')
     })
   })
 
