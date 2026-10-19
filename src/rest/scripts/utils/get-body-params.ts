@@ -37,6 +37,11 @@ interface BodyParamProps {
 // and Set status check contexts operations need this.
 // When every top-level oneOf option is an object, getTopLevelOneOfProperty merges
 // all properties. With three or more options, middle required fields can lose required flags.
+// When the parent schema has properties, getTopLevelOneOfProperty keeps them and the parent
+// required list, because options like those in Create a check run only constrain parent fields.
+// Options add missing properties: every option when all are objects, otherwise the first
+// option. Option required fields apply to option-added properties, but a parent property
+// becomes required only when every option requires it.
 async function getTopLevelOneOfProperty(
   schema: Schema,
 ): Promise<{ properties: Record<string, Schema>; required: string[] }> {
@@ -47,9 +52,29 @@ async function getTopLevelOneOfProperty(
     throw new Error('Schema requestBody oneOf property is not an array')
   }
 
+  const allOneOfAreObjects = schema.oneOf.every((elem) => elem.type === 'object')
+
+  if (schema.properties) {
+    const parentProperties = schema.properties
+    const properties = { ...parentProperties }
+    const required = new Set(schema.required || [])
+    const mergedOptions = allOneOfAreObjects ? schema.oneOf : [schema.oneOf[0]]
+    for (const each of mergedOptions) {
+      for (const [key, value] of Object.entries(each.properties || {})) {
+        if (!Object.hasOwn(properties, key)) properties[key] = value
+      }
+      for (const name of each.required || []) {
+        const requiredByEveryOption = schema.oneOf.every((option) =>
+          option.required?.includes(name),
+        )
+        if (requiredByEveryOption || !Object.hasOwn(parentProperties, name)) required.add(name)
+      }
+    }
+    return { properties, required: [...required] }
+  }
+
   // When oneOf types differ, the first option must be the comprehensive object form.
   const firstOneOfObject = schema.oneOf[0]
-  const allOneOfAreObjects = schema.oneOf.every((elem) => elem.type === 'object')
   let required = firstOneOfObject.required || []
   let properties = firstOneOfObject.properties || {}
 

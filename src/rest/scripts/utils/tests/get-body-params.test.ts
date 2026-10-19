@@ -104,6 +104,139 @@ describe('getBodyParams — OAS 3.1 nullable handling', () => {
     ])
   })
 
+  it('keeps parent properties when top-level oneOf options only constrain them', async () => {
+    const schema: Schema = {
+      type: 'object',
+      properties: {
+        name: { type: 'string', description: 'The name' },
+        head_sha: { type: 'string', description: 'The SHA' },
+        status: {
+          type: 'string',
+          description: 'The status',
+          enum: ['queued', 'in_progress', 'completed'],
+        },
+        conclusion: { type: 'string', description: 'The conclusion' },
+        output: { type: 'object', description: 'The output' },
+      },
+      required: ['name', 'head_sha'],
+      oneOf: [
+        {
+          properties: { status: { enum: ['completed'] } },
+          required: ['status', 'conclusion'],
+        },
+        {
+          properties: { status: { enum: ['queued', 'in_progress'] } },
+        },
+      ],
+    }
+    const params = await getBodyParams(schema, true)
+    expect(params.map(({ name, type, isRequired }) => [name, type, isRequired])).toEqual([
+      ['name', 'string', true],
+      ['head_sha', 'string', true],
+      ['status', 'string', undefined],
+      ['conclusion', 'string', undefined],
+      ['output', 'object', undefined],
+    ])
+    expect(params[2].enum).toEqual(['queued', 'in_progress', 'completed'])
+  })
+
+  it('keeps parent properties when top-level oneOf options only list required fields', async () => {
+    const schema: Schema = {
+      type: 'object',
+      properties: {
+        type: { type: 'string', description: 'The type', enum: ['Issue', 'PullRequest'] },
+        id: { type: 'integer', description: 'The ID' },
+        owner: { type: 'string', description: 'The owner' },
+        repo: { type: 'string', description: 'The repo' },
+        number: { type: 'integer', description: 'The number' },
+      },
+      required: ['type'],
+      oneOf: [{ required: ['id'] }, { required: ['owner', 'repo', 'number'] }],
+    }
+    const params = await getBodyParams(schema, true)
+    expect(params.map(({ name, isRequired }) => [name, isRequired])).toEqual([
+      ['type', true],
+      ['id', undefined],
+      ['owner', undefined],
+      ['repo', undefined],
+      ['number', undefined],
+    ])
+  })
+
+  it('keeps alternative parent fields optional when top-level oneOf options are typed objects', async () => {
+    const schema: Schema = {
+      type: 'object',
+      properties: {
+        type: { type: 'string', description: 'The type', enum: ['Issue', 'PullRequest'] },
+        id: { type: 'integer', description: 'The ID' },
+        owner: { type: 'string', description: 'The owner' },
+        repo: { type: 'string', description: 'The repo' },
+        number: { type: 'integer', description: 'The number' },
+      },
+      required: ['type'],
+      oneOf: [
+        { type: 'object', required: ['id'] },
+        { type: 'object', required: ['owner', 'repo', 'number'] },
+      ],
+    }
+    const params = await getBodyParams(schema, true)
+    expect(params.map(({ name, isRequired }) => [name, isRequired])).toEqual([
+      ['type', true],
+      ['id', undefined],
+      ['owner', undefined],
+      ['repo', undefined],
+      ['number', undefined],
+    ])
+  })
+
+  it('adds first-option properties to parent properties when top-level oneOf options are untyped', async () => {
+    const schema: Schema = {
+      type: 'object',
+      properties: {
+        type: { type: 'string', description: 'The type', enum: ['Issue', 'PullRequest'] },
+      },
+      required: ['type'],
+      oneOf: [
+        {
+          properties: {
+            type: { enum: ['Issue'] },
+            owner: { type: 'string', description: 'The owner' },
+            repo: { type: 'string', description: 'The repo' },
+            number: { type: 'integer', description: 'The number' },
+          },
+          required: ['owner', 'repo', 'number'],
+        },
+        { properties: { id: { type: 'integer', description: 'The ID' } }, required: ['id'] },
+      ],
+    }
+    const params = await getBodyParams(schema, true)
+    expect(params.map(({ name, isRequired }) => [name, isRequired])).toEqual([
+      ['type', true],
+      ['owner', true],
+      ['repo', true],
+      ['number', true],
+    ])
+    expect(params[0].enum).toEqual(['Issue', 'PullRequest'])
+  })
+
+  it('marks a parent property required when every top-level oneOf option requires it', async () => {
+    const schema: Schema = {
+      type: 'object',
+      properties: {
+        mode: { type: 'string', description: 'The mode' },
+        first: { type: 'string', description: 'First value' },
+        second: { type: 'string', description: 'Second value' },
+      },
+      oneOf: [{ required: ['mode', 'first'] }, { required: ['second', 'mode'] }],
+    }
+    const params = await getBodyParams(schema, true)
+    expect(params.map(({ name, isRequired }) => [name, isRequired])).toEqual([
+      ['mode', true],
+      ['first', undefined],
+      ['second', undefined],
+    ])
+  })
+
   it('renders type: ["string", "null"] as "string or null"', async () => {
     const schema = {
       type: 'object',
