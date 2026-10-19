@@ -195,19 +195,29 @@ async function getNewTitle(href: string, context: Context, child: Text, original
   if (!page) {
     // The parser keeps source coordinates from the original file, including frontmatter.
     const line = child.position?.start.line || 1
-
-    const linkText = originalHref || href
-    const message = `The link '${linkText}' could not be resolved in one or more versions of the documentation. Make sure that this link can be reached from all versions of the documentation it appears in. (Line: ${line})`
-    logError(context.page!.fullPath, line, message, 'Link Resolution Error')
-    throw new TitleFromAutotitleError(message)
+    throw autotitleResolutionError(originalHref || href, line, context)
   }
   return await page.renderProp('title', context, { textOnly: true })
+}
+
+export function autotitleResolutionError(
+  linkText: string,
+  line: number,
+  context: Context,
+): TitleFromAutotitleError {
+  const message = `The link '${linkText}' could not be resolved in one or more versions of the documentation. Make sure that this link can be reached from all versions of the documentation it appears in. (Line: ${line})`
+  if (context.page) logError(context.page.fullPath, line, message, 'Link Resolution Error')
+  return new TitleFromAutotitleError(message)
 }
 
 // Known plan paths such as /enterprise-server@2.20/rest/... only gain a language prefix,
 // except enterprise-server@latest, which normalizes below.
 // Deprecated paths such as /enterprise/11.10.340/admin/articles/... also only gain a prefix.
-function getNewHref(node: LinkNode, languageCode: string, version: string): string | undefined {
+export function getNewHref(
+  node: LinkNode,
+  languageCode: string,
+  version: string,
+): string | undefined {
   const { url } = node
   if (url.startsWith('/assets')) return
   if (url.startsWith('/public')) return
