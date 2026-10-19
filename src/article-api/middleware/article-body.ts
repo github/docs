@@ -3,6 +3,7 @@ import type { Response } from 'express'
 import { Context } from '@/types'
 import { ExtendedRequestWithPageInfo } from '@/article-api/types'
 import contextualize from '@/frame/middleware/context/context'
+import shortVersions from '@/versions/middleware/short-versions'
 import features from '@/versions/middleware/features'
 import glossaries from '@/frame/middleware/context/glossaries'
 import dataTables from '@/data-directory/middleware/data-tables'
@@ -12,12 +13,18 @@ import { allVersions } from '@/versions/lib/all-versions'
 import type { Page } from '@/types'
 
 // Article Markdown rendering needs a mocked request with page context.
-async function createContextualizedRenderingRequest(pathname: string, page: Page) {
+async function createContextualizedRenderingRequest(
+  pathname: string,
+  page: Page,
+  apiVersion: string | undefined,
+) {
   const mockedContext: Context = {}
   const renderingReq = {
     path: pathname,
     language: page.languageCode,
     pagePath: pathname,
+    // Content Liquid filters REST changelog sections on query.apiVersion.
+    query: apiVersion ? { apiVersion } : {},
     cookies: {},
     context: mockedContext,
     headers: {
@@ -28,6 +35,9 @@ async function createContextualizedRenderingRequest(pathname: string, page: Page
   // Context middleware sets currentVersion for API version fallback.
   await contextualize(renderingReq as ExtendedRequestWithPageInfo, {} as Response, () => {})
   renderingReq.context.page = page
+
+  // ifversion with bare fpt, ghec, or ghes reads short version flags from context.
+  await shortVersions(renderingReq as ExtendedRequestWithPageInfo, {} as Response, () => {})
 
   // ifversion Liquid tags read feature flags from context.
   features(renderingReq as ExtendedRequestWithPageInfo, {} as Response, () => {})
@@ -54,7 +64,7 @@ export async function getArticleBody(req: ExtendedRequestWithPageInfo) {
   const transformer = transformerRegistry.findTransformer(page)
   if (!transformer) throw new Error(`No transformer found for page: ${pathname}`)
 
-  const renderingReq = await createContextualizedRenderingRequest(pathname, page)
+  const renderingReq = await createContextualizedRenderingRequest(pathname, page, apiVersion)
 
   // apiVersionValidationMiddleware rejects invalid explicit API versions before body rendering.
   const currentVersion = renderingReq.context.currentVersion
