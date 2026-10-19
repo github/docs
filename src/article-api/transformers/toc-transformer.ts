@@ -1,5 +1,5 @@
 import type { Context, Page } from '@/types'
-import type { PageTransformer, TemplateData, Section } from './types'
+import type { PageTransformer, TemplateData, Section, LinkData } from './types'
 import { renderContent } from '@/content-render/index'
 import { loadTemplate } from '@/article-api/lib/load-template'
 import { resolvePath } from '@/article-api/lib/resolve-path'
@@ -51,7 +51,7 @@ export class TocTransformer implements PageTransformer {
         }),
       )
 
-      const validLinks = links.filter((l) => l.href)
+      const validLinks = links.filter((l): l is LinkData => l !== null)
       if (validLinks.length > 0) {
         sections.push({
           title: 'Links',

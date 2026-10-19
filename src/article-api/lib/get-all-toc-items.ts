@@ -48,7 +48,10 @@ export async function getAllTocItems(
     }))
     .filter(
       (entry): entry is { childHref: string; childPage: PageWithChildren } =>
-        entry.childPage !== undefined,
+        entry.childPage !== undefined &&
+        // resolvePath can return a page from another version, which the website hides.
+        (!context.currentVersion ||
+          entry.childPage.applicableVersions.includes(context.currentVersion)),
     )
 
   const items = await Promise.all(
