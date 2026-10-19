@@ -1,7 +1,6 @@
-import type { ExtendedRequest, Page, ResolvedArticle } from '@/types'
+import type { Context, ExtendedRequest, Page, ResolvedArticle } from '@/types'
 import type { Response, NextFunction } from 'express'
 import findPage from '@/frame/lib/find-page'
-import { renderContent } from '@/content-render/index'
 import Permalink from '@/frame/lib/permalink'
 
 import { createLogger } from '@/observability/logger/index'
@@ -25,9 +24,10 @@ function tryResolveArticlePath(
   rawPath: string,
   pageRelativePath: string | undefined,
   req: ExtendedRequest,
+  language?: string,
 ): Page | undefined {
   const { pages, redirects } = req.context!
-  const currentLanguage = req.context!.currentLanguage || 'en'
+  const currentLanguage = language || req.context!.currentLanguage || 'en'
 
   if (!pages || !redirects) {
     return undefined
@@ -78,6 +78,18 @@ function tryResolveArticlePath(
   return foundPage
 }
 
+function findEnglishArticle(
+  rawPath: string,
+  pageRelativePath: string | undefined,
+  req: ExtendedRequest,
+): Page {
+  const enPage = tryResolveArticlePath(rawPath, pageRelativePath, req, 'en')
+  if (!enPage) {
+    throw new Error(`Unable to find English carousel article: ${rawPath}`)
+  }
+  return enPage
+}
+
 function getPageHref(page: Page): string {
   if (page.relativePath) {
     return Permalink.relativePathToSuffix(page.relativePath)
@@ -119,9 +131,18 @@ async function resolveCarousels(
                 ? foundPage.relativePath.split('/').slice(0, -1).filter(Boolean)
                 : []
 
+              // The request's getEnglishPage resolves the landing page, not the carousel article.
+              const renderContext: Context = req.context!.getEnglishPage
+                ? {
+                    ...req.context!,
+                    getEnglishPage: () => findEnglishArticle(rawPath, page?.relativePath, req),
+                  }
+                : req.context!
+
               resolved.push({
-                title: await renderContent(foundPage.title, req.context, { textOnly: true }),
-                intro: await renderContent(foundPage.intro, req.context, { textOnly: true }),
+                // The shared Page keeps title and intro from its last render, which can be another version.
+                title: await foundPage.renderProp('title', renderContext, { textOnly: true }),
+                intro: await foundPage.renderProp('intro', renderContext, { textOnly: true }),
                 href,
                 category,
               })
