@@ -125,7 +125,8 @@ function processFile(filePath: string, assetsUrlPath: string): number {
     fs.writeFileSync(tmpFile, mermaidSource, 'utf8')
 
     try {
-      const mmdcArgs = ['-i', tmpFile, '-o', imagePath, '-b', 'transparent', '--scale', '2']
+      // The default light theme draws dark lines, so a white canvas keeps them readable in dark mode.
+      const mmdcArgs = ['-i', tmpFile, '-o', imagePath, '-b', 'white', '--scale', '2']
       if (PUPPETEER_CONFIG) {
         mmdcArgs.push('-p', PUPPETEER_CONFIG)
       }
