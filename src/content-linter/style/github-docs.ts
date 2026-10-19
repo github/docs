@@ -221,8 +221,10 @@ export const githubDocsFrontmatterConfig = {
   },
   'liquid-ifversion-tags': {
     // GHD020
+    // customConfig spreads this object last, so these flags replace the githubDocsConfig entry.
     severity: 'error',
-    'partial-markdown-files': false,
+    'partial-markdown-files': true,
+    'yml-files': true,
   },
   'liquid-ifversion-versions': {
     // GHD022
