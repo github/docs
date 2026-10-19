@@ -39,7 +39,7 @@ Purpose-built utilities, schemas, and workflows that power our Liquid `{% data %
 
 ## Scripts & workflows
 - `npm run find-orphaned-features -- --source-directory data/features --output orphans.json`
-  - Scans pages, reusables, variables (all languages) for `{% ifversion %}` feature references and reports unused `data/features/*.yml`.
+  - Scans pages and their Liquid frontmatter, reusables (all languages), variables, tables, and early access content when present for `{% ifversion %}` feature references and reports unused `data/features/*.yml`.
 - `npm run find-orphaned-features delete -- orphans.json --max 10`
   - Deletes up to N orphaned feature files (English root) after manual review.
 - `npm run deleted-features-pr-comment -- <owner> <repo> <base_sha> <head_sha>`
