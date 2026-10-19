@@ -55,6 +55,26 @@ describe('fuzzyMatch', () => {
     expect(fuzzyMatch('xyz abc', 'copilot agents')).toBe(false)
   })
 
+  test('rejects bigrams scattered across unrelated words in long text', () => {
+    // Every bigram of "billing" appears somewhere in this intro, but no single word is close.
+    const intro =
+      'Model Context Protocol (MCP) is a protocol that allows you to extend the capabilities of Copilot by integrating it with other systems.'
+    expect(fuzzyMatch(intro, 'billing')).toBe(false)
+  })
+
+  test('requires every query word to match', () => {
+    const intro =
+      'Model Context Protocol (MCP) is a protocol that allows you to extend the capabilities of Copilot by integrating it with other systems.'
+    expect(fuzzyMatch(intro, 'billing in')).toBe(false)
+    expect(fuzzyMatch('Billing and payments', 'C and R')).toBe(false)
+    expect(fuzzyMatch('Create a repository', 'create a repositories')).toBe(true)
+  })
+
+  test('matches joined queries that span text words', () => {
+    expect(fuzzyMatch('VS Code', 'vscode')).toBe(true)
+    expect(fuzzyMatch('Pull request reviews', 'pullrequest')).toBe(true)
+  })
+
   test('handles edge cases gracefully', () => {
     expect(fuzzyMatch('GitHub Copilot', '')).toBe(true) // Empty search matches anything.
     expect(fuzzyMatch('', 'copilot')).toBe(false)
@@ -85,6 +105,15 @@ describe('fuzzyMatchScore', () => {
     // "agents" has ag, ge, en, nt, ts; "agent" covers 4 of 5, so coverage is 0.8.
     const score = fuzzyMatchScore('GitHub Copilot agent', 'agents')
     expect(score).toBeGreaterThanOrEqual(0.7)
+    expect(score).toBeLessThan(1)
+  })
+
+  test('scores a fuzzy match with full bigram coverage below an exact match', () => {
+    expect(fuzzyMatchScore('Agent tasks in Copilot', 'copilot agent')).toBeLessThan(1)
+  })
+
+  test('scores joined queries that span text words below an exact match', () => {
+    expect(fuzzyMatchScore('Using VS Code', 'vscode')).toBe(0.99)
   })
 
   test('rejects short terms that are not exact substrings', () => {

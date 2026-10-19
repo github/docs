@@ -127,6 +127,19 @@ describe('searchArticles', () => {
     expect(results).toHaveLength(0)
   })
 
+  test('ignores unrelated long intros that contain every query bigram', () => {
+    const withNoise = [
+      makeArticle(
+        'About enterprise plugin policies',
+        'Enterprise administrators can define policies that restrict which plugins members can install, keeping availability consistent.',
+        '/policies',
+      ),
+      makeArticle('Understanding pricing', 'Learn how plans are charged', '/pricing'),
+    ]
+    const results = searchArticles(withNoise, 'pricing', [])
+    expect(results.map((a) => a.fullPath)).toEqual(['/pricing'])
+  })
+
   test('searches title, intro, and category fields', () => {
     const results = searchArticles(articles, 'agents', [])
     expect(results.length).toBeGreaterThan(0)

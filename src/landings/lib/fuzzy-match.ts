@@ -39,17 +39,42 @@ export const bigramCoverage = (text: string, search: string): number => {
   return found / searchBigrams.size
 }
 
-// Returns 1 for a substring match, bigram coverage at or above the threshold, or -1 otherwise.
+// Fuzzy scores stay below 1 so exact substring matches always rank first.
+const MAX_FUZZY_SCORE = 0.99
+
+const splitWords = (str: string): string[] => str.split(/\s+/).filter(Boolean)
+
+// One-character words have no bigrams, so they need an exact substring match.
+const wordScore = (lowerText: string, textWords: string[], searchWord: string): number =>
+  searchWord.length === 1
+    ? Number(lowerText.includes(searchWord))
+    : Math.max(...textWords.map((textWord) => bigramCoverage(textWord, searchWord)))
+
+// Returns 1 for a substring match, a fuzzy score at or above the threshold, or -1 otherwise.
+// Each query word is scored against its closest single text word, because bigrams pooled
+// across a long intro cover most common words by chance.
 export const fuzzyMatchScore = (text: string, searchTerm: string): number => {
   const lowerText = text.toLowerCase()
   const lowerSearch = searchTerm.toLowerCase()
 
   if (lowerText.includes(lowerSearch)) return 1
 
-  if (lowerSearch.replace(/\s+/g, '').length <= SHORT_TERM_MAX_LENGTH) return -1
+  const compactSearch = lowerSearch.replace(/\s+/g, '')
+  if (compactSearch.length <= SHORT_TERM_MAX_LENGTH) return -1
 
-  const score = bigramCoverage(text, searchTerm)
-  return score >= BIGRAM_COVERAGE_THRESHOLD ? score : -1
+  // Joined queries like "vscode" span more than one text word.
+  if (lowerText.replace(/\s+/g, '').includes(compactSearch)) return MAX_FUZZY_SCORE
+
+  const textWords = splitWords(lowerText)
+  const searchWords = splitWords(lowerSearch)
+  if (textWords.length === 0 || searchWords.length === 0) return -1
+
+  const scores = searchWords.map((searchWord) => wordScore(lowerText, textWords, searchWord))
+  // A common word like "in" would otherwise carry an unrelated article past the threshold.
+  if (scores.some((score) => score < BIGRAM_COVERAGE_THRESHOLD)) return -1
+
+  const average = scores.reduce((sum, score) => sum + score, 0) / scores.length
+  return Math.min(average, MAX_FUZZY_SCORE)
 }
 
 export const fuzzyMatch = (text: string, searchTerm: string): boolean => {
