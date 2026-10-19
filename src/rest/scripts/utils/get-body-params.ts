@@ -105,6 +105,13 @@ async function handleObjectOnlyOneOf(
   return []
 }
 
+// Array-level nullability already renders as "or null", so a null item type adds nothing to the label.
+function getArrayItemTypes(items: Schema): string[] {
+  return (Array.isArray(items.type) ? items.type : [items.type]).filter(
+    (t): t is string => t !== undefined && t !== 'null',
+  )
+}
+
 // OpenAPI 3.0 allows one type value, while OpenAPI 3.1 also allows an array, so getBodyParams
 // normalizes type values to arrays before it builds the rendered type string.
 // For child parameters, getBodyParams reads object-valued additionalProperties recursively.
@@ -123,12 +130,16 @@ export async function getBodyParams(schema: Schema, topLevel = false): Promise<T
     if (!schema.items) {
       throw new Error('Array schema must have items property')
     }
-    const arrayType = schema.items.type
+    const itemTypes = getArrayItemTypes(schema.items)
     const paramType = [schema.type]
-    if (arrayType === 'object') {
+    if (itemTypes.includes('object')) {
       childParamsGroups.push(...(await getBodyParams(schema.items, false)))
-    } else {
-      paramType.splice(paramType.indexOf('array'), 1, `array of ${arrayType}s`)
+    } else if (itemTypes.length > 0) {
+      paramType.splice(
+        paramType.indexOf('array'),
+        1,
+        `array of ${itemTypes.map((t) => `${t}s`).join(' or ')}`,
+      )
     }
     const paramDecorated = await getTransformedParam(schema, paramType, {
       required,
@@ -172,15 +183,19 @@ export async function getBodyParams(schema: Schema, topLevel = false): Promise<T
           childParamsGroups.push(...(await getOneOfChildParams(param.items)))
         }
       } else {
-        const arrayType = param.items.type
-        if (arrayType) {
-          paramType.splice(paramType.indexOf('array'), 1, `array of ${arrayType}s`)
+        const itemTypes = getArrayItemTypes(param.items)
+        if (itemTypes.length > 0) {
+          paramType.splice(
+            paramType.indexOf('array'),
+            1,
+            `array of ${itemTypes.map((t) => `${t}s`).join(' or ')}`,
+          )
         }
-        if (arrayType === 'object') {
+        if (itemTypes.includes('object')) {
           childParamsGroups.push(...(await getBodyParams(param.items, false)))
         }
-        if (arrayType === 'string' && param.items.enum) {
-          param.description += `${
+        if (itemTypes.includes('string') && param.items.enum) {
+          param.description = `${param.description || ''}${
             param.description ? '\n' : ''
           }Supported values are: ${((param.items.enum || []) as string[]).map((lang: string) => `<code>${lang}</code>`).join(', ')}`
         }

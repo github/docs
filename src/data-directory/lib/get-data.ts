@@ -89,7 +89,19 @@ export const getUIDataMerged = memoize((langCode: string): UIStrings => {
   // Merge translations over English so missing localized UI keys fall back to English.
   const combined: Record<string, unknown> = {}
   merge(combined, uiEnglish)
-  merge(combined, getUIData(langCode))
+  try {
+    merge(combined, getUIData(langCode))
+  } catch (error) {
+    // Every request reads UI data, so a corrupt or missing translated ui.yml uses English.
+    if ((error as YAMLException).mark || (error as FileSystemError).code === 'ENOENT') {
+      logger.warn('Unable to read translated data/ui.yml, falling back to English', {
+        langCode,
+        error,
+      })
+    } else {
+      throw error
+    }
+  }
   return combined as UIStrings
 })
 

@@ -669,10 +669,15 @@ export function correctTranslatedContentStrings(
       'você precisa instalá-lo na sua {% ifversion enterprise-installed-apps %}empresa, {% endif %}organização ou conta pessoal.',
     )
 
-    content = content.replaceAll(
-      'tornando mais difícil para os atores mal-intencionados acessarem os repositórios e as configurações de uma organização.',
-      'tornando mais difícil para os atores mal-intencionados acessarem os repositórios e as configurações de uma organização.{% endif %}',
-    )
+    // Other pages reuse this sentence without an open conditional, so the extra endif breaks them.
+    if (
+      context.relativePath?.endsWith('/requiring-two-factor-authentication-in-your-organization.md')
+    ) {
+      content = content.replaceAll(
+        'tornando mais difícil para os atores mal-intencionados acessarem os repositórios e as configurações de uma organização.',
+        'tornando mais difícil para os atores mal-intencionados acessarem os repositórios e as configurações de uma organização.{% endif %}',
+      )
+    }
 
     content = content.replaceAll(
       'nos repositórios internos e {% endif %}privados {% ifversion ghec %}da sua organização.',
@@ -954,6 +959,11 @@ export function correctTranslatedContentStrings(
       /(\{%-?\s*indented_data_reference\s+)повторн[а-яё]*(?:\s+[а-яё]+)*\./g,
       '$1reusables.',
     )
+    // Genitive-case transliteration of octicon
+    content = content.replaceAll('{% октикона ', '{% octicon ')
+    content = content.replaceAll('{%- октикона ', '{%- octicon ')
+    content = content.replaceAll('{% oктикoнa ', '{% octicon ')
+    content = content.replaceAll('{%- oктикoнa ', '{%- octicon ')
     content = content.replaceAll('{% еще %}', '{% else %}')
     content = content.replaceAll('{%- еще %}', '{%- else %}')
     content = content.replaceAll('{% ещё %}', '{% else %}')
@@ -1325,6 +1335,11 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{%- 들여쓰기_데이터_참조 ', '{%- indented_data_reference ')
     content = content.replaceAll('{% 옥티콘 ', '{% octicon ')
     content = content.replaceAll('{%- 옥티콘 ', '{%- octicon ')
+    // "자료" (material) substituted for "data" in data variables/reusables tags
+    content = content.replaceAll('{% 자료 변수.', '{% data variables.')
+    content = content.replaceAll('{%- 자료 변수.', '{%- data variables.')
+    content = content.replaceAll('{% 자료 재사용 가능.', '{% data reusables.')
+    content = content.replaceAll('{%- 자료 재사용 가능.', '{%- data reusables.')
     content = content.replaceAll('{% 행 머리글 %}', '{% rowheaders %}')
     content = content.replaceAll('{%- 행 머리글 %}', '{%- rowheaders %}')
     content = content.replaceAll('{% 행머리글 %}', '{% rowheaders %}')
@@ -1962,7 +1977,28 @@ export function correctTranslatedContentStrings(
     }
   }
 
-  content = content.replaceAll(' | | ', ' |\n| ')
+  // ' | | ' is also a legitimate empty table cell, so keep a row whose empty-cell layout matches an English row.
+  {
+    const rowShape = (line: string) =>
+      line
+        .split('|')
+        .map((cell) => (cell.trim() ? 'x' : ''))
+        .join('|')
+    const englishRowShapes = new Set(
+      englishContent
+        .split('\n')
+        .filter((line) => line.includes(' | | '))
+        .map(rowShape),
+    )
+    content = content
+      .split('\n')
+      .map((line) =>
+        line.includes(' | | ') && !englishRowShapes.has(rowShape(line))
+          ? line.replaceAll(' | | ', ' |\n| ')
+          : line,
+      )
+      .join('\n')
+  }
 
   // Run after specific fixes. Swap only when no tag sits between, so nesting survives.
   {

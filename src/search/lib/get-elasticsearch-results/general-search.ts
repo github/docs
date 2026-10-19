@@ -409,7 +409,7 @@ function getHits(
       result.score = hit._score ?? 0.0
       result.popularity = source.popularity ?? 0.0
       if (isDevMode) {
-        result.es_url = `http://localhost:9200/${indexName}/_doc/${hit._id}`
+        result.es_url = `http://localhost:9200/${indexName}/_doc/${encodeURIComponent(hit._id!)}`
       }
     }
     for (const field of include) {

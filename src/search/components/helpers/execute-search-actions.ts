@@ -62,6 +62,9 @@ export function executeGeneralSearch(
   if (params.has('search-overlay-open')) {
     params.delete('search-overlay-open')
   }
+  // A new query starts on page 1 of all results, so an old page or category filter cannot leave it empty.
+  params.delete('page')
+  params.delete('toplevel')
   asPath += `?${params}`
   router.push(asPath, undefined, { shallow: false })
 }

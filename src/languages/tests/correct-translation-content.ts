@@ -651,6 +651,35 @@ describe('correctTranslatedContentStrings', () => {
         ),
       ).toBe('{% data reusables.audit_log.reference-grouped-by-category %}')
     })
+
+    describe('2FA intro missing endif', () => {
+      function fixAt(content: string, relativePath: string) {
+        return correctTranslatedContentStrings(content, '', {
+          code: 'pt',
+          relativePath,
+          skipOrphanStripping: true,
+        })
+      }
+      const sentence =
+        'tornando mais difícil para os atores mal-intencionados acessarem os repositórios e as configurações de uma organização.'
+
+      test('appends endif in requiring-two-factor-authentication-in-your-organization intro', () => {
+        const broken = `{% ifversion fpt or ghec %}membros e gerentes de cobrança{% else %}membros ativem a autenticação de dois fatores, ${sentence}`
+        expect(
+          fixAt(
+            broken,
+            'organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization.md',
+          ),
+        ).toBe(`${broken}{% endif %}`)
+      })
+
+      test('leaves the same sentence alone in other files', () => {
+        const text = `* Exigir 2FA, ${sentence}{% ifversion ghec %} x{% endif %} Para obter mais informações.`
+        expect(
+          fixAt(text, 'code-security/tutorials/secure-your-organization/prevent-data-leaks.md'),
+        ).toBe(text)
+      })
+    })
   })
 
   describe('Chinese (zh)', () => {
@@ -898,6 +927,14 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('{%, variables.product.github %}', 'ru')).toBe(
         '{% data variables.product.github %}',
       )
+    })
+
+    test('fixes октикона → octicon', () => {
+      expect(fix('{% октикона "плюс" aria-label="plus" %}', 'ru')).toBe(
+        '{% octicon "плюс" aria-label="plus" %}',
+      )
+      expect(fix('{%- октикона "plus" %}', 'ru')).toBe('{%- octicon "plus" %}')
+      expect(fix('{% octicon "plus" %}', 'ru')).toBe('{% octicon "plus" %}')
     })
 
     test('fixes translated raw/endraw', () => {
@@ -1380,6 +1417,18 @@ describe('correctTranslatedContentStrings', () => {
     test('fixes 그렇지 않으면 → else', () => {
       expect(fix('{% 그렇지 않으면 %}', 'ko')).toBe('{% else %}')
       expect(fix('{%- 그렇지 않으면 %}', 'ko')).toBe('{%- else %}')
+    })
+
+    test('fixes 자료 → data in variables/reusables tags', () => {
+      expect(fix('{% 자료 변수.product.prodname_vs %}', 'ko')).toBe(
+        '{% data variables.product.prodname_vs %}',
+      )
+      expect(fix('{%- 자료 재사용 가능.enterprise.save %}', 'ko')).toBe(
+        '{%- data reusables.enterprise.save %}',
+      )
+      expect(fix('{% data variables.product.prodname_vs %}', 'ko')).toBe(
+        '{% data variables.product.prodname_vs %}',
+      )
     })
 
     test('fixes 옥티콘 → octicon', () => {
@@ -2080,6 +2129,38 @@ describe('correctTranslatedContentStrings', () => {
 
     test('fixes collapsed Markdown table rows', () => {
       expect(fix('Cell1 | | Cell2', 'es')).toBe('Cell1 |\n| Cell2')
+    })
+
+    test('keeps empty table cells that the English source also has', () => {
+      const english = '| `displayName` | `string` | | Human-readable name |'
+      const translated = '| `displayName` | `string` | | 名前 |'
+      expect(fix(translated, 'ja', english)).toBe(translated)
+    })
+
+    test('fixes collapsed rows on a page that also has empty table cells', () => {
+      const english = [
+        '| `displayName` | `string` | | Human-readable name |',
+        '| `name` | `string` | Yes | Unique name |',
+        '',
+        '| Agent | Config |',
+        '| Subagent | Runtime |',
+      ].join('\n')
+      const translated = [
+        '| `displayName` | `string` | | 名前 |',
+        '| `name` | `string` | Yes | 一意 | | `tools` | `string[]` | No | ツール |',
+        '',
+        '| エージェント | 構成 | | サブエージェント | ランタイム |',
+      ].join('\n')
+      expect(fix(translated, 'ja', english)).toBe(
+        [
+          '| `displayName` | `string` | | 名前 |',
+          '| `name` | `string` | Yes | 一意 |',
+          '| `tools` | `string[]` | No | ツール |',
+          '',
+          '| エージェント | 構成 |',
+          '| サブエージェント | ランタイム |',
+        ].join('\n'),
+      )
     })
 
     test('fixes final catch-all double-brace patterns', () => {

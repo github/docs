@@ -99,4 +99,38 @@ describe('currentProductTree middleware', () => {
     expect(req.context!.sidebarTree!.childPages[0].title).toBe('English short title')
     expect(next).toHaveBeenCalled()
   })
+
+  test.each([
+    ['free-pro-team@latest', '/en/product/category'],
+    ['enterprise-cloud@latest', '/en/enterprise-cloud@latest/product/category'],
+  ])('prefixes sidebarLink href with language and %s', async (version, expectedHref) => {
+    const sidebarLink = { text: 'All category articles', href: '/product/category' }
+    const product = createPage({ rawTitle: 'Product', languageCode: 'en' })
+    const category = createPage({ rawTitle: 'Category', languageCode: 'en', sidebarLink })
+    const article = createPage({ rawTitle: 'Article', languageCode: 'en' })
+    const versionPrefix = version === currentVersion ? '' : `/${version}`
+    const tree = createTree(`/en${versionPrefix}/product`, product, [
+      createTree(`/en${versionPrefix}/product/category`, category, [
+        createTree(`/en${versionPrefix}/product/category/article`, article),
+      ]),
+    ])
+    const req = {
+      context: {
+        page: article,
+        siteTree: { en: { [version]: tree } },
+        currentLanguage: 'en',
+        currentVersion: version,
+        currentProduct: 'product',
+      },
+    } as unknown as ExtendedRequest
+
+    await currentProductTree(req, {} as Response, vi.fn() as NextFunction)
+
+    expect(req.context!.sidebarTree!.childPages[0].sidebarLink).toEqual({
+      text: 'All category articles',
+      href: expectedHref,
+    })
+    // Pages are shared across requests for every version, so the page object must stay unversioned.
+    expect(sidebarLink.href).toBe('/product/category')
+  })
 })

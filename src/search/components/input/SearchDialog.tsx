@@ -74,6 +74,10 @@ export function SearchDialog({
       return
     }
     const handleKeyDown = (event: KeyboardEvent) => {
+      // An Escape that cancels an input method composition must not close the dialog.
+      if (event.isComposing || event.keyCode === 229) {
+        return
+      }
       // The input closes on Escape and prevents default, so this catches Escape elsewhere.
       if (event.key === 'Escape' && !event.defaultPrevented) {
         onClose()

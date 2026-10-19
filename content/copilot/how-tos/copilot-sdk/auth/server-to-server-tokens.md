@@ -30,7 +30,7 @@ jobs:
       - uses: {% data reusables.actions.action-checkout %}
       - run: your-application
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
 ```
 
 The organization's **Allow use of Copilot CLI billed to the organization** policy must be enabled. This approach needs no GitHub App or stored authentication secret. For details, see [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli-in-actions).

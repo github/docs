@@ -41,17 +41,23 @@ Events below list only their additional parameters beyond these common ones.
 **Action type:** {% for actionType in webhook.actionTypes %}`{{ actionType }}`{% unless forloop.last %}, {% endunless %}{% endfor %}
 
 {% endif %}
-{% if webhook.description %}
-{{ webhook.description }}
+{% for action in webhook.actions %}
+{% if webhook.actions.size > 1 %}
+#### `{{ action.name }}`
 
 {% endif %}
-{% if webhook.bodyParameters.size > 0 %}
-#### Webhook payload object parameters
+{% if action.description %}
+{{ action.description }}
+
+{% endif %}
+{% if action.bodyParameters.size > 0 %}
+{% if webhook.actions.size > 1 %}#####{% else %}####{% endif %} Webhook payload object parameters
 
 | Name | Type | Description |
 |------|------|-------------|
-{% for param in webhook.bodyParameters %}| `{{ param.name }}` | `{{ param.type }}` | {% if param.isRequired %}**Required.** {% endif %}{{ param.description }} |
+{% for param in action.bodyParameters %}| `{{ param.name }}` | `{{ param.type }}` | {% if param.isRequired %}**Required.** {% endif %}{{ param.description }} |
 {% endfor %}
 
 {% endif %}
+{% endfor %}
 {% endfor %}

@@ -142,6 +142,22 @@ function renderProperties(
 
     if (propType === 'array' && prop.items) {
       const itemTitle = prop.items.title
+      const itemKey = (['oneOf', 'anyOf', 'allOf'] as const).find((k) => prop.items![k])
+      if (itemKey) {
+        const label = `${itemTitle ? `array of \`${itemTitle}\`` : 'array of items'}${isNullable ? ' or null' : ''}`
+        if (shouldReference(itemTitle, depth < MAX_DEPTH, seen)) {
+          lines.push(`${prefix}* \`${name}\`: ${reqStr}${label} (see above)`)
+        } else {
+          lines.push(`${prefix}* \`${name}\`: ${reqStr}${label}:`)
+          if (prop.items.properties && depth < MAX_DEPTH) {
+            lines.push(renderProperties(prop.items, indent + 1, depth + 1, seen))
+          }
+          lines.push(
+            renderCompositionVariants(itemKey, prop.items[itemKey]!, indent + 1, depth, seen),
+          )
+        }
+        continue
+      }
       const canExpand = Boolean(prop.items.properties) && depth < MAX_DEPTH
       if (shouldReference(itemTitle, canExpand, seen)) {
         lines.push(

@@ -100,6 +100,8 @@ export default function handleRedirects(req: ExtendedRequest, res: Response, nex
   }
 
   redirect = queryParams ? redirectWithoutQueryParams + queryParams : redirectWithoutQueryParams
+  // Query values can contain ://, so check only the destination path.
+  const isExternal = redirectWithoutQueryParams.includes('://')
 
   if (!redirectTo && !pathLanguagePrefixed(req.path)) {
     // Add a language prefix only for pages or deprecated versions; /healthcheck passes through.
@@ -119,7 +121,7 @@ export default function handleRedirects(req: ExtendedRequest, res: Response, nex
 
   if (!req.context.pages) throw new Error('req.context.pages not yet set')
 
-  if (!redirect.includes('://')) {
+  if (!isExternal) {
     const preference = getVersionPreference(
       req.path,
       removeQueryParams(redirect),
@@ -145,7 +147,7 @@ export default function handleRedirects(req: ExtendedRequest, res: Response, nex
       req.context.pages[removeQueryParams(redirect).replace(/\.md$/, '')] ||
       isDeprecatedVersion(req.path)
     ) &&
-    !redirect.includes('://')
+    !isExternal
   ) {
     // Development responses expose the missing redirect target; production keeps the page clean.
     if (process.env.NODE_ENV !== 'production' && req.context) {
@@ -155,13 +157,13 @@ export default function handleRedirects(req: ExtendedRequest, res: Response, nex
   }
 
   // Language-prefixed and external redirects do not vary by language preference.
-  if (pathLanguagePrefixed(req.path) || redirect.includes('://')) {
+  if (pathLanguagePrefixed(req.path) || isExternal) {
     defaultCacheControl(res)
   } else {
     languageCacheControl(res)
   }
 
-  const permanent = redirect.includes('://') || usePermanentRedirect(req)
+  const permanent = isExternal || usePermanentRedirect(req)
   return res.safeRedirect(permanent ? 301 : 302, redirect)
 }
 

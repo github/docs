@@ -9,6 +9,7 @@ import chalk from 'chalk'
 import dotenv from 'dotenv'
 
 import { languageKeys } from '@/languages/lib/languages-server'
+import { getElasticSearchIndex } from '@/search/lib/elasticsearch-indexes'
 import { allVersions } from '@/versions/lib/all-versions'
 
 import type { estypes } from '@elastic/elasticsearch'
@@ -110,10 +111,9 @@ async function main(opts: Options, textArgs: string[]): Promise<void> {
   }
 
   const { indexPrefix } = opts
-  const prefix = indexPrefix ? `${indexPrefix}_` : ''
 
   for (const languageKey of languagesToAnalyze) {
-    const indexName = `${prefix}github-docs-${versionKey}-${languageKey}`
+    const indexName = getIndexName(versionKey, languageKey, indexPrefix)
     console.log(chalk.yellow(`Analyzing in ${chalk.bold(indexName)}`))
     await analyzeVersion(client, texts, indexName)
   }
@@ -136,6 +136,11 @@ export function getLanguagesToAnalyze({
   }
 
   return ['en']
+}
+
+// Matches the names the general search indexer creates.
+export function getIndexName(version: string, language: string, indexPrefix = ''): string {
+  return getElasticSearchIndex('generalSearch', version, language, indexPrefix).indexName
 }
 
 function safeUrlDisplay(url: string): string {

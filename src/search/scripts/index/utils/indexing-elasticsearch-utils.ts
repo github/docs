@@ -17,6 +17,8 @@ type Options = {
   retries?: number
   sleepTime?: number
   verbose?: boolean
+  // Record field to use as the document _id, so a retried bulk overwrites documents instead of duplicating them.
+  idField?: string
 }
 
 export async function createIndex(
@@ -54,7 +56,10 @@ export async function populateIndex(
     () =>
       client.helpers.bulk({
         datasource: records,
-        onDocument: () => ({ index: { _index: indexAlias } }),
+        onDocument: (doc) => {
+          const id = options.idField ? doc[options.idField] : undefined
+          return { index: { _index: indexAlias, ...(typeof id === 'string' ? { _id: id } : {}) } }
+        },
         // Keep bulk requests under 4 MB, because larger requests can return 429 from Elasticsearch.
         flushBytes: 4 * 1024 * 1024,
         concurrency: 2,

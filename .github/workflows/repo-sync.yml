@@ -12,6 +12,12 @@ permissions:
   contents: write
   pull-requests: write
 
+# Queue overlapping runs. A second run closes every open repo-sync pull request, including one
+# the first run is still waiting to merge. Cancelling mid-merge would leave that pull request open.
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+
 jobs:
   repo-sync:
     if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'

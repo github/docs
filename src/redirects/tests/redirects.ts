@@ -59,6 +59,12 @@ describe('redirects', () => {
       expect(res.headers.location).toBe(expected)
     })
 
+    test('have q= converted to query= on Enterprise Cloud', async () => {
+      const res = await get('/en/enterprise-cloud@latest/admin?q=pulls')
+      expect(res.statusCode).toBe(301)
+      expect(res.headers.location).toBe('/en/enterprise-cloud@latest/search?query=pulls')
+    })
+
     test('convert q= to query= on search page', async () => {
       const res = await get('/en/search?q=pulls')
       expect(res.statusCode).toBe(301)

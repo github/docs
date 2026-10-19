@@ -16,6 +16,8 @@ import path from 'node:path'
 import { parseArgs } from 'node:util'
 import { execFileSync, execSync } from 'node:child_process'
 
+import { MERMAID_BLOCK } from '@/workflows/sync-sdk-docs/mermaid-blocks'
+
 const { values: args } = parseArgs({
   options: {
     'sdk-docs-dir': { type: 'string' },
@@ -105,8 +107,7 @@ function generateAltText(mermaidSource: string): string {
 function processFile(filePath: string, assetsUrlPath: string): number {
   const raw = fs.readFileSync(filePath, 'utf8')
 
-  const mermaidRegex = /```mermaid\n([\s\S]*?)```/g
-  const matches = [...raw.matchAll(mermaidRegex)]
+  const matches = [...raw.matchAll(MERMAID_BLOCK)]
 
   if (matches.length === 0) return 0
 

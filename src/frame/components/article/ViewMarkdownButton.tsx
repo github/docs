@@ -17,6 +17,18 @@ import { useTranslation } from '@/languages/components/useTranslation'
 import cx from 'clsx'
 import styles from './ViewMarkdownButton.module.scss'
 
+async function fetchMarkdown(markdownUrl: string) {
+  const res = await fetch(markdownUrl)
+  if (!res.ok) {
+    throw new Error(`Failed to fetch: ${res.status}`)
+  }
+  return res.text()
+}
+
+async function fetchMarkdownBlob(markdownUrl: string) {
+  return new Blob([await fetchMarkdown(markdownUrl)], { type: 'text/plain' })
+}
+
 interface CopyMarkdownMenuProps {
   currentPath: string
 }
@@ -30,6 +42,7 @@ export const CopyMarkdownMenu = ({ currentPath }: CopyMarkdownMenuProps) => {
 
   const [copied, setCopied] = useState(false)
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const copyAttemptRef = useRef(0)
 
   useEffect(() => {
     return () => {
@@ -71,18 +84,22 @@ export const CopyMarkdownMenu = ({ currentPath }: CopyMarkdownMenuProps) => {
       clipboard_target: markdownUrl,
       eventGroupKey: MARKDOWN_SOURCE_MENU_EVENT_GROUP,
     })
+    const attempt = ++copyAttemptRef.current
     try {
-      const res = await fetch(markdownUrl)
-      if (!res.ok) {
-        throw new Error(`Failed to fetch: ${res.status}`)
+      if (typeof ClipboardItem !== 'undefined' && typeof navigator.clipboard.write === 'function') {
+        // Safari rejects clipboard writes that start after an await in a click handler, so start the write before the fetch resolves.
+        const blob = fetchMarkdownBlob(markdownUrl)
+        await navigator.clipboard.write([new ClipboardItem({ 'text/plain': blob })])
+      } else {
+        await navigator.clipboard.writeText(await fetchMarkdown(markdownUrl))
       }
-      const text = await res.text()
-      await navigator.clipboard.writeText(text)
       announce(t('copied'))
       setCopied(true)
       if (timeoutRef.current) clearTimeout(timeoutRef.current)
       timeoutRef.current = setTimeout(() => setCopied(false), 2000)
     } catch {
+      // Safari rejects a pending clipboard write when a newer click starts another, so a superseded attempt skips the fallback.
+      if (attempt !== copyAttemptRef.current) return
       // If fetch or clipboard fails, open the markdown source in a new tab.
       window.open(markdownUrl, '_blank')
     }

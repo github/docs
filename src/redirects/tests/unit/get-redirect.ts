@@ -60,6 +60,19 @@ describe('getRedirect basics', () => {
     )
   })
 
+  // handle-redirects appends /search to this result, so a trailing slash would produce //search.
+  test('should not redirect language-prefixed version home pages', () => {
+    const ctx: TestContext = {
+      pages: {},
+      redirects: {},
+    }
+    expect(getRedirect('/en/enterprise-cloud@latest', ctx as unknown as Context)).toBeUndefined()
+    expect(getRedirect('/ja/enterprise-cloud@latest', ctx as unknown as Context)).toBeUndefined()
+    expect(
+      getRedirect(`/en/enterprise-server@${latest}`, ctx as unknown as Context),
+    ).toBeUndefined()
+  })
+
   test('should always "remove" the free-pro-team prefix', () => {
     const ctx = {
       pages: {},

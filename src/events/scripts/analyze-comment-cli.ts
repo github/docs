@@ -40,7 +40,7 @@ async function main(comment?: string, options?: Options) {
   let rating = 1.0
   let broke = false
   for (const { reduction, name, validator } of SIGNAL_RATINGS) {
-    const hit = validator(comment, language)
+    const hit = await validator(comment, language)
     if (hit) {
       console.log(
         chalk.yellow(

@@ -304,12 +304,10 @@ const NavListItem = memo(function NavListItem({
 }) {
   const nav = useSidebarNav()
   const { routePath, navigate, prefetch } = nav
-  const locale = routePath.split('/')[1]
   const hasChildren = childPage.childPages.length > 0
   const specialCategory = childPage.layout === 'category-landing'
   const canNest = level < MAX_NAVLIST_LEVEL
-  // sidebarLink.href lacks a locale prefix; add it so href, aria-current, and navigation agree.
-  const sidebarLinkHref = childPage.sidebarLink ? `/${locale}${childPage.sidebarLink.href}` : ''
+  const sidebarLinkHref = childPage.sidebarLink?.href || ''
 
   // Leaf nodes use anchors so Brand draws the active bar from aria-current page.
   if (!hasChildren) {

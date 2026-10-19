@@ -164,6 +164,8 @@ export function AskAIResults({
       let messageBuffer = ''
       let sourcesBuffer: AIReference[] = []
       let conversationIdBuffer = ''
+      // Errored or dropped streams leave a truncated answer that must not be cached as complete.
+      let streamSucceeded = false
 
       try {
         const response = await executeAISearch(version, query, debug)
@@ -329,13 +331,14 @@ export function AskAIResults({
             console.warn('Failed to parse tail JSON:', leftover, err)
           }
         }
+        streamSucceeded = true
       } catch (error: unknown) {
         if (!isCancelled) {
           console.error('Failed to fetch search results:', error)
           setAISearchError()
         }
       } finally {
-        if (!isCancelled && messageBuffer) {
+        if (!isCancelled && streamSucceeded && messageBuffer) {
           setItem(
             query,
             {
