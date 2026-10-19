@@ -832,6 +832,129 @@ test.describe('search dialog', () => {
     await expect(input).toHaveAttribute('aria-activedescendant', 'search-option-reference-0')
   })
 
+  // Streams one answer chunk, then holds until releaseCopilot, then ends the stream as asked.
+  // Also records event beacons, since Chromium hides sendBeacon payloads from Playwright.
+  async function streamCopilotAnswer(
+    page: Page,
+    ending: 'close' | 'error-record' | 'network-error',
+  ) {
+    await page.addInitScript((streamEnding) => {
+      const testWindow = window as unknown as {
+        releaseCopilot: () => void
+        copilotBeacons: Promise<string>[]
+      }
+      let release = () => {}
+      const released = new Promise<void>((resolve) => {
+        release = resolve
+      })
+      testWindow.releaseCopilot = () => release()
+      testWindow.copilotBeacons = []
+      navigator.sendBeacon = (url, data) => {
+        if (url === '/api/events' && data instanceof Blob) {
+          testWindow.copilotBeacons.push(data.text())
+        }
+        return true
+      }
+      const realFetch = window.fetch
+      window.fetch = async (input, init) => {
+        const url =
+          typeof input === 'string' ? input : input instanceof URL ? input.href : input.url
+        if (!url.includes('/api/ai-search/v1')) return realFetch(input, init)
+        const encoder = new TextEncoder()
+        const body = new ReadableStream({
+          async start(controller) {
+            controller.enqueue(
+              encoder.encode('{"chunkType":"MESSAGE_CHUNK","text":"Streamed answer"}\n'),
+            )
+            await released
+            if (streamEnding === 'network-error') {
+              controller.error(new TypeError('network error'))
+              return
+            }
+            if (streamEnding === 'error-record') {
+              controller.enqueue(
+                encoder.encode('{"errors":[{"message":"Internal server error"}]}\n'),
+              )
+            }
+            controller.close()
+          },
+        })
+        return new Response(body, {
+          status: 200,
+          headers: { 'Content-Type': 'application/x-ndjson' },
+        })
+      }
+    }, ending)
+  }
+
+  async function askCopilotAndRelease(page: Page) {
+    await mockSearch(page)
+    await page.goto('/')
+    await turnOffExperimentsInPage(page)
+
+    await page.getByTestId('toggle-search').click()
+    const input = page.getByTestId('overlay-search-input')
+    await input.fill('foo')
+    await expect(page.locator('#search-option-general-0')).toBeVisible()
+    await input.press('Enter') // nothing selected: ask Copilot
+    // Let the client render the first chunk before the stream ends.
+    await expect(page.getByText('Streamed answer', { exact: true })).toBeVisible()
+    await releaseCopilot(page)
+  }
+
+  function cachedCopilotAnswers(page: Page) {
+    return page.evaluate(() =>
+      Object.keys(localStorage)
+        .filter((key) => /^ai-query-cache-\d+-/.test(key))
+        .map((key) => JSON.parse(localStorage.getItem(key)!).data.message as string),
+    )
+  }
+
+  function sentCopilotResultStatuses(page: Page) {
+    return page.evaluate(async () => {
+      // Hiding the page flushes the queued events.
+      Object.defineProperty(document, 'visibilityState', {
+        configurable: true,
+        get() {
+          return 'hidden'
+        },
+      })
+      document.dispatchEvent(new Event('visibilitychange'))
+      const testWindow = window as unknown as { copilotBeacons: Promise<string>[] }
+      const batches = await Promise.all(testWindow.copilotBeacons)
+      return batches
+        .flatMap((batch) => JSON.parse(batch))
+        .filter((eventBody) => eventBody.type === 'aiSearchResult')
+        .map((eventBody) => eventBody.ai_search_result_response_status as number)
+    })
+  }
+
+  test('a finished Copilot answer is cached and reported as a success', async ({ page }) => {
+    test.skip(!ANALYTICS_ENABLED, 'Analytics are disabled')
+    await streamCopilotAnswer(page, 'close')
+    await askCopilotAndRelease(page)
+
+    await expect.poll(() => cachedCopilotAnswers(page)).toEqual(['Streamed answer'])
+    expect(await sentCopilotResultStatuses(page)).toContain(200)
+  })
+
+  for (const [ending, cause] of [
+    ['error-record', 'an error record'],
+    ['network-error', 'a network error'],
+  ] as const) {
+    test(`a Copilot answer cut off by ${cause} is not cached or reported as a success`, async ({
+      page,
+    }) => {
+      test.skip(!ANALYTICS_ENABLED, 'Analytics are disabled')
+      await streamCopilotAnswer(page, ending)
+      await askCopilotAndRelease(page)
+
+      await expect(page.getByText('There was an error loading Copilot.')).toBeVisible()
+      expect(await cachedCopilotAnswers(page)).toEqual([])
+      expect(await sentCopilotResultStatuses(page)).not.toContain(200)
+    })
+  }
+
   test('Back after picking a result leaves the dialog closed', async ({ page }) => {
     await mockSearch(page)
     await page.goto('/get-started/foo/bar')
