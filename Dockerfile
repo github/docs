@@ -79,7 +79,7 @@ COPY --chown=node:node --from=clones $APP_HOME/content content/
 COPY --chown=node:node --from=clones $APP_HOME/translations translations/
 COPY --chown=node:node --from=prod_deps $APP_HOME/node_modules node_modules/
 COPY --chown=node:node --from=build $APP_HOME/.next .next/
-COPY --chown=node:node --from=warmup_cache $APP_HOME/.remotejson-cache ./
+COPY --chown=node:node --from=warmup_cache $APP_HOME/.remotejson-cache .remotejson-cache/
 # Expose the build SHA at runtime when callers pass --build-arg BUILD_SHA=abc123.
 ARG BUILD_SHA
 ENV BUILD_SHA=$BUILD_SHA
