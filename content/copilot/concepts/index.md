@@ -8,7 +8,7 @@ children:
   - /copilot-surfaces
   - /agents
   - /agent-capabilities
-  - /prompting
+  - /prompting-and-context
   - /context
   - /models
   - /billing-and-usage

@@ -7,7 +7,6 @@ versions:
   feature: copilot
 children:
   - /comparing-cli-features
-  - /context-management
   - /about-custom-agents
   - /lsp-servers
   - /about-cli-extensions

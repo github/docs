@@ -1,5 +1,5 @@
 ---
-title: Prompt engineering for GitHub Copilot Chat
+title: Prompt engineering for GitHub Copilot
 shortTitle: Prompt engineering
 intro: Follow these strategies to improve your {% data variables.product.prodname_copilot_short %} results.
 versions:
@@ -9,6 +9,7 @@ redirect_from:
   - /copilot/using-github-copilot/copilot-chat/prompt-engineering-for-copilot-chat
   - /copilot/concepts/prompt-engineering-for-copilot-chat
   - /copilot/concepts/prompt-engineering
+  - /copilot/concepts/prompting/prompt-engineering
   - /copilot/tutorials/copilot-cookbook/document-code
   - /copilot/example-prompts-for-github-copilot-chat/documenting-code
   - /copilot/copilot-chat-cookbook/documenting-code
@@ -26,18 +27,23 @@ redirect_from:
   - /copilot/tutorials/copilot-chat-cookbook/documenting-code/syncing-documentation-with-code-changes
   - /copilot/tutorials/copilot-chat-cookbook/documenting-code/sync-documentation
   - /copilot/tutorials/copilot-chat-cookbook/document-code/sync-documentation
+  - /copilot/how-tos/copilot-in-your-ide/chat-with-copilot/get-started-with-chat-in-your-ide
 contentType: concepts
 category:
   - Configure Copilot
 ---
 
-A prompt is a request that you make to {% data variables.product.prodname_copilot %}. For example, a question that you ask {% data variables.copilot.copilot_chat_short %}, or a code snippet that you ask {% data variables.product.prodname_copilot_short %} to complete. In addition to your prompt, {% data variables.product.prodname_copilot_short %} uses additional context, like the code in your current file and the chat history, to generate a response.
+A prompt is a request that you make to {% data variables.product.prodname_copilot %}. For example, you might ask a question, describe a task, or write a code snippet for {% data variables.product.prodname_copilot_short %} to complete. In addition to your prompt, {% data variables.product.prodname_copilot_short %} uses context such as the code in your current file and your conversation history to generate a response.
 
-Follow the tips in this article to write prompts that generate better responses from {% data variables.product.prodname_copilot_short %}.
+You interact with {% data variables.product.prodname_copilot_short %} across many surfaces, including the {% data variables.copilot.github_copilot_app %}, {% data variables.copilot.copilot_cli %}, in your IDE ({% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, {% data variables.product.prodname_jetbrains_ides %}, Eclipse, and Xcode), and on the {% data variables.product.github %} website.
+
+From the {% data variables.copilot.github_copilot_app %} or the {% data variables.product.github %} website, you can also start a {% data variables.copilot.copilot_cloud_agent %}—an agent that works on a task for you—instead of working with {% data variables.product.prodname_copilot_short %} interactively.
+
+The tips in this article apply across {% data variables.product.prodname_copilot_short %} surfaces to help you write prompts that generate better responses.
 
 ## Start general, then get specific
 
-When writing a prompt for {% data variables.product.prodname_copilot_short %}, first give {% data variables.product.prodname_copilot_short %} a broad description of the goal or scenario. Then list any specific requirements.
+When writing a prompt for {% data variables.product.prodname_copilot_short %}, first give {% data variables.product.prodname_copilot_short %} a broad description of the goal or scenario. Then list any specific requirements. Put your most important requirements first. {% data variables.product.prodname_copilot_short %} gives extra weight to instructions at the beginning and end of a prompt.
 
 For example:
 
@@ -74,7 +80,7 @@ findDates("I have a dentist appointment on 11/14/2023 and book club on 12-1-23")
 Returns: ["11/14/2023", "12-1-23"]
 ```
 
-Unit tests can also serve as examples. Before writing your function, you can use {% data variables.product.prodname_copilot_short %} to write unit tests for the function. Then, you can ask {% data variables.product.prodname_copilot_short %} to write a function described by those unit tests.
+Unit tests can also serve as examples. Before writing your function, use {% data variables.product.prodname_copilot_short %} to write unit tests for the function. Then ask {% data variables.product.prodname_copilot_short %} to write a function described by those unit tests.
 
 ## Break complex tasks into simpler tasks
 
@@ -99,11 +105,16 @@ Ambiguity can also apply to libraries:
 * If you are using an uncommon library, describe what the library does.
 * If you want to use a specific library, set the import statements at the top of the file or specify what library you want to use.
 
-## Indicate relevant code
+State rules and requirements directly rather than as meta-instructions. For example, write "Return the result as JSON" instead of "Remember to always return JSON."
 
-If you are using {% data variables.product.prodname_copilot_short %} in your IDE to get suggestions as you code, open any relevant files and close irrelevant files. {% data variables.product.prodname_copilot_short %} will use the open files to understand your request.
+## Provide relevant context
 
-If you are using {% data variables.copilot.copilot_chat_short %} in your IDE, open the file or highlight the code that you want {% data variables.product.prodname_copilot_short %} to reference. You can also use keywords to manually supply context to {% data variables.copilot.copilot_chat_short %}. For example, you can add the `@workspace` chat participant in VS Code, or `@project` in JetBrains IDEs. See [AUTOTITLE](/copilot/reference/chat-cheat-sheet).
+{% data variables.product.prodname_copilot_short %} uses the context available to it to understand your prompt. How you supply that context depends on the surface you are using.
+
+* **Code completions in your IDE:** open any relevant files and close irrelevant ones. {% data variables.product.prodname_copilot_short %} uses your open files to understand your request.
+* **{% data variables.product.prodname_copilot_short %} in your IDE or on the {% data variables.product.github %} website:** highlight the code that you want {% data variables.product.prodname_copilot_short %} to reference, and use keywords to attach context. For example, type `@` in your prompt to attach items such as files, issues, pull requests, or repositories. Some IDEs also support slash commands (such as `/fix` and `/tests`), variables, and other options for enhancing your {% data variables.product.prodname_copilot_short %} experience.
+* **{% data variables.copilot.copilot_cli %}:** attach a repository file with `@path`, or reference a {% data variables.product.github %} issue or pull request with `#number`. For repository context that you want to reuse, add custom instructions such as a `.github/copilot-instructions.md` file, path-specific instruction files, or an `AGENTS.md` file.
+* **{% data variables.copilot.copilot_cloud_agent %}:** scope the task by selecting the repository and base branch, then describe the objective, acceptance criteria, and relevant files. Attach screenshots or mockups when visual context matters. Start the task from a chat session when existing discussion should carry into the task; otherwise, include that background in the task prompt. Keep durable guidance in repository, path-specific, or agent instruction files.
 
 ## Experiment and iterate
 
@@ -115,26 +126,31 @@ If you are using {% data variables.copilot.copilot_chat_short %}, you can refere
 
 ## Keep history relevant
 
-{% data variables.copilot.copilot_chat_short %} uses the chat history to get context about your request. To give {% data variables.product.prodname_copilot_short %} only the relevant history:
+Conversational surfaces (the {% data variables.copilot.github_copilot_app %}, {% data variables.copilot.copilot_cli %}, {% data variables.product.prodname_copilot_short %} in your IDE or on {% data variables.product.github %}, and the {% data variables.copilot.copilot_cloud_agent %}) use your conversation history as context. To give {% data variables.product.prodname_copilot_short %} only the relevant history:
 
-* Use threads to start a new conversation for a new task
-* Delete requests that are no longer relevant or that didn’t give you the desired result
+* Start a new conversation or session when you begin a new task.
+* Where your surface supports it, remove or roll back turns that are no longer relevant. For example, {% data variables.copilot.copilot_cli %} lets you start a fresh session, delete sessions, and rewind to an earlier prompt with `/undo` or `/rewind`. The {% data variables.copilot.copilot_cloud_agent %} lets you start a new task and stop or archive a session, but does not let you delete a session or rewind individual turns.
+
+## Review {% data variables.product.prodname_copilot_short %}'s output
+
+Validate AI-generated code and responses the same way you would review a colleague's work: assess, test, and confirm correctness before you rely on it. This applies across all {% data variables.product.prodname_copilot_short %} surfaces. For more information, see [AUTOTITLE](/copilot/tutorials/review-ai-generated-code).
 
 ## Follow good coding practices
 
 If you aren't getting the responses you want when you ask {% data variables.product.prodname_copilot_short %} for suggestions or explanations in your codebase, make sure that your existing code follows best practices and is easy to read. For example:
 
-* Use a consistent code style and patterns
-* Use descriptive names for variables and functions
-* Comment your code
-* Structure your code into modular, scoped components
-* Include unit tests
+* Use a consistent code style and patterns.
+* Use descriptive names for variables and functions.
+* Comment your code.
+* Structure your code into modular, scoped components.
+* Include unit tests.
 
 >[!Tip]
 > Use {% data variables.product.prodname_copilot_short %} to help your code follow best practices. For example, ask {% data variables.product.prodname_copilot_short %} to add comments or to break a large function into smaller functions.
 
 ## Further reading
 
+* [AUTOTITLE](/copilot/reference/chat-cheat-sheet)
 * [How to use GitHub Copilot: Prompts, tips, and use cases](https://github.blog/2023-06-20-how-to-write-better-prompts-for-github-copilot/?ref_product=copilot&ref_type=engagement&ref_style=text) in the {% data variables.product.company_short %} blog
 * [Using GitHub Copilot in your IDE: Tips, tricks, and best practices](https://github.blog/2024-03-25-how-to-use-github-copilot-in-your-ide-tips-tricks-and-best-practices/?ref_product=copilot&ref_type=engagement&ref_style=text) in the {% data variables.product.company_short %} blog
 * [A developer’s guide to prompt engineering and LLMs](https://github.blog/2023-07-17-prompt-engineering-guide-generative-ai-llms/) in the {% data variables.product.company_short %} blog

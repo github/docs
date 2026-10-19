@@ -17,7 +17,7 @@ For higher limits and access to more models, subscribe to **{% data variables.co
 
 ## Configure settings (optional)
 
-If you have your own {% data variables.product.prodname_copilot_short %} plan, manage your policies and feature access from your [{% data variables.product.prodname_copilot_short %} settings](https://github.com/settings/copilot?ref_product=copilot&ref_type=engagement&ref_style=text). You can also enable {% data variables.copilot.copilot_memory %} so {% data variables.product.prodname_copilot_short %} remembers useful context about your repositories.
+If you have your own {% data variables.product.prodname_copilot_short %} plan, manage your policies and feature access from your [{% data variables.product.prodname_copilot_short %} settings](https://github.com/settings/copilot?ref_product=copilot&ref_type=engagement&ref_style=text). You can also enable {% data variables.copilot.copilot_memory %} so {% data variables.product.prodname_copilot_short %} remembers useful context about your repositories. See [AUTOTITLE](/copilot/concepts/prompting-and-context/copilot-memory).
 
 ## Set up personal custom instructions (optional)
 

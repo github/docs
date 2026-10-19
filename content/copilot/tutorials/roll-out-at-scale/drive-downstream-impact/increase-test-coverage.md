@@ -127,7 +127,7 @@ Developers **should not**:
 * [AUTOTITLE](/copilot/tutorials/write-tests)
 * [How to generate unit tests with {% data variables.product.prodname_copilot %}: Tips and examples](https://github.blog/ai-and-ml/github-copilot/how-to-generate-unit-tests-with-github-copilot-tips-and-examples/)
 * [{% data variables.product.prodname_copilot %} is EVERYWHERE in Visual Studio](https://learn.microsoft.com/en-us/shows/github-copilot-for-visual-studio/github-copilot-is-everywhere-in-visual-studio-miniseries) (video content with a section on testing)
-* [AUTOTITLE](/copilot/concepts/prompting/prompt-engineering)
+* [AUTOTITLE](/copilot/concepts/prompting-and-context/prompt-engineering)
 * [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/chat-with-copilot/change-the-chat-model)
 
 ### Recommended features

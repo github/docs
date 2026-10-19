@@ -6,6 +6,7 @@ permissions: Anyone with a {% data variables.product.prodname_copilot_short %} l
 versions:
   feature: copilot
 redirect_from:
+  - /copilot/concepts/context/spaces
   - /copilot/using-github-copilot/copilot-spaces/about-organizing-and-sharing-context-with-copilot-spaces
   - /copilot/concepts/about-organizing-and-sharing-context-with-copilot-spaces
   - /copilot/concepts/spaces
