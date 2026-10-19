@@ -564,6 +564,53 @@ test.describe('search dialog', () => {
     await expect(page).not.toHaveURL(/search-overlay-open/)
   })
 
+  test('input method composition keys do not select, ask Copilot, or close', async ({ page }) => {
+    await mockSearch(page)
+    let aiRequests = 0
+    await page.route('**/api/ai-search/v1', (route) => {
+      aiRequests++
+      return route.abort()
+    })
+    await page.goto('/')
+    await turnOffExperimentsInPage(page)
+
+    await page.getByTestId('toggle-search').click()
+    const input = page.getByTestId('overlay-search-input')
+    await input.fill('foo')
+    await expect(page.locator('#search-option-general-0')).toBeVisible()
+
+    // Chrome flags composing keys with isComposing. Safari flags keys that end a composition only with keyCode 229.
+    // Each case sets one flag so a missing isComposing or keyCode guard fails on its own.
+    const dispatchImeKey = (key: string, isComposing: boolean) =>
+      input.evaluate(
+        (el, init) =>
+          el.dispatchEvent(
+            new KeyboardEvent('keydown', {
+              ...init,
+              bubbles: true,
+              cancelable: true,
+            }),
+          ),
+        { key, isComposing, keyCode: isComposing ? 0 : 229 },
+      )
+    await dispatchImeKey('ArrowDown', true)
+    expect(await input.getAttribute('aria-activedescendant')).toBeNull()
+    await dispatchImeKey('Enter', true)
+    await dispatchImeKey('Enter', false)
+    await dispatchImeKey('Escape', true)
+    await dispatchImeKey('Escape', false)
+
+    // Give a stray Ask Copilot request or URL write time to land.
+    await page.waitForTimeout(300)
+    await expect(input).toBeVisible()
+    await expect(page.getByRole('button', { name: 'Back to search' })).toBeHidden()
+    expect(page.url()).not.toMatch(/search-overlay-ask-ai=true/)
+    expect(aiRequests).toBe(0)
+
+    await input.press('Escape')
+    await expect(input).toHaveCount(0)
+  })
+
   test('clicking a row keeps focus, and the arrow keys, on the input', async ({ page }) => {
     await mockSearch(page)
     await page.goto('/')

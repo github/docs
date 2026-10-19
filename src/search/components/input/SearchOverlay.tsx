@@ -389,6 +389,10 @@ export function SearchOverlay({
   }
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLElement>) => {
+    // Leave composition keys to the IME. Safari flags the confirming Enter only with keyCode 229.
+    if (event.nativeEvent.isComposing || event.keyCode === 229) {
+      return
+    }
     if (event.key === 'ArrowDown') {
       event.preventDefault()
       stepActiveOption(1)
