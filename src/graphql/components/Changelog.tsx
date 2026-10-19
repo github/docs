@@ -3,6 +3,7 @@ import cx from 'clsx'
 import GithubSlugger from 'github-slugger'
 
 import { HeadingLink } from '@/frame/components/article/HeadingLink'
+import { Link } from '@/frame/components/Link'
 import { RenderedHTML } from '@/frame/components/ui/RenderedHTML/RenderedHTML'
 import { ChangelogItemT } from './types'
 import styles from '@/frame/components/ui/MarkdownContent/MarkdownContent.module.scss'
@@ -22,9 +23,14 @@ function YearNav({ years, currentYear }: { years: number[]; currentYear: number 
             {year}
           </span>
         ) : (
-          <a key={year} className="mr-3" href={String(year)}>
+          <Link
+            key={year}
+            className="mr-3"
+            href={`/graphql/overview/changelog/${year}`}
+            makeAbsolute
+          >
             {year}
-          </a>
+          </Link>
         ),
       )}
     </nav>
