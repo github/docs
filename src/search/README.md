@@ -62,7 +62,7 @@ The preferred way to build and sync the search indices is to do so via the [GitH
 ### Actions workflow files
 
 - [`.github/workflows/index-general-search.yml`](/.github/workflows/index-general-search.yml) - Populates search indices for **general search** using the `main` branch every four hours. Search indices are stored in an internal-only Elasticsearch instance. To run it manually, click "Run workflow" button in the Actions tab.
-- [`.github/workflows/index-autocomplete-search.yml`](/.github/workflows/index-general-search.yml) - Populates search indices for **AI search autocomplete** using data from an internal repo. Runs daily.
+- [`.github/workflows/index-autocomplete-search.yml`](/.github/workflows/index-autocomplete-search.yml) - Populates search indices for **AI search autocomplete** using data from an internal repo. Runs every weekday and when GHES releases change in `src/versions/lib/enterprise-server-releases.ts`.
 
 ### Notable code files and directories
 
