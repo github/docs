@@ -53,7 +53,7 @@ jobs:
       # Publishing runs must start from the default branch because preserve-redirects.ts reads
       # live URLs from git HEAD. workflow_dispatch from another branch could write stale redirects.
       - name: Verify publishing runs start from the default branch
-        if: github.event_name != 'pull_request' && inputs.dry_run != 'true'
+        if: github.event_name != 'pull_request' && inputs.dry_run != true
         run: |
           if [ "$GITHUB_REF_NAME" != "$DEFAULT_BRANCH" ]; then
             echo "::error::This run would push and open a PR, but it started from" \
@@ -192,7 +192,7 @@ jobs:
         if: >-
           env.has_changes == 'true'
           && github.event_name != 'pull_request'
-          && inputs.dry_run != 'true'
+          && inputs.dry_run != true
         env:
           GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
         run: |
@@ -215,7 +215,7 @@ jobs:
         if: >-
           env.has_changes == 'true'
           && github.event_name != 'pull_request'
-          && inputs.dry_run != 'true'
+          && inputs.dry_run != true
         env:
           GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
         run: |
