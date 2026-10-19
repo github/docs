@@ -8,6 +8,7 @@ import removeFPTFromPath from '@/versions/lib/remove-fpt-from-path'
 import { getDataByLanguage } from '@/data-directory/lib/get-data'
 import getRedirect from '@/redirects/lib/get-redirect'
 import { isArchivedVersionByPath } from '@/archives/lib/is-archived-version'
+import { getFeaturesByVersion } from '@/versions/middleware/features'
 import type { Context, Page } from '@/types'
 
 const logger = createLogger(import.meta.url)
@@ -264,6 +265,8 @@ export function createLiquidContext(
     currentVersion: version,
     currentLanguage: language,
     currentVersionObj: versionObj,
+    // ifversion evaluates bare plan and feature names as context variables.
+    [versionObj.shortName]: true,
     enterpriseServerVersions: Object.values(allVersions)
       .filter((v) => v.plan === 'enterprise-server')
       .map((v) => v.currentRelease),
@@ -271,6 +274,7 @@ export function createLiquidContext(
     // Link extraction only renders Liquid here, so redirects and pages can stay empty.
     pages: {},
     redirects: {},
+    ...getFeaturesByVersion(version),
   } as Context
 }
 
