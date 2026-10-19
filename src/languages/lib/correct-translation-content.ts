@@ -697,6 +697,8 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{% 数据 variables', '{% data variables')
     content = content.replaceAll('{%数据variables', '{% data variables')
     content = content.replaceAll('{%数据 variables', '{% data variables')
+    // The translator glued reusables to 数据, as in {% 数据reusables.apps.x %}.
+    content = content.replace(/\{%(-?)\s*数据\s*reusables\./g, '{%$1 data reusables.')
     // Run the s. variant first, so the broader rule can't produce reusabless.
     content = content.replaceAll('{% 数据可重用s.', '{% data reusables.')
     content = content.replaceAll('{% 数据可重用', '{% data reusables')
@@ -899,6 +901,11 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{%- конец %}', '{%- endif %}')
     content = content.replaceAll('{%- конец для %}', '{%- endfor %}')
     content = content.replaceAll('{% конец для %}', '{% endfor %}')
+    // Translated alert tags, as in {% предупреждение %} ... {% конец предупреждения %}.
+    content = content.replaceAll('{% предупреждение %}', '{% warning %}')
+    content = content.replaceAll('{% пpeдyпpeждeниe %}', '{% warning %}')
+    content = content.replaceAll('{% конец предупреждения %}', '{% endwarning %}')
+    content = content.replaceAll('{% кoнeц пpeдyпpeждeния %}', '{% endwarning %}')
     content = content.replaceAll('{% заголовки строк %}', '{% rowheaders %}')
     content = content.replaceAll('{%- заголовки строк %}', '{%- rowheaders %}')
     content = content.replaceAll('{% windowsTerminal %}', '{% windowsterminal %}')

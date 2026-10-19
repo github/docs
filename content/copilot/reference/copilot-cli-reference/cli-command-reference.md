@@ -549,8 +549,8 @@ These are the slash commands you can use from within an interactive CLI session.
 | `/clear [PROMPT]`, `/new [PROMPT]`, `/reset [PROMPT]` | Start a new conversation. `/new worktree` starts an empty session in a new Git worktree instead of clearing the current one, leaving the current conversation and its working directory unchanged. |
 | `/clikit [COMPONENT]`                               | Preview CLI business components (for example, quota info). |
 | `/collect-debug-logs [file\|gist\|share] [PATH]`    | Collect debug logs to an archive, a {% data variables.product.github %} gist, or upload them to {% data variables.product.github %} (`share`). See [Collecting and sharing debug logs](#collecting-and-sharing-debug-logs). |
-| `/compact [FOCUS-INSTRUCTIONS]`                     | Summarize the conversation history to reduce context window usage. Optionally provide focus instructions to steer the summary—for example, `/compact focus on the auth module`. See [AUTOTITLE](/copilot/concepts/agents/copilot-cli/context-management#compaction). |
-| `/context`                                          | Show the context window token usage and visualization. See [AUTOTITLE](/copilot/concepts/agents/copilot-cli/context-management#checking-your-context-usage). |
+| `/compact [FOCUS-INSTRUCTIONS]`                     | Summarize the conversation history to reduce context window usage. Optionally provide focus instructions to steer the summary—for example, `/compact focus on the auth module`. See [AUTOTITLE](/copilot/concepts/prompting-and-context/context-management#compaction). |
+| `/context`                                          | Show the context window token usage and visualization. See [AUTOTITLE](/copilot/concepts/prompting-and-context/context-management#checking-your-context-usage). |
 | `/copy`                                             | Copy the last response to the clipboard. |
 | `/cwd`, `/cd [PATH]`                                | Change the working directory or display the current directory. |
 | `/delegate [PROMPT]`                                | Delegate changes to a remote repository with an AI-generated pull request. See [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/delegate-tasks-to-cca). |
@@ -688,6 +688,7 @@ Use `/collect-debug-logs [file|gist|share] [PATH]` to gather debug logs for trou
 | `--deny-tool=TOOL ...`             | Tools the CLI does not have permission to use. Will not prompt for permission. For multiple tools, use a quoted, comma-separated list. |
 | `--deny-url=URL ...`               | Deny access to specific URLs or domains, takes precedence over `--allow-url`. For multiple URLs, use a quoted, comma-separated list. |
 | `--disable-builtin-mcps`           | Disable all built-in MCP servers (currently: `github-mcp-server`). |
+| `--disable-client-telemetry`       | Disable telemetry sent by the CLI. Does not affect server-side telemetry. |
 | `--disable-mcp-server=SERVER-NAME` | Disable a specific MCP server (can be used multiple times). |
 | `--disallow-temp-dir`              | Prevent automatic access to the system temporary directory. |
 | `--effort=LEVEL`, `--reasoning-effort=LEVEL` | Set the reasoning effort level (`low`, `medium`, `high`, `xhigh`, `max`). `max` is the highest-depth tier for Anthropic models. |
@@ -895,7 +896,7 @@ copilot --deny-tool='write(secret.txt)'
 | `COPILOT_GH_HOST` |{% data variables.product.github %} hostname for {% data variables.copilot.copilot_cli_short %} only, overriding `GH_HOST`. Use when `GH_HOST` targets {% data variables.product.prodname_ghe_server %} but {% data variables.product.prodname_copilot_short %} needs to authenticate against {% data variables.product.prodname_dotcom_the_website %} or a {% data variables.product.prodname_ghe_cloud %} hostname. |
 | `COPILOT_GITHUB_TOKEN` | Authentication token. Takes precedence over `GH_TOKEN` and `GITHUB_TOKEN`. |
 | `COPILOT_HOME` | Override the configuration and state directory. Default: `$HOME/.copilot`. |
-| `COPILOT_LARGE_OUTPUT_THRESHOLD_BYTES` | Maximum UTF-8 byte size for tool output returned directly to the model. Default: `20480` (20 KiB). See [AUTOTITLE](/copilot/concepts/agents/copilot-cli/context-management#managing-large-tool-output). |
+| `COPILOT_LARGE_OUTPUT_THRESHOLD_BYTES` | Maximum UTF-8 byte size for tool output returned directly to the model. Default: `20480` (20 KiB). See [AUTOTITLE](/copilot/concepts/prompting-and-context/context-management#managing-large-tool-output-for-copilot-cli). |
 | `COPILOT_MCP_TOOL_CACHE` | Set to `false` to disable loading and persisting local MCP server tool snapshots for the entire process. See [Tool snapshot caching](#tool-snapshot-caching). |
 | `COPILOT_MODEL` | Set the AI model. |
 | `COPILOT_PLAN_THEN_AUTOPILOT` | Set to `1`, `true`, `yes`, or `on` to request plan-then-autopilot (equivalent to `--plan --mode autopilot`) for harnesses that can only inject environment variables. Ignored, with a warning, when an explicit `--mode`, `--autopilot`, or `--plan` option is passed. See [Plan-then-autopilot](#plan-then-autopilot). |
@@ -1701,7 +1702,7 @@ Except for the two Git file variables, each variable is read on every platform. 
 
 These are not the only automatic grants. With **Allow dev tool access** enabled, {% data variables.copilot.copilot_cli_short %} grants selected user-profile application directories, including `~/.local/bin` and `~/.local/lib` on macOS and Linux and the immediate subdirectories of `%LOCALAPPDATA%\Programs` on Windows. It also grants tool-specific caches and registries, some of which are writable, such as npm's cache and shared build caches.
 
-Run `/sandbox policy` to see the resolved paths grouped by source and access. The **Dev tools** section lists tools detected in the current directory and their paths. Add a command, such as `/sandbox policy npm install`, to inspect its developer-tool access without running it. The report does not create missing caches. For the concepts behind how the policy is assembled, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/understanding-local-sandboxing).
+Run `/sandbox policy` to see the resolved paths grouped by source and access. The **Dev tools** section lists tools detected in the current directory and their paths. Add a command, such as `/sandbox policy npm install`, to inspect its developer-tool access without running it. The report does not create missing caches. For the concepts behind how the policy is assembled, see [AUTOTITLE](/copilot/concepts/security-governance-and-network-settings/understanding-local-sandboxing).
 
 ## OpenTelemetry monitoring
 
@@ -1732,6 +1733,35 @@ OTel configuration can also be set in {% data variables.product.prodname_vscode_
 | `COPILOT_OTEL_FILE_EXPORTER_PATH` | — | Write all signals to this file as JSON-lines. Setting this automatically enables OTel. |
 | `COPILOT_OTEL_SOURCE_NAME` | `github.copilot` | Instrumentation scope name for tracer and meter. |
 | `OTEL_EXPORTER_OTLP_HEADERS` | — | Auth headers for the OTLP exporter (for example, `Authorization=Bearer token`). |
+
+### Dynamic authentication headers
+
+Set `telemetry.headersProvider` in your user settings or in an enterprise-managed telemetry policy to run a command that supplies fresh OTLP headers. Repository settings never apply this setting.
+
+```json
+{
+  "telemetry": {
+    "headersProvider": {
+      "path": "node",
+      "args": ["bin/otel-headers.js"],
+      "refreshIntervalMs": 1740000
+    }
+  }
+}
+```
+
+| Field | Description |
+|-------|-------------|
+| `path` | Executable name, absolute path, or home-relative path. This is not a shell command, and workspace-relative paths are rejected. |
+| `args` | Optional arguments, passed literally. Select an interpreter explicitly for scripts (for example, `node`). |
+| `refreshIntervalMs` | Optional refresh interval. Default: 29 minutes. |
+
+Set `headersProvider` to `false` to disable dynamic headers.
+
+* The command runs from your home directory with a 30-second deadline. Its stdout must be a JSON object of string header values. An empty object clears dynamic headers.
+* The provider runs only for active HTTP OTLP exporters. Use HTTPS, because an HTTP endpoint produces a warning and OTLP redirects are rejected.
+* Header precedence, from highest to lowest: managed helper output, managed static headers, user helper output, then `OTEL_EXPORTER_OTLP_HEADERS`. A managed helper overrides a user helper, and a managed `false` disables helpers.
+* If a refresh fails, exports that need dynamic headers are blocked until the next refresh.
 
 ### Traces
 

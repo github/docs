@@ -66,7 +66,7 @@ On {% data variables.product.prodname_dotcom_the_website %}, {% data variables.c
 
 {% data variables.copilot.copilot_chat_short %} can also answer questions about pull requests created by {% data variables.product.prodname_copilot_short %} by pulling in the relevant agent session logs. You can ask what changed, what was validated, and why, without leaving the conversation.
 
-This context passing is scoped to the {% data variables.copilot.copilot_chat_short %} and {% data variables.copilot.copilot_cloud_agent_short %} sessions you are actively working with. It is distinct from {% data variables.copilot.copilot_memory %}, which builds a longer-term, persistent understanding of your repositories and preferences across sessions. For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-memory).
+This context passing is scoped to the {% data variables.copilot.copilot_chat_short %} and {% data variables.copilot.copilot_cloud_agent_short %} sessions you are actively working with. It is distinct from {% data variables.copilot.copilot_memory %}, which builds a longer-term, persistent understanding of your repositories and preferences across sessions. For more information, see [AUTOTITLE](/copilot/concepts/prompting-and-context/copilot-memory).
 
 On {% data variables.product.prodname_dotcom_the_website %}, session logs show the work and tools used. Shared sessions and pull requests let teammates with repository access follow the work and review changes. Logs do not replace your own review and testing. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/use-copilot-agents/manage-and-track-agents).
 

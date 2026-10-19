@@ -7,11 +7,9 @@ versions:
   feature: copilot
 children:
   - /comparing-cli-features
-  - /context-management
   - /about-custom-agents
   - /lsp-servers
   - /about-cli-extensions
-  - /understanding-local-sandboxing
 contentType: concepts
 docsTeamMetrics:
   - copilot-cli

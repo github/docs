@@ -8,7 +8,6 @@ versions:
 children:
   - /cloud-agent
   - /copilot-cli
-  - /copilot-memory
   - /hooks
   - /about-plugins
   - /about-agent-skills

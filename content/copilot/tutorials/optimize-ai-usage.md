@@ -67,7 +67,7 @@ Well-structured prompts have three qualities:
 
 This added guidance doesn't meaningfully increase token usage, but it can significantly reduce the number of agent runs needed to reach the right outcome.
 
-For prompt engineering best practices, see [AUTOTITLE](/copilot/concepts/prompting/prompt-engineering).
+For prompt engineering best practices, see [AUTOTITLE](/copilot/concepts/prompting-and-context/prompt-engineering).
 
 ## 3. Keep your context lean
 
@@ -88,7 +88,7 @@ When you need the thread to keep going but it has grown large, run `/compact` in
 
 In addition, you can use `/context` to check current usage at any time.
 
-See [AUTOTITLE](/copilot/concepts/agents/copilot-cli/context-management).
+See [AUTOTITLE](/copilot/concepts/prompting-and-context/context-management).
 
 ### Give {% data variables.product.prodname_copilot_short %} a map of your project
 

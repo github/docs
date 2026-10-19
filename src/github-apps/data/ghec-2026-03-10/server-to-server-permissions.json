@@ -1006,6 +1006,34 @@
       }
     ]
   },
+  "enterprise_license_policy": {
+    "title": "Enterprise license policy",
+    "displayTitle": "Enterprise permissions for \"Enterprise license policy\"",
+    "permissions": [
+      {
+        "category": "dependency-graph",
+        "slug": "get-the-license-compliance-policy-for-an-enterprise",
+        "subcategory": "license-compliance",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/license-compliance/policies/{policy_id}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "dependency-graph",
+        "slug": "set-the-license-compliance-policy-for-an-enterprise",
+        "subcategory": "license-compliance",
+        "verb": "put",
+        "requestPath": "/enterprises/{enterprise}/license-compliance/policies/{policy_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      }
+    ]
+  },
   "enterprise_organization_installation_repositories": {
     "title": "Enterprise organization installation repositories",
     "displayTitle": "Enterprise permissions for \"Enterprise organization installation repositories\"",

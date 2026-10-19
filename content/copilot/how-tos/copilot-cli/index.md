@@ -44,7 +44,7 @@ children:
   - /content/copilot/concepts/agents/copilot-cli/about-custom-agents
   - /content/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/about-remote-control
   - /content/copilot/concepts/agents/copilot-cli/comparing-cli-features
-  - /content/copilot/concepts/agents/copilot-cli/context-management
+  - /content/copilot/concepts/prompting-and-context/context-management
   - /content/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/tool-search
   - /content/copilot/concepts/agent-capabilities/choosing-and-delegating-agent-work/delegating-and-parallelizing-work-with-agents
   - /content/copilot/concepts/agents/copilot-cli/lsp-servers

@@ -250,7 +250,7 @@ The more {% data variables.product.prodname_copilot_short %} knows about the cod
 
 ### Custom instructions
 
-These are short, natural-language statements that you write and store as one or more files in a repository. If you are the owner of an organization on {% data variables.product.github %}, you can also define custom instructions in the settings for your organization. For more information, see [AUTOTITLE](/copilot/concepts/prompting/response-customization?tool=webui#about-repository-custom-instructions).
+These are short, natural-language statements that you write and store as one or more files in a repository. If you are the owner of an organization on {% data variables.product.github %}, you can also define custom instructions in the settings for your organization. For more information, see [AUTOTITLE](/copilot/concepts/prompting-and-context/custom-instructions#about-repository-custom-instructions).
 
 ### Choosing between custom instructions, AGENTS.md, and skills
 
@@ -269,7 +269,7 @@ For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customi
 
 ### {% data variables.copilot.copilot_memory %} ({% data variables.release-phases.public_preview %})
 
-If you have a {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, or {% data variables.copilot.copilot_max_short %} plan, you can enable {% data variables.copilot.copilot_memory %}. This allows {% data variables.product.prodname_copilot_short %} to store useful details it has learned about a repository. {% data variables.product.prodname_copilot_short %} can then use this information when it reviews pull requests in that repository. For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-memory).
+If you have a {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, or {% data variables.copilot.copilot_max_short %} plan, you can enable {% data variables.copilot.copilot_memory %}. This allows {% data variables.product.prodname_copilot_short %} to store useful details it has learned about a repository. {% data variables.product.prodname_copilot_short %} can then use this information when it reviews pull requests in that repository. For more information, see [AUTOTITLE](/copilot/concepts/prompting-and-context/copilot-memory).
 
 ## Getting detailed code quality feedback across your repository
 

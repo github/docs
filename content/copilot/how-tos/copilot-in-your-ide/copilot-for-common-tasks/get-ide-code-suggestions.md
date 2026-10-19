@@ -609,7 +609,7 @@ An arrow in the gutter indicates an available edit suggestion. Hover over the ar
 
 ## Next steps
 
-* **Learn how to write effective prompts** - See [AUTOTITLE](/copilot/concepts/prompting/prompt-engineering).
+* **Learn how to write effective prompts** - See [AUTOTITLE](/copilot/concepts/prompting-and-context/prompt-engineering).
 * **Configure {% data variables.product.prodname_copilot_short %} in your editor** - You can enable or disable {% data variables.product.prodname_copilot %} from within your editor, and create your own preferred keyboard shortcuts for {% data variables.product.prodname_copilot_short %}. See [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/set-up-copilot/configure-in-ide).
 * **Get started with {% data variables.copilot.copilot_chat %}** - Learn how to ask {% data variables.product.prodname_copilot_short %} for information and assistance, using {% data variables.copilot.copilot_chat %}. See [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/chat-with-copilot/chat-in-ide){% ifversion ghec %} and [AUTOTITLE](/copilot/how-tos/copilot-on-github/chat-with-copilot/chat-in-github){% endif %}.
 * **Troubleshoot issues** - Learn more about how to troubleshoot common issues with {% data variables.product.prodname_copilot %}. See [AUTOTITLE](/copilot/how-tos/troubleshoot-copilot).

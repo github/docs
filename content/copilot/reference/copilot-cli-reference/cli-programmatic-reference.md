@@ -109,7 +109,7 @@ You can specify various kinds of tools with the `--allow-tool` option.
 | write  | Creating or modifying files. |
 | read   | Reading files or directories. |
 | url    | Fetching content from a URL. |
-| memory | Storing new facts to the agent's persistent memory. This does not affect using existing memories. See [AUTOTITLE](/copilot/concepts/agents/copilot-memory). |
+| memory | Storing new facts to the agent's persistent memory. This does not affect using existing memories. See [AUTOTITLE](/copilot/concepts/prompting-and-context/copilot-memory). |
 | MCP-SERVER | Invoking tools from a specific MCP server. Use the server's configured name as the identifier—for example, `github`. See [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/add-mcp-servers). |
 
 ### Tool filters

@@ -299,6 +299,7 @@ When you set the `telemetry` property, {% data variables.product.prodname_copilo
 * `serviceName`: A label for the telemetry service name (for example, `"copilot"`).
 * `resourceAttributes`: An object of OpenTelemetry resource attributes to attach to all exported telemetry (for example, `{"deployment.environment": "production"}`).
 * `headers`: An object of literal HTTP headers to include with each telemetry request (for example, an `Authorization` header for your collector). You must configure `endpoint` in the same `telemetry` object. Header values are not included in logs or status output. Use HTTPS when headers contain credentials because HTTP sends values in plaintext.
+* `headersProvider`: An object that runs a command to supply fresh OTLP headers, or `false` to disable dynamic headers. A managed helper overrides a user helper, and managed static `headers` take precedence over user helper output. This property applies to {% data variables.copilot.copilot_cli_short %}. For fields and behavior, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference#dynamic-authentication-headers).
 
 Managed `telemetry` values take precedence over local settings, SDK configuration, and environment variables. If more than one managed source defines `telemetry`, the highest-precedence source supplies the complete managed `telemetry` object. Objects from lower-precedence managed sources are not merged into it.
 

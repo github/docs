@@ -55,7 +55,7 @@ Prompt engineering, or structuring your request so {% data variables.product.pro
 * Provide examples of things like input data, outputs, and implementations.
 * Follow good coding practices.
 
-To learn more, see [AUTOTITLE](/copilot/concepts/prompting/prompt-engineering).
+To learn more, see [AUTOTITLE](/copilot/concepts/prompting-and-context/prompt-engineering).
 
 ## Check {% data variables.product.prodname_copilot_short %}'s work
 

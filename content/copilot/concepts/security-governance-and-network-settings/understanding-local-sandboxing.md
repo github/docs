@@ -5,6 +5,8 @@ allowTitleToDifferFromFilename: true
 intro: 'When local sandboxing is enabled, {% data variables.copilot.copilot_cli_short %} runs each sandboxed process or operation under a filesystem policy that controls which files and directories it can read and write. Learn how that policy is built and how to check the access it grants.'
 versions:
   feature: copilot
+redirect_from:
+  - /copilot/concepts/agents/copilot-cli/understanding-local-sandboxing
 contentType: concepts
 category:
   - Learn about Copilot

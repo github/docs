@@ -5,6 +5,7 @@ intro: '{% data variables.product.prodname_copilot_short %} improves responses b
 versions:
   feature: copilot
 redirect_from:
+  - /copilot/concepts/context/repository-indexing
   - /copilot/managing-copilot/managing-github-copilot-in-your-organization/customizing-copilot-for-your-organization/indexing-repositories-for-copilot-chat
   - /copilot/managing-copilot/managing-github-copilot-in-your-organization/enhancing-copilot-for-your-organization/indexing-repositories-for-copilot-chat
   - /copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/indexing-repositories-for-copilot-chat
