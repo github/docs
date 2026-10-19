@@ -1,7 +1,7 @@
 import { parseTemplate } from 'url-template'
 import { stringify } from 'javascript-stringify'
 
-import type { CodeSample, Operation } from '@/rest/components/types'
+import type { BodyParameter, ChildParameter, CodeSample, Operation } from '@/rest/components/types'
 import { type VersionItem } from '@/frame/components/context/MainContext'
 import { getCurlBodyArguments, escapeShellValue } from '@/rest/lib/curl-body-arguments'
 
@@ -148,15 +148,12 @@ export function getGHExample(
       // Use --input for top-level arrays or nested arrays because gh -f and -F cannot encode them.
       const hasArrays = hasNestedArrays(bodyParameters as NestedObjectParameter)
       if (hasArrays || isGistEndpoint) {
+        const types = getBodyParameterTypes(operation.bodyParameters || [])
         const jsonBody = JSON.stringify(
           bodyParameters,
           (key: string, value: unknown) => {
-            if (typeof value === 'string' && /^\d+$/.test(value)) {
-              return parseInt(value, 10)
-            }
-            if (value === 'true') return true
-            if (value === 'false') return false
-            return value
+            const type = key ? types.get(key) : undefined
+            return type ? coerceToSchemaType(value, type) : value
           },
           2,
         ).replace(/'/g, "'\\''")
@@ -202,6 +199,33 @@ function hasNestedArrays(obj: NestedObjectParameter): boolean {
     }
   }
   return false
+}
+
+// Map each body parameter name to its schema type so the --input JSON keeps string-typed fields as strings.
+// The replacer sees only key names, so a name used with different types maps to undefined and stays unchanged.
+function getBodyParameterTypes(
+  params: Array<BodyParameter | ChildParameter>,
+  types = new Map<string, string | undefined>(),
+): Map<string, string | undefined> {
+  for (const param of params) {
+    if (param.childParamsGroups?.length) {
+      getBodyParameterTypes(param.childParamsGroups, types)
+    } else if (types.has(param.name) && types.get(param.name) !== param.type) {
+      types.set(param.name, undefined)
+    } else {
+      types.set(param.name, param.type)
+    }
+  }
+  return types
+}
+
+// Example values are stored as strings, so convert only when the schema type is numeric or boolean.
+function coerceToSchemaType(value: unknown, type: string): unknown {
+  if (Array.isArray(value)) return value.map((item) => coerceToSchemaType(item, type))
+  if (typeof value !== 'string' || type.includes('string')) return value
+  if (/^\d+$/.test(value) && /integer|number/.test(type)) return Number(value)
+  if (type.includes('boolean') && (value === 'true' || value === 'false')) return value === 'true'
+  return value
 }
 
 function handleSingleParameter(
