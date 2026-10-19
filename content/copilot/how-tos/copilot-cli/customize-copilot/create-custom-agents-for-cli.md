@@ -29,7 +29,7 @@ For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about
 Each {% data variables.copilot.copilot_custom_agent_short %} is defined by a Markdown file with an `.agent.md` extension. You can create these files yourself, or you can add them from within the CLI, as described in the following steps.
 
 1. In interactive mode, enter `/agent`.
-1. Select **Create new agent** from the list of options.
+1. Press <kbd>N</kbd> to create a new agent.
 1. Choose between the options to create the {% data variables.copilot.copilot_custom_agent_short %} in the repository or in your home directory:
 
    * **Project** (`.github/agents/`)
