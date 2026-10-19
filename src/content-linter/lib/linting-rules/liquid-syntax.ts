@@ -84,10 +84,12 @@ export const liquidSyntax = {
 }
 
 function getErrorMessageInfo(message: string): ErrorMessageInfo {
-  const [errorDescription, lineString, columnString] = message.split(',')
-  if (!columnString || !lineString)
-    throw new Error('Liquid error message does not contain line or column number')
-  const lineNumber = parseInt(lineString.trim().replace('line:', ''), 10)
-  const columnNumber = parseInt(columnString.trim().replace('col:', ''), 10)
-  return { errorDescription, lineNumber, columnNumber }
+  // Match the suffix LiquidJS appends because the description itself can contain commas.
+  const match = message.match(/^([\s\S]*), line:(\d+), col:(\d+)$/)
+  if (!match) throw new Error('Liquid error message does not contain line or column number')
+  return {
+    errorDescription: match[1],
+    lineNumber: Number(match[2]),
+    columnNumber: Number(match[3]),
+  }
 }
