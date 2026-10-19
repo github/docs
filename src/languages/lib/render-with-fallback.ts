@@ -88,6 +88,20 @@ export function createTranslationFallbackComment(error: Error, property: string)
   return `<!-- ${errorDetails.join(' ')} -->`
 }
 
+// getEnglishPage resolves the request page, so pages rendered with the request
+// context, like AUTOTITLE targets or child pages, need their own English lookup.
+function getEnglishFallbackPage(page: Page, context: Context): PageType | undefined {
+  if (!context.page || page === context.page) {
+    return context.getEnglishPage?.(context)
+  }
+  const languagePrefix = `/${page.languageCode}`
+  for (const permalink of page.permalinks) {
+    const enPage = context.pages?.[`/en${permalink.href.slice(languagePrefix.length)}`]
+    if (enPage) return enPage
+  }
+  return undefined
+}
+
 // Render translated Liquid and fall back to the English Page when translation
 // errors can use English safely. Middleware sets getEnglishPage because it can
 // resolve the English page from the URL.
@@ -114,7 +128,8 @@ export async function renderContentWithFallback(
   } catch (error) {
     // Fall back only for errors the English page can mask.
     if (isFallbackableError(error) && context.getEnglishPage) {
-      const enPage = context.getEnglishPage(context)
+      const enPage = getEnglishFallbackPage(page, context)
+      if (!enPage) throw error
       const englishTemplate = (enPage as unknown as Record<string, string>)[property]
       // Set currentLanguage to en so Liquid plugins such as data.ts read English data.
       const enContext = Object.assign({}, context, { currentLanguage: 'en' })
