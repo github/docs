@@ -88,7 +88,7 @@ jobs:
           git push origin $branchname
 
           body=$(cat <<-EOM
-            Found with the `npm run find-orphaned-assets`, `npm run -s reusables -- find unused`, and `npm run find-orphaned-tables` scripts.
+            Found with the \`npm run find-orphaned-assets\`, \`npm run -s reusables -- find unused\`, and \`npm run find-orphaned-tables\` scripts.
 
             The orphaned files workflow file .github/workflows/orphaned-files-check.yml runs every Monday at 16:20 UTC / 8:20 PST.
 
