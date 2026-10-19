@@ -1,5 +1,4 @@
 import GithubSlugger from 'github-slugger'
-import { encode } from 'html-entities'
 import { toString } from 'hast-util-to-string'
 import { visit } from 'unist-util-visit'
 import type { Element, Root } from 'hast'
@@ -18,7 +17,7 @@ export default function useEnglishHeadings({ englishHeadings }: UseEnglishHeadin
       if (!['h2', 'h3', 'h4'].includes(node.tagName)) return
       slugger.reset()
       const text: string = toString(node)
-      const englishHeading: string = englishHeadings[encode(text)]
+      const englishHeading: string = englishHeadings[text]
       const englishSlug: string = slugger.slug(englishHeading)
       if (englishSlug) {
         // Leave the existing ID when no English slug exists.
