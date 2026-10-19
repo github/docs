@@ -3497,4 +3497,19 @@ Para más información, consulta "[AUTOTITLE](/path)".
       expect(fix(ok, 'ko')).toBe(ok)
     })
   })
+
+  describe('Chinese glued 数据reusables and Russian alert tags', () => {
+    test('fixes {% 数据reusables. and leaves valid input unchanged', () => {
+      expect(fix('{% 数据reusables.apps.optional_feature_activation %}', 'zh')).toBe(
+        '{% data reusables.apps.optional_feature_activation %}',
+      )
+      const ok = '{% data reusables.apps.optional_feature_activation %}'
+      expect(fix(ok, 'zh')).toBe(ok)
+    })
+
+    test('fixes translated Russian warning tags (legacy alerts are stripped like other languages)', () => {
+      expect(fix('{% предупреждение %}\nx\n{% конец предупреждения %}', 'ru')).toBe('x')
+      expect(fix('{% warning %}\nx\n{% endwarning %}', 'ru')).toBe('x')
+    })
+  })
 })
