@@ -4,6 +4,7 @@ import {
   fuzzyMatch,
   fuzzyMatchScore,
   bigramCoverage,
+  getBigramCacheSize,
   stripStopWords,
 } from '@/landings/lib/fuzzy-match'
 
@@ -162,6 +163,21 @@ describe('bigramCoverage', () => {
   test('ignores whitespace in both text and search', () => {
     expect(bigramCoverage('co pi lot', 'copilot')).toBe(1)
     expect(bigramCoverage('copilot', 'co pi lot')).toBe(1)
+  })
+
+  test('does not cache search terms', () => {
+    const before = getBigramCacheSize()
+    for (let i = 0; i < 100; i++) {
+      fuzzyMatchScore('Managing your repository', `unique query ${i}`)
+    }
+    expect(getBigramCacheSize() - before).toBeLessThanOrEqual(1)
+  })
+
+  test('scores each query correctly when queries alternate', () => {
+    expect(bigramCoverage('agent', 'agents')).toBeCloseTo(4 / 5, 2)
+    expect(bigramCoverage('hello', 'help')).toBeCloseTo(2 / 3, 2)
+    expect(bigramCoverage('agent', 'agents')).toBeCloseTo(4 / 5, 2)
+    expect(bigramCoverage('hello', 'agents')).toBe(0)
   })
 })
 
