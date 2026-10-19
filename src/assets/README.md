@@ -31,6 +31,7 @@ Located in `src/assets/scripts`, these tools help maintain the asset library:
 ### Library
 
 - `src/assets/lib/image-density.ts`: Utilities for handling high-density (Retina) images.
+- `src/assets/lib/validate-asset.ts`: File type and SVG safety checks used by `validate-asset-images.ts`.
 
 ## Setup & Usage
 
