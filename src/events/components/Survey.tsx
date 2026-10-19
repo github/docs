@@ -29,6 +29,8 @@ type EventData = {
 
 export const Survey = () => {
   const { asPath, locale } = useRouter()
+  // Query and hash changes, like search or picker tabs, stay on the same page.
+  const [pathname] = asPath.split(/[?#]/)
   const { t } = useTranslation('survey')
   const [state, setState] = useState<ViewState>(ViewState.START)
   const [voteState, setVoteState] = useState<VoteState | null>(null)
@@ -39,10 +41,13 @@ export const Survey = () => {
   const [token, setToken] = useState('')
 
   useEffect(() => {
-    // Show the vote prompt on navigation because a rating belongs to the page it was given on.
+    // Reset the vote and form fields on navigation because feedback belongs to the page it was given on.
     setState(ViewState.START)
     setVoteState(null)
-  }, [asPath])
+    setComment('')
+    setEmail('')
+    setIsEmailError(false)
+  }, [pathname])
 
   useEffect(() => {
     // Move focus to the footer privacy link because submit removes the form inputs.
