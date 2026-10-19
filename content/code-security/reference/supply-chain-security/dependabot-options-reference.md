@@ -289,7 +289,9 @@ The table below shows the package managers that support `cooldown`. The `default
 >
 > * If `semver-major-days`, `semver-minor-days`, or `semver-patch-days` are not defined, the `default-days` settings will take precedence for cooldown-based updates.
 > * The `exclude` list always take precedence over the `include` list. If a dependency is specified in both lists, it is **excluded from cooldown** and will be updated immediately.
-> * For Docker and Docker Compose, the cooldown only applies to images on Docker Hub, the only registry {% data variables.product.prodname_dependabot %} reads a publication date from. For images in other registries, such as the {% data variables.product.prodname_container_registry %}, {% data variables.product.prodname_dependabot %} skips the cooldown and proposes the newest tag immediately, with a note in the pull request that the cooldown could not be applied.
+{%- ifversion fpt or ghec %}
+> * For Docker and Docker Compose, the cooldown only applies to images that {% data variables.product.prodname_dependabot %} looks up on Docker Hub, the only registry it reads a publication date from. For images in other registries, such as the {% data variables.product.prodname_container_registry %}, {% data variables.product.prodname_dependabot %} skips the cooldown and proposes the newest tag immediately, with a note in the pull request that the cooldown could not be applied. The same happens for Docker Hub images when a private Docker registry is configured with `replaces-base: true`.
+{%- endif %}
 
 {% endif %}
 
