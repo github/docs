@@ -1,7 +1,10 @@
 import { beforeAll, describe, expect, test } from 'vitest'
 
 import { get } from '@/tests/helpers/e2etest'
-import { makeLanguageSurrogateKey } from '@/frame/middleware/set-fastly-surrogate-key'
+import {
+  makeLanguageSurrogateKey,
+  makePageSurrogateKey,
+} from '@/frame/middleware/set-fastly-surrogate-key'
 import { latest } from '@/versions/lib/enterprise-server-releases'
 
 const makeURL = (pathname: string): string =>
@@ -51,7 +54,10 @@ describe('pageinfo api', () => {
     expect(res.headers['cache-control']).toMatch(/max-age=[1-9]/)
     expect(res.headers['surrogate-control']).toContain('public')
     expect(res.headers['surrogate-control']).toMatch(/max-age=[1-9]/)
-    expect(res.headers['surrogate-key']).toBe(makeLanguageSurrogateKey('en'))
+    // The page key must match the purge key derived from the source file.
+    expect(res.headers['surrogate-key']).toBe(
+      `${makeLanguageSurrogateKey('en')} ${makePageSurrogateKey('en', 'get-started/start-your-journey/index.md')}`,
+    )
   })
 
   // Fullwidth colons make Japanese frontmatter scalar; English fallback prevents empty titles.
