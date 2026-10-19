@@ -193,6 +193,79 @@ describe(liquidIfversionVersions.names.join(' - '), () => {
     expect(errors.length).toBe(0)
   })
 
+  test('ifversion using feature with a deprecated ghes range keeps cloud content', async () => {
+    // features/cloud-and-deprecated-ghes.yml contains fpt: "*", ghec: "*", and ghes: "<3.0".
+    const markdown = [
+      ...placeholderAllVersionsFm,
+      `{% ifversion cloud-and-deprecated-ghes %}text{% endif %}`,
+    ].join('\n')
+    const result = await runRule(liquidIfversionVersions, {
+      strings: { markdown },
+    })
+    const errors = result.markdown
+    expect(errors.length).toBe(0)
+  })
+
+  test('ifversion using cloud feature or a deprecated ghes range keeps cloud content', async () => {
+    // features/volvo.yml has no ghes, so the condition's ghes range is the only GHES term.
+    const markdown = [
+      ...placeholderAllVersionsFm,
+      `{% ifversion volvo or ghes < ${supported.at(-1)} %}text{% endif %}`,
+    ].join('\n')
+    const result = await runRule(liquidIfversionVersions, {
+      strings: { markdown },
+    })
+    const errors = result.markdown
+    expect(errors.filter((error) => error.errorDetail?.includes('applies to no versions'))).toEqual(
+      [],
+    )
+  })
+
+  test('ifversion using feature with a deprecated ghes range on a ghes-only page', async () => {
+    const markdown = [
+      '---',
+      'title: "Hello"',
+      'versions:',
+      '  ghes: "*"',
+      '---',
+      `{% ifversion cloud-and-deprecated-ghes %}text{% endif %}`,
+    ].join('\n')
+    const result = await runRule(liquidIfversionVersions, {
+      strings: { markdown },
+    })
+    const errors = result.markdown
+    expect(errors.length).toBe(2)
+    expect(errors.every((error) => error.errorDetail?.includes('applies to no versions'))).toBe(
+      true,
+    )
+  })
+
+  test.each([
+    ['a plan with a feature', ['  ghec: "*"', '  feature: ghes-only']],
+    ['several features', ['  feature: [volvo, them-and-all]']],
+    [
+      'full plan names',
+      ['  free-pro-team: "*"', '  enterprise-cloud: "*"', '  enterprise-server: "*"'],
+    ],
+  ])(
+    'ifversion using feature with a deprecated ghes range keeps cloud content with %s in frontmatter',
+    async (_, versionLines) => {
+      const markdown = [
+        '---',
+        'title: "Hello"',
+        'versions:',
+        ...versionLines,
+        '---',
+        `{% ifversion cloud-and-deprecated-ghes %}text{% endif %}`,
+      ].join('\n')
+      const result = await runRule(liquidIfversionVersions, {
+        strings: { markdown },
+      })
+      const errors = result.markdown
+      expect(errors.length).toBe(0)
+    },
+  )
+
   test('ifversion using not negates only the next version', async () => {
     const markdown = [
       ...placeholderAllVersionsFm,

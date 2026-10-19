@@ -328,6 +328,19 @@ async function initTagObject(
   return condTagItem
 }
 
+// Resolve each feature through getFeatureVersionsObject, which reads ROOT at call time.
+// Frontmatter can combine plans with a feature, list several features, or use full plan names.
+function getResolvedVersions(versionsObj: FileVersionsFm): string[] {
+  const options = { doNotThrow: true, includeNextVersion: true }
+  if (!versionsObj || typeof versionsObj === 'string') {
+    return getApplicableVersions({ fpt: '*', ghec: '*', ghes: '*' }, '', options)
+  }
+  const { feature, ...plans } = versionsObj as Record<string, string | string[]>
+  const features = [feature || []].flat()
+  const sources = [plans, ...features.map((name) => getFeatureVersionsObject(name))]
+  return [...new Set(sources.flatMap((source) => getApplicableVersions(source, '', options)))]
+}
+
 function coversAllVersions(item: CondTagItem): boolean {
   const options = { doNotThrow: true, includeNextVersion: true }
   const products = Object.fromEntries(
@@ -398,8 +411,12 @@ function updateConditionals(condTagItems: CondTagItem[]) {
         processConditionals(item, condTagItems, i)
         break
       }
-      // Delete a feature absent from every supported GHES release.
-      if (isGhesReleaseDeprecated(oldestSupported, item.versionsObjAll.ghes)) {
+      // Delete a feature absent from every supported GHES release, unless it still renders on fpt or ghec.
+      const pageVersions = getResolvedVersions(item.fileVersionsFm)
+      const appliesToCloud = getResolvedVersions(item.versionsObj).some(
+        (version) => !version.startsWith('enterprise-server@') && pageVersions.includes(version),
+      )
+      if (!appliesToCloud && isGhesReleaseDeprecated(oldestSupported, item.versionsObjAll.ghes)) {
         item.action.type = 'delete'
         continue
       }
