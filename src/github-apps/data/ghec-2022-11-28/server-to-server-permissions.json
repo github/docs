@@ -237,6 +237,28 @@
     "displayTitle": "Enterprise permissions for \"Enterprise AI controls\"",
     "permissions": [
       {
+        "category": "enterprise-admin",
+        "slug": "get-model-policies-for-enterprise-apps",
+        "subcategory": "ai-controls",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/copilot/apps/model-policies",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "update-model-policies-for-enterprise-apps",
+        "subcategory": "ai-controls",
+        "verb": "patch",
+        "requestPath": "/enterprises/{enterprise}/copilot/apps/model-policies",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
         "category": "copilot",
         "slug": "get-copilot-content-exclusion-rules-for-an-enterprise",
         "subcategory": "copilot-content-exclusion-management",
@@ -297,6 +319,50 @@
         "subcategory": "copilot-custom-agents",
         "verb": "delete",
         "requestPath": "/enterprises/{enterprise}/copilot/custom-agents/source",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "get-model-policies-for-an-enterprise",
+        "subcategory": "ai-controls",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/copilot/model-policies",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "update-model-policies-for-an-enterprise",
+        "subcategory": "ai-controls",
+        "verb": "patch",
+        "requestPath": "/enterprises/{enterprise}/copilot/model-policies",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "get-model-policies-for-an-enterprise-team",
+        "subcategory": "ai-controls",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/teams/{team_id}/copilot/model-policies",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "update-model-policies-for-an-enterprise-team",
+        "subcategory": "ai-controls",
+        "verb": "patch",
+        "requestPath": "/enterprises/{enterprise}/teams/{team_id}/copilot/model-policies",
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
@@ -2304,6 +2370,28 @@
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": true
+      },
+      {
+        "category": "copilot",
+        "slug": "get-model-policies-for-an-organization",
+        "subcategory": "copilot-model-policy-management",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/copilot/model-policies",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "copilot",
+        "slug": "update-model-policies-for-an-organization",
+        "subcategory": "copilot-model-policy-management",
+        "verb": "patch",
+        "requestPath": "/orgs/{org}/copilot/model-policies",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
       },
       {
         "category": "orgs",
