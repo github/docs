@@ -1,4 +1,5 @@
 import fs from 'fs/promises'
+import path from 'path'
 
 import type { Response, NextFunction } from 'express'
 import sharp from 'sharp'
@@ -20,6 +21,8 @@ const maxWidthPathPartRegex = /\/mw-(\d+)\//
 // Restrict widths to product-supported sizes, so attackers cannot create many
 // distinct resize URLs that bypass CDN reuse.
 const VALID_MAX_WIDTHS = [1440, 1000]
+
+const ASSETS_ROOT = path.resolve('assets')
 
 // WebP effort 5 keeps output smaller without using sharp's slowest CPU setting.
 // CDN caching lets production pay the conversion cost once per image.
@@ -54,8 +57,13 @@ export default async function dynamicAssets(
       logger.warn('Invalid dynamic asset URL', { path: req.path, error })
       return res.status(400).type('text/plain').send(error.toString())
     }
+    // Express does not normalize '..' in req.path, so keep reads inside the assets directory.
+    const filePath = path.resolve(url.slice(1).replace(/\.webp$/, '.png'))
+    if (!filePath.startsWith(ASSETS_ROOT + path.sep)) {
+      return sendNotFound(res)
+    }
     try {
-      const originalBuffer = await fs.readFile(url.slice(1).replace(/\.webp$/, '.png'))
+      const originalBuffer = await fs.readFile(filePath)
       const image = sharp(originalBuffer)
 
       if (maxWidth) {
@@ -90,6 +98,10 @@ export default async function dynamicAssets(
     }
   }
 
+  sendNotFound(res)
+}
+
+function sendNotFound(res: Response) {
   // Cache the 404 so repeated missing assets do not keep reaching the backend.
   defaultCacheControl(res)
 
