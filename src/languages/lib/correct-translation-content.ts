@@ -669,10 +669,15 @@ export function correctTranslatedContentStrings(
       'você precisa instalá-lo na sua {% ifversion enterprise-installed-apps %}empresa, {% endif %}organização ou conta pessoal.',
     )
 
-    content = content.replaceAll(
-      'tornando mais difícil para os atores mal-intencionados acessarem os repositórios e as configurações de uma organização.',
-      'tornando mais difícil para os atores mal-intencionados acessarem os repositórios e as configurações de uma organização.{% endif %}',
-    )
+    // Other pages reuse this sentence without an open conditional, so the extra endif breaks them.
+    if (
+      context.relativePath?.endsWith('/requiring-two-factor-authentication-in-your-organization.md')
+    ) {
+      content = content.replaceAll(
+        'tornando mais difícil para os atores mal-intencionados acessarem os repositórios e as configurações de uma organização.',
+        'tornando mais difícil para os atores mal-intencionados acessarem os repositórios e as configurações de uma organização.{% endif %}',
+      )
+    }
 
     content = content.replaceAll(
       'nos repositórios internos e {% endif %}privados {% ifversion ghec %}da sua organização.',

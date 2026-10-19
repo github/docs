@@ -651,6 +651,35 @@ describe('correctTranslatedContentStrings', () => {
         ),
       ).toBe('{% data reusables.audit_log.reference-grouped-by-category %}')
     })
+
+    describe('2FA intro missing endif', () => {
+      function fixAt(content: string, relativePath: string) {
+        return correctTranslatedContentStrings(content, '', {
+          code: 'pt',
+          relativePath,
+          skipOrphanStripping: true,
+        })
+      }
+      const sentence =
+        'tornando mais difícil para os atores mal-intencionados acessarem os repositórios e as configurações de uma organização.'
+
+      test('appends endif in requiring-two-factor-authentication-in-your-organization intro', () => {
+        const broken = `{% ifversion fpt or ghec %}membros e gerentes de cobrança{% else %}membros ativem a autenticação de dois fatores, ${sentence}`
+        expect(
+          fixAt(
+            broken,
+            'organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization.md',
+          ),
+        ).toBe(`${broken}{% endif %}`)
+      })
+
+      test('leaves the same sentence alone in other files', () => {
+        const text = `* Exigir 2FA, ${sentence}{% ifversion ghec %} x{% endif %} Para obter mais informações.`
+        expect(
+          fixAt(text, 'code-security/tutorials/secure-your-organization/prevent-data-leaks.md'),
+        ).toBe(text)
+      })
+    })
   })
 
   describe('Chinese (zh)', () => {
