@@ -133,6 +133,10 @@ export function getGHExample(
 
   const requiredQueryParams = getRequiredQueryParamsPath(operation, codeSample)
   requestPath += requiredQueryParams ? `?${requiredQueryParams}` : ''
+  // Quote paths containing ? so shells don't expand it as a glob or split on &.
+  if (requestPath.includes('?')) {
+    requestPath = `"${requestPath}"`
+  }
 
   let requestBodyParams = ''
   // Request bodies can be named object parameters or a single scalar value.
