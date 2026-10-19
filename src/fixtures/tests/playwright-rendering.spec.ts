@@ -1818,6 +1818,18 @@ test.describe('rest API reference pages', () => {
     await expect(page).toHaveURL(/\/en\/rest\/actions\/artifacts\?apiVersion=/)
     await expect(page).toHaveTitle(/GitHub Actions Artifacts - GitHub Docs/)
   })
+
+  test('remember selected API version', async ({ page }) => {
+    await page.goto('/rest/actions/artifacts')
+    await expect(page).toHaveURL(/\/en\/rest\/actions\/artifacts\?apiVersion=/)
+    await page.getByRole('button', { name: 'Select API Version' }).click()
+    await page.getByRole('menuitemradio', { name: '2022-11-28', exact: true }).click()
+    await expect(page).toHaveURL(/\/en\/rest\/actions\/artifacts\?apiVersion=2022-11-28/)
+
+    // Without an apiVersion query, RestRedirect uses the saved cookie instead of the latest version.
+    await page.goto('/rest/actions/cache')
+    await expect(page).toHaveURL(/\/en\/rest\/actions\/cache\?apiVersion=2022-11-28/)
+  })
 })
 
 test.describe('translations', () => {
