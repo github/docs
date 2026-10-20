@@ -6,6 +6,7 @@ import walk from 'walk-sync'
 
 import { engine } from '@/content-render/liquid/engine'
 import { allVersions } from '@/versions/lib/all-versions'
+import { getFeaturesByVersion } from '@/versions/middleware/features'
 import languages from '@/languages/lib/languages-server'
 import warmServer from '@/frame/lib/warm-server'
 import type { Site } from '@/types'
@@ -172,11 +173,13 @@ function getReusables(): Reusables {
 
 // Build a minimal Liquid render context for validating translated content.
 // ifversion needs currentVersionObj; data tags call getDataByLanguage internally.
-// Mirror shortVersions middleware so bare conditionals such as {% ifversion ghes %} resolve.
-// Without the short-name flag, Liquid sees an undefined variable and hides real corruptions.
-function buildRenderContext(languageCode: string, version: string) {
+// Mirror shortVersions and features middleware so bare conditionals such as
+// {% ifversion ghes %} or {% ifversion some-feature %} resolve.
+// Without these flags, Liquid sees an undefined variable and hides real corruptions.
+export function buildRenderContext(languageCode: string, version: string) {
   const currentVersionObj = allVersions[version]
   return {
+    ...getFeaturesByVersion(version),
     currentLanguage: languageCode,
     currentVersion: version,
     currentVersionObj,
