@@ -39,7 +39,10 @@ const allEarlyAccessFiles: string[] = walkFiles('content', '.md', {
   includeEarlyAccess: true,
 }).concat(walkFiles('data', ['.md', '.yml'], { includeEarlyAccess: true }))
 
-let selectedFiles: string[] = allEarlyAccessFiles
+// The walk above includes public files, so limit the default to the Early Access trees.
+let selectedFiles: string[] = allEarlyAccessFiles.filter(
+  (file) => file.startsWith('content/early-access/') || file.startsWith('data/early-access/'),
+)
 if (earlyAccessPath) {
   const contentFiles = allEarlyAccessFiles.filter((file) => file.includes(earlyAccessPath))
 
