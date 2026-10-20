@@ -1481,6 +1481,39 @@ test.describe('test nav at different viewports', () => {
     await expect(page.locator('#main-content')).toBeVisible()
   })
 
+  test('collapsed desktop rail stays collapsed after reload', async ({ page }) => {
+    await page.setViewportSize({ width: 1400, height: 700 })
+    await page.goto('/get-started/foo/bar')
+    await page.getByTestId('sidebar-collapse-toggle').click()
+    await expect(page.getByTestId('sidebar')).toHaveCount(0)
+
+    // The server renders the rail open, so the client must apply the saved cookie.
+    await page.reload()
+    await expect(page.getByTestId('sidebar')).toHaveCount(0)
+  })
+
+  test('expanded sidebar category stays open after reload', async ({ page }) => {
+    await page.setViewportSize({ width: 1400, height: 700 })
+    await page.goto('/get-started')
+    const sidebar = page.getByTestId('product-sidebar')
+    const helloWorld = sidebar.getByRole('link', { name: 'Hello World' })
+    await sidebar.getByText('Start your journey').click()
+    await expect(helloWorld).toBeVisible()
+
+    // The server renders categories collapsed, so the client must apply the saved cookie.
+    await page.reload()
+    await expect(helloWorld).toBeVisible()
+
+    // The first toggle after reload must merge into the saved cookie, not replace it.
+    await sidebar.getByText('Foo', { exact: true }).click()
+    await expect(sidebar.getByRole('link', { name: 'Bar', exact: true })).toBeVisible()
+    await expect(helloWorld).toBeVisible()
+
+    await page.reload()
+    await expect(sidebar.getByRole('link', { name: 'Bar', exact: true })).toBeVisible()
+    await expect(helloWorld).toBeVisible()
+  })
+
   test('resizing from mobile to desktop closes the inline nav', async ({ page }) => {
     // Below lg 1012px, the inline mobile nav lives in the secondary bar.
     await page.setViewportSize({

@@ -221,7 +221,7 @@ export const DefaultLayout = (props: Props) => {
       >
         Skip to main content
       </a>
-      <SidebarCollapseProvider initialCollapsed={mainContext.sidebarCollapsed}>
+      <SidebarCollapseProvider>
         <Header isNarrowMenuOpen={isNarrowMenuOpen} onNarrowMenuToggle={setIsNarrowMenuOpen} />
         <div inert={isNarrowMenuOpen} aria-hidden={isNarrowMenuOpen || undefined}>
           <ClientSideLanguageRedirect />

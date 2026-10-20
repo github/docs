@@ -17,6 +17,7 @@ import { ProductTreeNode, useMainContext } from '@/frame/components/context/Main
 import { useAutomatedPageContextOptional } from '@/automated-pipelines/components/AutomatedPageContext'
 import { nonAutomatedRestPaths } from '@/rest/lib/config'
 import { usePrefetchOnInteraction } from '@/frame/components/lib/prefetch'
+import { useIsHydrating } from '@/frame/components/hooks/useIsHydrating'
 import { SidebarExpandStateProvider, useSidebarExpandState } from './useSidebarExpandState'
 import { flattenDescendants, MAX_NAVLIST_LEVEL } from './sidebar-navlist-depth'
 
@@ -121,7 +122,6 @@ export const SidebarProduct = () => {
     currentProduct,
     // The sidebar only needs short titles, so MainContext supplies the compressed tree.
     sidebarTree,
-    sidebarExpanded,
   } = useMainContext()
   const isRestPage = currentProduct && currentProduct.id === 'rest'
 
@@ -147,6 +147,7 @@ export const SidebarProduct = () => {
   )
   const restNavValue = useMemo<RestNavValue>(() => ({ asPath, query }), [asPath, query])
   const rootRef = useRef<HTMLDivElement>(null)
+  const hydrating = useIsHydrating()
 
   useEffect(() => {
     // Failed navigations clear pendingHref; cancellations keep the newer click highlighted.
@@ -158,6 +159,8 @@ export const SidebarProduct = () => {
   }, [router.events])
 
   useEffect(() => {
+    // Wait for the saved expand state, which SidebarExpandStateProvider applies after hydration.
+    if (hydrating) return
     // Article filter query params are shallow same-page updates; the grid manages their scroll.
     if (/[?&]articles-(filter|category|page)=/.test(router.asPath)) return
     // Brand expands every active ancestor, so scroll to the aria-current page item.
@@ -174,7 +177,7 @@ export const SidebarProduct = () => {
     const delta =
       activeRect.top - containerRect.top - (container.clientHeight - activeRect.height) / 2
     container.scrollBy({ top: delta, behavior: 'instant' })
-  }, [])
+  }, [hydrating])
 
   if (!sidebarTree) {
     return null
@@ -225,7 +228,7 @@ export const SidebarProduct = () => {
   return (
     <div data-testid="sidebar" className={styles.sidebar} ref={rootRef}>
       <SidebarNavContext.Provider value={navValue}>
-        <SidebarExpandStateProvider initial={sidebarExpanded}>
+        <SidebarExpandStateProvider>
           {isRestPage ? restSection() : productSection()}
         </SidebarExpandStateProvider>
       </SidebarNavContext.Provider>

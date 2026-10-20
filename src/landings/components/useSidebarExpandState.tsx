@@ -2,6 +2,7 @@ import { createContext, useCallback, useContext, useMemo, useState } from 'react
 import type { ReactNode } from 'react'
 
 import Cookies from '@/frame/components/lib/cookies'
+import { useIsHydrating } from '@/frame/components/hooks/useIsHydrating'
 import { SIDEBAR_EXPANDED_COOKIE_NAME } from '@/frame/lib/constants'
 
 // Persists the docs sidebar's expand/collapse state across navigations. The tree
@@ -15,10 +16,10 @@ import { SIDEBAR_EXPANDED_COOKIE_NAME } from '@/frame/lib/constants'
 // aria-current chain for uncontrolled items, a controlled item must fold that in
 // itself, which is what the onActiveChain fallback does here.
 //
-// Server-side rendering reads the cookie in getMainContext and passes it as initial,
-// so the first server and client render match with no post-mount flash. Without
-// initial, for example outside the server-side data path, it falls back to the
-// SSR-safe cookie lib on the client.
+// Page HTML and _next/data are publicly cached and do not vary on Cookie, so the
+// server and hydration render the default state. The cookie applies in the re-render
+// right after hydration, and client-side mounts read it on their first render.
+// SidebarProduct waits for the same useIsHydrating flip to center the saved tree.
 
 type ExpandedStore = Record<string, boolean>
 
@@ -29,12 +30,16 @@ type ExpandStateContextValue = {
 
 const ExpandStateContext = createContext<ExpandStateContextValue | null>(null)
 
+// A shared empty store keeps the context value stable when nothing is saved.
+const EMPTY_STORE: ExpandedStore = {}
+
 function readStore(): ExpandedStore {
   try {
     const raw = Cookies.get(SIDEBAR_EXPANDED_COOKIE_NAME)
-    return raw ? (JSON.parse(raw) as ExpandedStore) : {}
+    const parsed = raw ? JSON.parse(raw) : null
+    return parsed && typeof parsed === 'object' ? (parsed as ExpandedStore) : EMPTY_STORE
   } catch {
-    return {}
+    return EMPTY_STORE
   }
 }
 
@@ -46,19 +51,16 @@ function persistStore(store: ExpandedStore) {
   }
 }
 
-export function SidebarExpandStateProvider({
-  children,
-  initial,
-}: {
-  children: ReactNode
-  initial?: ExpandedStore | null
-}) {
-  // Seed from the server-read cookie, or read the cookie client-side when initial is absent.
-  const [store, setStore] = useState<ExpandedStore>(() => initial ?? readStore())
+export function SidebarExpandStateProvider({ children }: { children: ReactNode }) {
+  const hydrating = useIsHydrating()
+  const saved = useMemo(() => (hydrating ? EMPTY_STORE : readStore()), [hydrating])
+  // Stays null until the reader toggles a category, so the saved store shows after hydration.
+  const [edited, setEdited] = useState<ExpandedStore | null>(null)
+  const store = edited ?? saved
 
   const setExpanded = useCallback((key: string, expanded: boolean) => {
-    setStore((prev) => {
-      const next = { ...prev, [key]: expanded }
+    setEdited((prev) => {
+      const next = { ...(prev ?? readStore()), [key]: expanded }
       persistStore(next)
       return next
     })
