@@ -2,6 +2,7 @@ import { describe, expect, test } from 'vitest'
 import type { NextFunction, Response } from 'express'
 
 import handleRedirects from '@/redirects/middleware/handle-redirects'
+import { safeRedirectUrl } from '@/frame/middleware/safe-redirect'
 import type { Context, ExtendedRequest } from '@/types'
 
 type TestResponse = {
@@ -98,5 +99,45 @@ describe('handleRedirects with :// in the query string', () => {
     })
     expect(result.statusCode).toBe(301)
     expect(result.location).toBe('https://example.com/docs?ref=abc')
+  })
+})
+
+function runWithPath(url: string, path: string) {
+  const req = { method: 'GET', url, path, context: {} } as unknown as ExtendedRequest
+  const headers: Record<string, string> = {}
+  const result: { status?: number; location?: string } = {}
+  const res = {
+    set(key: string, value: string) {
+      headers[key.toLowerCase()] = value
+      return this
+    },
+    hasHeader(key: string) {
+      return key.toLowerCase() in headers
+    },
+    safeRedirect(status: number, location: string) {
+      result.status = status
+      result.location = safeRedirectUrl(location)
+    },
+  } as unknown as Response
+  handleRedirects(req, res, () => {})
+  return { ...result, headers }
+}
+
+describe('handleRedirects double slashes', () => {
+  test('collapses slashes in the path and keeps the query string', () => {
+    const result = runWithPath('/en//search?query=git', '/en//search')
+    expect(result.status).toBe(301)
+    expect(result.location).toBe('/en/search?query=git')
+    expect(result.headers['cache-control']).toMatch(/max-age=\d+/)
+  })
+
+  test('keeps double slashes inside query values', () => {
+    const result = runWithPath('/en//search?query=a//b', '/en//search')
+    expect(result.location).toBe('/en/search?query=a//b')
+  })
+
+  test('stays origin-relative for an absolute-form request target', () => {
+    const result = runWithPath('https://docs.github.com/en//search?query=git', '/en//search')
+    expect(result.location).toBe('/en/search?query=git')
   })
 })

@@ -27,7 +27,11 @@ export default function handleRedirects(req: ExtendedRequest, res: Response, nex
 
   // Collapse duplicate slashes before patterns.assetPaths, so //example.com cannot bypass handling.
   if (req.path.includes('//')) {
-    return res.safeRedirect(301, req.path.replace(/\/+/g, '/'))
+    // Take only the query from req.url, because an absolute-form req.url also holds the scheme and host.
+    const queryIndex = req.url.indexOf('?')
+    const query = queryIndex === -1 ? '' : req.url.slice(queryIndex)
+    defaultCacheControl(res)
+    return res.safeRedirect(301, req.path.replace(/\/+/g, '/') + query)
   }
 
   if (patterns.assetPaths.test(req.path)) return next()

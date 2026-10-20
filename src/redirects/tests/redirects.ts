@@ -456,6 +456,13 @@ describe('redirects', () => {
       expect(res.headers.location).toBe(`/en/rest`)
     })
 
+    test('double-slash in the URL keeps the query string', async () => {
+      const res = await get(`/en//search?query=git`)
+      expect(res.statusCode).toBe(301)
+      expect(res.headers.location).toBe(`/en/search?query=git`)
+      expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
+    })
+
     test('double-slash trailing in the URL', async () => {
       const res = await get(`/en//`)
       expect(res.statusCode).toBe(301)
