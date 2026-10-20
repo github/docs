@@ -26,11 +26,11 @@ jobs:
           days-before-close: 7
 
           stale-issue-message: 'A stale label has been added to this issue, because it has been open for 30 days with no activity. If you think this issue should remain open, please add a new comment.'
-          exempt-issue-labels: 'help wanted,never-stale,waiting for review'
+          exempt-issue-labels: 'help wanted,never-stale,waiting for review,needs SME'
           stale-issue-label: 'Inactive'
           close-issue-label: 'Closed as inactive'
 
-          exempt-pr-labels: 'never-stale,ready to merge,waiting for review'
+          exempt-pr-labels: 'never-stale,ready to merge,waiting for review,needs SME'
           stale-pr-message: 'A stale label has been added to this pull request because it has been open 30 days with no activity. If you think this pull request should remain open, please add a new comment.'
           stale-pr-label: 'Inactive'
           close-pr-label: 'Closed as inactive'
