@@ -53,7 +53,9 @@ export default function handleRedirects(req: ExtendedRequest, res: Response, nex
   }
 
   let redirect = req.path
-  let queryParams = req.originalUrl.includes('?') ? req.originalUrl.split('?')[1] : null
+  // Slice from the first ? because query values can contain a raw ?.
+  const queryIndex = req.originalUrl.indexOf('?')
+  let queryParams = queryIndex === -1 ? null : req.originalUrl.slice(queryIndex + 1)
 
   // Route page searches to the search endpoint, and rename legacy q to query.
   const onSearch = req.path.endsWith('/search') || req.path.startsWith('/api/search')

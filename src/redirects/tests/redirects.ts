@@ -80,6 +80,18 @@ describe('redirects', () => {
       expect(res.headers.location).toBe(expected)
     })
 
+    test('with a raw second ? do not redirect an existing page', async () => {
+      const res = await get('/en/actions?utm_source=a?utm_medium=b')
+      expect(res.statusCode).toBe(200)
+    })
+
+    test('with a raw second ? are fully preserved in redirected URLs', async () => {
+      const res = await get('/en/enterprise/admin?faq=a?b')
+      expect(res.statusCode).toBe(301)
+      const expected = `/en/enterprise-server@${enterpriseServerReleases.latest}/admin?faq=a?b`
+      expect(res.headers.location).toBe(expected)
+    })
+
     test('do not work on other paths that include "search"', async () => {
       const reqPath = `/en/enterprise-server@${enterpriseServerReleases.latest}/admin/configuring-settings/configuring-github-connect/enabling-unified-search-for-your-enterprise`
       const res = await get(reqPath)
