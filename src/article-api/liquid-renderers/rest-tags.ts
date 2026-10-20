@@ -31,7 +31,9 @@ export class RestParameter {
 
     const lines: string[] = []
     const required = param.required ? ' (required)' : ''
-    const type = param.schema?.type || 'string'
+    const type = Array.isArray(param.schema?.type)
+      ? param.schema.type.join(' or ')
+      : param.schema?.type || 'string'
 
     lines.push(`- **\`${param.name}\`** (${type})${required}`)
 
