@@ -22,6 +22,35 @@ describe('rest example requests and responses', () => {
     expect(mergedExamples).toBe(JSON.stringify(examples))
   })
 
+  test('redirect-only operation with contentless 302 and 304 responses gets a 302 example', async () => {
+    const redirectOnlyOp = {
+      parameters: [{ name: 'migration_id', in: 'path', required: true }],
+      responses: {
+        302: { description: 'Found' },
+        304: { description: 'Not modified' },
+        401: { description: 'Requires authentication' },
+        403: { description: 'Forbidden' },
+      },
+    }
+    const examples = await getCodeSamples(redirectOnlyOp)
+    expect(examples.length).toBe(1)
+    expect(examples[0].response?.statusCode).toBe('302')
+    expect(examples[0].request.description).toBe('Example')
+  })
+
+  test('redirect-only operation skips a contentless 304 that sorts before another redirect', async () => {
+    const redirectOnlyOp = {
+      parameters: [],
+      responses: {
+        304: { description: 'Not modified' },
+        307: { description: 'Temporary Redirect' },
+      },
+    }
+    const examples = await getCodeSamples(redirectOnlyOp)
+    expect(examples.length).toBe(1)
+    expect(examples[0].response?.statusCode).toBe('307')
+  })
+
   test('check that multiple response examples with content are create for a single request example', async () => {
     const examples = mergeExamples(multipleContent.request, multipleContent.response)
     const mergedExamples = JSON.stringify(multipleContent.merged)

@@ -120,15 +120,20 @@ export function mergeExamples(
     return [{ ...requestExamples[0], response: responseExamples[0].response }]
   }
 
-  // A single request with example-less responses documents success status codes below 300.
+  // One request with example-less responses documents codes below 300, or the first non-304 code for redirect-only operations.
   if (
     requestExamples.length === 1 &&
     responseExamples.length > 1 &&
     !responseExamples.find((ex) => ex.response.example)
   ) {
-    return responseExamples
-      .filter((resp) => parseInt(resp.response.statusCode, 10) < 300)
-      .map((ex) => ({ ...requestExamples[0], ...ex }))
+    const successResponses = responseExamples.filter(
+      (resp) => parseInt(resp.response.statusCode, 10) < 300,
+    )
+    const documentedResponses =
+      successResponses.length > 0
+        ? successResponses
+        : responseExamples.filter((resp) => resp.response.statusCode !== '304').slice(0, 1)
+    return documentedResponses.map((ex) => ({ ...requestExamples[0], ...ex }))
   }
 
   // When one request has multiple responses, only responses with examples become docs examples.
