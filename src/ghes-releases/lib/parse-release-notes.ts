@@ -220,6 +220,35 @@ export function loadExistingEntriesFromString(content: string): {
   return { entries, coveredUrls }
 }
 
+export function isSameNoteEntry(a: NoteEntry, b: NoteEntry): boolean {
+  return (
+    a.sourceUrl === b.sourceUrl &&
+    a.heading === b.heading &&
+    a.notes.length === b.notes.length &&
+    a.notes.every((n, idx) => n === b.notes[idx])
+  )
+}
+
+// Mutate in place because the Ctrl+C flush closure holds a reference to this array.
+// With no new entries, keep the existing ones so a failed regeneration does not delete a note.
+// Returns how many unique entries were added, since agent output can repeat an entry.
+export function replaceEntriesForSource(
+  entries: NoteEntry[],
+  sourceUrl: string,
+  newEntries: NoteEntry[],
+): number {
+  if (newEntries.length === 0) return 0
+  for (let i = entries.length - 1; i >= 0; i--) {
+    if (entries[i].sourceUrl === sourceUrl) entries.splice(i, 1)
+  }
+  const unique: NoteEntry[] = []
+  for (const entry of newEntries) {
+    if (!unique.some((u) => isSameNoteEntry(u, entry))) unique.push(entry)
+  }
+  entries.push(...unique)
+  return unique.length
+}
+
 export function appendNoteLines(lines: string[], noteEntries: NoteEntry[], indent: string): void {
   for (const entry of noteEntries) {
     lines.push(`${indent}# ${entry.sourceUrl}`)

@@ -8,6 +8,7 @@ import {
   loadExistingEntriesFromString,
   extractPreservedBlocks,
   buildReleaseNotesYaml,
+  replaceEntriesForSource,
 } from '@/ghes-releases/lib/parse-release-notes'
 
 const handEditedFile = `date: '2026-05-12'
@@ -532,5 +533,66 @@ sections:
     expect(parsed.sections.errata).toEqual([
       { heading: 'Repositories', notes: ['A grouped erratum.\n'] },
     ])
+  })
+})
+
+describe('replaceEntriesForSource', () => {
+  const urlA = 'https://github.com/github/releases/issues/1'
+  const urlB = 'https://github.com/github/releases/issues/2'
+
+  test('replaces entries for the source URL and keeps other entries and array identity', () => {
+    const entries = [
+      { heading: 'Repositories', notes: ['Old A note.'], sourceUrl: urlA },
+      { heading: 'APIs', notes: ['B note.'], sourceUrl: urlB },
+      { heading: 'Changes', notes: ['Old A change.'], sourceUrl: urlA },
+    ]
+    const original = entries
+    const added = replaceEntriesForSource(entries, urlA, [
+      { heading: 'Repositories', notes: ['New A note.'], sourceUrl: urlA },
+    ])
+
+    expect(added).toBe(1)
+    expect(entries).toBe(original)
+    expect(entries).toEqual([
+      { heading: 'APIs', notes: ['B note.'], sourceUrl: urlB },
+      { heading: 'Repositories', notes: ['New A note.'], sourceUrl: urlA },
+    ])
+  })
+
+  test('appends new entries when no existing entry matches the source URL', () => {
+    const entries = [{ heading: 'APIs', notes: ['B note.'], sourceUrl: urlB }]
+    replaceEntriesForSource(entries, urlA, [
+      { heading: 'Repositories', notes: ['A note.'], sourceUrl: urlA },
+    ])
+
+    expect(entries).toEqual([
+      { heading: 'APIs', notes: ['B note.'], sourceUrl: urlB },
+      { heading: 'Repositories', notes: ['A note.'], sourceUrl: urlA },
+    ])
+  })
+
+  test('keeps existing entries when there are no new entries', () => {
+    const entries = [
+      { heading: 'Repositories', notes: ['Old A note.'], sourceUrl: urlA },
+      { heading: 'APIs', notes: ['B note.'], sourceUrl: urlB },
+    ]
+    expect(replaceEntriesForSource(entries, urlA, [])).toBe(0)
+
+    expect(entries).toEqual([
+      { heading: 'Repositories', notes: ['Old A note.'], sourceUrl: urlA },
+      { heading: 'APIs', notes: ['B note.'], sourceUrl: urlB },
+    ])
+    const yaml = buildReleaseNotesYaml(entries, false, ['Repositories', 'APIs'])
+    expect(yaml).toContain(`# ${urlA}`)
+    expect(yaml).toContain('Old A note.')
+  })
+
+  test('adds identical new entries only once', () => {
+    const entries = [{ heading: 'Repositories', notes: ['Old A note.'], sourceUrl: urlA }]
+    const repeated = { heading: 'Repositories', notes: ['New A note.'], sourceUrl: urlA }
+    const added = replaceEntriesForSource(entries, urlA, [repeated, { ...repeated }])
+
+    expect(added).toBe(1)
+    expect(entries).toEqual([repeated])
   })
 })
