@@ -129,4 +129,30 @@ describe(ruleName, () => {
     expect(result[PRIORITY_VALIDATION]).toHaveLength(1)
     expect(result[PRIORITY_VALIDATION][0].errorDetail).toContain('nonexistent-absolute')
   })
+
+  test('non-string carousel entries are skipped without throwing', async () => {
+    const markdown = [
+      '---',
+      'title: Landing',
+      'layout: category-landing',
+      'carousels:',
+      '  recommended:',
+      '    - /article-one',
+      '    -',
+      '    - path: /article-two',
+      '    - /article-two',
+      '    - /article-one',
+      '---',
+      '',
+    ].join('\n')
+    const result = await runRule(frontmatterLandingCarousels, {
+      strings: { markdown },
+      ...fmOptions,
+    })
+    // The trailing duplicate proves entries after the malformed ones are still checked.
+    expect(result.markdown).toHaveLength(1)
+    expect(result.markdown[0].errorDetail).toContain(
+      "Found duplicate articles in carousel 'recommended': /article-one",
+    )
+  })
 })
