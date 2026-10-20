@@ -1,6 +1,6 @@
 ---
 title: Client info
-shortTitle: Client info
+shortTitle: Client Info
 intro: >-
   Client info identifies the application using the Copilot SDK and, when
   applicable, a specific integration within it. An integration is an

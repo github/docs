@@ -46,6 +46,7 @@ The Copilot SDK communicates with the CLI via JSON-RPC protocol. Features must b
 | Abort | `abort()` | Cancel in-flight request |
 | **Tools** | | |
 | Register custom tools | `registerTools()` | Full JSON Schema support |
+| Replace custom tools (mid-session) | `session.setTools()` | Experimental; see [AUTOTITLE](/copilot/how-tos/copilot-sdk/features/changing-tools) |
 | Tool permission control | `onPreToolUse` hook | Allow/deny/ask |
 | Tool result modification | `onPostToolUse` hook | Transform results |
 | Available/excluded tools | `availableTools`, `excludedTools` config | Filter tools |

@@ -21,6 +21,9 @@ contentType: how-tos
 * **Handle errors** - implement custom error handling
 * **Audit and log** - track all interactions for compliance
 
+For filesystem hooks loaded from additional startup directories rather than
+registered SDK callbacks, see [AUTOTITLE](/copilot/how-tos/copilot-sdk/features/hooks#repository-hooks-from-additional-directories).
+
 ## Available hooks
 
 | Hook | Trigger | Use Case |

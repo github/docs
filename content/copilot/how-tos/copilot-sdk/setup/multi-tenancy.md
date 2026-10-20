@@ -237,6 +237,24 @@ const client = new CopilotClient({
 
 For languages that expose a provider callback, configure `sessionFs` at the client level and provide a per-session filesystem handler when creating or resuming a session. See [AUTOTITLE](/copilot/how-tos/copilot-sdk/features/session-persistence) for persistence concepts and storage trade-offs.
 
+Runtime-owned durable permission choices also use the session filesystem. Under the provider's `sessionStatePath`, `permissions.json` retains its top-level `locations` map with `tool_approvals` and `allowed_directories`; `settings.json` stores top-level `allowedUrls` and `sandbox`; and `config.json` stores top-level `trustedFolders`.
+
+URL approvals are read only from `settings.json`; legacy user-setting fields such as `allowedUrls` in `config.json` are ignored, matching host behavior.
+
+Location keys are normalized provider directory paths, with no added prefix. Resolution follows the provider's path conventions without inspecting the host filesystem or discovering host Git repositories. `/workspace` and `/workspace/sub` select different location entries.
+
+The runtime does not add session-ID partitions to these files or change their sharing granularity. Sessions accessing the same files in the same provider namespace share remembered grants. Your application must use distinct namespaces for tenants or sessions that require isolation, authorize access to each namespace, and reconnect resumed sessions to their original namespace.
+
+With a separate namespace per session, permanent grants survive that session's resumes rather than becoming tenant-wide grants for new sessions. Sharing grants across sessions requires sharing the consent files while keeping other session state separate. The runtime serializes consent updates only within the same provider endpoint and process; applications that share backing files across endpoints or processes must coordinate concurrent updates.
+
+The runtime blocks direct provider-backed file writes to the lexical approval-metadata paths as defense in depth, not as a tamper-proof storage boundary. Providers must not expose writable aliases (such as symlinks or Windows 8.3 short names) to approval metadata through agent file tools. Shell tools do not run through SessionFS, and their commands are not checked against its virtual metadata paths. If your application separately exposes the provider's backing storage to shell execution or other arbitrary code, your host must protect that storage.
+
+Session filesystem approval operations never import or fall back to remembered permissions from the host's `permissions-config.json`, URL or sandbox settings from `settings.json`, or folder trust from `config.json`. They do not update those host files, even when the provider has no approvals or reports an error. A provider error is not permission to use host consent. URL deny rules remain authoritative, and folder trust uses provider paths without host Git discovery.
+
+Approve-once, approve-for-session, rejections, and session policy changes retain their existing lifetimes and event-replay behavior. Storage routing does not turn them into new permanent grants. Protect session transcripts, including durable permission events, with the same tenant isolation as approval metadata.
+
+This boundary applies only to sessions using a session filesystem provider. All SDK applications without `sessionFs`, in both `empty` and `copilot-cli` modes, and ordinary CLI sessions retain existing host-backed persistence for remembered locations, permanent URL approvals, folder trust, and sandbox settings.
+
 Verified public SDK surfaces:
 
 | Language | Client-level config | Per-session provider |

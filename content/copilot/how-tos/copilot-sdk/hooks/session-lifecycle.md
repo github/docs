@@ -204,6 +204,8 @@ const session = await client.createSession({
 
 The `onSessionEnd` hook is called when a session ends.
 
+A standalone SDK session remains active between prompts. Completing a prompt does not end the session; disconnect or dispose the session to run its end hook.
+
 ### Hook signature
 
 {% codetabs %}
