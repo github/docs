@@ -1,4 +1,6 @@
 import GithubSlugger from 'github-slugger'
+import { fromMarkdown } from 'mdast-util-from-markdown'
+import { visit } from 'unist-util-visit'
 
 // Strip inline Markdown before slugging headings, matching hast-util-to-string after remark.
 // Code spans stay verbatim so HTML-tag stripping does not drop placeholders such as <job_id>.
@@ -65,6 +67,24 @@ export function headingTextToPlain(text: string): string {
   return parts.join('')
 }
 
+// A parser finds code blocks inside list items and other containers that line regexes miss.
+// Line breaks stay so heading regexes keep their line boundaries.
+function blankCodeBlocks(markdown: string): string {
+  const ranges: Array<[number, number]> = []
+  visit(fromMarkdown(markdown), 'code', (node) => {
+    const start = node.position?.start.offset
+    const end = node.position?.end.offset
+    if (start !== undefined && end !== undefined) ranges.push([start, end])
+  })
+  let out = ''
+  let last = 0
+  for (const [start, end] of ranges) {
+    out += markdown.slice(last, start) + markdown.slice(start, end).replace(/[^\n]/g, '')
+    last = end
+  }
+  return out + markdown.slice(last)
+}
+
 // Compute heading IDs from Liquid-rendered Markdown with github-slugger, matching live IDs.
 // Repeated headings keep github-slugger suffixes such as -1 and -2.
 // Also includes Setext headings and raw HTML anchors with name or id attributes.
@@ -72,22 +92,25 @@ export function computeHeadingIds(renderedMarkdown: string): Set<string> {
   const slugger = new GithubSlugger()
   const headingIds = new Set<string>()
 
-  // ATX headings can include optional trailing hashes.
-  const ATX_HEADING_RE = /^#{1,6}\s+(.+?)(?:\s+#+)?\s*$/gm
+  // Live pages never slug code, so blank code blocks before matching comments like `# Usage`.
+  const markdown = blankCodeBlocks(renderedMarkdown)
+
+  // ATX headings can include optional trailing hashes; [ \t] stops a lone # from reading the next line.
+  const ATX_HEADING_RE = /^#{1,6}[ \t]+(.+?)(?:[ \t]+#+)?[ \t]*$/gm
   let m: RegExpExecArray | null
-  while ((m = ATX_HEADING_RE.exec(renderedMarkdown)) !== null) {
+  while ((m = ATX_HEADING_RE.exec(markdown)) !== null) {
     headingIds.add(slugger.slug(headingTextToPlain(m[1])))
   }
 
   // Setext headings: text line followed by === or --- underline
-  const SETEXT_HEADING_RE = /^([^\n]+)\n[=-]{2,}\s*$/gm
-  while ((m = SETEXT_HEADING_RE.exec(renderedMarkdown)) !== null) {
+  const SETEXT_HEADING_RE = /^([^\n]+)\n[=-]{2,}[ \t]*$/gm
+  while ((m = SETEXT_HEADING_RE.exec(markdown)) !== null) {
     headingIds.add(slugger.slug(headingTextToPlain(m[1])))
   }
 
   // Some pages, such as site-policy, carry raw HTML anchors instead of headings.
   const NAMED_ANCHOR_RE = /<a\s[^>]*(?:name|id)="([^"]+)"[^>]*>/gi
-  while ((m = NAMED_ANCHOR_RE.exec(renderedMarkdown)) !== null) {
+  while ((m = NAMED_ANCHOR_RE.exec(markdown)) !== null) {
     headingIds.add(m[1])
   }
 
