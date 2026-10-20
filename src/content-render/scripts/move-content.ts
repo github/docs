@@ -67,7 +67,10 @@ async function main(opts: MoveOptions, nameTuple: string[]) {
     )
     process.exit(1)
   }
-  const [old, new_] = nameTuple
+  const sourceArg = undo ? nameTuple[1] : nameTuple[0]
+  const isFolderSource = fs.existsSync(sourceArg) && fs.lstatSync(sourceArg).isDirectory()
+  // walk-sync paths lack the trailing slash tab completion adds; files keep it so a missing dest/ fails.
+  const [old, new_] = isFolderSource ? nameTuple.map((p) => p.replace(/\/+$/, '')) : nameTuple
   if (old === new_) {
     throw new Error('old == new')
   }
