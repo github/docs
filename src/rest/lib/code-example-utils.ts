@@ -61,3 +61,8 @@ export function generateExampleOptions(examples: CodeExample[]): ExampleOption[]
 export function generateExampleOptionTexts(examples: CodeExample[]): string[] {
   return generateExampleOptions(examples).map((option) => option.text)
 }
+
+// GHES serves the REST API under /api/v3, matching the serverUrl in its request examples.
+export function toGhesApiUrls(json: string): string {
+  return json.replaceAll('api.github.com', 'HOSTNAME/api/v3')
+}
