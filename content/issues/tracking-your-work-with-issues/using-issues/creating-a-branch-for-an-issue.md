@@ -1,4 +1,4 @@
----
+content/issues/tracking-your-work-with-issues/using-issues/creating-a-branch-for-an-issue.md---
 title: Creating a branch to work on an issue
 intro: You can create a branch to work on an issue directly from the issue page and get started right away.
 versions:
