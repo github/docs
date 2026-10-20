@@ -208,6 +208,69 @@ upcoming_changes:
     )
     expect(nullEntry).toBeNull()
   })
+
+  test('omits the schema changes group when only upcoming changes exist', async () => {
+    const schemaString = `
+    type Query {
+      i: Int!
+    }`
+
+    const entry: ChangelogEntry | null = await createChangelogEntry(
+      schemaString,
+      schemaString,
+      [],
+      [],
+      [
+        {
+          location: 'Query.i',
+          description: '`i` will be removed.',
+          date: '2021-06-01T00:00:00+00:00',
+        },
+      ],
+    )
+    expect(entry).not.toBeNull()
+    expect(entry!.schemaChanges).toEqual([])
+    expect(entry!.upcomingChanges).toHaveLength(1)
+  })
+
+  test('omits the schema changes group when only preview changes exist', async () => {
+    const oldSchemaString = `
+    type PreviewType {
+      a: Int
+    }
+
+    type Query {
+      previewField: PreviewType
+    }`
+
+    const newSchemaString = `
+    type PreviewType {
+      a: Int
+      b: Int
+    }
+
+    type Query {
+      previewField: PreviewType
+    }`
+
+    const previews = [
+      {
+        title: 'Test preview',
+        toggled_on: ['PreviewType'],
+      },
+    ]
+
+    const entry: ChangelogEntry | null = await createChangelogEntry(
+      oldSchemaString,
+      newSchemaString,
+      previews,
+      [],
+      [],
+    )
+    expect(entry).not.toBeNull()
+    expect(entry!.schemaChanges).toEqual([])
+    expect(entry!.previewChanges).toHaveLength(1)
+  })
 })
 
 describe('Preparing preview links', () => {
