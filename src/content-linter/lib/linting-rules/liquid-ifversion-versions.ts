@@ -17,6 +17,7 @@ import {
 } from '@/ghes-releases/scripts/version-utils'
 import { nextNext, oldestSupported } from '@/versions/lib/enterprise-server-releases'
 import versionSatisfiesRange from '@/versions/lib/version-satisfies-range'
+import { allVersionShortnames } from '@/versions/lib/all-versions'
 import type { RuleParams, RuleErrorCallback } from '@/content-linter/types'
 
 // getLiquidIfVersionTokens exposes runtime properties that liquidjs TopLevelToken omits.
@@ -63,6 +64,11 @@ type CondTagItem = {
   // addError accepts this cached range, but this rule never sets it.
   contentRange?: [number, number] | number[] | string | null
 }
+
+// Frontmatter accepts full plan names, but conditions use short names.
+const planToShortName: Record<string, string> = Object.fromEntries(
+  Object.entries(allVersionShortnames).map(([shortName, plan]) => [plan, shortName]),
+)
 
 type DefaultProps = {
   fileVersionsFm: FileVersionsFm
@@ -465,11 +471,16 @@ function updateConditionals(condTagItems: CondTagItem[]) {
     // Remove condition products that the page frontmatter does not define.
     const versionsNotInFrontmatter = difference(
       Object.keys(item.versionsObjAll),
-      Object.keys(item.fileVersionsFmAll),
+      Object.keys(item.fileVersionsFmAll).map((key) => planToShortName[key] || key),
     )
     if (versionsNotInFrontmatter.length !== 0) {
       for (const key of versionsNotInFrontmatter) {
         delete item.versionsObj[key]
+      }
+      // A condition naming only products missing from frontmatter renders on no page version.
+      if (Object.keys(item.versionsObj).length === 0) {
+        item.action.type = 'delete'
+        continue
       }
       // Also drop deprecated lower bounds so one fix pass leaves no GHD022 error.
       if (item.versionsObj.ghes && item.versionsObj.ghes !== '*') {

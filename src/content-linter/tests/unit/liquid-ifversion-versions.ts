@@ -460,6 +460,60 @@ describe(liquidIfversionVersions.names.join(' - '), () => {
     }
   })
 
+  describe('deletes conditions naming only products missing from frontmatter', () => {
+    const toMarkdown = (fm: string[], body: string) =>
+      [
+        '---',
+        'title: "Hello"',
+        'versions:',
+        ...fm.map((product) => `  ${product}: "*"`),
+        '---',
+        body,
+      ].join('\n')
+
+    test.each([
+      { fm: ['ghec', 'ghes'], cond: 'fpt' },
+      { fm: ['fpt', 'ghec'], cond: 'ghes' },
+      { fm: ['fpt', 'ghec'], cond: `ghes > ${supported.at(-1)}` },
+      { fm: ['ghes'], cond: 'fpt or ghec' },
+    ])('ifversion $cond with frontmatter $fm', async ({ fm, cond }) => {
+      const result = await runRule(liquidIfversionVersions, {
+        strings: { markdown: toMarkdown(fm, `{% ifversion ${cond} %}x{% endif %}`) },
+      })
+      const errors = result.markdown
+      expect(errors.length).toBe(2)
+      for (const error of errors) {
+        expect(error.errorDetail).toContain('applies to no versions')
+        expect(error.fixInfo?.insertText).toBe('')
+      }
+    })
+
+    test('elsif naming only a missing product', async () => {
+      const result = await runRule(liquidIfversionVersions, {
+        strings: {
+          markdown: toMarkdown(['ghes'], '{% ifversion ghes < 3.0 %}a{% elsif fpt %}b{% endif %}'),
+        },
+      })
+      const errors = result.markdown
+      expect(errors.length).toBe(3)
+      for (const error of errors) {
+        expect(error.errorDetail).toContain('applies to no versions')
+      }
+    })
+
+    test('keeps conditions on products listed by full plan name', async () => {
+      const result = await runRule(liquidIfversionVersions, {
+        strings: {
+          markdown: toMarkdown(
+            ['free-pro-team', 'enterprise-cloud'],
+            '{% ifversion fpt %}x{% endif %}',
+          ),
+        },
+      })
+      expect(result.markdown.length).toBe(0)
+    })
+  })
+
   test('simplified GHES range has no extra space', async () => {
     const markdown = [
       ...placeholderAllVersionsFm,
