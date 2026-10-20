@@ -61,9 +61,16 @@ jobs:
           PR_NUMBER: ${{ github.event.pull_request.number }}
           CHANGED_FILES: ${{ github.event.pull_request.changed_files }}
           REPO: ${{ github.repository }}
+          EVENT_ACTION: ${{ github.event.action }}
         run: |
           if [ "$PR_AUTHOR" = "dependabot[bot]" ] || [ "$PR_AUTHOR" = "docs-bot" ]; then
             echo "Author is $PR_AUTHOR; skipping lockfile churn detection."
+            echo "lockfile_only=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          # Removing the lockfile-churn-only label and reopening the PR is the documented override.
+          if [ "$EVENT_ACTION" = "reopened" ]; then
+            echo "PR reopened; skipping lockfile churn detection."
             echo "lockfile_only=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
@@ -101,7 +108,7 @@ jobs:
           git push
           ```
 
-          If the lockfile change is intentional, remove the `lockfile-churn-only` label and push or reopen the PR so this workflow sends it to the engineering review board.
+          If the lockfile change is intentional, remove the `lockfile-churn-only` label, then close and reopen the PR so this workflow sends it to the engineering review board.
           EOF
           gh pr comment "$PR" --body-file /tmp/lockfile-churn-body.md
           gh pr edit "$PR" --add-label lockfile-churn-only
