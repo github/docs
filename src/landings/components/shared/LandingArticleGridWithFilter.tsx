@@ -61,6 +61,7 @@ export const ArticleGrid = ({
   updateParams,
 }: ArticleGridProps) => {
   const { t } = useTranslation('product_landing')
+  const { locale } = useRouter()
   const articlesPerPage = useResponsiveArticlesPerPage()
 
   const inputRef = useRef<HTMLInputElement>(null)
@@ -71,7 +72,7 @@ export const ArticleGrid = ({
   const selectedCategory = params['articles-category'] || ALL_CATEGORIES
   const currentPage = parseInt(params['articles-page'] || '1', 10)
 
-  const allArticles = useMemo(() => flattenArticles(tocItems), [tocItems])
+  const allArticles = useMemo(() => flattenArticles(tocItems, locale), [tocItems, locale])
 
   const stopWords = useMemo(() => deriveStopWords(allArticles), [allArticles])
 
@@ -102,9 +103,9 @@ export const ArticleGrid = ({
           const lowerCategory = category.toLowerCase()
           return includedCategories.some((included) => included.toLowerCase() === lowerCategory)
         })
-        .sort((a, b) => a.localeCompare(b)),
+        .sort((a, b) => a.localeCompare(b, locale)),
     ],
-    [filteredArticlesByLandingType, includedCategories],
+    [filteredArticlesByLandingType, includedCategories, locale],
   )
 
   const selectedCategoryIndex = useMemo(() => {
