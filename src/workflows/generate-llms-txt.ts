@@ -168,6 +168,13 @@ export async function generate(
   sections.push(config.how_to_use.trim(), '')
 
   const existingPinned = config.pinned_pages.filter((p) => pageExists(p, pages))
+  const missingPinned = config.pinned_pages.filter((p) => !pageExists(p, pages))
+  if (missingPinned.length > 0) {
+    // The ::warning:: prefix makes the skip visible as an annotation on the workflow run.
+    console.warn(
+      `::warning::Pinned llms.txt pages not found and skipped: ${missingPinned.join(', ')}. Update pinned_pages in ${DEFAULT_CONFIG_PATH}.`,
+    )
+  }
   if (existingPinned.length > 0) {
     sections.push(`## ${config.pinned_section_heading.trim()}`, '')
     for (const p of existingPinned) sections.push(await formatPageLine(p, pages))

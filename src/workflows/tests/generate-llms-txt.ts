@@ -1,4 +1,6 @@
-import { describe, expect, test } from 'vitest'
+import fs from 'fs'
+
+import { describe, expect, test, vi } from 'vitest'
 
 import {
   generate,
@@ -149,6 +151,21 @@ describe('loadConfig', () => {
     const cfg = loadConfig('data/llms-txt/config-monolith.yml')
     expect(cfg.title).toBe('GitHub')
   })
+
+  test('every pinned page exists in content', () => {
+    for (const configPath of [
+      'data/llms-txt/config-docs.yml',
+      'data/llms-txt/config-monolith.yml',
+    ]) {
+      const missing = loadConfig(configPath).pinned_pages.filter(
+        (p) => !fs.existsSync(`content/${p}.md`) && !fs.existsSync(`content/${p}/index.md`),
+      )
+      expect(
+        missing,
+        `Pinned pages in ${configPath} not found. If you moved or renamed these pages, update pinned_pages in data/llms-txt/config-default.yml.`,
+      ).toEqual([])
+    }
+  })
 })
 
 describe('generate', () => {
@@ -220,6 +237,20 @@ describe('generate', () => {
     })
     expect(out).toMatch(/## Featured/)
     expect(out).toMatch(/\[REST API\]/)
+  })
+
+  test('warns about pinned pages that do not exist and keeps the rest', async () => {
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {})
+    try {
+      const pages = makePages({ rest: { title: 'REST API' } })
+      const out = await generate(pages, {}, { ...baseConfig, pinned_pages: ['rest', 'gone/page'] })
+      expect(out).toMatch(/\[REST API\]/)
+      expect(out).not.toMatch(/gone\/page/)
+      expect(warn).toHaveBeenCalledTimes(1)
+      expect(warn.mock.calls[0][0]).toMatch(/^::warning::.*skipped: gone\/page\./)
+    } finally {
+      warn.mockRestore()
+    }
   })
 
   test('includes title, description, how_to_use, and auto_update_comment', async () => {
