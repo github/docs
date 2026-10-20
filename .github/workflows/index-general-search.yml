@@ -203,12 +203,6 @@ jobs:
           curl --retry-connrefused --retry 5 ${{ env.ELASTICSEARCH_URL }}/_cat/indices?v
           curl --retry-connrefused --retry 5 ${{ env.ELASTICSEARCH_URL }}/_cat/indices?v
 
-      - name: Purge Fastly edge cache
-        env:
-          FASTLY_TOKEN: ${{ secrets.FASTLY_TOKEN }}
-          FASTLY_SERVICE_ID: ${{ secrets.FASTLY_SERVICE_ID }}
-        run: npm run purge-fastly -- --surrogate-key api-search:${{ matrix.language }}
-
       - name: Upload failures artifact
         if: ${{ steps.check-failures.outputs.has_failures == 'true' }}
         uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
