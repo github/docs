@@ -1053,6 +1053,27 @@ test.describe('search dialog', () => {
     await expect(rule).toHaveCSS('background-image', 'none')
   })
 
+  test('Enter with nothing selected runs the docs search after a Copilot error', async ({
+    page,
+  }) => {
+    // No upstreamStatus, so the overlay treats it as a Copilot error and shows the banner.
+    await page.route('**/api/ai-search/v1', (route) => route.fulfill({ status: 500, body: '{}' }))
+    await mockSearch(page)
+    await page.goto('/')
+    await turnOffExperimentsInPage(page)
+
+    await page.getByTestId('toggle-search').click()
+    const input = page.getByTestId('overlay-search-input')
+    await input.fill('foo')
+    await expect(page.locator('#search-option-general-0')).toBeVisible()
+    await input.press('Enter') // nothing selected: ask Copilot
+    await expect(page.getByText('There was an error loading Copilot.')).toBeVisible()
+
+    await input.fill('bar')
+    await input.press('Enter')
+    await expect(page).toHaveURL(/\/search\?.*query=bar/)
+  })
+
   test.describe('in a German-language browser', () => {
     test.use({ locale: 'de-DE' })
 

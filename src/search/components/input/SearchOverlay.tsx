@@ -407,6 +407,12 @@ export function SearchOverlay({
         if (!urlSearchInputQuery.trim()) {
           return
         }
+        // Copilot stays off after an error, so Enter runs the docs search the banner offers.
+        if (aiSearchError) {
+          sendKeyboardEvent(event.key, 'view-all', searchEventGroupId, SEARCH_OVERLAY_EVENT_GROUP)
+          performGeneralSearch()
+          return
+        }
         sendKeyboardEvent(event.key, AI_SEARCH_CONTEXT, askAIEventGroupId, ASK_AI_EVENT_GROUP)
         aiSearchOptionOnSelect({ term: urlSearchInputQuery } as AutocompleteSearchHit)
         return
