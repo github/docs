@@ -12,6 +12,7 @@ import {
 import patterns from '@/frame/lib/patterns'
 import versionSatisfiesRange from '@/versions/lib/version-satisfies-range'
 import { isArchivedVersion } from '@/archives/lib/is-archived-version'
+import { isLanguageInArchivedVersion } from '@/archives/lib/archived-languages'
 import { setFastlySurrogateKey, SURROGATE_ENUMS } from '@/frame/middleware/set-fastly-surrogate-key'
 import { readCompressedJsonFileFallbackLazily } from '@/frame/lib/read-json-file'
 import { archivedCacheControl, languageCacheControl } from '@/frame/middleware/cache-control'
@@ -82,6 +83,14 @@ export default async function archivedEnterpriseVersions(
   const redirectCode = pathLanguagePrefixed(req.path) ? 301 : 302
 
   if (deprecatedWithFunctionalRedirects.includes(requestedVersion)) {
+    if (
+      req.context?.userLanguage &&
+      !pathLanguagePrefixed(req.path) &&
+      !isLanguageInArchivedVersion(req.context.userLanguage, requestedVersion)
+    ) {
+      // The archive lacks this language, so send unprefixed links to English instead of a 404.
+      req.context.userLanguage = 'en'
+    }
     const redirectTo = req.context ? getRedirect(req.path, req.context) : undefined
     if (redirectTo) {
       if (redirectCode === 302) {
