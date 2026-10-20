@@ -344,6 +344,13 @@ export function getJSExample(
     }
   }
 
+  // Code examples only carry path params, so required query params need explicit values.
+  for (const [name, value] of Object.entries(getRequiredQueryParams(operation, codeSample))) {
+    if (!Object.hasOwn(parameters, name)) {
+      parameters[name] = value
+    }
+  }
+
   let queryParameters = ''
 
   if (
@@ -405,17 +412,21 @@ function findMatchingQueryKey(exampleObj: CodeExamples | CodeExamples[], matchKe
   return match
 }
 
-export function getRequiredQueryParamsPath(operation: Operation, codeSample: CodeSample) {
-  const requiredQueryParams = new URLSearchParams()
+function getRequiredQueryParams(operation: Operation, codeSample: CodeSample) {
+  const requiredQueryParams: Record<string, string> = {}
   for (const param of operation.parameters) {
     if (param.in === 'query' && param.required === true) {
       const codeExamples = codeSample.response?.example
       const match = findMatchingQueryKey(codeExamples, param.name)
-      requiredQueryParams.append(param.name, match || param.name.toUpperCase())
+      requiredQueryParams[param.name] = match || param.name.toUpperCase()
     }
   }
 
-  return requiredQueryParams.toString()
+  return requiredQueryParams
+}
+
+export function getRequiredQueryParamsPath(operation: Operation, codeSample: CodeSample) {
+  return new URLSearchParams(getRequiredQueryParams(operation, codeSample)).toString()
 }
 
 export function getAcceptHeader(codeSample: CodeSample) {

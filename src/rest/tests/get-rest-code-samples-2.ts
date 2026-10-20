@@ -549,6 +549,122 @@ describe('REST code samples authentication header handling', () => {
       expect(result).toContain("id: 'MVS-2026-001'")
       expect(result).not.toMatch(/["']0["']\s*:/)
     })
+
+    test('includes required query params for GET requests', () => {
+      const searchOperation: Operation = {
+        ...standardOperation,
+        verb: 'get',
+        title: 'Search code',
+        requestPath: '/search/code',
+        parameters: [
+          {
+            in: 'query',
+            name: 'q',
+            description: '',
+            required: true,
+            schema: { type: 'string' },
+          },
+        ],
+      }
+      const searchCodeSample = {
+        request: {
+          description: 'Example',
+          acceptHeader: 'application/vnd.github+json',
+        },
+        response: {
+          statusCode: '200',
+          contentType: 'application/json',
+          description: 'Response',
+          example: { total_count: 0, items: [] },
+        },
+      } as unknown as CodeSample
+
+      const result = getJSExample(
+        searchOperation,
+        searchCodeSample,
+        'free-pro-team@latest',
+        mockVersions,
+      )
+
+      expect(result).toContain("await octokit.request('GET /search/code', {")
+      expect(result).toContain("q: 'Q'")
+    })
+
+    test('fills required query params in the URL template for mutating requests', () => {
+      const deleteCacheOperation: Operation = {
+        ...standardOperation,
+        verb: 'delete',
+        title: 'Delete GitHub Actions caches for a repository (using a cache key)',
+        requestPath: '/repos/{owner}/{repo}/actions/caches',
+        parameters: [
+          {
+            in: 'path',
+            name: 'owner',
+            description: '',
+            required: true,
+            schema: { type: 'string' },
+          },
+          {
+            in: 'path',
+            name: 'repo',
+            description: '',
+            required: true,
+            schema: { type: 'string' },
+          },
+          {
+            in: 'query',
+            name: 'key',
+            description: '',
+            required: true,
+            schema: { type: 'string' },
+          },
+          {
+            in: 'query',
+            name: 'ref',
+            description: '',
+            required: false,
+            schema: { type: 'string' },
+          },
+        ],
+      }
+      const deleteCacheCodeSample = {
+        request: {
+          description: 'Example',
+          acceptHeader: 'application/vnd.github+json',
+          parameters: { owner: 'OWNER', repo: 'REPO' },
+        },
+        response: {
+          statusCode: '200',
+          contentType: 'application/json',
+          description: 'Response',
+          example: {
+            total_count: 1,
+            actions_caches: [{ id: 505, ref: 'refs/heads/main', key: 'Linux-node-958aff96' }],
+          },
+        },
+      } as unknown as CodeSample
+
+      const jsResult = getJSExample(
+        deleteCacheOperation,
+        deleteCacheCodeSample,
+        'free-pro-team@latest',
+        mockVersions,
+      )
+      const shellResult = getShellExample(
+        deleteCacheOperation,
+        deleteCacheCodeSample,
+        'free-pro-team@latest',
+        mockVersions,
+      )
+
+      expect(jsResult).toContain(
+        "await octokit.request('DELETE /repos/{owner}/{repo}/actions/caches{?key,ref}'",
+      )
+      expect(jsResult).toContain("owner: 'OWNER'")
+      expect(jsResult).toContain("key: 'Linux-node-958aff96'")
+      expect(jsResult).not.toContain('ref:')
+      expect(shellResult).toContain('/repos/OWNER/REPO/actions/caches?key=Linux-node-958aff96')
+    })
   })
 
   describe('edge cases and special scenarios', () => {
