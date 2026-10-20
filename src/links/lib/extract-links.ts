@@ -7,6 +7,7 @@ import { latestStable } from '@/versions/lib/enterprise-server-releases'
 import removeFPTFromPath from '@/versions/lib/remove-fpt-from-path'
 import { getDataByLanguage } from '@/data-directory/lib/get-data'
 import getRedirect from '@/redirects/lib/get-redirect'
+import { applyGraphqlCategoryRedirect } from '@/redirects/lib/graphql-category-redirect'
 import { isArchivedVersionByPath } from '@/archives/lib/is-archived-version'
 import { getFeaturesByVersion } from '@/versions/middleware/features'
 import type { Context, Page } from '@/types'
@@ -473,6 +474,28 @@ function versionedPageKey(
   return { key: `/${language}${withoutLanguage}`, withoutLanguage }
 }
 
+// getRedirect guesses some destinations without checking pages, and the redirect middleware
+// skips those when the page is missing, so an unverified target is a broken link.
+function redirectTargetExists(
+  redirect: string,
+  redirectTarget: string,
+  pageMap: Record<string, Page>,
+  language: string,
+): boolean {
+  if (redirect.includes('://')) return true
+  // The redirect middleware looks up pages without query strings, fragments, or .md.
+  const toLookupKey = (uri: string) => uri.split(/[?#]/)[0].replace(/\.md$/, '')
+  const target = toLookupKey(redirectTarget)
+  // Non-English runs load only their own pages, so the target must exist in the checked language.
+  const localizedTarget = target === '/' ? `/${language}` : `/${language}${target}`
+  return Boolean(
+    pageMap[toLookupKey(redirect)] ||
+    pageMap[target] ||
+    pageMap[localizedTarget] ||
+    isArchivedVersionByPath(redirect).isArchived,
+  )
+}
+
 // Resolve versionless links inside the checked version first, matching runtime rendering.
 // Without version context, non-FPT versionless links can fall through to fallback redirects
 // and look like links that need updating.
@@ -572,13 +595,14 @@ export function checkInternalLink(
       userLanguage: 'en',
       pages: pageMap,
     }
-    const redirect = getRedirect(withEn, context as unknown as Context)
-    if (redirect) {
+    const resolvedRedirect = getRedirect(withEn, context as unknown as Context)
+    if (resolvedRedirect) {
+      // The redirect middleware rewrites legacy GraphQL kind URLs before it checks the target.
+      const redirect = applyGraphqlCategoryRedirect(resolvedRedirect) || resolvedRedirect
       // Strip locale prefixes to match flat-map branches; a bare locale root normalizes to /.
-      return {
-        exists: true,
-        isRedirect: true,
-        redirectTarget: redirect.replace(/^\/[a-z]{2}(-[a-z]{2})?(?=\/|$)/, '') || '/',
+      const redirectTarget = redirect.replace(/^\/[a-z]{2}(-[a-z]{2})?(?=\/|$)/, '') || '/'
+      if (redirectTargetExists(redirect, redirectTarget, pageMap, language)) {
+        return { exists: true, isRedirect: true, redirectTarget }
       }
     }
   } catch {

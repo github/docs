@@ -9,7 +9,7 @@ import {
   createLiquidContext,
   extractLinksWithLiquid,
 } from '../lib/extract-links'
-import { latestStable } from '@/versions/lib/enterprise-server-releases'
+import { latest, latestStable } from '@/versions/lib/enterprise-server-releases'
 import { getFeaturesByVersion } from '@/versions/middleware/features'
 import type { Page } from '@/types'
 
@@ -533,6 +533,7 @@ describe('normalizeLinkPath', () => {
 
 describe('checkInternalLink', () => {
   const pageMap = {
+    '/en': {} as unknown as Page,
     '/en/actions/getting-started': {} as unknown as Page,
     '/en/repositories/overview': {} as unknown as Page,
     '/actions/guides': {} as unknown as Page,
@@ -793,6 +794,67 @@ describe('checkInternalLink', () => {
   test('normalizes a bare language-root redirect target to /', () => {
     // getRedirect collapses /free-pro-team@latest to /en, which strips to empty.
     const result = checkInternalLink('/free-pro-team@latest', pageMap, redirects)
+    expect(result.exists).toBe(true)
+    expect(result.isRedirect).toBe(true)
+    expect(result.redirectTarget).toBe('/')
+  })
+
+  test.each([
+    '/admin/does-not-exist',
+    '/admin/guides/does-not-exist',
+    '/desktop/guides/does-not-exist',
+    '/free-pro-team@latest/does-not-exist',
+    '/enterprise-server/does-not-exist',
+    '/enterprise/user/does-not-exist',
+  ])('reports %s as broken when the redirect resolver target is missing', (href) => {
+    const result = checkInternalLink(href, pageMap, redirects)
+    expect(result.exists).toBe(false)
+    expect(result.isRedirect).toBe(false)
+  })
+
+  test('resolves an /admin/guides link through a versioned redirect to a real page', () => {
+    const result = checkInternalLink(
+      '/admin/guides/old-guide',
+      { [`/en/enterprise-server@${latest}/admin/new-guide`]: {} as unknown as Page },
+      {
+        [`/enterprise-server@${latest}/admin/old-guide`]: `/enterprise-server@${latest}/admin/new-guide`,
+      },
+    )
+    expect(result.exists).toBe(true)
+    expect(result.isRedirect).toBe(true)
+    expect(result.redirectTarget).toBe(`/enterprise-server@${latest}/admin/new-guide`)
+  })
+
+  test('ignores .md when checking a fallback redirect target', () => {
+    const result = checkInternalLink(
+      '/free-pro-team@latest/actions/getting-started.md',
+      pageMap,
+      redirects,
+    )
+    expect(result.exists).toBe(true)
+    expect(result.isRedirect).toBe(true)
+    expect(result.redirectTarget).toBe('/actions/getting-started.md')
+  })
+
+  test('applies the GraphQL category rewrite before checking a fallback redirect target', () => {
+    const result = checkInternalLink(
+      '/free-pro-team@latest/v4/scalar/boolean',
+      { '/en/graphql/reference/other': {} as unknown as Page },
+      { '/v4/scalar/boolean': '/graphql/reference/scalars#boolean' },
+    )
+    expect(result.exists).toBe(true)
+    expect(result.isRedirect).toBe(true)
+    expect(result.redirectTarget).toBe('/graphql/reference/other#scalar-boolean')
+  })
+
+  test('resolves fallback redirects in the checked language', () => {
+    const result = checkInternalLink(
+      '/free-pro-team@latest',
+      { '/ja': {} as unknown as Page },
+      {},
+      undefined,
+      'ja',
+    )
     expect(result.exists).toBe(true)
     expect(result.isRedirect).toBe(true)
     expect(result.redirectTarget).toBe('/')
