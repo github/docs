@@ -40,6 +40,23 @@ describe(linkPunctuation.names.join(' - '), () => {
     expect(errors[0].errorRange).toEqual([2, 9])
     expect(errors[6].lineNumber).toBe(7)
   })
+  test('links on later lines of a paragraph report the range on their own line', async () => {
+    const markdown = [
+      'For details about the setting called Configure the runner.',
+      'See [Configure the runner.](/actions/x).',
+      '',
+      'Read [x](/y) about Foo bar. Then',
+      '[Foo bar.](/z)',
+    ].join('\n')
+
+    const result = await runRule(linkPunctuation, { strings: { markdown } })
+    const errors = result.markdown
+    expect(errors.length).toBe(2)
+    expect(errors[0].lineNumber).toBe(2)
+    expect(errors[0].errorRange).toEqual([6, 21])
+    expect(errors[1].lineNumber).toBe(5)
+    expect(errors[1].errorRange).toEqual([2, 8])
+  })
   test('links that is not plain text', async () => {
     const markdown = [
       '[*emphasize*](./image.png)',
