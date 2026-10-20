@@ -16,6 +16,7 @@ interface TocItem extends LinkData {
 }
 
 // Mirrors getTocItems() in src/frame/middleware/context/generic-toc.ts for frontmatter children.
+// The site shows hidden children only in early access TOCs, so skip them here.
 export async function getAllTocItems(
   page: Page,
   context: Context,
@@ -49,6 +50,7 @@ export async function getAllTocItems(
     .filter(
       (entry): entry is { childHref: string; childPage: PageWithChildren } =>
         entry.childPage !== undefined &&
+        !entry.childPage.hidden &&
         // resolvePath can return a page from another version, which the website hides.
         (!context.currentVersion ||
           entry.childPage.applicableVersions.includes(context.currentVersion)),

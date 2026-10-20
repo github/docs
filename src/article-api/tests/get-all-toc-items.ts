@@ -1,5 +1,5 @@
 import { describe, expect, test, vi } from 'vitest'
-import { getAllTocItems } from '@/article-api/lib/get-all-toc-items'
+import { getAllTocItems, flattenTocItems } from '@/article-api/lib/get-all-toc-items'
 import type { Context, Page, Permalink } from '@/types'
 
 function createMockPage(options: {
@@ -7,6 +7,7 @@ function createMockPage(options: {
   applicableVersions: string[]
   permalinks: Partial<Permalink>[]
   children?: string[]
+  hidden?: boolean
 }): Page {
   return {
     languageCode: 'en',
@@ -14,6 +15,7 @@ function createMockPage(options: {
     applicableVersions: options.applicableVersions,
     permalinks: options.permalinks as Permalink[],
     children: options.children,
+    hidden: options.hidden,
     renderProp: vi.fn().mockResolvedValue(''),
   } as unknown as Page
 }
@@ -60,5 +62,42 @@ describe('getAllTocItems', () => {
 
     expect(items.map((item) => item.href)).toEqual(['/en/rest/quickstart'])
     expect(items[0].title).toBe('Quickstart')
+  })
+
+  test('skips hidden children and does not recurse into hidden categories', async () => {
+    const VERSION = 'free-pro-team@latest'
+    const page = (
+      href: string,
+      rawTitle: string,
+      extra: { children?: string[]; hidden?: boolean } = {},
+    ) =>
+      createMockPage({
+        rawTitle,
+        applicableVersions: [VERSION],
+        permalinks: [{ languageCode: 'en', pageVersion: VERSION, href }],
+        ...extra,
+      })
+    const landing = page('/en/policy', 'Policy', {
+      children: ['/visible-article', '/hidden-article', '/hidden-category'],
+    })
+    const pages = [
+      landing,
+      page('/en/policy/visible-article', 'Visible Article'),
+      page('/en/policy/hidden-article', 'Hidden Article', { hidden: true }),
+      page('/en/policy/hidden-category', 'Hidden Category', {
+        children: ['/visible-leaf'],
+        hidden: true,
+      }),
+      // A visible leaf proves a hidden category drops its whole subtree.
+      page('/en/policy/hidden-category/visible-leaf', 'Visible Leaf'),
+    ]
+    const byHref: Record<string, Page> = {}
+    for (const p of pages) byHref[p.permalinks[0].href] = p
+    const context = { pages: byHref, redirects: {}, currentVersion: VERSION } as unknown as Context
+
+    const tocItems = await getAllTocItems(landing, context)
+    const titles = flattenTocItems(tocItems).map((item) => item.title)
+
+    expect(titles).toEqual(['Visible Article'])
   })
 })
