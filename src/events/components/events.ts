@@ -33,6 +33,8 @@ let isFullPageLoad = true
 let pageReferrer: string | undefined
 let hoveredUrls = new Set()
 let eventQueue: Record<string, unknown>[] = []
+// Next cancels a route without its routeChangeComplete, so a cancelled wait resolves with the next route and must not send a page event.
+let pageReadyNavigation = 0
 
 function scheduleNextFlush() {
   setTimeout(() => {
@@ -285,7 +287,9 @@ function initPageAndExitEvent() {
     const shouldSendEvents = newPath !== previousPath
     if (shouldSendEvents) {
       sendExit()
+      const thisNavigation = ++pageReadyNavigation
       await waitForPageReady()
+      if (thisNavigation !== pageReadyNavigation) return
       resetPageParams()
       pageReferrer = location.origin + previousPath
       sendPage()
