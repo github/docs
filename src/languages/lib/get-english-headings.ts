@@ -3,6 +3,7 @@ import { toString } from 'mdast-util-to-string'
 import { visit } from 'unist-util-visit'
 import type { Node } from 'unist'
 
+import { renderLiquid } from '@/content-render/liquid/index'
 import findPage from '@/frame/lib/find-page'
 import Permalink from '@/frame/lib/permalink'
 import { trailingSlash } from '@/frame/lib/patterns'
@@ -24,10 +25,10 @@ interface GlossaryTerm {
   slug: string
 }
 
-export default function getEnglishHeadings(
+export default async function getEnglishHeadings(
   page: PageWithMarkdown,
   context: Context,
-): Record<string, string> | undefined {
+): Promise<Record<string, string> | undefined> {
   // Glossary headings come from data, not page markdown.
   if (page.relativePath.endsWith('/github-glossary.md')) {
     const languageGlossary = getDataByLanguage('glossaries.external', 'en') as GlossaryTerm[]
@@ -37,7 +38,7 @@ export default function getEnglishHeadings(
     }, {})
   }
 
-  const translatedHeadings = getHeadings(page.markdown)
+  const translatedHeadings = await getHeadings(page.markdown, context)
   if (!translatedHeadings.length) return
 
   // Page keys drop the trailing slash that relativePathToSuffix can leave.
@@ -49,7 +50,10 @@ export default function getEnglishHeadings(
   if (!englishPage) return
 
   // English heading changes can misalign with unsynced translations.
-  const englishHeadings = getHeadings(englishPage.markdown)
+  const englishHeadings = await getHeadings(englishPage.markdown, {
+    ...context,
+    currentLanguage: 'en',
+  })
   if (!englishHeadings.length) return
 
   const headingMap: Record<string, string> = {}
@@ -60,16 +64,32 @@ export default function getEnglishHeadings(
   return headingMap
 }
 
-function getHeadings(markdown: string): string[] {
+// Keys and values must match the heading text after Liquid renders, which is what the page shows.
+async function getHeadings(markdown: string, context: Context): Promise<string[]> {
   const ast = fromMarkdown(markdown)
-  const headings: string[] = []
+  const headingNodes: HeadingNode[] = []
 
   visit(ast, (node: Node) => {
     if (node.type !== 'heading') return
     const headingNode = node as HeadingNode
     if (![2, 3, 4].includes(headingNode.depth)) return
-    headings.push(toString(node))
+    headingNodes.push(headingNode)
   })
 
-  return headings
+  return Promise.all(headingNodes.map((node) => renderHeading(node, markdown, context)))
+}
+
+async function renderHeading(node: HeadingNode, markdown: string, context: Context) {
+  const text = toString(node)
+  const start = node.position?.start.offset
+  const end = node.position?.end.offset
+  if (start === undefined || end === undefined) return text
+  const source = markdown.slice(start, end)
+  if (!source.includes('{%') && !source.includes('{{')) return text
+  try {
+    return toString(fromMarkdown(await renderLiquid(source, context)))
+  } catch {
+    // A heading can hold half of a Liquid block that only parses as part of the whole page.
+    return text
+  }
 }

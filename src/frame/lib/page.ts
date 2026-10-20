@@ -286,7 +286,7 @@ class Page {
   private async _render(context: Context): Promise<string> {
     // English heading IDs keep translated links stable.
     if (this.languageCode !== 'en') {
-      const englishHeadings = getEnglishHeadings(this, context)
+      const englishHeadings = await getEnglishHeadings(this, context)
       context.englishHeadings = englishHeadings
     }
 
