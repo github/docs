@@ -157,7 +157,9 @@ export function SecretScanningTable({ data }: { data: SecretScanningData[] }) {
 
   // The Pagination component is 1-indexed.
   const pageCount = Math.ceil(sorted.length / PAGE_SIZE)
-  const pageData = sorted.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE)
+  // Clamp because a client-side version switch keeps currentPage while data shrinks.
+  const visiblePage = Math.min(currentPage, Math.max(pageCount, 1))
+  const pageData = sorted.slice((visiblePage - 1) * PAGE_SIZE, visiblePage * PAGE_SIZE)
 
   return (
     <div>
@@ -357,8 +359,10 @@ export function SecretScanningTable({ data }: { data: SecretScanningData[] }) {
         <Pagination
           aria-label={t('pagination_label')}
           pageCount={pageCount}
-          currentPage={currentPage}
-          onPageChange={(_e: React.MouseEvent, page: number) => {
+          currentPage={visiblePage}
+          onPageChange={(e: React.MouseEvent, page: number) => {
+            // Brand renders page links with a #N href, so block the hash change and history entry.
+            e.preventDefault()
             setCurrentPage(page)
             trackInteraction('paginate', 'page', String(page))
           }}
