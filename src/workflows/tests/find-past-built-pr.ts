@@ -6,6 +6,7 @@ import {
   findBatchPrNumbers,
   ensureProductionComment,
   commentOnDeployBatch,
+  resolveDeploySha,
   GONE_TO_PRODUCTION_MARKER,
 } from '../find-past-built-pr'
 
@@ -152,5 +153,30 @@ describe('commentOnDeployBatch', () => {
     ).rejects.toThrow(/Failed to comment on 1 PR/)
     // Successful PRs still get comments even when another PR comment fails.
     expect(createComment).toHaveBeenCalledTimes(3)
+  })
+})
+
+describe('resolveDeploySha', () => {
+  const deploySha = 'a'.repeat(40)
+  const liveSha = 'b'.repeat(40)
+
+  test('uses the deploy SHA from the environment without reading /_build', async () => {
+    const fallback = vi.fn(async () => liveSha)
+    expect(await resolveDeploySha(deploySha, fallback)).toBe(deploySha)
+    expect(fallback).not.toHaveBeenCalled()
+  })
+
+  test('reads /_build when no deploy SHA is set', async () => {
+    const fallback = vi.fn(async () => liveSha)
+    expect(await resolveDeploySha(undefined, fallback)).toBe(liveSha)
+    expect(await resolveDeploySha('', fallback)).toBe(liveSha)
+    expect(fallback).toHaveBeenCalledTimes(2)
+  })
+
+  test('reads /_build when the deploy SHA is malformed', async () => {
+    const fallback = vi.fn(async () => liveSha)
+    expect(await resolveDeploySha('not-a-sha', fallback)).toBe(liveSha)
+    expect(await resolveDeploySha(`${deploySha}x`, fallback)).toBe(liveSha)
+    expect(fallback).toHaveBeenCalledTimes(2)
   })
 })
