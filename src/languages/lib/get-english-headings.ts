@@ -4,6 +4,8 @@ import { visit } from 'unist-util-visit'
 import type { Node } from 'unist'
 
 import findPage from '@/frame/lib/find-page'
+import Permalink from '@/frame/lib/permalink'
+import { trailingSlash } from '@/frame/lib/patterns'
 import { getDataByLanguage } from '@/data-directory/lib/get-data'
 import type { Context } from '@/types'
 
@@ -38,11 +40,12 @@ export default function getEnglishHeadings(
   const translatedHeadings = getHeadings(page.markdown)
   if (!translatedHeadings.length) return
 
-  const englishPage = findPage(
-    `/en/${page.relativePath.replace(/.md$/, '')}`,
-    context.pages,
-    context.redirects,
+  // Page keys drop the trailing slash that relativePathToSuffix can leave.
+  const englishHref = `/en${Permalink.relativePathToSuffix(page.relativePath)}`.replace(
+    trailingSlash,
+    '$1',
   )
+  const englishPage = findPage(englishHref, context.pages, context.redirects)
   if (!englishPage) return
 
   // English heading changes can misalign with unsynced translations.
