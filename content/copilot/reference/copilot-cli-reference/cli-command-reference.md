@@ -539,7 +539,7 @@ These are the slash commands you can use from within an interactive CLI session.
 |-----------------------------------------------------|---------|
 | `/add-dir PATH`                                     | Allow file access to a directory and load its `.github/skills` and `.github/agents` as trusted configurations. When sandboxing is enabled, also grants the sandbox access to the directory for the current session. |
 | `/after [DELAY PROMPT]`, `/after`                 | Schedule a non-recurring prompt, skill, or schedulable slash command for the current session (for example, `/after 30m remind me the time` or `/after 1h /chronicle standup`). With no arguments the schedule manager is displayed. {% data reusables.copilot.experimental %} |
-| `/agent`                                            | Browse and select from available agents (if any). See [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-custom-agents). |
+| `/agent`                                            | Browse and select from available agents (if any). See [AUTOTITLE](/copilot/concepts/customizations/custom-agents). |
 | `/app`                                              | Open the current session in the {% data variables.copilot.github_copilot_app %} (requires version 1.1.3 or later), or show the download URL if the app is not installed. |
 | `/ask [QUESTION]`, `/btw [QUESTION]`                    | Ask a quick side question without adding to the conversation history. The response renders as Markdown. In the answer dialog, press <kbd>Ctrl</kbd>+<kbd>E</kbd> to expand it and <kbd>Ctrl</kbd>+<kbd>Y</kbd> to copy the full answer. Enter the command without a question to reopen the last side question answer in the current session. See [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/ask-a-side-question). |
 | `/allow-all [off\|auto\|show]`, `/yolo [off\|auto\|show]` | Enable all permissions (tools, paths, and URLs). This is an alias for `/permissions allow-all`; see the `/permissions` row for the canonical command and its subcommands. |
@@ -666,7 +666,7 @@ Use `/collect-debug-logs [file|gist|share] [PATH]` to gather debug logs for trou
 | `--add-github-mcp-tool=TOOL`       | Add a tool to enable for the {% data variables.product.github %} MCP server, instead of the default CLI subset (can be used multiple times). Use `*` for all tools. |
 | `--add-github-mcp-toolset=TOOLSET` | Add a toolset to enable for the {% data variables.product.github %} MCP server, instead of the default CLI subset (can be used multiple times). Use `all` for all toolsets. |
 | `--additional-mcp-config=JSON`     | Add an MCP server for this session only. The server configuration can be supplied as a JSON string or a file path (prefix with `@`). A relative `@file` path resolves against the session working directory (the `--resume`, `--worktree`, or `-C` directory), regardless of option order. Augments the configuration from `~/.copilot/mcp-config.json`. Overrides any installed MCP server configuration with the same name. See [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/add-mcp-servers). |
-| `--agent=AGENT`                    | Specify a {% data variables.copilot.copilot_custom_agent_short %} to use. See [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-custom-agents). |
+| `--agent=AGENT`                    | Specify a {% data variables.copilot.copilot_custom_agent_short %} to use. See [AUTOTITLE](/copilot/concepts/customizations/custom-agents). |
 | `--allow-all`                      | Enable all permissions (equivalent to `--allow-all-tools --allow-all-paths --allow-all-urls`). |
 | `--allow-all-mcp-server-instructions` | Include initialization instructions from all MCP servers in the system prompt. By default, only allowlisted server instructions are included up front; other servers' instructions are retrieved on demand. |
 | `--allow-all-paths`                | Disable file path verification and allow access to any path. |
@@ -1343,6 +1343,32 @@ Installing a directory registers it as a custom skill source rather than copying
 ### Commands (alternative skill format)
 
 Commands are an alternative to skills stored as individual `.md` files in `.claude/commands/`. The command name is derived from the filename. Command files use a simplified format (no `name` field required) and support `argument-hint`, `description`, `allowed-tools`, and `disable-model-invocation`. Commands have lower priority than skills with the same name.
+
+## Extension modes
+
+{% data reusables.copilot.copilot-cli.cli-extensions-experimental %}
+
+In an interactive session, `/extensions mode` controls whether extensions run and whether {% data variables.product.prodname_copilot_short %} can manage them.
+
+| Mode | Extensions run | Agent can manage extensions |
+| --- | --- | --- |
+| **Load & Augment** (default) | Yes | Yes |
+| **Load Only** | Yes | No |
+| **Disabled** | No | No |
+
+In **Load & Augment** mode, the agent has tools to list discovered extensions, inspect their status and logs, scaffold a starter extension, and reload extensions after code changes. This lets the agent create and load extension code as part of your request.
+
+Choose **Load Only** to run an existing set of trusted extensions without giving the agent extension-management tools. The agent can still call tools supplied by running extensions.
+
+Mode changes take effect immediately in the current session:
+
+* Switching to **Disabled** stops running extension processes and removes their tools.
+* Switching from **Disabled** to either loading mode starts extensions.
+* Switching between **Load Only** and **Load & Augment** changes access to extension-management tools without stopping the extensions.
+
+Disabling extensions persists for future sessions until you choose a loading mode. Other sessions that are already running are not affected.
+
+To inspect extensions and their status, use `/extensions manage`. For discovery locations and implementation examples, see [AUTOTITLE](/copilot/tutorials/create-an-extension).
 
 ## Custom agents reference
 

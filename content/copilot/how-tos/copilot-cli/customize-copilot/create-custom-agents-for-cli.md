@@ -20,9 +20,9 @@ docsTeamMetrics:
 
 When you prompt {% data variables.product.prodname_copilot_short %} to carry out a task it may choose to use one of your {% data variables.copilot.custom_agents_short %}, if {% data variables.product.prodname_copilot_short %} determines that the agent's expertise is a good fit for the task.
 
-Work performed by a {% data variables.copilot.copilot_custom_agent_short %} is carried out using a subagent, which is a temporary agent spun up to complete the task. The subagent has its own context window, which can be populated by information that is not relevant to the main agent. In this way, especially for larger tasks, parts of the work can be offloaded to {% data variables.copilot.custom_agents_short %}, without cluttering the main agent's context window. The main agent can then focus on higher-level planning and coordination.
+When the main agent delegates work to a {% data variables.copilot.copilot_custom_agent_short %}, that work is carried out by a subagent with its own context window. This lets the specialist focus on its assigned task without cluttering the main agent's context. You can also select a {% data variables.copilot.copilot_custom_agent_short %} for the session directly.
 
-For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-custom-agents).
+For more information, see [AUTOTITLE](/copilot/concepts/customizations/custom-agents).
 
 ## Creating a {% data variables.copilot.copilot_custom_agent_short %}
 
@@ -98,7 +98,7 @@ Each {% data variables.copilot.copilot_custom_agent_short %} is defined by a Mar
   Enter `/agent` in interactive mode and choose from the list of available {% data variables.copilot.custom_agents_short %}. Then enter a prompt that will be passed to the selected agent.
 
   > [!NOTE]
-  > The CLI's default agents are not included in this list. For more information about the default agents, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-custom-agents#built-in-agents).
+  > The CLI's default agents are not included in this list. For more information about the default agents, see [AUTOTITLE](/copilot/concepts/customizations/custom-agents#built-in-agents).
 
 * **Explicit instruction**
 
@@ -160,7 +160,7 @@ For more information, including how this setting interacts with the `--no-custom
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/concepts/agents/copilot-cli/comparing-cli-features)
+* [AUTOTITLE](/copilot/concepts/customizations/comparing-customizations)
 * [AUTOTITLE](/copilot/reference/custom-agents-configuration)
 * [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference#custom-agents-reference)
 * [AUTOTITLE](/copilot/tutorials/customization-library/custom-agents)—a curated collection of examples

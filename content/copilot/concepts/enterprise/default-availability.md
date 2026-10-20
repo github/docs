@@ -91,7 +91,7 @@ Model status | Description
 **Enabled** or **Disabled** | Explicitly configured. **Does not follow** the default availability policy.
 **Delegate to default policy** | Has not been configured. **Follows** the default availability policy.
 **Unconfigured** | Has not been configured. **Does not follow** the default availability policy. For example, a model in preview.
-**Delegate to organizations** or **Delegate to Enterprise Teams/Apps** | (Depends on whether you have enabled enterprise teams mode.) Explicitly configured. **Does not follow** the default availability policy at the enterprise level. However, if delegated to organizations, **will follow** the organization-level default availability policy _for each organization that does not explicitly configure the model_. 
+**Delegate to organizations** or **Delegate to Enterprise Teams/Apps** | (Depends on whether you have enabled enterprise teams mode.) Explicitly configured. **Does not follow** the default availability policy at the enterprise level. However, if delegated to organizations, **will follow** the organization-level default availability policy _for each organization that does not explicitly configure the model_.
 
 ## How do I prevent default enablement?
 

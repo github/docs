@@ -6,10 +6,9 @@ versions:
   feature: copilot
 children:
   - /copilot-surfaces
-  - /agents
   - /agent-capabilities
   - /prompting-and-context
-  - /context
+  - /customizations
   - /models
   - /billing-and-usage
   - /security-governance-and-network-settings

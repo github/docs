@@ -26,7 +26,7 @@ Alongside {% data variables.product.prodname_copilot_short %}, you can use {% da
 
 {% data variables.product.company_short %} partners can also offer their own agents as {% data variables.copilot.agent_apps %}, which you install as {% data variables.product.prodname_github_apps %} and trigger from issues, pull requests, and the Agents UI. See [AUTOTITLE](/copilot/concepts/agent-capabilities/about-agents/agent-apps).
 
-Utilizing {% data variables.copilot.custom_agents_short %} you can build out a team of task-specific agents with customized system prompts to handle simpler tasks like writing tests and refactoring, giving you bandwidth to prioritize problem-solving and collaboration. See [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-custom-agents).
+Utilizing {% data variables.copilot.custom_agents_short %} you can build out a team of task-specific agents with customized system prompts to handle simpler tasks like writing tests and refactoring, giving you bandwidth to prioritize problem-solving and collaboration. See [AUTOTITLE](/copilot/concepts/customizations/custom-agents).
 
 Model choice allows you to choose from a selection of AI models to use with your agents, each with its own particular strengths. See [AUTOTITLE](/copilot/reference/ai-models/supported-models).
 

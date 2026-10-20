@@ -43,7 +43,7 @@ You may want to run a trial before enabling {% data variables.copilot.copilot_cl
 
 ## Enabling MCP servers
 
-{% data variables.copilot.copilot_cloud_agent %} automatically has access to a small number of default MCP servers. See [AUTOTITLE](/copilot/concepts/agents/cloud-agent/mcp-and-cloud-agent#default-mcp-servers).
+{% data variables.copilot.copilot_cloud_agent %} automatically has access to a small number of default MCP servers. See [AUTOTITLE](/copilot/concepts/customizations/mcp#default-mcp-servers).
 
 You can enable third-party MCP servers to allow developers to integrate {% data variables.copilot.copilot_cloud_agent %} with other services in your DevOps toolchain, such as error-tracking platforms or logging systems.
 
