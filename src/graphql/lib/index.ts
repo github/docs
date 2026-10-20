@@ -7,6 +7,8 @@ import languages from '@/languages/lib/languages-server'
 import { allVersions } from '@/versions/lib/all-versions'
 import type {
   GraphqlT,
+  InterfaceImplementerT,
+  ObjectT,
   PreviewT,
   ChangelogItemT,
   BreakingChangesT,
@@ -71,6 +73,26 @@ export function getAllGraphqlObjects(version: string): GraphqlT[] {
     allObjectsByVersion.set(graphqlVersion, all)
   }
   return allObjectsByVersion.get(graphqlVersion)!
+}
+
+// Category pages serialize props to the client, so keep only what Interface renders.
+export function getGraphqlInterfaceImplementers(
+  version: string,
+  interfaceNames: string[],
+): InterfaceImplementerT[] {
+  if (interfaceNames.length === 0) return []
+  const names = new Set(interfaceNames)
+  const implementers: InterfaceImplementerT[] = []
+  for (const object of getAllGraphqlObjects(version) as ObjectT[]) {
+    const matching = (object.implements ?? []).filter((item) => names.has(item.name))
+    if (matching.length === 0) continue
+    implementers.push({
+      name: object.name,
+      href: object.href,
+      implements: matching.map((item) => ({ name: item.name })),
+    })
+  }
+  return implementers
 }
 
 export function getKindOrder(): SchemaKindKey[] {
