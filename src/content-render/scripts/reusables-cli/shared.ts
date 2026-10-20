@@ -61,7 +61,10 @@ export function getIndicesOfLiquidVariable(liquidVariable: string, fileContents:
       (token): token is TagToken => token.kind === TokenKind.Tag,
     )
     for (const token of tokens) {
-      if (token.name === 'data' && token.args.trim() === liquidVariable) {
+      if (
+        (token.name === 'data' || token.name === 'indented_data_reference') &&
+        token.args.trim().split(/\s+/)[0] === liquidVariable
+      ) {
         indices.push(token.begin)
       }
     }
