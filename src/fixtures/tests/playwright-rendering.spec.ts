@@ -1173,6 +1173,45 @@ test('search from enterprise-cloud and filter by top-level Fooing', async ({ pag
   await page.getByRole('link', { name: 'Clear' }).click()
 })
 
+test('search pagination focuses the first new result after the next page renders', async ({
+  page,
+}) => {
+  test.skip(!SEARCH_TESTS, 'No local Elasticsearch, no tests involving search')
+
+  // size=1 puts each fixture hit that matches foo on its own page.
+  await page.goto('/search?query=foo&size=1')
+  const firstResultLink = page.locator('.search-result-link').first()
+  // Primer Brand appends "..." to the last page's aria-label.
+  const pageTwo = page.getByLabel(/^Page 2(\.\.\.)?$/)
+  await expect(firstResultLink).toHaveText('Foo')
+
+  // Holding the data response proves focus waits for the new hits, not the old ones.
+  let releaseNavigation = () => {}
+  const navigationHeld = new Promise<void>((resolve) => {
+    releaseNavigation = resolve
+  })
+  await page.route('**/_next/data/**', async (route) => {
+    await navigationHeld
+    await route.continue()
+  })
+
+  await pageTwo.press('Enter')
+  await expect(page).not.toHaveURL(/page=2/)
+  releaseNavigation()
+  await expect(page).toHaveURL(/page=2/)
+  await expect(firstResultLink).not.toHaveText('Foo')
+  await expect(firstResultLink).toBeFocused()
+
+  // Pagination stays mounted across Back, so a repeat visit to page 2 must still move focus.
+  await page.goBack()
+  await expect(page).not.toHaveURL(/page=2/)
+  await expect(firstResultLink).toHaveText('Foo')
+  await pageTwo.press('Enter')
+  await expect(page).toHaveURL(/page=2/)
+  await expect(firstResultLink).not.toHaveText('Foo')
+  await expect(firstResultLink).toBeFocused()
+})
+
 test('404 page renders correctly', async ({ page }) => {
   const response = await page.goto('/this-definitely-does-not-exist')
   expect(response?.status()).toBe(404)
