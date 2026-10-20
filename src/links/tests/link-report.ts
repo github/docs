@@ -615,6 +615,32 @@ describe('codemod command scoping', () => {
     expect(markdown).toContain('That covers 12 docsets in one pass.')
     expect(markdown).toContain('`content/docset-0`')
   })
+
+  test('includes data/reusables when a link has no source line in the page', () => {
+    const markdown = reportToMarkdown(
+      generateInternalLinkReport([{ ...redirectLink('actions'), lines: [0] }]),
+    )
+
+    expect(markdown).toContain('npm run update-internal-links -- content/actions ')
+    expect(markdown).toContain('npm run update-internal-links -- data/reusables ')
+  })
+
+  test('leaves out data/reusables when every link has a source line', () => {
+    const markdown = reportToMarkdown(generateInternalLinkReport([redirectLink('actions')]))
+
+    expect(markdown).not.toContain('data/reusables')
+  })
+
+  test('single pass covers data/reusables when a link has no source line', () => {
+    const docsets = Array.from({ length: 12 }, (_, i) => `docset-${i}`)
+    const links = docsets.map(redirectLink)
+    links[0] = { ...links[0], lines: [0] }
+    const markdown = reportToMarkdown(generateInternalLinkReport(links))
+
+    expect(markdown).toContain(
+      'npm run update-internal-links -- content data/reusables --keep-stale-fragments --dont-set-autotitle',
+    )
+  })
 })
 
 describe('mergeInternalLinkReports', () => {

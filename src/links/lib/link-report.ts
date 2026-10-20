@@ -548,9 +548,16 @@ function renderCodemodSection(groups: GroupedBrokenLinks[], versionsChecked?: st
   const flags = '--keep-stale-fragments --dont-set-autotitle'
   const paths = codemodPaths(groups)
   const tooManyToList = paths.length > MAX_LISTED_CODEMOD_PATHS
+  // The checker credits reusable links to the including page at line 0, and the page holds only the data tag.
+  const hasReusableLinks = groups.some((g) => g.occurrences.some((occ) => occ.lines.includes(0)))
+  const listedPaths =
+    hasReusableLinks && !paths.includes('data/reusables') ? [...paths, 'data/reusables'] : paths
   const commands = tooManyToList
-    ? `npm run update-internal-links -- content ${flags}`
-    : paths.map((p) => `npm run update-internal-links -- ${p} ${flags}`).join('\n')
+    ? `npm run update-internal-links -- ${hasReusableLinks ? 'content data/reusables' : 'content'} ${flags}`
+    : listedPaths.map((p) => `npm run update-internal-links -- ${p} ${flags}`).join('\n')
+  const reusablesNote = hasReusableLinks
+    ? '\nSome of these links live in reusables, so `data/reusables` is included too.\n'
+    : ''
   const scopeNote = tooManyToList
     ? `\nThat covers ${paths.length} docsets in one pass. To split it into reviewable pull requests, run it against one docset at a time: ${paths.map((p) => `\`${p}\``).join(', ')}.\n`
     : ''
@@ -565,7 +572,7 @@ Every link below redirects to a known destination, so no judgment is needed. Run
 \`\`\`bash
 ${commands}
 \`\`\`
-${scopeNote}
+${scopeNote}${reusablesNote}
 \`--keep-stale-fragments\` stops the codemod from silently deleting anchors it cannot verify.
 That means a link like \`/old-page#heading\` becomes \`/new-page#heading\`, so if the heading
 does not exist on the new page it shows up under stale anchors on the next run.
