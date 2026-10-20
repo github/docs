@@ -683,6 +683,7 @@ program
                 console.log(
                   `    ⚠ Unknown heading "${entry.heading}" — will be placed in changes section`,
                 )
+                entry.heading = 'Changes'
               }
             }
           }

@@ -340,9 +340,9 @@ describe('buildReleaseNotesYaml', () => {
     expect(yaml).toContain('Repo note.')
   })
 
-  test('places non-feature entries in changes section', () => {
+  test('places Changes entries in changes section', () => {
     const entries = [
-      { heading: 'Some Other Heading', notes: ['A change.'], sourceUrl: 'https://example.com/1' },
+      { heading: 'Changes', notes: ['A change.'], sourceUrl: 'https://example.com/1' },
     ]
     const yaml = buildReleaseNotesYaml(entries, false, featureHeadings)
 
@@ -350,6 +350,46 @@ describe('buildReleaseNotesYaml', () => {
     expect(yaml).toContain('  changes:')
     expect(yaml).toContain('# https://example.com/1')
     expect(yaml).toContain('A change.')
+  })
+
+  test('keeps feature headings that are not in the template after template headings', () => {
+    const entries = [
+      { heading: 'Copilot', notes: ['Copilot note.'], sourceUrl: 'https://example.com/1' },
+      { heading: 'APIs', notes: ['API note.'], sourceUrl: 'https://example.com/2' },
+    ]
+    const yaml = buildReleaseNotesYaml(entries, false, featureHeadings)
+
+    const apisIdx = yaml.indexOf('    - heading: APIs')
+    const copilotIdx = yaml.indexOf('    - heading: Copilot')
+    expect(apisIdx).toBeGreaterThan(-1)
+    expect(copilotIdx).toBeGreaterThan(apisIdx)
+    expect(copilotIdx).toBeLessThan(yaml.indexOf('  known_issues:'))
+    expect(yaml).toContain('Copilot note.')
+    expect(yaml).not.toContain('  changes:')
+  })
+
+  test('preserves feature headings that are not in the template on reload', () => {
+    const entries = [
+      {
+        heading: 'Code scanning',
+        notes: ['Code scanning note.'],
+        sourceUrl: 'https://github.com/github/releases/issues/1',
+      },
+      {
+        heading: 'Secret scanning',
+        notes: ['Secret scanning note.'],
+        sourceUrl: 'https://github.com/github/releases/issues/2',
+      },
+      {
+        heading: 'Changes',
+        notes: ['A change.'],
+        sourceUrl: 'https://github.com/github/releases/issues/3',
+      },
+    ]
+    const yaml = buildReleaseNotesYaml(entries, false, featureHeadings)
+    const reloaded = loadExistingEntriesFromString(yaml)
+
+    expect(reloaded.entries).toEqual(entries)
   })
 
   test('places Closing down and Retired entries in their own sections', () => {

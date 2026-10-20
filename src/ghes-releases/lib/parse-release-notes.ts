@@ -271,8 +271,10 @@ export function buildReleaseNotesYaml(
 
   lines.push('sections:')
 
-  const featureEntries = noteEntries.filter((e) => featureHeadings.includes(e.heading))
-  const otherEntries = noteEntries.filter((e) => !featureHeadings.includes(e.heading))
+  // Writers add their own feature headings, so only section headings stay out of features.
+  const sectionHeadings = ['Changes', 'Closing down', 'Retired']
+  const featureEntries = noteEntries.filter((e) => !sectionHeadings.includes(e.heading))
+  const otherEntries = noteEntries.filter((e) => sectionHeadings.includes(e.heading))
 
   lines.push('')
   lines.push('  features:')
@@ -285,7 +287,8 @@ export function buildReleaseNotesYaml(
       byHeading.set(entry.heading, existing)
     }
 
-    for (const heading of featureHeadings) {
+    const extraHeadings = [...byHeading.keys()].filter((h) => !featureHeadings.includes(h))
+    for (const heading of [...featureHeadings, ...extraHeadings]) {
       const entries = byHeading.get(heading)
       if (!entries) continue
 
@@ -298,7 +301,7 @@ export function buildReleaseNotesYaml(
     lines.push('    # TODO: Add feature notes')
   }
 
-  const changeEntries = otherEntries.filter((e) => !['Closing down', 'Retired'].includes(e.heading))
+  const changeEntries = otherEntries.filter((e) => e.heading === 'Changes')
   if (changeEntries.length > 0) {
     lines.push('')
     lines.push('  changes:')
