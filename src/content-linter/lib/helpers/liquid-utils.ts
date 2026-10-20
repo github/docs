@@ -29,7 +29,7 @@ export function getLiquidTokens(
 export const OUTPUT_OPEN = '{%'
 export const OUTPUT_CLOSE = '%}'
 
-export const conditionalTags = ['if', 'elseif', 'unless', 'case', 'ifversion']
+export const conditionalTags = ['if', 'elsif', 'unless', 'case', 'ifversion']
 
 export function getPositionData(
   token: TopLevelToken,

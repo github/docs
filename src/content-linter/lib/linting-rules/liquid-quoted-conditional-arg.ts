@@ -41,7 +41,7 @@ export const liquidQuotedConditionalArg: Rule = {
       const lines = params.lines
       const { lineNumber, column, length } = getPositionData(token, lines)
       // lineNumber starts at 1, but lines indexes from 0.
-      const line = lines[lineNumber - 1].slice(column - 1, column + length)
+      const line = lines[lineNumber - 1].slice(column - 1, column - 1 + length)
       const replaceWith = token.args.slice(1, token.args.length - 1)
       const replaceString = line.replace(token.args, replaceWith)
 

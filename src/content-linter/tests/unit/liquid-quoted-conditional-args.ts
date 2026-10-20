@@ -12,8 +12,8 @@ describe(liquidQuotedConditionalArg.names.join(' - '), () => {
       '',
       ' - One',
       '{% if product.title == "Awesome Shoes" %}',
-      "{% elseif 'ghes' %}",
-      '{% elseif "ghec" %}',
+      "{% elsif 'ghes' %}",
+      '{% elsif "ghec" %}',
       '{% endif %}',
       '{% data variables.stuff.foo%}',
     ].join('\n')
@@ -21,8 +21,20 @@ describe(liquidQuotedConditionalArg.names.join(' - '), () => {
     const errors = result.markdown
     expect(errors.length).toBe(2)
     expect(errors.map((error) => error.lineNumber)).toEqual([7, 8])
-    expect(errors[0].errorRange).toEqual([1, 19])
-    expect(errors[1].errorRange).toEqual([1, 19])
+    expect(errors[0].errorRange).toEqual([1, 18])
+    expect(errors[1].errorRange).toEqual([1, 18])
+  })
+  test('inline elsif fix replaces only the tag', async () => {
+    const markdown = '{% if product.title == "x" %}A{% elsif "ghec" %}B{% endif %}'
+    const result = await runRule(liquidQuotedConditionalArg, { strings: { markdown } })
+    const errors = result.markdown
+    expect(errors.length).toBe(1)
+    expect(errors[0].fixInfo).toEqual({
+      lineNumber: 1,
+      editColumn: 31,
+      deleteCount: 18,
+      insertText: '{% elsif ghec %}',
+    })
   })
   test('ifversion conditional with quote args fails', async () => {
     const markdown = [
@@ -96,7 +108,7 @@ describe(liquidQuotedConditionalArg.names.join(' - '), () => {
       "{% when 'Health' %}",
       '{% unless this %}',
       '{% ifversion ghec %}',
-      '{% elseif ghes %}',
+      '{% elsif ghes %}',
       '{% if ghec %}',
       '- Three',
       '{% data variables.stuff.foo%}',
