@@ -69,4 +69,8 @@ describe('YAML-powered tables', () => {
       }
     }
   })
+
+  test('nested auto-model-selection table has a registered schema', () => {
+    expect(dataSchemas['data/tables/copilot/auto-model-selection.yml']).toBeDefined()
+  })
 })

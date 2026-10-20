@@ -55,6 +55,9 @@ const manualSchemas: DataSchemas = {
   'data/tables/copilot/model-supported-plans.yml': resolveSchemaPath(
     'tables/copilot/model-supported-plans.ts',
   ),
+  'data/tables/copilot/auto-model-selection.yml': resolveSchemaPath(
+    'tables/copilot/auto-model-selection.ts',
+  ),
 }
 
 const dataSchemas: DataSchemas = {
