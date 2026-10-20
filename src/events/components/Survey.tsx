@@ -54,7 +54,7 @@ export const Survey = () => {
     if (state === ViewState.END) {
       document
         .querySelector<HTMLAnchorElement>(
-          `footer a[href="/${locale}/site-policy/privacy-policies/github-privacy-statement"]`,
+          `footer a[href="/${locale}/site-policy/privacy-policies/github-general-privacy-statement"]`,
         )
         ?.focus()
     }
@@ -234,7 +234,7 @@ export const Survey = () => {
       {(voteState || state === ViewState.END) && (
         <Link
           className="f6"
-          href={`/${locale}/site-policy/privacy-policies/github-privacy-statement`}
+          href={`/${locale}/site-policy/privacy-policies/github-general-privacy-statement`}
           target="_blank"
         >
           {t`privacy_policy`}
