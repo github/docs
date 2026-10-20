@@ -10,6 +10,15 @@ vi.mock('node:child_process', () => ({
   execFileSync: (...args: unknown[]) => execFileSync(...args),
 }))
 
+const compareCommitsWithBasehead = vi.fn()
+vi.mock('../github', () => ({
+  default: () => ({ rest: { repos: { compareCommitsWithBasehead } } }),
+}))
+
+vi.mock('../action-context', () => ({
+  getActionContext: () => ({ owner: 'github', repo: 'docs-internal' }),
+}))
+
 const { waitForBuild } = await import('../wait-for-build')
 
 // The build endpoint returns the deployed sha as plain text.
@@ -19,6 +28,7 @@ function serves(sha: string) {
 
 beforeEach(() => {
   execFileSync.mockReturnValue('deployed-sha\n')
+  compareCommitsWithBasehead.mockResolvedValue({ data: { status: 'behind' } })
   vi.spyOn(console, 'log').mockImplementation(() => {})
 })
 
@@ -57,6 +67,47 @@ describe('waitForBuild', () => {
     await waitForBuild({ requiredMatches: 2, intervalMs: 0 })
 
     expect(fetchWithRetry).toHaveBeenCalledTimes(4)
+  })
+
+  test('counts a newer production build that contains this commit as a match', async () => {
+    // A back-to-back deploy can replace this build before the streak completes.
+    fetchWithRetry.mockResolvedValue(serves('newer-sha'))
+    compareCommitsWithBasehead.mockResolvedValue({ data: { status: 'ahead' } })
+
+    await waitForBuild({ requiredMatches: 3, intervalMs: 0, timeoutMs: 1000 })
+
+    expect(fetchWithRetry).toHaveBeenCalledTimes(3)
+    expect(compareCommitsWithBasehead).toHaveBeenCalledTimes(1)
+    expect(compareCommitsWithBasehead).toHaveBeenCalledWith({
+      owner: 'github',
+      repo: 'docs-internal',
+      basehead: 'deployed-sha...newer-sha',
+    })
+  })
+
+  test('compares each distinct production sha only once', async () => {
+    fetchWithRetry
+      .mockResolvedValueOnce(serves('older-sha'))
+      .mockResolvedValueOnce(serves('older-sha'))
+      .mockResolvedValueOnce(serves('older-sha'))
+      .mockResolvedValue(serves('deployed-sha'))
+
+    await waitForBuild({ requiredMatches: 2, intervalMs: 0 })
+
+    expect(fetchWithRetry).toHaveBeenCalledTimes(5)
+    expect(compareCommitsWithBasehead).toHaveBeenCalledTimes(1)
+    expect(compareCommitsWithBasehead.mock.calls[0][0].basehead).toBe('deployed-sha...older-sha')
+  })
+
+  test('treats a failed commit comparison as a non-match', async () => {
+    fetchWithRetry
+      .mockResolvedValueOnce(serves('newer-sha'))
+      .mockResolvedValue(serves('deployed-sha'))
+    compareCommitsWithBasehead.mockRejectedValue(new Error('API down'))
+
+    await waitForBuild({ requiredMatches: 1, intervalMs: 0 })
+
+    expect(fetchWithRetry).toHaveBeenCalledTimes(2)
   })
 
   test('treats a non-ok response as a non-match', async () => {
