@@ -26,6 +26,7 @@ import {
   KIND_LABELS,
   KIND_LABELS_PLURAL,
   KIND_URL_SEGMENT,
+  compareByName,
   type SchemaKindKey,
 } from '@/graphql/lib/categories'
 import styles from '@/frame/components/ui/MarkdownContent/MarkdownContent.module.scss'
@@ -63,9 +64,7 @@ export function GraphqlCategoryPage({ schema, implementers }: Props) {
   const sections = ALL_KIND_KEYS.flatMap((kind) => {
     const items = schema[kind]
     if (!items || items.length === 0) return []
-    const sorted = [...items].sort((a, b) =>
-      a.name.toLowerCase().localeCompare(b.name.toLowerCase()),
-    )
+    const sorted = [...items].sort(compareByName)
     return [{ kind, items: sorted }]
   })
 

@@ -177,3 +177,8 @@ export function categoryTitle(slug: string): string {
       return slug.charAt(0).toUpperCase() + slug.slice(1)
   }
 }
+
+// Server and browser must share one collation, or hydration sees a different item order.
+export function compareByName(a: { name: string }, b: { name: string }): number {
+  return a.name.toLowerCase().localeCompare(b.name.toLowerCase(), 'en')
+}

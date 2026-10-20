@@ -21,6 +21,7 @@ import {
   KIND_SLUG_PREFIX,
   KIND_LABELS_PLURAL,
   KIND_URL_SEGMENT,
+  compareByName,
   isValidCategory,
 } from '@/graphql/lib/categories'
 
@@ -91,9 +92,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   for (const kind of ALL_KIND_KEYS) {
     const kindItems = (schema as Record<string, Array<{ name: string }>>)[kind]
     if (!kindItems || kindItems.length === 0) continue
-    const sortedItems = [...kindItems].sort((a, b) =>
-      a.name.toLowerCase().localeCompare(b.name.toLowerCase()),
-    )
+    const sortedItems = [...kindItems].sort(compareByName)
     automatedPageContext.miniTocItems.push({
       contents: {
         href: `#${KIND_URL_SEGMENT[kind]}`,
