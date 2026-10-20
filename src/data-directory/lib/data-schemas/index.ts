@@ -61,6 +61,9 @@ const manualSchemas: DataSchemas = {
   'data/tables/copilot/auto-model-selection.yml': resolveSchemaPath(
     'tables/copilot/auto-model-selection.ts',
   ),
+  'data/tables/copilot/model-deprecation-history.yml': resolveSchemaPath(
+    'tables/copilot/model-deprecation-history.ts',
+  ),
 }
 
 const dataSchemas: DataSchemas = {
