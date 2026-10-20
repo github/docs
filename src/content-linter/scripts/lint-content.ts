@@ -735,11 +735,12 @@ function isOptionsValid() {
           `error: invalid --rules (-r) option. The value '${ruleName}' is not a valid rule name.`,
         )
       }
+      process.exitCode = 1
       return false
     }
   }
 
-  // Bad paths fail only when none of the requested paths exist.
+  // When none of the requested paths exist, for example a deletion-only PR, lint nothing and exit 0.
   return optionPaths.length === 0 || validPaths.length > 0
 }
 
