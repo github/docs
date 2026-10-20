@@ -90,7 +90,7 @@ export default async function dynamicAssets(
       if (
         catchError instanceof Error &&
         'code' in catchError &&
-        (catchError as NodeJS.ErrnoException).code !== 'ENOENT'
+        !isFileNotFoundError((catchError as NodeJS.ErrnoException).code)
       ) {
         logger.error('Failed to process dynamic asset', { path: req.path, error: catchError })
         throw catchError
@@ -110,6 +110,12 @@ function sendNotFound(res: Response) {
 
   // Keep missing asset responses plain text instead of rendering the HTML page-not-found response.
   res.status(404).type('text/plain').send('Asset not found')
+}
+
+// Request paths can run through an existing file or exceed the filename length limit.
+// express.static treats these errors as 404s, so match that here.
+function isFileNotFoundError(code: string | undefined) {
+  return code === 'ENOENT' || code === 'ENOTDIR' || code === 'ENAMETOOLONG'
 }
 
 function deconstructImageURL(url: string) {
