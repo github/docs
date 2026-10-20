@@ -9,7 +9,7 @@ import {
 } from '../helpers/liquid-utils'
 import { getFrontmatter, getFrontmatterLines } from '../helpers/utils'
 import getApplicableVersions from '@/versions/lib/get-applicable-versions'
-import { difference } from 'lodash-es'
+import { difference, intersection } from 'lodash-es'
 import {
   getFeatureVersionsObject,
   isInAllGhes,
@@ -395,11 +395,22 @@ function updateConditionals(condTagItems: CondTagItem[]) {
   // Skip endif during action updates because endif has no versions.
   for (let i = 0; i < condTagItems.length - 1; i++) {
     const item = condTagItems[i]
+    // An elsif can only collapse the statement when no earlier branch still renders in scope.
+    const scope = item.parent?.versions?.length ? item.parent.versions : item.fileVersions
+    const canCollapse =
+      item.name !== 'elsif' ||
+      condTagItems
+        .slice(0, i)
+        .every(
+          (prev) =>
+            prev.action.type === 'delete' || intersection(prev.versions, scope).length === 0,
+        )
 
     // Collapse feature conditions that cover all versions, including products named beside the feature.
     // Check the union of versions, because a feature's ghes range must not hide a plain ghes.
+    // Stop even when an earlier branch is live, because the deletion check below sees only the feature's ghes range.
     if (item.featureVersionsObj && coversAllVersions(item)) {
-      processConditionals(item, condTagItems, i)
+      if (canCollapse) processConditionals(item, condTagItems, i)
       break
     }
 
@@ -407,6 +418,7 @@ function updateConditionals(condTagItems: CondTagItem[]) {
     if (item.versionsObj?.feature && item.versionsObjAll?.ghes) {
       // A feature available in every supported GHES release can collapse into the parent condition.
       if (
+        canCollapse &&
         Object.keys(item.fileVersionsFmAll).length === 1 &&
         item.fileVersionsFmAll.ghes === '*' &&
         !!item.versionsObjAll.ghes &&
@@ -443,6 +455,7 @@ function updateConditionals(condTagItems: CondTagItem[]) {
 
     // A nested condition that covers every parent version can collapse into the parent.
     if (
+      canCollapse &&
       item.parent &&
       item.parent.versions &&
       item.parent.versions.length > 0 &&
@@ -454,7 +467,7 @@ function updateConditionals(condTagItems: CondTagItem[]) {
 
     // A condition matching page frontmatter applies to every rendered version for this file.
     const noDiffInFileVersions = difference(item.fileVersions, item.versions).length === 0
-    if (noDiffInFileVersions) {
+    if (canCollapse && noDiffInFileVersions) {
       processConditionals(item, condTagItems, i)
       break
     }

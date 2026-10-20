@@ -36,9 +36,81 @@ describe(liquidIfversionVersions.names.join(' - '), () => {
       strings: { markdown },
     })
     const errors = result.markdown
-    expect(errors.length).toBe(5)
+    // The elsif covers all versions, but the earlier fpt branch still renders for fpt.
+    expect(errors.length).toBe(2)
     expect(errors.every((error) => error.ruleNames[0] === 'GHD022'))
   })
+
+  const placeholderGhesOnlyFm = ['---', 'title: "Hello"', 'versions:', '  ghes: "*"', '---']
+
+  test('elsif covering all page versions keeps a live earlier branch', async () => {
+    const markdown = [
+      ...placeholderGhesOnlyFm,
+      `{% ifversion ghes = ${supported[1]} %}A{% elsif ghes %}B{% endif %}`,
+    ].join('\n')
+
+    const result = await runRule(liquidIfversionVersions, {
+      strings: { markdown },
+    })
+    expect(result.markdown.length).toBe(0)
+  })
+
+  test('nested elsif covering all parent versions keeps a live earlier branch', async () => {
+    const markdown = [
+      ...placeholderAllVersionsFm,
+      `{% ifversion ghes %}{% ifversion ghes < ${supported[0]} %}old{% elsif ghes %}new{% endif %}{% endif %}`,
+    ].join('\n')
+
+    const result = await runRule(liquidIfversionVersions, {
+      strings: { markdown },
+    })
+    expect(result.markdown.length).toBe(0)
+  })
+
+  test('elsif feature covering all versions keeps a live earlier branch', async () => {
+    // features/them-and-all.yml covers all versions.
+    const markdown = [
+      ...placeholderAllVersionsFm,
+      '{% ifversion fpt %}A{% elsif them-and-all %}B{% endif %}',
+    ].join('\n')
+
+    const result = await runRule(liquidIfversionVersions, {
+      strings: { markdown },
+    })
+    expect(result.markdown.length).toBe(0)
+  })
+
+  test('elsif feature with a retired ghes range and plain ghes keeps both branches', async () => {
+    // features/cloud-and-retired-ghes.yml contains fpt: "*", ghec: "*", and ghes: "<3.0".
+    const markdown = [
+      ...placeholderAllVersionsFm,
+      '{% ifversion fpt %}A{% elsif cloud-and-retired-ghes or ghes %}B{% endif %}',
+    ].join('\n')
+
+    const result = await runRule(liquidIfversionVersions, {
+      strings: { markdown },
+    })
+    expect(result.markdown.length).toBe(0)
+  })
+
+  test.each([`ghes < ${supported.at(-1)}`, 'fpt'])(
+    'elsif covering all page versions collapses after a dead ifversion %s',
+    async (cond) => {
+      const markdown = [
+        ...placeholderGhesOnlyFm,
+        `{% ifversion ${cond} %}x{% elsif ghes %}y{% endif %}`,
+      ].join('\n')
+
+      const result = await runRule(liquidIfversionVersions, {
+        strings: { markdown },
+      })
+      const errors = result.markdown
+      expect(errors.length).toBe(3)
+      expect(
+        errors.filter((error) => error.errorDetail?.includes('applies to all versions')).length,
+      ).toBe(1)
+    },
+  )
 
   test('ifversion naming all possible shortnames in front matter', async () => {
     const markdown = [
