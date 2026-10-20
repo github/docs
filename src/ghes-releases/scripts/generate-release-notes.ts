@@ -24,6 +24,8 @@ import {
 } from '@/ghes-releases/lib/parse-release-notes'
 import {
   type IssueState,
+  CHANGELOG_PR_LIMIT,
+  buildChangelogPrListArgs,
   buildReleaseIssueListArgs,
   isExcludedReleaseIssue,
   parseIssueState,
@@ -127,21 +129,13 @@ function searchChangelogPr(issueNumber: number): ChangelogInfo | null {
       sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6)
       const since = sixMonthsAgo.toISOString().split('T')[0]
 
-      const output = gh([
-        'pr',
-        'list',
-        '--repo',
-        'github/blog',
-        '--state',
-        'merged',
-        '--search',
-        `Changelog in:title merged:>=${since}`,
-        '--limit',
-        '200',
-        '--json',
-        'number,body,url',
-      ])
+      const output = gh(buildChangelogPrListArgs(since))
       _blogPrsCache = JSON.parse(output) as { number: number; body: string; url: string }[]
+      if (_blogPrsCache.length >= CHANGELOG_PR_LIMIT) {
+        console.warn(
+          `  ⚠ github/blog changelog PR search hit the ${CHANGELOG_PR_LIMIT} result limit, so some changelog PRs may not be matched`,
+        )
+      }
     }
 
     for (const pr of _blogPrsCache) {
@@ -153,8 +147,12 @@ function searchChangelogPr(issueNumber: number): ChangelogInfo | null {
         return { url: pr.url, body: pr.body }
       }
     }
-  } catch {
-    // Search failed, so fall back to no changelog.
+  } catch (error) {
+    // Cache the failure so the search does not rerun and warn again for every issue.
+    _blogPrsCache = []
+    console.warn(
+      `  ⚠ Changelog PR search failed at issue #${issueNumber}, skipping it for remaining issues: ${(error as Error).message}`,
+    )
   }
   return null
 }
