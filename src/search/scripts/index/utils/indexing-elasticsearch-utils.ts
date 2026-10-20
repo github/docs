@@ -9,7 +9,6 @@ import {
   DEFAULT_SLEEPTIME_SECONDS,
   SNOWBALL_LANGUAGES,
 } from '@/search/scripts/index/utils/constants'
-import { safeUrlDisplay } from '@/search/lib/helpers/strings'
 
 import type { Records } from '@/search/scripts/index/types'
 
@@ -163,8 +162,8 @@ export function printSuccess(indexName: string, startTime: Date, verbose = false
   )
 
   if (verbose) {
-    console.log(`To view index: ${safeUrlDisplay(`<elasticsearch-url>/${indexName}`)}`)
-    console.log(`To search index: ${safeUrlDisplay(`<elasticsearch-url>/${indexName}/_search`)}`)
+    console.log(`To view index: <elasticsearch-url>/${indexName}`)
+    console.log(`To search index: <elasticsearch-url>/${indexName}/_search`)
   }
 }
 
