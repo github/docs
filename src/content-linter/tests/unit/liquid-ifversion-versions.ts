@@ -454,6 +454,55 @@ describe(liquidIfversionVersions.names.join(' - '), () => {
     expect(errors.length).toBe(0)
   })
 
+  test('does not crash with else and elsif inside unless blocks', async () => {
+    const markdown = [
+      ...placeholderAllVersionsFm,
+      '{% unless "foo" %}A{% else %}B{% endunless %}',
+      '{% unless "foo" %}A{% elsif "bar" %}B{% else %}C{% endunless %}',
+    ].join('\n')
+
+    const result = await runRule(liquidIfversionVersions, {
+      strings: { markdown },
+    })
+    const errors = result.markdown
+    expect(errors.length).toBe(0)
+  })
+
+  test('ignores for and unless else tags inside an ifversion chain', async () => {
+    const markdown = [
+      ...placeholderAllVersionsFm,
+      '{% ifversion ghes or ghec or fpt %}',
+      '{% for i in list %}{{ i }}{% else %}none{% endfor %}',
+      '{% unless "foo" %}A{% else %}B{% endunless %}',
+      '{% endif %}',
+    ].join('\n')
+
+    const result = await runRule(liquidIfversionVersions, {
+      strings: { markdown },
+    })
+    const errors = result.markdown
+    expect(errors.map((error) => error.lineNumber)).toEqual([8, 11])
+    expect(errors.some((error) => error.errorDetail?.includes('`else`'))).toBe(false)
+  })
+
+  test('checks ifversion chains nested inside for and unless blocks', async () => {
+    const markdown = [
+      ...placeholderAllVersionsFm,
+      '{% for i in list %}',
+      '{% unless "foo" %}',
+      '{% ifversion ghes or ghec or fpt %}a{% else %}b{% endif %}',
+      '{% else %}none{% endunless %}',
+      '{% else %}none{% endfor %}',
+    ].join('\n')
+
+    const result = await runRule(liquidIfversionVersions, {
+      strings: { markdown },
+    })
+    const errors = result.markdown
+    expect(errors.length).toBe(3)
+    expect(errors.every((error) => error.lineNumber === 10)).toBe(true)
+  })
+
   describe('keeps GHES ranges when removing products not in frontmatter', () => {
     const oldest = supported.at(-1)
     const newest = supported[0]

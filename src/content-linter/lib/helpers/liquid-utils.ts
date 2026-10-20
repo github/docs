@@ -93,16 +93,31 @@ export function getContentDeleteData(
   return errorInfo
 }
 
-// Docs versioning reads ifversion tags, so skip regular if subtrees and case statements.
+// Docs versioning reads ifversion tags, so skip regular if subtrees, case statements,
+// and the else and elsif tags that belong to unless and for blocks.
 export function getLiquidIfVersionTokens(content: string): TagToken[] {
-  // Include case and endcase so else tags inside case statements do not look like ifversion tags.
-  const IFVERSION_TAG_NAMES = ['if', 'ifversion', 'elsif', 'else', 'endif', 'case', 'endcase']
+  // Include case, unless, and for so their else tags do not look like ifversion tags.
+  const IFVERSION_TAG_NAMES = [
+    'if',
+    'ifversion',
+    'elsif',
+    'else',
+    'endif',
+    'case',
+    'endcase',
+    'unless',
+    'endunless',
+    'for',
+    'endfor',
+  ]
   const tokens = getLiquidTokens(content)
     .filter((token): token is TagToken => token.kind === TokenKind.Tag)
     .filter((token) => IFVERSION_TAG_NAMES.includes(token.name))
 
   let ifDepth = 0
   let inCaseStatement = false
+  // Open ifversion, unless, and for blocks, so else and elsif go to the innermost one.
+  const blockStack: string[] = []
   const ifVersionTokens: TagToken[] = []
   for (const token of tokens) {
     // Skip regular if statements and their related tags, including nested ones.
@@ -130,6 +145,19 @@ export function getLiquidIfVersionTokens(content: string): TagToken[] {
       inCaseStatement = false
       continue
     }
+    if (token.name === 'unless' || token.name === 'for') {
+      blockStack.push(token.name)
+      continue
+    }
+    if (token.name === 'endunless' || token.name === 'endfor') {
+      blockStack.pop()
+      continue
+    }
+    const openBlock = blockStack[blockStack.length - 1]
+    if (token.name === 'else' && (openBlock === 'unless' || openBlock === 'for')) continue
+    if (token.name === 'elsif' && openBlock === 'unless') continue
+    if (token.name === 'ifversion') blockStack.push(token.name)
+    if (token.name === 'endif') blockStack.pop()
     ifVersionTokens.push(token)
   }
   return ifVersionTokens
