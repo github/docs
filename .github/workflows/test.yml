@@ -171,8 +171,9 @@ jobs:
         run: npm run build
 
       - uses: ./.github/actions/warmup-remotejson-cache
-        # Only routing tests cover archived enterprise server URLs.
-        if: ${{ matrix.name == 'redirects' }}
+        # The archives and redirects suites request archived GHES redirects.json files.
+        # keep-caches-warm.yml seeds this cache in docs-internal only; a cold warmup fetches every archived version.
+        if: ${{ matrix.name == 'redirects' || (matrix.name == 'archives' && github.repository == 'github/docs-internal') }}
 
       - uses: ./.github/actions/setup-elasticsearch
         if: ${{ matrix.name == 'search' || matrix.name == 'languages' }}
