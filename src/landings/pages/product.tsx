@@ -6,8 +6,7 @@ import { useRouter } from 'next/router'
 import type { ExtendedRequest } from '@/types'
 import type { JourneyTrack } from '@/journeys/lib/journey-path-resolver'
 
-// Article pages need these scripts for behavior inside rendered article content.
-import copyCode from '@/frame/components/lib/copy-code'
+// Article pages need this script for behavior inside rendered article content.
 import toggleAnnotation from '@/frame/components/lib/toggle-annotations'
 
 import {
@@ -46,7 +45,6 @@ import { DiscoveryLanding } from '@/landings/components/discovery/DiscoveryLandi
 import { JourneyLanding } from '@/landings/components/journey/JourneyLanding'
 
 function initiateArticleScripts() {
-  copyCode()
   toggleAnnotation()
 }
 
