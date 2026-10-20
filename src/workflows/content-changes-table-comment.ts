@@ -15,6 +15,7 @@ import nonEnterpriseDefaultVersion from '@/versions/lib/non-enterprise-default-v
 import { allVersionShortnames } from '@/versions/lib/all-versions'
 import readFrontmatter from '@/frame/lib/read-frontmatter'
 import { inLiquid } from './lib/in-liquid'
+import { contentUrlPath } from './lib/content-url-path'
 
 const { GITHUB_TOKEN, APP_URL, BASE_SHA, HEAD_SHA } = process.env
 const context = github.context
@@ -54,6 +55,7 @@ async function main(owner: string, repo: string, baseSHA: string, headSHA: strin
   })
 
   const { files } = response.data
+  const mergeBaseSHA = response.data.merge_base_commit.sha
 
   const pathPrefix = 'content/'
   const reusablesPrefix = 'data/reusables/'
@@ -95,14 +97,14 @@ async function main(owner: string, repo: string, baseSHA: string, headSHA: strin
     articleFiles.map(async (file) => {
       const sourceUrl = file.blob_url
       const fileName = file.filename.slice(pathPrefix.length)
-      const fileUrl = fileName.replace('/index.md', '').replace(/\.md$/, '')
+      const fileUrl = contentUrlPath(fileName)
 
       // The workflow runs from main, so request the file from the changed branch.
       const fileContents = await getContents(
         owner,
         repo,
-        // Removed files need the base SHA because getContents 404s at the head SHA.
-        file.status === 'removed' ? baseSHA : headSHA,
+        // The compare is three-dot, so removed files are guaranteed to exist at the merge base.
+        file.status === 'removed' ? mergeBaseSHA : headSHA,
         file.filename,
       )
 
@@ -121,7 +123,7 @@ async function main(owner: string, repo: string, baseSHA: string, headSHA: strin
       filesUsingReusables.map((file) => {
         const { data } = readFrontmatter(fs.readFileSync(file.filename, 'utf-8'))
         const fileName = file.filename.slice(pathPrefix.length)
-        const fileUrl = fileName.replace('/index.md', '').replace(/\.md$/, '')
+        const fileUrl = contentUrlPath(fileName)
         return makeRow({
           file,
           fileName,
