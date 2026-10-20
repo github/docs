@@ -2516,6 +2516,34 @@ test.describe('Docs 2026 in-article navigation', () => {
     await page.mouse.wheel(0, 2000)
     await expect(trigger).not.toContainText('Macintosh')
   })
+
+  // On short viewports 15% of the height sits above the anchor scroll margin.
+  test('a menu jump on a short viewport activates that section below the sticky bars', async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 1366, height: 640 })
+    await page.goto('/get-started/foo/anchor-scrolling')
+    await turnOffExperimentsInPage(page)
+
+    const subBar = page.getByTestId('overview-subbar')
+    const trigger = subBar.getByRole('button')
+    await trigger.click()
+    await page
+      .getByTestId('overview-menu')
+      .getByRole('link', { name: 'Target heading', exact: true })
+      .click()
+    await expect(page).toHaveURL(/#target-heading$/)
+    await expect(trigger).toContainText('Target heading')
+
+    const subBarBox = (await subBar.boundingBox())!
+    const headingBox = (await page.locator('#target-heading').boundingBox())!
+    expect(headingBox.y).toBeGreaterThanOrEqual(subBarBox.y + subBarBox.height - 2)
+
+    await trigger.click()
+    await expect(
+      page.getByTestId('overview-menu').getByRole('link', { name: 'Target heading', exact: true }),
+    ).toHaveAttribute('aria-current', 'location')
+  })
 })
 
 test.describe('CookBookFilter component', () => {
