@@ -50,6 +50,8 @@ describe('redirects', () => {
     ['/jp', '/ja'],
     ['/br', '/pt'],
     ['/zh-CN', '/zh'],
+    ['/zh-Hans', '/zh'],
+    ['/zh-hant/get-started', '/zh/get-started'],
     ['/kr', '/ko'],
   ])('redirects %s to %s', async (from, to_) => {
     const res = await get(from)
