@@ -1568,6 +1568,88 @@ test.describe('hover cards', () => {
       ),
     ).not.toBeVisible()
   })
+
+  test('Escape before the hovercard opening delay ends keeps the card closed', async ({ page }) => {
+    await page.goto('/pages/quickstart')
+    await turnOffExperimentsInPage(page)
+
+    let metaRequests = 0
+    page.on('request', (request) => {
+      if (/\/api\/article\/meta\?/.test(request.url())) metaRequests++
+    })
+
+    const link = page.locator('#article-contents').getByRole('link', { name: 'Start your journey' })
+    await link.focus()
+    await page.keyboard.press('Alt+ArrowUp')
+    await page.keyboard.press('Escape')
+
+    await page.waitForTimeout(1000)
+    expect(metaRequests).toBe(0)
+    await expect(page.getByTestId('popover')).not.toBeVisible()
+    await expect(link).toBeFocused()
+  })
+
+  test('late hovercard response after the pointer leaves does not open the card', async ({
+    page,
+  }) => {
+    await page.goto('/pages/quickstart')
+    await turnOffExperimentsInPage(page)
+
+    let releaseMeta = () => {}
+    const metaHeld = new Promise<void>((resolve) => {
+      releaseMeta = resolve
+    })
+    await page.route(/\/api\/article\/meta\?/, async (route) => {
+      await metaHeld
+      await route.continue()
+    })
+
+    const metaRequest = page.waitForRequest(/\/api\/article\/meta\?/)
+    await page
+      .locator('#article-contents')
+      .getByRole('link', { name: 'Start your journey' })
+      .hover()
+    const request = await metaRequest
+    await page.mouse.move(0, 0)
+
+    releaseMeta()
+    await request.response()
+    await page.waitForTimeout(500)
+    await expect(page.getByTestId('popover')).not.toBeVisible()
+  })
+
+  test('late hovercard response for an earlier link does not replace the current card', async ({
+    page,
+  }) => {
+    await page.goto('/pages/quickstart')
+    await turnOffExperimentsInPage(page)
+
+    let releaseMeta = () => {}
+    const metaHeld = new Promise<void>((resolve) => {
+      releaseMeta = resolve
+    })
+    await page.route(/\/api\/article\/meta\?/, async (route) => {
+      await metaHeld
+      await route.continue()
+    })
+
+    const intro = page.locator('#article-intro')
+    const popover = page.getByTestId('popover')
+    const metaRequest = page.waitForRequest(/\/api\/article\/meta\?/)
+    await intro.getByRole('link', { name: 'another link' }).hover()
+    const request = await metaRequest
+    await intro.getByRole('link', { name: 'article intro link' }).hover()
+    await expect(popover.getByText('You can use HubGit Pages to showcase')).toBeVisible()
+
+    // The in-page anchor card fills without a fetch, so only the earlier link's request is held.
+    releaseMeta()
+    await request.response()
+    await page.waitForTimeout(500)
+    await expect(popover.getByText('You can use HubGit Pages to showcase')).toBeVisible()
+    await expect(
+      popover.getByText('Follow this Hello World exercise to get started with HubGit.'),
+    ).not.toBeVisible()
+  })
 })
 
 test.describe('test nav at different viewports', () => {
