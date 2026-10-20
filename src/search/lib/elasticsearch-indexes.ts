@@ -46,7 +46,7 @@ export function getElasticSearchIndex(
   }
   const index = indexes[type] as SearchIndex
 
-  if (!(language in languages)) {
+  if (!Object.hasOwn(languages, language)) {
     throw new Error(
       `Language ${language} not found in languages for getElasticSearchIndex function.`,
     )
