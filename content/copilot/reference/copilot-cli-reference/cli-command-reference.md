@@ -1459,7 +1459,7 @@ list_agents(scope="all")
 
 #### Scoped messaging
 
-Use `scope` on `write_agent` to broadcast one message to multiple related agents.
+Each `write_agent` call must use exactly one targeting selector: `agent_id`, `agent_ids`, or `scope`. Use explicit IDs only for known agents whose current status is `running` or `idle`. Use `scope` to broadcast one message to multiple related agents.
 
 Use scoped messaging only from a subagent running inside a parent session with shared sibling communication enabled. In top-level sessions, target agents with explicit `agent_id` values instead.
 
@@ -1469,6 +1469,8 @@ Use scoped messaging only from a subagent running inside a parent session with s
 | `"children"` | All child agents of the current agent | Send the same follow-up to delegated work |
 
 If a scope matches too many agents, `write_agent` returns an error and asks for explicit `agent_id` values from `list_agents` instead.
+
+If selector validation fails, correct the call once using exactly one selector rather than repeatedly issuing the malformed call. If an agent is completed, failed, cancelled, missing, or non-resumable, do not retry `write_agent`. Start a fresh task with the original objective and preserved context.
 
 ```text
 write_agent(scope="children", message="Re-check your findings against the updated schema.")
