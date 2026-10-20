@@ -183,7 +183,9 @@ async function isNotLanguage(text: string, language_: string) {
 
 function isMostlyEmoji(text: string) {
   text = text.replace(/\s/g, '')
-  const emojiRegex = /\p{Emoji}/gu
+  // \p{Emoji} also matches bare 0-9, # and *, so keycaps only count as full sequences.
+  const emojiRegex =
+    /[\p{Extended_Pictographic}\p{Regional_Indicator}\p{Emoji_Modifier}]|[0-9#*]\uFE0F?\u20E3/gu
   const emojiMatches = text.match(emojiRegex)
   if (!emojiMatches) return false
   const emojiRatio = emojiMatches.length / text.length

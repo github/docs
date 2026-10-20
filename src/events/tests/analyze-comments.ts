@@ -252,6 +252,39 @@ describe('analyzeComment', () => {
       const { signals } = await analyzeComment('Great 👍')
       expect(signals.includes('mostly-emoji')).toBeFalsy()
     }
+    {
+      const { signals, rating } = await analyzeComment('5 stars ⭐⭐⭐⭐⭐')
+      expect(signals.includes('mostly-emoji')).toBeTruthy()
+      expect(rating).toBeLessThan(1.0)
+    }
+    {
+      const { signals, rating } = await analyzeComment('🇺🇸 🇨🇦')
+      expect(signals.includes('mostly-emoji')).toBeTruthy()
+      expect(rating).toBeLessThan(1.0)
+    }
+    {
+      const { signals, rating } = await analyzeComment('👍🏽 👍🏽')
+      expect(signals.includes('mostly-emoji')).toBeTruthy()
+      expect(rating).toBeLessThan(1.0)
+    }
+    {
+      const { signals, rating } = await analyzeComment('1️⃣ 2️⃣')
+      expect(signals.includes('mostly-emoji')).toBeTruthy()
+      expect(rating).toBeLessThan(1.0)
+    }
+  })
+
+  test('mostly-emoji ignores digits, # and *', async () => {
+    for (const comment of [
+      'GHES 3.14.2 vs 3.15.1',
+      'See #1234 and #5678',
+      'Version 3.14 broken on 3.15',
+      'Error 500 on 2024-01-01',
+      'Step *1* and *2*',
+    ]) {
+      const { signals } = await analyzeComment(comment)
+      expect(signals.includes('mostly-emoji')).toBeFalsy()
+    }
   })
 
   test('spammy-words', async () => {
