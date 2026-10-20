@@ -101,7 +101,8 @@ const GlobalPage = ({
   } else if (categoryLandingContext) {
     content = (
       <CategoryLandingContext.Provider value={categoryLandingContext}>
-        <CategoryLanding />
+        {/* Remount per page so filter state does not carry over between category landings. */}
+        <CategoryLanding key={mainContext.relativePath || router.asPath} />
       </CategoryLandingContext.Provider>
     )
   } else if (tocLandingContext) {
