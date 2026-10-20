@@ -99,7 +99,16 @@ export function ParameterRow({
                     </span>
                     {rowParams.enum.map((item, index, array) => (
                       <span key={`${item}${index}`}>
-                        <code>{item === null ? <i>null</i> : item}</code>
+                        <code>
+                          {item === null ? (
+                            <i>null</i>
+                          ) : typeof item === 'string' ? (
+                            item
+                          ) : (
+                            // React renders nothing for boolean children.
+                            JSON.stringify(item)
+                          )}
+                        </code>
                         {index !== array.length - 1 && ','}{' '}
                       </span>
                     ))}
