@@ -91,6 +91,7 @@ export async function convertContentToDocs(
   })
 
   let currentNodeIsDescription = false
+  let descriptionParagraph: MdNode | undefined
   visit(ast, (rawNode) => {
     const node = rawNode as unknown as MdNode
     // A bare return is CONTINUE. Returning false would mean EXIT,
@@ -102,7 +103,7 @@ export async function convertContentToDocs(
       currentNodeIsDescription = true
     }
     if (currentNodeIsDescription && node.type === 'paragraph') {
-      frontmatter.intro = node.children[0]?.value
+      descriptionParagraph = node
       currentNodeIsDescription = false
       return SKIP
     }
@@ -224,6 +225,11 @@ export async function convertContentToDocs(
       }
     },
   )
+
+  // Read the intro after doc role markup becomes links, but before aka.ms link text becomes AUTOTITLE.
+  if (descriptionParagraph) {
+    frontmatter.intro = toString(descriptionParagraph)
+  }
 
   // aka.ms redirects supply the docs.github.com relative path.
   await Promise.all(
