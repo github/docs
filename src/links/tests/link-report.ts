@@ -327,6 +327,36 @@ describe('reportToMarkdown', () => {
     expect(markdown).toContain('broken.example')
   })
 
+  test('external domain sections list each broken URL with its own status', () => {
+    const links: BrokenLink[] = [
+      {
+        href: 'https://example.com/a',
+        file: 'content/x.md',
+        lines: [10],
+        statusCode: 404,
+        errorMessage: 'HTTP 404',
+      },
+      {
+        href: 'https://example.com/b',
+        file: 'content/y.md',
+        lines: [20],
+        errorMessage: 'Request timed out or failed',
+      },
+      { href: 'https://example.com/c|d', file: 'content/x.md', lines: [30], statusCode: 500 },
+    ]
+
+    const markdown = reportToMarkdown(generateExternalLinkReport(links), true)
+
+    expect(markdown).toContain('**Found in 2 files:**')
+    expect(markdown).toContain('| File | Line(s) | URL | Status |')
+    expect(markdown).toContain('| `content/x.md` | 10 | `https://example.com/a` | HTTP 404 |')
+    expect(markdown).toContain(
+      '| `content/y.md` | 20 | `https://example.com/b` | Request timed out or failed |',
+    )
+    expect(markdown).toContain('| `content/x.md` | 30 | `https://example.com/c\\|d` | HTTP 500 |')
+    expect(markdown).not.toContain('**Status:**')
+  })
+
   test('includes potential internal links section with no broken links', () => {
     const report = generateExternalLinkReport([], {
       selfReferentialLinks: [{ href: 'https://docs.github.com/en', file: 'a.md', lines: [1] }],

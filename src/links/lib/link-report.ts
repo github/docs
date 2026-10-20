@@ -52,6 +52,16 @@ export interface LinkReport {
   versionsChecked?: string[]
 }
 
+// A raw pipe ends a GitHub table cell, even inside backticks.
+function escapeTableCell(text: string): string {
+  return text.replace(/\|/g, '\\|')
+}
+
+// Prefer the checker's error text, because timeouts and malformed URLs have no status code.
+function externalStatus(occ: BrokenLink): string {
+  return occ.errorMessage || (occ.statusCode ? `HTTP ${occ.statusCode}` : 'Unknown error')
+}
+
 const TEMPLATES = {
   reportHeader: (title: string, summary: string, timestamp: string, actionUrl?: string) =>
     `
@@ -78,32 +88,36 @@ ${summary}
 
   group: (group: GroupedBrokenLinks, isExternal = false) => {
     const icon = group.isWarning ? '⚠️' : '❌'
-    const count = group.occurrences.length
+    // External groups hold one entry per link per line, so count unique files.
+    const count = isExternal
+      ? new Set(group.occurrences.map((occ) => occ.file)).size
+      : group.occurrences.length
     const plural = count === 1 ? '' : 's'
-    const first = group.occurrences[0]
-
-    const statusInfo =
-      isExternal && first?.statusCode
-        ? `**Status:** ${first.statusCode}\n${first.errorMessage ? `**Error:** ${first.errorMessage}\n` : ''}\n`
-        : ''
 
     const suggestion = group.suggestion ? `💡 ${group.suggestion}\n\n` : ''
 
     const listedOccurrences = group.occurrences.slice(0, MAX_FILES_PER_GROUP)
     const hiddenOccurrences = group.occurrences.length - listedOccurrences.length
+    const tableHeader = isExternal
+      ? '| File | Line(s) | URL | Status |\n|------|---------|-----|--------|'
+      : '| File | Line(s) |\n|------|---------|'
     const tableRows = listedOccurrences
-      .map((occ) => `| \`${occ.file}\` | ${occ.lines.join(', ')} |`)
+      .map((occ) =>
+        isExternal
+          ? `| \`${occ.file}\` | ${occ.lines.join(', ')} | \`${escapeTableCell(occ.href)}\` | ${escapeTableCell(externalStatus(occ))} |`
+          : `| \`${occ.file}\` | ${occ.lines.join(', ')} |`,
+      )
       .join('\n')
+    const hiddenLabel = isExternal ? 'link' : 'file'
     const moreFiles = hiddenOccurrences
-      ? `\n\nAnd ${hiddenOccurrences} more file${hiddenOccurrences === 1 ? '' : 's'}, listed in the report attached to the workflow run.`
+      ? `\n\nAnd ${hiddenOccurrences} more ${hiddenLabel}${hiddenOccurrences === 1 ? '' : 's'}, listed in the report attached to the workflow run.`
       : ''
 
     return `### ${icon} \`${group.target}\`
 
-${statusInfo}${suggestion}**Found in ${count} file${plural}:**
+${suggestion}**Found in ${count} file${plural}:**
 
-| File | Line(s) |
-|------|---------|
+${tableHeader}
 ${tableRows}${moreFiles}`
   },
 
