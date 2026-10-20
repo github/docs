@@ -33,6 +33,10 @@ export interface GroupedBrokenLinks {
   occurrences: BrokenLink[]
   suggestion?: string
   isWarning: boolean
+  // JSON consumers outside this module need the bucket and a safe rewrite path.
+  fixStrategy?: FixStrategy
+  // Set only for codemod groups, with the checked version's prefix stripped from versionless links.
+  replacementTarget?: string
 }
 
 export interface LinkReport {
@@ -247,6 +251,37 @@ function createRedirectSuggestion(
   return `This path redirects to \`${redirectTarget}\`. Consider updating to the new path.`
 }
 
+const LOCALE_PREFIX_RE = /^\/[a-z]{2}(-[a-z]{2})?(?=\/|$)/
+// Legacy /enterprise/<release> links pin a release, like /enterprise-server@<release>.
+const LEGACY_PINNED_RE = /^\/enterprise\/\d+\.\d+(?=\/|$)/
+// GHES links without a numbered release follow the latest release, as get-redirect resolves them.
+const MOVING_GHES_RE = /^\/enterprise(-server)?(@latest)?(?=\/|$)/
+
+// Replacements keep the source link's version intent, matching update-internal-links.
+function getReplacementTarget(
+  target: string,
+  occurrences: BrokenLink[],
+  redirects?: Record<string, string>,
+): string | undefined {
+  const source = target.replace(LOCALE_PREFIX_RE, '') || '/'
+  const redirectTarget =
+    redirects?.[source] ?? occurrences.find((occ) => occ.redirectTarget)?.redirectTarget
+  if (!redirectTarget) return undefined
+  const destination = redirectTarget.replace(LOCALE_PREFIX_RE, '') || '/'
+
+  const isMovingGhes = MOVING_GHES_RE.test(source)
+  const isPinned =
+    LEGACY_PINNED_RE.test(source) || (VERSION_PREFIX_RE.test(source) && !isMovingGhes)
+
+  let replacement = destination
+  if (!isPinned && isMovingGhes && destination.startsWith('/enterprise-server@')) {
+    replacement = `/enterprise-server@latest${destination.replace(VERSION_PREFIX_RE, '')}`
+  } else if (!isPinned && !isMovingGhes) {
+    replacement = destination.replace(VERSION_PREFIX_RE, '') || '/'
+  }
+  return replacement === target ? undefined : replacement
+}
+
 function sortOccurrencesByFile(occurrences: BrokenLink[]): BrokenLink[] {
   return [...occurrences].sort((a, b) => a.file.localeCompare(b.file))
 }
@@ -393,7 +428,14 @@ export function generateInternalLinkReport(
     redirects?: Record<string, string>
   } = {},
 ): LinkReport {
-  const groups = groupBrokenLinks(brokenLinks, options.redirects)
+  const groups = groupBrokenLinks(brokenLinks, options.redirects).map((group) => {
+    const fixStrategy = classifyFixStrategy(group)
+    const replacementTarget =
+      fixStrategy === 'codemod'
+        ? getReplacementTarget(group.target, group.occurrences, options.redirects)
+        : undefined
+    return { ...group, fixStrategy, replacementTarget }
+  })
   const errors = groups.filter((g) => !g.isWarning)
   const warnings = groups.filter((g) => g.isWarning)
 

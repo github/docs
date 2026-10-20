@@ -1106,3 +1106,98 @@ describe('merging redirect targets across versions', () => {
     expect(classifyFixStrategy(report.groups[0])).toBe('decide')
   })
 })
+
+describe('replacement targets in the JSON report', () => {
+  const redirectOccurrence = (
+    href: string,
+    redirectTarget: string,
+    extra: Partial<BrokenLink> = {},
+  ): BrokenLink => ({
+    href,
+    file: 'actions/x.md',
+    lines: [1],
+    isRedirect: true,
+    redirectTarget,
+    ...extra,
+  })
+  const roundTrip = (links: BrokenLink[], redirects?: Record<string, string>) =>
+    JSON.parse(
+      JSON.stringify(
+        generateInternalLinkReport(links, { version: 'enterprise-server@3.19', redirects }),
+      ),
+    ).groups as GroupedBrokenLinks[]
+
+  test('drops the checked version prefix from a versionless rename', () => {
+    const [group] = roundTrip(
+      [redirectOccurrence('/actions/old', '/enterprise-server@3.19/actions/new')],
+      {
+        '/actions/old': '/actions/new',
+        '/enterprise-server@3.19/actions/old': '/enterprise-server@3.19/actions/new',
+      },
+    )
+    expect(group.fixStrategy).toBe('codemod')
+    expect(group.replacementTarget).toBe('/actions/new')
+  })
+
+  test('drops the prefix when no redirects map is passed', () => {
+    const [group] = roundTrip([
+      redirectOccurrence('/actions/old', '/enterprise-server@3.19/actions/new'),
+    ])
+    expect(group.replacementTarget).toBe('/actions/new')
+  })
+
+  test('keeps the prefix when the link already names a version', () => {
+    const [group] = roundTrip([
+      redirectOccurrence(
+        '/enterprise-server@3.19/actions/old',
+        '/enterprise-server@3.19/actions/new',
+      ),
+    ])
+    expect(group.fixStrategy).toBe('codemod')
+    expect(group.replacementTarget).toBe('/enterprise-server@3.19/actions/new')
+  })
+
+  test('gives no replacement for a version-only redirect', () => {
+    const [group] = roundTrip([
+      redirectOccurrence('/admin/overview', '/enterprise-cloud@latest/admin/overview'),
+    ])
+    expect(group.fixStrategy).toBe('versionless')
+    expect(group.replacementTarget).toBeUndefined()
+  })
+
+  test('gives no replacement for a redirect that needs version context', () => {
+    const [group] = roundTrip([
+      redirectOccurrence('/admin/foo', '/enterprise-server@3.19/admin/bar', {
+        requiresVersionContext: true,
+      }),
+    ])
+    expect(group.fixStrategy).toBe('decide')
+    expect(group.replacementTarget).toBeUndefined()
+  })
+
+  test('gives no replacement for a broken link', () => {
+    const [group] = roundTrip([{ href: '/missing', file: 'actions/x.md', lines: [1] }])
+    expect(group.fixStrategy).toBe('decide')
+    expect(group.replacementTarget).toBeUndefined()
+  })
+
+  test.each([
+    ['/en/actions/old', '/actions/new'],
+    ['/en/enterprise-server@3.19/actions/old', '/enterprise-server@3.19/actions/new'],
+    ['/enterprise/3.19/actions/old', '/enterprise-server@3.19/actions/new'],
+    ['/en/enterprise/3.19/actions/old', '/enterprise-server@3.19/actions/new'],
+    ['/enterprise-server/actions/old', '/enterprise-server@latest/actions/new'],
+    ['/enterprise-server@latest/actions/old', '/enterprise-server@latest/actions/new'],
+    ['/en/enterprise-server@latest/actions/old', '/enterprise-server@latest/actions/new'],
+    ['/enterprise/actions/old', '/enterprise-server@latest/actions/new'],
+  ])('keeps the version intent of %s', (href, expected) => {
+    const [group] = roundTrip([redirectOccurrence(href, '/enterprise-server@3.19/actions/new')])
+    expect(group.fixStrategy).toBe('codemod')
+    expect(group.replacementTarget).toBe(expected)
+  })
+
+  test('drops a locale prefix from the redirect target', () => {
+    const [group] = roundTrip([redirectOccurrence('/actions/old', '/en/actions/new')])
+    expect(group.replacementTarget).toBe('/actions/new')
+  })
+})
