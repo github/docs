@@ -2775,6 +2775,63 @@ Para más información, consulta "[AUTOTITLE](/path)".
     })
   })
 
+  describe('technical-content#8077 per-file fixes', () => {
+    async function expectRenders(content: string) {
+      await render(content, 'free-pro-team@latest')
+      await render(content, ghesVersion)
+    }
+
+    test('pt: viewing-metrics-for-pull-request-alerts intro adds missing endif', async () => {
+      const broken =
+        'Monitore como {% data variables.product.prodname_codeql %}{% ifversion ai-powered-security-detections %} e AI Scan funcionam em solicitações de pull em suas organizações.'
+      const fixed =
+        'Monitore como {% data variables.product.prodname_codeql %}{% ifversion ai-powered-security-detections %} e AI Scan{% endif %} funcionam em solicitações de pull em suas organizações.'
+      expect(fix(broken, 'pt')).toBe(fixed)
+      expect(fix(fixed, 'pt')).toBe(fixed)
+      await expectRenders(fixed)
+    })
+
+    test('zh: code-scanning-on-pull-requests intro swaps endif and ifversion', async () => {
+      const broken =
+        '了解 {% endif %}{% data variables.product.prodname_codeql %} 和 AI 扫描{% ifversion ai-powered-security-detections %}如何查找并帮助防止整个组织中的拉取请求漏洞。'
+      const fixed =
+        '了解 {% data variables.product.prodname_codeql %}{% ifversion ai-powered-security-detections %} 和 AI 扫描{% endif %}如何查找并帮助防止整个组织中的拉取请求漏洞。'
+      expect(fix(broken, 'zh')).toBe(fixed)
+      expect(fix(fixed, 'zh')).toBe(fixed)
+      await expectRenders(fixed)
+    })
+
+    test('zh: download-license-use intro restores ifversion order', async () => {
+      const broken =
+        '获取有关{% data variables.product.github %}、{% data variables.product.prodname_code_quality_short %}{% endif %}、{% data variables.product.prodname_copilot_short %}{% ifversion code-quality %}和{% data variables.product.prodname_AS %}许可证消耗情况的数据。'
+      const fixed =
+        '获取有关{% data variables.product.github %}、{% data variables.product.prodname_copilot_short %}{% ifversion code-quality %}、{% data variables.product.prodname_code_quality_short %}{% endif %}和{% data variables.product.prodname_AS %}许可证消耗情况的数据。'
+      expect(fix(broken, 'zh')).toBe(fixed)
+      expect(fix(fixed, 'zh')).toBe(fixed)
+      await expectRenders(fixed)
+    })
+
+    test('zh: searching-code intro adds missing endif', async () => {
+      const broken =
+        '{% ifversion code-search-upgrade %}仅在使用代码搜索 API 时，才需要使用旧代码搜索语法{% else %}。您可以通过在任何组合中使用这些代码搜索限定符来搜索代码并缩小结果范围{% data variables.product.github %}。'
+      const fixed =
+        '{% ifversion code-search-upgrade %}仅在使用代码搜索 API 时，才需要使用旧代码搜索语法{% else %}您可以通过在任何组合中使用这些代码搜索限定符来搜索代码并缩小结果范围{% data variables.product.github %}{% endif %}。'
+      expect(fix(broken, 'zh')).toBe(fixed)
+      expect(fix(fixed, 'zh')).toBe(fixed)
+      await expectRenders(fixed)
+    })
+
+    test('ko: code-scanning-on-pull-requests intro swaps endif and ifversion', async () => {
+      const broken =
+        '{% endif %}\n              {% data variables.product.prodname_codeql %} 및 AI Scan{% ifversion ai-powered-security-detections %}이 조직 전체의 풀 리퀘스트에서 취약성을 찾아내고 방지하는 데 도움을 주는 방법을 이해합니다.'
+      const fixed =
+        '{% data variables.product.prodname_codeql %}{% ifversion ai-powered-security-detections %} 및 AI Scan{% endif %}이 조직 전체의 풀 리퀘스트에서 취약성을 찾아내고 방지하는 데 도움을 주는 방법을 이해합니다.'
+      expect(fix(broken, 'ko')).toBe(fixed)
+      expect(fix(fixed, 'ko')).toBe(fixed)
+      await expectRenders(fixed)
+    })
+  })
+
   describe('es: you-can-fork.md per-file fix', () => {
     test('replaces leading elsif with ifversion', () => {
       const broken = '{% elsif ghes or ghec %} Puedes bifurcar...'
