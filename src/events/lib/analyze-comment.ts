@@ -141,17 +141,34 @@ function isAllUppercase(text: string) {
   return /[A-Z]/.test(text) && text === text.toUpperCase()
 }
 
+// Chinese and Japanese do not put spaces between words, so segment them instead.
+const CJK_REGEX = /[\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}]/u
+// Single Hiragana segments are particles or pieces of endings like ございます, not words.
+const SINGLE_HIRAGANA_REGEX = /^\p{Script=Hiragana}$/u
+
+function countWords(text: string) {
+  return text
+    .trim()
+    .split(/\s+/)
+    .reduce((count, token) => count + countTokenWords(token), 0)
+}
+
+function countTokenWords(token: string) {
+  // Path-like tokens such as www.example.com/some/path stay one word next to CJK text.
+  if (!CJK_REGEX.test(token)) return 1
+  const words = splitWords(token).filter((word) => !SINGLE_HIRAGANA_REGEX.test(word))
+  return Math.max(1, words.length)
+}
+
 function isTooShort(text: string) {
-  const split = text.trim().split(/\s+/)
-  if (split.length <= 3) {
+  if (countWords(text) <= 3) {
     return true
   }
 }
 
 function isSingleWord(text: string) {
-  const whitespaceSplit = text.trim().split(/\s+/)
   // Single path-like tokens such as snap/hooks/install count as one word.
-  return whitespaceSplit.length === 1
+  return countWords(text) === 1
 }
 
 // @horizon-rs/language-guesser can misclassify short misspelled English like `Thamk you`.

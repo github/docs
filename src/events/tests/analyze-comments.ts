@@ -111,6 +111,16 @@ describe('analyzeComment', () => {
       expect(signals.includes('too-short')).toBeTruthy()
       expect(rating).toBeLessThan(1.0)
     }
+    {
+      const { signals } = await analyzeComment('ありがとうございます', 'ja')
+      expect(signals.includes('too-short')).toBeTruthy()
+      expect(signals.includes('single-word')).toBeFalsy()
+    }
+    {
+      const { signals } = await analyzeComment('www.example.com/some/path 谢谢', 'zh')
+      expect(signals.includes('too-short')).toBeTruthy()
+      expect(signals.includes('single-word')).toBeFalsy()
+    }
 
     {
       const { signals } = await analyzeComment('A\nB\nC\nD')
@@ -119,6 +129,22 @@ describe('analyzeComment', () => {
     {
       const { signals } = await analyzeComment('One two three four ')
       expect(signals.includes('too-short')).toBeFalsy()
+    }
+    {
+      const { signals, rating } = await analyzeComment(
+        'このページの説明が分かりにくいです。コード例を追加してください。',
+        'ja',
+      )
+      expect(signals.includes('too-short')).toBeFalsy()
+      expect(rating).toBe(1.0)
+    }
+    {
+      const { signals, rating } = await analyzeComment(
+        '这个页面的说明不太清楚，请添加更多的代码示例，谢谢。',
+        'zh',
+      )
+      expect(signals.includes('too-short')).toBeFalsy()
+      expect(rating).toBe(1.0)
     }
   })
 
@@ -144,7 +170,27 @@ describe('analyzeComment', () => {
       expect(signals.includes('single-word')).toBeFalsy()
     }
     {
+      const { signals, rating } = await analyzeComment('谢谢', 'zh')
+      expect(signals.includes('single-word')).toBeTruthy()
+      expect(rating).toBeLessThan(1.0)
+    }
+
+    {
       const { signals } = await analyzeComment('  one   two\tthree ')
+      expect(signals.includes('single-word')).toBeFalsy()
+    }
+    {
+      const { signals } = await analyzeComment(
+        'このページの説明が分かりにくいです。コード例を追加してください。',
+        'ja',
+      )
+      expect(signals.includes('single-word')).toBeFalsy()
+    }
+    {
+      const { signals } = await analyzeComment(
+        '这个页面的说明不太清楚，请添加更多的代码示例，谢谢。',
+        'zh',
+      )
       expect(signals.includes('single-word')).toBeFalsy()
     }
   })
