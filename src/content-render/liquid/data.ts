@@ -78,6 +78,7 @@ function handleIndent(tagToken: TagToken, text: string): string {
 }
 
 // Multiline reusables in blockquotes need the quote marker on every line.
+// Leading whitespace stays so code blocks and nested lists keep their structure.
 const blockquoteRegexp = /^\n?([ \t]*>[ \t]?)/
 function handleBlockquote(tagToken: TagToken, text: string): string {
   if (text.split('\n').length <= 1) return text
@@ -95,7 +96,7 @@ function handleBlockquote(tagToken: TagToken, text: string): string {
     .map((line, i) => {
       if (i === 0) return line
       if (blockquoteRegexp.test(line)) return line
-      return start + line.trim()
+      return start + line.trimEnd()
     })
     .join('\n')
 }

@@ -1,6 +1,7 @@
 import { afterAll, beforeAll, describe, expect, test } from 'vitest'
 
 import Page from '@/frame/lib/page'
+import { liquid } from '@/content-render/index'
 import languages from '@/languages/lib/languages-server'
 import nonEnterpriseDefaultVersion from '@/versions/lib/non-enterprise-default-version'
 import { DataDirectory } from '@/tests/helpers/data-directory'
@@ -16,6 +17,9 @@ describe('data tag', () => {
           stuff: {
             foo: 'Foo',
           },
+        },
+        reusables: {
+          indented_code: 'Intro\n\n```yaml\nfoo:\n  bar: 1\n  list:\n    - a\n```',
         },
         ui: {
           alerts: {},
@@ -58,5 +62,16 @@ describe('data tag', () => {
     await expect(page!.render(context)).rejects.toThrow(
       "Can't find the key 'foo.bar.tipu' in the scope., line:2, col:1",
     )
+  })
+
+  test('keeps reusable indentation when the tag is inside a blockquote', async () => {
+    const rendered = await liquid.parseAndRender(
+      '> [!NOTE]\n> {% data reusables.indented_code %}\n',
+      {
+        currentLanguage: 'en',
+        currentVersion: nonEnterpriseDefaultVersion,
+      },
+    )
+    expect(rendered).toContain('> foo:\n>   bar: 1\n>   list:\n>     - a\n')
   })
 })
