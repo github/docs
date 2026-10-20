@@ -670,6 +670,7 @@ Only the following keys are supported in MDM managed settings.
 | `permissions` | Set managed permissions, including `disableBypassPermissionsMode`, `deny` / `ask` / `allow` rule arrays, and the `limitTo` domain boundary array. See [Managed permission rules](#managed-permission-rules) and [Domain boundary (`limitTo`)](#domain-boundary-limitto). |
 | `policyHelper` | Register an executable that supplies the lowest-priority managed-settings layer. Fields: `path` (required), plus optional `args`, `timeoutMs`, and `refreshIntervalMs`. If both a device (MDM) and a server policy register a `policyHelper`, the device registration wins. |
 | `remoteControl` | Control whether sessions on this device can be controlled from other devices. `mode` is `"enabled"`, `"disabled"`, or `"requireSSO"` (requires `githubDotComOrganizations` when set). |
+| `requireBase64ImageAttachments` | When `true`, require base64-encoded image attachments instead of attachment URLs. `false` or unset keeps existing behavior. |
 | `sandbox` | Set a sandbox policy floor that users cannot relax. Supported settings include `enabled`, `failIfUnavailable`, `allowBypass`, `addCurrentWorkingDirectory`, `sandboxMcpServers`, `sandboxLspServers`, `auth.git`, `auth.gh`, `allowDevToolAccess`, `learningMode`, and the `userPolicy.*` filesystem and network rules. The managed value always takes precedence over a user's own value in the safer direction. Turning the sandbox on, requiring it to succeed, and sandboxing MCP and LSP servers cannot be turned off. Disabling bypass or credential injection cannot be re-enabled. Filesystem allow lists can only be narrowed, and denied paths can only be added to. `failIfUnavailable` can only be set by an administrator and blocks the session when the sandbox cannot be established. For the settings users can set themselves, see [User settings](#user-settings-copilotsettingsjson) or run `copilot help sandbox`. |
 | `shellShortcut` | Force-enable or force-disable the `$` interactive shell shortcut for all users. A managed value always overrides the user's own `shellShortcut` setting. |
 | `strictKnownMarketplaces` | Restrict plugins to an allowlist of known marketplaces (a JSON array of marketplace specs). The allowlist also governs built-in marketplaces once set—an empty array (`[]`) hides and blocks every marketplace, including built-ins, not just user- or repository-added ones. |
@@ -750,7 +751,7 @@ Each entry identifies a server by exactly one of the following matchers.
 |---------|---------|-------|
 | `serverUrl` | A remote (HTTP/SSE) server by URL | Supports `*` wildcards; scheme and host match case-insensitively, path case-sensitively. `${VAR}` references expand before matching. |
 | `serverCommand` | A stdio server by its exact command and arguments, in order | `${VAR}` references expand before matching. |
-| `serverName` | A server by its assigned label | Allowlist entries are restricted to `[A-Za-z0-9_-]+` (no wildcards); denylist entries accept any non-empty string. |
+| `serverName` | A server by its assigned label | Allowlist entries are restricted to `[A-Za-z0-9_./-]+` (case-sensitive, no wildcards; registry names such as `microsoft/playwright-mcp` are accepted); denylist entries accept any non-empty string. |
 
 Rules:
 

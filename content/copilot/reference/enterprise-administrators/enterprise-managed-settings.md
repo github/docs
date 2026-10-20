@@ -356,7 +356,7 @@ Each entry must contain exactly one matcher property.
 
 | Property | Matching behavior | Applicable servers |
 | --- | --- | --- |
-| `serverName` | Matches the user-assigned server label exactly. Wildcards are not supported. Because users choose server names, use `serverUrl` or `serverCommand` when you need to enforce the identity of a server. | Any server. In-memory servers can only use `serverName`. |
+| `serverName` | Matches the user-assigned server label exactly. Wildcards are not supported. Allowlist entries are case-sensitive and limited to letters, numbers, and the characters `_`, `.`, `/`, and `-`, so registry names such as `microsoft/playwright-mcp` are accepted. Because users choose server names, use `serverUrl` or `serverCommand` when you need to enforce the identity of a server. | Any server. In-memory servers can only use `serverName`. |
 | `serverUrl` | Matches a remote server URL. Supports `*` wildcards for subdomains or path prefixes—for example, `https://mcp.example.com/*` or `https://*.internal.example.com/*`. | Remote servers that connect over HTTP or server-sent events (SSE). This property does not apply to local servers, even if they have a URL. |
 | `serverCommand` | Matches the exact command and each argument for a local server—for example, `["npx", "-y", "my-mcp-server"]`. Wildcards and command-line expansion are not supported. | Local servers that use standard input and output (`stdio`). This property does not apply to remote servers, even if they have a command. |
 
