@@ -1223,6 +1223,29 @@ test.describe('tool picker', () => {
     await expect(page.getByText('This is webui content')).toBeVisible()
   })
 
+  test('keeps focus on the activated tab', async ({ page }) => {
+    // The fixture frontmatter defaults defaultTool to webui, so the URL starts without ?tool.
+    await page.goto('/get-started/liquid/tool-specific')
+    await turnOffExperimentsInPage(page)
+
+    const webui = page.getByTestId('tool-picker').getByRole('link', { name: 'Web browser' })
+    const oldWebui = await webui.elementHandle()
+    await webui.focus()
+    await page.keyboard.press('Enter')
+    await expect(page).toHaveURL(/\?tool=webui/)
+    // The nav remounts on each URL change, so wait for the old anchor to detach first.
+    await page.waitForFunction((el) => !el?.isConnected, oldWebui)
+    await expect(webui).toBeFocused()
+
+    const cli = page.getByTestId('tool-picker').getByRole('link', { name: 'GitHub CLI' })
+    const oldCli = await cli.elementHandle()
+    await cli.focus()
+    await page.keyboard.press('Enter')
+    await expect(page).toHaveURL(/\?tool=cli/)
+    await page.waitForFunction((el) => !el?.isConnected, oldCli)
+    await expect(cli).toBeFocused()
+  })
+
   test('prefer default tool', async ({ page }) => {
     await page.goto('/get-started/liquid/tool-specific')
 
