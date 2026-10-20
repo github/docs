@@ -1,6 +1,6 @@
 import type { Context, Page } from '@/types'
 import type { PageTransformer } from './types'
-import { renderContent } from '@/content-render/index'
+import { renderLiquid } from '@/content-render/liquid/index'
 import { loadTemplate } from '@/article-api/lib/load-template'
 import { stripHtmlCommentsAndNormalizeWhitespace } from '@/article-api/lib/strip-html-comments'
 
@@ -28,11 +28,8 @@ export class CodeQLCliTransformer implements PageTransformer {
 
     const templateContent = loadTemplate(this.templateName)
 
-    const result = await renderContent(templateContent, {
-      ...context,
-      ...templateData,
-      markdownRequested: true,
-    })
+    // page.render already rewrote local links, and a second rewrite pass re-versions pinned links.
+    const result = await renderLiquid(templateContent, { ...context, ...templateData })
 
     // Strip markdownlint-disable and any other HTML comments.
     return stripHtmlCommentsAndNormalizeWhitespace(result)
