@@ -1,6 +1,10 @@
 import { describe, expect, test } from 'vitest'
 
-import { getOrphanedTables, type TableFile } from '@/data-directory/scripts/find-orphaned-tables'
+import {
+  getCodeSourceFiles,
+  getOrphanedTables,
+  type TableFile,
+} from '@/data-directory/scripts/find-orphaned-tables'
 
 function table(key: string): TableFile {
   const relative = key.split('.').join('/')
@@ -58,5 +62,21 @@ describe('getOrphanedTables', () => {
 
   test('returns nothing when there are no tables', () => {
     expect(getOrphanedTables([], ['anything'])).toEqual([])
+  })
+})
+
+describe('getCodeSourceFiles', () => {
+  const files = getCodeSourceFiles()
+
+  test('skips test files, whose fixtures quote real table keys', () => {
+    expect(files.filter((file) => file.includes('/tests/'))).toEqual([])
+  })
+
+  test('skips the orphan script, whose comments quote a real table key', () => {
+    expect(files).not.toContain('src/data-directory/scripts/find-orphaned-tables.ts')
+  })
+
+  test('still includes regular source files', () => {
+    expect(files).toContain('src/data-directory/lib/get-data.ts')
   })
 })

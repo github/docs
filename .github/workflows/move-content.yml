@@ -6,13 +6,13 @@ on:
   pull_request:
     paths:
       - src/content-render/scripts/move-content.ts
-      - src/content-render/scripts/test-move-content.ts
-      - 'src/frame/lib/**/*.js'
+      - src/content-render/scripts/test-moved-content.ts
+      - 'src/frame/lib/**/*.ts'
       - .github/workflows/move-content.yml
       # Dependency changes can break the move-content script.
       - 'package*.json'
-      - src/fixtures/fixtures/content/get-started/
-      - src/fixtures/fixtures/content/code-security/
+      - 'src/fixtures/fixtures/content/get-started/**'
+      - 'src/fixtures/fixtures/content/code-security/**'
 
 permissions:
   contents: read
@@ -50,8 +50,9 @@ jobs:
         env:
           ROOT: src/fixtures/fixtures
         run: |
+          # The trailing slash on the old path matches what shell tab completion adds.
           npm run move-content -- \
-            src/fixtures/fixtures/content/code-security/getting-started \
+            src/fixtures/fixtures/content/code-security/getting-started/ \
             src/fixtures/fixtures/content/code-security/got-started
 
           npm run test-moved-content -- \

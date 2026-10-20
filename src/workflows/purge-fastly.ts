@@ -25,7 +25,7 @@ program
     '--languages <languages>',
     "Comma separated languages to purge, e.g. 'en,es,ja'. Blank/omitted = all languages.",
   )
-  .option('--surrogate-key <key>', 'Purge a single explicit surrogate key. e.g. api-search:en')
+  .option('--surrogate-key <key>', 'Purge a single explicit surrogate key. e.g. language:en')
   .option('--soft', 'Mark stale instead of the default hard purge, which evicts immediately')
   .option('--everything', 'Hard purge the ENTIRE cache: every key. Ignores --languages/--soft.')
   .parse(process.argv)

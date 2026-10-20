@@ -124,20 +124,23 @@ jobs:
             }
 
             const report = JSON.parse(fs.readFileSync(reportFile, 'utf8'))
-            const allRedirectGroups = report.groups.filter(g => g.isWarning)
+            // Raw redirect targets can carry the checked version's prefix; replacementTarget does not.
+            // Skip strings that could break out of the inline code spans, since directives must stay exact.
+            const isSafe = s => typeof s === 'string' && s.length > 0 && !/[`\r\n]/.test(s)
+            const allRedirectGroups = report.groups.filter(g =>
+              g.isWarning && g.fixStrategy === 'codemod' &&
+              isSafe(g.target) && isSafe(g.replacementTarget) && isSafe(g.occurrences[0]?.file))
             const redirectGroups = allRedirectGroups.slice(0, 10)
 
             if (redirectGroups.length === 0) {
-              core.info('No redirect groups found, skipping Copilot issue.')
+              core.info('No renamed redirects found, skipping Copilot issue.')
               return
             }
 
             const directives = redirectGroups.map(g => {
               const occ = g.occurrences[0]
-              const redirectTarget = occ?.redirectTarget ?? 'unknown'
-              const file = occ?.file ?? 'unknown'
-              const lines = (occ?.lines ?? []).join(', ') || 'unknown'
-              return `- Update \`${g.target}\` to \`${redirectTarget}\` in \`${file}\` (line(s): ${lines})`
+              const lines = (occ.lines ?? []).filter(Number.isInteger).join(', ') || 'unknown'
+              return `- Update \`${g.target}\` to \`${g.replacementTarget}\` in \`${occ.file}\` (line(s): ${lines})`
             }).join('\n')
 
             const artifactsUrl = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}/artifacts`

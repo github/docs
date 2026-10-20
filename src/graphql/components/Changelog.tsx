@@ -49,16 +49,18 @@ export function Changelog({ changelogItems, years, currentYear }: Props) {
         <HeadingLink as="h2" slug={slug}>
           {heading}
         </HeadingLink>
-        {(item.schemaChanges || []).map((change, changeIndex) => (
-          <React.Fragment key={changeIndex}>
-            <p>{change.title}</p>
-            <ul>
-              {change.changes.map((changeItem) => (
-                <RenderedHTML as="li" key={changeItem} html={changeItem} />
-              ))}
-            </ul>
-          </React.Fragment>
-        ))}
+        {(item.schemaChanges || [])
+          .filter((change) => change.changes.length > 0)
+          .map((change, changeIndex) => (
+            <React.Fragment key={changeIndex}>
+              <p>{change.title}</p>
+              <ul>
+                {change.changes.map((changeItem) => (
+                  <RenderedHTML as="li" key={changeItem} html={changeItem} />
+                ))}
+              </ul>
+            </React.Fragment>
+          ))}
         {(item.previewChanges || []).map((change, changeIndex) => (
           <React.Fragment key={changeIndex}>
             <p>{change.title}</p>

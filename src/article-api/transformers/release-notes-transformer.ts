@@ -50,8 +50,14 @@ const SECTION_LABELS: Record<string, string> = {
   retired: 'Retired',
 }
 
+// Match ghes-release-notes.ts: reusables render in English, AUTOTITLE links in the reader's language.
 async function renderNoteMarkdown(raw: string, context: Context): Promise<string> {
-  return await renderContent(raw, { ...context, markdownRequested: true })
+  return await renderContent(raw, {
+    ...context,
+    currentLanguage: 'en',
+    autotitleLanguage: context.currentLanguage,
+    markdownRequested: true,
+  })
 }
 
 // Format text as a list item at the given indent depth.

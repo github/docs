@@ -2,6 +2,10 @@ import { describe, expect, test } from 'vitest'
 
 import { getShellExample, getGHExample, getJSExample } from '../components/get-rest-code-samples'
 import type { CodeSample, Operation } from '../components/types'
+import {
+  getCurlBodyArguments,
+  needsExplicitContentTypeHeader,
+} from '@/rest/lib/curl-body-arguments'
 import type { VersionItem } from '@/frame/components/context/MainContext'
 
 const mockVersions: Record<string, VersionItem> = {
@@ -309,6 +313,80 @@ describe('REST code samples authentication header handling', () => {
       expect(result).not.toContain('-H "Authorization: Bearer <YOUR-TOKEN>"')
       expect(result).not.toContain("-d '")
       expect(result).toContain('curl -L')
+    })
+
+    test('sends text/plain bodies as raw text with a Content-Type header', () => {
+      const markdownRawOperation = {
+        ...standardOperation,
+        title: 'Render a Markdown document in raw mode',
+        requestPath: '/markdown/raw',
+        category: 'markdown',
+        subcategory: 'markdown',
+      }
+      const textPlainSample = {
+        ...mockCodeSample,
+        request: {
+          ...mockCodeSample.request,
+          contentType: 'text/plain',
+          bodyParameters: { text: 'Hello **world**' },
+        },
+      } as unknown as CodeSample
+
+      const result = getShellExample(
+        markdownRawOperation,
+        textPlainSample,
+        'free-pro-team@latest',
+        mockVersions,
+      )
+
+      expect(result).toContain('-H "Content-Type: text/plain"')
+      expect(result).toContain("--data-binary 'Hello **world**'")
+      expect(result).not.toContain("-d '{")
+    })
+
+    test('escapes single quotes in raw text/x-markdown bodies', () => {
+      const markdownRawOperation = {
+        ...standardOperation,
+        requestPath: '/markdown/raw',
+        category: 'markdown',
+        subcategory: 'markdown',
+      }
+      const markdownSample = {
+        ...mockCodeSample,
+        request: {
+          ...mockCodeSample.request,
+          contentType: 'text/x-markdown',
+          bodyParameters: "It's **bold**",
+        },
+      } as unknown as CodeSample
+
+      const result = getShellExample(
+        markdownRawOperation,
+        markdownSample,
+        'free-pro-team@latest',
+        mockVersions,
+      )
+
+      expect(result).toContain('-H "Content-Type: text/x-markdown"')
+      expect(result).toContain("--data-binary 'It'\\''s **bold**'")
+      expect(result).not.toContain("-d '")
+    })
+
+    test('article API curl helpers treat text bodies the same way', () => {
+      expect(needsExplicitContentTypeHeader('text/plain')).toBe(true)
+      expect(needsExplicitContentTypeHeader('text/x-markdown')).toBe(true)
+      expect(
+        getCurlBodyArguments({ text: 'Hello **world**' }, 'text/x-markdown', { jsonIndent: 2 }),
+      ).toEqual(["--data-binary 'Hello **world**'"])
+    })
+
+    test('uses --data-raw for text bodies that start with @ so curl does not read a file', () => {
+      expect(getCurlBodyArguments({ text: '@octocat' }, 'text/plain')).toEqual([
+        "--data-raw '@octocat'",
+      ])
+      expect(getCurlBodyArguments('Hi @octocat', 'text/plain')).toEqual([
+        "--data-binary 'Hi @octocat'",
+      ])
     })
   })
 

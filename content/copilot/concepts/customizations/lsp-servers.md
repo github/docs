@@ -5,6 +5,8 @@ allowTitleToDifferFromFilename: true
 intro: 'LSP servers give {% data variables.copilot.copilot_cli_short %} precise code intelligence, enabling it to navigate definitions, find references, and rename symbols accurately across your project.'
 versions:
   feature: copilot
+redirect_from:
+  - /copilot/concepts/agents/copilot-cli/lsp-servers
 contentType: concepts
 docsTeamMetrics:
   - copilot-cli
@@ -23,7 +25,7 @@ The Language Server Protocol (LSP) is an open standard used for communication be
 
 * **Accuracy**: Results come from the language's own compiler/analyzer, providing an understanding of the structure of your code. This improves {% data variables.product.prodname_copilot_short %}'s precision when it works with your code. For example, when {% data variables.product.prodname_copilot_short %} can use "go to definition" it will find the actual definition, not a text match that looks similar.
 * **Token efficiency**: Operations like "list all symbols" or "find references" return compact structured results instead of requiring the agent to read entire files into the conversation.
-* **Safe refactoring**: When you rename a symbol, the LSP server reliably updates every reference across the project.
+* **Refactoring**: The language server can find and update references when renaming a symbol, rather than relying on text replacement.
 * **Speed**: Language servers index your project in the background, allowing near-instant responses.
 
 ## What LSP servers allow {% data variables.copilot.copilot_cli_short %} to do
@@ -50,7 +52,7 @@ The following language server operations are supported:
 
 For {% data variables.copilot.copilot_cli_short %} to be able to use an LSP server, you must first install the server software on your local machine and then configure it in one of the configuration files that {% data variables.copilot.copilot_cli_short %} reads on startup. See [AUTOTITLE](/copilot/how-tos/copilot-cli/set-up-copilot-cli/add-lsp-servers).
 
-An LSP server may also be added as part of a CLI plugin that you choose to install. A plugin might include an LSP server if, for example, it's designed to work with an uncommon programming language or a framework-specific file type. LSP servers included as part of a plugin are automatically available when you install the plugin—no additional configuration is needed. If you uninstall the plugin, the LSP server is removed. For more information, see [AUTOTITLE](/copilot/concepts/agents/about-plugins).
+An LSP server may also be added as part of a {% data variables.copilot.copilot_cli_short %} plugin that you choose to install. A plugin might include an LSP server if, for example, it's designed to work with an uncommon programming language or a framework-specific file type. LSP servers included as part of a plugin are automatically available when you install the plugin—no additional configuration is needed. If you uninstall the plugin, the LSP server is removed. For more information, see [AUTOTITLE](/copilot/concepts/customizations/plugins).
 
 ## How LSP servers are loaded
 

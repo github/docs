@@ -9,15 +9,17 @@ on:
     - cron: '20 16 * * 1'
   pull_request:
     paths:
-      - .github/workflows/orphaned-assets-check.yml
       - .github/workflows/orphaned-files-check.yml
       # Dependency changes can break the orphaned-files scripts.
       - 'package*.json'
       - src/assets/scripts/find-orphaned-assets.ts
-      - src/content-render/scripts/reusables-cli/find/unused.ts
+      - src/content-render/scripts/reusables-cli.ts
+      - 'src/content-render/scripts/reusables-cli/**'
+      - src/content-linter/lib/helpers/liquid-utils.ts
       - src/data-directory/scripts/find-orphaned-tables.ts
       - src/workflows/walk-files.ts
       - src/languages/lib/languages.ts
+      - src/languages/lib/languages-server.ts
       - .github/actions/clone-translations/action.yml
       - .github/actions/node-npm-setup/action.yml
 
@@ -53,7 +55,9 @@ jobs:
 
           # The -s flag keeps npm script-alias noise out of the file lists.
           assetFilesToRemove=$(npm run -s find-orphaned-assets)
-          reusableFilesToRemove=$(npm run -s reusables -- find unused | grep '^data/reusables' || true)
+          # Keep the CLI out of the pipeline so set -e catches its failures; grep may match nothing.
+          reusablesOutput=$(npm run -s reusables -- find unused)
+          reusableFilesToRemove=$(printf '%s\n' "$reusablesOutput" | grep '^data/reusables' || true)
           tableFilesToRemove=$(npm run -s find-orphaned-tables)
           [ -z "$assetFilesToRemove" ] && [ -z "$reusableFilesToRemove" ] && [ -z "$tableFilesToRemove" ] && exit 0
 

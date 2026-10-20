@@ -18,6 +18,10 @@ const pages = Object.fromEntries(
     `/en/${GHEC}/actions/ghec-only`,
     '/ja/actions/versioned',
     `/ja/${GHEC}/actions/versioned`,
+    '/en',
+    `/en/${GHEC}`,
+    '/ja',
+    `/ja/${GHEC}`,
   ].map((permalink) => [permalink, {}]),
 )
 
@@ -120,6 +124,27 @@ describe('getVersionPreference', () => {
     expect(
       getVersionPreference('/en/actions/versioned.md', '/en/actions/versioned.md', GHEC, pages),
     ).toEqual({ vary: true, redirectTo: `/en/${GHEC}/actions/versioned.md` })
+  })
+
+  test('redirects a language homepage to the preferred version', () => {
+    expect(getVersionPreference('/en', '/en', GHEC, pages)).toEqual({
+      vary: true,
+      redirectTo: `/en/${GHEC}`,
+    })
+    expect(getVersionPreference('/ja', '/ja', GHEC, pages)).toEqual({
+      vary: true,
+      redirectTo: `/ja/${GHEC}`,
+    })
+  })
+
+  test('varies a language homepage without a cookie', () => {
+    expect(getVersionPreference('/en', '/en', undefined, pages)).toEqual({ vary: true })
+  })
+
+  test('leaves an explicit free-pro-team homepage alone', () => {
+    expect(getVersionPreference('/en/free-pro-team@latest', '/en', GHEC, pages)).toEqual({
+      vary: false,
+    })
   })
 
   test('ignores external redirects', () => {

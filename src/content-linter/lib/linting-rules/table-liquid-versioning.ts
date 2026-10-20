@@ -4,7 +4,7 @@ import type { RuleParams, RuleErrorCallback, Rule } from '@/content-linter/types
 
 const delimiterRegexPure = /(\s)*(:)?(-+)(:)?(\s)*(\|)/
 const delimiterRegex = /(\s)*(:)?(-+)(:)?(\s)*(\|).*({%.*(ifversion|else|endif).*%})/
-const liquidRegex = /^{%-?\s*(ifversion|else|endif).*-?%}/
+const liquidRegex = /^\s*{%-?\s*(ifversion|else|endif).*-?%}/
 const liquidAfterRowRegex = /(\|{1}).*(\|{1}).*{%\s*(ifversion|else|endif).*%}$/
 
 export const tableLiquidVersioning: Rule = {

@@ -15,7 +15,23 @@ export const MAX_UNFAMILIAR_KEYS_REDIRECT = 3
 
 const RECOGNIZED_KEYS_BY_PREFIX = {
   '/_next/data/': ['versionId', 'productId', 'restPage', 'apiVersion', 'category', 'subcategory'],
-  '/api/search': ['query', 'language', 'version', 'page', 'product', 'autocomplete', 'limit'],
+  // Match the general search params in src/search/lib/search-request-params/search-params-objects.ts.
+  '/api/search': [
+    'query',
+    'language',
+    'version',
+    'page',
+    'product',
+    'autocomplete',
+    'limit',
+    'size',
+    'sort',
+    'highlights',
+    'debug',
+    'include',
+    'toplevel',
+    'aggregate',
+  ],
   '/api/combined-search': ['query', 'version', 'size', 'debug'],
   '/api/anchor-redirect': ['hash', 'path'],
   '/api/webhooks': ['category', 'version'],

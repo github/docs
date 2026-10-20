@@ -36,9 +36,81 @@ describe(liquidIfversionVersions.names.join(' - '), () => {
       strings: { markdown },
     })
     const errors = result.markdown
-    expect(errors.length).toBe(5)
+    // The elsif covers all versions, but the earlier fpt branch still renders for fpt.
+    expect(errors.length).toBe(2)
     expect(errors.every((error) => error.ruleNames[0] === 'GHD022'))
   })
+
+  const placeholderGhesOnlyFm = ['---', 'title: "Hello"', 'versions:', '  ghes: "*"', '---']
+
+  test('elsif covering all page versions keeps a live earlier branch', async () => {
+    const markdown = [
+      ...placeholderGhesOnlyFm,
+      `{% ifversion ghes = ${supported[1]} %}A{% elsif ghes %}B{% endif %}`,
+    ].join('\n')
+
+    const result = await runRule(liquidIfversionVersions, {
+      strings: { markdown },
+    })
+    expect(result.markdown.length).toBe(0)
+  })
+
+  test('nested elsif covering all parent versions keeps a live earlier branch', async () => {
+    const markdown = [
+      ...placeholderAllVersionsFm,
+      `{% ifversion ghes %}{% ifversion ghes < ${supported[0]} %}old{% elsif ghes %}new{% endif %}{% endif %}`,
+    ].join('\n')
+
+    const result = await runRule(liquidIfversionVersions, {
+      strings: { markdown },
+    })
+    expect(result.markdown.length).toBe(0)
+  })
+
+  test('elsif feature covering all versions keeps a live earlier branch', async () => {
+    // features/them-and-all.yml covers all versions.
+    const markdown = [
+      ...placeholderAllVersionsFm,
+      '{% ifversion fpt %}A{% elsif them-and-all %}B{% endif %}',
+    ].join('\n')
+
+    const result = await runRule(liquidIfversionVersions, {
+      strings: { markdown },
+    })
+    expect(result.markdown.length).toBe(0)
+  })
+
+  test('elsif feature with a retired ghes range and plain ghes keeps both branches', async () => {
+    // features/cloud-and-retired-ghes.yml contains fpt: "*", ghec: "*", and ghes: "<3.0".
+    const markdown = [
+      ...placeholderAllVersionsFm,
+      '{% ifversion fpt %}A{% elsif cloud-and-retired-ghes or ghes %}B{% endif %}',
+    ].join('\n')
+
+    const result = await runRule(liquidIfversionVersions, {
+      strings: { markdown },
+    })
+    expect(result.markdown.length).toBe(0)
+  })
+
+  test.each([`ghes < ${supported.at(-1)}`, 'fpt'])(
+    'elsif covering all page versions collapses after a dead ifversion %s',
+    async (cond) => {
+      const markdown = [
+        ...placeholderGhesOnlyFm,
+        `{% ifversion ${cond} %}x{% elsif ghes %}y{% endif %}`,
+      ].join('\n')
+
+      const result = await runRule(liquidIfversionVersions, {
+        strings: { markdown },
+      })
+      const errors = result.markdown
+      expect(errors.length).toBe(3)
+      expect(
+        errors.filter((error) => error.errorDetail?.includes('applies to all versions')).length,
+      ).toBe(1)
+    },
+  )
 
   test('ifversion naming all possible shortnames in front matter', async () => {
     const markdown = [
@@ -382,6 +454,55 @@ describe(liquidIfversionVersions.names.join(' - '), () => {
     expect(errors.length).toBe(0)
   })
 
+  test('does not crash with else and elsif inside unless blocks', async () => {
+    const markdown = [
+      ...placeholderAllVersionsFm,
+      '{% unless "foo" %}A{% else %}B{% endunless %}',
+      '{% unless "foo" %}A{% elsif "bar" %}B{% else %}C{% endunless %}',
+    ].join('\n')
+
+    const result = await runRule(liquidIfversionVersions, {
+      strings: { markdown },
+    })
+    const errors = result.markdown
+    expect(errors.length).toBe(0)
+  })
+
+  test('ignores for and unless else tags inside an ifversion chain', async () => {
+    const markdown = [
+      ...placeholderAllVersionsFm,
+      '{% ifversion ghes or ghec or fpt %}',
+      '{% for i in list %}{{ i }}{% else %}none{% endfor %}',
+      '{% unless "foo" %}A{% else %}B{% endunless %}',
+      '{% endif %}',
+    ].join('\n')
+
+    const result = await runRule(liquidIfversionVersions, {
+      strings: { markdown },
+    })
+    const errors = result.markdown
+    expect(errors.map((error) => error.lineNumber)).toEqual([8, 11])
+    expect(errors.some((error) => error.errorDetail?.includes('`else`'))).toBe(false)
+  })
+
+  test('checks ifversion chains nested inside for and unless blocks', async () => {
+    const markdown = [
+      ...placeholderAllVersionsFm,
+      '{% for i in list %}',
+      '{% unless "foo" %}',
+      '{% ifversion ghes or ghec or fpt %}a{% else %}b{% endif %}',
+      '{% else %}none{% endunless %}',
+      '{% else %}none{% endfor %}',
+    ].join('\n')
+
+    const result = await runRule(liquidIfversionVersions, {
+      strings: { markdown },
+    })
+    const errors = result.markdown
+    expect(errors.length).toBe(3)
+    expect(errors.every((error) => error.lineNumber === 10)).toBe(true)
+  })
+
   describe('keeps GHES ranges when removing products not in frontmatter', () => {
     const oldest = supported.at(-1)
     const newest = supported[0]
@@ -458,6 +579,60 @@ describe(liquidIfversionVersions.names.join(' - '), () => {
         expect(fixed.markdown.length).toBe(0)
       })
     }
+  })
+
+  describe('deletes conditions naming only products missing from frontmatter', () => {
+    const toMarkdown = (fm: string[], body: string) =>
+      [
+        '---',
+        'title: "Hello"',
+        'versions:',
+        ...fm.map((product) => `  ${product}: "*"`),
+        '---',
+        body,
+      ].join('\n')
+
+    test.each([
+      { fm: ['ghec', 'ghes'], cond: 'fpt' },
+      { fm: ['fpt', 'ghec'], cond: 'ghes' },
+      { fm: ['fpt', 'ghec'], cond: `ghes > ${supported.at(-1)}` },
+      { fm: ['ghes'], cond: 'fpt or ghec' },
+    ])('ifversion $cond with frontmatter $fm', async ({ fm, cond }) => {
+      const result = await runRule(liquidIfversionVersions, {
+        strings: { markdown: toMarkdown(fm, `{% ifversion ${cond} %}x{% endif %}`) },
+      })
+      const errors = result.markdown
+      expect(errors.length).toBe(2)
+      for (const error of errors) {
+        expect(error.errorDetail).toContain('applies to no versions')
+        expect(error.fixInfo?.insertText).toBe('')
+      }
+    })
+
+    test('elsif naming only a missing product', async () => {
+      const result = await runRule(liquidIfversionVersions, {
+        strings: {
+          markdown: toMarkdown(['ghes'], '{% ifversion ghes < 3.0 %}a{% elsif fpt %}b{% endif %}'),
+        },
+      })
+      const errors = result.markdown
+      expect(errors.length).toBe(3)
+      for (const error of errors) {
+        expect(error.errorDetail).toContain('applies to no versions')
+      }
+    })
+
+    test('keeps conditions on products listed by full plan name', async () => {
+      const result = await runRule(liquidIfversionVersions, {
+        strings: {
+          markdown: toMarkdown(
+            ['free-pro-team', 'enterprise-cloud'],
+            '{% ifversion fpt %}x{% endif %}',
+          ),
+        },
+      })
+      expect(result.markdown.length).toBe(0)
+    })
   })
 
   test('simplified GHES range has no extra space', async () => {

@@ -76,14 +76,22 @@ export async function getGeneralSearchResults(
   }
 
   const toplevelArray = toplevel || []
+  // post_filter runs after aggregations, so facet counts stay unfiltered while hits are
+  // filtered. Without aggregations, keep the filter in the query where it can be cached.
+  let postFilter: estypes.QueryDslQueryContainer | undefined
   if (toplevelArray.length) {
-    const filters = Array.isArray(matchBool.filter) ? matchBool.filter : []
-    filters.push({
+    const toplevelFilter: estypes.QueryDslQueryContainer = {
       terms: {
         toplevel: toplevelArray,
       },
-    })
-    matchBool.filter = filters
+    }
+    if (aggregate && aggregate.length) {
+      postFilter = toplevelFilter
+    } else {
+      const filters = Array.isArray(matchBool.filter) ? matchBool.filter : []
+      filters.push(toplevelFilter)
+      matchBool.filter = filters
+    }
   }
 
   const highlightFields = Array.from(highlights || DEFAULT_HIGHLIGHT_FIELDS)
@@ -109,6 +117,10 @@ export async function getGeneralSearchResults(
     if (include.includes(key) && Array.isArray(searchQuery._source_includes)) {
       searchQuery._source_includes?.push(key)
     }
+  }
+
+  if (postFilter) {
+    searchQuery.post_filter = postFilter
   }
 
   if (sort === 'best') {

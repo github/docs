@@ -212,6 +212,117 @@ And [another real link](https://real.example.com/page).
     expect(result.externalLinks[1].href).toBe('https://real.example.com/page')
   })
 
+  test('closes a list-nested fence whose closer is indented more than the opener', () => {
+    const content = `
+1. Run this:
+
+   \`\`\`shell
+   [hidden](#in-code)
+    \`\`\`
+
+See [CPU above 70%](#cpu-above-70).
+
+\`\`\`shell
+echo done
+\`\`\`
+`
+    const result = extractLinksFromMarkdown(content)
+
+    expect(result.anchorLinks).toHaveLength(1)
+    expect(result.anchorLinks[0].href).toBe('#cpu-above-70')
+    expect(result.anchorLinks[0].line).toBe(8)
+  })
+
+  test('closes a list-nested fence whose closer is indented less than the opener', () => {
+    const content = `
+1. Add this:
+
+    \`\`\`json
+    {}
+   \`\`\`
+
+   ![Screenshot](/assets/images/example.png)
+
+\`\`\`shell
+echo done
+\`\`\`
+`
+    const result = extractLinksFromMarkdown(content)
+
+    expect(result.imageLinks).toHaveLength(1)
+    expect(result.imageLinks[0].href).toBe('/assets/images/example.png')
+    expect(result.imageLinks[0].line).toBe(8)
+  })
+
+  test('treats a 4-space backtick line outside a list as indented code, not a fence', () => {
+    const content = `
+Example:
+
+    \`\`\`
+
+[real](/real/path)
+
+\`\`\`shell
+echo done
+\`\`\`
+`
+    const result = extractLinksFromMarkdown(content)
+
+    expect(result.internalLinks).toHaveLength(1)
+    expect(result.internalLinks[0].href).toBe('/real/path')
+  })
+
+  test('does not close a top-level fence with a 4-space backtick line', () => {
+    const content = `
+   \`\`\`shell
+   [placeholder](/placeholder/one)
+    \`\`\`
+   [placeholder](/placeholder/two)
+   \`\`\`
+
+See [real](/real/path).
+
+\`\`\`shell
+echo done
+\`\`\`
+`
+    const result = extractLinksFromMarkdown(content)
+
+    expect(result.internalLinks).toHaveLength(1)
+    expect(result.internalLinks[0].href).toBe('/real/path')
+  })
+
+  test('ends a list-nested fence when the list item ends', () => {
+    const content = `
+1. Run this:
+
+   \`\`\`shell
+   [placeholder](/placeholder/path)
+See [real](/real/path).
+`
+    const result = extractLinksFromMarkdown(content)
+
+    expect(result.internalLinks).toHaveLength(1)
+    expect(result.internalLinks[0].href).toBe('/real/path')
+    expect(result.internalLinks[0].line).toBe(6)
+  })
+
+  test('keeps inner fence lines masked inside a longer outer fence', () => {
+    const content = `
+\`\`\`\`markdown
+\`\`\`
+[example](/fake/path)
+\`\`\`
+\`\`\`\`
+
+[real](/real/path)
+`
+    const result = extractLinksFromMarkdown(content)
+
+    expect(result.internalLinks).toHaveLength(1)
+    expect(result.internalLinks[0].href).toBe('/real/path')
+  })
+
   test('skips links inside inline code spans', () => {
     const content = `
 See [a real link](/real/path) for details.

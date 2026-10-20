@@ -42,6 +42,8 @@ jobs:
 
       - name: Update comment
         if: ${{ steps.comment.outputs.markdown != '' }}
+        # Fork PRs get a read-only token, so posting fails there. The next step still shows the instructions.
+        continue-on-error: true
         uses: peter-evans/create-or-update-comment@e8674b075228eee787fea43ef493e45ece1004c9
         with:
           comment-id: ${{ steps.findComment.outputs.comment-id }}
@@ -51,7 +53,11 @@ jobs:
 
       - name: Ultimately fail the workflow for attention
         if: ${{ steps.comment.outputs.markdown != '' }}
+        env:
+          MARKDOWN: ${{ steps.comment.outputs.markdown }}
         run: |
           echo "This PR deletes or renames one or more feature files."
-          echo "See the PR comment for how to get them back."
+          echo "See the PR comment or this job's summary for how to get them back."
+          echo "$MARKDOWN" >> "$GITHUB_STEP_SUMMARY"
+          echo "$MARKDOWN"
           exit 1

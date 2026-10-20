@@ -55,7 +55,7 @@ If you have a question about the CodeQL CLI pipeline, you can ask in the `#techn
 |------------|---------|--------------|-------|
 | **Pandoc** | Convert ReStructuredText to Markdown | `brew install pandoc` (macOS) | Version 2.x+ required |
 | **semmle-code repo** | Source ReStructuredText files | Clone at root of docs-internal | Private GitHub repo |
-| **Node.js** | Run sync script | Already in project | Version specified in `.nvmrc` |
+| **Node.js** | Run sync script | Already in project | Version specified in `engines.node` in `package.json` |
 
 ### Source data location
 - **Repository**: `github/semmle-code` (private)

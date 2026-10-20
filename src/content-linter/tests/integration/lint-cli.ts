@@ -118,4 +118,34 @@ TODOCS This file has multiple error types.
       expect(output).not.toContain('todocs-placeholder')
     })
   })
+
+  describe('Option validation', () => {
+    test('should exit 1 when --rules has an unknown rule name', async () => {
+      const testFile = path.join(testContentDir, 'invalid-rule-test.md')
+      const testContent = `---
+title: Invalid Rule Test
+intro: Testing an unknown rule name
+versions:
+  feature: test
+---
+
+Content.
+`
+
+      await fs.writeFile(testFile, testContent)
+
+      const { output, exitCode } = await runLinter(`--paths "${testFile}" --rules not-a-real-rule`)
+
+      expect(exitCode).toBe(1)
+      expect(output).toContain('invalid --rules')
+    })
+
+    test('should exit 0 when none of the --paths exist', async () => {
+      const missingFile = path.join(testContentDir, 'does-not-exist.md')
+
+      const { exitCode } = await runLinter(`--paths "${missingFile}"`)
+
+      expect(exitCode).toBe(0)
+    })
+  })
 })

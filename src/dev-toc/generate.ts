@@ -104,8 +104,14 @@ async function main(): Promise<void> {
 
   const fptFile = path.posix.join(staticDirName, fpt, 'index.html')
 
-  execSync(`open ${fptFile}`)
-
   console.log(`\nCreated the TOC! If it doesn't open automatically, open the following file in your browser to view it:\n
 ${fptFile}`)
+
+  const opener =
+    process.platform === 'darwin' ? 'open' : process.platform === 'win32' ? 'start ""' : 'xdg-open'
+  try {
+    execSync(`${opener} "${fptFile}"`, { stdio: 'ignore' })
+  } catch {
+    // Containers and headless machines often have no opener, and the path is already printed above.
+  }
 }

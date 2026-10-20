@@ -68,11 +68,14 @@ export async function syncWebhookData(
             const slimAction = {
               ...actionData,
               bodyParameters: actionData.bodyParameters?.map((param) => {
-                if (param.childParamsGroups && param.childParamsGroups.length > 0 && param.name) {
-                  actionChildParams[param.name] = param.childParamsGroups
+                const { childParamsGroups, ...rest } = param
+                // An empty array tells the page that children can lazy-load from the sidecar.
+                if (childParamsGroups && childParamsGroups.length > 0 && param.name) {
+                  actionChildParams[param.name] = childParamsGroups
                   hasChildParams = true
+                  return { ...rest, childParamsGroups: [] }
                 }
-                return { ...param, childParamsGroups: [] }
+                return rest
               }),
             }
 

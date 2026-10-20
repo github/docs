@@ -6,6 +6,7 @@ import { frontmatterHiddenDocs } from '../../lib/linting-rules/frontmatter-hidde
 const ACTIONS_FIXTURE = 'src/content-linter/tests/fixtures/actions/hidden.md'
 const EARLY_ACCESS_FIXTURE = 'src/fixtures/fixtures/content/early-access/secrets/early-days.md'
 const EXPERIMENTAL_FIXTURE = 'src/content-linter/tests/fixtures/actions/experimental.md'
+const HIDDEN_MARKDOWN = '---\ntitle: Foo\nhidden: true\n---\n'
 const fmOptions = { markdownlintOptions: { frontMatter: null } }
 
 describe(frontmatterHiddenDocs.names.join(' - '), () => {
@@ -29,5 +30,21 @@ describe(frontmatterHiddenDocs.names.join(' - '), () => {
     })
     const errors = result[EARLY_ACCESS_FIXTURE]
     expect(errors.length).toBe(0)
+  })
+  test('hidden file in search-github directory fails', async () => {
+    const name = 'content/search-github/foo.md'
+    const result = await runRule(frontmatterHiddenDocs, {
+      strings: { [name]: HIDDEN_MARKDOWN },
+      ...fmOptions,
+    })
+    expect(result[name].length).toBe(1)
+  })
+  test('hidden file in search directory passes', async () => {
+    const name = 'content/search/index.md'
+    const result = await runRule(frontmatterHiddenDocs, {
+      strings: { [name]: HIDDEN_MARKDOWN },
+      ...fmOptions,
+    })
+    expect(result[name].length).toBe(0)
   })
 })

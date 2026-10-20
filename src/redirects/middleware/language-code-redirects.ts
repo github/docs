@@ -19,7 +19,7 @@ const allRedirectPatterns = Object.values(languages)
   )
   .flat() as [string, RegExp][] // flat() loses tuple type inference.
 
-// Redirect mistyped language codes, for example /jp* -> /ja* and /zh-TW* -> /zh*.
+// Redirect mistyped language codes, for example /jp* -> /ja* and /zh-TW* or /zh-Hans* -> /zh*.
 export default function languageCodeRedirects(
   req: ExtendedRequest,
   res: Response,

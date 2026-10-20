@@ -52,7 +52,8 @@ const graphqlTypes: GraphQLTypeInfo[] = JSON.parse(
   await fs.readFile(path.join(process.cwd(), './src/graphql/lib/types.json'), 'utf-8'),
 )
 
-const singleQuotesInsteadOfBackticks = / '(\S+?)' /
+// Lookarounds keep the surrounding spaces out of the match so the replacement does not drop them.
+const singleQuotesInsteadOfBackticks = /(?<= )'(\S+?)'(?= )/g
 
 // Upstream schema descriptions include ${externalDocsUrl}, but this pipeline never expands it.
 // It ships as href="$%7BexternalDocsUrl%7D/code-security/..." and resolves against the

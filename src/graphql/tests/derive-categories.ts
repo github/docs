@@ -1,6 +1,7 @@
 import { describe, expect, test } from 'vitest'
 
 import processSchemas from '../scripts/utils/process-schemas'
+import { bucketSchemaByCategory } from '@/graphql/scripts/utils/bucket-by-category'
 
 // Minimal @docsCategory lets buildASTSchema parse fixtures and mirrors github/github output.
 const DIRECTIVE = `
@@ -143,5 +144,17 @@ describe('reference-based category derivation (PASS 1.5 rule c)', () => {
       enum MutationArgEnum { A B }
     `)
     expect(cats.MutationArgEnum).toBe('repos')
+  })
+})
+
+describe('built-in scalar hrefs', () => {
+  test('stay stable across repeated processSchemas and bucketing runs', async () => {
+    // sync.ts processes every version in one process, and bucketing rewrites hrefs in place.
+    for (let pass = 0; pass < 3; pass++) {
+      const data = await processSchemas(QUERY, [])
+      bucketSchemaByCategory(data)
+      const boolean = data.scalars.find((s) => s.name === 'Boolean')
+      expect(boolean?.href).toBe('/graphql/reference/other#scalar-boolean')
+    }
   })
 })

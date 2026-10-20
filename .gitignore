@@ -23,6 +23,7 @@
 
 # Node.js version specification
 .node-version
+.nvmrc
 
 # getRemoteJSON() disk cache for archived content
 .remotejson-cache/

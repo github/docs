@@ -39,7 +39,6 @@ export const DefaultLayout = (props: Props) => {
   const {
     error,
     isHomepageVersion,
-    currentPathWithoutLanguage,
     currentVersion,
     currentProduct,
     relativePath,
@@ -136,8 +135,7 @@ export const DefaultLayout = (props: Props) => {
       <Head>
         {error === '404' ? (
           <title>{t('oops')}</title>
-        ) : (!isHomepageVersion && page.fullTitle) ||
-          (currentPathWithoutLanguage.includes('enterprise-server') && page.fullTitle) ? (
+        ) : page.fullTitle && !(isHomepageVersion && currentVersion === 'free-pro-team@latest') ? (
           <title>{page.fullTitle}</title>
         ) : null}
 

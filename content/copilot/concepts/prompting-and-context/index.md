@@ -7,6 +7,7 @@ versions:
   feature: copilot
 redirect_from:
   - /copilot/concepts/prompting
+  - /copilot/concepts/context
 children:
   - /prompt-engineering
   - /context-management

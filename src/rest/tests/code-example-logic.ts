@@ -3,6 +3,7 @@ import {
   shouldShowRequestContentType,
   shouldShowResponseContentType,
   generateExampleOptionTexts,
+  toGhesApiUrls,
   type CodeExample,
 } from '@/rest/lib/code-example-utils'
 
@@ -145,5 +146,24 @@ describe('Request Content Type Logic', () => {
 
     const options = generateExampleOptionTexts(singleExample)
     expect(options).toEqual(['Only example'])
+  })
+})
+
+describe('GHES API URLs', () => {
+  test('rewrites api.github.com URLs to HOSTNAME/api/v3', () => {
+    const json = JSON.stringify({
+      url: 'https://api.github.com/repos/octocat/Hello-World',
+      hooks_url: 'https://api.github.com/repos/octocat/Hello-World/hooks',
+      archive_url: 'http://api.github.com/repos/octocat/Hello-World/{archive_format}',
+    })
+
+    const result = toGhesApiUrls(json)
+
+    expect(JSON.parse(result)).toEqual({
+      url: 'https://HOSTNAME/api/v3/repos/octocat/Hello-World',
+      hooks_url: 'https://HOSTNAME/api/v3/repos/octocat/Hello-World/hooks',
+      archive_url: 'http://HOSTNAME/api/v3/repos/octocat/Hello-World/{archive_format}',
+    })
+    expect(result).not.toContain('://HOSTNAME/repos')
   })
 })

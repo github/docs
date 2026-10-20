@@ -23,7 +23,9 @@ updates:
           ['version-update:semver-patch', 'version-update:semver-minor']
 
   - package-ecosystem: 'github-actions'
-    directory: '/'
+    directories:
+      - '/'
+      - '/.github/actions/*'
     schedule:
       interval: weekly
       day: tuesday

@@ -1,7 +1,7 @@
 ---
-title: About hooks for {% data variables.product.prodname_copilot %}
+title: Hooks for {% data variables.product.prodname_copilot %}
 shortTitle: Hooks
-intro: 'Extend and customize {% data variables.product.prodname_copilot %} agent behavior by executing custom shell commands at key points during agent execution.'
+intro: 'Run your own checks, logging, or other commands at defined points while a {% data variables.product.prodname_copilot_short %} agent works.'
 versions:
   feature: copilot
 contentType: concepts
@@ -11,6 +11,7 @@ redirect_from:
   - /copilot/concepts/agents/coding-agent/about-hooks
   - /copilot/concepts/agents/cloud-agent/about-hooks
   - /copilot/concepts/agents/about-hooks
+  - /copilot/concepts/agents/hooks
 ---
 
 ## What are hooks?
@@ -23,16 +24,24 @@ Hooks receive detailed information about agent actions via JSON input, enabling 
 * Use built-in security features like secret scanning to prevent credential leaks.
 * Implement custom validation rules and audit logging for compliance.
 
-Hooks are available for use with:
+Unlike custom instructions, hooks run code rather than asking the model to follow a rule. For example, a hook can run a script that checks a tool request before it executes.
 
-* **{% data variables.copilot.copilot_cloud_agent %}** on {% data variables.product.github %}.
-* **{% data variables.copilot.copilot_cli %}** in your terminal.
+## Where you can use hooks
 
-You define hooks in JSON files, stored in your repository at `.github/hooks/*.json`. These apply whenever {% data variables.product.prodname_copilot_short %} agents are used in the repository. {% data variables.copilot.copilot_cli_short %} also supports personal hooks that you store in your home directory at `~/.copilot/hooks/*.json`. These apply whenever you use {% data variables.copilot.copilot_cli_short %}.
+Hooks are available in:
+
+* **The {% data variables.copilot.github_copilot_app %}**, which supports repository hooks and hooks supplied by plugins. See [AUTOTITLE](/copilot/how-tos/github-copilot-app/customize-github-copilot-app).
+* **{% data variables.copilot.copilot_cli %}**, where commands run in its execution environment.
+* **{% data variables.copilot.copilot_cloud_agent %}**, where commands run in the agent's cloud environment. Only a subset of events is supported.
+* **{% data variables.product.prodname_vscode %}**, where the hooks experience is in {% data variables.release-phases.public_preview %}. Supported events and configuration depend on the agent running the session. See [Agent hooks in {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/agent-customization/hooks).
+
+The configuration and examples below describe hooks for {% data variables.copilot.copilot_cli_short %} and {% data variables.copilot.copilot_cloud_agent %}. Do not assume that the same events, input, or output work unchanged across surfaces.
+
+For {% data variables.copilot.copilot_cli_short %} and {% data variables.copilot.copilot_cloud_agent %}, you can define repository hooks in `.github/hooks/*.json`. {% data variables.copilot.copilot_cli_short %} also supports personal hooks in `~/.copilot/hooks/*.json`. For execution environments, additional locations, and event support, see [AUTOTITLE](/copilot/reference/hooks-reference).
 
 ## Types of hooks
 
-The following types of hooks are available:
+These are examples of {% data variables.copilot.copilot_cli_short %} hook events. {% data variables.copilot.copilot_cloud_agent %} supports a subset:
 
 * **sessionStart**: Executed when a new agent session begins or when resuming an existing session. Can be used to initialize environments, log session starts for auditing, validate project state, and set up temporary resources.
 * **sessionEnd**: Executed when the agent session completes or is terminated. Can be used to cleanup temporary resources, generate and archive session reports and logs, or send notifications about session completion.
@@ -43,7 +52,7 @@ The following types of hooks are available:
 * **subagentStop**: Executed when a subagent completes, before returning results to the parent agent.
 * **errorOccurred**: Executed when an error occurs during agent execution. Can be used to log errors for debugging, send notifications, track error patterns, and generate reports.
 
-To see a complete reference of hook types with example use cases, best practices, and advanced patterns, see [AUTOTITLE](/copilot/reference/hooks-reference).
+The hooks reference lists the full set of events and their availability in {% data variables.copilot.copilot_cloud_agent %}.
 
 ## Hook configuration format
 
@@ -80,7 +89,7 @@ The hook object can contain the following keys:
 
 ## Example hook configuration file
 
-This is an example configuration file that lives in `~/.github/hooks/project-hooks.json` within a repository.
+This is an example configuration file that lives in `.github/hooks/project-hooks.json` within a repository.
 
 ```json copy
 {

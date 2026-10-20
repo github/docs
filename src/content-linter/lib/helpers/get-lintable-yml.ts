@@ -29,12 +29,19 @@ ajv.addKeyword({
   errors: false,
 })
 
+// Directory keys match only at a path separator.
+// A raw prefix check sends matrix-meta.yml to the data/tables/copilot/matrix schema.
+export function findDataSchemaKey(
+  dataFilePath: string,
+  keys: string[] = lintableData,
+): string | undefined {
+  return keys.find((ref) => dataFilePath === ref || dataFilePath.startsWith(`${ref}/`))
+}
+
 // The content linter validates lintable data values with multiple rules, so this extracts
 // each value with its schema path instead of validating it inside AJV.
 export async function getLintableYml(dataFilePath: string): Promise<Record<string, string> | null> {
-  const matchingDataPath = lintableData.find(
-    (ref) => dataFilePath === ref || dataFilePath.startsWith(ref),
-  )
+  const matchingDataPath = findDataSchemaKey(dataFilePath)
   if (!matchingDataPath) return null
 
   const schemaFilePath = dataSchemas[matchingDataPath]

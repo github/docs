@@ -4,6 +4,7 @@ intro: Understand what {% data variables.product.prodname_copilot %} agents can 
 versions:
   feature: copilot
 redirect_from:
+  - /copilot/concepts/agents
   - /copilot/concepts/tools
 children:
   - /about-agents

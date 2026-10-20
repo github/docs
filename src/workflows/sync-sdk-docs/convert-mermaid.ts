@@ -104,12 +104,15 @@ function generateAltText(mermaidSource: string): string {
   return 'Diagram illustrating the described process.'
 }
 
-function processFile(filePath: string, assetsUrlPath: string): number {
+function processFile(
+  filePath: string,
+  assetsUrlPath: string,
+): { found: number; converted: number } {
   const raw = fs.readFileSync(filePath, 'utf8')
 
   const matches = [...raw.matchAll(MERMAID_BLOCK)]
 
-  if (matches.length === 0) return 0
+  if (matches.length === 0) return { found: 0, converted: 0 }
 
   let converted = 0
   let result = raw
@@ -159,7 +162,7 @@ function processFile(filePath: string, assetsUrlPath: string): number {
     fs.writeFileSync(filePath, result, 'utf8')
   }
 
-  return converted
+  return { found: matches.length, converted }
 }
 
 console.log('--- Converting Mermaid diagrams to PNG ---\n')
@@ -171,14 +174,22 @@ fs.mkdirSync(ASSETS_DIR, { recursive: true })
 const assetsUrlPath = `/${path.relative(REPO_ROOT, ASSETS_DIR)}`
 
 const files = getAllMarkdownFiles(SDK_DOCS_DIR)
+let totalFound = 0
 let totalConverted = 0
 
 for (const file of files) {
-  totalConverted += processFile(file, assetsUrlPath)
+  const { found, converted } = processFile(file, assetsUrlPath)
+  totalFound += found
+  totalConverted += converted
 }
 
-if (totalConverted === 0) {
+if (totalFound === 0) {
   console.log('No Mermaid diagrams found.')
+} else if (totalConverted === 0) {
+  // Later workflow steps delete every PNG the docs no longer reference,
+  // so a zero exit here would remove all diagrams.
+  console.error(`Found ${totalFound} Mermaid diagram(s) but none rendered.`)
+  process.exit(1)
 } else {
   console.log(`\n✅ Converted ${totalConverted} Mermaid diagram(s) to PNG.`)
 }

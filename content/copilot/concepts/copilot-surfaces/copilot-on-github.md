@@ -6,6 +6,9 @@ intro: 'Explore your repositories, plan changes, and delegate coding tasks to {%
 versions:
   feature: copilot
 redirect_from:
+  - /copilot/concepts/agents/cloud-agent
+  - /copilot/concepts/agents/coding-agent
+  - /copilot/concepts/coding-agent
   - /copilot/concepts/about-github-copilot-chat
   - /copilot/concepts/chat
   - /copilot/github-copilot-enterprise/copilot-chat-in-github/about-github-copilot-chat

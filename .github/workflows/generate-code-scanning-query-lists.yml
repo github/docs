@@ -152,6 +152,11 @@ jobs:
   create-pull-request:
     if: github.repository == 'github/docs-internal'
     runs-on: ubuntu-latest
+    # Serialize publishing so a second run sees the first run's PR before it force-pushes.
+    # Pull request dry runs get their own group so they never queue behind or cancel a publisher.
+    concurrency:
+      group: ${{ github.workflow }}-query-table-publication-${{ github.event_name == 'pull_request' && github.run_id || 'publish' }}
+      cancel-in-progress: false
     permissions:
       contents: write
       pull-requests: write
@@ -216,9 +221,6 @@ jobs:
 
           branchname=codeql-query-tables-${{ steps.codeql.outputs.OPENAPI_COMMIT_SHA }}
 
-          # Query the remote because actions/checkout with fetch-depth 1 omits other remote-tracking branches.
-          branchExists=$(git ls-remote --heads origin refs/heads/$branchname | wc -l)
-
           # Pull request runs validate generated files without pushing branches.
           if [ "$DRY_RUN" = "true" ]; then
             echo "Dry-run mode when run in a pull request"
@@ -226,17 +228,20 @@ jobs:
             exit 0
           fi
 
-          if [ $branchExists -ne 0 ]; then
-            echo "Branch $branchname already exists in the remote repository."
+          # Check for an open PR before pushing so reruns do not overwrite commits added to it.
+          existing_pr=$(gh pr list --repo github/docs-internal --head "$branchname" --json number --jq '.[0].number')
+          if [[ -n "$existing_pr" ]]; then
+            echo "Pull request #$existing_pr already exists for branch $branchname. Skipping PR creation."
             exit 0
-          else
-            git checkout -b $branchname
           fi
 
+          git checkout -b $branchname
           git add data/reusables/code-scanning/codeql-query-tables
           git add data/reusables/code-quality/codeql-query-tables
           git commit -m "Update CodeQL query tables"
-          git push -u origin $branchname
+
+          # Force-push over a branch left by a failed attempt; this workflow exclusively owns these branches.
+          git push --force -u origin $branchname
 
           echo "Creating pull request..."
           gh pr create \

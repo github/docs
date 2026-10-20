@@ -26,6 +26,7 @@ The system acts as a reverse proxy for specific URL paths.
   - `archived-asset-redirects.ts`: Maps legacy asset paths to modern equivalents where possible.
 - **`lib/`**
   - `is-archived-version.ts`: Utilities to parse URLs and check against the list of deprecated versions defined in `src/versions`.
+  - `archived-languages.ts`: Checks whether an archived version includes a given language.
 - **`scripts/`**
   - `warmup-remotejson.ts`: Utility to prime caches for remote JSON files.
 

@@ -58,7 +58,9 @@ export function getVersionPreference(
 
   // pages keys omit .md, but .md requests must redirect to .md versioned articles.
   const extension = withoutLanguage.endsWith('.md') ? '.md' : ''
-  const lookupSuffix = extension ? withoutLanguage.slice(0, -extension.length) : withoutLanguage
+  const stripped = extension ? withoutLanguage.slice(0, -extension.length) : withoutLanguage
+  // Homepage keys have no trailing slash, so /en must look up /en/<version>.
+  const lookupSuffix = stripped === '/' ? '' : stripped
 
   let vary = false
   let redirectTo: string | undefined

@@ -23,7 +23,7 @@
 
 ### Arguments for `{{ item.name }}`
 
-{% for arg in item.args %}* `{{ arg.name }}` ({{ arg.type }}): {{ arg.description }}
+{% for arg in item.args %}* `{{ arg.name }}` ({{ arg.type }}): {{ arg.description }}{% if arg.defaultValue != nil %} Default: `{{ arg.defaultValue }}`.{% endif %}
 {% endfor %}
 {% endif %}
 
@@ -32,7 +32,7 @@
 
 ### Input fields for `{{ item.name }}`
 
-{% for field in item.inputFields %}* `{{ field.name }}` ({{ field.type }}): {{ field.description }}{% if field.defaultValue %} Default: `{{ field.defaultValue }}`.{% endif %}
+{% for field in item.inputFields %}* `{{ field.name }}` ({{ field.type }}): {{ field.description }}{% if field.defaultValue != nil %} Default: `{{ field.defaultValue }}`.{% endif %}
 {% endfor %}
 {% endif %}
 
@@ -40,7 +40,7 @@
 
 ### Return fields for `{{ item.name }}`
 
-{% for field in item.returnFields %}* `{{ field.name }}` ({{ field.type }}): {{ field.description }}{% if field.defaultValue %} Default: `{{ field.defaultValue }}`.{% endif %}{% if field.isDeprecated %} **Deprecated:** {{ field.deprecationReason }}{% endif %}
+{% for field in item.returnFields %}* `{{ field.name }}` ({{ field.type }}): {{ field.description }}{% if field.defaultValue != nil %} Default: `{{ field.defaultValue }}`.{% endif %}{% if field.isDeprecated %} **Deprecated:** {{ field.deprecationReason }}{% endif %}
 {% endfor %}
 {% endif %}
 
@@ -54,8 +54,8 @@
 
 ### Fields for `{{ item.name }}`
 
-{% for field in item.fields %}* `{{ field.name }}` ({{ field.type }}): {{ field.description }}{% if field.defaultValue %} Default: `{{ field.defaultValue }}`.{% endif %}{% if field.isDeprecated %} **Deprecated:** {{ field.deprecationReason }}{% endif %}{% if field.hasPaginationOnly %} _(Pagination: `after`, `before`, `first`, `last`)_{% elsif field.arguments.size > 0 %}
-{% for arg in field.arguments %}  * `{{ arg.name }}` ({{ arg.type.name }}): {{ arg.description }}{% if arg.defaultValue %} Default: `{{ arg.defaultValue }}`.{% endif %}
+{% for field in item.fields %}* `{{ field.name }}` ({{ field.type }}): {{ field.description }}{% if field.defaultValue != nil %} Default: `{{ field.defaultValue }}`.{% endif %}{% if field.isDeprecated %} **Deprecated:** {{ field.deprecationReason }}{% endif %}{% if field.hasPaginationOnly %} _(Pagination: `after`, `before`, `first`, `last`)_{% elsif field.arguments.size > 0 %}
+{% for arg in field.arguments %}  * `{{ arg.name }}` ({{ arg.type.name }}): {{ arg.description }}{% if arg.defaultValue != nil %} Default: `{{ arg.defaultValue }}`.{% endif %}
 {% endfor %}{% endif %}
 {% endfor %}
 {% endif %}
@@ -65,8 +65,8 @@
 
 ### Fields for `{{ item.name }}`
 
-{% for field in item.fields %}* `{{ field.name }}` ({{ field.type }}): {{ field.description }}{% if field.defaultValue %} Default: `{{ field.defaultValue }}`.{% endif %}{% if field.isDeprecated %} **Deprecated:** {{ field.deprecationReason }}{% endif %}{% if field.hasPaginationOnly %} _(Pagination: `after`, `before`, `first`, `last`)_{% elsif field.arguments.size > 0 %}
-{% for arg in field.arguments %}  * `{{ arg.name }}` ({{ arg.type.name }}): {{ arg.description }}{% if arg.defaultValue %} Default: `{{ arg.defaultValue }}`.{% endif %}
+{% for field in item.fields %}* `{{ field.name }}` ({{ field.type }}): {{ field.description }}{% if field.defaultValue != nil %} Default: `{{ field.defaultValue }}`.{% endif %}{% if field.isDeprecated %} **Deprecated:** {{ field.deprecationReason }}{% endif %}{% if field.hasPaginationOnly %} _(Pagination: `after`, `before`, `first`, `last`)_{% elsif field.arguments.size > 0 %}
+{% for arg in field.arguments %}  * `{{ arg.name }}` ({{ arg.type.name }}): {{ arg.description }}{% if arg.defaultValue != nil %} Default: `{{ arg.defaultValue }}`.{% endif %}
 {% endfor %}{% endif %}
 {% endfor %}
 {% endif %}
@@ -102,7 +102,7 @@
 
 ### Input fields for `{{ item.name }}`
 
-{% for field in item.inputFields %}* `{{ field.name }}` ({{ field.type }}): {{ field.description }}{% if field.defaultValue %} Default: `{{ field.defaultValue }}`.{% endif %}{% if field.isDeprecated %} **Deprecated:** {{ field.deprecationReason }}{% endif %}
+{% for field in item.inputFields %}* `{{ field.name }}` ({{ field.type }}): {{ field.description }}{% if field.defaultValue != nil %} Default: `{{ field.defaultValue }}`.{% endif %}{% if field.isDeprecated %} **Deprecated:** {{ field.deprecationReason }}{% endif %}
 {% endfor %}
 {% endif %}
 

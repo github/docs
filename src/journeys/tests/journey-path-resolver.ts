@@ -33,11 +33,16 @@ vi.mock('@/content-render/index', () => ({
 }))
 
 vi.mock('@/languages/lib/render-with-fallback', () => ({
-  executeWithFallback: async (fn: () => Promise<string>, fallback: () => string) => {
+  executeWithFallback: async (
+    context: { currentLanguage?: string },
+    fn: () => Promise<string>,
+    fallback: (enContext: unknown) => string | Promise<string>,
+  ) => {
     try {
       return await fn()
-    } catch {
-      return fallback()
+    } catch (error) {
+      if (context.currentLanguage === 'en') throw error
+      return fallback({ ...context, currentLanguage: 'en' })
     }
   },
 }))
@@ -192,6 +197,104 @@ describe('journey-path-resolver', () => {
 
       expect(result?.trackId).toBe('getting_started')
       expect(result?.currentGuideIndex).toBe(1)
+    })
+  })
+
+  describe('resolveJourneyContext with Liquid track titles', () => {
+    afterEach(() => {
+      mockRenderContent.mockImplementation(async (content: string) => content)
+    })
+
+    const mockContext = {
+      currentProduct: 'github',
+      currentLanguage: 'en',
+      currentVersion: 'enterprise-cloud@latest',
+    }
+
+    const journeyPage = {
+      layout: 'journey-landing',
+      title: 'Enterprise onboarding',
+      permalink: '/enterprise-onboarding',
+      journeyTracks: [
+        {
+          id: 'getting_started',
+          title: 'Getting started with {% data variables.product.company_short %}',
+          guides: [
+            { href: '/enterprise-onboarding/setup' },
+            { href: '/enterprise-onboarding/deploy' },
+          ],
+        },
+        {
+          id: 'advanced',
+          title: 'Advanced {% data variables.product.company_short %} configuration',
+          guides: [{ href: '/enterprise-onboarding/advanced-setup' }],
+        },
+      ],
+    }
+
+    test('renders Liquid in trackTitle and nextTrackFirstGuide.trackTitle', async () => {
+      mockRenderContent.mockClear()
+      mockRenderContent.mockImplementation(async (content: string) =>
+        content.replaceAll('{% data variables.product.company_short %}', 'GitHub'),
+      )
+
+      const firstGuide = await resolveJourneyContext(
+        '/enterprise-onboarding/setup',
+        {},
+        mockContext,
+        journeyPage,
+      )
+      expect(firstGuide?.trackTitle).toBe('Getting started with GitHub')
+
+      const lastGuide = await resolveJourneyContext(
+        '/enterprise-onboarding/deploy',
+        {},
+        mockContext,
+        journeyPage,
+      )
+      expect(lastGuide?.trackTitle).toBe('Getting started with GitHub')
+      expect(lastGuide?.nextTrackFirstGuide?.trackTitle).toBe('Advanced GitHub configuration')
+
+      const titleCall = mockRenderContent.mock.calls.find(
+        ([content]) => content === journeyPage.journeyTracks[1].title,
+      )
+      expect(titleCall?.[2]).toEqual({ textOnly: true })
+    })
+
+    test('retries translated track titles with the English context', async () => {
+      mockRenderContent.mockImplementation(
+        async (content: string, context?: unknown, _options?: unknown) => {
+          void _options
+          if ((context as { currentLanguage?: string }).currentLanguage !== 'en') {
+            throw new Error('Translated data failed to render')
+          }
+          return content.replaceAll('{% data variables.product.company_short %}', 'GitHub')
+        },
+      )
+
+      const lastGuide = await resolveJourneyContext(
+        '/enterprise-onboarding/deploy',
+        {},
+        { ...mockContext, currentLanguage: 'ja' },
+        journeyPage,
+      )
+      expect(lastGuide?.trackTitle).toBe('Getting started with GitHub')
+      expect(lastGuide?.nextTrackFirstGuide?.trackTitle).toBe('Advanced GitHub configuration')
+    })
+
+    test('falls back to the raw track title when English rendering fails', async () => {
+      mockRenderContent.mockImplementation(async (content: string) => {
+        if (content.includes('{% data')) throw new Error('Data failed to render')
+        return content
+      })
+
+      const firstGuide = await resolveJourneyContext(
+        '/enterprise-onboarding/setup',
+        {},
+        mockContext,
+        journeyPage,
+      )
+      expect(firstGuide?.trackTitle).toBe(journeyPage.journeyTracks[0].title)
     })
   })
 

@@ -936,4 +936,4 @@ Behavior depends on where you set the flag:
 * [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/use-hooks)
 * [AUTOTITLE](/copilot/reference/hooks-reference)
 * [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference)
-* [AUTOTITLE](/copilot/concepts/agents/cloud-agent)
+* [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-on-github)

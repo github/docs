@@ -131,6 +131,7 @@ export interface ArticleApiResponse {
     title: string
     intro: string
     product: string
+    documentType?: string | null
     breadcrumbs?: Array<{ href: string; title: string }>
   }
   body: string
@@ -228,7 +229,10 @@ export function articleApiResponseToRecord(pathname: string, data: ArticleApiRes
       .slice(0, breadcrumbsArray.length > 1 ? -1 : breadcrumbsArray.length)
       .join(' / ') || ''
 
-  const { headings, content: bodyText } = extractFromMarkdown(data.body)
+  const { headings: bodyHeadings, content: bodyText } = extractFromMarkdown(data.body)
+  const { documentType } = data.meta
+  // Landing page bodies use hard-coded template section titles, not author headings.
+  const headings = documentType && documentType !== 'article' ? '' : bodyHeadings
 
   const intro = data.meta.intro || ''
   // The body copy of the intro went through the same HTML stripping, so compare against that form.

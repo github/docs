@@ -129,6 +129,28 @@ For more information, see \`codeql database analyze<database-analyze>\`{.interpr
     )
   })
 
+  test('keeps the whole Description paragraph in intro when it has inline markup', async () => {
+    const content = `
+# generate overlay-changes
+
+## Description
+
+\\[Plumbing\\] Generate a file that can be used for the
+\`--overlay-changes\` option to
+\`codeql database create<database-create>\`{.interpreted-text role="doc"} when
+extracting an overlay database.
+
+## Options
+`
+    const result = await convertContentToDocs(content, {}, 'generate-overlay-changes.md')
+
+    expect(result.data.intro).toContain('--overlay-changes')
+    expect(result.data.intro).toContain('codeql database create')
+    expect(result.data.intro).toContain('when extracting an overlay database.')
+    expect(result.data.intro).not.toContain('{.interpreted-text')
+    expect(result.data.intro).not.toContain('<database-create>')
+  })
+
   test('returns proper data structure', async () => {
     const result = await convertContentToDocs(testContent, {}, 'bqrs-interpret.md')
 
@@ -136,5 +158,43 @@ For more information, see \`codeql database analyze<database-analyze>\`{.interpr
     expect(result).toHaveProperty('data')
     expect(typeof result.content).toBe('string')
     expect(typeof result.data).toBe('object')
+  })
+})
+
+describe('convertContentToDocs option headings', () => {
+  const optionContent = `
+# database analyze
+
+## Options
+
+### Options to control the model packs to be used
+
+::: {.option}
+--model-packs=\\<<name@range>\\>...
+
+A list of CodeQL pack names.
+:::
+
+### Options to control the threat models to be used
+
+::: {.option}
+--threat-model=\\<name\\>...
+
+A list of threat models to enable or disable.
+:::
+`
+
+  test('keeps an option with an email-like placeholder in one code span', async () => {
+    const result = await convertContentToDocs(optionContent, {}, 'database-analyze.md')
+
+    expect(result.content).toContain('#### `--model-packs=<name@range>...`')
+    expect(result.content).not.toContain('mailto')
+    expect(result.content).not.toContain('`--model-packs=<`')
+  })
+
+  test('renders a plain option heading as one code span', async () => {
+    const result = await convertContentToDocs(optionContent, {}, 'database-analyze.md')
+
+    expect(result.content).toContain('#### `--threat-model=<name>...`')
   })
 })

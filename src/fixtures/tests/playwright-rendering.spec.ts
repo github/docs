@@ -1223,6 +1223,29 @@ test.describe('tool picker', () => {
     await expect(page.getByText('This is webui content')).toBeVisible()
   })
 
+  test('keeps focus on the activated tab', async ({ page }) => {
+    // The fixture frontmatter defaults defaultTool to webui, so the URL starts without ?tool.
+    await page.goto('/get-started/liquid/tool-specific')
+    await turnOffExperimentsInPage(page)
+
+    const webui = page.getByTestId('tool-picker').getByRole('link', { name: 'Web browser' })
+    const oldWebui = await webui.elementHandle()
+    await webui.focus()
+    await page.keyboard.press('Enter')
+    await expect(page).toHaveURL(/\?tool=webui/)
+    // The nav remounts on each URL change, so wait for the old anchor to detach first.
+    await page.waitForFunction((el) => !el?.isConnected, oldWebui)
+    await expect(webui).toBeFocused()
+
+    const cli = page.getByTestId('tool-picker').getByRole('link', { name: 'GitHub CLI' })
+    const oldCli = await cli.elementHandle()
+    await cli.focus()
+    await page.keyboard.press('Enter')
+    await expect(page).toHaveURL(/\?tool=cli/)
+    await page.waitForFunction((el) => !el?.isConnected, oldCli)
+    await expect(cli).toBeFocused()
+  })
+
   test('prefer default tool', async ({ page }) => {
     await page.goto('/get-started/liquid/tool-specific')
 
@@ -1408,6 +1431,35 @@ test.describe('hover cards', () => {
         'Get started using GitHub to manage Git repositories and collaborate with others.',
       ),
     ).not.toBeVisible()
+  })
+
+  test('keyboard shortcut focuses hover card when the sidebar is collapsed', async ({ page }) => {
+    // The collapsed sidebar drops the product title that fills the hover card's first link.
+    page.setViewportSize({
+      width: 1400,
+      height: 700,
+    })
+    await page.goto('/pages/quickstart')
+    await turnOffExperimentsInPage(page)
+    await page.getByTestId('sidebar-collapse-toggle').click()
+    await expect(page.getByTestId('sidebar')).toHaveCount(0)
+
+    const introductionLink = page
+      .locator('#article-contents')
+      .getByRole('link', { name: 'introduction', exact: true })
+    await introductionLink.focus()
+    await page.keyboard.press('Alt+ArrowUp')
+    await expect(page.locator('#_hc_title')).toBeFocused()
+
+    // The title is the only visible link, so the focus trap wraps back to it both ways.
+    await page.keyboard.press('Tab')
+    await expect(page.locator('#_hc_title')).toBeFocused()
+    await page.keyboard.press('Shift+Tab')
+    await expect(page.locator('#_hc_title')).toBeFocused()
+
+    await page.keyboard.press('Escape')
+    await expect(page.getByTestId('popover')).not.toBeVisible()
+    await expect(introductionLink).toBeFocused()
   })
 
   test('able to use Esc to close hovercard', async ({ page }) => {
@@ -2503,6 +2555,29 @@ test.describe('Docs 2026 in-article navigation', () => {
     expect(page.url()).toContain(href)
   })
 
+  // The popover floats over the article, so it must not stay open and hide newly focused links.
+  test('the collapsed menu closes when keyboard focus leaves it', async ({ page }) => {
+    await page.setViewportSize({ width: 1100, height: 900 })
+    await page.goto('/get-started/liquid/platform-specific')
+    await turnOffExperimentsInPage(page)
+
+    const trigger = page.getByTestId('overview-subbar').getByRole('button')
+    await trigger.focus()
+    await page.keyboard.press('Enter')
+    const menu = page.getByTestId('overview-menu')
+    await expect(menu).toBeVisible()
+
+    await page.keyboard.press('Escape')
+    await expect(menu).toBeHidden()
+    await expect(trigger).toBeFocused()
+
+    await page.keyboard.press('Enter')
+    await expect(menu).toBeVisible()
+    await menu.getByRole('link').last().focus()
+    await page.keyboard.press('Tab')
+    await expect(menu).toBeHidden()
+  })
+
   // useActiveSection filters hidden platform/tool headings because they have zero rects.
   test('the collapsed menu is never labelled with a hidden platform section', async ({ page }) => {
     await page.setViewportSize({ width: 1100, height: 900 })
@@ -2870,6 +2945,42 @@ test.describe('LandingArticleGridWithFilter component', () => {
     const noResultsMessage = page.getByTestId('no-articles-message')
     await expect(noResultsMessage).toBeVisible()
     await expect(noResultsMessage).toHaveText('No articles found matching your criteria.')
+  })
+
+  test('out-of-range or invalid page in the URL still shows articles', async ({ page }) => {
+    const articleCards = page.getByTestId('article-grid').getByTestId('article-card')
+
+    await page.goto('/get-started/article-grid-discovery?articles-filter=Grid&articles-page=2')
+    await expect(articleCards).toHaveCount(4)
+
+    await page.goto('/get-started/article-grid-discovery?articles-page=99')
+    await expect(articleCards).toHaveCount(4)
+
+    await page.goto('/get-started/article-grid-discovery?articles-page=abc')
+    await expect(articleCards).toHaveCount(4)
+  })
+
+  test('out-of-range page on a multi-page grid shows the last page', async ({ page }) => {
+    // The get-started product landing has more cards than one 9-card desktop page.
+    await page.setViewportSize({ width: 1200, height: 800 })
+    await page.goto('/get-started?articles-page=99')
+
+    const results = page.getByText(/^Showing \d+-\d+ of \d+$/)
+    await expect(results).toBeVisible()
+    const [start, end, total] = (await results.textContent())!
+      .match(/(\d+)-(\d+) of (\d+)/)!
+      .slice(1)
+      .map(Number)
+    const lastPage = Math.ceil(total / 9)
+    expect(lastPage).toBeGreaterThan(1)
+    expect(start).toBe((lastPage - 1) * 9 + 1)
+    expect(end).toBe(total)
+    await expect(page.getByTestId('article-grid').getByTestId('article-card')).toHaveCount(
+      end - start + 1,
+    )
+    await expect(
+      page.getByRole('navigation', { name: 'Pagination' }).locator('[aria-current="page"]'),
+    ).toHaveText(String(lastPage))
   })
 
   test('responsive behavior on different screen sizes', async ({ page }) => {

@@ -3,7 +3,11 @@ import { stringify } from 'javascript-stringify'
 
 import type { BodyParameter, ChildParameter, CodeSample, Operation } from '@/rest/components/types'
 import { type VersionItem } from '@/frame/components/context/MainContext'
-import { getCurlBodyArguments, escapeShellValue } from '@/rest/lib/curl-body-arguments'
+import {
+  getCurlBodyArguments,
+  escapeShellValue,
+  needsExplicitContentTypeHeader,
+} from '@/rest/lib/curl-body-arguments'
 
 function shouldOmitAuthentication(operation: Operation, currentVersion: string): boolean {
   // Only explicitly permissionless operations can omit auth.
@@ -28,10 +32,8 @@ export function getShellExample(
 ) {
   let contentTypeHeader = ''
 
-  if (codeSample?.request?.contentType === 'application/octet-stream') {
-    contentTypeHeader = '-H "Content-Type: application/octet-stream"'
-  } else if (codeSample?.request?.contentType === 'multipart/form-data') {
-    contentTypeHeader = '-H "Content-Type: multipart/form-data"'
+  if (needsExplicitContentTypeHeader(codeSample?.request?.contentType)) {
+    contentTypeHeader = `-H "Content-Type: ${codeSample.request.contentType}"`
   }
 
   const omitAuth = shouldOmitAuthentication(operation, currentVersion)

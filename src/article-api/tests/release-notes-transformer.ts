@@ -1,6 +1,7 @@
 import { describe, expect, test, vi } from 'vitest'
 
 import type { Context, GHESReleasePatch, Page } from '@/types'
+import { renderContent } from '@/content-render/index'
 import {
   ReleaseNotesTransformer,
   renderReleaseNotesMarkdown,
@@ -168,6 +169,23 @@ describe('renderReleaseNotesMarkdown', () => {
     }
     const out = await renderReleaseNotesMarkdown('Title', '', [patch], makeContext())
     expect(out).toContain('### custom_section')
+  })
+
+  test('renders notes in English with AUTOTITLE links in the reader language', async () => {
+    const mockedRenderContent = vi.mocked(renderContent)
+    mockedRenderContent.mockClear()
+    await renderReleaseNotesMarkdown(
+      'Title',
+      '',
+      [samplePatch()],
+      makeContext({ currentLanguage: 'ja' }),
+    )
+
+    // One patch intro plus six notes in samplePatch.
+    expect(mockedRenderContent).toHaveBeenCalledTimes(7)
+    for (const [template, ctx] of mockedRenderContent.mock.calls) {
+      expect(ctx, template).toMatchObject({ currentLanguage: 'en', autotitleLanguage: 'ja' })
+    }
   })
 
   test('skips empty sections', async () => {

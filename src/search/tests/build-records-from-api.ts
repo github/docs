@@ -556,6 +556,42 @@ The \`name\` parameter is required.
     // Inline code content stays searchable.
     expect(record.content).toContain('name')
   })
+
+  test('omits template section headings on landing pages', () => {
+    const response: ArticleApiResponse = {
+      meta: {
+        title: 'Cat',
+        intro: '',
+        product: 'Test',
+        documentType: 'category',
+        breadcrumbs: [],
+      },
+      body: '# Cat\n\n## Links\n\n* [A](/en/a)',
+    }
+
+    const record = articleApiResponseToRecord('/en/cat', response)
+
+    expect(record.headings).toBe('')
+    expect(record.content).toContain('Links')
+    expect(record.content).toContain('A')
+  })
+
+  test('keeps headings on article pages', () => {
+    const response: ArticleApiResponse = {
+      meta: {
+        title: 'Test',
+        intro: '',
+        product: 'Test',
+        documentType: 'article',
+        breadcrumbs: [],
+      },
+      body: '# Test\n\n## Getting started\n\nHere is how to begin.',
+    }
+
+    const record = articleApiResponseToRecord('/en/test', response)
+
+    expect(record.headings).toBe('Getting started')
+  })
 })
 
 describe('fetchArticleAsRecord', () => {

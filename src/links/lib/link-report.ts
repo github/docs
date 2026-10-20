@@ -33,6 +33,10 @@ export interface GroupedBrokenLinks {
   occurrences: BrokenLink[]
   suggestion?: string
   isWarning: boolean
+  // JSON consumers outside this module need the bucket and a safe rewrite path.
+  fixStrategy?: FixStrategy
+  // Set only for codemod groups, with the checked version's prefix stripped from versionless links.
+  replacementTarget?: string
 }
 
 export interface LinkReport {
@@ -46,6 +50,16 @@ export interface LinkReport {
   actionUrl?: string
   // Merged reports record every version they cover.
   versionsChecked?: string[]
+}
+
+// A raw pipe ends a GitHub table cell, even inside backticks.
+function escapeTableCell(text: string): string {
+  return text.replace(/\|/g, '\\|')
+}
+
+// Prefer the checker's error text, because timeouts and malformed URLs have no status code.
+function externalStatus(occ: BrokenLink): string {
+  return occ.errorMessage || (occ.statusCode ? `HTTP ${occ.statusCode}` : 'Unknown error')
 }
 
 const TEMPLATES = {
@@ -74,32 +88,36 @@ ${summary}
 
   group: (group: GroupedBrokenLinks, isExternal = false) => {
     const icon = group.isWarning ? '⚠️' : '❌'
-    const count = group.occurrences.length
+    // External groups hold one entry per link per line, so count unique files.
+    const count = isExternal
+      ? new Set(group.occurrences.map((occ) => occ.file)).size
+      : group.occurrences.length
     const plural = count === 1 ? '' : 's'
-    const first = group.occurrences[0]
-
-    const statusInfo =
-      isExternal && first?.statusCode
-        ? `**Status:** ${first.statusCode}\n${first.errorMessage ? `**Error:** ${first.errorMessage}\n` : ''}\n`
-        : ''
 
     const suggestion = group.suggestion ? `💡 ${group.suggestion}\n\n` : ''
 
     const listedOccurrences = group.occurrences.slice(0, MAX_FILES_PER_GROUP)
     const hiddenOccurrences = group.occurrences.length - listedOccurrences.length
+    const tableHeader = isExternal
+      ? '| File | Line(s) | URL | Status |\n|------|---------|-----|--------|'
+      : '| File | Line(s) |\n|------|---------|'
     const tableRows = listedOccurrences
-      .map((occ) => `| \`${occ.file}\` | ${occ.lines.join(', ')} |`)
+      .map((occ) =>
+        isExternal
+          ? `| \`${occ.file}\` | ${occ.lines.join(', ')} | \`${escapeTableCell(occ.href)}\` | ${escapeTableCell(externalStatus(occ))} |`
+          : `| \`${occ.file}\` | ${occ.lines.join(', ')} |`,
+      )
       .join('\n')
+    const hiddenLabel = isExternal ? 'link' : 'file'
     const moreFiles = hiddenOccurrences
-      ? `\n\nAnd ${hiddenOccurrences} more file${hiddenOccurrences === 1 ? '' : 's'}, listed in the report attached to the workflow run.`
+      ? `\n\nAnd ${hiddenOccurrences} more ${hiddenLabel}${hiddenOccurrences === 1 ? '' : 's'}, listed in the report attached to the workflow run.`
       : ''
 
     return `### ${icon} \`${group.target}\`
 
-${statusInfo}${suggestion}**Found in ${count} file${plural}:**
+${suggestion}**Found in ${count} file${plural}:**
 
-| File | Line(s) |
-|------|---------|
+${tableHeader}
 ${tableRows}${moreFiles}`
   },
 
@@ -245,6 +263,37 @@ function createRedirectSuggestion(
   }
 
   return `This path redirects to \`${redirectTarget}\`. Consider updating to the new path.`
+}
+
+const LOCALE_PREFIX_RE = /^\/[a-z]{2}(-[a-z]{2})?(?=\/|$)/
+// Legacy /enterprise/<release> links pin a release, like /enterprise-server@<release>.
+const LEGACY_PINNED_RE = /^\/enterprise\/\d+\.\d+(?=\/|$)/
+// GHES links without a numbered release follow the latest release, as get-redirect resolves them.
+const MOVING_GHES_RE = /^\/enterprise(-server)?(@latest)?(?=\/|$)/
+
+// Replacements keep the source link's version intent, matching update-internal-links.
+function getReplacementTarget(
+  target: string,
+  occurrences: BrokenLink[],
+  redirects?: Record<string, string>,
+): string | undefined {
+  const source = target.replace(LOCALE_PREFIX_RE, '') || '/'
+  const redirectTarget =
+    redirects?.[source] ?? occurrences.find((occ) => occ.redirectTarget)?.redirectTarget
+  if (!redirectTarget) return undefined
+  const destination = redirectTarget.replace(LOCALE_PREFIX_RE, '') || '/'
+
+  const isMovingGhes = MOVING_GHES_RE.test(source)
+  const isPinned =
+    LEGACY_PINNED_RE.test(source) || (VERSION_PREFIX_RE.test(source) && !isMovingGhes)
+
+  let replacement = destination
+  if (!isPinned && isMovingGhes && destination.startsWith('/enterprise-server@')) {
+    replacement = `/enterprise-server@latest${destination.replace(VERSION_PREFIX_RE, '')}`
+  } else if (!isPinned && !isMovingGhes) {
+    replacement = destination.replace(VERSION_PREFIX_RE, '') || '/'
+  }
+  return replacement === target ? undefined : replacement
 }
 
 function sortOccurrencesByFile(occurrences: BrokenLink[]): BrokenLink[] {
@@ -393,7 +442,14 @@ export function generateInternalLinkReport(
     redirects?: Record<string, string>
   } = {},
 ): LinkReport {
-  const groups = groupBrokenLinks(brokenLinks, options.redirects)
+  const groups = groupBrokenLinks(brokenLinks, options.redirects).map((group) => {
+    const fixStrategy = classifyFixStrategy(group)
+    const replacementTarget =
+      fixStrategy === 'codemod'
+        ? getReplacementTarget(group.target, group.occurrences, options.redirects)
+        : undefined
+    return { ...group, fixStrategy, replacementTarget }
+  })
   const errors = groups.filter((g) => !g.isWarning)
   const warnings = groups.filter((g) => g.isWarning)
 
@@ -548,9 +604,16 @@ function renderCodemodSection(groups: GroupedBrokenLinks[], versionsChecked?: st
   const flags = '--keep-stale-fragments --dont-set-autotitle'
   const paths = codemodPaths(groups)
   const tooManyToList = paths.length > MAX_LISTED_CODEMOD_PATHS
+  // The checker credits reusable links to the including page at line 0, and the page holds only the data tag.
+  const hasReusableLinks = groups.some((g) => g.occurrences.some((occ) => occ.lines.includes(0)))
+  const listedPaths =
+    hasReusableLinks && !paths.includes('data/reusables') ? [...paths, 'data/reusables'] : paths
   const commands = tooManyToList
-    ? `npm run update-internal-links -- content ${flags}`
-    : paths.map((p) => `npm run update-internal-links -- ${p} ${flags}`).join('\n')
+    ? `npm run update-internal-links -- ${hasReusableLinks ? 'content data/reusables' : 'content'} ${flags}`
+    : listedPaths.map((p) => `npm run update-internal-links -- ${p} ${flags}`).join('\n')
+  const reusablesNote = hasReusableLinks
+    ? '\nSome of these links live in reusables, so `data/reusables` is included too.\n'
+    : ''
   const scopeNote = tooManyToList
     ? `\nThat covers ${paths.length} docsets in one pass. To split it into reviewable pull requests, run it against one docset at a time: ${paths.map((p) => `\`${p}\``).join(', ')}.\n`
     : ''
@@ -565,7 +628,7 @@ Every link below redirects to a known destination, so no judgment is needed. Run
 \`\`\`bash
 ${commands}
 \`\`\`
-${scopeNote}
+${scopeNote}${reusablesNote}
 \`--keep-stale-fragments\` stops the codemod from silently deleting anchors it cannot verify.
 That means a link like \`/old-page#heading\` becomes \`/new-page#heading\`, so if the heading
 does not exist on the new page it shows up under stale anchors on the next run.
