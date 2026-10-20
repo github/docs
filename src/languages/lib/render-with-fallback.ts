@@ -24,6 +24,7 @@ export class LiquidError extends Error {
 interface RenderOptions {
   throwIfEmpty?: boolean
   textOnly?: boolean
+  unwrap?: boolean
   cache?: boolean | ((template: string, context: Context) => string)
   [key: string]: unknown
 }
@@ -140,8 +141,8 @@ export async function renderContentWithFallback(
 
       const fallbackContent = await renderContent(englishTemplate, enContext, options)
 
-      // HTML fallback comments break textOnly output, so add them only for non-English HTML.
-      if (context.currentLanguage !== 'en' && !options?.textOnly) {
+      // HTML fallback comments break textOnly output and stop unwrap from removing the outer tag.
+      if (context.currentLanguage !== 'en' && !options?.textOnly && !options?.unwrap) {
         const errorComment = createTranslationFallbackComment(error as Error, property)
         return `${errorComment}\n${fallbackContent}`
       }

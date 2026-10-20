@@ -86,6 +86,7 @@ Comments are added when:
 Comments are skipped for:
 - English content (no fallback needed)
 - Text-only rendering (to avoid breaking plain text output)
+- Unwrapped rendering, such as Markdown titles from the Article API (the comment would stop the outer tag from being removed)
 - Non-fallbackable errors (these throw and stop rendering)
 
 ### Error Message Sanitization

@@ -362,6 +362,45 @@ describe('Translation Error Comments', () => {
         expect(result).toBe('English Title')
       })
 
+      test('does not add comment for unwrapped rendering', async () => {
+        const mockPage = Object.create(Page.prototype)
+        mockPage.rawTitle = '{% badtag %}'
+
+        const context = {
+          currentLanguage: 'ja',
+          getEnglishPage: () => {
+            const enPage = Object.create(Page.prototype)
+            enPage.rawTitle = 'English Title'
+            return enPage
+          },
+        }
+
+        const result = await renderContentWithFallback(mockPage, 'rawTitle', context, {
+          unwrap: true,
+        })
+
+        expect(result).not.toContain('<!-- TRANSLATION_FALLBACK')
+        expect(result).toBe('<p>English Title</p>')
+      })
+
+      test('renderTitle with unwrap returns the plain English title', async () => {
+        const mockPage = Object.create(Page.prototype)
+        mockPage.rawTitle = '{% badtag %}'
+
+        const context = {
+          currentLanguage: 'ja',
+          getEnglishPage: () => {
+            const enPage = Object.create(Page.prototype)
+            enPage.rawTitle = 'English Title'
+            return enPage
+          },
+        }
+
+        const result = await mockPage.renderTitle(context, { unwrap: true })
+
+        expect(result).toBe('English Title')
+      })
+
       test('keeps fallback links in the reader language', async () => {
         const mockPage = Object.create(Page.prototype)
         mockPage.markdown = '{% badtag %} [x](/actions/foo)'
