@@ -12,7 +12,7 @@ runs:
   steps:
     # Restore a stable key, add to the cache, then save by SHA so the cache can grow without bound.
     - name: Cache .remotejson-cache (restore)
-      uses: actions/cache/restore@v4
+      uses: actions/cache/restore@v6
       with:
         path: .remotejson-cache
         key: remotejson-cache-
@@ -27,7 +27,7 @@ runs:
 
     - name: Cache .remotejson-cache (save)
       if: ${{ inputs.restore-only == '' }}
-      uses: actions/cache/save@v4
+      uses: actions/cache/save@v6
       with:
         path: .remotejson-cache
         key: remotejson-cache-${{ github.sha }}
