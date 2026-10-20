@@ -2532,6 +2532,29 @@ test.describe('Docs 2026 in-article navigation', () => {
     expect(page.url()).toContain(href)
   })
 
+  // The popover floats over the article, so it must not stay open and hide newly focused links.
+  test('the collapsed menu closes when keyboard focus leaves it', async ({ page }) => {
+    await page.setViewportSize({ width: 1100, height: 900 })
+    await page.goto('/get-started/liquid/platform-specific')
+    await turnOffExperimentsInPage(page)
+
+    const trigger = page.getByTestId('overview-subbar').getByRole('button')
+    await trigger.focus()
+    await page.keyboard.press('Enter')
+    const menu = page.getByTestId('overview-menu')
+    await expect(menu).toBeVisible()
+
+    await page.keyboard.press('Escape')
+    await expect(menu).toBeHidden()
+    await expect(trigger).toBeFocused()
+
+    await page.keyboard.press('Enter')
+    await expect(menu).toBeVisible()
+    await menu.getByRole('link').last().focus()
+    await page.keyboard.press('Tab')
+    await expect(menu).toBeHidden()
+  })
+
   // useActiveSection filters hidden platform/tool headings because they have zero rects.
   test('the collapsed menu is never labelled with a hidden platform section', async ({ page }) => {
     await page.setViewportSize({ width: 1100, height: 900 })

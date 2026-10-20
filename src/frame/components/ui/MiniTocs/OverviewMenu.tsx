@@ -31,7 +31,7 @@ export function OverviewMenu({ miniTocItems }: Props) {
   const atTop = activeHref === ''
   const label = atTop ? t('miniToc') : getActiveTitle(miniTocItems, activeHref)
 
-  // Outside clicks close the panel; Escape also returns focus to the button.
+  // Outside clicks and focus leaving the menu close the panel; Escape also refocuses the button.
   useEffect(() => {
     if (!open) return
     const onPointerDown = (e: MouseEvent) => {
@@ -57,7 +57,15 @@ export function OverviewMenu({ miniTocItems }: Props) {
   }, [open])
 
   return (
-    <div ref={rootRef} className={styles.root}>
+    <div
+      ref={rootRef}
+      className={styles.root}
+      onBlur={(e) => {
+        // Safari button clicks and window switches blur with a null relatedTarget; keep it open.
+        const next = e.relatedTarget as Node | null
+        if (open && next && !e.currentTarget.contains(next)) setOpen(false)
+      }}
+    >
       <button
         ref={buttonRef}
         type="button"
