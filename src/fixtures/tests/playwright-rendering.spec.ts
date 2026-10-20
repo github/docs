@@ -2203,6 +2203,24 @@ test.describe('survey', () => {
     expect(typesSentOnSecondHide).toContain('survey')
   })
 
+  test('short invalid email shows the warning while Send is disabled', async ({ page }) => {
+    // Install the route before interacting with the page to avoid event races.
+    await page.route('**/api/events', (route) => {
+      route.fulfill({})
+    })
+
+    await page.goto('/get-started/foo/for-playwright')
+
+    await page.locator('[for=survey-yes]').click()
+    await page.locator('[name=survey-email]').fill('no')
+    await expect(page.locator('#email-input-validation')).toBeVisible()
+    await expect(page.getByRole('button', { name: 'Send' })).toBeDisabled()
+
+    await page.locator('[name=survey-email]').fill('test@example.com')
+    await expect(page.locator('#email-input-validation')).not.toBeVisible()
+    await expect(page.getByRole('button', { name: 'Send' })).toBeEnabled()
+  })
+
   test('vote on one page, then go to another and it should reset', async ({ page }) => {
     // Install the route before interacting with the page to avoid event races.
     await page.route('**/api/events', (route) => {

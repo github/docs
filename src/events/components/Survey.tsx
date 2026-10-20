@@ -185,7 +185,7 @@ export const Survey = () => {
             ></textarea>
           </p>
 
-          <div className={cx('form-group', isEmailError && email.trim().length > 3 ? 'warn' : '')}>
+          <div className={cx('form-group', isEmailError ? 'warn' : '')}>
             <label className="d-block mb-1 f6" htmlFor="survey-email">
               {t`email_label`}
             </label>
@@ -202,7 +202,7 @@ export const Survey = () => {
               aria-invalid={isEmailError}
               {...(isEmailError ? { 'aria-describedby': 'email-input-validation' } : {})}
             />
-            {isEmailError && email.trim().length > 3 && (
+            {isEmailError && (
               <p className="note warning" id="email-input-validation">
                 {t`email_validation`}
               </p>
