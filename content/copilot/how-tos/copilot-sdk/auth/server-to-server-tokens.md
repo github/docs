@@ -1,6 +1,6 @@
 ---
 title: Server-to-server authentication
-shortTitle: Server-to-server tokens
+shortTitle: Server To Server Tokens
 intro: >-
   Use a short-lived installation access token when a service needs to make
   Copilot requests on behalf of an organization without a user's credentials. In

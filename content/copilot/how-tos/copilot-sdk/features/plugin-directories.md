@@ -268,6 +268,34 @@ for (const plugin of plugins.plugins) {
 
 Plugins loaded via `--plugin-dir` appear in this list with their cache path set to the directory you provided. Marketplace installs are tagged with their registry source.
 
+## Retrying plugins required by managed settings
+
+When managed settings require plugins through `enabledPlugins`, the runtime installs or updates them before chat messages. If that fails, the session emits a `session.warning` with `warningType: "managed_plugins"` and waits an hour, or until the managed settings change, before trying again. The experimental `session.rpc.plugins.retryManaged()` tries again right away, for example from a Retry action next to that warning.
+
+Call it with no arguments to retry every plugin the managed settings require, or pass `plugin@marketplace` specs in `plugins` to retry only those. The result has one entry per plugin with a `status`: `installed`, `updated`, `already_present`, `failed`, `deferred`, or `not_required`. `failed` and `deferred` entries include an `error`. The session also emits the usual `session.info` progress and `session.warning` failure events.
+
+<details open>
+<summary><strong>Node.js / TypeScript</strong></summary>
+
+```typescript
+// Retry every plugin the managed settings require, for example from a Retry action.
+const result = await session.rpc.plugins.retryManaged();
+for (const entry of result.plugins) {
+  console.log(`${entry.spec}: ${entry.status}${entry.error ? ` (${entry.error})` : ""}`);
+}
+
+// Or retry only the required plugins that are still missing.
+const { plugins } = await session.rpc.plugins.list();
+const missing = plugins
+  .filter((plugin) => plugin.managedDesiredEnabled === true && plugin.installed === false)
+  .map((plugin) => `${plugin.name}@${plugin.marketplace}`);
+await session.rpc.plugins.retryManaged({ plugins: missing });
+```
+
+</details>
+
+Runtimes that do not prepare managed plugins for the session reject the call.
+
 ## Troubleshooting
 
 * **"no plugin.json or SKILL.md found in &lt;dir&gt;"** — the directory exists but doesn't qualify as a plugin. Add a `plugin.json` manifest at the root (or under `.github/`), or include a top-level `SKILL.md`.

@@ -89,6 +89,14 @@ Some content without sections.
     expect(headings).toBe('')
   })
 
+  test('strips HTML anchors from headings', () => {
+    const markdown = `## Foo <a name="foo-anchor"></a>
+
+## Further reading <a name="further"></a>
+`
+    expect(extractHeadingsFromMarkdown(markdown)).toBe('Foo')
+  })
+
   test('filters out Japanese navigational headings', () => {
     const markdown = `# タイトル
 
@@ -256,6 +264,81 @@ More text.
     expect(text).not.toContain('| ---')
     expect(text).not.toContain('---')
   })
+
+  test('removes HTML comments', () => {
+    const markdown = `Before.
+
+<!-- Suppressed: internal lint note -->
+
+Inline <!-- docs-validate: skip --> text.
+`
+    const text = markdownToPlainText(markdown)
+    expect(text).toContain('Before.')
+    expect(text).toContain('Inline')
+    expect(text).toContain('text.')
+    expect(text).not.toContain('<!--')
+    expect(text).not.toContain('Suppressed')
+    expect(text).not.toContain('docs-validate')
+  })
+
+  test('strips HTML tags in GFM table cells', () => {
+    const markdown = `| Permission | Allowed |
+| --- | --- |
+| Create repos | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> |
+`
+    const text = markdownToPlainText(markdown)
+    expect(text).toContain('Create repos')
+    expect(text).toContain('✓')
+    expect(text).not.toMatch(/span|role|octicon|aria/)
+  })
+
+  test('strips inline kbd and svg tags', () => {
+    const markdown = `Press <kbd>Ctrl</kbd>+<kbd>C</kbd>.
+
+Click <svg version="1.1" class="octicon octicon-kebab-horizontal" aria-label="More options"><path d="M8 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"></path></svg>, then click **Settings**.
+`
+    const text = markdownToPlainText(markdown)
+    expect(text).toMatch(/Press\s+Ctrl\s*\+\s*C\s*\./)
+    expect(text).toMatch(/Click\s*, then click Settings\./)
+    expect(text).not.toMatch(/kbd|svg|path|octicon|<|>/)
+  })
+
+  test('keeps tag boundaries as whitespace', () => {
+    const text = markdownToPlainText('a<br>b')
+    expect(text).toMatch(/a\s+b/)
+  })
+
+  test('keeps text inside block HTML', () => {
+    const markdown = `<details><summary>Show example</summary>
+
+Example body.
+
+</details>
+`
+    const text = markdownToPlainText(markdown)
+    expect(text).toContain('Show example')
+    expect(text).toContain('Example body.')
+    expect(text).not.toMatch(/details|summary/)
+  })
+
+  test('keeps literal comparisons inside block HTML', () => {
+    const text = markdownToPlainText('<pre>if (a < b) return 0;</pre>\n')
+    expect(text).toContain('if (a < b) return 0;')
+    expect(text).not.toContain('pre>')
+  })
+
+  test('handles > inside quoted attribute values', () => {
+    const text = markdownToPlainText(
+      `Hover <span title="a > b">Text</span> and <a href='x>y'>link</a>.\n`,
+    )
+    expect(text).toMatch(/Hover\s+Text\s+and\s+link\s*\./)
+    expect(text).not.toMatch(/title|href|b"|y'/)
+  })
+
+  test('keeps placeholders that are not HTML elements', () => {
+    const text = markdownToPlainText('Use heads/<branch name> and tags/<tag name>.\n')
+    expect(text).toContain('heads/<branch name> and tags/<tag name>.')
+  })
 })
 
 describe('extractFromMarkdown', () => {
@@ -415,6 +498,24 @@ Here's how to begin.
 
     // The intro appears only once.
     const introCount = (record.content.match(/Same intro/g) || []).length
+    expect(introCount).toBe(1)
+  })
+
+  test('does not duplicate an intro that contains literal tag names', () => {
+    const intro = 'Create a collapsed section with the <details> tag.'
+    const response: ArticleApiResponse = {
+      meta: {
+        title: 'Test',
+        intro,
+        product: 'Test',
+        breadcrumbs: [],
+      },
+      body: `# Test\n\n${intro}\n\nMore content.`,
+    }
+
+    const record = articleApiResponseToRecord('/en/test', response)
+
+    const introCount = (record.content.match(/Create a collapsed section/g) || []).length
     expect(introCount).toBe(1)
   })
 

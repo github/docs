@@ -74,6 +74,9 @@ export default async function archivedEnterpriseVersions(
   const { isArchived, requestedVersion } = isArchivedVersion(req)
   if (!isArchived || !requestedVersion) return next()
 
+  // trailingSlashes and handleRedirects 301 repeated slashes to the collapsed path, which returns here.
+  if (req.path.includes('//')) return next()
+
   if (patterns.assetPaths.test(req.path)) return next()
 
   const redirectCode = pathLanguagePrefixed(req.path) ? 301 : 302
@@ -426,11 +429,6 @@ const archiveLanguagePrefixRegex = new RegExp(`^/(${Object.keys(allLanguages).jo
 // Identifies request paths that cannot resolve on upstream GitHub Pages archive repos.
 // Returning a reason lets callers log and skip the network request.
 function getEarlyNotFoundReason(reqPath: string, version: string): string | null {
-  // Double slashes never resolve, such as /about-2fa//index.html.
-  if (reqPath.includes('//')) {
-    return 'double-slash'
-  }
-
   // Duplicated /developer/developer/ segments come from broken developer.github.com crawler URLs.
   if (reqPath.includes('/developer/developer/')) {
     return 'developer-developer'

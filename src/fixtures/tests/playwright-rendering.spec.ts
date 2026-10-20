@@ -1481,6 +1481,39 @@ test.describe('test nav at different viewports', () => {
     await expect(page.locator('#main-content')).toBeVisible()
   })
 
+  test('collapsed desktop rail stays collapsed after reload', async ({ page }) => {
+    await page.setViewportSize({ width: 1400, height: 700 })
+    await page.goto('/get-started/foo/bar')
+    await page.getByTestId('sidebar-collapse-toggle').click()
+    await expect(page.getByTestId('sidebar')).toHaveCount(0)
+
+    // The server renders the rail open, so the client must apply the saved cookie.
+    await page.reload()
+    await expect(page.getByTestId('sidebar')).toHaveCount(0)
+  })
+
+  test('expanded sidebar category stays open after reload', async ({ page }) => {
+    await page.setViewportSize({ width: 1400, height: 700 })
+    await page.goto('/get-started')
+    const sidebar = page.getByTestId('product-sidebar')
+    const helloWorld = sidebar.getByRole('link', { name: 'Hello World' })
+    await sidebar.getByText('Start your journey').click()
+    await expect(helloWorld).toBeVisible()
+
+    // The server renders categories collapsed, so the client must apply the saved cookie.
+    await page.reload()
+    await expect(helloWorld).toBeVisible()
+
+    // The first toggle after reload must merge into the saved cookie, not replace it.
+    await sidebar.getByText('Foo', { exact: true }).click()
+    await expect(sidebar.getByRole('link', { name: 'Bar', exact: true })).toBeVisible()
+    await expect(helloWorld).toBeVisible()
+
+    await page.reload()
+    await expect(sidebar.getByRole('link', { name: 'Bar', exact: true })).toBeVisible()
+    await expect(helloWorld).toBeVisible()
+  })
+
   test('resizing from mobile to desktop closes the inline nav', async ({ page }) => {
     // Below lg 1012px, the inline mobile nav lives in the secondary bar.
     await page.setViewportSize({
@@ -2482,6 +2515,34 @@ test.describe('Docs 2026 in-article navigation', () => {
 
     await page.mouse.wheel(0, 2000)
     await expect(trigger).not.toContainText('Macintosh')
+  })
+
+  // On short viewports 15% of the height sits above the anchor scroll margin.
+  test('a menu jump on a short viewport activates that section below the sticky bars', async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 1366, height: 640 })
+    await page.goto('/get-started/foo/anchor-scrolling')
+    await turnOffExperimentsInPage(page)
+
+    const subBar = page.getByTestId('overview-subbar')
+    const trigger = subBar.getByRole('button')
+    await trigger.click()
+    await page
+      .getByTestId('overview-menu')
+      .getByRole('link', { name: 'Target heading', exact: true })
+      .click()
+    await expect(page).toHaveURL(/#target-heading$/)
+    await expect(trigger).toContainText('Target heading')
+
+    const subBarBox = (await subBar.boundingBox())!
+    const headingBox = (await page.locator('#target-heading').boundingBox())!
+    expect(headingBox.y).toBeGreaterThanOrEqual(subBarBox.y + subBarBox.height - 2)
+
+    await trigger.click()
+    await expect(
+      page.getByTestId('overview-menu').getByRole('link', { name: 'Target heading', exact: true }),
+    ).toHaveAttribute('aria-current', 'location')
   })
 })
 

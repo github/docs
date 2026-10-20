@@ -34,6 +34,36 @@ import type {
 // Strip them so they stay out of search results.
 const ALERT_MARKER_REGEXP = /\[!(NOTE|TIP|WARNING|IMPORTANT|CAUTION)\]\n?/gi
 
+// The markdown body keeps raw HTML, such as octicon SVGs, kbd tags, and editorial
+// comments. Tags become a space so text on either side stays separate tokens.
+// The tag pattern follows CommonMark raw HTML so quoted attributes may contain >.
+const HTML_COMMENT_OR_TAG_REGEXP =
+  /<!--[\s\S]*?--!?>|<\/?([A-Za-z][A-Za-z0-9-]*)(?:\s+[A-Za-z_:][\w.:-]*(?:\s*=\s*(?:"[^"]*"|'[^']*'|[^\s"'=<>`]+))?)*\s*\/?>/g
+
+// Text-only Article API fields decode placeholders such as <branch name> into
+// literal text, so tags with unknown names stay in the content.
+const HTML_ELEMENT_NAMES = new Set(
+  [
+    'a abbr address area article aside audio b base bdi bdo blockquote body br button canvas',
+    'caption cite code col colgroup data datalist dd del details dfn dialog div dl dt em embed',
+    'fieldset figcaption figure footer form h1 h2 h3 h4 h5 h6 head header hgroup hr html i',
+    'iframe img input ins kbd label legend li link main map mark menu meta meter nav noscript',
+    'object ol optgroup option output p picture pre progress q rp rt ruby s samp script search',
+    'section select slot small source span strong style sub summary sup table tbody td template',
+    'textarea tfoot th thead time title tr track u ul var video wbr',
+    'svg circle clippath defs ellipse g line lineargradient mask path polygon polyline',
+    'radialgradient rect stop symbol text tspan use',
+  ]
+    .join(' ')
+    .split(' '),
+)
+
+function stripHtml(value: string): string {
+  return value.replace(HTML_COMMENT_OR_TAG_REGEXP, (match, tagName?: string) =>
+    tagName && !HTML_ELEMENT_NAMES.has(tagName.toLowerCase()) ? match : ' ',
+  )
+}
+
 // Match the HTML scraper's ignored navigation headings.
 const IGNORED_HEADING_SLUGS = new Set(['in-this-article', 'further-reading', 'prerequisites'])
 
@@ -154,6 +184,11 @@ function astToPlainText(node: Node): string {
 export function extractFromMarkdown(markdown: string): { headings: string; content: string } {
   const ast = parseMarkdown(markdown)
 
+  // Keep the text inside block HTML such as <summary>, which toString's includeHtml: false would drop.
+  visit(ast, 'html', (node) => {
+    node.value = stripHtml(node.value)
+  })
+
   const headings: string[] = []
   const slugger = new GithubSlugger()
 
@@ -162,7 +197,7 @@ export function extractFromMarkdown(markdown: string): { headings: string; conte
     const headingNode = node as HeadingNode
     if (headingNode.depth !== 2) return
 
-    const headingText = toString(node)
+    const headingText = toString(node).trim()
     const slug = slugger.slug(headingText)
 
     // Skip navigational headings by slug or known translated text.
@@ -196,8 +231,9 @@ export function articleApiResponseToRecord(pathname: string, data: ArticleApiRes
   const { headings, content: bodyText } = extractFromMarkdown(data.body)
 
   const intro = data.meta.intro || ''
+  // The body copy of the intro went through the same HTML stripping, so compare against that form.
   const content =
-    intro && !bodyText.includes(intro.trim())
+    intro && !bodyText.includes(markdownToPlainText(intro).trim())
       ? `${intro.trim()}\n${bodyText.trim()}`.trim()
       : bodyText.trim()
 

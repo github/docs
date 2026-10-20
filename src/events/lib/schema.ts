@@ -41,7 +41,8 @@ const context = {
 
     referrer: {
       type: 'string',
-      description: 'The browser value of `document.referrer`.',
+      description:
+        'The browser value of `document.referrer` on a full page load, or the previous docs URL after client-side navigation.',
       format: 'uri-reference',
     },
     title: {
@@ -258,26 +259,27 @@ const exit = {
     },
     exit_render_duration: {
       type: 'number',
-      description: 'How long the server took to render the page content, in seconds.',
+      description:
+        'How long the server took to render the page content, in seconds. Only sent for a full page load.',
       minimum: 0,
     },
     exit_first_paint: {
       type: 'number',
       minimum: 0,
       description:
-        'The duration until `first-contentful-paint`, in seconds. Informs CSS performance.',
+        'The duration until `first-contentful-paint`, in seconds. Informs CSS performance. Only sent for a full page load.',
     },
     exit_dom_interactive: {
       type: 'number',
       minimum: 0,
       description:
-        'The duration until `PerformanceNavigationTiming.domInteractive`, in seconds. Informs JavaScript loading performance.',
+        'The duration until `PerformanceNavigationTiming.domInteractive`, in seconds. Informs JavaScript loading performance. Only sent for a full page load.',
     },
     exit_dom_complete: {
       type: 'number',
       minimum: 0,
       description:
-        'The duration until `PerformanceNavigationTiming.domComplete`, in seconds. Informs JavaScript execution performance.',
+        'The duration until `PerformanceNavigationTiming.domComplete`, in seconds. Informs JavaScript execution performance. Only sent for a full page load.',
     },
     exit_visit_duration: {
       type: 'number',

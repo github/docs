@@ -100,7 +100,7 @@ jobs:
           # Keep relocated pages in the rsync input. RELOCATED_PAGES in
           # src/workflows/sync-sdk-docs/normalize-sdk-docs.ts removes them and
           # repoints inbound links.
-          rsync -av --exclude='.validation/' --exclude='developer-docs/' "$SDK_TMP/docs/" "$SDK_DOCS_TARGET/"
+          rsync -av --exclude='.validation/' --exclude='developer-docs/' --exclude='AGENTS.md' --exclude='/runtime-supervised-host.md' "$SDK_TMP/docs/" "$SDK_DOCS_TARGET/"
           echo "Copied $(find "$SDK_DOCS_TARGET" -name '*.md' | wc -l | tr -d ' ') markdown files"
 
       - name: Normalize content
