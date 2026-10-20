@@ -438,6 +438,77 @@ describe('REST code samples authentication header handling', () => {
 
       expect(result).toContain('--hostname HOSTNAME')
     })
+
+    const uploadAssetOperation: Operation = {
+      ...standardOperation,
+      title: 'Upload a release asset',
+      requestPath: '/repos/{owner}/{repo}/releases/{release_id}/assets',
+      serverUrl: 'https://uploads.github.com',
+      category: 'releases',
+      subcategory: 'assets',
+      parameters: [
+        {
+          name: 'name',
+          in: 'query',
+          required: true,
+          description: '',
+          schema: { type: 'string' },
+        },
+      ],
+    }
+
+    const uploadAssetCodeSample = {
+      key: 'default',
+      request: {
+        contentType: 'application/octet-stream',
+        acceptHeader: 'application/vnd.github.v3+json',
+        bodyParameters: '@example.zip',
+        parameters: { owner: 'OWNER', repo: 'REPO', release_id: 'RELEASE_ID' },
+        description: 'Example',
+      },
+      response: {
+        contentType: 'application/json',
+        description: 'Response',
+        example: { name: 'example.zip' },
+        statusCode: '201',
+      },
+    } as unknown as CodeSample
+
+    test('uploads a binary file body with --input to the full upload URL', () => {
+      const result = getGHExample(
+        uploadAssetOperation,
+        uploadAssetCodeSample,
+        'free-pro-team@latest',
+        mockVersions,
+      )
+
+      expect(result).toContain(
+        '"https://uploads.github.com/repos/OWNER/REPO/releases/RELEASE_ID/assets?name=example.zip"',
+      )
+      expect(result).toContain('-H "Content-Type: application/octet-stream"')
+      expect(result).toContain('--input example.zip')
+      expect(result).not.toContain('--hostname')
+      expect(result).not.toContain("-f '@")
+    })
+
+    test('uses the GHES upload URL for binary file bodies', () => {
+      const ghesUploadOperation = {
+        ...uploadAssetOperation,
+        serverUrl: 'https://HOSTNAME/api/uploads',
+      }
+      const result = getGHExample(
+        ghesUploadOperation,
+        uploadAssetCodeSample,
+        'enterprise-server@3.17',
+        mockVersions,
+      )
+
+      expect(result).toContain(
+        '"https://HOSTNAME/api/uploads/repos/OWNER/REPO/releases/RELEASE_ID/assets?name=example.zip"',
+      )
+      expect(result).toContain('--input example.zip')
+      expect(result).not.toContain('--hostname')
+    })
   })
 
   describe('getJSExample', () => {

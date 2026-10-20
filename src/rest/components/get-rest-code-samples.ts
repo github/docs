@@ -121,7 +121,10 @@ export function getGHExample(
   if (operation?.progAccess?.basicAuth) return
 
   const defaultAcceptHeader = getAcceptHeader(codeSample)
-  const hostname = operation.serverUrl !== 'https://api.github.com' ? '--hostname HOSTNAME' : ''
+  // Scalar bodies are file uploads that must go to the upload server URL, not the API host.
+  const isFileUpload = typeof codeSample.request.bodyParameters === 'string'
+  const hostname =
+    !isFileUpload && operation.serverUrl !== 'https://api.github.com' ? '--hostname HOSTNAME' : ''
 
   let requestPath = codeSample?.request?.parameters
     ? parseTemplate(operation.requestPath).expand(codeSample.request.parameters)
@@ -135,8 +138,11 @@ export function getGHExample(
 
   const requiredQueryParams = getRequiredQueryParamsPath(operation, codeSample)
   requestPath += requiredQueryParams ? `?${requiredQueryParams}` : ''
-  // Quote paths containing ? so shells don't expand it as a glob or split on &.
-  if (requestPath.includes('?')) {
+  if (isFileUpload) {
+    requestPath = `${operation.serverUrl}${requestPath}`
+  }
+  // Quote upload URLs and paths containing ? so shells don't expand it as a glob or split on &.
+  if (isFileUpload || requestPath.includes('?')) {
     requestPath = `"${requestPath}"`
   }
 
@@ -167,6 +173,8 @@ export function getGHExample(
       } else {
         requestBodyParams += handleObjectParameter(bodyParameters as NestedObjectParameter)
       }
+    } else if (isFileUpload) {
+      requestBodyParams = `--input ${(bodyParameters as string).replace(/^@/, '')}`
     } else {
       requestBodyParams += handleSingleParameter('', bodyParameters as NestedObjectParameter)
     }
@@ -176,6 +184,8 @@ export function getGHExample(
     operation.verb !== 'get' && `--method ${operation.verb.toUpperCase()}`,
     `-H "Accept: ${defaultAcceptHeader}"`,
     apiVersionHeader,
+    isFileUpload &&
+      `-H "Content-Type: ${codeSample.request.contentType || 'application/octet-stream'}"`,
     hostname,
     requestPath,
     requestBodyParams,
