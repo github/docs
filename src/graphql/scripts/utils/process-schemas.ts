@@ -960,7 +960,8 @@ export default async function processSchemas(
     }),
   )
 
-  data.scalars = sortBy(data.scalars.concat(externalScalars), 'name')
+  // Copies keep in-place href rewriting in bucketing from compounding across versions.
+  data.scalars = sortBy(data.scalars.concat(externalScalars.map((s) => ({ ...s }))), 'name')
 
   data.queries = sortBy(data.queries, 'name')
   data.mutations = sortBy(data.mutations, 'name')
