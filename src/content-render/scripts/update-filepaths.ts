@@ -10,6 +10,7 @@ import { execFileSync } from 'child_process'
 import walkFiles from '@/workflows/walk-files'
 import frontmatter from '@/frame/lib/read-frontmatter'
 import { renderContent } from '@/content-render/index'
+import { isPathWithin } from '@/content-render/lib/is-path-within'
 import fpt from '@/versions/lib/non-enterprise-default-version'
 import { allVersions } from '@/versions/lib/all-versions'
 import type { PageFrontmatter, Context } from '@/types'
@@ -205,8 +206,7 @@ function filterFiles(contentDir: string, scriptOptions: ScriptOptions) {
         console.error(`${p} not found`)
         process.exit(1)
       }
-      if (path.relative(process.cwd(), file).startsWith(p)) return true
-      return false
+      return isPathWithin(path.relative(process.cwd(), file), p)
     })
   })
 }
