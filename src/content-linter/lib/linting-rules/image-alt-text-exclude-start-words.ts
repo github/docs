@@ -12,15 +12,15 @@ export const imageAltTextExcludeStartWords: Rule = {
   parser: 'markdownit',
   function: (params: RuleParams, onError: RuleErrorCallback) => {
     forEachInlineChild(params, 'image', function forToken(token: MarkdownToken) {
+      const imageAltText = token.content?.trim()
+
       // Empty alt text belongs to image-alt-text-length and cannot produce a range.
-      if (!token.content) return
+      if (!imageAltText) return
 
-      const imageAltText = token.content.trim()
-
-      const range = getRange(token.line, imageAltText)
       if (
         excludeStartWords.some((excludeWord) => imageAltText.toLowerCase().startsWith(excludeWord))
       ) {
+        const range = getRange(token.line, imageAltText)
         addError(
           onError,
           token.lineNumber,
