@@ -1,10 +1,11 @@
 import walk from 'walk-sync'
 import path from 'path'
+import { fileURLToPath } from 'url'
 import { TokenizationError, TokenKind } from 'liquidjs'
 import type { TagToken } from 'liquidjs'
 import { getLiquidTokens } from '@/content-linter/lib/helpers/liquid-utils'
 
-const __dirname = path.dirname(new URL(import.meta.url).pathname)
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 const repoRoot = path.resolve(__dirname, '../../../../')
 const contentDirectory = path.resolve(__dirname, repoRoot, 'content/')
