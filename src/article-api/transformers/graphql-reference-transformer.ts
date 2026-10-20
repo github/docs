@@ -173,6 +173,7 @@ export class GraphQLReferenceTransformer implements PageTransformer {
         type: arg.type,
         href: arg.href,
         description: arg.description ? fastTextOnly(arg.description) : '',
+        defaultValue: arg.defaultValue,
       })),
     }
   }
