@@ -380,7 +380,7 @@ function BoolIcon({
   const text = value ? t('bool_yes') : t('bool_no')
   const fullLabel = label ? `${label}: ${text}` : text
   return (
-    <span aria-label={fullLabel} title={fullLabel}>
+    <span role="img" aria-label={fullLabel}>
       {value ? '✓' : '✗'}
     </span>
   )
