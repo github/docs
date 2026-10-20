@@ -20,6 +20,13 @@ const BOUNDING_TOP_MARGIN = 300
 const FIRST_LINK_ID = '_hc_first_focusable'
 const TITLE_ID = '_hc_title'
 
+// Pages with no product hide the product heading, and hidden links cannot take focus.
+function getFirstFocusableLink(popover: HTMLElement) {
+  const productHead = popover.querySelector<HTMLHeadingElement>('.product')
+  const id = productHead && productHead.style.display !== 'none' ? FIRST_LINK_ID : TITLE_ID
+  return popover.querySelector<HTMLAnchorElement>(`#${id}`)
+}
+
 type PageMetadata = {
   product: string
   title: string
@@ -123,14 +130,14 @@ function getOrCreatePopoverGlobal() {
     // The top bumper loops focus between the first and last hovercard links.
     topBumper.addEventListener('keyup', (event) => {
       if (event.key === 'Tab' && event.shiftKey) titleLink.focus()
-      else if (event.key === 'Tab') headingLink.focus()
+      else if (event.key === 'Tab') getFirstFocusableLink(wrapper)?.focus()
     })
 
     bottomBumper.addEventListener('keyup', (event) => {
-      handleBottomBumper(titleLink, headingLink, event)
+      handleBottomBumper(titleLink, getFirstFocusableLink(wrapper) ?? titleLink, event)
     })
     bottomBumper.addEventListener('focus', () => {
-      handleBottomBumper(headingLink)
+      handleBottomBumper(getFirstFocusableLink(wrapper) ?? titleLink)
     })
   }
 
@@ -400,11 +407,9 @@ export function LinkPreviewPopover() {
         event.preventDefault()
         const target = event.currentTarget as HTMLLinkElement
         popoverShow(target, (popover) => {
-          const productHeadingLink = popover.querySelector<HTMLParagraphElement>('.product a')
-          const first = document.getElementById(FIRST_LINK_ID)
-
-          if (productHeadingLink && first) {
-            first.focus()
+          const first = getFirstFocusableLink(popover)
+          first?.focus()
+          if (first && document.activeElement === first) {
             lastFocussedLink = target
           }
         })

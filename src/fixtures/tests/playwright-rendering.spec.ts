@@ -1410,6 +1410,35 @@ test.describe('hover cards', () => {
     ).not.toBeVisible()
   })
 
+  test('keyboard shortcut focuses hover card when the sidebar is collapsed', async ({ page }) => {
+    // The collapsed sidebar drops the product title that fills the hover card's first link.
+    page.setViewportSize({
+      width: 1400,
+      height: 700,
+    })
+    await page.goto('/pages/quickstart')
+    await turnOffExperimentsInPage(page)
+    await page.getByTestId('sidebar-collapse-toggle').click()
+    await expect(page.getByTestId('sidebar')).toHaveCount(0)
+
+    const introductionLink = page
+      .locator('#article-contents')
+      .getByRole('link', { name: 'introduction', exact: true })
+    await introductionLink.focus()
+    await page.keyboard.press('Alt+ArrowUp')
+    await expect(page.locator('#_hc_title')).toBeFocused()
+
+    // The title is the only visible link, so the focus trap wraps back to it both ways.
+    await page.keyboard.press('Tab')
+    await expect(page.locator('#_hc_title')).toBeFocused()
+    await page.keyboard.press('Shift+Tab')
+    await expect(page.locator('#_hc_title')).toBeFocused()
+
+    await page.keyboard.press('Escape')
+    await expect(page.getByTestId('popover')).not.toBeVisible()
+    await expect(introductionLink).toBeFocused()
+  })
+
   test('able to use Esc to close hovercard', async ({ page }) => {
     await page.goto('/pages/quickstart')
     await turnOffExperimentsInPage(page)
