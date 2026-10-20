@@ -8,6 +8,7 @@ import {
 } from '../lib/render-with-fallback'
 import { TitleFromAutotitleError } from '@/content-render/unified/rewrite-local-links'
 import Page from '@/frame/lib/page'
+import type { Context } from '@/types'
 
 describe('Translation Error Comments', () => {
   let mockRenderContent: MockedFunction<
@@ -361,6 +362,57 @@ describe('Translation Error Comments', () => {
         expect(result).toBe('English Title')
       })
 
+      test('keeps fallback links in the reader language', async () => {
+        const mockPage = Object.create(Page.prototype)
+        mockPage.markdown = '{% badtag %} [x](/actions/foo)'
+
+        const context = {
+          currentLanguage: 'ja',
+          currentVersion: 'free-pro-team@latest',
+          getEnglishPage: () => {
+            const enPage = Object.create(Page.prototype)
+            enPage.markdown = 'English [link](/actions/foo)'
+            return enPage
+          },
+        }
+
+        const result = await renderContentWithFallback(mockPage, 'markdown', context)
+
+        expect(result).toContain('<!-- TRANSLATION_FALLBACK')
+        expect(result).toContain('href="/ja/actions/foo"')
+        expect(result).not.toContain('href="/en/')
+      })
+
+      test('uses the linked page English title when its translated title fails', async () => {
+        const mockPage = Object.create(Page.prototype)
+        mockPage.markdown = '{% badtag %} [AUTOTITLE](/actions/b)'
+
+        const enPageA = Object.create(Page.prototype)
+        enPageA.rawTitle = 'English A'
+        enPageA.markdown = 'See [AUTOTITLE](/actions/b)'
+
+        const jaPageB = Object.create(Page.prototype)
+        jaPageB.languageCode = 'ja'
+        jaPageB.rawTitle = '{% badtag %}'
+
+        const enPageB = Object.create(Page.prototype)
+        enPageB.languageCode = 'en'
+        enPageB.rawTitle = 'English B'
+
+        const context = {
+          currentLanguage: 'ja',
+          currentVersion: 'free-pro-team@latest',
+          pages: { '/ja/actions/b': jaPageB, '/en/actions/b': enPageB },
+          // Matches contextualize, which caches the English page of the article being rendered.
+          getEnglishPage: (ctx: Context) => (ctx.enPage ||= enPageA),
+        }
+
+        const result = await renderContentWithFallback(mockPage, 'markdown', context)
+
+        expect(result).toContain('<a href="/ja/actions/b">English B</a>')
+        expect(result).not.toContain('English A')
+      })
+
       describe('when rendering a page other than the request page', () => {
         const makePage = (languageCode: string, href: string, props: Record<string, string>) => {
           const page = Object.create(Page.prototype)
@@ -471,6 +523,25 @@ describe('Translation Error Comments', () => {
 
         expect(result).not.toContain('<!-- TRANSLATION_FALLBACK')
         expect(result).toBe('Plain text fallback')
+      })
+
+      test('passes an English context that keeps links in the reader language', async () => {
+        const context = {
+          currentLanguage: 'es',
+        }
+
+        const failingCallable = async () => {
+          throw new LiquidError('Test error', 'RenderError')
+        }
+
+        const fallbackCallable = vi.fn(async () => 'Fallback')
+
+        await executeWithFallback(context, failingCallable, fallbackCallable)
+
+        expect(fallbackCallable).toHaveBeenCalledWith(
+          expect.objectContaining({ currentLanguage: 'en', autotitleLanguage: 'es' }),
+        )
+        expect(context).not.toHaveProperty('autotitleLanguage')
       })
     })
   })

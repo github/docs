@@ -131,8 +131,12 @@ export async function renderContentWithFallback(
       const enPage = getEnglishFallbackPage(page, context)
       if (!enPage) throw error
       const englishTemplate = (enPage as unknown as Record<string, string>)[property]
-      // Set currentLanguage to en so Liquid plugins such as data.ts read English data.
-      const enContext = Object.assign({}, context, { currentLanguage: 'en' })
+      // data.ts reads English data while rewriteLocalLinks keeps links in the reader's language.
+      const enContext = {
+        ...context,
+        currentLanguage: 'en',
+        autotitleLanguage: context.autotitleLanguage || context.currentLanguage,
+      }
 
       const fallbackContent = await renderContent(englishTemplate, enContext, options)
 
@@ -165,7 +169,12 @@ export async function executeWithFallback<T>(
     return await Promise.resolve(callable(context))
   } catch (error) {
     if (isFallbackableError(error) && context.currentLanguage !== 'en') {
-      const enContext = Object.assign({}, context, { currentLanguage: 'en' })
+      // data.ts reads English data while rewriteLocalLinks keeps links in the reader's language.
+      const enContext = {
+        ...context,
+        currentLanguage: 'en',
+        autotitleLanguage: context.autotitleLanguage || context.currentLanguage,
+      }
       const fallbackContent = await Promise.resolve(fallback(enContext))
 
       // Only HTML fallback content can carry a comment without changing plain-text output.
