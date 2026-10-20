@@ -5,7 +5,7 @@ import type { GraphqlT } from './types'
 import { RenderedHTML } from '@/frame/components/ui/RenderedHTML/RenderedHTML'
 
 type Props = {
-  item: GraphqlT
+  item: Pick<GraphqlT, 'name' | 'preview' | 'deprecationReason'>
   variant: 'preview' | 'deprecation'
 }
 

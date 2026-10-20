@@ -84,6 +84,8 @@ export type InterfaceImplementerT = Pick<ObjectT, 'name' | 'href'> & {
 export type EnumValuesT = {
   name: string
   description: string
+  isDeprecated?: boolean
+  deprecationReason?: string
 }
 
 export type EnumT = GraphqlT & {

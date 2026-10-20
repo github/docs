@@ -84,7 +84,7 @@
 
 ### Values for `{{ item.name }}`
 
-{% for value in item.values %}* `{{ value.name }}`: {{ value.description }}
+{% for value in item.values %}* `{{ value.name }}`: {{ value.description }}{% if value.isDeprecated %} **Deprecated:** {{ value.deprecationReason }}{% endif %}
 {% endfor %}
 {% endif %}
 

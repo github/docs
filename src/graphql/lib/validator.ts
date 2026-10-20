@@ -213,6 +213,12 @@ enums.properties.values = {
       description: {
         type: 'string',
       },
+      isDeprecated: {
+        type: 'boolean',
+      },
+      deprecationReason: {
+        type: 'string',
+      },
     },
   },
 }
