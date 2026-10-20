@@ -155,6 +155,8 @@ export const InArticlePicker = ({
               key={option.value}
               aria-current={option.value === currentValue ? 'page' : undefined}
               onSelect={(event: React.MouseEvent | React.KeyboardEvent) => {
+                // Leave new-tab and new-window gestures to the browser and the href.
+                if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return
                 event.preventDefault()
                 onClickChoice(option.value)
               }}

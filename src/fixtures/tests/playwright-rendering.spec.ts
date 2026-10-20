@@ -6,6 +6,7 @@ import {
   HOVERCARDS_ENABLED,
   ANALYTICS_ENABLED,
   COLOR_MODE_COOKIE_NAME,
+  TOOL_PREFERRED_COOKIE_NAME,
 } from '../../frame/lib/constants'
 
 // Local Playwright loads .env so tests read ELASTICSEARCH_URL independently of start-server.ts.
@@ -1264,6 +1265,30 @@ test.describe('tool picker', () => {
     await expect(page.getByText('This is cli content')).not.toBeVisible()
     await expect(page.getByText('This is desktop content')).not.toBeVisible()
     await expect(page.getByText('This is webui content')).toBeVisible()
+  })
+
+  test('modifier-click opens the tool in a new tab', async ({ page }) => {
+    await page.goto('/get-started/liquid/tool-specific')
+    await turnOffExperimentsInPage(page)
+    await page.getByTestId('tool-picker').getByRole('link', { name: 'Web browser' }).click()
+    await expect(page).toHaveURL(/\?tool=webui/)
+
+    // Chromium opens modifier-click tabs without an opener, so the page never emits 'popup'.
+    const newTabPromise = page.context().waitForEvent('page')
+    await page
+      .getByTestId('tool-picker')
+      .getByRole('link', { name: 'GitHub CLI' })
+      .click({ modifiers: ['ControlOrMeta'] })
+    const newTab = await newTabPromise
+    await expect(newTab).toHaveURL(/\?tool=cli/)
+    await newTab.close()
+
+    await expect(page).toHaveURL(/\?tool=webui/)
+    await expect(page.getByText('This is webui content')).toBeVisible()
+    await expect(page.getByText('This is cli content')).not.toBeVisible()
+    const cookies = await page.context().cookies()
+    const toolCookie = cookies.find((cookie) => cookie.name === TOOL_PREFERRED_COOKIE_NAME)
+    expect(toolCookie?.value).toBe('webui')
   })
 
   test('minitoc matches picker', async ({ page }) => {
