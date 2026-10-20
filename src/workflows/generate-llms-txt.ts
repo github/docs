@@ -20,6 +20,7 @@ import { loadPageMap } from '@/frame/lib/page-data'
 import { renderContent } from '@/content-render/index'
 import { getDataByLanguage } from '@/data-directory/lib/get-data'
 import { allVersions } from '@/versions/lib/all-versions'
+import { getFeaturesByVersion } from '@/versions/middleware/features'
 import type { Page, Context } from '@/types'
 
 interface LlmsTxtConfig {
@@ -71,10 +72,15 @@ export async function fetchRollup(): Promise<Rollup> {
   return (await res.json()) as Rollup
 }
 
+const RENDER_VERSION = 'free-pro-team@latest'
+
+// Match the short-versions and features middleware so ifversion fpt and feature flags resolve.
 const renderContext: Context = {
+  ...getFeaturesByVersion(RENDER_VERSION),
   currentLanguage: 'en',
-  currentVersion: 'free-pro-team@latest',
-  currentVersionObj: allVersions['free-pro-team@latest'],
+  currentVersion: RENDER_VERSION,
+  currentVersionObj: allVersions[RENDER_VERSION],
+  [allVersions[RENDER_VERSION].shortName]: true,
   getDottedData: (path: string) => getDataByLanguage(path, 'en'),
 } as Context
 

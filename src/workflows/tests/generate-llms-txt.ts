@@ -87,6 +87,16 @@ describe('renderLiquid', () => {
     expect(result).not.toMatch(/^<p>/)
     expect(result).not.toMatch(/<\/p>$/)
   })
+  test('renders fpt version conditionals as free-pro-team', async () => {
+    expect(await renderLiquid('{% ifversion fpt %}A{% else %}B{% endif %}')).toBe('A')
+    expect(await renderLiquid('{% ifversion fpt or ghec %}A{% else %}B{% endif %}')).toBe('A')
+    expect(await renderLiquid('{% ifversion not fpt %}A{% else %}B{% endif %}')).toBe('B')
+  })
+  test('renders feature flags enabled on free-pro-team', async () => {
+    expect(await renderLiquid('{% ifversion code-search-upgrade %}A{% else %}B{% endif %}')).toBe(
+      'A',
+    )
+  })
 })
 
 describe('getPageTitle', () => {
