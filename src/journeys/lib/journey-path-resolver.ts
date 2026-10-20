@@ -69,6 +69,20 @@ function needsRendering(str: string): boolean {
   return str.includes('{{') || str.includes('{%') || str.includes('[') || str.includes('<')
 }
 
+async function renderTextField(value: string, context: Context): Promise<string> {
+  if (!needsRendering(value)) return value
+  try {
+    return await executeWithFallback(
+      context,
+      () => renderContent(value, context, { textOnly: true }),
+      (enContext: Context) => renderContent(value, enContext, { textOnly: true }),
+    )
+  } catch {
+    // executeWithFallback rethrows non-fallbackable errors and all English content errors.
+    return value
+  }
+}
+
 function getJourneyPages(pages: Record<string, Page>): JourneyPage[] {
   if (!cachedJourneyPages) {
     cachedJourneyPages = (Object.values(pages) as JourneyPage[]).filter(
@@ -229,7 +243,7 @@ export async function resolveJourneyContext(
         result = {
           trackId: track.id,
           trackName: track.id,
-          trackTitle: track.title,
+          trackTitle: await renderTextField(track.title, context),
           journeyTitle: journeyPage.title || '',
           journeyPath:
             journeyPage.permalink || Permalink.relativePathToSuffix(journeyPage.relativePath || ''),
@@ -261,7 +275,7 @@ export async function resolveJourneyContext(
             if (guideData) {
               result.nextTrackFirstGuide = {
                 ...guideData,
-                trackTitle: nextTrack.title,
+                trackTitle: await renderTextField(nextTrack.title, context),
               }
             }
           }
