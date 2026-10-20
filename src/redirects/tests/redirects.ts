@@ -47,9 +47,12 @@ describe('redirects', () => {
   describe('query params', () => {
     test('are preserved in redirected URLs', async () => {
       const res = await get('/enterprise/admin?query=pulls')
-      expect(res.statusCode).toBe(301)
+      // Without a language prefix, the target depends on language preference.
+      expect(res.statusCode).toBe(302)
       const expected = `/en/enterprise-server@${enterpriseServerReleases.latest}/search?query=pulls`
       expect(res.headers.location).toBe(expected)
+      expect(res.headers.vary).toContain('accept-language')
+      expect(res.headers.vary).toContain('x-user-language')
     })
 
     test('have q= converted to query=', async () => {
@@ -70,6 +73,7 @@ describe('redirects', () => {
       expect(res.statusCode).toBe(301)
       const expected = '/en/search?query=pulls'
       expect(res.headers.location).toBe(expected)
+      expect(res.headers['cache-control']).toContain('public')
     })
 
     test('have faq= not converted to query=', async () => {

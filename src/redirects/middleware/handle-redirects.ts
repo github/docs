@@ -62,7 +62,9 @@ export default function handleRedirects(req: ExtendedRequest, res: Response, nex
   const hasQ = 'q' in req.query
   const hasQuery = 'query' in req.query
   if ((hasQ && !hasQuery) || (hasQuery && !onSearch)) {
-    const language = getLanguage(req)
+    // A browser-cached 301 cannot vary on the user_language cookie, so preference redirects use 302.
+    const languagePrefixed = pathLanguagePrefixed(req.path)
+    const language = languagePrefixed && req.language ? req.language : getLanguage(req)
     const sp = new URLSearchParams(req.query as URLSearchParamsTypes)
     if (sp.has('q') && !sp.has('query')) {
       sp.set('query', sp.get('q')!)
@@ -78,7 +80,12 @@ export default function handleRedirects(req: ExtendedRequest, res: Response, nex
     }
 
     redirectTo += `/search?${sp.toString()}`
-    return res.safeRedirect(301, redirectTo)
+    if (languagePrefixed) {
+      defaultCacheControl(res)
+      return res.safeRedirect(301, redirectTo)
+    }
+    languageCacheControl(res)
+    return res.safeRedirect(302, redirectTo)
   }
 
   if (queryParams) {
