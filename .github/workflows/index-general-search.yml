@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
     inputs:
       version:
-        description: "Version to exclusively generate the search index for. E.g. 'dotcom', 'ghes-3.12'"
+        description: "Version to exclusively generate the search index for: 'fpt', 'ghec', or a supported 'ghes-X.Y'. Leave empty for all."
         required: false
         default: ''
       languages:
