@@ -100,4 +100,49 @@ describe('getAllTocItems', () => {
 
     expect(titles).toEqual(['Visible Article'])
   })
+
+  test('drops children that resolve to another product', async () => {
+    const ghes = 'enterprise-server@3.19'
+    const parent = createMockPage({
+      rawTitle: 'REST API',
+      applicableVersions: [ghes],
+      permalinks: [{ languageCode: 'en', pageVersion: ghes, href: `/en/${ghes}/rest` }],
+      children: ['/actions', '/copilot', '/codespaces'],
+    })
+    const actions = createMockPage({
+      rawTitle: 'Actions',
+      applicableVersions: [ghes],
+      permalinks: [{ languageCode: 'en', pageVersion: ghes, href: `/en/${ghes}/rest/actions` }],
+    })
+    const copilot = createMockPage({
+      rawTitle: 'GitHub Copilot documentation',
+      applicableVersions: ['free-pro-team@latest', ghes],
+      permalinks: [
+        { languageCode: 'en', pageVersion: 'free-pro-team@latest', href: '/en/copilot' },
+        { languageCode: 'en', pageVersion: ghes, href: `/en/${ghes}/copilot` },
+      ],
+    })
+    const codespaces = createMockPage({
+      rawTitle: 'GitHub Codespaces documentation',
+      applicableVersions: ['free-pro-team@latest'],
+      permalinks: [
+        { languageCode: 'en', pageVersion: 'free-pro-team@latest', href: '/en/codespaces' },
+      ],
+    })
+    const context = {
+      currentVersion: ghes,
+      pages: {
+        [`/en/${ghes}/rest`]: parent,
+        [`/en/${ghes}/rest/actions`]: actions,
+        '/en/copilot': copilot,
+        '/en/codespaces': codespaces,
+      },
+      redirects: {},
+    } as unknown as Context
+
+    const items = await getAllTocItems(parent, context)
+
+    expect(items.map((item) => item.href)).toEqual([`/en/${ghes}/rest/actions`])
+    expect(items[0].title).toBe('Actions')
+  })
 })
