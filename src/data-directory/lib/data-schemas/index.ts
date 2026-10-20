@@ -55,6 +55,9 @@ const manualSchemas: DataSchemas = {
   'data/tables/copilot/model-supported-plans.yml': resolveSchemaPath(
     'tables/copilot/model-supported-plans.ts',
   ),
+  'data/tables/copilot/model-release-status.yml': resolveSchemaPath(
+    'tables/copilot/model-release-status.ts',
+  ),
   'data/tables/copilot/model-comparison.yml': resolveSchemaPath(
     'tables/copilot/model-comparison.ts',
   ),
