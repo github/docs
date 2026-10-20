@@ -138,9 +138,12 @@ async function run() {
   // Bot logins such as dependabot[bot] cannot be resolved as regular GitHub users.
   const isBotAuthor = (process.env.AUTHOR_LOGIN || '').endsWith('[bot]')
 
-  // github/docs PRs from new non-bot contributors use first time contributor instead of the login.
+  // The REST login for Copilot-authored PRs is "Copilot", which is not a User either.
+  const { isCopilotAuthor, copilotAssignee } = getCopilotAuthorInfo(data)
+
+  // github/docs PRs from new human contributors use first time contributor instead of the login.
   let firstTimeContributor
-  if (!isBotAuthor && process.env.REPO === 'github/docs') {
+  if (!isBotAuthor && !isCopilotAuthor && process.env.REPO === 'github/docs') {
     const contributorData: Record<string, unknown> = await graphql(
       `
         query ($author: String!) {
@@ -203,8 +206,6 @@ async function run() {
     }
   }
   const turnaround = process.env.REPO === 'github/docs' ? 3 : 2
-
-  const { isCopilotAuthor, copilotAssignee } = getCopilotAuthorInfo(data)
 
   const authorFieldValue = getAuthorFieldValue(
     isCopilotAuthor,
