@@ -141,7 +141,12 @@ export const ArticleGrid = ({
   const filteredResults = applyFilters()
 
   const totalPages = Math.ceil(filteredResults.length / articlesPerPage)
-  const startIndex = (currentPage - 1) * articlesPerPage
+  // Page count depends on viewport width and filters, so a URL page can be out of range here.
+  const displayPage = Math.min(
+    Math.max(1, Number.isFinite(currentPage) ? currentPage : 1),
+    Math.max(1, totalPages),
+  )
+  const startIndex = (displayPage - 1) * articlesPerPage
   const paginatedResults = filteredResults.slice(startIndex, startIndex + articlesPerPage)
 
   const handleSearch = (query: string) => {
@@ -347,7 +352,7 @@ export const ArticleGrid = ({
           </div>
           <Pagination
             pageCount={totalPages}
-            currentPage={currentPage}
+            currentPage={displayPage}
             onPageChange={handlePageChange}
           />
         </div>

@@ -2872,6 +2872,42 @@ test.describe('LandingArticleGridWithFilter component', () => {
     await expect(noResultsMessage).toHaveText('No articles found matching your criteria.')
   })
 
+  test('out-of-range or invalid page in the URL still shows articles', async ({ page }) => {
+    const articleCards = page.getByTestId('article-grid').getByTestId('article-card')
+
+    await page.goto('/get-started/article-grid-discovery?articles-filter=Grid&articles-page=2')
+    await expect(articleCards).toHaveCount(4)
+
+    await page.goto('/get-started/article-grid-discovery?articles-page=99')
+    await expect(articleCards).toHaveCount(4)
+
+    await page.goto('/get-started/article-grid-discovery?articles-page=abc')
+    await expect(articleCards).toHaveCount(4)
+  })
+
+  test('out-of-range page on a multi-page grid shows the last page', async ({ page }) => {
+    // The get-started product landing has more cards than one 9-card desktop page.
+    await page.setViewportSize({ width: 1200, height: 800 })
+    await page.goto('/get-started?articles-page=99')
+
+    const results = page.getByText(/^Showing \d+-\d+ of \d+$/)
+    await expect(results).toBeVisible()
+    const [start, end, total] = (await results.textContent())!
+      .match(/(\d+)-(\d+) of (\d+)/)!
+      .slice(1)
+      .map(Number)
+    const lastPage = Math.ceil(total / 9)
+    expect(lastPage).toBeGreaterThan(1)
+    expect(start).toBe((lastPage - 1) * 9 + 1)
+    expect(end).toBe(total)
+    await expect(page.getByTestId('article-grid').getByTestId('article-card')).toHaveCount(
+      end - start + 1,
+    )
+    await expect(
+      page.getByRole('navigation', { name: 'Pagination' }).locator('[aria-current="page"]'),
+    ).toHaveText(String(lastPage))
+  })
+
   test('responsive behavior on different screen sizes', async ({ page }) => {
     await page.setViewportSize({ width: 1200, height: 800 })
     await page.goto('/get-started/article-grid-discovery')
