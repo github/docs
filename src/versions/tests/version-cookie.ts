@@ -46,6 +46,24 @@ describe('version cookie redirects', () => {
     expect(res.headers.location).toBe('/en')
   })
 
+  test('language homepage redirects to preferred version from cookie', async () => {
+    const res = await get('/en', {
+      headers: {
+        Cookie: `${USER_VERSION_COOKIE_NAME}=enterprise-cloud@latest`,
+      },
+      followRedirects: false,
+    })
+    expect(res.statusCode).toBe(302)
+    expect(res.headers.location).toBe('/en/enterprise-cloud@latest')
+    expect(res.headers.vary).toContain('x-user-version')
+  })
+
+  test('language homepage varies on the cookie without one', async () => {
+    const res = await get('/en', { followRedirects: false })
+    expect(res.statusCode).toBe(200)
+    expect(res.headers.vary).toContain('x-user-version')
+  })
+
   test('homepage redirects to enterprise-server version from cookie', async () => {
     const res = await get('/', {
       headers: {
