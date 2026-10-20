@@ -188,6 +188,24 @@ describe('pageinfo api', () => {
     }
   })
 
+  test('language-less canonical pathnames', async () => {
+    {
+      const res = await get(makeURL('/get-started/start-your-journey/hello-world'))
+      expect(res.statusCode).toBe(200)
+      const meta = JSON.parse(res.body) as PageMetadata
+      expect(meta.title).toBe('Hello World')
+      expect(meta.redirectedFrom).toBe('/get-started/start-your-journey/hello-world')
+    }
+    {
+      const res = await get(
+        makeURL('/enterprise-cloud@latest/get-started/start-your-journey/hello-world'),
+      )
+      expect(res.statusCode).toBe(200)
+      const meta = JSON.parse(res.body) as PageMetadata
+      expect(meta.title).toBe('Hello World')
+    }
+  })
+
   test('documentType for different page types', async () => {
     {
       const res = await get(makeURL('/en'))
