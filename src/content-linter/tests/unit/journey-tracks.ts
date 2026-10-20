@@ -81,6 +81,34 @@ journeyTracks:
     )
     expect(result['test-invalid-alternative-next-step.md'][0].errorDetail).toMatch(/liquid syntax/i)
   })
+
+  test('invalid liquid syntax in timeCommitment fails', async () => {
+    const invalidTimeCommitmentContent = `---
+title: Journey with Invalid Time Commitment
+layout: journey-landing
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+journeyTracks:
+  - id: track-1
+    title: "Test Track"
+    timeCommitment: "{% ifversion ghec %}2-4 weeks"
+    guides:
+      - href: /article-one
+---
+
+# Journey with Invalid Time Commitment
+`
+    const result = await runRule(journeyTracksLiquid, {
+      strings: { 'test-invalid-time-commitment.md': invalidTimeCommitmentContent },
+      ...fmOptions,
+    })
+
+    expect(result['test-invalid-time-commitment.md']).toHaveLength(1)
+    expect(result['test-invalid-time-commitment.md'][0].errorDetail).toMatch(/timeCommitment/)
+    expect(result['test-invalid-time-commitment.md'][0].errorDetail).toMatch(/liquid syntax/i)
+  })
 })
 
 describe('journey-tracks-guide-path-exists', () => {
