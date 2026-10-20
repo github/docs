@@ -128,6 +128,50 @@ describe('Request Content Type Logic', () => {
     expect(options).toEqual(['First example', 'Second example'])
   })
 
+  test('omits the content type suffix for an example with no response body', () => {
+    const noContentExamples: CodeExample[] = [
+      {
+        description: 'Example 1: Status Code 201',
+        request: { contentType: 'application/json' },
+        response: { contentType: 'application/json' },
+      },
+      {
+        description: 'Example 2: Status Code 204',
+        request: { contentType: 'application/json' },
+        response: {},
+      },
+    ]
+
+    const options = generateExampleOptionTexts(noContentExamples)
+
+    expect(options).toEqual([
+      'Example 1: Status Code 201 (application/json)',
+      'Example 2: Status Code 204',
+    ])
+  })
+
+  test('omits a missing request content type when request and response types differ', () => {
+    const mixedExamples: CodeExample[] = [
+      {
+        description: 'JSON request',
+        request: { contentType: 'application/json' },
+        response: { contentType: 'application/json' },
+      },
+      {
+        description: 'No request body',
+        request: {},
+        response: { contentType: 'text/html' },
+      },
+    ]
+
+    const options = generateExampleOptionTexts(mixedExamples)
+
+    expect(options).toEqual([
+      'JSON request (application/json → application/json)',
+      'No request body (text/html)',
+    ])
+  })
+
   test('handles single example correctly', () => {
     const singleExample: CodeExample[] = [
       {
