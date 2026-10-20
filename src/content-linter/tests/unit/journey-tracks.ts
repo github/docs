@@ -119,6 +119,31 @@ describe('journey-tracks-guide-path-exists', () => {
     expect(result[INVALID_PATHS][0].errorDetail).toContain('does not exist')
   })
 
+  test('guide paths that resolve only relative to the landing page fail', async () => {
+    const landingPath = 'src/fixtures/fixtures/content/subdir/index.md'
+    const content = `---
+title: Journey in a subdirectory
+layout: journey-landing
+versions:
+  fpt: '*'
+journeyTracks:
+  - id: track-1
+    title: "Track"
+    guides:
+      - href: /subdir/article-three
+      - href: /article-three
+      - href: article-three
+---
+`
+    const result = await runRule(journeyTracksGuidePathExists, {
+      strings: { [landingPath]: content },
+      ...fmOptions,
+    })
+    expect(result[landingPath]).toHaveLength(2)
+    expect(result[landingPath][0].errorDetail).toContain('/article-three (track 1, guide 2)')
+    expect(result[landingPath][1].errorDetail).toContain('article-three (track 1, guide 3)')
+  })
+
   test('pages without journey tracks pass', async () => {
     const result = await runRule(journeyTracksGuidePathExists, {
       files: [NO_JOURNEY_TRACKS],
