@@ -6,10 +6,12 @@ import {
   resolveInternalLinkKey,
   checkAssetLink,
   isAssetLink,
+  getLinkCheckVersions,
   createLiquidContext,
   extractLinksWithLiquid,
 } from '../lib/extract-links'
 import { latest, latestStable } from '@/versions/lib/enterprise-server-releases'
+import { allVersions } from '@/versions/lib/all-versions'
 import { getFeaturesByVersion } from '@/versions/middleware/features'
 import type { Page } from '@/types'
 
@@ -970,6 +972,33 @@ describe('resolveInternalLinkKey version precedence', () => {
     expect(resolveInternalLinkKey('/get-started/shared', pageMap, 'enterprise-server@3.17')).toBe(
       '/en/get-started/shared',
     )
+  })
+})
+
+describe('getLinkCheckVersions', () => {
+  test('returns every version the page applies to', () => {
+    const versions = ['free-pro-team@latest', 'enterprise-cloud@latest']
+    expect(getLinkCheckVersions({ applicableVersions: versions })).toEqual(versions)
+  })
+
+  test('returns every current version for files without a page', () => {
+    expect(getLinkCheckVersions(undefined)).toEqual(Object.keys(allVersions))
+    expect(getLinkCheckVersions({ applicableVersions: [] })).toEqual(Object.keys(allVersions))
+  })
+
+  test('resolves versionless links on GHEC-only pages without a redirect', () => {
+    // Pages without FPT get a versionless fallback redirect to their first version.
+    const pageMap = {
+      '/en/enterprise-cloud@latest/admin/create-account': {} as unknown as Page,
+    }
+    const redirects = {
+      '/admin/create-account': '/enterprise-cloud@latest/admin/create-account',
+    }
+    const versions = getLinkCheckVersions({ applicableVersions: ['enterprise-cloud@latest'] })
+    for (const version of versions) {
+      const result = checkInternalLink('/admin/create-account', pageMap, redirects, version)
+      expect(result).toEqual({ exists: true, isRedirect: false })
+    }
   })
 })
 

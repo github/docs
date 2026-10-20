@@ -347,6 +347,11 @@ export function createLiquidContext(
   } as Context
 }
 
+// Data and reusable files have no versions of their own, so they render in every current version.
+export function getLinkCheckVersions(page?: Pick<Page, 'applicableVersions'>): string[] {
+  return page?.applicableVersions?.length ? page.applicableVersions : Object.keys(allVersions)
+}
+
 // Cache renderLiquid after a dynamic import to avoid circular imports and repeated import overhead.
 type RenderLiquidModule = (template: string, context: Context) => Promise<string>
 let _renderLiquid: RenderLiquidModule | null = null

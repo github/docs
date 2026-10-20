@@ -11,6 +11,7 @@ import {
   generateSampleReports,
   classifyFixStrategy,
   mergeInternalLinkReports,
+  mergeVersionedLinkFlaws,
   describeVersions,
 } from '../lib/link-report'
 
@@ -1134,6 +1135,69 @@ describe('merging redirect targets across versions', () => {
     ])
     expect(report.groups[0].occurrences[0].requiresVersionContext).toBe(true)
     expect(classifyFixStrategy(report.groups[0])).toBe('decide')
+  })
+})
+
+describe('mergeVersionedLinkFlaws', () => {
+  const file = 'content/admin/page.md'
+
+  test('reports a missing target even when an earlier version redirects', () => {
+    const { brokenLinks, redirectLinks } = mergeVersionedLinkFlaws([
+      {
+        href: '/admin/old',
+        file,
+        lines: [4],
+        isRedirect: true,
+        redirectTarget: '/enterprise-cloud@latest/admin/new',
+      },
+      { href: '/admin/old', file, lines: [9] },
+    ])
+    expect(redirectLinks).toEqual([])
+    expect(brokenLinks).toEqual([{ href: '/admin/old', file, lines: [4, 9] }])
+  })
+
+  test('keeps a missing target when a later version redirects', () => {
+    const { brokenLinks, redirectLinks } = mergeVersionedLinkFlaws([
+      { href: '/admin/old', file, lines: [9] },
+      { href: '/admin/old', file, lines: [9], isRedirect: true, redirectTarget: '/admin/new' },
+    ])
+    expect(redirectLinks).toEqual([])
+    expect(brokenLinks).toEqual([{ href: '/admin/old', file, lines: [9] }])
+  })
+
+  test('merges redirect occurrences and flags conflicting targets', () => {
+    const { brokenLinks, redirectLinks } = mergeVersionedLinkFlaws([
+      { href: '/old', file, lines: [7], isRedirect: true, redirectTarget: '/new' },
+      {
+        href: '/old',
+        file,
+        lines: [3, 7],
+        isRedirect: true,
+        redirectTarget: '/enterprise-server@3.15/other',
+        requiresVersionContext: true,
+      },
+    ])
+    expect(brokenLinks).toEqual([])
+    expect(redirectLinks).toHaveLength(1)
+    expect(redirectLinks[0]).toMatchObject({
+      lines: [3, 7],
+      redirectTarget: '/new',
+      requiresVersionContext: true,
+      hasConflictingRedirectTargets: true,
+    })
+  })
+
+  test('keeps different hrefs and files separate', () => {
+    const { brokenLinks } = mergeVersionedLinkFlaws([
+      { href: '/a', file, lines: [1] },
+      { href: '/b', file, lines: [2] },
+      { href: '/a', file: 'content/other.md', lines: [1] },
+    ])
+    expect(brokenLinks.map((link) => `${link.file}${link.href}`)).toEqual([
+      `${file}/a`,
+      `${file}/b`,
+      'content/other.md/a',
+    ])
   })
 })
 
