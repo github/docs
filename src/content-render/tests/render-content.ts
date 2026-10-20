@@ -307,4 +307,42 @@ var a = 1
     expect(alertEl.hasClass('ghd-alert-accent')).toBe(true)
     expect(alertEl.find('a[href="https://example.com"]').length).toBe(1)
   })
+
+  describe('markdownRequested output', () => {
+    const markdownContext = {
+      markdownRequested: true,
+      currentLanguage: 'en',
+      currentVersion: 'free-pro-team@latest',
+      pages: {},
+      redirects: {},
+    }
+
+    test('keeps alert markers unescaped when rewriting internal links', async () => {
+      const template = nl(`> [!NOTE]
+> See [Billing](/billing/foo).
+
+> [!WARNING]
+> Careful.`)
+      const markdown = await renderContent(template, markdownContext)
+      expect(markdown).toContain('> [!NOTE]')
+      expect(markdown).toContain('> [!WARNING]')
+      expect(markdown).not.toContain('\\[!')
+      expect(markdown).toContain('(/en/billing/foo)')
+    })
+
+    test('keeps escaping alert-like text outside the start of a blockquote', async () => {
+      const template = 'Type \\[!NOTE] to start an alert. See [Billing](/billing/foo).'
+      const markdown = await renderContent(template, markdownContext)
+      expect(markdown).toContain('Type \\[!NOTE] to start an alert.')
+      expect(markdown).toContain('(/en/billing/foo)')
+    })
+
+    test('keeps an escaped alert marker escaped at the start of a blockquote', async () => {
+      const template = nl(`> \\[!NOTE]
+> See [Billing](/billing/foo).`)
+      const markdown = await renderContent(template, markdownContext)
+      expect(markdown).toContain('> \\[!NOTE]')
+      expect(markdown).toContain('(/en/billing/foo)')
+    })
+  })
 })
