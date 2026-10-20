@@ -138,3 +138,41 @@ For more information, see \`codeql database analyze<database-analyze>\`{.interpr
     expect(typeof result.data).toBe('object')
   })
 })
+
+describe('convertContentToDocs option headings', () => {
+  const optionContent = `
+# database analyze
+
+## Options
+
+### Options to control the model packs to be used
+
+::: {.option}
+--model-packs=\\<<name@range>\\>...
+
+A list of CodeQL pack names.
+:::
+
+### Options to control the threat models to be used
+
+::: {.option}
+--threat-model=\\<name\\>...
+
+A list of threat models to enable or disable.
+:::
+`
+
+  test('keeps an option with an email-like placeholder in one code span', async () => {
+    const result = await convertContentToDocs(optionContent, {}, 'database-analyze.md')
+
+    expect(result.content).toContain('#### `--model-packs=<name@range>...`')
+    expect(result.content).not.toContain('mailto')
+    expect(result.content).not.toContain('`--model-packs=<`')
+  })
+
+  test('renders a plain option heading as one code span', async () => {
+    const result = await convertContentToDocs(optionContent, {}, 'database-analyze.md')
+
+    expect(result.content).toContain('#### `--threat-model=<name>...`')
+  })
+})

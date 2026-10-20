@@ -3,6 +3,7 @@ import path from 'path'
 
 import { fromMarkdown } from 'mdast-util-from-markdown'
 import { toMarkdown } from 'mdast-util-to-markdown'
+import { toString } from 'mdast-util-to-string'
 import { visitParents } from 'unist-util-visit-parents'
 import { visit, SKIP } from 'unist-util-visit'
 import { remove } from 'unist-util-remove'
@@ -146,6 +147,10 @@ export async function convertContentToDocs(
         (node.value.startsWith('-') || node.value.startsWith('<'))
       ) {
         node.type = 'inlineCode'
+        // Placeholders like <name@range> parse as email autolinks, so merge siblings into one code span.
+        const heading = ancestors[ancestors.length - 1]
+        node.value = toString(heading).replace(END_SECTION, '')
+        heading.children = [node]
       }
 
       // Pandoc adds a marker at the end of each options section. Remove it.
