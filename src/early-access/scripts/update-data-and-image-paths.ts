@@ -44,7 +44,11 @@ let selectedFiles: string[] = allEarlyAccessFiles.filter(
   (file) => file.startsWith('content/early-access/') || file.startsWith('data/early-access/'),
 )
 if (earlyAccessPath) {
-  const contentFiles = allEarlyAccessFiles.filter((file) => file.includes(earlyAccessPath))
+  // Match on a path segment boundary so content/early-access/foo does not also select foo-v2.
+  const basePath = earlyAccessPath.replace(/\/+$/, '')
+  const contentFiles = allEarlyAccessFiles.filter(
+    (file) => file === basePath || file.startsWith(`${basePath}/`),
+  )
 
   // Include reusable files referenced by selected content files.
   const referencedDataFiles: string[] = []
