@@ -15,27 +15,25 @@ export const MAX_UNFAMILIAR_KEYS_REDIRECT = 3
 
 const RECOGNIZED_KEYS_BY_PREFIX = {
   '/_next/data/': ['versionId', 'productId', 'restPage', 'apiVersion', 'category', 'subcategory'],
-  // Match the general search params in src/search/lib/search-request-params/search-params-objects.ts.
+  // Keep in sync with GENERAL_SEARCH_PARAMS_OBJ in src/search/lib/search-request-params/search-params-objects.ts.
   '/api/search': [
     'query',
     'language',
     'version',
     'page',
-    'product',
-    'autocomplete',
-    'limit',
     'size',
     'sort',
     'highlights',
+    'autocomplete',
     'debug',
     'include',
     'toplevel',
     'aggregate',
   ],
-  '/api/combined-search': ['query', 'version', 'size', 'debug'],
+  '/api/search/combined-search': ['query', 'version', 'size', 'debug'],
   '/api/anchor-redirect': ['hash', 'path'],
   '/api/webhooks': ['category', 'version'],
-  '/api/pageinfo': ['pathname'],
+  '/api/article': ['pathname'],
 }
 
 const RECOGNIZED_KEYS_BY_ANY = new Set([
