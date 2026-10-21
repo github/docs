@@ -128,6 +128,7 @@ export function loadExistingEntriesFromString(content: string): {
   let currentSourceUrl: string | null = null
   let currentHeading: string | null = null
   let currentNote: string[] = []
+  let noteIndent: number | null = null
   let inNote = false
   // Hand-written sections can use grouped headings too, so only generated sections may set a heading.
   let inGeneratedSection = true
@@ -157,6 +158,7 @@ export function loadExistingEntriesFromString(content: string): {
       }
     }
     currentNote = []
+    noteIndent = null
     inNote = false
   }
 
@@ -189,8 +191,14 @@ export function loadExistingEntriesFromString(content: string): {
     }
 
     if (inNote) {
-      if (line.trim() === '' || line.match(/^\s{4,}/)) {
-        currentNote.push(line.replace(/^\s{6,}/, '').trimEnd())
+      const lineIndent = line.length - line.trimStart().length
+      const isBlank = line.trim() === ''
+      // YAML ends a block at the first non-empty line indented less than the block.
+      const endsBlock = !isBlank && noteIndent !== null && lineIndent < noteIndent
+      if (!endsBlock && (isBlank || line.match(/^\s{4,}/))) {
+        // YAML takes a block's indent from its first non-empty line, so deeper indents are markdown nesting.
+        if (noteIndent === null && !isBlank) noteIndent = lineIndent
+        currentNote.push(line.slice(noteIndent ?? lineIndent).trimEnd())
       } else {
         flushNote()
         const reHeading = line.match(/^\s+-\s+heading:\s+(.+)/)

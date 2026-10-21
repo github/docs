@@ -289,6 +289,71 @@ sections:
     expect(result.entries[0].notes).toEqual(['First note.', 'Second note from same issue.'])
   })
 
+  test('keeps nested indentation when reloading generated notes', () => {
+    const note = [
+      'You can now configure the feature:',
+      '',
+      '1. Enable the setting.',
+      '',
+      '   This paragraph continues the first step.',
+      '',
+      '   ```shell',
+      '   ghe-config app.example.enabled true',
+      '   ```',
+      '',
+      '1. Apply the configuration.',
+      '',
+      '* Parent item',
+      '  * Child item',
+    ].join('\n')
+    const yaml = buildReleaseNotesYaml(
+      [
+        {
+          heading: 'GitHub Actions',
+          notes: [note],
+          sourceUrl: 'https://github.com/github/releases/issues/100',
+        },
+        {
+          heading: 'Some Other Heading',
+          notes: [note],
+          sourceUrl: 'https://github.com/github/releases/issues/101',
+        },
+      ],
+      false,
+      ['GitHub Actions'],
+    )
+    const result = loadExistingEntriesFromString(yaml)
+    expect(result.entries.map((e) => e.notes)).toEqual([[note], [note]])
+  })
+
+  test('uses the first content line as the base indent of a note', () => {
+    const content = `sections:
+  changes:
+    # https://github.com/github/releases/issues/100
+    - |
+       Parent paragraph.
+
+       * Item
+         * Nested item
+`
+    const result = loadExistingEntriesFromString(content)
+    expect(result.entries[0].notes).toEqual(['Parent paragraph.\n\n* Item\n  * Nested item'])
+  })
+
+  test('ends a note at a less indented comment that is not a release issue URL', () => {
+    const content = `sections:
+  closing_down:
+    # https://github.com/github/releases/issues/100
+    - |
+      First note.
+    # https://github.com/github/ghes/issues/200
+    - |
+      Second note.
+`
+    const result = loadExistingEntriesFromString(content)
+    expect(result.entries[0].notes[0]).toBe('First note.')
+  })
+
   test('does not attribute errata or known issues to the previous source URL', () => {
     const result = loadExistingEntriesFromString(handEditedFile)
     const closing = result.entries.filter((e) => e.heading === 'Closing down')
