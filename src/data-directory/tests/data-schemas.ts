@@ -51,6 +51,31 @@ describe('single data files', () => {
   })
 })
 
+describe('Copilot model supported clients table', () => {
+  const filepath = 'data/tables/copilot/model-supported-clients.yml'
+
+  test('rejects rows with invalid client columns', async () => {
+    expect(dataSchemas[filepath]).toBeDefined()
+    const schema = (await import(dataSchemas[filepath])).default
+    const loadRows = () => load(readFileSync(filepath, 'utf8')) as Record<string, unknown>[]
+
+    expect(validateJson(schema, loadRows()).isValid).toBe(true)
+
+    const stringValue = loadRows()
+    stringValue[0].cli = 'yes'
+    expect(validateJson(schema, stringValue).isValid).toBe(false)
+
+    const missingColumn = loadRows()
+    delete missingColumn[0].cli
+    expect(validateJson(schema, missingColumn).isValid).toBe(false)
+
+    const misspelledColumn = loadRows()
+    delete misspelledColumn[0].jetbrains
+    misspelledColumn[0].jetbrain = true
+    expect(validateJson(schema, misspelledColumn).isValid).toBe(false)
+  })
+})
+
 describe('YAML-powered tables', () => {
   test('all table files have corresponding schemas', () => {
     const tablesDir = join(process.cwd(), 'data/tables')
