@@ -138,6 +138,21 @@ describe('pageinfo api', () => {
       const meta = JSON.parse(res.body) as PageMetadata
       expect(meta.title).toBe('Only in Enterprise Cloud and Enterprise Server')
     }
+    // Legacy GraphQL redirect destinations carry a kind and #fragment that pages lack.
+    {
+      const res = await get(makeURL('/en/v4/enum/checkruntype'))
+      expect(res.statusCode).toBe(200)
+      const meta = JSON.parse(res.body) as PageMetadata
+      expect(meta.title).toBe('Checks')
+      expect(meta.redirectedFrom).toBe('/en/v4/enum/checkruntype')
+    }
+    {
+      const res = await get(makeURL('/en/v4/mutation'))
+      expect(res.statusCode).toBe(200)
+      const meta = JSON.parse(res.body) as PageMetadata
+      expect(meta.title).toBe('Reference')
+      expect(meta.redirectedFrom).toBe('/en/v4/mutation')
+    }
   })
 
   test('a page that uses non-trivial Liquid to render', async () => {
