@@ -27,6 +27,12 @@ export function inLiquid(filePath: string, fileContents: string, needle: string)
       if (args === needle) {
         return true
       }
+    } else if (token.name === 'indented_data_reference') {
+      // The reference is followed by an optional spaces=N argument.
+      const [reference] = token.args.trim().split(/\s+/)
+      if (reference === needle) {
+        return true
+      }
     }
   }
   return false
