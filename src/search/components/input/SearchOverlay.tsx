@@ -319,6 +319,12 @@ export function SearchOverlay({
 
   // AI results replace suggestions, so keep focus in the input after selection.
   const aiSearchOptionOnSelect = (selectedOption: AutocompleteSearchHit) => {
+    // Re-asking the shown question changes no state that refetches, so loading would never clear.
+    if (isAskAIState && selectedOption.term === aiQuery) {
+      setActiveId(null)
+      inputRef.current?.focus()
+      return
+    }
     if (selectedOption.term) {
       askAIEventGroupId.current = uuidv4()
       // Send the event here because cached results skip executeAISearch.

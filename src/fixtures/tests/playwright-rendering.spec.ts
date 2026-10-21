@@ -880,6 +880,36 @@ test.describe('search dialog', () => {
     await expect(input).toHaveAttribute('aria-activedescendant', 'search-option-reference-0')
   })
 
+  test('pressing Enter again on the shown answer keeps the docs rows', async ({ page }) => {
+    let aiRequests = 0
+    await page.route('**/api/ai-search/v1', (route) => {
+      aiRequests++
+      return route.fulfill({
+        status: 200,
+        headers: { 'Content-Type': 'application/x-ndjson' },
+        body: '{"chunkType":"MESSAGE_CHUNK","text":"An answer."}\n',
+      })
+    })
+    await mockSearch(page)
+    await page.goto('/')
+    await turnOffExperimentsInPage(page)
+
+    await page.getByTestId('toggle-search').click()
+    const input = page.getByTestId('overlay-search-input')
+    await input.fill('foo')
+    await expect(page.locator('#search-option-general-0')).toBeVisible()
+    await input.press('Enter') // nothing selected: ask Copilot
+    await expect(page.getByText('An answer.')).toBeVisible()
+    await expect(page.locator('#search-option-general-0')).toBeVisible()
+
+    // The same question is already answered, so Enter must not swap the docs rows for a spinner.
+    await input.press('Enter')
+    await page.waitForTimeout(1500)
+    await expect(page.locator('#search-option-general-0')).toBeVisible()
+    await expect(page.getByText('An answer.')).toBeVisible()
+    expect(aiRequests).toBe(1)
+  })
+
   // A flash can last one frame, so record every text the page adds instead of the end state.
   async function recordAddedText(page: Page) {
     await page.evaluate(() => {
