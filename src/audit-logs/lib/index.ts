@@ -194,9 +194,9 @@ async function computeReferenceLinksToMarkdown(
 async function resolveReferenceLinksToTitles(
   docsReferenceLinks: string,
   context: TitleResolutionContext,
-): Promise<string> {
+): Promise<string[]> {
   if (!docsReferenceLinks || docsReferenceLinks === 'N/A') {
-    return ''
+    return []
   }
 
   const links = docsReferenceLinks
@@ -233,7 +233,7 @@ async function resolveReferenceLinksToTitles(
     }
   }
 
-  return titles.join(', ')
+  return titles
 }
 
 export function getAuditLogEvents(page: string, version: string): AuditLogEventT[] {
