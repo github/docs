@@ -112,7 +112,13 @@ export default function handleRedirects(req: ExtendedRequest, res: Response, nex
     redirectWithoutQueryParams = graphqlRewrite
   }
 
-  redirect = queryParams ? redirectWithoutQueryParams + queryParams : redirectWithoutQueryParams
+  // The query must come before the fragment, or browsers treat it as part of the anchor.
+  const hashIndex = redirectWithoutQueryParams.indexOf('#')
+  const hash = hashIndex >= 0 ? redirectWithoutQueryParams.slice(hashIndex) : ''
+  const redirectPath = hash
+    ? redirectWithoutQueryParams.slice(0, hashIndex)
+    : redirectWithoutQueryParams
+  redirect = redirectPath + (queryParams || '') + hash
   // Query values can contain ://, so check only the destination path.
   const isExternal = redirectWithoutQueryParams.includes('://')
 
@@ -146,7 +152,8 @@ export default function handleRedirects(req: ExtendedRequest, res: Response, nex
     }
     if (preference.redirectTo) {
       languageAndVersionCacheControl(res)
-      return res.safeRedirect(302, preference.redirectTo + (queryParams || ''))
+      // Keep the fragment because the original request had none for the browser to carry over.
+      return res.safeRedirect(302, preference.redirectTo + (queryParams || '') + hash)
     }
   }
 
