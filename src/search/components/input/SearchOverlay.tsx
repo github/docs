@@ -232,7 +232,8 @@ export function SearchOverlay({
       if (!searchEventGroupId.current) {
         searchEventGroupId.current = uuidv4()
       }
-      updateAutocompleteResults(urlSearchInputQuery)
+      // Skip the debounce so the cleanup's cleared results never render as "No results found".
+      updateAutocompleteResults(urlSearchInputQuery, { immediate: true })
     } else {
       // Clear shared loading state so the next open does not inherit a spinner.
       setSearchLoading(false)

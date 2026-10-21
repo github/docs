@@ -880,6 +880,86 @@ test.describe('search dialog', () => {
     await expect(input).toHaveAttribute('aria-activedescendant', 'search-option-reference-0')
   })
 
+  // A flash can last one frame, so record every text the page adds instead of the end state.
+  async function recordAddedText(page: Page) {
+    await page.evaluate(() => {
+      const seen: string[] = []
+      ;(window as unknown as { __addedText: string[] }).__addedText = seen
+      new MutationObserver((records) => {
+        for (const record of records) {
+          if (record.type === 'characterData') seen.push(record.target.textContent || '')
+          for (const node of record.addedNodes) seen.push(node.textContent || '')
+        }
+      }).observe(document.body, { subtree: true, childList: true, characterData: true })
+    })
+  }
+
+  async function addedText(page: Page) {
+    return page.evaluate(() =>
+      (window as unknown as { __addedText: string[] }).__addedText.join('\n'),
+    )
+  }
+
+  test('asking Copilot and going back never flashes "No results found"', async ({ page }) => {
+    await page.route('**/api/ai-search/v1', (route) =>
+      route.fulfill({
+        status: 200,
+        headers: { 'Content-Type': 'application/x-ndjson' },
+        body: '{"chunkType":"MESSAGE_CHUNK","text":"An answer."}\n',
+      }),
+    )
+    await mockSearch(page)
+    await page.goto('/')
+    await turnOffExperimentsInPage(page)
+
+    await page.getByTestId('toggle-search').click()
+    const input = page.getByTestId('overlay-search-input')
+    await input.fill('foo')
+    await expect(page.locator('#search-option-general-0')).toBeVisible()
+    await recordAddedText(page)
+
+    await input.press('Enter') // nothing selected: ask Copilot
+    await expect(page.getByText('An answer.')).toBeVisible()
+    await page.getByRole('button', { name: 'Back to search' }).click()
+    await expect(page.locator('#search-option-ai-0')).toBeVisible()
+    await expect(page.locator('#search-option-general-0')).toBeVisible()
+    // Past the 100ms autocomplete debounce, while the emptied results used to render.
+    await page.waitForTimeout(300)
+
+    // Also matches the "Search Docs: No results found" live region announcement.
+    expect(await addedText(page)).not.toContain('No results found')
+  })
+
+  test('a Copilot cannot-answer response never flashes "No results found"', async ({ page }) => {
+    await page.route('**/api/ai-search/v1', (route) =>
+      route.fulfill({
+        status: 200,
+        headers: { 'Content-Type': 'application/x-ndjson' },
+        body: '{"chunkType":"NO_CONTENT_SIGNAL"}\n',
+      }),
+    )
+    await mockSearch(page)
+    await page.goto('/')
+    await turnOffExperimentsInPage(page)
+
+    await page.getByTestId('toggle-search').click()
+    const input = page.getByTestId('overlay-search-input')
+    await input.fill('foo')
+    await expect(page.locator('#search-option-general-0')).toBeVisible()
+    await recordAddedText(page)
+
+    await input.press('Enter') // nothing selected: ask Copilot
+    await expect(page.locator('#ask-ai-result-container article')).toContainText(
+      "I'm unable to answer that question",
+    )
+    await expect(page.locator('#search-option-general-0')).toBeVisible()
+    // Past the 100ms autocomplete debounce, while the emptied results used to render.
+    await page.waitForTimeout(300)
+
+    // Also matches the "Search Docs: No results found" live region announcement.
+    expect(await addedText(page)).not.toContain('No results found')
+  })
+
   // Streams one answer chunk, then holds until releaseCopilot, then ends the stream as asked.
   // Also records event beacons, since Chromium hides sendBeacon payloads from Playwright.
   async function streamCopilotAnswer(
