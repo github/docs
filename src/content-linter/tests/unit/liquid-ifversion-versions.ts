@@ -2,7 +2,7 @@ import { afterAll, beforeAll, describe, expect, test } from 'vitest'
 
 import { runRule } from '../../lib/init-test'
 import { liquidIfversionVersions } from '../../lib/linting-rules/liquid-ifversion-versions'
-import { supported } from '@/versions/lib/enterprise-server-releases'
+import { deprecated, supported } from '@/versions/lib/enterprise-server-releases'
 
 describe(liquidIfversionVersions.names.join(' - '), () => {
   const envVarValueBefore: string | undefined = process.env.ROOT
@@ -383,6 +383,132 @@ describe(liquidIfversionVersions.names.join(' - '), () => {
     const errors = result.markdown
     expect(errors.length).toBe(1)
     expect(errors[0].fixInfo?.insertText).toBe('ifversion ghec')
+  })
+
+  test.each([
+    `{% ifversion ghes != ${supported[2]} %}A{% endif %}`,
+    `{% ifversion ghes != ${supported[2]} %}A{% else %}B{% endif %}`,
+    `{% ifversion ghes != ${supported[2]} and ghes > ${supported[4]} %}A{% else %}B{% endif %}`,
+    `{% ifversion ghes != ${supported[2]} and ghes != ${supported[1]} %}A{% else %}B{% endif %}`,
+  ])('ifversion using != keeps the content: %s', async (liquid) => {
+    const markdown = [...placeholderAllVersionsFm, liquid].join('\n')
+    const result = await runRule(liquidIfversionVersions, {
+      strings: { markdown },
+    })
+    expect(result.markdown).toEqual([])
+  })
+
+  test('ifversion using != on a GHES-only page keeps the content', async () => {
+    const markdown = [
+      '---',
+      'title: "Hello"',
+      'versions:',
+      '  ghes: "*"',
+      '---',
+      `{% ifversion ghes != ${supported[2]} %}A{% else %}B{% endif %}`,
+    ].join('\n')
+    const result = await runRule(liquidIfversionVersions, {
+      strings: { markdown },
+    })
+    expect(result.markdown).toEqual([])
+  })
+
+  test('ifversion using != with a deprecated release applies to all versions', async () => {
+    const markdown = [
+      ...placeholderAllVersionsFm,
+      `{% ifversion ghes != ${deprecated[0]} %}A{% endif %}`,
+    ].join('\n')
+    const result = await runRule(liquidIfversionVersions, {
+      strings: { markdown },
+    })
+    const errors = result.markdown
+    expect(errors.length).toBe(2)
+    expect(errors[0].errorDetail).toContain('applies to all versions')
+  })
+
+  test.each([
+    `{% ifversion ghes and ghes != ${supported[2]} %}A{% else %}B{% endif %}`,
+    `{% ifversion ghes != ${supported[2]} and ghes %}A{% else %}B{% endif %}`,
+  ])('ifversion using != with a ghes guard applies to no cloud versions: %s', async (liquid) => {
+    const markdown = [
+      '---',
+      'title: "Hello"',
+      'versions:',
+      '  fpt: "*"',
+      '  ghec: "*"',
+      '---',
+      liquid,
+    ].join('\n')
+    const result = await runRule(liquidIfversionVersions, {
+      strings: { markdown },
+    })
+    const errors = result.markdown
+    expect(errors[0].errorDetail).toContain('applies to no versions')
+    expect(errors.some((error) => error.errorDetail.includes('applies to all versions'))).toBe(true)
+  })
+
+  test.each([
+    `{% ifversion ghes and ghes != ${deprecated[0]} %}A{% else %}B{% endif %}`,
+    `{% ifversion ghes != ${deprecated[0]} and ghes %}A{% else %}B{% endif %}`,
+  ])('ifversion using != with a ghes guard keeps the else content: %s', async (liquid) => {
+    const markdown = [...placeholderAllVersionsFm, liquid].join('\n')
+    const result = await runRule(liquidIfversionVersions, {
+      strings: { markdown },
+    })
+    expect(result.markdown).toEqual([])
+  })
+
+  test('ifversion using != keeps the ghes guard when removing a product', async () => {
+    const markdown = [
+      '---',
+      'title: "Hello"',
+      'versions:',
+      '  fpt: "*"',
+      '  ghes: "*"',
+      '---',
+      `{% ifversion ghes and ghes != ${supported[0]} or ghec %}A{% endif %}`,
+    ].join('\n')
+    const result = await runRule(liquidIfversionVersions, {
+      strings: { markdown },
+    })
+    const errors = result.markdown
+    expect(errors.length).toBe(1)
+    expect(errors[0].fixInfo?.insertText).toBe(`ifversion ghes and ghes != ${supported[0]}`)
+  })
+
+  test('ifversion using != keeps a deprecated lower bound so fpt and ghec stay excluded', async () => {
+    const markdown = [
+      ...placeholderAllVersionsFm,
+      `{% ifversion ghes != ${supported[0]} and ghes > ${deprecated[0]} %}A{% endif %}`,
+    ].join('\n')
+    const result = await runRule(liquidIfversionVersions, {
+      strings: { markdown },
+    })
+    const errors = result.markdown
+    expect(errors.map((error) => error.fixInfo?.insertText)).not.toContain(
+      `ifversion ghes != ${supported[0]}`,
+    )
+    expect(errors).toEqual([])
+  })
+
+  test('ifversion using != keeps a deprecated lower bound when removing a product', async () => {
+    const markdown = [
+      '---',
+      'title: "Hello"',
+      'versions:',
+      '  fpt: "*"',
+      '  ghes: "*"',
+      '---',
+      `{% ifversion ghes != ${supported[0]} and ghes > ${deprecated[0]} or ghec %}A{% endif %}`,
+    ].join('\n')
+    const result = await runRule(liquidIfversionVersions, {
+      strings: { markdown },
+    })
+    const errors = result.markdown
+    expect(errors.length).toBe(1)
+    expect(errors[0].fixInfo?.insertText).toBe(
+      `ifversion ghes != ${supported[0]} and ghes > ${deprecated[0]}`,
+    )
   })
 
   test('does not crash with nested if blocks inside ifversion', async () => {
