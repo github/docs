@@ -2053,12 +2053,25 @@ test.describe('secondary-bar breadcrumb scroller', () => {
     await expect.poll(scrollLeftOf).toBeGreaterThan(afterOneLeft)
 
     // Drive off chevron visibility because smooth scrolling can leave sub-pixel scrollLeft.
+    // Tab in for keyboard focus, which a hiding chevron must hand to the other chevron.
+    await page.getByTestId('sidebar-collapse-toggle').focus()
+    await page.keyboard.press('Tab')
+    await expect(leftChevron).toBeFocused()
+    expect(await leftChevron.evaluate((el) => el.matches(':focus-visible'))).toBe(true)
     for (let i = 0; i < 6 && (await leftChevron.isVisible()); i++) {
-      await leftChevron.click()
+      await page.keyboard.press('Enter')
       await page.waitForTimeout(200)
     }
     await expect(leftChevron).toBeHidden()
     await expect.poll(scrollLeftOf).toBeLessThanOrEqual(1)
+    await expect(rightChevron).toBeFocused()
+
+    for (let i = 0; i < 10 && (await rightChevron.isVisible()); i++) {
+      await page.keyboard.press('Enter')
+      await page.waitForTimeout(200)
+    }
+    await expect(rightChevron).toBeHidden()
+    await expect(leftChevron).toBeFocused()
   })
 })
 
