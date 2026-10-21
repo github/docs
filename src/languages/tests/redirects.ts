@@ -53,6 +53,8 @@ describe('redirects', () => {
     ['/zh-Hans', '/zh'],
     ['/zh-hant/get-started', '/zh/get-started'],
     ['/kr', '/ko'],
+    ['/jp/search?query=actions', '/ja/search?query=actions'],
+    ['/cn/rest?apiVersion=2022-11-28', '/zh/rest?apiVersion=2022-11-28'],
   ])('redirects %s to %s', async (from, to_) => {
     const res = await get(from)
     expect(res.statusCode).toBe(301)
