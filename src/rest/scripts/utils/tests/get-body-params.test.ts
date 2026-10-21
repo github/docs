@@ -486,3 +486,38 @@ describe('getBodyParams — OAS 3.1 nullable handling', () => {
     expect(params[0].childParamsGroups?.map(({ name }) => name)).toEqual(['id'])
   })
 })
+
+describe('getBodyParams enum notes on arrays of strings', () => {
+  it('adds supported values without "undefined" when the param has no description', async () => {
+    const schema: Schema = {
+      type: 'object',
+      properties: {
+        schemas: {
+          type: 'array',
+          items: { type: 'string', enum: ['urn:ietf:params:scim:api:messages:2.0:PatchOp'] },
+        },
+      },
+    }
+    const params = await getBodyParams(schema, false)
+    expect(params[0].description).toBe(
+      'Supported values are: <code>urn:ietf:params:scim:api:messages:2.0:PatchOp</code>',
+    )
+  })
+
+  it('appends supported values on a new line after an existing description', async () => {
+    const schema: Schema = {
+      type: 'object',
+      properties: {
+        languages: {
+          type: 'array',
+          description: 'Langs.',
+          items: { type: 'string', enum: ['go', 'ruby'] },
+        },
+      },
+    }
+    const params = await getBodyParams(schema, false)
+    expect(params[0].description).toBe(
+      'Langs.\nSupported values are: <code>go</code>, <code>ruby</code>',
+    )
+  })
+})
