@@ -23,6 +23,7 @@ on:
       - 'config/**'
       - '.devcontainer/**'
       - '**Dockerfile'
+      - '.dockerignore'
       - 'package*.json'
       - .github/workflows/reviewers-docs-engineering.yml
 
@@ -85,7 +86,7 @@ jobs:
             exit 0
           fi
           lockfile=$(echo "$changed" | grep -c '^package-lock\.json$' || true)
-          other_eng=$(echo "$changed" | grep -cE '(\.tsx?$|\.scss$|^src/|^package\.json$|^\.github/|^config/|^\.devcontainer/|Dockerfile)' || true)
+          other_eng=$(echo "$changed" | grep -cE '(\.tsx?$|\.scss$|^src/|^package\.json$|^\.github/|^config/|^\.devcontainer/|Dockerfile|^\.dockerignore$)' || true)
           if [ "$lockfile" -gt 0 ] && [ "$other_eng" -eq 0 ]; then
             echo "lockfile_only=true" >> "$GITHUB_OUTPUT"
           else
