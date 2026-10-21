@@ -14,27 +14,6 @@
 - model: 'Claude Sonnet 4.6'
   new_multiplier: '9'
 
-- model: 'Gemini 3 Pro'
-  new_multiplier: '6'
-
-- model: 'GPT-4o'
-  new_multiplier: '0.33'
-
-- model: 'GPT-4o mini'
-  new_multiplier: '0.33'
-
-- model: 'GPT-5.1'
-  new_multiplier: '3'
-
-- model: 'GPT-5.1-Codex'
-  new_multiplier: '3'
-
-- model: 'GPT-5.1-Codex-Mini'
-  new_multiplier: '0.33'
-
-- model: 'GPT-5.1-Codex-Max'
-  new_multiplier: '3'
-
 - model: 'GPT-5.3-Codex'
   new_multiplier: '6'
 
