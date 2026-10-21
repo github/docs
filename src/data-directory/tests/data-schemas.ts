@@ -99,3 +99,24 @@ describe('YAML-powered tables', () => {
     expect(dataSchemas['data/tables/copilot/auto-model-selection.yml']).toBeDefined()
   })
 })
+
+describe('Copilot models and pricing table', () => {
+  test('rejects a wrongly cased provider and a misspelled price key', async () => {
+    const schema = (await import(dataSchemas['data/tables/copilot/models-and-pricing.yml'])).default
+    const entry = {
+      model: 'Claude Example',
+      provider: 'Anthropic',
+      release_status: 'GA',
+      category: 'Versatile',
+      input: '$1.00',
+      cached_input: '$0.10',
+      ouput: '$5.00',
+    }
+    const { isValid, errors } = validateJson(schema, [entry])
+    expect(isValid).toBe(false)
+    const messages = (errors || []).map((error) => `${error.instancePath} ${error.message}`)
+    expect(messages).toContain('/0/provider must be equal to one of the allowed values')
+    expect(messages).toContain("/0 must have required property 'output'")
+    expect(messages).toContain('/0 must NOT have additional properties')
+  })
+})
