@@ -5,7 +5,7 @@ import { handleExternalSearchAnalytics } from '@/search/lib/helpers/external-sea
 import type { ExtendedRequest } from '@/types'
 
 vi.mock('@/events/lib/hydro', () => ({
-  publish: vi.fn(),
+  publish: vi.fn(() => Promise.resolve()),
 }))
 
 function buildRequest(headers: Record<string, string>, query: Record<string, string> = {}) {
@@ -44,5 +44,25 @@ describe('handleExternalSearchAnalytics', () => {
       'general-search',
     )
     expect(publish).not.toHaveBeenCalled()
+  })
+
+  test('returns without waiting for publish to finish', async () => {
+    vi.mocked(publish).mockReturnValueOnce(new Promise<never>(() => {}))
+    const result = await handleExternalSearchAnalytics(
+      buildRequest({ 'user-agent': 'curl/8.0' }, { client_name: 'my-tool' }),
+      'general-search',
+    )
+    expect(result).toBeNull()
+    expect(publish).toHaveBeenCalledTimes(1)
+  })
+
+  test('returns null when publish rejects', async () => {
+    vi.mocked(publish).mockReturnValueOnce(Promise.reject(new Error('Hydro unavailable')))
+    const result = await handleExternalSearchAnalytics(
+      buildRequest({ 'user-agent': 'curl/8.0' }, { client_name: 'my-tool' }),
+      'general-search',
+    )
+    expect(result).toBeNull()
+    expect(publish).toHaveBeenCalledTimes(1)
   })
 })

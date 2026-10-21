@@ -20,6 +20,7 @@ import { usePrefetchOnInteraction } from '@/frame/components/lib/prefetch'
 import { useIsHydrating } from '@/frame/components/hooks/useIsHydrating'
 import { SidebarExpandStateProvider, useSidebarExpandState } from './useSidebarExpandState'
 import { flattenDescendants, MAX_NAVLIST_LEVEL } from './sidebar-navlist-depth'
+import { isOnActiveChain } from '@/landings/components/sidebar-active-chain'
 
 import styles from './SidebarProduct.module.scss'
 
@@ -334,7 +335,7 @@ const NavListItem = memo(function NavListItem({
     <ExpandableItem
       title={childPage.title}
       nodeKey={childPage.href}
-      onActiveChain={routePath.includes(childPage.href)}
+      onActiveChain={isOnActiveChain(routePath, childPage.href)}
       subNavLabel={`${childPage.title} submenu`}
     >
       {childPage.sidebarLink && (
@@ -427,7 +428,7 @@ function RestNavListItem({ category }: { category: ProductTreeNode }) {
     <ExpandableItem
       title={category.title}
       nodeKey={category.href}
-      onActiveChain={routePath.includes(category.href)}
+      onActiveChain={isOnActiveChain(routePath, category.href)}
       subNavLabel={`${category.title} submenu`}
     >
       {category.childPages.map((childPage) => {

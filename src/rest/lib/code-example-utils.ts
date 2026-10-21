@@ -5,7 +5,7 @@ export interface CodeExample {
     contentType?: string
   }
   response: {
-    contentType: string
+    contentType?: string
   }
   description: string
 }
@@ -33,23 +33,19 @@ export function shouldShowResponseContentType(examples: CodeExample[]): boolean 
 export function generateExampleOptions(examples: CodeExample[]): ExampleOption[] {
   const responseContentTypesDiffer = shouldShowResponseContentType(examples)
   const requestContentTypesDiffer = shouldShowRequestContentType(examples)
-  const showExampleOptionMediaType = responseContentTypesDiffer || requestContentTypesDiffer
 
   return examples.map((example, index) => {
     const requestContentType = example.request?.contentType
     const responseContentType = example.response.contentType
 
-    let text = example.description
+    // Examples without a body, such as 204 responses, have no content type to show.
+    const contentTypes: string[] = []
+    if (requestContentTypesDiffer && requestContentType) contentTypes.push(requestContentType)
+    if (responseContentTypesDiffer && responseContentType) contentTypes.push(responseContentType)
 
-    if (showExampleOptionMediaType) {
-      if (requestContentTypesDiffer && responseContentTypesDiffer) {
-        text = `${example.description} (${requestContentType} → ${responseContentType})`
-      } else if (requestContentTypesDiffer) {
-        text = `${example.description} (${requestContentType})`
-      } else if (responseContentTypesDiffer) {
-        text = `${example.description} (${responseContentType})`
-      }
-    }
+    const text = contentTypes.length
+      ? `${example.description} (${contentTypes.join(' → ')})`
+      : example.description
 
     return {
       text,

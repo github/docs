@@ -433,6 +433,47 @@ export function mergeInternalLinkReports(
   return { ...report, versionsChecked, summary: report.summary + scope }
 }
 
+// One href can redirect in one version and miss in another, so a missing target outranks a
+// redirect warning and the PR check still fails on it.
+export function mergeVersionedLinkFlaws(flaws: BrokenLink[]): {
+  brokenLinks: BrokenLink[]
+  redirectLinks: BrokenLink[]
+} {
+  const merged = new Map<string, BrokenLink>()
+
+  for (const flaw of flaws) {
+    const key = `${flaw.href}\u0000${flaw.file}`
+    const existing = merged.get(key)
+    const lines = [...new Set([...(existing?.lines ?? []), ...flaw.lines])].sort((a, b) => a - b)
+    if (!existing) {
+      merged.set(key, { ...flaw, lines })
+    } else if (existing.isRedirect && !flaw.isRedirect) {
+      const { href, file, text, isAutotitle } = existing
+      merged.set(key, { href, file, lines, text, isAutotitle })
+    } else {
+      existing.lines = lines
+      if (existing.isRedirect && flaw.isRedirect) {
+        existing.requiresVersionContext =
+          existing.requiresVersionContext || flaw.requiresVersionContext
+        if (
+          existing.redirectTarget &&
+          flaw.redirectTarget &&
+          !sameDestination(existing.redirectTarget, flaw.redirectTarget)
+        ) {
+          existing.hasConflictingRedirectTargets = true
+        }
+        existing.redirectTarget = existing.redirectTarget ?? flaw.redirectTarget
+      }
+    }
+  }
+
+  const all = [...merged.values()]
+  return {
+    brokenLinks: all.filter((flaw) => !flaw.isRedirect),
+    redirectLinks: all.filter((flaw) => flaw.isRedirect),
+  }
+}
+
 export function generateInternalLinkReport(
   brokenLinks: BrokenLink[],
   options: {

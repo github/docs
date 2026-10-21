@@ -8,6 +8,7 @@ on:
 
 permissions:
   contents: read
+  issues: read
   pull-requests: write
 
 jobs:
@@ -52,10 +53,49 @@ jobs:
             )
             const onlyIndexMd = files.length === 1 && files[0].filename.split('/').pop() === 'index.md'
 
+            // Content removals are allowed once the Docs team marks the linked issue `help wanted`.
+            let hasApprovedIssue = false
+            if (onlyDeletesLines || onlyDeletes) {
+              try {
+                const { repository } = await github.graphql(
+                  `query($owner: String!, $repo: String!, $number: Int!) {
+                    repository(owner: $owner, name: $repo) {
+                      pullRequest(number: $number) {
+                        closingIssuesReferences(first: 100) {
+                          nodes {
+                            repository {
+                              nameWithOwner
+                            }
+                            labels(first: 100) {
+                              nodes {
+                                name
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }`,
+                  { owner, repo, number: pull_number },
+                )
+                const closingIssues = repository?.pullRequest?.closingIssuesReferences?.nodes || []
+                // Issues in other repos don't count, since their owners can add the label themselves.
+                hasApprovedIssue = closingIssues.some(issue =>
+                  issue.repository?.nameWithOwner?.toLowerCase() === `${owner}/${repo}` &&
+                  issue.labels.nodes.some(label => label.name.toLowerCase() === 'help wanted'),
+                )
+              } catch (error) {
+                // Without the lookup, treat the removal as unapproved, as before.
+                core.warning(`Could not check linked issues: ${error.message}`)
+              }
+            }
+            const unapprovedLineDeletion = onlyDeletesLines && !hasApprovedIssue
+            const unapprovedFileDeletion = onlyDeletes && !hasApprovedIssue
+
             if (
               targetsNonMain ||
-              onlyDeletesLines ||
-              onlyDeletes ||
+              unapprovedLineDeletion ||
+              unapprovedFileDeletion ||
               isEmptyCommit ||
               touchesTooMany ||
               isBlankLineEdit ||
@@ -75,8 +115,8 @@ jobs:
                 issue_number: pull_number,
                 body: targetsNonMain
                   ? 'Pull requests must target the `main` branch. This pull request has been closed as invalid. If you think this is incorrect, please mention this in a corresponding issue.'
-                  : onlyDeletesLines
-                    ? 'This pull request only removes existing content. Before submitting a content-removal pull request, please [open an issue](https://github.com/github/docs/issues/new/choose) explaining the proposed removal and wait for approval from the GitHub Docs team. Once the change has been approved, you can open a new pull request and link it to the issue.'
+                  : unapprovedLineDeletion
+                    ? 'This pull request only removes existing content. Before submitting a content-removal pull request, please [open an issue](https://github.com/github/docs/issues/new/choose) explaining the proposed removal and wait for the GitHub Docs team to add the `help wanted` label to it. Once the issue has the `help wanted` label, you can open a new pull request that links the issue with `Closes: #<issue number>` in the description.'
                     : "This pull request may have been opened accidentally. I'm going to close it now, but feel free to check out our [contribution guidelines](https://docs.github.com/en/contributing), or raise an issue.",
               })
 
@@ -89,7 +129,7 @@ jobs:
                 })
               }
 
-              if (onlyDeletesLines) {
+              if (unapprovedLineDeletion) {
                 core.setFailed(
                   'This pull request only deletes lines. An approved issue is required first.',
                 )

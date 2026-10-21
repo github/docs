@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react'
 import dynamic from 'next/dynamic'
 import { useRouter } from 'next/router'
 
+import { isRestPath } from '@/rest/lib/is-rest-path'
+
 const ClientSideRedirectExceptions = dynamic(
   () => import('@/rest/components/ClientSideRedirectExceptions'),
   {
@@ -18,8 +20,8 @@ export function ClientSideRedirects() {
   useEffect(() => {
     const { hash } = window.location
 
-    // Redirect exceptions apply only under /rest.
-    if (hash && asPath.startsWith('/rest')) {
+    // Redirect exceptions apply only to REST pages, including versioned URLs.
+    if (hash && isRestPath(asPath)) {
       setLoad(true)
     }
   }, [])

@@ -197,7 +197,21 @@ async function getNewTitle(href: string, context: Context, child: Text, original
     const line = child.position?.start.line || 1
     throw autotitleResolutionError(originalHref || href, line, context)
   }
-  return await page.renderProp('title', context, { textOnly: true })
+  return await page.renderProp('title', getTitleContext(page, href, context), { textOnly: true })
+}
+
+// Translated title fallbacks need the linked page's English version, not the rendered page's.
+function getTitleContext(page: Page, href: string, context: Context): Context {
+  if (!context.getEnglishPage) return context
+  const enPage =
+    page.languageCode === 'en'
+      ? page
+      : findPage(
+          path.posix.join('/en', getPathWithoutLanguage(href)),
+          context.pages,
+          context.redirects,
+        )
+  return enPage ? { ...context, enPage } : context
 }
 
 export function autotitleResolutionError(

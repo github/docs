@@ -7,7 +7,7 @@
 // Run npm run move-content --help for options.
 // Run file: npm run move-content PATH/TO/CURRENT-FILE.md PATH/TO/DESIRED-FILE-LOCATION-OR-NAME.md.
 // Run folder: npm run move-content PATH/TO/CURRENT-FOLDER PATH/TO/DESIRED-FOLDER-LOCATION-OR-NAME.
-// Undo: npm run move-content --undo PATH/TO/OLD PATH/TO/NEW.
+// Undo: npm run move-content -- --undo PATH/TO/OLD PATH/TO/NEW.
 
 import fs from 'fs'
 import path from 'path'
@@ -161,10 +161,13 @@ async function main(opts: MoveOptions, nameTuple: string[]) {
     }
   }
 
-  // featuredLinks updates need old and new hrefs, not whether the path is a file or folder.
-  changeFeaturedLinks(oldHref, newHref)
+  // oldHref and newHref keep the forward direction for undoFiles, so swap them to revert links.
+  const [fromHref, toHref] = undo ? [newHref, oldHref] : [oldHref, newHref]
 
-  changeHomepageLinks(oldHref, newHref, verbose)
+  // featuredLinks updates need old and new hrefs, not whether the path is a file or folder.
+  changeFeaturedLinks(fromHref, toHref)
+
+  changeHomepageLinks(fromHref, toHref, verbose)
 
   if (!undo) {
     if (verbose) {

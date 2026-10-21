@@ -41,4 +41,10 @@ describe(imageAltTextExcludeStartWords.names.join(' - '), () => {
     const errors = result.markdown
     expect(errors.length).toBe(0)
   })
+  test('image alt text that is only whitespace', async () => {
+    const markdown = ['![ ](/images/x.png)', '![\t](/images/x.png)'].join('\n')
+    const result = await runRule(imageAltTextExcludeStartWords, { strings: { markdown } })
+    const errors = result.markdown
+    expect(errors.length).toBe(0)
+  })
 })

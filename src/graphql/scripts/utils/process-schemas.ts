@@ -143,6 +143,8 @@ interface GraphQLInterfaceInfo {
 interface EnumValueInfo {
   name: string
   description: string
+  isDeprecated?: boolean
+  deprecationReason?: string
 }
 
 interface EnumInfo {
@@ -820,6 +822,11 @@ export default async function processSchemas(
               name: value.name.value,
               description: await helpers.getDescription(value.description?.value || ''),
             }
+            enumValue.isDeprecated = helpers.getDeprecationStatus(value.directives || [])
+            enumValue.deprecationReason = await helpers.getDeprecationReason(
+              value.directives || [],
+              enumValue,
+            )
             enumValues.push(enumValue)
           }),
         )

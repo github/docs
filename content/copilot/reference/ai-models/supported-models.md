@@ -44,11 +44,11 @@ This table lists the AI models available in {% data variables.product.prodname_c
 
 {% endrowheaders %}
 
-[^claude-fable-5]: When {% data variables.copilot.copilot_claude_fable_5 %} or {% data variables.copilot.copilot_claude_fable_51 %} is used, Anthropic retains data, including prompts and outputs, by default to operate safety classifiers that detect harmful use. Customers can request to use {% data variables.copilot.copilot_claude_fable_5 %} or {% data variables.copilot.copilot_claude_fable_51 %} with zero data retention (ZDR) through the end of 2026 under a time-bound exemption while Anthropic rolls out Enterprise Frontier Safeguards (EFS). After that point, continued use of these models would require EFS, which will enable eligible customers to keep their data under their own control while also enabling automated safety monitoring. For an enterprise that has been approved and configured for this type of access, {% data variables.copilot.copilot_claude_fable_5 %} and {% data variables.copilot.copilot_claude_fable_51 %} requests will use the ZDR endpoint through the end of 2026 when the models are enabled. To learn whether your enterprise is eligible and request access, contact your {% data variables.product.github %} account team. Approval for access does not automatically enable {% data variables.copilot.copilot_claude_fable_5 %} or {% data variables.copilot.copilot_claude_fable_51 %}. An enterprise or organization administrator must still enable each model before users can access it. Other Claude models, except for {% data variables.copilot.copilot_claude_fable_5 %} and {% data variables.copilot.copilot_claude_fable_51 %}, continue to operate under ZDR. Customers who enable a Fable model with ZDR agree to use this model only for internal operations, including to develop and evaluate products for their own customers. They may not make the model endpoints or outputs available externally. To enable these models, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-access-to-ai-models).
+[^claude-fable-5]: When {% data variables.copilot.claude_fable_5 %} or {% data variables.copilot.claude_fable_51 %} is used, Anthropic retains data, including prompts and outputs, by default to operate safety classifiers that detect harmful use. Customers can request to use {% data variables.copilot.claude_fable_5 %} or {% data variables.copilot.claude_fable_51 %} with zero data retention (ZDR) through the end of 2026 under a time-bound exemption while Anthropic rolls out Enterprise Frontier Safeguards (EFS). After that point, continued use of these models would require EFS, which will enable eligible customers to keep their data under their own control while also enabling automated safety monitoring. For an enterprise that has been approved and configured for this type of access, {% data variables.copilot.claude_fable_5 %} and {% data variables.copilot.claude_fable_51 %} requests will use the ZDR endpoint through the end of 2026 when the models are enabled. To learn whether your enterprise is eligible and request access, contact your {% data variables.product.github %} account team. Approval for access does not automatically enable {% data variables.copilot.claude_fable_5 %} or {% data variables.copilot.claude_fable_51 %}. An enterprise or organization administrator must still enable each model before users can access it. Other Claude models, except for {% data variables.copilot.claude_fable_5 %} and {% data variables.copilot.claude_fable_51 %}, continue to operate under ZDR. Customers who enable a Fable model with ZDR agree to use this model only for internal operations, including to develop and evaluate products for their own customers. They may not make the model endpoints or outputs available externally. To enable these models, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-access-to-ai-models).
 
 ## Supported AI models in {% data variables.copilot.copilot_auto_model_selection_short_cap_a %}
 
-This table lists the supported AI models for {% data variables.copilot.copilot_auto_model_selection_short_cap_a %}. Available models may be limited by model policies. For example, as the long term support model, {% data variables.copilot.copilot_gpt_53_codex %} will be used in the event no other models are available. See [AUTOTITLE](/copilot/concepts/models/fallback-and-lts-models) and [AUTOTITLE](/copilot/concepts/models/auto-model-selection).
+This table lists the supported AI models for {% data variables.copilot.copilot_auto_model_selection_short_cap_a %}. Available models may be limited by model policies. For example, as the long term support model, {% data variables.copilot.gpt_53_codex %} will be used in the event no other models are available. See [AUTOTITLE](/copilot/concepts/models/fallback-and-lts-models) and [AUTOTITLE](/copilot/concepts/models/auto-model-selection).
 
 {% rowheaders %}
 
@@ -78,25 +78,25 @@ Choosing a larger context window or higher reasoning will impact {% data variabl
 
 | Model | 1 million token context window | Configurable reasoning |
 | --- | --- | --- |
-| {% data variables.copilot.copilot_claude_sonnet_46 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
-| {% data variables.copilot.copilot_claude_opus_48 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
-| {% data variables.copilot.copilot_claude_opus_5 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
-| {% data variables.copilot.copilot_claude_opus_55 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
-| {% data variables.copilot.copilot_claude_sonnet_5 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
-| {% data variables.copilot.copilot_claude_sonnet_55 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
-| {% data variables.copilot.copilot_claude_haiku_55 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
-| {% data variables.copilot.copilot_claude_opus_48_fast %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} |
-| {% data variables.copilot.copilot_claude_fable_5 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
-| {% data variables.copilot.copilot_claude_fable_51 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
-| {% data variables.copilot.copilot_gpt_53_codex %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
-| {% data variables.copilot.copilot_gpt_56_luna %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
-| {% data variables.copilot.copilot_gpt_56_sol %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
-| {% data variables.copilot.copilot_gpt_56_terra %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
-| {% data variables.copilot.copilot_gpt_6_astra %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
-| {% data variables.copilot.copilot_gpt_6_luna %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
-| {% data variables.copilot.copilot_gpt_6_sol %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
-| {% data variables.copilot.copilot_gpt_61_sol %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
-| {% data variables.copilot.copilot_kimi_k3 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| {% data variables.copilot.claude_sonnet_46 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| {% data variables.copilot.claude_opus_48 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| {% data variables.copilot.claude_opus_5 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| {% data variables.copilot.claude_opus_55 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| {% data variables.copilot.claude_sonnet_5 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| {% data variables.copilot.claude_sonnet_55 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| {% data variables.copilot.claude_haiku_55 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| {% data variables.copilot.claude_opus_48_fast %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} |
+| {% data variables.copilot.claude_fable_5 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| {% data variables.copilot.claude_fable_51 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| {% data variables.copilot.gpt_53_codex %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| {% data variables.copilot.gpt_56_luna %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| {% data variables.copilot.gpt_56_sol %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| {% data variables.copilot.gpt_56_terra %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| {% data variables.copilot.gpt_6_astra %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| {% data variables.copilot.gpt_6_luna %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| {% data variables.copilot.gpt_6_sol %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| {% data variables.copilot.gpt_61_sol %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| {% data variables.copilot.kimi_k3 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 
 {% endrowheaders %}
 
@@ -125,35 +125,35 @@ Some {% data variables.product.prodname_copilot_short %} models require minimum 
 
 | Model                                                    | {% data variables.product.prodname_vscode %} | {% data variables.product.prodname_vs %} | JetBrains IDEs | Xcode | Eclipse |
 |----------------------------------------------------------|----------------------------------------------|------------------------------------------|----------------|-------|---------|
-| {% data variables.copilot.copilot_gemini_38_flash %}     | TBD | `17.14.22` or `18.1.0`         | TBD | TBD | TBD |
-| {% data variables.copilot.copilot_gemini_4_argon %}      | TBD | `17.14.22` or `18.1.0`         | TBD | TBD | TBD |
-| {% data variables.copilot.copilot_gpt_53_codex %}        | `v1.104.1` | `17.14.19`                     | `1.5.61` | `0.45.0` | `0.13.0` |
-| {% data variables.copilot.copilot_gpt_56_luna %}         | `1.128.0` | TBD | TBD | TBD | TBD |
-| {% data variables.copilot.copilot_gpt_56_sol %}          | `1.128.0` | TBD | TBD | TBD | TBD |
-| {% data variables.copilot.copilot_gpt_56_terra %}        | `1.128.0` | TBD | TBD | TBD | TBD |
-| {% data variables.copilot.copilot_gpt_6_astra %}         | `1.136.1` | `17.14.19` | TBD | TBD | TBD |
-| {% data variables.copilot.copilot_gpt_6_luna %}          | TBD | `17.14.19` | TBD | TBD | TBD |
-| {% data variables.copilot.copilot_gpt_6_sol %}           | TBD | `17.14.19` | TBD | TBD | TBD |
-| {% data variables.copilot.copilot_gpt_61_sol %}          | TBD | `17.14.19` | TBD | TBD | TBD |
-| {% data variables.copilot.copilot_claude_opus_48 %}      | `v1.118` | `17.14.6`                     | TBD | TBD | TBD |
-| {% data variables.copilot.copilot_claude_opus_5 %}       | `v1.128.0` | `17.14.22` | TBD | TBD | TBD |
-| {% data variables.copilot.copilot_claude_opus_55 %}      | TBD | `17.14.6` | TBD | TBD | TBD |
-| {% data variables.copilot.copilot_claude_sonnet_5 %}  | `v1.124` | `17.14.6` | TBD | TBD | TBD |
-| {% data variables.copilot.copilot_claude_sonnet_55 %} | TBD | `17.14.6` | TBD | TBD | TBD |
-| {% data variables.copilot.copilot_claude_haiku_55 %}  | TBD | TBD | TBD | TBD | TBD |
-| {% data variables.copilot.copilot_claude_fable_5 %}      | `v1.124` | `17.14.6`                    | TBD | TBD | TBD |
-| {% data variables.copilot.copilot_claude_fable_51 %}    | TBD | TBD                    | TBD | TBD | TBD |
-| {% data variables.copilot.copilot_kimi_k3 %}     | `v1.131` | TBD            | TBD | TBD | TBD |
-| {% data variables.copilot.copilot_mai_code_1_1_flash %}  | `v1.121` | TBD                            | TBD | TBD | TBD |
-| {% data variables.copilot.copilot_grok_45 %}             | TBD | `17.14.19` | TBD | TBD | TBD |
-| {% data variables.copilot.copilot_grok_46 %}             | TBD | TBD | TBD | TBD | TBD |
-| {% data variables.copilot.copilot_grok_47 %}             | TBD | `17.14.19` | TBD | TBD | TBD |
+| {% data variables.copilot.gemini_38_flash %}     | TBD | `17.14.22` or `18.1.0`         | TBD | TBD | TBD |
+| {% data variables.copilot.gemini_4_argon %}      | TBD | `17.14.22` or `18.1.0`         | TBD | TBD | TBD |
+| {% data variables.copilot.gpt_53_codex %}        | `v1.104.1` | `17.14.19`                     | `1.5.61` | `0.45.0` | `0.13.0` |
+| {% data variables.copilot.gpt_56_luna %}         | `1.128.0` | TBD | TBD | TBD | TBD |
+| {% data variables.copilot.gpt_56_sol %}          | `1.128.0` | TBD | TBD | TBD | TBD |
+| {% data variables.copilot.gpt_56_terra %}        | `1.128.0` | TBD | TBD | TBD | TBD |
+| {% data variables.copilot.gpt_6_astra %}         | `1.136.1` | `17.14.19` | TBD | TBD | TBD |
+| {% data variables.copilot.gpt_6_luna %}          | TBD | `17.14.19` | TBD | TBD | TBD |
+| {% data variables.copilot.gpt_6_sol %}           | TBD | `17.14.19` | TBD | TBD | TBD |
+| {% data variables.copilot.gpt_61_sol %}          | TBD | `17.14.19` | TBD | TBD | TBD |
+| {% data variables.copilot.claude_opus_48 %}      | `v1.118` | `17.14.6`                     | TBD | TBD | TBD |
+| {% data variables.copilot.claude_opus_5 %}       | `v1.128.0` | `17.14.22` | TBD | TBD | TBD |
+| {% data variables.copilot.claude_opus_55 %}      | TBD | `17.14.6` | TBD | TBD | TBD |
+| {% data variables.copilot.claude_sonnet_5 %}  | `v1.124` | `17.14.6` | TBD | TBD | TBD |
+| {% data variables.copilot.claude_sonnet_55 %} | TBD | `17.14.6` | TBD | TBD | TBD |
+| {% data variables.copilot.claude_haiku_55 %}  | TBD | TBD | TBD | TBD | TBD |
+| {% data variables.copilot.claude_fable_5 %}      | `v1.124` | `17.14.6`                    | TBD | TBD | TBD |
+| {% data variables.copilot.claude_fable_51 %}    | TBD | TBD                    | TBD | TBD | TBD |
+| {% data variables.copilot.kimi_k3 %}     | `v1.131` | TBD            | TBD | TBD | TBD |
+| {% data variables.copilot.mai_code_1_1_flash %}  | `v1.121` | TBD                            | TBD | TBD | TBD |
+| {% data variables.copilot.grok_45 %}             | TBD | `17.14.19` | TBD | TBD | TBD |
+| {% data variables.copilot.grok_46 %}             | TBD | TBD | TBD | TBD | TBD |
+| {% data variables.copilot.grok_47 %}             | TBD | `17.14.19` | TBD | TBD | TBD |
 
 {% endrowheaders %}
 
 > [!NOTE]
 >
-> * For {% data variables.copilot.copilot_gpt_53_codex %} in {% data variables.product.prodname_vscode %}, `v1.108` and later provide improved prompting and response quality.
+> * For {% data variables.copilot.gpt_53_codex %} in {% data variables.product.prodname_vscode %}, `v1.108` and later provide improved prompting and response quality.
 > * "No minimum listed" means the reviewed changelog or release guidance did not specify a minimum version, not that all older versions are supported.
 > * Even when a model appears in the model picker on older supported versions, prompting and model behavior may work best with the latest IDE and {% data variables.product.prodname_copilot_short %} extension or plugin versions.
 
@@ -218,7 +218,7 @@ The following table lists AI models that are retired or scheduled for retirement
 
 {% endrowheaders %}
 
-[^claude-sonnet-46-annual]: {% data variables.copilot.copilot_claude_sonnet_46 %} remains available to individual {% data variables.product.prodname_copilot_short %} subscribers on annual plans. The retirement of {% data variables.copilot.copilot_claude_sonnet_46 %} does not apply to these subscribers.
+[^claude-sonnet-46-annual]: {% data variables.copilot.claude_sonnet_46 %} remains available to individual {% data variables.product.prodname_copilot_short %} subscribers on annual plans. The retirement of {% data variables.copilot.claude_sonnet_46 %} does not apply to these subscribers.
 
 ## Next steps
 

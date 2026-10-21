@@ -104,6 +104,84 @@ describe('getBodyParams — OAS 3.1 nullable handling', () => {
     ])
   })
 
+  it('merges object-only top-level anyOf alternatives and requires only shared fields', async () => {
+    const schema: Schema = {
+      anyOf: [
+        {
+          type: 'object',
+          properties: {
+            environment_name: { type: 'string', description: 'The environment name' },
+            comment: { type: 'string', description: 'Required when state is not provided.' },
+          },
+          required: ['environment_name', 'comment'],
+        },
+        {
+          type: 'object',
+          properties: {
+            environment_name: { type: 'string', description: 'The environment name' },
+            state: { type: 'string', description: 'The state', enum: ['approved', 'rejected'] },
+            comment: { type: 'string', description: 'Optional comment.' },
+          },
+          required: ['environment_name', 'state'],
+        },
+      ],
+    }
+    const params = await getBodyParams(schema, true)
+    expect(params.map(({ name, isRequired }) => [name, isRequired])).toEqual([
+      ['environment_name', true],
+      ['comment', undefined],
+      ['state', undefined],
+    ])
+    expect(params[1].description).toBe('Required when state is not provided.')
+  })
+
+  it('keeps parent required fields alongside a top-level object anyOf', async () => {
+    const schema: Schema = {
+      type: 'object',
+      required: ['environment_name'],
+      anyOf: [
+        {
+          type: 'object',
+          properties: {
+            environment_name: { type: 'string', description: 'The environment name' },
+            comment: { type: 'string', description: 'A comment' },
+          },
+          required: ['comment'],
+        },
+        {
+          type: 'object',
+          properties: {
+            environment_name: { type: 'string', description: 'The environment name' },
+            state: { type: 'string', description: 'The state' },
+          },
+          required: ['state'],
+        },
+      ],
+    }
+    const params = await getBodyParams(schema, true)
+    expect(params.map(({ name, isRequired }) => [name, isRequired])).toEqual([
+      ['environment_name', true],
+      ['comment', undefined],
+      ['state', undefined],
+    ])
+  })
+
+  it('keeps parent properties when a top-level anyOf only lists required fields', async () => {
+    const schema: Schema = {
+      type: 'object',
+      properties: {
+        first: { type: 'string', description: 'First value' },
+        second: { type: 'string', description: 'Second value' },
+      },
+      anyOf: [{ required: ['first'] }, { required: ['second'] }],
+    }
+    const params = await getBodyParams(schema, true)
+    expect(params.map(({ name, isRequired }) => [name, isRequired])).toEqual([
+      ['first', undefined],
+      ['second', undefined],
+    ])
+  })
+
   it('keeps parent properties when top-level oneOf options only constrain them', async () => {
     const schema: Schema = {
       type: 'object',

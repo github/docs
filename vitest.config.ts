@@ -1,3 +1,5 @@
+import { fileURLToPath } from 'node:url'
+
 export default {
   test: {
     // Default is `['**/*.{test,spec}.?(c|m)[jt]s?(x)']`
@@ -7,8 +9,9 @@ export default {
     watch: false,
     // vitest doesn't account for tsconfig.json `paths` settings so we have to
     // manually set this alias to resolve our TS @-imports
+    // No trailing slashes because Windows paths end in `\`, which stops Vite from stripping `/` off the key.
     alias: {
-      '@/': new URL('./src/', import.meta.url).pathname,
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
 
     globalSetup: './src/tests/vitest.setup.ts',

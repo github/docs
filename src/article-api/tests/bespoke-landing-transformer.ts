@@ -26,4 +26,22 @@ describe('bespoke landing transformer', () => {
     expect(res.body).toContain('[Grid Article Three]')
     expect(res.body).toContain('[Grid Article Four]')
   })
+
+  test('renders intro links as a getting started section', async () => {
+    const res = await get(makeURL('/en/get-started/article-grid-bespoke'))
+    expect(res.statusCode).toBe(200)
+
+    const start = res.body.indexOf('## Links')
+    expect(start).toBeGreaterThan(-1)
+    const end = res.body.indexOf('\n## ', start)
+    const linksSection = res.body.slice(start, end === -1 ? undefined : end)
+    expect(linksSection).toContain('### Getting started')
+    expect(linksSection).toContain(
+      '[Grid Article One](/en/get-started/article-grid-bespoke/grid-category-one/grid-article-one)',
+    )
+    expect(linksSection).toContain(
+      '[Grid Article Three](/en/get-started/article-grid-bespoke/grid-category-two/grid-article-three)',
+    )
+    expect(linksSection).not.toContain('[Grid Article Two]')
+  })
 })

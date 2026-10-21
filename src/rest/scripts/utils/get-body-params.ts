@@ -93,6 +93,40 @@ async function getTopLevelOneOfProperty(
   return { properties, required }
 }
 
+// A top-level anyOf of objects, like Review custom deployment protection rules for a workflow
+// run, has no properties on the schema object, so getTopLevelAnyOfProperty merges all options.
+// A request can match any option, so only fields every option requires are marked required,
+// plus fields the parent requires, since parent constraints apply alongside anyOf.
+// The first option that defines a property keeps its description.
+function getTopLevelAnyOfProperty(
+  anyOf: Schema[],
+  parentRequired: string[] = [],
+): {
+  properties: Record<string, Schema>
+  required: string[]
+} {
+  const properties: Record<string, Schema> = {}
+  for (const each of anyOf) {
+    for (const [key, value] of Object.entries(each.properties || {})) {
+      if (!Object.hasOwn(properties, key)) properties[key] = value
+    }
+  }
+  const sharedRequired = (anyOf[0].required || []).filter((name) =>
+    anyOf.every((each) => each.required?.includes(name)),
+  )
+  const required = [...new Set([...parentRequired, ...sharedRequired])]
+  return { properties, required }
+}
+
+function isTopLevelObjectAnyOf(schema: Schema): schema is Schema & { anyOf: Schema[] } {
+  return (
+    !schema.properties &&
+    Array.isArray(schema.anyOf) &&
+    schema.anyOf.length > 0 &&
+    schema.anyOf.every((elem) => elem.type === 'object')
+  )
+}
+
 async function handleObjectOnlyOneOf(
   param: Schema,
   paramType: string[],
@@ -120,7 +154,12 @@ function getArrayItemTypes(items: Schema): string[] {
 // while mixed oneOf adds types and descriptions without creating child parameter groups.
 export async function getBodyParams(schema: Schema, topLevel = false): Promise<TransformedParam[]> {
   const bodyParametersParsed: TransformedParam[] = []
-  const schemaObject = schema.oneOf && topLevel ? await getTopLevelOneOfProperty(schema) : schema
+  let schemaObject: Schema = schema
+  if (schema.oneOf && topLevel) {
+    schemaObject = await getTopLevelOneOfProperty(schema)
+  } else if (topLevel && isTopLevelObjectAnyOf(schema)) {
+    schemaObject = getTopLevelAnyOfProperty(schema.anyOf, schema.required)
+  }
   const properties = schemaObject.properties || {}
   const required = schemaObject.required || []
 

@@ -141,6 +141,34 @@ test.describe('Secret scanning DataTable accessibility', () => {
     expect(count).toBeGreaterThan(0)
   })
 
+  test('pagination stays in range after switching to a version with fewer patterns', async ({
+    page,
+  }) => {
+    await page.goto(PAGE_PATH)
+
+    const status = page.getByText(/^Showing \d+ of \d+ patterns$/)
+    const fptStatus = await status.textContent()
+    const pagination = page.getByRole('navigation', {
+      name: 'Secret scanning patterns pagination',
+    })
+    const lastPage = pagination.locator('[aria-label^="Page "]').last()
+    await lastPage.click()
+    await expect(lastPage).toHaveAttribute('aria-current', 'page')
+    expect(new URL(page.url()).hash).toBe('')
+
+    // The oldest supported Enterprise Server release has fewer patterns than Free, Pro, & Team.
+    await page.getByTestId('desktop-header').getByTestId('version-picker-button').click()
+    await page
+      .getByRole('menuitemradio', { name: /^Enterprise Server / })
+      .last()
+      .click()
+    await expect(page).toHaveURL(/\/enterprise-server@[\d.]+\//)
+    await expect(status).not.toHaveText(fptStatus!)
+
+    await expect(page.locator('[role="rowheader"]').first()).toBeVisible()
+    await expect(pagination.locator('[aria-current="page"]')).toHaveCount(1)
+  })
+
   test.describe('narrow viewport', () => {
     test.use({ viewport: { width: 320, height: 256 } })
 

@@ -52,25 +52,25 @@ The models available for {% data variables.product.prodname_copilot_short %} var
 
 ### European Union
 
-* {% data variables.copilot.copilot_gpt_4o_mini %}
-* {% data variables.copilot.copilot_gpt_41 %}
-* {% data variables.copilot.copilot_gpt_52 %}
-* {% data variables.copilot.copilot_gpt_53_codex %}
-* {% data variables.copilot.copilot_gpt_54_nano %}
-* {% data variables.copilot.copilot_gpt_56_luna %}
-* {% data variables.copilot.copilot_gpt_56_sol %}
-* {% data variables.copilot.copilot_gpt_56_terra %}
-* {% data variables.copilot.copilot_gpt_6_astra %}
-* {% data variables.copilot.copilot_gpt_6_luna %}
-* {% data variables.copilot.copilot_gpt_6_sol %}
-* {% data variables.copilot.copilot_gpt_61_sol %}
-* {% data variables.copilot.copilot_claude_haiku_45 %}
-* {% data variables.copilot.copilot_claude_haiku_55 %}
-* {% data variables.copilot.copilot_claude_opus_48 %}
-* {% data variables.copilot.copilot_claude_opus_5 %}
-* {% data variables.copilot.copilot_claude_opus_55 %}
-* {% data variables.copilot.copilot_claude_sonnet_5 %}
-* {% data variables.copilot.copilot_claude_sonnet_55 %}
+* {% data variables.copilot.gpt_4o_mini %}
+* {% data variables.copilot.gpt_41 %}
+* {% data variables.copilot.gpt_52 %}
+* {% data variables.copilot.gpt_53_codex %}
+* {% data variables.copilot.gpt_54_nano %}
+* {% data variables.copilot.gpt_56_luna %}
+* {% data variables.copilot.gpt_56_sol %}
+* {% data variables.copilot.gpt_56_terra %}
+* {% data variables.copilot.gpt_6_astra %}
+* {% data variables.copilot.gpt_6_luna %}
+* {% data variables.copilot.gpt_6_sol %}
+* {% data variables.copilot.gpt_61_sol %}
+* {% data variables.copilot.claude_haiku_45 %}
+* {% data variables.copilot.claude_haiku_55 %}
+* {% data variables.copilot.claude_opus_48 %}
+* {% data variables.copilot.claude_opus_5 %}
+* {% data variables.copilot.claude_opus_55 %}
+* {% data variables.copilot.claude_sonnet_5 %}
+* {% data variables.copilot.claude_sonnet_55 %}
 
 ## Pricing changes
 

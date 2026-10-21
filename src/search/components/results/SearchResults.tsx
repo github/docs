@@ -1,7 +1,7 @@
 import { Heading, Pagination, Text, Token } from '@primer/react-brand'
 import { SearchIcon } from '@primer/octicons-react'
 import { useRouter } from 'next/router'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef } from 'react'
 import cx from 'clsx'
 
 import { useTranslation } from '@/languages/components/useTranslation'
@@ -161,17 +161,7 @@ function SearchResultHit({
 
 function ResultsPagination({ page, totalPages }: { page: number; totalPages: number }) {
   const router = useRouter()
-  const [asPath, setAsPath] = useState('')
   const [asPathRoot, asPathQuery = ''] = router.asPath.split('#')[0].split('?')
-
-  useEffect(() => {
-    if (asPath) {
-      const firstSearchResult = document.getElementsByClassName(
-        'search-result-link',
-      )[0] as HTMLElement
-      firstSearchResult?.focus()
-    }
-  }, [asPath])
 
   function hrefBuilder(pageNumber: number) {
     const params = new URLSearchParams(asPathQuery)
@@ -190,7 +180,7 @@ function ResultsPagination({ page, totalPages }: { page: number; totalPages: num
           pageCount={Math.min(totalPages, 10)}
           currentPage={page}
           hrefBuilder={hrefBuilder}
-          onPageChange={(event: React.MouseEvent, pageNum: number) => {
+          onPageChange={async (event: React.MouseEvent, pageNum: number) => {
             event.preventDefault()
 
             const [pathRoot, pathQuery = ''] = router.asPath.split('#')[0].split('?')
@@ -204,8 +194,14 @@ function ResultsPagination({ page, totalPages }: { page: number; totalPages: num
             if (params.toString()) {
               newPath += `?${params}`
             }
-            setAsPath(newPath)
-            router.push(newPath)
+            // router.push resolves after the new results render, so focus lands on a new hit
+            const navigated = await router.push(newPath)
+            if (navigated) {
+              const firstSearchResult = document.getElementsByClassName('search-result-link')[0] as
+                | HTMLElement
+                | undefined
+              firstSearchResult?.focus()
+            }
           }}
         />
       </div>

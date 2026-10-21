@@ -6,6 +6,7 @@ import {
   HOVERCARDS_ENABLED,
   ANALYTICS_ENABLED,
   COLOR_MODE_COOKIE_NAME,
+  TOOL_PREFERRED_COOKIE_NAME,
 } from '../../frame/lib/constants'
 
 // Local Playwright loads .env so tests read ELASTICSEARCH_URL independently of start-server.ts.
@@ -879,6 +880,86 @@ test.describe('search dialog', () => {
     await expect(input).toHaveAttribute('aria-activedescendant', 'search-option-reference-0')
   })
 
+  // A flash can last one frame, so record every text the page adds instead of the end state.
+  async function recordAddedText(page: Page) {
+    await page.evaluate(() => {
+      const seen: string[] = []
+      ;(window as unknown as { __addedText: string[] }).__addedText = seen
+      new MutationObserver((records) => {
+        for (const record of records) {
+          if (record.type === 'characterData') seen.push(record.target.textContent || '')
+          for (const node of record.addedNodes) seen.push(node.textContent || '')
+        }
+      }).observe(document.body, { subtree: true, childList: true, characterData: true })
+    })
+  }
+
+  async function addedText(page: Page) {
+    return page.evaluate(() =>
+      (window as unknown as { __addedText: string[] }).__addedText.join('\n'),
+    )
+  }
+
+  test('asking Copilot and going back never flashes "No results found"', async ({ page }) => {
+    await page.route('**/api/ai-search/v1', (route) =>
+      route.fulfill({
+        status: 200,
+        headers: { 'Content-Type': 'application/x-ndjson' },
+        body: '{"chunkType":"MESSAGE_CHUNK","text":"An answer."}\n',
+      }),
+    )
+    await mockSearch(page)
+    await page.goto('/')
+    await turnOffExperimentsInPage(page)
+
+    await page.getByTestId('toggle-search').click()
+    const input = page.getByTestId('overlay-search-input')
+    await input.fill('foo')
+    await expect(page.locator('#search-option-general-0')).toBeVisible()
+    await recordAddedText(page)
+
+    await input.press('Enter') // nothing selected: ask Copilot
+    await expect(page.getByText('An answer.')).toBeVisible()
+    await page.getByRole('button', { name: 'Back to search' }).click()
+    await expect(page.locator('#search-option-ai-0')).toBeVisible()
+    await expect(page.locator('#search-option-general-0')).toBeVisible()
+    // Past the 100ms autocomplete debounce, while the emptied results used to render.
+    await page.waitForTimeout(300)
+
+    // Also matches the "Search Docs: No results found" live region announcement.
+    expect(await addedText(page)).not.toContain('No results found')
+  })
+
+  test('a Copilot cannot-answer response never flashes "No results found"', async ({ page }) => {
+    await page.route('**/api/ai-search/v1', (route) =>
+      route.fulfill({
+        status: 200,
+        headers: { 'Content-Type': 'application/x-ndjson' },
+        body: '{"chunkType":"NO_CONTENT_SIGNAL"}\n',
+      }),
+    )
+    await mockSearch(page)
+    await page.goto('/')
+    await turnOffExperimentsInPage(page)
+
+    await page.getByTestId('toggle-search').click()
+    const input = page.getByTestId('overlay-search-input')
+    await input.fill('foo')
+    await expect(page.locator('#search-option-general-0')).toBeVisible()
+    await recordAddedText(page)
+
+    await input.press('Enter') // nothing selected: ask Copilot
+    await expect(page.locator('#ask-ai-result-container article')).toContainText(
+      "I'm unable to answer that question",
+    )
+    await expect(page.locator('#search-option-general-0')).toBeVisible()
+    // Past the 100ms autocomplete debounce, while the emptied results used to render.
+    await page.waitForTimeout(300)
+
+    // Also matches the "Search Docs: No results found" live region announcement.
+    expect(await addedText(page)).not.toContain('No results found')
+  })
+
   // Streams one answer chunk, then holds until releaseCopilot, then ends the stream as asked.
   // Also records event beacons, since Chromium hides sendBeacon payloads from Playwright.
   async function streamCopilotAnswer(
@@ -1052,6 +1133,27 @@ test.describe('search dialog', () => {
     await expect(rule).toHaveCSS('background-image', 'none')
   })
 
+  test('Enter with nothing selected runs the docs search after a Copilot error', async ({
+    page,
+  }) => {
+    // No upstreamStatus, so the overlay treats it as a Copilot error and shows the banner.
+    await page.route('**/api/ai-search/v1', (route) => route.fulfill({ status: 500, body: '{}' }))
+    await mockSearch(page)
+    await page.goto('/')
+    await turnOffExperimentsInPage(page)
+
+    await page.getByTestId('toggle-search').click()
+    const input = page.getByTestId('overlay-search-input')
+    await input.fill('foo')
+    await expect(page.locator('#search-option-general-0')).toBeVisible()
+    await input.press('Enter') // nothing selected: ask Copilot
+    await expect(page.getByText('There was an error loading Copilot.')).toBeVisible()
+
+    await input.fill('bar')
+    await input.press('Enter')
+    await expect(page).toHaveURL(/\/search\?.*query=bar/)
+  })
+
   test.describe('in a German-language browser', () => {
     test.use({ locale: 'de-DE' })
 
@@ -1149,6 +1251,45 @@ test('search from enterprise-cloud and filter by top-level Fooing', async ({ pag
   await expect(matchingResult).toBeVisible()
   await expect(nonMatchingResult).toHaveCount(0)
   await page.getByRole('link', { name: 'Clear' }).click()
+})
+
+test('search pagination focuses the first new result after the next page renders', async ({
+  page,
+}) => {
+  test.skip(!SEARCH_TESTS, 'No local Elasticsearch, no tests involving search')
+
+  // size=1 puts each fixture hit that matches foo on its own page.
+  await page.goto('/search?query=foo&size=1')
+  const firstResultLink = page.locator('.search-result-link').first()
+  // Primer Brand appends "..." to the last page's aria-label.
+  const pageTwo = page.getByLabel(/^Page 2(\.\.\.)?$/)
+  await expect(firstResultLink).toHaveText('Foo')
+
+  // Holding the data response proves focus waits for the new hits, not the old ones.
+  let releaseNavigation = () => {}
+  const navigationHeld = new Promise<void>((resolve) => {
+    releaseNavigation = resolve
+  })
+  await page.route('**/_next/data/**', async (route) => {
+    await navigationHeld
+    await route.continue()
+  })
+
+  await pageTwo.press('Enter')
+  await expect(page).not.toHaveURL(/page=2/)
+  releaseNavigation()
+  await expect(page).toHaveURL(/page=2/)
+  await expect(firstResultLink).not.toHaveText('Foo')
+  await expect(firstResultLink).toBeFocused()
+
+  // Pagination stays mounted across Back, so a repeat visit to page 2 must still move focus.
+  await page.goBack()
+  await expect(page).not.toHaveURL(/page=2/)
+  await expect(firstResultLink).toHaveText('Foo')
+  await pageTwo.press('Enter')
+  await expect(page).toHaveURL(/page=2/)
+  await expect(firstResultLink).not.toHaveText('Foo')
+  await expect(firstResultLink).toBeFocused()
 })
 
 test('404 page renders correctly', async ({ page }) => {
@@ -1264,6 +1405,30 @@ test.describe('tool picker', () => {
     await expect(page.getByText('This is cli content')).not.toBeVisible()
     await expect(page.getByText('This is desktop content')).not.toBeVisible()
     await expect(page.getByText('This is webui content')).toBeVisible()
+  })
+
+  test('modifier-click opens the tool in a new tab', async ({ page }) => {
+    await page.goto('/get-started/liquid/tool-specific')
+    await turnOffExperimentsInPage(page)
+    await page.getByTestId('tool-picker').getByRole('link', { name: 'Web browser' }).click()
+    await expect(page).toHaveURL(/\?tool=webui/)
+
+    // Chromium opens modifier-click tabs without an opener, so the page never emits 'popup'.
+    const newTabPromise = page.context().waitForEvent('page')
+    await page
+      .getByTestId('tool-picker')
+      .getByRole('link', { name: 'GitHub CLI' })
+      .click({ modifiers: ['ControlOrMeta'] })
+    const newTab = await newTabPromise
+    await expect(newTab).toHaveURL(/\?tool=cli/)
+    await newTab.close()
+
+    await expect(page).toHaveURL(/\?tool=webui/)
+    await expect(page.getByText('This is webui content')).toBeVisible()
+    await expect(page.getByText('This is cli content')).not.toBeVisible()
+    const cookies = await page.context().cookies()
+    const toolCookie = cookies.find((cookie) => cookie.name === TOOL_PREFERRED_COOKIE_NAME)
+    expect(toolCookie?.value).toBe('webui')
   })
 
   test('minitoc matches picker', async ({ page }) => {
@@ -1481,6 +1646,88 @@ test.describe('hover cards', () => {
       page.getByText(
         'Get started using GitHub to manage Git repositories and collaborate with others.',
       ),
+    ).not.toBeVisible()
+  })
+
+  test('Escape before the hovercard opening delay ends keeps the card closed', async ({ page }) => {
+    await page.goto('/pages/quickstart')
+    await turnOffExperimentsInPage(page)
+
+    let metaRequests = 0
+    page.on('request', (request) => {
+      if (/\/api\/article\/meta\?/.test(request.url())) metaRequests++
+    })
+
+    const link = page.locator('#article-contents').getByRole('link', { name: 'Start your journey' })
+    await link.focus()
+    await page.keyboard.press('Alt+ArrowUp')
+    await page.keyboard.press('Escape')
+
+    await page.waitForTimeout(1000)
+    expect(metaRequests).toBe(0)
+    await expect(page.getByTestId('popover')).not.toBeVisible()
+    await expect(link).toBeFocused()
+  })
+
+  test('late hovercard response after the pointer leaves does not open the card', async ({
+    page,
+  }) => {
+    await page.goto('/pages/quickstart')
+    await turnOffExperimentsInPage(page)
+
+    let releaseMeta = () => {}
+    const metaHeld = new Promise<void>((resolve) => {
+      releaseMeta = resolve
+    })
+    await page.route(/\/api\/article\/meta\?/, async (route) => {
+      await metaHeld
+      await route.continue()
+    })
+
+    const metaRequest = page.waitForRequest(/\/api\/article\/meta\?/)
+    await page
+      .locator('#article-contents')
+      .getByRole('link', { name: 'Start your journey' })
+      .hover()
+    const request = await metaRequest
+    await page.mouse.move(0, 0)
+
+    releaseMeta()
+    await request.response()
+    await page.waitForTimeout(500)
+    await expect(page.getByTestId('popover')).not.toBeVisible()
+  })
+
+  test('late hovercard response for an earlier link does not replace the current card', async ({
+    page,
+  }) => {
+    await page.goto('/pages/quickstart')
+    await turnOffExperimentsInPage(page)
+
+    let releaseMeta = () => {}
+    const metaHeld = new Promise<void>((resolve) => {
+      releaseMeta = resolve
+    })
+    await page.route(/\/api\/article\/meta\?/, async (route) => {
+      await metaHeld
+      await route.continue()
+    })
+
+    const intro = page.locator('#article-intro')
+    const popover = page.getByTestId('popover')
+    const metaRequest = page.waitForRequest(/\/api\/article\/meta\?/)
+    await intro.getByRole('link', { name: 'another link' }).hover()
+    const request = await metaRequest
+    await intro.getByRole('link', { name: 'article intro link' }).hover()
+    await expect(popover.getByText('You can use HubGit Pages to showcase')).toBeVisible()
+
+    // The in-page anchor card fills without a fetch, so only the earlier link's request is held.
+    releaseMeta()
+    await request.response()
+    await page.waitForTimeout(500)
+    await expect(popover.getByText('You can use HubGit Pages to showcase')).toBeVisible()
+    await expect(
+      popover.getByText('Follow this Hello World exercise to get started with HubGit.'),
     ).not.toBeVisible()
   })
 })
@@ -2034,6 +2281,24 @@ test.describe('survey', () => {
     })
 
     expect(typesSentOnSecondHide).toContain('survey')
+  })
+
+  test('short invalid email shows the warning while Send is disabled', async ({ page }) => {
+    // Install the route before interacting with the page to avoid event races.
+    await page.route('**/api/events', (route) => {
+      route.fulfill({})
+    })
+
+    await page.goto('/get-started/foo/for-playwright')
+
+    await page.locator('[for=survey-yes]').click()
+    await page.locator('[name=survey-email]').fill('no')
+    await expect(page.locator('#email-input-validation')).toBeVisible()
+    await expect(page.getByRole('button', { name: 'Send' })).toBeDisabled()
+
+    await page.locator('[name=survey-email]').fill('test@example.com')
+    await expect(page.locator('#email-input-validation')).not.toBeVisible()
+    await expect(page.getByRole('button', { name: 'Send' })).toBeEnabled()
   })
 
   test('vote on one page, then go to another and it should reset', async ({ page }) => {

@@ -2,8 +2,12 @@ import { isRequestError } from '@/workflows/github'
 
 const DEFAULT_SLEEPTIME = parseInt(process.env.SECONDARY_RATELIMIT_RETRY_SLEEPTIME || '30000', 10)
 const DEFAULT_ATTEMPTS = parseInt(process.env.SECONDARY_RATELIMIT_RETRY_ATTEMPTS || '5', 10)
+// Keeps a single wait well inside the 5 minute step timeout in notify-about-deployment.
+// Retrying before retry-after elapses risks more throttling, so longer waits give up instead.
+const MAX_RETRY_AFTER_MS = 120_000
 
-// Secondary rate limits return 403 with "You have exceeded a secondary rate limit."
+// Secondary rate limits return 403 or 429 with "You have exceeded a secondary rate limit."
+// When a retry-after header is present, GitHub asks clients to wait that many seconds.
 // https://docs.github.com/en/rest/using-the-rest-api/rate-limits-for-the-rest-api?apiVersion=2022-11-28#about-secondary-rate-limits
 export async function octoSecondaryRatelimitRetry<T>(
   fn: () => Promise<T>,
@@ -15,14 +19,20 @@ export async function octoSecondaryRatelimitRetry<T>(
       return await fn()
     } catch (error) {
       if (
-        isRequestError(error, 403) &&
+        (isRequestError(error, 403) || isRequestError(error, 429)) &&
         /You have exceeded a secondary rate limit/.test(error.message)
       ) {
-        if (tries < attempts) {
+        const retryAfterMs = getRetryAfterMs(error)
+        if (retryAfterMs !== null && retryAfterMs > MAX_RETRY_AFTER_MS) {
           console.warn(
-            `Sleeping for ${(sleepTime / 1000).toFixed(1)}s before retrying after ${tries + 1} try`,
+            `Not retrying because retry-after of ${(retryAfterMs / 1000).toFixed(1)}s exceeds the wait limit`,
           )
-          await sleep(sleepTime)
+        } else if (tries < attempts) {
+          const waitTime = retryAfterMs ?? sleepTime
+          console.warn(
+            `Sleeping for ${(waitTime / 1000).toFixed(1)}s before retrying after ${tries + 1} try`,
+          )
+          await sleep(waitTime)
           tries++
           continue
         } else {
@@ -32,6 +42,15 @@ export async function octoSecondaryRatelimitRetry<T>(
       throw error
     }
   }
+}
+
+function getRetryAfterMs(error: object): number | null {
+  const headers = (error as { response?: { headers?: Record<string, unknown> } }).response?.headers
+  const value = headers?.['retry-after']
+  if (typeof value !== 'string' && typeof value !== 'number') return null
+  const seconds = Number(value)
+  if (String(value).trim() === '' || !Number.isFinite(seconds) || seconds < 0) return null
+  return seconds * 1000
 }
 
 async function sleep(ms: number) {

@@ -21,6 +21,8 @@ import {
   extractPreservedBlocks,
   buildReleaseNotesYaml,
   appendNoteLines,
+  isSameNoteEntry,
+  replaceEntriesForSource,
 } from '@/ghes-releases/lib/parse-release-notes'
 import {
   type IssueState,
@@ -577,14 +579,12 @@ program
         preserved = extractPreservedBlocks(existingContent) ?? undefined
         const existing = loadExistingEntriesFromString(existingContent)
         if (existing.entries.length > 0) {
-          // Regenerate a single issue by dropping its previous source URL entry first.
+          // Keep the issue's current entry until the agent produces a replacement.
           if (singleIssue) {
-            const issueUrl = `https://github.com/github/releases/issues/${singleIssue}`
-            const kept = existing.entries.filter((e) => e.sourceUrl !== issueUrl)
-            allEntries.push(...kept)
-            existing.coveredUrls.delete(issueUrl)
-            existingCoveredUrls = existing.coveredUrls
-            console.log(`  Loaded ${kept.length} existing note(s), will regenerate #${singleIssue}`)
+            allEntries.push(...existing.entries)
+            console.log(
+              `  Loaded ${existing.entries.length} existing note(s), will regenerate #${singleIssue}`,
+            )
           } else {
             allEntries.push(...existing.entries)
             existingCoveredUrls = existing.coveredUrls
@@ -622,12 +622,14 @@ program
 
       const failures: { issue: ReleaseIssue; error: string }[] = []
       const existingEntryCount = allEntries.length
+      let newCount = 0
 
       const featureHeadings = loadFeatureHeadings()
 
       // Flush after each success and on Ctrl+C so long runs keep completed notes.
       const writeCurrentOutput = () => {
-        if (stdout || allEntries.length === 0) return
+        // Skip when nothing is new because rebuilding drops known issues, the date, and stacked source URL comments.
+        if (stdout || newCount === 0) return
         try {
           if (!fs.existsSync(outputDir)) {
             fs.mkdirSync(outputDir, { recursive: true })
@@ -683,21 +685,21 @@ program
                 console.log(
                   `    ⚠ Unknown heading "${entry.heading}" — will be placed in changes section`,
                 )
+                entry.heading = 'Changes'
               }
             }
           }
 
-          // Avoid duplicates when an existing file already contributed the same issue note.
-          for (const entry of entries) {
-            const isDuplicate = allEntries.some(
-              (existing) =>
-                existing.sourceUrl === entry.sourceUrl &&
-                existing.heading === entry.heading &&
-                existing.notes.length === entry.notes.length &&
-                existing.notes.every((n, idx) => n === entry.notes[idx]),
-            )
-            if (!isDuplicate) {
-              allEntries.push(entry)
+          if (singleIssue) {
+            newCount += replaceEntriesForSource(allEntries, issue.url, entries)
+          } else {
+            // Avoid duplicates when an existing file already contributed the same issue note.
+            for (const entry of entries) {
+              const isDuplicate = allEntries.some((existing) => isSameNoteEntry(existing, entry))
+              if (!isDuplicate) {
+                allEntries.push(entry)
+                newCount++
+              }
             }
           }
           const retryNote = result.attempts > 1 ? ` (attempt ${result.attempts})` : ''
@@ -733,10 +735,9 @@ program
       }
 
       flushBeforeExit = null
-      const newCount = allEntries.length - existingEntryCount
       if (existingEntryCount > 0) {
         console.log(
-          `\nTotal: ${allEntries.length} note(s) (${existingEntryCount} existing + ${newCount} new from ${issues.length} issues)`,
+          `\nTotal: ${allEntries.length} note(s) (${allEntries.length - newCount} existing + ${newCount} new from ${issues.length} issues)`,
         )
       } else {
         console.log(`\nGenerated ${allEntries.length} note(s) from ${issues.length} issues`)
@@ -773,11 +774,11 @@ program
           console.log('\n--- Generated YAML ---\n')
           console.log(yamlOutput)
         }
-      } else if (allEntries.length > 0) {
+      } else if (newCount > 0) {
         writeCurrentOutput()
         console.log(`\n✅ Written to: ${path.relative(process.cwd(), outputPath)}`)
       } else {
-        console.log('\nNo entries generated — no file written.')
+        console.log('\nNo new notes generated. No file written.')
       }
 
       // Clean up stdin raw mode so the process can exit gracefully.

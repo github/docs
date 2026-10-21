@@ -1,13 +1,12 @@
 import type { Context, Page } from '@/types'
-import type { PageTransformer, TemplateData, Section, LinkData } from './types'
+import type { PageTransformer, TemplateData, Section } from './types'
 import { renderContent } from '@/content-render/index'
 import { loadTemplate } from '@/article-api/lib/load-template'
 import { getAllTocItems, flattenTocItems } from '@/article-api/lib/get-all-toc-items'
+import { getIntroLinksSection } from '@/article-api/lib/get-intro-links-section'
 import { resolveCarouselLinks } from '@/article-api/lib/resolve-carousel-links'
 
 interface DiscoveryPage extends Page {
-  rawIntroLinks?: Record<string, string>
-  introLinks?: Record<string, string>
   rawCarousels?: Record<string, string[]>
   includedCategories?: string[]
   children?: string[]
@@ -60,41 +59,8 @@ export class DiscoveryLandingTransformer implements PageTransformer {
       }
     }
 
-    const rawIntroLinks = discoveryPage.introLinks ?? discoveryPage.rawIntroLinks
-    if (rawIntroLinks) {
-      const { default: getPageLinkData } = await import('@/frame/lib/get-link-data')
-      const links = await Promise.all(
-        Object.values(rawIntroLinks).map(async (href): Promise<LinkData> => {
-          if (typeof href === 'string') {
-            const linkData = await getPageLinkData(href, context)
-            if (Array.isArray(linkData) && linkData.length > 0) {
-              const item = linkData[0]
-              return { href: item.href || '', title: item.title || '', intro: item.intro || '' }
-            } else if (
-              linkData &&
-              typeof linkData === 'object' &&
-              !Array.isArray(linkData) &&
-              'href' in linkData
-            ) {
-              const item = linkData as { href?: string; title?: string; intro?: string }
-              return {
-                href: item.href || '',
-                title: item.title || '',
-                intro: item.intro || '',
-              }
-            }
-          }
-          return { href: '', title: '' }
-        }),
-      )
-      const validLinks = links.filter((l) => l.href)
-      if (validLinks.length > 0) {
-        sections.push({
-          title: 'Links',
-          groups: [{ title: 'Getting started', links: validLinks }],
-        })
-      }
-    }
+    const introLinksSection = await getIntroLinksSection(page, context)
+    if (introLinksSection) sections.push(introLinksSection)
 
     // getAllTocItems sets basePath to keep /rest from recursing into /enterprise-admin children.
     if (discoveryPage.children && discoveryPage.children.length > 0) {

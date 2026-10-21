@@ -9,7 +9,8 @@ import type {
 } from '@/search/lib/search-request-params/types'
 import type { SearchAggregation, GeneralSearchHit, GeneralSearchResponse } from '@/search/types'
 
-const MAX_AGGREGATE_SIZE = 30
+// Must exceed the number of products in any version, or Elasticsearch drops the smallest buckets
+const MAX_AGGREGATE_SIZE = 100
 
 const isDevMode: boolean = process.env.NODE_ENV !== 'production'
 

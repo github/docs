@@ -48,19 +48,21 @@ jobs:
           echo PR_TITLE: $PR_TITLE
           [[ ! -z $PR_TITLE ]] && DESCRIPTION="${PR_TITLE}" || DESCRIPTION="Update manually triggered by workflow"
           echo "DESCRIPTION=$DESCRIPTION" >> $GITHUB_ENV
-          git commit -m "$(echo $DESCRIPTION)"
+          # git commit exits 1 when the public repo already matches, which would fail the job.
+          if git diff --cached --quiet; then
+            echo "No updates to push to the public repo"
+            echo "HAS_CHANGES=false" >> "$GITHUB_ENV"
+          else
+            git commit -m "$(echo $DESCRIPTION)"
+            echo "HAS_CHANGES=true" >> "$GITHUB_ENV"
+          fi
 
       - name: If there are changes to push, create a branch in the public repo and push changes
+        if: env.HAS_CHANGES == 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
         run: |
           cd public-repo
           git config --local user.name 'site-policy-bot'
           git config --local user.email 'site-policy-bot@github.com'
-          NUM_FILES_CHANGED=$(git diff --name-only HEAD^..HEAD | wc -l)
-          if [[ $NUM_FILES_CHANGED -ge 1 ]]
-            then
-              git push --set-upstream origin automated-sync-$GITHUB_RUN_ID
-            else
-              echo "No updates to push to the public repo"
-          fi
+          git push --set-upstream origin automated-sync-$GITHUB_RUN_ID

@@ -179,6 +179,13 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
     }
   }
 
+  // Filter per request because every version shares one Page instance.
+  const landingContext = props.bespokeContext ?? props.journeyContext ?? props.discoveryContext
+  if (landingContext?.introLinks && req.context) {
+    const { getIntroLinksForVersion } = await import('@/landings/lib/intro-links')
+    landingContext.introLinks = getIntroLinksForVersion(landingContext.introLinks, req.context)
+  }
+
   addUINamespaces(req, props.mainContext.data.ui, additionalUINamespaces)
 
   return {

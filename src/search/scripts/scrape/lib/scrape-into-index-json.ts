@@ -3,6 +3,7 @@ import chalk from 'chalk'
 import languages from '@/languages/lib/languages-server'
 import buildRecords from '@/search/scripts/scrape/lib/build-records-from-api'
 import findIndexablePages from '@/search/scripts/scrape/lib/find-indexable-pages'
+import { buildRedirects } from '@/search/scripts/scrape/lib/popular-pages'
 import { writeIndexRecords } from '@/search/scripts/scrape/lib/search-index-records'
 import { getElasticSearchIndex } from '@/search/lib/elasticsearch-indexes'
 
@@ -31,16 +32,7 @@ export default async function scrapeIntoIndexJson({
 
   // Excludes hidden pages, the absolute homepage, and visible WIP products.
   const indexablePages: Page[] = await findIndexablePages(config.filter)
-  const redirects: Redirects = {}
-  for (const page of indexablePages) {
-    const href = page.relativePath.replace('index.md', '').replace('.md', '')
-    for (let redirectFrom of page.redirect_from || []) {
-      // redirect_from values start with / and often end with /.
-      if (redirectFrom.startsWith('/')) redirectFrom = redirectFrom.slice(1)
-      if (redirectFrom.endsWith('/')) redirectFrom = redirectFrom.slice(0, -1)
-      redirects[redirectFrom] = href
-    }
-  }
+  const redirects: Redirects = buildRedirects(indexablePages)
 
   let countRecordsTotal = 0
   let totalFailedPages = 0

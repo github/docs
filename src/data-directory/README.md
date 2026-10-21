@@ -31,7 +31,7 @@ Purpose-built utilities, schemas, and workflows that power our Liquid `{% data %
 - Tests: `src/data-directory/tests/data-schemas.ts` loads schemas via AJV and asserts every registered file validates.
 - Adding a schema:
   1. Create `src/data-directory/lib/data-schemas/<name>.ts` (or `tables/<table>.ts`).
-  2. If non-table, add to `manualSchemas` in `data-schemas/index.ts`; table schemas are auto-detected.
+  2. If non-table or nested under `data/tables/<subdir>/`, add to `manualSchemas` in `data-schemas/index.ts`. Only top-level `data/tables/*.yml` schemas are auto-detected.
   3. Run tests (see below).
 
 ## Middleware
@@ -70,7 +70,7 @@ Purpose-built utilities, schemas, and workflows that power our Liquid `{% data %
 - When adding a new data directory:
   - Prefer YAML for structured data; add schema if shape matters to correctness.
   - Add README under `data/<dir>/` when introducing new contracts.
-  - Update `manualSchemas` if not a table.
+  - Update `manualSchemas` if not a top-level table.
 
 ## Ownership & escalation
 - Primary: Docs Engineering.

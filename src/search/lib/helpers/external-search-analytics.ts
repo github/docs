@@ -1,5 +1,5 @@
 import { ExtendedRequest } from '@/types'
-import { publish } from '@/events/lib/hydro'
+import { publish, type EventT } from '@/events/lib/hydro'
 import { hydroNames } from '@/events/lib/schema'
 import { createLogger } from '@/observability/logger'
 
@@ -77,13 +77,22 @@ export async function handleExternalSearchAnalytics(
       },
     }
 
-    await publish(analyticsPayload)
+    // Publish in the background so Hydro latency never delays the search response.
+    sendAnalytics(analyticsPayload)
   } catch (error) {
     // Don't fail the request if analytics fails
     logger.error('Failed to send search analytics:', { error })
   }
 
   return null
+}
+
+async function sendAnalytics(payload: EventT) {
+  try {
+    await publish(payload)
+  } catch (error) {
+    logger.error('Failed to send search analytics:', { error })
+  }
 }
 
 // Reduces a user agent down to its primary client identifier.

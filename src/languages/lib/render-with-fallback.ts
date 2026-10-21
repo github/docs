@@ -24,6 +24,7 @@ export class LiquidError extends Error {
 interface RenderOptions {
   throwIfEmpty?: boolean
   textOnly?: boolean
+  unwrap?: boolean
   cache?: boolean | ((template: string, context: Context) => string)
   [key: string]: unknown
 }
@@ -131,13 +132,17 @@ export async function renderContentWithFallback(
       const enPage = getEnglishFallbackPage(page, context)
       if (!enPage) throw error
       const englishTemplate = (enPage as unknown as Record<string, string>)[property]
-      // Set currentLanguage to en so Liquid plugins such as data.ts read English data.
-      const enContext = Object.assign({}, context, { currentLanguage: 'en' })
+      // data.ts reads English data while rewriteLocalLinks keeps links in the reader's language.
+      const enContext = {
+        ...context,
+        currentLanguage: 'en',
+        autotitleLanguage: context.autotitleLanguage || context.currentLanguage,
+      }
 
       const fallbackContent = await renderContent(englishTemplate, enContext, options)
 
-      // HTML fallback comments break textOnly output, so add them only for non-English HTML.
-      if (context.currentLanguage !== 'en' && !options?.textOnly) {
+      // HTML fallback comments break textOnly output and stop unwrap from removing the outer tag.
+      if (context.currentLanguage !== 'en' && !options?.textOnly && !options?.unwrap) {
         const errorComment = createTranslationFallbackComment(error as Error, property)
         return `${errorComment}\n${fallbackContent}`
       }
@@ -165,7 +170,12 @@ export async function executeWithFallback<T>(
     return await Promise.resolve(callable(context))
   } catch (error) {
     if (isFallbackableError(error) && context.currentLanguage !== 'en') {
-      const enContext = Object.assign({}, context, { currentLanguage: 'en' })
+      // data.ts reads English data while rewriteLocalLinks keeps links in the reader's language.
+      const enContext = {
+        ...context,
+        currentLanguage: 'en',
+        autotitleLanguage: context.autotitleLanguage || context.currentLanguage,
+      }
       const fallbackContent = await Promise.resolve(fallback(enContext))
 
       // Only HTML fallback content can carry a comment without changing plain-text output.

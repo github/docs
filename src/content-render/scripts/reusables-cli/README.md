@@ -20,7 +20,7 @@ Helps find where reusables are already used, and where they could be used.
 
 ### Command: `npm run reusables -- find used <reusable-path>`
 
-Find where a specific reusable is used
+Find where a specific reusable is used. This counts both `{% data %}` and `{% indented_data_reference %}` tags.
 
 #### Example
 

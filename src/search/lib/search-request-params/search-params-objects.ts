@@ -37,7 +37,7 @@ const SHARED_PARAMS_OBJ: SearchRequestQueryParams[] = [
     key: 'version',
     default_: 'free-pro-team',
     validate: (version) => {
-      if (!versionToIndexVersionMap[version as string]) {
+      if (!Object.hasOwn(versionToIndexVersionMap, version as string)) {
         throw new ValidationError(`'${version}' not in ${allIndexVersionKeys.join(', ')}`)
       }
       return true
@@ -48,7 +48,7 @@ const SHARED_PARAMS_OBJ: SearchRequestQueryParams[] = [
 const GENERAL_SEARCH_PARAMS_OBJ: SearchRequestQueryParams[] = [
   ...SHARED_PARAMS_OBJ,
   { key: 'query' },
-  { key: 'language', default_: 'en', validate: (v) => (v as string) in languages },
+  { key: 'language', default_: 'en', validate: (v) => Object.hasOwn(languages, v as string) },
   {
     key: 'size',
     default_: DEFAULT_SIZE,
@@ -126,7 +126,7 @@ const SHARED_AUTOCOMPLETE_PARAMS_OBJ: SearchRequestQueryParams[] = [
     key: 'version',
     default_: 'free-pro-team',
     validate: (version) => {
-      if (!versionToIndexVersionMap[version as string]) {
+      if (!Object.hasOwn(versionToIndexVersionMap, version as string)) {
         throw new ValidationError(`'${version}' not in ${allIndexVersionKeys.join(', ')}`)
       }
       return true
