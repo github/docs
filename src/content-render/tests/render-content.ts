@@ -332,6 +332,19 @@ var a = 1
     expect(alertEl.find('a[href="https://example.com"]').length).toBe(1)
   })
 
+  test('renders alert titles for mixed-case alert markers', async () => {
+    const alertTitles = { NOTE: 'Note', TIP: 'Tip' }
+    const tipHtml = await renderContent(nl('> [!Tip]\n> Body'), { alertTitles })
+    const $tip = load(tipHtml)
+    expect($tip('.ghd-alert').hasClass('ghd-alert-success')).toBe(true)
+    expect($tip('.ghd-alert-title').text()).toBe('Tip')
+
+    const noteHtml = await renderContent(nl('> [!Note]\n> Body'), { alertTitles })
+    const $note = load(noteHtml)
+    expect($note('.ghd-alert').hasClass('ghd-alert-accent')).toBe(true)
+    expect($note('.ghd-alert-title').text()).toBe('Note')
+  })
+
   describe('markdownRequested output', () => {
     const markdownContext = {
       markdownRequested: true,
