@@ -565,6 +565,38 @@ test.describe('search dialog', () => {
     await expect(page).not.toHaveURL(/search-overlay-open/)
   })
 
+  test('search on the home page keeps the locale and stays shallow', async ({ page }) => {
+    await mockSearch(page)
+    await page.goto('/en')
+    await turnOffExperimentsInPage(page)
+
+    // A document request here means Next turned the shallow URL update into a full page load.
+    const navigations: string[] = []
+    page.on('request', (request) => {
+      if (request.isNavigationRequest()) navigations.push(request.url())
+    })
+
+    await page.getByTestId('toggle-search').click()
+    const input = page.getByTestId('overlay-search-input')
+    await input.fill('foo')
+    // A bare `/` would go through the root redirect, which can pick another language.
+    await expect(page).toHaveURL(
+      (url) =>
+        url.pathname === '/en' &&
+        url.searchParams.get('search-overlay-open') === 'true' &&
+        url.searchParams.get('search-overlay-input') === 'foo',
+    )
+
+    await input.press('Escape')
+    await expect(input).toHaveCount(0)
+    // Past the 100ms debounce, so a queued write can't change the URL after the check.
+    await page.waitForTimeout(300)
+    await expect(page).toHaveURL(
+      (url) => url.pathname === '/en' && !url.searchParams.has('search-overlay-open'),
+    )
+    expect(navigations).toEqual([])
+  })
+
   test('input method composition keys do not select, ask Copilot, or close', async ({ page }) => {
     await mockSearch(page)
     let aiRequests = 0
