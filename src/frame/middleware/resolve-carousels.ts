@@ -5,10 +5,9 @@ import Permalink from '@/frame/lib/permalink'
 
 import { createLogger } from '@/observability/logger/index'
 
-// Page adds rawCarousels and carousels at runtime, but the Page type omits them.
+// Page adds rawCarousels at runtime, but the Page type omits it.
 interface PageCarouselProps {
   rawCarousels?: Record<string, string[]>
-  carousels?: Record<string, ResolvedArticle[]>
 }
 
 const logger = createLogger('middleware:resolve-carousels')
@@ -164,9 +163,8 @@ async function resolveCarousels(
         }
       }
 
-      if (page && Object.keys(resolvedCarousels).length > 0) {
-        ;(page as unknown as PageCarouselProps).carousels = resolvedCarousels
-      }
+      // Every version shares one page object, so per-version results belong on the request.
+      req.context!.carousels = resolvedCarousels
     }
   } catch (error) {
     logger.error('Error in resolveCarousels middleware:', { error })
