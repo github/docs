@@ -115,8 +115,12 @@ You can view insights for rulesets to see how rulesets are affecting a repositor
 
 ### Viewing the rule insights dashboard
 
+{% ifversion fpt or ghec %}
+
 > [!NOTE]
 > The rule insights dashboard is available for {% data variables.product.prodname_team %} and {% data variables.product.prodname_ghe_cloud %} plans.
+
+{% endif %}
 
 The rule insights dashboard gives you a visual, high-level summary of rule evaluation activity for your repository, including:
 
@@ -132,7 +136,11 @@ To view the dashboard:
 1. In the left sidebar, under "Code and automation," click **Rules**, then click **Insights**.
 1. At the top of the "Rule Insights" page, view the dashboard charts for an overview of rule evaluation activity.
 
+{% ifversion rule-insights-dashboard-org-level %}
+
 At the organization level, you can view the rule insights dashboard to review the evaluation activity of rulesets across your organization. See [AUTOTITLE](/organizations/managing-organization-settings/managing-rulesets-for-repositories-in-your-organization#viewing-the-rule-insights-dashboard).
+
+{% endif %}
 
 {% endif %}
 
