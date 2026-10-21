@@ -85,9 +85,12 @@ export async function loadUnversionedTree(
 }
 
 // Category pages inherit applicable versions from immediate children.
-function setCategoryApplicableVersions(tree: UnversionedTree): void {
-  for (const childPage of tree.childPages) {
+export function setCategoryApplicableVersions(tree: UnversionedTree): void {
+  // Translated leaves have no childPages array.
+  for (const childPage of tree.childPages || []) {
     if (childPage.page.relativePath.endsWith('index.md')) {
+      // Nested categories settle first so the union reads their current versions.
+      setCategoryApplicableVersions(childPage)
       const combinedApplicableVersions: string[] = []
       let moreThanOneChild = false
       for (const childChildPage of childPage.childPages || []) {
@@ -96,7 +99,6 @@ function setCategoryApplicableVersions(tree: UnversionedTree): void {
             combinedApplicableVersions.push(version)
           }
         }
-        setCategoryApplicableVersions(childPage)
         moreThanOneChild = true
       }
       if (
