@@ -75,10 +75,19 @@ async function prepareWebhooks(currentVersion: string) {
   )
 
   // Omit high-frequency body parameters from rows; summarize matches from the first webhook.
-  const commonParams =
+  const commonParams = (
     preparedWebhooks[0]?.actions[0]?.bodyParameters.filter((p: { name: string }) =>
       commonParamNames.has(p.name),
     ) || []
+  ).map((param) => ({
+    ...param,
+    // The shared row replaces every event's own row, so it is required only if every event requires it.
+    isRequired: preparedWebhooks.every((webhook) =>
+      webhook.actions.every((action) =>
+        action.bodyParameters.some((p) => p.name === param.name && p.isRequired),
+      ),
+    ),
+  }))
   for (const webhook of preparedWebhooks) {
     for (const action of webhook.actions) {
       action.bodyParameters = action.bodyParameters.filter(

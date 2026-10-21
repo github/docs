@@ -119,7 +119,7 @@ describe('Webhooks transformer', () => {
     expect(res.statusCode).toBe(200)
 
     expect(res.body).toContain('## Common payload parameters')
-    expect(res.body).toContain('Most webhook events include these standard parameters')
+    expect(res.body).toContain('Many webhook events include these parameters')
 
     const commonSection = res.body.split('## Common payload parameters')[1]?.split('\n## ')[0] || ''
     expect(commonSection).toContain('`sender`')
