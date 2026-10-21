@@ -100,6 +100,18 @@ export const tableColumnIntegrity = {
             headerCountWithComments === countColumns(nextLine)
               ? headerCountWithComments
               : headerCount
+          // GFM renders the block as plain text when header and separator cell counts differ.
+          const separatorColumnCount = countColumns(nextLine)
+          if (separatorColumnCount !== expectedColumnCount) {
+            addError(
+              onError,
+              i + 2,
+              `Table separator row has ${separatorColumnCount} columns but header has ${expectedColumnCount}. The table will not render. Give the header and separator rows the same number of columns.`,
+              nextLine,
+              getRange(nextLine, nextLine.trim()),
+              null, // No fix possible
+            )
+          }
           continue
         }
       }

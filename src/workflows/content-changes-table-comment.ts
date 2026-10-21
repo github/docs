@@ -1,7 +1,6 @@
 // Run src/workflows/content-changes-table-comment-cli.ts to test this outside Actions.
 
 import fs from 'node:fs'
-import path from 'node:path'
 
 import * as github from '@actions/github'
 import * as core from '@actions/core'
@@ -14,7 +13,7 @@ import getApplicableVersions from '@/versions/lib/get-applicable-versions'
 import nonEnterpriseDefaultVersion from '@/versions/lib/non-enterprise-default-version'
 import { allVersionShortnames } from '@/versions/lib/all-versions'
 import readFrontmatter from '@/frame/lib/read-frontmatter'
-import { inLiquid } from './lib/in-liquid'
+import { expandReusableNeedles, inLiquid, reusableNeedle } from './lib/in-liquid'
 import { contentUrlPath } from './lib/content-url-path'
 
 const { GITHUB_TOKEN, APP_URL, BASE_SHA, HEAD_SHA } = process.env
@@ -70,12 +69,12 @@ async function main(owner: string, repo: string, baseSHA: string, headSHA: strin
   const filesUsingReusables: File[] = []
   if (reusablesFiles.length) {
     const contentFilePaths = new Set<string>()
-    const allContentFiles = getAllContentFiles()
-    for (const reusablesFile of reusablesFiles) {
-      const relativePath = path
-        .relative('data/reusables', reusablesFile.filename)
-        .replace(/\.md$/, '')
-      const needle = `reusables.${relativePath.split('/').join('.')}`
+    const allContentFiles = getAllMarkdownFiles('content')
+    const needles = expandReusableNeedles(
+      new Set(reusablesFiles.map(({ filename }) => reusableNeedle(filename))),
+      getAllMarkdownFiles('data/reusables'),
+    )
+    for (const needle of needles) {
       for (const [contentFilePath, contentFileContents] of allContentFiles) {
         if (inLiquid(contentFilePath, contentFileContents, needle)) {
           contentFilePaths.add(contentFilePath)
@@ -247,13 +246,13 @@ function makeRow({
   return `| ${contentCell} | ${reviewCell} | ${prodCell} | ${note} |`
 }
 
-function getAllContentFiles(): Map<string, string> {
+function getAllMarkdownFiles(directory: string): Map<string, string> {
   const options = {
     globs: ['**/*.md'],
     includeBasePath: true,
   }
   const contentFiles = new Map<string, string>()
-  for (const file of walk('content', options)) {
+  for (const file of walk(directory, options)) {
     contentFiles.set(file, fs.readFileSync(file, 'utf-8'))
   }
   return contentFiles

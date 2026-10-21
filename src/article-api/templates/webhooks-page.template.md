@@ -11,14 +11,14 @@
 {% if commonParams.size > 0 %}
 ## Common payload parameters
 
-Most webhook events include these standard parameters:
+Many webhook events include these parameters. Not every event includes each one, and whether a parameter is required varies by event.
 
 | Name | Type | Description |
 |------|------|-------------|
 {% for param in commonParams %}| `{{ param.name }}` | `{{ param.type }}` | {% if param.isRequired %}**Required.** {% endif %}{{ param.description }} |
 {% endfor %}
 
-Events below list only their additional parameters beyond these common ones.
+Events below omit these common parameters from their own tables.
 
 {% endif %}
 {% for webhook in webhooks %}

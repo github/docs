@@ -120,8 +120,7 @@
     "validate-github-github-docs-urls": "tsx src/links/scripts/validate-github-github-docs-urls/index.ts",
     "warmup-remotejson": "tsx src/archives/scripts/warmup-remotejson.ts",
     "what-docs-early-access-branch": "tsx src/early-access/scripts/what-docs-early-access-branch.ts",
-    "writers": "tsx src/workflows/writers-help-metadata.ts",
-    "postinstall": "npx --no-install patch-package --error-on-fail"
+    "writers": "tsx src/workflows/writers-help-metadata.ts"
   },
   "lint-staged": {
     "*.{ts,tsx}": "eslint --cache --fix",
@@ -219,7 +218,7 @@
     "liquidjs": "^10.27.0",
     "lodash-es": "^4.18.0",
     "lowlight": "^3.3.0",
-    "mdast-util-from-markdown": "^2.0.3",
+    "mdast-util-from-markdown": "^2.1.0",
     "mdast-util-to-hast": "^13.2.1",
     "mdast-util-to-markdown": "2.1.2",
     "mdast-util-to-string": "^4.0.0",
@@ -325,7 +324,6 @@
     "nock": "^15.0.1",
     "nodemon": "3.1.10",
     "ora": "^9.3.0",
-    "patch-package": "^8.0.1",
     "prettier": "^3.8.1",
     "sass": "^1.97.3",
     "start-server-and-test": "^3.0.0",

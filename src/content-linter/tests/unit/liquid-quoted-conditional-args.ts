@@ -1,4 +1,5 @@
 import { describe, expect, test } from 'vitest'
+import { applyFixes } from 'markdownlint-rule-helpers'
 
 import { runRule } from '../../lib/init-test'
 import { liquidQuotedConditionalArg } from '../../lib/linting-rules/liquid-quoted-conditional-arg'
@@ -133,5 +134,24 @@ describe(liquidQuotedConditionalArg.names.join(' - '), () => {
     const errors = result.markdown
     expect(errors.length).toBe(1)
     expect(errors[0].lineNumber).toBe(9)
+  })
+  test('autofix removes only the offending quotes', async () => {
+    const cases = [
+      ['{% ifversion "ghec" %}', '{% ifversion ghec %}'],
+      ['{% ifversion "fpt" or ghec %}', '{% ifversion fpt or ghec %}'],
+      ['{% ifversion fpt and "ghec" %}', '{% ifversion fpt and ghec %}'],
+      ['{% if page.x == "y" or "z" %}', '{% if page.x == "y" or z %}'],
+      ['{% unless "this" %}x', '{% unless this %}x'],
+      [
+        'Intro {% ifversion "ghes" %}Text{% endif %} more',
+        'Intro {% ifversion ghes %}Text{% endif %} more',
+      ],
+      ['Use {% if "x" %}bar{% endif %}.', 'Use {% if x %}bar{% endif %}.'],
+    ]
+    for (const [markdown, expected] of cases) {
+      const result = await runRule(liquidQuotedConditionalArg, { strings: { markdown } })
+      expect(result.markdown.length).toBe(1)
+      expect(applyFixes(markdown, result.markdown)).toBe(expected)
+    }
   })
 })

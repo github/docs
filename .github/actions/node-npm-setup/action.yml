@@ -13,8 +13,7 @@ runs:
         SEGMENT_DOWNLOAD_TIMEOUT_MINS: '1'
       with:
         path: node_modules
-        # The postinstall script applies patches/ during npm ci, so patch changes must miss the cache.
-        key: ${{ runner.os }}-node_modules-${{ hashFiles('package*.json', 'patches/**') }}-${{ hashFiles('.github/actions/node-npm-setup/action.yml') }}
+        key: ${{ runner.os }}-node_modules-${{ hashFiles('package*.json') }}-${{ hashFiles('.github/actions/node-npm-setup/action.yml') }}
 
     # The npm download cache only helps npm ci, so skip its 153 MB restore when node_modules hits.
     - name: Setup Node.js

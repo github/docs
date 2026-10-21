@@ -565,6 +565,38 @@ test.describe('search dialog', () => {
     await expect(page).not.toHaveURL(/search-overlay-open/)
   })
 
+  test('search on the home page keeps the locale and stays shallow', async ({ page }) => {
+    await mockSearch(page)
+    await page.goto('/en')
+    await turnOffExperimentsInPage(page)
+
+    // A document request here means Next turned the shallow URL update into a full page load.
+    const navigations: string[] = []
+    page.on('request', (request) => {
+      if (request.isNavigationRequest()) navigations.push(request.url())
+    })
+
+    await page.getByTestId('toggle-search').click()
+    const input = page.getByTestId('overlay-search-input')
+    await input.fill('foo')
+    // A bare `/` would go through the root redirect, which can pick another language.
+    await expect(page).toHaveURL(
+      (url) =>
+        url.pathname === '/en' &&
+        url.searchParams.get('search-overlay-open') === 'true' &&
+        url.searchParams.get('search-overlay-input') === 'foo',
+    )
+
+    await input.press('Escape')
+    await expect(input).toHaveCount(0)
+    // Past the 100ms debounce, so a queued write can't change the URL after the check.
+    await page.waitForTimeout(300)
+    await expect(page).toHaveURL(
+      (url) => url.pathname === '/en' && !url.searchParams.has('search-overlay-open'),
+    )
+    expect(navigations).toEqual([])
+  })
+
   test('input method composition keys do not select, ask Copilot, or close', async ({ page }) => {
     await mockSearch(page)
     let aiRequests = 0
@@ -878,6 +910,36 @@ test.describe('search dialog', () => {
     // The sources stay options, reachable from the input.
     await input.press('ArrowDown')
     await expect(input).toHaveAttribute('aria-activedescendant', 'search-option-reference-0')
+  })
+
+  test('pressing Enter again on the shown answer keeps the docs rows', async ({ page }) => {
+    let aiRequests = 0
+    await page.route('**/api/ai-search/v1', (route) => {
+      aiRequests++
+      return route.fulfill({
+        status: 200,
+        headers: { 'Content-Type': 'application/x-ndjson' },
+        body: '{"chunkType":"MESSAGE_CHUNK","text":"An answer."}\n',
+      })
+    })
+    await mockSearch(page)
+    await page.goto('/')
+    await turnOffExperimentsInPage(page)
+
+    await page.getByTestId('toggle-search').click()
+    const input = page.getByTestId('overlay-search-input')
+    await input.fill('foo')
+    await expect(page.locator('#search-option-general-0')).toBeVisible()
+    await input.press('Enter') // nothing selected: ask Copilot
+    await expect(page.getByText('An answer.')).toBeVisible()
+    await expect(page.locator('#search-option-general-0')).toBeVisible()
+
+    // The same question is already answered, so Enter must not swap the docs rows for a spinner.
+    await input.press('Enter')
+    await page.waitForTimeout(1500)
+    await expect(page.locator('#search-option-general-0')).toBeVisible()
+    await expect(page.getByText('An answer.')).toBeVisible()
+    expect(aiRequests).toBe(1)
   })
 
   // A flash can last one frame, so record every text the page adds instead of the end state.
@@ -2053,12 +2115,25 @@ test.describe('secondary-bar breadcrumb scroller', () => {
     await expect.poll(scrollLeftOf).toBeGreaterThan(afterOneLeft)
 
     // Drive off chevron visibility because smooth scrolling can leave sub-pixel scrollLeft.
+    // Tab in for keyboard focus, which a hiding chevron must hand to the other chevron.
+    await page.getByTestId('sidebar-collapse-toggle').focus()
+    await page.keyboard.press('Tab')
+    await expect(leftChevron).toBeFocused()
+    expect(await leftChevron.evaluate((el) => el.matches(':focus-visible'))).toBe(true)
     for (let i = 0; i < 6 && (await leftChevron.isVisible()); i++) {
-      await leftChevron.click()
+      await page.keyboard.press('Enter')
       await page.waitForTimeout(200)
     }
     await expect(leftChevron).toBeHidden()
     await expect.poll(scrollLeftOf).toBeLessThanOrEqual(1)
+    await expect(rightChevron).toBeFocused()
+
+    for (let i = 0; i < 10 && (await rightChevron.isVisible()); i++) {
+      await page.keyboard.press('Enter')
+      await page.waitForTimeout(200)
+    }
+    await expect(rightChevron).toBeHidden()
+    await expect(leftChevron).toBeFocused()
   })
 })
 

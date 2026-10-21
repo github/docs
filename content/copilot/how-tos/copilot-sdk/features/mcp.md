@@ -287,6 +287,46 @@ server unchanged. State-only continuations do not invoke either responder.
 After an existing `mcp.prompts.list_changed` session event, list the named
 server's prompts again to refresh your application's view.
 
+## Applying sandbox policy before MCP startup
+
+Pass `sandboxConfig` to `createSession` or `resumeSession` to apply sandbox policy
+during construction, before discovered root-config, plugin, or explicitly
+configured MCP servers start. It accepts the same configuration as
+`session.rpc.options.update({ sandboxConfig })`.
+
+```typescript
+const sandboxConfig = {
+    enabled: true,
+    sandboxMcpServers: true,
+    userPolicy: { network: { allowOutbound: false } },
+};
+const session = await client.createSession({
+    onPermissionRequest: approveAll,
+    sandboxConfig,
+});
+```
+
+Re-supply the configuration on a cold resume; omission preserves a resident
+session's current policy. A resident resume cannot undo processes that already
+started. Managed-policy validation uses the same direct-host semantics as an
+options update: a conflicting request fails create or resume instead of falling
+back to an unsandboxed session, with `data.code` set to
+`managed_sandbox_policy_conflict` in the JSON-RPC error. The runtime does not
+assign a settings-derived `sandboxConfigSource` to this explicit host configuration.
+
+A later identical `options.update({ sandboxConfig })` does not restart MCP
+servers, including when managed policy has normalized the configuration. A
+different effective MCP sandbox policy retains the usual restart behavior.
+
+Check the runtime `version` returned by `server.connect` (`ConnectResult`) against
+the minimum runtime release your application requires for this feature. The SDK
+protocol version is not a per-feature capability signal. Older runtimes ignore
+unknown create/resume fields, so an application supporting them can send
+`sandboxConfig` at open and repeat it in a follow-up options update. That update
+is harmless on supporting runtimes, but older runtimes can still start MCP before
+the update arrives; require a supporting runtime version when confinement from
+the first process is mandatory.
+
 ## Tool configuration
 
 You can control which tools are available to an MCP server using the `tools` field.

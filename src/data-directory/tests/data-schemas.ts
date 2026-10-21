@@ -51,6 +51,31 @@ describe('single data files', () => {
   })
 })
 
+describe('Copilot model supported clients table', () => {
+  const filepath = 'data/tables/copilot/model-supported-clients.yml'
+
+  test('rejects rows with invalid client columns', async () => {
+    expect(dataSchemas[filepath]).toBeDefined()
+    const schema = (await import(dataSchemas[filepath])).default
+    const loadRows = () => load(readFileSync(filepath, 'utf8')) as Record<string, unknown>[]
+
+    expect(validateJson(schema, loadRows()).isValid).toBe(true)
+
+    const stringValue = loadRows()
+    stringValue[0].cli = 'yes'
+    expect(validateJson(schema, stringValue).isValid).toBe(false)
+
+    const missingColumn = loadRows()
+    delete missingColumn[0].cli
+    expect(validateJson(schema, missingColumn).isValid).toBe(false)
+
+    const misspelledColumn = loadRows()
+    delete misspelledColumn[0].jetbrains
+    misspelledColumn[0].jetbrain = true
+    expect(validateJson(schema, misspelledColumn).isValid).toBe(false)
+  })
+})
+
 describe('YAML-powered tables', () => {
   test('all table files have corresponding schemas', () => {
     const tablesDir = join(process.cwd(), 'data/tables')
@@ -72,5 +97,26 @@ describe('YAML-powered tables', () => {
 
   test('nested auto-model-selection table has a registered schema', () => {
     expect(dataSchemas['data/tables/copilot/auto-model-selection.yml']).toBeDefined()
+  })
+})
+
+describe('Copilot models and pricing table', () => {
+  test('rejects a wrongly cased provider and a misspelled price key', async () => {
+    const schema = (await import(dataSchemas['data/tables/copilot/models-and-pricing.yml'])).default
+    const entry = {
+      model: 'Claude Example',
+      provider: 'Anthropic',
+      release_status: 'GA',
+      category: 'Versatile',
+      input: '$1.00',
+      cached_input: '$0.10',
+      ouput: '$5.00',
+    }
+    const { isValid, errors } = validateJson(schema, [entry])
+    expect(isValid).toBe(false)
+    const messages = (errors || []).map((error) => `${error.instancePath} ${error.message}`)
+    expect(messages).toContain('/0/provider must be equal to one of the allowed values')
+    expect(messages).toContain("/0 must have required property 'output'")
+    expect(messages).toContain('/0 must NOT have additional properties')
   })
 })

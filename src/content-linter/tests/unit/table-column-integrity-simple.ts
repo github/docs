@@ -52,6 +52,27 @@ describe(tableColumnIntegrity.names.join(' - '), () => {
     }
   })
 
+  test('Separator row with fewer columns than header causes error', async () => {
+    const markdown = ['| Name | Age | City |', '| --- | --- |', '| Bob | 30 | Paris |'].join('\n')
+    const result = await runRule(tableColumnIntegrity, { strings: { markdown } })
+    const errors = result.markdown
+    expect(errors.length).toBe(1)
+    expect(errors[0].lineNumber).toBe(2)
+    expect(errors[0].errorDetail).toContain('Table separator row has 2 columns but header has 3')
+  })
+
+  test('Separator row with more columns than header causes error', async () => {
+    const markdown = ['| Name | Age |', '| --- | --- | --- |', '| Bob | 30 |'].join('\n')
+    const result = await runRule(tableColumnIntegrity, { strings: { markdown } })
+    const errors = result.markdown
+    expect(errors.length).toBe(1)
+    expect(errors[0].lineNumber).toBe(2)
+    expect(errors[0].errorDetail).toContain('Table separator row has 3 columns but header has 2')
+    expect(errors[0].errorDetail).toContain(
+      'Give the header and separator rows the same number of columns',
+    )
+  })
+
   test('Rows after a row without a closing pipe are still checked', async () => {
     const markdown = ['| A | B |', '| --- | --- |', '| x | y', '| p | q | r |'].join('\n')
     const result = await runRule(tableColumnIntegrity, { strings: { markdown } })

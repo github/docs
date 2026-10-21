@@ -550,7 +550,7 @@
       "name": "AddedToProjectEvent",
       "id": "addedtoprojectevent",
       "href": "/graphql/reference/projects-classic#object-addedtoprojectevent",
-      "description": "<p>Represents a<code>added_to_project</code>event on a given issue or pull request.</p>",
+      "description": "<p>Represents a <code>added_to_project</code> event on a given issue or pull request.</p>",
       "isDeprecated": false,
       "implements": [
         {
@@ -624,7 +624,7 @@
       "name": "MovedColumnsInProjectEvent",
       "id": "movedcolumnsinprojectevent",
       "href": "/graphql/reference/projects-classic#object-movedcolumnsinprojectevent",
-      "description": "<p>Represents a<code>moved_columns_in_project</code>event on a given issue or pull request.</p>",
+      "description": "<p>Represents a <code>moved_columns_in_project</code> event on a given issue or pull request.</p>",
       "isDeprecated": false,
       "implements": [
         {
@@ -887,6 +887,7 @@
             },
             {
               "name": "archivedStates",
+              "defaultValue": "[ARCHIVED, NOT_ARCHIVED]",
               "description": "<p>A list of archived states to filter the cards by.</p>",
               "type": {
                 "name": "[ProjectCardArchivedState]",
@@ -1220,6 +1221,7 @@
             },
             {
               "name": "archivedStates",
+              "defaultValue": "[ARCHIVED, NOT_ARCHIVED]",
               "description": "<p>A list of archived states to filter the cards by.</p>",
               "type": {
                 "name": "[ProjectCardArchivedState]",
@@ -1539,7 +1541,7 @@
       "name": "RemovedFromProjectEvent",
       "id": "removedfromprojectevent",
       "href": "/graphql/reference/projects-classic#object-removedfromprojectevent",
-      "description": "<p>Represents a<code>removed_from_project</code>event on a given issue or pull request.</p>",
+      "description": "<p>Represents a <code>removed_from_project</code> event on a given issue or pull request.</p>",
       "isDeprecated": false,
       "implements": [
         {
@@ -1753,11 +1755,15 @@
       "values": [
         {
           "name": "ARCHIVED",
-          "description": "<p>A project card that is archived.</p>"
+          "description": "<p>A project card that is archived.</p>",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "NOT_ARCHIVED",
-          "description": "<p>A project card that is not archived.</p>"
+          "description": "<p>A project card that is not archived.</p>",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         }
       ],
       "category": "projects-classic"
@@ -1832,7 +1838,7 @@
       "name": "ProjectState",
       "id": "projectstate",
       "href": "/graphql/reference/projects-classic#enum-projectstate",
-      "description": "<p>State of the project; either<code>open</code>or 'closed'.</p>",
+      "description": "<p>State of the project; either <code>open</code> or 'closed'.</p>",
       "isDeprecated": false,
       "values": [
         {

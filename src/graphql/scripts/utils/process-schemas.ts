@@ -511,10 +511,7 @@ export default async function processSchemas(
               (field.arguments || []).map(async (arg: InputValueDefinitionNode) => {
                 const queryArg: Partial<QueryArgumentInfo> = {}
                 queryArg.name = arg.name.value
-                queryArg.defaultValue =
-                  arg.defaultValue && 'value' in arg.defaultValue
-                    ? arg.defaultValue.value
-                    : undefined
+                queryArg.defaultValue = helpers.getDefaultValue(arg.defaultValue)
                 const argType = helpers.getType(arg)
                 if (!argType) return
                 queryArg.type = argType

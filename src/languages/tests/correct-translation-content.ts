@@ -3679,6 +3679,110 @@ Para más información, consulta "[AUTOTITLE](/path)".
     })
   })
 
+  describe('tags reordered relative to English', () => {
+    test('keeps data tags that a translation reorders', () => {
+      const english =
+        'With {% data variables.product.github %}, use {% data variables.product.prodname_ghe_server %}.'
+      const ja =
+        '{% data variables.product.prodname_ghe_server %}は{% data variables.product.github %}です'
+      expect(fix(ja, 'ja', english)).toBe(ja)
+    })
+
+    test('still replaces an unknown data argument with the English one at that index', () => {
+      const english =
+        'With {% data variables.product.github %}, use {% data variables.product.prodname_ghe_server %}.'
+      expect(
+        fix(
+          '{% data variables.produit.github %}と{% data variables.product.prodname_ghe_server %}',
+          'fr',
+          english,
+        ),
+      ).toBe(
+        '{% data variables.product.github %}と{% data variables.product.prodname_ghe_server %}',
+      )
+    })
+
+    test('keeps reordered octicons and replaces unknown octicon names', () => {
+      const english = '{% octicon "check" aria-hidden="true" %} and {% octicon "x" %}'
+      const swapped = '{% octicon "x" %}と{% octicon "check" aria-hidden="true" %}'
+      expect(fix(swapped, 'ja', english)).toBe(swapped)
+      expect(fix('{% octicon "foo" aria-hidden="true" %}と{% octicon "x" %}', 'ja', english)).toBe(
+        '{% octicon "check" aria-hidden="true" %}と{% octicon "x" %}',
+      )
+    })
+
+    test('keeps reordered indented_data_reference tags', () => {
+      const english = [
+        '{% indented_data_reference reusables.foo.one spaces=3 %}',
+        '{% indented_data_reference reusables.foo.two spaces=3 %}',
+      ].join('\n')
+      const swapped = [
+        '{% indented_data_reference reusables.foo.two spaces=3 %}',
+        '{% indented_data_reference reusables.foo.one spaces=3 %}',
+      ].join('\n')
+      expect(fix(swapped, 'ja', english)).toBe(swapped)
+    })
+
+    test('fills a garbled data argument with the unused English one when tags are reordered', () => {
+      const english =
+        'With {% data variables.product.github %}, use {% data variables.product.prodname_ghe_server %}.'
+      expect(
+        fix(
+          '{% data variables.product.prodname_ghe_server %}と{% data variables.produit.github %}',
+          'ja',
+          english,
+        ),
+      ).toBe(
+        '{% data variables.product.prodname_ghe_server %}と{% data variables.product.github %}',
+      )
+    })
+
+    test('replaces excess duplicate data arguments with the missing English one', () => {
+      const english =
+        'With {% data variables.product.github %}, use {% data variables.product.prodname_ghe_server %}.'
+      expect(
+        fix(
+          '{% data variables.product.prodname_ghe_server %}と{% data variables.product.prodname_ghe_server %}',
+          'ja',
+          english,
+        ),
+      ).toBe(
+        '{% data variables.product.prodname_ghe_server %}と{% data variables.product.github %}',
+      )
+    })
+
+    test('fills unknown and excess octicon names with the unused English ones', () => {
+      const english = '{% octicon "check" aria-hidden="true" %} and {% octicon "x" %}'
+      expect(fix('{% octicon "x" %}と{% octicon "foo" aria-hidden="true" %}', 'ja', english)).toBe(
+        '{% octicon "x" %}と{% octicon "check" aria-hidden="true" %}',
+      )
+      expect(fix('{% octicon "x" %}と{% octicon "x" aria-hidden="true" %}', 'ja', english)).toBe(
+        '{% octicon "x" %}と{% octicon "check" aria-hidden="true" %}',
+      )
+    })
+
+    test('fills unknown and excess indented_data_reference arguments with the unused English ones', () => {
+      const english = [
+        '{% indented_data_reference reusables.foo.one spaces=3 %}',
+        '{% indented_data_reference reusables.foo.two spaces=3 %}',
+      ].join('\n')
+      const expected = [
+        '{% indented_data_reference reusables.foo.two spaces=3 %}',
+        '{% indented_data_reference reusables.foo.one spaces=3 %}',
+      ].join('\n')
+      const garbled = [
+        '{% indented_data_reference reusables.foo.two spaces=3 %}',
+        '{% indented_data_reference reusables.fou.one spaces=3 %}',
+      ].join('\n')
+      const duplicated = [
+        '{% indented_data_reference reusables.foo.two spaces=3 %}',
+        '{% indented_data_reference reusables.foo.two spaces=3 %}',
+      ].join('\n')
+      expect(fix(garbled, 'ja', english)).toBe(expected)
+      expect(fix(duplicated, 'ja', english)).toBe(expected)
+    })
+  })
+
   describe('Chinese glued 数据reusables and Russian alert tags', () => {
     test('fixes {% 数据reusables. and leaves valid input unchanged', () => {
       expect(fix('{% 数据reusables.apps.optional_feature_activation %}', 'zh')).toBe(

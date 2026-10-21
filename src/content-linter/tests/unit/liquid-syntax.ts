@@ -23,6 +23,19 @@ describe(frontmatterLiquidSyntax.names.join(' - '), () => {
     expect(errors.map((error) => error.lineNumber)).toEqual([2, 3, 4, 5])
     expect(errors[0].errorRange).toEqual([9, 40])
   })
+  test.each([
+    ['intro: >-', '  Learn how {% dta variables.product.prodname_copilot %} works.'],
+    ['intro: |', '  {% data variables.foo }'],
+    ['intro: >-', '  {% data variables.foo }'],
+  ])('Block scalar "%s" with "%s" reports on the key line', async (keyLine, valueLine) => {
+    const markdown = ['---', 'title: Title', keyLine, valueLine, '---'].join('\n')
+    const result = await runRule(frontmatterLiquidSyntax, { strings: { markdown }, ...fmOptions })
+    const errors = result.markdown
+    expect(errors.length).toBe(1)
+    expect(errors[0].lineNumber).toBe(3)
+    expect(errors[0].errorDetail).toContain('Liquid syntax error')
+    expect(errors[0].errorRange).toBeNull()
+  })
   test('Liquid error message that contains a comma reports the full description', async () => {
     const markdown = ['---', 'title: "{% data foo }, and more"', '---'].join('\n')
     const result = await runRule(frontmatterLiquidSyntax, { strings: { markdown }, ...fmOptions })

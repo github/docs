@@ -32,11 +32,12 @@ export default function alerts({ alertTitles = {} }: { alertTitles?: Record<stri
       const el = node as Element
       if (el.tagName !== 'blockquote' || !ALERT_REGEXP_DETECT.test(JSON.stringify(el.children)))
         return
-      const key = getAlertKey(el)
-      if (!(key in alertTypes)) {
-        logger.warn('Alert key should be all uppercase', { key, expected: key.toUpperCase() })
+      const rawKey = getAlertKey(el)
+      const key = rawKey.toUpperCase()
+      if (rawKey !== key) {
+        logger.warn('Alert key should be all uppercase', { key: rawKey, expected: key })
       }
-      const alertType = alertTypes[getAlertKey(el).toUpperCase()]
+      const alertType = alertTypes[key]
       el.tagName = 'div'
       el.properties.className = `ghd-alert ghd-alert-${alertType.color}`
       el.properties.dataContainer = 'alert'

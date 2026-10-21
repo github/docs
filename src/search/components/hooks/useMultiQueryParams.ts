@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router'
 import { useState, useEffect, useRef, useCallback } from 'react'
+import { buildShallowQueryUrls } from '@/frame/components/lib/shallow-query-url'
 
 export type QueryParams = {
   'search-overlay-input': string
@@ -98,13 +99,7 @@ export function useMultiQueryParams(options?: {
           }
         }
         const paramsString = searchParams.toString() ? `?${searchParams.toString()}` : ''
-        let newUrl = `${asPathRoot}${paramsString}`
-        if (asPathRoot !== '/' && router.locale) {
-          newUrl = `${router.locale}${asPathRoot}${paramsString}`
-        }
-        if (!newUrl.startsWith('/')) {
-          newUrl = `/${newUrl}`
-        }
+        const { url, as } = buildShallowQueryUrls(asPathRoot, paramsString, router.locale)
 
         // Debounce the router push so we don't push a new URL for every keystroke
         if (pushTimeoutRef.current) clearTimeout(pushTimeoutRef.current)
@@ -115,7 +110,7 @@ export function useMultiQueryParams(options?: {
 
           // Category and page changes push history entries; search edits replace the current entry.
           const routerMethod = shouldPushHistory ? router.push : router.replace
-          await routerMethod(newUrl, undefined, {
+          await routerMethod(url, as, {
             shallow: true,
             locale: router.locale,
             scroll: false,

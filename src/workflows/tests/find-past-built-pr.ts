@@ -11,16 +11,17 @@ import {
 } from '../find-past-built-pr'
 
 type FakeComment = { body?: string; user?: { login: string } }
+type FakeCommit = { message: string; parents: string[] }
 
 interface FakeOptions {
-  commitMessages?: string[]
+  commits?: Record<string, FakeCommit>
   comments?: Record<number, FakeComment[]>
   locked?: Record<number, boolean>
   failCreateOn?: number[]
 }
 
 function makeFakeOctokit(options: FakeOptions = {}) {
-  const { commitMessages = [], comments = {}, locked = {}, failCreateOn = [] } = options
+  const { commits = {}, comments = {}, locked = {}, failCreateOn = [] } = options
 
   const createComment = vi.fn(async ({ issue_number }: { issue_number: number; body?: string }) => {
     if (failCreateOn.includes(issue_number)) {
@@ -31,9 +32,25 @@ function makeFakeOctokit(options: FakeOptions = {}) {
 
   const listComments = vi.fn()
 
-  const listCommits = vi.fn(async () => ({
-    data: commitMessages.map((message) => ({ commit: { message } })),
-  }))
+  // Like the real API, this lists every reachable commit, following all parents.
+  const listCommits = vi.fn(async ({ sha, per_page = 30 }: { sha: string; per_page?: number }) => {
+    const queue = [sha]
+    const seen = new Set<string>()
+    const data = []
+    while (queue.length > 0 && data.length < per_page) {
+      const current = queue.shift()!
+      const commit = commits[current]
+      if (seen.has(current) || !commit) continue
+      seen.add(current)
+      data.push({
+        sha: current,
+        commit: { message: commit.message },
+        parents: commit.parents.map((parent) => ({ sha: parent })),
+      })
+      queue.push(...commit.parents)
+    }
+    return { data }
+  })
 
   const fake = {
     rest: {
@@ -78,21 +95,58 @@ describe('extractPrNumber', () => {
   })
 })
 
+function linearHistory(headSha: string, messages: string[]): Record<string, FakeCommit> {
+  const commits: Record<string, FakeCommit> = {}
+  for (const [index, message] of messages.entries()) {
+    const sha = index === 0 ? headSha : `parent${index}`
+    const parents = index < messages.length - 1 ? [`parent${index + 1}`] : []
+    commits[sha] = { message, parents }
+  }
+  return commits
+}
+
 describe('findBatchPrNumbers', () => {
   test('returns deduped PR numbers from the deployed SHA ancestry', async () => {
     const { octokit } = makeFakeOctokit({
-      commitMessages: ['Head PR (#5)', 'Middle PR (#4)', 'First PR (#3)', 'No PR here'],
+      commits: linearHistory('abc123', [
+        'Head PR (#5)',
+        'Middle PR (#4)',
+        'Revert "Middle PR (#4)"',
+        'First PR (#3)',
+        'No PR here',
+      ]),
     })
     const numbers = await findBatchPrNumbers(octokit, 'github', 'docs-internal', 'abc123')
     expect(numbers).toEqual([5, 4, 3])
   })
 
   test('caps the lookback at the configured batch size', async () => {
-    const { octokit, listCommits } = makeFakeOctokit({ commitMessages: ['Head PR (#9)'] })
-    await findBatchPrNumbers(octokit, 'github', 'docs-internal', 'abc123', 5)
+    const { octokit, listCommits } = makeFakeOctokit({
+      commits: linearHistory('abc123', ['A (#9)', 'B (#8)', 'C (#7)', 'D (#6)', 'E (#5)']),
+    })
+    const numbers = await findBatchPrNumbers(octokit, 'github', 'docs-internal', 'abc123', 3)
+    expect(numbers).toEqual([9, 8, 7])
+    expect(listCommits).toHaveBeenCalledTimes(3)
     expect(listCommits).toHaveBeenCalledWith(
-      expect.objectContaining({ sha: 'abc123', per_page: 5 }),
+      expect.objectContaining({ sha: 'abc123', per_page: 1 }),
     )
+  })
+
+  test('follows first parents only, skipping repo-sync side history', async () => {
+    const { octokit, listCommits } = makeFakeOctokit({
+      commits: {
+        head: {
+          message: 'Merge pull request #63880 from github/repo-sync',
+          parents: ['a', 'side'],
+        },
+        a: { message: 'Internal PR (#63761)', parents: ['b'] },
+        b: { message: 'Another internal PR (#63842)', parents: [] },
+        side: { message: 'Public repo PR (#46333)', parents: ['b'] },
+      },
+    })
+    const numbers = await findBatchPrNumbers(octokit, 'github', 'docs-internal', 'head')
+    expect(numbers).toEqual([63761, 63842])
+    expect(listCommits).not.toHaveBeenCalledWith(expect.objectContaining({ sha: 'side' }))
   })
 })
 

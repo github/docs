@@ -11,6 +11,47 @@ import {
   replaceEntriesForSource,
 } from '@/ghes-releases/lib/parse-release-notes'
 
+const handWrittenNotesFile = `date: '2025-01-15'
+release_candidate: true
+deprecated: false
+intro: |
+
+sections:
+
+  features:
+
+    - heading: GitHub Actions
+      notes:
+        # Required Actions Runner version: 2.331.0
+        - |
+          Runner note.
+
+    - heading: APIs
+      notes:
+        # https://github.com/github/releases/issues/100
+        - |
+          New endpoint added.
+        #
+        - |
+          Hand-written API note.
+
+  changes:
+    # https://github.com/github/ghes/issues/18667
+    - |
+      The \`/repos\` path is reserved.
+
+  known_issues:
+    - |
+      ...
+
+  closing_down:
+    - |
+      LDAP over CAS is closing down.
+    # https://github.com/github/releases/issues/200
+    - |
+      Legacy API deprecated.
+`
+
 const handEditedFile = `date: '2026-05-12'
 release_candidate: true
 deprecated: true
@@ -289,6 +330,179 @@ sections:
     expect(result.entries[0].notes).toEqual(['First note.', 'Second note from same issue.'])
   })
 
+  test('does not attribute hand-written notes to the previous releases issue', () => {
+    const result = loadExistingEntriesFromString(handWrittenNotesFile)
+    expect(result.entries).toEqual([
+      {
+        heading: 'GitHub Actions',
+        notes: ['Runner note.'],
+        sourceUrl: '',
+      },
+      {
+        heading: 'APIs',
+        notes: ['New endpoint added.'],
+        sourceUrl: 'https://github.com/github/releases/issues/100',
+      },
+      {
+        heading: 'APIs',
+        notes: ['Hand-written API note.'],
+        sourceUrl: '',
+      },
+      {
+        heading: 'Changes',
+        notes: ['The `/repos` path is reserved.'],
+        sourceUrl: 'https://github.com/github/ghes/issues/18667',
+      },
+      {
+        heading: 'Closing down',
+        notes: ['LDAP over CAS is closing down.'],
+        sourceUrl: '',
+      },
+      {
+        heading: 'Closing down',
+        notes: ['Legacy API deprecated.'],
+        sourceUrl: 'https://github.com/github/releases/issues/200',
+      },
+    ])
+    expect([...result.coveredUrls]).toEqual([
+      'https://github.com/github/releases/issues/100',
+      'https://github.com/github/ghes/issues/18667',
+      'https://github.com/github/releases/issues/200',
+    ])
+  })
+
+  test('keeps # lines inside a note as note content', () => {
+    const content = `sections:
+  changes:
+    # https://github.com/github/releases/issues/100
+    - |
+      Run this command:
+
+      \`\`\`shell
+      # Enable the feature
+      ghe-config app.example.enabled true
+      \`\`\`
+    - |
+      Second note.
+`
+    const result = loadExistingEntriesFromString(content)
+    expect(result.entries).toEqual([
+      {
+        heading: 'Changes',
+        notes: [
+          'Run this command:\n\n```shell\n# Enable the feature\nghe-config app.example.enabled true\n```',
+          'Second note.',
+        ],
+        sourceUrl: 'https://github.com/github/releases/issues/100',
+      },
+    ])
+  })
+
+  test('treats a comment less indented than the note text as a source comment', () => {
+    const content = `sections:
+  changes:
+    # https://github.com/github/releases/issues/100
+    - |
+      First note.
+     # https://github.com/github/releases/issues/200
+    - |
+      Second note.
+`
+    const result = loadExistingEntriesFromString(content)
+    expect(result.entries).toEqual([
+      {
+        heading: 'Changes',
+        notes: ['First note.'],
+        sourceUrl: 'https://github.com/github/releases/issues/100',
+      },
+      {
+        heading: 'Changes',
+        notes: ['Second note.'],
+        sourceUrl: 'https://github.com/github/releases/issues/200',
+      },
+    ])
+  })
+
+  test('keeps hand-written notes when one releases issue is filtered out', () => {
+    const { entries } = loadExistingEntriesFromString(handWrittenNotesFile)
+    const kept = entries.filter(
+      (e) =>
+        e.sourceUrl !== 'https://github.com/github/releases/issues/100' &&
+        e.sourceUrl !== 'https://github.com/github/releases/issues/200',
+    )
+    expect(kept.flatMap((e) => e.notes)).toEqual([
+      'Runner note.',
+      'Hand-written API note.',
+      'The `/repos` path is reserved.',
+      'LDAP over CAS is closing down.',
+    ])
+  })
+
+  test('keeps nested indentation when reloading generated notes', () => {
+    const note = [
+      'You can now configure the feature:',
+      '',
+      '1. Enable the setting.',
+      '',
+      '   This paragraph continues the first step.',
+      '',
+      '   ```shell',
+      '   ghe-config app.example.enabled true',
+      '   ```',
+      '',
+      '1. Apply the configuration.',
+      '',
+      '* Parent item',
+      '  * Child item',
+    ].join('\n')
+    const yaml = buildReleaseNotesYaml(
+      [
+        {
+          heading: 'GitHub Actions',
+          notes: [note],
+          sourceUrl: 'https://github.com/github/releases/issues/100',
+        },
+        {
+          heading: 'Some Other Heading',
+          notes: [note],
+          sourceUrl: 'https://github.com/github/releases/issues/101',
+        },
+      ],
+      false,
+      ['GitHub Actions'],
+    )
+    const result = loadExistingEntriesFromString(yaml)
+    expect(result.entries.map((e) => e.notes)).toEqual([[note], [note]])
+  })
+
+  test('uses the first content line as the base indent of a note', () => {
+    const content = `sections:
+  changes:
+    # https://github.com/github/releases/issues/100
+    - |
+       Parent paragraph.
+
+       * Item
+         * Nested item
+`
+    const result = loadExistingEntriesFromString(content)
+    expect(result.entries[0].notes).toEqual(['Parent paragraph.\n\n* Item\n  * Nested item'])
+  })
+
+  test('ends a note at a less indented comment that is not a release issue URL', () => {
+    const content = `sections:
+  closing_down:
+    # https://github.com/github/releases/issues/100
+    - |
+      First note.
+    # https://github.com/github/ghes/issues/200
+    - |
+      Second note.
+`
+    const result = loadExistingEntriesFromString(content)
+    expect(result.entries[0].notes[0]).toBe('First note.')
+  })
+
   test('does not attribute errata or known issues to the previous source URL', () => {
     const result = loadExistingEntriesFromString(handEditedFile)
     const closing = result.entries.filter((e) => e.heading === 'Closing down')
@@ -450,6 +664,22 @@ describe('buildReleaseNotesYaml', () => {
     expect(yaml).toContain('# https://github.com/github/releases/issues/999')
     expect(yaml).toContain('- |')
     expect(yaml).toContain('Line one of the note.')
+  })
+
+  test('keeps other source comments and marks notes without a source with a bare comment', () => {
+    const { entries } = loadExistingEntriesFromString(handWrittenNotesFile)
+    const yaml = buildReleaseNotesYaml(entries, false, featureHeadings)
+
+    expect(yaml).toContain(
+      '  changes:\n    # https://github.com/github/ghes/issues/18667\n    - |\n      The `/repos` path is reserved.',
+    )
+    expect(yaml).toContain(
+      '- heading: GitHub Actions\n      notes:\n        #\n        - |\n          Runner note.\n',
+    )
+    expect(yaml).toContain(
+      '  closing_down:\n    #\n    - |\n      LDAP over CAS is closing down.\n    # https://github.com/github/releases/issues/200',
+    )
+    expect(loadExistingEntriesFromString(yaml).entries).toEqual(entries)
   })
 
   test('keeps hand-edited header, known issues, and errata on a rerun', () => {

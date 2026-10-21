@@ -119,9 +119,7 @@ describe('resolveCarousels middleware', () => {
       req.context!.pages,
       req.context!.redirects,
     )
-    expect(
-      (req.context!.page as Page & { carousels?: Record<string, ResolvedArticle[]> }).carousels,
-    ).toEqual({
+    expect(req.context!.carousels).toEqual({
       recommended: [
         {
           title: 'Test Article',
@@ -161,9 +159,7 @@ describe('resolveCarousels middleware', () => {
 
     await resolveCarousels(req, mockRes, mockNext)
 
-    expect(
-      (req.context!.page as Page & { carousels?: Record<string, ResolvedArticle[]> }).carousels,
-    ).toEqual({
+    expect(req.context!.carousels).toEqual({
       recommended: [
         {
           title: 'Article One',
@@ -198,9 +194,7 @@ describe('resolveCarousels middleware', () => {
       req.context!.pages,
       req.context!.redirects,
     )
-    expect(
-      (req.context!.page as Page & { carousels?: Record<string, ResolvedArticle[]> }).carousels,
-    ).toBeUndefined()
+    expect(req.context!.carousels).toEqual({})
     expect(mockNext).toHaveBeenCalled()
   })
 
@@ -234,9 +228,7 @@ describe('resolveCarousels middleware', () => {
 
     await resolveCarousels(req, mockRes, mockNext)
 
-    expect(
-      (req.context!.page as Page & { carousels?: Record<string, ResolvedArticle[]> }).carousels,
-    ).toEqual({
+    expect(req.context!.carousels).toEqual({
       recommended: [
         {
           title: 'Valid Article',
@@ -278,9 +270,7 @@ describe('resolveCarousels middleware', () => {
       req.context!.pages,
       req.context!.redirects,
     )
-    expect(
-      (req.context!.page as Page & { carousels?: Record<string, ResolvedArticle[]> }).carousels,
-    ).toEqual({
+    expect(req.context!.carousels).toEqual({
       recommended: [
         {
           title: 'Relative Article',
@@ -315,9 +305,7 @@ describe('resolveCarousels middleware', () => {
       req.context!.redirects,
     )
 
-    expect(
-      (req.context!.page as Page & { carousels?: Record<string, ResolvedArticle[]> }).carousels,
-    ).toEqual({
+    expect(req.context!.carousels).toEqual({
       recommended: [
         {
           title: 'Tutorial Page',
@@ -350,9 +338,7 @@ describe('resolveCarousels middleware', () => {
 
     await resolveCarousels(req, mockRes, mockNext)
 
-    expect(
-      (req.context!.page as Page & { carousels?: Record<string, ResolvedArticle[]> }).carousels,
-    ).toBeUndefined()
+    expect(req.context!.carousels).toEqual({})
     expect(mockNext).toHaveBeenCalled()
   })
 
@@ -372,9 +358,7 @@ describe('resolveCarousels middleware', () => {
 
     await resolveCarousels(req, mockRes, mockNext)
 
-    expect(
-      (req.context!.page as Page & { carousels?: Record<string, ResolvedArticle[]> }).carousels,
-    ).toEqual({
+    expect(req.context!.carousels).toEqual({
       recommended: [
         {
           title: 'Duplicate Article',
@@ -385,6 +369,53 @@ describe('resolveCarousels middleware', () => {
       ],
     })
     expect(mockNext).toHaveBeenCalled()
+  })
+
+  test('keeps carousels per request when versions share one page object', async () => {
+    const ghecOnlyPage = createMockPage({
+      title: 'GHEC Only',
+      intro: 'GHEC intro',
+      relativePath: 'admin/ghec-only.md',
+      applicableVersions: ['enterprise-cloud@latest'],
+    })
+    const ghesOnlyPage = createMockPage({
+      title: 'GHES Only',
+      intro: 'GHES intro',
+      relativePath: 'admin/ghes-only.md',
+      applicableVersions: ['enterprise-server@3.18'],
+    })
+
+    mockFindPage.mockImplementation((path: string) => {
+      if (path === '/en/admin/ghec-only') return ghecOnlyPage
+      if (path === '/en/admin/ghes-only') return ghesOnlyPage
+      return undefined
+    })
+
+    const rawCarousels = { recommended: ['/admin/ghec-only', '/admin/ghes-only'] }
+    const sharedPage = { rawCarousels, carousels: rawCarousels } as TestPage & {
+      carousels?: Record<string, string[]>
+    }
+
+    const ghecReq = createMockRequest(sharedPage, { currentVersion: 'enterprise-cloud@latest' })
+    const ghesReq = createMockRequest(sharedPage, { currentVersion: 'enterprise-server@3.18' })
+    expect(ghecReq.context!.page).toBe(ghesReq.context!.page)
+
+    await resolveCarousels(ghecReq, mockRes, mockNext)
+    await resolveCarousels(ghesReq, mockRes, mockNext)
+
+    const expectedGhec: Record<string, ResolvedArticle[]> = {
+      recommended: [
+        { title: 'GHEC Only', intro: 'GHEC intro', href: '/admin/ghec-only', category: ['admin'] },
+      ],
+    }
+    const expectedGhes: Record<string, ResolvedArticle[]> = {
+      recommended: [
+        { title: 'GHES Only', intro: 'GHES intro', href: '/admin/ghes-only', category: ['admin'] },
+      ],
+    }
+    expect(ghecReq.context!.carousels).toEqual(expectedGhec)
+    expect(ghesReq.context!.carousels).toEqual(expectedGhes)
+    expect(sharedPage.carousels).toBe(rawCarousels)
   })
 
   test('renders title and intro from raw frontmatter, not the last rendered values', async () => {
@@ -409,9 +440,8 @@ describe('resolveCarousels middleware', () => {
 
     expect(testPage.renderProp).toHaveBeenCalledWith('title', req.context, { textOnly: true })
     expect(testPage.renderProp).toHaveBeenCalledWith('intro', req.context, { textOnly: true })
-    expect(
-      (req.context!.page as Page & { carousels?: Record<string, ResolvedArticle[]> }).carousels,
-    ).toEqual({
+    expect(req.context!.page).not.toHaveProperty('carousels')
+    expect(req.context!.carousels).toEqual({
       recommended: [
         {
           title: 'Audit log for GHES',
@@ -454,9 +484,8 @@ describe('resolveCarousels middleware', () => {
 
     await resolveCarousels(req, mockRes, mockNext)
 
-    expect(
-      (req.context!.page as Page & { carousels?: Record<string, ResolvedArticle[]> }).carousels,
-    ).toEqual({
+    expect(req.context!.page).not.toHaveProperty('carousels')
+    expect(req.context!.carousels).toEqual({
       recommended: [
         {
           title: 'English article title',
