@@ -121,6 +121,7 @@ export function getAllReusablesFilePaths(): string[] {
 
 export function findIndicesOfSubstringInString(substr: string, str: string): number[] {
   str = str.toLowerCase()
+  substr = substr.toLowerCase()
 
   const result: number[] = []
 

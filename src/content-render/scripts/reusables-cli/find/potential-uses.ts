@@ -93,5 +93,5 @@ export function findPotentialUses({
   console.log(`${reusableCount}/${reusableFiles.length} reusables checked...`)
 
   console.log(`\nFound ${filesThatCouldUseReusable.length} files that could use reusables.`)
-  printFindsWithLineNumbers(absolute, filesThatCouldUseReusable)
+  printFindsWithLineNumbers(absolute, filesThatCouldUseReusable, filesThatCouldUseReusableSimilar)
 }
