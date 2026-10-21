@@ -41,6 +41,14 @@ vi.mock('@/graphql/lib/index', () => ({
             description: 'The owner.',
             type: 'String!',
           },
+          {
+            name: 'orderBy',
+            id: 'orderby',
+            href: '/graphql/reference/input-objects#widgetorder',
+            description: 'Ordering options.',
+            type: 'WidgetOrder',
+            defaultValue: '{field: UPDATED_AT, direction: DESC}',
+          },
         ],
       },
     ],
@@ -129,6 +137,9 @@ describe('GraphQLReferenceTransformer default values', () => {
     expect(lineFor('`followRenames` (Boolean)')).toContain('Default: `true`.')
     expect(lineFor('`dryRun` (Boolean)')).toContain('Default: `false`.')
     expect(lineFor('`owner` (String!)')).not.toContain('Default:')
+    expect(lineFor('`orderBy` (WidgetOrder)')).toContain(
+      'Default: `{field: UPDATED_AT, direction: DESC}`.',
+    )
 
     expect(lineFor('`includeHidden` (Boolean)')).toContain('Default: `false`.')
     expect(lineFor('`includeVisible` (Boolean)')).toContain('Default: `true`.')

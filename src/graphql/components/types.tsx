@@ -35,7 +35,7 @@ export type GraphqlT = {
   isDeprecated?: boolean
   deprecationReason?: string
   preview?: PreviewT
-  defaultValue?: boolean
+  defaultValue?: string | boolean
 }
 
 export type ImplementsT = {
