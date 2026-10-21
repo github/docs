@@ -139,6 +139,30 @@ describe('renderContent', () => {
     }
   })
 
+  test('gives repeated translated headings suffixed English IDs', async () => {
+    const template = nl(`
+## Uno
+
+### プロンプトの例
+
+## Dos
+
+### プロンプトの例
+
+## Extra
+
+## Extra
+`)
+    const englishHeadings = { Uno: 'One', プロンプトの例: 'Example prompts', Dos: 'Two' }
+    for (let i = 0; i < 2; i++) {
+      const html = await renderContent(template, { englishHeadings })
+      const $ = load(html)
+      const ids = (tag: string) => Array.from($(tag), (el) => $(el).attr('id'))
+      expect(ids('h2')).toEqual(['one', 'two', 'extra', 'extra-1'])
+      expect(ids('h3')).toEqual(['example-prompts', 'example-prompts-1'])
+    }
+  })
+
   test('does syntax highlighting', async () => {
     let template = nl(`
 \`\`\`js
