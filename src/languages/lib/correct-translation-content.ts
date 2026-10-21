@@ -1727,12 +1727,16 @@ export function correctTranslatedContentStrings(
       translatedMatches.length === englishNames.length &&
       translatedMatches.some((m, i) => m[1] !== englishNames[i])
     ) {
+      const aligned = realignTagArgs(
+        translatedMatches.map((m) => m[1]),
+        englishNames,
+      )
       let i = 0
       content = content.replace(
         /(\{%-?\s*octicon\s+")([^"]*)(")/g,
-        (_match, prefix, _name, suffix) => {
-          const englishName = englishNames[i++]
-          return `${prefix}${englishName}${suffix}`
+        (match, prefix, name, suffix) => {
+          const englishName = aligned[i++]
+          return englishName === name ? match : `${prefix}${englishName}${suffix}`
         },
       )
     } else if (englishNames.length > 0) {
@@ -1779,12 +1783,16 @@ export function correctTranslatedContentStrings(
       translatedMatches.length === englishArgs.length &&
       translatedMatches.some((m, i) => m[1].trim() !== englishArgs[i])
     ) {
+      const aligned = realignTagArgs(
+        translatedMatches.map((m) => m[1].trim()),
+        englishArgs,
+      )
       let i = 0
       content = content.replace(
         /(\{%-?\s*indented_data_reference\s+)([^%]*?)(\s*-?%\})/g,
-        (_match, prefix, _args, suffix) => {
-          const englishArg = englishArgs[i++]
-          return `${prefix}${englishArg}${suffix}`
+        (match, prefix, args, suffix) => {
+          const englishArg = aligned[i++]
+          return englishArg === args.trim() ? match : `${prefix}${englishArg}${suffix}`
         },
       )
     } else if (englishArgs.length > 0) {
@@ -1816,12 +1824,16 @@ export function correctTranslatedContentStrings(
       translatedMatches.length === englishArgs.length &&
       translatedMatches.some((m, i) => m[1].trim() !== englishArgs[i])
     ) {
+      const aligned = realignTagArgs(
+        translatedMatches.map((m) => m[1].trim()),
+        englishArgs,
+      )
       let i = 0
       content = content.replace(
         /(\{%-?\s*data\s+)([^%]*?)(\s*-?%\})/g,
-        (_match, prefix, _args, suffix) => {
-          const englishArg = englishArgs[i++]
-          return `${prefix}${englishArg}${suffix}`
+        (match, prefix, args, suffix) => {
+          const englishArg = aligned[i++]
+          return englishArg === args.trim() ? match : `${prefix}${englishArg}${suffix}`
         },
       )
     } else if (englishArgs.length > 0) {
@@ -2127,6 +2139,23 @@ export function correctTranslatedContentStrings(
   }
 
   return content
+}
+
+// Translators may reorder valid tags to fit the sentence, so keep each known argument
+// up to its English count and fill the rest with the English arguments still unused.
+function realignTagArgs(translated: string[], english: string[]): string[] {
+  const remaining = new Map<string, number>()
+  for (const arg of english) remaining.set(arg, (remaining.get(arg) ?? 0) + 1)
+  const take = (arg: string) => {
+    const count = remaining.get(arg) ?? 0
+    if (count === 0) return false
+    remaining.set(arg, count - 1)
+    return true
+  }
+  const kept = translated.map(take)
+  const unused = english.filter(take)
+  let next = 0
+  return translated.map((arg, i) => (kept[i] ? arg : unused[next++]))
 }
 
 // Rejoin markers that the translation pipeline split from their content, which breaks rendering.
