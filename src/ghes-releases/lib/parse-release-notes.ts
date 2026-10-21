@@ -130,6 +130,7 @@ export function loadExistingEntriesFromString(content: string): {
   let currentNote: string[] = []
   let noteIndent: number | null = null
   let inNote = false
+  let noteMarkerIndent = 0
   // Hand-written sections can use grouped headings too, so only generated sections may set a heading.
   let inGeneratedSection = true
 
@@ -138,23 +139,25 @@ export function loadExistingEntriesFromString(content: string): {
     currentHeading = SECTION_HEADINGS[key] ?? null
   }
 
+  // Notes without a source comment are hand-written, so keep them with an empty source URL.
   const flushNote = () => {
-    if (currentSourceUrl && currentHeading && currentNote.length > 0) {
+    if (currentHeading && currentNote.length > 0) {
       const noteText = currentNote.join('\n').trim()
       if (noteText && noteText !== '...') {
-        const existing = entries.find(
-          (e) => e.heading === currentHeading && e.sourceUrl === currentSourceUrl,
-        )
+        const sourceUrl = currentSourceUrl ?? ''
+        const existing = sourceUrl
+          ? entries.find((e) => e.heading === currentHeading && e.sourceUrl === sourceUrl)
+          : undefined
         if (existing) {
           existing.notes.push(noteText)
         } else {
           entries.push({
-            heading: currentHeading!,
+            heading: currentHeading,
             notes: [noteText],
-            sourceUrl: currentSourceUrl!,
+            sourceUrl,
           })
         }
-        coveredUrls.add(currentSourceUrl)
+        if (sourceUrl) coveredUrls.add(sourceUrl)
       }
     }
     currentNote = []
@@ -167,26 +170,33 @@ export function loadExistingEntriesFromString(content: string): {
     if (headingMatch) {
       flushNote()
       if (inGeneratedSection) currentHeading = headingMatch[1].trim()
+      currentSourceUrl = null
       continue
     }
 
     const sectionMatch = line.match(SECTION_KEY_PATTERN)
     if (sectionMatch) {
       flushNote()
+      currentSourceUrl = null
       enterSection(sectionMatch[1])
       continue
     }
 
-    const urlMatch = line.match(/^\s*#\s*(https:\/\/github\.com\/github\/releases\/issues\/\d+)/)
-    if (urlMatch) {
+    // A comment that is not a URL ends the previous source, so later notes are not attributed to it.
+    // YAML reads `#` lines at or past a note's content indentation as note text, like shell comments in code blocks.
+    const commentMatch = line.match(/^(\s*)#\s*(\S*)/)
+    const noteTextIndent = noteIndent ?? noteMarkerIndent + 1
+    if (commentMatch && !(inNote && commentMatch[1].length >= noteTextIndent)) {
       flushNote()
-      if (inGeneratedSection) currentSourceUrl = urlMatch[1]
+      currentSourceUrl =
+        inGeneratedSection && commentMatch[2].startsWith('https://') ? commentMatch[2] : null
       continue
     }
 
     if (line.match(/^\s+-\s+\|\s*$/)) {
       flushNote()
       inNote = true
+      noteMarkerIndent = line.length - line.trimStart().length
       continue
     }
 
@@ -201,25 +211,6 @@ export function loadExistingEntriesFromString(content: string): {
         currentNote.push(line.slice(noteIndent ?? lineIndent).trimEnd())
       } else {
         flushNote()
-        const reHeading = line.match(/^\s+-\s+heading:\s+(.+)/)
-        if (reHeading) {
-          if (inGeneratedSection) currentHeading = reHeading[1].trim()
-          continue
-        }
-        const reSection = line.match(SECTION_KEY_PATTERN)
-        if (reSection) {
-          enterSection(reSection[1])
-          continue
-        }
-        const reUrl = line.match(/^\s*#\s*(https:\/\/github\.com\/github\/releases\/issues\/\d+)/)
-        if (reUrl) {
-          if (inGeneratedSection) currentSourceUrl = reUrl[1]
-          continue
-        }
-        if (line.match(/^\s+-\s+\|\s*$/)) {
-          inNote = true
-          continue
-        }
       }
     }
   }
@@ -259,7 +250,8 @@ export function replaceEntriesForSource(
 
 export function appendNoteLines(lines: string[], noteEntries: NoteEntry[], indent: string): void {
   for (const entry of noteEntries) {
-    lines.push(`${indent}# ${entry.sourceUrl}`)
+    // A bare comment keeps a note without a source from joining the previous note's source on reload.
+    lines.push(entry.sourceUrl ? `${indent}# ${entry.sourceUrl}` : `${indent}#`)
     for (const note of entry.notes) {
       lines.push(`${indent}- |`)
       for (const noteLine of note.split('\n')) {
