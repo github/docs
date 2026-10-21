@@ -1,9 +1,13 @@
 import { afterEach, describe, expect, test, vi } from 'vitest'
 import type { NextRouter } from 'next/router'
 
-import { executeGeneralSearch } from '@/search/components/helpers/execute-search-actions'
+import {
+  executeGeneralSearch,
+  withInheritedParams,
+} from '@/search/components/helpers/execute-search-actions'
 import { DEFAULT_VERSION } from '@/versions/components/useVersion'
 
+// Importing the events module starts a repeating timer that flushes analytics.
 vi.mock('@/events/components/events', () => ({ sendEvent: vi.fn() }))
 
 function setup(search: string) {
@@ -44,5 +48,14 @@ describe('executeGeneralSearch', () => {
     expect(url.pathname).toBe('/en/enterprise-cloud@latest/search')
     expect(url.searchParams.get('query')).toBe('actions')
     expect(url.searchParams.has('page')).toBe(false)
+  })
+})
+
+describe('withInheritedParams', () => {
+  test('drops overlay and landing grid params but keeps the rest', () => {
+    const search =
+      '?tool=cli&search-overlay-open=true&search-overlay-input=a&articles-category=Agents&articles-page=2&articles-filter=foo'
+    vi.stubGlobal('window', { location: { search } })
+    expect(withInheritedParams('/en/actions')).toBe('/en/actions?tool=cli')
   })
 })

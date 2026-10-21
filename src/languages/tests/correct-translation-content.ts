@@ -3797,4 +3797,21 @@ Para más información, consulta "[AUTOTITLE](/path)".
       expect(fix('{% warning %}\nx\n{% endwarning %}', 'ru')).toBe('x')
     })
   })
+
+  describe('translated data label before an untranslated dotted path', () => {
+    test.each([
+      ['zh', '{% 数据重用.profile.access_org %}', '{% data reusables.profile.access_org %}'],
+      ['zh', '{%- 数据重用.profile.access_org -%}', '{%- data reusables.profile.access_org -%}'],
+      ['ja', '{% データ 使い回し.user.dev-settings %}', '{% data reusables.user.dev-settings %}'],
+      ['ko', '{% 데이터 재사용가능한.a.b-c %}', '{% data reusables.a.b-c %}'],
+      ['ru', '{% переменных данных.product.name %}', '{% data variables.product.name %}'],
+    ])('fixes %s: %s', (code, before, after) => {
+      expect(fix(`a ${before} b`, code)).toBe(`a ${after} b`)
+    })
+
+    test('leaves already-correct tags unchanged', () => {
+      const ok = '{% data reusables.profile.access_org %} {% data variables.product.name %}'
+      for (const code of ['zh', 'ja', 'ko', 'ru']) expect(fix(ok, code)).toBe(ok)
+    })
+  })
 })
