@@ -316,7 +316,7 @@
       "name": "DeployedEvent",
       "id": "deployedevent",
       "href": "/graphql/reference/deployments#object-deployedevent",
-      "description": "<p>Represents a<code>deployed</code>event on a given pull request.</p>",
+      "description": "<p>Represents a <code>deployed</code> event on a given pull request.</p>",
       "implements": [
         {
           "name": "Node",
@@ -348,7 +348,7 @@
         },
         {
           "name": "deployment",
-          "description": "<p>The deployment associated with the<code>deployed</code>event.</p>",
+          "description": "<p>The deployment associated with the <code>deployed</code> event.</p>",
           "type": "Deployment!",
           "id": "deployment",
           "href": "/graphql/reference/deployments#object-deployment"
@@ -369,7 +369,7 @@
         },
         {
           "name": "ref",
-          "description": "<p>The ref associated with the<code>deployed</code>event.</p>",
+          "description": "<p>The ref associated with the <code>deployed</code> event.</p>",
           "type": "Ref",
           "id": "ref",
           "href": "/graphql/reference/git#object-ref"
@@ -621,7 +621,7 @@
       "name": "DeploymentEnvironmentChangedEvent",
       "id": "deploymentenvironmentchangedevent",
       "href": "/graphql/reference/deployments#object-deploymentenvironmentchangedevent",
-      "description": "<p>Represents a<code>deployment_environment_changed</code>event on a given pull request.</p>",
+      "description": "<p>Represents a <code>deployment_environment_changed</code> event on a given pull request.</p>",
       "implements": [
         {
           "name": "Node",

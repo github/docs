@@ -1331,6 +1331,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: ID, direction: ASC}",
               "description": "<p>Ordering options for enterprise teams returned from the connection.</p>",
               "type": {
                 "name": "EnterpriseTeamOrder",
@@ -1426,6 +1427,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: LOGIN, direction: ASC}",
               "description": "<p>Ordering options for members returned from the connection.</p>",
               "type": {
                 "name": "EnterpriseMemberOrder",
@@ -1523,6 +1525,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: LOGIN, direction: ASC}",
               "description": "<p>Ordering options for organizations returned from the connection.</p>",
               "type": {
                 "name": "OrganizationOrder",
@@ -2335,6 +2338,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: LOGIN, direction: ASC}",
               "description": "<p>Ordering options for administrators returned from the connection.</p>",
               "type": {
                 "name": "EnterpriseMemberOrder",
@@ -2484,6 +2488,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: LOGIN, direction: ASC}",
               "description": "<p>Ordering options for organizations with this setting.</p>",
               "type": {
                 "name": "OrganizationOrder",
@@ -2561,6 +2566,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: LOGIN, direction: ASC}",
               "description": "<p>Ordering options for organizations with this setting.</p>",
               "type": {
                 "name": "OrganizationOrder",
@@ -2642,6 +2648,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: DOMAIN, direction: ASC}",
               "description": "<p>Ordering options for verifiable domains returned.</p>",
               "type": {
                 "name": "VerifiableDomainOrder",
@@ -2757,6 +2764,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: ALLOW_LIST_VALUE, direction: ASC}",
               "description": "<p>Ordering options for IP allow list entries returned.</p>",
               "type": {
                 "name": "IpAllowListEntryOrder",
@@ -2846,6 +2854,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: LOGIN, direction: ASC}",
               "description": "<p>Ordering options for organizations with this setting.</p>",
               "type": {
                 "name": "OrganizationOrder",
@@ -2937,6 +2946,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: LOGIN, direction: ASC}",
               "description": "<p>Ordering options for organizations with this setting.</p>",
               "type": {
                 "name": "OrganizationOrder",
@@ -3007,6 +3017,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: LOGIN, direction: ASC}",
               "description": "<p>Ordering options for organizations with this setting.</p>",
               "type": {
                 "name": "OrganizationOrder",
@@ -3077,6 +3088,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: LOGIN, direction: ASC}",
               "description": "<p>Ordering options for organizations with this setting.</p>",
               "type": {
                 "name": "OrganizationOrder",
@@ -3147,6 +3159,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: LOGIN, direction: ASC}",
               "description": "<p>Ordering options for organizations with this setting.</p>",
               "type": {
                 "name": "OrganizationOrder",
@@ -3224,6 +3237,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: LOGIN, direction: ASC}",
               "description": "<p>Ordering options for organizations with this setting.</p>",
               "type": {
                 "name": "OrganizationOrder",
@@ -3294,6 +3308,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: LOGIN, direction: ASC}",
               "description": "<p>Ordering options for organizations with this setting.</p>",
               "type": {
                 "name": "OrganizationOrder",
@@ -3371,6 +3386,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: LOGIN, direction: ASC}",
               "description": "<p>Ordering options for organizations with this setting.</p>",
               "type": {
                 "name": "OrganizationOrder",
@@ -3452,6 +3468,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: LOGIN, direction: ASC}",
               "description": "<p>Ordering options for outside collaborators returned from the connection.</p>",
               "type": {
                 "name": "EnterpriseMemberOrder",
@@ -3542,6 +3559,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: CREATED_AT, direction: DESC}",
               "description": "<p>Ordering options for pending enterprise administrator invitations returned from the connection.</p>",
               "type": {
                 "name": "EnterpriseAdministratorInvitationOrder",
@@ -3614,6 +3632,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: CREATED_AT, direction: DESC}",
               "description": "<p>Ordering options for pending repository collaborator invitations returned from the connection.</p>",
               "type": {
                 "name": "RepositoryInvitationOrder",
@@ -3756,6 +3775,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: LOGIN, direction: ASC}",
               "description": "<p>Ordering options for organizations with this setting.</p>",
               "type": {
                 "name": "OrganizationOrder",
@@ -3826,6 +3846,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: LOGIN, direction: ASC}",
               "description": "<p>Ordering options for organizations with this setting.</p>",
               "type": {
                 "name": "OrganizationOrder",
@@ -3896,6 +3917,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: LOGIN, direction: ASC}",
               "description": "<p>Ordering options for organizations with this setting.</p>",
               "type": {
                 "name": "OrganizationOrder",
@@ -3982,6 +4004,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: LOGIN, direction: ASC}",
               "description": "<p>Ordering options for organizations with this setting.</p>",
               "type": {
                 "name": "OrganizationOrder",
@@ -4209,6 +4232,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: LOGIN, direction: ASC}",
               "description": "<p>Ordering options for Enterprise Server user accounts returned from the connection.</p>",
               "type": {
                 "name": "EnterpriseServerUserAccountOrder",
@@ -4263,6 +4287,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: CREATED_AT, direction: DESC}",
               "description": "<p>Ordering options for Enterprise Server user accounts uploads returned from the connection.</p>",
               "type": {
                 "name": "EnterpriseServerUserAccountsUploadOrder",
@@ -4408,6 +4433,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: EMAIL, direction: ASC}",
               "description": "<p>Ordering options for Enterprise Server user account emails returned from the connection.</p>",
               "type": {
                 "name": "EnterpriseServerUserAccountEmailOrder",
@@ -4845,6 +4871,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: ID, direction: ASC}",
               "description": "<p>Ordering options for organizations returned from the connection.</p>",
               "type": {
                 "name": "EnterpriseTeamOrganizationOrder",
@@ -4927,6 +4954,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: ID, direction: ASC}",
               "description": "<p>Order for the connection.</p>",
               "type": {
                 "name": "EnterpriseTeamMemberOrder",
@@ -5174,6 +5202,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: HOST_NAME, direction: ASC}",
               "description": "<p>Ordering options for installations returned from the connection.</p>",
               "type": {
                 "name": "EnterpriseServerInstallationOrder",
@@ -5267,6 +5296,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: LOGIN, direction: ASC}",
               "description": "<p>Ordering options for organizations returned from the connection.</p>",
               "type": {
                 "name": "OrganizationOrder",
