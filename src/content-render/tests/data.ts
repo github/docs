@@ -2,6 +2,7 @@ import { afterAll, beforeAll, describe, expect, test } from 'vitest'
 
 import Page from '@/frame/lib/page'
 import { liquid } from '@/content-render/index'
+import { renderLiquid } from '@/content-render/liquid/index'
 import languages from '@/languages/lib/languages-server'
 import nonEnterpriseDefaultVersion from '@/versions/lib/non-enterprise-default-version'
 import { DataDirectory } from '@/tests/helpers/data-directory'
@@ -20,6 +21,8 @@ describe('data tag', () => {
         },
         reusables: {
           indented_code: 'Intro\n\n```yaml\nfoo:\n  bar: 1\n  list:\n    - a\n```',
+          multi: 'First line.\n\nSecond paragraph.',
+          'multi-longer': 'L1\nL2',
         },
         ui: {
           alerts: {},
@@ -73,5 +76,33 @@ describe('data tag', () => {
       },
     )
     expect(rendered).toContain('> foo:\n>   bar: 1\n>   list:\n>     - a\n')
+  })
+
+  test('prefixes only the blockquote use when a reusable appears in a blockquote first', async () => {
+    const rendered = await renderLiquid(
+      '> [!NOTE]\n> {% data reusables.multi %}\n\nText.\n\n{% data reusables.multi %}',
+      { currentLanguage: 'en' },
+    )
+    expect(rendered).toBe(
+      '> [!NOTE]\n> First line.\n> \n> Second paragraph.\n\nText.\n\nFirst line.\n\nSecond paragraph.',
+    )
+  })
+
+  test('prefixes only the blockquote use when a reusable appears in a blockquote last', async () => {
+    const rendered = await renderLiquid(
+      '{% data reusables.multi %}\n\nText.\n\n> [!NOTE]\n> {% data reusables.multi %}',
+      { currentLanguage: 'en' },
+    )
+    expect(rendered).toBe(
+      'First line.\n\nSecond paragraph.\n\nText.\n\n> [!NOTE]\n> First line.\n> \n> Second paragraph.',
+    )
+  })
+
+  test('does not prefix a reusable whose path is a prefix of a blockquoted reusable', async () => {
+    const rendered = await renderLiquid(
+      '> {% data reusables.multi-longer %}\n\n{% data reusables.multi %}',
+      { currentLanguage: 'en' },
+    )
+    expect(rendered).toBe('> L1\n> L2\n\nFirst line.\n\nSecond paragraph.')
   })
 })
