@@ -43,7 +43,6 @@ FROM base AS all_deps
 USER node:node
 WORKDIR $APP_HOME
 COPY --chown=node:node package.json package-lock.json ./
-COPY --chown=node:node patches patches/
 RUN npm ci --registry https://registry.npmjs.org/
 
 FROM all_deps AS prod_deps
