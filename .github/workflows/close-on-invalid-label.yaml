@@ -1,23 +1,26 @@
 name: Close issue/PR on adding invalid label
 
 # Closes public issues and PRs when the invalid label is added.
+# Re-closes invalid PRs that someone without write access reopens.
 
 on:
   issues:
     types: [labeled]
-  # pull_request_target lets the workflow close forked PRs after the invalid label is added.
+  # pull_request_target lets the workflow close forked PRs when they're labeled invalid or reopened.
   pull_request_target:
-    types: [labeled]
+    types: [labeled, reopened]
 
 permissions:
   contents: read
-  issues: write
-  pull-requests: write
 
 jobs:
   close-on-adding-invalid-label:
     if: github.repository == 'github/docs' && github.event.label.name == 'invalid'
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+      pull-requests: write
 
     steps:
       - name: Close issue
@@ -42,3 +45,29 @@ jobs:
         if: ${{ failure() && github.event_name != 'pull_request_target' }}
         with:
           slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+
+  # Authors can reopen PRs they closed themselves, even after the invalid label is added.
+  reclose-reopened-invalid-pr:
+    if: >
+      github.repository == 'github/docs' && github.event_name == 'pull_request_target' &&
+      github.event.action == 'reopened' &&
+      contains(github.event.pull_request.labels.*.name, 'invalid')
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+    steps:
+      - name: Re-close PR unless reopened by someone with write access
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          SENDER: ${{ github.event.sender.login }}
+        run: |
+          if ! permission=$(gh api "repos/$GITHUB_REPOSITORY/collaborators/$SENDER/permission" --jq '.permission'); then
+            echo "::warning::Couldn't look up permission for $SENDER, so treating them as read-only."
+            permission=none
+          fi
+          if [[ "$permission" == "admin" || "$permission" == "write" ]]; then
+            echo "$SENDER has $permission access, so leaving the PR open."
+            exit 0
+          fi
+          gh pr close "$PR_URL" --comment 'This pull request is labeled `invalid`, so only maintainers can reopen it. If you think this is incorrect, please mention this in a corresponding issue.'
