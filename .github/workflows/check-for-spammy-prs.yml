@@ -1,6 +1,7 @@
 name: Check for Spammy PRs
 
 # Flags low-value public PRs and closes PRs that target branches other than main.
+# Maintainers add the skip-spammy-check label to exempt a PR.
 
 on:
   pull_request_target:
@@ -16,7 +17,8 @@ jobs:
     name: Label spammy PRs and reject non-main targets
     if: >
       github.repository == 'github/docs' && github.event_name == 'pull_request_target' &&
-      github.event.pull_request.user.login != 'docs-bot'
+      github.event.pull_request.user.login != 'docs-bot' &&
+      !contains(github.event.pull_request.labels.*.name, 'skip-spammy-check')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
@@ -102,6 +104,18 @@ jobs:
               onlyRenames ||
               onlyIndexMd
             ) {
+              // The payload can predate a label added right after the PR opened, so read the labels again.
+              const { data: currentLabels } = await github.rest.issues.listLabelsOnIssue({
+                owner,
+                repo,
+                issue_number: pull_number,
+                per_page: 100,
+              })
+              if (currentLabels.some(label => label.name.toLowerCase() === 'skip-spammy-check')) {
+                core.info('Skipping because the pull request has the skip-spammy-check label.')
+                return
+              }
+
               await github.rest.issues.addLabels({
                 owner,
                 repo,
