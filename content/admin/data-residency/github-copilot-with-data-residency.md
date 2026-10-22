@@ -71,6 +71,7 @@ The models available for {% data variables.product.prodname_copilot_short %} var
 * {% data variables.copilot.claude_opus_55 %}
 * {% data variables.copilot.claude_sonnet_5 %}
 * {% data variables.copilot.claude_sonnet_55 %}
+* {% data variables.copilot.gemini_4_argon %}
 
 ## Pricing changes
 
