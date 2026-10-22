@@ -329,7 +329,7 @@
     "start-server-and-test": "^3.0.0",
     "typescript": "^6.0.2",
     "unist-util-remove": "^4.0.0",
-    "vitest": "^5.0.0",
+    "vitest": "^5.0.5",
     "website-scraper": "^6.0.0"
   },
   "overrides": {
@@ -349,7 +349,7 @@
     "cheerio": {
       "undici": "^7.29.0"
     },
-    "markdown-it": "^14.3.2",
+    "markdown-it": "^14.3.3",
     "minimatch@10": {
       "brace-expansion": "^5.0.8"
     },
