@@ -136,6 +136,10 @@ A common cause can be using the `always()` [status check function](/actions/refe
 
 For more information, see [AUTOTITLE](/actions/how-tos/write-workflows/choose-when-workflows-run/control-jobs-with-conditions) and [AUTOTITLE](/actions/how-tos/manage-workflow-runs/cancel-a-workflow-run).
 
+If a run remains queued or in progress after cancellation attempts, it may be stuck in an abnormal state rather than continuing because of `always()`. Signs include no jobs being created, the UI displaying "Failed to cancel workflow", or the `cancel` or `force-cancel` REST API endpoints returning HTTP `500` or `409`.
+
+Self-service cancellation, including force cancellation, may not clear a stuck or out-of-sync workflow run or check suite. If your repository uses concurrency, the stuck run can continue blocking later runs in the same concurrency group. In this situation, contact {% data variables.contact.contact_support %} for help clearing the run.
+
 ## Troubleshooting runners
 
 ### Defining runner labels

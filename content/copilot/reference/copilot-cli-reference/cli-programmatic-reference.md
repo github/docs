@@ -44,7 +44,7 @@ There are a number of command-line options that are particularly useful when run
 | `--deny-url=URL ...`          | Deny access to a specific URL or domain. Takes precedence over `--allow-url`. For multiple URLs, use a quoted, comma-separated list. |
 | `--excluded-tools=TOOL ...`   | Remove specific tools from those available to the model. For multiple tools, use a quoted, comma-separated list. |
 | `--fleet`                     | Run the prompt in fleet mode, so {% data variables.product.prodname_copilot_short %} uses parallel subagents to work on separate parts of the task. Combine with `-p` for non-interactive automation, `-i` for an interactive session, or a piped prompt. Not supported in ACP server mode. See [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/speed-up-task-completion). |
-| `--model=MODEL`               | Choose the AI model (for example, `gpt-5.4` or `claude-haiku-4.5`). Useful for pinning a model in reproducible workflows. See [Choosing a model](#choosing-a-model) below. |
+| `--model=MODEL`               | Choose the AI model (for example, `gpt-6-astra` or `claude-haiku-4.5`). Useful for pinning a model in reproducible workflows. See [Choosing a model](#choosing-a-model) below. |
 | `--no-ask-user`               | Prevent the agent from pausing to seek additional user input. |
 | `--output-format=FORMAT`      | Set the output format: `text` (the default) or `json`. With `json`, the CLI emits JSONL (one JSON object per line), which is convenient for parsing the agent's output in scripts. |
 | `--secret-env-vars=VAR ...`   | An environment variable whose value you want redacted in output. For multiple variables, use a quoted, comma-separated list. Essential for preventing secrets being exposed in logs. The values in the `GITHUB_TOKEN` and `COPILOT_GITHUB_TOKEN` environment variables are redacted by default. |
@@ -109,7 +109,7 @@ You can specify various kinds of tools with the `--allow-tool` option.
 | write  | Creating or modifying files. |
 | read   | Reading files or directories. |
 | url    | Fetching content from a URL. |
-| memory | Storing new facts to the agent's persistent memory. This does not affect using existing memories. See [AUTOTITLE](/copilot/concepts/agents/copilot-memory). |
+| memory | Storing new facts to the agent's persistent memory. This does not affect using existing memories. See [AUTOTITLE](/copilot/concepts/prompting-and-context/copilot-memory). |
 | MCP-SERVER | Invoking tools from a specific MCP server. Use the server's configured name as the identifier—for example, `github`. See [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/add-mcp-servers). |
 
 ### Tool filters
@@ -140,7 +140,7 @@ You can use environment variables to configure various aspects of the CLI's beha
 | Variable              | Description   |
 | --------------------- | ------------- |
 | `COPILOT_ALLOW_ALL`   | Set to `true` for full permissions |
-| `COPILOT_MODEL`       | Set the model (for example, `gpt-5.4`, `claude-haiku-4.5`) |
+| `COPILOT_MODEL`       | Set the model (for example, `gpt-6-astra`, `claude-haiku-4.5`) |
 | `COPILOT_HOME`        | Set the directory for the CLI configuration file (`~/.copilot` by default) |
 | `COPILOT_AUTO_UPDATE` | Set to `false` to disable automatic updates. Useful in CI and other automated environments where you want to pin the CLI version. |
 | `COPILOT_GITHUB_TOKEN`| Authentication token (highest precedence) |

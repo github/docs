@@ -93,6 +93,28 @@ Return `null` or `undefined` to use the prompt unchanged. Otherwise, return an o
 | `modifiedPrompt` | string | Modified prompt to use instead of original |
 | `additionalContext` | string | Extra context added to the conversation |
 | `suppressOutput` | boolean | If true, suppress the assistant's response output |
+| `decision` | `"block"` | Refuse the prompt (see [Blocking a prompt](#blocking-a-prompt)) |
+| `reason` | string | Why the prompt was blocked; required with `decision` |
+
+### Blocking a prompt
+
+Return a block decision to refuse the prompt:
+
+```json
+{
+  "decision": "block",
+  "reason": "Prompts may not include credentials."
+}
+```
+
+No model turn runs and no user message is recorded. The session emits an ephemeral `session.warning` with `warningType: "policy_blocked"` that carries the reason. The public member names follow each language's conventions:
+
+| Meaning | Node.js / Python | Go / .NET | Rust | Java |
+|---------|------------------|-----------|------|------|
+| Block the prompt | `decision: "block"` | `Decision = "block"` | `decision: Some("block".into())` | `UserPromptSubmittedHookOutput.block(reason)` |
+| Why it was blocked | `reason` | `Reason` | `reason` | the `reason` argument |
+
+In Go, an empty `Reason` is omitted from the output, and the prompt is blocked only when a reason is present.
 
 ## Examples
 
@@ -243,10 +265,10 @@ const session = await client.createSession({
     onUserPromptSubmitted: async (input) => {
       for (const pattern of BLOCKED_PATTERNS) {
         if (pattern.test(input.prompt)) {
-          // Replace the prompt with a warning message
+          // Refuse the prompt; the reason reaches the client as a session.warning
           return {
-            modifiedPrompt: "[Content blocked: Please don't include sensitive credentials in your prompts. Use environment variables instead.]",
-            suppressOutput: true,
+            decision: "block",
+            reason: "Please don't include sensitive credentials in your prompts. Use environment variables instead.",
           };
         }
       }

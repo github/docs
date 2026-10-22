@@ -1,6 +1,11 @@
 import { describe, expect, test } from 'vitest'
 
-import { filterByAllowlistValues, filterAndUpdateGhesDataByAllowlistValues } from '../../lib'
+import {
+  filterByAllowlistValues,
+  filterAndUpdateGhesDataByAllowlistValues,
+  resolveReferenceLinksToMarkdown,
+  type TitleResolutionContext,
+} from '../../lib'
 import type { RawAuditLogEventT, VersionedAuditLogData } from '../../types'
 
 describe('audit log event filtering', () => {
@@ -174,6 +179,51 @@ describe('audit log event filtering', () => {
     expect(filteredEvents[0].fields).toEqual(['repo', 'repo_id'])
   })
 
+  test('resolves reference links without a language prefix to page titles', async () => {
+    const eventsToProcess: RawAuditLogEventT[] = [
+      {
+        action: 'repo.create',
+        _allowlists: ['user'],
+        description: 'repo was created',
+        docs_reference_links: '/foo/bar-page#frag, /foo/missing-page',
+        ghes: {},
+      },
+    ]
+    const titleContext = {
+      pages: { '/en/foo/bar-page': { renderProp: async () => 'Bar page title' } },
+      redirects: {},
+    } as unknown as TitleResolutionContext
+
+    const filteredEvents = await filterByAllowlistValues({
+      eventsToCheck: eventsToProcess,
+      allowListValues: 'user',
+      currentEvents: [],
+      pipelineConfig: { sha: '', appendedDescriptions: {} },
+      titleContext,
+    })
+    expect(filteredEvents[0].docs_reference_titles).toEqual(['Bar page title', '/foo/missing-page'])
+  })
+
+  test('resolves Markdown reference links without a language prefix', async () => {
+    const titleContext = {
+      pages: { '/en/foo/markdown-page': { renderProp: async () => 'Markdown page title' } },
+      redirects: {},
+    } as unknown as TitleResolutionContext
+
+    const markdown = await resolveReferenceLinksToMarkdown('/foo/markdown-page', titleContext)
+    expect(markdown).toBe('[Markdown page title](/foo/markdown-page)')
+  })
+
+  test('resolves reference links without a leading slash', async () => {
+    const titleContext = {
+      pages: { '/en/foo/slashless-page': { renderProp: async () => 'Slashless page title' } },
+      redirects: {},
+    } as unknown as TitleResolutionContext
+
+    const markdown = await resolveReferenceLinksToMarkdown('foo/slashless-page', titleContext)
+    expect(markdown).toBe('[Slashless page title](/foo/slashless-page)')
+  })
+
   test('ghes filters and updates multiple ghes versions', async () => {
     const eventsToProcess: RawAuditLogEventT[] = [
       {
@@ -267,5 +317,39 @@ describe('audit log event filtering', () => {
     expect(currentEvents['ghes-3.15'][auditLogPage].map((event) => event.action)).toContain(
       'repo.create',
     )
+  })
+
+  test('keeps reference titles that contain commas intact', async () => {
+    const mockPage = (title: string) => ({ renderProp: async () => title })
+    const titleContext = {
+      pages: {
+        '/en/sponsors/about-sponsorships-fees-and-taxes': mockPage(
+          'About sponsorships, fees, and taxes',
+        ),
+        '/en/billing/upgrading-a-sponsorship': mockPage('Upgrading a sponsorship'),
+      },
+      redirects: {},
+    } as unknown as TitleResolutionContext
+    const eventsToProcess: RawAuditLogEventT[] = [
+      {
+        action: 'sponsors.sponsor_sponsorship_create',
+        _allowlists: ['user'],
+        description: 'A sponsorship was created.',
+        docs_reference_links:
+          '/sponsors/about-sponsorships-fees-and-taxes, /billing/upgrading-a-sponsorship',
+        ghes: {},
+      },
+    ]
+
+    const filteredEvents = await filterByAllowlistValues({
+      eventsToCheck: eventsToProcess,
+      allowListValues: 'user',
+      pipelineConfig: { sha: '', appendedDescriptions: {} },
+      titleContext,
+    })
+    expect(filteredEvents[0].docs_reference_titles).toEqual([
+      'About sponsorships, fees, and taxes',
+      'Upgrading a sponsorship',
+    ])
   })
 })

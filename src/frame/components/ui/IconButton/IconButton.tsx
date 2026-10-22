@@ -18,7 +18,8 @@ export type IconButtonProps = Omit<
 
 // With a tooltip, the tooltip text labels the button through aria-labelledby, so
 // the button carries no aria-label and screen readers hear one name. Hidden buttons
-// skip the tooltip because nothing can hover or focus them.
+// skip the tooltip because nothing can hover or focus them. Hiding a focused button
+// remounts it and drops focus, so callers must move focus to another element once it hides.
 export const IconButton = ({
   icon: Icon,
   'aria-label': ariaLabel,

@@ -30,7 +30,6 @@ export type LandingContextT = {
 }
 
 type LandingPage = NonNullable<Context['page']> & {
-  carousels?: LandingContextT['carousels']
   includedCategories?: string[]
   heroImage?: string
   product?: string
@@ -68,11 +67,7 @@ export const getLandingContextFromRequest = async (
   }
 
   const carousels =
-    landingType !== 'discovery' && landingType !== 'bespoke'
-      ? {}
-      : page.carousels && typeof page.carousels === 'object'
-        ? (page.carousels as LandingContextT['carousels'])
-        : {}
+    landingType !== 'discovery' && landingType !== 'bespoke' ? {} : (context.carousels ?? {})
 
   // Middleware resolves journey tracks because server-side APIs cannot run client-side.
   const journeyTracks: JourneyTrack[] = Array.isArray(context.journeyTracks)

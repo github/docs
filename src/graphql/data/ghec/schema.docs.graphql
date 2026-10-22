@@ -46069,9 +46069,8 @@ type PullRequestParameters @docsCategory(name: "pulls") {
   requiredReviewThreadResolution: Boolean!
 
   """
-  This field is in beta and subject to change. A collection of reviewers and
-  associated file patterns. Each reviewer has a list of file patterns which
-  determine the files that reviewer is required to review.
+  A collection of reviewers and associated file patterns. Each reviewer has a
+  list of file patterns which determine the files that reviewer is required to review.
   """
   requiredReviewers: [RequiredReviewerConfiguration!]
 }
@@ -46117,9 +46116,8 @@ input PullRequestParametersInput @docsCategory(name: "pulls") {
   requiredReviewThreadResolution: Boolean!
 
   """
-  This argument is in beta and subject to change. A collection of reviewers and
-  associated file patterns. Each reviewer has a list of file patterns which
-  determine the files that reviewer is required to review.
+  A collection of reviewers and associated file patterns. Each reviewer has a
+  list of file patterns which determine the files that reviewer is required to review.
   """
   requiredReviewers: [RequiredReviewerConfigurationInput!]
 }

@@ -37,7 +37,7 @@ You can manage your enterprise-level {% data variables.copilot.custom_agents_sho
 * From the AI Controls view
 * Using the REST API. See [AUTOTITLE](/rest/copilot/copilot-custom-agents).
 
-For more detailed information on {% data variables.copilot.custom_agents_short %}, see [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-custom-agents).
+For more detailed information on {% data variables.copilot.custom_agents_short %}, see [AUTOTITLE](/copilot/concepts/customizations/custom-agents).
 
 ## Agent sessions
 

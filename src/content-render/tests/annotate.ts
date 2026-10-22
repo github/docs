@@ -2,6 +2,7 @@ import { describe, expect, test } from 'vitest'
 import { load } from 'cheerio'
 
 import { renderContent } from '@/content-render/index'
+import { TitleFromAutotitleError } from '@/content-render/unified/rewrite-local-links'
 import type { Context } from '@/types'
 
 const example = `
@@ -125,12 +126,12 @@ on: [push]
 `
 
     const mockPages: Record<string, { href: string; rawTitle: string }> = {
-      '/get-started/start-your-journey/hello-world': {
-        href: '/get-started/start-your-journey/hello-world',
+      '/en/get-started/start-your-journey/hello-world': {
+        href: '/en/get-started/start-your-journey/hello-world',
         rawTitle: 'Hello World',
       },
-      '/get-started/foo': {
-        href: '/get-started/foo',
+      '/en/get-started/foo': {
+        href: '/en/get-started/foo',
         rawTitle: 'Fooing Around',
       },
     }
@@ -156,5 +157,55 @@ on: [push]
     expect(firstNote).not.toContain('[AUTOTITLE]')
     expect(secondNote).toContain('Fooing Around')
     expect(secondNote).not.toContain('[AUTOTITLE]')
+
+    const hrefs = $('.annotate-note a', rows)
+      .map((i, el) => $(el).attr('href'))
+      .get()
+    expect(hrefs).toEqual(['/en/get-started/start-your-journey/hello-world', '/en/get-started/foo'])
+  })
+
+  test('throws on AUTOTITLE links in annotations that do not resolve', async () => {
+    const brokenExample = `
+\`\`\`yaml annotate copy
+# See [AUTOTITLE](/get-started/does-not-exist).
+name: Test workflow
+\`\`\`
+`
+
+    const mockContext = {
+      currentLanguage: 'en',
+      currentVersion: 'free-pro-team@latest',
+      pages: {},
+      redirects: {},
+    } as unknown as Context
+
+    await expect(renderContent(brokenExample, mockContext)).rejects.toThrow(TitleFromAutotitleError)
+  })
+
+  test('reports the source line of unresolvable AUTOTITLE links in later notes', async () => {
+    const brokenExample = `
+\`\`\`yaml annotate copy
+# See [AUTOTITLE](/get-started/foo).
+name: Test workflow
+
+# The second note starts here.
+
+# See [AUTOTITLE](/get-started/does-not-exist).
+on: [push]
+\`\`\`
+`
+
+    const mockContext = {
+      currentLanguage: 'en',
+      currentVersion: 'free-pro-team@latest',
+      pages: {
+        '/en/get-started/foo': { href: '/en/get-started/foo', rawTitle: 'Fooing Around' },
+      },
+      redirects: {},
+    } as unknown as Context
+
+    await expect(renderContent(brokenExample, mockContext)).rejects.toThrow(
+      /\/get-started\/does-not-exist.*\(Line: 8\)/,
+    )
   })
 })

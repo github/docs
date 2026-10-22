@@ -139,6 +139,30 @@ describe('renderContent', () => {
     }
   })
 
+  test('gives repeated translated headings suffixed English IDs', async () => {
+    const template = nl(`
+## Uno
+
+### プロンプトの例
+
+## Dos
+
+### プロンプトの例
+
+## Extra
+
+## Extra
+`)
+    const englishHeadings = { Uno: 'One', プロンプトの例: 'Example prompts', Dos: 'Two' }
+    for (let i = 0; i < 2; i++) {
+      const html = await renderContent(template, { englishHeadings })
+      const $ = load(html)
+      const ids = (tag: string) => Array.from($(tag), (el) => $(el).attr('id'))
+      expect(ids('h2')).toEqual(['one', 'two', 'extra', 'extra-1'])
+      expect(ids('h3')).toEqual(['example-prompts', 'example-prompts-1'])
+    }
+  })
+
   test('does syntax highlighting', async () => {
     let template = nl(`
 \`\`\`js
@@ -306,5 +330,56 @@ var a = 1
     expect(alertEl.attr('data-container')).toBe('alert')
     expect(alertEl.hasClass('ghd-alert-accent')).toBe(true)
     expect(alertEl.find('a[href="https://example.com"]').length).toBe(1)
+  })
+
+  test('renders alert titles for mixed-case alert markers', async () => {
+    const alertTitles = { NOTE: 'Note', TIP: 'Tip' }
+    const tipHtml = await renderContent(nl('> [!Tip]\n> Body'), { alertTitles })
+    const $tip = load(tipHtml)
+    expect($tip('.ghd-alert').hasClass('ghd-alert-success')).toBe(true)
+    expect($tip('.ghd-alert-title').text()).toBe('Tip')
+
+    const noteHtml = await renderContent(nl('> [!Note]\n> Body'), { alertTitles })
+    const $note = load(noteHtml)
+    expect($note('.ghd-alert').hasClass('ghd-alert-accent')).toBe(true)
+    expect($note('.ghd-alert-title').text()).toBe('Note')
+  })
+
+  describe('markdownRequested output', () => {
+    const markdownContext = {
+      markdownRequested: true,
+      currentLanguage: 'en',
+      currentVersion: 'free-pro-team@latest',
+      pages: {},
+      redirects: {},
+    }
+
+    test('keeps alert markers unescaped when rewriting internal links', async () => {
+      const template = nl(`> [!NOTE]
+> See [Billing](/billing/foo).
+
+> [!WARNING]
+> Careful.`)
+      const markdown = await renderContent(template, markdownContext)
+      expect(markdown).toContain('> [!NOTE]')
+      expect(markdown).toContain('> [!WARNING]')
+      expect(markdown).not.toContain('\\[!')
+      expect(markdown).toContain('(/en/billing/foo)')
+    })
+
+    test('keeps escaping alert-like text outside the start of a blockquote', async () => {
+      const template = 'Type \\[!NOTE] to start an alert. See [Billing](/billing/foo).'
+      const markdown = await renderContent(template, markdownContext)
+      expect(markdown).toContain('Type \\[!NOTE] to start an alert.')
+      expect(markdown).toContain('(/en/billing/foo)')
+    })
+
+    test('keeps an escaped alert marker escaped at the start of a blockquote', async () => {
+      const template = nl(`> \\[!NOTE]
+> See [Billing](/billing/foo).`)
+      const markdown = await renderContent(template, markdownContext)
+      expect(markdown).toContain('> \\[!NOTE]')
+      expect(markdown).toContain('(/en/billing/foo)')
+    })
   })
 })

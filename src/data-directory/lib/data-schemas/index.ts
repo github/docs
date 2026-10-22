@@ -48,10 +48,31 @@ const manualSchemas: DataSchemas = {
   'data/code-languages.yml': resolveSchemaPath('code-languages.ts'),
   'data/glossaries/candidates.yml': resolveSchemaPath('glossaries-candidates.ts'),
   'data/glossaries/external.yml': resolveSchemaPath('glossaries-external.ts'),
-  // Register the matrix directory schema because loadTableSchemas reads only top-level files.
-  // The directory schema validates every per-IDE file.
+  // Register nested Copilot tables here because loadTableSchemas reads only top-level files.
+  // The matrix directory schema validates every per-IDE file.
   'data/tables/copilot/matrix': resolveSchemaPath('tables/copilot/matrix-ide.ts'),
   'data/tables/copilot/matrix-meta.yml': resolveSchemaPath('tables/copilot/matrix-meta.ts'),
+  'data/tables/copilot/model-supported-plans.yml': resolveSchemaPath(
+    'tables/copilot/model-supported-plans.ts',
+  ),
+  'data/tables/copilot/model-release-status.yml': resolveSchemaPath(
+    'tables/copilot/model-release-status.ts',
+  ),
+  'data/tables/copilot/model-comparison.yml': resolveSchemaPath(
+    'tables/copilot/model-comparison.ts',
+  ),
+  'data/tables/copilot/auto-model-selection.yml': resolveSchemaPath(
+    'tables/copilot/auto-model-selection.ts',
+  ),
+  'data/tables/copilot/model-deprecation-history.yml': resolveSchemaPath(
+    'tables/copilot/model-deprecation-history.ts',
+  ),
+  'data/tables/copilot/model-supported-clients.yml': resolveSchemaPath(
+    'tables/copilot/model-supported-clients.ts',
+  ),
+  'data/tables/copilot/models-and-pricing.yml': resolveSchemaPath(
+    'tables/copilot/models-and-pricing.ts',
+  ),
 }
 
 const dataSchemas: DataSchemas = {

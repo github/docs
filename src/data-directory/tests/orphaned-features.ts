@@ -7,7 +7,7 @@ import { describe, expect, test } from 'vitest'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const fixturesDir = path.join(__dirname, 'orphaned-features', 'fixtures')
 
-const { getVariableFiles, getReusableFiles } =
+const { getVariableFiles, getReusableFiles, getEnglishDataFiles, getPageSearchText, checkString } =
   await import('@/data-directory/scripts/find-orphaned-features/find')
 
 describe('orphaned features detection', () => {
@@ -150,5 +150,55 @@ describe('orphaned features detection', () => {
     } finally {
       fs.rmSync(tempDir, { recursive: true, force: true })
     }
+  })
+
+  test('page frontmatter rendered with Liquid counts as feature usage', () => {
+    const features = new Set([
+      'only-in-permissions',
+      'only-in-product',
+      'only-in-introlinks',
+      'truly-orphaned',
+    ])
+    const page = {
+      markdown: '',
+      title: 'Test page',
+      intro: '',
+      rawPermissions: '{% ifversion only-in-permissions %}a{% else %}b{% endif %}',
+      rawProduct: '{% ifversion only-in-product %}x{% endif %}',
+      rawIntroLinks: { overview: '{% ifversion only-in-introlinks %}/a{% endif %}' },
+    }
+
+    checkString(getPageSearchText(page), features, { languageCode: 'en' })
+
+    expect(Array.from(features)).toEqual(['truly-orphaned'])
+  })
+
+  test('getEnglishDataFiles includes variables, tables, and early access data', () => {
+    const dataRoot = path.join(fixturesDir, 'data')
+    const files = getEnglishDataFiles(dataRoot)
+
+    expect(files.map((filePath) => path.relative(dataRoot, filePath)).sort()).toEqual([
+      path.join('early-access', 'reusables', 'test.md'),
+      path.join('early-access', 'variables', 'test.yml'),
+      path.join('tables', 'test.yml'),
+      path.join('variables', 'test.yml'),
+    ])
+
+    const features = new Set([
+      'used-in-variables',
+      'used-in-tables',
+      'used-in-early-access-variables',
+      'used-in-early-access-reusables',
+      'truly-orphaned',
+    ])
+    for (const filePath of files) {
+      checkString(fs.readFileSync(filePath, 'utf-8'), features, { filePath, languageCode: 'en' })
+    }
+
+    expect(Array.from(features)).toEqual(['truly-orphaned'])
+  })
+
+  test('getEnglishDataFiles skips missing data directories', () => {
+    expect(getEnglishDataFiles(path.join(fixturesDir, 'content'))).toEqual([])
   })
 })

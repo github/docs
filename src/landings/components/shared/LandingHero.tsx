@@ -1,8 +1,10 @@
+import { useRouter } from 'next/router'
 import { LinkExternalIcon } from '@primer/octicons-react'
 import { Button, ButtonGroup, Heading, Text } from '@primer/react-brand'
 import styles from './LandingHero.module.scss'
 import { LandingSection } from './LandingSection'
 import { useTranslation } from '@/languages/components/useTranslation'
+import { DEFAULT_VERSION, useVersion } from '@/versions/components/useVersion'
 import { RenderedHTML } from '@/frame/components/ui/RenderedHTML/RenderedHTML'
 
 type LandingHeroProps = {
@@ -24,6 +26,15 @@ function heroBackgroundCss(heroImage: string | undefined) {
 
 export const LandingHero = ({ title, intro, heroImage, introLinks }: LandingHeroProps) => {
   const { t } = useTranslation(['product_landing'])
+  const router = useRouter()
+  const { currentVersion } = useVersion()
+
+  // Frontmatter paths lack locale and version, and redirects for bare paths take both from cookies or headers, not this page.
+  const localizeHref = (href: string) => {
+    if (!href.startsWith('/') || href.startsWith('//')) return href
+    const versionPrefix = currentVersion !== DEFAULT_VERSION ? `/${currentVersion}` : ''
+    return `/${router.locale}${versionPrefix}${href}`
+  }
 
   const linkEntries = introLinks ? Object.entries(introLinks) : []
 
@@ -51,7 +62,7 @@ export const LandingHero = ({ title, intro, heroImage, introLinks }: LandingHero
                   <Button
                     key={label}
                     as="a"
-                    href={href}
+                    href={localizeHref(href)}
                     variant={i === 0 ? 'primary' : 'secondary'}
                     trailingVisual={
                       href.startsWith('https') ? (

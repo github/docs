@@ -94,10 +94,6 @@ router.post('/ai-search/v1', async (req: Request, res: Response, next: NextFunct
   } catch (err) {
     logger.error('[ai-search proxy] request failed', { error: err })
     next(err)
-  } finally {
-    if (reader) {
-      reader.releaseLock()
-    }
   }
 })
 

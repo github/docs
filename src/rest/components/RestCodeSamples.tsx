@@ -6,7 +6,7 @@ import { announce } from '@primer/live-region-element'
 import Cookies from '@/frame/components/lib/cookies'
 import cx from 'clsx'
 
-import { generateExampleOptions } from '@/rest/lib/code-example-utils'
+import { generateExampleOptions, toGhesApiUrls } from '@/rest/lib/code-example-utils'
 
 import { useTranslation } from '@/languages/components/useTranslation'
 import useClipboard from '@/rest/components/useClipboard'
@@ -115,10 +115,8 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
   let displayedExampleSchema = JSON.stringify(displayedExample.response.schema, null, 2)
 
   if (isEnterpriseServer) {
-    displayedExampleResponse =
-      displayedExampleResponse && displayedExampleResponse.replaceAll('api.github.com', 'HOSTNAME')
-    displayedExampleSchema =
-      displayedExampleSchema && displayedExampleSchema.replaceAll('api.github.com', 'HOSTNAME')
+    displayedExampleResponse = displayedExampleResponse && toGhesApiUrls(displayedExampleResponse)
+    displayedExampleSchema = displayedExampleSchema && toGhesApiUrls(displayedExampleSchema)
   }
 
   return (

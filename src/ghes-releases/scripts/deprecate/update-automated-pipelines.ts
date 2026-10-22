@@ -9,31 +9,20 @@ import { difference, intersection } from 'lodash-es'
 import { deprecated, supported } from '@/versions/lib/enterprise-server-releases'
 import { rebuildAuditLogDedup } from '@/audit-logs/lib/deduplicate'
 import { writeDeduplicatedAppsFormat } from '@/github-apps/scripts/sync'
+import { updateApiVersionKeys } from '@/ghes-releases/lib/update-api-versions'
 
 const [currentReleaseNumber, previousReleaseNumber] = supported
 const pipelines = JSON.parse(await readFile('src/automated-pipelines/lib/config.json', 'utf-8'))[
   'automation-pipelines'
 ]
 
-// Pipelines with api-versions copy previous calendar date variants to the current release.
-// Deprecated variants are dropped.
 export async function updateAutomatedConfigFiles() {
   for (const pipeline of pipelines) {
     const configFilepath = `src/${pipeline}/lib/config.json`
     const configData = JSON.parse(await readFile(configFilepath, 'utf-8'))
     const apiVersions = configData['api-versions']
     if (!apiVersions) continue
-    for (const key of Object.keys(apiVersions)) {
-      if (key.endsWith(previousReleaseNumber)) {
-        const newKey = key.replace(previousReleaseNumber, currentReleaseNumber)
-        apiVersions[newKey] = apiVersions[key]
-      }
-      for (const deprecatedRelease of deprecated) {
-        if (key.endsWith(deprecatedRelease)) {
-          delete apiVersions[key]
-        }
-      }
-    }
+    updateApiVersionKeys(apiVersions, currentReleaseNumber, previousReleaseNumber, deprecated)
     const newConfigData = Object.assign({}, configData)
     newConfigData['api-versions'] = apiVersions
     await writeFile(configFilepath, JSON.stringify(newConfigData, null, 2))

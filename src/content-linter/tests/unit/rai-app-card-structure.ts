@@ -1,7 +1,30 @@
+import fs from 'fs'
+import path from 'path'
+
+import walk from 'walk-sync'
 import { describe, expect, test } from 'vitest'
 
+import matter from '@/frame/lib/read-frontmatter'
 import { runRule } from '../../lib/init-test'
 import { raiAppCardStructure } from '../../lib/linting-rules/rai-app-card-structure'
+
+// CI lints changed files only, so a templates.md edit would not otherwise recheck existing cards.
+function findRaiCards(): string[] {
+  const contentDir = path.resolve('content')
+  // Early-access content is copied in from another repo during CI, so its drafts stay out of this check.
+  const files = walk(contentDir, {
+    globs: ['**/*.md'],
+    ignore: ['early-access/**'],
+    directories: false,
+    includeBasePath: true,
+  })
+  return files.filter((file) => {
+    const markdown = fs.readFileSync(file, 'utf8')
+    if (!/contentType:\s*['"]?rai/.test(markdown)) return false
+    const { data } = matter(markdown)
+    return data?.contentType === 'rai' && !('children' in data)
+  })
+}
 
 function validCard(): string {
   return [
@@ -173,4 +196,15 @@ describe(raiAppCardStructure.names.join(' - '), () => {
     const errors = result.markdown
     expect(errors.some((e) => e.errorDetail?.includes('application-card-overreliance'))).toBe(true)
   })
+
+  // Reading every content file can exceed the 5 s default timeout on a cold checkout.
+  test('every published RAI card passes against the current template', async () => {
+    const cards = findRaiCards()
+    expect(cards.length).toBeGreaterThan(0)
+    const result = await runRule(raiAppCardStructure, { files: cards })
+    const failures = Object.entries(result)
+      .filter(([, errors]) => errors.length > 0)
+      .map(([file, errors]) => [path.relative('.', file), errors.map((e) => e.errorDetail)])
+    expect(Object.fromEntries(failures)).toEqual({})
+  }, 120_000)
 })

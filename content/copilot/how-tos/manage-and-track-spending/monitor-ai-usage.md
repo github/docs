@@ -49,6 +49,8 @@ Alternatively, you can view your usage under the {% data variables.product.prodn
 
 For details on how to request a usage report, see [AUTOTITLE](/billing/how-tos/products/view-productlicense-use#downloading-usage-reports).
 
+The **AI usage** page shows credits consumed and costs by model. However, you generally cannot trace consumed credits to specific prompts, sessions, or exact features at a per-request level.
+
 ## Viewing usage in your IDE
 
 You can view {% data variables.product.prodname_copilot_short %} usage in certain IDEs directly. For example, in {% data variables.product.prodname_vscode %}, you can view information about features included in your plan, your progress towards any limits on your plan, and the date your allowance resets.

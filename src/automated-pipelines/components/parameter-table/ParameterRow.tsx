@@ -4,6 +4,7 @@ import { useTranslation } from '@/languages/components/useTranslation'
 import { ChildBodyParametersRows } from './ChildBodyParametersRows'
 import type { ChildParameter } from './types'
 import { RenderedHTML } from '@/frame/components/ui/RenderedHTML/RenderedHTML'
+import { NO_CHILD_WEBHOOK_PROPERTIES } from '@/webhooks/lib/no-child-properties'
 
 type Props = {
   rowParams: ChildParameter
@@ -14,18 +15,6 @@ type Props = {
   bodyParamExpandCallback?: (target: HTMLDetailsElement) => void
   clickedBodyParameterName?: string | undefined
 }
-
-// The webhooks page documents common webhook payload properties in one shared section.
-// Skipping their child properties here avoids duplicate schema lookups and repeated docs.
-// https://docs.github.com/en/webhooks/webhook-events-and-payloads
-const NO_CHILD_WEBHOOK_PROPERTIES = [
-  'action',
-  'enterprise',
-  'installation',
-  'organization',
-  'repository',
-  'sender',
-]
 
 export function ParameterRow({
   rowParams,
@@ -99,7 +88,16 @@ export function ParameterRow({
                     </span>
                     {rowParams.enum.map((item, index, array) => (
                       <span key={`${item}${index}`}>
-                        <code>{item === null ? <i>null</i> : item}</code>
+                        <code>
+                          {item === null ? (
+                            <i>null</i>
+                          ) : typeof item === 'string' ? (
+                            item
+                          ) : (
+                            // React renders nothing for boolean children.
+                            JSON.stringify(item)
+                          )}
+                        </code>
                         {index !== array.length - 1 && ','}{' '}
                       </span>
                     ))}
@@ -127,9 +125,10 @@ export function ParameterRow({
         />
       )}
 
-      {/* Empty child groups mark unloaded nested params except shared webhook props; details lazy-loads them. */}
-      {rowParams.type &&
-      (rowParams.type.includes('object') || rowParams.type.includes('array of')) &&
+      {/* Empty child groups mark unloaded webhook objects except shared props; only rows with a callback can load them. */}
+      {bodyParamExpandCallback &&
+      rowParams.type &&
+      rowParams.type.includes('object') &&
       rowParams.childParamsGroups &&
       rowParams.childParamsGroups.length === 0 &&
       !NO_CHILD_WEBHOOK_PROPERTIES.includes(rowParams.name) ? (
@@ -139,10 +138,7 @@ export function ParameterRow({
               data-nested-param-id={rowParams.name}
               className="box px-3 ml-1 mb-0"
               onToggle={(event) => {
-                if (bodyParamExpandCallback) {
-                  const target = event.target as HTMLDetailsElement
-                  bodyParamExpandCallback(target)
-                }
+                bodyParamExpandCallback(event.target as HTMLDetailsElement)
               }}
             >
               <summary role="button" aria-expanded="false" className="mb-2 keyboard-focus">

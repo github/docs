@@ -263,6 +263,11 @@ async function restoreReferences(options: ExpandOptions): Promise<void> {
     process.exit(1)
   }
 
+  // Compare every file with pre-restore data so a later unedited copy cannot overwrite an edit.
+  const restorePaths: string[] = []
+  const updates: ReturnType<typeof extractDataUpdates> = []
+  let hasAnyEdits = false
+
   for (const filePath of paths) {
     try {
       if (verbose) {
@@ -281,6 +286,7 @@ async function restoreReferences(options: ExpandOptions): Promise<void> {
 
       const hasEdits = await detectContentEdits(content, verbose, allowedTypes)
       if (hasEdits) {
+        hasAnyEdits = true
         console.log(
           chalk.blue(
             `${filePath} contains expanded references; any edits made will be preserved in data files`,
@@ -289,35 +295,47 @@ async function restoreReferences(options: ExpandOptions): Promise<void> {
         if (!verbose) {
           console.log(chalk.dim('  Use --verbose to see details of the edits'))
         }
+        updates.push(...extractDataUpdates(content, allowedTypes))
+      }
+      restorePaths.push(filePath)
+    } catch (error: unknown) {
+      console.error(chalk.red(`Error restoring ${filePath}: ${getErrorMessage(error)}`))
+    }
+  }
 
-        // Write edited expanded blocks back to data files before restoring Liquid tags.
-        const updatedDataFiles = updateDataFiles(filePath, verbose, false, allowedTypes)
+  if (hasAnyEdits) {
+    // Write edited expanded blocks back to data files before restoring Liquid tags.
+    const updatedDataFiles = updateDataFiles(updates, verbose, false)
 
-        // Restore updated data files so nested references return to Liquid tags too.
-        if (updatedDataFiles.length > 0) {
-          if (verbose)
-            console.log(chalk.blue('  Restoring updated data files back to liquid tags...'))
-          for (const dataFile of updatedDataFiles) {
-            try {
-              const dataContent = fs.readFileSync(dataFile, 'utf-8')
-              const restoredDataContent = restoreFileContent(dataContent, verbose, allowedTypes)
-              if (restoredDataContent !== dataContent) {
-                fs.writeFileSync(dataFile, restoredDataContent, 'utf-8')
-                if (verbose) {
-                  const dataPath = convertFilePathToDataPath(dataFile)
-                  console.log(chalk.green(`  Restored: ${dataPath}`))
-                }
-              }
-            } catch (error) {
-              if (verbose) {
-                const dataPath = convertFilePathToDataPath(dataFile)
-                console.log(chalk.yellow(`  Could not restore ${dataPath}: ${error}`))
-              }
+    // Restore updated data files so nested references return to Liquid tags too.
+    if (updatedDataFiles.length > 0) {
+      if (verbose) console.log(chalk.blue('  Restoring updated data files back to liquid tags...'))
+      for (const dataFile of updatedDataFiles) {
+        try {
+          const dataContent = fs.readFileSync(dataFile, 'utf-8')
+          // Data files should never keep markers, whichever types were selected.
+          const restoredDataContent = restoreFileContent(dataContent, verbose)
+          if (restoredDataContent !== dataContent) {
+            fs.writeFileSync(dataFile, restoredDataContent, 'utf-8')
+            if (verbose) {
+              const dataPath = convertFilePathToDataPath(dataFile)
+              console.log(chalk.green(`  Restored: ${dataPath}`))
             }
+          }
+        } catch (error) {
+          if (verbose) {
+            const dataPath = convertFilePathToDataPath(dataFile)
+            console.log(chalk.yellow(`  Could not restore ${dataPath}: ${error}`))
           }
         }
       }
+    }
+  }
 
+  for (const filePath of restorePaths) {
+    try {
+      // Re-read so an input that is also an updated data file keeps its saved edit.
+      const content = fs.readFileSync(filePath, 'utf-8')
       // Restore the main file even when no data file changed.
       const restoredContent = restoreFileContent(content, verbose, allowedTypes)
 
@@ -401,18 +419,17 @@ async function detectContentEdits(
 ): Promise<boolean> {
   let hasEdits = false
 
-  let match
-  while ((match = EXPANDED_PATTERN.exec(content)) !== null) {
-    const [, type, dataPath, resolvedContent] = match
+  for (const [, type, dataPath, resolvedContent] of content.matchAll(EXPANDED_PATTERN)) {
     const refType = type as 'reusable' | 'variable'
+    const selected = !allowedTypes || allowedTypes.includes(refType)
 
-    if (!allowedTypes || allowedTypes.includes(refType)) {
+    if (selected) {
       try {
         const originalContent = loadDataValue(refType, dataPath.trim())
 
         if (originalContent !== null) {
-          // Compare direct data file content to avoid false positives from nested resolution.
-          const currentContent = resolvedContent.trim()
+          // Nested expanded blocks must become Liquid tags again to match the raw data value.
+          const currentContent = restoreFileContent(resolvedContent).trim()
 
           if (currentContent !== originalContent.trim()) {
             hasEdits = true
@@ -434,6 +451,11 @@ async function detectContentEdits(
           console.log(chalk.yellow(`  Could not verify content for ${type}s.${dataPath}: ${error}`))
         }
       }
+    }
+
+    // EXPANDED_PATTERN matches only the outermost block, and a selected block collapses all types.
+    if (await detectContentEdits(resolvedContent, verbose, selected ? undefined : allowedTypes)) {
+      hasEdits = true
     }
   }
 
@@ -480,7 +502,7 @@ function restoreFileContent(
   verbose?: boolean,
   allowedTypes?: Array<'reusable' | 'variable'>,
 ): string {
-  return content.replace(EXPANDED_PATTERN, (match, type, dataPath) => {
+  return content.replace(EXPANDED_PATTERN, (match, type, dataPath, resolvedContent) => {
     const refType = type as 'reusable' | 'variable'
 
     if (!allowedTypes || allowedTypes.includes(refType)) {
@@ -493,19 +515,17 @@ function restoreFileContent(
       return originalLiquid
     }
 
-    return match
+    // Keep the unselected outer block, but restore selected blocks nested inside it.
+    const restoredInner = restoreFileContent(resolvedContent, verbose, allowedTypes)
+    return `<!-- begin ${type}s.${dataPath} -->${restoredInner}<!-- end ${type}s.${dataPath} -->`
   })
 }
 
 function updateDataFiles(
-  filePath: string,
+  updates: ReturnType<typeof extractDataUpdates>,
   verbose?: boolean,
   dryRun?: boolean,
-  allowedTypes?: Array<'reusable' | 'variable'>,
 ): string[] {
-  const content = fs.readFileSync(filePath, 'utf8')
-  const updates = extractDataUpdates(content, allowedTypes)
-
   if (updates.length === 0) {
     if (verbose) {
       console.log(chalk.yellow('  No content changes found'))
@@ -547,31 +567,26 @@ function extractDataUpdates(
 ): Array<{ type: 'reusable' | 'variable'; path: string; newContent: string }> {
   const updates: Array<{ type: 'reusable' | 'variable'; path: string; newContent: string }> = []
 
-  let match
-  while ((match = EXPANDED_PATTERN.exec(content)) !== null) {
-    const [, type, dataPath, resolvedContent] = match
+  for (const [, type, dataPath, resolvedContent] of content.matchAll(EXPANDED_PATTERN)) {
     const refType = type as 'reusable' | 'variable'
+    const selected = !allowedTypes || allowedTypes.includes(refType)
 
-    if (!allowedTypes || allowedTypes.includes(refType)) {
-      // Compare expanded blocks with their source before updating data files.
+    if (selected) {
+      // Restore nested blocks of every type so data files keep Liquid tags, not markers.
+      const newContent = restoreFileContent(resolvedContent).trim()
       try {
         const originalContent = loadDataValue(refType, dataPath.trim())
-        if (originalContent !== null && resolvedContent.trim() !== originalContent.trim()) {
-          updates.push({
-            type: refType,
-            path: dataPath.trim(),
-            newContent: resolvedContent.trim(),
-          })
+        if (originalContent !== null && newContent !== originalContent.trim()) {
+          updates.push({ type: refType, path: dataPath.trim(), newContent })
         }
       } catch {
         // Keep blocks on unexpected errors; unreadable files return null from loadDataValue.
-        updates.push({
-          type: refType,
-          path: dataPath.trim(),
-          newContent: resolvedContent.trim(),
-        })
+        updates.push({ type: refType, path: dataPath.trim(), newContent })
       }
     }
+
+    // EXPANDED_PATTERN matches only the outermost block, and a selected block collapses all types.
+    updates.push(...extractDataUpdates(resolvedContent, selected ? undefined : allowedTypes))
   }
 
   return updates

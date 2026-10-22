@@ -201,7 +201,9 @@ This pattern gives every worker a clear owner and lets the parent session reason
 
 Fleet mode invokes sub-agents through the runtime's task mechanism. The runtime emits hook activity for sub-agent tool calls: the runtime 1.0.52 changelog notes that `preToolUse`, `postToolUse`, `subagentStart`, and `subagentStop` fire correctly for sub-agent tool calls.
 
-A dedicated SDK hook callback for `subagentStart` or `subagentStop` was not found in the public SDK surface on this branch. SDK consumers can observe sub-agent activity through the generic session event stream, which includes events such as `subagent.started`, `subagent.completed`, `subagent.failed`, `subagent.selected`, and `subagent.deselected`.
+All six SDKs expose typed sub-agent lifecycle hooks: Node.js uses `onSubagentStart` and `onSubagentStop`, Python and Rust use `on_subagent_start` and `on_subagent_stop`, Go and .NET use `OnSubagentStart` and `OnSubagentStop`, and Java uses `setOnSubagentStart` and `setOnSubagentStop`. Register them when creating or resuming a session. The start hook can prepend `additionalContext` to the child's first prompt; the stop hook can request another child turn with a block reason or replace the response reported to the parent.
+
+For passive status updates, subscribe to the generic session event stream. It includes `subagent.started`, `subagent.completed`, `subagent.failed`, `subagent.selected`, and `subagent.deselected`:
 
 {% codetabs %}
 {% codetab typescript %}
@@ -270,7 +272,7 @@ Keep plugin-provided sub-agent types narrow and descriptive so the orchestrator 
 
 * Fleet mode is exposed through generated session RPC bindings and is marked experimental in several SDKs.
 * The SQL todos pattern is the canonical coordination model in the runtime guidance, but whether it is a stable extensibility contract for SDK consumers is still an open question.
-* `subagentStart` and `subagentStop` are runtime hook names; this branch exposes sub-agent lifecycle to SDK consumers through the generic session event stream, not dedicated hook callbacks.
+* Sub-agent lifecycle hook inputs identify the parent session but do not yet carry a shared tool-call ID for correlating with `subagent.*` events.
 * Plugin sub-agent registration is configured at the runtime layer through `--plugin-dir`; no SDK-level plugin registration helper was verified on this branch.
 * Java native typed bindings for `session.fleet.start` were not found in the Java SDK source on this branch.
 * Fleet mode does not remove the need for parent-agent review. Parallel workers can produce inconsistent assumptions that the orchestrator must reconcile.

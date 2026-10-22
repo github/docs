@@ -75,9 +75,35 @@ export const liquidIfVersionTags = {
   tags: ['liquid', 'versioning'],
   function: (params: RuleParams, onError: RuleErrorCallback) => {
     const content = params.lines.join('\n')
-    const tokens = getLiquidTokens(content)
-      .filter((token): token is TagToken => token.kind === TokenKind.Tag)
-      .filter((token) => token.name === 'ifversion' || token.name === 'elsif')
+    const tagTokens = getLiquidTokens(content).filter(
+      (token): token is TagToken => token.kind === TokenKind.Tag,
+    )
+
+    // An elsif in a regular if or unless block tests variables, not versions.
+    const openBlocks: string[] = []
+    const tokens: TagToken[] = []
+    let inComment = false
+    for (const token of tagTokens) {
+      const { name } = token
+      // Liquid does not parse tags in a comment body, and the first endcomment closes it.
+      if (inComment) {
+        if (name === 'endcomment') inComment = false
+        continue
+      }
+      if (name === 'comment') {
+        inComment = true
+        continue
+      }
+      if (name === 'if' || name === 'unless' || name === 'ifversion') openBlocks.push(name)
+      if (name === 'endif' || name === 'endunless') openBlocks.pop()
+      const innermostBlock = openBlocks.at(-1)
+      if (
+        name === 'ifversion' ||
+        (name === 'elsif' && (!innermostBlock || innermostBlock === 'ifversion'))
+      ) {
+        tokens.push(token)
+      }
+    }
 
     for (const token of tokens) {
       const args = token.args
@@ -166,6 +192,11 @@ function validateIfversionConditionals(cond: string, possibleVersionNames: Set<s
           `Found ${release} inside "${cond}", but ${release} is not a supported GHES release`,
         )
       }
+    }
+
+    // Ifversion does not reject longer clauses at render time, so they resolve to the wrong versions.
+    if (strParts.length > 3) {
+      errors.push(`"${cond}" is not a valid conditional`)
     }
   }
 

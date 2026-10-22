@@ -6,7 +6,7 @@ import { getFrontmatter } from '../helpers/utils'
 import type { RuleParams, RuleErrorCallback } from '@/content-linter/types'
 
 interface Frontmatter {
-  carousels?: Record<string, string[]>
+  carousels?: Record<string, unknown[]>
   layout?: string
   [key: string]: unknown
 }
@@ -88,6 +88,9 @@ export const frontmatterLandingCarousels = {
       const invalidPaths: string[] = []
 
       for (const item of articles) {
+        // GHD012 (frontmatter-schema) reports non-string entries.
+        if (typeof item !== 'string') continue
+
         if (seen.has(item)) {
           duplicates.push(item)
         } else {

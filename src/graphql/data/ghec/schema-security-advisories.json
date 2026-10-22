@@ -72,6 +72,7 @@
         },
         {
           "name": "orderBy",
+          "defaultValue": "{field: UPDATED_AT, direction: DESC}",
           "type": "SecurityAdvisoryOrder",
           "id": "securityadvisoryorder",
           "href": "/graphql/reference/security-advisories#input-object-securityadvisoryorder",
@@ -169,6 +170,7 @@
         },
         {
           "name": "orderBy",
+          "defaultValue": "{field: UPDATED_AT, direction: DESC}",
           "type": "SecurityVulnerabilityOrder",
           "id": "securityvulnerabilityorder",
           "href": "/graphql/reference/security-advisories#input-object-securityvulnerabilityorder",
@@ -648,6 +650,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: UPDATED_AT, direction: DESC}",
               "description": "<p>Ordering options for the returned topics.</p>",
               "type": {
                 "name": "SecurityVulnerabilityOrder",

@@ -536,5 +536,5 @@ Remember that creating effective instructions is an iterative process. Start wit
 ## Next steps
 
 * Take a look at some of the [example custom instructions](https://github.com/github/awesome-copilot/tree/main/instructions) in the Awesome {% data variables.product.prodname_copilot %} repository for inspiration.
-* Read [AUTOTITLE](/copilot/concepts/prompting/response-customization) to learn about the full range of customization options.
+* Read [AUTOTITLE](/copilot/concepts/prompting-and-context/custom-instructions) to learn about the full range of customization options.
 * Explore [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions) for technical details on setting up instruction files.

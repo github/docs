@@ -51,6 +51,7 @@ export const journeyTracksLiquid = {
       const properties = [
         { name: 'title', value: track.title },
         { name: 'description', value: track.description },
+        { name: 'timeCommitment', value: track.timeCommitment },
       ]
 
       for (const prop of properties) {

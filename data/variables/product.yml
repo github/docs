@@ -324,6 +324,10 @@ prodname_dependabot_security_updates: 'Dependabot security updates'
 prodname_dependabot_version_updates: 'Dependabot version updates'
 prodname_dependabot_updates: 'Dependabot updates'
 
+# GitHub package firewall
+prodname_GH_package_firewall: 'GitHub package firewall'
+prodname_package_firewall: 'Package firewall'
+
 # GitHub Archive Program
 prodname_archive: 'GitHub Archive Program'
 prodname_arctic_vault: 'Arctic Code Vault'

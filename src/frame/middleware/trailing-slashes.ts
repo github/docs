@@ -11,12 +11,13 @@ export default function trailingSlashes(req: ExtendedRequest, res: Response, nex
       while (pathname.endsWith('/')) {
         pathname = pathname.slice(0, pathname.length - 1)
       }
-      let url = pathname
+      // An empty Location resolves to the same URL, so a path of only slashes goes to the homepage.
+      if (!pathname) pathname = '/'
+      // Collapse repeated slashes in the path only, because query values can contain //.
+      let url = pathname.replace(/\/+/g, '/')
       if (split.length) {
         url += `?${split.join('?')}`
       }
-      // Collapse repeated slashes so the redirect points to one canonical URL.
-      url = url.replace(/\/+/g, '/')
       defaultCacheControl(res)
       return res.safeRedirect(301, url)
     }

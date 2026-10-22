@@ -16,7 +16,7 @@ category:
   - Track Copilot usage
 ---
 
-After you’ve viewed the {% data variables.product.prodname_copilot_short %} usage metrics dashboard, you can use this article to interpret each chart and identify opportunities to increase adoption and engagement.
+Use this article to interpret usage and adoption metrics across the {% data variables.product.prodname_copilot_short %} usage metrics and impact dashboards, and to identify opportunities to increase adoption and engagement.
 
 ## Reviewing overall usage trends
 
@@ -104,6 +104,22 @@ The adoption multiplier compares engaged users (Phase 1, 2, or 3) against passiv
 
 > [!NOTE]
 > The adoption multiplier compares two different populations of users, not the same users over time. Differences in team composition, project complexity, or seniority between engaged and passive users can influence the comparison as much as {% data variables.product.prodname_copilot_short %} adoption itself.
+
+## Reviewing industry comparisons
+
+The **Industry comparison** widget compares your enterprise's agentic adoption and leverage with aggregated results from participating peers. Review the percentile ranking, peer median, top decile, and peer distribution together. Do not treat any single value as a target.
+
+| Signal | What it suggests | Suggested action |
+|:--|:--|:--|
+| Agentic adoption is above the peer median | A larger share of your users have adopted agent-first or multi-agent workflows than in the comparison cohort. | Continue the enablement practices that support agentic workflows, and review which teams still have lower adoption. |
+| Agentic adoption is below the peer median | Your enterprise has room to expand adoption of agent-first and multi-agent workflows. | Review the adoption cohort distribution, then prioritize onboarding or enablement for teams that remain passive or code-first. |
+| Leverage is above the peer median | The ratio of merge rates between agentic and non-agentic users is higher in your enterprise than in the peer cohort. | Review the practices of teams with strong agentic adoption and consider whether those practices can be applied more broadly. |
+| Leverage is below the peer median | The ratio of merge rates between agentic and non-agentic users is lower than for the comparison cohort. | Check team composition, project complexity, and how recently agentic workflows were introduced before changing your rollout plan. |
+| Your ranking improves across reporting periods | Your enterprise's position has improved relative to the participating peer cohort. | Confirm that the improvement appears alongside sustained adoption and pull request trends before expanding enablement investment. |
+| Results are unavailable | There are not enough eligible participating peers of the same company size to provide the comparison, even after the dashboard expands the peer cohort to all industries. Results are also unavailable when your own score can't be calculated, such as when there are no active users or all active users are already agent-first or multi-agent users, leaving no non-agentic users to compare leverage with. | Review your enterprise's or organization's own adoption and leverage trends where available until a peer comparison is available. |
+| Your ranking changes but your score doesn't | The participating peer cohort changed, or the dashboard compared you with a different cohort than in the previous period. | Check which peer cohort the ranking line shows before comparing results across periods. |
+
+Industry comparisons show associations, not causation. Differences in team composition, project type, engineering practices, and adoption maturity can affect both measures. The participating peer cohort can also change between reporting periods.
 
 ## Reviewing potential return on investment
 

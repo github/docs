@@ -1,6 +1,8 @@
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 
+import { shouldPreserveUtm } from '@/frame/components/lib/utm'
+
 export const UtmPreserver = () => {
   const router = useRouter()
 
@@ -20,17 +22,6 @@ export const UtmPreserver = () => {
 
     const utmParams = getUtmParams()
     if (utmParams.toString() === '') return
-
-    const shouldPreserveUtm = (url: string): boolean => {
-      const lowercaseUrl = url.toLowerCase()
-
-      // Preserve UTMs for external github.com links, including blog.github.com, but skip docs.github.com.
-      const hasProtocol = lowercaseUrl.startsWith('https://') || lowercaseUrl.startsWith('http://')
-      const isGithubCom = lowercaseUrl.includes('github.com')
-      const isDocsGithubCom = lowercaseUrl.includes('docs.github.com')
-
-      return hasProtocol && isGithubCom && !isDocsGithubCom
-    }
 
     const addUtmParamsToUrl = (url: string, params: URLSearchParams): string => {
       try {

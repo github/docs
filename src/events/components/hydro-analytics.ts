@@ -2,7 +2,8 @@
 //
 // The client auto-collects page, title, client_id, referrer, user_agent,
 // screen_resolution, browser_resolution, browser_languages, pixel_ratio,
-// timestamp, and tz_seconds. We send every other docs-specific context field.
+// timestamp, and tz_seconds. We send the other docs-specific context fields,
+// except the survey email, comment, and bot trap fields.
 //
 // The two entry points, getOctoClientId and sendHydroAnalyticsEvent, are wrapped
 // in try/catch so a problem with the client cannot affect our primary analytics.
@@ -44,6 +45,9 @@ const AUTO_COLLECTED_FIELDS = new Set([
   'title',
 ])
 
+// The general collector feeds BI dashboards, so survey email and comments stay in the survey pipeline.
+const NOT_FORWARDED_FIELDS = new Set(['survey_email', 'survey_comment', 'survey_token'])
+
 // analytics_v0_page_view needs a flat context without fields Hydro already auto-collects.
 export function prepareData(body: Record<string, unknown>): {
   type: string
@@ -58,6 +62,7 @@ export function prepareData(body: Record<string, unknown>): {
     Object.entries(flattened)
       .filter(([, value]) => value != null)
       .filter(([key]) => !AUTO_COLLECTED_FIELDS.has(key))
+      .filter(([key]) => !NOT_FORWARDED_FIELDS.has(key))
       .map(([key, value]) => [key, String(value)]),
   )
 
@@ -74,6 +79,8 @@ export function prepareData(body: Record<string, unknown>): {
 // analytics pipeline.
 export function sendHydroAnalyticsEvent(body: Record<string, unknown>): void {
   try {
+    // /api/events rejects surveys that fill the bot trap, so the collector skips them too.
+    if (body.type === EventType.survey && body.survey_token) return
     const { type, context } = prepareData(body)
     if (type === EventType.page) {
       hydroClient.sendPageView(context)

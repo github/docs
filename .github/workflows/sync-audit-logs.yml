@@ -47,61 +47,81 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
         run: |
-          echo "Creating a new branch if needed..."
           branchname=audit-logs-schema-update-${{ steps.audit-log-allowlists.outputs.COMMIT_SHA }}
-          remotesha=$(git ls-remote --heads origin $branchname)
-          if [ -n "$remotesha" ]; then
-            echo "Branch $branchname already exists in 'github/docs-internal'. Exiting..."
+
+          # People close sync PRs that fail to deploy or merge, so do not reopen this SHA after a close.
+          # Reuse an open PR from an earlier run so a rerun does not restart its CI.
+          # --head matches fork branches too, so only trust same-repo PRs that docs-bot opened.
+          existing_pr=$(gh pr list --repo github/docs-internal --head "$branchname" --state all --json number,state,author,isCrossRepository \
+            --jq 'map(select(.author.login == "docs-bot" and (.isCrossRepository | not))) | .[0] | select(.) | "\(.number) \(.state)"')
+          if [ -n "$existing_pr" ] && [ "${existing_pr#* }" != "OPEN" ]; then
+            echo "Pull request #${existing_pr% *} for branch $branchname is ${existing_pr#* }. Exiting..."
             exit 0
+          elif [ -n "$existing_pr" ]; then
+            pr=${existing_pr% *}
+            echo "Pull request #$pr already exists for branch $branchname. Checking that it holds only the regenerated data..."
+            # Others can push to the branch, so approve only if it matches this run's output.
+            git add -A .
+            git fetch --depth=1 origin "$branchname"
+            pr_files=$(gh api --paginate "repos/github/docs-internal/pulls/$pr/files" --jq '.[].filename')
+            unexpected_files=$(echo "$pr_files" | grep -v -e '^src/audit-logs/data/' -e '^src/audit-logs/lib/config\.json$' || true)
+            if [ -n "$unexpected_files" ] || ! git diff --cached --quiet FETCH_HEAD -- src/audit-logs/data src/audit-logs/lib/config.json; then
+              echo "Pull request #$pr does not match the regenerated audit log data. Fix or close it by hand."
+              echo "Unexpected files: ${unexpected_files:-none}"
+              exit 1
+            fi
+            echo "Pull request #$pr matches the regenerated data. Skipping to approval."
+          else
+            git checkout -b $branchname
+            echo "Created a new branch $branchname"
+
+            echo "Preparing commit..."
+            git config --global user.name "docs-bot"
+            git config --global user.email "77750099+docs-bot@users.noreply.github.com"
+            git add -A .
+            echo "Prepared commit"
+
+            echo "Check if there are changes..."
+            if git diff-index --cached --quiet HEAD -- . ':(exclude)src/audit-logs/lib/config.json'
+            then
+              echo "No real changes (only the SHA in config.json moved). Exiting…"
+              exit 0
+            fi
+            echo "Changes detected, proceeding"
+
+            echo "Creating commit..."
+            git commit -m "Add updated audit log event data"
+            echo "Created commit"
+
+            # Force-push reruns over failed attempts; this workflow exclusively owns these branches.
+            echo "Pushing commit..."
+            git push --force -u origin $branchname
+            echo "Pushed commit"
+
+            echo "Creating pull request..."
+            pr=$(gh pr create \
+              --title "Update audit log event data" \
+              --body '👋 Docs First Responder. This PR updates the audit log event data with the latest changes, synced from github/audit-log-allowlists.
+              Make sure the PR builds successfully and there are no gross errors (for example, a file is deleted). You do not need to validate the contents (that is the responsibility of product teams).
+              If CI does not pass or other problems arise, contact #technical-content on slack.' \
+              --repo github/docs-internal \
+              --label audit-log-pipeline,workflow-generated \
+              --head=$branchname)
+            echo "Created pull request $pr"
           fi
-          git checkout -b $branchname
-          echo "Created a new branch $branchname"
-
-          echo "Preparing commit..."
-          git config --global user.name "docs-bot"
-          git config --global user.email "77750099+docs-bot@users.noreply.github.com"
-          git add -A .
-          echo "Prepared commit"
-
-          echo "Check if there are changes..."
-          if git diff-index --cached --quiet HEAD -- . ':(exclude)src/audit-logs/lib/config.json'
-          then
-            echo "No real changes (only the SHA in config.json moved). Exiting…"
-            exit 0
-          fi
-          echo "Changes detected, proceeding"
-
-          echo "Creating commit..."
-          git commit -m "Add updated audit log event data"
-          echo "Created commit"
-
-          echo "Pushing commit..."
-          git push origin $branchname
-          echo "Pushed commit"
-
-          echo "Creating pull request..."
-          gh pr create \
-            --title "Update audit log event data" \
-            --body '👋 Docs First Responder. This PR updates the audit log event data with the latest changes, synced from github/audit-log-allowlists.
-            Make sure the PR builds successfully and there are no gross errors (for example, a file is deleted). You do not need to validate the contents (that is the responsibility of product teams).
-            If CI does not pass or other problems arise, contact #technical-content on slack.' \
-            --repo github/docs-internal \
-            --label audit-log-pipeline,workflow-generated \
-            --head=$branchname
-          echo "Created pull request"
 
           # docs-bot cannot approve its own PR, so GITHUB_TOKEN approves it.
           echo "Approving pull request..."
           unset GITHUB_TOKEN
           gh auth login --with-token <<< "${{ secrets.GITHUB_TOKEN }}"
-          gh pr review --approve
+          gh pr review "$pr" --approve
           echo "Approved pull request"
 
           # GITHUB_TOKEN cannot enable auto-merge here, so docs-bot enables it.
           echo "Setting pull request to auto merge..."
           unset GITHUB_TOKEN
           gh auth login --with-token <<< "${{ secrets.DOCS_BOT_PAT_BASE }}"
-          gh pr merge --auto
+          gh pr merge "$pr" --auto
           echo "Set pull request to auto merge"
 
       - uses: ./.github/actions/create-workflow-failure-issue

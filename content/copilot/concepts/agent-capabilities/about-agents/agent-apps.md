@@ -29,7 +29,7 @@ You can use these entry points in the same way as you use {% data variables.copi
 
 ## How {% data variables.copilot.agent_apps %} work
 
-An {% data variables.copilot.agent_app %} is a {% data variables.product.prodname_github_app %} that a partner has configured to act as an agent. Each {% data variables.copilot.agent_app %} can define a custom agent with its own prompt, model, tools, and Model Context Protocol (MCP) servers. To learn more about custom agents and MCP, see [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-custom-agents) and [AUTOTITLE](/copilot/concepts/agents/cloud-agent/mcp-and-cloud-agent).
+An {% data variables.copilot.agent_app %} is a {% data variables.product.prodname_github_app %} that a partner has configured to act as an agent. Each {% data variables.copilot.agent_app %} can define a custom agent with its own prompt, model, tools, and Model Context Protocol (MCP) servers. To learn more about custom agents and MCP, see [AUTOTITLE](/copilot/concepts/customizations/custom-agents) and [AUTOTITLE](/copilot/concepts/customizations/mcp).
 
 {% data variables.copilot.agent_apps_caps %} can connect to the partner's own systems through MCP servers. These MCP servers authorize the {% data variables.copilot.agent_app %} using a JWT assertion issued by {% data variables.product.github %}, so the partner can securely identify your account and their {% data variables.copilot.agent_app %} without you managing additional credentials.
 

@@ -1976,6 +1976,12 @@ Version `2022-11-28` is the first version of the GitHub Enterprise Cloud REST AP
   </details>
 
 {% endif %}
+{% if query.apiVersion == nil or "2022-11-28" <= query.apiVersion %}
+## Version 2022-11-28
+
+Version `2022-11-28` is the first version of the {% data variables.product.prodname_ghe_server %} REST API after date-based versioning was introduced. This version does not include any breaking changes.
+
+{% endif %}
 {% endif %}
 
 {% ifversion ghes = 3.21 %}
@@ -2647,6 +2653,39 @@ Version `2022-11-28` is the first version of the GitHub Enterprise Cloud REST AP
   - `POST /users/{username}/attestations/bulk-list`
 
   </details>
+
+{% endif %}
+{% if query.apiVersion == nil or "2022-11-28" <= query.apiVersion %}
+## Version 2022-11-28
+
+Version `2022-11-28` is the first version of the {% data variables.product.prodname_ghe_server %} REST API after date-based versioning was introduced. This version does not include any breaking changes.
+
+{% endif %}
+{% endif %}
+
+{% ifversion ghes = 3.20 %}
+{% if query.apiVersion == nil or "2022-11-28" <= query.apiVersion %}
+## Version 2022-11-28
+
+Version `2022-11-28` is the first version of the {% data variables.product.prodname_ghe_server %} REST API after date-based versioning was introduced. This version does not include any breaking changes.
+
+{% endif %}
+{% endif %}
+
+{% ifversion ghes = 3.19 %}
+{% if query.apiVersion == nil or "2022-11-28" <= query.apiVersion %}
+## Version 2022-11-28
+
+Version `2022-11-28` is the first version of the {% data variables.product.prodname_ghe_server %} REST API after date-based versioning was introduced. This version does not include any breaking changes.
+
+{% endif %}
+{% endif %}
+
+{% ifversion ghes = 3.18 %}
+{% if query.apiVersion == nil or "2022-11-28" <= query.apiVersion %}
+## Version 2022-11-28
+
+Version `2022-11-28` is the first version of the {% data variables.product.prodname_ghe_server %} REST API after date-based versioning was introduced. This version does not include any breaking changes.
 
 {% endif %}
 {% endif %}

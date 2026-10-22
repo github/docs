@@ -78,7 +78,9 @@ export default function handleInvalidPaths(
 
   if (req.path.endsWith('/index.md')) {
     defaultCacheControl(res)
-    const newUrl = req.originalUrl.replace(req.path, req.path.replace(/\/index\.md$/, ''))
+    // An empty path for /index.md would make the Location resolve back to /index.md.
+    const newPath = req.path.replace(/\/index\.md$/, '') || '/'
+    const newUrl = req.originalUrl.replace(req.path, newPath)
     return res.safeRedirect(newUrl)
   }
 

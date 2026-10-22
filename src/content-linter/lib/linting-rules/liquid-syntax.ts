@@ -34,14 +34,15 @@ export const frontmatterLiquidSyntax = {
         if (!isLiquidError(error)) throw error
         const { errorDescription, columnNumber } = getErrorMessageInfo((error as Error).message)
         const lineNumber = params.lines.findIndex((line) => line.trim().startsWith(`${key}:`)) + 1
+        const line = params.lines[lineNumber - 1]
         // Offset for the key, colon, space, and 1-based column; missing spaces throw YAMLException.
         const startRange = columnNumber + key.length + 3
-        // Clamp the range to the line length when Liquid reports past the end.
-        const endRange =
-          startRange + value.length - 1 > params.lines[lineNumber - 1].length
-            ? params.lines[lineNumber - 1].length - startRange + 1
-            : value.length
-        const range: [number, number] = [startRange, endRange]
+        // Block and multiline values continue on later lines, so the column does not map to the key line.
+        const isBlockScalar = /^[|>]/.test(line.slice(line.indexOf(':') + 1).trim())
+        const range: [number, number] | null =
+          !isBlockScalar && startRange <= line.length
+            ? [startRange, Math.min(value.length, line.length - startRange + 1)]
+            : null
         addError(
           onError,
           lineNumber,
@@ -84,10 +85,12 @@ export const liquidSyntax = {
 }
 
 function getErrorMessageInfo(message: string): ErrorMessageInfo {
-  const [errorDescription, lineString, columnString] = message.split(',')
-  if (!columnString || !lineString)
-    throw new Error('Liquid error message does not contain line or column number')
-  const lineNumber = parseInt(lineString.trim().replace('line:', ''), 10)
-  const columnNumber = parseInt(columnString.trim().replace('col:', ''), 10)
-  return { errorDescription, lineNumber, columnNumber }
+  // Match the suffix LiquidJS appends because the description itself can contain commas.
+  const match = message.match(/^([\s\S]*), line:(\d+), col:(\d+)$/)
+  if (!match) throw new Error('Liquid error message does not contain line or column number')
+  return {
+    errorDescription: match[1],
+    lineNumber: Number(match[2]),
+    columnNumber: Number(match[3]),
+  }
 }

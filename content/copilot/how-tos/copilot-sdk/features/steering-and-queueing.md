@@ -47,7 +47,7 @@ Source identifies origin. Delivery mode requests urgency. Neither requires the r
 A successful high-level `send` acknowledgement returns a message ID and confirms acceptance, not that the recipient has consumed the message. Do not automatically resend an accepted message merely because no reply appears. Send-and-wait can complete on an idle event without an assistant message.
 
 > [!WARNING]
-> Remote backends do not necessarily preserve source end to end. The agent session can include source in its local echo without carrying it in the remote HTTP request. A local source event does not prove that the remote worker received the same provenance.
+> Remote backends do not necessarily preserve source end to end. Mission Control can include source in its local echo without carrying it in the remote HTTP request. A local source event does not prove that the remote worker received the same provenance.
 
 ## Steering (immediate mode)
 

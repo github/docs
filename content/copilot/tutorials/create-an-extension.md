@@ -22,7 +22,7 @@ In this tutorial, you'll build two simple extensions as examples of what you can
 * A tool, called `tool-time`, that {% data variables.product.prodname_copilot_short %} can call to report how long its tool calls have taken so far in a session.
 * A slash command, called `/tokencount`, that reports how many tokens you've used since you started counting.
 
-Both examples rely only on the SDK that's bundled with the {% data variables.copilot.copilot_cli_short %}, so there's nothing extra to install. For background on how extensions work, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-cli-extensions).
+Both examples rely only on the SDK that's bundled with the {% data variables.copilot.copilot_cli_short %}, so there's nothing extra to install. For background on how extensions work, see [AUTOTITLE](/copilot/concepts/customizations/extensions).
 
 > [!WARNING]
 > Extensions execute on your computer with your privileges. Only load extension code that you trust, in the same way you would only run any other script you didn't write yourself.
@@ -33,6 +33,22 @@ Both examples rely only on the SDK that's bundled with the {% data variables.cop
 * **Experimental features enabled**: Extensions are currently an experimental feature. The steps in this tutorial turn on experimental features each time you start the CLI, using the `‑‑experimental` command line option.
 * **JavaScript**: Extensions are written in JavaScript, so you'll need to be familiar with this language to create your own extensions.
 * **A repository**: The second example adds a project-level extension, so you'll need a local copy of a Git repository in which to add the extension.
+
+## Choosing an extension location
+
+Each CLI extension lives in a named directory containing an entry file called `extension.mjs`, `extension.cjs`, or `extension.js`. The directory name becomes the extension name. The CLI runs the entry file directly with Node.js, so write it in JavaScript rather than TypeScript.
+
+| Source | Location | Availability |
+| --- | --- | --- |
+| Project | `.github/extensions/NAME/` in the current repository | Sessions working in that repository |
+| User | `~/.copilot/extensions/NAME/` | Your CLI sessions across directories |
+| Plugin | An installed plugin | Wherever the plugin is enabled |
+
+Use a project extension to share project-specific functionality with collaborators. Use a user extension for personal functionality across projects. Both use the same directory structure, so you can share a personal extension by moving its directory into a repository's `.github/extensions/` directory.
+
+Extensions must be enabled before they can run. You can start the CLI with `--experimental`, as the examples below do, or run `/experimental on` in an existing interactive session.
+
+For controls over loading extensions and letting the agent manage them, see [Extension modes](/copilot/reference/copilot-cli-reference/cli-command-reference#extension-modes).
 
 ## Example extension 1: A "tool time" tool
 

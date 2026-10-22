@@ -1,11 +1,14 @@
 import { afterEach, beforeEach, describe, expect, test, vi } from 'vitest'
+import { Kind, parse } from 'graphql'
+import type { FieldNode, ObjectValueNode, OperationDefinitionNode } from 'graphql'
 
 const graphql = vi.fn()
 vi.mock('@octokit/graphql', () => ({
   graphql: (...args: unknown[]) => graphql(...args),
 }))
 
-const { isDocsTeamMember } = await import('@/workflows/projects')
+const { isDocsTeamMember, generateUpdateProjectV2ItemFieldMutation } =
+  await import('@/workflows/projects')
 
 function servesMembers(logins: string[]) {
   return { organization: { team: { members: { nodes: logins.map((login) => ({ login })) } } } }
@@ -58,5 +61,47 @@ describe('isDocsTeamMember', () => {
     await isDocsTeamMember('heiskr')
 
     expect(warn).toHaveBeenCalledWith(expect.stringContaining('DOCS_TEAM_SLUG'))
+  })
+})
+
+describe('generateUpdateProjectV2ItemFieldMutation', () => {
+  function topLevelFields(mutation: string) {
+    const operation = parse(mutation).definitions[0] as OperationDefinitionNode
+    return operation.selectionSet.selections as FieldNode[]
+  }
+
+  function textValues(fields: FieldNode[]) {
+    return fields.flatMap((field) => {
+      const input = field.arguments?.find((arg) => arg.name.value === 'input')
+      const value = (input?.value as ObjectValueNode).fields.find((f) => f.name.value === 'value')
+      const text = (value?.value as ObjectValueNode).fields.find((f) => f.name.value === 'text')
+      return text?.value.kind === Kind.STRING ? [text.value.value] : []
+    })
+  }
+
+  test('cannot add fields to the mutation through the feature value', () => {
+    // Feature comes from changed content paths, which fork PRs control.
+    const feature =
+      'actions,a" } }) { projectV2Item { id } } injected: __typename b: updateProjectV2ItemFieldValue(input: { value: { text: "z'
+
+    const fields = topLevelFields(
+      generateUpdateProjectV2ItemFieldMutation({ item: 'PVTI_abc123', author: 'octocat', feature }),
+    )
+
+    expect(fields.map((field) => field.name.value)).toEqual(
+      Array(7).fill('updateProjectV2ItemFieldValue'),
+    )
+    expect(textValues(fields)).toEqual([feature, 'octocat'])
+  })
+
+  test('keeps quotes and backslashes in text values', () => {
+    const feature = 'say "hi"'
+    const author = 'back\\slash\\'
+
+    const fields = topLevelFields(
+      generateUpdateProjectV2ItemFieldMutation({ item: 'PVTI_abc123', author, feature }),
+    )
+
+    expect(textValues(fields)).toEqual([feature, author])
   })
 })

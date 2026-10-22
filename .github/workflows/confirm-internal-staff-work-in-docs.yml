@@ -4,9 +4,9 @@ name: Confirm internal staff meant to post in public
 
 on:
   issues:
+    # Issues moved into github/docs arrive as opened. The transferred event fires in the source repo.
     types:
       - opened
-      - transferred
   # pull_request_target lets the workflow check org membership for forked PR authors.
   pull_request_target:
     types:

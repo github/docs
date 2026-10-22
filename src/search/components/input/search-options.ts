@@ -158,8 +158,10 @@ export function buildSearchOptions({
     noResults = true
   }
 
+  // Match SearchGroups: while ask-AI docs load, a spinner replaces the docs rows.
+  const docsHidden = isAskAIState && !aiSearchError && searchLoading
   // Must match render order: AI rows or references, then docs rows, then view-all last.
-  const rows = suggestionsHidden ? [] : [...ai, ...references, ...general]
+  const rows = suggestionsHidden ? [] : [...ai, ...references, ...(docsHidden ? [] : general)]
   const options = [...rows, ...(viewAll ? [viewAll] : [])]
 
   return { options, ai, references, general, viewAll, noResults }

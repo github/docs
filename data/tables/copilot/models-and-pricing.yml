@@ -21,17 +21,6 @@
 # - notes: Optional notes about the model.
 
 # OpenAI
-- model: 'GPT-5 mini'
-  provider: openai
-  release_status: GA
-  category: Lightweight
-  threshold: Not applicable
-  tier: Default
-  input: $0.25
-  cached_input: $0.025
-  output: $2.00
-  cache_write: Not applicable
-
 - model: GPT-5.3-Codex
   provider: openai
   release_status: GA
@@ -43,39 +32,6 @@
   output: $14.00
   cache_write: Not applicable
 
-- model: 'GPT-5.4'
-  provider: openai
-  release_status: GA
-  category: Versatile
-  threshold: '≤ 272K'
-  tier: Default
-  input: $2.50
-  cached_input: $0.25
-  output: $15.00
-  cache_write: Not applicable
-
-- model: GPT-5.4
-  provider: openai
-  release_status: GA
-  category: Versatile
-  threshold: '> 272K'
-  tier: Long context
-  input: $5.00
-  cached_input: $0.50
-  output: $22.50
-  cache_write: Not applicable
-
-- model: GPT-5.4 mini
-  provider: openai
-  release_status: GA
-  category: Lightweight
-  threshold: Not applicable
-  tier: Default
-  input: $0.75
-  cached_input: $0.075
-  output: $4.50
-  cache_write: Not applicable
-
 - model: GPT-5.4 nano
   provider: openai
   release_status: GA
@@ -85,28 +41,6 @@
   input: $0.20
   cached_input: $0.02
   output: $1.25
-  cache_write: Not applicable
-
-- model: GPT-5.5
-  provider: openai
-  release_status: GA
-  category: Powerful
-  threshold: '≤ 272K'
-  tier: Default
-  input: $5.00
-  cached_input: $0.50
-  output: $30.00
-  cache_write: Not applicable
-
-- model: GPT-5.5
-  provider: openai
-  release_status: GA
-  category: Powerful
-  threshold: '> 272K'
-  tier: 'Long context'
-  input: $10.00
-  cached_input: $1.00
-  output: $45.00
   cache_write: Not applicable
 
 - model: GPT-5.6 Luna
@@ -386,16 +320,6 @@
   cache_write: $12.50
 
 # Google
-- model: 'Gemini 3.7 Flash[^gemini-flash-promo]'
-  provider: google
-  release_status: GA
-  category: Versatile
-  threshold: 'Not applicable'
-  tier: 'Default'
-  input: $0.75
-  cached_input: $0.075
-  output: $3.75
-
 - model: 'Gemini 3.8 Flash[^gemini-flash-promo]'
   provider: google
   release_status: GA

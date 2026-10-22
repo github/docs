@@ -430,12 +430,31 @@ Emitted when a tool begins executing.
 
 ### `tool.execution_partial_result`
 
-Ephemeral. Incremental output from a running tool (e.g., streaming bash output).
+Deprecated. Use `tool.shell_output` for live terminal output. This ephemeral event remains emitted alongside the replacement during migration; subscribe to only one representation to avoid displaying the same output twice.
 
 | Data Field | Type | Required | Description |
 |------------|------|----------|-------------|
 | `toolCallId` | `string` | ✅ | Matches the corresponding `tool.execution_start` |
-| `partialOutput` | `string` | ✅ | Incremental output chunk |
+| `partialOutput` | `string` | ✅ | Bounded, cumulative replacement snapshot with stdout and stderr merged; not an append-only chunk |
+
+### `tool.shell_output`
+
+Ephemeral. Append-only output from an attached terminal command or a user-requested terminal command. Each event contains newly observed, secret-filtered text, without the separators or markers used to format final tool results for the model.
+
+| Data Field | Type | Required | Description |
+|------------|------|----------|-------------|
+| `toolCallId` | `string` | ✅ | Identifies the originating tool call |
+| `text` | `string` | ✅ | New text to append, not a replacement snapshot |
+| `stream` | `"stdout" \| "stderr" \| "terminal"` | | Output source; omitted means `"stdout"`. `"terminal"` identifies inherently merged PTY output, whose stdout/stderr origin cannot be recovered |
+| `sequence` | `number` | ✅ | Starts at zero and increases across all streams for this tool call, in observed publication order |
+
+Accumulate `text` separately by `toolCallId` and `stream`, or join the chunks in sequence order for a combined display. A sequence number identifies duplicates and missing chunks; it does not establish exact ordering between independent operating-system writes. A late subscriber can receive a first sequence greater than zero.
+
+These events are live-only: they are not persisted or replayed after resume. Final `tool.execution_complete` results, model-facing formatting, and detached command capture are unchanged. Text can contain terminal control sequences; renderers must apply their normal terminal-text handling.
+
+An attached terminal command can keep running after `tool.execution_complete` when it runs asynchronously or continues beyond `initial_wait`. Output received while it continues uses the original `toolCallId` and continues the same `sequence`, rather than restarting at zero. Consumers that display only active calls must ignore chunks received after completion instead of recreating completed-call state.
+
+Secret filtering operates on each decoded chunk. The runtime does not artificially split lines, but operating-system reads can divide a line or secret across chunks; cross-chunk secret reconstruction is not provided.
 
 ### `tool.execution_progress`
 
@@ -457,7 +476,7 @@ Emitted when a tool finishes executing—successfully or with an error.
 | `model` | `string` | | Model that generated this tool call |
 | `interactionId` | `string` | | CAPI interaction ID |
 | `isUserRequested` | `boolean` | | `true` when the user explicitly requested this tool call |
-| `result` | `Result` | | Present on success (see below) |
+| `result` | `Result` | | Present on success, and on failure when the tool returned content with its error (see below) |
 | `error` | `{ message, code? }` | | Present on failure |
 | `toolTelemetry` | `object` | | Tool-specific telemetry (e.g., CodeQL check counts) |
 | `parentToolCallId` | `string` | | Deprecated. Use envelope-level `agentId` for sub-agent attribution |
@@ -613,7 +632,7 @@ The `permissionRequest` is a discriminated union on `kind`:
 | `kind` | Key Fields | Description |
 |--------|------------|-------------|
 | `"shell"` | `fullCommandText`, `intention`, `commands[]`, `possiblePaths[]` | Execute a shell command |
-| `"write"` | `fileName`, `diff`, `intention`, `newFileContents?` | Write/modify a file |
+| `"write"` | `fileName`, `diff`, `intention`, `newFileContents?`, `fileEdits?` | Write/modify a file |
 | `"read"` | `path`, `intention` | Read a file or directory |
 | `"mcp"` | `serverName`, `toolName`, `toolTitle`, `args?`, `readOnly` | Call an MCP tool |
 | `"url"` | `url`, `intention` | Fetch a URL |
@@ -621,6 +640,10 @@ The `permissionRequest` is a discriminated union on `kind`:
 | `"custom-tool"` | `toolName`, `toolDescription`, `args?` | Call a custom tool |
 
 All `kind` variants also include an optional `toolCallId` linking back to the tool call that triggered the request.
+
+Write requests can also include `fileEdits` in both `permissionRequest` and `promptRequest`. Each entry contains an optional `before` and `after` snapshot, each with an absolute `path` in the session filesystem namespace and complete UTF-8 `content`. A missing `before` means creation; a missing `after` means deletion. An empty `content` string represents an empty file, not an unavailable preview. A move can have different paths on its two sides. When a move overwrites an existing destination, separate entries describe the source deletion and destination replacement.
+
+These snapshots describe the planned operation, not a later read of the live filesystem. The runtime omits `fileEdits` when it cannot provide a complete text preview, including requests made before reading a sandbox-protected file, non-UTF-8 contents, or an unreadable or non-regular move destination, such as a named pipe. Do not infer a deletion from an empty legacy `newFileContents` value. The existing fields and approval choices remain available to consumers that do not use previews.
 
 ### `permission.completed`
 
@@ -735,7 +758,7 @@ A skill was activated for the current conversation.
 | `name` | `string` | ✅ | Skill name |
 | `path` | `string` | ✅ | File path to the SKILL.md definition |
 | `content` | `string` | ✅ | Full skill content injected into the conversation |
-| `allowedTools` | `string[]` | | Tools auto-approved while this skill is active |
+| `allowedTools` | `string[]` | | Tools listed in the skill's `allowed-tools` frontmatter. The SDK doesn't approve them automatically; your permission handler still decides. The Copilot CLI auto-approves them while the skill is active. |
 | `pluginName` | `string` | | Plugin the skill originated from |
 | `pluginVersion` | `string` | | Plugin version |
 
@@ -868,7 +891,7 @@ assistant.turn_start          → Turn begins
 │   ├── permission.requested  → Needs user approval
 │   ├── permission.completed  → Approval result
 │   ├── tool.execution_start  → Tool begins
-│   ├── tool.execution_partial_result  → Streaming tool output (ephemeral, repeated)
+│   ├── tool.shell_output              → Stream-tagged terminal output (ephemeral, repeated)
 │   ├── tool.execution_progress        → Progress updates (ephemeral, repeated)
 │   ├── tool.execution_complete        → Tool finished
 │   │
@@ -896,6 +919,7 @@ This table lists key `data` payload fields. Common envelope fields are documente
 | `tool.user_requested` | | Tool | `toolCallId`, `toolName`, `arguments?` |
 | `tool.execution_start` | | Tool | `toolCallId`, `toolName`, `arguments?`, `mcpServerName?` |
 | `tool.execution_partial_result` | ✅ | Tool | `toolCallId`, `partialOutput` |
+| `tool.shell_output` | ✅ | Tool | `toolCallId`, `text`, `stream?`, `sequence` |
 | `tool.execution_progress` | ✅ | Tool | `toolCallId`, `progressMessage` |
 | `tool.execution_complete` | | Tool | `toolCallId`, `success`, `result?`, `error?` |
 | `session.idle` | ✅ | Session | `aborted?` |

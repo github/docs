@@ -5,7 +5,6 @@ import type { Response } from 'express'
 import type { BreadcrumbT } from '@/frame/components/page-header/Breadcrumbs'
 import type { FeatureFlags } from '@/frame/components/hooks/useFeatureFlags'
 import type { ExtendedRequest, Permalink, SidebarLink } from '@/types'
-import { SIDEBAR_EXPANDED_COOKIE_NAME, SIDEBAR_COLLAPSED_COOKIE_NAME } from '@/frame/lib/constants'
 
 export type ProductT = {
   external: boolean
@@ -126,14 +125,6 @@ export type MainContextT = {
   } | null
   relativePath?: string | null
   sidebarTree?: ProductTreeNode | null
-  // Per-category expand/collapse overrides for the doc-tree sidebar, read from the
-  // sidebar_expanded cookie during SSR so the tree renders in its persisted state
-  // on first paint (no post-mount flash). Keyed by locale-prefixed href.
-  sidebarExpanded?: Record<string, boolean> | null
-  // Whether the desktop doc-tree rail is collapsed, read from the sidebar_collapsed
-  // cookie during SSR so the rail renders in its persisted state on first paint
-  // (no flash of the open sidebar before it collapses post-mount).
-  sidebarCollapsed?: boolean
   status: number
   xHost?: string
 }
@@ -169,18 +160,6 @@ export function addUINamespaces(req: ExtendedRequest, ui: UIStrings, namespaces:
       )
     }
     ui[namespace] = pool[namespace]
-  }
-}
-
-// Guard cookie parsing so a malformed or absent sidebar_expanded value degrades to no overrides.
-function parseSidebarExpandedCookie(req: ExtendedRequest): Record<string, boolean> {
-  const raw = req.cookies?.[SIDEBAR_EXPANDED_COOKIE_NAME]
-  if (!raw) return {}
-  try {
-    const parsed = JSON.parse(raw)
-    return parsed && typeof parsed === 'object' ? (parsed as Record<string, boolean>) : {}
-  } catch {
-    return {}
   }
 }
 
@@ -296,10 +275,6 @@ export const getMainContext = async (
     relativePath: context.page?.relativePath || null,
     // Sidebar and REST pages need the minimal product tree.
     sidebarTree: (includeSidebarTree && context.sidebarTree) || null,
-    sidebarExpanded: includeSidebarTree ? parseSidebarExpandedCookie(req) : null,
-    sidebarCollapsed: includeSidebarTree
-      ? req.cookies?.[SIDEBAR_COLLAPSED_COOKIE_NAME] === 'true'
-      : false,
     status: res.statusCode,
     xHost: req.get('x-host') || '',
   }

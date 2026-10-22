@@ -260,7 +260,7 @@ Download any missing queries before analyzing.
 
 ### Options to control the model packs to be used
 
-#### `--model-packs=<`<name@range>>...
+#### `--model-packs=<name@range>...`
 
 A list of CodeQL pack names, each with an optional version range, to be
 used as model packs to customize the queries that are about to be

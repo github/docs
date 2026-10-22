@@ -730,6 +730,24 @@
         "access": "write"
       },
       {
+        "category": "copilot",
+        "slug": "get-model-policies-for-an-organization",
+        "subcategory": "copilot-model-policy-management",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/copilot/model-policies",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "copilot",
+        "slug": "update-model-policies-for-an-organization",
+        "subcategory": "copilot-model-policy-management",
+        "verb": "patch",
+        "requestPath": "/orgs/{org}/copilot/model-policies",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
         "category": "orgs",
         "slug": "list-saml-sso-authorizations-for-an-organization",
         "subcategory": "orgs",

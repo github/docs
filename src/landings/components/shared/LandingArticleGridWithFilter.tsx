@@ -61,6 +61,7 @@ export const ArticleGrid = ({
   updateParams,
 }: ArticleGridProps) => {
   const { t } = useTranslation('product_landing')
+  const { locale } = useRouter()
   const articlesPerPage = useResponsiveArticlesPerPage()
 
   const inputRef = useRef<HTMLInputElement>(null)
@@ -71,7 +72,7 @@ export const ArticleGrid = ({
   const selectedCategory = params['articles-category'] || ALL_CATEGORIES
   const currentPage = parseInt(params['articles-page'] || '1', 10)
 
-  const allArticles = useMemo(() => flattenArticles(tocItems), [tocItems])
+  const allArticles = useMemo(() => flattenArticles(tocItems, locale), [tocItems, locale])
 
   const stopWords = useMemo(() => deriveStopWords(allArticles), [allArticles])
 
@@ -102,9 +103,9 @@ export const ArticleGrid = ({
           const lowerCategory = category.toLowerCase()
           return includedCategories.some((included) => included.toLowerCase() === lowerCategory)
         })
-        .sort((a, b) => a.localeCompare(b)),
+        .sort((a, b) => a.localeCompare(b, locale)),
     ],
-    [filteredArticlesByLandingType, includedCategories],
+    [filteredArticlesByLandingType, includedCategories, locale],
   )
 
   const selectedCategoryIndex = useMemo(() => {
@@ -141,7 +142,12 @@ export const ArticleGrid = ({
   const filteredResults = applyFilters()
 
   const totalPages = Math.ceil(filteredResults.length / articlesPerPage)
-  const startIndex = (currentPage - 1) * articlesPerPage
+  // Page count depends on viewport width and filters, so a URL page can be out of range here.
+  const displayPage = Math.min(
+    Math.max(1, Number.isFinite(currentPage) ? currentPage : 1),
+    Math.max(1, totalPages),
+  )
+  const startIndex = (displayPage - 1) * articlesPerPage
   const paginatedResults = filteredResults.slice(startIndex, startIndex + articlesPerPage)
 
   const handleSearch = (query: string) => {
@@ -347,7 +353,7 @@ export const ArticleGrid = ({
           </div>
           <Pagination
             pageCount={totalPages}
-            currentPage={currentPage}
+            currentPage={displayPage}
             onPageChange={handlePageChange}
           />
         </div>

@@ -143,6 +143,8 @@ interface GraphQLInterfaceInfo {
 interface EnumValueInfo {
   name: string
   description: string
+  isDeprecated?: boolean
+  deprecationReason?: string
 }
 
 interface EnumInfo {
@@ -509,10 +511,7 @@ export default async function processSchemas(
               (field.arguments || []).map(async (arg: InputValueDefinitionNode) => {
                 const queryArg: Partial<QueryArgumentInfo> = {}
                 queryArg.name = arg.name.value
-                queryArg.defaultValue =
-                  arg.defaultValue && 'value' in arg.defaultValue
-                    ? arg.defaultValue.value
-                    : undefined
+                queryArg.defaultValue = helpers.getDefaultValue(arg.defaultValue)
                 const argType = helpers.getType(arg)
                 if (!argType) return
                 queryArg.type = argType
@@ -820,6 +819,11 @@ export default async function processSchemas(
               name: value.name.value,
               description: await helpers.getDescription(value.description?.value || ''),
             }
+            enumValue.isDeprecated = helpers.getDeprecationStatus(value.directives || [])
+            enumValue.deprecationReason = await helpers.getDeprecationReason(
+              value.directives || [],
+              enumValue,
+            )
             enumValues.push(enumValue)
           }),
         )
@@ -960,7 +964,8 @@ export default async function processSchemas(
     }),
   )
 
-  data.scalars = sortBy(data.scalars.concat(externalScalars), 'name')
+  // Copies keep in-place href rewriting in bucketing from compounding across versions.
+  data.scalars = sortBy(data.scalars.concat(externalScalars.map((s) => ({ ...s }))), 'name')
 
   data.queries = sortBy(data.queries, 'name')
   data.mutations = sortBy(data.mutations, 'name')

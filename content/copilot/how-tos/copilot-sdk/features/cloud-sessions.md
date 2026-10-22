@@ -201,7 +201,7 @@ A few notes:
 
 ## Accessing the agent session URL
 
-Cloud sessions are inherently remote: once the worker connects, the session is published to `https://github.com/copilot/tasks/{sessionId}` and the runtime emits a `session.info` event with the URL. You do **not** need to call `remote.enable()`— that API is only for syncing a local session to {% data variables.product.github %}.
+Cloud sessions are inherently remote: once the worker connects, the session is published to `https://github.com/copilot/tasks/{sessionId}` and the runtime emits a `session.info` event with the URL. You do **not** need to call `remote.enable()`—that API is only for syncing a local session to {% data variables.product.github %}.
 
 Capture the URL by subscribing to `session.info` and filtering by `infoType: "remote"`:
 

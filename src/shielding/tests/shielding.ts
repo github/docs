@@ -89,6 +89,18 @@ describe('index.md and .md suffixes', () => {
       expect(res.statusCode).toBe(302)
       expect(res.headers.location).toBe('/get-started?foo=bar')
     }
+    // Root
+    {
+      const res = await get('/index.md')
+      expect(res.statusCode).toBe(302)
+      expect(res.headers.location).toBe('/')
+    }
+    // Root with query string
+    {
+      const res = await get('/index.md?foo=bar')
+      expect(res.statusCode).toBe(302)
+      expect(res.headers.location).toBe('/?foo=bar')
+    }
   })
 
   test('any URL that ends with .md serves markdown directly', async () => {

@@ -111,6 +111,16 @@ describe('analyzeComment', () => {
       expect(signals.includes('too-short')).toBeTruthy()
       expect(rating).toBeLessThan(1.0)
     }
+    {
+      const { signals } = await analyzeComment('ありがとうございます', 'ja')
+      expect(signals.includes('too-short')).toBeTruthy()
+      expect(signals.includes('single-word')).toBeFalsy()
+    }
+    {
+      const { signals } = await analyzeComment('www.example.com/some/path 谢谢', 'zh')
+      expect(signals.includes('too-short')).toBeTruthy()
+      expect(signals.includes('single-word')).toBeFalsy()
+    }
 
     {
       const { signals } = await analyzeComment('A\nB\nC\nD')
@@ -119,6 +129,22 @@ describe('analyzeComment', () => {
     {
       const { signals } = await analyzeComment('One two three four ')
       expect(signals.includes('too-short')).toBeFalsy()
+    }
+    {
+      const { signals, rating } = await analyzeComment(
+        'このページの説明が分かりにくいです。コード例を追加してください。',
+        'ja',
+      )
+      expect(signals.includes('too-short')).toBeFalsy()
+      expect(rating).toBe(1.0)
+    }
+    {
+      const { signals, rating } = await analyzeComment(
+        '这个页面的说明不太清楚，请添加更多的代码示例，谢谢。',
+        'zh',
+      )
+      expect(signals.includes('too-short')).toBeFalsy()
+      expect(rating).toBe(1.0)
     }
   })
 
@@ -144,7 +170,27 @@ describe('analyzeComment', () => {
       expect(signals.includes('single-word')).toBeFalsy()
     }
     {
+      const { signals, rating } = await analyzeComment('谢谢', 'zh')
+      expect(signals.includes('single-word')).toBeTruthy()
+      expect(rating).toBeLessThan(1.0)
+    }
+
+    {
       const { signals } = await analyzeComment('  one   two\tthree ')
+      expect(signals.includes('single-word')).toBeFalsy()
+    }
+    {
+      const { signals } = await analyzeComment(
+        'このページの説明が分かりにくいです。コード例を追加してください。',
+        'ja',
+      )
+      expect(signals.includes('single-word')).toBeFalsy()
+    }
+    {
+      const { signals } = await analyzeComment(
+        '这个页面的说明不太清楚，请添加更多的代码示例，谢谢。',
+        'zh',
+      )
       expect(signals.includes('single-word')).toBeFalsy()
     }
   })
@@ -204,6 +250,39 @@ describe('analyzeComment', () => {
 
     {
       const { signals } = await analyzeComment('Great 👍')
+      expect(signals.includes('mostly-emoji')).toBeFalsy()
+    }
+    {
+      const { signals, rating } = await analyzeComment('5 stars ⭐⭐⭐⭐⭐')
+      expect(signals.includes('mostly-emoji')).toBeTruthy()
+      expect(rating).toBeLessThan(1.0)
+    }
+    {
+      const { signals, rating } = await analyzeComment('🇺🇸 🇨🇦')
+      expect(signals.includes('mostly-emoji')).toBeTruthy()
+      expect(rating).toBeLessThan(1.0)
+    }
+    {
+      const { signals, rating } = await analyzeComment('👍🏽 👍🏽')
+      expect(signals.includes('mostly-emoji')).toBeTruthy()
+      expect(rating).toBeLessThan(1.0)
+    }
+    {
+      const { signals, rating } = await analyzeComment('1️⃣ 2️⃣')
+      expect(signals.includes('mostly-emoji')).toBeTruthy()
+      expect(rating).toBeLessThan(1.0)
+    }
+  })
+
+  test('mostly-emoji ignores digits, # and *', async () => {
+    for (const comment of [
+      'GHES 3.14.2 vs 3.15.1',
+      'See #1234 and #5678',
+      'Version 3.14 broken on 3.15',
+      'Error 500 on 2024-01-01',
+      'Step *1* and *2*',
+    ]) {
+      const { signals } = await analyzeComment(comment)
       expect(signals.includes('mostly-emoji')).toBeFalsy()
     }
   })

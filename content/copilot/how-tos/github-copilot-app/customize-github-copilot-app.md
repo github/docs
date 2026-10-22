@@ -75,7 +75,7 @@ Use the agent picker dropdown in the prompt box to select a {% data variables.co
 
 Alternatively, type `/agent` in the prompt box to choose and invoke a {% data variables.copilot.copilot_custom_agent_short %}.
 
-For more information, see [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-custom-agents).
+For more information, see [AUTOTITLE](/copilot/concepts/customizations/custom-agents).
 
 ## Adding plugins
 

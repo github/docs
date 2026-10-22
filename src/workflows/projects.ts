@@ -262,7 +262,10 @@ export function generateUpdateProjectV2ItemFieldMutation({
     fieldType: string
     literal?: boolean
   }) {
-    const parsedValue = literal ? `${fieldType}: "${value}"` : `${fieldType}: ${value}`
+    // Feature names come from PR file paths, so escape literals to keep them inside the string.
+    const parsedValue = literal
+      ? `${fieldType}: ${JSON.stringify(value)}`
+      : `${fieldType}: ${value}`
 
     // GraphQL mutation IDs reject characters outside a-z0-9, so strip them.
     return `

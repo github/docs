@@ -26,8 +26,8 @@ Some commands require specific context, such as an active session, session chang
 
 | Slash command | What it does |
 | --- | --- |
-| `/af` | Finds installable MCP servers, tools, skills, and agents by searching Agent Finder. This slash command is a built-in skill. See [AUTOTITLE](/copilot/concepts/context/mcp#agent-finder). |
-| `/agent` | Selects a {% data variables.copilot.copilot_custom_agent_short %} for the session. See [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-custom-agents). |
+| `/af` | Finds installable MCP servers, tools, skills, and agents by searching Agent Finder. This slash command is a built-in skill. See [AUTOTITLE](/copilot/concepts/customizations/mcp#agent-finder). |
+| `/agent` | Selects a {% data variables.copilot.copilot_custom_agent_short %} for the session. See [AUTOTITLE](/copilot/concepts/customizations/custom-agents). |
 | `/allow-all-tools` or `/yolo` | **Requires an active session.** Turns tool auto-approval on or shows its current state. |
 | `/attach-files` | Opens a file picker and attaches files to your message. |
 | `/attach-folder` | Opens a folder picker and attaches a folder to your message. |

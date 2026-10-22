@@ -103,7 +103,7 @@ async function main(opts: MainOptions, args: string[]) {
           for (const numIndex of docsIndices) {
             // Read 500 characters because github/github docs links are not expected to be longer.
             const docsLink = contents.substring(numIndex, numIndex + 500).match(urlRegEx)
-            if (!docsLink) return
+            if (!docsLink) continue
             const linkURL = new URL(docsLink[0].toString().replace(/[^a-zA-Z0-9]*$|\\n$/g, ''))
             const linkPath = linkURL.pathname + linkURL.hash
             docsLinksFiles.push({ linkPath, file })
@@ -122,7 +122,7 @@ async function main(opts: MainOptions, args: string[]) {
               contents.slice(numIndex, numIndex + 'GitHub.help_url}/github/#{'.length) ===
                 'GitHub.help_url}/github/#{'
             ) {
-              return
+              continue
             }
 
             const startSearchIndex = contents.indexOf('/', numIndex)
@@ -140,7 +140,7 @@ async function main(opts: MainOptions, args: string[]) {
                 .trim()
 
               if (['/deprecation-1'].includes(linkPath)) {
-                return
+                continue
               }
 
               docsLinksFiles.push({ linkPath, file })
@@ -160,7 +160,7 @@ async function main(opts: MainOptions, args: string[]) {
     file: string
   }[] = []
 
-  for (const batch of [...Array(Math.floor(docsLinksFiles.length / BATCH_SIZE)).keys()]) {
+  for (const batch of [...Array(Math.ceil(docsLinksFiles.length / BATCH_SIZE)).keys()]) {
     const slice = docsLinksFiles.slice(batch * BATCH_SIZE, batch * BATCH_SIZE + BATCH_SIZE)
     await Promise.all(
       slice.map(async ({ linkPath, file }) => {

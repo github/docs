@@ -68,7 +68,7 @@ export class JourneyLandingTransformer implements PageTransformer {
             return linkData
           }),
         )
-        const validLinks = links.filter((l): l is LinkData => l !== null && !!l.href)
+        const validLinks = links.filter((l): l is LinkData => l !== null)
         if (validLinks.length > 0) {
           groups.push({ title: track.title, links: validLinks })
         }
@@ -88,7 +88,7 @@ export class JourneyLandingTransformer implements PageTransformer {
           return await getLinkData(childHref, languageCode, pathname, context, resolvePath)
         }),
       )
-      const validLinks = links.filter((l): l is LinkData => !!l.href)
+      const validLinks = links.filter((l): l is LinkData => l !== null)
       if (validLinks.length > 0) {
         sections.push({
           title: 'Links',

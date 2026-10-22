@@ -31,6 +31,8 @@ const UA = {
   linuxFirefoxX64: 'Mozilla/5.0 (X11; Linux x86_64; rv:143.0) Gecko/20100101 Firefox/143.0',
   linuxChrome:
     'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36',
+  androidTabletDesktop:
+    'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36',
   android:
     'Mozilla/5.0 (Linux; Android 14; Pixel 8) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Mobile Safari/537.36',
   iphone:
@@ -52,11 +54,12 @@ describe('pickDownloadKey', () => {
     [{ os: 'mac', arch: 'unknown' }, 'mac'],
     [{ os: 'mac', arch: 'arm' }, 'mac'],
     [{ os: 'mac', arch: 'x86' }, 'mac-intel'],
-    [{ os: 'mac', arch: 'arm', isTouchMac: true }, null],
+    [{ os: 'mac', arch: 'arm', isTouch: true }, null],
     [{ os: 'windows', arch: 'unknown' }, 'windows'],
     [{ os: 'windows', arch: 'arm' }, 'windows-arm'],
     [{ os: 'linux', arch: 'x86' }, 'linux'],
     [{ os: 'linux', arch: 'arm' }, 'linux-arm'],
+    [{ os: 'linux', arch: 'x86', isTouch: true }, null],
     [{ os: 'ios', arch: 'arm' }, null],
     [{ os: 'android', arch: 'arm' }, null],
     [{ os: 'cros', arch: 'x86' }, null],
@@ -105,8 +108,14 @@ describe('detectDownloadKey', () => {
     expect(await detectDownloadKey(nav(UA.windowsEdge, { userAgentData }))).toBe('windows')
   })
 
-  test('skips iPad, phones, and ChromeOS', async () => {
+  test('skips tablets, phones, and ChromeOS', async () => {
     expect(await detectDownloadKey(nav(UA.macSafari, { maxTouchPoints: 5 }))).toBeNull()
+    expect(
+      await detectDownloadKey(
+        nav(UA.androidTabletDesktop, { maxTouchPoints: 10, userAgentData: withArch('') }),
+      ),
+    ).toBeNull()
+    expect(await detectDownloadKey(nav(UA.linuxFirefoxX64, { maxTouchPoints: 5 }))).toBeNull()
     expect(await detectDownloadKey(nav(UA.iphone))).toBeNull()
     expect(await detectDownloadKey(nav(UA.android))).toBeNull()
     expect(await detectDownloadKey(nav(UA.chromeOS))).toBeNull()

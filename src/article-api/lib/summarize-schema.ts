@@ -61,16 +61,29 @@ function renderTypeConstraints(schema: JsonSchema): string {
   return parts.join(', ') || 'object'
 }
 
+// The OpenAPI description reuses some titles for different shapes, so the key includes the fields.
+function schemaKey(schema: JsonSchema): string {
+  const keys = Object.keys(schema.properties || {}).sort()
+  const required = [...(schema.required || [])].sort()
+  return `${schema.title}|${keys.join(',')}|${required.join(',')}`
+}
+
+type SeenShapes = Map<string, Set<string>>
+
+function recordShape(title: string, schema: JsonSchema, seen: SeenShapes): Set<string> {
+  const shapes = seen.get(title) || new Set<string>()
+  shapes.add(schemaKey(schema))
+  seen.set(title, shapes)
+  return shapes
+}
+
 // Large REST response schemas can reuse titled objects such as Simple User dozens of times.
-function shouldReference(
-  title: string | undefined,
-  canExpand: boolean,
-  seen: Set<string>,
-): boolean {
-  if (!canExpand || !title) return false
-  if (seen.has(title)) return true
-  seen.add(title)
-  return false
+function shouldReference(schema: JsonSchema, canExpand: boolean, seen: SeenShapes): boolean {
+  if (!canExpand || !schema.title) return false
+  const known = seen.get(schema.title)?.has(schemaKey(schema)) || false
+  const shapes = recordShape(schema.title, schema, seen)
+  // "(see above)" names only the title, so a title with several shapes expands every time.
+  return known && shapes.size === 1
 }
 
 function renderCompositionVariants(
@@ -78,7 +91,7 @@ function renderCompositionVariants(
   variants: JsonSchema[],
   indent: number,
   depth: number,
-  seen: Set<string>,
+  seen: SeenShapes,
 ): string {
   const prefix = '  '.repeat(indent)
   const label = keyword.replace('Of', ' of')
@@ -87,7 +100,7 @@ function renderCompositionVariants(
   for (const variant of variants) {
     const name = variant.title || renderTypeConstraints(variant)
     const canExpand = depth < MAX_DEPTH && Boolean(variant.properties)
-    if (shouldReference(variant.title, canExpand, seen)) {
+    if (shouldReference(variant, canExpand, seen)) {
       lines.push(`${prefix}  * **${name}** (see above)`)
       continue
     }
@@ -105,7 +118,7 @@ function renderProperties(
   schema: JsonSchema,
   indent: number,
   depth: number,
-  seen: Set<string>,
+  seen: SeenShapes,
   requiredFields?: string[],
 ): string {
   const props = schema.properties || {}
@@ -123,7 +136,7 @@ function renderProperties(
       for (const variant of prop[compositionKey]!) {
         const vName = variant.title || renderTypeConstraints(variant)
         const canExpand = depth < MAX_DEPTH && Boolean(variant.properties)
-        if (shouldReference(variant.title, canExpand, seen)) {
+        if (shouldReference(variant, canExpand, seen)) {
           lines.push(`${prefix}  * **${vName}** (see above)`)
           continue
         }
@@ -142,8 +155,24 @@ function renderProperties(
 
     if (propType === 'array' && prop.items) {
       const itemTitle = prop.items.title
+      const itemKey = (['oneOf', 'anyOf', 'allOf'] as const).find((k) => prop.items![k])
+      if (itemKey) {
+        const label = `${itemTitle ? `array of \`${itemTitle}\`` : 'array of items'}${isNullable ? ' or null' : ''}`
+        if (shouldReference(prop.items, depth < MAX_DEPTH, seen)) {
+          lines.push(`${prefix}* \`${name}\`: ${reqStr}${label} (see above)`)
+        } else {
+          lines.push(`${prefix}* \`${name}\`: ${reqStr}${label}:`)
+          if (prop.items.properties && depth < MAX_DEPTH) {
+            lines.push(renderProperties(prop.items, indent + 1, depth + 1, seen))
+          }
+          lines.push(
+            renderCompositionVariants(itemKey, prop.items[itemKey]!, indent + 1, depth, seen),
+          )
+        }
+        continue
+      }
       const canExpand = Boolean(prop.items.properties) && depth < MAX_DEPTH
-      if (shouldReference(itemTitle, canExpand, seen)) {
+      if (shouldReference(prop.items, canExpand, seen)) {
         lines.push(
           `${prefix}* \`${name}\`: ${reqStr}array of \`${itemTitle}\`${isNullable ? ' or null' : ''} (see above)`,
         )
@@ -160,7 +189,7 @@ function renderProperties(
       }
     } else if (prop.properties && depth < MAX_DEPTH) {
       const label = prop.title ? `\`${prop.title}\`` : renderTypeConstraints(prop)
-      if (shouldReference(prop.title, true, seen)) {
+      if (shouldReference(prop, true, seen)) {
         lines.push(`${prefix}* \`${name}\`: ${reqStr}${label} (see above)`)
       } else {
         lines.push(`${prefix}* \`${name}\`: ${reqStr}${label}:`)
@@ -178,7 +207,7 @@ function renderProperties(
 export function summarizeSchema(schema: JsonSchema): string {
   if (!schema || typeof schema !== 'object') return ''
 
-  const seen = new Set<string>()
+  const seen: SeenShapes = new Map()
 
   for (const keyword of ['oneOf', 'anyOf', 'allOf'] as const) {
     if (schema[keyword]) {
@@ -208,7 +237,7 @@ export function summarizeSchema(schema: JsonSchema): string {
       for (const variant of items[compositionKey]!) {
         const name = variant.title || renderTypeConstraints(variant)
         const canExpand = Boolean(variant.properties)
-        if (shouldReference(variant.title, canExpand, seen)) {
+        if (shouldReference(variant, canExpand, seen)) {
           lines.push(`  * **${name}** (see above)`)
           continue
         }
@@ -224,7 +253,7 @@ export function summarizeSchema(schema: JsonSchema): string {
     if (items.properties) {
       const label = itemTitle ? `\`${itemTitle}\`` : 'objects'
       const nullSuffix = isNullable ? ' or null' : ''
-      if (itemTitle) seen.add(itemTitle)
+      if (itemTitle) recordShape(itemTitle, items, seen)
       return `Array${constraintStr} of ${label}${nullSuffix}:\n${renderProperties(items, 1, 1, seen)}`
     }
 

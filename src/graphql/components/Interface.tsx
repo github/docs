@@ -2,12 +2,12 @@ import { Link } from '@/frame/components/Link'
 import { GraphqlItem, headingTag } from './GraphqlItem'
 import { Table } from './Table'
 import { useTranslation } from '@/languages/components/useTranslation'
-import type { ObjectT, InterfaceT } from './types'
+import type { InterfaceImplementerT, InterfaceT } from './types'
 import { RenderedHTML } from '@/frame/components/ui/RenderedHTML/RenderedHTML'
 
 type Props = {
   item: InterfaceT
-  objects: ObjectT[]
+  objects: InterfaceImplementerT[]
   headingLevel?: number
 }
 

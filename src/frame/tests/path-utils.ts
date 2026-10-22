@@ -1,6 +1,25 @@
 import { describe, expect, test } from 'vitest'
 
-import { getProductStringFromPath } from '@/frame/lib/path-utils'
+import { getLangFromPath, getProductStringFromPath } from '@/frame/lib/path-utils'
+
+describe('getLangFromPath', () => {
+  test('returns null when the first segment is not a language code', () => {
+    expect(getLangFromPath('/free-pro-team')).toBeNull()
+    expect(getLangFromPath('/free-pro-team@latest')).toBeNull()
+    expect(getLangFromPath('/enterprise-cloud')).toBeNull()
+    expect(getLangFromPath('/enterprise-server')).toBeNull()
+    expect(getLangFromPath('/github/foo')).toBeNull()
+  })
+
+  test('returns the language code from the first segment', () => {
+    expect(getLangFromPath('/en')).toBe('en')
+    expect(getLangFromPath('/fr')).toBe('fr')
+    expect(getLangFromPath('/en?x=1')).toBe('en')
+    expect(getLangFromPath('/fr/free-pro-team')).toBe('fr')
+    expect(getLangFromPath('/fr/free-pro-team@latest')).toBe('fr')
+    expect(getLangFromPath('/ja/enterprise-server@3.19')).toBe('ja')
+  })
+})
 
 describe('getProductStringFromPath', () => {
   test('returns "homepage" for root paths', () => {

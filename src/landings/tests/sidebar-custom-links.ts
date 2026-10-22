@@ -49,6 +49,25 @@ describe('sidebar custom links', () => {
     expect(customLink.text().trim()).toBe('All sidebar test items')
   })
 
+  test('sidebar custom link keeps the current version', async () => {
+    {
+      const $ = await getDOM('/enterprise-cloud@latest/get-started/sidebar-test')
+      const customLink = $('[data-testid="sidebar"] a:contains("All sidebar test items")')
+      expect(customLink.length).toBe(1)
+      expect(customLink.attr('href')).toBe('/en/enterprise-cloud@latest/get-started/sidebar-test')
+      expect(customLink.attr('aria-current')).toBe('page')
+    }
+    {
+      const $ = await getDOM('/enterprise-server@latest/get-started/sidebar-test')
+      const customLink = $('[data-testid="sidebar"] a:contains("All sidebar test items")')
+      expect(customLink.length).toBe(1)
+      expect(customLink.attr('href')).toMatch(
+        /^\/en\/enterprise-server@\d+\.\d+\/get-started\/sidebar-test$/,
+      )
+      expect(customLink.attr('aria-current')).toBe('page')
+    }
+  })
+
   test('sidebar custom link does not appear on unrelated pages', async () => {
     // The /actions page avoids the get-started section, which has fixture sidebarLink data.
     const $ = await getDOM('/actions')
