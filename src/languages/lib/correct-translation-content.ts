@@ -1980,6 +1980,15 @@ export function correctTranslatedContentStrings(
 
   content = content.replace(/\{ +%([^%]+?)% *\}/g, '{%$1%}')
 
+  content = content.replace(
+    // eslint-disable-next-line no-control-regex
+    /\{%(-?)\s*([^\x00-\x7F][^\x00-\x7F\s]*(?: [^\x00-\x7F]+){0,3})(?:\.\s*|\s+)((?:variables|reusables)\.)?([a-z][\w-]*\.[\w-]+(?:\.[\w-]+)*)\s*(-?)%\}/g,
+    (_m, open: string, label: string, kind: string | undefined, path: string, close: string) => {
+      const ns = kind ?? (/变量|変数|변수|переменн/.test(label) ? 'variables.' : 'reusables.')
+      return `{%${open} data ${ns}${path} ${close}%}`
+    },
+  )
+
   // eslint-disable-next-line no-control-regex -- Runs after per-language fixes; non-ASCII after {% is invalid.
   content = content.replace(/\{% (?=[^\x00-\x7F])/g, '')
 

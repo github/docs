@@ -3092,6 +3092,32 @@ test.describe('LandingArticleGridWithFilter component', () => {
     await expect(page.getByTestId('article-grid').getByTestId('article-card')).toHaveCount(4)
   })
 
+  test('typing in the header search keeps the selected category', async ({ page }) => {
+    // The category must not be in the URL at load, so the header's query state never sees it.
+    await page.goto('/get-started/article-grid-discovery')
+    await turnOffExperimentsInPage(page)
+    const trigger = page.getByTestId('filter-header').getByRole('button')
+    const cards = page.getByTestId('article-grid').getByTestId('article-card')
+    await trigger.click()
+    const menu = page.getByRole('menu', { name: 'Category', exact: true })
+    await menu.getByRole('menuitemradio', { name: 'Testing', exact: true }).click()
+    await expect(page).toHaveURL(/articles-category=Testing/)
+    await expect(cards).toHaveCount(1)
+
+    await page.getByTestId('toggle-search').click()
+    const input = page.getByTestId('overlay-search-input')
+    await input.pressSequentially('a')
+    await expect(page).toHaveURL(/search-overlay-input=a/)
+    await expect(page).toHaveURL(/articles-category=Testing/)
+    await expect(cards).toHaveCount(1)
+
+    await input.press('Escape')
+    await expect(input).toHaveCount(0)
+    await expect(page).toHaveURL(/articles-category=Testing/)
+    await expect(trigger).toContainText('Testing')
+    await expect(cards).toHaveCount(1)
+  })
+
   test('category menu aligns with its inline label on desktop', async ({ page }) => {
     await page.setViewportSize({ width: 1400, height: 900 })
     await page.goto('/get-started/article-grid-discovery?articles-category=Testing')

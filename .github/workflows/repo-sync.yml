@@ -30,7 +30,8 @@ jobs:
           persist-credentials: false
       - name: Sync repo to branch
         env:
-          SOURCE_REPO: https://${{ secrets.DOCS_BOT_PAT_REPO_SYNC }}@github.com/github/${{ github.repository == 'github/docs-internal' && 'docs' || 'docs-internal' }}.git
+          # https://github.com/actions/runner-images/issues/15014
+          SOURCE_REPO: https://x-access-token:${{ secrets.DOCS_BOT_PAT_REPO_SYNC }}@github.com/github/${{ github.repository == 'github/docs-internal' && 'docs' || 'docs-internal' }}.git
           SOURCE_BRANCH: main
           DESTINATION_BRANCH: repo-sync
           GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_REPO_SYNC }}

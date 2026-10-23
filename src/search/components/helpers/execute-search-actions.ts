@@ -17,13 +17,16 @@ const OVERLAY_PARAMS = [
   'query',
 ]
 
+// Landing grid params describe the source page's grid, so a destination landing must not reuse them.
+const PAGE_LOCAL_PARAMS = ['articles-category', 'articles-filter', 'articles-page']
+
 // Carries tool pickers, platform switches, and feature flags to the destination URL.
 // Not built from `router.query`, which also holds dynamic route params like `restPage`.
 // A `restPage` search param outranks the real path, so navigation would stay on this article.
 // Reads `window`, so call it only from event handlers, never during render.
 export function inheritableSearchParams(): URLSearchParams {
   const params = new URLSearchParams(window.location.search)
-  for (const key of OVERLAY_PARAMS) {
+  for (const key of [...OVERLAY_PARAMS, ...PAGE_LOCAL_PARAMS]) {
     params.delete(key)
   }
   return params

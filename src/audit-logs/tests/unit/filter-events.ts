@@ -201,7 +201,7 @@ describe('audit log event filtering', () => {
       pipelineConfig: { sha: '', appendedDescriptions: {} },
       titleContext,
     })
-    expect(filteredEvents[0].docs_reference_titles).toBe('Bar page title, /foo/missing-page')
+    expect(filteredEvents[0].docs_reference_titles).toEqual(['Bar page title', '/foo/missing-page'])
   })
 
   test('resolves Markdown reference links without a language prefix', async () => {
@@ -317,5 +317,39 @@ describe('audit log event filtering', () => {
     expect(currentEvents['ghes-3.15'][auditLogPage].map((event) => event.action)).toContain(
       'repo.create',
     )
+  })
+
+  test('keeps reference titles that contain commas intact', async () => {
+    const mockPage = (title: string) => ({ renderProp: async () => title })
+    const titleContext = {
+      pages: {
+        '/en/sponsors/about-sponsorships-fees-and-taxes': mockPage(
+          'About sponsorships, fees, and taxes',
+        ),
+        '/en/billing/upgrading-a-sponsorship': mockPage('Upgrading a sponsorship'),
+      },
+      redirects: {},
+    } as unknown as TitleResolutionContext
+    const eventsToProcess: RawAuditLogEventT[] = [
+      {
+        action: 'sponsors.sponsor_sponsorship_create',
+        _allowlists: ['user'],
+        description: 'A sponsorship was created.',
+        docs_reference_links:
+          '/sponsors/about-sponsorships-fees-and-taxes, /billing/upgrading-a-sponsorship',
+        ghes: {},
+      },
+    ]
+
+    const filteredEvents = await filterByAllowlistValues({
+      eventsToCheck: eventsToProcess,
+      allowListValues: 'user',
+      pipelineConfig: { sha: '', appendedDescriptions: {} },
+      titleContext,
+    })
+    expect(filteredEvents[0].docs_reference_titles).toEqual([
+      'About sponsorships, fees, and taxes',
+      'Upgrading a sponsorship',
+    ])
   })
 })

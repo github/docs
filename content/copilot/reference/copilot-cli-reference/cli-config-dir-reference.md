@@ -545,6 +545,10 @@ The `/sandbox` dialog groups Git authentication, `gh` authentication, and masked
 
 Host rules and `sandbox.userPolicy.network.proxy` use a built-in local proxy. When both are configured, the local proxy applies the host rules before forwarding traffic to the upstream proxy. Upstream credentials stay outside the sandboxed child process. Host rules and proxy settings are inactive when outbound access is off.
 
+When no proxy is set in sandbox settings, the local proxy selects its upstream proxy from the first non-empty environment variable on the host in this order: `HTTPS_PROXY`, `HTTP_PROXY`, `ALL_PROXY`. Only `http://` and `https://` proxies are supported, not `socks5`.
+
+Destinations matching the host's `NO_PROXY` bypass only this inherited upstream proxy. The sandbox's local proxy still handles these connections and applies its host rules. A proxy configured in sandbox settings ignores `NO_PROXY`.
+
 On macOS and Linux, the sandbox restricts direct connections so programs cannot avoid the proxy. On Windows, the sandbox relies on programs honoring the proxy settings. As a result, programs that ignore the proxy settings on Windows can connect directly and get around your host rules. Windows proxying and host rules also require a supported host and `allowLocalNetwork: true`, which permits private-network access. On Linux, proxy settings reject IPv6 address literals other than the `[::]` dual-stack wildcard. Use an IPv4 endpoint or a hostname with IPv4 support.
 
 Sandbox settings are user-level or enterprise-managed. They are not repository-overridable. For configuration steps and network limitations, see [AUTOTITLE](/copilot/how-tos/cloud-and-local-sandboxes/configuring-local-sandbox-settings).
