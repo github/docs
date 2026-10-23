@@ -4,8 +4,8 @@ Writers run the [update-files.ts](./update-files.ts) script to get the latest de
 ```
 npm run sync-rest
 ```
-These scripts update the dereferenced OpenAPI files to create [the decorated files](../../src/rest/data) used to
-render REST docs. See the [`src/rest/README`](../../src/rest/README.md)
+These scripts update the dereferenced OpenAPI files to create [the decorated files](../data) used to
+render REST docs. See the [`src/rest/README`](../README.md)
 for more info.
 
 Writers and developers depend on this script to preview OpenAPI changes in the docs. When you update this script please [follow the preview steps here](https://thehub.github.com/epd/engineering/products-and-services/public-apis/rest/openapi/openapi-in-the-docs/#previewing-changes-in-the-docs) to verify that:

@@ -231,8 +231,8 @@ The following app links can be wrapped in the hosted launcher. Query strings and
 | `ghapp://chats` | Chats | Opens Chats. |
 | `ghapp://mywork` | My work | Opens issues and pull requests in My work. |
 | `ghapp://github.com/OWNER/REPO` | Repository setup | Opens or clones the repository. |
-| `ghapp://github.com/OWNER/REPO/issues/NUMBER` | Issue | Opens the issue in My work when the repository is already added as a project. |
-| `ghapp://github.com/OWNER/REPO/pull/NUMBER` | Pull request | Opens the pull request in My work when the repository is already added as a project. Optional trailing path segments are preserved. |
+| `ghapp://github.com/OWNER/REPO/issues/NUMBER` | Issue | Opens the issue in My work when the repository is already connected to the app. |
+| `ghapp://github.com/OWNER/REPO/pull/NUMBER` | Pull request | Opens the pull request in My work when the repository is already connected to the app. Optional trailing path segments are preserved. |
 | `ghapp://github.com/OWNER/REPO/tasks/TASK_ID` | Agent task | Resumes a {% data variables.product.github %} {% data variables.product.prodname_copilot_short %} agent task. Use the {% data variables.product.github %} task ID, not an app-local session ID. |
 | `ghapp://automations` | Automations | Opens Automations. |
 | `ghapp://automations/new` | New automation draft | Opens the new automation dialog with supported query parameters pre-filled. See [Automation parameters](#automation-parameters). |
