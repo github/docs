@@ -8,7 +8,7 @@ The pipeline is used to generate data that is used by the docs.github.com site w
 
 ![A flow chart describing how the automation pipeline for webhooks generates documentation](./webhooks-pipeline-flowchart.png)
 
-A [workflow](.github/workflows/sync-openapi.yml) is used to trigger the automation of the webhooks documentation. The workflow runs automatically on a schedule. The workflow that triggers the webhooks pipeline also triggers other automation pipelines that use the OpenAPI as the source data:
+A [workflow](../../.github/workflows/sync-openapi.yml) is used to trigger the automation of the webhooks documentation. The workflow runs automatically on a schedule. The workflow that triggers the webhooks pipeline also triggers other automation pipelines that use the OpenAPI as the source data:
 
 - GitHub Apps
 - REST
