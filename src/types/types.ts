@@ -171,6 +171,7 @@ export type Context = {
   currentProductName?: string
   productGroups?: ProductGroup[]
   featuredLinks?: FeaturedLinksExpanded
+  carousels?: Record<string, ResolvedArticle[]>
   renderedPage?: string
   renderedPageHast?: import('hast').Root
   miniTocItems?: MiniTocItem[]

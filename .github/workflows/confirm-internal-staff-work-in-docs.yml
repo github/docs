@@ -4,9 +4,9 @@ name: Confirm internal staff meant to post in public
 
 on:
   issues:
+    # Issues moved into github/docs arrive as opened. The transferred event fires in the source repo.
     types:
       - opened
-      - transferred
   # pull_request_target lets the workflow check org membership for forked PR authors.
   pull_request_target:
     types:
@@ -55,7 +55,7 @@ jobs:
 
             const issueNo = context.number || context.issue.number
 
-            await github.rest.issues.create({
+            const confirmationIssue = await github.rest.issues.create({
               owner: 'github',
               repo: process.env.TEAM_CONTENT_REPO,
               title: `@${context.payload.sender.login} confirm that \#${issueNo} should be in the public github/docs repo`,
@@ -63,6 +63,7 @@ jobs:
               labels: ['OS confirmation', 'skip FR board'],
             });
 
+            core.setOutput('confirmation_issue_url', confirmationIssue.data.html_url);
             core.setOutput('did_warn', 'true')
 
       - name: Resolve Slack user ID from username
@@ -75,6 +76,7 @@ jobs:
           github-token: ${{ github.token }}
           script: |
             const githubLogin = context.payload.sender.login.toLowerCase();
+            const lookupStartedAt = Date.now();
 
             core.info(`Looking up Slack user for @${githubLogin}...`);
             core.setOutput('slack_user_id', '');
@@ -85,59 +87,127 @@ jobs:
               throw new Error('SLACK_DOCS_BOT_TOKEN is not configured.');
             }
 
+            const sleep = (milliseconds) =>
+              new Promise((resolve) => setTimeout(resolve, milliseconds));
+            const maxRetries = 5;
+            const minimumRequestIntervalMs = 3000;
+            let lastRequestAt = 0;
+
+            async function fetchUsersPage(url, pageNumber) {
+              for (let attempt = 0; attempt <= maxRetries; attempt += 1) {
+                const spacingDelay = Math.max(
+                  0,
+                  minimumRequestIntervalMs - (Date.now() - lastRequestAt),
+                );
+                if (spacingDelay > 0) {
+                  await sleep(spacingDelay);
+                }
+
+                lastRequestAt = Date.now();
+                const requestStartedAt = lastRequestAt;
+                const response = await fetch(url, {
+                  headers: {
+                    Authorization: `Bearer ${token}`,
+                  },
+                });
+                const requestDurationMs = Date.now() - requestStartedAt;
+
+                if (response.status === 429) {
+                  if (attempt === maxRetries) {
+                    throw new Error(
+                      `Slack users.list page ${pageNumber} remained rate-limited after ${maxRetries} retries.`,
+                    );
+                  }
+
+                  const retryAfterSeconds = Number(response.headers.get('retry-after'));
+                  const retryDelayMs =
+                    Number.isFinite(retryAfterSeconds) && retryAfterSeconds > 0
+                      ? retryAfterSeconds * 1000
+                      : Math.min(1000 * 2 ** attempt, 30000);
+
+                  core.warning(
+                    `Slack users.list page ${pageNumber} was rate-limited (attempt ${attempt + 1}/${maxRetries + 1}); retrying in ${retryDelayMs} ms.`,
+                  );
+                  await sleep(retryDelayMs);
+                  continue;
+                }
+
+                if (!response.ok) {
+                  throw new Error(
+                    `Slack users.list page ${pageNumber} returned HTTP ${response.status} after ${requestDurationMs} ms.`,
+                  );
+                }
+
+                if (attempt > 0) {
+                  core.info(
+                    `Slack users.list page ${pageNumber} succeeded after ${attempt} retry attempt(s) in ${requestDurationMs} ms.`,
+                  );
+                } else {
+                  core.info(
+                    `Slack users.list page ${pageNumber} returned HTTP ${response.status} in ${requestDurationMs} ms.`,
+                  );
+                }
+
+                return response.json();
+              }
+
+              throw new Error(`Slack users.list page ${pageNumber} request did not complete.`);
+            }
+
             let cursor = '';
             let pages = 0;
-            const matches = [];
 
             do {
-              core.info(`Fetching Slack users.list page ${pages + 1}...`);
+              const pageNumber = pages + 1;
+              core.info(`Fetching Slack users.list page ${pageNumber}...`);
               const url = new URL('https://slack.com/api/users.list');
               url.searchParams.set('limit', '200');
               if (cursor) {
                 url.searchParams.set('cursor', cursor);
               }
 
-              const response = await fetch(url, {
-                headers: {
-                  Authorization: `Bearer ${token}`,
-                },
-              });
-
-              if (!response.ok) {
-                throw new Error(`Slack users.list returned HTTP ${response.status}.`);
-              }
-
-              const result = await response.json();
+              const result = await fetchUsersPage(url, pageNumber);
               if (!result.ok) {
-                throw new Error(`Slack users.list failed: ${result.error || 'unknown error'}.`);
+                throw new Error(
+                  `Slack users.list page ${pageNumber} failed: ${result.error || 'unknown error'}.`,
+                );
               }
 
               if (!Array.isArray(result.members)) {
-                throw new Error('Slack users.list response did not include a members array.');
+                throw new Error(
+                  `Slack users.list page ${pageNumber} did not include a members array.`,
+                );
               }
 
               pages += 1;
-              matches.push(...result.members.filter((member) =>
+              core.info(`Slack users.list page ${pages} contained ${result.members.length} member records.`);
+              const match = result.members.find((member) =>
                 !member.deleted &&
                 !member.is_bot &&
                 !member.is_app_user &&
                 typeof member.id === 'string' &&
                 typeof member.name === 'string' &&
                 member.name.toLowerCase() === githubLogin
-              ));
+              );
+
+              if (match) {
+                core.info(
+                  `Found the matching Slack username on page ${pages} after ${Date.now() - lookupStartedAt} ms.`,
+                );
+                core.setOutput('slack_user_id', match.id);
+                core.setOutput('slack_mention', `<@${match.id}>`);
+                return;
+              }
 
               cursor = result.response_metadata?.next_cursor || '';
+              core.info(
+                `No matching Slack username on page ${pages}; ${cursor ? 'continuing pagination.' : 'no more pages.'}`,
+              );
             } while (cursor);
 
-            core.info(`Checked ${pages} pages of users.list. Found ${matches.length} match(es) for @${githubLogin}.`);
-            if (matches.length !== 1) {
-              core.warning(`Expected one Slack username matching @${githubLogin}; found ${matches.length}. No DM will be sent.`);
-              return;
-            }
-
-            core.info(`Will DM Slack user ${matches[0].id}.`);
-            core.setOutput('slack_user_id', matches[0].id);
-            core.setOutput('slack_mention', `<@${matches[0].id}>`);
+            core.warning(
+              `No active Slack username matched @${githubLogin} after ${pages} page(s) and ${Date.now() - lookupStartedAt} ms; no DM will be sent.`,
+            );
 
       - name: DM the author in Slack
         id: slack_dm
@@ -149,7 +219,7 @@ jobs:
           errors: true
           payload: |
             channel: ${{ steps.slack_user.outputs.slack_user_id }}
-            text: ${{ toJSON(format('You opened {0} publicly in github/docs instead of the private repo. An internal confirmation issue was created.', github.event.issue.html_url || github.event.pull_request.html_url)) }}
+            text: ${{ toJSON(format('You opened {0} publicly in github/docs instead of the private repo. An internal confirmation issue was created. <{1}|View the issue>.', github.event.issue.html_url || github.event.pull_request.html_url, steps.membership_check.outputs.confirmation_issue_url)) }}
 
       - name: Log Slack DM result
         if: ${{ !cancelled() && steps.membership_check.outputs.did_warn == 'true' }}

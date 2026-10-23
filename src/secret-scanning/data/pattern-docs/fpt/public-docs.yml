@@ -2654,6 +2654,16 @@
   hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
+- provider: Hex
+  supportedSecret: Hex API key
+  secretType: hexpm_api_key
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
 - provider: Highnote
   supportedSecret: Highnote RK Live Key
   secretType: highnote_rk_live_key

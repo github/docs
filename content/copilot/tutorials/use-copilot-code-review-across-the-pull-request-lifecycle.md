@@ -119,6 +119,6 @@ For planning and setup details, see [AUTOTITLE](/copilot/how-tos/copilot-on-gith
 
 ## Next steps
 
-* For broader concepts, including review effort and agentic capabilities, see [AUTOTITLE](/copilot/concepts/agents/code-review).
+* For broader concepts, including review effort and agentic capabilities, see [AUTOTITLE](/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/code-review).
 * To tune automated review quality for specific repositories, see [AUTOTITLE](/copilot/tutorials/optimize-code-reviews).
 * For excluded file types and other limits, see [AUTOTITLE](/copilot/reference/review-excluded-files).

@@ -32,8 +32,6 @@ For information on resolving {% data variables.code-quality.recent_suggestions %
 
 You can resolve findings individually or assign multiple findings to {% data variables.product.prodname_copilot_short %}.
 
-{% data reusables.code-quality.agentic-autofix-preview-note %}
-
 ### Resolving a single finding
 
 {% data reusables.code-quality.dashboard-navigation-repo %}

@@ -13,6 +13,31 @@ const logger = createLogger(import.meta.url)
 // Proxies archived CSS and JS assets from docs-ghes-<release number> repositories.
 // archived-enterprise-versions.ts handles non-asset paths.
 
+// req.path keeps percent-encoding, and fetch resolves encoded dot segments such as
+// %2e%2e, so the parsed URL must stay inside the docs-ghes repository for the version.
+export function getArchivedAssetProxyUrl(assetPath: string, version: string): string | null {
+  if (
+    assetPath.includes('../') ||
+    assetPath.includes('://') ||
+    (assetPath.includes(':') && assetPath.includes('@')) ||
+    /%2f|%5c|\\/i.test(assetPath)
+  ) {
+    return null
+  }
+
+  const repoPrefix = `/docs-ghes-${version}/`
+  let url: URL
+  try {
+    url = new URL(`https://github.github.com/docs-ghes-${version}${assetPath}`)
+  } catch {
+    return null
+  }
+  if (url.origin !== 'https://github.github.com' || !url.pathname.startsWith(repoPrefix)) {
+    return null
+  }
+  return url.href
+}
+
 export default async function archivedEnterpriseVersionsAssets(
   req: ExtendedRequest,
   res: Response,
@@ -52,17 +77,12 @@ export default async function archivedEnterpriseVersionsAssets(
   const legacyEnterprisePrefix = `/enterprise/${requestedVersion}`
   const assetPath = req.path.replace(newEnterprisePrefix, '').replace(legacyEnterprisePrefix, '')
 
-  // Reject traversal and embedded URL syntax before constructing the proxy path.
-  if (
-    assetPath.includes('../') ||
-    assetPath.includes('://') ||
-    (assetPath.includes(':') && assetPath.includes('@'))
-  ) {
+  const proxyPath = getArchivedAssetProxyUrl(assetPath, requestedVersion)
+  if (!proxyPath) {
     defaultCacheControl(res)
     return res.status(404).type('text/plain').send('Asset path not valid')
   }
 
-  const proxyPath = `https://github.github.com/docs-ghes-${requestedVersion}${assetPath}`
   try {
     const r = await fetchWithRetry(
       proxyPath,

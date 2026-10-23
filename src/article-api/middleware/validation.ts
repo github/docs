@@ -4,6 +4,8 @@ import type { NextFunction, Response } from 'express'
 import { ExtendedRequest, Page } from '@/types'
 import { isArchivedVersionByPath } from '@/archives/lib/is-archived-version'
 import getRedirect from '@/redirects/lib/get-redirect'
+import { applyGraphqlCategoryRedirect } from '@/redirects/lib/graphql-category-redirect'
+import { pathLanguagePrefixed } from '@/languages/lib/languages-server'
 import { getVersionStringFromPath, getLangFromPath } from '@/frame/lib/path-utils'
 import nonEnterpriseDefaultVersion from '@/versions/lib/non-enterprise-default-version'
 import { allVersions } from '@/versions/lib/all-versions'
@@ -63,6 +65,7 @@ export const pathValidationMiddleware = (
 // pageValidationMiddleware calls getRedirect directly because findPage hides pathname changes.
 // Redirected pathnames must match page.permalinks for translated-page fallback.
 // Archived enterprise paths skip redirect lookup, even if they also match a redirect.
+// Redirect destinations get the legacy GraphQL kind rewrite and lose their #fragment.
 // This matches the site middleware order.
 export const pageValidationMiddleware = (
   req: ExtendedRequestWithPageInfo,
@@ -95,7 +98,17 @@ export const pageValidationMiddleware = (
       const redirect = getRedirect(pathname, redirectsContext)
       if (redirect) {
         req.pageinfo.redirectedFrom = pathname
-        pathname = redirect
+        const rewritten =
+          applyGraphqlCategoryRedirect(redirect, req.context.currentLanguage) || redirect
+        // Pages are keyed without fragments, so drop the #anchor from internal destinations.
+        pathname = rewritten.includes('://') ? rewritten : rewritten.split('#')[0]
+      } else if (!pathLanguagePrefixed(pathname)) {
+        // The redirect table omits live permalinks, so add the language prefix as the site does.
+        const prefixedPathname = `/${req.context.currentLanguage}${pathname}`
+        if (prefixedPathname in req.context.pages) {
+          req.pageinfo.redirectedFrom = pathname
+          pathname = prefixedPathname
+        }
       }
     }
   }

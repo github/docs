@@ -1,7 +1,7 @@
 import { addError } from 'markdownlint-rule-helpers'
 import { intersection } from 'lodash-es'
+import matter from '@gr2m/gray-matter'
 
-import { getFrontmatter } from '../helpers/utils'
 import { frontmatter, deprecatedProperties } from '@/frame/lib/frontmatter'
 import readFrontmatter from '@/frame/lib/read-frontmatter'
 import type { RuleParams, RuleErrorCallback, Rule } from '../../types'
@@ -11,8 +11,29 @@ export const frontmatterSchema: Rule = {
   description: 'Frontmatter must conform to the schema',
   tags: ['frontmatter', 'schema'],
   function: (params: RuleParams, onError: RuleErrorCallback) => {
-    const fm = getFrontmatter(params.lines)
-    if (!fm) return
+    let fm: Record<string, unknown>
+    try {
+      // Passing options skips the gray-matter cache, which returns empty data after a failed parse.
+      fm = matter(params.lines.join('\n'), {}).data
+    } catch (error) {
+      const { mark, reason, message } = error as {
+        mark?: { line: number }
+        reason?: string
+        message: string
+      }
+      // The parsed YAML block starts on the opening delimiter line, so its line index plus 1 is the file line.
+      const lineNumber = Math.min((mark?.line ?? 0) + 1, params.lines.length)
+      addError(
+        onError,
+        lineNumber,
+        `Frontmatter YML parsing error: ${reason || message}`,
+        params.lines[lineNumber - 1],
+        null,
+        null, // No fix possible
+      )
+      return
+    }
+    if (Object.keys(fm).length === 0) return
 
     // Deprecated checks cover only top-level frontmatter properties.
     const deprecatedKeys = intersection(Object.keys(fm), deprecatedProperties)

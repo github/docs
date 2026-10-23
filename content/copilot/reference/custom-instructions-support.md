@@ -9,7 +9,7 @@ category:
   - Learn about Copilot
 ---
 
-This reference article provides details of which types of custom instructions are supported in various environments. For more information about the various types of custom instructions for {% data variables.product.prodname_copilot %}, see [AUTOTITLE](/copilot/concepts/prompting/response-customization).
+This reference article provides details of which types of custom instructions are supported in various environments. For more information about the various types of custom instructions for {% data variables.product.prodname_copilot %}, see [AUTOTITLE](/copilot/concepts/prompting-and-context/custom-instructions).
 
 ## {% data variables.product.prodname_dotcom_the_website %}
 

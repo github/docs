@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
 // Normalizes Copilot SDK docs for docs.github.com, including README landing
-// pages, frontmatter, links, code fences, ordered lists, hidden validation
-// samples, codetabs, and SDK-specific markdownlint suppressions.
+// pages, Liquid escaping, frontmatter, links, code fences, ordered lists,
+// hidden validation samples, codetabs, and SDK-specific markdownlint suppressions.
 //
 // Usage:
 //   npx tsx src/workflows/sync-sdk-docs/normalize-sdk-docs.ts --content-dir <path> \
@@ -13,6 +13,7 @@ import path from 'node:path'
 import { parseArgs } from 'node:util'
 import matter from '@gr2m/gray-matter'
 
+import { escapeLiquid } from '@/workflows/sync-sdk-docs/escape-liquid'
 import { stripHiddenBlocks, nextFenceState, type OpenFence } from './strip-hidden-blocks'
 
 const { values: args } = parseArgs({
@@ -609,6 +610,16 @@ function fixBlanksAroundFences(filePath: string): void {
   }
 }
 
+function escapeLiquidSyntax(filePath: string): void {
+  const raw = fs.readFileSync(filePath, 'utf8')
+  const updated = escapeLiquid(raw)
+
+  if (updated !== raw) {
+    fs.writeFileSync(filePath, updated, 'utf8')
+    console.log(`  LIQUID: ${path.relative(SDK_DOCS_DIR, filePath)}`)
+  }
+}
+
 // docs-validate: hidden ranges wrap validation-only samples that compile in
 // place of the reader-facing fragment. Remove them before codetabs conversion,
 // so validation samples do not publish beside the real examples.
@@ -662,12 +673,12 @@ function reportUnbalancedMarkers(): void {
 const LABEL_TO_CODETAB_KEY: Record<string, string> = {
   'Node.js / TypeScript': 'typescript',
   'Node.js / TypeScript (standalone SDK)': 'typescript',
-  'Node.js': 'javascript',
+  'Node.js': 'typescript',
   TypeScript: 'typescript',
   Python: 'python',
   Go: 'go',
   '.NET': 'dotnet',
-  'C# / .NET': 'csharp',
+  'C# / .NET': 'dotnet',
   Java: 'java',
   Ruby: 'ruby',
   Shell: 'shell',
@@ -887,8 +898,15 @@ reportMissingRelocatedSources()
 console.log('\n--- Renaming README.md files to index.md ---\n')
 convertReadmesToIndex()
 
-console.log('\n--- Adding frontmatter ---\n')
 const files = getAllMarkdownFiles(SDK_DOCS_DIR)
+
+// Escape upstream text before this script adds its own Liquid, such as codetabs tags.
+console.log('\n--- Escaping Liquid syntax ---\n')
+for (const file of files) {
+  escapeLiquidSyntax(file)
+}
+
+console.log('\n--- Adding frontmatter ---\n')
 console.log(`Found ${files.length} markdown files.\n`)
 for (const file of files) {
   addFrontmatter(file)

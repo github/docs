@@ -270,7 +270,35 @@ describe('Page class', () => {
       expect(page!.introLinks).toStrictEqual({
         overview: 'https://github.com',
         'custom link!': 'https://github.com/features',
+        quickstart: '/get-started/quickstart',
+        reference: '/get-started/reference',
       })
+    })
+
+    // Markdown and article API requests read introLinks from the shared Page without rendering it.
+    test('keeps every link after rendering a version that lacks a target page', async () => {
+      const page = await Page.init({
+        relativePath: 'article-with-introLinks.md',
+        basePath: path.join(__dirname, '../../../src/fixtures/fixtures'),
+        languageCode: 'en',
+      })
+      const pages = {
+        '/en/get-started/quickstart': { applicableVersions: [nonEnterpriseDefaultVersion] },
+        '/en/get-started/reference': { applicableVersions: Object.keys(allVersions) },
+      } as unknown as Context['pages']
+
+      await page!.render({
+        currentLanguage: 'en',
+        currentVersion: `enterprise-server@${latest}`,
+        pages,
+        redirects: {},
+      })
+      expect(Object.keys(page!.introLinks!)).toEqual([
+        'overview',
+        'custom link!',
+        'quickstart',
+        'reference',
+      ])
     })
   })
 

@@ -52,7 +52,7 @@ As an administrator of a repository in which {% data variables.copilot.copilot_m
 
 ## Managing user-level preferences for an organization
 
-As an administrator, you can export or delete all user-level preferences that were generated with your organization as the active billing entity. For more information on the ownership model, see [AUTOTITLE](/copilot/concepts/agents/copilot-memory#user-level-preferences).
+As an administrator, you can export or delete all user-level preferences that were generated with your organization as the active billing entity. For more information on the ownership model, see [AUTOTITLE](/copilot/concepts/prompting-and-context/copilot-memory#user-level-preferences).
 
 ### Exporting user-level preferences
 
@@ -82,7 +82,7 @@ You can delete user-level preferences in bulk or for individual users.
 
 ## Managing user-level preferences for an enterprise
 
-As an administrator, you can export or delete all user-level preferences that were generated with your enterprise as the active billing entity. For more information on the ownership model, see [AUTOTITLE](/copilot/concepts/agents/copilot-memory#user-level-preferences).
+As an administrator, you can export or delete all user-level preferences that were generated with your enterprise as the active billing entity. For more information on the ownership model, see [AUTOTITLE](/copilot/concepts/prompting-and-context/copilot-memory#user-level-preferences).
 
 ### Exporting user-level preferences
 

@@ -10,13 +10,13 @@ redirect_from:
   - /copilot/how-tos/custom-instructions/add-personal-instructions
   - /copilot/how-tos/configure-custom-instructions/add-personal-instructions
 contentType: how-tos
-category: 
+category:
   - Configure Copilot
 ---
 
 {% data reusables.copilot.personal-instructions-note %}
 
-You can layer multiple types of custom instructions to shape {% data variables.copilot.copilot_chat %} responses. For an overview, see [AUTOTITLE](/copilot/concepts/prompting/response-customization?tool=webui).
+You can layer multiple types of custom instructions to shape {% data variables.copilot.copilot_chat %} responses. For an overview, see [AUTOTITLE](/copilot/concepts/prompting-and-context/custom-instructions).
 
 ## About personal custom instructions for {% data variables.copilot.copilot_chat_short %}
 
@@ -39,10 +39,10 @@ To add personal custom instructions on {% data variables.product.github %}:
 1. Open [{% data variables.copilot.copilot_chat_short %}](https://github.com/copilot?ref_product=copilot&ref_type=engagement&ref_style=text).
 1. In the bottom left corner, click your profile picture. Then click **{% octicon "note" aria-hidden="true" aria-label="note" %} Personal instructions**.
 1. Add natural language instructions to the text box.
-  
+
    Use any format. For example, a single block of text, each instruction on a new line, or instructions separated by blank lines.
 
-1. Optionally, use a template for common instructions. Click {% octicon "light-bulb" aria-label="The light-bulb icon" %} and select a template. 
+1. Optionally, use a template for common instructions. Click {% octicon "light-bulb" aria-label="The light-bulb icon" %} and select a template.
 
    When you select a template, placeholder text appears. Replace placeholders like `{format}` with your preferences.
 1. Click **Save**.

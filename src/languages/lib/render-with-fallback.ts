@@ -24,6 +24,7 @@ export class LiquidError extends Error {
 interface RenderOptions {
   throwIfEmpty?: boolean
   textOnly?: boolean
+  unwrap?: boolean
   cache?: boolean | ((template: string, context: Context) => string)
   [key: string]: unknown
 }
@@ -88,6 +89,20 @@ export function createTranslationFallbackComment(error: Error, property: string)
   return `<!-- ${errorDetails.join(' ')} -->`
 }
 
+// getEnglishPage resolves the request page, so pages rendered with the request
+// context, like AUTOTITLE targets or child pages, need their own English lookup.
+function getEnglishFallbackPage(page: Page, context: Context): PageType | undefined {
+  if (!context.page || page === context.page) {
+    return context.getEnglishPage?.(context)
+  }
+  const languagePrefix = `/${page.languageCode}`
+  for (const permalink of page.permalinks) {
+    const enPage = context.pages?.[`/en${permalink.href.slice(languagePrefix.length)}`]
+    if (enPage) return enPage
+  }
+  return undefined
+}
+
 // Render translated Liquid and fall back to the English Page when translation
 // errors can use English safely. Middleware sets getEnglishPage because it can
 // resolve the English page from the URL.
@@ -114,15 +129,20 @@ export async function renderContentWithFallback(
   } catch (error) {
     // Fall back only for errors the English page can mask.
     if (isFallbackableError(error) && context.getEnglishPage) {
-      const enPage = context.getEnglishPage(context)
+      const enPage = getEnglishFallbackPage(page, context)
+      if (!enPage) throw error
       const englishTemplate = (enPage as unknown as Record<string, string>)[property]
-      // Set currentLanguage to en so Liquid plugins such as data.ts read English data.
-      const enContext = Object.assign({}, context, { currentLanguage: 'en' })
+      // data.ts reads English data while rewriteLocalLinks keeps links in the reader's language.
+      const enContext = {
+        ...context,
+        currentLanguage: 'en',
+        autotitleLanguage: context.autotitleLanguage || context.currentLanguage,
+      }
 
       const fallbackContent = await renderContent(englishTemplate, enContext, options)
 
-      // HTML fallback comments break textOnly output, so add them only for non-English HTML.
-      if (context.currentLanguage !== 'en' && !options?.textOnly) {
+      // HTML fallback comments break textOnly output and stop unwrap from removing the outer tag.
+      if (context.currentLanguage !== 'en' && !options?.textOnly && !options?.unwrap) {
         const errorComment = createTranslationFallbackComment(error as Error, property)
         return `${errorComment}\n${fallbackContent}`
       }
@@ -150,7 +170,12 @@ export async function executeWithFallback<T>(
     return await Promise.resolve(callable(context))
   } catch (error) {
     if (isFallbackableError(error) && context.currentLanguage !== 'en') {
-      const enContext = Object.assign({}, context, { currentLanguage: 'en' })
+      // data.ts reads English data while rewriteLocalLinks keeps links in the reader's language.
+      const enContext = {
+        ...context,
+        currentLanguage: 'en',
+        autotitleLanguage: context.autotitleLanguage || context.currentLanguage,
+      }
       const fallbackContent = await Promise.resolve(fallback(enContext))
 
       // Only HTML fallback content can carry a comment without changing plain-text output.

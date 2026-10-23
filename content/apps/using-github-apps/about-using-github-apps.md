@@ -43,7 +43,7 @@ Before you install or authorize a {% data variables.product.prodname_github_app 
 
 {% data reusables.copilot.agent-apps-intro %} Powered by {% data variables.copilot.copilot_cloud_agent %}, you can trigger these agents from issues, pull requests, and the Agents UI.
 
-When you install an {% data variables.copilot.agent_app %}, you will be asked if you want to enable agent features. For more information, see [AUTOTITLE](/copilot/concepts/agents/agent-apps).
+When you install an {% data variables.copilot.agent_app %}, you will be asked if you want to enable agent features. For more information, see [AUTOTITLE](/copilot/concepts/agent-capabilities/about-agents/agent-apps).
 
 If the app is installed in an organization owned by an enterprise, an administrator must also enable the "{% data variables.copilot.agent_apps %}" {% data variables.product.prodname_copilot_short %} policy before the agent features become available.
 

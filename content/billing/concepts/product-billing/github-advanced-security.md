@@ -1,6 +1,6 @@
 ---
 title: '{% data variables.product.prodname_GHAS %} license billing'
-intro: 'Learn how usage of {% data variables.product.prodname_AS %} features is measured and how to pay for additional licenses.'
+intro: 'Understand how {% data variables.product.prodname_AS %} licenses{% ifversion fpt or ghec %} and AI-credit usage{% endif %} are billed.'
 product: '{% data reusables.gated-features.ghas-billing %}'
 redirect_from:
 # Article on migrating to two separate SKUs
@@ -59,6 +59,28 @@ You can see the active and unique committers to an organization on the Global se
 For full details of available features, see [AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security).
 
 You need to **pay** to use {% data variables.product.prodname_AS %} features in **private repositories** on {% data variables.product.prodname_dotcom_the_website %}, and in all repositories hosted by {% data variables.enterprise.data_residency_site %} and {% data variables.product.prodname_ghe_server %}.
+
+{% ifversion fpt or ghec %}
+
+## How AI feature usage is billed
+
+Some {% data variables.product.prodname_AS %} features consume {% data variables.product.prodname_ai_credits_short %} in addition to the active-committer licenses described in this article. AI Scan and agentic autofix consume the **Code Security AI Credits** SKU.
+
+These features consume Code Security AI Credits even when the repository is public and does not require active-committer licenses.
+
+If the account being billed has included {% data variables.product.prodname_ai_credits_short %} from a {% data variables.product.prodname_copilot %} entitlement, eligible usage draws from that allowance first. After the included allowance is exhausted, further usage is metered. If the account doesn't have included {% data variables.product.prodname_ai_credits_short %}, all usage is metered.
+
+For an organization-owned repository, usage is attributed to the account that pays for the organization's usage. This is the standalone organization account or its enterprise account. The included {% data variables.product.prodname_ai_credits_short %} and budgets for that account apply, including for public repositories.
+
+Repositories in the personal namespace of a {% data variables.enterprise.prodname_managed_user %} are not treated as ordinary personal-account repositories for Code Security AI Credits. AI Scan and agentic autofix are not currently available for these repositories and do not consume Code Security AI Credits there. Purchasing {% data variables.product.prodname_code_security %}, having included {% data variables.product.prodname_ai_credits_short %}, or configuring a Code Security AI Credits budget does not make these features available.
+
+This limitation does not affect classic {% data variables.copilot.copilot_autofix_short %}, which is distinct from agentic autofix and does not consume {% data variables.product.prodname_ai_credits_short %}.
+
+Before security administrators enable AI Scan or agentic autofix broadly, billing administrators should review the account's included {% data variables.product.prodname_ai_credits_short %} and set budgets for metered usage. After the included allowance is exhausted, a hard budget can prevent further metered usage. For more information, see [AUTOTITLE](/billing/concepts/budgets-and-alerts).
+
+For information about features that consume Code Security AI Credits, see [AUTOTITLE](/code-security/concepts/code-scanning/ai-powered-security-detections) and [AUTOTITLE](/code-security/concepts/code-scanning/autofix-for-code-scanning).
+
+{% endif %}
 
 ## Using more than your planned licenses
 

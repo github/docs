@@ -3,7 +3,7 @@ title: Adding LLM models to the GitHub Copilot app
 shortTitle: Add LLM models
 intro: 'Connect a model from an external provider of your choice by supplying your own API key, then use the model in agent sessions.'
 allowTitleToDifferFromFilename: true
-product: '{% data reusables.gated-features.github-app %}<br><a href="https://github.com/features/ai/github-app" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Download {% data variables.copilot.github_copilot_app %}</span> {% octicon "link-external" height:16 %}</a>'
+product: '{% data reusables.gated-features.github-app %}<br>{% data reusables.copilot.github-app-download-button %}'
 versions:
   feature: copilot
 contentType: how-tos
@@ -24,7 +24,7 @@ You must sign in with a {% data variables.product.github %} account to use the a
 
 ## Supported providers
 
-{% data variables.copilot.github_copilot_app %} supports these model providers:
+The {% data variables.copilot.github_copilot_app %} supports these model providers:
 
 * OpenAI
 * Azure OpenAI

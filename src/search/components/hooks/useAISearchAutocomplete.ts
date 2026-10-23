@@ -21,7 +21,7 @@ type UseCombinedSearchReturn = {
   searchLoading: boolean
   setSearchLoading: (loading: boolean) => void
   searchError: boolean
-  updateAutocompleteResults: (query: string) => void
+  updateAutocompleteResults: (query: string, options?: { immediate?: boolean }) => void
   clearAutocompleteResults: () => void
 }
 
@@ -137,16 +137,19 @@ export function useCombinedSearchResults({
     [router, currentVersion, debug],
   )
 
-  const updateAutocompleteResults = useCallback((queryValue: string) => {
-    // Don't debounce an empty input: show the (possibly cached) options at once.
-    if (queryValue === '') {
-      debouncedFetchRef.current?.cancel()
-      fetchAutocompleteResults('')
-      return
-    } else {
-      debouncedFetchRef.current?.(queryValue)
-    }
-  }, [])
+  const updateAutocompleteResults = useCallback(
+    (queryValue: string, { immediate = false }: { immediate?: boolean } = {}) => {
+      // Skip the debounce for an empty input or an immediate request so cached options show at once.
+      if (queryValue === '' || immediate) {
+        debouncedFetchRef.current?.cancel()
+        fetchAutocompleteResults(queryValue)
+        return
+      } else {
+        debouncedFetchRef.current?.(queryValue)
+      }
+    },
+    [],
+  )
 
   const clearAutocompleteResults = useCallback(() => {
     setSearchOptions({

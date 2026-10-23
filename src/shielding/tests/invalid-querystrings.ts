@@ -1,11 +1,13 @@
-import { describe, expect, test } from 'vitest'
+import type { Response } from 'express'
+import { describe, expect, test, vi } from 'vitest'
 
 import { get } from '@/tests/helpers/e2etest'
 
-import {
+import handleInvalidQuerystrings, {
   MAX_UNFAMILIAR_KEYS_BAD_REQUEST,
   MAX_UNFAMILIAR_KEYS_REDIRECT,
 } from '@/shielding/middleware/handle-invalid-query-strings'
+import type { ExtendedRequest } from '@/types'
 
 const alpha = Array.from(Array(26)).map((e, i) => i + 65)
 const alphabet = alpha.map((x) => String.fromCharCode(x))
@@ -49,6 +51,26 @@ describe('invalid query strings', () => {
     const res = await get(url)
     expect(res.statusCode).toBe(302)
     expect(res.headers.location).toBe('/en/pages?platform=concrete')
+  })
+
+  test('no redirect for recognized /api/search params', () => {
+    // Call the middleware directly because /api/search proxies to production without Elasticsearch.
+    const query = {
+      query: 'foo',
+      size: '5',
+      sort: 'best',
+      highlights: 'title',
+      debug: '1',
+      include: 'toplevel',
+      toplevel: 'Baring',
+      aggregate: 'toplevel',
+    }
+    const req = { method: 'GET', path: '/api/search/v1', url: '/api/search/v1', query }
+    const res = { set: vi.fn(), hasHeader: vi.fn(), status: vi.fn(), safeRedirect: vi.fn() }
+    const next = vi.fn()
+    handleInvalidQuerystrings(req as unknown as ExtendedRequest, res as unknown as Response, next)
+    expect(res.safeRedirect).not.toHaveBeenCalled()
+    expect(next).toHaveBeenCalledOnce()
   })
 
   test('root homepage with value-less 8 character query string', async () => {

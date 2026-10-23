@@ -27,7 +27,11 @@ export default function handleRedirects(req: ExtendedRequest, res: Response, nex
 
   // Collapse duplicate slashes before patterns.assetPaths, so //example.com cannot bypass handling.
   if (req.path.includes('//')) {
-    return res.safeRedirect(301, req.path.replace(/\/+/g, '/'))
+    // Take only the query from req.url, because an absolute-form req.url also holds the scheme and host.
+    const queryIndex = req.url.indexOf('?')
+    const query = queryIndex === -1 ? '' : req.url.slice(queryIndex)
+    defaultCacheControl(res)
+    return res.safeRedirect(301, req.path.replace(/\/+/g, '/') + query)
   }
 
   if (patterns.assetPaths.test(req.path)) return next()
@@ -53,14 +57,18 @@ export default function handleRedirects(req: ExtendedRequest, res: Response, nex
   }
 
   let redirect = req.path
-  let queryParams = req.originalUrl.includes('?') ? req.originalUrl.split('?')[1] : null
+  // Slice from the first ? because query values can contain a raw ?.
+  const queryIndex = req.originalUrl.indexOf('?')
+  let queryParams = queryIndex === -1 ? null : req.originalUrl.slice(queryIndex + 1)
 
   // Route page searches to the search endpoint, and rename legacy q to query.
   const onSearch = req.path.endsWith('/search') || req.path.startsWith('/api/search')
   const hasQ = 'q' in req.query
   const hasQuery = 'query' in req.query
   if ((hasQ && !hasQuery) || (hasQuery && !onSearch)) {
-    const language = getLanguage(req)
+    // A browser-cached 301 cannot vary on the user_language cookie, so preference redirects use 302.
+    const languagePrefixed = pathLanguagePrefixed(req.path)
+    const language = languagePrefixed && req.language ? req.language : getLanguage(req)
     const sp = new URLSearchParams(req.query as URLSearchParamsTypes)
     if (sp.has('q') && !sp.has('query')) {
       sp.set('query', sp.get('q')!)
@@ -76,7 +84,12 @@ export default function handleRedirects(req: ExtendedRequest, res: Response, nex
     }
 
     redirectTo += `/search?${sp.toString()}`
-    return res.safeRedirect(301, redirectTo)
+    if (languagePrefixed) {
+      defaultCacheControl(res)
+      return res.safeRedirect(301, redirectTo)
+    }
+    languageCacheControl(res)
+    return res.safeRedirect(302, redirectTo)
   }
 
   if (queryParams) {
@@ -99,7 +112,15 @@ export default function handleRedirects(req: ExtendedRequest, res: Response, nex
     redirectWithoutQueryParams = graphqlRewrite
   }
 
-  redirect = queryParams ? redirectWithoutQueryParams + queryParams : redirectWithoutQueryParams
+  // The query must come before the fragment, or browsers treat it as part of the anchor.
+  const hashIndex = redirectWithoutQueryParams.indexOf('#')
+  const hash = hashIndex >= 0 ? redirectWithoutQueryParams.slice(hashIndex) : ''
+  const redirectPath = hash
+    ? redirectWithoutQueryParams.slice(0, hashIndex)
+    : redirectWithoutQueryParams
+  redirect = redirectPath + (queryParams || '') + hash
+  // Query values can contain ://, so check only the destination path.
+  const isExternal = redirectWithoutQueryParams.includes('://')
 
   if (!redirectTo && !pathLanguagePrefixed(req.path)) {
     // Add a language prefix only for pages or deprecated versions; /healthcheck passes through.
@@ -119,7 +140,7 @@ export default function handleRedirects(req: ExtendedRequest, res: Response, nex
 
   if (!req.context.pages) throw new Error('req.context.pages not yet set')
 
-  if (!redirect.includes('://')) {
+  if (!isExternal) {
     const preference = getVersionPreference(
       req.path,
       removeQueryParams(redirect),
@@ -131,7 +152,8 @@ export default function handleRedirects(req: ExtendedRequest, res: Response, nex
     }
     if (preference.redirectTo) {
       languageAndVersionCacheControl(res)
-      return res.safeRedirect(302, preference.redirectTo + (queryParams || ''))
+      // Keep the fragment because the original request had none for the browser to carry over.
+      return res.safeRedirect(302, preference.redirectTo + (queryParams || '') + hash)
     }
   }
 
@@ -145,7 +167,7 @@ export default function handleRedirects(req: ExtendedRequest, res: Response, nex
       req.context.pages[removeQueryParams(redirect).replace(/\.md$/, '')] ||
       isDeprecatedVersion(req.path)
     ) &&
-    !redirect.includes('://')
+    !isExternal
   ) {
     // Development responses expose the missing redirect target; production keeps the page clean.
     if (process.env.NODE_ENV !== 'production' && req.context) {
@@ -155,13 +177,13 @@ export default function handleRedirects(req: ExtendedRequest, res: Response, nex
   }
 
   // Language-prefixed and external redirects do not vary by language preference.
-  if (pathLanguagePrefixed(req.path) || redirect.includes('://')) {
+  if (pathLanguagePrefixed(req.path) || isExternal) {
     defaultCacheControl(res)
   } else {
     languageCacheControl(res)
   }
 
-  const permanent = redirect.includes('://') || usePermanentRedirect(req)
+  const permanent = isExternal || usePermanentRedirect(req)
   return res.safeRedirect(permanent ? 301 : 302, redirect)
 }
 

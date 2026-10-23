@@ -43,6 +43,16 @@ describe('enterprise deprecation', () => {
     )
   })
 
+  test('redirects double-slash paths in deprecated enterprise content to the collapsed path', async () => {
+    const res = await get('/en/enterprise-server@3.5//admin/overview')
+    expect(res.statusCode).toBe(301)
+    expect(res.headers.location).toBe('/en/enterprise-server@3.5/admin/overview')
+
+    const res2 = await get('/en/enterprise/2.15/user//articles/about-branches')
+    expect(res2.statusCode).toBe(301)
+    expect(res2.headers.location).toBe('/en/enterprise/2.15/user/articles/about-branches')
+  })
+
   test('handles requests for deprecated Enterprise pages ( >=2.13 )', async () => {
     expect(enterpriseServerReleases.deprecated.includes('2.13')).toBe(true)
     const { $, res } = await getDOM('/en/enterprise/2.13/user/articles/about-branches')

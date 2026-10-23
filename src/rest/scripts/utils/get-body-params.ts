@@ -37,6 +37,11 @@ interface BodyParamProps {
 // and Set status check contexts operations need this.
 // When every top-level oneOf option is an object, getTopLevelOneOfProperty merges
 // all properties. With three or more options, middle required fields can lose required flags.
+// When the parent schema has properties, getTopLevelOneOfProperty keeps them and the parent
+// required list, because options like those in Create a check run only constrain parent fields.
+// Options add missing properties: every option when all are objects, otherwise the first
+// option. Option required fields apply to option-added properties, but a parent property
+// becomes required only when every option requires it.
 async function getTopLevelOneOfProperty(
   schema: Schema,
 ): Promise<{ properties: Record<string, Schema>; required: string[] }> {
@@ -47,9 +52,29 @@ async function getTopLevelOneOfProperty(
     throw new Error('Schema requestBody oneOf property is not an array')
   }
 
+  const allOneOfAreObjects = schema.oneOf.every((elem) => elem.type === 'object')
+
+  if (schema.properties) {
+    const parentProperties = schema.properties
+    const properties = { ...parentProperties }
+    const required = new Set(schema.required || [])
+    const mergedOptions = allOneOfAreObjects ? schema.oneOf : [schema.oneOf[0]]
+    for (const each of mergedOptions) {
+      for (const [key, value] of Object.entries(each.properties || {})) {
+        if (!Object.hasOwn(properties, key)) properties[key] = value
+      }
+      for (const name of each.required || []) {
+        const requiredByEveryOption = schema.oneOf.every((option) =>
+          option.required?.includes(name),
+        )
+        if (requiredByEveryOption || !Object.hasOwn(parentProperties, name)) required.add(name)
+      }
+    }
+    return { properties, required: [...required] }
+  }
+
   // When oneOf types differ, the first option must be the comprehensive object form.
   const firstOneOfObject = schema.oneOf[0]
-  const allOneOfAreObjects = schema.oneOf.every((elem) => elem.type === 'object')
   let required = firstOneOfObject.required || []
   let properties = firstOneOfObject.properties || {}
 
@@ -68,6 +93,40 @@ async function getTopLevelOneOfProperty(
   return { properties, required }
 }
 
+// A top-level anyOf of objects, like Review custom deployment protection rules for a workflow
+// run, has no properties on the schema object, so getTopLevelAnyOfProperty merges all options.
+// A request can match any option, so only fields every option requires are marked required,
+// plus fields the parent requires, since parent constraints apply alongside anyOf.
+// The first option that defines a property keeps its description.
+function getTopLevelAnyOfProperty(
+  anyOf: Schema[],
+  parentRequired: string[] = [],
+): {
+  properties: Record<string, Schema>
+  required: string[]
+} {
+  const properties: Record<string, Schema> = {}
+  for (const each of anyOf) {
+    for (const [key, value] of Object.entries(each.properties || {})) {
+      if (!Object.hasOwn(properties, key)) properties[key] = value
+    }
+  }
+  const sharedRequired = (anyOf[0].required || []).filter((name) =>
+    anyOf.every((each) => each.required?.includes(name)),
+  )
+  const required = [...new Set([...parentRequired, ...sharedRequired])]
+  return { properties, required }
+}
+
+function isTopLevelObjectAnyOf(schema: Schema): schema is Schema & { anyOf: Schema[] } {
+  return (
+    !schema.properties &&
+    Array.isArray(schema.anyOf) &&
+    schema.anyOf.length > 0 &&
+    schema.anyOf.every((elem) => elem.type === 'object')
+  )
+}
+
 async function handleObjectOnlyOneOf(
   param: Schema,
   paramType: string[],
@@ -80,6 +139,13 @@ async function handleObjectOnlyOneOf(
   return []
 }
 
+// Array-level nullability already renders as "or null", so a null item type adds nothing to the label.
+function getArrayItemTypes(items: Schema): string[] {
+  return (Array.isArray(items.type) ? items.type : [items.type]).filter(
+    (t): t is string => t !== undefined && t !== 'null',
+  )
+}
+
 // OpenAPI 3.0 allows one type value, while OpenAPI 3.1 also allows an array, so getBodyParams
 // normalizes type values to arrays before it builds the rendered type string.
 // For child parameters, getBodyParams reads object-valued additionalProperties recursively.
@@ -88,7 +154,12 @@ async function handleObjectOnlyOneOf(
 // while mixed oneOf adds types and descriptions without creating child parameter groups.
 export async function getBodyParams(schema: Schema, topLevel = false): Promise<TransformedParam[]> {
   const bodyParametersParsed: TransformedParam[] = []
-  const schemaObject = schema.oneOf && topLevel ? await getTopLevelOneOfProperty(schema) : schema
+  let schemaObject: Schema = schema
+  if (schema.oneOf && topLevel) {
+    schemaObject = await getTopLevelOneOfProperty(schema)
+  } else if (topLevel && isTopLevelObjectAnyOf(schema)) {
+    schemaObject = getTopLevelAnyOfProperty(schema.anyOf, schema.required)
+  }
   const properties = schemaObject.properties || {}
   const required = schemaObject.required || []
 
@@ -98,12 +169,16 @@ export async function getBodyParams(schema: Schema, topLevel = false): Promise<T
     if (!schema.items) {
       throw new Error('Array schema must have items property')
     }
-    const arrayType = schema.items.type
+    const itemTypes = getArrayItemTypes(schema.items)
     const paramType = [schema.type]
-    if (arrayType === 'object') {
+    if (itemTypes.includes('object')) {
       childParamsGroups.push(...(await getBodyParams(schema.items, false)))
-    } else {
-      paramType.splice(paramType.indexOf('array'), 1, `array of ${arrayType}s`)
+    } else if (itemTypes.length > 0) {
+      paramType.splice(
+        paramType.indexOf('array'),
+        1,
+        `array of ${itemTypes.map((t) => `${t}s`).join(' or ')}`,
+      )
     }
     const paramDecorated = await getTransformedParam(schema, paramType, {
       required,
@@ -147,15 +222,19 @@ export async function getBodyParams(schema: Schema, topLevel = false): Promise<T
           childParamsGroups.push(...(await getOneOfChildParams(param.items)))
         }
       } else {
-        const arrayType = param.items.type
-        if (arrayType) {
-          paramType.splice(paramType.indexOf('array'), 1, `array of ${arrayType}s`)
+        const itemTypes = getArrayItemTypes(param.items)
+        if (itemTypes.length > 0) {
+          paramType.splice(
+            paramType.indexOf('array'),
+            1,
+            `array of ${itemTypes.map((t) => `${t}s`).join(' or ')}`,
+          )
         }
-        if (arrayType === 'object') {
+        if (itemTypes.includes('object')) {
           childParamsGroups.push(...(await getBodyParams(param.items, false)))
         }
-        if (arrayType === 'string' && param.items.enum) {
-          param.description += `${
+        if (itemTypes.includes('string') && param.items.enum) {
+          param.description = `${param.description || ''}${
             param.description ? '\n' : ''
           }Supported values are: ${((param.items.enum || []) as string[]).map((lang: string) => `<code>${lang}</code>`).join(', ')}`
         }

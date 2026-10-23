@@ -227,10 +227,12 @@ jobs:
             const prNumber = parseInt('${{ steps.resolve_pr.outputs.pr_number }}', 10);
             const prAuthor = '${{ steps.resolve_pr.outputs.pr_author }}';
 
-            const { data: reviews } = await github.rest.pulls.listReviews({
+            // Approvals often come after many comment reviews, so read every page
+            const reviews = await github.paginate(github.rest.pulls.listReviews, {
               owner: context.repo.owner,
               repo: context.repo.repo,
               pull_number: prNumber,
+              per_page: 100,
             });
 
             const approvedReviewers = [...new Set(

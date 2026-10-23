@@ -31,13 +31,15 @@ export class RestParameter {
 
     const lines: string[] = []
     const required = param.required ? ' (required)' : ''
-    const type = param.schema?.type || 'string'
+    const type = Array.isArray(param.schema?.type)
+      ? param.schema.type.join(' or ')
+      : param.schema?.type || 'string'
 
     lines.push(`- **\`${param.name}\`** (${type})${required}`)
 
     if (param.description) {
       const description = await htmlToMarkdown(param.description, context)
-      lines.push(`  ${description}`)
+      lines.push(indentLines(description, '  '))
     }
 
     if (param.schema?.default !== undefined) {
@@ -87,7 +89,7 @@ export class RestBodyParameter {
 
     if (param.description) {
       const description = await htmlToMarkdown(param.description, context)
-      lines.push(`${prefix}  ${description}`)
+      lines.push(indentLines(description, `${prefix}  `))
     }
 
     if (param.default !== undefined) {
@@ -160,7 +162,7 @@ async function renderChildParameter(
 
   if (param.description) {
     const description = await htmlToMarkdown(param.description, context)
-    lines.push(`${prefix}  ${description}`)
+    lines.push(indentLines(description, `${prefix}  `))
   }
 
   if (param.default !== undefined) {
@@ -178,6 +180,14 @@ async function renderChildParameter(
   }
 
   return lines.join('\n')
+}
+
+// Description text keeps newlines between blocks, and a column-0 line after a blank line ends the list item.
+function indentLines(text: string, indent: string): string {
+  return text
+    .split('\n')
+    .map((line) => (line.trim() ? `${indent}${line}` : ''))
+    .join('\n')
 }
 
 async function htmlToMarkdown(html: string, context: Context): Promise<string> {

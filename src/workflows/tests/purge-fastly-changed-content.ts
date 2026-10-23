@@ -63,6 +63,20 @@ describe('resolvePreviousProductionSha', () => {
     )
   })
 
+  test('ignores a newer deployment that succeeded after the head deployment', async () => {
+    const octokit = makeOctokit(
+      [
+        { id: 4, sha: 'newer' },
+        { id: 3, sha: 'head' },
+        { id: 2, sha: 'prev' },
+      ],
+      { 4: ['success'], 3: ['success'], 2: ['success', 'inactive'] },
+    )
+    expect(await resolvePreviousProductionSha(octokit, 'github', 'docs-internal', 'head')).toBe(
+      'prev',
+    )
+  })
+
   test('skips deployments matching the head sha', async () => {
     const octokit = makeOctokit([{ id: 3, sha: 'head' }], { 3: ['success'] })
     expect(

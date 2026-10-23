@@ -14,6 +14,7 @@ on:
       - 'package*.json'
       - 'src/data-directory/scripts/find-orphaned-features/**'
       - .github/actions/clone-translations/action.yml
+      - .github/actions/get-docs-early-access/action.yml
       - .github/actions/node-npm-setup/action.yml
 
 permissions:
@@ -37,6 +38,11 @@ jobs:
           token: ${{ secrets.DOCS_BOT_PAT_BASE }}
 
       - uses: ./.github/actions/node-npm-setup
+
+      # Early access docs use data/features too, so include them before deciding that a feature is unused.
+      - uses: ./.github/actions/get-docs-early-access
+        with:
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
 
       - name: Check for orphaned features
         env:

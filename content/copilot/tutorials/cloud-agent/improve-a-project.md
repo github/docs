@@ -42,7 +42,7 @@ In the following sections we'll:
 
 1. If any of these files exists, view the file and check that the instructions are adequate and up to date.
 
-   For more information, see the section "Writing effective custom instructions" in [AUTOTITLE](/copilot/concepts/prompting/response-customization?tool=webui#writing-effective-custom-instructions), and the library of examples at [AUTOTITLE](/copilot/tutorials/customization-library/custom-instructions).
+   For more information, see the section "Writing effective custom instructions" in [AUTOTITLE](/copilot/concepts/prompting-and-context/custom-instructions#writing-effective-custom-instructions), and the library of examples at [AUTOTITLE](/copilot/tutorials/customization-library/custom-instructions).
 
 1. If there are no custom instructions files in the repository, use {% data variables.copilot.copilot_cloud_agent %} to create a `.github/copilot-instructions.md` file, by following the instructions in [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions#asking-copilot-cloud-agent-to-generate-a-copilot-instructionsmd-file).
 1. Review the pull request that {% data variables.copilot.copilot_cloud_agent %} creates. Check that the `.github/copilot-instructions.md` file provides {% data variables.product.prodname_copilot_short %} with all of the information it needs to know to work on this project.

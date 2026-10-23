@@ -39,8 +39,8 @@ export const InArticlePicker = ({
   const { query, locale } = router
   const [currentValue, setCurrentValue] = useState('')
 
-  // True after user clicks, so focus moves only for direct tab selection.
-  const focusAfterNavRef = useRef(false)
+  // Holds the clicked value so focus moves only for direct tab selection, once that tab is selected.
+  const focusAfterNavRef = useRef<string | null>(null)
 
   useEffect(() => {
     const raw = query[queryStringKey]
@@ -104,9 +104,12 @@ export const InArticlePicker = ({
   }, [currentValue])
 
   function onClickChoice(value: string) {
-    focusAfterNavRef.current = true
     const params = new URLSearchParams(asPathQuery)
     params.set(queryStringKey, value)
+    // An unchanged URL keeps the nav mounted and focus in place, so skip the refocus.
+    if (`${asPathRoot}?${params}` !== router.asPath) {
+      focusAfterNavRef.current = value
+    }
     const newPath = `/${locale}${asPathRoot}?${params}`
     router.push(newPath, undefined, { shallow: true, locale })
 
@@ -119,17 +122,17 @@ export const InArticlePicker = ({
     Cookies.set(cookieKey, value)
   }
 
-  // WCAG 2.4.3 requires focus to remain on the triggered tab after shallow routing.
+  // WCAG 2.4.3 requires focus to remain on the triggered tab, and the nav remounts on every URL change.
   useEffect(() => {
-    if (!focusAfterNavRef.current || !currentValue) return
-    focusAfterNavRef.current = false
+    if (!currentValue || focusAfterNavRef.current !== currentValue) return
+    focusAfterNavRef.current = null
 
     const container = document.querySelector<HTMLElement>(
       `[data-testid="${queryStringKey}-picker"]`,
     )
     const selectedTab = container?.querySelector<HTMLElement>('[aria-current="page"]')
     selectedTab?.focus()
-  }, [currentValue, queryStringKey])
+  }, [currentValue, queryStringKey, router.asPath])
 
   const sharedContainerProps = {
     'aria-label': ariaLabel,
@@ -152,6 +155,8 @@ export const InArticlePicker = ({
               key={option.value}
               aria-current={option.value === currentValue ? 'page' : undefined}
               onSelect={(event: React.MouseEvent | React.KeyboardEvent) => {
+                // Leave new-tab and new-window gestures to the browser and the href.
+                if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return
                 event.preventDefault()
                 onClickChoice(option.value)
               }}

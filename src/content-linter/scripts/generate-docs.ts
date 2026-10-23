@@ -73,11 +73,21 @@ function getSearchReplaceRules(srRule: Rule, ruleConfig: Config) {
   for (const rule of sortedRules) {
     const row = []
     row.push(name)
-    row.push(rule.name)
+    row.push(escapeCell(rule.name))
     row.push(rule.message)
     row.push(rule.severity)
     row.push('')
     markdown.push(`| ${row.join(' | ')} |`)
   }
   return markdown
+}
+
+// Rule names are plain text, so a bare (<) would render as an HTML tag,
+// a (|) would split the table cell, and a (\) would escape the next character.
+function escapeCell(text: string) {
+  return text
+    .replace(/\\/g, '\\\\')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/\|/g, '\\|')
 }

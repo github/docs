@@ -13,6 +13,7 @@ versions:
 shortTitle: Enterprise administration
 children:
   - /admin-stats
+  - /ai-controls
   - /announcement
   - /audit-log
   - /bypass-requests

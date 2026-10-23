@@ -9,7 +9,8 @@ import type {
 } from '@/search/lib/search-request-params/types'
 import type { SearchAggregation, GeneralSearchHit, GeneralSearchResponse } from '@/search/types'
 
-const MAX_AGGREGATE_SIZE = 30
+// Must exceed the number of products in any version, or Elasticsearch drops the smallest buckets
+const MAX_AGGREGATE_SIZE = 100
 
 const isDevMode: boolean = process.env.NODE_ENV !== 'production'
 
@@ -76,14 +77,22 @@ export async function getGeneralSearchResults(
   }
 
   const toplevelArray = toplevel || []
+  // post_filter runs after aggregations, so facet counts stay unfiltered while hits are
+  // filtered. Without aggregations, keep the filter in the query where it can be cached.
+  let postFilter: estypes.QueryDslQueryContainer | undefined
   if (toplevelArray.length) {
-    const filters = Array.isArray(matchBool.filter) ? matchBool.filter : []
-    filters.push({
+    const toplevelFilter: estypes.QueryDslQueryContainer = {
       terms: {
         toplevel: toplevelArray,
       },
-    })
-    matchBool.filter = filters
+    }
+    if (aggregate && aggregate.length) {
+      postFilter = toplevelFilter
+    } else {
+      const filters = Array.isArray(matchBool.filter) ? matchBool.filter : []
+      filters.push(toplevelFilter)
+      matchBool.filter = filters
+    }
   }
 
   const highlightFields = Array.from(highlights || DEFAULT_HIGHLIGHT_FIELDS)
@@ -109,6 +118,10 @@ export async function getGeneralSearchResults(
     if (include.includes(key) && Array.isArray(searchQuery._source_includes)) {
       searchQuery._source_includes?.push(key)
     }
+  }
+
+  if (postFilter) {
+    searchQuery.post_filter = postFilter
   }
 
   if (sort === 'best') {
@@ -409,7 +422,7 @@ function getHits(
       result.score = hit._score ?? 0.0
       result.popularity = source.popularity ?? 0.0
       if (isDevMode) {
-        result.es_url = `http://localhost:9200/${indexName}/_doc/${hit._id}`
+        result.es_url = `http://localhost:9200/${indexName}/_doc/${encodeURIComponent(hit._id!)}`
       }
     }
     for (const field of include) {

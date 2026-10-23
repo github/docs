@@ -160,4 +160,57 @@ describe('CLI examples generation', () => {
     expect(result).toContain("Here'\\''s my feedback")
     expect(result).toContain('--data-urlencode')
   })
+
+  test('GitHub CLI example quotes paths with required query params', () => {
+    const mockSearchOperation = {
+      verb: 'get',
+      requestPath: '/search/labels',
+      serverUrl: 'https://api.github.com',
+      subcategory: 'search',
+      parameters: [
+        { name: 'repository_id', in: 'query', required: true },
+        { name: 'q', in: 'query', required: true },
+        { name: 'sort', in: 'query', required: false },
+      ],
+    } as unknown as Operation
+    const codeSample = { request: {} } as unknown as CodeSample
+
+    const result = getGHExample(
+      mockSearchOperation,
+      codeSample,
+      'free-pro-team@latest',
+      mockVersions,
+    )
+
+    expect(result).toContain('"/search/labels?repository_id=REPOSITORY_ID&q=Q"')
+  })
+
+  test('GitHub CLI example leaves paths without query params unquoted', () => {
+    const codeSample = {
+      request: {
+        parameters: {
+          owner: 'OWNER',
+          repo: 'REPO',
+        },
+      },
+    } as unknown as CodeSample
+
+    const mockSimpleOperation = {
+      verb: 'get',
+      requestPath: '/repos/{owner}/{repo}',
+      serverUrl: 'https://api.github.com',
+      subcategory: 'repos',
+      parameters: [],
+    } as unknown as Operation
+
+    const result = getGHExample(
+      mockSimpleOperation,
+      codeSample,
+      'free-pro-team@latest',
+      mockVersions,
+    )
+
+    expect(result).toContain('  /repos/OWNER/REPO')
+    expect(result).not.toContain('"/repos/OWNER/REPO"')
+  })
 })

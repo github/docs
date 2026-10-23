@@ -145,7 +145,21 @@ steps:
 
 ### Caching dependencies
 
-You can cache NuGet dependencies for future workflows using the optional `cache` input. For example, the YAML below caches the NuGet `global-packages` folder, and then installs the `Newtonsoft` package. A second optional input, `cache-dependency-path`, can be used to specify the path to a dependency file: `packages.lock.json`.
+You can cache NuGet dependencies for future workflows using the optional `cache` input. Caching requires a `packages.lock.json` file. If the action cannot find a matching lock file, it fails.
+
+Before enabling caching:
+
+1. In the directory containing your project or solution, generate the lock files locally.
+
+   ```shell
+   dotnet restore --use-lock-file
+   ```
+
+1. Commit the generated `packages.lock.json` files to your repository so they are available when the workflow runs.
+
+For more information, see [Locking dependencies](https://learn.microsoft.com/nuget/consume-packages/package-references-in-project-files#locking-dependencies) in the NuGet documentation.
+
+By default, `setup-dotnet` looks for a lock file in the repository root. Use `cache-dependency-path` to specify lock files in subdirectories or multiple lock files. The following example caches the NuGet `global-packages` folder using lock files throughout the repository, then restores the dependencies in locked mode.
 
 For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/dependency-caching).
 
@@ -157,8 +171,9 @@ steps:
   with:
     dotnet-version: '6.x'
     cache: true
-- name: Install dependencies
-  run: dotnet add package Newtonsoft.Json --version 12.0.1
+    cache-dependency-path: '**/packages.lock.json'
+- name: Restore dependencies
+  run: dotnet restore --locked-mode
 ```
 
 > [!NOTE]
@@ -202,23 +217,23 @@ jobs:
       matrix:
         dotnet-version: [ '3.1.x', '6.0.x' ]
 
-      steps:
-        - uses: {% data reusables.actions.action-checkout %}
-        - name: Setup dotnet
-          uses: {% data reusables.actions.action-setup-dotnet %}
-          with:
-            dotnet-version: {% raw %}${{ matrix.dotnet-version }}{% endraw %}
-        - name: Install dependencies
-          run: dotnet restore
-        - name: Test with dotnet
-          run: dotnet test --no-restore --logger trx --results-directory {% raw %}"TestResults-${{ matrix.dotnet-version }}"{% endraw %}
-        - name: Upload dotnet test results
-          uses: {% data reusables.actions.action-upload-artifact %}
-          with:
-            name: {% raw %}dotnet-results-${{ matrix.dotnet-version }}{% endraw %}
-            path: {% raw %}TestResults-${{ matrix.dotnet-version }}{% endraw %}
-          # Use always() to always run this step to publish test results when there are test failures
-          if: {% raw %}${{ always() }}{% endraw %}
+    steps:
+      - uses: {% data reusables.actions.action-checkout %}
+      - name: Setup dotnet
+        uses: {% data reusables.actions.action-setup-dotnet %}
+        with:
+          dotnet-version: {% raw %}${{ matrix.dotnet-version }}{% endraw %}
+      - name: Install dependencies
+        run: dotnet restore
+      - name: Test with dotnet
+        run: dotnet test --no-restore --logger trx --results-directory {% raw %}"TestResults-${{ matrix.dotnet-version }}"{% endraw %}
+      - name: Upload dotnet test results
+        uses: {% data reusables.actions.action-upload-artifact %}
+        with:
+          name: {% raw %}dotnet-results-${{ matrix.dotnet-version }}{% endraw %}
+          path: {% raw %}TestResults-${{ matrix.dotnet-version }}{% endraw %}
+        # Use always() to always run this step to publish test results when there are test failures
+        if: {% raw %}${{ always() }}{% endraw %}
 ```
 
 ## Publishing to package registries

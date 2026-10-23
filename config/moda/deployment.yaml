@@ -196,7 +196,7 @@ environments:
     require_vault: true
     secret_environment: staging
     required_review_tasks: []
-    auto_deploy: true
+    auto_deploy: false
     skip_auto_merge: true
     proxima: true
     resource_path: config/kubernetes/docs-internal-review-lab

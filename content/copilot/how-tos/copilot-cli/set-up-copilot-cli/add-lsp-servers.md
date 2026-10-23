@@ -14,7 +14,7 @@ category:
 
 ## Introduction
 
-This article explains how to add LSP servers for {% data variables.copilot.copilot_cli_short %}. For conceptual information about LSP servers, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/lsp-servers).
+This article explains how to add LSP servers for {% data variables.copilot.copilot_cli_short %}. For conceptual information about LSP servers, see [AUTOTITLE](/copilot/concepts/customizations/lsp-servers).
 
 Adding an LSP server for {% data variables.copilot.copilot_cli_short %} is a two-step process:
 

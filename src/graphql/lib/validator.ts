@@ -1,7 +1,7 @@
 // src/graphql/tests/validate-schema.ts reads these schemas to validate generated data.
 
 interface JSONSchema {
-  type?: string
+  type?: string | string[]
   required?: string[]
   properties?: Record<string, JSONSchema>
   items?: JSONSchema
@@ -116,7 +116,7 @@ corePropsPlusArgs.properties!.args = {
 }
 
 corePropsPlusArgs.properties!.args.items!.properties!.defaultValue = {
-  type: 'boolean',
+  type: ['boolean', 'string'],
 }
 
 const corePropsNoType = dup(coreProps)
@@ -211,6 +211,12 @@ enums.properties.values = {
         type: 'string',
       },
       description: {
+        type: 'string',
+      },
+      isDeprecated: {
+        type: 'boolean',
+      },
+      deprecationReason: {
         type: 'string',
       },
     },

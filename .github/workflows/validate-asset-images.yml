@@ -8,6 +8,10 @@ on:
     paths:
       - 'assets/**'
       - '.github/workflows/validate-asset-images.yml'
+      # Dependency changes can break the validator.
+      - 'package*.json'
+      - 'src/assets/scripts/validate-asset-images.ts'
+      - '.github/actions/node-npm-setup/action.yml'
 
 permissions:
   contents: read

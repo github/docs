@@ -74,7 +74,8 @@ export const languages: Languages = {
     nativeName: '简体中文',
     code: 'zh',
     hreflang: 'zh-Hans',
-    redirectPatterns: [/^\/cn/, /^\/zh-\w{2}/],
+    // Match the whole first segment, so /zh-Hans/get-started becomes /zh/get-started.
+    redirectPatterns: [/^\/cn/, /^\/zh-[\w-]+(?=\/|$)/],
     locale: 'zh-cn',
     firstArchivedVersion: '3.3',
   },

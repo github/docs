@@ -59,7 +59,6 @@ You can use a machine as a self-hosted runner as long as it meets these requirem
 
 * `x64` - Linux, macOS, Windows.
 * `ARM64` - Linux, macOS{% ifversion actions-windows-arm %}, Windows (currently in {% data variables.release-phases.public_preview %}){% endif %}.
-* `ARM32` - Linux.
 
 ## Routing precedence for self-hosted runners
 

@@ -147,7 +147,7 @@ Unit tests must include positive/negative cases, line numbers, ranges, and auto-
 When adding error-level rules with many existing violations:
 
 1. **Autofix**: Use the rule's auto-fix if available
-2. **Disable comments**: Use `disable-rules.ts` to add disable comments  
+2. **Disable comments**: Use `disable-rules.ts` to add disable comments. It lists violations in YAML data values for you to disable by hand inside the YAML string  
 3. **Manual fixes**: Fix violations manually (most time-consuming)
 4. **Warning severity**: Temporarily set to `warning` if too many violations exist
 

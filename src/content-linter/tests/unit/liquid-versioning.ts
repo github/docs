@@ -81,6 +81,53 @@ describe(liquidIfVersionTags.names.join(' - '), () => {
     expect(errors.every((error) => error.errorContext.includes('elsif'))).toBe(true)
   })
 
+  test('elsif tags inside regular if and unless blocks pass', async () => {
+    const markdown = [
+      '{% if entry.tier %}a{% elsif entry.threshold %}b{% endif %}',
+      "{% if model.name == 'A' %}x{% elsif model.name == 'Gemini' %}y{% endif %}",
+      "{% unless model.name == 'A' %}x{% elsif model.name == 'Gemini' %}y{% endunless %}",
+    ].join('\n')
+    const result = await runRule(liquidIfVersionTags, { strings: { markdown } })
+    const errors = result.markdown
+    expect(errors.length).toBe(0)
+  })
+
+  test('elsif tags of ifversion blocks nested in regular if blocks fail', async () => {
+    const markdown =
+      '{% if x %}{% ifversion fpt %}{% elsif neverheardof %}{% endif %}{% elsif y %}{% endif %}'
+    const result = await runRule(liquidIfVersionTags, { strings: { markdown } })
+    const errors = result.markdown
+    expect(errors.length).toBe(1)
+    expect(errors[0].errorDetail).toContain('neverheardof')
+  })
+
+  test('tags inside comments do not change which elsif tags are checked', async () => {
+    const markdown = [
+      '{% ifversion fpt %}{% comment %}{% if x %}{% endcomment %}{% elsif neverheardof %}{% endif %}',
+      "{% if model.name == 'A' %}{% comment %}{% endif %}{% endcomment %}{% elsif model.name == 'Gemini' %}{% endif %}",
+    ].join('\n')
+    const result = await runRule(liquidIfVersionTags, { strings: { markdown } })
+    const errors = result.markdown
+    expect(errors.length).toBe(1)
+    expect(errors[0].errorDetail).toContain('neverheardof')
+  })
+
+  test('clauses with more than three words fail', async () => {
+    const markdown = [
+      `{% ifversion fpt or ghec ghes > ${nextNext} %}`,
+      `{% ifversion ghes > ${nextNext} ghec %}`,
+      `{% ifversion not ghes > ${nextNext} %}`,
+    ]
+    const result = await runRule(liquidIfVersionTags, {
+      strings: { markdown: markdown.join('\n') },
+    })
+    const errors = result.markdown
+    expect(errors.length).toBe(markdown.length)
+    expect(errors.every((error) => error.errorDetail.includes('is not a valid conditional'))).toBe(
+      true,
+    )
+  })
+
   test('conditional without quote args pass', async () => {
     const markdown = [
       '{% ifversion fpt %}',

@@ -7,7 +7,6 @@ notAllowed:
   - 'config/**'
   - 'contributing/**'
   - 'src/**'
-  - 'patches/**'
   - 'content/actions/how-tos/secure-your-work/security-harden-deployments/**'
   - 'content/README.md'
 contentTypes:

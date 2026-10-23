@@ -6,8 +6,13 @@ import {
   resolveInternalLinkKey,
   checkAssetLink,
   isAssetLink,
+  getLinkCheckVersions,
+  createLiquidContext,
+  extractLinksWithLiquid,
 } from '../lib/extract-links'
-import { latestStable } from '@/versions/lib/enterprise-server-releases'
+import { latest, latestStable } from '@/versions/lib/enterprise-server-releases'
+import { allVersions } from '@/versions/lib/all-versions'
+import { getFeaturesByVersion } from '@/versions/middleware/features'
 import type { Page } from '@/types'
 
 describe('extractLinksFromMarkdown', () => {
@@ -207,6 +212,117 @@ And [another real link](https://real.example.com/page).
     expect(result.externalLinks).toHaveLength(2)
     expect(result.externalLinks[0].href).toBe('https://example.com')
     expect(result.externalLinks[1].href).toBe('https://real.example.com/page')
+  })
+
+  test('closes a list-nested fence whose closer is indented more than the opener', () => {
+    const content = `
+1. Run this:
+
+   \`\`\`shell
+   [hidden](#in-code)
+    \`\`\`
+
+See [CPU above 70%](#cpu-above-70).
+
+\`\`\`shell
+echo done
+\`\`\`
+`
+    const result = extractLinksFromMarkdown(content)
+
+    expect(result.anchorLinks).toHaveLength(1)
+    expect(result.anchorLinks[0].href).toBe('#cpu-above-70')
+    expect(result.anchorLinks[0].line).toBe(8)
+  })
+
+  test('closes a list-nested fence whose closer is indented less than the opener', () => {
+    const content = `
+1. Add this:
+
+    \`\`\`json
+    {}
+   \`\`\`
+
+   ![Screenshot](/assets/images/example.png)
+
+\`\`\`shell
+echo done
+\`\`\`
+`
+    const result = extractLinksFromMarkdown(content)
+
+    expect(result.imageLinks).toHaveLength(1)
+    expect(result.imageLinks[0].href).toBe('/assets/images/example.png')
+    expect(result.imageLinks[0].line).toBe(8)
+  })
+
+  test('treats a 4-space backtick line outside a list as indented code, not a fence', () => {
+    const content = `
+Example:
+
+    \`\`\`
+
+[real](/real/path)
+
+\`\`\`shell
+echo done
+\`\`\`
+`
+    const result = extractLinksFromMarkdown(content)
+
+    expect(result.internalLinks).toHaveLength(1)
+    expect(result.internalLinks[0].href).toBe('/real/path')
+  })
+
+  test('does not close a top-level fence with a 4-space backtick line', () => {
+    const content = `
+   \`\`\`shell
+   [placeholder](/placeholder/one)
+    \`\`\`
+   [placeholder](/placeholder/two)
+   \`\`\`
+
+See [real](/real/path).
+
+\`\`\`shell
+echo done
+\`\`\`
+`
+    const result = extractLinksFromMarkdown(content)
+
+    expect(result.internalLinks).toHaveLength(1)
+    expect(result.internalLinks[0].href).toBe('/real/path')
+  })
+
+  test('ends a list-nested fence when the list item ends', () => {
+    const content = `
+1. Run this:
+
+   \`\`\`shell
+   [placeholder](/placeholder/path)
+See [real](/real/path).
+`
+    const result = extractLinksFromMarkdown(content)
+
+    expect(result.internalLinks).toHaveLength(1)
+    expect(result.internalLinks[0].href).toBe('/real/path')
+    expect(result.internalLinks[0].line).toBe(6)
+  })
+
+  test('keeps inner fence lines masked inside a longer outer fence', () => {
+    const content = `
+\`\`\`\`markdown
+\`\`\`
+[example](/fake/path)
+\`\`\`
+\`\`\`\`
+
+[real](/real/path)
+`
+    const result = extractLinksFromMarkdown(content)
+
+    expect(result.internalLinks).toHaveLength(1)
+    expect(result.internalLinks[0].href).toBe('/real/path')
   })
 
   test('skips links inside inline code spans', () => {
@@ -419,6 +535,7 @@ describe('normalizeLinkPath', () => {
 
 describe('checkInternalLink', () => {
   const pageMap = {
+    '/en': {} as unknown as Page,
     '/en/actions/getting-started': {} as unknown as Page,
     '/en/repositories/overview': {} as unknown as Page,
     '/actions/guides': {} as unknown as Page,
@@ -683,6 +800,67 @@ describe('checkInternalLink', () => {
     expect(result.isRedirect).toBe(true)
     expect(result.redirectTarget).toBe('/')
   })
+
+  test.each([
+    '/admin/does-not-exist',
+    '/admin/guides/does-not-exist',
+    '/desktop/guides/does-not-exist',
+    '/free-pro-team@latest/does-not-exist',
+    '/enterprise-server/does-not-exist',
+    '/enterprise/user/does-not-exist',
+  ])('reports %s as broken when the redirect resolver target is missing', (href) => {
+    const result = checkInternalLink(href, pageMap, redirects)
+    expect(result.exists).toBe(false)
+    expect(result.isRedirect).toBe(false)
+  })
+
+  test('resolves an /admin/guides link through a versioned redirect to a real page', () => {
+    const result = checkInternalLink(
+      '/admin/guides/old-guide',
+      { [`/en/enterprise-server@${latest}/admin/new-guide`]: {} as unknown as Page },
+      {
+        [`/enterprise-server@${latest}/admin/old-guide`]: `/enterprise-server@${latest}/admin/new-guide`,
+      },
+    )
+    expect(result.exists).toBe(true)
+    expect(result.isRedirect).toBe(true)
+    expect(result.redirectTarget).toBe(`/enterprise-server@${latest}/admin/new-guide`)
+  })
+
+  test('ignores .md when checking a fallback redirect target', () => {
+    const result = checkInternalLink(
+      '/free-pro-team@latest/actions/getting-started.md',
+      pageMap,
+      redirects,
+    )
+    expect(result.exists).toBe(true)
+    expect(result.isRedirect).toBe(true)
+    expect(result.redirectTarget).toBe('/actions/getting-started.md')
+  })
+
+  test('applies the GraphQL category rewrite before checking a fallback redirect target', () => {
+    const result = checkInternalLink(
+      '/free-pro-team@latest/v4/scalar/boolean',
+      { '/en/graphql/reference/other': {} as unknown as Page },
+      { '/v4/scalar/boolean': '/graphql/reference/scalars#boolean' },
+    )
+    expect(result.exists).toBe(true)
+    expect(result.isRedirect).toBe(true)
+    expect(result.redirectTarget).toBe('/graphql/reference/other#scalar-boolean')
+  })
+
+  test('resolves fallback redirects in the checked language', () => {
+    const result = checkInternalLink(
+      '/free-pro-team@latest',
+      { '/ja': {} as unknown as Page },
+      {},
+      undefined,
+      'ja',
+    )
+    expect(result.exists).toBe(true)
+    expect(result.isRedirect).toBe(true)
+    expect(result.redirectTarget).toBe('/')
+  })
 })
 
 describe('resolveInternalLinkKey', () => {
@@ -794,5 +972,58 @@ describe('resolveInternalLinkKey version precedence', () => {
     expect(resolveInternalLinkKey('/get-started/shared', pageMap, 'enterprise-server@3.17')).toBe(
       '/en/get-started/shared',
     )
+  })
+})
+
+describe('getLinkCheckVersions', () => {
+  test('returns every version the page applies to', () => {
+    const versions = ['free-pro-team@latest', 'enterprise-cloud@latest']
+    expect(getLinkCheckVersions({ applicableVersions: versions })).toEqual(versions)
+  })
+
+  test('returns every current version for files without a page', () => {
+    expect(getLinkCheckVersions(undefined)).toEqual(Object.keys(allVersions))
+    expect(getLinkCheckVersions({ applicableVersions: [] })).toEqual(Object.keys(allVersions))
+  })
+
+  test('resolves versionless links on GHEC-only pages without a redirect', () => {
+    // Pages without FPT get a versionless fallback redirect to their first version.
+    const pageMap = {
+      '/en/enterprise-cloud@latest/admin/create-account': {} as unknown as Page,
+    }
+    const redirects = {
+      '/admin/create-account': '/enterprise-cloud@latest/admin/create-account',
+    }
+    const versions = getLinkCheckVersions({ applicableVersions: ['enterprise-cloud@latest'] })
+    for (const version of versions) {
+      const result = checkInternalLink('/admin/create-account', pageMap, redirects, version)
+      expect(result).toEqual({ exists: true, isRedirect: false })
+    }
+  })
+})
+
+describe('extractLinksWithLiquid with createLiquidContext', () => {
+  const fptFeatures = getFeaturesByVersion('free-pro-team@latest')
+  const fptFeature = Object.keys(fptFeatures).find((name) => fptFeatures[name])
+
+  test('renders version short names and feature flags for the version', async () => {
+    expect(fptFeature).toBeDefined()
+    const content = `
+{% ifversion fpt %}[a](/x/fpt){% endif %}
+{% ifversion fpt or ghec %}[b](/x/b){% else %}[c](/x/c){% endif %}
+{% ifversion ${fptFeature} %}[d](/x/feature){% endif %}
+`
+    const result = await extractLinksWithLiquid(content, createLiquidContext())
+    const hrefs = result.internalLinks.map((link) => link.href)
+
+    expect(hrefs).toEqual(['/x/fpt', '/x/b', '/x/feature'])
+  })
+
+  test('renders the matching branch for GHES', async () => {
+    const content = `{% ifversion ghes %}[a](/x/ghes){% else %}[b](/x/other){% endif %}`
+    const context = createLiquidContext(`enterprise-server@${latestStable}`)
+    const result = await extractLinksWithLiquid(content, context)
+
+    expect(result.internalLinks.map((link) => link.href)).toEqual(['/x/ghes'])
   })
 })

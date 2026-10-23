@@ -7,6 +7,7 @@ import { languageKeys } from '@/languages/lib/languages-server'
 import { indexGeneralSearch } from './lib/index-general-search'
 import {
   allIndexVersionKeys,
+  allIndexVersionOptions,
   supportedAutocompletePlanVersions,
   versionToIndexVersionMap,
 } from '@/search/lib/elasticsearch-versions'
@@ -25,7 +26,10 @@ const generalSearchCommand = new Command('general-search')
   )
   .option('-v, --verbose', 'Verbose outputs')
   .addOption(
-    new Option('-V, --version [VERSION...]', 'Specific versions').choices(allVersionKeysWithAll),
+    new Option('-V, --version [VERSION...]', 'Specific versions').choices([
+      ...allIndexVersionOptions,
+      'all',
+    ]),
   )
   .addOption(
     new Option('-l, --language <LANGUAGE...>', 'Which languages to focus on').choices(languageKeys),

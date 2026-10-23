@@ -3,11 +3,14 @@
 import { useRouter } from 'next/router'
 import { useState, useEffect } from 'react'
 import { parseDebug } from '@/search/components/hooks/useQuery'
+import { buildShallowQueryUrls } from '@/frame/components/lib/shallow-query-url'
 
 type UseQueryParamReturn<T extends string | boolean> = {
   debug: boolean
   queryParam: T
-  setQueryParam: (value: T) => void
+  // Resolves once the URL write lands. A caller about to navigate must await it: the write is
+  // a `router.replace` of the current path, and overlapping a `router.push` gets one cancelled.
+  setQueryParam: (value: T) => Promise<void>
 }
 
 export function useQueryParam(queryParamKey: string, isBoolean: true): UseQueryParamReturn<boolean>
@@ -33,8 +36,12 @@ export function useQueryParam(
     setDebug(parseDebug(router.query.debug || '') || false)
   }, [queryParamKey, router.pathname])
 
-  const setQueryParam = (value: string | boolean) => {
+  const setQueryParam = async (value: string | boolean) => {
     const newValue = typeof value === 'boolean' ? (value ? 'true' : '') : value
+
+    // Always set state: the effect above skips navigations within the same dynamic route.
+    setQueryParamState(newValue)
+
     const [asPathWithoutHash] = router.asPath.split('#')
     const [asPathRoot, asPathQuery = ''] = asPathWithoutHash.split('?')
     const currentParams = new URLSearchParams(asPathQuery)
@@ -44,29 +51,21 @@ export function useQueryParam(
       currentParams.delete(queryParamKey)
     }
     const paramsString = currentParams.toString() ? `?${currentParams.toString()}` : ''
-    let newUrl = `${asPathRoot}${paramsString}`
-    if (asPathRoot !== '/' && router.locale) {
-      newUrl = `${router.locale}${asPathRoot}${paramsString}`
-    }
-    if (!newUrl.startsWith('/')) {
-      newUrl = `/${newUrl}`
-    }
+    const { url, as } = buildShallowQueryUrls(asPathRoot, paramsString, router.locale)
 
-    router.replace(newUrl, undefined, { shallow: true, locale: router.locale, scroll: false })
-
-    setQueryParamState(newValue)
+    await router.replace(url, as, { shallow: true, locale: router.locale, scroll: false })
   }
 
   if (isBoolean) {
     return {
       debug,
       queryParam: queryParam as boolean,
-      setQueryParam: setQueryParam as (value: boolean) => void,
+      setQueryParam: setQueryParam as (value: boolean) => Promise<void>,
     }
   }
   return {
     debug,
     queryParam: queryParam as string,
-    setQueryParam: setQueryParam as (value: string) => void,
+    setQueryParam: setQueryParam as (value: string) => Promise<void>,
   }
 }

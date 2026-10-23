@@ -2,7 +2,7 @@
 title: Using the GitHub Copilot app to interact with desktop applications
 shortTitle: Computer use
 intro: 'With computer use, allow {% data variables.product.prodname_copilot_short %} to interact with local desktop applications from the {% data variables.copilot.github_copilot_app %}.'
-product: '{% data reusables.gated-features.github-app %}<br><a href="https://github.com/features/ai/github-app" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Download {% data variables.copilot.github_copilot_app %}</span> {% octicon "link-external" height:16 %}</a>'
+product: '{% data reusables.gated-features.github-app %}<br>{% data reusables.copilot.github-app-download-button %}'
 versions:
   feature: copilot
 contentType: how-tos
@@ -19,11 +19,11 @@ category:
 
 This capability is useful for workflows in legacy and GUI-only software that do not provide an API, command-line interface, or MCP integration. It is available for local sessions on macOS and Windows.
 
-For information about its capabilities, controls, and limitations, see [AUTOTITLE](/copilot/concepts/agents/computer-use).
+For information about its capabilities, controls, and limitations, see [AUTOTITLE](/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/computer-use).
 
 ## Enabling computer use
 
-1. Open the settings for {% data variables.copilot.github_copilot_app %}.
+1. Open the settings for the {% data variables.copilot.github_copilot_app %}.
 1. In the sidebar, select **Computer Use**.
 1. Under **Enable Computer Use**, turn on **Enable Computer Use**.
 1. On macOS, under **Prerequisites**, grant both required permissions:
@@ -52,9 +52,9 @@ To interrupt an active operation, click **Stop** or press <kbd>Esc</kbd>.
 
 ## Reviewing always allowed applications
 
-If you choose **Always allow** in {% data variables.copilot.github_copilot_app %} or {% data variables.copilot.copilot_cli %}, the approval is saved and applies to both surfaces on the same computer.
+If you choose **Always allow** in the {% data variables.copilot.github_copilot_app %} or {% data variables.copilot.copilot_cli %}, the approval is saved and applies to both surfaces on the same computer.
 
-1. Open the settings for {% data variables.copilot.github_copilot_app %}.
+1. Open the settings for the {% data variables.copilot.github_copilot_app %}.
 1. In the sidebar, select **Computer Use**.
 1. Under **Always allowed apps**, click the delete icon next to the application.
 
@@ -62,7 +62,7 @@ Removing an application deletes its saved approval for future sessions in both t
 
 ## Disabling computer use
 
-Open the settings for {% data variables.copilot.github_copilot_app %}. In the sidebar, select **Computer Use**, then turn off **Enable Computer Use**.
+Open the settings for the {% data variables.copilot.github_copilot_app %}. In the sidebar, select **Computer Use**, then turn off **Enable Computer Use**.
 
 You can also use `/computer off` in a session.
 

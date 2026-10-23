@@ -730,6 +730,24 @@
         "access": "write"
       },
       {
+        "category": "copilot",
+        "slug": "get-model-policies-for-an-organization",
+        "subcategory": "copilot-model-policy-management",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/copilot/model-policies",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "copilot",
+        "slug": "update-model-policies-for-an-organization",
+        "subcategory": "copilot-model-policy-management",
+        "verb": "patch",
+        "requestPath": "/orgs/{org}/copilot/model-policies",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
         "category": "orgs",
         "slug": "list-saml-sso-authorizations-for-an-organization",
         "subcategory": "orgs",
@@ -9590,6 +9608,21 @@
         "requestPath": "/user/repos",
         "additional-permissions": true,
         "access": "write"
+      }
+    ]
+  },
+  "repository_license_policy": {
+    "title": "Repository license policy",
+    "displayTitle": "Repository permissions for \"Repository license policy\"",
+    "permissions": [
+      {
+        "category": "dependency-graph",
+        "slug": "check-license-compliance-for-packages",
+        "subcategory": "license-compliance",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/license-compliance/package-checks",
+        "additional-permissions": false,
+        "access": "read"
       }
     ]
   },

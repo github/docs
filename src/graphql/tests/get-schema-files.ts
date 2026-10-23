@@ -9,7 +9,10 @@ import {
   getGraphqlChangelog,
   getGraphqlBreakingChanges,
   getPreviews,
+  getAllGraphqlObjects,
+  getGraphqlInterfaceImplementers,
 } from '../lib/index'
+import type { ObjectT } from '@/graphql/components/types'
 
 interface GraphqlType {
   kind: string
@@ -58,5 +61,33 @@ describe('graphql schema', () => {
       const schema = getPreviews(version)
       expect(schema).toBeDefined()
     }
+  })
+
+  test('getGraphqlInterfaceImplementers returns nothing without interface names', () => {
+    expect(getGraphqlInterfaceImplementers('free-pro-team@latest', [])).toEqual([])
+  })
+
+  test('getGraphqlInterfaceImplementers returns slim implementers for a category', () => {
+    const version = 'free-pro-team@latest'
+    const schema = getGraphqlSchema(version, 'issues') as { interfaces?: { name: string }[] }
+    const interfaceNames = (schema.interfaces ?? []).map((item) => item.name)
+    expect(interfaceNames.length).toBeGreaterThan(0)
+
+    const implementers = getGraphqlInterfaceImplementers(version, interfaceNames)
+    const expected = (getAllGraphqlObjects(version) as ObjectT[]).filter((object) =>
+      object.implements?.some((implementsItem) => interfaceNames.includes(implementsItem.name)),
+    )
+    expect(implementers.length).toBeGreaterThan(0)
+    expect(implementers.map((object) => object.name)).toEqual(expected.map((object) => object.name))
+    for (const implementer of implementers) {
+      expect(Object.keys(implementer).sort()).toEqual(['href', 'implements', 'name'])
+      for (const implementsItem of implementer.implements ?? []) {
+        expect(Object.keys(implementsItem)).toEqual(['name'])
+        expect(interfaceNames).toContain(implementsItem.name)
+      }
+    }
+    expect(JSON.stringify(implementers).length).toBeLessThan(
+      JSON.stringify(getAllGraphqlObjects(version)).length / 10,
+    )
   })
 })

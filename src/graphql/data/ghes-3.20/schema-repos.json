@@ -852,7 +852,7 @@
         },
         {
           "name": "source",
-          "description": "<p>The source of the property. Choose<code>custom</code>or 'system'. Defaults to 'custom' if not specified.</p>",
+          "description": "<p>The source of the property. Choose <code>custom</code> or 'system'. Defaults to <code>custom</code> if not specified.</p>",
           "type": "String",
           "id": "string",
           "href": "/graphql/reference/other#scalar-string"
@@ -3482,6 +3482,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: CREATED_AT, direction: ASC}",
               "description": "<p>Ordering options for deployments returned from the connection.</p>",
               "type": {
                 "name": "DeploymentOrder",
@@ -3659,6 +3660,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: UPDATED_AT, direction: DESC}",
               "description": "<p>Ordering options for discussions returned from the connection.</p>",
               "type": {
                 "name": "DiscussionOrder",
@@ -3668,6 +3670,7 @@
             },
             {
               "name": "states",
+              "defaultValue": "[]",
               "description": "<p>A list of states to filter the discussions by.</p>",
               "type": {
                 "name": "[DiscussionState!]",
@@ -3747,6 +3750,7 @@
             },
             {
               "name": "names",
+              "defaultValue": "[]",
               "description": "<p>The names of the environments to be returned.</p>",
               "type": {
                 "name": "[String!]",
@@ -3756,6 +3760,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: NAME, direction: ASC}",
               "description": "<p>Ordering options for the environments.</p>",
               "type": {
                 "name": "Environments",
@@ -3870,6 +3875,7 @@
             },
             {
               "name": "ownerAffiliations",
+              "defaultValue": "[OWNER, COLLABORATOR]",
               "description": "<p>Array of owner's affiliation options for repositories returned from the\nconnection. For example, OWNER will include only repositories that the\norganization or user being viewed owns.</p>",
               "type": {
                 "name": "[RepositoryAffiliation]",
@@ -4143,6 +4149,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: CREATED_AT, direction: ASC}",
               "description": "<p>Ordering options for issue types returned from the connection.</p>",
               "type": {
                 "name": "IssueTypeOrder",
@@ -4296,6 +4303,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: CREATED_AT, direction: ASC}",
               "description": "<p>Ordering options for labels returned from the connection.</p>",
               "type": {
                 "name": "LabelOrder",
@@ -4688,6 +4696,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: CREATED_AT, direction: DESC}",
               "description": "<p>Ordering of the returned packages.</p>",
               "type": {
                 "name": "PackageOrder",
@@ -4812,6 +4821,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: POSITION, direction: ASC}",
               "description": "<p>Ordering options for the environments.</p>",
               "type": {
                 "name": "PinnedEnvironmentOrder",
@@ -5061,6 +5071,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: NUMBER, direction: DESC}",
               "description": "<p>How to order the returned projects.</p>",
               "type": {
                 "name": "ProjectV2Order",
@@ -7711,6 +7722,7 @@
             },
             {
               "name": "ownerAffiliations",
+              "defaultValue": "[OWNER, COLLABORATOR]",
               "description": "<p>Array of owner's affiliation options for repositories returned from the\nconnection. For example, OWNER will include only repositories that the\norganization or user being viewed owns.</p>",
               "type": {
                 "name": "[RepositoryAffiliation]",
@@ -8262,6 +8274,7 @@
             },
             {
               "name": "ownerAffiliations",
+              "defaultValue": "[OWNER, COLLABORATOR]",
               "description": "<p>Array of owner's affiliation options for repositories returned from the\nconnection. For example, OWNER will include only repositories that the\norganization or user being viewed owns.</p>",
               "type": {
                 "name": "[RepositoryAffiliation]",
@@ -9815,7 +9828,7 @@
         },
         {
           "name": "source",
-          "description": "<p>The source of the property. Choose<code>custom</code>or 'system'. Defaults to 'custom' if not specified.</p>",
+          "description": "<p>The source of the property. Choose <code>custom</code> or 'system'. Defaults to <code>custom</code> if not specified.</p>",
           "type": "String",
           "id": "string",
           "href": "/graphql/reference/other#scalar-string"

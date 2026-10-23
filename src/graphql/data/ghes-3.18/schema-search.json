@@ -234,7 +234,9 @@
         },
         {
           "name": "ISSUE_ADVANCED",
-          "description": "<p>Returns results matching issues in repositories.</p>"
+          "description": "<p>Returns results matching issues in repositories.</p>",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Search for issues and pull requests will be overridden by advanced search on September 4, 2025. You can read more about this change on <a href=\"https://github.blog/changelog/2025-03-06-github-issues-projects-api-support-for-issues-advanced-search-and-more/\">https://github.blog/changelog/2025-03-06-github-issues-projects-api-support-for-issues-advanced-search-and-more/</a>. Removal on 2025-09-04 UTC.</p>"
         },
         {
           "name": "REPOSITORY",

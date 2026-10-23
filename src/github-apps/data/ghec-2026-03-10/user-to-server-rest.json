@@ -2853,6 +2853,18 @@
   ],
   "copilot": [
     {
+      "slug": "add-enterprise-teams-to-the-copilot-subscription-for-an-enterprise",
+      "subcategory": "copilot-user-management",
+      "verb": "post",
+      "requestPath": "/enterprises/{enterprise}/copilot/billing/selected_enterprise_teams"
+    },
+    {
+      "slug": "remove-enterprise-teams-from-the-copilot-subscription-for-an-enterprise",
+      "subcategory": "copilot-user-management",
+      "verb": "delete",
+      "requestPath": "/enterprises/{enterprise}/copilot/billing/selected_enterprise_teams"
+    },
+    {
       "slug": "get-copilot-content-exclusion-rules-for-an-enterprise",
       "subcategory": "copilot-content-exclusion-management",
       "verb": "get",
@@ -3049,6 +3061,18 @@
       "subcategory": "copilot-usage-metrics",
       "verb": "get",
       "requestPath": "/orgs/{org}/copilot/metrics/reports/users-28-day/latest"
+    },
+    {
+      "slug": "get-model-policies-for-an-organization",
+      "subcategory": "copilot-model-policy-management",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/copilot/model-policies"
+    },
+    {
+      "slug": "update-model-policies-for-an-organization",
+      "subcategory": "copilot-model-policy-management",
+      "verb": "patch",
+      "requestPath": "/orgs/{org}/copilot/model-policies"
     },
     {
       "slug": "get-copilot-seat-assignment-details-for-a-user",
@@ -3333,6 +3357,18 @@
   ],
   "dependency-graph": [
     {
+      "slug": "get-the-license-compliance-policy-for-an-enterprise",
+      "subcategory": "license-compliance",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/license-compliance/policies/{policy_id}"
+    },
+    {
+      "slug": "set-the-license-compliance-policy-for-an-enterprise",
+      "subcategory": "license-compliance",
+      "verb": "put",
+      "requestPath": "/enterprises/{enterprise}/license-compliance/policies/{policy_id}"
+    },
+    {
       "slug": "get-a-diff-of-the-dependencies-between-commits",
       "subcategory": "dependency-review",
       "verb": "get",
@@ -3361,6 +3397,12 @@
       "subcategory": "dependency-submission",
       "verb": "post",
       "requestPath": "/repos/{owner}/{repo}/dependency-graph/snapshots"
+    },
+    {
+      "slug": "check-license-compliance-for-packages",
+      "subcategory": "license-compliance",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/license-compliance/package-checks"
     }
   ],
   "deploy-keys": [
@@ -3599,6 +3641,30 @@
       "requestPath": "/enterprises/{enterprise}/consumed-licenses"
     },
     {
+      "slug": "get-model-policies-for-enterprise-apps",
+      "subcategory": "ai-controls",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/copilot/apps/model-policies"
+    },
+    {
+      "slug": "update-model-policies-for-enterprise-apps",
+      "subcategory": "ai-controls",
+      "verb": "patch",
+      "requestPath": "/enterprises/{enterprise}/copilot/apps/model-policies"
+    },
+    {
+      "slug": "get-model-policies-for-an-enterprise",
+      "subcategory": "ai-controls",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/copilot/model-policies"
+    },
+    {
+      "slug": "update-model-policies-for-an-enterprise",
+      "subcategory": "ai-controls",
+      "verb": "patch",
+      "requestPath": "/enterprises/{enterprise}/copilot/model-policies"
+    },
+    {
       "slug": "revoke-all-credential-authorizations-for-an-enterprise",
       "subcategory": "credential-authorizations",
       "verb": "post",
@@ -3819,6 +3885,18 @@
       "subcategory": "licensing",
       "verb": "get",
       "requestPath": "/enterprises/{enterprise}/settings/billing/advanced-security"
+    },
+    {
+      "slug": "get-model-policies-for-an-enterprise-team",
+      "subcategory": "ai-controls",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/teams/{team_id}/copilot/model-policies"
+    },
+    {
+      "slug": "update-model-policies-for-an-enterprise-team",
+      "subcategory": "ai-controls",
+      "verb": "patch",
+      "requestPath": "/enterprises/{enterprise}/teams/{team_id}/copilot/model-policies"
     },
     {
       "slug": "get-a-list-of-visual-studio-subscriptions-for-the-enterprise",

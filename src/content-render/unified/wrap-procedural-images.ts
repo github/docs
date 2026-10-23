@@ -32,12 +32,7 @@ function visitor(node: Element, ancestors: Parent[]): void {
   shallowClone.tagName = 'div'
   shallowClone.properties = { class: 'procedural-image-wrapper' }
   shallowClone.children = [node]
-  parent.children = parent.children.map((child) => {
-    if (child.type === 'element' && (child as Element).tagName === 'img') {
-      return shallowClone
-    }
-    return child
-  })
+  parent.children = parent.children.map((child) => (child === node ? shallowClone : child))
 }
 
 export default function wrapProceduralImages() {

@@ -104,7 +104,20 @@ async function getCurrentProductTreeTitles(input: Tree, context: Context): Promi
     childPages: childPages.filter(Boolean),
   }
   if (page.hidden) node.hidden = true
-  if (page.sidebarLink) node.sidebarLink = page.sidebarLink
+  if (page.sidebarLink) {
+    // Frontmatter hrefs are unversioned, and the page object is shared by every version.
+    node.sidebarLink = {
+      ...page.sidebarLink,
+      href: removeFPTFromPath(
+        path.posix.join(
+          '/',
+          context.currentLanguage!,
+          context.currentVersion!,
+          page.sidebarLink.href,
+        ),
+      ),
+    }
+  }
   if (page.layout && typeof page.layout === 'string') node.layout = page.layout
   if (input.crossProductChild) node.crossProductChild = true
   return node

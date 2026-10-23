@@ -18,7 +18,7 @@ For instructions on creating the file, see [AUTOTITLE](/copilot/how-tos/administ
 
 {% rowheaders %}
 
-| Key | Purpose | {% data variables.copilot.copilot_cli_short %} | {% data variables.product.prodname_vscode_shortname %} | {% data variables.copilot.github_copilot_app %} | {% data variables.copilot.copilot_cloud_agent %} | {% data variables.product.prodname_jetbrains_ides %} |
+| Key | Purpose | {% data variables.copilot.copilot_cli_short %} | {% data variables.product.prodname_vscode_shortname %} | The {% data variables.copilot.github_copilot_app %} | {% data variables.copilot.copilot_cloud_agent %} | {% data variables.product.prodname_jetbrains_ides %} |
 | --- | --- | --- | --- | --- | --- | --- |
 | `permissions.disableBypassPermissionsMode` | Disables bypass or YOLO-style allow-all behavior | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} |
 | `permissions.deny` | Blocks specific operations | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
@@ -142,7 +142,7 @@ The following example shows these keys in one managed settings file.
 
 ## features.computerUse
 
-Controls whether users can enable computer use in {% data variables.copilot.copilot_cli %} and {% data variables.copilot.github_copilot_app %}. Set `features.computerUse` to `false` to prevent users from enabling computer use. A local setting cannot override this restriction. Set the value to `true`, or omit the key, to allow users to control computer use through their local settings.
+Controls whether users can enable computer use in {% data variables.copilot.copilot_cli %} and the {% data variables.copilot.github_copilot_app %}. Set `features.computerUse` to `false` to prevent users from enabling computer use. A local setting cannot override this restriction. Set the value to `true`, or omit the key, to allow users to control computer use through their local settings.
 
 ## enabledPlugins
 
@@ -299,6 +299,7 @@ When you set the `telemetry` property, {% data variables.product.prodname_copilo
 * `serviceName`: A label for the telemetry service name (for example, `"copilot"`).
 * `resourceAttributes`: An object of OpenTelemetry resource attributes to attach to all exported telemetry (for example, `{"deployment.environment": "production"}`).
 * `headers`: An object of literal HTTP headers to include with each telemetry request (for example, an `Authorization` header for your collector). You must configure `endpoint` in the same `telemetry` object. Header values are not included in logs or status output. Use HTTPS when headers contain credentials because HTTP sends values in plaintext.
+* `headersProvider`: An object that runs a command to supply fresh OTLP headers, or `false` to disable dynamic headers. A managed helper overrides a user helper, and managed static `headers` take precedence over user helper output. This property applies to {% data variables.copilot.copilot_cli_short %}. For fields and behavior, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference#dynamic-authentication-headers).
 
 Managed `telemetry` values take precedence over local settings, SDK configuration, and environment variables. If more than one managed source defines `telemetry`, the highest-precedence source supplies the complete managed `telemetry` object. Objects from lower-precedence managed sources are not merged into it.
 
@@ -355,7 +356,7 @@ Each entry must contain exactly one matcher property.
 
 | Property | Matching behavior | Applicable servers |
 | --- | --- | --- |
-| `serverName` | Matches the user-assigned server label exactly. Wildcards are not supported. Because users choose server names, use `serverUrl` or `serverCommand` when you need to enforce the identity of a server. | Any server. In-memory servers can only use `serverName`. |
+| `serverName` | Matches the user-assigned server label exactly. Wildcards are not supported. Allowlist entries are case-sensitive and limited to letters, numbers, and the characters `_`, `.`, `/`, and `-`, so registry names such as `microsoft/playwright-mcp` are accepted. Because users choose server names, use `serverUrl` or `serverCommand` when you need to enforce the identity of a server. | Any server. In-memory servers can only use `serverName`. |
 | `serverUrl` | Matches a remote server URL. Supports `*` wildcards for subdomains or path prefixes—for example, `https://mcp.example.com/*` or `https://*.internal.example.com/*`. | Remote servers that connect over HTTP or server-sent events (SSE). This property does not apply to local servers, even if they have a URL. |
 | `serverCommand` | Matches the exact command and each argument for a local server—for example, `["npx", "-y", "my-mcp-server"]`. Wildcards and command-line expansion are not supported. | Local servers that use standard input and output (`stdio`). This property does not apply to remote servers, even if they have a command. |
 
@@ -392,7 +393,7 @@ Enforces minimum local sandbox restrictions for {% data variables.copilot.copilo
 
 In {% data variables.product.prodname_vscode_shortname %} 1.138.0 and later, these settings apply to {% data variables.product.prodname_copilot_short %} sessions that use Agent Host's built-in sandbox. This support does not extend to every type of chat session or terminal in {% data variables.product.prodname_vscode_shortname %}. In {% data variables.product.prodname_vscode_shortname %} 1.140.0 and later, setting `sandbox.enabled` to `true` prevents users from turning sandboxing off with the session's sandbox toggle. If your policy permits bypass, users can still turn it off for the current session when responding to a sandbox-bypass permission prompt. This does not change your organization's policy.
 
-In {% data variables.copilot.github_copilot_app_short %} sessions, the embedded runtime parses, combines, and enforces the complete managed `sandbox` object, including properties that are not available in the app's project settings. The app displays the user's project settings, not the complete effective managed policy, and does not show per-setting managed locks.
+For sessions in the {% data variables.copilot.github_copilot_app_short %}, the embedded runtime parses, combines, and enforces the complete managed `sandbox` object, including properties that are not available in the app's project settings. The app displays the user's project settings, not the complete effective managed policy, and does not show per-setting managed locks.
 
 The following sub-properties are supported:
 

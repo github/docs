@@ -57,4 +57,4 @@ The `/skills` commands above run inside an interactive session. The same list, a
 
 {% data reusables.copilot.skills-compared %}
 
-To learn more about how skills differ from other customization features, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/comparing-cli-features).
+To learn more about how skills differ from other customization features, see [AUTOTITLE](/copilot/concepts/customizations/comparing-customizations).

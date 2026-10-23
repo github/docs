@@ -1,21 +1,11 @@
 import { describe, test, expect, vi, beforeEach } from 'vitest'
 import type { Response, NextFunction } from 'express'
-import type { ExtendedRequest, Page, ResolvedArticle } from '@/types'
+import type { Context, ExtendedRequest, Page, ResolvedArticle } from '@/types'
 import findPage from '@/frame/lib/find-page'
 import resolveCarousels from '../middleware/resolve-carousels'
 
 vi.mock('@/frame/lib/find-page', () => ({
   default: vi.fn(),
-}))
-
-vi.mock('@/content-render/index', () => ({
-  renderContent: vi.fn((content, _context, options) => {
-    // textOnly returns plain text so carousel intros stay text-only.
-    if (options?.textOnly) {
-      return content
-    }
-    return `<p>${content}</p>`
-  }),
 }))
 
 describe('resolveCarousels middleware', () => {
@@ -24,6 +14,15 @@ describe('resolveCarousels middleware', () => {
   type TestPage = Partial<Page> & {
     rawCarousels?: Record<string, string[]>
   }
+
+  // renderProp reads the raw frontmatter, which is what the middleware should render.
+  const createMockPage = (data: Partial<Page>): Page =>
+    ({
+      ...data,
+      renderProp: vi.fn(async (prop: string) =>
+        prop === 'title' ? (data.rawTitle ?? data.title) : (data.rawIntro ?? data.intro),
+      ),
+    }) as unknown as Page
 
   const createMockRequest = (
     pageData: TestPage = {},
@@ -107,7 +106,7 @@ describe('resolveCarousels middleware', () => {
       applicableVersions: ['free-pro-team@latest'],
     }
 
-    mockFindPage.mockReturnValue(testPage as unknown as Page)
+    mockFindPage.mockReturnValue(createMockPage(testPage))
 
     const req = createMockRequest({
       rawCarousels: { recommended: ['/copilot/tutorials/article'] },
@@ -120,9 +119,7 @@ describe('resolveCarousels middleware', () => {
       req.context!.pages,
       req.context!.redirects,
     )
-    expect(
-      (req.context!.page as Page & { carousels?: Record<string, ResolvedArticle[]> }).carousels,
-    ).toEqual({
+    expect(req.context!.carousels).toEqual({
       recommended: [
         {
           title: 'Test Article',
@@ -150,8 +147,8 @@ describe('resolveCarousels middleware', () => {
     }
 
     mockFindPage
-      .mockReturnValueOnce(testPage1 as unknown as Page)
-      .mockReturnValueOnce(testPage2 as unknown as Page)
+      .mockReturnValueOnce(createMockPage(testPage1))
+      .mockReturnValueOnce(createMockPage(testPage2))
 
     const req = createMockRequest({
       rawCarousels: {
@@ -162,9 +159,7 @@ describe('resolveCarousels middleware', () => {
 
     await resolveCarousels(req, mockRes, mockNext)
 
-    expect(
-      (req.context!.page as Page & { carousels?: Record<string, ResolvedArticle[]> }).carousels,
-    ).toEqual({
+    expect(req.context!.carousels).toEqual({
       recommended: [
         {
           title: 'Article One',
@@ -199,9 +194,7 @@ describe('resolveCarousels middleware', () => {
       req.context!.pages,
       req.context!.redirects,
     )
-    expect(
-      (req.context!.page as Page & { carousels?: Record<string, ResolvedArticle[]> }).carousels,
-    ).toBeUndefined()
+    expect(req.context!.carousels).toEqual({})
     expect(mockNext).toHaveBeenCalled()
   })
 
@@ -227,7 +220,7 @@ describe('resolveCarousels middleware', () => {
       applicableVersions: ['free-pro-team@latest'],
     }
 
-    mockFindPage.mockReturnValueOnce(testPage as unknown as Page).mockReturnValueOnce(undefined)
+    mockFindPage.mockReturnValueOnce(createMockPage(testPage)).mockReturnValueOnce(undefined)
 
     const req = createMockRequest({
       rawCarousels: { recommended: ['/valid-article', '/invalid-article'] },
@@ -235,9 +228,7 @@ describe('resolveCarousels middleware', () => {
 
     await resolveCarousels(req, mockRes, mockNext)
 
-    expect(
-      (req.context!.page as Page & { carousels?: Record<string, ResolvedArticle[]> }).carousels,
-    ).toEqual({
+    expect(req.context!.carousels).toEqual({
       recommended: [
         {
           title: 'Valid Article',
@@ -259,7 +250,7 @@ describe('resolveCarousels middleware', () => {
     }
 
     // First lookup is content-relative; second lookup is page-relative.
-    mockFindPage.mockReturnValueOnce(undefined).mockReturnValueOnce(testPage as unknown as Page)
+    mockFindPage.mockReturnValueOnce(undefined).mockReturnValueOnce(createMockPage(testPage))
 
     const req = createMockRequest({
       rawCarousels: { recommended: ['relative-article'] },
@@ -279,9 +270,7 @@ describe('resolveCarousels middleware', () => {
       req.context!.pages,
       req.context!.redirects,
     )
-    expect(
-      (req.context!.page as Page & { carousels?: Record<string, ResolvedArticle[]> }).carousels,
-    ).toEqual({
+    expect(req.context!.carousels).toEqual({
       recommended: [
         {
           title: 'Relative Article',
@@ -302,7 +291,7 @@ describe('resolveCarousels middleware', () => {
       applicableVersions: ['free-pro-team@latest'],
     }
 
-    mockFindPage.mockReturnValue(testPage as unknown as Page)
+    mockFindPage.mockReturnValue(createMockPage(testPage))
 
     const req = createMockRequest({
       rawCarousels: { recommended: ['/copilot/tutorials/tutorial-page'] },
@@ -316,9 +305,7 @@ describe('resolveCarousels middleware', () => {
       req.context!.redirects,
     )
 
-    expect(
-      (req.context!.page as Page & { carousels?: Record<string, ResolvedArticle[]> }).carousels,
-    ).toEqual({
+    expect(req.context!.carousels).toEqual({
       recommended: [
         {
           title: 'Tutorial Page',
@@ -339,7 +326,7 @@ describe('resolveCarousels middleware', () => {
       applicableVersions: ['free-pro-team@latest'], // Not available in ghec
     }
 
-    mockFindPage.mockReturnValue(fptOnlyPage as unknown as Page)
+    mockFindPage.mockReturnValue(createMockPage(fptOnlyPage))
 
     const req = createMockRequest(
       { rawCarousels: { recommended: ['/test/fpt-only'] } },
@@ -351,9 +338,7 @@ describe('resolveCarousels middleware', () => {
 
     await resolveCarousels(req, mockRes, mockNext)
 
-    expect(
-      (req.context!.page as Page & { carousels?: Record<string, ResolvedArticle[]> }).carousels,
-    ).toBeUndefined()
+    expect(req.context!.carousels).toEqual({})
     expect(mockNext).toHaveBeenCalled()
   })
 
@@ -365,7 +350,7 @@ describe('resolveCarousels middleware', () => {
       applicableVersions: ['free-pro-team@latest'],
     }
 
-    mockFindPage.mockReturnValue(testPage as unknown as Page)
+    mockFindPage.mockReturnValue(createMockPage(testPage))
 
     const req = createMockRequest({
       rawCarousels: { recommended: ['/test/duplicate', '/test/duplicate', '/test/duplicate'] },
@@ -373,9 +358,7 @@ describe('resolveCarousels middleware', () => {
 
     await resolveCarousels(req, mockRes, mockNext)
 
-    expect(
-      (req.context!.page as Page & { carousels?: Record<string, ResolvedArticle[]> }).carousels,
-    ).toEqual({
+    expect(req.context!.carousels).toEqual({
       recommended: [
         {
           title: 'Duplicate Article',
@@ -386,5 +369,131 @@ describe('resolveCarousels middleware', () => {
       ],
     })
     expect(mockNext).toHaveBeenCalled()
+  })
+
+  test('keeps carousels per request when versions share one page object', async () => {
+    const ghecOnlyPage = createMockPage({
+      title: 'GHEC Only',
+      intro: 'GHEC intro',
+      relativePath: 'admin/ghec-only.md',
+      applicableVersions: ['enterprise-cloud@latest'],
+    })
+    const ghesOnlyPage = createMockPage({
+      title: 'GHES Only',
+      intro: 'GHES intro',
+      relativePath: 'admin/ghes-only.md',
+      applicableVersions: ['enterprise-server@3.18'],
+    })
+
+    mockFindPage.mockImplementation((path: string) => {
+      if (path === '/en/admin/ghec-only') return ghecOnlyPage
+      if (path === '/en/admin/ghes-only') return ghesOnlyPage
+      return undefined
+    })
+
+    const rawCarousels = { recommended: ['/admin/ghec-only', '/admin/ghes-only'] }
+    const sharedPage = { rawCarousels, carousels: rawCarousels } as TestPage & {
+      carousels?: Record<string, string[]>
+    }
+
+    const ghecReq = createMockRequest(sharedPage, { currentVersion: 'enterprise-cloud@latest' })
+    const ghesReq = createMockRequest(sharedPage, { currentVersion: 'enterprise-server@3.18' })
+    expect(ghecReq.context!.page).toBe(ghesReq.context!.page)
+
+    await resolveCarousels(ghecReq, mockRes, mockNext)
+    await resolveCarousels(ghesReq, mockRes, mockNext)
+
+    const expectedGhec: Record<string, ResolvedArticle[]> = {
+      recommended: [
+        { title: 'GHEC Only', intro: 'GHEC intro', href: '/admin/ghec-only', category: ['admin'] },
+      ],
+    }
+    const expectedGhes: Record<string, ResolvedArticle[]> = {
+      recommended: [
+        { title: 'GHES Only', intro: 'GHES intro', href: '/admin/ghes-only', category: ['admin'] },
+      ],
+    }
+    expect(ghecReq.context!.carousels).toEqual(expectedGhec)
+    expect(ghesReq.context!.carousels).toEqual(expectedGhes)
+    expect(sharedPage.carousels).toBe(rawCarousels)
+  })
+
+  test('renders title and intro from raw frontmatter, not the last rendered values', async () => {
+    // title and intro hold output from an earlier render for another version.
+    const testPage = createMockPage({
+      title: 'Audit log for GHEC',
+      intro: 'Logs of audited user actions.',
+      rawTitle: 'Audit log for GHES',
+      rawIntro: 'Logs of audited system, user actions.',
+      relativePath: 'admin/audit-log.md',
+      applicableVersions: ['enterprise-server@3.19'],
+    })
+
+    mockFindPage.mockReturnValue(testPage)
+
+    const req = createMockRequest(
+      { rawCarousels: { recommended: ['/admin/audit-log'] } },
+      { currentVersion: 'enterprise-server@3.19' },
+    )
+
+    await resolveCarousels(req, mockRes, mockNext)
+
+    expect(testPage.renderProp).toHaveBeenCalledWith('title', req.context, { textOnly: true })
+    expect(testPage.renderProp).toHaveBeenCalledWith('intro', req.context, { textOnly: true })
+    expect(req.context!.page).not.toHaveProperty('carousels')
+    expect(req.context!.carousels).toEqual({
+      recommended: [
+        {
+          title: 'Audit log for GHES',
+          intro: 'Logs of audited system, user actions.',
+          href: '/admin/audit-log',
+          category: ['admin'],
+        },
+      ],
+    })
+  })
+
+  test('falls back to the English carousel article, not the English landing page', async () => {
+    const enArticle = createMockPage({
+      rawTitle: 'English article title',
+      rawIntro: 'English article intro',
+      relativePath: 'admin/audit-log.md',
+      applicableVersions: ['free-pro-team@latest'],
+    })
+    // Mimic renderContentWithFallback when the translated Liquid throws.
+    const jaArticle = {
+      relativePath: 'admin/audit-log.md',
+      applicableVersions: ['free-pro-team@latest'],
+      renderProp: vi.fn(async (prop: string, context: Context) => {
+        const enPage = context.getEnglishPage!(context)
+        return prop === 'title' ? enPage.rawTitle : enPage.rawIntro
+      }),
+    } as unknown as Page
+    const enLanding = { rawTitle: 'English landing title' } as unknown as Page
+
+    mockFindPage.mockImplementation((href) => {
+      if (href === '/ja/admin/audit-log') return jaArticle
+      if (href === '/en/admin/audit-log') return enArticle
+      return undefined
+    })
+
+    const req = createMockRequest(
+      { rawCarousels: { recommended: ['/admin/audit-log'] } },
+      { currentLanguage: 'ja', getEnglishPage: () => enLanding },
+    )
+
+    await resolveCarousels(req, mockRes, mockNext)
+
+    expect(req.context!.page).not.toHaveProperty('carousels')
+    expect(req.context!.carousels).toEqual({
+      recommended: [
+        {
+          title: 'English article title',
+          intro: 'English article intro',
+          href: '/admin/audit-log',
+          category: ['admin'],
+        },
+      ],
+    })
   })
 })

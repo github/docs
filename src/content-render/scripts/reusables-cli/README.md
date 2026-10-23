@@ -20,7 +20,7 @@ Helps find where reusables are already used, and where they could be used.
 
 ### Command: `npm run reusables -- find used <reusable-path>`
 
-Find where a specific reusable is used
+Find where a specific reusable is used. This counts both `{% data %}` and `{% indented_data_reference %}` tags.
 
 #### Example
 
@@ -123,7 +123,7 @@ In these cases you can skip these reusables from being checked by the `find pote
 
 #### Similarity search
 
-This may or may not be a useful search. It does a looser search to find places where the reusable _may_ be usable. You can include this type of search with the `-s` flag. You can alter the "threshold" used by the scoring algorithm to show more (higher number) or less (lower number) potential results with the `-t` flag.
+This may or may not be a useful search. It does a looser search to find places where the reusable _may_ be usable. You can include this type of search with the `-s` flag. You can alter the "threshold" used by the scoring algorithm to show more (lower number) or fewer (higher number) potential results with the `-t` flag.
 
 The threshold is a number that finds how similar the words in the reusable are to the words in a given article.
 

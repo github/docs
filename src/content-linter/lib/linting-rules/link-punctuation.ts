@@ -18,7 +18,7 @@ export const linkPunctuation: Rule = {
   parser: 'markdownit',
   function: (params: RuleParams, onError: RuleErrorCallback) => {
     filterTokens(params, 'inline', (token: MarkdownToken) => {
-      const { children, line } = token
+      const { children } = token
       let inLink = false
       for (const child of children || []) {
         if (child.type === 'link_open') {
@@ -31,7 +31,7 @@ export const linkPunctuation: Rule = {
           const hasQuotes = isStringQuoted(content)
 
           if (hasPeriod || hasQuotes) {
-            const range = line ? getRange(line, content) : []
+            const range = child.line ? getRange(child.line, content) : null
             addError(
               onError,
               child.lineNumber || 1,

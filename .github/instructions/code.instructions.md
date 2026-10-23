@@ -1,5 +1,5 @@
 ---
-applyTo: "src/**,.github/**,config/**,.devcontainer/**,**Dockerfile,package*.json"
+applyTo: "src/**,.github/**,config/**,.devcontainer/**,**Dockerfile,.dockerignore,package*.json"
 ---
 
 # Copilot code instructions for docs.github.com

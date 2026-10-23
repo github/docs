@@ -12,7 +12,7 @@ import {
 import { getArticleBody } from './article-body'
 import { getMetadata } from './article-pageinfo'
 import {
-  makeLanguageSurrogateKey,
+  makeContentSurrogateKeys,
   setFastlySurrogateKey,
 } from '@/frame/middleware/set-fastly-surrogate-key'
 import statsd from '@/observability/lib/statsd'
@@ -60,6 +60,7 @@ router.get(
     recordBodySize(req, bodyContent)
 
     defaultCacheControl(res)
+    setArticleSurrogateKeys(req, res)
     return res.json({
       meta,
       body: bodyContent,
@@ -102,12 +103,11 @@ router.get(
     recordBodySize(req, bodyContent)
 
     defaultCacheControl(res)
+    setArticleSurrogateKeys(req, res)
     return res.type('text/markdown').send(bodyContent)
   }),
 )
 
-// /api/article/meta sets a language surrogate key because /api URLs lack a language segment.
-// Fastly needs the key for staggered language purges.
 /**
  * Get metadata about an article.
  * @route GET /api/article/meta
@@ -147,15 +147,20 @@ router.get(
 
     incrementArticleLookup(req, 'meta')
     defaultCacheControl(res)
-
-    setFastlySurrogateKey(
-      res,
-      makeLanguageSurrogateKey(req.pageinfo?.page?.languageCode || 'en'),
-      true,
-    )
+    setArticleSurrogateKeys(req, res)
     return res.json(meta)
   }),
 )
+
+// /api URLs lack a language segment, so every Article API route sets language and page keys.
+// The page key matches the key that deploy purges build from changed content files.
+function setArticleSurrogateKeys(req: ExtendedRequestWithPageInfo, res: Response) {
+  const keys = makeContentSurrogateKeys({
+    langCode: req.pageinfo.page?.languageCode || 'en',
+    relativePath: req.pageinfo.page?.relativePath,
+  })
+  setFastlySurrogateKey(res, keys.join(' '), true)
+}
 
 // Keep Datadog metric tags consistent across Article API endpoints.
 // Datadog tags max at 200 characters, so path and source tags are truncated.

@@ -15,8 +15,8 @@ export const frontmatterHiddenDocs = {
     // Allow hidden on articles with experimental alternatives.
     if (fm.hasExperimentalAlternative) return
 
-    // Allow hidden in these product paths.
-    const allowedProductPaths = ['content/early-access', 'content/site-policy', 'content/search']
+    // Trailing slashes keep 'content/search/' from also matching 'content/search-github/'.
+    const allowedProductPaths = ['content/early-access/', 'content/site-policy/', 'content/search/']
 
     if (allowedProductPaths.some((allowedPath) => params.name.includes(allowedPath))) return
 

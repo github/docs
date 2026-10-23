@@ -8,6 +8,7 @@ export default typeof document === 'undefined'
     }
   : Cookies.withAttributes({
       expires: 365,
-      sameSite: 'strict',
+      // Server and CDN version and language redirects need these cookies on links from other sites, such as search results.
+      sameSite: 'lax',
       secure: document.location.protocol !== 'http:',
     })

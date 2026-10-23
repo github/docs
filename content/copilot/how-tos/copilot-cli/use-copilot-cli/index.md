@@ -9,6 +9,7 @@ redirect_from:
 children:
   - /overview
   - /allowing-tools
+  - /use-autopilot-mode
   - /voice-input
   - /computer-use
   - /connecting-vs-code
@@ -18,6 +19,7 @@ children:
   - /roll-back-changes
   - /work-with-multiple-sessions
   - /invoke-custom-agents
+  - /research-with-copilot-cli
   - /steer-agents
   - /steer-remotely
   - /set-session-limit

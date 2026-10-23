@@ -107,7 +107,7 @@ program
     new Option(
       '--summary-by-rule',
       'Summarize the number of warnings remaining in the content for each rule.',
-    ).conflicts(['error', 'paths', 'rules', 'fix']),
+    ).conflicts(['errorsOnly', 'paths', 'rules', 'fix']),
   )
   .option('--verbose', 'Output additional error detail.')
   .option('--precommit', 'Informs this script that it was executed by a pre-commit hook.')
@@ -448,6 +448,8 @@ function reportSummaryByRule(results: LintResults, config: LintConfig): void {
       }
     }
   }
+
+  console.log(JSON.stringify(ruleCount, null, 2))
 }
 
 // Keep only files with results, then list errors before warnings in each file.
@@ -735,11 +737,12 @@ function isOptionsValid() {
           `error: invalid --rules (-r) option. The value '${ruleName}' is not a valid rule name.`,
         )
       }
+      process.exitCode = 1
       return false
     }
   }
 
-  // Bad paths fail only when none of the requested paths exist.
+  // When none of the requested paths exist, for example a deletion-only PR, lint nothing and exit 0.
   return optionPaths.length === 0 || validPaths.length > 0
 }
 

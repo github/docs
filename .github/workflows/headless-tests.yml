@@ -27,6 +27,7 @@ jobs:
       matrix:
         node:
           - playwright-rendering
+          - playwright-header
           - playwright-a11y
           - playwright-secret-scanning
       fail-fast: false

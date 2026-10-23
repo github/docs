@@ -22,11 +22,18 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
         run: |
+          set -o pipefail
+
           echo "Getting a list of Fastly IP addresses...."
           ips=$( \
-            curl -s https://api.fastly.com/public-ip-list \
+            curl -fsS https://api.fastly.com/public-ip-list \
             | jq -r '.addresses | join(",")' \
           )
+          # An empty value would clear the production allowlist.
+          if [ -z "$ips" ]; then
+            echo "::error::Fastly returned an empty IP list"
+            exit 1
+          fi
           echo "Got a list of Fastly IP addresses: $ips"
 
           echo "Updating the list of allowed IPs in Moda config..."

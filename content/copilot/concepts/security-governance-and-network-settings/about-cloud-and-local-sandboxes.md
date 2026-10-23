@@ -47,7 +47,7 @@ Local sandboxing is powered by Microsoft eXecution Container (MXC), a cross-plat
 
 Isolation technologies exist on a spectrum, from strong isolation such as full hypervisors or containers, to lighter-weight isolation such as OS-level process and filesystem containment. Local sandboxing currently sits at the lighter-weight end of this spectrum: it restricts what a process can read, write, and reach on the network, but it does not run your commands inside a separate virtual machine or container. If you want to evaluate whether this level of isolation meets your security requirements, see the [microsoft/mxc repository](https://github.com/microsoft/mxc) for implementation details.
 
-For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/understanding-local-sandboxing).
+For more information, see [AUTOTITLE](/copilot/concepts/security-governance-and-network-settings/understanding-local-sandboxing).
 
 ### Enabling local sandboxing
 
@@ -65,7 +65,7 @@ The CLI's built-in file tools—first-party commands that are part of the CLI, r
 
 In the {% data variables.copilot.github_copilot_app %}, project settings define the local sandboxing default for new local repository and working tree sessions. You can also change sandboxing for an active local session without changing the project default.
 
-For more information about enabling local sandboxing in {% data variables.copilot.copilot_cli_short %} and {% data variables.copilot.github_copilot_app_short %}, see [AUTOTITLE](/copilot/how-tos/cloud-and-local-sandboxes/using-local-sandboxing).
+For more information about enabling local sandboxing in {% data variables.copilot.copilot_cli_short %} and the {% data variables.copilot.github_copilot_app_short %}, see [AUTOTITLE](/copilot/how-tos/cloud-and-local-sandboxes/using-local-sandboxing).
 
 ### Configuring local sandboxing
 
@@ -137,7 +137,7 @@ Cloud sandboxing is built on Azure Container Apps Sandboxes, with {% data variab
 To start a cloud-backed session, run the following command:
 
 ```shell copy
-copilot ‑‑cloud ‑‑experimental
+copilot --cloud --experimental
 ```
 
 > [!NOTE]
@@ -145,7 +145,7 @@ copilot ‑‑cloud ‑‑experimental
 
 The `‑‑cloud` command line option launches an interactive {% data variables.copilot.copilot_cli_short %} session inside a cloud sandbox. You can prompt {% data variables.product.prodname_copilot_short %} to perform tasks, run shell commands, and iterate on code, the same way you would in a local session. The commands that {% data variables.product.prodname_copilot_short %} runs execute in the cloud environment, not on your local machine.
 
-Running `copilot ‑‑cloud` starts a single {% data variables.copilot.copilot_cli_short %} session in a cloud sandbox. It does not affect future {% data variables.product.prodname_copilot_short %} sessions. Each time you want to run a new session in a cloud sandbox, you must start the CLI with the `‑‑cloud` option.
+Running `copilot --cloud` starts a single {% data variables.copilot.copilot_cli_short %} session in a cloud sandbox. It does not affect future {% data variables.product.prodname_copilot_short %} sessions. Each time you want to run a new session in a cloud sandbox, you must start the CLI with the `‑‑cloud` option.
 
 > [!NOTE]
 > Cloud sandboxing is only available for interactive {% data variables.copilot.copilot_cli_short %} sessions. You can't run the CLI programmatically in a cloud sandbox—that is, you can't combine the `‑‑cloud` option with the `-p` or `-i` options.

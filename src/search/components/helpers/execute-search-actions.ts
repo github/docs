@@ -9,6 +9,34 @@ import { sanitizeSearchQuery } from '@/search/lib/sanitize-search-query'
 export const GENERAL_SEARCH_CONTEXT = 'general-search'
 export const AI_SEARCH_CONTEXT = 'ai-search'
 
+// The overlay's own params, which never travel to a destination page.
+const OVERLAY_PARAMS = [
+  'search-overlay-open',
+  'search-overlay-input',
+  'search-overlay-ask-ai',
+  'query',
+]
+
+// Landing grid params describe the source page's grid, so a destination landing must not reuse them.
+const PAGE_LOCAL_PARAMS = ['articles-category', 'articles-filter', 'articles-page']
+
+// Carries tool pickers, platform switches, and feature flags to the destination URL.
+// Not built from `router.query`, which also holds dynamic route params like `restPage`.
+// A `restPage` search param outranks the real path, so navigation would stay on this article.
+// Reads `window`, so call it only from event handlers, never during render.
+export function inheritableSearchParams(): URLSearchParams {
+  const params = new URLSearchParams(window.location.search)
+  for (const key of [...OVERLAY_PARAMS, ...PAGE_LOCAL_PARAMS]) {
+    params.delete(key)
+  }
+  return params
+}
+
+export function withInheritedParams(url: string): string {
+  const qs = inheritableSearchParams().toString()
+  return qs ? `${url}?${qs}` : url
+}
+
 export function executeGeneralSearch(
   router: NextRouter,
   currentVersion: string,
@@ -37,8 +65,31 @@ export function executeGeneralSearch(
   if (params.has('search-overlay-open')) {
     params.delete('search-overlay-open')
   }
+  // A new query starts on page 1 of all results, so an old page or category filter cannot leave it empty.
+  params.delete('page')
+  params.delete('toplevel')
   asPath += `?${params}`
   router.push(asPath, undefined, { shallow: false })
+}
+
+// A real href, so cmd-click and "copy link address" work on "View all N results".
+// Skips the current query string, so a copied link opens the results page without the overlay.
+// Reads no `window`: this renders during SSR, and a different client href breaks hydration.
+export function buildGeneralSearchPath(
+  router: NextRouter,
+  currentVersion: string,
+  localQuery: string,
+  debug = false,
+) {
+  let asPath = `/${router.locale}`
+  if (currentVersion !== DEFAULT_VERSION) {
+    asPath += `/${currentVersion}`
+  }
+  const params = new URLSearchParams({ query: localQuery })
+  if (debug) {
+    params.set('debug', '1')
+  }
+  return `${asPath}/search?${params}`
 }
 
 export async function executeAISearch(version: string, query: string, debug = false) {

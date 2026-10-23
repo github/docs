@@ -27,7 +27,6 @@ export interface PickerItem {
     arrow?: boolean
     info?: boolean
     version?: string
-    currentDate?: string
   }
   divider?: boolean
 }

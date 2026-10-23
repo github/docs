@@ -4,12 +4,15 @@ import frontmatter from '@/frame/lib/read-frontmatter'
 
 import type { RuleParams, RuleErrorCallback } from '@/content-linter/types'
 
-// After optional leading whitespace, a candidate table row opens and closes
-// with a pipe.
-const TABLE_ROW_REGEX = /^\s*\|.*\|\s*$/
-// Between the boundary pipes, a candidate separator holds only pipes, colons,
+// After optional leading whitespace, a candidate table row opens with a pipe.
+// GFM does not require a closing pipe.
+const TABLE_ROW_REGEX = /^\s*\|/
+// After the opening pipe, a candidate separator holds only pipes, colons,
 // hyphens, and whitespace.
-const TABLE_SEPARATOR_REGEX = /^\s*\|[\s\-:|\s]*\|\s*$/
+const TABLE_SEPARATOR_REGEX = /^\s*\|[\s\-:|\s]*$/
+// Trailing HTML comments are often markdownlint directives rather than cell content.
+// Comment bodies exclude "<!--" so a literal opener in an earlier code span does not match.
+const TRAILING_HTML_COMMENTS_REGEX = /(?:\s*<!--(?:(?!-->|<!--).)*-->)+\s*$/
 // A Liquid-only cell is whitespace, a Liquid tag, then whitespace.
 const LIQUID_ONLY_CELL_REGEX = /^\s*{%\s*(ifversion|else|endif|elsif|for|endfor).*%}\s*$/
 // Escaped pipes (\|) are cell content, not separators.
@@ -32,6 +35,12 @@ function countColumns(row: string): number {
   }
 
   return cells.length
+}
+
+// Without a closing pipe, a trailing comment can be the content of the last cell,
+// so return the count without trailing comments and the count with them.
+function countColumnOptions(row: string): [number, number] {
+  return [countColumns(row.replace(TRAILING_HTML_COMMENTS_REGEX, '')), countColumns(row)]
 }
 
 function isLiquidOnlyRow(row: string): boolean {
@@ -66,7 +75,7 @@ export const tableColumnIntegrity = {
     let expectedColumnCount: number | null = null
 
     for (let i = 0; i < lines.length; i++) {
-      const line = lines[i]
+      const line = lines[i].replace(TRAILING_HTML_COMMENTS_REGEX, '')
 
       if (line.trim().startsWith('```')) {
         inCodeFence = !inCodeFence
@@ -82,10 +91,27 @@ export const tableColumnIntegrity = {
 
       if (!inTable && isTableRow) {
         // A following separator row confirms the current row starts a table.
-        const nextLine = lines[i + 1]
+        const nextLine = lines[i + 1]?.replace(TRAILING_HTML_COMMENTS_REGEX, '')
         if (nextLine && TABLE_SEPARATOR_REGEX.test(nextLine)) {
           inTable = true
-          expectedColumnCount = countColumns(line)
+          const [headerCount, headerCountWithComments] = countColumnOptions(lines[i])
+          // GFM requires the header and separator to have the same number of cells.
+          expectedColumnCount =
+            headerCountWithComments === countColumns(nextLine)
+              ? headerCountWithComments
+              : headerCount
+          // GFM renders the block as plain text when header and separator cell counts differ.
+          const separatorColumnCount = countColumns(nextLine)
+          if (separatorColumnCount !== expectedColumnCount) {
+            addError(
+              onError,
+              i + 2,
+              `Table separator row has ${separatorColumnCount} columns but header has ${expectedColumnCount}. The table will not render. Give the header and separator rows the same number of columns.`,
+              nextLine,
+              getRange(nextLine, nextLine.trim()),
+              null, // No fix possible
+            )
+          }
           continue
         }
       }
@@ -102,9 +128,12 @@ export const tableColumnIntegrity = {
           continue
         }
 
-        const actualColumnCount = countColumns(line)
+        const [actualColumnCount, actualCountWithComments] = countColumnOptions(lines[i])
 
-        if (actualColumnCount !== expectedColumnCount) {
+        if (
+          actualColumnCount !== expectedColumnCount &&
+          actualCountWithComments !== expectedColumnCount
+        ) {
           const range = getRange(line, line.trim())
           let errorMessage
 

@@ -218,18 +218,21 @@ async function updateDirectory(
 
   const itemsToAdd = difference(childrenOnDisk, indexChildren)
   const itemsToRemove = difference(indexChildren, childrenOnDisk)
-  if (itemsToRemove.length === 0 && itemsToAdd.length === 0) {
-    logger.debug('Index children unchanged, skipping', { indexFile })
-    return
-  }
 
+  // Child versions can change without any child being added or removed.
+  let versionsChanged = false
   if (!rootDirectoryOnly) {
     directoryFiles.push(...childDirectories.map((dir) => path.join(dir, 'index.md')))
     const newVersions = await getIndexFileVersions(directory, directoryFiles)
-    const isVersionEqual = isEqual(newVersions, data.versions)
-    if (!isVersionEqual) {
+    if (!isEqual(newVersions, data.versions)) {
       data.versions = newVersions
+      versionsChanged = true
     }
+  }
+
+  if (itemsToRemove.length === 0 && itemsToAdd.length === 0 && !versionsChanged) {
+    logger.debug('Index children and versions unchanged, skipping', { indexFile })
+    return
   }
 
   const dataUpdatedChildren = updateIndexChildren(

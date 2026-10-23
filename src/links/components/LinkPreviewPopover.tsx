@@ -13,12 +13,22 @@ let popoverStartTimer: number | null = null
 // Re-entering the source link for the open hovercard skips the first-open delay.
 let currentlyOpen: HTMLLinkElement | null = null
 
+// Each wrap and hide bumps this ID so a fetch that lands after a hide or a newer hover is dropped.
+let popoverRequestId = 0
+
 // Links within 300 px of the viewport top render below the link to avoid an after-render flip.
 // Hidden hovercards report height 0 until display, so this keeps placement stable.
 const BOUNDING_TOP_MARGIN = 300
 
 const FIRST_LINK_ID = '_hc_first_focusable'
 const TITLE_ID = '_hc_title'
+
+// Pages with no product hide the product heading, and hidden links cannot take focus.
+function getFirstFocusableLink(popover: HTMLElement) {
+  const productHead = popover.querySelector<HTMLHeadingElement>('.product')
+  const id = productHead && productHead.style.display !== 'none' ? FIRST_LINK_ID : TITLE_ID
+  return popover.querySelector<HTMLAnchorElement>(`#${id}`)
+}
 
 type PageMetadata = {
   product: string
@@ -123,14 +133,14 @@ function getOrCreatePopoverGlobal() {
     // The top bumper loops focus between the first and last hovercard links.
     topBumper.addEventListener('keyup', (event) => {
       if (event.key === 'Tab' && event.shiftKey) titleLink.focus()
-      else if (event.key === 'Tab') headingLink.focus()
+      else if (event.key === 'Tab') getFirstFocusableLink(wrapper)?.focus()
     })
 
     bottomBumper.addEventListener('keyup', (event) => {
-      handleBottomBumper(titleLink, headingLink, event)
+      handleBottomBumper(titleLink, getFirstFocusableLink(wrapper) ?? titleLink, event)
     })
     bottomBumper.addEventListener('focus', () => {
-      handleBottomBumper(headingLink)
+      handleBottomBumper(getFirstFocusableLink(wrapper) ?? titleLink)
     })
   }
 
@@ -157,6 +167,7 @@ function popoverWrap(element: HTMLLinkElement, filledCallback?: (popover: HTMLDi
   if (element.parentElement && element.parentElement.classList.contains('Popover')) {
     return
   }
+  const requestId = ++popoverRequestId
   let title = ''
   let product = ''
   let intro = ''
@@ -210,6 +221,7 @@ function popoverWrap(element: HTMLLinkElement, filledCallback?: (popover: HTMLDi
     })
     if (response.ok) {
       const meta = (await response.json()) as PageMetadata
+      if (requestId !== popoverRequestId) return
       fillPopover(element, meta, filledCallback)
     }
   }
@@ -354,6 +366,7 @@ function popoverHide() {
   if (popoverStartTimer) {
     window.clearTimeout(popoverStartTimer)
   }
+  popoverRequestId++
 
   popoverCloseTimer = window.setTimeout(() => {
     const popover = getOrCreatePopoverGlobal()
@@ -400,11 +413,9 @@ export function LinkPreviewPopover() {
         event.preventDefault()
         const target = event.currentTarget as HTMLLinkElement
         popoverShow(target, (popover) => {
-          const productHeadingLink = popover.querySelector<HTMLParagraphElement>('.product a')
-          const first = document.getElementById(FIRST_LINK_ID)
-
-          if (productHeadingLink && first) {
-            first.focus()
+          const first = getFirstFocusableLink(popover)
+          first?.focus()
+          if (first && document.activeElement === first) {
             lastFocussedLink = target
           }
         })
@@ -425,6 +436,12 @@ export function LinkPreviewPopover() {
           if (lastFocussedLink) {
             lastFocussedLink.focus()
           }
+        } else {
+          // A hovercard still in its opening delay or waiting on its fetch must not open after Escape.
+          if (popoverStartTimer) {
+            window.clearTimeout(popoverStartTimer)
+          }
+          popoverRequestId++
         }
       }
     }

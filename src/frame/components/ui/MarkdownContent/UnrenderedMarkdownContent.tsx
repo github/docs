@@ -11,6 +11,7 @@ import { useTranslation } from '@/languages/components/useTranslation'
 import useCopyClipboard from '@/rest/components/useClipboard'
 import { EventType } from '@/events/types'
 import { sendEvent } from '@/events/components/events'
+import { addFeatureParamToHref } from '@/frame/components/lib/add-feature-param-to-href'
 
 import styles from './MarkdownContent.module.scss'
 
@@ -94,22 +95,9 @@ export const UnrenderedMarkdownContent = ({
 
   // Custom anchors preserve feature query params and can force links into new tabs.
   components.a = ({ ...props }) => {
-    let href = props.href || ''
-    let existingAnchorParams = ''
-    if (includeQueryParams) {
-      if (href.includes('?')) {
-        href = href.split('?')[0]
-        existingAnchorParams = href.split('?')[1]
-      }
-      const existingURLParams = new URLSearchParams(window.location.search)
-      const newParams = new URLSearchParams()
-      if (existingURLParams.get('feature')) {
-        newParams.set('feature', existingURLParams.get('feature') || '')
-      }
-      if (newParams.toString()) {
-        href = `${href}?${existingAnchorParams}&${newParams.toString()}`
-      }
-    }
+    const href = includeQueryParams
+      ? addFeatureParamToHref(props.href || '', window.location.search)
+      : props.href || ''
     return (
       <a
         {...props}
@@ -121,7 +109,8 @@ export const UnrenderedMarkdownContent = ({
           if (openLinksInNewTab) {
             e.stopPropagation()
             e.preventDefault()
-            window.open(href, '_blank')
+            // window.open ignores the anchor's rel attribute, so the features string must repeat it.
+            window.open(href, '_blank', 'noopener,noreferrer')
           }
         }}
         data-group-key={eventGroupKey}

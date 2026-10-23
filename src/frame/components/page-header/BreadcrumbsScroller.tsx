@@ -25,14 +25,33 @@ export const BreadcrumbsScroller = () => {
   const scrollerRef = useRef<HTMLDivElement>(null)
   const [canScrollLeft, setCanScrollLeft] = useState(false)
   const [canScrollRight, setCanScrollRight] = useState(false)
+  const pendingFocus = useRef<'left' | 'right' | null>(null)
 
   const updateScrollState = useCallback(() => {
     const el = scrollRef.current
     if (!el) return
     // 1px thresholds avoid sub-pixel rounding leaving a chevron stuck on.
-    setCanScrollLeft(el.scrollLeft > 1)
-    setCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 1)
+    const nextLeft = el.scrollLeft > 1
+    const nextRight = el.scrollLeft < el.scrollWidth - el.clientWidth - 1
+    // Hand keyboard focus to the other chevron, not the body. Mouse focus would pop its tooltip open.
+    const active = document.activeElement
+    const focusedSide =
+      active && scrollerRef.current?.contains(active) && active.matches(':focus-visible')
+        ? active.closest('[data-chevron]')?.getAttribute('data-chevron')
+        : null
+    if (focusedSide === 'left' && !nextLeft && nextRight) pendingFocus.current = 'right'
+    if (focusedSide === 'right' && !nextRight && nextLeft) pendingFocus.current = 'left'
+    setCanScrollLeft(nextLeft)
+    setCanScrollRight(nextRight)
   }, [])
+
+  // Runs after commit so it focuses the remounted, visible chevron.
+  useEffect(() => {
+    const side = pendingFocus.current
+    if (!side) return
+    pendingFocus.current = null
+    scrollerRef.current?.querySelector<HTMLElement>(`[data-chevron="${side}"]`)?.focus()
+  }, [canScrollLeft, canScrollRight])
 
   // Anchor only on mount and real width changes, so user and keyboard scrolling can move left.
   const anchorRight = useCallback(() => {
@@ -127,6 +146,7 @@ export const BreadcrumbsScroller = () => {
         aria-hidden={!canScrollLeft}
         tabIndex={canScrollLeft ? undefined : -1}
         onClick={scrollLeftClick}
+        data-chevron="left"
       />
       <div
         ref={scrollRef}
@@ -146,6 +166,7 @@ export const BreadcrumbsScroller = () => {
         aria-hidden={!canScrollRight}
         tabIndex={canScrollRight ? undefined : -1}
         onClick={scrollRightClick}
+        data-chevron="right"
       />
     </div>
   )

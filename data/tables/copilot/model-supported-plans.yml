@@ -89,13 +89,6 @@
   business: true
   enterprise: true
 
-- name: Gemini 3.7 Flash
-  pro: true
-  pro_plus: true
-  max: true
-  business: true
-  enterprise: true
-
 - name: Gemini 3.8 Flash
   pro: true
   pro_plus: true
@@ -110,28 +103,7 @@
   business: true
   enterprise: true
 
-- name: GPT-5 mini
-  pro: true
-  pro_plus: true
-  max: true
-  business: true
-  enterprise: true
-
 - name: GPT-5.3-Codex
-  pro: true
-  pro_plus: true
-  max: true
-  business: true
-  enterprise: true
-
-- name: GPT-5.4
-  pro: true
-  pro_plus: true
-  max: true
-  business: true
-  enterprise: true
-
-- name: GPT-5.4 mini
   pro: true
   pro_plus: true
   max: true
@@ -144,13 +116,6 @@
   max: true
   business: false
   enterprise: false
-
-- name: GPT-5.5
-  pro: false
-  pro_plus: true
-  max: true
-  business: true
-  enterprise: true
 
 - name: GPT-5.6 Luna
   pro: true

@@ -3,7 +3,7 @@ title: Getting started with the GitHub Copilot app
 shortTitle: Copilot app quickstart
 allowTitleToDifferFromFilename: true
 intro: 'Sign in to the {% data variables.copilot.github_copilot_app %}, connect a repository or local folder, and create your first agent session to make code changes.'
-product: '{% data reusables.gated-features.github-app %}<br><a href="https://github.com/features/ai/github-app" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Download {% data variables.copilot.github_copilot_app %}</span> {% octicon "link-external" height:16 %}</a>'
+product: '{% data reusables.gated-features.github-app %}<br>{% data reusables.copilot.github-app-download-button %}'
 versions:
   feature: copilot
 contentType: get-started
@@ -35,8 +35,9 @@ In this quickstart, you will:
 
 ## Installing the {% data variables.copilot.github_copilot_app %}
 
-1. Visit the [download page for {% data variables.copilot.github_copilot_app %}](https://github.com/features/ai/github-app).
-1. Download the app for your platform.
+Download and install the {% data variables.copilot.github_copilot_app %} for your operating system. For other operating systems and architectures, see the [download page](https://github.com/features/ai/github-app).
+
+{% data reusables.copilot.github-app-download-button %}
 
 ## Opening the {% data variables.copilot.github_copilot_app %} for the first time
 

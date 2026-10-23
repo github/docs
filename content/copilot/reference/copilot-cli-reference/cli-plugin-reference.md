@@ -110,6 +110,8 @@ The built-in `awesome-copilot` default marketplace ships with the runtime and ca
 | `browse NAME [--json]`  | List the plugins offered by a marketplace's catalog                        |
 | `update [NAME]` (alias `refresh`) | Refresh the plugin catalog for one marketplace, or all if `NAME` is omitted |
 
+When HTTPS authentication fails for a remote marketplace or plugin fetch, the CLI retries once with your signed-in {% data variables.product.github %} token. If the retry also fails, run `/login`.
+
 In interactive mode, run `/plugin marketplace update [NAME]` (alias `/plugin marketplace refresh`), or press <kbd>R</kbd> in the **Marketplace** view of the `/plugin` dashboard, to refresh every registered marketplace's catalog.
 
 ## `plugin.json`

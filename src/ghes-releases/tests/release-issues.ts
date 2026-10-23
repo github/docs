@@ -1,6 +1,8 @@
 import { describe, expect, test } from 'vitest'
 
 import {
+  CHANGELOG_PR_LIMIT,
+  buildChangelogPrListArgs,
   buildReleaseIssueListArgs,
   isExcludedReleaseIssue,
   parseIssueState,
@@ -41,6 +43,31 @@ describe('buildReleaseIssueListArgs', () => {
       '--json',
       'number,title,url,body,labels',
     ])
+  })
+})
+
+describe('buildChangelogPrListArgs', () => {
+  test('builds gh pr list args for merged github/blog changelog PRs since a date', () => {
+    const args = buildChangelogPrListArgs('2026-04-16')
+
+    expect(args).toEqual([
+      'pr',
+      'list',
+      '--repo',
+      'github/blog',
+      '--state',
+      'merged',
+      '--search',
+      'Changelog in:title merged:>=2026-04-16',
+      '--limit',
+      String(CHANGELOG_PR_LIMIT),
+      '--json',
+      'number,body,url',
+    ])
+  })
+
+  test('requests more than one page of 200 results', () => {
+    expect(CHANGELOG_PR_LIMIT).toBeGreaterThan(200)
   })
 })
 

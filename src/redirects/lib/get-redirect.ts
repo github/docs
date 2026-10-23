@@ -154,7 +154,7 @@ export default function getRedirect(uri: string, context: Context): string | und
 
     if (supported.includes(version) || version === 'latest') {
       prefix = `/${majorVersion}@${version}`
-      suffix = `/${split.slice(2).join('/')}`
+      suffix = split.length > 2 ? `/${split.slice(2).join('/')}` : ''
 
       if (
         suffix.includes('/user') ||
@@ -166,7 +166,7 @@ export default function getRedirect(uri: string, context: Context): string | und
     } else {
       // Unsupported versions still need prefix and suffix values for the fallback lookup.
       prefix = `/${majorVersion}@${version}`
-      suffix = `/${split.slice(2).join('/')}`
+      suffix = split.length > 2 ? `/${split.slice(2).join('/')}` : ''
     }
 
     const newURL = prefix + suffix

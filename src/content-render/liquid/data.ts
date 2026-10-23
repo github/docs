@@ -78,16 +78,15 @@ function handleIndent(tagToken: TagToken, text: string): string {
 }
 
 // Multiline reusables in blockquotes need the quote marker on every line.
+// Leading whitespace stays so code blocks and nested lists keep their structure.
 const blockquoteRegexp = /^\n?([ \t]*>[ \t]?)/
 function handleBlockquote(tagToken: TagToken, text: string): string {
   if (text.split('\n').length <= 1) return text
 
-  const { input, content } = tagToken
-  if (!content) return text
-  const inputLine = input.split('\n').find((line) => line.includes(content))
-  if (!inputLine || !blockquoteRegexp.test(inputLine)) return text
-
-  const match = inputLine.match(blockquoteRegexp)
+  // Use this tag's own position because the same tag text can appear on other lines.
+  const { input, begin } = tagToken
+  const lineStart = input.lastIndexOf('\n', begin - 1) + 1
+  const match = input.slice(lineStart, begin).match(blockquoteRegexp)
   if (!match) return text
   const start = match[0]
   return text
@@ -95,7 +94,7 @@ function handleBlockquote(tagToken: TagToken, text: string): string {
     .map((line, i) => {
       if (i === 0) return line
       if (blockquoteRegexp.test(line)) return line
-      return start + line.trim()
+      return start + line.trimEnd()
     })
     .join('\n')
 }

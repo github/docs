@@ -29,6 +29,8 @@ type EventData = {
 
 export const Survey = () => {
   const { asPath, locale } = useRouter()
+  // Query and hash changes, like search or picker tabs, stay on the same page.
+  const [pathname] = asPath.split(/[?#]/)
   const { t } = useTranslation('survey')
   const [state, setState] = useState<ViewState>(ViewState.START)
   const [voteState, setVoteState] = useState<VoteState | null>(null)
@@ -39,17 +41,20 @@ export const Survey = () => {
   const [token, setToken] = useState('')
 
   useEffect(() => {
-    // Show the vote prompt on navigation because a rating belongs to the page it was given on.
+    // Reset the vote and form fields on navigation because feedback belongs to the page it was given on.
     setState(ViewState.START)
     setVoteState(null)
-  }, [asPath])
+    setComment('')
+    setEmail('')
+    setIsEmailError(false)
+  }, [pathname])
 
   useEffect(() => {
     // Move focus to the footer privacy link because submit removes the form inputs.
     if (state === ViewState.END) {
       document
         .querySelector<HTMLAnchorElement>(
-          `footer a[href="/${locale}/site-policy/privacy-policies/github-privacy-statement"]`,
+          `footer a[href="/${locale}/site-policy/privacy-policies/github-general-privacy-statement"]`,
         )
         ?.focus()
     }
@@ -180,7 +185,7 @@ export const Survey = () => {
             ></textarea>
           </p>
 
-          <div className={cx('form-group', isEmailError && email.trim().length > 3 ? 'warn' : '')}>
+          <div className={cx('form-group', isEmailError ? 'warn' : '')}>
             <label className="d-block mb-1 f6" htmlFor="survey-email">
               {t`email_label`}
             </label>
@@ -197,7 +202,7 @@ export const Survey = () => {
               aria-invalid={isEmailError}
               {...(isEmailError ? { 'aria-describedby': 'email-input-validation' } : {})}
             />
-            {isEmailError && email.trim().length > 3 && (
+            {isEmailError && (
               <p className="note warning" id="email-input-validation">
                 {t`email_validation`}
               </p>
@@ -229,7 +234,7 @@ export const Survey = () => {
       {(voteState || state === ViewState.END) && (
         <Link
           className="f6"
-          href={`/${locale}/site-policy/privacy-policies/github-privacy-statement`}
+          href={`/${locale}/site-policy/privacy-policies/github-general-privacy-statement`}
           target="_blank"
         >
           {t`privacy_policy`}

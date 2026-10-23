@@ -9,10 +9,7 @@ on:
       - 'Gemfile*'
       - 'Dockerfile'
       - '.github/workflows/**'
-  pull_request_review:
-    types:
-      - edited
-      - submitted
+      - '.github/actions/**'
 
 permissions:
   contents: write

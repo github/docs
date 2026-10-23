@@ -16,6 +16,7 @@ interface TocItem extends LinkData {
 }
 
 // Mirrors getTocItems() in src/frame/middleware/context/generic-toc.ts for frontmatter children.
+// The site shows hidden children only in early access TOCs, so skip them here.
 export async function getAllTocItems(
   page: Page,
   context: Context,
@@ -40,24 +41,28 @@ export async function getAllTocItems(
   const basePath = options.basePath ?? pathname
 
   const resolvedChildren = pageWithChildren.children
-    .map((childHref) => ({
-      childHref,
-      childPage: resolvePath(childHref, languageCode, pathname, context) as
+    .map((childHref) => {
+      const childPage = resolvePath(childHref, languageCode, pathname, context) as
         | PageWithChildren
-        | undefined,
-    }))
+        | undefined
+      const childPermalink = childPage?.permalinks.find(
+        (p) => p.languageCode === languageCode && p.pageVersion === context.currentVersion,
+      )
+      return { href: childPermalink?.href, childPage }
+    })
+    // Frontmatter children live under the parent, so other matches are wrong-product fallbacks.
     .filter(
-      (entry): entry is { childHref: string; childPage: PageWithChildren } =>
-        entry.childPage !== undefined,
+      (entry): entry is { href: string; childPage: PageWithChildren } =>
+        entry.childPage !== undefined &&
+        !!entry.href?.startsWith(`${pathname}/`) &&
+        !entry.childPage.hidden &&
+        // resolvePath can return a page from another version, which the website hides.
+        (!context.currentVersion ||
+          entry.childPage.applicableVersions.includes(context.currentVersion)),
     )
 
   const items = await Promise.all(
-    resolvedChildren.map(async ({ childHref, childPage }) => {
-      const childPermalink = childPage.permalinks.find(
-        (p) => p.languageCode === languageCode && p.pageVersion === context.currentVersion,
-      )
-      const href = childPermalink ? childPermalink.href : childHref
-
+    resolvedChildren.map(async ({ href, childPage }) => {
       const title = await renderPropFast(childPage, 'title', context)
       const intro = await renderPropFast(childPage, 'intro', context)
 

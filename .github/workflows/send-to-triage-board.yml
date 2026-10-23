@@ -2,6 +2,7 @@ name: Add new issues and PRs to central triage board
 
 # Adds new, reopened, and ready-for-review github/docs work to the Central Triage Group board.
 # Sets today's date so first responders can triage it.
+# Skips PRs opened by docs-bot, such as Repo sync PRs, because they never need triage.
 
 on:
   issues:
@@ -15,7 +16,7 @@ permissions:
 jobs:
   add-to-central-triage:
     runs-on: ubuntu-latest
-    if: github.repository == 'github/docs'
+    if: github.repository == 'github/docs' && github.event.pull_request.user.login != 'docs-bot'
     steps:
       - name: Triage to central triage board
         env:

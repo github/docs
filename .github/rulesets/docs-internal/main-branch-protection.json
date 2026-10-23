@@ -125,6 +125,10 @@
             "integration_id": 15368
           },
           {
+            "context": "eslint-rules",
+            "integration_id": 15368
+          },
+          {
             "context": "events",
             "integration_id": 15368
           },
@@ -194,6 +198,10 @@
           },
           {
             "context": "shielding",
+            "integration_id": 15368
+          },
+          {
+            "context": "tools",
             "integration_id": 15368
           },
           {

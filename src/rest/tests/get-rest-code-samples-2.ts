@@ -2,6 +2,10 @@ import { describe, expect, test } from 'vitest'
 
 import { getShellExample, getGHExample, getJSExample } from '../components/get-rest-code-samples'
 import type { CodeSample, Operation } from '../components/types'
+import {
+  getCurlBodyArguments,
+  needsExplicitContentTypeHeader,
+} from '@/rest/lib/curl-body-arguments'
 import type { VersionItem } from '@/frame/components/context/MainContext'
 
 const mockVersions: Record<string, VersionItem> = {
@@ -310,6 +314,80 @@ describe('REST code samples authentication header handling', () => {
       expect(result).not.toContain("-d '")
       expect(result).toContain('curl -L')
     })
+
+    test('sends text/plain bodies as raw text with a Content-Type header', () => {
+      const markdownRawOperation = {
+        ...standardOperation,
+        title: 'Render a Markdown document in raw mode',
+        requestPath: '/markdown/raw',
+        category: 'markdown',
+        subcategory: 'markdown',
+      }
+      const textPlainSample = {
+        ...mockCodeSample,
+        request: {
+          ...mockCodeSample.request,
+          contentType: 'text/plain',
+          bodyParameters: { text: 'Hello **world**' },
+        },
+      } as unknown as CodeSample
+
+      const result = getShellExample(
+        markdownRawOperation,
+        textPlainSample,
+        'free-pro-team@latest',
+        mockVersions,
+      )
+
+      expect(result).toContain('-H "Content-Type: text/plain"')
+      expect(result).toContain("--data-binary 'Hello **world**'")
+      expect(result).not.toContain("-d '{")
+    })
+
+    test('escapes single quotes in raw text/x-markdown bodies', () => {
+      const markdownRawOperation = {
+        ...standardOperation,
+        requestPath: '/markdown/raw',
+        category: 'markdown',
+        subcategory: 'markdown',
+      }
+      const markdownSample = {
+        ...mockCodeSample,
+        request: {
+          ...mockCodeSample.request,
+          contentType: 'text/x-markdown',
+          bodyParameters: "It's **bold**",
+        },
+      } as unknown as CodeSample
+
+      const result = getShellExample(
+        markdownRawOperation,
+        markdownSample,
+        'free-pro-team@latest',
+        mockVersions,
+      )
+
+      expect(result).toContain('-H "Content-Type: text/x-markdown"')
+      expect(result).toContain("--data-binary 'It'\\''s **bold**'")
+      expect(result).not.toContain("-d '")
+    })
+
+    test('article API curl helpers treat text bodies the same way', () => {
+      expect(needsExplicitContentTypeHeader('text/plain')).toBe(true)
+      expect(needsExplicitContentTypeHeader('text/x-markdown')).toBe(true)
+      expect(
+        getCurlBodyArguments({ text: 'Hello **world**' }, 'text/x-markdown', { jsonIndent: 2 }),
+      ).toEqual(["--data-binary 'Hello **world**'"])
+    })
+
+    test('uses --data-raw for text bodies that start with @ so curl does not read a file', () => {
+      expect(getCurlBodyArguments({ text: '@octocat' }, 'text/plain')).toEqual([
+        "--data-raw '@octocat'",
+      ])
+      expect(getCurlBodyArguments('Hi @octocat', 'text/plain')).toEqual([
+        "--data-binary 'Hi @octocat'",
+      ])
+    })
   })
 
   describe('getGHExample', () => {
@@ -359,6 +437,77 @@ describe('REST code samples authentication header handling', () => {
       const result = getGHExample(ghesOp, mockCodeSample, 'enterprise-server@3.17', mockVersions)
 
       expect(result).toContain('--hostname HOSTNAME')
+    })
+
+    const uploadAssetOperation: Operation = {
+      ...standardOperation,
+      title: 'Upload a release asset',
+      requestPath: '/repos/{owner}/{repo}/releases/{release_id}/assets',
+      serverUrl: 'https://uploads.github.com',
+      category: 'releases',
+      subcategory: 'assets',
+      parameters: [
+        {
+          name: 'name',
+          in: 'query',
+          required: true,
+          description: '',
+          schema: { type: 'string' },
+        },
+      ],
+    }
+
+    const uploadAssetCodeSample = {
+      key: 'default',
+      request: {
+        contentType: 'application/octet-stream',
+        acceptHeader: 'application/vnd.github.v3+json',
+        bodyParameters: '@example.zip',
+        parameters: { owner: 'OWNER', repo: 'REPO', release_id: 'RELEASE_ID' },
+        description: 'Example',
+      },
+      response: {
+        contentType: 'application/json',
+        description: 'Response',
+        example: { name: 'example.zip' },
+        statusCode: '201',
+      },
+    } as unknown as CodeSample
+
+    test('uploads a binary file body with --input to the full upload URL', () => {
+      const result = getGHExample(
+        uploadAssetOperation,
+        uploadAssetCodeSample,
+        'free-pro-team@latest',
+        mockVersions,
+      )
+
+      expect(result).toContain(
+        '"https://uploads.github.com/repos/OWNER/REPO/releases/RELEASE_ID/assets?name=example.zip"',
+      )
+      expect(result).toContain('-H "Content-Type: application/octet-stream"')
+      expect(result).toContain('--input example.zip')
+      expect(result).not.toContain('--hostname')
+      expect(result).not.toContain("-f '@")
+    })
+
+    test('uses the GHES upload URL for binary file bodies', () => {
+      const ghesUploadOperation = {
+        ...uploadAssetOperation,
+        serverUrl: 'https://HOSTNAME/api/uploads',
+      }
+      const result = getGHExample(
+        ghesUploadOperation,
+        uploadAssetCodeSample,
+        'enterprise-server@3.17',
+        mockVersions,
+      )
+
+      expect(result).toContain(
+        '"https://HOSTNAME/api/uploads/repos/OWNER/REPO/releases/RELEASE_ID/assets?name=example.zip"',
+      )
+      expect(result).toContain('--input example.zip')
+      expect(result).not.toContain('--hostname')
     })
   })
 
@@ -470,6 +619,122 @@ describe('REST code samples authentication header handling', () => {
       expect(result).toContain('data: [')
       expect(result).toContain("id: 'MVS-2026-001'")
       expect(result).not.toMatch(/["']0["']\s*:/)
+    })
+
+    test('includes required query params for GET requests', () => {
+      const searchOperation: Operation = {
+        ...standardOperation,
+        verb: 'get',
+        title: 'Search code',
+        requestPath: '/search/code',
+        parameters: [
+          {
+            in: 'query',
+            name: 'q',
+            description: '',
+            required: true,
+            schema: { type: 'string' },
+          },
+        ],
+      }
+      const searchCodeSample = {
+        request: {
+          description: 'Example',
+          acceptHeader: 'application/vnd.github+json',
+        },
+        response: {
+          statusCode: '200',
+          contentType: 'application/json',
+          description: 'Response',
+          example: { total_count: 0, items: [] },
+        },
+      } as unknown as CodeSample
+
+      const result = getJSExample(
+        searchOperation,
+        searchCodeSample,
+        'free-pro-team@latest',
+        mockVersions,
+      )
+
+      expect(result).toContain("await octokit.request('GET /search/code', {")
+      expect(result).toContain("q: 'Q'")
+    })
+
+    test('fills required query params in the URL template for mutating requests', () => {
+      const deleteCacheOperation: Operation = {
+        ...standardOperation,
+        verb: 'delete',
+        title: 'Delete GitHub Actions caches for a repository (using a cache key)',
+        requestPath: '/repos/{owner}/{repo}/actions/caches',
+        parameters: [
+          {
+            in: 'path',
+            name: 'owner',
+            description: '',
+            required: true,
+            schema: { type: 'string' },
+          },
+          {
+            in: 'path',
+            name: 'repo',
+            description: '',
+            required: true,
+            schema: { type: 'string' },
+          },
+          {
+            in: 'query',
+            name: 'key',
+            description: '',
+            required: true,
+            schema: { type: 'string' },
+          },
+          {
+            in: 'query',
+            name: 'ref',
+            description: '',
+            required: false,
+            schema: { type: 'string' },
+          },
+        ],
+      }
+      const deleteCacheCodeSample = {
+        request: {
+          description: 'Example',
+          acceptHeader: 'application/vnd.github+json',
+          parameters: { owner: 'OWNER', repo: 'REPO' },
+        },
+        response: {
+          statusCode: '200',
+          contentType: 'application/json',
+          description: 'Response',
+          example: {
+            total_count: 1,
+            actions_caches: [{ id: 505, ref: 'refs/heads/main', key: 'Linux-node-958aff96' }],
+          },
+        },
+      } as unknown as CodeSample
+
+      const jsResult = getJSExample(
+        deleteCacheOperation,
+        deleteCacheCodeSample,
+        'free-pro-team@latest',
+        mockVersions,
+      )
+      const shellResult = getShellExample(
+        deleteCacheOperation,
+        deleteCacheCodeSample,
+        'free-pro-team@latest',
+        mockVersions,
+      )
+
+      expect(jsResult).toContain(
+        "await octokit.request('DELETE /repos/{owner}/{repo}/actions/caches{?key,ref}'",
+      )
+      expect(jsResult).toContain("owner: 'OWNER'")
+      expect(jsResult).toContain("key: 'Linux-node-958aff96'")
+      expect(jsResult).not.toContain('ref:')
+      expect(shellResult).toContain('/repos/OWNER/REPO/actions/caches?key=Linux-node-958aff96')
     })
   })
 

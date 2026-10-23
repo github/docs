@@ -328,7 +328,7 @@ You can view your current sandbox settings from within a {% data variables.copil
 1. Press <kbd>/</kbd> to search for settings.
 1. Type `sandbox` to filter the list of settings.
 
-The steps above show your saved settings. To see the **effective** policy—the paths, network settings, and capabilities that result once your settings, the automatic grants, and any managed policy are combined—enter `/sandbox policy`. You can add a command, such as `/sandbox policy npm install`, to inspect its developer-tool access without running it. For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/understanding-local-sandboxing).
+The steps above show your saved settings. To see the **effective** policy—the paths, network settings, and capabilities that result once your settings, the automatic grants, and any managed policy are combined—enter `/sandbox policy`. You can add a command, such as `/sandbox policy npm install`, to inspect its developer-tool access without running it. For more information, see [AUTOTITLE](/copilot/concepts/security-governance-and-network-settings/understanding-local-sandboxing).
 
 ## Further reading
 

@@ -112,6 +112,58 @@ await session.SendAndWaitAsync(new MessageOptions { Prompt = "Analyze my codebas
 
 Later—minutes, hours, or even days—you can resume the session from where you left off.
 
+### Remembered permissions with a session filesystem
+
+When you configure a custom `sessionFs` provider, runtime-owned durable permission choices use provider storage rather than the runtime host's configuration. The files live under the provider's `sessionStatePath` and retain their existing formats:
+
+* `permissions.json`: A top-level `locations` map retaining the existing `tool_approvals` and `allowed_directories` fields
+* `settings.json`: Top-level `allowedUrls` for `approve-permanently` URL approvals and `sandbox` for saved sandbox preferences
+* `config.json`: Top-level `trustedFolders` for remembered folder trust and `sandboxOnboardingShown` for the first-enable sandbox message
+
+Location keys are normalized provider directory paths, such as `/workspace`, without an added prefix. The runtime resolves them lexically using provider path conventions, without inspecting the host filesystem or discovering host Git repositories. An approval saved for `/workspace` is not automatically selected when the working directory is `/workspace/sub`.
+
+Provider-backed folder trust also uses lexical paths: a trusted folder covers itself and its descendants, not linked Git worktrees at other paths. Trust those worktree paths explicitly.
+
+There is no additional session-ID partition inside these files. Sessions that access the same backing files share remembered choices. Use separate provider namespaces when sessions or tenants must not share grants. With a namespace per session, permanent choices survive that session's resumes but do not automatically carry over to new sessions. To restore a session's persisted choices on resume, reconnect it to the same namespace.
+
+Consent updates are serialized per provider endpoint and file within one runtime process. Separate endpoints do not block each other. If different provider endpoints or runtime processes share backing files, the application must coordinate concurrent updates; the runtime cannot infer that those files are shared.
+
+These operations never import, update, or fall back to the host's `permissions-config.json`, `settings.json`, or `config.json`, including when provider reads or writes fail. Existing-format files supplied through the provider are read directly.
+
+As with host configuration, URL approvals are read only from `settings.json`. A legacy `allowedUrls` field in `config.json` is ignored; `config.json` remains the global-state file for remembered folder trust and the sandbox onboarding marker.
+
+Storage routing does not change permission lifetimes, URL denial precedence, or session policy behavior. Approve-once and approve-for-session do not become permanent grants.
+
+Saved sandbox preferences are restored on create and resume. Later explicit SDK `options.update` calls can change the live sandbox configuration without rewriting the saved preference.
+
+Without `sessionFs`, SDK applications in both `empty` and `copilot-cli` modes retain existing host-backed persistence. This includes the existing behavior where permanent URL consent saves host settings and grants access in the live session, but a fresh SDK session does not automatically load the host URL allowlist.
+
+See [AUTOTITLE](/copilot/how-tos/copilot-sdk/setup/multi-tenancy#sessionfs) for provider isolation responsibilities.
+
+### Transcript recovery
+
+The resume option `allowTranscriptRecovery` controls recovery when the runtime loads a
+transcript from storage. It defaults to `true` in all modes. With `false`, a load that
+would discard damaged records or move `session.start` fails with JSON-RPC error `-32075`
+without rewriting the transcript. An intact final record without a newline is accepted.
+
+Records skipped for forward compatibility still count when checking persisted order.
+If such records precede `session.start`, recovery must move the start record ahead of
+them. A transcript containing only skipped records is not empty and cannot be recovered
+without a valid `session.start`.
+
+When recovery is allowed, the returned session exposes `transcriptRecovery`, including
+the invalid line numbers, whether `session.start` moved, and a planned byte-exact backup
+path. Loading alone does not write that backup; the next durable append performs the
+repair and backup.
+
+> [!NOTE]
+> This option applies to a new transcript load, not to the lifetime of a session.
+> Reconnecting to a session already resident in the runtime reuses its live history
+> without revalidating storage or rejecting recovery authorized by an earlier resume.
+> The recovery report describes the load that performed recovery, not every subsequent
+> reconnect.
+
 ![Diagram: Flowchart showing the described process.](/assets/images/help/copilot/copilot-sdk/features-session-persistence-diagram-1.png)
 
 ### TypeScript
@@ -184,7 +236,19 @@ When resuming a session, you can optionally reconfigure many settings. This is u
 
 With `model: "auto"`, the optional `capi.autoTier` setting selects an Auto routing preference: `efficiency`, `balance`, `intelligence`, or `fast`. In Python, use `capi={"auto_tier": "balance"}`. This setting applies to V2 Auto routing; V1 Auto requests are unchanged.
 
-`fast` is an integrator-only latency preset, not a first-party GitHub Copilot product preference. The SDK does not decide Fast eligibility, inspect client identity, choose it as a default, or fall back to another tier when a runtime does not support it—an older runtime returns its native error unchanged.
+When the runtime's default-off `DYNAMIC_AUTO_TIERS` feature is enabled, the session's `model.list` RPC also returns optional `auto` metadata from the provider's `/meta` endpoint. Use the enabled descriptors with `type: "auto"` to discover additional supported tier identifiers, their display names, descriptions, and ordering. The existing selection methods and JSON fields accept these identifiers. A discovery failure does not fall back to `/models`, and a successful response without `auto` metadata provides no selectable Auto tiers.
+
+To populate a model picker before any session exists, enable `DYNAMIC_AUTO_TIERS` in the runtime's environment (for example, the `env` client option). The server-level `models.list` RPC (`client.rpc.models.list()` in Node.js) then returns the same `auto` metadata from the same `/meta` response, with the same no-fallback behavior. The server-level listing reads the flag the runtime resolved at startup, not per-session feature flags or experiment assignments, so set the flag where you launch the runtime. With the flag disabled, `models.list` is unchanged and omits `auto`.
+
+Treat tier identifiers as extensible values, not a closed enumeration. Existing named values remain available; for additional identifiers, use strings in Node.js and Python, `AutoTier("premium-v2")` in Go, `new AutoTier("premium-v2")` in .NET, `AutoTier::Custom` in Rust, or `AutoTier.fromValue` in Java. The provider's `defaultTier` describes its default routing without creating a committed SDK preference.
+
+If a persisted tier is removed or disabled, resume preserves the explicit preference rather than replacing it with the provider's default. Select an available replacement before activating Auto routing.
+
+The CLI also preserves settings-derived preferences during startup, even when a tier is unavailable or dynamic discovery is disabled. You can then select a replacement in the model picker. Explicit SDK create and resume preferences are still validated before the operation succeeds, and Auto activation always validates availability against the resolved discovery mode.
+
+When a create or resume request includes `expAssignments`, the runtime installs those assignments before validating an explicit Auto preference. Validation, discovery, and activation use the same resolved feature decision.
+
+`fast` is an integrator-only latency preset, not a first-party GitHub Copilot product preference. Fast is not validated against the `/meta` tier catalog when configuring a session. The SDK does not decide Fast eligibility, inspect client identity, choose it as a default, or fall back to another tier when a runtime does not support it—an older runtime returns its native error unchanged.
 
 The runtime persists the selected tier, so applications do not need to resend it on every resume:
 
@@ -209,6 +273,8 @@ if (result.status === "pending") {
 ```
 
 The runtime does not apply the preference immediately. It records the request and commits it only when a later user turn using the `auto` model successfully obtains a usable model from the provider. A `pending` status therefore confirms that the request was accepted, not that it took effect. Only the most recent request survives: a new request replaces any earlier one that no turn has claimed yet.
+
+If an older request is still validating when a newer preference request or reset arrives, the older call fails with a superseded-request error instead of replacing the newer intent.
 
 Watch for the outcome through these events:
 

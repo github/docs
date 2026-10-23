@@ -9,8 +9,15 @@ import {
   isEnumType,
   isInputObjectType,
   GraphQLSchema,
+  Kind,
+  print,
 } from 'graphql'
-import type { ConstDirectiveNode, TypeNode, InputValueDefinitionNode } from 'graphql/language'
+import type {
+  ConstDirectiveNode,
+  ConstValueNode,
+  TypeNode,
+  InputValueDefinitionNode,
+} from 'graphql/language'
 import path from 'path'
 
 import { slugPrefixForUrlKind } from '@/graphql/lib/categories'
@@ -28,7 +35,7 @@ interface TypeInfo {
 
 interface ArgumentInfo {
   name: string
-  // GraphQL scalar default values come through the AST as a string or boolean.
+  // Scalar defaults keep their AST string or boolean. Object and list defaults are printed as SDL.
   defaultValue?: string | boolean
   description: string
   type: TypeInfo
@@ -52,7 +59,8 @@ const graphqlTypes: GraphQLTypeInfo[] = JSON.parse(
   await fs.readFile(path.join(process.cwd(), './src/graphql/lib/types.json'), 'utf-8'),
 )
 
-const singleQuotesInsteadOfBackticks = / '(\S+?)' /
+// Lookarounds keep the surrounding spaces out of the match so the replacement does not drop them.
+const singleQuotesInsteadOfBackticks = /(?<= )'(\S+?)'(?= )/g
 
 // Upstream schema descriptions include ${externalDocsUrl}, but this pipeline never expands it.
 // It ships as href="$%7BexternalDocsUrl%7D/code-security/..." and resolves against the
@@ -78,8 +86,7 @@ async function getArguments(
     const newArg: Partial<ArgumentInfo> = {}
     const type: Partial<TypeInfo> = {}
     newArg.name = arg.name.value
-    newArg.defaultValue =
-      arg.defaultValue && 'value' in arg.defaultValue ? arg.defaultValue.value : undefined
+    newArg.defaultValue = getDefaultValue(arg.defaultValue)
     newArg.description = arg.description ? await getDescription(arg.description.value, context) : ''
     const typeName = getType(arg)
     if (!typeName) continue
@@ -94,6 +101,12 @@ async function getArguments(
   }
 
   return newArgs
+}
+
+function getDefaultValue(node?: ConstValueNode): string | boolean | undefined {
+  if (!node || node.kind === Kind.NULL) return undefined
+  // Object and list nodes have no scalar value, so render them the way the schema writes them.
+  return 'value' in node ? node.value : print(node)
 }
 
 // buildCategoryHref returns anchors like /graphql/reference/repos#object-repository for rewrites.
@@ -267,6 +280,7 @@ function removeMarkers(str: string): string {
 
 const helpers = {
   getArguments,
+  getDefaultValue,
   getDeprecationReason,
   getDeprecationStatus,
   getDescription,
