@@ -71,6 +71,29 @@ I am content.
     })
   })
 
+  describe('JavaScript frontmatter', () => {
+    test.each(['js', 'javascript', 'JS'])('does not evaluate ---%s frontmatter', (language) => {
+      const globals = globalThis as Record<string, unknown>
+      delete globals.__fmSideEffect
+      const fixture = `---${language}
+{ title: (globalThis.__fmSideEffect = true, 'x') }
+---
+
+I am content.
+`
+      const { data, errors } = parse(fixture, { filepath })
+      expect(globals.__fmSideEffect).toBeUndefined()
+      expect(data).toBeUndefined()
+      expect(errors).toEqual([
+        {
+          filepath: 'path/to/file.md',
+          message: 'YML parsing error!',
+          reason: 'invalid frontmatter entry',
+        },
+      ])
+    })
+  })
+
   describe('schema', () => {
     test('is optional', () => {
       const schema = {

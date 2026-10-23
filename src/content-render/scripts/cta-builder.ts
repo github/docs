@@ -43,7 +43,7 @@ const ctaToTypeMapping: Record<string, string> = {
 const ctaToPlanMapping: Record<string, string> = {
   'Copilot Enterprise trial': 'enterprise',
   'Copilot Business trial': 'business',
-  'Copilot Pro+': 'pro',
+  'Copilot Pro+': 'pro-plus',
   'Copilot free': 'free',
   'GHEC trial': 'enterprise',
 }

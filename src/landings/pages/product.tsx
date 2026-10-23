@@ -6,8 +6,7 @@ import { useRouter } from 'next/router'
 import type { ExtendedRequest } from '@/types'
 import type { JourneyTrack } from '@/journeys/lib/journey-path-resolver'
 
-// Article pages need these scripts for behavior inside rendered article content.
-import copyCode from '@/frame/components/lib/copy-code'
+// Article pages need this script for behavior inside rendered article content.
 import toggleAnnotation from '@/frame/components/lib/toggle-annotations'
 
 import {
@@ -46,7 +45,6 @@ import { DiscoveryLanding } from '@/landings/components/discovery/DiscoveryLandi
 import { JourneyLanding } from '@/landings/components/journey/JourneyLanding'
 
 function initiateArticleScripts() {
-  copyCode()
   toggleAnnotation()
 }
 
@@ -101,7 +99,8 @@ const GlobalPage = ({
   } else if (categoryLandingContext) {
     content = (
       <CategoryLandingContext.Provider value={categoryLandingContext}>
-        <CategoryLanding />
+        {/* Remount per page so filter state does not carry over between category landings. */}
+        <CategoryLanding key={mainContext.relativePath || router.asPath} />
       </CategoryLandingContext.Provider>
     )
   } else if (tocLandingContext) {
@@ -178,6 +177,13 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
     if (props.articleContext.currentJourneyTrack?.trackId) {
       additionalUINamespaces.push('journey_track_nav')
     }
+  }
+
+  // Filter per request because every version shares one Page instance.
+  const landingContext = props.bespokeContext ?? props.journeyContext ?? props.discoveryContext
+  if (landingContext?.introLinks && req.context) {
+    const { getIntroLinksForVersion } = await import('@/landings/lib/intro-links')
+    landingContext.introLinks = getIntroLinksForVersion(landingContext.introLinks, req.context)
   }
 
   addUINamespaces(req, props.mainContext.data.ui, additionalUINamespaces)

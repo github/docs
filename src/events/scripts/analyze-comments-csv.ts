@@ -71,7 +71,7 @@ async function analyzeFile(csvFile: string, options: Options) {
     let rating = 1.0
     let first = true
     for (const { reduction, name, validator } of SIGNAL_RATINGS) {
-      const hit = validator(record.survey_comment, language)
+      const hit = await validator(record.survey_comment, language)
       if (hit) {
         rating -= reduction
         if (first) {

@@ -3,6 +3,7 @@
 import { useRouter } from 'next/router'
 import { useState, useEffect } from 'react'
 import { parseDebug } from '@/search/components/hooks/useQuery'
+import { buildShallowQueryUrls } from '@/frame/components/lib/shallow-query-url'
 
 type UseQueryParamReturn<T extends string | boolean> = {
   debug: boolean
@@ -50,15 +51,9 @@ export function useQueryParam(
       currentParams.delete(queryParamKey)
     }
     const paramsString = currentParams.toString() ? `?${currentParams.toString()}` : ''
-    let newUrl = `${asPathRoot}${paramsString}`
-    if (asPathRoot !== '/' && router.locale) {
-      newUrl = `${router.locale}${asPathRoot}${paramsString}`
-    }
-    if (!newUrl.startsWith('/')) {
-      newUrl = `/${newUrl}`
-    }
+    const { url, as } = buildShallowQueryUrls(asPathRoot, paramsString, router.locale)
 
-    await router.replace(newUrl, undefined, { shallow: true, locale: router.locale, scroll: false })
+    await router.replace(url, as, { shallow: true, locale: router.locale, scroll: false })
   }
 
   if (isBoolean) {

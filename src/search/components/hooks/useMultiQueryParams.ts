@@ -1,24 +1,55 @@
 import { useRouter } from 'next/router'
 import { useState, useEffect, useRef, useCallback } from 'react'
+import { buildShallowQueryUrls } from '@/frame/components/lib/shallow-query-url'
 
 export type QueryParams = {
   'search-overlay-input': string
   'search-overlay-ask-ai': string // "true" or ""
   debug: string
+  // Landing pages filter article lists with these keys.
   'articles-category': string
   'articles-filter': string
   'articles-page': string
 }
 
-const initialKeys: (keyof QueryParams)[] = [
-  'search-overlay-input',
-  'search-overlay-ask-ai',
-  'debug',
-  // Landing pages filter article lists with these keys.
-  'articles-category',
-  'articles-filter',
-  'articles-page',
-]
+// Other params in `query` are left as they are because another hook instance may own them.
+export function applyQueryParams(
+  query: string,
+  params: QueryParams,
+  keys: Iterable<keyof QueryParams>,
+): URLSearchParams {
+  const searchParams = new URLSearchParams(query)
+  for (const key of keys) {
+    if (key === 'search-overlay-ask-ai') {
+      if (params[key] === 'true') {
+        searchParams.set(key, 'true')
+      } else {
+        searchParams.delete(key)
+      }
+    } else {
+      if (params[key]) {
+        searchParams.set(key, params[key])
+      } else {
+        searchParams.delete(key)
+      }
+    }
+  }
+  return searchParams
+}
+
+// `asPath` gives the route only, since its query can be stale when a debounced update runs.
+export function buildParamsUrl(
+  asPath: string,
+  liveQuery: string,
+  locale: string | undefined,
+  params: QueryParams,
+  keys: Iterable<keyof QueryParams>,
+): { url: string; as: string } {
+  const [asPathRoot] = asPath.split('#')[0].split('?')
+  const searchParams = applyQueryParams(liveQuery, params, keys)
+  const paramsString = searchParams.toString() ? `?${searchParams.toString()}` : ''
+  return buildShallowQueryUrls(asPathRoot, paramsString, locale)
+}
 
 // Updating related query params in one state change prevents router races.
 export function useMultiQueryParams(options?: {
@@ -48,6 +79,9 @@ export function useMultiQueryParams(options?: {
   }
 
   const [params, setParams] = useState<QueryParams>(getInitialParams)
+  // Write only updated keys: each instance holds stale values for keys another instance owns.
+  // Excluded keys keep state across history navigation, so state owns them from the start.
+  const ownedKeysRef = useRef(new Set<keyof QueryParams>(excludeFromHistory))
 
   // React state owns query params after the route path initializes them.
   useEffect(() => {
@@ -76,46 +110,31 @@ export function useMultiQueryParams(options?: {
 
   const updateParams = useCallback(
     (updates: Partial<QueryParams>, shouldPushHistory = false) => {
+      for (const key of Object.keys(updates) as (keyof QueryParams)[]) {
+        ownedKeysRef.current.add(key)
+      }
       // A functional update keeps params out of this callback's dependencies.
       setParams((currentParams) => {
         const newParams = { ...currentParams, ...updates }
-        const [asPathWithoutHash] = router.asPath.split('#')
-        const [asPathRoot, asPathQuery = ''] = asPathWithoutHash.split('?')
-        const searchParams = new URLSearchParams(asPathQuery)
-        for (const key of initialKeys) {
-          if (key === 'search-overlay-ask-ai') {
-            if (newParams[key] === 'true') {
-              searchParams.set(key, 'true')
-            } else {
-              searchParams.delete(key)
-            }
-          } else {
-            if (newParams[key]) {
-              searchParams.set(key, newParams[key])
-            } else {
-              searchParams.delete(key)
-            }
-          }
-        }
-        const paramsString = searchParams.toString() ? `?${searchParams.toString()}` : ''
-        let newUrl = `${asPathRoot}${paramsString}`
-        if (asPathRoot !== '/' && router.locale) {
-          newUrl = `${router.locale}${asPathRoot}${paramsString}`
-        }
-        if (!newUrl.startsWith('/')) {
-          newUrl = `/${newUrl}`
-        }
 
         // Debounce the router push so we don't push a new URL for every keystroke
         if (pushTimeoutRef.current) clearTimeout(pushTimeoutRef.current)
         pushTimeoutRef.current = setTimeout(async () => {
+          // Read the live query here so updates another instance made during the debounce stay.
+          const { url, as } = buildParamsUrl(
+            router.asPath,
+            window.location.search,
+            router.locale,
+            newParams,
+            ownedKeysRef.current,
+          )
           // Preserve scroll position so component scroll logic stays in control.
           const scrollY = window.scrollY
           const scrollX = window.scrollX
 
           // Category and page changes push history entries; search edits replace the current entry.
           const routerMethod = shouldPushHistory ? router.push : router.replace
-          await routerMethod(newUrl, undefined, {
+          await routerMethod(url, as, {
             shallow: true,
             locale: router.locale,
             scroll: false,

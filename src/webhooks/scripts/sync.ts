@@ -1,4 +1,4 @@
-import { mkdir, readFile, writeFile, unlink } from 'fs/promises'
+import { mkdir, readdir, readFile, writeFile, unlink } from 'fs/promises'
 import { existsSync } from 'fs'
 import path from 'path'
 
@@ -48,6 +48,8 @@ export async function syncWebhookData(
         await mkdir(targetDirectory, { recursive: true })
       }
 
+      const writtenFiles = new Set<string>()
+
       // Split categories, such as check_run.json, from childParamsGroups sidecars.
       await Promise.all(
         Object.entries(data).map(async ([category, categoryData]) => {
@@ -66,11 +68,14 @@ export async function syncWebhookData(
             const slimAction = {
               ...actionData,
               bodyParameters: actionData.bodyParameters?.map((param) => {
-                if (param.childParamsGroups && param.childParamsGroups.length > 0 && param.name) {
-                  actionChildParams[param.name] = param.childParamsGroups
+                const { childParamsGroups, ...rest } = param
+                // An empty array tells the page that children can lazy-load from the sidecar.
+                if (childParamsGroups && childParamsGroups.length > 0 && param.name) {
+                  actionChildParams[param.name] = childParamsGroups
                   hasChildParams = true
+                  return { ...rest, childParamsGroups: [] }
                 }
-                return { ...param, childParamsGroups: [] }
+                return rest
               }),
             }
 
@@ -80,27 +85,41 @@ export async function syncWebhookData(
             }
           }
 
+          writtenFiles.add(`${category}.json`)
           const targetPath = path.join(targetDirectory, `${category}.json`)
           await writeFile(targetPath, JSON.stringify(slimCategoryData, null, 2))
           console.log(`✅ Wrote ${targetPath}`)
 
           const childParamsPath = path.join(targetDirectory, `${category}.child-params.json`)
           if (Object.keys(childParams).length > 0) {
+            writtenFiles.add(`${category}.child-params.json`)
             await writeFile(childParamsPath, JSON.stringify(childParams, null, 2))
             console.log(`✅ Wrote ${childParamsPath}`)
-          } else {
-            // Remove stale child-param sidecars so drill-down pages do not show removed nested params.
-            for (const stalePath of [childParamsPath, `${childParamsPath}.br`]) {
-              if (existsSync(stalePath)) {
-                await unlink(stalePath)
-                console.log(`🗑️  Removed stale ${stalePath}`)
-              }
-            }
           }
         }),
       )
+
+      await removeStaleWebhookDataFiles(targetDirectory, writtenFiles)
     }),
   )
+}
+
+// The site lists webhook events from the files on disk, so any category or
+// child-params file this run did not write would keep a removed event on the docs.
+// Brotli copies are removed too because the loader prefers them over plain JSON.
+export async function removeStaleWebhookDataFiles(
+  targetDirectory: string,
+  writtenFiles: Set<string>,
+): Promise<void> {
+  if (!existsSync(targetDirectory)) return
+
+  for (const file of await readdir(targetDirectory)) {
+    if (!(file.endsWith('.json') || file.endsWith('.json.br'))) continue
+    if (writtenFiles.has(file)) continue
+    const filePath = path.join(targetDirectory, file)
+    await unlink(filePath)
+    console.log(`🗑️  Removed stale data file ${filePath}`)
+  }
 }
 
 async function processWebhookSchema(webhooks: Webhook[]): Promise<void> {

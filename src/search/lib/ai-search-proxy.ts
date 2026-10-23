@@ -172,7 +172,8 @@ export const aiSearchProxy = async (req: ExtendedRequest, res: Response) => {
       if (!res.headersSent) {
         res.status(500).json({ errors: [{ message: 'Internal server error' }] })
       } else {
-        const errorMessage = `${JSON.stringify({ errors: [{ message: 'Internal server error' }] })}\n`
+        // The leading newline ends any partial upstream record so the client can parse this one.
+        const errorMessage = `\n${JSON.stringify({ errors: [{ message: 'Internal server error' }] })}\n`
         res.write(errorMessage)
         res.end()
       }

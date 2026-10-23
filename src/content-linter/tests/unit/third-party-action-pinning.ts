@@ -112,4 +112,66 @@ describe(thirdPartyActionPinning.names.join(' - '), () => {
     const errors = result.markdown
     expect(errors.length).toBe(1)
   })
+
+  test('should report an error for a bare list of steps', async () => {
+    const markdown = [
+      '```yaml',
+      '- name: Sign in to Docker registry',
+      '  uses: docker/login-action@v3',
+      '```',
+    ].join('\n')
+    const result = await runRule(thirdPartyActionPinning, { strings: { markdown } })
+    const errors = result.markdown
+    expect(errors.length).toBe(1)
+    expect(errors[0].lineNumber).toBe(3)
+    expect(errors[0].errorContext).toEqual('docker/login-action@v3')
+  })
+
+  test('should not report an error for a single mapping with uses', async () => {
+    const markdown = [
+      '```yaml',
+      'uses: fakeaction/publish@v3',
+      'with:',
+      '  token: abc',
+      '```',
+    ].join('\n')
+    const result = await runRule(thirdPartyActionPinning, { strings: { markdown } })
+    const errors = result.markdown
+    expect(errors.length).toBe(0)
+  })
+
+  test('should report an error in a code block that starts with a data tag', async () => {
+    const markdown = [
+      '```yaml',
+      '{% data reusables.actions.actions-not-certified-by-github-comment %}',
+      'steps:',
+      '  - uses: docker/login-action@v3',
+      '```',
+    ].join('\n')
+    const result = await runRule(thirdPartyActionPinning, { strings: { markdown } })
+    const errors = result.markdown
+    expect(errors.length).toBe(1)
+    expect(errors[0].errorContext).toEqual('docker/login-action@v3')
+  })
+
+  test('should skip a code block that fails to render as Liquid', async () => {
+    const markdown = [
+      '{% raw %}',
+      '```yaml',
+      'steps:',
+      '  - run: echo ${{ a || b }}',
+      '  - uses: foo/bar@v1',
+      '```',
+      '{% endraw %}',
+      '',
+      '```yaml',
+      'steps:',
+      '  - uses: monalisa/some-other-action@main',
+      '```',
+    ].join('\n')
+    const result = await runRule(thirdPartyActionPinning, { strings: { markdown } })
+    const errors = result.markdown
+    expect(errors.length).toBe(1)
+    expect(errors[0].errorContext).toEqual('monalisa/some-other-action@main')
+  })
 })

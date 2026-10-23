@@ -99,8 +99,12 @@ export class SecretScanningTransformer implements PageTransformer {
 
     content = stripHtmlComments(content)
 
-    content = content.replace(/<span[^>]*aria-label="Supported"[^>]*>[^<]*<\/span>/g, '✓')
-    content = content.replace(/<span[^>]*aria-label="Unsupported"[^>]*>[^<]*<\/span>/g, '✗')
+    // The octicon Liquid tag renders an <svg> with nested <path> elements.
+    content = content.replace(/<(svg|span)\b[^>]*aria-label="Supported"[^>]*>[\s\S]*?<\/\1>/g, '✓')
+    content = content.replace(
+      /<(svg|span)\b[^>]*aria-label="(?:Not supported|Unsupported)"[^>]*>[\s\S]*?<\/\1>/g,
+      '✗',
+    )
     content = content.replace(/<br\s*\/?>/gi, '\n')
     content = content.replace(/<a\s+href="([^"]*)"[^>]*>([^<]*)<\/a>/gi, '[$2]($1)')
     // Repeat stripping handles nested tags like <scr<script>ipt>; the limit stops loops.

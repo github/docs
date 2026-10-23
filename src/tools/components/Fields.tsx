@@ -26,7 +26,8 @@ export const Fields = (fieldProps: {
             key={item.text}
             href={item.href}
             active={item.selected === true}
-            onSelect={() => {
+            // LinkItem forwards onSelect to the anchor as a text-selection event that never fires on click.
+            onClick={() => {
               if (onSelect) onSelect(item)
               setOpen(!open)
             }}

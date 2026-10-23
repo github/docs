@@ -1,7 +1,7 @@
 ---
 title: Configuring GitHub Copilot CLI
 shortTitle: Configure Copilot CLI
-intro: Configure trusted directories, tool access, and path and URL permissions for {% data variables.copilot.copilot_cli_short %}
+intro: Configure trusted directories, tool access, path and URL permissions, and client-side telemetry for {% data variables.copilot.copilot_cli_short %}.
 versions:
   feature: copilot
 contentType: how-tos
@@ -16,7 +16,7 @@ docsTeamMetrics:
 
 {% data variables.copilot.copilot_cli_short %} has several configuration options that control what it can access and do on your behalf.
 
-This article shows you how to set trusted directories, configure access for tools, and grant permissions to file paths and URLs.
+This article shows you how to set trusted directories, configure access for tools, grant permissions to file paths and URLs, and disable client-side telemetry.
 
 ### Prerequisites
 
@@ -52,7 +52,7 @@ You can edit the list of permanently trusted directories. Trusted directories ar
 
 ## Setting allowed tools
 
-You can control which tools {% data variables.copilot.copilot_cli_short %} can use, either by responding to approval prompts when {% data variables.product.prodname_copilot_short %} attempts to use a tool, or by specifying permissions via command-line flags.
+You can control which tools {% data variables.copilot.copilot_cli_short %} can use, either by responding to approval prompts when {% data variables.product.prodname_copilot_short %} attempts to use a tool, or by specifying permissions via command-line options.
 
 Be aware that allowing tool access has security implications, see [Security considerations](/copilot/concepts/copilot-surfaces/copilot-cli#security-considerations).
 
@@ -92,7 +92,7 @@ The first time that {% data variables.product.prodname_copilot_short %} needs to
 
 ### Allowing tools to be used without manual approval
 
-You can use command-line flags to designate tools that {% data variables.product.prodname_copilot_short %} can use without asking for your approval.
+You can use command-line options to designate tools that {% data variables.product.prodname_copilot_short %} can use without asking for your approval.
 
 #### Allowing all tools
 
@@ -221,7 +221,7 @@ Path permissions apply to shell commands, file operations (create, edit, view), 
 
 ### Allowing access to all paths
 
-To disable path verification and allow access to any path, use the `--allow-all-paths` flag when starting {% data variables.copilot.copilot_cli_short %}.
+To disable path verification and allow access to any path, use the `--allow-all-paths` option when starting {% data variables.copilot.copilot_cli_short %}.
 
 ### Disallowing access to the temp directory
 
@@ -244,7 +244,7 @@ URL permissions can be persisted for the session or permanently.
 
 ### Disabling URL verification
 
-To disable URL verification, use the `--allow-all-urls` flag.
+To disable URL verification, use the `--allow-all-urls` option.
 
 ### Pre-approving specific domains
 
@@ -262,7 +262,7 @@ To deny specific domains, use `--deny-url=DOMAIN`.
 
 To allow all tools, paths and URLs, use `--allow-all`, or its alias, `--yolo`.
 
-This flag combines:
+This option combines:
 * `--allow-all-tools` (skip tool approval).
 * `--allow-all-paths` (disable path verification).
 * `--allow-all-urls` (disables URL verification).
@@ -276,6 +276,21 @@ During an interactive session, you can also enable all permissions with the `/al
 The various `--allow-all...` options save you from having to decide whether to allow {% data variables.product.prodname_copilot_short %} to access individual tools, files, and URLs. However, using them widens the scope for {% data variables.product.prodname_copilot_short %} to perform actions that you might not want it to—for example, altering files outside of the repository you are working in.
 
 To mitigate this risk, you can instruct the CLI to sandbox its commands (local sandboxing), or you can run the entire {% data variables.copilot.copilot_cli_short %} session within a remote, sandboxed environment (cloud sandboxing). For more information, see [AUTOTITLE](/copilot/concepts/about-cloud-and-local-sandboxes).
+
+## Disabling client-side telemetry
+
+To disable first-party client-side telemetry for the current invocation, start {% data variables.copilot.copilot_cli_short %} with the `--disable-client-telemetry` option:
+
+```shell
+copilot --disable-client-telemetry
+```
+
+This option disables first-party telemetry sent by the CLI, including unrestricted and restricted telemetry. It is not saved in your configuration.
+
+The option does not disable {% data variables.product.github %}'s server-side collection of session data or telemetry. It also does not affect:
+
+* OpenTelemetry exports configured by you or your enterprise.
+* Telemetry sent to an application that uses the {% data variables.copilot.copilot_sdk %}, when that application explicitly enables telemetry forwarding as it connects to the CLI.
 
 ## Further reading
 

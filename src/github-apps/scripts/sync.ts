@@ -162,21 +162,14 @@ export async function syncGitHubAppsData(
           addAppData(githubAppsData['user-to-server-rest'], category, appDataOperation)
         }
 
-        if (isFineGrainedPat) {
-          const allPermissionSetsExcluded = progAccessData[operation.operationId].permissions.every(
-            (permissionSet) =>
-              Object.keys(permissionSet).every((permissionName) =>
-                isActorExcluded(
-                  progActorResources[permissionName]?.excluded_actors,
-                  'fine_grained_pat',
-                  actorTypeMap,
-                ),
-              ),
+        if (
+          isFineGrainedPat &&
+          !isOperationExcludedForFineGrainedPat(
+            progAccessData[operation.operationId].permissions,
+            progActorResources,
           )
-
-          if (!allPermissionSetsExcluded) {
-            addAppData(githubAppsData['fine-grained-pat'], category, appDataOperation)
-          }
+        ) {
+          addAppData(githubAppsData['fine-grained-pat'], category, appDataOperation)
         }
 
         for (const permissionSet of progAccessData[operation.operationId].permissions) {
@@ -413,7 +406,10 @@ export async function getProgAccessData(
     const operationData: ProgAccessOperationData = {
       userToServerRest: operation.user_to_server.enabled,
       serverToServer: operation.server_to_server.enabled,
-      fineGrainedPat: operation.user_to_server.enabled && !operation.disabled_for_patv2,
+      fineGrainedPat:
+        operation.user_to_server.enabled &&
+        !operation.disabled_for_patv2 &&
+        !isOperationExcludedForFineGrainedPat(operation.permission_sets || [], progActorResources),
       permissions: isRest
         ? getDisplayPermissions(operation.permission_sets || [], progActorResources)
         : operation.permission_sets || [],
@@ -568,6 +564,27 @@ export function isActorExcluded(
 
   return false
 }
+
+// Operations with no permission sets need no permissions, so they still work with fine-grained PATs.
+// Every permission in a set is required, so one excluded permission rules out the whole set.
+export function isOperationExcludedForFineGrainedPat(
+  permissionSets: Array<Record<string, string>>,
+  progActorResources: ProgActorResources,
+): boolean {
+  return (
+    permissionSets.length > 0 &&
+    permissionSets.every((permissionSet) =>
+      Object.keys(permissionSet).some((permissionName) =>
+        isActorExcluded(
+          progActorResources[permissionName]?.excluded_actors,
+          'fine_grained_pat',
+          actorTypeMap,
+        ),
+      ),
+    )
+  )
+}
+
 function addAppData(
   storage: Record<string, AppDataOperation[] | PermissionData>,
   category: string,

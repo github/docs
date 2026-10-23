@@ -51,7 +51,7 @@ This article walks through a simple setup that adds the agent's credential as a 
 | --- | --- | --- |
 | Claude Code | `claude` | `ANTHROPIC_API_KEY` containing an Anthropic API key |
 | {% data variables.product.prodname_openai_codex %} | `codex` | `OPENAI_API_KEY` containing an OpenAI API key |
-| Google {% data variables.copilot.copilot_gemini %} CLI | `gemini` | `GEMINI_API_KEY` containing a Google AI Studio API key |
+| Google {% data variables.copilot.gemini %} CLI | `gemini` | `GEMINI_API_KEY` containing a Google AI Studio API key |
 | {% data variables.copilot.copilot_cli_short %} (default) | `copilot` | No secret needed for organization repositories (see below). For personal repositories, `COPILOT_GITHUB_TOKEN` containing a fine-grained {% data variables.product.pat_generic %} with **Copilot Requests** set to **Read**. |
 
 Other engines such as Pi (experimental) are also supported. For the full list, see the [{% data variables.copilot.github_agentic_workflows %} authentication reference](https://github.github.com/gh-aw/reference/auth/).

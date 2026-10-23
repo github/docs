@@ -49,7 +49,7 @@ export class CategoryLandingTransformer implements PageTransformer {
 
       if (!parentPage.relativePath.endsWith('index.md')) {
         const linkData = await getLinkData(href, languageCode, pathname, context, resolvePath)
-        if (linkData.href) {
+        if (linkData) {
           allArticles.push(linkData)
         }
       }
@@ -88,7 +88,7 @@ export class CategoryLandingTransformer implements PageTransformer {
     const spotlight = categoryPage.spotlight
     if (spotlight && spotlight.length > 0) {
       const links = await Promise.all(
-        spotlight.map(async (item) => {
+        spotlight.map(async (item): Promise<LinkData | null> => {
           const linkData = await getLinkData(
             item.article,
             languageCode,
@@ -96,6 +96,7 @@ export class CategoryLandingTransformer implements PageTransformer {
             context,
             resolvePath,
           )
+          if (!linkData) return null
           return {
             ...linkData,
             intro: linkData.intro
@@ -105,7 +106,7 @@ export class CategoryLandingTransformer implements PageTransformer {
         }),
       )
 
-      const validLinks = links.filter((l) => l.href)
+      const validLinks = links.filter((l): l is LinkData => l !== null)
       if (validLinks.length > 0) {
         sections.push({
           title: 'Spotlight',

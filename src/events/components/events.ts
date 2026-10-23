@@ -14,8 +14,6 @@ import { EventType, EventPropsByType } from '../types'
 import { isHeadless } from './is-headless'
 import { sendHydroAnalyticsEvent, getOctoClientId } from './hydro-analytics'
 
-const startVisitTime = Date.now()
-
 const BATCH_INTERVAL = 5000 // Flush queued events every 5 seconds.
 
 let initialized = false
@@ -28,9 +26,15 @@ let scrollPosition = 0
 let scrollDirection = 1
 let scrollFlipCount = 0
 let maxScrollY = 0
-let previousPath: string | undefined
+let pageStartTime = Date.now()
+// Navigation timings belong to the full page load, so pages reached by client-side navigation omit them.
+let isFullPageLoad = true
+// document.referrer keeps the landing page's referrer through client-side navigation.
+let pageReferrer: string | undefined
 let hoveredUrls = new Set()
 let eventQueue: Record<string, unknown>[] = []
+// Next cancels a route without its routeChangeComplete, so a cancelled wait resolves with the next route and must not send a page event.
+let pageReadyNavigation = 0
 
 function scheduleNextFlush() {
   setTimeout(() => {
@@ -48,7 +52,8 @@ function resetPageParams() {
   scrollDirection = 1
   scrollFlipCount = 0
   maxScrollY = 0
-  // Keep previousPath so browser-back referrers can fall back to the prior docs path.
+  pageStartTime = Date.now()
+  isFullPageLoad = false
   hoveredUrls = new Set()
 }
 
@@ -103,7 +108,7 @@ export function sendEvent<T extends EventType>({
       created: new Date().toISOString(),
       page_event_id: pageEventId,
 
-      referrer: getReferrer(document.referrer),
+      referrer: pageReferrer ?? document.referrer,
       title: document.title,
       href: location.href,
       hostname: location.hostname,
@@ -184,19 +189,6 @@ function queueEvent(eventBody: Record<string, unknown>) {
   eventQueue.push(eventBody)
 }
 
-// Browser-back navigation can omit the internal referrer path, so previousPath fills it in.
-function getReferrer(documentReferrer: string) {
-  if (!previousPath) return documentReferrer
-  try {
-    // URL rejects malformed referrers, so invalid values pass through unchanged.
-    const referrerUrl = new URL(documentReferrer)
-    if (!referrerUrl.pathname || referrerUrl.pathname === '/') {
-      return location.origin + previousPath
-    }
-  } catch {}
-  return documentReferrer
-}
-
 function getColorModePreference() {
   // HTML attributes expose the resolved mode and preserve auto preference without parsing cookies.
   const html = document.querySelector('html')
@@ -256,7 +248,9 @@ function sendPage() {
 function sendExit() {
   if (sentExit) return
   sentExit = true
-  const { render, firstContentfulPaint, domInteractive, domComplete } = getPerformance()
+  const { render, firstContentfulPaint, domInteractive, domComplete } = isFullPageLoad
+    ? getPerformance()
+    : {}
 
   const clampedScrollLength = Math.min(maxScrollY, 1)
 
@@ -266,7 +260,7 @@ function sendExit() {
     exit_first_paint: firstContentfulPaint,
     exit_dom_interactive: domInteractive,
     exit_dom_complete: domComplete,
-    exit_visit_duration: (Date.now() - startVisitTime) / 1000,
+    exit_visit_duration: (Date.now() - pageStartTime) / 1000,
     exit_scroll_length: clampedScrollLength,
     exit_scroll_flip: scrollFlipCount,
   })
@@ -288,13 +282,16 @@ function initPageAndExitEvent() {
 
   Router.events.on('routeChangeStart', async (url) => {
     // At routeChangeStart, location.pathname is prior and url is upcoming; query/hash keep one page event.
-    previousPath = location.pathname
+    const previousPath = location.pathname
     const newPath = url?.toString().split('?')[0].split('#')[0]
     const shouldSendEvents = newPath !== previousPath
     if (shouldSendEvents) {
       sendExit()
+      const thisNavigation = ++pageReadyNavigation
       await waitForPageReady()
+      if (thisNavigation !== pageReadyNavigation) return
       resetPageParams()
+      pageReferrer = location.origin + previousPath
       sendPage()
     }
   })

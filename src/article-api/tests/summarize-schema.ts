@@ -83,6 +83,109 @@ describe('summarizeSchema', () => {
     expect(result).toContain('**ForkEvent**')
   })
 
+  test('nested array with oneOf items lists each variant', () => {
+    const result = summarizeSchema({
+      type: 'object',
+      required: ['labels'],
+      properties: {
+        labels: {
+          type: 'array',
+          items: {
+            oneOf: [
+              { type: 'string' },
+              { type: 'object', properties: { name: { type: 'string' } } },
+            ],
+          },
+        },
+      },
+    })
+    expect(result).toContain('* `labels`: required, array of items:')
+    expect(result).toContain('one of:')
+    expect(result).toContain('**string**')
+    expect(result).toContain('* `name`: string')
+    expect(result).not.toContain('array of object')
+  })
+
+  test('nested array with titled composition items keeps the title and variants', () => {
+    const result = summarizeSchema({
+      type: 'object',
+      properties: {
+        rules: {
+          type: 'array',
+          items: {
+            title: 'Repository Rule',
+            type: 'object',
+            oneOf: [
+              { title: 'creation', type: 'object', properties: { type: { type: 'string' } } },
+              { title: 'deletion', type: 'object', properties: { type: { type: 'string' } } },
+            ],
+          },
+        },
+      },
+    })
+    expect(result).toContain('* `rules`: array of `Repository Rule`:')
+    expect(result).toContain('**creation**')
+    expect(result).toContain('**deletion**')
+    expect(result).not.toContain('array of object')
+  })
+
+  test('depth-limited composition items do not block later expansion', () => {
+    const rules = {
+      type: 'array',
+      items: {
+        title: 'Rule',
+        oneOf: [
+          { title: 'creation', type: 'object', properties: { ruleField: { type: 'string' } } },
+        ],
+      },
+    }
+    const result = summarizeSchema({
+      type: 'object',
+      properties: {
+        a: {
+          type: 'object',
+          properties: {
+            b: {
+              type: 'object',
+              properties: {
+                c: {
+                  type: 'object',
+                  properties: { d: { type: 'object', properties: { rules } } },
+                },
+              },
+            },
+          },
+        },
+        later: rules,
+        again: rules,
+      },
+    })
+    expect(result.match(/`ruleField`/g)).toHaveLength(1)
+    expect(result).toContain('* `later`: array of `Rule`:')
+    expect(result).toContain('* `again`: array of `Rule` (see above)')
+  })
+
+  test('nested array items keep shared properties alongside composition variants', () => {
+    const result = summarizeSchema({
+      type: 'object',
+      properties: {
+        items: {
+          type: 'array',
+          items: {
+            type: 'object',
+            required: ['id'],
+            properties: { id: { type: 'integer' } },
+            allOf: [{ type: 'object', properties: { extra: { type: 'string' } } }],
+          },
+        },
+      },
+    })
+    expect(result).toContain('* `items`: array of items:')
+    expect(result).toContain('  * `id`: required, integer')
+    expect(result).toContain('all of:')
+    expect(result).toContain('* `extra`: string')
+  })
+
   test('nested objects recurse with title', () => {
     const result = summarizeSchema({
       type: 'object',

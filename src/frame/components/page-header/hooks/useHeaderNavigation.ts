@@ -86,7 +86,8 @@ export function useHeaderNavigation({
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.defaultPrevented || event.isComposing) return
+      // Safari flags keys that end an input method composition only with keyCode 229.
+      if (event.defaultPrevented || event.isComposing || event.keyCode === 229) return
       if (event.key === 'Escape' && isSearchOpen) {
         setIsSearchOpen(false)
         return

@@ -1,6 +1,6 @@
 ---
 title: Ifversion liquid tag
-intro: 'Tests functionality of `ifversion` and its operators {% ifversion not fpt %}(not on fpt){% else %}(on fpt){% endif %}'
+intro: 'Tests functionality of `ifversion` and its operators {% ifversion not fpt %}(not on fpt){% else %}(on fpt){% endif %} {% ifversion ghes %}(bare ghes){% else %}(bare not ghes){% endif %}'
 versions:
   fpt: '*'
   ghes: '*'

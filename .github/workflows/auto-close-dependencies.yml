@@ -9,6 +9,7 @@ on:
       - 'Gemfile*'
       - 'Dockerfile'
       - '.github/workflows/**'
+      - '.github/actions/**'
 
 permissions:
   contents: write

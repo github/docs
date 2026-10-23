@@ -100,13 +100,12 @@ router.get(
   '/:someParam',
   pagelistValidationMiddleware as RequestHandler,
   catchMiddlewareError(async function (req: ExtendedRequest, res: Response) {
-    const { someParam } = req.params
+    // req.originalUrl keeps raw encodings like %40, so editing it in place can redirect to itself.
+    const queryStart = req.originalUrl.indexOf('?')
+    const query = queryStart === -1 ? '' : req.originalUrl.slice(queryStart)
     res.safeRedirect(
       308,
-      req.originalUrl.replace(
-        `/pagelist/${someParam}`,
-        `/pagelist/${req.context!.currentLanguage}/${req.context!.currentVersion}`,
-      ),
+      `${req.baseUrl}/${req.context!.currentLanguage}/${req.context!.currentVersion}${query}`,
     )
   }),
 )

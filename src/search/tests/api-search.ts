@@ -2,7 +2,7 @@
 // Run ELASTICSEARCH_URL=http://localhost:9200 npm run index-test-fixtures.
 // The command writes tests_-prefixed indexes and leaves regular indexes alone.
 
-import { expect, test, vi } from 'vitest'
+import { describe, expect, test, vi } from 'vitest'
 import { describeIfElasticsearchURL } from '@/tests/helpers/conditional-runs'
 import { get } from '@/tests/helpers/e2etest'
 import { GeneralSearchResponse, SearchResultAggregations, GeneralSearchHit } from '@/search/types'
@@ -404,6 +404,55 @@ describeIfElasticsearchURL('aggregate', () => {
     const firstAgg = results.aggregations!.toplevel[0]
     expect(firstAgg.key).toBeTruthy()
     expect(firstAgg.count).toBeTruthy()
+  })
+
+  // Facet counts come from the unfiltered query (post_filter), so selecting toplevels
+  // narrows hits and meta.found but leaves the buckets unchanged.
+  describe("aggregate by 'toplevel' while filtering by 'toplevel'", () => {
+    type AggregatedResponse = GeneralSearchResponse & { aggregations: SearchResultAggregations }
+
+    async function search(toplevels: string[]): Promise<AggregatedResponse> {
+      const sp = new URLSearchParams()
+      sp.set('query', 'foo')
+      sp.set('include', 'toplevel')
+      sp.set('aggregate', 'toplevel')
+      for (const toplevel of toplevels) sp.append('toplevel', toplevel)
+      const res = await get(`/api/search/v1?${sp.toString()}`)
+      expect(res.statusCode).toBe(200)
+      return JSON.parse(res.body)
+    }
+
+    function bucketCount(results: AggregatedResponse, key: string) {
+      return results.aggregations.toplevel.find((bucket) => bucket.key === key)?.count ?? 0
+    }
+
+    test('single toplevel', async () => {
+      const baseline = await search([])
+      const results = await search(['Baring'])
+      expect(results.aggregations.toplevel).toEqual(baseline.aggregations.toplevel)
+      expect(new Set(results.hits.map((hit) => hit.toplevel))).toEqual(new Set(['Baring']))
+      expect(results.meta.found.value).toBe(bucketCount(baseline, 'Baring'))
+    })
+
+    test('multiple toplevels', async () => {
+      const baseline = await search([])
+      const results = await search(['Baring', 'Fooing'])
+      expect(results.aggregations.toplevel).toEqual(baseline.aggregations.toplevel)
+      expect(new Set(results.hits.map((hit) => hit.toplevel))).toEqual(
+        new Set(['Baring', 'Fooing']),
+      )
+      expect(results.meta.found.value).toBe(
+        bucketCount(baseline, 'Baring') + bucketCount(baseline, 'Fooing'),
+      )
+    })
+
+    test('unmatched toplevel', async () => {
+      const baseline = await search([])
+      const results = await search(['Never heard of'])
+      expect(results.aggregations.toplevel).toEqual(baseline.aggregations.toplevel)
+      expect(results.hits).toEqual([])
+      expect(results.meta.found.value).toBe(0)
+    })
   })
 
   test("aggregate by 'unrecognizedxxx'", async () => {

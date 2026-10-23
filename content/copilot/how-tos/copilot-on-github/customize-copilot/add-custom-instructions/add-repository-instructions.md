@@ -18,7 +18,7 @@ category:
 
 ## Introduction
 
-Repository custom instructions let you provide {% data variables.product.prodname_copilot_short %} with repository-specific guidance and preferences on {% data variables.product.github %}. To find out how to set up custom instructions in an IDE, see [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/customize-copilot/configure-custom-instructions/add-repository-instructions-in-your-ide). For more information about custom instructions, see [AUTOTITLE](/copilot/concepts/prompting/response-customization).
+Repository custom instructions let you provide {% data variables.product.prodname_copilot_short %} with repository-specific guidance and preferences on {% data variables.product.github %}. To find out how to set up custom instructions in an IDE, see [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/customize-copilot/configure-custom-instructions/add-repository-instructions-in-your-ide). For more information about custom instructions, see [AUTOTITLE](/copilot/concepts/prompting-and-context/custom-instructions).
 
 {% data reusables.copilot.repository-custom-instructions-prerequisites %}
 
@@ -26,7 +26,7 @@ Repository custom instructions let you provide {% data variables.product.prodnam
 
 ## Creating custom instructions
 
-{% data variables.product.prodname_copilot_short %} on {% data variables.product.github %} supports three types of repository custom instructions. For details of which {% data variables.product.prodname_copilot %} features support these types of instructions, see [AUTOTITLE](/copilot/concepts/prompting/response-customization?tool=webui#support-for-repository-custom-instructions).
+{% data variables.product.prodname_copilot_short %} on {% data variables.product.github %} supports three types of repository custom instructions. For details of which {% data variables.product.prodname_copilot %} features support these types of instructions, see [AUTOTITLE](/copilot/concepts/prompting-and-context/custom-instructions#repository-custom-instructions-across-clients-and-surfaces).
 
 * **Repository-wide custom instructions** apply to all requests made in the context of a repository.
 

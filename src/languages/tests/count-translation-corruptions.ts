@@ -1,7 +1,12 @@
 import { describe, expect, test } from 'vitest'
 
 import { allVersions } from '@/versions/lib/all-versions'
-import { resolveRequestedVersions } from '@/languages/scripts/count-translation-corruptions'
+import { getFeaturesByVersion } from '@/versions/middleware/features'
+import { engine } from '@/content-render/liquid/engine'
+import {
+  buildRenderContext,
+  resolveRequestedVersions,
+} from '@/languages/scripts/count-translation-corruptions'
 
 // Pick a real GHES key at runtime rather than hard-coding one. allVersions
 // only contains supported releases, so enterprise-server@3.16 fails after
@@ -33,5 +38,25 @@ describe('resolveRequestedVersions', () => {
       /Invalid version\(s\): enterprise-server@latest/,
     )
     expect(() => resolveRequestedVersions('free-pro-team@latest,nope')).toThrow(/nope/)
+  })
+})
+
+describe('buildRenderContext', () => {
+  const fptFeature = Object.entries(getFeaturesByVersion('free-pro-team@latest')).find(
+    ([, enabled]) => enabled,
+  )![0]
+
+  test('sets feature flags for the version', () => {
+    const ctx = buildRenderContext('es', 'free-pro-team@latest')
+    expect(ctx[fptFeature]).toBe(true)
+    expect(ctx.currentVersion).toBe('free-pro-team@latest')
+    expect(ctx.fpt).toBe(true)
+  })
+
+  test('renders feature-gated branches so render-time errors surface', async () => {
+    const ctx = buildRenderContext('es', 'free-pro-team@latest')
+    await expect(
+      engine.parseAndRender(`{% ifversion ${fptFeature} %}{% octicon "lapiz" %}{% endif %}`, ctx),
+    ).rejects.toThrow(/Octicon lapiz does not exist/)
   })
 })

@@ -1,10 +1,11 @@
 import walk from 'walk-sync'
 import path from 'path'
+import { fileURLToPath } from 'url'
 import { TokenizationError, TokenKind } from 'liquidjs'
 import type { TagToken } from 'liquidjs'
 import { getLiquidTokens } from '@/content-linter/lib/helpers/liquid-utils'
 
-const __dirname = path.dirname(new URL(import.meta.url).pathname)
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 const repoRoot = path.resolve(__dirname, '../../../../')
 const contentDirectory = path.resolve(__dirname, repoRoot, 'content/')
@@ -60,7 +61,10 @@ export function getIndicesOfLiquidVariable(liquidVariable: string, fileContents:
       (token): token is TagToken => token.kind === TokenKind.Tag,
     )
     for (const token of tokens) {
-      if (token.name === 'data' && token.args.trim() === liquidVariable) {
+      if (
+        (token.name === 'data' || token.name === 'indented_data_reference') &&
+        token.args.trim().split(/\s+/)[0] === liquidVariable
+      ) {
         indices.push(token.begin)
       }
     }
@@ -117,6 +121,7 @@ export function getAllReusablesFilePaths(): string[] {
 
 export function findIndicesOfSubstringInString(substr: string, str: string): number[] {
   str = str.toLowerCase()
+  substr = substr.toLowerCase()
 
   const result: number[] = []
 

@@ -68,68 +68,64 @@ export default async function createTree(
     page = newPage as unknown as Page
   }
 
+  // A reused page has filtered children, so the declared list comes from the previous tree.
+  const declaredChildren =
+    previousTree && previousTree.page === page ? previousTree.children : page.children || []
+
   const item: UnversionedTree = {
     page,
-    // Development reloads reuse subtrees only when the ordered children list matches.
-    children: page.children || [],
+    // Declared children stay intact so later reloads retry skipped content that appears on disk.
+    children: declaredChildren,
     childPages: [],
   }
 
-  if (page.children) {
+  if (declaredChildren.length) {
     assertUniqueChildren(page)
-    item.childPages = (
-      await Promise.all(
-        (page.children as string[]).map(async (child: string, i: number) => {
-          let childPreviousTree: UnversionedTree | undefined
-          if (previousTree && previousTree.childPages) {
-            if (equalArray(page.children as string[], previousTree.children)) {
-              // Matching child names and order keep indexes tied to the same previous subtree.
-              childPreviousTree = previousTree.childPages[i]
-            }
-          }
+    // The previous page's children line up with its childPages, so cached subtrees match by name.
+    const previousChildPages = new Map<string, UnversionedTree>()
+    if (previousTree) {
+      for (const [i, child] of (previousTree.page.children || []).entries()) {
+        previousChildPages.set(child, previousTree.childPages[i])
+      }
+    }
+    const subTrees = await Promise.all(
+      declaredChildren.map(async (child: string) => {
+        const childPreviousTree = previousChildPages.get(child)
 
-          // Absolute paths such as /content/actions/workflows pull a subtree, even from another product.
-          let childPath: string
-          if (child.startsWith('/content/')) {
-            const absoluteChildPath = child.slice('/content/'.length)
-            childPath = path.posix.join(basePath, absoluteChildPath)
+        // Absolute paths such as /content/actions/workflows pull a subtree, even from another product.
+        let childPath: string
+        if (child.startsWith('/content/')) {
+          const absoluteChildPath = child.slice('/content/'.length)
+          childPath = path.posix.join(basePath, absoluteChildPath)
 
-            // Reject path traversal by requiring the resolved path to stay under the content root.
-            const resolvedPath = path.resolve(childPath)
-            const resolvedBasePath = path.resolve(basePath)
-            if (!resolvedPath.startsWith(resolvedBasePath + path.sep)) {
-              throw new Error(
-                `Invalid child path "${child}" in ${originalPath}/index.md - path traversal detected. ` +
-                  `Resolved path "${resolvedPath}" escapes content directory "${resolvedBasePath}".`,
-              )
-            }
-          } else {
-            // Relative child paths resolve from their parent path.
-            childPath = path.posix.join(originalPath, child)
-          }
-
-          const subTree = await createTree(childPath, basePath, childPreviousTree)
-          if (subTree && child.startsWith('/content/')) {
-            // Cross-product children stay out of the sidebar.
-            subTree.crossProductChild = true
-          }
-          if (!subTree) {
-            // Remove skipped subtrees so development reloads compare against the rendered child list.
-            ;(page.children as string[]) = (page.children as string[]).filter(
-              (c: string) => c !== child,
+          // Reject path traversal by requiring the resolved path to stay under the content root.
+          const resolvedPath = path.resolve(childPath)
+          const resolvedBasePath = path.resolve(basePath)
+          if (!resolvedPath.startsWith(resolvedBasePath + path.sep)) {
+            throw new Error(
+              `Invalid child path "${child}" in ${originalPath}/index.md - path traversal detected. ` +
+                `Resolved path "${resolvedPath}" escapes content directory "${resolvedBasePath}".`,
             )
           }
-          return subTree
-        }),
-      )
-    ).filter((tree): tree is UnversionedTree => tree !== undefined)
+        } else {
+          // Relative child paths resolve from their parent path.
+          childPath = path.posix.join(originalPath, child)
+        }
+
+        const subTree = await createTree(childPath, basePath, childPreviousTree)
+        if (subTree && child.startsWith('/content/')) {
+          // Cross-product children stay out of the sidebar.
+          subTree.crossProductChild = true
+        }
+        return subTree
+      }),
+    )
+    // Skipped subtrees, such as missing early-access content, leave the rendered children list.
+    page.children = declaredChildren.filter((_, i) => subTrees[i])
+    item.childPages = subTrees.filter((tree): tree is UnversionedTree => tree !== undefined)
   }
 
   return item
-}
-
-function equalArray(arr1: string[], arr2: string[]): boolean {
-  return arr1.length === arr2.length && arr1.every((value, i) => value === arr2[i])
 }
 
 async function getMtime(filePath: string): Promise<number> {
@@ -138,7 +134,7 @@ async function getMtime(filePath: string): Promise<number> {
     await fs.access(filePath)
     return 1
   }
-  return Math.round((await fs.stat(filePath)).mtimeMs)
+  return (await fs.stat(filePath)).mtimeMs
 }
 
 function assertUniqueChildren(page: Page): void {

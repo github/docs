@@ -168,7 +168,7 @@ export const VersionPicker = ({ variant = 'default', onNavigate }: Props) => {
     allLinks.push({
       text: t('about_versions'),
       selected: false,
-      href: `/${router.locale}${currentVersionPathSegment}/get-started/learning-about-github/about-versions-of-github-docs`,
+      href: `/${router.locale}${currentVersionPathSegment}/get-started/using-github-docs/about-versions-of-github-docs`,
       value: ABOUT_VERSIONS_VALUE,
       extra: {
         arrow: false,

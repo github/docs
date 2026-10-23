@@ -1,6 +1,6 @@
 import { allVersions, allVersionKeys } from '@/versions/lib/all-versions'
 import nonEnterpriseDefaultVersion from '@/versions/lib/non-enterprise-default-version'
-import { getPathWithoutLanguage } from '@/frame/lib/path-utils'
+import { getPathWithoutLanguage, getPathWithoutVersion } from '@/frame/lib/path-utils'
 
 // detect-version.ts rejects cookie values outside allVersionKeys.
 const alternateVersions = allVersionKeys.filter((v) => v !== nonEnterpriseDefaultVersion)
@@ -41,6 +41,9 @@ const NOTHING: VersionPreference = { vary: false }
 // explicit /free-pro-team@latest prefix before this point.
 //
 // resolvedPath builds the versioned candidate so renamed articles resolve in one hop.
+//
+// Versionless URLs for articles without Free/Pro/Team resolve to their first version, and the
+// cookie still overrides that default. The follow-up request names a version, so it cannot loop.
 export function getVersionPreference(
   requestPath: string,
   resolvedPath: string,
@@ -50,15 +53,21 @@ export function getVersionPreference(
   // External redirects are not ours to version.
   if (resolvedPath.includes('://')) return NOTHING
 
-  if (pathNamesAVersion(requestPath) || pathNamesAVersion(resolvedPath)) return NOTHING
+  if (pathNamesAVersion(requestPath)) return NOTHING
+
+  // getPathWithoutVersion keeps deprecated and legacy version segments, which still win.
+  const candidate = getPathWithoutVersion(resolvedPath)
+  if (pathNamesAVersion(candidate)) return NOTHING
 
   // Language-less paths read a slug as the language and miss the language-prefixed pages lookup.
-  const language = resolvedPath.split('/')[1]
-  const withoutLanguage = getPathWithoutLanguage(resolvedPath)
+  const language = candidate.split('/')[1]
+  const withoutLanguage = getPathWithoutLanguage(candidate)
 
   // pages keys omit .md, but .md requests must redirect to .md versioned articles.
   const extension = withoutLanguage.endsWith('.md') ? '.md' : ''
-  const lookupSuffix = extension ? withoutLanguage.slice(0, -extension.length) : withoutLanguage
+  const stripped = extension ? withoutLanguage.slice(0, -extension.length) : withoutLanguage
+  // Homepage keys have no trailing slash, so /en must look up /en/<version>.
+  const lookupSuffix = stripped === '/' ? '' : stripped
 
   let vary = false
   let redirectTo: string | undefined

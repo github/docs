@@ -71,7 +71,8 @@ async function main(owner: string, repo: string, baseSHA: string, headSHA: strin
     return ''
   }
 
-  let markdown = '**Please restore deleted features**\n\n'
+  // dont-delete-features.yml searches for this marker to update its earlier comment instead of posting a new one.
+  let markdown = '<!-- DELETED_FEATURES -->\n**Please restore deleted features**\n\n'
   markdown +=
     "Even if you don't reference these features anymore, as of this branch, please do not delete them.\n"
   markdown += 'They might still be referenced in translated content.\n'

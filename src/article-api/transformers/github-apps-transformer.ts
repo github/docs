@@ -191,14 +191,12 @@ export class GithubAppsTransformer implements PageTransformer {
 
       finalContent = introMarkdown + tablesMarkdown
     } else {
+      // templateData replaces context.page, so the merged object is not a strict Context.
       finalContent = await renderContent(templateContent, {
         ...context,
-        pageData: templateData.page,
-        manualContent: templateData.manualContent,
-        isListPage: templateData.isListPage,
-        items: templateData.items,
+        ...templateData,
         markdownRequested: true,
-      })
+      } as unknown as Context)
     }
 
     if (DEBUG)

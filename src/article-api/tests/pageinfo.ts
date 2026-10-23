@@ -1,7 +1,10 @@
 import { beforeAll, describe, expect, test } from 'vitest'
 
 import { get } from '@/tests/helpers/e2etest'
-import { makeLanguageSurrogateKey } from '@/frame/middleware/set-fastly-surrogate-key'
+import {
+  makeLanguageSurrogateKey,
+  makePageSurrogateKey,
+} from '@/frame/middleware/set-fastly-surrogate-key'
 import { latest } from '@/versions/lib/enterprise-server-releases'
 
 const makeURL = (pathname: string): string =>
@@ -51,7 +54,10 @@ describe('pageinfo api', () => {
     expect(res.headers['cache-control']).toMatch(/max-age=[1-9]/)
     expect(res.headers['surrogate-control']).toContain('public')
     expect(res.headers['surrogate-control']).toMatch(/max-age=[1-9]/)
-    expect(res.headers['surrogate-key']).toBe(makeLanguageSurrogateKey('en'))
+    // The page key must match the purge key derived from the source file.
+    expect(res.headers['surrogate-key']).toBe(
+      `${makeLanguageSurrogateKey('en')} ${makePageSurrogateKey('en', 'get-started/start-your-journey/index.md')}`,
+    )
   })
 
   // Fullwidth colons make Japanese frontmatter scalar; English fallback prevents empty titles.
@@ -60,6 +66,17 @@ describe('pageinfo api', () => {
     expect(res.statusCode).toBe(200)
     const meta = JSON.parse(res.body) as PageMetadata
     expect(meta.title).toBe('Broken frontmatter translation fallback')
+  })
+
+  // Japanese frontmatter has an empty title and a numeric intro, so each key falls back to English.
+  test('mistyped translation frontmatter values fall back to English', async () => {
+    const res = await get(makeURL('/ja/get-started/foo/mistyped-frontmatter-translation'))
+    expect(res.statusCode).toBe(200)
+    const meta = JSON.parse(res.body) as PageMetadata
+    expect(meta.title).toBe('Mistyped frontmatter translation fallback')
+    expect(meta.intro).toBe(
+      'Demonstrates falling back to English when a translated frontmatter value has the wrong type.',
+    )
   })
 
   test('a pathname that does not exist', async () => {
@@ -121,6 +138,21 @@ describe('pageinfo api', () => {
       const meta = JSON.parse(res.body) as PageMetadata
       expect(meta.title).toBe('Only in Enterprise Cloud and Enterprise Server')
     }
+    // Legacy GraphQL redirect destinations carry a kind and #fragment that pages lack.
+    {
+      const res = await get(makeURL('/en/v4/enum/checkruntype'))
+      expect(res.statusCode).toBe(200)
+      const meta = JSON.parse(res.body) as PageMetadata
+      expect(meta.title).toBe('Checks')
+      expect(meta.redirectedFrom).toBe('/en/v4/enum/checkruntype')
+    }
+    {
+      const res = await get(makeURL('/en/v4/mutation'))
+      expect(res.statusCode).toBe(200)
+      const meta = JSON.parse(res.body) as PageMetadata
+      expect(meta.title).toBe('Reference')
+      expect(meta.redirectedFrom).toBe('/en/v4/mutation')
+    }
   })
 
   test('a page that uses non-trivial Liquid to render', async () => {
@@ -168,6 +200,24 @@ describe('pageinfo api', () => {
       expect(res.statusCode).toBe(200)
       const meta = JSON.parse(res.body) as PageMetadata
       expect(meta.title).toMatch('HubGit Enterprise Server Fixture Documentation')
+    }
+  })
+
+  test('language-less canonical pathnames', async () => {
+    {
+      const res = await get(makeURL('/get-started/start-your-journey/hello-world'))
+      expect(res.statusCode).toBe(200)
+      const meta = JSON.parse(res.body) as PageMetadata
+      expect(meta.title).toBe('Hello World')
+      expect(meta.redirectedFrom).toBe('/get-started/start-your-journey/hello-world')
+    }
+    {
+      const res = await get(
+        makeURL('/enterprise-cloud@latest/get-started/start-your-journey/hello-world'),
+      )
+      expect(res.statusCode).toBe(200)
+      const meta = JSON.parse(res.body) as PageMetadata
+      expect(meta.title).toBe('Hello World')
     }
   })
 

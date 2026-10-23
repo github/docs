@@ -1,6 +1,8 @@
 // Finds data/features/*.yml entries that no page, reusable, or variable references.
-// It scans title, intro, shortTitle, body, and English versions frontmatter across all pages.
-// It also scans English reusables and variables, then matching translated reusables.
+// It scans title, intro, shortTitle, permissions, product, introLinks, body, and English versions
+// frontmatter across all pages, including early access pages when they are merged in.
+// It also scans English reusables, variables, tables, and early access data, then matching
+// translated reusables.
 // Outputs remaining features as paths such as data/features/havent-been-used-in-years.yml.
 // If translated Liquid cannot parse, regex searches feature names in ifversion and elsif tags.
 
@@ -13,7 +15,6 @@ import { TokenizationError, TokenKind } from 'liquidjs'
 import type { TagToken } from 'liquidjs'
 
 import type { Page } from '@/types'
-import warmServer from '@/frame/lib/warm-server'
 import { getDeepDataByLanguage } from '@/data-directory/lib/get-data'
 import { getLiquidTokens } from '@/content-linter/lib/helpers/liquid-utils'
 import languages from '@/languages/lib/languages-server'
@@ -41,6 +42,8 @@ export async function find(options: Options) {
       ),
     )
   }
+  // A lazy import keeps warm-server and its dependencies out of tests that load the helpers.
+  const { default: warmServer } = await import('@/frame/lib/warm-server')
   const site = await warmServer([])
 
   const features = new Set(
@@ -99,7 +102,6 @@ function formatDelta(t0: Date, t1: Date) {
 // English content lets correctTranslatedContentStrings repair Liquid before feature matching.
 function searchAndRemove(features: Set<string>, pages: Page[], verbose = false) {
   for (const page of pages) {
-    const content = page.markdown
     // Only English versions frontmatter can mark a feature used.
     if (page.languageCode === 'en') {
       for (const [key, value] of Object.entries(page.versions)) {
@@ -111,17 +113,14 @@ function searchAndRemove(features: Set<string>, pages: Page[], verbose = false) 
       }
     }
 
-    const combined = `
-      ${content}
-      ${page.title || ''}
-      ${page.shortTitle || ''}
-      ${page.intro || ''}
-    `
-
-    checkString(combined, features, { page, verbose, languageCode: page.languageCode })
+    checkString(getPageSearchText(page), features, {
+      page,
+      verbose,
+      languageCode: page.languageCode,
+    })
   }
 
-  for (const filePath of getVariableFiles(path.join(languages.en.dir, 'data', 'variables'))) {
+  for (const filePath of getEnglishDataFiles(path.join(languages.en.dir, 'data'))) {
     const fileContent = fs.readFileSync(filePath, 'utf-8')
     checkString(fileContent, features, { filePath, verbose, languageCode: 'en' })
   }
@@ -165,6 +164,38 @@ function searchAndRemove(features: Set<string>, pages: Page[], verbose = false) 
   }
 }
 
+type PageSearchFields = Pick<
+  Page,
+  'markdown' | 'title' | 'shortTitle' | 'intro' | 'rawPermissions'
+> & {
+  rawProduct?: string
+  rawIntroLinks?: Record<string, string>
+}
+
+// Page.render runs Liquid on permissions, product, and introLinks, so their ifversion tags count too.
+export function getPageSearchText(page: PageSearchFields) {
+  return `
+      ${page.markdown}
+      ${page.title || ''}
+      ${page.shortTitle || ''}
+      ${page.intro || ''}
+      ${page.rawPermissions || ''}
+      ${page.rawProduct || ''}
+      ${Object.values(page.rawIntroLinks || {}).join('\n')}
+    `
+}
+
+// Pages render table rows with render_liquid. Early access data exists only after a merge.
+export function getEnglishDataFiles(dataRoot: string): string[] {
+  const sources: [string, (root: string) => string[]][] = [
+    [path.join(dataRoot, 'variables'), getVariableFiles],
+    [path.join(dataRoot, 'tables'), getVariableFiles],
+    [path.join(dataRoot, 'early-access', 'variables'), getVariableFiles],
+    [path.join(dataRoot, 'early-access', 'reusables'), getReusableFiles],
+  ]
+  return sources.flatMap(([dir, getFiles]) => (fs.existsSync(dir) ? getFiles(dir) : []))
+}
+
 export function getReusableFiles(root: string): string[] {
   const here = []
   for (const file of fs.readdirSync(root)) {
@@ -193,7 +224,7 @@ export function getVariableFiles(root: string): string[] {
 
 const IGNORE_ARGS = new Set(['or', 'and', 'not', '<', '>', 'ghes', 'fpt', 'ghec', '!=', '='])
 
-function checkString(
+export function checkString(
   string: string,
   features: Set<string>,
   {

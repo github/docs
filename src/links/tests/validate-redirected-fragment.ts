@@ -79,6 +79,18 @@ describe('RedirectedFragmentValidator.classify', () => {
     expect(await validator.classify(page, '#setup')).toBe('unvalidatable')
   })
 
+  test('unvalidatable: glossary loop destination page', async () => {
+    // Term headings come from a glossaries loop, so the render sees only static headings.
+    const page = fakePage({
+      markdown:
+        '{% for glossary in glossaries %}\n## {{ glossary.term }}\n{% endfor %}\n## Further reading\n',
+    })
+    const validator = new StubValidator({
+      'free-pro-team@latest|content/foo.md': new Set(['further-reading']),
+    })
+    expect(await validator.classify(page, '#fork')).toBe('unvalidatable')
+  })
+
   test('unvalidatable: destination has no applicable versions', async () => {
     const page = fakePage({ applicableVersions: [] })
     const validator = new StubValidator({})

@@ -1,7 +1,12 @@
 // Flattens nested context for Splunk, which cannot query nested JSON objects.
 // Example: { requestContext: { path: "/en" } } becomes requestContext.path=/en.
 
-// Matches the original node-logfmt library's quoting and escaping behavior.
+const CONTROL_ESCAPES: Record<string, string> = { '\n': '\\n', '\r': '\\r', '\t': '\\t' }
+
+// Matches the original node-logfmt library's quoting and escaping behavior, except that it
+// also escapes line breaks and tabs in values and replaces separator characters in keys.
+// Log shippers split records on newlines, so raw line breaks from request data or error
+// stacks would split one record into several or let a value forge a new record.
 function stringify(data: Record<string, unknown>): string {
   let line = ''
 
@@ -18,10 +23,12 @@ function stringify(data: Record<string, unknown>): string {
     }
 
     const needs_quoting = stringValue.indexOf(' ') > -1 || stringValue.indexOf('=') > -1
-    const needs_escaping = stringValue.indexOf('"') > -1 || stringValue.indexOf('\\') > -1
+    const needs_escaping = /["\\\n\r\t]/.test(stringValue)
 
     if (needs_escaping) {
-      stringValue = stringValue.replace(/["\\]/g, '\\$&')
+      stringValue = stringValue
+        .replace(/["\\]/g, '\\$&')
+        .replace(/[\n\r\t]/g, (char) => CONTROL_ESCAPES[char])
     }
     if (needs_quoting || needs_escaping) {
       stringValue = `"${stringValue}"`
@@ -30,7 +37,7 @@ function stringify(data: Record<string, unknown>): string {
       stringValue = '""'
     }
 
-    line += `${key}=${stringValue} `
+    line += `${key.replace(/[\s\p{Cc}="]/gu, '_')}=${stringValue} `
   }
 
   return line.substring(0, line.length - 1)

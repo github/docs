@@ -156,9 +156,6 @@ sections:
         # https://github.com/github/releases/issues/7902
         - |
           Repository administrators and maintainers can now delete commit comments. Previously, commit comments could not be removed, which allowed spam and abusive comments to persist in repositories. This gives maintainers another tool to reduce spam and unwanted content. For details, see the [changelog](https://github.blog/changelog/2026-03-25-disable-comments-on-individual-commits/).
-        # https://github.com/github/releases/issues/7340
-        - |
-          Organization owners and repository administrators can require specific reviewers for pull requests targeting a given branch by adding a required reviewers rule to a repository ruleset. This provides more granular control over code ownership than a single `CODEOWNERS` file, which is difficult to scale for large organizations or monorepos. For example, administrators can require QA reviewers on a release branch, security team members on the default branch, or product and design reviewers on feature branches, including setting the minimum number of required reviews per team.
         # https://github.com/github/releases/issues/6784
         - |
           Developers can find and organize their repositories more efficiently using the new repositories dashboard at `/repos`. The dashboard displays a developer's most active repositories and allows them to create saved views for quick access to the repositories they use most. This gives developers a centralized page for tracking their work and streamlining their workflows. For details, see the [changelog](https://github.blog/changelog/2026-02-24-repository-dashboard-is-now-generally-available/).
@@ -274,3 +271,7 @@ sections:
     # https://github.com/github/releases/issues/6651
     - |
       Starting in 3.22, networking-related syscalls will be disabled by default in the pre-receive hook environment. For enhanced security, hook environments will be placed in dedicated network namespaces. You will be able to override the default setting by setting pre-receive-hook-networking to enabled. In many cases, push rulesets are an alternative for many pre-receive hooks. For more information, see [AUTOTITLE](/enterprise-server@3.22/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets#push-rulesets).
+
+  errata:
+    - |
+      These release notes previously included a note about required reviewers rules for repository rulesets. The feature is not available in this release and will be included in a future release. [Updated: 2026-10-19]

@@ -8,7 +8,7 @@ import {
   getMainContext,
   addUINamespaces,
 } from '@/frame/components/context/MainContext'
-import type { ObjectT } from '@/graphql/components/types'
+import type { InterfaceImplementerT } from '@/graphql/components/types'
 import type { ExtendedRequest } from '@/types/types'
 import { AutomatedPage } from '@/automated-pipelines/components/AutomatedPage'
 import {
@@ -21,6 +21,7 @@ import {
   KIND_SLUG_PREFIX,
   KIND_LABELS_PLURAL,
   KIND_URL_SEGMENT,
+  compareByName,
   isValidCategory,
 } from '@/graphql/lib/categories'
 
@@ -28,7 +29,7 @@ type Props = {
   mainContext: MainContextT
   automatedPageContext: AutomatedPageContextT
   schema: CategorySchema
-  allObjects: ObjectT[]
+  implementers: InterfaceImplementerT[]
   language: string
   categorySlug: string
 }
@@ -37,11 +38,13 @@ export default function GraphqlReferencePage({
   mainContext,
   automatedPageContext,
   schema,
-  allObjects,
+  implementers,
   categorySlug,
 }: Props) {
   // Keying by categorySlug prevents navigation from reusing stale dangerouslySetInnerHTML content.
-  const content = <GraphqlCategoryPage key={categorySlug} schema={schema} allObjects={allObjects} />
+  const content = (
+    <GraphqlCategoryPage key={categorySlug} schema={schema} implementers={implementers} />
+  )
   return (
     <MainContext.Provider value={mainContext}>
       <AutomatedPageContext.Provider value={automatedPageContext}>
@@ -52,7 +55,7 @@ export default function GraphqlReferencePage({
 }
 
 export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
-  const { getGraphqlSchema, getAllGraphqlObjects } = await import('@/graphql/lib/index')
+  const { getGraphqlSchema, getGraphqlInterfaceImplementers } = await import('@/graphql/lib/index')
 
   const req = context.req as unknown as ExtendedRequest
   const res = context.res
@@ -69,7 +72,6 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   }
 
   const schema = getGraphqlSchema(currentVersion, page) as CategorySchema
-  const allObjects = getAllGraphqlObjects(currentVersion) as ObjectT[]
 
   // Return 404 when a version has no types because the route can serve categories without files.
   const hasAnyTypes = ALL_KIND_KEYS.some((kind) => {
@@ -80,14 +82,17 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
     return { notFound: true }
   }
 
+  const implementers = getGraphqlInterfaceImplementers(
+    currentVersion,
+    (schema.interfaces ?? []).map((item) => item.name),
+  )
+
   // Build nested kind entries because MiniTocs recurses and default collection stops at one level.
   const automatedPageContext = getAutomatedPageContextFromRequest(req)
   for (const kind of ALL_KIND_KEYS) {
     const kindItems = (schema as Record<string, Array<{ name: string }>>)[kind]
     if (!kindItems || kindItems.length === 0) continue
-    const sortedItems = [...kindItems].sort((a, b) =>
-      a.name.toLowerCase().localeCompare(b.name.toLowerCase()),
-    )
+    const sortedItems = [...kindItems].sort(compareByName)
     automatedPageContext.miniTocItems.push({
       contents: {
         href: `#${KIND_URL_SEGMENT[kind]}`,
@@ -110,7 +115,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
       mainContext,
       automatedPageContext,
       schema,
-      allObjects,
+      implementers,
       language,
       categorySlug: page,
     },

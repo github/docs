@@ -12,9 +12,13 @@ export async function getLinkData(
     pathname: string,
     context: Context,
   ) => Page | undefined,
-): Promise<LinkData> {
+): Promise<LinkData | null> {
   const linkedPage = resolvePath(href, languageCode, pathname, context)
-  if (!linkedPage) return { href, title: href }
+  if (!linkedPage) return null
+  // resolvePath can return a page from another version, which the website hides.
+  if (context.currentVersion && !linkedPage.applicableVersions.includes(context.currentVersion)) {
+    return null
+  }
 
   const title = await linkedPage.renderTitle(context, { unwrap: true })
   const intro = linkedPage.intro

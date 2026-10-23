@@ -46,6 +46,9 @@ jsonc:
 markdown:
   name: Markdown
   comment: xml
+mermaid:
+  name: Mermaid
+  comment: percent
 perl:
   name: Perl
   comment: number

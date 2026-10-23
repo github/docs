@@ -163,6 +163,10 @@ describe('GraphQL transformer', { timeout: 10000 }, () => {
       expect(res.body).toContain('# Reference')
 
       expect(res.body).toMatch(/(GitHub|HubGit) GraphQL API schema/)
+
+      expect(res.body).toContain('[Organizations](/en/graphql/reference/orgs)')
+      expect(res.body).not.toContain('](/en/actions)')
+      expect(res.body).not.toContain('](/en/orgs)')
     })
   })
 
@@ -187,8 +191,8 @@ describe('GraphQL transformer', { timeout: 10000 }, () => {
 
       expect(res.body).not.toContain('## Schema changes for 2025-')
 
-      expect(res.body).toContain('2026')
-      expect(res.body).toContain('2025')
+      expect(res.body).toContain('**2026**')
+      expect(res.body).toContain('[2025](/en/graphql/overview/changelog/2025)')
     })
 
     test('changelog year page renders with that year only', async () => {
@@ -201,6 +205,9 @@ describe('GraphQL transformer', { timeout: 10000 }, () => {
 
       expect(res.body).not.toContain('## Schema changes for 2026-')
       expect(res.body).not.toContain('## Schema changes for 2024-')
+
+      expect(res.body).toContain('**2025**')
+      expect(res.body).toContain('[2026](/en/graphql/overview/changelog/2026)')
     })
 
     test('changelog removes HTML tags from changes', async () => {

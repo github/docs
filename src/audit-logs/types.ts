@@ -7,7 +7,7 @@ export type AuditLogEventT = {
   description: string
   fields?: string[]
   docs_reference_links?: string
-  docs_reference_titles?: string
+  docs_reference_titles?: string | string[]
 }
 
 export type RawAuditLogEventT = {
@@ -33,7 +33,7 @@ export type DeduplicatedAuditLogEntry = {
   action: string
   description: string
   docs_reference_links?: string
-  docs_reference_titles?: string
+  docs_reference_titles?: string | string[]
   fieldsIndex?: number
 }
 

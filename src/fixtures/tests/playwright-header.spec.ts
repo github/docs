@@ -1175,6 +1175,8 @@ test.describe('Brand header', () => {
     }) => {
       await page.setViewportSize({ width: 390, height: 800 })
       await page.goto(ARTICLE)
+      const body = page.locator('body')
+      const originalOverflow = await body.evaluate((element) => element.style.overflow)
       await page.getByRole('button', { name: 'Menu', exact: true }).click()
       await expectBackgroundIsolated(page, true)
 
@@ -1191,10 +1193,13 @@ test.describe('Brand header', () => {
         'false',
       )
       await expectBackgroundIsolated(page, false)
-      await expect(page.locator('body')).not.toHaveCSS('overflow', 'hidden')
 
+      // Docs search locks body scroll while open, so the menu's release shows only after it closes.
       await page.keyboard.press('Escape')
       await expect(searchTrigger).toBeFocused()
+      await expect
+        .poll(() => body.evaluate((element) => element.style.overflow))
+        .toBe(originalOverflow)
     })
   }
 

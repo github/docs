@@ -116,4 +116,4 @@ When {% data variables.product.prodname_copilot_short %} consults the rubber duc
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-custom-agents#built-in-agents)
+* [AUTOTITLE](/copilot/concepts/customizations/custom-agents#built-in-agents)

@@ -141,7 +141,9 @@ describe('audit log deduplication', () => {
             expect(reconstructed[i].action).toBe(original[i].action)
             expect(reconstructed[i].description).toBe(original[i].description)
             expect(reconstructed[i].docs_reference_links).toBe(original[i].docs_reference_links)
-            expect(reconstructed[i].docs_reference_titles).toBe(original[i].docs_reference_titles)
+            expect(reconstructed[i].docs_reference_titles).toEqual(
+              original[i].docs_reference_titles,
+            )
             if (original[i].fields) {
               expect(reconstructed[i].fields).toEqual(original[i].fields)
             }

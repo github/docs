@@ -8,6 +8,7 @@ const GHES = `enterprise-server@${latest}`
 
 // pages stands in for req.context.pages, keyed by full versioned permalink.
 // /actions/versioned exists in all three versions; /actions/fpt-only exists only unversioned.
+// /actions/no-fpt has no Free/Pro/Team version, like much of /admin.
 const pages = Object.fromEntries(
   [
     '/en/actions/versioned',
@@ -16,8 +17,14 @@ const pages = Object.fromEntries(
     '/en/actions/fpt-only',
     '/en/actions/ghec-only',
     `/en/${GHEC}/actions/ghec-only`,
+    `/en/${GHEC}/actions/no-fpt`,
+    `/en/${GHES}/actions/no-fpt`,
     '/ja/actions/versioned',
     `/ja/${GHEC}/actions/versioned`,
+    '/en',
+    `/en/${GHEC}`,
+    '/ja',
+    `/ja/${GHEC}`,
   ].map((permalink) => [permalink, {}]),
 )
 
@@ -122,6 +129,57 @@ describe('getVersionPreference', () => {
     ).toEqual({ vary: true, redirectTo: `/en/${GHEC}/actions/versioned.md` })
   })
 
+  // Versionless URLs for articles without Free/Pro/Team resolve to their first version.
+  // The cookie still overrides that default because the reader named no version.
+  test('overrides the first-version fallback for articles without Free/Pro/Team', () => {
+    expect(
+      getVersionPreference('/en/actions/no-fpt', `/en/${GHEC}/actions/no-fpt`, GHES, pages),
+    ).toEqual({ vary: true, redirectTo: `/en/${GHES}/actions/no-fpt` })
+  })
+
+  test('varies on the first-version fallback without a cookie', () => {
+    expect(
+      getVersionPreference('/en/actions/no-fpt', `/en/${GHEC}/actions/no-fpt`, undefined, pages),
+    ).toEqual({ vary: true })
+  })
+
+  test('leaves an explicitly versioned URL alone when the target is versioned too', () => {
+    const path = `/en/${GHEC}/actions/no-fpt`
+    expect(getVersionPreference(path, path, GHES, pages)).toEqual({ vary: false })
+  })
+
+  test('leaves a deprecated version target alone', () => {
+    expect(
+      getVersionPreference(
+        '/en/actions/no-fpt',
+        '/en/enterprise-server@3.0/actions/no-fpt',
+        GHES,
+        pages,
+      ),
+    ).toEqual({ vary: false })
+  })
+
+  test('redirects a language homepage to the preferred version', () => {
+    expect(getVersionPreference('/en', '/en', GHEC, pages)).toEqual({
+      vary: true,
+      redirectTo: `/en/${GHEC}`,
+    })
+    expect(getVersionPreference('/ja', '/ja', GHEC, pages)).toEqual({
+      vary: true,
+      redirectTo: `/ja/${GHEC}`,
+    })
+  })
+
+  test('varies a language homepage without a cookie', () => {
+    expect(getVersionPreference('/en', '/en', undefined, pages)).toEqual({ vary: true })
+  })
+
+  test('leaves an explicit free-pro-team homepage alone', () => {
+    expect(getVersionPreference('/en/free-pro-team@latest', '/en', GHEC, pages)).toEqual({
+      vary: false,
+    })
+  })
+
   test('ignores external redirects', () => {
     expect(
       getVersionPreference('/en/actions/versioned', 'https://github.com/foo', GHEC, pages),
@@ -135,7 +193,7 @@ describe('getVersionPreference', () => {
     })
   })
 
-  // Versioned redirect targets short-circuit on pathNamesAVersion, so they cannot bounce back.
+  // The follow-up request names a version, so it short-circuits on pathNamesAVersion.
   test('cannot loop', () => {
     const first = getVersionPreference(
       '/en/actions/versioned',

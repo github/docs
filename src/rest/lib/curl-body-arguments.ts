@@ -7,7 +7,26 @@ export const CURL_CONTENT_TYPE_BODY_FLAGS: Record<string, string> = {
 type CurlBodyParameters = Record<string, unknown> | unknown[] | string
 
 export function needsExplicitContentTypeHeader(contentType?: string): boolean {
-  return contentType === 'application/octet-stream' || contentType === 'multipart/form-data'
+  return (
+    contentType === 'application/octet-stream' ||
+    contentType === 'multipart/form-data' ||
+    isTextContentType(contentType)
+  )
+}
+
+function isTextContentType(contentType?: string): boolean {
+  return Boolean(contentType?.startsWith('text/'))
+}
+
+// The OpenAPI examples wrap raw text bodies as { text: '...' }, but the API
+// expects the bare text as the request body.
+function getRawTextBody(bodyParameters: CurlBodyParameters): string {
+  if (typeof bodyParameters === 'string') return bodyParameters
+  if (!Array.isArray(bodyParameters)) {
+    const values = Object.values(bodyParameters)
+    if (values.length === 1 && typeof values[0] === 'string') return values[0]
+  }
+  return JSON.stringify(bodyParameters)
 }
 
 export function getCurlBodyArguments(
@@ -16,6 +35,13 @@ export function getCurlBodyArguments(
   { jsonIndent }: { jsonIndent?: number } = {},
 ): string[] {
   if (!bodyParameters) return []
+
+  if (isTextContentType(contentType)) {
+    const rawTextBody = getRawTextBody(bodyParameters)
+    // --data-binary reads a file when the value starts with @, even inside quotes.
+    const rawTextFlag = rawTextBody.startsWith('@') ? '--data-raw' : '--data-binary'
+    return [`${rawTextFlag} '${escapeShellValue(rawTextBody)}'`]
+  }
 
   const bodyFlag = contentType ? CURL_CONTENT_TYPE_BODY_FLAGS[contentType] : undefined
   if (!bodyFlag) {

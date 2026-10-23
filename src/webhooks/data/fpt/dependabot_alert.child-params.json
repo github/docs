@@ -51,6 +51,11 @@
           },
           {
             "type": "string or null",
+            "name": "version_requirement",
+            "description": "<p>The dependency version or version constraint last recorded for the dependency associated with this alert.\nFor dependencies detected from a lockfile, this can be the resolved version.\nFor manifest-only dependencies, it can be the declared version constraint. Returns <code>null</code> when unavailable.</p>\n<p>An empty string can indicate an unconstrained dependency. The stored value is limited to 64 bytes;\nlonger requirements may have been truncated and may no longer form a complete, valid version constraint.</p>\n<p>When multiple vulnerable versions of a dependency correspond to the same alert, this field contains one\nrecorded version or constraint and may not represent all vulnerable versions.</p>"
+          },
+          {
+            "type": "string or null",
             "name": "scope",
             "description": "<p>The execution scope of the vulnerable dependency.</p>",
             "enum": [
@@ -837,6 +842,11 @@
             "type": "string",
             "name": "manifest_path",
             "description": "<p>The full path to the dependency manifest file, relative to the root of the repository.</p>"
+          },
+          {
+            "type": "string or null",
+            "name": "version_requirement",
+            "description": "<p>The dependency version or version constraint last recorded for the dependency associated with this alert.\nFor dependencies detected from a lockfile, this can be the resolved version.\nFor manifest-only dependencies, it can be the declared version constraint. Returns <code>null</code> when unavailable.</p>\n<p>An empty string can indicate an unconstrained dependency. The stored value is limited to 64 bytes;\nlonger requirements may have been truncated and may no longer form a complete, valid version constraint.</p>\n<p>When multiple vulnerable versions of a dependency correspond to the same alert, this field contains one\nrecorded version or constraint and may not represent all vulnerable versions.</p>"
           },
           {
             "type": "string or null",
@@ -1629,6 +1639,11 @@
           },
           {
             "type": "string or null",
+            "name": "version_requirement",
+            "description": "<p>The dependency version or version constraint last recorded for the dependency associated with this alert.\nFor dependencies detected from a lockfile, this can be the resolved version.\nFor manifest-only dependencies, it can be the declared version constraint. Returns <code>null</code> when unavailable.</p>\n<p>An empty string can indicate an unconstrained dependency. The stored value is limited to 64 bytes;\nlonger requirements may have been truncated and may no longer form a complete, valid version constraint.</p>\n<p>When multiple vulnerable versions of a dependency correspond to the same alert, this field contains one\nrecorded version or constraint and may not represent all vulnerable versions.</p>"
+          },
+          {
+            "type": "string or null",
             "name": "scope",
             "description": "<p>The execution scope of the vulnerable dependency.</p>",
             "enum": [
@@ -2415,6 +2430,11 @@
             "type": "string",
             "name": "manifest_path",
             "description": "<p>The full path to the dependency manifest file, relative to the root of the repository.</p>"
+          },
+          {
+            "type": "string or null",
+            "name": "version_requirement",
+            "description": "<p>The dependency version or version constraint last recorded for the dependency associated with this alert.\nFor dependencies detected from a lockfile, this can be the resolved version.\nFor manifest-only dependencies, it can be the declared version constraint. Returns <code>null</code> when unavailable.</p>\n<p>An empty string can indicate an unconstrained dependency. The stored value is limited to 64 bytes;\nlonger requirements may have been truncated and may no longer form a complete, valid version constraint.</p>\n<p>When multiple vulnerable versions of a dependency correspond to the same alert, this field contains one\nrecorded version or constraint and may not represent all vulnerable versions.</p>"
           },
           {
             "type": "string or null",
@@ -3207,6 +3227,11 @@
           },
           {
             "type": "string or null",
+            "name": "version_requirement",
+            "description": "<p>The dependency version or version constraint last recorded for the dependency associated with this alert.\nFor dependencies detected from a lockfile, this can be the resolved version.\nFor manifest-only dependencies, it can be the declared version constraint. Returns <code>null</code> when unavailable.</p>\n<p>An empty string can indicate an unconstrained dependency. The stored value is limited to 64 bytes;\nlonger requirements may have been truncated and may no longer form a complete, valid version constraint.</p>\n<p>When multiple vulnerable versions of a dependency correspond to the same alert, this field contains one\nrecorded version or constraint and may not represent all vulnerable versions.</p>"
+          },
+          {
+            "type": "string or null",
             "name": "scope",
             "description": "<p>The execution scope of the vulnerable dependency.</p>",
             "enum": [
@@ -3993,6 +4018,11 @@
             "type": "string",
             "name": "manifest_path",
             "description": "<p>The full path to the dependency manifest file, relative to the root of the repository.</p>"
+          },
+          {
+            "type": "string or null",
+            "name": "version_requirement",
+            "description": "<p>The dependency version or version constraint last recorded for the dependency associated with this alert.\nFor dependencies detected from a lockfile, this can be the resolved version.\nFor manifest-only dependencies, it can be the declared version constraint. Returns <code>null</code> when unavailable.</p>\n<p>An empty string can indicate an unconstrained dependency. The stored value is limited to 64 bytes;\nlonger requirements may have been truncated and may no longer form a complete, valid version constraint.</p>\n<p>When multiple vulnerable versions of a dependency correspond to the same alert, this field contains one\nrecorded version or constraint and may not represent all vulnerable versions.</p>"
           },
           {
             "type": "string or null",
@@ -4785,6 +4815,11 @@
           },
           {
             "type": "string or null",
+            "name": "version_requirement",
+            "description": "<p>The dependency version or version constraint last recorded for the dependency associated with this alert.\nFor dependencies detected from a lockfile, this can be the resolved version.\nFor manifest-only dependencies, it can be the declared version constraint. Returns <code>null</code> when unavailable.</p>\n<p>An empty string can indicate an unconstrained dependency. The stored value is limited to 64 bytes;\nlonger requirements may have been truncated and may no longer form a complete, valid version constraint.</p>\n<p>When multiple vulnerable versions of a dependency correspond to the same alert, this field contains one\nrecorded version or constraint and may not represent all vulnerable versions.</p>"
+          },
+          {
+            "type": "string or null",
             "name": "scope",
             "description": "<p>The execution scope of the vulnerable dependency.</p>",
             "enum": [
@@ -5571,6 +5606,11 @@
             "type": "string",
             "name": "manifest_path",
             "description": "<p>The full path to the dependency manifest file, relative to the root of the repository.</p>"
+          },
+          {
+            "type": "string or null",
+            "name": "version_requirement",
+            "description": "<p>The dependency version or version constraint last recorded for the dependency associated with this alert.\nFor dependencies detected from a lockfile, this can be the resolved version.\nFor manifest-only dependencies, it can be the declared version constraint. Returns <code>null</code> when unavailable.</p>\n<p>An empty string can indicate an unconstrained dependency. The stored value is limited to 64 bytes;\nlonger requirements may have been truncated and may no longer form a complete, valid version constraint.</p>\n<p>When multiple vulnerable versions of a dependency correspond to the same alert, this field contains one\nrecorded version or constraint and may not represent all vulnerable versions.</p>"
           },
           {
             "type": "string or null",
@@ -6371,6 +6411,11 @@
             "name": "manifest_path",
             "description": "<p>The full path to the dependency manifest file, relative to the root of the repository.</p>",
             "isRequired": true
+          },
+          {
+            "type": "string or null",
+            "name": "version_requirement",
+            "description": "<p>The dependency version or version constraint last recorded for the dependency associated with this alert.\nFor dependencies detected from a lockfile, this can be the resolved version.\nFor manifest-only dependencies, it can be the declared version constraint. Returns <code>null</code> when unavailable.</p>\n<p>An empty string can indicate an unconstrained dependency. The stored value is limited to 64 bytes;\nlonger requirements may have been truncated and may no longer form a complete, valid version constraint.</p>\n<p>When multiple vulnerable versions of a dependency correspond to the same alert, this field contains one\nrecorded version or constraint and may not represent all vulnerable versions.</p>"
           },
           {
             "type": "string or null",

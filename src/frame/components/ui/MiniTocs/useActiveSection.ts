@@ -41,8 +41,12 @@ export function ActiveSectionProvider({ children }: { children: ReactNode }) {
 
     if (pairs.length === 0) return
 
-    // Match the observer band: a heading becomes active in the top 15% of the viewport.
-    const bandThreshold = () => window.innerHeight * 0.15
+    // Floor the 15% band 1px past the :target scroll margin so short viewports activate a jumped-to heading.
+    const bandThreshold = () => {
+      const target = document.querySelector(':target')
+      const margin = target ? parseFloat(getComputedStyle(target).scrollMarginTop) || 0 : 0
+      return Math.max(window.innerHeight * 0.15, margin + 1)
+    }
 
     // Actual scroll positions keep upward scrolling tied to the previous heading or Overview.
     const computeActive = () => {
@@ -80,6 +84,8 @@ export function ActiveSectionProvider({ children }: { children: ReactNode }) {
     for (const { el } of pairs) observer.observe(el)
     window.addEventListener('scroll', scheduleUpdate, { passive: true })
     window.addEventListener('resize', scheduleUpdate)
+    // A hash change can move :target and its threshold without any scroll or intersection change.
+    window.addEventListener('hashchange', scheduleUpdate)
     computeActive()
 
     return () => {
@@ -87,6 +93,7 @@ export function ActiveSectionProvider({ children }: { children: ReactNode }) {
       observer.disconnect()
       window.removeEventListener('scroll', scheduleUpdate)
       window.removeEventListener('resize', scheduleUpdate)
+      window.removeEventListener('hashchange', scheduleUpdate)
     }
     // Re-run when platform or tool selection changes which headings are visible.
   }, [miniTocItems, selectedPlatform, tool])

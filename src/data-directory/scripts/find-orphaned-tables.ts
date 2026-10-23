@@ -73,6 +73,24 @@ export function getOrphanedTables(
   return [...orphans.values()].sort((a, b) => a.yml.localeCompare(b.yml))
 }
 
+// Search code because table-rendering helpers can reference tables without Liquid.
+// Skip tests and this script because their fixtures and comments quote real table keys.
+export function getCodeSourceFiles(): string[] {
+  const files: string[] = []
+  for (const root of ['contributing', 'src']) {
+    if (!fs.existsSync(root)) continue
+    files.push(
+      ...walk(root, {
+        includeBasePath: true,
+        directories: false,
+        globs: ['!**/*.+(png|jpe?g|csv|graphql|json|svg)'],
+        ignore: ['**/tests/**', '**/find-orphaned-tables.ts'],
+      }),
+    )
+  }
+  return files
+}
+
 // Guard main so tests can import getOrphanedTables; npm run find-orphaned-tables invokes it.
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   program.parse(process.argv)
@@ -111,17 +129,7 @@ async function main(opts: MainOptions) {
     }
   }
 
-  // Search code because table-rendering helpers can reference tables without Liquid.
-  for (const root of ['contributing', 'src']) {
-    if (!fs.existsSync(root)) continue
-    sourceFiles.push(
-      ...walk(root, {
-        includeBasePath: true,
-        directories: false,
-        globs: ['!**/*.+(png|jpe?g|csv|graphql|json|svg)'],
-      }),
-    )
-  }
+  sourceFiles.push(...getCodeSourceFiles())
 
   if (verbose) {
     console.error(`${sourceFiles.length.toLocaleString()} source files found in total.`)

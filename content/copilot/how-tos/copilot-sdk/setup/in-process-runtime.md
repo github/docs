@@ -1,6 +1,6 @@
 ---
 title: Run the Copilot runtime in process
-shortTitle: In-process runtime
+shortTitle: In Process Runtime
 intro: >-
   In-process hosting loads the native Copilot runtime into your application
   process instead of starting a separate Copilot CLI process. Use it to remove

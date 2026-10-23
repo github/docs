@@ -30,6 +30,9 @@ jobs:
     steps:
       - name: Checkout docs-internal
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          # The git steps below authenticate with the PAT, so no token stays in .git/config.
+          persist-credentials: false
 
       - uses: ./.github/actions/node-npm-setup
 
@@ -46,12 +49,19 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           UPDATE_BRANCH: ${{ steps.branch.outputs.update_branch }}
         run: |
-          PR_NUMBER=$(gh pr list --head "$UPDATE_BRANCH" --state open --json number --jq '.[0].number // empty' 2>/dev/null || echo "")
+          PR_NUMBER=$(gh pr list --head "$UPDATE_BRANCH" --state open --json number --jq '.[0].number // empty') || {
+            echo "::error::Could not look up the PR for ${UPDATE_BRANCH}."
+            exit 1
+          }
           echo "pr_number=$PR_NUMBER" >> "$GITHUB_OUTPUT"
 
       - name: Setup branch
         id: setup-branch
         env:
+          # A PAT push triggers CI on the PR; GITHUB_TOKEN events do not start workflows.
+          GIT_CONFIG_COUNT: 1
+          GIT_CONFIG_KEY_0: url.https://x-access-token:${{ secrets.DOCS_BOT_PAT_BASE }}@github.com/.insteadOf
+          GIT_CONFIG_VALUE_0: https://github.com/
           UPDATE_BRANCH: ${{ steps.branch.outputs.update_branch }}
           PR_NUMBER: ${{ steps.check-pr.outputs.pr_number }}
         run: |
@@ -105,6 +115,10 @@ jobs:
       - name: Push changes
         if: steps.commit.outputs.has_changes == 'true'
         env:
+          # A PAT push triggers CI on the PR; GITHUB_TOKEN events do not start workflows.
+          GIT_CONFIG_COUNT: 1
+          GIT_CONFIG_KEY_0: url.https://x-access-token:${{ secrets.DOCS_BOT_PAT_BASE }}@github.com/.insteadOf
+          GIT_CONFIG_VALUE_0: https://github.com/
           UPDATE_BRANCH: ${{ steps.branch.outputs.update_branch }}
           FORCE_PUSH: ${{ steps.setup-branch.outputs.force_push }}
         run: |
@@ -126,23 +140,22 @@ jobs:
           echo "source_path=$SOURCE_PATH" >> "$GITHUB_OUTPUT"
 
       - name: Create or update PR
-        if: steps.commit.outputs.has_changes == 'true'
+        if: steps.commit.outputs.has_changes == 'true' || steps.check-pr.outputs.pr_number != ''
         env:
           GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
           UPDATE_BRANCH: ${{ steps.branch.outputs.update_branch }}
           PIPELINE_ID: ${{ matrix.id }}
           SOURCE_REPO: ${{ steps.source-info.outputs.source_repo }}
           SOURCE_PATH: ${{ steps.source-info.outputs.source_path }}
+          PR_REF: ${{ steps.check-pr.outputs.pr_number }}
         run: |
-          PR_NUMBER="${{ steps.check-pr.outputs.pr_number }}"
+          set -euo pipefail
+
           PR_TITLE="docs: update ${PIPELINE_ID} content from source docs"
           SOURCE_LINK="See the [upstream repo](https://github.com/${SOURCE_REPO}/tree/main/${SOURCE_PATH}) for changes that triggered this update."
 
-          if [ -n "$PR_NUMBER" ]; then
-            echo "PR #$PR_NUMBER already exists"
-
-            echo "Ensuring PR #$PR_NUMBER is marked ready for review"
-            gh pr ready "$PR_NUMBER" || echo "Unable to mark PR #$PR_NUMBER as ready (it may already be ready)"
+          if [ -n "$PR_REF" ]; then
+            echo "PR #$PR_REF already exists"
           else
             echo "Creating new PR"
 
@@ -167,12 +180,30 @@ jobs:
             PR_BODY+="* Once satisfied, merge to keep docs up to date"$'\n'
             PR_BODY+="* A new PR will be created on the next run if there are further changes"
 
-            gh pr create \
+            # The opened event must describe a draft before any labels are applied.
+            PR_REF=$(gh pr create --draft \
               --title "$PR_TITLE" \
               --body "$PR_BODY" \
               --base main \
-              --head "$UPDATE_BRANCH" \
-              --label "workflow-generated,content-pipeline-update,ready-for-doc-review,skip FR board"
+              --head "$UPDATE_BRANCH")
+          fi
+
+          # Retry publication for existing PRs, including runs without content changes.
+          gh pr edit "$PR_REF" --add-label "skip FR board" || {
+            echo "::error::Could not apply skip FR board. The PR will not be marked ready."
+            exit 1
+          }
+          for LABEL in "workflow-generated" "content-pipeline-update" "ready-for-doc-review"; do
+            gh pr edit "$PR_REF" --add-label "$LABEL" \
+              || echo "::warning::Could not apply the \"$LABEL\" label."
+          done
+
+          IS_DRAFT=$(gh pr view "$PR_REF" --json isDraft --jq '.isDraft')
+          if [ "$IS_DRAFT" = "true" ]; then
+            gh pr ready "$PR_REF" || {
+              echo "::error::Could not mark the labeled PR ready for review."
+              exit 1
+            }
           fi
 
       - uses: ./.github/actions/create-workflow-failure-issue

@@ -5,6 +5,7 @@ import { beforeAll, describe, expect, test, vi } from 'vitest'
 import enterpriseServerReleases from '@/versions/lib/enterprise-server-releases'
 import { get } from '@/tests/helpers/e2etest'
 import readJsonFile from '@/frame/lib/read-json-file'
+import { USER_VERSION_COOKIE_NAME } from '@/frame/lib/constants'
 
 describe('developer redirects', () => {
   vi.setConfig({ testTimeout: 60 * 1000 })
@@ -58,6 +59,22 @@ describe('developer redirects', () => {
       expect(enumRes.statusCode).toBe(301)
       const enumResFinalPath = '/en/graphql/reference/search#enum-searchtype'
       expect(enumRes.headers.location).toBe(enumResFinalPath)
+
+      const queryRes = await get('/en/v4/scalar/boolean?utm_source=foo')
+      expect(queryRes.statusCode).toBe(301)
+      expect(queryRes.headers.location).toBe(
+        '/en/graphql/reference/other?utm_source=foo#scalar-boolean',
+      )
+    })
+
+    test('graphql reference paths keep the fragment with a version cookie', async () => {
+      const res = await get('/en/v4/enum/searchtype', {
+        headers: { Cookie: `${USER_VERSION_COOKIE_NAME}=enterprise-cloud@latest` },
+      })
+      expect(res.statusCode).toBe(302)
+      expect(res.headers.location).toBe(
+        '/en/enterprise-cloud@latest/graphql/reference/search#enum-searchtype',
+      )
     })
   })
 

@@ -7,12 +7,8 @@ import { program } from 'commander'
 import frontmatter from '@/frame/lib/read-frontmatter'
 import walkFiles from '@/workflows/walk-files'
 import { contentTypesEnum } from '@/frame/lib/frontmatter'
+import { determineContentType, shouldWriteContentType } from '@/content-render/lib/content-type'
 import type { MarkdownFrontmatter } from '@/types'
-
-const RESPONSIBLE_USE_STRING = 'responsible-use'
-const LANDING_TYPE = 'landing'
-const RAI_TYPE = 'rai'
-const OTHER_TYPE = 'other'
 
 interface ScriptOptions {
   dryRun?: boolean
@@ -104,8 +100,9 @@ function processFile(filePath: string, scriptOptions: ScriptOptions) {
     return { processed: true, updated: false }
   }
 
-  const isChangingContentType = data.contentType && data.contentType !== newContentType
   const isAddingContentType = !data.contentType
+  const isChangingContentType =
+    !isAddingContentType && shouldWriteContentType(data.contentType, newContentType)
 
   if (isChangingContentType) {
     console.log(
@@ -138,39 +135,6 @@ function processFile(filePath: string, scriptOptions: ScriptOptions) {
   }
 
   return { processed: true, updated: true }
-}
-
-function determineContentType(relativePath: string): string {
-  // For copilot/how-tos/troubleshoot/index.md, pathSegments[1] is the content type.
-  const pathSegments = relativePath.split(path.sep)
-
-  const topLevelDirectory = pathSegments[0]
-  const derivedContentType = pathSegments[1]
-
-  // content/index.md is the only homepage.
-  if (topLevelDirectory === 'index.md') return 'homepage'
-
-  // Responsible-use directories map to the rai content type.
-  if (derivedContentType.includes(RESPONSIBLE_USE_STRING)) {
-    return RAI_TYPE
-  }
-
-  // getting-started directories map to get-started.
-  if (derivedContentType === 'getting-started') {
-    return 'get-started'
-  }
-
-  // Directories matching contentTypesEnum map to their content type.
-  if (contentTypesEnum.includes(derivedContentType)) {
-    return derivedContentType
-  }
-
-  // Product index.md files are landing pages.
-  if (derivedContentType === 'index.md') {
-    return LANDING_TYPE
-  }
-
-  return OTHER_TYPE
 }
 
 try {

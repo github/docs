@@ -17,7 +17,17 @@ export function resolvePath(
     const page =
       findPage(candidate, pages, redirects) ||
       findPage(candidate.replace(/\/?$/, '/'), pages, redirects)
-    if (page) return page
+    if (page) {
+      // Content-root candidates span every version, so drop pages the web page would omit.
+      if (
+        href.startsWith('/content/') &&
+        context.currentVersion &&
+        !page.applicableVersions?.includes(context.currentVersion)
+      ) {
+        return undefined
+      }
+      return page
+    }
   }
 
   return undefined
@@ -27,6 +37,17 @@ export function resolvePath(
 function* candidates(href: string, lang: string, pathname: string) {
   const langPrefix = `/${lang}/`
   const cleanPathname = pathname.replace(/\/$/, '')
+
+  // Children like /content/actions/workflows point at the content root, matching create-tree.ts.
+  if (href.startsWith('/content/')) {
+    const rest = href.slice('/content/'.length).replace(/\/$/, '')
+    if (!rest) return
+    yield `${langPrefix}${rest}`
+    for (const version of allVersionKeys) {
+      yield `${langPrefix}${version}/${rest}`
+    }
+    return
+  }
 
   if (href.startsWith(langPrefix)) {
     yield href

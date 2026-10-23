@@ -39,15 +39,18 @@ export class GraphQLChangelogTransformer implements PageTransformer {
 
     const changelogItems = schema.map((item) => {
       const processChanges = (changes: Array<{ title: string; changes: string[] }>) =>
-        changes.map((change) => ({
-          title: change.title,
-          changes: change.changes.map((html: string) => {
-            if (html.startsWith('<p>') && html.endsWith('</p>')) {
-              return fastTextOnly(html.slice(3, -4))
-            }
-            return fastTextOnly(html)
-          }),
-        }))
+        changes
+          // Older changelog data has schema groups with no changes.
+          .filter((change) => change.changes.length > 0)
+          .map((change) => ({
+            title: change.title,
+            changes: change.changes.map((html: string) => {
+              if (html.startsWith('<p>') && html.endsWith('</p>')) {
+                return fastTextOnly(html.slice(3, -4))
+              }
+              return fastTextOnly(html)
+            }),
+          }))
 
       return {
         date: item.date,

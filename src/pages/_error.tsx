@@ -81,7 +81,8 @@ Error.getInitialProps = async (ctx: NextPageContext) => {
     }
   }
 
-  return { statusCode, message: err?.message }
+  // Next.js serializes these props into the page HTML, so keep error details out.
+  return { statusCode }
 }
 
 export default Error

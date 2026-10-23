@@ -15,6 +15,7 @@ import powershell from 'highlight.js/lib/languages/powershell'
 import graphql from 'highlight.js/lib/languages/graphql'
 import html from 'rehype-stringify'
 import codeHeader from './code-header'
+import mermaid from './mermaid'
 import rewriteLocalLinks from './rewrite-local-links'
 import rewriteImgSources from './rewrite-asset-urls'
 import rewriteAssetImgTags from './rewrite-asset-img-tags'
@@ -32,6 +33,9 @@ import annotate from './annotate'
 import alerts from './alerts'
 import removeHtmlComments from 'remark-remove-comments'
 import remarkStringify from 'remark-stringify'
+import { visit } from 'unist-util-visit'
+import type { Parents, Root, Text } from 'mdast'
+import type { Info, State } from 'mdast-util-to-markdown'
 import type { Context, UnifiedProcessor } from '@/content-render/types'
 import type { CollectedHeading } from '@/frame/lib/get-mini-toc-items'
 
@@ -49,6 +53,7 @@ export function createProcessor(context: Context): UnifiedProcessor {
       .use(slug)
       .use(useEnglishHeadings as unknown as (ctx: Context) => void, context || {})
       .use(headingLinks)
+      .use(mermaid)
       .use(codeHeader)
       .use(annotate as unknown as (ctx: Context) => void, context)
       // TypeScript's unified plugin types do not model rehype-highlight's lowlight options.
@@ -84,10 +89,47 @@ export function createMarkdownOnlyProcessor(context: Context): UnifiedProcessor 
     unified()
       .use(remarkParse)
       .use(gfm)
+      .use(markUnescapedAlertMarkers)
       // TypeScript's unified plugin types do not model context-bound transformer factories.
       .use(rewriteLocalLinks as unknown as (ctx: Context) => void, context)
-      .use(remarkStringify) as unknown as UnifiedProcessor
+      .use(remarkStringify, {
+        handlers: { text: textWithAlertMarkers },
+      }) as unknown as UnifiedProcessor
   )
+}
+
+// GitHub alert markers stop rendering as alerts once remark-stringify escapes their brackets.
+const ALERT_MARKER = /^\[!(NOTE|TIP|IMPORTANT|WARNING|CAUTION)\](?=\s|$)/i
+
+// remark-parse drops the backslash from `\[!NOTE]`, so only the source shows an intentionally literal marker.
+const unescapedAlertMarkers = new WeakSet<Text>()
+
+function markUnescapedAlertMarkers() {
+  return (tree: Root, file: { value: unknown }) => {
+    const source = String(file.value)
+    visit(tree, 'text', (node) => {
+      const offset = node.position?.start.offset
+      if (offset !== undefined && source[offset] === '[' && ALERT_MARKER.test(node.value)) {
+        unescapedAlertMarkers.add(node)
+      }
+    })
+  }
+}
+
+function textWithAlertMarkers(
+  node: Text,
+  parent: Parents | undefined,
+  state: State,
+  info: Info,
+): string {
+  const marker = node.value.match(ALERT_MARKER)?.[0]
+  const startsBlockquoteParagraph =
+    parent?.type === 'paragraph' &&
+    parent.children[0] === node &&
+    state.stack[state.stack.length - 3] === 'blockquote'
+  if (!marker || !startsBlockquoteParagraph || !unescapedAlertMarkers.has(node))
+    return state.safe(node.value, info)
+  return marker + state.safe(node.value.slice(marker.length), { ...info, before: ']' })
 }
 
 export function createMinimalProcessor(context: Context): UnifiedProcessor {

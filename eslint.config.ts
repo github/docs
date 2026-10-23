@@ -46,6 +46,8 @@ export default [
         typescript: true,
         node: true,
       },
+      // Maps Primer components to DOM elements for the github and jsx-a11y rules
+      ...primerReact.configs.recommended.settings,
     },
     plugins: {
       github,
@@ -72,6 +74,10 @@ export default [
 
       // TypeScript ESLint recommended rules
       ...tseslint.configs.recommended.rules,
+
+      // Primer React recommended extends plugin:github/react, which flat config does not apply.
+      // Keep before jsx-a11y recommended so its jsx-a11y rule settings win, as in the eslintrc extends order.
+      ...github.getFlatConfigs().react.rules,
 
       // Primer React recommended rules
       ...primerReact.configs.recommended.rules,

@@ -1,5 +1,5 @@
 ---
-title: Azure managed identity with BYOK
+title: Azure Managed Identity with BYOK
 shortTitle: Azure Managed Identity
 intro: >-
   The GitHub Copilot SDK's [AUTOTITLE](/copilot/how-tos/copilot-sdk/auth/byok) supports static API

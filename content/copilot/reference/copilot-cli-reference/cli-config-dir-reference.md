@@ -510,6 +510,7 @@ These settings apply across all your sessions and repositories. You can use the 
 | `screenReader` | `boolean` | `false` | Enable screen reader optimizations. |
 | `scrollbar` | `boolean` | `true` | Show the scrollbar in scrollable views. Set to `false` to hide it and use the full terminal width. |
 | `shellShortcut` | `boolean` | `true` | Let a lone `$` at the prompt, followed by <kbd>Enter</kbd>, open an interactive shell rooted at the session's working directory (activates only for a local, trusted, idle session on a real TTY). User- or managed-scoped only—not repo-overridable. |
+| `showReasoning` | `boolean` | None | Show model reasoning in the timeline. You can set this with `/config` or `/settings`, or toggle it with <kbd>Ctrl</kbd>+<kbd>T</kbd>. Your preference is saved across sessions. |
 | `showTimestamps` | `boolean` | `true` | Show dim `HH:mm` timestamps next to user messages in the timeline. |
 | `showTipsOnStartup` | `boolean` | `true` | Show a random command tip when the CLI starts. |
 | `sidebar` | `boolean` | `true` | Enable the current-session sidebar. Set to `false` to disable it entirely, hiding the composer hint and the <kbd>←</kbd> open gesture. See [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference#sidebar-and-sessions-tab-shortcuts). |
@@ -543,6 +544,10 @@ These settings apply across all your sessions and repositories. You can use the 
 The `/sandbox` dialog groups Git authentication, `gh` authentication, and masked environment variables under a dedicated **Credentials** tab, and shows the `settings.json` path where the current sandbox configuration is stored. On the **Filesystem** tab, the configured path list is summarized by permission (for example, `2 read/write, 1 read-only`) behind a **User-configured paths** row. Press <kbd>Enter</kbd> on that row to open the full list, which takes over the cursor and tab bar until you press <kbd>Esc</kbd>. Configured paths are displayed as absolute paths rather than `./`-relative or `~`-shortened forms. Typing `~/path` when adding a path still expands it to your home directory. Press <kbd>Ctrl</kbd>+<kbd>E</kbd> in the `/sandbox` dialog to save any pending changes and open `settings.json` in your editor (`COPILOT_EDITOR`, `VISUAL`, or `EDITOR`), matching the same shortcut in `/settings`. The dialog reloads its state from disk after you edit and save the file.
 
 Host rules and `sandbox.userPolicy.network.proxy` use a built-in local proxy. When both are configured, the local proxy applies the host rules before forwarding traffic to the upstream proxy. Upstream credentials stay outside the sandboxed child process. Host rules and proxy settings are inactive when outbound access is off.
+
+When no proxy is set in sandbox settings, the local proxy selects its upstream proxy from the first non-empty environment variable on the host in this order: `HTTPS_PROXY`, `HTTP_PROXY`, `ALL_PROXY`. Only `http://` and `https://` proxies are supported, not `socks5`.
+
+Destinations matching the host's `NO_PROXY` bypass only this inherited upstream proxy. The sandbox's local proxy still handles these connections and applies its host rules. A proxy configured in sandbox settings ignores `NO_PROXY`.
 
 On macOS and Linux, the sandbox restricts direct connections so programs cannot avoid the proxy. On Windows, the sandbox relies on programs honoring the proxy settings. As a result, programs that ignore the proxy settings on Windows can connect directly and get around your host rules. Windows proxying and host rules also require a supported host and `allowLocalNetwork: true`, which permits private-network access. On Linux, proxy settings reject IPv6 address literals other than the `[::]` dual-stack wildcard. Use an IPv4 endpoint or a hostname with IPv4 support.
 
@@ -590,7 +595,7 @@ Each line is a glob pattern matched against model IDs, or a `fallback:` directiv
 # .github/allowed_models.txt
 fallback: gpt-6-astra
 gpt-6-astra
-gpt-5.4
+gpt-6-sol
 claude-sonnet-*
 ```
 
@@ -670,10 +675,11 @@ Only the following keys are supported in MDM managed settings.
 | `permissions` | Set managed permissions, including `disableBypassPermissionsMode`, `deny` / `ask` / `allow` rule arrays, and the `limitTo` domain boundary array. See [Managed permission rules](#managed-permission-rules) and [Domain boundary (`limitTo`)](#domain-boundary-limitto). |
 | `policyHelper` | Register an executable that supplies the lowest-priority managed-settings layer. Fields: `path` (required), plus optional `args`, `timeoutMs`, and `refreshIntervalMs`. If both a device (MDM) and a server policy register a `policyHelper`, the device registration wins. |
 | `remoteControl` | Control whether sessions on this device can be controlled from other devices. `mode` is `"enabled"`, `"disabled"`, or `"requireSSO"` (requires `githubDotComOrganizations` when set). |
+| `requireBase64ImageAttachments` | When `true`, require base64-encoded image attachments instead of attachment URLs. `false` or unset keeps existing behavior. |
 | `sandbox` | Set a sandbox policy floor that users cannot relax. Supported settings include `enabled`, `failIfUnavailable`, `allowBypass`, `addCurrentWorkingDirectory`, `sandboxMcpServers`, `sandboxLspServers`, `auth.git`, `auth.gh`, `allowDevToolAccess`, `learningMode`, and the `userPolicy.*` filesystem and network rules. The managed value always takes precedence over a user's own value in the safer direction. Turning the sandbox on, requiring it to succeed, and sandboxing MCP and LSP servers cannot be turned off. Disabling bypass or credential injection cannot be re-enabled. Filesystem allow lists can only be narrowed, and denied paths can only be added to. `failIfUnavailable` can only be set by an administrator and blocks the session when the sandbox cannot be established. For the settings users can set themselves, see [User settings](#user-settings-copilotsettingsjson) or run `copilot help sandbox`. |
 | `shellShortcut` | Force-enable or force-disable the `$` interactive shell shortcut for all users. A managed value always overrides the user's own `shellShortcut` setting. |
 | `strictKnownMarketplaces` | Restrict plugins to an allowlist of known marketplaces (a JSON array of marketplace specs). The allowlist also governs built-in marketplaces once set—an empty array (`[]`) hides and blocks every marketplace, including built-ins, not just user- or repository-added ones. |
-| `telemetry` | Push baseline OpenTelemetry export configuration: `enabled`, `endpoint`, `protocol`, `headers`, `resourceAttributes`, `captureContent`, `lockCaptureContent`, and `serviceName`. See [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference#opentelemetry-monitoring). |
+| `telemetry` | Push baseline OpenTelemetry export configuration: `enabled`, `endpoint`, `protocol`, `headers`, `resourceAttributes`, `captureContent`, `lockCaptureContent`, `serviceName`, and `headersProvider`. See [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference#opentelemetry-monitoring). |
 
 > [!NOTE]
 > * `policyHelper.path` accepts an absolute path, a home-relative path (`~/...`), or a bare program name resolved from `PATH`. Other relative forms are rejected. The registration is accepted and validated, but the runtime doesn't yet invoke the helper—helper execution ships in a future release.
@@ -750,7 +756,7 @@ Each entry identifies a server by exactly one of the following matchers.
 |---------|---------|-------|
 | `serverUrl` | A remote (HTTP/SSE) server by URL | Supports `*` wildcards; scheme and host match case-insensitively, path case-sensitively. `${VAR}` references expand before matching. |
 | `serverCommand` | A stdio server by its exact command and arguments, in order | `${VAR}` references expand before matching. |
-| `serverName` | A server by its assigned label | Allowlist entries are restricted to `[A-Za-z0-9_-]+` (no wildcards); denylist entries accept any non-empty string. |
+| `serverName` | A server by its assigned label | Allowlist entries are restricted to `[A-Za-z0-9_./-]+` (case-sensitive, no wildcards; registry names such as `microsoft/playwright-mcp` are accepted); denylist entries accept any non-empty string. |
 
 Rules:
 

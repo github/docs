@@ -41,10 +41,15 @@ export const liquidTagWhitespace: Rule = {
       const isOpenTagOneSpace = openTag !== `${openTag.trim()} `
       const isCloseTagOneSpace = closeTag !== ` ${closeTag.trim()}`
 
-      const moreThanOneSpace = /\s{2,}/
-      const isArgOneSpace = moreThanOneSpace.test(tag)
+      // Quoted strings are literal values, so whitespace inside them stays as written.
+      const extraSpaceOutsideQuotes = /("[^"]*"|'[^']*')|\s{2,}/g
+      const fixedArgs = token.content.replace(
+        extraSpaceOutsideQuotes,
+        (_match: string, quoted?: string) => quoted ?? ' ',
+      )
+      const isArgOneSpace = fixedArgs !== token.content
 
-      const fixedContent = `${openTag.trim()} ${token.content.replace(moreThanOneSpace, ' ')} ${closeTag.trim()}`
+      const fixedContent = `${openTag.trim()} ${fixedArgs} ${closeTag.trim()}`
 
       if (isOpenTagOneSpace || isCloseTagOneSpace || isArgOneSpace) {
         addFixErrorDetail(
