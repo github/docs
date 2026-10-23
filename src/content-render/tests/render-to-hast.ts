@@ -44,6 +44,10 @@ const fixtures: Array<{ name: string; template: string }> = [
     name: 'external image',
     template: '![A logo](https://example.com/logo.png)',
   },
+  {
+    name: 'mermaid diagram',
+    template: '```mermaid\nflowchart LR\n  A[Draft] --> B[Published]\n```',
+  },
 ]
 
 describe('renderUnifiedToHast', () => {

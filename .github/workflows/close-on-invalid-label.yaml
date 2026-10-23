@@ -1,23 +1,27 @@
 name: Close issue/PR on adding invalid label
 
 # Closes public issues and PRs when the invalid label is added.
+# Re-closes invalid PRs that someone without write access reopens.
+# Reopens PRs closed as invalid when maintainers add the skip-spammy-check label.
 
 on:
   issues:
     types: [labeled]
-  # pull_request_target lets the workflow close forked PRs after the invalid label is added.
+  # pull_request_target lets the workflow close or reopen forked PRs when they're labeled or reopened.
   pull_request_target:
-    types: [labeled]
+    types: [labeled, reopened]
 
 permissions:
   contents: read
-  issues: write
-  pull-requests: write
 
 jobs:
   close-on-adding-invalid-label:
     if: github.repository == 'github/docs' && github.event.label.name == 'invalid'
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+      pull-requests: write
 
     steps:
       - name: Close issue
@@ -42,3 +46,99 @@ jobs:
         if: ${{ failure() && github.event_name != 'pull_request_target' }}
         with:
           slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+
+  # Authors can reopen PRs they closed themselves, even after the invalid label is added.
+  reclose-reopened-invalid-pr:
+    if: >
+      github.repository == 'github/docs' && github.event_name == 'pull_request_target' &&
+      github.event.action == 'reopened' &&
+      contains(github.event.pull_request.labels.*.name, 'invalid')
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+    steps:
+      - name: Re-close PR unless reopened by someone with write access
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          SENDER: ${{ github.event.sender.login }}
+        run: |
+          if ! permission=$(gh api "repos/$GITHUB_REPOSITORY/collaborators/$SENDER/permission" --jq '.permission'); then
+            echo "::warning::Couldn't look up permission for $SENDER, so treating them as read-only."
+            permission=none
+          fi
+          if [[ "$permission" == "admin" || "$permission" == "write" ]]; then
+            echo "$SENDER has $permission access, so leaving the PR open."
+            exit 0
+          fi
+          gh pr close "$PR_URL" --comment 'This pull request is labeled `invalid`, so only maintainers can reopen it. If you think this is incorrect, please mention this in a corresponding issue.'
+
+  # Maintainers add skip-spammy-check to recover a PR that automated checks closed as invalid.
+  reopen-on-adding-skip-label:
+    if: github.repository == 'github/docs' && github.event_name == 'pull_request_target' && github.event.label.name == 'skip-spammy-check'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        with:
+          # A PAT makes the reopen trigger other workflows, such as triage, like a manual reopen.
+          github-token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          script: |
+            const { owner, repo } = context.repo
+            const pull_number = context.payload.pull_request.number
+
+            // The event payload can be stale by the time this job runs, so read the current state.
+            const { data: pr } = await github.rest.pulls.get({ owner, repo, pull_number })
+            const labels = pr.labels.map(label => label.name.toLowerCase())
+
+            if (pr.merged || pr.state !== 'closed') {
+              core.info('The pull request is not closed, so there is nothing to reopen.')
+              return
+            }
+
+            if (!labels.includes('skip-spammy-check')) {
+              core.info('The pull request no longer has the skip-spammy-check label.')
+              return
+            }
+
+            // Automated checks add the invalid label before closing, so PRs without it were closed for another reason.
+            if (!labels.includes('invalid')) {
+              core.info('The pull request was not closed as invalid, so it stays closed.')
+              return
+            }
+
+            try {
+              await github.rest.pulls.update({ owner, repo, pull_number, state: 'open' })
+            } catch (error) {
+              if (error.status !== 422) throw error
+
+              // GitHub refuses to reopen a PR after its head or base branch was deleted or force-pushed.
+              core.warning(`Could not reopen the pull request: ${error.message}`)
+              await github.rest.issues.createComment({
+                owner,
+                repo,
+                issue_number: pull_number,
+                body: 'I could not reopen this pull request automatically, most likely because its head or base branch was deleted or force-pushed after it was closed. Restore the branch, then remove and re-add the `skip-spammy-check` label to retry automatic reopening and removal of the `invalid` label.',
+              })
+              return
+            }
+
+            try {
+              await github.rest.issues.removeLabel({
+                owner,
+                repo,
+                issue_number: pull_number,
+                name: 'invalid',
+              })
+            } catch (error) {
+              // A maintainer or an earlier run may have removed the label already.
+              if (error.status !== 404) throw error
+            }
+
+            await github.rest.issues.createComment({
+              owner,
+              repo,
+              issue_number: pull_number,
+              body: 'The `skip-spammy-check` label was added, so I removed the `invalid` label and reopened this pull request. The spammy pull request check skips it while the label is applied.',
+            })
