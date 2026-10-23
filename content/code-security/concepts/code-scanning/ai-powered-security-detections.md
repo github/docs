@@ -97,8 +97,6 @@ AI Scan currently classifies findings into the following categories. Coverage ma
 
 ## Enabling AI Scan
 
-AI Scan is a separate feature from {% data variables.product.prodname_ai_applications_scanning %}, which has its own **Scan for AI applications** control and detects risks such as indirect prompt injection in AI applications and agents. Enabling AI Scan doesn't enable {% data variables.product.prodname_ai_applications_scanning %}, and the reverse is also true. For more information about {% data variables.product.prodname_ai_applications_scanning %}, see [AUTOTITLE](/code-security/concepts/code-scanning/ai-applications-scanning-for-pull-requests).
-
 Before enabling AI Scan on pull requests for an organization, confirm repository eligibility, review the billing account's included {% data variables.product.prodname_ai_credits_short %}, and configure budgets for metered usage.
 
 Enabling the organization setting enables AI Scan immediately for all eligible repositories where {% data variables.product.prodname_code_scanning %} is enabled. Repository administrators can then opt out, but qualifying pull requests can consume Code Security AI Credits before they do.

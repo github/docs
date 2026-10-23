@@ -15,7 +15,6 @@ children:
   - /risk-assessment
   - /autofix-for-code-scanning
   - /ai-powered-security-detections
-  - /ai-applications-scanning-for-pull-requests
   - /setup-types
   - /integration-with-code-scanning
   - /sarif-files
