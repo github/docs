@@ -107,7 +107,11 @@ Once you are satisfied with your changes, run
         git rebase --continue
 ```
 
-At this point, you can edit any of the files in your project to make any additional changes. For each change you make, you'll need to perform a new commit, and you can do that by entering the `git commit --amend` command. When you're finished making all your changes, you can run `git rebase --continue`.
+At this point, you can edit the files in your project to make the changes you want to include in the current commit. Stage your changes with `git add`, then run `git commit --amend` to update the current commit rather than create a separate commit.
+
+If you only want to change the commit message, run `git commit --amend` without changing the staged file contents.
+
+When you're finished, run `git rebase --continue` to resume the rebase.
 
 Git then gets to the `reword 4ca2acc` command. It opens up your text editor one more time, and presents the following information:
 
@@ -128,18 +132,21 @@ As before, Git is showing the commit message for you to edit. You can change the
 
 ## Pushing rebased code to GitHub
 
-Since you've altered Git history, the usual `git push origin` **will not** work. You'll need to modify the command by "force-pushing" your latest changes:
+Since you've rewritten Git history, a regular `git push` may be rejected. To update the remote branch, you may need to force-push:
 
 ```shell
-# Don't override changes
-$ git push origin main --force-with-lease
-
-# Override changes
-$ git push origin main --force
+$ git push --force-with-lease
 ```
 
-> [!WARNING]
-> Force pushing has serious implications because it changes the historical sequence of commits for the branch. Use it with caution, especially if your repository is being accessed by multiple people.
+This command pushes the current branch to its configured upstream. If you want to specify the remote and branch explicitly, use:
+
+```shell
+$ git push origin HEAD --force-with-lease
+```
+
+This command pushes the current branch (HEAD) to the corresponding branch on origin.
+
+The --force-with-lease option is safer than --force because it checks the expected remote branch state and can refuse to update the branch if the remote has changed unexpectedly. However, it does not eliminate every risk of overwriting others’ work. Before force-pushing to a shared branch, check for collaborators’ changes and coordinate with them as needed.
 
 ## Further reading
 
