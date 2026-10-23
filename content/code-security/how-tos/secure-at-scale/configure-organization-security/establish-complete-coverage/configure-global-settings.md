@@ -109,6 +109,9 @@ You can customize several {% data variables.product.prodname_global_settings %} 
 {%- ifversion ai-powered-security-detections %}
 * [Enabling AI Scan](#enabling-ai-scan)
 {%- endif %}
+{%- ifversion ai-applications-scanning %}
+* [Enabling {% data variables.product.prodname_ai_applications_scanning %}](#enabling-ai-applications-scanning)
+{%- endif %}
 * [Expanding {% data variables.product.prodname_codeql %} analysis](#expanding-codeql-analysis)
 {%- ifversion code-scanning-inactive-repos %}
 * [Continuing scans on inactive repositories](#continuing-scans-on-inactive-repositories)
@@ -133,6 +136,16 @@ You can select **{% data variables.copilot.copilot_autofix_short %}** to enable 
 ### Enabling AI Scan
 
 You can select **AI Scan** to enable AI Scan for eligible repositories in your organization where {% data variables.product.prodname_code_scanning %} is enabled. Repositories inherit the organization setting, but repository administrators can opt out for individual repositories. See [AUTOTITLE](/code-security/concepts/code-scanning/ai-powered-security-detections).
+
+{% endif %}
+
+{% ifversion ai-applications-scanning %}
+
+### Enabling {% data variables.product.prodname_ai_applications_scanning %}
+
+You can select **Scan for AI applications** to enable {% data variables.product.prodname_ai_applications_scanning %} for eligible repositories in your organization. This setting is separate from **AI Scan** and controls a different detector. Repositories inherit the organization setting, but repository administrators can opt out for individual repositories. See [AUTOTITLE](/code-security/concepts/code-scanning/ai-applications-scanning-for-pull-requests).
+
+If your organization already has AI Scan enabled for pull requests, or you're moving from the private preview of {% data variables.product.prodname_ai_applications_scanning %}, you still need to select **Scan for AI applications** separately. Enabling AI Scan doesn't enable {% data variables.product.prodname_ai_applications_scanning %}.
 
 {% endif %}
 
