@@ -12,9 +12,9 @@ category:
   - Configure Copilot
 ---
 
-Use `.github/github-app.yml` in your repository to define how the {% data variables.copilot.github_copilot_app %} should behave for that project.
+Use `.github/github-app.yml` in your repository to define how the {% data variables.copilot.github_copilot_app %} should behave for that repository.
 
-You can also edit these project settings in the app UI. If `.github/github-app.yml` already exists, UI changes are written back to that file. If it does not exist yet, you can create it from current project settings in the app.
+You can also edit these repository settings in the app UI. If `.github/github-app.yml` already exists, UI changes are written back to that file. If it does not exist yet, you can create it from current repository settings in the app.
 
 ## About the config file location
 
@@ -35,7 +35,7 @@ When the app detects a configuration from the repository, it does not apply repo
 > [!WARNING]
 > Before accepting a repository configuration, review every configured command and the dependencies it runs. Scripts and their child processes receive the {% data variables.product.github %} credentials described later in this article, so never configure them to log or persist these environment variables.
 
-If the file changes outside the app, including changes to whitespace or comments, you must review and accept the updated configuration before the app applies it. Until you accept the current version, the app continues to use the project settings that were previously configured in the app.
+If the file changes outside the app, including changes to whitespace or comments, you must review and accept the updated configuration before the app applies it. Until you accept the current version, the app continues to use the repository settings that were previously configured in the app.
 
 ## Example configuration
 
@@ -67,7 +67,7 @@ automation:
 
 ### `instructions`
 
-Use `instructions` to add repository-specific guidance to the system prompt for sessions in the project. If you also configure global instructions in the app, the global instructions are applied first, followed by the project instructions.
+Use `instructions` to add repository-specific guidance to the system prompt for sessions in the repository. If you also configure global instructions in the app, the global instructions are applied first, followed by the repository instructions.
 
 ### `scripts`
 
@@ -132,8 +132,8 @@ Scripts run with these app-provided environment variables:
 | --- | --- |
 | `COPILOT_WORKSPACE_NAME` | Current workspace name. |
 | `COPILOT_WORKSPACE_PATH` | Absolute path to the workspace. |
-| `COPILOT_ROOT_PATH` | Absolute path to the project root checkout. |
-| `COPILOT_DEFAULT_BRANCH` | Project default branch. |
+| `COPILOT_ROOT_PATH` | Absolute path to the repository root checkout. |
+| `COPILOT_DEFAULT_BRANCH` | Repository default branch. |
 | `COPILOT_PORT` | App WebSocket port for the current workspace context. |
 | `COPILOT_SCRIPT_TRIGGER` | Trigger that launched the script (only set for triggered scripts). |
 | `GH_TOKEN` | Token for the selected {% data variables.product.github %} account. |
