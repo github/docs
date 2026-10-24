@@ -1,0 +1,781 @@
+#!/usr/bin/env bash
+set -e
+
+# gh-secure: GitHub CLI extension to enable security features on repositories
+# Following GitHub Security Lab best practices:
+# https://securitylab.github.com/protect-your-project.html
+
+VERSION="1.0.0"
+
+# Colors (disabled if not a terminal)
+if [ -t 1 ]; then
+  GREEN='\033[0;32m'
+  YELLOW='\033[0;33m'
+  RED='\033[0;31m'
+  BLUE='\033[0;34m'
+  BOLD='\033[1m'
+  RESET='\033[0m'
+else
+  GREEN='' YELLOW='' RED='' BLUE='' BOLD='' RESET=''
+fi
+
+# Globals
+DRY_RUN=false
+NO_PROMPT=false
+REPO=""
+OWNER=""
+REPO_NAME=""
+SUBCOMMAND=""
+SELECTED_FEATURES=()
+
+# Valid feature names (long and short forms)
+ALL_FEATURES=("branch-protection" "vulnerability-reporting" "secret-scanning" "dependabot" "code-scanning")
+
+is_valid_feature() {
+  case "$1" in
+    branch-protection|bp) return 0 ;;
+    vulnerability-reporting|vr) return 0 ;;
+    secret-scanning|ss) return 0 ;;
+    dependabot|dep) return 0 ;;
+    code-scanning|cs) return 0 ;;
+    *) return 1 ;;
+  esac
+}
+
+normalize_feature() {
+  case "$1" in
+    branch-protection|bp) echo "branch-protection" ;;
+    vulnerability-reporting|vr) echo "vulnerability-reporting" ;;
+    secret-scanning|ss) echo "secret-scanning" ;;
+    dependabot|dep) echo "dependabot" ;;
+    code-scanning|cs) echo "code-scanning" ;;
+  esac
+}
+
+feature_selected() {
+  local feature="$1"
+  # If no features specified, all are selected
+  if [ ${#SELECTED_FEATURES[@]} -eq 0 ]; then
+    return 0
+  fi
+  for f in "${SELECTED_FEATURES[@]}"; do
+    if [ "$f" = "$feature" ]; then
+      return 0
+    fi
+  done
+  return 1
+}
+
+# ─── Helpers ────────────────────────────────────────────────────────────────────
+
+print_success() { echo -e "  ${GREEN}✓${RESET} $*"; }
+print_warning() { echo -e "  ${YELLOW}⚠${RESET} $*"; }
+print_error()   { echo -e "  ${RED}✗${RESET} $*"; }
+print_info()    { echo -e "  ${BLUE}ℹ${RESET} $*"; }
+print_skip()    { echo -e "  ⊘ $*"; }
+
+confirm() {
+  local prompt="$1"
+  if $NO_PROMPT; then
+    return 0
+  fi
+  printf "\n%b" "$prompt (y/n): "
+  read -r answer
+  [[ "$answer" =~ ^[Yy]$ ]]
+}
+
+separator() {
+  echo ""
+  echo -e "${BOLD}══════════════════════════════════════════════════════════════════════${RESET}"
+  echo -e "${BOLD}$1${RESET}"
+  echo -e "${BOLD}══════════════════════════════════════════════════════════════════════${RESET}"
+}
+
+# ─── Usage ──────────────────────────────────────────────────────────────────────
+
+usage() {
+  cat <<EOF
+GitHub Security Features Enablement Tool
+
+Usage:
+  gh secure [flags] [feature ...]
+  gh secure status [--repo <owner/repo>]
+
+Commands:
+  status    Show the current security feature status for a repository
+
+Flags:
+  -r, --repo <owner/repo>   Target repository (default: current repo)
+  -y, --yes                 Enable selected features without prompting for confirmation. Assume answer is yes.
+  -n, --dry-run             Simulate changes without applying them
+  -v, --version             Print version
+  -h, --help                Show this help message
+
+Features (pass one or more to enable only specific features):
+  branch-protection   (bp)   Protect your main branch from unauthorized changes
+  vulnerability-reporting (vr) Allow private security vulnerability reports
+  secret-scanning     (ss)   Detect exposed secrets with push protection
+  dependabot          (dep)  Alerts and automated updates for vulnerable deps
+  code-scanning       (cs)   Static analysis and Actions workflow security
+
+  If no features are specified, all features are included.
+
+Examples:
+  gh secure                                  # Interactive mode, all features
+  gh secure --yes                            # Enable all features, no prompts for confirmation
+  gh secure branch-protection dependabot     # Enable only these two features
+  gh secure bp ss cs -y                      # Enable 3 features, no prompts for confirmation
+  gh secure --repo owner/repo code-scanning  # Enable CodeQL on specific repo
+  gh secure --yes --dry-run                  # Preview what would be enabled
+  gh secure status                           # Check current feature status
+  gh secure status --repo owner/repo         # Check status of specific repo
+
+Documentation & FAQ:
+  https://github.com/GitHubSecurityLab/gh-secure#readme
+  https://github.com/GitHubSecurityLab/gh-secure#faq
+EOF
+}
+
+# ─── Argument parsing ───────────────────────────────────────────────────────────
+
+parse_args() {
+  while [ $# -gt 0 ]; do
+    case "$1" in
+      -h|--help)
+        usage
+        exit 0
+        ;;
+      -v|--version)
+        echo "gh-secure $VERSION"
+        exit 0
+        ;;
+      -r|--repo)
+        REPO="$2"
+        shift
+        ;;
+      -y|--yes)
+        NO_PROMPT=true
+        ;;
+      -n|--dry-run)
+        DRY_RUN=true
+        ;;
+      status)
+        SUBCOMMAND="status"
+        ;;
+      *)
+        if is_valid_feature "$1"; then
+          SELECTED_FEATURES+=("$(normalize_feature "$1")")
+        else
+          echo "Unknown argument: $1"
+          echo "Run 'gh secure --help' for usage."
+          exit 1
+        fi
+        ;;
+    esac
+    shift
+  done
+}
+
+# ─── Repository resolution ─────────────────────────────────────────────────────
+
+resolve_repo() {
+  if [ -n "$REPO" ]; then
+    OWNER="${REPO%%/*}"
+    REPO_NAME="${REPO##*/}"
+    if [[ "$REPO" != */* || "$REPO" == */*/* ]] || [ -z "$OWNER" ] || [ -z "$REPO_NAME" ]; then
+      echo "Error: Repository must be in 'owner/repo' format"
+      exit 1
+    fi
+    return
+  fi
+
+  # Try to detect from current directory
+  if REPO=$(gh repo view --json nameWithOwner --jq '.nameWithOwner' 2>/dev/null); then
+    OWNER="${REPO%%/*}"
+    REPO_NAME="${REPO##*/}"
+    print_info "Detected repository: ${BOLD}${REPO}${RESET}"
+  else
+    echo ""
+    printf "Enter repository (owner/repo): "
+    read -r REPO
+    OWNER="${REPO%%/*}"
+    REPO_NAME="${REPO##*/}"
+    if [[ "$REPO" != */* || "$REPO" == */*/* ]] || [ -z "$OWNER" ] || [ -z "$REPO_NAME" ]; then
+      echo "Error: Repository must be in 'owner/repo' format"
+      exit 1
+    fi
+  fi
+}
+
+# ─── Permission check ──────────────────────────────────────────────────────────
+
+check_permissions() {
+  echo ""
+  echo -e "${BOLD}=== Repository Check ===${RESET}"
+
+  local repo_info
+  if ! repo_info=$(gh api "repos/${OWNER}/${REPO_NAME}" --jq '[.private, .permissions.admin, .permissions.maintain] | @tsv' 2>/dev/null); then
+    print_error "Repository ${OWNER}/${REPO_NAME} not found or you don't have access"
+    exit 1
+  fi
+
+  local is_private has_admin has_maintain
+  read -r is_private has_admin has_maintain <<< "$repo_info"
+
+  if [ "$is_private" = "true" ]; then
+    echo -e "  Repository visibility: Private"
+    print_warning "This tool is designed for public repositories."
+  else
+    echo -e "  Repository visibility: Public"
+  fi
+
+  if [ "$has_admin" = "true" ]; then
+    print_success "You have admin permissions on ${OWNER}/${REPO_NAME}"
+  elif [ "$has_maintain" = "true" ]; then
+    print_success "You have maintain permissions on ${OWNER}/${REPO_NAME}"
+  else
+    print_error "You need admin or maintain permissions on ${OWNER}/${REPO_NAME}"
+    exit 1
+  fi
+}
+
+# ─── Feature status checks ─────────────────────────────────────────────────────
+
+check_branch_protection() {
+  local default_branch
+  default_branch=$(gh api "repos/${OWNER}/${REPO_NAME}" --jq '.default_branch' 2>/dev/null || echo "main")
+  gh api "repos/${OWNER}/${REPO_NAME}/branches/${default_branch}/protection" >/dev/null 2>&1
+}
+
+# Returns 0 if active rulesets exist; sets ACTIVE_RULESETS_COUNT and ACTIVE_RULESETS_NAMES
+ACTIVE_RULESETS_COUNT=0
+ACTIVE_RULESETS_NAMES=""
+
+check_rulesets() {
+  local rulesets_info
+  if ! rulesets_info=$(gh api "repos/${OWNER}/${REPO_NAME}/rulesets" \
+    --jq '[.[] | select(.enforcement == "active")] | "\(length)\n\([.[].name] | join(", "))"' 2>/dev/null); then
+    ACTIVE_RULESETS_COUNT=0
+    return 1
+  fi
+
+  ACTIVE_RULESETS_COUNT=$(echo "$rulesets_info" | head -n1)
+  ACTIVE_RULESETS_NAMES=$(echo "$rulesets_info" | tail -n1)
+
+  [ "$ACTIVE_RULESETS_COUNT" -gt 0 ] 2>/dev/null
+}
+
+check_vulnerability_reporting() {
+  local result
+  result=$(gh api "repos/${OWNER}/${REPO_NAME}/private-vulnerability-reporting" --jq '.enabled' 2>/dev/null || echo "false")
+  [ "$result" = "true" ]
+}
+
+check_push_protection() {
+  local result
+  result=$(gh api "repos/${OWNER}/${REPO_NAME}" --jq '.security_and_analysis.secret_scanning_push_protection.status' 2>/dev/null || echo "disabled")
+  [ "$result" = "enabled" ]
+}
+
+check_dependabot_alerts() {
+  gh api "repos/${OWNER}/${REPO_NAME}/vulnerability-alerts" >/dev/null 2>&1
+}
+
+check_dependabot_updates() {
+  local result
+  result=$(gh api "repos/${OWNER}/${REPO_NAME}/automated-security-fixes" --jq '.enabled' 2>/dev/null || echo "false")
+  [ "$result" = "true" ]
+}
+
+check_code_scanning() {
+  local result
+  result=$(gh api "repos/${OWNER}/${REPO_NAME}/code-scanning/default-setup" --jq '.state' 2>/dev/null || echo "not-configured")
+  [ "$result" = "configured" ]
+}
+
+# ─── Status command ─────────────────────────────────────────────────────────────
+
+show_status() {
+  separator "Security Feature Status for ${OWNER}/${REPO_NAME}"
+
+  local feature_check status_icon
+  local features=("Branch Protection" "Private Vulnerability Reporting" "Secret Scanning Push Protection" "Dependabot Alerts" "Dependabot Security Updates" "Code Scanning (CodeQL)")
+  local checks=(check_branch_protection check_vulnerability_reporting check_push_protection check_dependabot_alerts check_dependabot_updates check_code_scanning)
+
+  local enabled=0
+  local total=${#features[@]}
+
+  for i in "${!features[@]}"; do
+    if ${checks[$i]}; then
+      print_success "${features[$i]}"
+      enabled=$((enabled + 1))
+    else
+      print_error "${features[$i]} — not enabled"
+    fi
+    # Show ruleset info alongside branch protection status
+    if [ "$i" -eq 0 ] && check_rulesets; then
+      print_info "${ACTIVE_RULESETS_COUNT} active ruleset(s) found: ${ACTIVE_RULESETS_NAMES}"
+    fi
+  done
+
+  echo ""
+  if [ "$enabled" -eq "$total" ]; then
+    echo -e "  ${GREEN}${BOLD}All security features are enabled!${RESET}"
+  else
+    echo -e "  ${enabled}/${total} features enabled"
+  fi
+  echo ""
+}
+
+# ─── Feature enablers ──────────────────────────────────────────────────────────
+
+enable_branch_protection() {
+  echo ""
+  echo -e "${BOLD}=== Step 1: Branch Protection ===${RESET}"
+
+  if check_branch_protection; then
+    print_success "Already enabled — skipping"
+    return 2
+  fi
+
+  local has_rulesets=false
+  if check_rulesets; then
+    has_rulesets=true
+  fi
+
+  if ! $NO_PROMPT; then
+    echo ""
+    echo "  Why enable branch protection?"
+    echo "  Branch protection blocks unwanted changes to your project. It prevents"
+    echo "  accidental or malicious commits that may introduce vulnerabilities or"
+    echo "  disrupt the stability of your project. Branch rules give you flexible"
+    echo "  control over who can force push, delete, etc."
+    echo ""
+    echo "  Docs: https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches"
+    if $has_rulesets; then
+      echo ""
+      echo -e "  ${YELLOW}⚠ This repository has ${ACTIVE_RULESETS_COUNT} active ruleset(s): ${ACTIVE_RULESETS_NAMES}${RESET}"
+      echo "  Rulesets may already provide branch protection (e.g., requiring pull"
+      echo "  requests, status checks, or blocking force pushes). Enabling legacy"
+      echo "  branch protection could create overlapping or conflicting rules."
+      echo "  Review your rulesets before deciding."
+    fi
+  fi
+
+  if $has_rulesets; then
+    # Always prompt when rulesets exist, even with --yes
+    printf "\n%b" "Active rulesets detected. Still enable branch protection? (y/n): "
+    read -r answer
+    if [[ ! "$answer" =~ ^[Yy]$ ]]; then
+      print_skip "Skipped branch protection (active rulesets already in place)"
+      return 1
+    fi
+  elif ! confirm "Enable branch protection?"; then
+    print_skip "Skipped branch protection"
+    return 1
+  fi
+
+  local default_branch
+  default_branch=$(gh api "repos/${OWNER}/${REPO_NAME}" --jq '.default_branch' 2>/dev/null || echo "main")
+  print_info "Default branch: ${default_branch}"
+
+  if $DRY_RUN; then
+    print_success "[DRY RUN] Would enable branch protection on ${default_branch}"
+    return 0
+  fi
+
+  if gh api "repos/${OWNER}/${REPO_NAME}/branches/${default_branch}/protection" \
+    --method PUT \
+    --header "User-Agent: gh-secure" \
+    --field "required_status_checks=null" \
+    --field "enforce_admins=false" \
+    --field "restrictions=null" \
+    --field "allow_force_pushes=false" \
+    --field "allow_deletions=false" \
+    --field "required_conversation_resolution=true" \
+    -f 'required_pull_request_reviews[required_approving_review_count]=1' \
+    -F 'required_pull_request_reviews[dismiss_stale_reviews]=true' \
+    -F 'required_pull_request_reviews[require_code_owner_reviews]=false' \
+    >/dev/null 2>&1; then
+    print_success "Branch protection enabled on ${default_branch}"
+  else
+    # Fallback: use raw JSON input
+    local payload='{"required_status_checks":null,"enforce_admins":false,"required_pull_request_reviews":{"required_approving_review_count":1,"dismiss_stale_reviews":true,"require_code_owner_reviews":false},"restrictions":null,"allow_force_pushes":false,"allow_deletions":false,"required_conversation_resolution":true}'
+    if echo "$payload" | gh api "repos/${OWNER}/${REPO_NAME}/branches/${default_branch}/protection" \
+      --method PUT --header "User-Agent: gh-secure" --input - >/dev/null 2>&1; then
+      print_success "Branch protection enabled on ${default_branch}"
+    else
+      print_error "Failed to enable branch protection"
+      return 1
+    fi
+  fi
+}
+
+enable_vulnerability_reporting() {
+  echo ""
+  echo -e "${BOLD}=== Step 2: Private Vulnerability Reporting ===${RESET}"
+
+  if check_vulnerability_reporting; then
+    print_success "Already enabled — skipping"
+    return 2
+  fi
+
+  if ! $NO_PROMPT; then
+    echo ""
+    echo "  Why enable private vulnerability reporting?"
+    echo "  Security Policy and Private Vulnerability Reporting (PVR) create a safe"
+    echo "  path for reporting vulnerabilities before they go public. Make it easy for"
+    echo "  people external to the project, such as users and security researchers, to"
+    echo "  report security bugs privately."
+    echo ""
+    echo "  Docs: https://docs.github.com/en/code-security/security-advisories/guidance-on-reporting-and-writing-information-about-vulnerabilities/privately-reporting-a-security-vulnerability"
+  fi
+
+  if ! confirm "Enable private vulnerability reporting?"; then
+    print_skip "Skipped private vulnerability reporting"
+    return 1
+  fi
+
+  if $DRY_RUN; then
+    print_success "[DRY RUN] Would enable private vulnerability reporting"
+    return 0
+  fi
+
+  local status_code
+  status_code=$(gh api "repos/${OWNER}/${REPO_NAME}/private-vulnerability-reporting" \
+    --method PUT \
+    --header "User-Agent: gh-secure" \
+    --silent \
+    2>&1 && echo "204" || echo "error")
+
+  # gh api returns success on 204
+  if gh api "repos/${OWNER}/${REPO_NAME}/private-vulnerability-reporting" --method PUT --header "User-Agent: gh-secure" >/dev/null 2>&1; then
+    print_success "Private vulnerability reporting enabled"
+    print_info "Report URL: https://github.com/${OWNER}/${REPO_NAME}/security/advisories/new"
+  else
+    print_error "Failed to enable private vulnerability reporting"
+    return 1
+  fi
+}
+
+enable_secret_scanning() {
+  echo ""
+  echo -e "${BOLD}=== Step 3: Secret Scanning ===${RESET}"
+
+  print_info "Secret scanning is automatically enabled for public repositories"
+
+  if check_push_protection; then
+    print_success "Push protection already enabled — skipping"
+    return 2
+  fi
+
+  if ! $NO_PROMPT; then
+    echo ""
+    echo "  Why enable secret scanning?"
+    echo "  Sensitive data like API keys, tokens, and passwords can accidentally be"
+    echo "  committed to your repository. Secret scanning with push protection guards"
+    echo "  over 300 token types and patterns from more than 180 service providers."
+    echo ""
+    echo "  Docs: https://docs.github.com/code-security/secret-scanning/about-secret-scanning"
+  fi
+
+  if ! confirm "Enable secret scanning push protection?"; then
+    print_skip "Skipped secret scanning push protection"
+    return 1
+  fi
+
+  if $DRY_RUN; then
+    print_success "[DRY RUN] Would enable secret scanning push protection"
+    return 0
+  fi
+
+  local payload='{"security_and_analysis":{"secret_scanning_push_protection":{"status":"enabled"}}}'
+  if echo "$payload" | gh api "repos/${OWNER}/${REPO_NAME}" --method PATCH --header "User-Agent: gh-secure" --input - >/dev/null 2>&1; then
+    print_success "Secret scanning push protection enabled"
+  else
+    print_error "Failed to enable push protection"
+    print_info "Enable manually: https://github.com/${OWNER}/${REPO_NAME}/settings/security_analysis"
+    return 1
+  fi
+}
+
+enable_dependabot() {
+  echo ""
+  echo -e "${BOLD}=== Step 4: Dependabot ===${RESET}"
+
+  local alerts_ok=false updates_ok=false
+  check_dependabot_alerts && alerts_ok=true
+  check_dependabot_updates && updates_ok=true
+
+  if $alerts_ok && $updates_ok; then
+    print_success "Already enabled — skipping"
+    return 2
+  fi
+
+  if ! $NO_PROMPT; then
+    echo ""
+    echo "  Why enable Dependabot?"
+    echo "  Dependabot keeps your dependencies safe. It automatically checks"
+    echo "  your dependencies for known vulnerabilities and creates pull requests to"
+    echo "  update them to safe versions. This saves you the hassle of manual checks"
+    echo "  and blocks threats."
+    echo ""
+    echo "  Docs: https://docs.github.com/en/code-security/getting-started/dependabot-quickstart-guide"
+  fi
+
+  if ! confirm "Enable Dependabot?"; then
+    print_skip "Skipped Dependabot"
+    return 1
+  fi
+
+  if $DRY_RUN; then
+    print_success "[DRY RUN] Would enable Dependabot alerts"
+    print_success "[DRY RUN] Would enable Dependabot security updates"
+    return 0
+  fi
+
+  # Enable alerts
+  if ! $alerts_ok; then
+    if gh api "repos/${OWNER}/${REPO_NAME}/vulnerability-alerts" --method PUT --header "User-Agent: gh-secure" >/dev/null 2>&1; then
+      print_success "Dependabot alerts enabled"
+    else
+      print_warning "Failed to enable Dependabot alerts"
+    fi
+  else
+    print_success "Dependabot alerts already enabled"
+  fi
+
+  # Enable security updates
+  if ! $updates_ok; then
+    if gh api "repos/${OWNER}/${REPO_NAME}/automated-security-fixes" --method PUT --header "User-Agent: gh-secure" >/dev/null 2>&1; then
+      print_success "Dependabot security updates enabled"
+    else
+      print_warning "Failed to enable Dependabot security updates"
+    fi
+  else
+    print_success "Dependabot security updates already enabled"
+  fi
+}
+
+enable_code_scanning() {
+  echo ""
+  echo -e "${BOLD}=== Step 5: Code Scanning (CodeQL) ===${RESET}"
+
+  if check_code_scanning; then
+    print_success "Already enabled — skipping"
+    return 2
+  fi
+
+  if ! $NO_PROMPT; then
+    echo ""
+    echo "  Why enable code scanning?"
+    echo "  GitHub code scanning automatically detects common security vulnerabilities"
+    echo "  in your project and in your pull requests. Resolve them manually or with"
+    echo "  the help of Copilot Autofix AI-powered suggestions, before they are"
+    echo "  exploited against you and your users."
+    echo ""
+    echo "  Docs: https://docs.github.com/en/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning"
+  fi
+
+  if ! confirm "Enable code scanning (CodeQL)?"; then
+    print_skip "Skipped code scanning"
+    return 1
+  fi
+
+  if $DRY_RUN; then
+    print_success "[DRY RUN] Would enable code scanning default setup"
+    return 0
+  fi
+
+  local payload='{"state":"configured","query_suite":"default"}'
+  local run_url
+  if run_url=$(echo "$payload" | gh api "repos/${OWNER}/${REPO_NAME}/code-scanning/default-setup" --method PATCH --header "User-Agent: gh-secure" --input - --jq '.run_url // empty' 2>&1); then
+    print_success "Code scanning default setup enabled"
+    if [ -n "$run_url" ]; then
+      print_info "CodeQL analysis triggered: ${run_url}"
+    fi
+  else
+    print_error "Failed to enable code scanning"
+    print_info "Set up manually: https://github.com/${OWNER}/${REPO_NAME}/security/code-scanning"
+    return 1
+  fi
+}
+
+# ─── Main ───────────────────────────────────────────────────────────────────────
+
+main() {
+  parse_args "$@"
+
+  # Banner
+  separator "GitHub Security Features Enablement Tool"
+  echo "  Following GitHub Security Lab best practices"
+  if $DRY_RUN; then
+    echo ""
+    echo -e "  ${YELLOW}🔍 DRY RUN MODE — no changes will be made${RESET}"
+  fi
+
+  # Resolve target repo
+  resolve_repo
+
+  if [ "$SUBCOMMAND" = "status" ]; then
+    show_status
+    exit 0
+  fi
+
+  # Check permissions
+  check_permissions
+
+  # Show feature list
+  separator "Security Features to Configure"
+
+  local selecting_subset=false
+  if [ ${#SELECTED_FEATURES[@]} -gt 0 ]; then
+    selecting_subset=true
+  fi
+
+  local feature_labels=("Branch Protection" "Vulnerability Reporting" "Secret Scanning" "Dependabot" "Code Scanning (CodeQL)")
+  local feature_descs=("Protect main branch" "Private security reports" "Detect & block secrets" "Dependency vulnerability alerts" "Static analysis & Actions security")
+  for i in "${!ALL_FEATURES[@]}"; do
+    if feature_selected "${ALL_FEATURES[$i]}"; then
+      echo -e "  ${GREEN}▶ ${BOLD}${feature_labels[$i]}${RESET}  — ${feature_descs[$i]}"
+    else
+      echo -e "  ${YELLOW}  ${feature_labels[$i]}  — skipped${RESET}"
+    fi
+  done
+
+  # If prompting is enabled, ask for mode
+  if ! $NO_PROMPT; then
+    if $selecting_subset; then
+      local count=${#SELECTED_FEATURES[@]}
+      printf "\nEnable %d selected feature(s) on %s? (y/n): " "$count" "${OWNER}/${REPO_NAME}"
+      read -r answer
+      if [[ ! "$answer" =~ ^[Yy]$ ]]; then
+        echo "Aborted."
+        exit 0
+      fi
+      NO_PROMPT=true
+    else
+      echo ""
+      echo "Choose enablement mode:"
+      echo "  1. Enable all features at once (single confirmation)"
+      echo "  2. Enable features step-by-step (confirm each individually)"
+      printf "\nSelect option (1 or 2): "
+      read -r mode_choice
+
+      if [ "$mode_choice" = "1" ]; then
+        printf "\nEnable all features on %s? (y/n): " "${OWNER}/${REPO_NAME}"
+        read -r answer
+        if [[ ! "$answer" =~ ^[Yy]$ ]]; then
+          echo "Aborted."
+          exit 0
+        fi
+        NO_PROMPT=true
+      else
+        printf "\nProceed with step-by-step enablement? (y/n): "
+        read -r answer
+        if [[ ! "$answer" =~ ^[Yy]$ ]]; then
+          echo "Aborted."
+          exit 0
+        fi
+      fi
+    fi
+  fi
+
+  # Enable features
+  separator "Configuring Security Features"
+
+  local results=()
+  local feature_names=()
+  local rc
+
+  if feature_selected "branch-protection"; then
+    feature_names+=("Branch Protection")
+    enable_branch_protection && rc=0 || rc=$?; results+=($rc)
+  fi
+  if feature_selected "vulnerability-reporting"; then
+    feature_names+=("Vulnerability Reporting")
+    enable_vulnerability_reporting && rc=0 || rc=$?; results+=($rc)
+  fi
+  if feature_selected "secret-scanning"; then
+    feature_names+=("Secret Scanning")
+    enable_secret_scanning && rc=0 || rc=$?; results+=($rc)
+  fi
+  if feature_selected "dependabot"; then
+    feature_names+=("Dependabot")
+    enable_dependabot && rc=0 || rc=$?; results+=($rc)
+  fi
+  if feature_selected "code-scanning"; then
+    feature_names+=("Code Scanning (CodeQL)")
+    enable_code_scanning && rc=0 || rc=$?; results+=($rc)
+  fi
+
+  # Summary
+  separator "Summary"
+
+  if $DRY_RUN; then
+    echo ""
+    echo -e "  ${YELLOW}🔍 DRY RUN MODE — no changes were actually made${RESET}"
+    echo -e "  ${YELLOW}   Run again without --dry-run to apply changes.${RESET}"
+    echo ""
+  fi
+
+  # Categorize results: 0=newly enabled, 1=skipped/failed, 2=already enabled
+  local newly=() already=() failed=()
+  for i in "${!results[@]}"; do
+    case "${results[$i]}" in
+      0) newly+=("${feature_names[$i]}") ;;
+      2) already+=("${feature_names[$i]}") ;;
+      *) failed+=("${feature_names[$i]}") ;;
+    esac
+  done
+
+  if [ ${#newly[@]} -gt 0 ]; then
+    echo -e "  ${GREEN}${BOLD}Newly enabled:${RESET}"
+    for f in "${newly[@]}"; do
+      echo -e "    ${GREEN}✓${RESET} ${f}"
+    done
+  fi
+
+  if [ ${#already[@]} -gt 0 ]; then
+    echo -e "  ${BLUE}${BOLD}Already enabled:${RESET}"
+    for f in "${already[@]}"; do
+      echo -e "    ${BLUE}✓${RESET} ${f}"
+    done
+  fi
+
+  if [ ${#failed[@]} -gt 0 ]; then
+    echo -e "  ${YELLOW}${BOLD}Skipped / failed:${RESET}"
+    for f in "${failed[@]}"; do
+      echo -e "    ${YELLOW}⊘${RESET} ${f}"
+    done
+  fi
+
+  echo ""
+  local total=${#results[@]}
+  local ok=$(( ${#newly[@]} + ${#already[@]} ))
+  if $DRY_RUN; then
+    echo -e "  ${GREEN}✓${RESET} ${ok}/${total} features would be enabled for ${OWNER}/${REPO_NAME} (${#newly[@]} new, ${#already[@]} already)"
+  else
+    echo -e "  ${GREEN}✓${RESET} ${ok}/${total} features enabled for ${OWNER}/${REPO_NAME} (${#newly[@]} new, ${#already[@]} already)"
+  fi
+
+  echo ""
+  echo "  Next steps:"
+  echo "    • View security settings: https://github.com/${OWNER}/${REPO_NAME}/settings/security_analysis"
+  echo "    • View security overview: https://github.com/${OWNER}/${REPO_NAME}/security"
+  if ! gh api "repos/${OWNER}/${REPO_NAME}/community/profile" --jq '.files.security.url // empty' 2>/dev/null | grep -q .; then
+    echo "    • Add a SECURITY.md file with your security policy"
+  fi
+  echo "    • Monitor security alerts regularly"
+  echo ""
+
+  if $DRY_RUN; then
+    echo -e "  ${YELLOW}🔍 Remember: This was a DRY RUN — no actual changes were made!${RESET}"
+    echo ""
+  fi
+
+  echo -e "  ${GREEN}✓ Done!${RESET}"
+  echo ""
+}
+
+main "$@"
