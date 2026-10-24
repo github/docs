@@ -7,6 +7,5 @@ children:
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>=3.18'
 ---
 

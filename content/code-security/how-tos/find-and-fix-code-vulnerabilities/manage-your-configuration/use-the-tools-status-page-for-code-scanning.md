@@ -80,7 +80,7 @@ You can remove stale, duplicate, or unwanted configurations for the default bran
 To remove a configuration, select the configuration you want to delete. Then click **{% octicon "kebab-horizontal" aria-label="Configuration menu" %}** on the top right of the page, and select **{% octicon "trash" aria-hidden="true" aria-label="trash" %} Delete configuration**. Once you have read the warning about alerts, to confirm the deletion, click the **Delete** button.
 
 > [!NOTE]
-> You can only use the {% data variables.code-scanning.tool_status_page %} to remove configurations for the default branch of a repository. For information about removing configurations from non-default branches, see [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-code-scanning-alerts/resolving-code-scanning-alerts#removing-stale-configurations-and-alerts-from-a-branch).
+> You can only use the {% data variables.code-scanning.tool_status_page %} to remove configurations for the default branch of a repository. For information about removing configurations from non-default branches, see [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-code-scanning-alerts/resolve-alerts#removing-stale-configurations-and-alerts-from-a-branch).
 
 ## Debugging using the tool status page
 
@@ -88,4 +88,4 @@ If you see that there is a problem with your analysis from the {% data variables
 
 For integrated tools such as {% data variables.product.prodname_codeql %}, you can also use file coverage information to improve your analysis. For more information about interpreting file coverage percentages, see [AUTOTITLE](/code-security/concepts/code-scanning/tool-status-page).
 
-For more information, see [AUTOTITLE](/code-security/how-tos/scan-code-for-vulnerabilities/troubleshooting) and [AUTOTITLE](/code-security/how-tos/scan-code-for-vulnerabilities/troubleshooting/troubleshooting-sarif-uploads).
+For more information, see [AUTOTITLE](/code-security/reference/code-scanning/troubleshoot-analysis-errors) and [AUTOTITLE](/code-security/reference/code-scanning/sarif-files/troubleshoot-sarif-uploads).

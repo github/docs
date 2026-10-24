@@ -3,13 +3,28 @@
 @import "./stylesheets/lists.scss";
 @import "./stylesheets/table.scss";
 @import "./stylesheets/images.scss";
+@import "src/frame/stylesheets/underline-nav-brand.scss";
 
 .markdownBody {
+  // Article body prose uses Mona Sans from @primer/react-brand's body font var.
+  // Base size stays 16px from @primer/css $h4-size; line-height matches the Figma spec.
+  font-family: var(--brand-body-fontFamily);
+  line-height: 1.6;
+
   :not(h1, h2, h3, h4, h5, h6, [role="tablist"]) {
     > a {
       text-decoration: underline;
       text-underline-offset: 25%;
     }
+  }
+
+  // Plain blockquotes that content-render/unified/alerts.ts does not convert to
+  // .ghd-alert callouts get a brand-aligned left rule and muted text. They stay
+  // distinct from .ghd-alert's colored 0.25em border and Octicon title.
+  blockquote {
+    border-left: var(--brand-borderWidth-thick, 2px) solid
+      var(--brand-color-border-default, #b6bfb8);
+    color: var(--brand-color-text-muted, #58635b);
   }
 
   summary {
@@ -37,13 +52,31 @@
   }
 
   :global(.ghd-codetabs-nav) {
+    // Docs 2026: the code-language tabs are a second @primer/react UnderlineNav.
+    // Without this they kept primitives' raw defaults — a #fd8c73 active bar,
+    // 2.29:1 in light mode, under the WCAG 1.4.11 3:1 floor — and sat next to
+    // the brand-green tool picker on the same article. Same mixin, same tokens;
+    // see underline-nav-brand.scss.
+    @include underline-nav-brand-tokens;
+
     margin-bottom: 0;
 
     :global(ul) {
       padding-left: 0 !important;
     }
 
+    // These are anchors inside the article body, so article-link-overrides.scss
+    // paints them brand link-blue at (1,4,1) — which beats both PRC's
+    // `.prc-components-UnderlineItem` (0,1,0) and anything we can write here
+    // without an id. Tab labels are controls, not prose links: left alone they
+    // read blue while the tool picker's identical tabs read text-default, and
+    // the mixin's --fgColor-default never lands. `!important` for the same
+    // cascade reason as the text-decoration rule beside it.
     :global(a) {
+      color: var(
+        --brand-color-text-default,
+        var(--color-fg-default)
+      ) !important;
       text-decoration: none !important;
     }
   }
@@ -58,7 +91,8 @@
 
   :global(.ghd-codetab-fallback-label) {
     margin-bottom: 0.75rem;
-    color: var(--fgColor-muted, #59636e);
+    // Intentionally use Brand muted text here instead of Primer's fgColor-muted palette.
+    color: var(--brand-color-text-muted, #58635b);
     font-size: 0.875rem;
     font-weight: 600;
   }

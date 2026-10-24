@@ -4,6 +4,7 @@ import {
   fuzzyMatch,
   fuzzyMatchScore,
   bigramCoverage,
+  getBigramCacheSize,
   stripStopWords,
 } from '@/landings/lib/fuzzy-match'
 
@@ -30,22 +31,19 @@ describe('fuzzyMatch', () => {
   })
 
   test('short terms (<=4 chars) require exact substring match', () => {
-    // "test" is 4 chars — exact substring only
     expect(fuzzyMatch('Writing tests', 'test')).toBe(true)
     expect(fuzzyMatch('Generating tables', 'test')).toBe(false)
-    // "mcp" is 3 chars
     expect(fuzzyMatch('Using the GitHub MCP Server', 'mcp')).toBe(true)
     expect(fuzzyMatch('Coding agents', 'mcp')).toBe(false)
-    // "pr" is 2 chars — exact substring only
     expect(fuzzyMatch('Writing PR descriptions', 'pr')).toBe(true)
-    // "pr" is a substring of "enterprise", so this still matches (exact match)
+    // "pr" matches inside "enterprise" because short terms match substrings.
     expect(fuzzyMatch('Enterprise setup', 'pr')).toBe(true)
   })
 
-  test('rejects false positives from similar-looking words at 75% threshold', () => {
-    // "billing" vs "installing" shared bigrams ll,li,in,ng = 4/6 = 67% (below 75%)
+  test('rejects false positives from similar-looking words at the 70% threshold', () => {
+    // "billing" vs "installing" shared bigrams ll,li,in,ng = 4/6 = 67%, below 70%.
     expect(fuzzyMatch('Installing extensions', 'billing')).toBe(false)
-    // "pricing" vs "writing pr" shared bigrams pr,ri,in,ng = 4/6 = 67% (below 75%)
+    // "pricing" vs "writing pr" shared bigrams pr,ri,in,ng = 4/6 = 67%, below 70%.
     expect(fuzzyMatch('Writing PR descriptions', 'pricing')).toBe(false)
   })
 
@@ -58,16 +56,33 @@ describe('fuzzyMatch', () => {
     expect(fuzzyMatch('xyz abc', 'copilot agents')).toBe(false)
   })
 
+  test('rejects bigrams scattered across unrelated words in long text', () => {
+    // Every bigram of "billing" appears somewhere in this intro, but no single word is close.
+    const intro =
+      'Model Context Protocol (MCP) is a protocol that allows you to extend the capabilities of Copilot by integrating it with other systems.'
+    expect(fuzzyMatch(intro, 'billing')).toBe(false)
+  })
+
+  test('requires every query word to match', () => {
+    const intro =
+      'Model Context Protocol (MCP) is a protocol that allows you to extend the capabilities of Copilot by integrating it with other systems.'
+    expect(fuzzyMatch(intro, 'billing in')).toBe(false)
+    expect(fuzzyMatch('Billing and payments', 'C and R')).toBe(false)
+    expect(fuzzyMatch('Create a repository', 'create a repositories')).toBe(true)
+  })
+
+  test('matches joined queries that span text words', () => {
+    expect(fuzzyMatch('VS Code', 'vscode')).toBe(true)
+    expect(fuzzyMatch('Pull request reviews', 'pullrequest')).toBe(true)
+  })
+
   test('handles edge cases gracefully', () => {
-    // Empty strings
-    expect(fuzzyMatch('GitHub Copilot', '')).toBe(true) // empty search matches anything
+    expect(fuzzyMatch('GitHub Copilot', '')).toBe(true) // Empty search matches anything.
     expect(fuzzyMatch('', 'copilot')).toBe(false)
     expect(fuzzyMatch('', '')).toBe(true)
 
-    // Whitespace-only queries
     expect(fuzzyMatch('GitHub Copilot', '   ')).toBe(false)
 
-    // Multiple consecutive spaces in query
     expect(fuzzyMatch('GitHub Copilot agent', 'copilot   agent')).toBe(true)
   })
 })
@@ -82,18 +97,24 @@ describe('fuzzyMatchScore', () => {
   })
 
   test('returns bigram coverage score for fuzzy matches', () => {
-    // Bigram coverage should give a score between 0.7 and 1
     const score = fuzzyMatchScore('About Copilot memory features', 'memory copilot')
     expect(score).toBeGreaterThanOrEqual(0.7)
     expect(score).toBeLessThan(1)
   })
 
   test('matches singular vs plural via bigrams', () => {
-    // "agents" bigrams: ag, ge, en, nt, ts (5)
-    // "agent" in text has: ag, ge, en, nt (4)
-    // Coverage: 4/5 = 0.8, which is > 0.7 threshold
+    // "agents" has ag, ge, en, nt, ts; "agent" covers 4 of 5, so coverage is 0.8.
     const score = fuzzyMatchScore('GitHub Copilot agent', 'agents')
     expect(score).toBeGreaterThanOrEqual(0.7)
+    expect(score).toBeLessThan(1)
+  })
+
+  test('scores a fuzzy match with full bigram coverage below an exact match', () => {
+    expect(fuzzyMatchScore('Agent tasks in Copilot', 'copilot agent')).toBeLessThan(1)
+  })
+
+  test('scores joined queries that span text words below an exact match', () => {
+    expect(fuzzyMatchScore('Using VS Code', 'vscode')).toBe(0.99)
   })
 
   test('rejects short terms that are not exact substrings', () => {
@@ -123,17 +144,13 @@ describe('bigramCoverage', () => {
   })
 
   test('handles singular vs plural with high coverage', () => {
-    // "agents" bigrams: ag, ge, en, nt, ts (5)
-    // "agent" in text has: ag, ge, en, nt (4)
-    // Coverage: 4/5 = 0.8
+    // "agents" has ag, ge, en, nt, ts; "agent" covers 4 of 5, so coverage is 0.8.
     const coverage = bigramCoverage('agent', 'agents')
     expect(coverage).toBeCloseTo(4 / 5, 2)
   })
 
   test('calculates partial coverage correctly', () => {
-    // Text "hello" has bigrams: he, el, ll, lo
-    // Search "help" has bigrams: he, el, lp
-    // Found: he, el (2 of 3) = 0.67
+    // "hello" has he, el, ll, lo; "help" matches he and el, so coverage is 2 of 3.
     const coverage = bigramCoverage('hello', 'help')
     expect(coverage).toBeCloseTo(2 / 3, 2)
   })
@@ -146,6 +163,21 @@ describe('bigramCoverage', () => {
   test('ignores whitespace in both text and search', () => {
     expect(bigramCoverage('co pi lot', 'copilot')).toBe(1)
     expect(bigramCoverage('copilot', 'co pi lot')).toBe(1)
+  })
+
+  test('does not cache search terms', () => {
+    const before = getBigramCacheSize()
+    for (let i = 0; i < 100; i++) {
+      fuzzyMatchScore('Managing your repository', `unique query ${i}`)
+    }
+    expect(getBigramCacheSize() - before).toBeLessThanOrEqual(1)
+  })
+
+  test('scores each query correctly when queries alternate', () => {
+    expect(bigramCoverage('agent', 'agents')).toBeCloseTo(4 / 5, 2)
+    expect(bigramCoverage('hello', 'help')).toBeCloseTo(2 / 3, 2)
+    expect(bigramCoverage('agent', 'agents')).toBeCloseTo(4 / 5, 2)
+    expect(bigramCoverage('hello', 'agents')).toBe(0)
   })
 })
 

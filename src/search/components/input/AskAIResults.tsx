@@ -3,11 +3,10 @@ import { uniqBy } from 'lodash-es'
 import { executeAISearch } from '../helpers/execute-search-actions'
 import { useRouter } from 'next/router'
 import { useTranslation } from '@/languages/components/useTranslation'
-import { ActionList, IconButton, Spinner } from '@primer/react'
+import { IconButton, Spinner } from '@primer/react'
 import {
   CheckIcon,
   CopilotIcon,
-  FileIcon,
   ShareIcon,
   ThumbsdownIcon,
   ThumbsupIcon,
@@ -24,21 +23,17 @@ import { generateAISearchLinksJson } from '../helpers/ai-search-links-json'
 import { ASK_AI_EVENT_GROUP } from '@/events/components/event-groups'
 
 import type { AIReference } from '../types'
+import { RenderedHTML } from '@/frame/components/ui/RenderedHTML/RenderedHTML'
 
 type AIQueryResultsProps = {
   query: string
   version: string
   debug: boolean
   setAISearchError: (isError?: boolean) => void
-  references: AIReference[]
   setReferences: (references: AIReference[]) => void
-  referencesIndexOffset: number
-  referenceOnSelect: (url: string) => void
-  selectedIndex: number
   askAIEventGroupId: React.MutableRefObject<string>
   aiCouldNotAnswer: boolean
   setAICouldNotAnswer: (aiCouldNotAnswer: boolean) => void
-  listElementsRef: React.RefObject<Array<HTMLLIElement | null>>
 }
 
 type AISearchResultEventParams = {
@@ -50,22 +45,15 @@ type AISearchResultEventParams = {
   connectedEventId?: string
 }
 
-const MAX_REFERENCES_TO_SHOW = 5
-
 export function AskAIResults({
   query,
   version,
   debug,
   setAISearchError,
-  references,
   setReferences,
-  referencesIndexOffset,
-  referenceOnSelect,
-  selectedIndex,
   askAIEventGroupId,
   aiCouldNotAnswer,
   setAICouldNotAnswer,
-  listElementsRef,
 }: AIQueryResultsProps) {
   const router = useRouter()
   const { t } = useTranslation('search')
@@ -74,7 +62,7 @@ export function AskAIResults({
   const [responseLoading, setResponseLoading] = useState(false)
   const [announcement, setAnnouncement] = useState<string>('')
   const disclaimerRef = useRef<HTMLDivElement>(null)
-  // We cache up to 1000 queries, and expire them after 30 days
+  // Cache up to 1000 queries for 7 days.
   const { getItem, setItem } = useAISearchLocalStorageCache<{
     query: string
     message: string
@@ -85,7 +73,6 @@ export function AskAIResults({
 
   let copyUrl = ``
   if (window?.location?.href) {
-    // Get base path from current URL
     const url = new URL(window.location.href)
     copyUrl = `${url.origin}/?search-overlay-open=true&search-overlay-ask-ai=true&search-overlay-input=${encodeURIComponent(query)}`
   }
@@ -99,6 +86,7 @@ export function AskAIResults({
     passedConversationId?: string,
     statusCode = 400,
     uiMessage = t('search.ai.responses.unable_to_answer'),
+    shouldCache = true,
   ) => {
     setInitialLoading(false)
     setResponseLoading(false)
@@ -114,23 +102,24 @@ export function AskAIResults({
     setMessage(uiMessage)
     setAnnouncement(uiMessage)
     setReferences([])
-    setItem(
-      query,
-      {
+    if (shouldCache) {
+      setItem(
         query,
-        message: uiMessage,
-        sources: [],
-        aiCouldNotAnswer: true,
-        connectedEventId: passedConversationId || conversationId,
-      },
-      version,
-      router.locale || 'en',
-    )
+        {
+          query,
+          message: uiMessage,
+          sources: [],
+          aiCouldNotAnswer: true,
+          connectedEventId: passedConversationId || conversationId,
+        },
+        version,
+        router.locale || 'en',
+      )
+    }
   }
 
-  // On query change, fetch the new results
   useEffect(() => {
-    // If we open this window directly (like from a URL), we need to generate a new event group ID
+    // A direct URL open has no prior Ask AI event group, so create one before reporting.
     if (!askAIEventGroupId.current) {
       askAIEventGroupId.current = uuidv4()
     }
@@ -144,7 +133,11 @@ export function AskAIResults({
     disclaimerRef.current?.focus()
 
     const cachedData = getItem(query, version, router.locale || 'en')
-    if (cachedData) {
+    // Skip stored rate limit responses so the user can retry as the message asks.
+    const isCachedRateLimit =
+      cachedData?.aiCouldNotAnswer &&
+      cachedData.message === t('search.ai.responses.asked_too_many_times')
+    if (cachedData && !isCachedRateLimit) {
       setMessage(cachedData.message)
       setReferences(cachedData.sources)
       setConversationId(cachedData.connectedEventId || '')
@@ -167,24 +160,28 @@ export function AskAIResults({
       return
     }
 
-    // Handler for streamed response from GPT
     async function fetchData() {
       let messageBuffer = ''
       let sourcesBuffer: AIReference[] = []
       let conversationIdBuffer = ''
+      // Errored or dropped streams leave a truncated answer that must not be cached as complete.
+      let streamSucceeded = false
 
       try {
         const response = await executeAISearch(version, query, debug)
+        // Parent overlay state is shared, so a stale request must not touch it after unmount.
+        if (isCancelled) return
         if (!response.ok) {
-          // If there is JSON and the `upstreamStatus` key, the error is from the upstream sever (CSE)
+          // Classified non-OK responses include upstreamStatus from the proxy or upstream.
           let responseJson
           try {
             responseJson = await response.json()
           } catch (error) {
             console.error('Failed to parse JSON:', error)
           }
+          if (isCancelled) return
           const upstreamStatus = responseJson?.upstreamStatus
-          // If there is no upstream status, the error is either on our end or a 500 from CSE, so we can show the error
+          // Missing upstreamStatus leaves this as an unclassified non-OK response.
           if (!upstreamStatus) {
             console.error(
               `Failed to fetch search results.\nStatus ${response.status}\n${response.statusText}`,
@@ -197,10 +194,10 @@ export function AskAIResults({
               status: response.status,
             })
             return setAISearchError()
-            // Query invalid - either sensitive question or spam
+            // Treat filtered or invalid queries as cannot-answer responses.
           } else if (upstreamStatus === 400 || upstreamStatus === 422) {
             return handleAICannotAnswer('', upstreamStatus, t('search.ai.responses.invalid_query'))
-            // Query too large
+            // Treat oversized queries as cannot-answer responses.
           } else if (upstreamStatus === 413) {
             return handleAICannotAnswer(
               '',
@@ -208,10 +205,12 @@ export function AskAIResults({
               t('search.ai.responses.query_too_large'),
             )
           } else if (upstreamStatus === 429) {
+            // Rate limits clear in minutes, so a cached copy would block the retry the message asks for.
             return handleAICannotAnswer(
               '',
               upstreamStatus,
               t('search.ai.responses.asked_too_many_times'),
+              false,
             )
           }
         } else {
@@ -232,7 +231,7 @@ export function AskAIResults({
         const decoder = new TextDecoder('utf-8')
         const reader = response.body.getReader()
         let done = false
-        let leftover = '' // <= carry‑over buffer
+        let leftover = ''
         setInitialLoading(false)
 
         type ParsedLine = {
@@ -245,24 +244,24 @@ export function AskAIResults({
 
         const processLine = (parsedLine: ParsedLine) => {
           switch (parsedLine.chunkType) {
-            // A conversation ID will still be sent when a question cannot be answered
+            // The stream sends a conversation ID even when the answer is a canned response.
             case 'CONVERSATION_ID':
               conversationIdBuffer = parsedLine.conversation_id ?? ''
               setConversationId(parsedLine.conversation_id ?? '')
               break
 
             case 'NO_CONTENT_SIGNAL':
-              // Serve canned response. A question that cannot be answered was asked
+              // NO_CONTENT_SIGNAL asks the UI to show the cannot-answer response.
               handleAICannotAnswer(conversationIdBuffer, 200)
               break
 
             case 'SOURCES':
+              // Buffer until streaming ends, so rows with no DOM never join the arrow order.
               if (!isCancelled) {
                 sourcesBuffer = uniqBy(
                   sourcesBuffer.concat((parsedLine.sources ?? []) as AIReference[]),
                   'url',
                 )
-                setReferences(sourcesBuffer)
               }
               break
 
@@ -274,7 +273,7 @@ export function AskAIResults({
               break
 
             case 'INPUT_CONTENT_FILTER':
-              // Serve canned response. A spam question was asked
+              // INPUT_CONTENT_FILTER asks the UI to show the invalid-query response.
               handleAICannotAnswer(
                 conversationIdBuffer,
                 200,
@@ -283,26 +282,23 @@ export function AskAIResults({
               break
           }
 
-          if (!isCancelled) setAnnouncement('Copilot Response Loading...')
+          if (!isCancelled) setAnnouncement(t('search.ai.loading_status_message'))
         }
 
         while (!done && !isCancelled) {
           const { value, done: readerDone } = await reader.read()
+          if (isCancelled) return
           done = readerDone
 
-          // The sources JSON chunk may be sent in multiple parts, so we need to decode it with a leftover buffer so that it can be parsed all at once
-          // So when we say "incomplete" or "leftover" we mean that the JSON is not complete yet, not that the message is incomplete
+          // Buffer newline-delimited JSON until a whole record arrives; leftover means JSON.
           if (value) {
-            // 1 append this chunk's text to whatever was left over
             leftover += decoder.decode(value, { stream: true })
 
-            // 2 split on newline
             const lines = leftover.split('\n')
 
-            // 3 keep the *last* item (maybe incomplete) for next round
+            // Keep the last item for the next chunk when it is a partial JSON record.
             leftover = lines.pop() ?? ''
 
-            // 4 parse all complete lines
             for (const raw of lines) {
               if (!raw.trim()) continue
 
@@ -330,7 +326,7 @@ export function AskAIResults({
           }
         }
 
-        // 5 flush whatever remains after the stream ends
+        // Flush whatever remains after the stream ends.
         if (!isCancelled && leftover.trim()) {
           try {
             const tail = JSON.parse(leftover)
@@ -339,13 +335,14 @@ export function AskAIResults({
             console.warn('Failed to parse tail JSON:', leftover, err)
           }
         }
+        streamSucceeded = true
       } catch (error: unknown) {
         if (!isCancelled) {
           console.error('Failed to fetch search results:', error)
           setAISearchError()
         }
       } finally {
-        if (!isCancelled && messageBuffer) {
+        if (!isCancelled && streamSucceeded && messageBuffer) {
           setItem(
             query,
             {
@@ -360,6 +357,9 @@ export function AskAIResults({
           )
           setInitialLoading(false)
           setResponseLoading(false)
+          // Clear rather than announce "done": the live article is still reading the answer.
+          setAnnouncement('')
+          setReferences(sourcesBuffer)
           sendAISearchResultEvent({
             sources: sourcesBuffer,
             message: messageBuffer,
@@ -372,6 +372,8 @@ export function AskAIResults({
       }
     }
 
+    // The spinner is aria-hidden to keep the listbox valid, so loading is announced here.
+    setAnnouncement(t('search.ai.loading_status_message'))
     fetchData()
 
     return () => {
@@ -380,34 +382,37 @@ export function AskAIResults({
   }, [query])
 
   return (
-    <div id="ask-ai-result-container" role="region" className={styles.container}>
-      <ActionList.GroupHeading
-        key="ai-heading"
-        as="h3"
-        tabIndex={-1}
-        aria-label={t('search.overlay.ai_suggestions_list_aria_label')}
-      >
-        <CopilotIcon className="mr-1" />
+    <div
+      id="ask-ai-result-container"
+      role="region"
+      aria-labelledby="ask-ai-answer-heading"
+      className={styles.container}
+    >
+      {/* A real heading: the answer sits outside the listbox, where headings are allowed. */}
+      <h3 id="ask-ai-answer-heading" className={styles.answerHeading}>
         {t('search.overlay.ai_autocomplete_list_heading')}
-      </ActionList.GroupHeading>
+      </h3>
       {initialLoading ? (
-        <div className={styles.loadingContainer} role="status">
+        <div className={styles.loadingContainer} aria-hidden="true">
           <Spinner />
         </div>
       ) : (
         <article aria-busy={responseLoading} aria-live="assertive">
+          <div className={styles.answerRow}>
+            <CopilotIcon size={24} className={styles.answerGlyph} aria-hidden />
+            <UnrenderedMarkdownContent
+              className={styles.markdownBodyOverrides}
+              eventGroupKey={ASK_AI_EVENT_GROUP}
+              eventGroupId={askAIEventGroupId.current}
+            >
+              {responseLoading ? fixIncompleteMarkdown(message) : message}
+            </UnrenderedMarkdownContent>
+          </div>
           {!aiCouldNotAnswer && message !== '' ? (
             <span ref={disclaimerRef} className={styles.disclaimerText}>
-              <span dangerouslySetInnerHTML={{ __html: t('search.ai.disclaimer') }} />
+              <RenderedHTML as="span" html={t('search.ai.disclaimer')} />
             </span>
           ) : null}
-          <UnrenderedMarkdownContent
-            className={styles.markdownBodyOverrides}
-            eventGroupKey={ASK_AI_EVENT_GROUP}
-            eventGroupId={askAIEventGroupId.current}
-          >
-            {responseLoading ? fixIncompleteMarkdown(message) : message}
-          </UnrenderedMarkdownContent>
         </article>
       )}
       {!responseLoading ? (
@@ -462,50 +467,6 @@ export function AskAIResults({
             }}
           ></IconButton>
         </div>
-      ) : null}
-      {!aiCouldNotAnswer && !responseLoading && references && references.length > 0 ? (
-        <>
-          <ActionList className={styles.referencesList}>
-            <ActionList.Group data-testid="ai-references">
-              <ActionList.GroupHeading
-                as="h3"
-                aria-label={t('search.ai.references')}
-                className={styles.referencesTitle}
-              >
-                {t('search.ai.references')}
-              </ActionList.GroupHeading>
-              {references
-                .map((source, index) => {
-                  if (index >= MAX_REFERENCES_TO_SHOW) {
-                    return null
-                  }
-                  const refIndex = index + referencesIndexOffset
-                  return (
-                    <ActionList.Item
-                      key={`reference-${index}`}
-                      id={`search-option-reference-${index + referencesIndexOffset}`}
-                      tabIndex={-1}
-                      onSelect={() => {
-                        referenceOnSelect(source.url)
-                      }}
-                      active={refIndex === selectedIndex}
-                      ref={(element: HTMLLIElement | null) => {
-                        if (listElementsRef.current) {
-                          listElementsRef.current[refIndex] = element
-                        }
-                      }}
-                    >
-                      <ActionList.LeadingVisual aria-hidden="true">
-                        <FileIcon />
-                      </ActionList.LeadingVisual>
-                      {source.title}
-                    </ActionList.Item>
-                  )
-                })
-                .filter(Boolean)}
-            </ActionList.Group>
-          </ActionList>
-        </>
       ) : null}
       <div aria-live="assertive" className={styles.displayForScreenReader}>
         {announcement}

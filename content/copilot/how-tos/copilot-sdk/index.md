@@ -11,7 +11,6 @@ contentType: how-tos
 children:
   - /auth
   - /features
-  - /getting-started
   - /hooks
   - /integrations
   - /observability

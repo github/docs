@@ -12,16 +12,125 @@ interface AppsConfig {
   pages: Record<string, unknown>
 }
 
-// Per-page apps data shapes vary (enabled lists, permissions, etc.), so callers
-// are expected to provide the concrete shape via the generic parameter.
+// Apps data shapes vary by page, so callers narrow this through the generic
+// parameter on getAppsData.
 type AppsData = Record<string, unknown>
+
+// A shared pool entry contains one operation or permission object.
+type SharedAppsEntry = Record<string, unknown>
+
+// Permission pages map each permission name to metadata and shared-entry indices.
+interface PermissionsPageIndex {
+  [permName: string]: {
+    title: string
+    displayTitle: string
+    indices: number[]
+  }
+}
+
+// REST pages map each category to shared-entry indices.
+interface RestPageIndex {
+  [category: string]: number[]
+}
+
+type AppsPageIndex = PermissionsPageIndex | RestPageIndex
+
+// version-index.json maps each OpenAPI version and page type to a page index.
+type AppsVersionIndex = Record<string, Record<string, AppsPageIndex>>
 
 const logger = createLogger(import.meta.url)
 const ENABLED_APPS_DIR = 'src/github-apps/data'
 const githubAppsData = new Map<string, Map<string, AppsData>>()
 
-// Initialize the Map with the page type keys listed under `pages`
-// in the config.json file.
+// Shared dedup data, loaded once and shared across all versions.
+let sharedEntries: SharedAppsEntry[] | null = null
+let sharedVersionIndex: AppsVersionIndex | null = null
+let sharedFormatAvailable: boolean | null = null
+
+// A missing shared-format file is expected because per-version files are the fallback.
+// Corrupt or unparseable files fail loudly instead of hiding bad generated data.
+function isFileNotFoundError(err: unknown): boolean {
+  if (!(err instanceof Error) || !('code' in err)) return false
+  const code = (err as NodeJS.ErrnoException).code
+  return code === 'ENOENT' || code === 'ENOTDIR'
+}
+
+function loadSharedAppsFormat(): boolean {
+  if (sharedFormatAvailable !== null) return sharedFormatAvailable
+  try {
+    sharedEntries = readCompressedJsonFileFallback(
+      path.join(ENABLED_APPS_DIR, 'shared', 'entries.json'),
+    ) as SharedAppsEntry[]
+    sharedVersionIndex = readCompressedJsonFileFallback(
+      path.join(ENABLED_APPS_DIR, 'version-index.json'),
+    ) as AppsVersionIndex
+    // Freeze pool entries so downstream mutations cannot leak through shared version objects.
+    Object.freeze(sharedEntries)
+    for (const entry of sharedEntries) Object.freeze(entry)
+    sharedFormatAvailable = true
+  } catch (err) {
+    if (isFileNotFoundError(err)) {
+      // Shared files don't exist, so fall back to per-version files silently.
+      sharedFormatAvailable = false
+    } else {
+      // Corrupt JSON, schema mismatch, and so on. Surface it instead of hiding it.
+      logger.error('Failed to load shared GitHub Apps dedup format (corrupt data?)', {
+        error: err instanceof Error ? err : new Error(String(err)),
+      })
+      throw err
+    }
+  }
+  return sharedFormatAvailable
+}
+
+// Resolve a pool index and report stale or corrupt version-index.json pointers.
+function resolveSharedEntry(
+  idx: number,
+  pageType: string,
+  openApiVersion: string,
+): SharedAppsEntry {
+  if (idx < 0 || idx >= sharedEntries!.length) {
+    throw new RangeError(
+      `GitHub Apps version-index references entry ${idx} for ${openApiVersion}/${pageType}, ` +
+        `but the entries pool only has ${sharedEntries!.length} entries. ` +
+        `The shared dedup data may be stale or corrupt.`,
+    )
+  }
+  return sharedEntries![idx]
+}
+
+function reconstructAppsFromSharedFormat(
+  pageType: string,
+  openApiVersion: string,
+): AppsData | null {
+  if (!loadSharedAppsFormat()) return null
+  const versionData = sharedVersionIndex?.[openApiVersion]
+  if (!versionData) return null
+  const pageData = versionData[pageType]
+  if (!pageData) return null
+
+  const isPermissions = pageType.includes('permissions')
+
+  if (isPermissions) {
+    const result: Record<string, { title: string; displayTitle: string; permissions: unknown[] }> =
+      {}
+    for (const [permName, meta] of Object.entries(pageData as PermissionsPageIndex)) {
+      result[permName] = {
+        title: meta.title,
+        displayTitle: meta.displayTitle,
+        permissions: meta.indices.map((idx) => resolveSharedEntry(idx, pageType, openApiVersion)),
+      }
+    }
+    return result
+  } else {
+    const result: Record<string, unknown[]> = {}
+    for (const [category, indices] of Object.entries(pageData as RestPageIndex)) {
+      result[category] = indices.map((idx) => resolveSharedEntry(idx, pageType, openApiVersion))
+    }
+    return result
+  }
+}
+
 const appsDataConfig: AppsConfig = JSON.parse(
   fs.readFileSync('src/github-apps/lib/config.json', 'utf8'),
 )
@@ -40,11 +149,14 @@ export async function getAppsData<T extends AppsData = AppsData>(
   const filename = `${pageType}.json`
   const openApiVersion = getOpenApiVersion(docsVersion) + (apiVersion ? `-${apiVersion}` : '')
   if (!pageTypeMap.has(openApiVersion)) {
-    // The `readCompressedJsonFileFallback()` function
-    // will check for both a .br and .json extension.
-    const appDataPath = path.join(ENABLED_APPS_DIR, openApiVersion, filename)
-    const data = readCompressedJsonFileFallback(appDataPath) as AppsData
-    pageTypeMap.set(openApiVersion, data)
+    const data = reconstructAppsFromSharedFormat(pageType, openApiVersion)
+    if (data) {
+      pageTypeMap.set(openApiVersion, data)
+    } else {
+      // Fall back to per-version .br or .json files when shared data is unavailable.
+      const appDataPath = path.join(ENABLED_APPS_DIR, openApiVersion, filename)
+      pageTypeMap.set(openApiVersion, readCompressedJsonFileFallback(appDataPath) as AppsData)
+    }
   }
 
   return pageTypeMap.get(openApiVersion)! as T
@@ -73,14 +185,11 @@ export async function getAppsServerSideProps(
     : allVersions[currentVersion].latestApiVersion
 
   const appsItems: AppsData = await getAppsData(pageType, currentVersion, apiVersion)
-  // Create minitoc
   const { miniTocItems } = getAutomatedPageContextFromRequest(req)
   const titles: string[] = useDisplayTitle
     ? Object.values(appsItems).map((item) => (item as AppsItemWithDisplayTitle).displayTitle!)
     : Object.keys(appsItems)
-  // Note: getAutomatedPageMiniTocItems expects a `Context`, but this code path
-  // historically passed Next.js's GetServerSidePropsContext at runtime. Keep
-  // that runtime behavior but document the divergence via the assertion below.
+  // This path passes GetServerSidePropsContext where getAutomatedPageMiniTocItems expects Context.
   const appMiniToc = await getAutomatedPageMiniTocItems(titles, context as unknown as Context)
   if (appMiniToc) {
     miniTocItems.push(...appMiniToc)

@@ -2,6 +2,7 @@ import { slug } from 'github-slugger'
 
 import { HeadingLink } from '@/frame/components/article/HeadingLink'
 import { useTranslation } from '@/languages/components/useTranslation'
+import { normalizeReferenceLink } from '@/audit-logs/lib/reference-links'
 import type { AuditLogEventT } from '../types'
 
 import styles from './GroupedEvents.module.scss'
@@ -25,9 +26,18 @@ export default function GroupedEvents({ auditLogEvents, category, categoryNote }
       .split(/[,\s]+/)
       .map((link) => link.trim())
       .filter((link) => link && link !== 'N/A')
-      .map((link) => (link.startsWith('/') ? link : `/${link}`))
+      .map(normalizeReferenceLink)
 
-    const titles = event.docs_reference_titles ? event.docs_reference_titles.split(', ') : links
+    // Older generated data joins titles with ', ', and titles can contain ', ',
+    // so a single link keeps its whole title.
+    const storedTitles = event.docs_reference_titles
+    const titles = Array.isArray(storedTitles)
+      ? storedTitles
+      : !storedTitles
+        ? links
+        : links.length === 1
+          ? [storedTitles]
+          : storedTitles.split(', ')
 
     return links.map((link, index) => (
       <span key={link}>
@@ -50,7 +60,7 @@ export default function GroupedEvents({ auditLogEvents, category, categoryNote }
       <div>
         {auditLogEvents.map((event) => (
           <div key={event.action} className={styles.eventItem}>
-            <dl>
+            <dl role="none">
               <dt className={styles.eventAction}>
                 <code>{event.action}</code>
               </dt>

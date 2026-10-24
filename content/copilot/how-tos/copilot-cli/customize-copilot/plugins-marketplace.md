@@ -44,7 +44,7 @@ You have created one or more plugins that you want to share. See [AUTOTITLE](/co
 
    {% data reusables.copilot.copilot-cli.cli-path-to-plugins %}
 
-   For details of the full set of fields you can include in this file, see [AUTOTITLE](/copilot/reference/cli-plugin-reference#marketplacejson).
+   For details of the full set of fields you can include in this file, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-plugin-reference#marketplacejson).
 
 1. Add the `marketplace.json` file to the `.github/plugin` directory of a repository.
 
@@ -63,4 +63,4 @@ You have created one or more plugins that you want to share. See [AUTOTITLE](/co
 ## Further reading
 
 * [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/plugins-finding-installing)
-* [AUTOTITLE](/copilot/reference/cli-plugin-reference)
+* [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-plugin-reference)

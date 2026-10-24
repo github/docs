@@ -21,6 +21,6 @@ category:
 
 {% data reusables.actions.azure-vnet-network-configuration-intro %}
 
-For more information about using {% data variables.product.company_short %}-hosted runners with an Azure VNET, see [AUTOTITLE](/admin/configuration/configuring-private-networking-for-hosted-compute-products/about-azure-private-networking-for-github-hosted-runners-in-your-enterprise).
+For more information about using {% data variables.product.company_short %}-hosted runners with an Azure VNET, see [AUTOTITLE](/admin/configuring-settings/configuring-private-networking-for-hosted-compute-products/about-azure-private-networking-for-github-hosted-runners-in-your-enterprise).
 
 {% data reusables.actions.azure-vnet-next-steps-links %}

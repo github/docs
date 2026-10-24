@@ -7,19 +7,22 @@
         "type": "string",
         "name": "after",
         "description": "",
-        "isRequired": true
+        "isRequired": true,
+        "childParamsGroups": []
       },
       {
         "type": "string",
         "name": "before",
         "description": "",
-        "isRequired": true
+        "isRequired": true,
+        "childParamsGroups": []
       },
       {
         "type": "string",
         "name": "cache_location",
         "description": "",
-        "isRequired": true
+        "isRequired": true,
+        "childParamsGroups": []
       },
       {
         "type": "object",
@@ -43,7 +46,8 @@
         "type": "string",
         "name": "ref",
         "description": "",
-        "isRequired": true
+        "isRequired": true,
+        "childParamsGroups": []
       },
       {
         "type": "object",

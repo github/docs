@@ -6,11 +6,9 @@ import { Lead } from '@/frame/components/ui/Lead'
 import { PermissionsStatement } from '@/frame/components/ui/PermissionsStatement'
 import { ArticleGridLayout } from '@/frame/components/article/ArticleGridLayout'
 import { ArticleInlineLayout } from '@/frame/components/article/ArticleInlineLayout'
-import { MiniTocs } from '@/frame/components/ui/MiniTocs'
+import { MiniTocs, UpNext } from '@/frame/components/ui/MiniTocs'
 import { useAutomatedPageContext } from '@/automated-pipelines/components/AutomatedPageContext'
-import { ClientSideHighlight } from '@/frame/components/ClientSideHighlight'
-import { Breadcrumbs } from '@/frame/components/page-header/Breadcrumbs'
-import { JourneyTrackCard, JourneyTrackNav } from '@/journeys/components'
+import { JourneyTrackNav } from '@/journeys/components'
 
 type Props = {
   children?: React.ReactNode
@@ -23,6 +21,7 @@ export const AutomatedPage = ({ children, rawChildren, fullWidth }: Props) => {
     title,
     intro,
     renderedPage,
+    renderedPageHast,
     miniTocItems,
     product,
     permissions,
@@ -34,7 +33,11 @@ export const AutomatedPage = ({ children, rawChildren, fullWidth }: Props) => {
 
   const articleContents = (
     <div id="article-contents">
-      {renderedPage && <MarkdownContent className="pt-3 pb-4">{renderedPage}</MarkdownContent>}
+      {(renderedPage || renderedPageHast) && (
+        <MarkdownContent className="pt-3 pb-4" hast={renderedPageHast ?? undefined}>
+          {renderedPage}
+        </MarkdownContent>
+      )}
       {children && <MarkdownContent className="pt-3 pb-4">{children}</MarkdownContent>}
       {rawChildren && <div className="pt-3 pb-4">{rawChildren}</div>}
     </div>
@@ -53,55 +56,44 @@ export const AutomatedPage = ({ children, rawChildren, fullWidth }: Props) => {
 
   const toc = hasTocContent ? (
     <>
-      {isJourneyTrack && <JourneyTrackCard journey={currentJourneyTrack} />}
       {miniTocItems.length > 1 && <MiniTocs miniTocItems={miniTocItems} />}
+      {isJourneyTrack && currentJourneyTrack && <UpNext journey={currentJourneyTrack} />}
     </>
   ) : undefined
 
   return (
-    <DefaultLayout>
-      <ClientSideHighlight />
-
+    <DefaultLayout hasDrawer={currentLayout !== 'inline'}>
       {currentLayout === 'inline' ? (
         <>
-          <ArticleInlineLayout
-            topper={<ArticleTitle>{title}</ArticleTitle>}
-            intro={introProp}
-            toc={toc}
-            breadcrumbs={<Breadcrumbs />}
-          >
+          <ArticleInlineLayout topper={<ArticleTitle>{title}</ArticleTitle>} intro={introProp}>
             {articleContents}
           </ArticleInlineLayout>
           {isJourneyTrack ? (
-            <div className="container-lg mt-4 px-3">
+            <div className="width-full mt-4">
               <JourneyTrackNav context={currentJourneyTrack} />
             </div>
           ) : null}
         </>
       ) : (
-        <div className="container-xl px-3 px-md-6 my-4">
-          <ArticleGridLayout
-            fullWidth={fullWidth}
-            topper={
-              <>
-                <div className="d-none d-xl-block my-3 mr-auto width-full">
-                  <Breadcrumbs />
-                </div>
-                <ArticleTitle>{title}</ArticleTitle>
-              </>
-            }
-            intro={introProp}
-            toc={toc}
-          >
-            {articleContents}
-          </ArticleGridLayout>
+        <>
+          <div className="px-3 px-md-6 my-4">
+            <ArticleGridLayout
+              fullWidth={fullWidth}
+              topper={<ArticleTitle>{title}</ArticleTitle>}
+              tocBreakpoint="xxl"
+              intro={introProp}
+              toc={toc}
+            >
+              {articleContents}
+            </ArticleGridLayout>
+          </div>
 
           {isJourneyTrack ? (
-            <div className="container-lg mt-4 px-3">
+            <div className="width-full mt-4">
               <JourneyTrackNav context={currentJourneyTrack} />
             </div>
           ) : null}
-        </div>
+        </>
       )}
     </DefaultLayout>
   )

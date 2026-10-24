@@ -2,7 +2,7 @@
 
 The `/content` directory is where all the site's (English) Markdown content lives!
 
-See the [markup reference guide](https://docs.github.com/en/contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-in-github-docs) for more information about supported Markdown features.
+See the [markup reference guide](https://docs.github.com/en/contributing/writing-for-github-docs/using-markdown-and-liquid-in-github-docs) for more information about supported Markdown features.
 
 See the [contributing docs](https://docs.github.com/en/contributing) for general information about working with the docs.
 
@@ -385,7 +385,7 @@ and when viewed on GitHub Enterprise Server docs, the version is included as wel
 
 ### Using AUTOTITLE for internal links
 
-If you create an internal link, you can use the AUTOTITLE keyword to generate an article's title in the rendered link. See the [markup reference](https://docs.github.com/en/contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-in-github-docs#internal-links-with-autotitle) for details.
+If you create an internal link, you can use the AUTOTITLE keyword to generate an article's title in the rendered link. See the [markup reference](https://docs.github.com/en/contributing/writing-for-github-docs/using-markdown-and-liquid-in-github-docs#internal-links-with-autotitle) for details.
 
 ### Linking to the current article in a different version of the docs
 

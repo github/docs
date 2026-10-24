@@ -37,7 +37,7 @@ Things you may want to add to your profile README include:
 * **Some of your best projects**: Describe some projects you're proud of. You'll also pin these repositories later, but your README gives you a chance to provide more commentary.
 * **Achievements or awards**: Show off any of your achievements, including certifications or awards you've received for your work.
 
-To create your profile README, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/managing-your-profile-readme#adding-a-profile-readme).
+To create your profile README, see [AUTOTITLE](/account-and-profile/how-tos/profile-customization/managing-your-profile-readme#adding-a-profile-readme).
 
 > [!TIP] Look for ways to show off your coding skills within your profile README. For example, [@new2code](https://github.com/new2code) demonstrates knowledge of {% data variables.product.prodname_actions %} and Python scripts by automating daily updates to the [Countdown to GitHub Universe](https://github.com/new2code#countdown-to-github-universe) section.
 
@@ -47,7 +47,7 @@ Pick 3-5 projects to highlight by "pinning" them on your profile. Repositories y
 
 For the best chances at an interview, pick projects that show your diverse skills and are relevant to your specific job search. If possible, pin some projects you created and some that you contributed to:
 
-* Projects you own are fully under your control, so you can improve them using of the steps below.
+*Projects you own are fully under your control, so you can improve them using the steps below.
 * Open source projects highlight your ability to collaborate with others.
 
 To pin the repositories, click **Customize your pins** in the "Popular repositories" section of your profile.
@@ -99,7 +99,7 @@ For example, {% data variables.product.prodname_copilot_short %} wrote the comme
 
 If your project has any dependencies, you can showcase your understanding of security best practices by ensuring you're using the **latest versions**.
 
-You can automate this process with {% data variables.product.prodname_dependabot %}, which generates pull requests that update your project to new versions as they become available. See [AUTOTITLE](/code-security/getting-started/dependabot-quickstart-guide).
+You can automate this process with {% data variables.product.prodname_dependabot %}, which generates pull requests that update your project to new versions as they become available. See [AUTOTITLE](/code-security/tutorials/secure-your-dependencies/dependabot-quickstart).
 
 ## Step 5: Share your results
 
@@ -109,4 +109,4 @@ Share your updated profile and get inspiration from others in our [Community dis
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/copilot-chat-cookbook/refactoring-code/improving-code-readability-and-maintainability)
+* [AUTOTITLE](/copilot/tutorials/copilot-cookbook/refactor-code/improve-code-readability)

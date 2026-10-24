@@ -45,8 +45,8 @@ To allow a user to create codespaces for a repository owned by your organization
 {% ifversion ghec %}
 
 Additionally, ensure that:
-* Your enterprise does not use OIDC with CAP. For more information, see [AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-support-for-your-idps-conditional-access-policy).
-* Your organization does not have an IP address allow list enabled. For more information, see [Managing allowed IP addresses for your organization](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization).
+* Your enterprise does not use OIDC with CAP. For more information, see [AUTOTITLE](/admin/managing-iam/configuring-authentication-for-enterprise-managed-users/about-support-for-your-idps-conditional-access-policy).
+* Your organization does not have an IP address allow list enabled. For more information, see [Managing allowed IP addresses for your organization](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-allowed-ip-addresses-for-your-organization).
 
 {% endif %}
 

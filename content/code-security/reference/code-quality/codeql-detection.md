@@ -12,8 +12,6 @@ category:
   - Improve code quality
 ---
 
-{% data reusables.code-quality.code-quality-preview-note %}
-
 ## {% data variables.product.prodname_codeql %}-powered analysis
 
 {% data variables.product.prodname_code_quality_short %} uses {% data variables.product.prodname_codeql %} to perform rule-based analysis of pull requests and your default branch.
@@ -30,27 +28,29 @@ Each {% data variables.product.prodname_code_quality_short %} rule is written as
 
 The rules are continually refined by both {% data variables.product.github %} and open source developers.
 
-* [AUTOTITLE](/code-security/code-quality/reference/codeql-queries/csharp-queries)
-* [AUTOTITLE](/code-security/code-quality/reference/codeql-queries/go-queries)
-* [AUTOTITLE](/code-security/code-quality/reference/codeql-queries/java-queries)
-* [AUTOTITLE](/code-security/code-quality/reference/codeql-queries/javascript-queries)
-* [AUTOTITLE](/code-security/code-quality/reference/codeql-queries/python-queries)
-* [AUTOTITLE](/code-security/code-quality/reference/codeql-queries/ruby-queries)
+* [AUTOTITLE](/code-security/reference/code-quality/codeql-queries/csharp-queries)
+* [AUTOTITLE](/code-security/reference/code-quality/codeql-queries/go-queries)
+* [AUTOTITLE](/code-security/reference/code-quality/codeql-queries/java-queries)
+* [AUTOTITLE](/code-security/reference/code-quality/codeql-queries/javascript-queries)
+* [AUTOTITLE](/code-security/reference/code-quality/codeql-queries/python-queries)
+* [AUTOTITLE](/code-security/reference/code-quality/codeql-queries/ruby-queries)
 
-For more information about the {% data variables.product.prodname_codeql %} project, see [https://codeql.github.com/](https://codeql.github.com/).
+For more information about the {% data variables.product.prodname_codeql %} project, see [https://codeql.github.com/](https://codeql.github.com).
 
 ## Workflow used for code quality analysis
 
-You can see all the workflow runs for {% data variables.product.prodname_code_quality_short %} on the **Actions** tab for your repository. The dynamic workflow is called "{% data variables.code-quality.workflow_name_actions %}".
+Each {% data variables.product.prodname_codeql %} analysis will use {% data variables.product.prodname_actions %} minutes. You can see all workflow runs for {% data variables.product.prodname_code_quality_short %} on the repository's **Actions** tab. 
 
-By default, the {% data variables.code-quality.workflow_name_actions %} workflow runs on standard {% data variables.product.github %} runners but you can configure {% data variables.product.prodname_code_quality_short %} to use runners with a specific label. These may be hosted by {% data variables.product.github %} or self-hosted.
+{% data variables.product.prodname_code_quality_short %} and {% data variables.product.prodname_code_scanning %} runs both use the workflow name {% data variables.product.prodname_codeql %}. You can identify {% data variables.product.prodname_code_quality_short %} runs by the actor `{% data variables.code-quality.workflow_actor %}` or by their run name, for example, "{% data variables.product.prodname_code_quality_short %}: push on main."
+
+By default, the {% data variables.product.prodname_code_quality_short %} workflow runs on standard {% data variables.product.github %} runners but you can configure {% data variables.product.prodname_code_quality_short %} to use runners with a specific label. These may be hosted by {% data variables.product.github %} or self-hosted.
 
 If your organization has configured caching of private registries, these will be available for code quality analysis to use to resolve dependencies.
 
 For more information, see:
 
-* [AUTOTITLE](/code-security/code-quality/how-tos/enable-code-quality)
-* [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/giving-org-access-private-registries#code-quality-access-to-private-registries)
+* [AUTOTITLE](/code-security/how-tos/maintain-quality-code/enable-code-quality)
+* [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/manage-usage-and-access/giving-org-access-private-registries#code-quality-access-to-private-registries)
 
 ## Pull request status checks
 
@@ -64,4 +64,4 @@ The workflow failed to run. For example, your budget for actions minutes is exha
 
 ### Merging is blocked: Code quality findings were detected
 
-The scan found problems in the code that exceed the quality gate set by a code quality branch rule for the repository. You need to resolve these problems before you can merge the pull request. See [AUTOTITLE](/code-security/code-quality/how-tos/unblock-your-pr).
+The scan found problems in the code that exceed the quality gate set by a code quality branch rule for the repository. You need to resolve these problems before you can merge the pull request. See [AUTOTITLE](/code-security/how-tos/maintain-quality-code/unblock-your-pr).

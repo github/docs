@@ -25,19 +25,19 @@ category:
   
    After removal, you can re-add this email without verifying to keep any associated commits linked to your account.
   
-   For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/changing-your-primary-email-address).
+   For more information, see [AUTOTITLE](/account-and-profile/how-tos/email-preferences/changing-your-primary-email-address).
 
 1. Change your primary email address from your company email to your personal email.
   
-   For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/changing-your-primary-email-address).
+   For more information, see [AUTOTITLE](/account-and-profile/how-tos/email-preferences/changing-your-primary-email-address).
 
 1. Verify your new primary email address.
   
-   For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address).
+   For more information, see [AUTOTITLE](/account-and-profile/how-tos/email-preferences/verifying-your-email-address).
 
 1. Update your {% data variables.product.github %} username if it contains references to your company or organization.
   
-   For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/changing-your-github-username).
+   For more information, see [AUTOTITLE](/account-and-profile/concepts/username-changes).
 
 1. Review and update your two-factor authentication (2FA) methods to ensure they aren't linked to company resources:
 
@@ -58,13 +58,13 @@ category:
 
 1. Remove yourself from the organization.
   
-   For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/removing-yourself-from-an-organization).
+   For more information, see [AUTOTITLE](/account-and-profile/how-tos/organization-membership/removing-yourself-from-an-organization).
 
 ## Clean up professional repository associations
 
 1. Remove yourself as a collaborator from repositories owned by others.
   
-   For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/removing-yourself-from-a-collaborators-repository).
+   For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/repository-access-and-collaboration/removing-yourself-from-a-collaborators-repository).
 
 1. Stop watching work-related repositories to avoid unnecessary notifications.
   

@@ -21,7 +21,7 @@ This guide demonstrates how to use {% data variables.product.prodname_projects_v
 
 You can either create an organization project or a user project. To create an organization project, you need a {% data variables.product.prodname_dotcom %} organization. For more information about creating an organization, see [AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch).
 
-In this guide, you will add issues from repositories owned by your organization (for organization projects) or by you (for user projects) to your new project. For more information about creating issues, see [AUTOTITLE](/issues/tracking-your-work-with-issues/creating-an-issue).
+In this guide, you will add issues from repositories owned by your organization (for organization projects) or by you (for user projects) to your new project. For more information about creating issues, see [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/creating-an-issue).
 
 ## Creating a project
 
@@ -110,7 +110,7 @@ Select visible fields for your view to communicate the priority and progress of 
 
    ![Screenshot of a project. The "Add field" button, indicated by a plus icon, is highlighted with an orange outline.](/assets/images/help/projects-v2/new-field-button.png)
 
-1. Under "Hidden fields," click {% ifversion issue-types %}**Type**, {% endif %}**Status**, {% ifversion sub-issues %}**Sub-issues progress**, {% endif %}**Assignees**, **Linked pull requests**, **Priority**, and **Estimate**.
+1. Under "Hidden fields," click **Type**, **Status**, **Sub-issues progress**, **Assignees**, **Linked pull requests**, **Priority**, and **Estimate**.
 
 Next, group all of the items in your project by priority to make it easier to focus on the high priority items.
 

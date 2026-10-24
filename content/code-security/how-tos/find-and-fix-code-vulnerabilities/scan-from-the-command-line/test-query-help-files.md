@@ -42,4 +42,4 @@ category:
 ## Further reading
 
 * [Query help files](https://codeql.github.com/docs/writing-codeql-queries/query-help-files/#query-help-files)
-* [AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/generate-query-help)
+* [AUTOTITLE](/code-security/reference/code-scanning/codeql/codeql-cli-manual/generate-query-help)

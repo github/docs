@@ -24,9 +24,9 @@ category:
 
 ## About {% data variables.product.pat_generic %}s
 
-{% data variables.product.pat_generic_caps %}s are an alternative to using passwords for authentication to {% data variables.product.github %} when using the [{% data variables.product.github %} API](/rest/overview/authenticating-to-the-rest-api) or the [command line](#using-a-personal-access-token-on-the-command-line).
+{% data variables.product.pat_generic_caps %}s are an alternative to using passwords for authentication to {% data variables.product.github %} when using the [{% data variables.product.github %} API](/rest/authentication/authenticating-to-the-rest-api) or the [command line](#using-a-personal-access-token-on-the-command-line).
 
-{% data variables.product.pat_generic_caps %}s are intended to access {% data variables.product.company_short %} resources on behalf of yourself. To access resources on behalf of an organization, or for long-lived integrations, you should use a {% data variables.product.prodname_github_app %}. For more information, see [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/about-creating-github-apps).
+{% data variables.product.pat_generic_caps %}s are intended to access {% data variables.product.company_short %} resources on behalf of yourself. To access resources on behalf of an organization, or for long-lived integrations, you should use a {% data variables.product.prodname_github_app %}. For more information, see [AUTOTITLE](/apps/creating-github-apps/about-creating-github-apps/about-creating-github-apps).
 
 {% data reusables.user-settings.token_access_capabilities %} For example, a {% data variables.product.pat_generic %} can be configured with an `admin:org` scope, but if the owner of the token is not an organization owner, the token will not give administrative access to the organization.
 
@@ -84,20 +84,20 @@ If you choose to use a {% data variables.product.pat_v1 %}, keep in mind that it
 {% data variables.product.pat_generic_caps %}s are like passwords, and they share the same inherent security risks. Before creating a new {% data variables.product.pat_generic %}, consider if there is a more secure method of authentication available to you:
 
 * To access {% data variables.product.company_short %} from the command line, you can use [{% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli) or [Git Credential Manager](https://github.com/GitCredentialManager/git-credential-manager/blob/main/README.md) instead of creating a {% data variables.product.pat_generic %}.
-* When using a {% data variables.product.pat_generic %} in a {% data variables.product.prodname_actions %} workflow, consider whether you can use the built-in `GITHUB_TOKEN` instead. For more information, see [AUTOTITLE](/actions/security-guides/automatic-token-authentication).
+* When using a {% data variables.product.pat_generic %} in a {% data variables.product.prodname_actions %} workflow, consider whether you can use the built-in `GITHUB_TOKEN` instead. For more information, see [AUTOTITLE](/actions/tutorials/authenticate-with-github_token).
 
 If these options are not possible, and you must create a {% data variables.product.pat_generic %}, consider using another CLI service to store your token securely.
 
-When using a {% data variables.product.pat_generic %} in a script, you can store your token as a secret and run your script through {% data variables.product.prodname_actions %}. For more information, see [AUTOTITLE](/actions/security-guides/encrypted-secrets).{%- ifversion ghec or fpt %} You can also store your token as a {% data variables.product.prodname_codespaces %} secret and run your script in {% data variables.product.prodname_codespaces %}. For more information, see [AUTOTITLE](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces).{% endif %}
+When using a {% data variables.product.pat_generic %} in a script, you can store your token as a secret and run your script through {% data variables.product.prodname_actions %}. For more information, see [AUTOTITLE](/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets).{%- ifversion ghec or fpt %} You can also store your token as a {% data variables.product.prodname_codespaces %} secret and run your script in {% data variables.product.prodname_codespaces %}. For more information, see [AUTOTITLE](/codespaces/managing-your-codespaces/managing-your-account-specific-secrets-for-github-codespaces).{% endif %}
 
-For more information about best practices, see [AUTOTITLE](/rest/overview/keeping-your-api-credentials-secure).
+For more information about best practices, see [AUTOTITLE](/rest/authentication/keeping-your-api-credentials-secure).
 
 ## Creating a {% data variables.product.pat_v2 %}
 
 > [!NOTE]
 > There is a limit of 50 {% data variables.product.pat_v2_plural %} you can create. If you require more tokens or are building automations, consider using a {% data variables.product.prodname_github_app %} for better scalability and management. For more information, see [AUTOTITLE](/apps/creating-github-apps/about-creating-github-apps/deciding-when-to-build-a-github-app#choosing-between-a-github-app-or-a-personal-access-token).
 
-{% ifversion fpt or ghec %}1. [Verify your email address](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address), if it hasn't been verified yet.{% endif %}
+{% ifversion fpt or ghec %}1. [Verify your email address](/account-and-profile/how-tos/email-preferences/verifying-your-email-address), if it hasn't been verified yet.{% endif %}
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
 1. In the left sidebar, under **{% octicon "key" aria-hidden="true" aria-label="key" %} {% data variables.product.pat_generic_caps %}s**, click **Fine-grained tokens**.
@@ -111,7 +111,7 @@ For more information about best practices, see [AUTOTITLE](/rest/overview/keepin
 1. If you selected **Only select repositories** in the previous step, under the **Selected repositories** dropdown, select the repositories that you want the token to access.
 1. Under **Permissions**, select which permissions to grant the token. Depending on which resource owner and which repository access you specified, there are repository, organization, and account permissions. You should choose the minimal permissions necessary for your needs.
 
-   The REST API reference document for each endpoint states whether the endpoint works with {% data variables.product.pat_v2 %}s and states what permissions are required in order for the token to use the endpoint. Some endpoints may require multiple permissions, and some endpoints may require one of multiple permissions. For an overview of which REST API endpoints a {% data variables.product.pat_v2 %} can access with each permission, see [AUTOTITLE](/rest/overview/permissions-required-for-fine-grained-personal-access-tokens).
+   The REST API reference document for each endpoint states whether the endpoint works with {% data variables.product.pat_v2 %}s and states what permissions are required in order for the token to use the endpoint. Some endpoints may require multiple permissions, and some endpoints may require one of multiple permissions. For an overview of which REST API endpoints a {% data variables.product.pat_v2 %} can access with each permission, see [AUTOTITLE](/rest/authentication/permissions-required-for-fine-grained-personal-access-tokens).
 
 1. Click **Generate token**.
 
@@ -142,7 +142,6 @@ Below are some example URLs that generate the tokens we see most often:
 
 * [Read repository contents](https://github.com/settings/personal-access-tokens/new?name=Repo-reading+token&description=Just+contents:read&contents=read)
 * [Push access to repositories](https://github.com/settings/personal-access-tokens/new?name=Repo-writing+token&description=Just+contents:write&contents=write)
-* [{% data variables.product.prodname_github_models %} access](https://github.com/settings/personal-access-tokens/new?name=GitHub+Models+token&description=Used%20to%20call%20GitHub%20Models%20APIs%20to%20easily%20run%20LLMs%3A%20https%3A%2F%2Fdocs.github.com%2Fgithub-models%2Fquickstart%23step-2-make-an-api-call&user_models=read)<!-- markdownlint-disable-line search-replace Custom rule -->
 * [Update code and open a pull request](https://github.com/settings/personal-access-tokens/new?name=Core-loop+token&description=Write%20code%20and%20push%20it%20to%20main%21%20Includes%20permission%20to%20edit%20workflow%20files%20for%20Actions%20-%20remove%20%60workflows%3Awrite%60%20if%20you%20don%27t%20need%20to%20do%20that&contents=write&pull_requests=write&workflows=write)
 * [Manage {% data variables.product.prodname_copilot_short %} licenses in an organization](https://github.com/settings/personal-access-tokens/new?name=Core-loop+token&description=Enable%20or%20disable%20copilot%20access%20for%20users%20with%20the%20Seat%20Management%20APIs%3A%20https%3A%2F%2Fdocs.github.com%2Frest%2Fcopilot%2Fcopilot-user-management%0ABe%20sure%20to%20select%20an%20organization%20for%20your%20resource%20owner%20below%21&organization_copilot_seat_management=write)<!-- markdownlint-disable-line search-replace Custom rule -->
 * [Make {% data variables.product.prodname_copilot_short %} requests](https://github.com/settings/personal-access-tokens/new?name=Copilot+requests+token&description=Make%20Copilot%20API%20requests%20on%20behalf%20of%20the%20user%2C%20consuming%20premium%20requests%3A%20https%3A%2F%2Fdocs.github.com%2Fcopilot%2Fconcepts%2Fbilling%2Fcopilot-requests&user_copilot_requests=read)<!-- markdownlint-disable-line search-replace Custom rule -->
@@ -199,7 +198,7 @@ Combine multiple permissions in the form `&contents=read&pull_requests=write&...
 {% ifversion copilot %}
 
 > [!NOTE]
-> The `copilot_requests` permission enables making {% data variables.product.prodname_copilot_short %} requests for the given user. These requests count towards the user's premium request allowance. Additional requests beyond the allowance incur overage billing. For more information about {% data variables.product.prodname_copilot_short %} requests and billing, see [AUTOTITLE](/copilot/concepts/billing/copilot-requests).
+> The `copilot_requests` permission enables making {% data variables.product.prodname_copilot_short %} requests for the given user. These requests count towards the user's premium request allowance. Additional requests beyond the allowance incur overage billing. For more information about {% data variables.product.prodname_copilot_short %} requests and billing, see [AUTOTITLE](/copilot/reference/copilot-billing/request-based-billing-legacy/copilot-requests).
 
 {% endif %}
 
@@ -289,7 +288,7 @@ Repository permissions work for both user and organization resource owners.
 > [!WARNING]
 > Your {% data variables.product.pat_v1 %} can access every repository that you can access. {% data variables.product.company_short %} recommends that you use {% data variables.product.pat_v2 %}s instead, which you can restrict to specific repositories. {% data variables.product.pat_v2_caps %}s also enable you to specify fine-grained permissions instead of broad scopes.
 
-{% ifversion fpt or ghec %}1. [Verify your email address](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address), if it hasn't been verified yet.{% endif %}
+{% ifversion fpt or ghec %}1. [Verify your email address](/account-and-profile/how-tos/email-preferences/verifying-your-email-address), if it hasn't been verified yet.{% endif %}
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
 1. In the left sidebar, under **{% octicon "key" aria-hidden="true" aria-label="key" %} {% data variables.product.pat_generic_caps %}s**, click **Tokens (classic)**.
@@ -301,7 +300,7 @@ Repository permissions work for both user and organization resource owners.
 1. Optionally, to copy the new token to your clipboard, click {% octicon "copy" aria-label="Copy token" %}.
 
    {% ifversion ghes %}![Screenshot of the "{% data variables.product.pat_generic_caps_plural %}" page. Next to a blurred-out token, an icon of two overlapping squares is outlined in orange.](/assets/images/help/settings/personal-access-tokens-ghes.png){% else %}![Screenshot of the "{% data variables.product.pat_generic_caps_plural %}" page. Next to a blurred-out token, an icon of two overlapping squares is outlined in orange.](/assets/images/help/settings/personal-access-tokens.png){% endif %}{% ifversion fpt or ghec %}
-1. To use your token to access resources owned by an organization that uses SAML single sign-on, authorize the token. For more information, see [AUTOTITLE](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on){% ifversion fpt %} in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}.{% endif %}{% endif %}
+1. To use your token to access resources owned by an organization that uses SAML single sign-on, authorize the token. For more information, see [AUTOTITLE](/enterprise-cloud@latest/authentication/authenticating-with-single-sign-on/authorizing-a-personal-access-token-for-use-with-single-sign-on){% ifversion fpt %} in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}.{% endif %}{% endif %}
 
 ## Deleting a {% data variables.product.pat_generic %}
 
@@ -312,7 +311,9 @@ You should delete a {% data variables.product.pat_generic %} if it is no longer 
 1. In the left sidebar, under **{% octicon "key" aria-hidden="true" aria-label="key" %} {% data variables.product.pat_generic_caps %}s**, click either **Fine-grained tokens** or **Tokens (classic)**, depending on which type of {% data variables.product.pat_generic %} you'd like to delete.
 1. To the right of the {% data variables.product.pat_generic %} you want to delete, click **Delete**.
 
-{% ifversion ghec or fpt %}> [!NOTE] If you find a leaked {% data variables.product.pat_generic %} belonging to someone else, you can submit a revocation request through the REST API. See [AUTOTITLE](/code-security/getting-started/best-practices-for-preventing-data-leaks-in-your-organization#mitigate-data-leaks).
+{% ifversion ghec or fpt %}
+> [!NOTE]
+> If you find a leaked {% data variables.product.pat_generic %} belonging to someone else, you can submit a revocation request through the REST API. See [AUTOTITLE](/code-security/tutorials/secure-your-organization/prevent-data-leaks#mitigate-data-leaks).
 {% endif %}
 
 ## Using a {% data variables.product.pat_generic %} on the command line

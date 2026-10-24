@@ -16,7 +16,7 @@ category:
 
 You can use the site admin dashboard to restore an organization that was previously deleted on {% data variables.location.product_location %}, as long as the audit log Elasticsearch indices contain the data for the `org.delete` event.
 
-Immediately after you restore an organization, the organization will not be exactly the same as it was prior to the deletion. You'll have to manually restore any repositories that were owned by the organization. For more information, see [AUTOTITLE](/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository).
+Immediately after you restore an organization, the organization will not be exactly the same as it was prior to the deletion. You'll have to manually restore any repositories that were owned by the organization. For more information, see [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-repositories-in-your-enterprise/restoring-a-deleted-repository).
 
 You can also use the audit log to help you manually re-add teams and organization members. For more information, see [Restoring members and teams](#restoring-members-and-teams).
 
@@ -31,7 +31,7 @@ You can also use the audit log to help you manually re-add teams and organizatio
 
 ## Restoring members and teams
 
-You can use the audit log to find a list of the previous members and teams of the organization, then recreate them manually. For more information about using the audit log, see [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/auditing-users-across-your-enterprise).
+You can use the audit log to find a list of the previous members and teams of the organization, then recreate them manually. For more information about using the audit log, see [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/auditing-users-across-your-enterprise).
 
 In all the search phrases below, replace ORGANIZATION with the name of the organization and TEAM with the name of the team.
 

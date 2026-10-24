@@ -31,5 +31,5 @@ To resolve the error, you can either:
 
 ## Further reading
 
-* [AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-from-the-command-line)
-* [AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-in-the-github-ui)
+* [AUTOTITLE](/code-security/how-tos/secure-your-secrets/work-with-leak-prevention/push-protection-on-the-command-line)
+* [AUTOTITLE](/code-security/how-tos/secure-your-secrets/work-with-leak-prevention/push-protection-in-the-github-ui)

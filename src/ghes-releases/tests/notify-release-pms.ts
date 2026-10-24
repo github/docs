@@ -7,8 +7,6 @@ import {
 } from '@/ghes-releases/scripts/notify-release-pms'
 import type { SourceNote } from '@/ghes-releases/scripts/notify-release-pms'
 
-// ─── parseSourceNotes ────────────────────────────────────────────────────────
-
 describe('parseSourceNotes', () => {
   test('extracts issue URLs from YAML comments', () => {
     const content = `date: '2026-04-01'
@@ -67,8 +65,6 @@ sections:
   })
 })
 
-// ─── buildMarker ─────────────────────────────────────────────────────────────
-
 describe('buildMarker', () => {
   test('produces a stable HTML comment marker for RC', () => {
     expect(buildMarker('3.21', 'rc')).toBe('<!-- ghes-release-note-review: 3.21-rc -->')
@@ -83,39 +79,28 @@ describe('buildMarker', () => {
   })
 })
 
-// ─── buildCommentBody ────────────────────────────────────────────────────────
-
 describe('buildCommentBody', () => {
   test('includes the marker in the comment body', () => {
-    const body = buildCommentBody(
-      '3.21',
-      true,
-      100,
-      'data/release-notes/enterprise-server/3-21/0-rc1.yml',
-      '2026-05-01',
-    )
+    const body = buildCommentBody('3.21', true, 100, ['octocat'])
     const marker = buildMarker('3.21', 'rc')
     expect(body).toContain(marker)
   })
 
   test('RC and GA comments have different markers', () => {
-    const rcBody = buildCommentBody('3.21', true, 100, 'file.yml', '2026-05-01')
-    const gaBody = buildCommentBody('3.21', false, 100, 'file.yml', '2026-05-01')
+    const rcBody = buildCommentBody('3.21', true, 100, ['octocat'])
+    const gaBody = buildCommentBody('3.21', false, 100, ['octocat'])
     expect(rcBody).toContain('3.21-rc')
     expect(gaBody).toContain('3.21-ga')
   })
 
   test('includes the PR files link', () => {
-    const body = buildCommentBody('3.21', true, 12345, 'file.yml', '2026-05-01')
+    const body = buildCommentBody('3.21', true, 12345, ['octocat'])
     expect(body).toContain('https://github.com/github/docs-internal/pull/12345/files')
   })
 })
 
-// ─── Duplicate-prevention logic ──────────────────────────────────────────────
-
 describe('duplicate-prevention filtering', () => {
-  // This tests the core filtering logic used in the CLI action:
-  //   const toNotify = sourceNotes.filter((n) => !alreadyCommented.has(n.issueNumber))
+  // These tests cover duplicate filtering without running the CLI action.
 
   const sourceNotes: SourceNote[] = [
     { issueUrl: 'https://github.com/github/releases/issues/100', issueNumber: 100 },
@@ -145,21 +130,19 @@ describe('duplicate-prevention filtering', () => {
 
   test('marker is detected within a comment body', () => {
     const marker = buildMarker('3.21', 'rc')
-    const commentBody = buildCommentBody('3.21', true, 100, 'file.yml', '2026-05-01')
+    const commentBody = buildCommentBody('3.21', true, 100, ['octocat'])
 
-    // Simulates the duplicate-check logic: comments.includes(marker)
     expect(commentBody.includes(marker)).toBe(true)
   })
 
   test('GA marker is not detected in an RC comment', () => {
     const gaMarker = buildMarker('3.21', 'ga')
-    const rcCommentBody = buildCommentBody('3.21', true, 100, 'file.yml', '2026-05-01')
+    const rcCommentBody = buildCommentBody('3.21', true, 100, ['octocat'])
 
     expect(rcCommentBody.includes(gaMarker)).toBe(false)
   })
 
   test('new issues added after initial run are not excluded', () => {
-    // Simulates: ran script once for issues 100+200, then re-run after adding 300
     const alreadyCommented = new Set([100, 200])
     const updatedSourceNotes: SourceNote[] = [
       ...sourceNotes,

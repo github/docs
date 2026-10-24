@@ -7,6 +7,7 @@ shortTitle: Extend deadline
 category:
   - Create and manage assignments
 ---
+{% data reusables.classroom.closing-down-notice %}
 
 ## About extending assignment deadlines
 

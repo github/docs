@@ -1,4 +1,5 @@
 import { GetServerSideProps } from 'next'
+import type { Response } from 'express'
 import type { ExtendedRequest } from '@/types'
 import type { ServerResponse } from 'http'
 
@@ -44,16 +45,13 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   const schema = getPreviews(currentVersion) as PreviewT[]
   if (!schema) throw new Error(`No graphql preview schema found for ${currentVersion}`)
 
-  // Gets the miniTocItems in the article context. At this point it will only
-  // include miniTocItems that exist in Markdown pages in
-  // content/graphql/reference/*
+  // Start from the current page's Markdown headings, then append the generated ones.
   const automatedPageContext = getAutomatedPageContextFromRequest(req)
   const titles = schema.map((item) => item.title)
   const changelogMiniTocItems = await getAutomatedPageMiniTocItems(titles, req.context!, 2)
-  // Update the existing context to include the miniTocItems from GraphQL
   automatedPageContext.miniTocItems.push(...changelogMiniTocItems)
 
-  const mainContext = await getMainContext(req, res)
+  const mainContext = await getMainContext(req, res as unknown as Response)
   addUINamespaces(req, mainContext.data.ui, ['graphql'])
 
   return {

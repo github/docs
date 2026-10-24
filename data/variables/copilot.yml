@@ -69,6 +69,11 @@ copilot_cloud_agent_short: 'cloud agent'
 copilot_cloud_agent_short_cap_c: 'Cloud agent'
 copilot_cloud_agent_tmp: 'Copilot cloud agent (formerly Copilot coding agent)'
 
+## GitHub Agentic Workflows -> {% data variables.copilot.github_agentic_workflows %}
+github_agentic_workflows: 'GitHub Agentic Workflows'
+agentic_workflows_short: 'agentic workflows'
+agentic_workflows_short_cap: 'Agentic workflows'
+
 ## Copilot automations (powered by Copilot cloud agent)
 copilot_automations_cap: 'Automations'
 copilot_automations: 'automations'
@@ -92,6 +97,7 @@ copilot_vsc_chat_participants: 'Copilot-enabled VS Code chat participants'
 
 ## GitHub Copilot app
 github_copilot_app: 'GitHub Copilot app'
+github_copilot_app_short: 'Copilot app'
 
 ## Copilot CLI
 copilot_cli_short: 'Copilot CLI'
@@ -99,12 +105,6 @@ copilot_cli: 'GitHub Copilot CLI'
 copilot_old-cli_short: 'Copilot in the CLI'
 copilot_old-cli: 'GitHub Copilot in the CLI'
 copilot_cli_npm_version: 'Node.js 22 or later'
-
-## GitHub Sandbox
-sandbox: 'cloud and local sandboxes for GitHub Copilot'
-sandbox_caps: 'Cloud and local sandboxes for GitHub Copilot'
-sandbox_short: 'sandboxes for GitHub Copilot'
-sandbox_short_caps: 'Sandboxes for GitHub Copilot'
 
 ## Copilot custom agents
 copilot_custom_agent: 'Copilot custom agent'
@@ -174,67 +174,82 @@ copilot_spaces: 'Copilot Spaces'
 # Note: Copilot Autofix is branded as a Copilot feature but is billed using a Code security or GHAS license
 copilot_autofix: 'GitHub Copilot Autofix'
 copilot_autofix_short: 'Copilot Autofix'
+agentic_autofix: 'agentic autofix'
+agentic_autofix_caps: 'Agentic Autofix'
 
 ## Copilot Chat in GitHub: maximum number of repos that can be indexed for an org
 max-chat-indexed-repos: '50'
 
 ## LLM models for Copilot
 # Claude:
-copilot_claude: 'Claude'
-copilot_claude_haiku_45: 'Claude Haiku 4.5'
-copilot_claude_opus: 'Claude Opus 4'
-copilot_claude_opus_41: 'Claude Opus 4.1'
-copilot_claude_opus_45: 'Claude Opus 4.5'
-copilot_claude_opus_46: 'Claude Opus 4.6'
-copilot_claude_opus_46_fast: 'Claude Opus 4.6 (fast mode) (preview)'
-copilot_claude_opus_47: 'Claude Opus 4.7'
-copilot_claude_opus_48: 'Claude Opus 4.8'
-copilot_claude_sonnet: 'Claude Sonnet'
-copilot_claude_sonnet_35: 'Claude Sonnet 3.5'
-copilot_claude_sonnet_37: 'Claude Sonnet 3.7'
-copilot_claude_sonnet_40: 'Claude Sonnet 4'
-copilot_claude_sonnet_45: 'Claude Sonnet 4.5'
-copilot_claude_sonnet_46: 'Claude Sonnet 4.6'
+claude: 'Claude'
+claude_haiku_45: 'Claude Haiku 4.5'
+claude_haiku_55: 'Claude Haiku 5.5'
+claude_opus: 'Claude Opus 4'
+claude_opus_41: 'Claude Opus 4.1'
+claude_opus_45: 'Claude Opus 4.5'
+claude_opus_46: 'Claude Opus 4.6'
+claude_opus_46_fast: 'Claude Opus 4.6 (fast mode) (preview)'
+claude_opus_48: 'Claude Opus 4.8'
+claude_opus_48_fast: 'Claude Opus 4.8 (fast mode) (preview)'
+claude_opus_5: 'Claude Opus 5'
+claude_opus_55: 'Claude Opus 5.5'
+claude_fable_5: 'Claude Fable 5'
+claude_fable_51: 'Claude Fable 5.1'
+claude_sonnet: 'Claude Sonnet'
+claude_sonnet_35: 'Claude Sonnet 3.5'
+claude_sonnet_37: 'Claude Sonnet 3.7'
+claude_sonnet_40: 'Claude Sonnet 4'
+claude_sonnet_45: 'Claude Sonnet 4.5'
+claude_sonnet_46: 'Claude Sonnet 4.6'
+claude_sonnet_5: 'Claude Sonnet 5'
+claude_sonnet_55: 'Claude Sonnet 5.5'
 # Gemini:
-copilot_gemini: 'Gemini'
-copilot_gemini_flash: 'Gemini 2.0 Flash'
-copilot_gemini_3_flash: 'Gemini 3 Flash'
-copilot_gemini_25_pro: 'Gemini 2.5 Pro'
-copilot_gemini_3_pro: 'Gemini 3 Pro'
-copilot_gemini_31_pro: 'Gemini 3.1 Pro'
-copilot_gemini_35_flash: 'Gemini 3.5 Flash'
+gemini: 'Gemini'
+gemini_flash: 'Gemini 2.0 Flash'
+gemini_3_flash: 'Gemini 3 Flash'
+gemini_25_pro: 'Gemini 2.5 Pro'
+gemini_3_pro: 'Gemini 3 Pro'
+gemini_31_pro: 'Gemini 3.1 Pro'
+gemini_38_flash: 'Gemini 3.8 Flash'
+gemini_4_argon: 'Gemini 4 Argon'
 # OpenAI GPT series:
-copilot_gpt_4o: 'GPT-4o'
-copilot_gpt_4o_mini: 'GPT-4o mini'
-copilot_gpt_41: 'GPT-4.1'
-copilot_gpt_5: 'GPT-5'
-copilot_gpt_5_codex: 'GPT-5-Codex'
-copilot_gpt_5_mini: 'GPT-5 mini'
-copilot_gpt_51: 'GPT-5.1'
-copilot_gpt_51_codex: 'GPT-5.1-Codex'
-copilot_gpt_51_codex_mini: 'GPT-5.1-Codex-Mini'
-copilot_gpt_51_codex_max: 'GPT-5.1-Codex-Max'
-copilot_gpt_52: 'GPT-5.2'
-copilot_gpt_52_codex: 'GPT-5.2-Codex'
-copilot_gpt_53_codex: 'GPT-5.3-Codex'
-copilot_gpt_54: 'GPT-5.4'
-copilot_gpt_54_mini: 'GPT-5.4 mini'
-copilot_gpt_54_nano: 'GPT-5.4 nano'
-copilot_gpt_55: 'GPT-5.5'
+gpt_4o: 'GPT-4o'
+gpt_4o_mini: 'GPT-4o mini'
+gpt_41: 'GPT-4.1'
+gpt_5: 'GPT-5'
+gpt_5_codex: 'GPT-5-Codex'
+gpt_51: 'GPT-5.1'
+gpt_51_codex: 'GPT-5.1-Codex'
+gpt_51_codex_mini: 'GPT-5.1-Codex-Mini'
+gpt_51_codex_max: 'GPT-5.1-Codex-Max'
+gpt_52: 'GPT-5.2'
+gpt_52_codex: 'GPT-5.2-Codex'
+gpt_53_codex: 'GPT-5.3-Codex'
+gpt_54_nano: 'GPT-5.4 nano'
+gpt_56_luna: 'GPT-5.6 Luna'
+gpt_56_sol: 'GPT-5.6 Sol'
+gpt_56_terra: 'GPT-5.6 Terra'
+gpt_6_astra: 'GPT-6 Astra'
+gpt_6_luna: 'GPT-6 Luna'
+gpt_6_sol: 'GPT-6 Sol'
+gpt_61_sol: 'GPT-6.1 Sol'
 # OpenAI 'o' series:
-copilot_o3: 'o3'
-copilot_o4_mini: 'o4-mini'
+o3: 'o3'
+o4_mini: 'o4-mini'
 ## xAI:
-copilot_grok_code: 'Grok Code Fast 1'
+grok_code: 'Grok Code Fast 1'
+grok_45: 'Grok 4.5'
+grok_46: 'Grok 4.6'
+grok_47: 'Grok 4.7'
 # Qwen:
-copilot_qwen_25: 'Qwen2.5'
+qwen_25: 'Qwen2.5'
 # Microsoft:
-copilot_mai_code_1_flash: 'MAI-Code-1-Flash'
+mai_code_1_1_flash: 'MAI-Code-1.1-Flash'
 # Microsoft fine-tuned:
-copilot_raptor_mini: 'Raptor mini'
-
-## Current model used by Copilot cloud agent and Copilot CLI
-cca_current_model: '{% data variables.copilot.copilot_claude_opus_46 %}'
+raptor_mini: 'Raptor mini'
+# Open-weight models:
+kimi_k3: 'Kimi K3'
 
 ## Next edit suggestions
 next_edit_suggestions: 'next edit suggestions'
@@ -246,5 +261,10 @@ copilot_workspace_pr_short: 'Copilot Workspace for PRs'
 copilot_workspace: 'Copilot Workspace'
 copilot_workspace_short: 'Workspace'
 
-# BYOK
-copilot_byok_supported_features: '{% data variables.copilot.copilot_chat_short %}, {% data variables.copilot.copilot_cli_short %}, and {% data variables.product.prodname_vscode_shortname %}'
+# Enterprise and organization BYOK (not local BYOK)
+copilot_byok_supported_features: '{% data variables.copilot.copilot_chat_short %}, {% data variables.copilot.copilot_cli_short %}, and IDEs'
+
+## File for enterprise client management
+managed_setting_file: 'managed-settings.json'
+team_mappings_file: 'team-mappings.json'
+team_settings_directory: 'teams/'

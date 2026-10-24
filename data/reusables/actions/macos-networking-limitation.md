@@ -1,0 +1,1 @@
+You cannot assign macOS {% data variables.actions.hosted_runner %}s to a runner group that has a network configuration. Similarly, you cannot add a network configuration to a runner group that contains macOS {% data variables.actions.hosted_runner %}s.

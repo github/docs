@@ -18,7 +18,7 @@ category:
 
 {% data reusables.package_registry.container-registry-benefits %} For more information, see [AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-container-registry).
 
-For more information about configuring {% data variables.product.prodname_registry %} for {% data variables.location.product_location %}, see [AUTOTITLE](/admin/packages/getting-started-with-github-packages-for-your-enterprise).
+For more information about configuring {% data variables.product.prodname_registry %} for {% data variables.location.product_location %}, see [AUTOTITLE](/admin/configuring-packages/getting-started-with-github-packages-for-your-enterprise).
 
 ## About migration from the Docker registry
 
@@ -32,7 +32,7 @@ For more information about configuring {% data variables.product.prodname_regist
 
 You can start a migration of all your organizations' Docker images to the {% data variables.product.prodname_container_registry %}. The duration of the migration operation depends on the total number of images to migrate, and the overall load on your instance. After a successful migration, {% data variables.product.prodname_ghe_server %} will display a summary, and all future uploads of Docker images will use the {% data variables.product.prodname_container_registry %}.
 
-If a site administrator has configured email notifications for {% data variables.location.product_location %}, you will receive an email after the migration is complete. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications).
+If a site administrator has configured email notifications for {% data variables.location.product_location %}, you will receive an email after the migration is complete. For more information, see [AUTOTITLE](/admin/configuring-settings/configuring-user-applications-for-your-enterprise/configuring-email-for-notifications).
 
 ### During the migration
 

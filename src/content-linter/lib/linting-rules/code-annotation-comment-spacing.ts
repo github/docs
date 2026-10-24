@@ -1,6 +1,20 @@
+import fs from 'fs'
+import { load } from 'js-yaml'
 import { addError, filterTokens } from 'markdownlint-rule-helpers'
 
 import type { RuleParams, RuleErrorCallback, MarkdownToken } from '@/content-linter/types'
+
+const languages = load(fs.readFileSync('data/code-languages.yml', 'utf8')) as Record<
+  string,
+  { comment?: string }
+>
+
+// Match the annotate renderer, which only treats the language's own comment syntax as a comment.
+const commentPrefixes: Record<string, string> = {
+  number: '#',
+  slash: '//',
+  hyphen: '--',
+}
 
 export const codeAnnotationCommentSpacing = {
   names: ['GHD045', 'code-annotation-comment-spacing'],
@@ -12,6 +26,10 @@ export const codeAnnotationCommentSpacing = {
     filterTokens(params, 'fence', (token: MarkdownToken) => {
       if (!token.info?.includes('annotate')) return
 
+      const lang = token.info.trim().split(/\s+/)[0]
+      const commentChar = commentPrefixes[languages[lang]?.comment ?? '']
+      if (!commentChar) return
+
       const content = token.content
       if (!content) return
 
@@ -22,42 +40,19 @@ export const codeAnnotationCommentSpacing = {
         const trimmedLine = line.trim()
         if (!trimmedLine) continue
 
-        // Define a map of comment patterns
-        const commentPatterns: Record<string, RegExp> = {
-          '//': /^(\/\/)(.*)/, // JavaScript/TypeScript/Java/C# style comments
-          '#': /^(#)(.*)/, // Python/Ruby/Shell/YAML style comments
-          '--': /^(--)(.*)/, // SQL/Lua style comments
-        }
+        if (trimmedLine.startsWith(commentChar)) {
+          const restOfLine = trimmedLine.slice(commentChar.length)
 
-        // Check for different comment patterns
-        let commentMatch: RegExpMatchArray | null = null
-        let commentChar: string | null = null
-        let restOfLine: string | null = null
-
-        // Iterate over the map to find a matching comment style
-        for (const [char, pattern] of Object.entries(commentPatterns)) {
-          if (trimmedLine.startsWith(char)) {
-            commentMatch = trimmedLine.match(pattern)
-            commentChar = char
-            restOfLine = commentMatch ? commentMatch[2] : ''
-            break
-          }
-        }
-
-        if (commentMatch && restOfLine !== null && commentChar !== null) {
-          // Skip shebang lines (#!/...)
+          // Treat shebang lines as executable directives, not code comments.
           if (trimmedLine.startsWith('#!')) {
             continue
           }
 
-          // Allow empty comments or comments with exactly one space
           if (restOfLine === '' || restOfLine.startsWith(' ')) {
-            // If it starts with a space, make sure it's exactly one space
             if (restOfLine.startsWith(' ') && restOfLine.length > 1 && restOfLine[1] === ' ') {
-              // Multiple spaces - this is an error
               const lineNumber: number = token.lineNumber + index + 1
               const fixedLine: string = line.replace(
-                new RegExp(`^(\\s*${commentChar.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})\\s+`),
+                new RegExp(`^(\\s*${RegExp.escape(commentChar)})\\s+`),
                 `$1 `,
               )
 
@@ -75,10 +70,8 @@ export const codeAnnotationCommentSpacing = {
                 },
               )
             }
-            // Single space or empty - this is correct
             continue
           } else {
-            // No space after comment character - this is an error
             const lineNumber: number = token.lineNumber + index + 1
             const leadingWhitespace: string = line.match(/^\s*/)![0]
             const fixedLine: string = `${leadingWhitespace + commentChar} ${restOfLine}`

@@ -1,0 +1,92 @@
+name: Close PRs for issues without help wanted
+
+# docs-internal mirrors workflows to github/docs, so enforce this rule only in the public repo.
+on:
+  pull_request_target:
+    types: [opened, edited, reopened, synchronize]
+
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
+
+jobs:
+  close-without-help-wanted-issue:
+    if: >-
+      ${{
+        github.repository == 'github/docs' &&
+        github.event.pull_request.state == 'open'
+      }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Close the pull request if a linked issue opened by someone else lacks the help wanted label
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        with:
+          script: |
+            const { owner, repo } = context.repo
+            const pull_number = context.payload.pull_request.number
+
+            const { repository } = await github.graphql(
+              `query($owner: String!, $repo: String!, $number: Int!) {
+                repository(owner: $owner, name: $repo) {
+                  pullRequest(number: $number) {
+                    state
+                    author {
+                      login
+                    }
+                    closingIssuesReferences(first: 100) {
+                      nodes {
+                        author {
+                          login
+                        }
+                        labels(first: 100) {
+                          nodes {
+                            name
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }`,
+              { owner, repo, number: pull_number },
+            )
+
+            const pullRequest = repository?.pullRequest
+            if (!pullRequest) {
+              throw new Error(`Pull request #${pull_number} was not found`)
+            }
+            if (pullRequest.state !== 'OPEN') {
+              console.log(`Pull request #${pull_number} is no longer open`)
+              return
+            }
+
+            const closingIssues = pullRequest.closingIssuesReferences.nodes
+            if (!closingIssues.length) {
+              console.log(`Pull request #${pull_number} has no closing issue references`)
+              return
+            }
+
+            const pullRequestAuthor = pullRequest.author?.login?.toLowerCase()
+            const issuesWithoutHelpWanted = closingIssues.filter(issue =>
+              !issue.labels.nodes.some(label => label.name.toLowerCase() === 'help wanted') &&
+              (!pullRequestAuthor || issue.author?.login?.toLowerCase() !== pullRequestAuthor),
+            )
+            if (!issuesWithoutHelpWanted.length) {
+              console.log('Every linked issue has the help wanted label or was opened by the pull request author')
+              return
+            }
+
+            await github.rest.issues.createComment({
+              owner,
+              repo,
+              issue_number: pull_number,
+              body: "Please don't raise pull requests against an existing issue that another user has raised until it's been marked with a `help wanted` label. We need to properly assess all issues before we can accept community contributions, and determine whether it's something we need to fix internally, or how many articles are affected and what the scope of the fix will be. For now, we're going to close this pull request.",
+            })
+
+            await github.rest.pulls.update({
+              owner,
+              repo,
+              pull_number,
+              state: 'closed',
+            })

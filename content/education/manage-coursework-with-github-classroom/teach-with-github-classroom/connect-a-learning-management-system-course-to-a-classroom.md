@@ -17,6 +17,8 @@ shortTitle: Connect an LMS course
 category:
   - Set up GitHub Classroom
 ---
+{% data reusables.classroom.closing-down-notice %}
+
 ## About connecting an LMS to your classroom
 
 You can connect a learning management system (LMS) to {% data variables.product.prodname_classroom %} and import a roster of student identifiers from the LMS.

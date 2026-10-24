@@ -28,6 +28,8 @@ Ticket priority helps to ensure that support requests are handled in order, and 
 
 Please note that {% data variables.contact.github_support %} can only assist with issues that fall within {% data variables.product.company_short %}'s Scope of Support. Requests related to out-of-scope areas, such as third-party integration issues, custom scripts, or unsupported platforms, cannot be prioritized or addressed by {% data variables.contact.github_support %}.
 
+{% data reusables.support.discontinued-versions %}
+
 For more details and examples of what is considered out of scope for {% data variables.contact.github_support %}, see {% data variables.product.company_short %}'s [Scope of Support documentation](/support/learning-about-github-support/about-github-support#scope-of-support). If your request falls outside this scope, please refer to the relevant third-party’s support resources, community forums, or consult [{% data variables.product.prodname_expert_services %}](https://github.com/services/).
 
 ## Ticket priorities
@@ -71,7 +73,7 @@ All tickets regarding security features follow this logic for ticket prioritizat
 | {% data variables.product.support_ticket_priority_high %} | Issues that affect the performance of {% data variables.product.github %}-supported ARC in an existing production environment but do not result in a complete system failure. | Delays in pod termination or assignment of jobs to pods, where the delay is not in line with expectations but does not entirely halt the workflow. |
 | {% data variables.product.support_ticket_priority_normal %} / {% data variables.product.support_ticket_priority_low %} | Any other minor issues not classified as {% data variables.product.support_ticket_priority_urgent %} or {% data variables.product.support_ticket_priority_high %} should be directed to [the open source {% data variables.product.prodname_actions_runner_controller %} repository](https://github.com/actions/actions-runner-controller) issues/discussions.  | Customization, performance analysis, initial setup. |
 
-For more information about what {% data variables.contact.github_support %} can assist with, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-support-for-actions-runner-controller).
+For more information about what {% data variables.contact.github_support %} can assist with, see [AUTOTITLE](/actions/concepts/runners/support-for-arc).
 
 ## Ticket priorities for {% data variables.product.prodname_copilot %}
 

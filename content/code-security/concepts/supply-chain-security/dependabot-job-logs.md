@@ -49,4 +49,4 @@ Job logs give you two levels of detail for troubleshooting:
 
 ## Next steps
 
-Now that you know what {% data variables.product.prodname_dependabot %} job logs are, you may want to find out how to access them. See [AUTOTITLE](/code-security/how-tos/view-and-interpret-data/viewing-dependabot-job-logs).
+Now that you know what {% data variables.product.prodname_dependabot %} job logs are, you may want to find out how to access them. See [AUTOTITLE](/code-security/how-tos/view-and-interpret-data/view-dependabot-logs).

@@ -1,23 +1,26 @@
-import { ActionList, ActionMenu, Flash } from '@primer/react'
-import { useState, useEffect } from 'react'
+import { ActionMenu } from '@primer/react-brand'
+import { onActionMenuItemKeyDownCapture } from '@/frame/components/lib/action-menu'
+import { useState, useEffect, useCallback } from 'react'
 import useSWR from 'swr'
-import { useRouter } from 'next/router'
 import { slug } from 'github-slugger'
-import cx from 'classnames'
+import cx from 'clsx'
+import { announce } from '@primer/live-region-element'
 
 import { useVersion } from '@/versions/components/useVersion'
 import { HeadingLink } from '@/frame/components/article/HeadingLink'
+import { Banner } from '@/frame/components/ui/Banner'
 import { useTranslation } from '@/languages/components/useTranslation'
 import type { WebhookAction, WebhookData } from './types'
 import { ParameterTable } from '@/automated-pipelines/components/parameter-table/ParameterTable'
+import { HighlightedCode } from '@/frame/components/HighlightedCode'
 
 import styles from './WebhookPayloadExample.module.scss'
+import { RenderedHTML } from '@/frame/components/ui/RenderedHTML/RenderedHTML'
 
 type Props = {
   webhook: WebhookAction
 }
 
-// fetcher passed to useSWR() to get webhook data using the given URL
 async function webhookFetcher(url: string) {
   const response = await fetch(url)
   if (!response.ok) {
@@ -28,24 +31,17 @@ async function webhookFetcher(url: string) {
 }
 
 export function Webhook({ webhook }: Props) {
-  // Get version for requests to switch webhook action type
   const version = useVersion()
   const { t, tObject } = useTranslation('webhooks')
-  const router = useRouter()
 
-  // Get more user friendly language for the different availability options in
-  // the webhook schema (we can't change it directly in the schema).  Note that
-  // we specifically don't want to translate these strings with useTranslation()
-  // like we usually do with strings from data/ui.yml.
+  // Map schema availability values to UI copy instead of translating source values directly.
   const rephraseAvailability = tObject('rephrase_availability')
 
-  // The param that was clicked so we can expand its property <details> element
   const [clickedBodyParameterName, setClickedBodyParameterName] = useState<undefined | string>('')
-  // The selected webhook action type the user selects via a dropdown
   const [selectedWebhookActionType, setSelectedWebhookActionType] = useState('')
-  // The index of the selected action type so we can highlight which one is selected
-  // in the action type dropdown
   const [selectedActionTypeIndex, setSelectedActionTypeIndex] = useState(0)
+  // Tracks the first uncached interaction so data-load effects can announce it once.
+  const [pendingAnnouncement, setPendingAnnouncement] = useState('')
 
   const webhookSlug = slug(webhook.data.category)
   const webhookFetchUrl = `/api/webhooks/v1?${new URLSearchParams({
@@ -53,13 +49,16 @@ export function Webhook({ webhook }: Props) {
     version: version.currentVersion,
   })}`
 
-  // When you load the page we want to support linking to a specific webhook type
-  // so this effect sets the webhook type if it's provided in the URL e.g.:
-  //
-  // webhook-events-and-payloads?actionType=published#package
-  //
-  // where the webhook is set in the hash (which is equal to webhookSlug) and
-  // the webhook action type is passed in the actionType parameter.
+  // Fetch full webhook data after the action type changes or a user expands nested parameters.
+  const { data, error } = useSWR<WebhookData, Error>(
+    clickedBodyParameterName || selectedWebhookActionType ? webhookFetchUrl : null,
+    webhookFetcher,
+    {
+      revalidateOnFocus: false,
+    },
+  )
+
+  // Example: webhook-events-and-payloads?actionType=published#package opens the published package payload.
   useEffect(() => {
     const url = new URL(location.href)
     const actionType = url.searchParams.get('actionType')
@@ -70,57 +69,61 @@ export function Webhook({ webhook }: Props) {
     }
   }, [])
 
-  // callback for the action type dropdown -- sets the action type to the given
-  // type, index is the index of the selected type so we can highlight it as
-  // selected.
-  //
-  // Besides setting the action type state, we also want to:
-  //
-  // * clear the clicked body param so that no properties are expanded when we
-  // re-render the webhook
-  // * update the URL so people can link to a specific webhook action type
+  const buildAnnouncement = useCallback(
+    (type: string, actionData: { descriptionHtml: string }) => {
+      const tempEl = document.createElement('div')
+      tempEl.innerHTML = actionData.descriptionHtml
+      const description = tempEl.textContent?.trim() || ''
+      return t('action_type_selected')
+        .replace('{{ actionType }}', type)
+        .replace('{{ description }}', description)
+        .trim()
+    },
+    [t],
+  )
+
+  // Reset nested parameters, announce the selected action type, and keep the URL linkable.
   function handleActionTypeChange(type: string, index: number) {
     setClickedBodyParameterName('')
     setSelectedWebhookActionType(type)
     setSelectedActionTypeIndex(index)
 
-    const { asPath, locale } = router
-    let [pathRoot, pathQuery = ''] = asPath.split('?')
-    const params = new URLSearchParams(pathQuery)
-
-    if (pathRoot.includes('#')) {
-      pathRoot = pathRoot.split('#')[0]
+    // Cached data can announce now; uncached data announces after SWR loads.
+    if (data && data[type]) {
+      // Compute the message eagerly to avoid stale data, then delay until VoiceOver finishes the menu.
+      const message = buildAnnouncement(type, data[type])
+      setTimeout(() => {
+        announce(message, { politeness: 'assertive' })
+      }, 150)
+    } else {
+      setPendingAnnouncement(type)
     }
 
-    params.set('actionType', type)
-    router.push(
-      { pathname: `/${locale}${pathRoot}`, query: params.toString(), hash: webhookSlug },
-      undefined,
-      {
-        shallow: true,
-      },
-    )
+    // Replace history directly so Next.js navigation does not make VoiceOver re-read the page title.
+    const url = new URL(location.href)
+    url.searchParams.set('actionType', type)
+    url.hash = webhookSlug
+    window.history.replaceState(window.history.state, '', url.toString())
   }
 
-  // callback to trigger useSWR() hook after a nested property is clicked
   function handleBodyParamExpansion(target: HTMLDetailsElement) {
     setClickedBodyParameterName(target.closest('details')?.dataset.nestedParamId)
   }
 
-  // fires when the webhook action type changes or someone clicks on a nested
-  // body param for the first time.  In either case, we now have all the data
-  // for a webhook (i.e. all the data for each action type and all of their
-  // nested parameters)
-  const { data, error } = useSWR<WebhookData, Error>(
-    clickedBodyParameterName || selectedWebhookActionType ? webhookFetchUrl : null,
-    webhookFetcher,
-    {
-      revalidateOnFocus: false,
-    },
-  )
-
   const currentWebhookActionType = selectedWebhookActionType || webhook.data.action
   const currentWebhookAction = (data && data[currentWebhookActionType]) || webhook.data
+
+  // Announce the first uncached selection after SWR loads; cached selections announce in the handler.
+  useEffect(() => {
+    if (!pendingAnnouncement || !data || !data[pendingAnnouncement]) return
+    const type = pendingAnnouncement
+    setPendingAnnouncement('')
+
+    const message = buildAnnouncement(type, data[type])
+    setTimeout(() => {
+      announce(message, { politeness: 'assertive' })
+    }, 150)
+  }, [data, pendingAnnouncement, buildAnnouncement])
 
   return (
     <div>
@@ -128,11 +131,10 @@ export function Webhook({ webhook }: Props) {
         {currentWebhookAction.category}
       </HeadingLink>
       <div>
-        <div dangerouslySetInnerHTML={{ __html: currentWebhookAction.summaryHtml }}></div>
-        <h3
-          dangerouslySetInnerHTML={{
-            __html: t('availability').replace('{{ WebhookName }}', currentWebhookAction.category),
-          }}
+        <RenderedHTML as="div" html={currentWebhookAction.summaryHtml} />
+        <RenderedHTML
+          as="h3"
+          html={t('availability').replace('{{ WebhookName }}', currentWebhookAction.category)}
         />
         <ul>
           {currentWebhookAction.availability.map((availability) => {
@@ -145,50 +147,54 @@ export function Webhook({ webhook }: Props) {
             )
           })}
         </ul>
-        <h3
-          dangerouslySetInnerHTML={{
-            __html: t('webhook_payload_object').replace(
-              '{{ WebhookName }}',
-              currentWebhookAction.category,
-            ),
-          }}
+        <RenderedHTML
+          as="h3"
+          html={t('webhook_payload_object').replace(
+            '{{ WebhookName }}',
+            currentWebhookAction.category,
+          )}
         />
         {error && (
-          <Flash className="mb-5" variant="danger">
+          <Banner className="mb-5" variant="danger">
             <p>{t('action_type_switch_error')}</p>
             <p>
               <code className={`f6 ${styles.errorCode}`}>{error.toString()}</code>
             </p>
-          </Flash>
+          </Banner>
         )}
         {webhook.actionTypes.length > 1 && (
           <div className="mb-4">
-            <div className="mb-3">
-              <ActionMenu>
+            <div className={`mb-3 ${styles.actionTypeMenu}`}>
+              <ActionMenu
+                selectionVariant="single"
+                onSelect={(value) =>
+                  handleActionTypeChange(webhook.actionTypes[Number(value)], Number(value))
+                }
+              >
                 <ActionMenu.Button className="text-normal">
                   {t('action_type')}: <span className="text-bold">{currentWebhookActionType}</span>
                 </ActionMenu.Button>
-                <ActionMenu.Overlay>
-                  <ActionList selectionVariant="single">
-                    {webhook.actionTypes.map((type, index) => (
-                      <ActionList.Item
-                        key={`${webhook.name}-${type}`}
-                        selected={index === selectedActionTypeIndex}
-                        onSelect={() => handleActionTypeChange(type, index)}
-                      >
-                        {type}
-                      </ActionList.Item>
-                    ))}
-                  </ActionList>
+                <ActionMenu.Overlay aria-label={t('action_type')}>
+                  {webhook.actionTypes.map((type, index) => (
+                    <ActionMenu.Item
+                      key={index}
+                      value={String(index)}
+                      selected={index === selectedActionTypeIndex}
+                      onKeyDownCapture={onActionMenuItemKeyDownCapture}
+                    >
+                      {type}
+                    </ActionMenu.Item>
+                  ))}
                 </ActionMenu.Overlay>
               </ActionMenu>
             </div>
           </div>
         )}
-        <div
+        <RenderedHTML
+          as="div"
           className="mb-4 f5 color-fg-muted"
-          dangerouslySetInnerHTML={{ __html: currentWebhookAction.descriptionHtml }}
-        ></div>
+          html={currentWebhookAction.descriptionHtml}
+        />
         <div>
           <ParameterTable
             slug={slug(`${currentWebhookAction.category}-${selectedWebhookActionType}`)}
@@ -203,8 +209,11 @@ export function Webhook({ webhook }: Props) {
       {webhook.data.payloadExample && (
         <>
           <h3>{t('webhook_payload_example')}</h3>
-          <div className={cx(styles.payloadExample, 'border rounded-1 my-0')} data-highlight="json">
-            <code>{JSON.stringify(webhook.data.payloadExample, null, 2)}</code>
+          <div className={cx(styles.payloadExample, 'border rounded-1 my-0')}>
+            <HighlightedCode
+              language="json"
+              code={JSON.stringify(webhook.data.payloadExample, null, 2)}
+            />
           </div>
         </>
       )}

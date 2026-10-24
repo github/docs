@@ -10,8 +10,10 @@ contentType: how-tos
 children:
   - /configure-dependabot-alerts
   - /configure-malware-alerts
+  - /protecting-endpoints-with-package-firewall
   - /configure-security-updates
   - /configure-version-updates
+  - /manage-innersource-advisories
   - /auto-update-actions
   - /configuring-multi-ecosystem-updates
   - /enable-dependency-graph
@@ -20,4 +22,3 @@ children:
   - /use-dependency-submission-api
   - /verify-release-integrity
 ---
-

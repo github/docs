@@ -10,6 +10,7 @@ children:
   - /understanding-github-enterprise-importer
   - /migrating-from-bitbucket-server-to-github-enterprise-cloud
   - /migrating-between-github-products
+  - /migrate-from-gitlab
   - /completing-your-migration-with-github-enterprise-importer
 redirect_from:
   - /early-access/github/migrating-with-github-enterprise-importer

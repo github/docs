@@ -16,6 +16,6 @@ category:
 
 ## About secrets in {% data variables.product.prodname_actions %}
 
-You can use the REST API to create, update, delete, and retrieve information about secrets that can be used in workflows in {% data variables.product.prodname_actions %}. {% data reusables.actions.about-secrets %} For more information, see [AUTOTITLE](/actions/security-for-github-actions/security-guides/about-secrets).
+You can use the REST API to create, update, delete, and retrieve information about secrets that can be used in workflows in {% data variables.product.prodname_actions %}. {% data reusables.actions.about-secrets %} For more information, see [AUTOTITLE](/actions/concepts/security/secrets).
 
 <!-- Content after this section is automatically generated -->

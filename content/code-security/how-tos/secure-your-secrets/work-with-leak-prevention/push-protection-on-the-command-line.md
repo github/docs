@@ -116,5 +116,5 @@ To resolve a blocked push, you must remove the secret from all of the commits it
 
 ## Further reading
 
-* [AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-in-the-github-ui)
-* [AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-from-the-rest-api)
+* [AUTOTITLE](/code-security/how-tos/secure-your-secrets/work-with-leak-prevention/push-protection-in-the-github-ui)
+* [AUTOTITLE](/code-security/concepts/secret-security/push-protection-from-the-rest-api)

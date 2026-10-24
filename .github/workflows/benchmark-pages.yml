@@ -1,13 +1,11 @@
 name: 'Weekly page benchmark'
 
-# **What it does**: Benchmarks all pages via the article API, flags errors and slow pages
-# **Why we have it**: Catch perf regressions and broken pages before users hit them
-# **Who does it impact**: Docs engineering
+# Catches slow or broken article API pages before users hit them.
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: '20 16 * * 1' # Every Monday at 16:20 UTC / 8:20 PST
+    - cron: '20 16 * * 1' # Mondays at 16:20 UTC.
 
 permissions:
   contents: read
@@ -18,13 +16,12 @@ jobs:
     runs-on: ubuntu-latest
     env:
       BENCHMARK_LABEL: benchmark-regression
-      ISSUE_REPO: github/docs-engineering
+      ISSUE_REPO: github/technical-content
     steps:
       - name: Checkout
-        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
           persist-credentials: 'false'
-
       - uses: ./.github/actions/node-npm-setup
 
       - name: Build
@@ -54,6 +51,11 @@ jobs:
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
           echo "Reading benchmark results..."
+          # The Run step pipes through tee, so a crashed benchmark passes that step and leaves no results file.
+          if [ ! -s /tmp/benchmark-results.json ]; then
+            echo "::error::No benchmark results file. The benchmark did not finish, so no issue was closed."
+            exit 1
+          fi
           ERRORS=$(jq '.errors | length' /tmp/benchmark-results.json 2>/dev/null || echo "0")
           SLOW=$(jq '.slow | length' /tmp/benchmark-results.json 2>/dev/null || echo "0")
           TOTAL=$(jq '.totalRequests' /tmp/benchmark-results.json 2>/dev/null || echo "0")
@@ -61,6 +63,10 @@ jobs:
           P99=$(jq '.p99' /tmp/benchmark-results.json 2>/dev/null || echo "0")
           MAX=$(jq '.max' /tmp/benchmark-results.json 2>/dev/null || echo "0")
           echo "Done reading results: $TOTAL pages, $ERRORS errors, $SLOW slow"
+          if [ "$TOTAL" = "0" ] || [ "$TOTAL" = "null" ]; then
+            echo "::error::Benchmark ran 0 requests, so no issue was closed."
+            exit 1
+          fi
 
           VERSIONS="free-pro-team@latest, enterprise-cloud@latest, enterprise-server@latest"
           LANGS="en"
@@ -158,13 +164,14 @@ jobs:
             echo "Done creating issue"
           fi
 
-      - uses: ./.github/actions/slack-alert
-        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
-        with:
-          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
-          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
-
       - uses: ./.github/actions/create-workflow-failure-issue
+        id: create-failure-issue
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
         with:
           token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+
+      - uses: ./.github/actions/slack-alert
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
+        with:
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+          issue_url: ${{ steps.create-failure-issue.outputs.issue_url }}

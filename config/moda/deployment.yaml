@@ -1,19 +1,16 @@
-# Deploy configuration reference: https://thehub.github.com/epd/engineering/products-and-services/internal/moda/reference/deployment-yaml/
+# Moda deployment reference:
+# https://thehub.github.com/epd/engineering/products-and-services/internal/moda/reference/deployment-yaml/
 
 environments:
   - name: production
     require_pipeline: true
-    # Bumped from default 10m because pod scheduling occasionally pushes
-    # rollouts past the timeout even though the deploy itself succeeds.
+    # Allow extra rollout time because pod scheduling can exceed Moda's default timeout.
     timeout: 1200
     cluster_selector:
       profile: general
       region: iad
 
-  # 15 staging environments, evergreens only
-  # they should all contain the same configs
-  # intentionally pinned to a single cluster via the `name` selector
-
+  # All 15 evergreen staging environments must contain the same configs.
   - name: staging-balsam
     require_pipeline: false
     notify_still_locked: true # Notify last person to lock this after an hour
@@ -24,7 +21,6 @@ environments:
     cluster_selector:
       profile: general
       region: iad
-      name: general-2-ash1-iad
     extra_completed_message: ':balsam: Review at https://docs-internal-staging-balsam.githubapp.com/'
 
   - name: staging-boxwood
@@ -37,7 +33,6 @@ environments:
     cluster_selector:
       profile: general
       region: iad
-      name: general-2-ash1-iad
     extra_completed_message: ':boxwood: Review at https://docs-internal-staging-boxwood.githubapp.com/'
 
   - name: staging-cedar
@@ -50,7 +45,6 @@ environments:
     cluster_selector:
       profile: general
       region: iad
-      name: general-2-ash1-iad
     extra_completed_message: ':cedar: Review at https://docs-internal-staging-cedar.githubapp.com/'
 
   - name: staging-cypress
@@ -63,7 +57,6 @@ environments:
     cluster_selector:
       profile: general
       region: iad
-      name: general-2-ash1-iad
     extra_completed_message: ':cypress: Review at https://docs-internal-staging-cypress.githubapp.com/'
 
   - name: staging-fir
@@ -76,7 +69,6 @@ environments:
     cluster_selector:
       profile: general
       region: iad
-      name: general-2-ash1-iad
     extra_completed_message: ':fir: Review at https://docs-internal-staging-fir.githubapp.com/'
 
   - name: staging-hemlock
@@ -89,7 +81,6 @@ environments:
     cluster_selector:
       profile: general
       region: iad
-      name: general-2-ash1-iad
     extra_completed_message: ':hemlock: Review at https://docs-internal-staging-hemlock.githubapp.com/'
 
   - name: staging-hinoki
@@ -102,7 +93,6 @@ environments:
     cluster_selector:
       profile: general
       region: iad
-      name: general-2-ash1-iad
     extra_completed_message: ':hinoki: Review at https://docs-internal-staging-hinoki.githubapp.com/'
 
   - name: staging-holly
@@ -115,7 +105,6 @@ environments:
     cluster_selector:
       profile: general
       region: iad
-      name: general-2-ash1-iad
     extra_completed_message: ':holly_: Review at https://docs-internal-staging-holly.githubapp.com/'
 
   - name: staging-juniper
@@ -128,7 +117,6 @@ environments:
     cluster_selector:
       profile: general
       region: iad
-      name: general-2-ash1-iad
     extra_completed_message: ':juniper: Review at https://docs-internal-staging-juniper.githubapp.com/'
 
   - name: staging-laurel
@@ -141,7 +129,6 @@ environments:
     cluster_selector:
       profile: general
       region: iad
-      name: general-2-ash1-iad
     extra_completed_message: ':laurel: Review at https://docs-internal-staging-laurel.githubapp.com/'
 
   - name: staging-pine
@@ -154,7 +141,6 @@ environments:
     cluster_selector:
       profile: general
       region: iad
-      name: general-2-ash1-iad
     extra_completed_message: ':pine: Review at https://docs-internal-staging-pine.githubapp.com/'
 
   - name: staging-redwood
@@ -167,7 +153,6 @@ environments:
     cluster_selector:
       profile: general
       region: iad
-      name: general-2-ash1-iad
     extra_completed_message: ':redwood: Review at https://docs-internal-staging-redwood.githubapp.com/'
 
   - name: staging-sequoia
@@ -180,7 +165,6 @@ environments:
     cluster_selector:
       profile: general
       region: iad
-      name: general-2-ash1-iad
     extra_completed_message: ':sequoia: Review at https://docs-internal-staging-sequoia.githubapp.com/'
 
   - name: staging-spruce
@@ -193,7 +177,6 @@ environments:
     cluster_selector:
       profile: general
       region: iad
-      name: general-2-ash1-iad
     extra_completed_message: ':spruce: Review at https://docs-internal-staging-spruce.githubapp.com/'
 
   - name: staging-yew
@@ -206,15 +189,29 @@ environments:
     cluster_selector:
       profile: general
       region: iad
-      name: general-2-ash1-iad
     extra_completed_message: ':yew: Review at https://docs-internal-staging-yew.githubapp.com/'
+
+  - name: docs-internal-review-lab
+    require_pipeline: false
+    require_vault: true
+    secret_environment: staging
+    required_review_tasks: []
+    auto_deploy: false
+    skip_auto_merge: true
+    proxima: true
+    resource_path: config/kubernetes/docs-internal-review-lab
+    url: https://docs-internal-{{BRANCH}}.octoca.ts.net
+    timeout: 900
+    cluster_selector:
+      name: rl-1-test-cnc-01-az1
+    extra_completed_message: 'Review at {{ENVIRONMENT_URL}}. This environment is deleted after 24 hours.'
 
 required_builds:
   - docs-internal-moda-config-bundle / docs-internal-moda-config-bundle
   - docs-internal-docker-image / docs-internal-docker-image
   - docs-internal-docker-security / docs-internal-docker-security
 
-# Make the pipeline start automatically when a PR is enqueued
+# Start the production rollout pipeline when a PR enters the merge queue.
 auto_start_pipeline: production_rollout
 
 pipelines:

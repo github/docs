@@ -145,7 +145,10 @@
                     ]
                   },
                   "description": {
-                    "type": "string",
+                    "type": [
+                      "string",
+                      "null"
+                    ],
                     "description": "A description of the code security configuration"
                   },
                   "advanced_security": {
@@ -410,7 +413,8 @@
                     "description": "The enforcement status for a security configuration",
                     "enum": [
                       "enforced",
-                      "unenforced"
+                      "unenforced",
+                      "enterprise_enforced"
                     ]
                   },
                   "url": {
@@ -487,8 +491,7 @@
         {
           "type": "string",
           "name": "description",
-          "description": "<p>A description of the code security configuration</p>",
-          "isRequired": true
+          "description": "<p>A description of the code security configuration</p>"
         },
         {
           "type": "string",
@@ -729,7 +732,8 @@
           "description": "<p>The enforcement status for a security configuration</p>",
           "enum": [
             "enforced",
-            "unenforced"
+            "unenforced",
+            "enterprise_enforced"
           ],
           "default": "enforced"
         }
@@ -808,7 +812,10 @@
                   ]
                 },
                 "description": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "A description of the code security configuration"
                 },
                 "advanced_security": {
@@ -1073,7 +1080,8 @@
                   "description": "The enforcement status for a security configuration",
                   "enum": [
                     "enforced",
-                    "unenforced"
+                    "unenforced",
+                    "enterprise_enforced"
                   ]
                 },
                 "url": {
@@ -1106,7 +1114,7 @@
         },
         {
           "httpStatusCode": "400",
-          "description": "<p>Bad Request</p>"
+          "description": "<p>Bad Request because security product settings conflict, are unsupported by your plan, or required products are not enabled in the configuration.</p>"
         },
         {
           "httpStatusCode": "403",
@@ -1115,6 +1123,10 @@
         {
           "httpStatusCode": "404",
           "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed because of unavailable security products, invalid feature dependencies, or an invalid configuration.</p>"
         }
       ],
       "previews": [],
@@ -1267,7 +1279,10 @@
                         ]
                       },
                       "description": {
-                        "type": "string",
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "description": "A description of the code security configuration"
                       },
                       "advanced_security": {
@@ -1532,7 +1547,8 @@
                         "description": "The enforcement status for a security configuration",
                         "enum": [
                           "enforced",
-                          "unenforced"
+                          "unenforced",
+                          "enterprise_enforced"
                         ]
                       },
                       "url": {
@@ -1669,7 +1685,10 @@
                   ]
                 },
                 "description": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "A description of the code security configuration"
                 },
                 "advanced_security": {
@@ -1934,7 +1953,8 @@
                   "description": "The enforcement status for a security configuration",
                   "enum": [
                     "enforced",
-                    "unenforced"
+                    "unenforced",
+                    "enterprise_enforced"
                   ]
                 },
                 "url": {
@@ -2251,7 +2271,8 @@
           "description": "<p>The enforcement status for a security configuration</p>",
           "enum": [
             "enforced",
-            "unenforced"
+            "unenforced",
+            "enterprise_enforced"
           ]
         }
       ],
@@ -2327,7 +2348,10 @@
                   ]
                 },
                 "description": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "A description of the code security configuration"
                 },
                 "advanced_security": {
@@ -2592,7 +2616,8 @@
                   "description": "The enforcement status for a security configuration",
                   "enum": [
                     "enforced",
-                    "unenforced"
+                    "unenforced",
+                    "enterprise_enforced"
                   ]
                 },
                 "url": {
@@ -2628,6 +2653,10 @@
           "description": "<p>Not modified</p>"
         },
         {
+          "httpStatusCode": "400",
+          "description": "<p>Bad Request because of a global configuration, incompatible parameters, or invalid enforcement changes.</p>"
+        },
+        {
           "httpStatusCode": "403",
           "description": "<p>Forbidden</p>"
         },
@@ -2637,7 +2666,11 @@
         },
         {
           "httpStatusCode": "409",
-          "description": "<p>Conflict</p>"
+          "description": "<p>Conflict because security configuration work is already in progress.</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed because the configuration is invalid.</p>"
         }
       ],
       "previews": [],
@@ -2803,7 +2836,11 @@
         },
         {
           "httpStatusCode": "409",
-          "description": "<p>Conflict</p>"
+          "description": "<p>Conflict because security configuration work is already in progress.</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed because the request does not match the request schema.</p>"
         }
       ],
       "previews": [],
@@ -2958,7 +2995,10 @@
                       ]
                     },
                     "description": {
-                      "type": "string",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "description": "A description of the code security configuration"
                     },
                     "advanced_security": {
@@ -3223,7 +3263,8 @@
                       "description": "The enforcement status for a security configuration",
                       "enum": [
                         "enforced",
-                        "unenforced"
+                        "unenforced",
+                        "enterprise_enforced"
                       ]
                     },
                     "url": {
@@ -3263,6 +3304,10 @@
         {
           "httpStatusCode": "404",
           "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed because a public default is not supported in the current environment.</p>"
         }
       ],
       "previews": [],
@@ -3329,7 +3374,7 @@
         },
         {
           "name": "status",
-          "description": "<p>A comma-separated list of statuses. If specified, only repositories with these attachment statuses will be returned.</p>\n<p>Can be: <code>all</code>, <code>attached</code>, <code>attaching</code>, <code>removed</code>, <code>enforced</code>, <code>failed</code>, <code>updating</code>, <code>removed_by_enterprise</code></p>",
+          "description": "<p>A comma-separated list of statuses. If specified, only repositories with these attachment statuses will be returned.</p>\n<p>Can be: <code>all</code>, <code>attached</code>, <code>attaching</code>, <code>removed</code>, <code>enforced</code>, <code>failed</code>, <code>updating</code>, <code>removed_by_enterprise</code>, <code>enterprise_enforced</code></p>",
           "in": "query",
           "required": false,
           "schema": {
@@ -3447,7 +3492,8 @@
                       "enforced",
                       "failed",
                       "updating",
-                      "removed_by_enterprise"
+                      "removed_by_enterprise",
+                      "enterprise_enforced"
                     ]
                   },
                   "repository": {
@@ -3827,6 +3873,10 @@
           "description": "<p>OK</p>"
         },
         {
+          "httpStatusCode": "400",
+          "description": "<p>Bad Request because of unsupported attachment statuses.</p>"
+        },
+        {
           "httpStatusCode": "403",
           "description": "<p>Forbidden</p>"
         },
@@ -4000,7 +4050,10 @@
                     ]
                   },
                   "description": {
-                    "type": "string",
+                    "type": [
+                      "string",
+                      "null"
+                    ],
                     "description": "A description of the code security configuration"
                   },
                   "advanced_security": {
@@ -4265,7 +4318,8 @@
                     "description": "The enforcement status for a security configuration",
                     "enum": [
                       "enforced",
-                      "unenforced"
+                      "unenforced",
+                      "enterprise_enforced"
                     ]
                   },
                   "url": {
@@ -4346,8 +4400,7 @@
         {
           "type": "string",
           "name": "description",
-          "description": "<p>A description of the code security configuration</p>",
-          "isRequired": true
+          "description": "<p>A description of the code security configuration</p>"
         },
         {
           "type": "string",
@@ -4743,7 +4796,10 @@
                   ]
                 },
                 "description": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "A description of the code security configuration"
                 },
                 "advanced_security": {
@@ -5008,7 +5064,8 @@
                   "description": "The enforcement status for a security configuration",
                   "enum": [
                     "enforced",
-                    "unenforced"
+                    "unenforced",
+                    "enterprise_enforced"
                   ]
                 },
                 "url": {
@@ -5038,6 +5095,22 @@
         {
           "httpStatusCode": "201",
           "description": "<p>Successfully created code security configuration</p>"
+        },
+        {
+          "httpStatusCode": "400",
+          "description": "<p>Bad Request because security product settings conflict, are unsupported by your plan, or required products are not enabled in the configuration.</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed because of unavailable security products, invalid feature dependencies, or an invalid configuration.</p>"
         }
       ],
       "previews": [],
@@ -5194,7 +5267,10 @@
                         ]
                       },
                       "description": {
-                        "type": "string",
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "description": "A description of the code security configuration"
                       },
                       "advanced_security": {
@@ -5459,7 +5535,8 @@
                         "description": "The enforcement status for a security configuration",
                         "enum": [
                           "enforced",
-                          "unenforced"
+                          "unenforced",
+                          "enterprise_enforced"
                         ]
                       },
                       "url": {
@@ -5544,7 +5621,7 @@
           "isRequired": true
         }
       ],
-      "descriptionHTML": "<p>Detach code security configuration(s) from a set of repositories.\nRepositories will retain their settings but will no longer be associated with the configuration.</p>\n<p>The authenticated user must be an administrator or security manager for the organization to use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>write:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Detach code security configuration(s) from a set of repositories.\nRepositories will retain their settings but will no longer be associated with the configuration.</p>\n<p>The authenticated user must be an administrator or security manager for the organization to use this endpoint.</p>\n<p>Repositories with active enterprise-enforced attachments are skipped unless the authenticated user can manage the enterprise's code security settings; the rest are detached. Inactive enterprise-enforced attachments, such as failed attachments, are detached. The request still returns <code>204</code> if every repository is skipped.</p>\n<p>OAuth app tokens and classic PATs require the <code>write:org</code> scope. Managing enterprise-enforced configurations also requires <code>admin:enterprise</code> and is not supported by fine-grained PATs or GitHub App access tokens.</p>",
       "codeExamples": [
         {
           "request": {
@@ -5711,7 +5788,10 @@
                   ]
                 },
                 "description": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "A description of the code security configuration"
                 },
                 "advanced_security": {
@@ -5976,7 +6056,8 @@
                   "description": "The enforcement status for a security configuration",
                   "enum": [
                     "enforced",
-                    "unenforced"
+                    "unenforced",
+                    "enterprise_enforced"
                   ]
                 },
                 "url": {
@@ -6437,7 +6518,10 @@
                   ]
                 },
                 "description": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "A description of the code security configuration"
                 },
                 "advanced_security": {
@@ -6702,7 +6786,8 @@
                   "description": "The enforcement status for a security configuration",
                   "enum": [
                     "enforced",
-                    "unenforced"
+                    "unenforced",
+                    "enterprise_enforced"
                   ]
                 },
                 "url": {
@@ -6736,6 +6821,26 @@
         {
           "httpStatusCode": "204",
           "description": "<p>Response when no new updates are made</p>"
+        },
+        {
+          "httpStatusCode": "400",
+          "description": "<p>Bad Request because of a global configuration, incompatible parameters, or an attempt to update attributes of an enterprise-owned configuration.</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "409",
+          "description": "<p>Conflict because security configuration work is already in progress.</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed because of invalid enforcement values, unavailable security products, an attempt to change enterprise-enforced enforcement, or an invalid configuration.</p>"
         }
       ],
       "previews": [],
@@ -6876,7 +6981,7 @@
           "description": "<p>An array of repository IDs to attach the configuration to. You can only provide a list of repository ids when the <code>scope</code> is set to <code>selected</code>.</p>"
         }
       ],
-      "descriptionHTML": "<p>Attach a code security configuration to a set of repositories. If the repositories specified are already attached to a configuration, they will be re-attached to the provided configuration.</p>\n<p>If insufficient GHAS licenses are available to attach the configuration to a repository, only free features will be enabled.</p>\n<p>The authenticated user must be an administrator or security manager for the organization to use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>write:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Attach a code security configuration to a set of repositories. If the repositories specified are already attached to a configuration, they will be re-attached to the provided configuration.</p>\n<p>If insufficient GHAS licenses are available to attach the configuration to a repository, only free features will be enabled.</p>\n<p>The authenticated user must be an administrator or security manager for the organization to use this endpoint.</p>\n<p>Directly applying an enterprise-enforced configuration also requires permission to manage the enterprise's code security settings. Without it, the request returns <code>403</code> and no repositories change.</p>\n<p>When applying a different configuration, repositories with active enterprise-enforced attachments are skipped unless the authenticated user can manage the enterprise's code security settings; the remaining repositories are updated. The request still returns <code>202</code> if every repository is skipped.</p>\n<p>OAuth app tokens and classic PATs require the <code>write:org</code> scope. Directly applying an enterprise-enforced configuration also requires <code>admin:enterprise</code> and is not supported by fine-grained PATs or GitHub App access tokens.</p>",
       "codeExamples": [
         {
           "request": {
@@ -6910,6 +7015,26 @@
         {
           "httpStatusCode": "202",
           "description": "<p>Accepted</p>"
+        },
+        {
+          "httpStatusCode": "400",
+          "description": "<p>Bad Request</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "409",
+          "description": "<p>Conflict because security configuration work is already in progress for the\norganization, security configuration changes are blocked for the organization,\nor another organization in the same enterprise is applying security configurations.</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed because the body does not match the request schema, <code>scope</code>\nis <code>selected</code> but <code>selected_repository_ids</code> is missing or empty, or a non-empty\n<code>selected_repository_ids</code> array is provided for another scope.</p>"
         }
       ],
       "previews": [],
@@ -6964,7 +7089,7 @@
           ]
         }
       ],
-      "descriptionHTML": "<p>Sets a code security configuration as a default to be applied to new repositories in your organization.</p>\n<p>This configuration will be applied to the matching repository type (all, none, public, private and internal) by default when they are created.</p>\n<p>The authenticated user must be an administrator or security manager for the organization to use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>write:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Sets a code security configuration as a default to be applied to new repositories in your organization.</p>\n<p>This configuration will be applied to the matching repository type (all, none, public, private and internal) by default when they are created.</p>\n<p>The authenticated user must be an administrator or security manager for the organization to use this endpoint. Setting an enterprise-enforced configuration as the default also requires permission to manage the enterprise's code security settings.</p>\n<p>A default set with this endpoint is an organization default, even if the configuration is owned or enforced by the enterprise. An enterprise-enforced configuration set as an enterprise-level default for the same repository visibility takes precedence.</p>\n<p>OAuth app tokens and classic PATs require the <code>write:org</code> scope; setting an enterprise-enforced configuration as the default also requires <code>admin:enterprise</code>. Fine-grained PATs and GitHub App access tokens cannot perform that action.</p>",
       "codeExamples": [
         {
           "request": {
@@ -7068,7 +7193,10 @@
                       ]
                     },
                     "description": {
-                      "type": "string",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "description": "A description of the code security configuration"
                     },
                     "advanced_security": {
@@ -7333,7 +7461,8 @@
                       "description": "The enforcement status for a security configuration",
                       "enum": [
                         "enforced",
-                        "unenforced"
+                        "unenforced",
+                        "enterprise_enforced"
                       ]
                     },
                     "url": {
@@ -7373,6 +7502,10 @@
         {
           "httpStatusCode": "404",
           "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed because a public default is not supported in the current environment.</p>"
         }
       ],
       "previews": [],
@@ -7443,7 +7576,7 @@
         },
         {
           "name": "status",
-          "description": "<p>A comma-separated list of statuses. If specified, only repositories with these attachment statuses will be returned.</p>\n<p>Can be: <code>all</code>, <code>attached</code>, <code>attaching</code>, <code>detached</code>, <code>removed</code>, <code>enforced</code>, <code>failed</code>, <code>updating</code>, <code>removed_by_enterprise</code></p>",
+          "description": "<p>A comma-separated list of statuses. If specified, only repositories with these attachment statuses will be returned.</p>\n<p>Can be: <code>all</code>, <code>attached</code>, <code>attaching</code>, <code>detached</code>, <code>removed</code>, <code>enforced</code>, <code>failed</code>, <code>updating</code>, <code>removed_by_enterprise</code>, <code>enterprise_enforced</code></p>",
           "in": "query",
           "required": false,
           "schema": {
@@ -7561,7 +7694,8 @@
                       "enforced",
                       "failed",
                       "updating",
-                      "removed_by_enterprise"
+                      "removed_by_enterprise",
+                      "enterprise_enforced"
                     ]
                   },
                   "repository": {
@@ -7941,12 +8075,20 @@
           "description": "<p>OK</p>"
         },
         {
+          "httpStatusCode": "400",
+          "description": "<p>Bad Request because of unsupported attachment statuses.</p>"
+        },
+        {
           "httpStatusCode": "403",
           "description": "<p>Forbidden</p>"
         },
         {
           "httpStatusCode": "404",
           "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed because <code>removed</code> and <code>detached</code> are requested together.</p>"
         }
       ],
       "previews": [],
@@ -8051,7 +8193,8 @@
                     "enforced",
                     "failed",
                     "updating",
-                    "removed_by_enterprise"
+                    "removed_by_enterprise",
+                    "enterprise_enforced"
                   ]
                 },
                 "configuration": {
@@ -8076,7 +8219,10 @@
                       ]
                     },
                     "description": {
-                      "type": "string",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "description": "A description of the code security configuration"
                     },
                     "advanced_security": {
@@ -8341,7 +8487,8 @@
                       "description": "The enforcement status for a security configuration",
                       "enum": [
                         "enforced",
-                        "unenforced"
+                        "unenforced",
+                        "enterprise_enforced"
                       ]
                     },
                     "url": {

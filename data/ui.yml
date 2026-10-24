@@ -3,6 +3,8 @@ meta:
 
 header:
   github_docs: GitHub Docs
+  docs_title: Docs
+  close_menu_label: Close menu
   contact: Contact
   notices:
     release_candidate:
@@ -17,11 +19,15 @@ header:
     ghes_release_notes_upgrade_patch_and_release: 📣 This is not the <a href="#{{ latestPatch }}">latest patch release</a> of this release series, and this is not the <a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">latest release</a> of Enterprise Server.
   sign_up_cta: Sign up
   menu: Menu
-  open_menu_label: Open menu
   go_home: Home
+  collapse_sidebar: Collapse sidebar
+  expand_sidebar: Expand sidebar
+  scroll_breadcrumbs_left: Scroll breadcrumbs left
+  scroll_breadcrumbs_right: Scroll breadcrumbs right
 
 picker:
-  language_picker_label: Language
+  version_picker_label: 'Select your version:'
+  plan_picker_label: 'Select your plan:'
   product_picker_default_text: All products
   version_picker_default_text: Choose a version
 
@@ -48,13 +54,16 @@ search:
     beta_tag: Beta
     return_to_search: Return to search
     clear_search_query: Clear
+    close_search: Close search
     view_all_search_results: View more results
+    view_all_search_results_with_count: View all {{n}} results
     no_results_found: No results found
     no_results_found_announcement: 'Search Docs: No results found'
+    loading_results_announcement: Loading search results
     search_docs_with_query: Search docs for "{{query}}"
-    privacy_disclaimer: For product and service improvement purposes, the GitHub Docs team will retain questions and answers generated in the Docs search function. Please see the <a href="https://docs.github.com/privacy"><u>GitHub Privacy Statement</u></a> to review how GitHub collects and uses your data.
+    privacy_disclaimer: For product and service improvement purposes, GitHub will retain questions and answers generated in the Docs search function. Please see the <a href="https://docs.github.com/privacy"><u>GitHub Privacy Statement</u></a> to review how GitHub collects and uses your data.
   ai:
-    disclaimer: <a href="https://docs.github.com/en/copilot/responsible-use-of-github-copilot-features/responsible-use-of-github-copilot-chat-in-githubcom"}>Copilot</a> uses AI. Check for mistakes.
+    disclaimer: <a href="https://docs.github.com/en/copilot/responsible-use-of-github-copilot-features/responsible-use-of-github-copilot-chat-in-githubcom">Copilot</a> uses AI. Check for mistakes.
     references: Copilot Sources
     loading_status_message: Loading Copilot response...
     done_loading_status_message: Done loading Copilot response
@@ -89,12 +98,17 @@ search_results:
   n_results: '{n} results'
   search_validation_error: Validation error with search query
   filter: Filter
-  clear_filter: Clear
+  clear_all_filters: Clear all
+  show_filters: Show filters
+  hide_filters: Hide filters
+  filter_search_results: Filter search results
 
 homepage:
   explore_by_product: Explore by product
   version_picker: Version
   description: Help for wherever you are on your GitHub journey.
+  search_placeholder: Search for anything...
+  all_docs: All docs
 
 toc:
   getting_started: Getting started
@@ -109,7 +123,7 @@ pages:
   all_enterprise_releases: All Enterprise Server releases
   about_versions: About versions
   permissions_callout_title: Who can use this feature?
-  copy_as_markdown: Copy as Markdown
+  copy_as_markdown: Copy markdown
   copy_as_markdown_desc: Use with any LLM
   view_as_markdown: View as Markdown
   view_as_markdown_desc: Open page in another tab
@@ -118,6 +132,7 @@ pages:
   more_markdown_options: More Markdown options
   opens_in_new_tab: (opens in new tab)
   copied: Copied!
+  download_for: 'Download for {os}'
 
 support:
   still_need_help: Still need help?
@@ -125,7 +140,7 @@ support:
   ask_community: Ask the GitHub community
 
 survey:
-  able_to_find: Did you find what you needed?
+  able_to_find: Was this Doc helpful?
   yes: Yes
   no: No
   cancel: Cancel
@@ -141,8 +156,8 @@ survey:
   server_error: Unable to process comment at the moment. Please try again.
 
 contribution_cta:
-  title: Help us make these docs great!
-  body: All GitHub docs are open source. See something that's wrong or unclear? Submit a pull request.
+  title: Help us make GitHub Docs great!
+  body: All Docs are open source. See something that's wrong or unclear? Submit a pull request.
   button: Make a contribution
   to_guidelines: Learn how to contribute
 
@@ -195,7 +210,7 @@ rest:
   banner:
     api_versioned: The REST API is now versioned.
     api_version_info: For more information, see "<a href="{{ versionWithApiVersion }}/rest/overview/api-versions">About API versioning</a>."
-    ghes_api_versioned: After a site administrator upgrades your Enterprise Server instance to {{ firstGhesReleaseWithApiVersions.versionTitle }} or later, the REST API will be versioned. To learn how to find your instance's version, see "<a href="/{{ currentVersion }}/get-started/learning-about-github/about-versions-of-github-docs#github-enterprise-server">About versions of GitHub Docs</a>".
+    ghes_api_versioned: After a site administrator upgrades your Enterprise Server instance to {{ firstGhesReleaseWithApiVersions.versionTitle }} or later, the REST API will be versioned. To learn how to find your instance's version, see "<a href="/{{ currentVersion }}/get-started/using-github-docs/about-versions-of-github-docs#github-enterprise-server">About versions of GitHub Docs</a>".
     redirect_notice: We've recently moved some of the REST API documentation.
     redirect_repo: If you can't find what you're looking for, you might try the new {{ newRestPagesLinks }} REST API pages.
     redirect_enterprise: If you can't find what you're looking for, you might try the {{ actionsPageLink }} REST API page.
@@ -273,6 +288,8 @@ secret_scanning:
   filter_all: All
   filter_yes: 'Yes'
   filter_no: 'No'
+  clear_filters: Clear filters
+  clear_filters_aria_label: Clear all filters and search
   showing_patterns: 'Showing {filtered} of {total} patterns'
   column_provider: Provider
   column_secret: Secret
@@ -291,6 +308,7 @@ secret_scanning:
 webhooks:
   action_type_switch_error: There was an error switching webhook action types.
   action_type: Action type
+  action_type_selected: "'{{ actionType }}' action selected. {{ description }}"
   availability: Availability for <code>{{ WebhookName }}</code>
   webhook_payload_object: Webhook payload object for <code>{{ WebhookName }}</code>
   webhook_payload_example: Webhook payload example
@@ -305,6 +323,7 @@ webhooks:
 footer:
   support_heading: Help and support
   legal_heading: Legal
+  back_to_top: Back to top
   imprint: Imprint
   terms: Terms
   privacy: Privacy
@@ -322,6 +341,7 @@ product_landing:
   article_grid:
     heading: Articles
     all_categories: All categories
+    filter_by_category: Category
     search_articles: Search articles
     no_articles_found: No articles found matching your criteria.
     showing_results: Showing {start}-{end} of {total}
@@ -359,10 +379,8 @@ product_landing:
   all_content: 'View all {{ title }} content'
 
 journey_track_nav:
-  prev_article: Previous
-  next_article: Next
-  more_articles: More articles →
-  current_progress: 'Article {i} of {n}'
+  up_next: Up next
+  up_next_progress: 'Step {i} of {n} in {track}'
 
 scroll_button:
   scroll_to_top: Scroll to top

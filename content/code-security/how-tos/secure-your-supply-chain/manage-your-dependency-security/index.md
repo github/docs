@@ -8,6 +8,7 @@ versions:
   ghec: '*'
 contentType: how-tos
 children:
+  - /configure-license-policies
   - /auto-triage-dependabot-alerts
   - /prioritize-with-preset-rules
   - /customizing-dependabot-security-prs
@@ -22,6 +23,7 @@ children:
   - /re-run-dependabot-jobs
   - /list-configured-dependencies
   - /configure-private-registries
+  - /resolve-a-blocked-host
 redirect_from:
   - /code-security/dependabot/maintain-dependencies
   - /code-security/dependabot/dependabot-security-updates

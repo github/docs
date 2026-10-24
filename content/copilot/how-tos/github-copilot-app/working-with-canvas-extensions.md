@@ -3,7 +3,7 @@ title: Working with canvas extensions in the GitHub Copilot app
 shortTitle: Canvas extensions
 intro: 'Use canvases in the {% data variables.copilot.github_copilot_app %} to build shared, agent-driven artifacts and interfaces for human-agent collaboration.'
 allowTitleToDifferFromFilename: true
-product: '{% data reusables.gated-features.github-app %}'
+product: '{% data reusables.gated-features.github-app %}<br>{% data reusables.copilot.github-app-download-button %}'
 versions:
   feature: copilot
 contentType: how-tos
@@ -11,14 +11,11 @@ category:
   - Author and optimize with Copilot
 ---
 
-> [!NOTE] The {% data variables.copilot.github_copilot_app %} is in {% data variables.release-phases.technical_preview %} and subject to change.
->
-> * **{% data variables.copilot.copilot_business_short %}, {% data variables.copilot.copilot_enterprise_short %}, {% data variables.copilot.copilot_pro_short %}, and {% data variables.copilot.copilot_pro_plus_short %} users** — Download and install from the [{% data variables.copilot.github_copilot_app %} repository](https://gh.io/github-copilot-app-repo?utm_source=docs-github-copilot-app-canvas&utm_medium=docs&utm_campaign=msbuild-2026). For {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %}, your organization or enterprise must enable preview features and {% data variables.copilot.copilot_cli_short %}.
-> * **{% data variables.copilot.copilot_free_short %} users and users without a {% data variables.product.prodname_copilot_short %} plan** — To request access, [join the waitlist](https://gh.io/github-copilot-app?utm_source=docs-github-copilot-app-canvas&utm_medium=docs&utm_campaign=msbuild-2026).
-
 ## About canvas extensions
 
 A canvas extension is a shared, interactive surface for a work artifact, such as a plan, triage board, browser session, release checklist, dashboard, incident, or spreadsheet.
+
+A canvas extension can be included in a plugin alongside other capabilities, such as skills or MCP servers.
 
 While chat is useful for defining intent and discussing tasks, most work happens in work surfaces such as a terminal, a browser, a document, or a dashboard. Canvases allow you to collaborate with the agent directly in those work surfaces.
 
@@ -48,6 +45,18 @@ Canvas extensions can be customized to fit your needs or your team's needs acros
 * **Markdown canvases:** Build a persistent markdown file for planning your day, prioritizing issues and pull requests, launching and monitoring agent sessions, and keeping related work in one editable surface.
 * **Document canvases:** Open, edit, and collaborate on documents, spreadsheets, slide decks, and other artifacts directly in the app.
 
+## Discovering canvases
+
+The **Canvas** view provides a curated list of featured canvases. Some canvases are delivered through plugins, which you must install before you can use the canvas in a session. For example, installing the Azure DevOps plugin gives you access to a canvas for planning and managing Azure DevOps work.
+
+1. In the app sidebar, click **Customize**.
+1. Click **Canvas**.
+1. Browse the featured canvases.
+1. If a canvas requires a plugin, click **Install plugin**.
+1. Click **New session** to open a session with the canvas.
+
+You can also click **Installed** to view all installed customizations, including the canvases available for you to use.
+
 ## Creating a canvas
 
 You can create a new canvas from within a session using the `/create-canvas` skill.
@@ -59,14 +68,14 @@ You can create a new canvas from within a session using the `/create-canvas` ski
    * `Create an agentic kanban canvas with actions to create, assign, and move cards.`
    * `Create a markdown canvas that combines my meetings with prioritized issues and pull requests, then lets me launch and track agent sessions from that canvas.`
 1. You can choose whether the canvas should be shared with your team or kept personal:
-   * **Project scope:** `.github/extensions` for team-shared canvases committed to the repository.
+   * **Repository scope:** `.github/extensions` for team-shared canvases committed to the repository.
    * **User scope:** `~/.copilot/extensions` for personal canvases on your machine.
 
 The agent will build the canvas and open it in the right side panel once complete. After that, you can continue iterating by asking the agent to change the interface, shared state, and capabilities.
 
 ## How canvas extensions are structured
 
-Each canvas extension lives in its own directory under either `.github/extensions` (project scope) or `~/.copilot/extensions` (user scope).
+Canvas extensions that you create in the app or install directly live in their own directory under either `.github/extensions` (repository scope) or `~/.copilot/extensions` (user scope).
 
 Although implementations can vary, a canvas extension commonly includes:
 

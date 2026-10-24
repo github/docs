@@ -1,20 +1,11 @@
-/**
- * PR Link Checker
- *
- * Fast validation of internal links in changed files.
- * Designed to run in <10 minutes on typical PRs.
- *
- * Usage:
- *   npm run check-links-pr
- *   npm run check-links-pr -- --files content/actions/index.md content/repos/index.md
- *
- * Environment variables:
- *   FILES_CHANGED - JSON array of changed files (from GitHub Actions)
- *   GITHUB_TOKEN - For posting PR comments
- *   ACTION_RUN_URL - Link to the action run
- *   SHOULD_COMMENT - Whether to post PR comments (default: false)
- *   FAIL_ON_FLAW - Exit with error code if broken links found (default: true)
- */
+// Validates internal links in changed files and targets typical PR runs under 10 minutes.
+// Usage: npm run check-links-pr
+// Usage: npm run check-links-pr -- --files content/actions/index.md content/repos/index.md
+// FILES_CHANGED passes a JSON array of changed files from GitHub Actions.
+// GITHUB_TOKEN posts PR comments.
+// ACTION_RUN_URL links to the action run.
+// SHOULD_COMMENT posts PR comments when true, default false.
+// FAIL_ON_FLAW exits with an error when broken links are found, default true.
 
 import { program } from 'commander'
 import chalk from 'chalk'
@@ -22,13 +13,30 @@ import chalk from 'chalk'
 import warmServer from '@/frame/lib/warm-server'
 import {
   extractLinksWithLiquid,
+  renderAndExtractLinks,
   createLiquidContext,
   checkInternalLink,
   checkAssetLink,
   isAssetLink,
   getRelativePath,
+  getLinkCheckVersions,
+  type ExtractedLink,
 } from '@/links/lib/extract-links'
-import { type BrokenLink, generatePRComment, groupBrokenLinks } from '@/links/lib/link-report'
+import {
+  buildRenderContext,
+  findLinkLines,
+  getPageHeadingIds,
+  isAnchorCheckableTarget,
+  resolveLinkKeyForVersion,
+  versionFromResolvedKey,
+} from '@/links/lib/page-anchors'
+import {
+  type BrokenLink,
+  type CrossPageAnchorFlaw,
+  generatePRComment,
+  groupBrokenLinks,
+  mergeVersionedLinkFlaws,
+} from '@/links/lib/link-report'
 import { uploadArtifact } from '@/links/scripts/upload-artifact'
 import github from '@/workflows/github'
 import { getActionContext } from '@/workflows/action-context'
@@ -43,99 +51,175 @@ interface CheckResult {
   totalLinksChecked: number
 }
 
-/**
- * Check all internal links in a single file
- */
 async function checkFile(
   filePath: string,
+  sourcePage: Page | undefined,
   pageMap: Record<string, Page>,
   redirects: Record<string, string>,
-  version: string = 'free-pro-team@latest',
   language: string = 'en',
 ): Promise<CheckResult> {
-  const brokenLinks: BrokenLink[] = []
-  const redirectLinks: BrokenLink[] = []
   let totalLinksChecked = 0
 
-  // Read file content
   let content: string
   try {
     content = fs.readFileSync(filePath, 'utf-8')
   } catch {
     console.warn(`Could not read file: ${filePath}`)
-    return { file: filePath, brokenLinks, redirectLinks, totalLinksChecked }
+    return { file: filePath, brokenLinks: [], redirectLinks: [], totalLinksChecked }
   }
 
-  // Create context for Liquid rendering
-  const context = createLiquidContext(version, language)
+  const file = getRelativePath(filePath)
+  const flaws: BrokenLink[] = []
+  // Liquid shifts rendered lines, so use raw source lines unless a Liquid-built href has none.
+  const flawFor = (link: ExtractedLink): BrokenLink => {
+    const lines = findLinkLines(
+      content,
+      link.fragment ? `${link.href}#${link.fragment}` : link.href,
+    )
+    return {
+      href: link.href,
+      file,
+      lines: lines.length ? lines : [link.line],
+      text: link.text,
+      isAutotitle: link.isAutotitle,
+    }
+  }
 
-  // Extract links after Liquid rendering
-  const { internalLinks } = await extractLinksWithLiquid(content, context)
+  // ifversion blocks and versionless links depend on the version, so check each one.
+  for (const version of getLinkCheckVersions(sourcePage)) {
+    // Pages use the anchor check's context so version names and feature flags evaluate like the site.
+    const context = sourcePage
+      ? buildRenderContext(sourcePage, version, pageMap, redirects)
+      : createLiquidContext(version, language)
 
-  // Check each internal link (exclude imageLinks - they're static assets, not docs pages)
-  totalLinksChecked = internalLinks.length
+    const { internalLinks } = await extractLinksWithLiquid(content, context)
 
-  for (const link of internalLinks) {
-    // Check if this is an asset link (images, etc.) - verify file exists on disk
-    if (isAssetLink(link.href)) {
-      if (!checkAssetLink(link.href)) {
-        brokenLinks.push({
-          href: link.href,
-          file: getRelativePath(filePath),
-          lines: [link.line],
-          text: link.text,
-          isAutotitle: link.isAutotitle,
+    // imageLinks are excluded: they're static assets, not docs pages.
+    totalLinksChecked = Math.max(totalLinksChecked, internalLinks.length)
+
+    for (const link of internalLinks) {
+      if (isAssetLink(link.href)) {
+        if (!checkAssetLink(link.href)) flaws.push(flawFor(link))
+        continue
+      }
+
+      const result = checkInternalLink(link.href, pageMap, redirects, version, language)
+
+      if (!result.exists) {
+        flaws.push(flawFor(link))
+      } else if (result.isRedirect) {
+        flaws.push({
+          ...flawFor(link),
+          isRedirect: true,
+          redirectTarget: result.redirectTarget,
+          requiresVersionContext: result.requiresVersionContext,
         })
       }
-      continue
-    }
-
-    const result = checkInternalLink(link.href, pageMap, redirects)
-
-    if (!result.exists) {
-      brokenLinks.push({
-        href: link.href,
-        file: getRelativePath(filePath),
-        lines: [link.line],
-        text: link.text,
-        isAutotitle: link.isAutotitle,
-      })
-    } else if (result.isRedirect) {
-      redirectLinks.push({
-        href: link.href,
-        file: getRelativePath(filePath),
-        lines: [link.line],
-        text: link.text,
-        isAutotitle: link.isAutotitle,
-        isRedirect: true,
-        redirectTarget: result.redirectTarget,
-      })
     }
   }
 
+  const { brokenLinks, redirectLinks } = mergeVersionedLinkFlaws(flaws)
   return { file: filePath, brokenLinks, redirectLinks, totalLinksChecked }
 }
 
-/**
- * Get list of changed files from environment or CLI args
- */
+// Cross-page anchors must pass in every version the source page renders in.
+// Version-gated links and headings can break in one version while passing in another.
+// Explicit enterprise prefixes choose the target version; other links use the source version.
+// Autogenerated and glossary targets are skipped because their anchors are not static Markdown headings.
+async function checkFileAnchors(
+  filePath: string,
+  sourcePage: Page,
+  pageMap: Record<string, Page>,
+  redirects: Record<string, string>,
+  headingCache: Map<string, Set<string>>,
+): Promise<CrossPageAnchorFlaw[]> {
+  let content: string
+  try {
+    content = fs.readFileSync(filePath, 'utf-8')
+  } catch {
+    return []
+  }
+
+  const file = getRelativePath(filePath)
+  const versions = sourcePage.applicableVersions ?? []
+  // Raw source positions dedupe the same occurrence across version-specific renders.
+  const rawLinesFor = (hrefWithFragment: string): number[] =>
+    findLinkLines(content, hrefWithFragment)
+
+  // Aggregate versions by target so one broken fragment reports once per file and href.
+  const flaws = new Map<
+    string,
+    { href: string; file: string; lines: number[]; text?: string; versionSet: Set<string> }
+  >()
+
+  for (const version of versions) {
+    const context = buildRenderContext(sourcePage, version, pageMap, redirects)
+    const { result } = await renderAndExtractLinks(content, context)
+
+    for (const link of result.internalLinks) {
+      if (!link.fragment) continue
+      // #top is valid without a heading ID; check-links-internal.ts applies the same rule.
+      if (link.fragment === 'top') continue
+
+      // Redirects, archived versions, and broken paths drop out; unversioned hrefs retry in source version.
+      const targetKey = resolveLinkKeyForVersion(link.href, version, pageMap)
+      if (!targetKey) continue
+      const targetPage = pageMap[targetKey]
+      if (!targetPage) continue
+
+      // Explicit version prefixes choose the target version; other links use the source version.
+      const checkVersion = versionFromResolvedKey(targetKey) ?? version
+      if (!targetPage.applicableVersions?.includes(checkVersion)) continue
+      if (!isAnchorCheckableTarget(targetPage)) continue
+
+      const headingIds = await getPageHeadingIds(
+        targetPage,
+        checkVersion,
+        pageMap,
+        redirects,
+        headingCache,
+      )
+      if (headingIds.has(link.fragment)) continue
+
+      const href = `${link.href}#${link.fragment}`
+      const existing = flaws.get(href)
+      if (existing) {
+        existing.versionSet.add(checkVersion)
+      } else {
+        // Fall back to link.line when a Liquid href like /{% ifversion %}...{% endif %}path has no raw match.
+        const lines = rawLinesFor(href)
+        flaws.set(href, {
+          href,
+          file,
+          lines: lines.length ? lines : [link.line],
+          text: link.text,
+          versionSet: new Set([checkVersion]),
+        })
+      }
+    }
+  }
+
+  return [...flaws.values()].map(({ versionSet, ...flaw }) => ({
+    ...flaw,
+    versions: [...versionSet].sort(),
+  }))
+}
+
 function getChangedFiles(cliFiles?: string[]): string[] {
-  // CLI args take precedence
   if (cliFiles && cliFiles.length > 0) {
     return cliFiles
   }
 
-  // Check environment variable (from GitHub Actions)
   const filesChanged = process.env.FILES_CHANGED
   if (filesChanged) {
-    // Try parsing as JSON first
+    // FILES_CHANGED can be a JSON array.
     try {
       const parsed = JSON.parse(filesChanged)
       if (Array.isArray(parsed)) {
         return parsed
       }
     } catch {
-      // Not JSON, treat as space-separated string (tj-actions/changed-files format)
+      // tj-actions/changed-files provides a space-separated string.
       return filesChanged.split(/\s+/).filter(Boolean)
     }
   }
@@ -143,22 +227,21 @@ function getChangedFiles(cliFiles?: string[]): string[] {
   return []
 }
 
-/**
- * Filter to only content/data files that might contain links
- */
 function filterContentFiles(files: string[]): string[] {
   return files.filter((file) => {
-    // Only check Markdown files in content/ or data/
     if (!file.endsWith('.md')) return false
+    // Skip README.md files because repo-relative developer-docs paths like /src/... are not site links.
+    if (file === 'README.md' || file.endsWith('/README.md')) return false
     if (file.startsWith('content/') || file.startsWith('data/')) return true
     return false
   })
 }
 
-/**
- * Post a comment on the PR with broken link results
- */
-async function commentOnPR(brokenLinks: BrokenLink[], actionUrl?: string) {
+async function commentOnPR(
+  brokenLinks: BrokenLink[],
+  brokenAnchors: CrossPageAnchorFlaw[],
+  actionUrl?: string,
+) {
   const token = process.env.GITHUB_TOKEN
   if (!token) {
     console.warn('No GITHUB_TOKEN, skipping PR comment')
@@ -175,22 +258,38 @@ async function commentOnPR(brokenLinks: BrokenLink[], actionUrl?: string) {
   }
 
   const octokit = github()
-  const comment = generatePRComment(brokenLinks, { actionUrl })
+  const comment = generatePRComment(brokenLinks, {
+    actionUrl,
+    brokenAnchors,
+    anchorsBlocking: process.env.FAIL_ON_ANCHOR_FLAW === 'true',
+  })
 
-  if (!comment) {
-    console.log('No broken links to report')
-    return
-  }
-
-  // Find existing comment
+  // The hidden marker identifies this bot's previous PR comment.
+  const marker = '<!-- link-checker-pr-comment -->'
   const { data: comments } = await octokit.rest.issues.listComments({
     owner,
     repo,
     issue_number: pullNumber,
   })
-
-  const marker = '<!-- link-checker-pr-comment -->'
   const existingComment = comments.find((c) => c.body?.includes(marker))
+
+  if (!comment) {
+    console.log('No broken links to report')
+    // Delete stale comments best-effort because cleanup must not fail a clean link check.
+    if (existingComment) {
+      try {
+        await octokit.rest.issues.deleteComment({
+          owner,
+          repo,
+          comment_id: existingComment.id,
+        })
+        console.log(`Deleted stale PR comment: ${existingComment.id}`)
+      } catch (err) {
+        console.warn(`Could not delete stale PR comment ${existingComment.id}:`, err)
+      }
+    }
+    return
+  }
 
   if (existingComment) {
     await octokit.rest.issues.updateComment({
@@ -211,9 +310,6 @@ async function commentOnPR(brokenLinks: BrokenLink[], actionUrl?: string) {
   }
 }
 
-/**
- * Main entry point
- */
 async function main() {
   program
     .name('check-links-pr')
@@ -229,20 +325,18 @@ async function main() {
   console.log(chalk.blue('🔗 PR Link Checker'))
   console.log('')
 
-  // Get files to check
   let files = getChangedFiles(options.files)
 
   if (options.all) {
-    // For testing: check all content files (limited)
-    const glob = await import('glob')
-    files = glob.sync('content/**/*.md').slice(0, 50)
+    // Limit --all mode for local testing.
+    const { globSync } = await import('node:fs')
+    files = globSync('content/**/*.md').sort().slice(0, 50)
     console.log(`Checking ${files.length} files (--all mode, limited to 50)`)
   } else if (files.length === 0) {
     console.log('No files to check. Exiting.')
     process.exit(0)
   }
 
-  // Filter to content files only
   const contentFiles = filterContentFiles(files)
   if (contentFiles.length === 0) {
     console.log('No content files in changed files. Exiting.')
@@ -251,16 +345,25 @@ async function main() {
 
   console.log(`Checking ${contentFiles.length} file(s)...`)
 
-  // Load page data
   console.log('Loading page data...')
-  const { pages: pageMap, redirects } = await warmServer(['en'])
+  const { pages: pageMap, pageList, redirects } = await warmServer(['en'])
   console.log(
     `Loaded ${Object.keys(pageMap).length} pages, ${Object.keys(redirects).length} redirects`,
   )
 
-  // Check each file
+  // Index English pages by content path so anchor checks know each changed file's versions.
+  const pageByRelativePath = new Map<string, Page>()
+  for (const page of pageList) {
+    if (page.languageCode === 'en') pageByRelativePath.set(page.relativePath, page)
+  }
+
+  // Cache on-demand target renders by version and path across changed files.
+  const checkAnchors = process.env.CHECK_ANCHORS !== 'false'
+  const headingCache = new Map<string, Set<string>>()
+
   const allBrokenLinks: BrokenLink[] = []
   const allRedirectLinks: BrokenLink[] = []
+  const allBrokenAnchors: CrossPageAnchorFlaw[] = []
   let totalLinksChecked = 0
 
   for (const file of contentFiles) {
@@ -274,23 +377,41 @@ async function main() {
       console.log(`  Checking: ${file}`)
     }
 
-    const result = await checkFile(filePath, pageMap, redirects)
+    const sourcePage = pageByRelativePath.get(getRelativePath(filePath))
+    const result = await checkFile(filePath, sourcePage, pageMap, redirects)
     allBrokenLinks.push(...result.brokenLinks)
     allRedirectLinks.push(...result.redirectLinks)
     totalLinksChecked += result.totalLinksChecked
+
+    // Skip changed files outside pageByRelativePath because data and reusables have no versions of their own.
+    if (checkAnchors && sourcePage) {
+      allBrokenAnchors.push(
+        ...(await checkFileAnchors(filePath, sourcePage, pageMap, redirects, headingCache)),
+      )
+    }
   }
 
-  // Report results
   const duration = ((Date.now() - startTime) / 1000).toFixed(1)
   console.log('')
   console.log(chalk.blue(`Checked ${totalLinksChecked} links in ${duration}s`))
 
-  if (allBrokenLinks.length === 0 && allRedirectLinks.length === 0) {
+  if (
+    allBrokenLinks.length === 0 &&
+    allRedirectLinks.length === 0 &&
+    allBrokenAnchors.length === 0
+  ) {
     console.log(chalk.green('✅ All links valid!'))
+    // Clean runs remove stale comments only when PR commenting is enabled.
+    if (process.env.SHOULD_COMMENT === 'true') {
+      try {
+        await commentOnPR([], [], process.env.ACTION_RUN_URL)
+      } catch (err) {
+        console.warn('Could not clean up stale PR comment:', err)
+      }
+    }
     process.exit(0)
   }
 
-  // Group and display results
   if (allBrokenLinks.length > 0) {
     console.log('')
     console.log(chalk.red(`❌ ${allBrokenLinks.length} broken link(s):`))
@@ -316,27 +437,55 @@ async function main() {
     }
   }
 
-  // Write artifact for debugging
-  const allFlaws = [...allBrokenLinks, ...allRedirectLinks]
-  await uploadArtifact('broken-links.json', JSON.stringify(groupBrokenLinks(allFlaws), null, 2))
+  if (allBrokenAnchors.length > 0) {
+    console.log('')
+    console.log(chalk.yellow(`⚓ ${allBrokenAnchors.length} broken cross-page anchor(s):`))
+    for (const anchor of allBrokenAnchors) {
+      console.log(
+        `  ${chalk.yellow(anchor.href)}  (${anchor.versions.join(', ')})\n    - ${anchor.file}:${anchor.lines.join(',')}`,
+      )
+    }
+  }
 
-  // Post PR comment if configured
+  // Upload broken-link artifacts best-effort so reporting failures cannot fail the PR.
+  const allFlaws = [...allBrokenLinks, ...allRedirectLinks]
+  try {
+    await uploadArtifact('broken-links.json', JSON.stringify(groupBrokenLinks(allFlaws), null, 2))
+    if (allBrokenAnchors.length > 0) {
+      await uploadArtifact('broken-anchors.json', JSON.stringify(allBrokenAnchors, null, 2))
+    }
+  } catch (err) {
+    console.warn('Could not upload broken-links artifact:', err)
+  }
+
+  // Post PR comments best-effort for the same reason.
   const shouldComment = process.env.SHOULD_COMMENT === 'true'
   if (shouldComment) {
     const actionUrl = process.env.ACTION_RUN_URL
-    await commentOnPR(allFlaws, actionUrl)
+    try {
+      await commentOnPR(allFlaws, allBrokenAnchors, actionUrl)
+    } catch (err) {
+      console.warn('Could not post PR comment:', err)
+    }
   }
 
-  // Exit with error if broken links found
+  // Anchor flaws stay opt-in via FAIL_ON_ANCHOR_FLAW while false positives are measured.
   const failOnFlaw = process.env.FAIL_ON_FLAW !== 'false'
-  if (failOnFlaw && allBrokenLinks.length > 0) {
+  const failOnAnchorFlaw = process.env.FAIL_ON_ANCHOR_FLAW === 'true'
+  const shouldFail =
+    (failOnFlaw && allBrokenLinks.length > 0) || (failOnAnchorFlaw && allBrokenAnchors.length > 0)
+  if (shouldFail) {
     console.log('')
-    console.log(chalk.red('Failing due to broken links'))
+    if (failOnFlaw && allBrokenLinks.length > 0) {
+      console.log(chalk.red('Failing due to broken links'))
+    }
+    if (failOnAnchorFlaw && allBrokenAnchors.length > 0) {
+      console.log(chalk.red('Failing due to broken cross-page anchors'))
+    }
     process.exit(1)
   }
 }
 
-// Run if invoked directly
 ;(async () => {
   try {
     await main()

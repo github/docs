@@ -24,6 +24,6 @@ category:
 ## Further reading
 
 {% ifversion fpt or ghec %}
-* [AUTOTITLE](/get-started/exploring-integrations/about-integrations){% endif %}
-* [AUTOTITLE](/apps/using-github-apps/reviewing-your-authorized-integrations)
+* [AUTOTITLE](/integrations/concepts/about-integrations){% endif %}
+* [AUTOTITLE](/apps/using-github-apps/reviewing-and-revoking-authorization-of-github-apps)
 * [AUTOTITLE](/apps/oauth-apps/using-oauth-apps/privileged-oauth-apps)

@@ -17,7 +17,7 @@ category:
 
 You may have a reason to commit a secret to a repository, such as when you want to provide a fake secret in documentation, or in an example application. In these scenarios, you can quickly dismiss the alert and document the reasons. However, there may be cases where you want to ignore a directory entirely to avoid creating false positive alerts at scale. For example, you might have a monolithic application with several integrations containing a file of dummy keys that could set off numerous false alerts to triage.
 
-You can configure a `secret_scanning.yml` file to automatically close alerts found in specific directories from {% data variables.product.prodname_secret_scanning %}, and exclude these directories included in push protection. These alerts are closed as "ignored by configuration".
+You can configure a `secret_scanning.yml` file to automatically close alerts found in specific directories from {% data variables.product.prodname_secret_scanning %}, and exclude these directories included in push protection. These alerts are closed as "ignored by configuration". They do not trigger `secret_scanning_alert` or `secret_scanning_alert_location` webhook events.
 
 ## Excluding directories from {% data variables.secret-scanning.user_alerts %}
 
@@ -33,7 +33,7 @@ You can configure a `secret_scanning.yml` file to automatically close alerts fou
 
     This tells {% data variables.product.prodname_secret_scanning %} to automatically close alerts for everything in the `docs` directory. You can use this example file as a template to add the files and folders you’d like to exclude from your own repositories.
 
-    You can also use special characters, such as `*` to filter paths. For more information about filter patterns, see [Workflow syntax for GitHub Actions](/actions/reference/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet).
+    You can also use special characters, such as `*` to filter paths. For more information about filter patterns, see [Workflow syntax for GitHub Actions](/actions/reference/workflows-and-actions/workflow-syntax#filter-pattern-cheat-sheet).
 
     ``` yaml copy
     paths-ignore:

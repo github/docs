@@ -12,6 +12,7 @@ export type TocLandingContextT = {
   variant?: 'compact' | 'expanded'
   featuredLinks: Record<string, Array<FeaturedLink>>
   renderedPage: string
+  renderedPageHast?: import('hast').Root | null
 }
 
 export const TocLandingContext = createContext<TocLandingContextT | null>(null)
@@ -26,14 +27,14 @@ export const useTocLandingContext = (): TocLandingContextT => {
   return context
 }
 
-// Request type for context extraction — uses Record<string, unknown> for the page
-// because the Page type doesn't include all runtime-computed properties.
+// Context extraction uses Record<string, unknown> because Page omits runtime-computed properties.
 interface ContextRequest {
   context: {
     page: Record<string, unknown> & { title: string; intro: string }
     genericTocFlat?: unknown[]
     genericTocNested?: unknown[]
     renderedPage?: string
+    renderedPageHast?: import('hast').Root | null
     featuredLinks?: Record<string, unknown[]>
     [key: string]: unknown
   }
@@ -52,5 +53,6 @@ export const getTocLandingContextFromRequest = (req: ContextRequest): TocLanding
     variant: req.context.genericTocFlat ? 'expanded' : 'compact',
     featuredLinks: getFeaturedLinksFromReq(req),
     renderedPage: (req.context.renderedPage as string) || '',
+    renderedPageHast: req.context.renderedPageHast ?? null,
   }
 }

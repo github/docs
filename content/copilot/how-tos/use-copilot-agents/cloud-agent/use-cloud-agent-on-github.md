@@ -18,7 +18,7 @@ category:
 
 You can start {% data variables.copilot.copilot_cloud_agent %} sessions from several places on {% data variables.product.github %}. Once a session is running, you can monitor its progress, steer it with follow-up prompts, and iterate on the resulting pull request—all without leaving the browser.
 
-For more information about {% data variables.copilot.copilot_cloud_agent %}, see [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-cloud-agent).
+For more information about {% data variables.copilot.copilot_cloud_agent %}, see [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-on-github).
 
 You can also start partner-built agents from these same entry points using {% data variables.copilot.agent_apps %}. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/use-agent-apps).
 
@@ -51,7 +51,9 @@ You can ask {% data variables.product.prodname_copilot_short %} to start work fr
    > [!NOTE]
    > If you have enabled the **New Dashboard Experience** in feature preview, the new session will appear in "Agent sessions" under the prompt box in your dashboard. For more information, see [AUTOTITLE](/account-and-profile/reference/personal-dashboard#home-dashboard-view).
 
-## Starting from Copilot Chat
+## Starting from {% data variables.copilot.copilot_chat_short %}
+
+When you start a task from {% data variables.copilot.copilot_chat_short %}, the new {% data variables.copilot.copilot_cloud_agent %} session incorporates the context of your current chat conversation. This means you don't need to restate details you have already shared with {% data variables.product.prodname_copilot_short %} in your `/task` prompt.
 
 1. Open {% data variables.copilot.copilot_chat %} on {% data variables.product.prodname_dotcom_the_website %}.
 1. Type `/task` to ask {% data variables.product.prodname_copilot_short %} to create a pull request, and give details of what you want {% data variables.product.prodname_copilot_short %} to change.
@@ -91,7 +93,7 @@ You can ask {% data variables.product.prodname_copilot_short %} to start working
 
    For example, you might include instructions about specific coding patterns or frameworks to use, testing requirements, code style preferences, files or directories that should or shouldn't be modified.
 
-   In addition to the details you supply here, {% data variables.product.prodname_copilot_short %} will use any custom instructions that have been configured for the target repository. See [AUTOTITLE](/copilot/how-tos/configure-custom-instructions/add-repository-instructions).
+   In addition to the details you supply here, {% data variables.product.prodname_copilot_short %} will use any custom instructions that have been configured for the target repository. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions).
 
 1. You can use the dropdown menus in the dialog to change the repository that {% data variables.product.prodname_copilot_short %} will work in and the branch that it will branch off from.
 
@@ -136,11 +138,30 @@ When an {% data variables.product.prodname_actions %} workflow run fails on a pu
 
 ## Continuing work on a pull request
 
+You can ask {% data variables.product.prodname_copilot_short %} to make changes or address review comments on an existing pull request. You can then track the resulting session and provide follow-up instructions.
+
+### Asking {% data variables.product.prodname_copilot_short %} to make changes
+
 You can mention `@copilot` in a comment on any pull request to ask {% data variables.product.prodname_copilot_short %} to make changes. This works on pull requests created by {% data variables.product.prodname_copilot_short %} and on pull requests you or others created.
 
 By default, {% data variables.product.prodname_copilot_short %} pushes commits directly to the pull request branch. To create a separate pull request instead, describe that in your comment. You can also check out the branch and push changes yourself.
 
-Batch review comments instead of submitting them individually. When submitting a pull request comment (not a review or review comment) through the {% data variables.product.github %} web interface, select a model with the model picker. {% data variables.product.prodname_copilot_short %} uses the model from the original pull request by default.
+When submitting a pull request comment (not a review or review comment) through the {% data variables.product.github %} web interface, select a model with the model picker. {% data variables.product.prodname_copilot_short %} uses the model from the original pull request by default.
+
+### Delegating review comments
+
+You can delegate review comments to have {% data variables.product.prodname_copilot_short %} implement feedback from human reviewers and {% data variables.copilot.copilot_code-review %}.
+
+1. In the pull request, open the **Files changed** tab.
+1. Navigate to the first review comment you want {% data variables.product.prodname_copilot_short %} to implement.
+   * To delegate one comment, click **Fix with {% data variables.product.prodname_copilot_short %}**.
+   * To delegate multiple comments, click **Add to batch**. Continue to add the comments you want {% data variables.product.prodname_copilot_short %} to work on.
+1. In the **Manage batch** panel, add any additional instructions, and optionally select a model with the model picker.
+1. Choose how you want {% data variables.product.prodname_copilot_short %} to apply the changes:
+   * To commit the changes directly to the branch, click **{% octicon "agent" aria-label="The Agents icon" %} Fix and commit**.
+   * To have {% data variables.product.prodname_copilot_short %} create a new pull request with the changes, click **Fix and open pull request** from the dropdown menu.
+
+### Tracking and continuing a session
 
 {% data reusables.copilot.cloud-agent.write-access-required %}
 
@@ -176,6 +197,6 @@ Use the feedback buttons on {% data variables.product.prodname_copilot_short %}'
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-cloud-agent)
+* [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-on-github)
 * [AUTOTITLE](/copilot/tutorials/cloud-agent/get-the-best-results)
 * [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/troubleshoot-cloud-agent)

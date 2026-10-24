@@ -1,19 +1,7 @@
-# Copilot cloud agent setup steps
-#
-# This is a special-name workflow recognized by Copilot cloud agent.
-# When a cloud agent session starts (via GitHub issue assignment or the
-# Copilot UI), these steps run first to bootstrap the development
-# environment before the agent begins working.
-#
-# The workflow_dispatch trigger allows manual testing of the setup steps.
-# This is NOT a regular CI workflow — it does not run on push or PR events.
-#
-# See also:
-#   .github/copilot-instructions.md  — always-on agent instructions
-#   .github/instructions/             — contextual instruction files
-#   .github/prompts/                  — on-demand prompt files (e.g. /code-review)
-
 name: 'Copilot Setup Steps'
+
+# Copilot cloud agents run this special-name workflow before work; workflow_dispatch tests it without push or PR runs.
+# Related agent instructions live in .github/instructions/.
 
 on:
   workflow_dispatch:
@@ -29,16 +17,15 @@ jobs:
       ELASTICSEARCH_URL: http://localhost:9200/
     steps:
       - name: Checkout code
-        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
-
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
       - uses: ./.github/actions/node-npm-setup
 
-      # Search and language test suites require a running Elasticsearch instance.
+      # Search and language test suites require local Elasticsearch.
       - uses: ./.github/actions/setup-elasticsearch
         with:
           token: ${{ secrets.DOCS_BOT_PAT_BASE }}
 
-      # docs-internal has early-access content that must be fetched separately.
+      # Fetch early-access content separately because docs-internal does not include it.
       - uses: ./.github/actions/get-docs-early-access
         if: ${{ github.repository == 'github/docs-internal' }}
         with:
@@ -48,6 +35,7 @@ jobs:
       - name: Build
         run: npm run build
 
-      # Populate Elasticsearch with fixture data so search/language tests work.
+      # Set ELASTICSEARCH_URL inline because agent runtimes ignore workflow env blocks.
+      # Command-level env works in agent sessions and manual test runs.
       - name: Index fixtures into the local Elasticsearch
-        run: npm run index-test-fixtures
+        run: ELASTICSEARCH_URL=http://localhost:9200/ npm run index-test-fixtures

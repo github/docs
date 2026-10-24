@@ -22,7 +22,7 @@ category:
 
 ## Prerequisite
 
-Before setting up MCP servers for your repository, read [AUTOTITLE](/copilot/concepts/context/mcp) and [AUTOTITLE](/copilot/concepts/agents/cloud-agent/mcp-and-cloud-agent).
+Before setting up MCP servers for your repository, read [AUTOTITLE](/copilot/concepts/customizations/mcp).
 
 ## Introduction
 
@@ -31,8 +31,7 @@ As a repository administrator, you can configure MCP servers for use within your
 This repository-level MCP configuration is shared by {% data variables.copilot.copilot_cloud_agent %} and {% data variables.copilot.copilot_code-review_short %}. For information on disabling use of MCP servers by {% data variables.copilot.copilot_code-review_short %}, see [Disabling MCP tools for {% data variables.copilot.copilot_code-review_short %}](#disabling-mcp-tools-for-code-review).
 
 > [!NOTE]
-> * Support for agent skills and MCP servers with {% data variables.copilot.copilot_code-review_short %} is in {% data variables.release-phases.public_preview %} and subject to change.
-> * Existing repository MCP configurations that were previously managed under {% data variables.copilot.copilot_cloud_agent %} settings were automatically moved to the new shared MCP settings page. No migration action is required.
+> Existing repository MCP configurations that were previously managed under {% data variables.copilot.copilot_cloud_agent %} settings were automatically moved to the new shared MCP settings page. No migration action is required.
 
 The {% data variables.product.github %} MCP server and Playwright MCP server are enabled by default. You can add your own MCP servers alongside these defaults.
 
@@ -49,7 +48,7 @@ Repository administrators can configure MCP servers by following these steps:
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-1. In the "Code & automation" section of the sidebar, click **{% data variables.product.prodname_copilot_short %}** then **MCP servers**.
+1. {% data reusables.user-settings.code-planning-automation %} click **{% data variables.product.prodname_copilot_short %}** then **MCP servers**.
 1. On the "Model Context Protocol (MCP)" page, add your configuration in the "MCP configuration" section.
 
    The following sections in this article explain how to write the JSON configuration that you need to enter here.
@@ -87,6 +86,9 @@ The configuration object can contain the following keys:
 **Required keys for local and remote MCP servers**
 * `tools` (`string[]`): The tools from the MCP server to enable. You may be able to find a list of tools in the server's documentation, or in its code. We strongly recommend that you allowlist specific read-only tools, since the agent will be able to use these tools autonomously and will not ask you for approval first. You can also enable all tools by including `*` in the array.
 * `type` (`string`): {% data variables.copilot.copilot_cloud_agent %} accepts `"local"`, `"stdio"`, `"http"`, or `"sse"`.
+
+> [!NOTE]
+> For {% data variables.copilot.copilot_code-review_short %}, each tool in the MCP server's `tools/list` response must set `annotations.readOnlyHint` to `true` to allow {% data variables.product.prodname_copilot_short %} to use it. {% data variables.copilot.copilot_code-review_short %} excludes tools when this annotation is missing or set to `false`. For more information, see [Tool annotations in the MCP specification](https://modelcontextprotocol.io/specification/2025-11-25/schema#toolannotations-readonlyhint).
 
 **Local MCP specific keys**
 * `command` (`string`): Required. The command to run to start the MCP server.
@@ -337,7 +339,7 @@ Once you've set up your MCP configuration, you should test it to make sure it is
 1. Click the **Start MCP Servers** step to expand the logs.
 1. If your MCP servers have been started successfully, you will see their tools listed at the bottom of the logs.
 
-If your MCP servers require any dependencies that are not installed on the {% data variables.product.prodname_actions %} runner by default, such as `uv` and `pipx`, or that need special setup steps, you may need to create a `copilot-setup-steps.yml` Actions workflow file to install them. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/customize-the-agent-environment).
+If your MCP servers require any dependencies that are not installed on the {% data variables.product.prodname_actions %} runner by default, such as `uv` and `pipx`, or that need special setup steps, you may need to create a `copilot-setup-steps.yml` Actions workflow file to install them. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/customize-the-agent-environment).
 
 ### Validate with {% data variables.copilot.copilot_code-review_short %}
 
@@ -349,13 +351,14 @@ If your MCP servers require any dependencies that are not installed on the {% da
 
 The {% data variables.product.github %} MCP server is enabled by default and connects to {% data variables.product.github %} with a specially scoped token that only has read-only access to the current repository.
 
-If you want to allow {% data variables.product.prodname_copilot_short %} to access data outside the current repository, you can give it a {% data variables.product.pat_generic %} with wider access.
+If you want to allow {% data variables.product.prodname_copilot_short %} to access data outside the current repository, you can configure a {% data variables.product.pat_generic %} with wider access or a {% data variables.product.prodname_github_app %}.
 
-1. Create a {% data variables.product.pat_generic %} with the appropriate permissions. We recommend using a {% data variables.product.pat_v2 %}, where you can limit the token's access to read-only permissions on specific repositories. For more information on {% data variables.product.pat_generic_plural %}, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-1. In the "Code & automation" section of the sidebar, click **{% data variables.product.prodname_copilot_short %}** then **MCP servers**.
-1. Add your configuration in the "MCP configuration" section. For example, you can add the following:
+1. {% data reusables.user-settings.code-planning-automation %} click **{% data variables.product.prodname_copilot_short %}** then **MCP servers**.
+1. Add your configuration in the "MCP configuration" section. 
+
+   For {% data variables.product.pat_generic %}, you can add the following example:
 
    ```javascript copy
     // If you copy and paste this example, you will need to remove the comments prefixed with `//`, which are not valid JSON.
@@ -376,17 +379,52 @@ If you want to allow {% data variables.product.prodname_copilot_short %} to acce
     }
    ```
 
+   For {% data variables.product.prodname_github_app %}, you can add the following example:
+
+   ```javascript copy
+    {
+      "mcpServers": {
+        "github-wider-access": {
+          "type": "stdio",
+          "command": "docker",
+          "args": [
+            "run", "--rm", "-i",
+            "-e", "GITHUB_APP_ID",
+            "-e", "GITHUB_APP_INSTALLATION_ID",
+            "-e", "GITHUB_APP_PRIVATE_KEY",
+            "-e", "GITHUB_READ_ONLY",
+            "-e", "GITHUB_TOOLSETS",
+            "ghcr.io/github/github-mcp-server"
+          ],
+          "env": {
+            "GITHUB_APP_ID": "$COPILOT_MCP_GITHUB_APP_ID",
+            "GITHUB_APP_INSTALLATION_ID": "$COPILOT_MCP_GITHUB_APP_INSTALLATION_ID",
+            "GITHUB_APP_PRIVATE_KEY": "$COPILOT_MCP_GITHUB_APP_PRIVATE_KEY",
+            "GITHUB_READ_ONLY": "true",
+            "GITHUB_TOOLSETS": "repos,pull_requests"
+          },
+          "tools": ["*"]
+        }
+      }
+    }
+   ```
+
+   For more information on the {% data variables.product.github %} MCP server with {% data variables.product.prodname_github_app %}, refer to [GitHub App authentication](https://github.com/github/github-mcp-server/blob/main/docs/github-app-auth.md).
+
    For more information on toolsets, refer to the [README](https://github.com/github/github-mcp-server?tab=readme-ov-file#available-toolsets) in the {% data variables.product.github %} Remote MCP Server documentation.
 
 1. Click **Save MCP configuration**.
-1. Add an Agents secret called `COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN` with your {% data variables.product.pat_generic %} as the value. You can configure this at either the organization or repository level. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/configure-secrets-and-variables).
+1. Add your Agents secrets and variables. You can configure these at either the organization or repository level. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/configure-secrets-and-variables).
 
-For information on using the {% data variables.product.github %} MCP server in other environments, see [AUTOTITLE](/copilot/customizing-copilot/using-model-context-protocol/using-the-github-mcp-server).
+   For {% data variables.product.pat_generic %}, add a secret called `COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN` with your {% data variables.product.pat_generic %} as the value. We recommend using a {% data variables.product.pat_v2 %} so you can limit the token's access to read-only permissions on specific repositories. For more information on {% data variables.product.pat_generic_plural %}, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
+
+   For {% data variables.product.prodname_github_app %}, your Agents secrets and variables must be prefixed with `COPILOT_MCP_`. For example, add a variable called `COPILOT_MCP_GITHUB_APP_ID` with your {% data variables.product.prodname_github_app %} ID as the value, a variable called `COPILOT_MCP_GITHUB_APP_INSTALLATION_ID` with your {% data variables.product.prodname_github_app %} installation ID as the value, and a secret called `COPILOT_MCP_GITHUB_APP_PRIVATE_KEY` with your {% data variables.product.prodname_github_app %} private key as the value.
+
+1. If you see a firewall warning for `api.github.com` when using the {% data variables.product.github %} MCP server, add `api.github.com` to the custom allowlist. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-the-firewall).
+
+For information on using the {% data variables.product.github %} MCP server in other environments, see [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/copilot-for-common-tasks/use-the-github-mcp-server).
 
 ## Disabling MCP tools for code review
-
-> [!NOTE]
-> Support for agent skills and MCP servers with {% data variables.copilot.copilot_code-review_short %} is in {% data variables.release-phases.public_preview %} and subject to change.
 
 In repository settings, use of MCP tools by {% data variables.copilot.copilot_code-review_short %} is enabled by default.
 
@@ -396,13 +434,13 @@ If you disable this setting, {% data variables.copilot.copilot_code-review_short
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-1. In the "Code & automation" section of the sidebar, click **{% data variables.product.prodname_copilot_short %}** then **Code review**.
+1. {% data reusables.user-settings.code-planning-automation %} click **{% data variables.product.prodname_copilot_short %}** then **Code review**.
 1. Click the **Allow Copilot to use MCP tools when reviewing pull requests** toggle to disable the setting.
 
 ## Next steps
 
 * [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/add-mcp-servers)
 * [AUTOTITLE](/copilot/how-tos/use-copilot-agents/request-a-code-review/use-code-review)
-* [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/create-custom-agents)
-* [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/customize-the-agent-environment)
-* [AUTOTITLE](/copilot/customizing-copilot/extending-copilot-chat-with-mcp)
+* [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/create-custom-agents)
+* [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/customize-the-agent-environment)
+* [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/customize-copilot/extend-copilot-with-tools-and-context/extend-copilot-chat-with-mcp)

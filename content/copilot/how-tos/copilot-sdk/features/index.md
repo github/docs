@@ -12,18 +12,25 @@ redirect_from:
 contentType: how-tos
 children:
   - /agent-loop
+  - /changing-tools
+  - /citations
+  - /client-info
   - /cloud-sessions
+  - /context-management
   - /custom-agents
+  - /customization-locations
   - /fleet-mode
   - /hooks
   - /image-input
   - /mcp
   - /plugin-directories
   - /remote-sessions
+  - /session-limits
   - /session-persistence
   - /skills
   - /steering-and-queueing
   - /streaming-events
+  - /usage-and-billing
 ---
 
 <!-- markdownlint-disable GHD046 GHD005 -->

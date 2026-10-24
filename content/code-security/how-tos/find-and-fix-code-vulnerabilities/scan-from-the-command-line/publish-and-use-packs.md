@@ -42,7 +42,7 @@ registries:
 The {% data variables.product.prodname_codeql_cli %} will determine which registry to use for a given package name by finding the first item in the `registries` list with a `packages` property that matches that package name.
 This means that you’ll generally want to define the most specific package name patterns first. The `packages` property may be a single package name, a glob pattern, or a YAML list of package names and glob patterns.
 
-The `registries` list can also be placed inside a `codeql-workspace.yml` file. Doing so will allow you to define the registries to be used within a specific workspace, so that it can be shared amongst other {% data variables.product.prodname_codeql %} users of the workspace. The `registries` list in `codeql-workspace.yml` will be merged with and take precedence over the list in the global `qlconfig.yml`. For more information about `codeql-workspace.yml`, see [AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/about-codeql-workspaces#about-codeql-workspaces).
+The `registries` list can also be placed inside a `codeql-workspace.yml` file. Doing so will allow you to define the registries to be used within a specific workspace, so that it can be shared amongst other {% data variables.product.prodname_codeql %} users of the workspace. The `registries` list in `codeql-workspace.yml` will be merged with and take precedence over the list in the global `qlconfig.yml`. For more information about `codeql-workspace.yml`, see [AUTOTITLE](/code-security/concepts/code-scanning/codeql/codeql-workspaces#about-codeql-workspaces).
 
 You can now use `codeql pack publish`, `codeql pack download`, and `codeql database analyze` to manage packs on {% data variables.enterprise.gh_enterprise %}.
 
@@ -123,7 +123,7 @@ codeql pack publish
 The published package will be displayed in the packages section of {% data variables.product.prodname_dotcom %} organization specified by the scope in the `qlpack.yml` file.
 
 > [!NOTE]
-> If you're publishing model packs to the {% data variables.product.prodname_dotcom %} {% data variables.product.prodname_container_registry %} in order to extend coverage to all repositories in an organization as part of a default setup configuration, then you need to ensure that repositories running code scanning can access those model packs. For more information, see [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/editing-your-configuration-of-default-setup) and [AUTOTITLE](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility).
+> If you're publishing model packs to the {% data variables.product.prodname_dotcom %} {% data variables.product.prodname_container_registry %} in order to extend coverage to all repositories in an organization as part of a default setup configuration, then you need to ensure that repositories running code scanning can access those model packs. For more information, see [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/manage-your-configuration/edit-default-setup) and [AUTOTITLE](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility).
 
 ## Downloading an existing {% data variables.product.prodname_codeql %} pack
 
@@ -168,4 +168,4 @@ codeql <database> analyze <scope>/<pack> <scope>/<other-pack>
 ```
 
 > [!NOTE]
-> The `codeql pack download` command stores the pack it downloads in an internal location that is not intended for local modification. Unexpected (and hard to troubleshoot) behavior may result if the pack is modified after downloading. For more information about customizing packs, see [AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/creating-and-working-with-codeql-packs).
+> The `codeql pack download` command stores the pack it downloads in an internal location that is not intended for local modification. Unexpected (and hard to troubleshoot) behavior may result if the pack is modified after downloading. For more information about customizing packs, see [AUTOTITLE](/code-security/tutorials/customize-code-scanning/create-and-work-with-codeql-packs).

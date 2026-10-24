@@ -49,4 +49,4 @@ The {% data variables.product.prodname_emu_idp_application %} application on Okt
 
 ## Enabling provisioning
 
-After you enable SAML SSO, enable provisioning. For more information, see [AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/configuring-scim-provisioning-with-okta).
+After you enable SAML SSO, enable provisioning. For more information, see [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-with-okta).

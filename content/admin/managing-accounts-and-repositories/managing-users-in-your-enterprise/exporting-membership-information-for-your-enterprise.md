@@ -31,7 +31,7 @@ You can also use {% data variables.product.prodname_dotcom %}'s APIs to retrieve
 
 Organization owners can also export membership information for an organization. For more information, see [AUTOTITLE](/organizations/managing-membership-in-your-organization/exporting-member-information-for-your-organization).
 
-The membership information report includes everyone associated with the enterprise, regardless of whether they consume a license. This report is useful for reviewing current enterprise membership, permissions, and roles for all individuals currently associated with the enterprise. For information about current and billable licenses, see [AUTOTITLE](/billing/managing-your-license-for-github-enterprise/viewing-license-usage-for-github-enterprise).
+The membership information report includes everyone associated with the enterprise, regardless of whether they consume a license. This report is useful for reviewing current enterprise membership, permissions, and roles for all individuals currently associated with the enterprise. For information about current and billable licenses, see [AUTOTITLE](/billing/how-tos/manage-plan-and-licenses/view-enterprise-usage).
 
 ## Exporting a membership information report
 

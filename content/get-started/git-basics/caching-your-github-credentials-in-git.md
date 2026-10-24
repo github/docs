@@ -84,7 +84,7 @@ For Linux, install Git and GCM, then configure Git to use GCM.
 
 1. Install Git from your distro's packaging system. Instructions will vary depending on the flavor of Linux you run.
 
-1. Install GCM. See the [instructions in the GCM repo](https://github.com/git-ecosystem/git-credential-manager/blob/release/docs/install.md), as they'll vary depending on the flavor of Linux you run.
+1. Install GCM. See the [instructions in the GCM repo](https://github.com/git-ecosystem/git-credential-manager/blob/main/docs/install.md), as they'll vary depending on the flavor of Linux you run.
 
 1. Configure Git to use GCM. There are several backing stores that you may choose from, so see the GCM docs to complete your setup. For more information, see [GCM Linux](https://aka.ms/gcmcore-linuxcredstores).
 

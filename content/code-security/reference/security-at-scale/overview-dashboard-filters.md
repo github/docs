@@ -116,10 +116,10 @@ You can limit the data to repositories owned by a single organization in your en
 
 | Qualifier | Description |
 | -------- | -------- |
-| {% ifversion ghes < 3.17 %} |
-| `advanced-security` | Display data for repositories where {% data variables.product.prodname_GHAS %} is enabled or not enabled. |
-| {% endif %} |
 | `code-scanning-default-setup`| Display data for repositories where {% data variables.product.prodname_code_scanning %} is enabled or not enabled using {% data variables.product.prodname_codeql %} default setup. |
+| {% ifversion ai-powered-security-detections %} |
+| `code-scanning-ai-scan-pr-scan` | Display data for repositories where AI Scan for pull requests is effectively enabled or not enabled. Use `code-scanning-ai-scan-pr-scan:enabled` to display enabled repositories, or `code-scanning-ai-scan-pr-scan:not-enabled` to display repositories where the feature is not enabled. |
+| {% endif %} |
 | `code-scanning-pull-request-alerts`| Display data for repositories where {% data variables.product.prodname_code_scanning %} is enabled or not enabled to run on pull requests. |
 | `dependabot-security-updates` | Display data for repositories where {% data variables.product.prodname_dependabot_security_updates %} is enabled or not enabled.  |
 | `secret-scanning-push-protection` | Display data for repositories where push protection for {% data variables.product.prodname_secret_scanning %} is enabled or not enabled. |
@@ -172,7 +172,7 @@ You can limit the data to repositories owned by a single organization in your en
 
 {% data reusables.security.production-context-mdc-preview %}
 
-For more information about production context, see [AUTOTITLE](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-vulnerabilities/alerts-in-production-code).
+For more information about production context, see [AUTOTITLE](/code-security/tutorials/secure-your-organization/prioritize-alerts-in-production-code).
 
 | Qualifier | Description |
 | -------- | -------- |
@@ -194,14 +194,12 @@ For more information about production context, see [AUTOTITLE](/code-security/se
 | `assignee` | Display alerts by assignee username or team, for example: `assignee:@octocat`, `assignee:@copilot`, or `assignee:@github/security-team`.|
 |{% endif %}|
 |`ecosystem`|Display {% data variables.product.prodname_dependabot_alerts %} detected in a specified ecosystem, for example: `ecosystem:Maven`.|
-|`epss_percentage`|Display {% data variables.product.prodname_dependabot_alerts %} whose EPSS score meets the defined criteria, for example: `epss_percentage:>=0.01`|
-|`has`|Display {% data variables.product.prodname_dependabot_alerts %} for vulnerabilities where either a secure version is already available (`patch`) or where at least one call from the repository to a vulnerable function is detected (`vulnerable-calls`). For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#about-the-detection-of-calls-to-vulnerable-functions).|
+|`epss-percentage`|Display {% data variables.product.prodname_dependabot_alerts %} whose EPSS score meets the defined criteria, for example: `epss-percentage:>=0.01`|
+|`has`|Display {% data variables.product.prodname_dependabot_alerts %} for vulnerabilities where a secure version is already available (`patch`).|
 |`is`|Display {% data variables.product.prodname_dependabot_alerts %} that are open (`open`) or closed (`closed`).|
 |`package`|Display {% data variables.product.prodname_dependabot_alerts %} detected in the specified package, for example: `package:semver`.|
 |`props`|Display {% data variables.product.prodname_dependabot_alerts %} for repositories with a specific custom property set. For example, `props.data_sensitivity:high` displays results for repositories with the `data_sensitivity` property set to the value `high`.|
-|{% ifversion fpt or ghec or ghes > 3.17 %}|
 |`relationship`|Display {% data variables.product.prodname_dependabot_alerts %} detected in direct (`relationship:direct`) or indirect dependencies (`relationship:transitive`).|
-|{% endif %}|
 |`repo`|Display {% data variables.product.prodname_dependabot_alerts %} detected in a specified repository, for example: `repo:octo-repository`.|
 |`resolution`|Display {% data variables.product.prodname_dependabot_alerts %} closed as "auto-dismissed" (`auto-dismissed`), "a fix has already been started" (`fix-started`), "fixed" (`fixed`), "this alert is inaccurate or incorrect" (`inaccurate`), "no bandwidth to fix this" (`no-bandwidth`), "vulnerable code is not actually used" (`not-used`), or "risk is tolerable to this project" (`tolerable-risk`).|
 |`scope`|Display {% data variables.product.prodname_dependabot_alerts %} from the development dependency (`development`) or from the runtime dependency (`runtime`).|
@@ -230,6 +228,10 @@ You can click any result to see full details of the relevant query and the line 
 
 | Qualifier | Description |
 | -------- | -------- |
+|`autofilter`|Display only alerts that appear to be in application code (`autofilter:true`).|
+|{% ifversion code-scanning-autofix %}|
+|`autofix`|Display only alerts for rules supported by {% data variables.copilot.copilot_autofix %} (`autofix:supported`). When agentic autofix is enabled for your organization or enterprise, this filter is unavailable and does not affect results.|
+|{% endif %}|
 |`is`|Display {% data variables.product.prodname_code_scanning %} alerts that are open (`open`) or closed (`closed`).|
 |`resolution`| Display {% data variables.product.prodname_code_scanning %} alerts closed as "false positive" (`false-positive`), "fixed" (`fixed`), "used in tests" (`used-in-tests`), or "won't fix" (`wont-fix`).|
 |`rule`|Display {% data variables.product.prodname_code_scanning %} alerts identified by the specified rule.|
@@ -244,17 +246,12 @@ You can click any result to see full details of the relevant query and the line 
 | Qualifier | Description |
 | -------- | -------- |
 |`bypassed`|Display {% data variables.secret-scanning.alerts %} where push protection was bypassed (`true`) or not bypassed (`false`).|
-|`is`|Display {% data variables.secret-scanning.alerts %} that are open (`open`){% ifversion ghes < 3.17 %} or closed (`closed`){% else %}, closed (`closed`), publicly leaked (`publicly-leaked`), or multi-repository (`multi-repository`){% endif %}.|
+|`is`|Display {% data variables.secret-scanning.alerts %} that are open (`open`), closed (`closed`), publicly leaked (`publicly-leaked`), or multi-repository (`multi-repository`).|
 |`props`|Display alerts for repositories with a specific custom property set. For example, `props.data_sensitivity:high` displays results for repositories with the `data_sensitivity` property set to the value `high`. |
 |`provider`|Display alerts for all secrets issued by a specified provider, for example: `adafruit`.  |
 |`repo`|Display alerts detected in a specified repository, for example: `repo:octo-repository`.|
 |`resolution`|Display {% data variables.secret-scanning.alerts %} closed as "false positive" (`false-positive`), "hidden by config" (`hidden-by-config`), "pattern deleted" (`pattern-deleted`), "pattern edited" (`pattern-edited`), "revoked" (`revoked`), "used in tests" (`used-in-tests`), or "won't fix" (`wont-fix`).|
-|{% ifversion secret-scanning-generic-tab %}|
 |`results`|Display default (`default`) or generic (`generic`) {% data variables.secret-scanning.alerts %}.|
-|{% endif %}|
-|{% ifversion ghes = 3.16 %}|
-|`results`|Display default (`default`) or experimental (`experimental`) {% data variables.secret-scanning.alerts %}.|
-|{% endif %}|
 |`secret-type`|Display alerts for the specified secret and provider (`provider-pattern`) or custom pattern (`custom-pattern`).|
 |`sort`|Display alerts from newest to oldest (`created-desc`), oldest to newest (`created-asc`), most recently updated (`updated-desc`), or least recently updated (`updated-asc`).|
 |`team`|Display alerts owned by members of the specified team, for example: `team:octocat-dependabot-team`.|

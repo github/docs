@@ -26,17 +26,93 @@ A hook is a callback you register once when creating a session. The SDK invokes 
 
 | Hook                                                                | When it fires                       | What you can do                            |
 | ------------------------------------------------------------------- | ----------------------------------- | ------------------------------------------ |
-| [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/session-lifecycle#session-start)     | Session begins (new or resumed)     | Inject context, load preferences           |
+| [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/session-lifecycle#session-start-hook)     | Session begins (new or resumed)     | Inject context, load preferences           |
 | [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/user-prompt-submitted)        | User sends a message                | Rewrite prompts, add context, filter input |
+| [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/user-prompt-transformed)    | Runtime builds the model prompt     | Inspect or replace model-facing content    |
 | [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/pre-tool-use)                          | Before a tool executes              | Allow / deny / modify the call             |
 | [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/post-tool-use)                        | After a tool returns (success only) | Transform results, redact secrets, audit   |
 | [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/post-tool-use#failure-variant) | After a tool returns a failure      | Inject retry guidance, log failures        |
-| [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/session-lifecycle#session-end)         | Session ends                        | Clean up, record metrics                   |
+| [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/session-lifecycle#session-end-hook)         | Session ends                        | Clean up, record metrics                   |
 | [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/error-handling)                     | An error is raised                  | Custom logging, retry logic, alerts        |
 
 All hooks are **optional**—register only the ones you need. Returning `null` (or the language equivalent) from any hook tells the SDK to continue with default behavior.
 
+File-based repository hooks and repository hook settings are loaded only after the workspace is trusted. User hooks remain available before workspace trust is granted.
+
+## Repository hooks from additional directories
+
+Repository filesystem hooks are separate from the SDK callbacks described in
+this guide. To load them from additional directories during local session
+creation or cold resume, supply `additionalDirectories`; CLI `--add-dir` also participates by default.
+`DISABLE_ADDITIONAL_DIRECTORY_HOOKS=true` restores primary-only scope;
+`enableFileHooks` can enable or disable repository hooks through `session.rpc.options.update`; explicit SDK hook directories and callbacks are independent.
+
+Discovery uses each accepted directory's containing Git root, or the directory
+itself when it is outside a Git repository. For example, supplying
+`B\packages\core` inside repository `B` admits `B\.github\hooks` and B's repository
+hook settings, not just configuration inside `B\packages\core`.
+
+> [!WARNING]
+> Supply only trusted startup directories. This authorizes hook commands
+> and hook-provided prompts from all eligible startup directories without
+> additional per-directory or per-hook approval. Later file-access grants
+> do not authorize hooks. Existing managed policy, hook-disable controls, and
+> sandbox rules still apply; they do not make malicious hook content safe.
+
+Later directory grants do not add hook sources. A cold resume must resupply the
+directories; later grants or escape-hatch updates cannot change retained
+authorization.
+
 ## Registering hooks
+
+Callback `hooks` remain separate from file-backed `hookDirectories`. For packaged hook configurations and adjacent resources, see [AUTOTITLE](/copilot/how-tos/copilot-sdk/features/customization-locations).
+
+### Agent-scoped declarative hooks
+
+Custom agents can declare a `hooks` event map in `.agent.md` frontmatter or in
+the SDK's custom-agent configuration. These are declarative command or HTTP
+actions, not SDK callback functions. They run only while that agent is selected,
+in addition to applicable session, user, repository, plugin, and managed-policy
+hooks. Changing or clearing the selected agent changes the scoped hooks for the
+next invocation without changing other sessions or concurrent subagents.
+
+```yaml
+---
+name: formatter
+description: Formats changed files
+hooks:
+  PostToolUse:
+    - type: command
+      command: ./scripts/format-changed-files.sh
+      windows: ./scripts/format-changed-files.ps1
+---
+Format the files you change.
+```
+
+Both runtime event names such as `postToolUse` and supported VS Code aliases
+such as `PostToolUse` are accepted. `command` supplies the fallback shell command;
+`windows`, `linux`, and `osx` override it on the corresponding platform. Hook
+commands are relative to the executing session's repository root, unless they
+set an explicit working directory. Hook payloads and decisions follow the
+runtime's existing hook contracts.
+
+When a local agent runs as a subagent, its scoped `Stop` (`agentStop`) actions
+run at `SubagentStop` instead of ordinary turn stop. An explicit `SubagentStop`
+action on that agent still observes its own children. Stop callbacks receive
+`stop_hook_active: true` after a prior block. After eight consecutive scoped
+Stop continuations, the runtime ignores further scoped blocks and accepts the
+child's final response unless a parent lifecycle hook still blocks completion.
+
+Repository and inherited-agent hooks require workspace admission. Agent
+discovery or selection does not itself grant trust. Existing hook-disable
+settings, enterprise restrictions, sandbox permissions, and timeouts also apply
+to scoped actions. SDK-provided agents cannot claim managed-plugin privileges.
+Remote or organization-hosted agent definitions do not execute scoped hooks,
+and scoped Stop dispatch is supported for local runtime subagents, not external
+AHP participants.
+
+Unsupported event names are reported before event selection. Action preparation
+errors affect only their declared event; shared and managed-policy hooks still run.
 
 Pass a `hooks` object when you create (or resume) a session. Every example below follows this pattern.
 
@@ -90,47 +166,6 @@ session = await client.create_session(
 {% codetab go %}
 
 ```golang
-package main
-
-import (
-	"context"
-	copilot "github.com/github/copilot-sdk/go"
-	"github.com/github/copilot-sdk/go/rpc"
-)
-
-func onSessionStart(input copilot.SessionStartHookInput, inv copilot.HookInvocation) (*copilot.SessionStartHookOutput, error) {
-	return nil, nil
-}
-
-func onPreToolUse(input copilot.PreToolUseHookInput, inv copilot.HookInvocation) (*copilot.PreToolUseHookOutput, error) {
-	return nil, nil
-}
-
-func onPostToolUse(input copilot.PostToolUseHookInput, inv copilot.HookInvocation) (*copilot.PostToolUseHookOutput, error) {
-	return nil, nil
-}
-
-func main() {
-	ctx := context.Background()
-	client := copilot.NewClient(nil)
-
-	session, err := client.CreateSession(ctx, &copilot.SessionConfig{
-		Hooks: &copilot.SessionHooks{
-			OnSessionStart: onSessionStart,
-			OnPreToolUse:   onPreToolUse,
-			OnPostToolUse:  onPostToolUse,
-		},
-		OnPermissionRequest: func(req copilot.PermissionRequest, inv copilot.PermissionInvocation) (rpc.PermissionDecision, error) {
-			return &rpc.PermissionDecisionApproveOnce{}, nil
-		},
-	})
-	_ = session
-	_ = err
-}
-```
-
-
-```golang
 client := copilot.NewClient(nil)
 
 session, err := client.CreateSession(ctx, &copilot.SessionConfig{
@@ -148,39 +183,6 @@ session, err := client.CreateSession(ctx, &copilot.SessionConfig{
 
 {% endcodetab %}
 {% codetab dotnet %}
-
-```csharp
-using GitHub.Copilot;
-using GitHub.Copilot.Rpc;
-
-public static class HooksExample
-{
-    static Task<SessionStartHookOutput?> onSessionStart(SessionStartHookInput input, HookInvocation invocation) =>
-        Task.FromResult<SessionStartHookOutput?>(null);
-    static Task<PreToolUseHookOutput?> onPreToolUse(PreToolUseHookInput input, HookInvocation invocation) =>
-        Task.FromResult<PreToolUseHookOutput?>(null);
-    static Task<PostToolUseHookOutput?> onPostToolUse(PostToolUseHookInput input, HookInvocation invocation) =>
-        Task.FromResult<PostToolUseHookOutput?>(null);
-
-    public static async Task Main()
-    {
-        var client = new CopilotClient();
-
-        var session = await client.CreateSessionAsync(new SessionConfig
-        {
-            Hooks = new SessionHooks
-            {
-                OnSessionStart = onSessionStart,
-                OnPreToolUse   = onPreToolUse,
-                OnPostToolUse  = onPostToolUse,
-            },
-            OnPermissionRequest = (req, inv) =>
-                Task.FromResult(PermissionDecision.ApproveOnce()),
-        });
-    }
-}
-```
-
 
 ```csharp
 var client = new CopilotClient();
@@ -285,43 +287,6 @@ session = await client.create_session(
 {% codetab go %}
 
 ```golang
-package main
-
-import (
-	"context"
-	"fmt"
-	copilot "github.com/github/copilot-sdk/go"
-	"github.com/github/copilot-sdk/go/rpc"
-)
-
-func main() {
-	ctx := context.Background()
-	client := copilot.NewClient(nil)
-
-	readOnlyTools := map[string]bool{"read_file": true, "glob": true, "grep": true, "view": true}
-
-	session, _ := client.CreateSession(ctx, &copilot.SessionConfig{
-		Hooks: &copilot.SessionHooks{
-			OnPreToolUse: func(input copilot.PreToolUseHookInput, inv copilot.HookInvocation) (*copilot.PreToolUseHookOutput, error) {
-				if !readOnlyTools[input.ToolName] {
-					return &copilot.PreToolUseHookOutput{
-						PermissionDecision:       "deny",
-						PermissionDecisionReason: fmt.Sprintf("Only read-only tools are allowed. %q was blocked.", input.ToolName),
-					}, nil
-				}
-				return &copilot.PreToolUseHookOutput{PermissionDecision: "allow"}, nil
-			},
-		},
-		OnPermissionRequest: func(req copilot.PermissionRequest, inv copilot.PermissionInvocation) (rpc.PermissionDecision, error) {
-			return &rpc.PermissionDecisionApproveOnce{}, nil
-		},
-	})
-	_ = session
-}
-```
-
-
-```golang
 readOnlyTools := map[string]bool{"read_file": true, "glob": true, "grep": true, "view": true}
 
 session, _ := client.CreateSession(ctx, &copilot.SessionConfig{
@@ -341,44 +306,6 @@ session, _ := client.CreateSession(ctx, &copilot.SessionConfig{
 
 {% endcodetab %}
 {% codetab dotnet %}
-
-```csharp
-using GitHub.Copilot;
-using GitHub.Copilot.Rpc;
-
-public static class PermissionControlExample
-{
-    public static async Task Main()
-    {
-        await using var client = new CopilotClient();
-
-        var readOnlyTools = new HashSet<string> { "read_file", "glob", "grep", "view" };
-
-        var session = await client.CreateSessionAsync(new SessionConfig
-        {
-            Hooks = new SessionHooks
-            {
-                OnPreToolUse = (input, invocation) =>
-                {
-                    if (!readOnlyTools.Contains(input.ToolName))
-                    {
-                        return Task.FromResult<PreToolUseHookOutput?>(new PreToolUseHookOutput
-                        {
-                            PermissionDecision = "deny",
-                            PermissionDecisionReason = $"Only read-only tools are allowed. \"{input.ToolName}\" was blocked.",
-                        });
-                    }
-                    return Task.FromResult<PreToolUseHookOutput?>(
-                        new PreToolUseHookOutput { PermissionDecision = "allow" });
-                },
-            },
-            OnPermissionRequest = (req, inv) =>
-                Task.FromResult(PermissionDecision.ApproveOnce()),
-        });
-    }
-}
-```
-
 
 ```csharp
 var readOnlyTools = new HashSet<string> { "read_file", "glob", "grep", "view" };
@@ -1028,16 +955,17 @@ const session = await client.createSession({
 
 For full type definitions, input/output field tables, and additional examples for every hook, see the API reference:
 
-- [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/hooks-overview)
-- [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/pre-tool-use)
-- [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/post-tool-use)
-- [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/user-prompt-submitted)
-- [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/session-lifecycle)
-- [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/error-handling)
+* [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/hooks-overview)
+* [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/pre-tool-use)
+* [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/post-tool-use)
+* [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/user-prompt-submitted)
+* [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/user-prompt-transformed)
+* [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/session-lifecycle)
+* [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/error-handling)
 
 ## See also
 
-- [AUTOTITLE](/copilot/how-tos/copilot-sdk/getting-started)
-- [AUTOTITLE](/copilot/how-tos/copilot-sdk/features/custom-agents)
-- [AUTOTITLE](/copilot/how-tos/copilot-sdk/features/streaming-events)
-- [AUTOTITLE](/copilot/how-tos/copilot-sdk/troubleshooting/debugging)
+* [AUTOTITLE](/copilot/get-started/sdk-quickstart)
+* [AUTOTITLE](/copilot/how-tos/copilot-sdk/features/custom-agents)
+* [AUTOTITLE](/copilot/how-tos/copilot-sdk/features/streaming-events)
+* [AUTOTITLE](/copilot/how-tos/copilot-sdk/troubleshooting/debugging)

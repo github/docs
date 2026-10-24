@@ -37,9 +37,6 @@ If you reach your limit for premium requests, you will be notified with a messag
 
 ### Viewing usage in your IDE
 
-> [!IMPORTANT]
-> **Starting April 20, 2026**, {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, and student plans have tighter usage limits: Session limits and weekly (7 day) limits. {% data variables.product.prodname_vscode_shortname %} and {% data variables.copilot.copilot_cli %} both display your available usage when you are approaching a limit. See [AUTOTITLE](/copilot/concepts/usage-limits).
-
 If you're using {% data variables.product.prodname_copilot_short %} in an editor, you can view your usage directly in the editor. For example, in {% data variables.product.prodname_vscode %}, you can view information about features included in your plan, your progress towards any limits on your plan, and the date your allowance resets.
 
 You can access usage information in the following IDEs.
@@ -76,7 +73,7 @@ You can use the following strategies to maximize the value of your premium reque
 
 * **Choose the right model for the task**. Some models are better suited to different tasks. If you're using a premium request, you can strategically choose which model you use to get the best result from {% data variables.product.prodname_copilot_short %}. See [AUTOTITLE](/copilot/reference/ai-models/model-comparison).
 
-* **Setting a budget**. Set a budget to track your overages and receive alerts when you reach 75%, 90%, or 100% of your budget. See [AUTOTITLE](/billing/managing-your-billing/preventing-overspending#managing-budgets-for-your-personal-account).
+* **Setting a budget**. Set a budget to track your overages and receive alerts when you reach 75%, 90%, or 100% of your budget. See [AUTOTITLE](/billing/how-tos/set-up-budgets#managing-budgets-for-your-personal-account).
 
 * **Monitor your usage regularly**. Check your usage in your {% data variables.product.github %} account settings to see how many premium requests you’ve used. This helps you plan how much you can use for the rest of the month.
 

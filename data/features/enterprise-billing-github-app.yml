@@ -1,0 +1,7 @@
+# Reference: #releases/issues/10425
+# Enterprise owners can grant a GitHub App the enterprise billing fine-grained permission
+# (Read, or Read and write) so that an app installation access token can call the enterprise
+# billing REST API routes.
+versions:
+  ghec: '*'
+  ghes: '>=3.23'

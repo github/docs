@@ -6,11 +6,8 @@ import { useRouter } from 'next/router'
 import type { ExtendedRequest } from '@/types'
 import type { JourneyTrack } from '@/journeys/lib/journey-path-resolver'
 
-// "legacy" javascript needed to maintain existing functionality
-// typically operating on elements **within** an article.
-import copyCode from '@/frame/components/lib/copy-code'
+// Article pages need this script for behavior inside rendered article content.
 import toggleAnnotation from '@/frame/components/lib/toggle-annotations'
-import wrapCodeTerms from '@/frame/components/lib/wrap-code-terms'
 
 import {
   MainContextT,
@@ -48,8 +45,6 @@ import { DiscoveryLanding } from '@/landings/components/discovery/DiscoveryLandi
 import { JourneyLanding } from '@/landings/components/journey/JourneyLanding'
 
 function initiateArticleScripts() {
-  copyCode()
-  wrapCodeTerms()
   toggleAnnotation()
 }
 
@@ -74,9 +69,9 @@ const GlobalPage = ({
   const router = useRouter()
 
   useEffect(() => {
-    // https://stackoverflow.com/a/67063998
-    initiateArticleScripts() // on initiate page
-    router.events.on('routeChangeComplete', initiateArticleScripts) // on client side route
+    // Mount and route-change init; Next.js keeps this mounted: https://stackoverflow.com/a/67063998
+    initiateArticleScripts()
+    router.events.on('routeChangeComplete', initiateArticleScripts)
     return () => {
       router.events.off('routeChangeComplete', initiateArticleScripts)
     }
@@ -104,7 +99,8 @@ const GlobalPage = ({
   } else if (categoryLandingContext) {
     content = (
       <CategoryLandingContext.Provider value={categoryLandingContext}>
-        <CategoryLanding />
+        {/* Remount per page so filter state does not carry over between category landings. */}
+        <CategoryLanding key={mainContext.relativePath || router.asPath} />
       </CategoryLandingContext.Provider>
     )
   } else if (tocLandingContext) {
@@ -120,9 +116,7 @@ const GlobalPage = ({
       </ArticleContext.Provider>
     )
   } else {
-    // In local dev, when Next.js needs the initial compiled version
-    // it will request `/_next/static/webpack/$HASH.webpack.hot-update.json`
-    // or `/_next/webpack-hmr` and then we just let the `content` be undefined.
+    // Let Next.js hot-reload probes render empty content during local development.
     if (
       !(router.asPath.startsWith('/_next/static/') || router.asPath.startsWith('/_next/webpack'))
     ) {
@@ -146,15 +140,14 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
 
   const additionalUINamespaces: string[] = []
 
-  // This looks a little funky, but it's so we only send one context's data to the client
+  // Send only the active page context to the client to avoid unused page data.
   if (currentLayoutName === 'bespoke-landing') {
     props.bespokeContext = await getLandingContextFromRequest(req, 'bespoke')
     additionalUINamespaces.push('product_landing', 'carousels')
   } else if (currentLayoutName === 'journey-landing') {
     props.journeyContext = await getLandingContextFromRequest(req, 'journey')
 
-    // journey tracks are resolved in middleware and added to the request
-    // so we need to add them to the journey context here
+    // Middleware resolves journey tracks, so add them to the journey context before rendering.
     const page = req.context?.page as { resolvedJourneyTracks?: JourneyTrack[] } | undefined
     if (page?.resolvedJourneyTracks) {
       props.journeyContext.journeyTracks = page.resolvedJourneyTracks
@@ -175,7 +168,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
       )
     }
   } else if (props.mainContext.page) {
-    // All articles that might have hover cards needs this
+    // Articles need the popovers namespace for hover cards.
     additionalUINamespaces.push('popovers')
 
     props.articleContext = getArticleContextFromRequest(
@@ -184,6 +177,13 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
     if (props.articleContext.currentJourneyTrack?.trackId) {
       additionalUINamespaces.push('journey_track_nav')
     }
+  }
+
+  // Filter per request because every version shares one Page instance.
+  const landingContext = props.bespokeContext ?? props.journeyContext ?? props.discoveryContext
+  if (landingContext?.introLinks && req.context) {
+    const { getIntroLinksForVersion } = await import('@/landings/lib/intro-links')
+    landingContext.introLinks = getIntroLinksForVersion(landingContext.introLinks, req.context)
   }
 
   addUINamespaces(req, props.mainContext.data.ui, additionalUINamespaces)

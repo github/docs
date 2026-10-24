@@ -1,20 +1,18 @@
 name: Move content script test
 
-# **What it does**: Tests the `npm run move-content` script
-# **Why we have it**: To be sure it continues to work as expected
-# **Who does it impact**: Docs team.
+# This workflow protects npm run move-content from regressions.
 
 on:
   pull_request:
     paths:
       - src/content-render/scripts/move-content.ts
-      - src/content-render/scripts/test-move-content.ts
-      - 'src/frame/lib/**/*.js'
+      - src/content-render/scripts/test-moved-content.ts
+      - 'src/frame/lib/**/*.ts'
       - .github/workflows/move-content.yml
-      # In case any of the dependencies affect the script
+      # Dependency changes can break the move-content script.
       - 'package*.json'
-      - src/fixtures/fixtures/content/get-started/
-      - src/fixtures/fixtures/content/code-security/
+      - 'src/fixtures/fixtures/content/get-started/**'
+      - 'src/fixtures/fixtures/content/code-security/**'
 
 permissions:
   contents: read
@@ -25,15 +23,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repo
-        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
 
       - uses: ./.github/actions/node-npm-setup
 
       - name: Set up a dummy git user
         run: |
-          # These must be set to something before running the move-content
-          # script because it depends on executing `git mv ...`
-          # and `git commit ...`
+          # move-content runs git mv and git commit, so Git needs an identity.
           git config --global user.name "docs-bot"
           git config --global user.email "77750099+docs-bot@users.noreply.github.com"
 
@@ -48,21 +44,43 @@ jobs:
           npm run test-moved-content -- \
             src/fixtures/fixtures/content/get-started/start-your-journey/hello-world.md \
             src/fixtures/fixtures/content/get-started/start-your-journey/hello-wurld.md
+          git log | head -n 100
 
-          # TODO: Add tests that inspects the git log
+      - name: Undo moving hello-world.md to hello-wurld.md
+        env:
+          ROOT: src/fixtures/fixtures
+        run: |
+          # The fixtures start with hello-world, so confirm the move rewrote them before testing undo.
+          for file in src/fixtures/fixtures/content/index.md src/fixtures/fixtures/content/get-started/index.md; do
+            grep -q -- '- /get-started/start-your-journey/hello-wurld$' "$file"
+          done
+
+          npm run move-content -- --undo \
+            src/fixtures/fixtures/content/get-started/start-your-journey/hello-world.md \
+            src/fixtures/fixtures/content/get-started/start-your-journey/hello-wurld.md
+
+          test -f src/fixtures/fixtures/content/get-started/start-your-journey/hello-world.md
+          test ! -e src/fixtures/fixtures/content/get-started/start-your-journey/hello-wurld.md
+          # Undo must revert featuredLinks too, or they point at a page that no longer exists.
+          for file in src/fixtures/fixtures/content/index.md src/fixtures/fixtures/content/get-started/index.md; do
+            grep -q -- '- /get-started/start-your-journey/hello-world$' "$file"
+            if grep -q hello-wurld "$file"; then
+              echo "$file still links to hello-wurld"
+              exit 1
+            fi
+          done
           git log | head -n 100
 
       - name: Move code-security/getting-started to code-security/got-started
         env:
           ROOT: src/fixtures/fixtures
         run: |
+          # The trailing slash on the old path matches what shell tab completion adds.
           npm run move-content -- \
-            src/fixtures/fixtures/content/code-security/getting-started \
+            src/fixtures/fixtures/content/code-security/getting-started/ \
             src/fixtures/fixtures/content/code-security/got-started
 
           npm run test-moved-content -- \
             src/fixtures/fixtures/content/code-security/getting-started \
             src/fixtures/fixtures/content/code-security/got-started
-
-          # TODO: Add tests that inspects the git log
           git log | head -n 100

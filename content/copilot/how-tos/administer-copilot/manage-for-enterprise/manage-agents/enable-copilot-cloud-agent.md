@@ -3,7 +3,7 @@ title: Enabling GitHub Copilot cloud agent in your enterprise
 intro: 'Choose which organizations can use {% data variables.copilot.copilot_cloud_agent %} and connect it to MCP servers.'
 allowTitleToDifferFromFilename: true
 permissions: Enterprise owners and AI managers
-product: '{% data reusables.gated-features.copilot-cloud-agent %}<br><a href="https://github.com/enterprise/contact?ref_product=copilot&ref_type=engagement&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Contact Sales</span> {% octicon "link-external" height:16 %}</a>'
+product: '{% data reusables.gated-features.copilot-cloud-agent %}<br><a href="https://github.com/github-copilot/purchase?ref_product=copilot&ref_type=trial&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span>{% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
 shortTitle: 'Enable {% data variables.copilot.copilot_cloud_agent %}'
@@ -20,6 +20,8 @@ redirect_from:
 contentType: how-tos
 category:
   - Manage Copilot for a team
+docsTeamMetrics:
+  - ai-governance
 ---
 
 ## Prerequisites
@@ -41,7 +43,7 @@ You may want to run a trial before enabling {% data variables.copilot.copilot_cl
 
 ## Enabling MCP servers
 
-{% data variables.copilot.copilot_cloud_agent %} automatically has access to a small number of default MCP servers. See [AUTOTITLE](/copilot/concepts/agents/cloud-agent/mcp-and-cloud-agent#default-mcp-servers).
+{% data variables.copilot.copilot_cloud_agent %} automatically has access to a small number of default MCP servers. See [AUTOTITLE](/copilot/concepts/customizations/mcp#default-mcp-servers).
 
 You can enable third-party MCP servers to allow developers to integrate {% data variables.copilot.copilot_cloud_agent %} with other services in your DevOps toolchain, such as error-tracking platforms or logging systems.
 
@@ -52,6 +54,6 @@ You can enable third-party MCP servers to allow developers to integrate {% data 
 
 ## Enabling {% data variables.copilot.agent_apps %} and third-party agents
 
-Enterprise owners can enable third-party agents, including {% data variables.copilot.agent_apps %}, for their organizations. Once enabled at the enterprise level, organization owners can choose which agents to allow. For an overview of {% data variables.copilot.agent_apps %}, see [AUTOTITLE](/copilot/concepts/agents/agent-apps).
+Enterprise owners can enable third-party agents, including {% data variables.copilot.agent_apps %}, for their organizations. Once enabled at the enterprise level, organization owners can choose which agents to allow. For an overview of {% data variables.copilot.agent_apps %}, see [AUTOTITLE](/copilot/concepts/agent-capabilities/about-agents/agent-apps).
 
 To manage agent and enterprise policies, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-enterprise-policies).

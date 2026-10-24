@@ -24,14 +24,6 @@ contentType: how-tos
 {% codetab typescript %}
 
 ```typescript
-import type { PreToolUseHookInput, HookInvocation, PreToolUseHookOutput } from "@github/copilot-sdk";
-type PreToolUseHandler = (
-  input: PreToolUseHookInput,
-  invocation: HookInvocation
-) => Promise<PreToolUseHookOutput | null | undefined>;
-```
-
-```typescript
 type PreToolUseHandler = (
   input: PreToolUseHookInput,
   invocation: HookInvocation
@@ -40,16 +32,6 @@ type PreToolUseHandler = (
 
 {% endcodetab %}
 {% codetab python %}
-
-```python
-from copilot.session import PreToolUseHookInput, PreToolUseHookOutput
-from typing import Callable, Awaitable
-
-PreToolUseHandler = Callable[
-    [PreToolUseHookInput, dict[str, str]],
-    Awaitable[PreToolUseHookOutput | None]
-]
-```
 
 ```python
 PreToolUseHandler = Callable[
@@ -62,19 +44,6 @@ PreToolUseHandler = Callable[
 {% codetab go %}
 
 ```golang
-package main
-
-import copilot "github.com/github/copilot-sdk/go"
-
-type PreToolUseHandler func(
-    input copilot.PreToolUseHookInput,
-    invocation copilot.HookInvocation,
-) (*copilot.PreToolUseHookOutput, error)
-
-func main() {}
-```
-
-```golang
 type PreToolUseHandler func(
     input PreToolUseHookInput,
     invocation HookInvocation,
@@ -85,14 +54,6 @@ type PreToolUseHandler func(
 {% codetab dotnet %}
 
 ```csharp
-using GitHub.Copilot;
-
-public delegate Task<PreToolUseHookOutput?> PreToolUseHandler(
-    PreToolUseHookInput input,
-    HookInvocation invocation);
-```
-
-```csharp
 public delegate Task<PreToolUseHookOutput?> PreToolUseHandler(
     PreToolUseHookInput input,
     HookInvocation invocation);
@@ -100,17 +61,6 @@ public delegate Task<PreToolUseHookOutput?> PreToolUseHandler(
 
 {% endcodetab %}
 {% codetab java %}
-
-```java
-import com.github.copilot.rpc.*;
-import java.util.concurrent.CompletableFuture;
-
-public class PreToolUseSignature {
-    PreToolUseHandler handler = (PreToolUseHookInput input, HookInvocation invocation) ->
-        CompletableFuture.completedFuture(PreToolUseHookOutput.allow());
-    public static void main(String[] args) {}
-}
-```
 
 ```java
 @FunctionalInterface
@@ -207,33 +157,6 @@ session = await client.create_session(on_permission_request=PermissionHandler.ap
 {% codetab go %}
 
 ```golang
-package main
-
-import (
-	"context"
-	"fmt"
-	copilot "github.com/github/copilot-sdk/go"
-)
-
-func main() {
-	client := copilot.NewClient(nil)
-	session, _ := client.CreateSession(context.Background(), &copilot.SessionConfig{
-		OnPermissionRequest: copilot.PermissionHandler.ApproveAll,
-		Hooks: &copilot.SessionHooks{
-			OnPreToolUse: func(input copilot.PreToolUseHookInput, inv copilot.HookInvocation) (*copilot.PreToolUseHookOutput, error) {
-				fmt.Printf("[%s] Calling %s\n", inv.SessionID, input.ToolName)
-				fmt.Printf("  Args: %v\n", input.ToolArgs)
-				return &copilot.PreToolUseHookOutput{
-					PermissionDecision: "allow",
-				}, nil
-			},
-		},
-	})
-	_ = session
-}
-```
-
-```golang
 session, _ := client.CreateSession(context.Background(), &copilot.SessionConfig{
     Hooks: &copilot.SessionHooks{
         OnPreToolUse: func(input copilot.PreToolUseHookInput, inv copilot.HookInvocation) (*copilot.PreToolUseHookOutput, error) {
@@ -249,32 +172,6 @@ session, _ := client.CreateSession(context.Background(), &copilot.SessionConfig{
 
 {% endcodetab %}
 {% codetab dotnet %}
-
-```csharp
-using GitHub.Copilot;
-
-public static class PreToolUseExample
-{
-    public static async Task Main()
-    {
-        await using var client = new CopilotClient();
-        var session = await client.CreateSessionAsync(new SessionConfig
-        {
-            Hooks = new SessionHooks
-            {
-                OnPreToolUse = (input, invocation) =>
-                {
-                    Console.WriteLine($"[{invocation.SessionId}] Calling {input.ToolName}");
-                    Console.WriteLine($"  Args: {input.ToolArgs}");
-                    return Task.FromResult<PreToolUseHookOutput?>(
-                        new PreToolUseHookOutput { PermissionDecision = "allow" }
-                    );
-                },
-            },
-        });
-    }
-}
-```
 
 ```csharp
 var session = await client.CreateSessionAsync(new SessionConfig

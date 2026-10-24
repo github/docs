@@ -93,7 +93,7 @@ You must create a {% data variables.product.pat_generic %} to use as a password 
 
 When prompted for a username and password on the command line, use your {% data variables.product.github %} username and {% data variables.product.pat_generic %}. The command line prompt won't specify that you should enter your {% data variables.product.pat_generic %} when it asks for your password.
 
-For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
+For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
 
 ### Authenticating on the command line using SSH
 

@@ -47,6 +47,6 @@ It is recommended that all **Repository migrations** bypasses be left in place f
 ## Related topics
 
 * [AUTOTITLE](/migrations/using-github-enterprise-importer/understanding-github-enterprise-importer/about-github-enterprise-importer)
-* [AUTOTITLE](/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/troubleshooting-your-migration-with-github-enterprise-importer)
+* [AUTOTITLE](/migrations/troubleshooting/troubleshooting-your-migration-with-github-enterprise-importer)
 * [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets)
 * [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/managing-policies-for-code-governance)

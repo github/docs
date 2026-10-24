@@ -23,9 +23,7 @@
 
 # Node.js version specification
 .node-version
-
-# Precomputed page info cache (brotli compressed)
-.pageinfo-cache.json.br
+.nvmrc
 
 # getRemoteJSON() disk cache for archived content
 .remotejson-cache/
@@ -111,3 +109,6 @@ translations/
 .local
 docs-ghes-3.14/
 docs-ghes-3.15/
+
+# Local output from the internal link checker
+artifacts/

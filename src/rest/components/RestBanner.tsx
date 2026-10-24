@@ -1,11 +1,12 @@
 import React from 'react'
-import { Flash } from '@primer/react'
 import { useRouter } from 'next/router'
 
 import { DEFAULT_VERSION, useVersion } from '@/versions/components/useVersion'
 import { Link } from '@/frame/components/Link'
+import { Banner } from '@/frame/components/ui/Banner'
 import { useMainContext } from '@/frame/components/context/MainContext'
 import { useTranslation } from '@/languages/components/useTranslation'
+import { RenderedHTML } from '@/frame/components/ui/RenderedHTML/RenderedHTML'
 
 const restRepoDisplayPages = [
   'branches',
@@ -35,7 +36,7 @@ const restRepoCategoryExceptionsTitles = {
 export const RestBanner = () => {
   const router = useRouter()
   const { t } = useTranslation('rest')
-  // Having a productId === 'rest' and no router.query.category would mean a product landing page like http://docs.github.com/en/rest?apiVersion=2022-08-09
+  // The /en/rest?apiVersion=2022-08-09 page has productId=rest and no category.
   const isRestPage = router.query.productId === 'rest' || router.query.category
   const restPage = router.query.category as string
   const { currentVersion } = useVersion()
@@ -51,8 +52,7 @@ export const RestBanner = () => {
     versionWithApiVersion = currentVersion
   } else {
     if (currentVersionObj.isGHES) {
-      // If this is a GHES release with no REST versions,
-      // find out if any GHES releases contain REST versioning yet.
+      // GHES releases without REST versioning link to the first GHES release that has it.
       const firstGhesReleaseWithApiVersions = Object.values(allVersions)
         .reverse()
         .find((v) => {
@@ -70,24 +70,22 @@ export const RestBanner = () => {
       }
     }
   }
-  // Temporary banner for REST API Versioning
   if (isRestPage && bannerText !== '') {
     return (
       <div
         data-testid="rest-api-versioning-temporary-banner"
         className="container-xl mt-3 mx-auto p-responsive"
       >
-        <Flash>
-          <span dangerouslySetInnerHTML={{ __html: bannerText }} />{' '}
-          <span
-            dangerouslySetInnerHTML={{
-              __html: t('rest.banner.api_version_info').replace(
-                /{{\s*versionWithApiVersion\s*}}/,
-                versionWithApiVersion === DEFAULT_VERSION ? '' : `/${versionWithApiVersion}`,
-              ),
-            }}
+        <Banner>
+          <RenderedHTML as="span" html={bannerText} />{' '}
+          <RenderedHTML
+            as="span"
+            html={t('rest.banner.api_version_info').replace(
+              /{{\s*versionWithApiVersion\s*}}/,
+              versionWithApiVersion === DEFAULT_VERSION ? '' : `/${versionWithApiVersion}`,
+            )}
           />
-        </Flash>
+        </Banner>
       </div>
     )
   }
@@ -132,7 +130,7 @@ export const RestBanner = () => {
 
   return (
     <div data-testid="rest-api-repos-banner" className="container-xl mt-3 mx-auto p-responsive">
-      <Flash variant="warning">
+      <Banner variant="warning">
         <p>
           <b className="text-bold">
             <span>
@@ -140,7 +138,7 @@ export const RestBanner = () => {
             </span>
           </b>{' '}
         </p>
-      </Flash>
+      </Banner>
     </div>
   )
 }

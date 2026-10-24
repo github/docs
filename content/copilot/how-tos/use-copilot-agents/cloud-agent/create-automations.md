@@ -17,7 +17,7 @@ category:
 
 You can create and manage {% data variables.copilot.copilot_automations %} from the **Agents** tab of a repository on {% data variables.product.github %}. You can also create and manage {% data variables.copilot.copilot_automations %} from the **{% data variables.copilot.copilot_automations_cap %}** tab in the {% data variables.copilot.github_copilot_app %}.
 
-For an overview of {% data variables.copilot.copilot_automations %}, including triggers, tools, visibility, and security, see [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-automations).
+For an overview of {% data variables.copilot.copilot_automations %}, including triggers, tools, visibility, and security, see [AUTOTITLE](/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/about-automations).
 
 ## Prerequisites
 
@@ -52,7 +52,7 @@ For an overview of {% data variables.copilot.copilot_automations %}, including t
 1. Optionally, select the **model** you want {% data variables.product.prodname_copilot_short %} to use. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/changing-the-ai-model).
 1. Select the **tools** {% data variables.product.prodname_copilot_short %} can use when the {% data variables.copilot.copilot_automation %} runs, such as pushing changes, updating issue labels, or creating a pull request.
 
-    Select only the tools the task requires. The tools you select control what actions {% data variables.product.prodname_copilot_short %} can take in your repository. Optionally, you can use the **Suggest tools** button to ask {% data variables.product.prodname_copilot_short %} to suggest tools based on your prompt. See [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-automations#tools-and-actions).
+    Select only the tools the task requires. The tools you select control what actions {% data variables.product.prodname_copilot_short %} can take in your repository. Optionally, you can use the **Suggest tools** button to ask {% data variables.product.prodname_copilot_short %} to suggest tools based on your prompt. See [AUTOTITLE](/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/about-automations#tools-and-actions).
 
 1. Save the {% data variables.copilot.copilot_automation %} by clicking **Create automation**.
 
@@ -79,6 +79,6 @@ To see all of your {% data variables.copilot.copilot_automations %} across every
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-automations)
+* [AUTOTITLE](/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/about-automations)
 * [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/start-copilot-sessions)
 * [AUTOTITLE](/copilot/concepts/agents/cloud-agent/risks-and-mitigations)

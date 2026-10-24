@@ -42,7 +42,7 @@ To find and remediate repositories with a `removed` status:
 {% data reusables.security-configurations.view-configurations-page %}
 1. Filter the repository list using the "Configuration status" filter and select "Removed."
 1. To restore the intended settings, re-apply the configuration to the affected repositories.
-1. To prevent future overrides, consider enabling enforcement on the configuration. See [AUTOTITLE](/code-security/reference/security-at-scale/security-configuration-enforcement).
+1. To prevent future overrides, consider enabling enforcement on the configuration. See [AUTOTITLE](/code-security/reference/security-at-scale/configuration-enforcement).
 
 ## Finding and remediating enterprise-removed configurations
 
@@ -57,5 +57,5 @@ To find and remediate repositories with a `removed_by_enterprise` status:
 1. Coordinate with your enterprise admin to resolve the conflict between the enterprise-level and organization-level configurations.
 1. Re-apply the configuration at the organization or enterprise level.
 
-For more information about all configuration statuses, see [AUTOTITLE](/code-security/reference/security-at-scale/security-configuration-statuses).
+For more information about all configuration statuses, see [AUTOTITLE](/code-security/reference/security-at-scale/configuration-statuses).
 

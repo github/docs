@@ -43,6 +43,6 @@ Use known issues to explain the following situations.
 ## Examples of troubleshooting content
 
 * [AUTOTITLE](/authentication/troubleshooting-ssh)
-* [AUTOTITLE](/enterprise-server@latest/admin/configuration/configuring-network-settings/using-github-enterprise-server-with-a-load-balancer#troubleshooting-connectivity-through-a-load-balancer)
+* [AUTOTITLE](/enterprise-server@latest/admin/configuring-settings/configuring-network-settings/using-github-enterprise-server-with-a-load-balancer#troubleshooting-connectivity-through-a-load-balancer)
 * [Known issues](/enterprise-server@3.7/admin/release-notes#3.7.8-known-issues) in the {% data variables.product.prodname_ghe_server %} release notes
 * [AUTOTITLE](/authentication/troubleshooting-ssh/error-were-doing-an-ssh-key-audit)

@@ -24,7 +24,7 @@ describe(liquidDataReferencesDefined.names.join(' - '), () => {
     const markdown = [
       'Hello {% data variables.empty %}',
       '{% data variables.no-file %}',
-      // Variables even when they exist can't be nested
+      // Existing variables cannot be nested.
       '{% data variables.location.foo.bar %}',
       '{% data reusables.gated-features.empty %}',
       '{% data reusables.no-file %}',

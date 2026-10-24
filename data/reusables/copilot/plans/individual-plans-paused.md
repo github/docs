@@ -1,1 +1,0 @@
-**Starting April 20, 2026**, new sign-ups for {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, {% data variables.copilot.copilot_max_short %}, and student plans are temporarily paused. However, existing plans can be upgraded.

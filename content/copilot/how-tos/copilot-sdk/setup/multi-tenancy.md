@@ -2,8 +2,12 @@
 title: Multi-tenancy and server deployments
 shortTitle: Multi Tenancy
 intro: >-
-    Run the Copilot SDK in multi-user server deployments with per-session
-    isolation for state, authentication, and tools.
+  Multi-user server mode means running the Copilot SDK from backend code that
+  serves more than one human, tenant, workspace, or integration account. In this
+  setup, the application owns request routing and authorization, while the SDK
+  and runtime provide per-session state, per-session authentication, and
+  explicit tool registration so one user's session does not inherit another
+  user's tools or identity.
 versions:
   fpt: '*'
   ghec: '*'
@@ -35,7 +39,9 @@ This guide is a sister to [AUTOTITLE](/copilot/how-tos/copilot-sdk/setup/scaling
 | `baseDirectory` | Isolating `COPILOT_HOME` per runtime instance | Ignored when connecting to an existing runtime. |
 | `sessionFs` | Routing session filesystem storage off local disk | Pair with per-session filesystem providers. |
 | `RuntimeConnection.forUri(url)` | Sharing one already-running runtime | Language names vary; see samples below. |
-| Per-session `gitHubToken` | Scoping auth to the requesting user | Prefer this over a single shared user token. |
+| Per-session GitHub token or provider | Scoping auth to the requesting user | Prefer a rotating provider for short-lived credentials; use a static `gitHubToken` only when rotation is unnecessary. |
+
+For callback-backed credentials, see [AUTOTITLE](/copilot/how-tos/copilot-sdk/auth/authenticate#rotating-session-scoped-github-tokens). Each session owns its provider registration, so concurrent sessions can use different GitHub hosts and accounts without sharing callback state.
 
 ### `mode: "empty"`
 
@@ -59,7 +65,7 @@ const client = new CopilotClient({
 
 const session = await client.createSession({
     sessionId: `user-${user.id}-${crypto.randomUUID()}`,
-    model: "gpt-4.1",
+    model: "gpt-5.4",
     availableTools: ["custom:lookupOrder", "custom:createTicket"],
     gitHubToken: user.githubToken,
 });
@@ -82,7 +88,7 @@ await client.start()
 
 session = await client.create_session(
     session_id=f"user-{user.id}-{request_id}",
-    model="gpt-4.1",
+    model="gpt-5.4",
     available_tools=["custom:lookupOrder", "custom:createTicket"],
     github_token=user.github_token,
     on_permission_request=PermissionHandler.approve_all,
@@ -91,46 +97,6 @@ session = await client.create_session(
 
 {% endcodetab %}
 {% codetab go %}
-
-```golang
-package main
-
-import (
-	"context"
-	"fmt"
-
-	copilot "github.com/github/copilot-sdk/go"
-)
-
-type appUser struct {
-	ID          string
-	GitHubToken string
-}
-
-func main() {
-	ctx := context.Background()
-	runtimeInstanceID := "instance-1"
-	runtimeURL := "http://127.0.0.1:8080"
-	requestID := "req-1"
-	user := appUser{ID: "alice", GitHubToken: "YOUR_GITHUB_TOKEN"}
-
-    client := copilot.NewClient(&copilot.ClientOptions{
-        Mode:                      copilot.ModeEmpty,
-        BaseDirectory:             fmt.Sprintf("/var/lib/my-app/copilot/%s", runtimeInstanceID),
-        SessionIdleTimeoutSeconds: 900,
-        Connection:                copilot.URIConnection{URL: runtimeURL},
-    })
-
-	session, err := client.CreateSession(ctx, &copilot.SessionConfig{
-		SessionID:      fmt.Sprintf("user-%s-%s", user.ID, requestID),
-		Model:          "gpt-4.1",
-		AvailableTools: []string{"custom:lookupOrder", "custom:createTicket"},
-		GitHubToken:    user.GitHubToken,
-	})
-	_ = session
-	_ = err
-}
-```
 
 ```golang
 client := copilot.NewClient(&copilot.ClientOptions{
@@ -142,7 +108,7 @@ client := copilot.NewClient(&copilot.ClientOptions{
 
 session, err := client.CreateSession(ctx, &copilot.SessionConfig{
     SessionID:      fmt.Sprintf("user-%s-%s", user.ID, requestID),
-    Model:          "gpt-4.1",
+    Model:          "gpt-5.4",
     AvailableTools: []string{"custom:lookupOrder", "custom:createTicket"},
     GitHubToken:    user.GitHubToken,
 })
@@ -152,13 +118,6 @@ session, err := client.CreateSession(ctx, &copilot.SessionConfig{
 {% codetab dotnet %}
 
 ```csharp
-using GitHub.Copilot;
-
-var runtimeInstanceId = "instance-1";
-var runtimeUrl = "http://127.0.0.1:8080";
-var requestId = "req-1";
-var user = new { Id = "alice", GitHubToken = "YOUR_GITHUB_TOKEN" };
-
 var client = new CopilotClient(new CopilotClientOptions
 {
     Mode = CopilotClientMode.Empty,
@@ -170,25 +129,7 @@ var client = new CopilotClient(new CopilotClientOptions
 await using var session = await client.CreateSessionAsync(new SessionConfig
 {
     SessionId = $"user-{user.Id}-{requestId}",
-    Model = "gpt-4.1",
-    AvailableTools = ["custom:lookupOrder", "custom:createTicket"],
-    GitHubToken = user.GitHubToken,
-});
-```
-
-```csharp
-var client = new CopilotClient(new CopilotClientOptions
-{
-    Mode = CopilotClientMode.Empty,
-    BaseDirectory = $"/var/lib/my-app/copilot/{runtimeInstanceId}",
-    SessionIdleTimeoutSeconds = 900,
-    Connection = RuntimeConnection.ForUri(runtimeUrl),
-});
-
-await using var session = await client.CreateSessionAsync(new SessionConfig
-{
-    SessionId = $"user-{user.Id}-{requestId}",
-    Model = "gpt-4.1",
+    Model = "gpt-5.4",
     AvailableTools = ["custom:lookupOrder", "custom:createTicket"],
     GitHubToken = user.GitHubToken,
 });
@@ -196,38 +137,6 @@ await using var session = await client.CreateSessionAsync(new SessionConfig
 
 {% endcodetab %}
 {% codetab java %}
-
-```java
-import java.util.List;
-import com.github.copilot.CopilotClient;
-import com.github.copilot.rpc.CopilotClientOptions;
-import com.github.copilot.rpc.CopilotClientMode;
-import com.github.copilot.rpc.SessionConfig;
-
-public class MultiTenancyExample {
-    record User(String id, String gitHubToken) {}
-
-    public static void main(String[] args) throws Exception {
-        String runtimeUrl = "http://localhost:4321";
-        String requestId = "req-1";
-        User user = new User("u1", "ghu_token");
-
-        // setCopilotHome and setSessionIdleTimeoutSeconds are ignored when
-        // setCliUrl is used; configure those on the runtime process instead.
-        var client = new CopilotClient(new CopilotClientOptions()
-            .setMode(CopilotClientMode.EMPTY)
-            .setCliUrl(runtimeUrl)
-        );
-
-        var session = client.createSession(new SessionConfig()
-            .setSessionId("user-" + user.id() + "-" + requestId)
-            .setModel("gpt-4.1")
-            .setAvailableTools(List.of("custom:lookupOrder", "custom:createTicket"))
-            .setGitHubToken(user.gitHubToken())
-        ).get();
-    }
-}
-```
 
 ```java
 // setCopilotHome and setSessionIdleTimeoutSeconds are ignored when
@@ -239,7 +148,7 @@ var client = new CopilotClient(new CopilotClientOptions()
 
 var session = client.createSession(new SessionConfig()
     .setSessionId("user-" + user.id() + "-" + requestId)
-    .setModel("gpt-4.1")
+    .setModel("gpt-5.4")
     .setAvailableTools(List.of("custom:lookupOrder", "custom:createTicket"))
     .setGitHubToken(user.gitHubToken())
 ).get();
@@ -271,7 +180,7 @@ let client = Client::start(
 let session = client.create_session(
     SessionConfig::default()
         .with_session_id(format!("user-{}-{request_id}", user.id))
-        .with_model("gpt-4.1")
+        .with_model("gpt-5.4")
         .with_available_tools(["custom:lookupOrder", "custom:createTicket"])
         .with_github_token(user.github_token),
 ).await?;
@@ -328,6 +237,24 @@ const client = new CopilotClient({
 
 For languages that expose a provider callback, configure `sessionFs` at the client level and provide a per-session filesystem handler when creating or resuming a session. See [AUTOTITLE](/copilot/how-tos/copilot-sdk/features/session-persistence) for persistence concepts and storage trade-offs.
 
+Runtime-owned durable permission choices also use the session filesystem. Under the provider's `sessionStatePath`, `permissions.json` retains its top-level `locations` map with `tool_approvals` and `allowed_directories`; `settings.json` stores top-level `allowedUrls` and `sandbox`; and `config.json` stores top-level `trustedFolders`.
+
+URL approvals are read only from `settings.json`; legacy user-setting fields such as `allowedUrls` in `config.json` are ignored, matching host behavior.
+
+Location keys are normalized provider directory paths, with no added prefix. Resolution follows the provider's path conventions without inspecting the host filesystem or discovering host Git repositories. `/workspace` and `/workspace/sub` select different location entries.
+
+The runtime does not add session-ID partitions to these files or change their sharing granularity. Sessions accessing the same files in the same provider namespace share remembered grants. Your application must use distinct namespaces for tenants or sessions that require isolation, authorize access to each namespace, and reconnect resumed sessions to their original namespace.
+
+With a separate namespace per session, permanent grants survive that session's resumes rather than becoming tenant-wide grants for new sessions. Sharing grants across sessions requires sharing the consent files while keeping other session state separate. The runtime serializes consent updates only within the same provider endpoint and process; applications that share backing files across endpoints or processes must coordinate concurrent updates.
+
+The runtime blocks direct provider-backed file writes to the lexical approval-metadata paths as defense in depth, not as a tamper-proof storage boundary. Providers must not expose writable aliases (such as symlinks or Windows 8.3 short names) to approval metadata through agent file tools. Shell tools do not run through SessionFS, and their commands are not checked against its virtual metadata paths. If your application separately exposes the provider's backing storage to shell execution or other arbitrary code, your host must protect that storage.
+
+Session filesystem approval operations never import or fall back to remembered permissions from the host's `permissions-config.json`, URL or sandbox settings from `settings.json`, or folder trust from `config.json`. They do not update those host files, even when the provider has no approvals or reports an error. A provider error is not permission to use host consent. URL deny rules remain authoritative, and folder trust uses provider paths without host Git discovery.
+
+Approve-once, approve-for-session, rejections, and session policy changes retain their existing lifetimes and event-replay behavior. Storage routing does not turn them into new permanent grants. Protect session transcripts, including durable permission events, with the same tenant isolation as approval metadata.
+
+This boundary applies only to sessions using a session filesystem provider. All SDK applications without `sessionFs`, in both `empty` and `copilot-cli` modes, and ordinary CLI sessions retain existing host-backed persistence for remembered locations, permanent URL approvals, folder trust, and sandbox settings.
+
 Verified public SDK surfaces:
 
 | Language | Client-level config | Per-session provider |
@@ -362,7 +289,7 @@ Set `gitHubToken` on each session to scope GitHub auth to the requesting user. T
 ```typescript
 const session = await client.createSession({
     sessionId: `user-${user.id}-support`,
-    model: "gpt-4.1",
+    model: "gpt-5.4",
     availableTools: ["custom:*"],
     gitHubToken: user.githubToken,
 });
@@ -392,9 +319,12 @@ Session-level isolation means the runtime keeps user-specific model and state in
 | Session state | Per session ID under `COPILOT_HOME/session-state/{sessionId}`. |
 | GitHub identity | Per-session when `gitHubToken` is set on the session. |
 | Tools | Explicit in `mode: "empty"`; ambient in `mode: "copilot-cli"`. |
+| Skills | In `mode: "empty"` no runtime-bundled built-in skills are eligible by default; callers can allow selected built-ins or opt into their own custom skills. Ambient in `mode: "copilot-cli"`. |
 | Host filesystem | Shared by the runtime process if host tools are available. |
 
 `mode: "empty"` is what makes shared runtime patterns viable: no ambient OS tools are exposed unless your application registers or allows them. With `mode: "copilot-cli"`, OS filesystem access is shared through the host process, so do not use that mode for multi-user server mode.
+
+Under `mode: "empty"` the SDK excludes every runtime-bundled built-in skill by default (it sends an empty `includedBuiltinSkills` list on the post-create/post-resume options patch, alongside the empty `installedPlugins` list). Set `includedBuiltinSkills` (or the language-specific casing) to explicitly allow selected built-ins, just as `availableTools` allows selected runtime-bundled tools. A caller can also opt into its **own** custom skills—for example by enabling skills and pointing at its own skill directories—and those remain usable.
 
 Session state is stored under `COPILOT_HOME/session-state/{sessionId}` unless you route it through `sessionFs`. Use unique session IDs that include your own tenant or user boundary, and enforce access control before resuming or deleting sessions.
 

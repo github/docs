@@ -19,16 +19,41 @@ For most license-based products such as {% data variables.product.prodname_copil
 
 For metered products such as {% data variables.product.prodname_actions %}, {% data variables.product.prodname_copilot_short %} {% data variables.product.prodname_ai_credits_short %}, or cloud sandboxes, you can set budgets to prevent usage once the budget threshold is reached.
 
+{% ifversion fpt or ghec %}
+
+The bundled {% data variables.product.prodname_ai_credits_short %} budget controls metered spending across all AI-credit SKUs. You can also create a SKU-level budget for **Code Security AI Credits** to control spending on AI Scan and agentic autofix.
+
+When no Code Security AI Credits quota remains because of a hard budget, AI Scan cannot produce findings and agentic autofix cannot start a session. Usage resumes when the limiting budget is increased or a new billing cycle begins.
+
+Hard budgets for Code Security AI Credits limit AI feature usage, not enablement. Reaching a budget limit does not prevent administrators from enabling AI Scan or agentic autofix.
+
+By contrast, a hard budget for active-committer licenses prevents enabling {% data variables.product.prodname_code_security %} or {% data variables.product.prodname_secret_protection %} on additional repositories. It does not disable these products in repositories where they are already enabled.
+
+{% endif %}
+
 ## Types and scopes
 
 Each budget has a type and a scope that define which paid use contributes to spending against the budget.
 
 * **Type**: Defines which metered product or SKU is measured.
-* **Scope**: Defines whether the budget applies to the whole account, or to a subset of repositories, organizations, cost centers (enterprise only), or users. User-scoped budgets are currently only supported for {% data variables.product.prodname_copilot_short %} {% data variables.product.prodname_ai_credits_short %}. There are two types: a universal budget that applies to all licensed users by default, and individual budgets that override the universal for specific users. See [AUTOTITLE](/copilot/concepts/billing/budgets-for-usage-based-billing).
+* **Scope**: Defines whether the budget applies to the whole account, or to a subset of repositories, organizations, cost centers (enterprise only), or users. User-scoped budgets are currently only supported for {% data variables.product.prodname_copilot_short %} {% data variables.product.prodname_ai_credits_short %}, and have three scopes:
+
+  * **Universal**: applies to all licensed users by default
+  * **Cost center user-level**: applies to every user in a cost center
+  * **Individual**: overrides the above for specific users, and can be given an optional expiration date so a temporary override is removed automatically
+
+For {% data variables.product.prodname_copilot_short %}, cost centers can also have included usage controls, which cap how much of the shared {% data variables.product.prodname_ai_credits_short %} pool a cost center can use before metered usage begins. This is a separate control from the budgets and the included usage alerts described below. See [AUTOTITLE](/copilot/concepts/billing-and-usage/organizations-and-enterprises/budgets#included-usage-controls-for-cost-centers).
+
+## Roles and access for budgets
+
+Enterprise owners and billing managers can create and edit enterprise and cost center budgets, and they receive budget alerts by default. Organization owners can set budgets for their own organization, and personal account owners can set budgets for their own account. Each of these roles can view usage for the scopes they manage.
 
 ## Budget alerts
 
-You can enable alerts for budgets to receive emails when usage reaches 75%, 90%, and 100% of the budget amount. Emails are sent to account owners and billing managers by default. Additional recipients can be added as needed.
+You can enable alerts for budgets to be notified when usage reaches 75%, 90%, and 100% of the budget amount. Alerts are shown in the {% data variables.product.github %} UI and sent by email. By default, alerts go to account owners and billing managers, and you can add additional recipients as needed. Budget alerts are available for budgets scoped to your enterprise, a cost center, an organization, or a repository.
+
+> [!NOTE]
+> Alerting for user-level budgets is not consistently available in all scenarios. Don't rely on user-level budget alerts as your only signal, also monitor usage at the cost center or enterprise level.
 
 ## Included usage alerts
 
@@ -62,4 +87,4 @@ The maximum number of budgets per account is 10,000.
 
 ## Set up a budget
 
-To get started with budgets, see [AUTOTITLE](/billing/tutorials/set-up-budgets).
+To get started with budgets, see [AUTOTITLE](/billing/how-tos/set-up-budgets).

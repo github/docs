@@ -53,7 +53,7 @@ client = CopilotClient(
 <!-- docs-validate: skip -->
 
 ```golang
-client, err := copilot.NewClient(copilot.ClientOptions{
+client := copilot.NewClient(&copilot.ClientOptions{
     Telemetry: &copilot.TelemetryConfig{
         OTLPEndpoint: "http://localhost:4318",
     },
@@ -112,10 +112,60 @@ let client = Client::start(ClientOptions::new()
 | Option | Node.js | Python | Go | .NET | Java | Rust | Description |
 |---|---|---|---|---|---|---|---|
 | OTLP endpoint | `otlpEndpoint` | `otlp_endpoint` | `OTLPEndpoint` | `OtlpEndpoint` | `otlpEndpoint` | `otlp_endpoint` | OTLP HTTP endpoint URL |
+| OTLP protocol | `otlpProtocol` | `otlp_protocol` | `OTLPProtocol` | `OtlpProtocol` | `otlpProtocol` | `otlp_protocol` | OTLP HTTP protocol for all signals: `"http/json"` or `"http/protobuf"` |
 | File path | `filePath` | `file_path` | `FilePath` | `FilePath` | `filePath` | `file_path` | File path for JSON-lines trace output |
 | Exporter type | `exporterType` | `exporter_type` | `ExporterType` | `ExporterType` | `exporterType` | `exporter_type` | `"otlp-http"` or `"file"` |
 | Source name | `sourceName` | `source_name` | `SourceName` | `SourceName` | `sourceName` | `source_name` | Instrumentation scope name |
 | Capture content | `captureContent` | `capture_content` | `CaptureContent` | `CaptureContent` | `captureContent` | `capture_content` | Whether to capture message content |
+
+The OTLP protocol field configures the CLI's `"otlp-http"` exporter for all signals. Leave it unset to use the CLI default, or set it to `"http/protobuf"` to export protobuf over HTTP.
+
+### Skill and command telemetry
+
+The runtime follows the [GenAI skill semantic conventions](https://github.com/open-telemetry/semantic-conventions-genai/commit/771e3210f7518694666834f7243573b8018c7a4f)
+by refining existing `execute_tool` spans, not adding a separate skill
+operation. A loader is named `execute_tool skill {skill}`. An unambiguously
+identified resource or script is named
+`execute_tool {tool} {skill} {resource}`, with a skill-relative resource name.
+Other command spans append the actual known launcher name.
+
+* `gen_ai.skill.name` and `gen_ai.skill.resource.name`: Available independently of content capture
+* `gen_ai.skill.description` and `gen_ai.skill.source.uri`: Require content capture through `TelemetryConfig`
+* `process.executable.name`: The directly launched executable, such as the shell launcher, not a guessed command token
+* `process.executable.path`: An absolute known path; requires content capture
+* `process.exit.code`: An integer, including zero, when a command-executing tool reports an exit; unavailable exits and pre-spawn failures are omitted
+
+Poll tools do not inherit process attributes from the command they read.
+Sandboxed executable identities are omitted when the sandbox backend does
+not expose them. A nonzero exit does not imply that the tool itself failed.
+Skill definitions and directory listings are not named skill resources.
+Preloaded skills produce invocation events without a fabricated tool span.
+Repeated preparation of the same selected-agent skill context emits one receipt;
+changed content or provenance emits another. Child sessions report their own
+preloads independently. Detached command spans identify the directly spawned
+Unix `sh` supervisor or selected Windows PowerShell executable.
+
+Custom tools that override built-in names do not inherit native skill or process
+attributes. Visible, enabled skills still own resources when model invocation
+is disabled. Script attribution uses the post-hook command and the selected
+shell's directory; it is omitted when startup scripts or profiles make the
+execution context uncertain.
+
+While managed telemetry settings are unresolved, pending tracking buffers only
+capture-independent tool facts. Descriptions, source URIs, and executable paths
+observed before the policy resolves are omitted, even if capture is later enabled.
+The final policy governs replay; disabled or cancelled tracking discards the buffer.
+
+These are breaking telemetry-name changes: use `gen_ai.skill.name` instead
+of `github.copilot.tool.parameters.skill_name` or
+`github.copilot.skill.name`, and use `gen_ai.skill.source.uri` instead of
+`github.copilot.skill.path`. Local source values are file URIs, not bare paths.
+The `github.copilot.skill.invoked` event and its content, source-category,
+trigger, and plugin fields remain Copilot-specific. Skill content retains its
+existing capture gate.
+
+The skill attributes and span refinements have Development stability; the
+process attributes have Release Candidate stability.
 
 ### Trace context propagation
 
@@ -159,29 +209,36 @@ When the CLI invokes a tool handler, the `traceparent` and `tracestate` from the
 <!-- docs-validate: skip -->
 
 ```typescript
+import { defineTool } from "@github/copilot-sdk";
 import { propagation, context, trace } from "@opentelemetry/api";
 
-session.registerTool(myTool, async (args, invocation) => {
-  // Restore the CLI's trace context as the active context
-  const carrier = {
-    traceparent: invocation.traceparent,
-    tracestate: invocation.tracestate,
-  };
-  const parentCtx = propagation.extract(context.active(), carrier);
+const myTool = defineTool("my-tool", {
+  description: "Do work",
+  handler: async (args, invocation) => {
+    // Restore the CLI's trace context as the active context
+    const carrier = {
+      traceparent: invocation.traceparent,
+      tracestate: invocation.tracestate,
+    };
+    const parentCtx = propagation.extract(context.active(), carrier);
 
-  // Create a child span under the CLI's span
-  const tracer = trace.getTracer("my-app");
-  return context.with(parentCtx, () =>
-    tracer.startActiveSpan("my-tool", async (span) => {
-      try {
-        const result = await doWork(args);
-        return result;
-      } finally {
-        span.end();
-      }
-    })
-  );
+    // Create a child span under the CLI's span
+    const tracer = trace.getTracer("my-app");
+    return context.with(parentCtx, () =>
+      tracer.startActiveSpan("my-tool", async (span) => {
+        try {
+          const result = await doWork(args);
+          return result;
+        } finally {
+          span.end();
+        }
+      })
+    );
+  },
 });
+
+// Tool handlers are registered when the session is created.
+const session = await client.createSession({ tools: [myTool] });
 ```
 
 ### Per-language dependencies

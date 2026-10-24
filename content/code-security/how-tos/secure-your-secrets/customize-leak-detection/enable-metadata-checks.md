@@ -16,15 +16,13 @@ category:
 
 {% data reusables.secret-scanning.metadata-checks-public-preview %}
 
-{% data reusables.secret-scanning.extended-metadata-checks-note %}
-
-This article shows how you can enable extended metadata checks for individual repositories through repository settings. Alternatively, you can enable them at scale using **security configurations** at the organization or enterprise level. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/creating-a-custom-security-configuration) or [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-enterprise-security/establish-complete-coverage/creating-a-custom-security-configuration-for-your-enterprise).
+This article shows how you can enable extended metadata checks for individual repositories through repository settings. Alternatively, you can enable them at scale using **security configurations** at the organization or enterprise level. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/create-custom-configuration) or [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-enterprise-security/establish-complete-coverage/create-custom-configuration).
 
 {% ifversion secret-scanning-validity-check-partner-patterns %}
 
 ## Prerequisites
 
-Before enabling metadata checks, you need to ensure that validity checks are enabled for the repository. See [AUTOTITLE](/code-security/secret-scanning/enabling-secret-scanning-features/enabling-validity-checks-for-your-repository#enabling-validity-checks).
+Before enabling metadata checks, you need to ensure that validity checks are enabled for the repository. See [AUTOTITLE](/code-security/how-tos/secure-your-secrets/customize-leak-detection/enable-validity-checks#enabling-validity-checks).
 
 {% endif %}
 
@@ -34,9 +32,8 @@ Before enabling metadata checks, you need to ensure that validity checks are ena
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.navigate-to-code-security-and-analysis %}{% ifversion ghas-products %}
-1. Under "{% data variables.product.prodname_secret_protection %}" and "Validity checks", to the right of "Extended metadata", click **Enable**.{% else %}
-1. Under "{% data variables.product.prodname_secret_protection %}" and "Validity checks", to the right of "Extended metadata", click **Enable**.{% endif %}
+{% data reusables.repositories.navigate-to-code-security-and-analysis %}
+1. Under "{% data variables.product.prodname_secret_protection %}" and "Validity checks", to the right of "Extended metadata", click **Enable**.
 
 {% elsif ghes %}
 
@@ -47,4 +44,4 @@ Before enabling metadata checks, you need to ensure that validity checks are ena
 
 ## Further reading
 
-* [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning)
+* [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-secret-scanning-alerts)

@@ -16,6 +16,6 @@ category:
 
 ## About self-hosted runners in {% data variables.product.prodname_actions %}
 
-You can use the REST API to register, view, and delete self-hosted runners in {% data variables.product.prodname_actions %}. {% data reusables.actions.about-self-hosted-runners %} For more information, see [AUTOTITLE](/actions/how-tos/managing-self-hosted-runners).
+You can use the REST API to register, view, and delete self-hosted runners in {% data variables.product.prodname_actions %}. {% data reusables.actions.about-self-hosted-runners %} For more information, see [AUTOTITLE](/actions/how-tos/manage-runners/self-hosted-runners).
 
 <!-- Content after this section is automatically generated -->

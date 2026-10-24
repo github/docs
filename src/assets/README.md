@@ -18,7 +18,7 @@ The core logic resides in `src/assets/middleware`:
 - **`dynamic-assets.ts`**: Intercepts requests for `/assets/`. It handles:
   - **WebP Conversion**: If a request ends in `.webp` but the source is a `.png`, it converts the image using `sharp`.
   - **Resizing**: Supports virtual path segments like `/mw-1000/` to resize images to a maximum width (e.g., 1000px).
-  - **Security**: Validates requested widths against an allowed list (`VALID_MAX_WIDTHS`) to prevent DoS attacks.
+  - **Security**: Validates requested widths against an allowed list (`VALID_MAX_WIDTHS`) to prevent DoS attacks, and returns a 404 for any path that resolves outside the `assets/` directory.
 - **`static-asset-caching.ts`**: Detects if an asset URL contains a checksum (e.g., `/assets/cb-12345/...`) and sets aggressive caching headers (`Surrogate-Key: manual-purge`) because the content is immutable.
 
 ### Scripts
@@ -31,6 +31,7 @@ Located in `src/assets/scripts`, these tools help maintain the asset library:
 ### Library
 
 - `src/assets/lib/image-density.ts`: Utilities for handling high-density (Retina) images.
+- `src/assets/lib/validate-asset.ts`: File type and SVG safety checks used by `validate-asset-images.ts`.
 
 ## Setup & Usage
 
@@ -61,7 +62,7 @@ To request a resized version:
 
 ## Ownership
 
-- **Team**: `@github/docs-engineering`
+- `#technical-content`
 - **Escalation**: If image serving fails or performance degrades, check the `dynamic-assets` middleware and `sharp` processing.
 
 ## Current State & Known Issues

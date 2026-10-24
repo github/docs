@@ -26,8 +26,8 @@ In addition to reducing risk in your organization’s codebase, alerts in a secu
 
 * You have a campaign manager on the security team to collaborate with and a specific contact link for discussing campaign activities.
 * You know that you are fixing a security alert that is important to the company.
-* Potentially, you may have access to targeted training materials.{% ifversion security-campaigns-autofix %}
-* You don't need to request a {% data variables.copilot.copilot_autofix %} suggestion, it is already available as a starting point.{% endif %}{% ifversion copilot %}
+* Potentially, you may have access to targeted training materials.{% ifversion copilot %}
+* If {% data variables.copilot.agentic_autofix %} is enabled, you can assign alerts to {% data variables.product.prodname_copilot_short %}, which can resolve them in a pull request. Otherwise, you can use a {% data variables.copilot.copilot_autofix %} suggestion as a starting point where supported.
 * If you have access to {% data variables.copilot.copilot_chat %}, you can ask questions about the alert and the suggested fix.{% endif %}
 * You are improving and demonstrating your knowledge of secure coding.
 
@@ -94,21 +94,13 @@ You can leverage {% data variables.product.prodname_copilot_short %} to help res
 
 {% ifversion code-scanning-autofix %}
 
-### {% data variables.copilot.copilot_autofix_short %}
+### Autofix for {% data variables.product.prodname_code_scanning %} alerts
 
-{% data variables.copilot.copilot_autofix_short %} is automatically triggered for alerts that are included in a campaign, meaning that where possible, fixes are automatically generated for you. You can commit the suggested fix to resolve the alert and then verify that continuous integration testing (CI) for the codebase is still passing. See [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/fixing-alerts-in-security-campaign).
+If {% data variables.copilot.agentic_autofix %} is enabled, you can assign up to 25 alerts from the campaign view to {% data variables.product.prodname_copilot_short %}. One assignment starts one agent session and opens one pull request for the selected alerts. See [AUTOTITLE](/code-security/how-tos/manage-security-alerts/remediate-alerts-at-scale/fixing-alerts-in-security-campaign#assigning-alerts-to-copilot).
 
-{% ifversion security-campaigns-assign-to-cca %}
-
-If {% data variables.copilot.copilot_cloud_agent %} is enabled in the repository, you can also assign alerts to {% data variables.product.prodname_copilot_short %}. See [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/fixing-alerts-in-security-campaign#assigning-alerts-to-copilot-cloud-agent).
-
-By assigning multiple alerts, {% data variables.copilot.copilot_cloud_agent %} will apply the fixes and iterate on the code to validate the changes, check for any new security issues, and ensure there are no merge conflicts.
-
-{% endif %}
+If {% data variables.copilot.agentic_autofix %} isn't enabled, use a {% data variables.copilot.copilot_autofix_short %} suggestion where available, or fix the alert manually. After you commit the fix, verify that continuous integration checks still pass. See [AUTOTITLE](/code-security/how-tos/manage-security-alerts/remediate-alerts-at-scale/fixing-alerts-in-security-campaign).{% endif %}
 
 ### {% data variables.copilot.copilot_chat_short %}
-
-{% endif %}
 
 You can ask {% data variables.copilot.copilot_chat_short %} for help in understanding the vulnerability, the suggested fix, and how to test that the fix is comprehensive. To access {% data variables.copilot.copilot_chat_short %}, navigate to [https://github.com/copilot](https://github.com/copilot?ref_product=copilot&ref_type=engagement&ref_style=text).
 
@@ -122,10 +114,10 @@ For example:
 
    ```
 
-If you don't already have access to {% data variables.copilot.copilot_chat_short %} through your organization{% ifversion ghec %} or enterprise{% endif %}, you can sign up to {% data variables.copilot.copilot_free %}. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-copilot-free/accessing-github-copilot-free).
+If you don't already have access to {% data variables.copilot.copilot_chat_short %} through your organization{% ifversion ghec %} or enterprise{% endif %}, you can sign up to {% data variables.copilot.copilot_free %}. See [AUTOTITLE](/copilot/how-tos/manage-your-account/get-started-with-a-copilot-plan).
 
 {% endif %}
 
 ## Next steps
 
-* [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/fixing-alerts-in-security-campaign)
+* [AUTOTITLE](/code-security/how-tos/manage-security-alerts/remediate-alerts-at-scale/fixing-alerts-in-security-campaign)

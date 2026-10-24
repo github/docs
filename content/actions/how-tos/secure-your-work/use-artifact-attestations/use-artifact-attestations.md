@@ -77,7 +77,7 @@ When you run your updated workflows, they will build your artifacts and generate
 
    The value of the `subject-name` parameter should specify the fully-qualified image name. For example, `ghcr.io/user/app` or `acme.azurecr.io/user/app`. Do not include a tag as part of the image name.
 
-   The value of the `subject-digest` parameter should be set to the SHA256 digest of the subject for the attestation, in the form `sha256:HEX_DIGEST`. If your workflow uses `docker/build-push-action`, you can use the [`digest`](https://github.com/docker/build-push-action?tab=readme-ov-file#outputs) output from that step to supply the value. For more information on using outputs, see [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idoutputs).
+   The value of the `subject-digest` parameter should be set to the SHA256 digest of the subject for the attestation, in the form `sha256:HEX_DIGEST`. If your workflow uses `docker/build-push-action`, you can use the [`digest`](https://github.com/docker/build-push-action?tab=readme-ov-file#outputs) output from that step to supply the value. For more information on using outputs, see [AUTOTITLE](/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idoutputs).
 
 ## Generating an attestation for a software bill of materials (SBOM)
 
@@ -140,7 +140,7 @@ When you run your updated workflows, they will build your artifacts and generate
 
    The value of the `subject-name` parameter should specify the fully-qualified image name. For example, `ghcr.io/user/app` or `acme.azurecr.io/user/app`. Do not include a tag as part of the image name.
 
-   The value of the `subject-digest` parameter should be set to the SHA256 digest of the subject for the attestation, in the form `sha256:HEX_DIGEST`. If your workflow uses `docker/build-push-action`, you can use the [`digest`](https://github.com/docker/build-push-action?tab=readme-ov-file#outputs) output from that step to supply the value. For more information on using outputs, see [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idoutputs).
+   The value of the `subject-digest` parameter should be set to the SHA256 digest of the subject for the attestation, in the form `sha256:HEX_DIGEST`. If your workflow uses `docker/build-push-action`, you can use the [`digest`](https://github.com/docker/build-push-action?tab=readme-ov-file#outputs) output from that step to supply the value. For more information on using outputs, see [AUTOTITLE](/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idoutputs).
 
    The value of the `sbom-path` parameter should be set to the path to the JSON-formatted SBOM file you want to attest.
 
@@ -156,7 +156,7 @@ For an example workflow, see [AUTOTITLE](/code-security/how-tos/secure-your-supp
 
 You can validate artifact attestations for binaries and container images and validate SBOM attestations using the {% data variables.product.prodname_cli %}. For more information, see the [`attestation`](https://cli.github.com/manual/gh_attestation) section of the {% data variables.product.prodname_cli %} manual.
 
->[!NOTE]These commands assume you are in an online environment. If you are in an offline or air-gapped environment, see [AUTOTITLE](/actions/security-guides/verifying-attestations-offline).
+> [!NOTE] These commands assume you are in an online environment. If you are in an offline or air-gapped environment, see [AUTOTITLE](/actions/how-tos/secure-your-work/use-artifact-attestations/verify-attestations-offline).
 
 ### Verifying an artifact attestation for binaries
 
@@ -200,6 +200,6 @@ gh attestation verify PATH/TO/YOUR/BUILD/ARTIFACT-BINARY \
 
 ## Next steps
 
-To keep your attestations relevant and manageable, you should delete attestations that are no longer needed. See [AUTOTITLE](/actions/how-tos/security-for-github-actions/using-artifact-attestations/managing-the-lifecycle-of-artifact-attestations).
+To keep your attestations relevant and manageable, you should delete attestations that are no longer needed. See [AUTOTITLE](/actions/how-tos/secure-your-work/use-artifact-attestations/manage-attestations).
 
-You can also generate release attestations to help consumers verify the integrity and origin of your releases. For more information, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/immutable-releases).
+You can also generate release attestations to help consumers verify the integrity and origin of your releases. For more information, see [AUTOTITLE](/code-security/concepts/supply-chain-security/immutable-releases).

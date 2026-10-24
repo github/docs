@@ -8,13 +8,14 @@ import Page, { FrontmatterErrorsError } from '@/frame/lib/page'
 import { allVersions } from '@/versions/lib/all-versions'
 import enterpriseServerReleases, { latest } from '@/versions/lib/enterprise-server-releases'
 import nonEnterpriseDefaultVersion from '@/versions/lib/non-enterprise-default-version'
+import type { Context } from '@/types'
 
 interface TestContext {
   currentVersion: string
   currentLanguage: string
   currentPath?: string
   enterpriseServerVersions?: string[]
-  [key: string]: any
+  [key: string]: unknown
 }
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
@@ -22,12 +23,10 @@ const enterpriseServerVersions = Object.keys(allVersions).filter((v) =>
   v.startsWith('enterprise-server@'),
 )
 
-// get the `free-pro-team` segment of `free-pro-team@latest`
 const nonEnterpriseDefaultPlan = nonEnterpriseDefaultVersion.split('@')[0]
 
 const opts = {
-  relativePath:
-    'pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches.md',
+  relativePath: 'pull-requests/reference/branches.md',
   basePath: path.join(__dirname, '../../../content'),
   languageCode: 'en',
 }
@@ -56,7 +55,7 @@ describe('Page class', () => {
         relativePath: article!.relativePath,
         basePath: article!.basePath,
         languageCode: article!.languageCode,
-      } as any)
+      } as Parameters<typeof Page.init>[0])
 
       tocPage = await Page.init({
         relativePath: 'sample-toc-index.md',
@@ -80,16 +79,13 @@ describe('Page class', () => {
   })
 
   describe('page.render(context)', () => {
-    // Most of our Liquid versioning tests are in https://github.com/docs/render-content,
-    // But they don't have access to our currently supported versions, which we're testing here.
-    // This test ensures that this works as expected: {% if enterpriseServerVersions contains currentVersion %}
+    // Test {% if enterpriseServerVersions contains currentVersion %} here; docs/render-content lacks version data.
     test('renders the expected Enterprise Server versioned content', async () => {
       const page = await Page.init({
         relativePath: 'page-versioned-for-all-enterprise-releases.md',
         basePath: path.join(__dirname, '../../../src/fixtures/fixtures'),
         languageCode: 'en',
       })
-      // set version to the latest enterprise version
       const context: TestContext = {
         currentVersion: `enterprise-server@${enterpriseServerReleases.latest}`,
         currentLanguage: 'en',
@@ -98,32 +94,36 @@ describe('Page class', () => {
       context.currentPath = `/${context.currentLanguage}/${context.currentVersion}/${page!.relativePath}`
       let rendered = await page!.render(context)
       let $ = load(rendered)
-      expect(($ as any).text()).toBe(
+      expect(($ as unknown as { text(): string }).text()).toBe(
         'This text should render on any actively supported version of Enterprise Server',
       )
-      expect(($ as any).text()).not.toBe('This text should only render on non-Enterprise')
+      expect(($ as unknown as { text(): string }).text()).not.toBe(
+        'This text should only render on non-Enterprise',
+      )
 
-      // change version to the oldest enterprise version, re-render, and test again;
-      // the results should be the same
+      // Re-render with the oldest Enterprise Server version; the text must stay the same.
       context.currentVersion = `enterprise-server@${enterpriseServerReleases.oldestSupported}`
       context.currentPath = `/${context.currentLanguage}/${context.currentVersion}/${page!.relativePath}`
       rendered = await page!.render(context)
       $ = load(rendered)
-      expect(($ as any).text()).toBe(
+      expect(($ as unknown as { text(): string }).text()).toBe(
         'This text should render on any actively supported version of Enterprise Server',
       )
-      expect(($ as any).text()).not.toBe('This text should only render on non-Enterprise')
+      expect(($ as unknown as { text(): string }).text()).not.toBe(
+        'This text should only render on non-Enterprise',
+      )
 
-      // change version to non-enterprise, re-render, and test again;
-      // the results should be the opposite
+      // Re-render with the non-enterprise version; the text must invert.
       context.currentVersion = nonEnterpriseDefaultVersion
       context.currentPath = `/${context.currentLanguage}/${context.currentVersion}/${page!.relativePath}`
       rendered = await page!.render(context)
       $ = load(rendered)
-      expect(($ as any).text()).not.toBe(
+      expect(($ as unknown as { text(): string }).text()).not.toBe(
         'This text should render on any actively supported version of Enterprise Server',
       )
-      expect(($ as any).text()).toBe('This text should only render on non-Enterprise')
+      expect(($ as unknown as { text(): string }).text()).toBe(
+        'This text should only render on non-Enterprise',
+      )
     })
 
     test('support next to-be-released Enterprise Server version in frontmatter', async () => {
@@ -133,7 +133,6 @@ describe('Page class', () => {
         basePath: path.join(__dirname, '../../../src/fixtures/fixtures'),
         languageCode: 'en',
       })
-      // set version to 3.0
       const context: TestContext = {
         currentVersion: 'enterprise-server@3.0',
         currentLanguage: 'en',
@@ -180,7 +179,7 @@ describe('Page class', () => {
 
     test('has a key for every supported enterprise version (and no deprecated versions)', async () => {
       const page = await Page.init(opts)
-      const pageVersions = page!.permalinks.map((permalink: any) => permalink.pageVersion)
+      const pageVersions = page!.permalinks.map((permalink) => permalink.pageVersion)
       expect(
         enterpriseServerReleases.supported.every((version) =>
           pageVersions.includes(`enterprise-server@${version}`),
@@ -195,16 +194,14 @@ describe('Page class', () => {
 
     test('sets versioned values', async () => {
       const page = await Page.init(opts)
-      const expectedPath =
-        'pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches'
+      const expectedPath = 'pull-requests/reference/branches'
       expect(
-        page!.permalinks.find(
-          (permalink: any) => permalink.pageVersion === nonEnterpriseDefaultVersion,
-        )!.href,
+        page!.permalinks.find((permalink) => permalink.pageVersion === nonEnterpriseDefaultVersion)!
+          .href,
       ).toBe(`/en/${expectedPath}`)
       expect(
         page!.permalinks.find(
-          (permalink: any) =>
+          (permalink) =>
             permalink.pageVersion ===
             `enterprise-server@${enterpriseServerReleases.oldestSupported}`,
         )!.href,
@@ -238,12 +235,12 @@ describe('Page class', () => {
       })
       expect(
         page!.permalinks.find(
-          (permalink: any) => permalink.pageVersion === `enterprise-server@${latest}`,
+          (permalink) => permalink.pageVersion === `enterprise-server@${latest}`,
         )!.href,
       ).toBe(
         `/en/enterprise-server@${enterpriseServerReleases.latest}/products/admin/some-category/some-article`,
       )
-      const pageVersions = page!.permalinks.map((permalink: any) => permalink.pageVersion)
+      const pageVersions = page!.permalinks.map((permalink) => permalink.pageVersion)
       expect(page!.permalinks.length).toBeGreaterThan(0)
       expect(pageVersions.includes(nonEnterpriseDefaultVersion)).toBe(false)
     })
@@ -255,9 +252,8 @@ describe('Page class', () => {
         languageCode: 'en',
       })
       expect(
-        page!.permalinks.find(
-          (permalink: any) => permalink.pageVersion === nonEnterpriseDefaultVersion,
-        )!.href,
+        page!.permalinks.find((permalink) => permalink.pageVersion === nonEnterpriseDefaultVersion)!
+          .href,
       ).toBe('/en/products/actions/some-category/some-article')
       expect(page!.permalinks.length).toBe(1)
     })
@@ -274,7 +270,35 @@ describe('Page class', () => {
       expect(page!.introLinks).toStrictEqual({
         overview: 'https://github.com',
         'custom link!': 'https://github.com/features',
+        quickstart: '/get-started/quickstart',
+        reference: '/get-started/reference',
       })
+    })
+
+    // Markdown and article API requests read introLinks from the shared Page without rendering it.
+    test('keeps every link after rendering a version that lacks a target page', async () => {
+      const page = await Page.init({
+        relativePath: 'article-with-introLinks.md',
+        basePath: path.join(__dirname, '../../../src/fixtures/fixtures'),
+        languageCode: 'en',
+      })
+      const pages = {
+        '/en/get-started/quickstart': { applicableVersions: [nonEnterpriseDefaultVersion] },
+        '/en/get-started/reference': { applicableVersions: Object.keys(allVersions) },
+      } as unknown as Context['pages']
+
+      await page!.render({
+        currentLanguage: 'en',
+        currentVersion: `enterprise-server@${latest}`,
+        pages,
+        redirects: {},
+      })
+      expect(Object.keys(page!.introLinks!)).toEqual([
+        'overview',
+        'custom link!',
+        'quickstart',
+        'reference',
+      ])
     })
   })
 
@@ -282,7 +306,11 @@ describe('Page class', () => {
     test('throws an error on bad input', () => {
       const markdown = null
       expect(() => {
-        ;(Page as any).parseFrontmatter('some/file.md', markdown)
+        ;(
+          Page as unknown as {
+            parseFrontmatter: (file: string, markdown: unknown) => void
+          }
+        ).parseFrontmatter('some/file.md', markdown)
       }).toThrow()
     })
   })
@@ -294,8 +322,8 @@ describe('Page class', () => {
         basePath: path.join(__dirname, '../../../src/fixtures/fixtures'),
         languageCode: 'en',
       })
-      expect((page!.versions as any).fpt).toBe('*')
-      expect((page!.versions as any).ghes).toBe('>3.0')
+      expect(page!.versions.fpt).toBe('*')
+      expect(page!.versions.ghes).toBe('>3.0')
       expect(page!.applicableVersions.includes('free-pro-team@latest')).toBe(true)
       expect(page!.applicableVersions.includes(`enterprise-server@${latest}`)).toBe(true)
     })
@@ -320,37 +348,17 @@ describe('Page class', () => {
       expect(page!.versions.ghes).toBe('*')
     })
 
+    // Feature versions must combine with frontmatter versions so latest GHES remains applicable.
     test('feature versions frontmatter', async () => {
-      // This fixture file has the frontmatter:
-      //
-      // versions:
-      //   fpt: '*'
-      //   ghes: '*'
-      //   feature: 'placeholder'
-      //
-      // and placeholder.yml has:
-      //
-      // versions:
-      //   ghes: '<3.0'
-      //
-      // So we expect to get the versioning from both.
       const page = await Page.init({
         relativePath: 'feature-versions-frontmatter.md',
         basePath: path.join(__dirname, '../../../src/fixtures/fixtures'),
         languageCode: 'en',
       })
 
-      // Test the raw page data.
       expect(page!.versions.fpt).toBe('*')
       expect(page!.versions.ghes).toBe('>2.21')
 
-      // Test the resolved versioning, where GHES releases specified in frontmatter and in
-      // feature versions are combined (i.e., one doesn't overwrite the other).
-      // We can't test that GHES 2.21 is _not_ included here (which it shouldn't be),
-      // because lib/get-applicable-versions only returns currently supported versions,
-      // so as soon as 2.21 is deprecated, a test for that _not_ to exist will not be meaningful.
-      // But by testing that the _latest_ GHES version is returned, we can ensure that the
-      // the frontmatter GHES `*` is not being overwritten by the placeholder's GHES `<3.0`.
       expect(page!.applicableVersions.includes('free-pro-team@latest')).toBe(true)
       expect(page!.applicableVersions.includes(`enterprise-server@${latest}`)).toBe(true)
       expect(page!.applicableVersions.includes('feature')).toBe(false)
@@ -365,8 +373,8 @@ describe('Page class', () => {
         basePath: path.join(__dirname, '../../../src/fixtures/fixtures/products'),
         languageCode: 'en',
       })
-      expect((page as any)!.defaultPlatform).toBeDefined()
-      expect((page as any)!.defaultPlatform).toBe('linux')
+      expect((page as unknown as { defaultPlatform?: string })!.defaultPlatform).toBeDefined()
+      expect((page as unknown as { defaultPlatform?: string })!.defaultPlatform).toBe('linux')
     })
   })
 
@@ -377,8 +385,8 @@ describe('Page class', () => {
         basePath: path.join(__dirname, '../../../src/fixtures/fixtures'),
         languageCode: 'en',
       })
-      expect((page as any)!.defaultTool).toBeDefined()
-      expect((page as any)!.defaultTool).toBe('cli')
+      expect((page as unknown as { defaultTool?: string })!.defaultTool).toBeDefined()
+      expect((page as unknown as { defaultTool?: string })!.defaultTool).toBe('cli')
     })
   })
 })
@@ -429,7 +437,9 @@ describe('catches errors thrown in Page class', () => {
       })
     }
 
-    expect(getPage).rejects.toThrowError(/`versions` frontmatter.*? product is not available in/)
+    await expect(getPage).rejects.toThrowError(
+      /`versions` frontmatter.*? product is not available in/,
+    )
   })
 
   describe('versioning optional attributes', () => {
@@ -439,7 +449,16 @@ describe('catches errors thrown in Page class', () => {
         basePath: path.join(__dirname, '../../../src/fixtures/fixtures'),
         languageCode: 'en',
       })
-      const context: any = {
+      const context: {
+        page: { version: string }
+        currentVersion: string
+        currentVersionObj: object
+        currentProduct: string
+        currentLanguage: string
+        currentPath: string
+        fpt: boolean
+        version?: string
+      } = {
         page: { version: `enterprise-server@3.2` },
         currentVersion: `enterprise-server@3.2`,
         currentVersionObj: {},
@@ -449,16 +468,15 @@ describe('catches errors thrown in Page class', () => {
         fpt: false, // what the shortVersions contextualizer does
       }
 
-      await page!.render(context)
+      await page!.render(context as unknown as Context)
       expect(page!.product).toBe('')
       expect(page!.permissions).toBe('')
 
-      // Change to FPT
       context.page.version = nonEnterpriseDefaultVersion
       context.version = nonEnterpriseDefaultVersion
       context.currentPath = '/en/optional/attributes'
       context.fpt = true
-      await page!.render(context)
+      await page!.render(context as unknown as Context)
       expect(page!.product).toContain('FPT rulez!')
       expect(page!.permissions).toContain('FPT only!')
     })

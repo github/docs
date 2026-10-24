@@ -35,6 +35,45 @@ Primer React uses slightly different terminology than the underlying CSS or the 
 - CSS `light` -> Component `day`
 - CSS `dark` -> Component `night`
 
+### Pre-paint Inline Script
+
+`useTheme` only runs after the React bundle hydrates, so the page would first paint with the SSR default theme and then switch, causing a visible flash. To avoid that, `src/color-schemes/lib/color-mode-script.ts` exports `colorModeScript`: a small synchronous script that `_document.tsx` inlines in the `<head>`. It runs before the first paint, reads the `color_mode` cookie, and sets `data-color-mode`, `data-light-theme`, and `data-dark-theme` on `<html>`.
+
+Key properties:
+- **Cache-safe**: The script is identical for every request, so the HTML stays shared-cacheable in the CDN. The theme is never server-rendered from the cookie (that would vary per user and poison the cache).
+- **`auto` is resolved**: `data-color-mode` is always a concrete `light` or `dark`, kept in step by a `matchMedia` listener; the raw preference stays on `data-color-mode-preference` for analytics.
+- **No drift**: Its validation allowlists and defaults are derived from the same `CssColorMode`, `SupportedTheme`, and `defaultCSSTheme` exports used by `useTheme`. A test in `tests/color-mode-script.ts` runs the script against a fake `document` and asserts parity with `getCssTheme`.
+- **CSP**: Because the script is inline, `src/frame/middleware/helmet.ts` adds its `sha256` hash to the `script-src` directive. The hash is computed from the exact script string at startup, so it never needs manual maintenance, and a hash (not a nonce) keeps the response cacheable.
+
+### Why `auto` is resolved before paint
+
+`@primer/react-brand` has no `auto` color mode: it declares its palette on `:root, [data-color-mode="light"]` and `[data-color-mode="dark"]`, with no `prefers-color-scheme` at-rules (`@primer/primitives` has them, so it is unaffected). That makes `<html data-color-mode="auto">` a _light_ root, and a nested wrapper in a different mode re-declares the whole palette for its subtree. Resolving once, at the root, avoids both: `BrandThemeProvider` mirrors `<html>` and declares no mode of its own.
+
+The resolved mode comes from the **effective theme**, not the raw `color_mode`, because github.com's day and night themes are chosen independently — `light` mode can itself be a dark theme.
+
+This is a workaround for a gap in Brand and belongs upstream; until it lands, every consumer has to hand Brand a concrete mode.
+
+### Color contrast requirements
+
+Colors must meet WCAG 2.1 AA in every supported mode. Primer documents the requirements in [ADR-010: Color contrast requirements](https://github.com/primer/primitives/blob/main/contributor-docs/adrs/adr-010-color-contrast.md). The ones that come up most often are:
+
+| Pair | Minimum ratio |
+|---|---|
+| Text vs. any background it can sit on | 4.5:1 |
+| Large text, icons, and other non-text UI vs. background | 3:1 |
+| Link vs. surrounding text | 3:1, unless the link is underlined. Links also need 4.5:1 against the background. |
+| Focus indicator vs. adjacent colors | 3:1 |
+| Border of a control that contains text, or a decorative border | None |
+
+Check both light and dark mode. Brand's base color scales (`--base-color-scale-*`) don't invert in dark mode, so a step that passes in light mode can fail in dark mode.
+
+Also check the no-JavaScript fallback, where `<html>` keeps `data-color-mode="auto"`. Brand stays on its light palette there, so a component that darkens its own background still gets light-mode link blue. Scope fallback selectors to `html`, because the `@primer/react` `ThemeProvider` wrapper also starts as `auto`.
+
+On colored surfaces, such as the `Banner` component in `src/frame/components/ui/Banner/`, we enforce these rules:
+
+* Always underline links. Don't rely on link color to separate links from surrounding text.
+* If the link color can't be guaranteed to reach 4.5:1 against the surface, set links to the surface's text color.
+
 ## Setup & Usage
 
 To access the current theme in a component:
@@ -62,11 +101,12 @@ This hook is primarily used at the root of the application (e.g., in `src/frame/
 
 ## Ownership
 
-- **Team**: `@github/docs-engineering`
+- `#technical-content`
 
 ## Current State & Known Issues
 
-- **Hydration Mismatch / Flash of Unstyled Content**: Since the theme is read from a cookie on the client side (in `useEffect`), there can be a brief moment where the default theme is applied before the user's preference loads.
+- **Page background flash (fixed)**: The page-level theme (the `<html>` `data-*` attributes that drive the background color) is now set before first paint by the inline `colorModeScript`, so there is no longer a light-to-dark flash of the page background on load.
+- **Primer component theming**: Primer React components still resolve their theme from the post-hydration `useTheme` state, so component-level theming applies slightly after the page background. The `setTimeout` workaround below is still required for that path.
 - **Race Condition Workaround**: There is a `setTimeout` hack in `useTheme.ts` to delay the theme application. This is necessary to prevent Primer React's internal logic from overriding the user's preference with `auto` on initial load.
   - *Reference*: [Primer React Issue #2229](https://github.com/primer/react/issues/2229)
 - **Future**: The long-term goal is to rely entirely on CSS variables, removing the need for complex JavaScript state management for theming.

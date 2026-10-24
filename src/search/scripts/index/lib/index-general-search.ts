@@ -45,7 +45,7 @@ export async function indexGeneralSearch(sourceDirectory: string, opts: Options)
   const client = getElasticsearchClient(opts.elasticsearchUrl, opts.verbose, {
     requestTimeout: 5 * 60 * 1000,
   })
-  await client.ping() // Will throw if not available
+  await client.ping()
 
   let versions: string[] | 'all' = []
   if ('version' in opts) {
@@ -73,7 +73,6 @@ export async function indexGeneralSearch(sourceDirectory: string, opts: Options)
     }
   }
 
-  // Validate
   if (versions !== 'all') {
     for (const version of versions) {
       if (!allIndexVersionOptions.includes(version || '')) {
@@ -163,6 +162,7 @@ async function indexVersion(
     retries: opts.retries,
     sleepTime: opts.sleepTime * 1000,
     verbose: opts.verbose,
+    idField: 'url',
   })
 
   await updateAlias(client, indexName, indexAlias, opts)

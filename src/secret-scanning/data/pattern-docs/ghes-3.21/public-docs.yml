@@ -15,7 +15,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
-  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Adobe
@@ -197,7 +197,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
-  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
+  hasExtendedMetadata: false
   base64Supported: true
   isduplicate: true
 - provider: Anthropic
@@ -237,7 +237,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
-  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Apify
@@ -1489,7 +1489,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
-  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Contentful
@@ -1809,7 +1809,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
-  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: true
 - provider: Docker
@@ -1919,7 +1919,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
-  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Dropbox
@@ -1929,7 +1929,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
-  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Duffel
@@ -2039,7 +2039,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
-  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: true
 - provider: Fieldguide
@@ -2059,7 +2059,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
-  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Figma
@@ -2219,7 +2219,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
-  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
+  hasExtendedMetadata: false
   base64Supported: true
   isduplicate: true
 - provider: GoCardless
@@ -2313,7 +2313,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
-  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Google
@@ -2453,7 +2453,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
-  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: hCaptcha
@@ -2613,7 +2613,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
-  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
+  hasExtendedMetadata: false
   base64Supported: true
   isduplicate: true
 - provider: IBM
@@ -2633,7 +2633,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
-  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Ionic
@@ -2933,7 +2933,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
-  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Mailchimp
@@ -2983,7 +2983,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
-  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: true
 - provider: Mailgun
@@ -3003,7 +3003,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
-  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: MaxMind
@@ -3273,7 +3273,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
-  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Notion
@@ -3283,7 +3283,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
-  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Notion
@@ -3423,7 +3423,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
-  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: true
 - provider: OpenRouter
@@ -3803,7 +3803,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
-  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Postman
@@ -4113,7 +4113,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
-  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Sentry
@@ -4313,7 +4313,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
-  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: true
 - provider: Slack
@@ -4473,7 +4473,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
-  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Stripe
@@ -4513,7 +4513,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
-  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Stripe
@@ -4573,7 +4573,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: true
-  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Telegram
@@ -4583,7 +4583,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: true
-  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Telnyx

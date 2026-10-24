@@ -19,21 +19,17 @@ export type LandingContextT = {
   renderedPage: string
   currentLayout: string
   heroImage?: string
-  // For landing pages with carousels
   carousels?: Record<
     string,
     Array<{ title: string; intro: string; href: string; category: string[] }>
   >
   introLinks?: Record<string, string> | null
-  // For journey landing pages
   journeyTracks?: JourneyTrack[]
   journeyArticlesHeading?: string | null
-  // For article grid category filtering
   includedCategories?: string[]
 }
 
 type LandingPage = NonNullable<Context['page']> & {
-  carousels?: LandingContextT['carousels']
   includedCategories?: string[]
   heroImage?: string
   product?: string
@@ -56,9 +52,6 @@ export const useLandingContext = (): LandingContextT => {
   return context
 }
 
-/**
- * Server-side function to create LandingContext data from a request.
- */
 export const getLandingContextFromRequest = async (
   req: ExtendedRequest,
   landingType: LandingType,
@@ -73,16 +66,10 @@ export const getLandingContextFromRequest = async (
     throw new Error('"getLandingContextFromRequest" requires req.context.page')
   }
 
-  // Get resolved carousels from the page after middleware processing
   const carousels =
-    landingType !== 'discovery' && landingType !== 'bespoke'
-      ? {}
-      : page.carousels && typeof page.carousels === 'object'
-        ? (page.carousels as LandingContextT['carousels'])
-        : {}
+    landingType !== 'discovery' && landingType !== 'bespoke' ? {} : (context.carousels ?? {})
 
-  // Note: Journey tracks are resolved in middleware and added to the request
-  // context to avoid the error using server side apis client side
+  // Middleware resolves journey tracks because server-side APIs cannot run client-side.
   const journeyTracks: JourneyTrack[] = Array.isArray(context.journeyTracks)
     ? context.journeyTracks
     : Array.isArray(page.resolvedJourneyTracks)

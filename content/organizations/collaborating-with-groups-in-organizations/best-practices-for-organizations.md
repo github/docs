@@ -30,5 +30,5 @@ We recommend keeping teams visible whenever possible and reserving secret teams 
 
 ## Use security overview
 
-{% data reusables.security-overview.about-security-overview %} For more information, see [AUTOTITLE](/code-security/security-overview/about-security-overview).
+{% data reusables.security-overview.about-security-overview %} For more information, see [AUTOTITLE](/code-security/concepts/security-at-scale/security-overview).
 {% endif %}

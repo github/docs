@@ -255,38 +255,6 @@ cd /expected/working/dir
 
 #### .NET console apps / tools
 
-<!-- docs-validate: hidden -->
-
-```csharp
-using GitHub.Copilot;
-
-public static class McpDotnetConfigExample
-{
-    public static void Main()
-    {
-        var servers = new Dictionary<string, McpServerConfig>
-        {
-            ["my-dotnet-server"] = new McpStdioServerConfig
-            {
-                Command = @"C:\Tools\MyServer\MyServer.exe",
-                Args = new List<string>(),
-                WorkingDirectory = @"C:\Tools\MyServer",
-                Tools = new List<string> { "*" },
-            },
-            ["my-dotnet-tool"] = new McpStdioServerConfig
-            {
-                Command = "dotnet",
-                Args = new List<string> { @"C:\Tools\MyTool\MyTool.dll" },
-                WorkingDirectory = @"C:\Tools\MyTool",
-                Tools = new List<string> { "*" },
-            }
-        };
-    }
-}
-```
-
-<!-- /docs-validate: hidden -->
-
 ```csharp
 // Correct configuration for .NET exe
 ["my-dotnet-server"] = new McpStdioServerConfig
@@ -308,30 +276,6 @@ public static class McpDotnetConfigExample
 ```
 
 #### npx commands
-
-<!-- docs-validate: hidden -->
-
-```csharp
-using GitHub.Copilot;
-
-public static class McpNpxConfigExample
-{
-    public static void Main()
-    {
-        var servers = new Dictionary<string, McpServerConfig>
-        {
-            ["filesystem"] = new McpStdioServerConfig
-            {
-                Command = "cmd",
-                Args = new List<string> { "/c", "npx", "-y", "@modelcontextprotocol/server-filesystem", "C:\\allowed\\path" },
-                Tools = new List<string> { "*" },
-            }
-        };
-    }
-}
-```
-
-<!-- /docs-validate: hidden -->
 
 ```csharp
 // Windows needs cmd /c for npx
@@ -367,22 +311,6 @@ xattr -d com.apple.quarantine /path/to/mcp-server
 ```
 
 #### Homebrew paths
-
-<!-- docs-validate: hidden -->
-
-```typescript
-import { MCPStdioServerConfig } from "@github/copilot-sdk";
-
-const mcpServers: Record<string, MCPStdioServerConfig> = {
-  "my-server": {
-    command: "/opt/homebrew/bin/node",
-    args: ["/path/to/server.js"],
-    tools: ["*"],
-  },
-};
-```
-
-<!-- /docs-validate: hidden -->
 
 ```typescript
 // GUI apps may not have /opt/homebrew in PATH
@@ -477,10 +405,10 @@ When opening an issue or asking for help, collect:
 
 * [ ] SDK language and version
 * [ ] CLI version (`copilot --version`)
-* [ ] MCP server type (Node.js, Python, .NET, Go, Rust, etc.)
+* [ ] MCP server type (Node.js, Python, .NET, Go, Rust, and more)
 * [ ] Full MCP server configuration (redact secrets)
 * [ ] Result of manual `initialize` test
-* [ ] Result of manual `tools/list` test  
+* [ ] Result of manual `tools/list` test
 * [ ] Debug logs from SDK
 * [ ] Any error messages
 

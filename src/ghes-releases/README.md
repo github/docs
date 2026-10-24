@@ -10,10 +10,10 @@ New GHES releases are cut about every 3 months and around the same time, the old
 
 ## How to get help
 
-Slack: `#docs-engineering`
-Repo: `github/docs-engineering`
+Slack: `#technical-content`
+Repo: `github/technical-content`
 
-If you have a question about this feature, you can ask in the `#docs-engineering` Slack channel. If you notice a problem with this feature, you can open an issue in the `github/docs-engineering` repository.
+If you have a question about this feature, you can ask in the `#technical-content` Slack channel. If you notice a problem with this feature, you can open an issue in the `github/technical-content` repository.
 
 ## GHES releases
 

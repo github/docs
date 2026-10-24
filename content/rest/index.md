@@ -49,6 +49,7 @@ children:
   - /guides
   - /actions
   - /activity
+  - /agent-automations
   - /agent-tasks
   - /agents
   - /announcement-banners
@@ -85,14 +86,12 @@ children:
   - /meta
   - /metrics
   - /migrations
-  - /models
   - /oauth-authorizations
   - /orgs
   - /packages
   - /pages
   - /private-registries
   - /projects
-  - /projects-classic
   - /pulls
   - /rate-limit
   - /reactions

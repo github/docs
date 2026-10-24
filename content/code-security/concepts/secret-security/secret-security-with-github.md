@@ -6,7 +6,9 @@ product: '{% data reusables.gated-features.secret-protection %}'
 permissions: Organizations on {% data variables.product.prodname_team %} or {% data variables.product.prodname_enterprise %}
 contentType: concepts
 versions:
-  feature: secret-risk-assessment
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 redirect_from:
   - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/about-secret-risk-assessment
   - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/about-secret-security-with-github
@@ -37,7 +39,7 @@ The assessment report includes:
 - **Total secrets detected**: The aggregate count of exposed secrets in your organization.
 - **Public leaks**: Secrets found in public repositories that are accessible to anyone.
 - **Preventable leaks**: Secrets that could have been blocked with push protection enabled.
-- **Secret categories**: The distribution of secret types (such as AWS keys, {% data variables.product.github %} tokens, or generic passwords).
+- **Secret categories**: The distribution of secret types (such as AWS keys, {% data variables.product.github %} tokens, or AI-detected secrets).
 
 ### Why assess your risk
 
@@ -67,4 +69,4 @@ For more information about the specific features of {% data variables.product.pr
 
 ## Next steps
 
-Now that you know how {% data variables.product.github %} can help keep your secrets safe, you should assess your organization's current exposure to leaked secrets. See [AUTOTITLE](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/assess-your-secret-risk).
+Now that you know how {% data variables.product.github %} can help keep your secrets safe, you should assess your organization's current exposure to leaked secrets. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/configure-specific-tools/assess-your-secret-risk).

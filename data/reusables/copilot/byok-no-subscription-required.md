@@ -1,1 +1,0 @@
-Using your own API keys does not require a {% data variables.product.prodname_copilot_short %} subscription. However, without a subscription, you won't have access to other {% data variables.product.prodname_copilot_short %} capabilities such as mobile access, automation, and remote server features.

@@ -9,7 +9,7 @@ category:
   - Learn about Copilot
 ---
 
-This reference article provides details of which types of custom instructions are supported in various environments. For more information about the various types of custom instructions for {% data variables.product.prodname_copilot %}, see [AUTOTITLE](/copilot/concepts/prompting/response-customization).
+This reference article provides details of which types of custom instructions are supported in various environments. For more information about the various types of custom instructions for {% data variables.product.prodname_copilot %}, see [AUTOTITLE](/copilot/concepts/prompting-and-context/custom-instructions).
 
 ## {% data variables.product.prodname_dotcom_the_website %}
 
@@ -52,6 +52,7 @@ WRITING NOTE: The following tables have been written using HTML rather than Mark
         <ul style="list-style: none; padding-left: 1.5em; margin-left: 0;">
           {% data reusables.copilot.ci-support-repository %}
           {% data reusables.copilot.ci-support-path %}
+          {% data reusables.copilot.ci-support-ccr-only %}
           {% data reusables.copilot.ci-support-organization %}
         </ul>
       </td>
@@ -134,6 +135,10 @@ WRITING NOTE: The following tables have been written using HTML rather than Mark
 
 ## JetBrains IDEs
 
+In JetBrains IDEs, you can manage supported customizations from the Agent Customizations editor. In the {% data variables.copilot.copilot_chat %} panel, click the settings icon in the top-right, then click **Customizations**.
+
+The editor lets you work with workspace customizations for the current project or personal customizations that follow you across projects. You can use it to view and edit {% data variables.copilot.custom_agents_short %}, manage reusable skills and prompt files, and configure instructions. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/customize-copilot/configure-custom-instructions/add-repository-instructions-in-your-ide) and [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/use-copilot-agents/use-custom-agents).
+
 <table>
   <thead>
     <tr>
@@ -146,6 +151,7 @@ WRITING NOTE: The following tables have been written using HTML rather than Mark
       <td>{% data variables.copilot.copilot_chat_short %} </td>
       <td>
         <ul style="list-style: none; padding-left: 1.5em; margin-left: 0;">
+          {% data reusables.copilot.ci-support-personal %}
           {% data reusables.copilot.ci-support-repository %}
           {% data reusables.copilot.ci-support-path %}
         </ul>
@@ -258,11 +264,12 @@ WRITING NOTE: The following tables have been written using HTML rather than Mark
 <ul style="list-style: none; padding-left: 1.5em; margin-left: 0;">
   {% data reusables.copilot.ci-support-repository %}
   {% data reusables.copilot.ci-support-path %}
-  {% data reusables.copilot.ci-support-agents-only %}
+  {% data reusables.copilot.ci-support-agents-all %}
+  <li style="text-indent: -1.6em;"><span aria-hidden="true">👤</span> &nbsp;<strong>Personal</strong> instructions (using <code>~/.copilot/copilot-instructions.md</code> or <code>~/.copilot/instructions/**/*.instructions.md</code> files).</li>
 </ul>
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/how-tos/configure-custom-instructions/add-repository-instructions)
-* [AUTOTITLE](/copilot/how-tos/configure-custom-instructions/add-personal-instructions)
-* [AUTOTITLE](/copilot/how-tos/configure-custom-instructions/add-organization-instructions)
+* [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions)
+* [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-personal-instructions)
+* [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-organization-instructions)

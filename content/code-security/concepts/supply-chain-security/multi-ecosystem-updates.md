@@ -3,7 +3,9 @@ title: Multi-ecosystem updates
 intro: Multi-ecosystem updates combine dependency updates across multiple package ecosystems into a single pull request, reducing review overhead and simplifying your update workflow.
 contentType: concepts
 versions:
-  feature: dependabot-multi-ecosystem-support
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 shortTitle: Multi-ecosystem updates
 category:
   - Secure your dependencies
@@ -71,7 +73,7 @@ For example, if you assign `@platform-team` at the group level and `@docker-admi
 
 Attempting to set these options at the ecosystem level will cause a configuration error.
 
-For a complete reference of all available configuration options and their behavior, see [AUTOTITLE](/code-security/reference/supply-chain-security/dependabot-options-reference#multi-ecosystem-groups).
+For a complete reference of all available configuration options and their behavior, see [AUTOTITLE](/code-security/reference/supply-chain-security/dependabot-options-reference#multi-ecosystem-groups-).
 
 ## Use cases
 

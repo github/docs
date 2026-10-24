@@ -1,8 +1,6 @@
 name: Validate OpenAPI Check Docker
 
-# **What it does**: Tests building and running the OpenAPI check Docker container
-# **Why we have it**: To ensure the Dockerfile and openapi-check script work correctly
-# **Who does it impact**: Docs engineering.
+# Tests the OpenAPI check Dockerfile and script before related changes merge.
 
 on:
   workflow_dispatch:
@@ -10,13 +8,14 @@ on:
     paths:
       - 'Dockerfile.openapi_decorator'
       - 'src/rest/scripts/openapi-check.ts'
-      - 'src/rest/scripts/utils/get-operations.ts'
-      - 'src/rest/scripts/utils/operation.ts'
+      # The check runs operation.ts and the helpers it imports.
+      - 'src/rest/scripts/utils/*.ts'
+      - 'src/tests/lib/validate-json-schema.ts'
       - 'src/rest/fixtures/openapi-check-fixture.json'
       - 'package.json'
       - 'package-lock.json'
       - 'tsconfig.json'
-      # Self-test
+      # Re-run this workflow when its own definition changes.
       - '.github/workflows/validate-openapi-check.yml'
 
 permissions:
@@ -28,7 +27,7 @@ jobs:
     if: github.repository == 'github/docs-internal'
     steps:
       - name: Checkout
-        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@4d04d5d9486b7bd6fa91e7baf45bbb4f8b9deedd # v4.0.0

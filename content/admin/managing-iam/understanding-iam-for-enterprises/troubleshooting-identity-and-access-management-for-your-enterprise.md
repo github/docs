@@ -23,7 +23,7 @@ If a user is unable to successfully authenticate using SAML, it may be helpful t
 
 ## Username conflicts
 
-{% ifversion ghec %}If your enterprise uses {% data variables.product.prodname_emus %}, {% endif %}{% data variables.product.github %} normalizes the SCIM `userName` attribute value that is sent by an identity provider (IdP) in a SCIM API call to create each person's username on {% data variables.product.prodname_dotcom %}. If multiple accounts are normalized into the same {% data variables.product.prodname_dotcom %} username, a username conflict occurs, and only the first user account is created. For more information, see [AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication).
+{% ifversion ghec %}If your enterprise uses {% data variables.product.prodname_emus %}, {% endif %}{% data variables.product.github %} normalizes the SCIM `userName` attribute value that is sent by an identity provider (IdP) in a SCIM API call to create each person's username on {% data variables.product.prodname_dotcom %}. If multiple accounts are normalized into the same {% data variables.product.prodname_dotcom %} username, a username conflict occurs, and only the first user account is created. For more information, see [AUTOTITLE](/admin/managing-iam/iam-configuration-reference/username-considerations-for-external-authentication).
 
 {% ifversion ghec %}
 
@@ -31,15 +31,15 @@ If a user is unable to successfully authenticate using SAML, it may be helpful t
 
 If you're experiencing problems while switching between different authentication configurations, such as changing your SAML SSO configuration from an organization to an enterprise account or migrating from SAML to OIDC for {% data variables.product.prodname_emus %}, ensure you're following our best practices for the change.
 
-* [AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account)
-* [AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/migrating-from-saml-to-oidc)
-* [AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/migrating-your-enterprise-to-a-new-identity-provider-or-tenant)
+* [AUTOTITLE](/admin/managing-iam/using-saml-for-enterprise-iam/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account)
+* [AUTOTITLE](/admin/managing-iam/reconfiguring-iam-for-enterprise-managed-users/migrating-from-saml-to-oidc)
+* [AUTOTITLE](/admin/managing-iam/reconfiguring-iam-for-enterprise-managed-users/migrating-your-enterprise-to-a-new-identity-provider-or-tenant)
 
 {% endif %}
 
 ## Accessing your enterprise when SSO is not available
 
-When a configuration error or an issue with your identity provider IdP prevents you from using SSO, you can use a {% ifversion ghec %}recovery code to access your enterprise. For more information, see [AUTOTITLE](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/accessing-your-enterprise-account-if-your-identity-provider-is-unavailable).{% else %}site admin with access to the Management Console to update your settings, or disable SAML temporarily. For more information, see [AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console).{% endif %}
+When a configuration error or an issue with your identity provider IdP prevents you from using SSO, you can use a {% ifversion ghec %}recovery code to access your enterprise. For more information, see [AUTOTITLE](/admin/managing-iam/managing-recovery-codes-for-your-enterprise/accessing-your-enterprise-account-if-your-identity-provider-is-unavailable).{% else %}site admin with access to the Management Console to update your settings, or disable SAML temporarily. For more information, see [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-web-ui).{% endif %}
 
 ## SCIM provisioning errors
 
@@ -55,7 +55,7 @@ In{% ifversion ghec %} an {% data variables.enterprise.prodname_emu_enterprise %
 
 ## SAML authentication errors
 
-If users are experiencing errors when attempting to authenticate with SAML, see [AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/troubleshooting-saml-authentication).
+If users are experiencing errors when attempting to authenticate with SAML, see [AUTOTITLE](/admin/managing-iam/using-saml-for-enterprise-iam/troubleshooting-saml-authentication).
 
 {% ifversion scim-for-ghes-ga %}
 
@@ -93,8 +93,8 @@ For more information on how {% data variables.product.github %} maps SAML and SC
 ## Further reading
 
 {% ifversion scim-for-ghes-public-beta %}
-* [AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/troubleshooting-team-membership-with-identity-provider-groups)
+* [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/troubleshooting-team-membership-with-identity-provider-groups)
 {% elsif ghec %}
-* [AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/troubleshooting-team-membership-with-identity-provider-groups)
+* [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/troubleshooting-team-membership-with-identity-provider-groups)
 * [AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/troubleshooting-identity-and-access-management-for-your-organization)
 {% endif %}

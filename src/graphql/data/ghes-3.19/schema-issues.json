@@ -1185,7 +1185,7 @@
       "name": "AssignedEvent",
       "id": "assignedevent",
       "href": "/graphql/reference/issues#object-assignedevent",
-      "description": "<p>Represents an<code>assigned</code>event on any assignable object.</p>",
+      "description": "<p>Represents an <code>assigned</code> event on any assignable object.</p>",
       "implements": [
         {
           "name": "Node",
@@ -1305,7 +1305,7 @@
       "name": "BlockedByAddedEvent",
       "id": "blockedbyaddedevent",
       "href": "/graphql/reference/issues#object-blockedbyaddedevent",
-      "description": "<p>Represents a<code>blocked_by_added</code>event on a given issue.</p>",
+      "description": "<p>Represents a <code>blocked_by_added</code> event on a given issue.</p>",
       "implements": [
         {
           "name": "Node",
@@ -1349,7 +1349,7 @@
       "name": "BlockedByRemovedEvent",
       "id": "blockedbyremovedevent",
       "href": "/graphql/reference/issues#object-blockedbyremovedevent",
-      "description": "<p>Represents a<code>blocked_by_removed</code>event on a given issue.</p>",
+      "description": "<p>Represents a <code>blocked_by_removed</code> event on a given issue.</p>",
       "implements": [
         {
           "name": "Node",
@@ -1393,7 +1393,7 @@
       "name": "BlockingAddedEvent",
       "id": "blockingaddedevent",
       "href": "/graphql/reference/issues#object-blockingaddedevent",
-      "description": "<p>Represents a<code>blocking_added</code>event on a given issue.</p>",
+      "description": "<p>Represents a <code>blocking_added</code> event on a given issue.</p>",
       "implements": [
         {
           "name": "Node",
@@ -1437,7 +1437,7 @@
       "name": "BlockingRemovedEvent",
       "id": "blockingremovedevent",
       "href": "/graphql/reference/issues#object-blockingremovedevent",
-      "description": "<p>Represents a<code>blocking_removed</code>event on a given issue.</p>",
+      "description": "<p>Represents a <code>blocking_removed</code> event on a given issue.</p>",
       "implements": [
         {
           "name": "Node",
@@ -1481,7 +1481,7 @@
       "name": "ClosedEvent",
       "id": "closedevent",
       "href": "/graphql/reference/issues#object-closedevent",
-      "description": "<p>Represents a<code>closed</code>event on any <code>Closable</code>.</p>",
+      "description": "<p>Represents a <code>closed</code> event on any <code>Closable</code>.</p>",
       "implements": [
         {
           "name": "Node",
@@ -1565,7 +1565,7 @@
       "name": "CommentDeletedEvent",
       "id": "commentdeletedevent",
       "href": "/graphql/reference/issues#object-commentdeletedevent",
-      "description": "<p>Represents a<code>comment_deleted</code>event on a given issue or pull request.</p>",
+      "description": "<p>Represents a <code>comment_deleted</code> event on a given issue or pull request.</p>",
       "implements": [
         {
           "name": "Node",
@@ -1616,7 +1616,7 @@
       "name": "ConnectedEvent",
       "id": "connectedevent",
       "href": "/graphql/reference/issues#object-connectedevent",
-      "description": "<p>Represents a<code>connected</code>event on a given issue or pull request.</p>",
+      "description": "<p>Represents a <code>connected</code> event on a given issue or pull request.</p>",
       "implements": [
         {
           "name": "Node",
@@ -1674,7 +1674,7 @@
       "name": "ConvertedNoteToIssueEvent",
       "id": "convertednotetoissueevent",
       "href": "/graphql/reference/issues#object-convertednotetoissueevent",
-      "description": "<p>Represents a<code>converted_note_to_issue</code>event on a given issue or pull request.</p>",
+      "description": "<p>Represents a <code>converted_note_to_issue</code> event on a given issue or pull request.</p>",
       "implements": [
         {
           "name": "Node",
@@ -1743,7 +1743,7 @@
       "name": "ConvertedToDiscussionEvent",
       "id": "convertedtodiscussionevent",
       "href": "/graphql/reference/issues#object-convertedtodiscussionevent",
-      "description": "<p>Represents a<code>converted_to_discussion</code>event on a given issue.</p>",
+      "description": "<p>Represents a <code>converted_to_discussion</code> event on a given issue.</p>",
       "implements": [
         {
           "name": "Node",
@@ -1878,7 +1878,7 @@
       "name": "DemilestonedEvent",
       "id": "demilestonedevent",
       "href": "/graphql/reference/issues#object-demilestonedevent",
-      "description": "<p>Represents a<code>demilestoned</code>event on a given issue or pull request.</p>",
+      "description": "<p>Represents a <code>demilestoned</code> event on a given issue or pull request.</p>",
       "implements": [
         {
           "name": "Node",
@@ -1910,7 +1910,7 @@
         },
         {
           "name": "milestoneTitle",
-          "description": "<p>Identifies the milestone title associated with the<code>demilestoned</code>event.</p>",
+          "description": "<p>Identifies the milestone title associated with the <code>demilestoned</code> event.</p>",
           "type": "String!",
           "id": "string",
           "href": "/graphql/reference/other#scalar-string"
@@ -1929,7 +1929,7 @@
       "name": "DisconnectedEvent",
       "id": "disconnectedevent",
       "href": "/graphql/reference/issues#object-disconnectedevent",
-      "description": "<p>Represents a<code>disconnected</code>event on a given issue or pull request.</p>",
+      "description": "<p>Represents a <code>disconnected</code> event on a given issue or pull request.</p>",
       "implements": [
         {
           "name": "Node",
@@ -2222,6 +2222,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: DEPENDENCY_ADDED_AT, direction: DESC}",
               "description": "<p>Ordering options for dependencies.</p>",
               "type": {
                 "name": "IssueDependencyOrder",
@@ -2276,6 +2277,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: DEPENDENCY_ADDED_AT, direction: DESC}",
               "description": "<p>Ordering options for dependencies.</p>",
               "type": {
                 "name": "IssueDependencyOrder",
@@ -2611,6 +2613,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: CREATED_AT, direction: ASC}",
               "description": "<p>Ordering options for labels returned from the connection.</p>",
               "type": {
                 "name": "LabelOrder",
@@ -2763,6 +2766,7 @@
             },
             {
               "name": "archivedStates",
+              "defaultValue": "[ARCHIVED, NOT_ARCHIVED]",
               "description": "<p>A list of archived states to filter the cards by.</p>",
               "type": {
                 "name": "[ProjectCardArchivedState]",
@@ -2929,6 +2933,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: NUMBER, direction: DESC}",
               "description": "<p>How to order the returned projects.</p>",
               "type": {
                 "name": "ProjectV2Order",
@@ -3266,7 +3271,7 @@
               "type": {
                 "name": "[IssueTimelineItemsItemType!]",
                 "id": "issuetimelineitemsitemtype",
-                "href": "/graphql/reference/other#enum-issuetimelineitemsitemtype"
+                "href": "/graphql/reference/issues#enum-issuetimelineitemsitemtype"
               }
             },
             {
@@ -3982,6 +3987,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{direction: DESC}",
               "description": "<p>Ordering options for contributions returned from the connection.</p>",
               "type": {
                 "name": "ContributionOrder",
@@ -4164,6 +4170,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: CREATED_AT, direction: ASC}",
               "description": "<p>Ordering options for labels returned from the connection.</p>",
               "type": {
                 "name": "LabelOrder",
@@ -4492,7 +4499,7 @@
       "name": "IssueTypeAddedEvent",
       "id": "issuetypeaddedevent",
       "href": "/graphql/reference/issues#object-issuetypeaddedevent",
-      "description": "<p>Represents a<code>issue_type_added</code>event on a given issue.</p>",
+      "description": "<p>Represents a <code>issue_type_added</code> event on a given issue.</p>",
       "implements": [
         {
           "name": "Node",
@@ -4536,7 +4543,7 @@
       "name": "IssueTypeChangedEvent",
       "id": "issuetypechangedevent",
       "href": "/graphql/reference/issues#object-issuetypechangedevent",
-      "description": "<p>Represents a<code>issue_type_changed</code>event on a given issue.</p>",
+      "description": "<p>Represents a <code>issue_type_changed</code> event on a given issue.</p>",
       "implements": [
         {
           "name": "Node",
@@ -4647,7 +4654,7 @@
       "name": "IssueTypeRemovedEvent",
       "id": "issuetyperemovedevent",
       "href": "/graphql/reference/issues#object-issuetyperemovedevent",
-      "description": "<p>Represents a<code>issue_type_removed</code>event on a given issue.</p>",
+      "description": "<p>Represents a <code>issue_type_removed</code> event on a given issue.</p>",
       "implements": [
         {
           "name": "Node",
@@ -5008,7 +5015,7 @@
       "name": "LabeledEvent",
       "id": "labeledevent",
       "href": "/graphql/reference/issues#object-labeledevent",
-      "description": "<p>Represents a<code>labeled</code>event on a given issue or pull request.</p>",
+      "description": "<p>Represents a <code>labeled</code> event on a given issue or pull request.</p>",
       "implements": [
         {
           "name": "Node",
@@ -5040,7 +5047,7 @@
         },
         {
           "name": "label",
-          "description": "<p>Identifies the label associated with the<code>labeled</code>event.</p>",
+          "description": "<p>Identifies the label associated with the <code>labeled</code> event.</p>",
           "type": "Label!",
           "id": "label",
           "href": "/graphql/reference/issues#object-label"
@@ -5149,7 +5156,7 @@
       "name": "LockedEvent",
       "id": "lockedevent",
       "href": "/graphql/reference/issues#object-lockedevent",
-      "description": "<p>Represents a<code>locked</code>event on a given issue or pull request.</p>",
+      "description": "<p>Represents a <code>locked</code> event on a given issue or pull request.</p>",
       "implements": [
         {
           "name": "Node",
@@ -5200,7 +5207,7 @@
       "name": "MarkedAsDuplicateEvent",
       "id": "markedasduplicateevent",
       "href": "/graphql/reference/issues#object-markedasduplicateevent",
-      "description": "<p>Represents a<code>marked_as_duplicate</code>event on a given issue or pull request.</p>",
+      "description": "<p>Represents a <code>marked_as_duplicate</code> event on a given issue or pull request.</p>",
       "implements": [
         {
           "name": "Node",
@@ -5258,7 +5265,7 @@
       "name": "MentionedEvent",
       "id": "mentionedevent",
       "href": "/graphql/reference/issues#object-mentionedevent",
-      "description": "<p>Represents a<code>mentioned</code>event on a given issue or pull request.</p>",
+      "description": "<p>Represents a <code>mentioned</code> event on a given issue or pull request.</p>",
       "implements": [
         {
           "name": "Node",
@@ -5699,7 +5706,7 @@
       "name": "MilestonedEvent",
       "id": "milestonedevent",
       "href": "/graphql/reference/issues#object-milestonedevent",
-      "description": "<p>Represents a<code>milestoned</code>event on a given issue or pull request.</p>",
+      "description": "<p>Represents a <code>milestoned</code> event on a given issue or pull request.</p>",
       "implements": [
         {
           "name": "Node",
@@ -5731,7 +5738,7 @@
         },
         {
           "name": "milestoneTitle",
-          "description": "<p>Identifies the milestone title associated with the<code>milestoned</code>event.</p>",
+          "description": "<p>Identifies the milestone title associated with the <code>milestoned</code> event.</p>",
           "type": "String!",
           "id": "string",
           "href": "/graphql/reference/other#scalar-string"
@@ -5750,7 +5757,7 @@
       "name": "ParentIssueAddedEvent",
       "id": "parentissueaddedevent",
       "href": "/graphql/reference/issues#object-parentissueaddedevent",
-      "description": "<p>Represents a<code>parent_issue_added</code>event on a given issue.</p>",
+      "description": "<p>Represents a <code>parent_issue_added</code> event on a given issue.</p>",
       "implements": [
         {
           "name": "Node",
@@ -5794,7 +5801,7 @@
       "name": "ParentIssueRemovedEvent",
       "id": "parentissueremovedevent",
       "href": "/graphql/reference/issues#object-parentissueremovedevent",
-      "description": "<p>Represents a<code>parent_issue_removed</code>event on a given issue.</p>",
+      "description": "<p>Represents a <code>parent_issue_removed</code> event on a given issue.</p>",
       "implements": [
         {
           "name": "Node",
@@ -5838,7 +5845,7 @@
       "name": "PinnedEvent",
       "id": "pinnedevent",
       "href": "/graphql/reference/issues#object-pinnedevent",
-      "description": "<p>Represents a<code>pinned</code>event on a given issue or pull request.</p>",
+      "description": "<p>Represents a <code>pinned</code> event on a given issue or pull request.</p>",
       "implements": [
         {
           "name": "Node",
@@ -6000,7 +6007,7 @@
       "name": "ReferencedEvent",
       "id": "referencedevent",
       "href": "/graphql/reference/issues#object-referencedevent",
-      "description": "<p>Represents a<code>referenced</code>event on a given <code>ReferencedSubject</code>.</p>",
+      "description": "<p>Represents a <code>referenced</code> event on a given <code>ReferencedSubject</code>.</p>",
       "implements": [
         {
           "name": "Node",
@@ -6018,14 +6025,14 @@
         },
         {
           "name": "commit",
-          "description": "<p>Identifies the commit associated with the<code>referenced</code>event.</p>",
+          "description": "<p>Identifies the commit associated with the <code>referenced</code> event.</p>",
           "type": "Commit",
           "id": "commit",
           "href": "/graphql/reference/commits#object-commit"
         },
         {
           "name": "commitRepository",
-          "description": "<p>Identifies the repository associated with the<code>referenced</code>event.</p>",
+          "description": "<p>Identifies the repository associated with the <code>referenced</code> event.</p>",
           "type": "Repository!",
           "id": "repository",
           "href": "/graphql/reference/repos#object-repository"
@@ -6072,7 +6079,7 @@
       "name": "RenamedTitleEvent",
       "id": "renamedtitleevent",
       "href": "/graphql/reference/issues#object-renamedtitleevent",
-      "description": "<p>Represents a<code>renamed</code>event on a given issue or pull request.</p>",
+      "description": "<p>Represents a <code>renamed</code> event on a given issue or pull request.</p>",
       "implements": [
         {
           "name": "Node",
@@ -6130,7 +6137,7 @@
       "name": "ReopenedEvent",
       "id": "reopenedevent",
       "href": "/graphql/reference/issues#object-reopenedevent",
-      "description": "<p>Represents a<code>reopened</code>event on any <code>Closable</code>.</p>",
+      "description": "<p>Represents a <code>reopened</code> event on any <code>Closable</code>.</p>",
       "implements": [
         {
           "name": "Node",
@@ -6181,7 +6188,7 @@
       "name": "SubIssueAddedEvent",
       "id": "subissueaddedevent",
       "href": "/graphql/reference/issues#object-subissueaddedevent",
-      "description": "<p>Represents a<code>sub_issue_added</code>event on a given issue.</p>",
+      "description": "<p>Represents a <code>sub_issue_added</code> event on a given issue.</p>",
       "implements": [
         {
           "name": "Node",
@@ -6225,7 +6232,7 @@
       "name": "SubIssueRemovedEvent",
       "id": "subissueremovedevent",
       "href": "/graphql/reference/issues#object-subissueremovedevent",
-      "description": "<p>Represents a<code>sub_issue_removed</code>event on a given issue.</p>",
+      "description": "<p>Represents a <code>sub_issue_removed</code> event on a given issue.</p>",
       "implements": [
         {
           "name": "Node",
@@ -6299,7 +6306,7 @@
       "name": "SubscribedEvent",
       "id": "subscribedevent",
       "href": "/graphql/reference/issues#object-subscribedevent",
-      "description": "<p>Represents a<code>subscribed</code>event on a given <code>Subscribable</code>.</p>",
+      "description": "<p>Represents a <code>subscribed</code> event on a given <code>Subscribable</code>.</p>",
       "implements": [
         {
           "name": "Node",
@@ -6343,7 +6350,7 @@
       "name": "TransferredEvent",
       "id": "transferredevent",
       "href": "/graphql/reference/issues#object-transferredevent",
-      "description": "<p>Represents a<code>transferred</code>event on a given issue or pull request.</p>",
+      "description": "<p>Represents a <code>transferred</code> event on a given issue or pull request.</p>",
       "implements": [
         {
           "name": "Node",
@@ -6394,7 +6401,7 @@
       "name": "UnassignedEvent",
       "id": "unassignedevent",
       "href": "/graphql/reference/issues#object-unassignedevent",
-      "description": "<p>Represents an<code>unassigned</code>event on any assignable object.</p>",
+      "description": "<p>Represents an <code>unassigned</code> event on any assignable object.</p>",
       "implements": [
         {
           "name": "Node",
@@ -6454,7 +6461,7 @@
       "name": "UnlabeledEvent",
       "id": "unlabeledevent",
       "href": "/graphql/reference/issues#object-unlabeledevent",
-      "description": "<p>Represents an<code>unlabeled</code>event on a given issue or pull request.</p>",
+      "description": "<p>Represents an <code>unlabeled</code> event on a given issue or pull request.</p>",
       "implements": [
         {
           "name": "Node",
@@ -6486,7 +6493,7 @@
         },
         {
           "name": "label",
-          "description": "<p>Identifies the label associated with the<code>unlabeled</code>event.</p>",
+          "description": "<p>Identifies the label associated with the <code>unlabeled</code> event.</p>",
           "type": "Label!",
           "id": "label",
           "href": "/graphql/reference/issues#object-label"
@@ -6505,7 +6512,7 @@
       "name": "UnlockedEvent",
       "id": "unlockedevent",
       "href": "/graphql/reference/issues#object-unlockedevent",
-      "description": "<p>Represents an<code>unlocked</code>event on a given issue or pull request.</p>",
+      "description": "<p>Represents an <code>unlocked</code> event on a given issue or pull request.</p>",
       "implements": [
         {
           "name": "Node",
@@ -6549,7 +6556,7 @@
       "name": "UnmarkedAsDuplicateEvent",
       "id": "unmarkedasduplicateevent",
       "href": "/graphql/reference/issues#object-unmarkedasduplicateevent",
-      "description": "<p>Represents an<code>unmarked_as_duplicate</code>event on a given issue or pull request.</p>",
+      "description": "<p>Represents an <code>unmarked_as_duplicate</code> event on a given issue or pull request.</p>",
       "implements": [
         {
           "name": "Node",
@@ -6607,7 +6614,7 @@
       "name": "UnpinnedEvent",
       "id": "unpinnedevent",
       "href": "/graphql/reference/issues#object-unpinnedevent",
-      "description": "<p>Represents an<code>unpinned</code>event on a given issue or pull request.</p>",
+      "description": "<p>Represents an <code>unpinned</code> event on a given issue or pull request.</p>",
       "implements": [
         {
           "name": "Node",
@@ -6651,7 +6658,7 @@
       "name": "UnsubscribedEvent",
       "id": "unsubscribedevent",
       "href": "/graphql/reference/issues#object-unsubscribedevent",
-      "description": "<p>Represents an<code>unsubscribed</code>event on a given <code>Subscribable</code>.</p>",
+      "description": "<p>Represents an <code>unsubscribed</code> event on a given <code>Subscribable</code>.</p>",
       "implements": [
         {
           "name": "Node",
@@ -7102,6 +7109,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: CREATED_AT, direction: ASC}",
               "description": "<p>Ordering options for labels returned from the connection.</p>",
               "type": {
                 "name": "LabelOrder",
@@ -7403,6 +7411,183 @@
         {
           "name": "REOPENED",
           "description": "<p>An issue that has been reopened.</p>"
+        }
+      ],
+      "category": "issues"
+    },
+    {
+      "name": "IssueTimelineItemsItemType",
+      "id": "issuetimelineitemsitemtype",
+      "href": "/graphql/reference/issues#enum-issuetimelineitemsitemtype",
+      "description": "<p>The possible item types found in a timeline.</p>",
+      "values": [
+        {
+          "name": "ADDED_TO_PROJECT_EVENT",
+          "description": "<p>Represents a <code>added_to_project</code> event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "ASSIGNED_EVENT",
+          "description": "<p>Represents an <code>assigned</code> event on any assignable object.</p>"
+        },
+        {
+          "name": "BLOCKED_BY_ADDED_EVENT",
+          "description": "<p>Represents a <code>blocked_by_added</code> event on a given issue.</p>"
+        },
+        {
+          "name": "BLOCKED_BY_REMOVED_EVENT",
+          "description": "<p>Represents a <code>blocked_by_removed</code> event on a given issue.</p>"
+        },
+        {
+          "name": "BLOCKING_ADDED_EVENT",
+          "description": "<p>Represents a <code>blocking_added</code> event on a given issue.</p>"
+        },
+        {
+          "name": "BLOCKING_REMOVED_EVENT",
+          "description": "<p>Represents a <code>blocking_removed</code> event on a given issue.</p>"
+        },
+        {
+          "name": "CLOSED_EVENT",
+          "description": "<p>Represents a <code>closed</code> event on any <code>Closable</code>.</p>"
+        },
+        {
+          "name": "COMMENT_DELETED_EVENT",
+          "description": "<p>Represents a <code>comment_deleted</code> event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "CONNECTED_EVENT",
+          "description": "<p>Represents a <code>connected</code> event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "CONVERTED_NOTE_TO_ISSUE_EVENT",
+          "description": "<p>Represents a <code>converted_note_to_issue</code> event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "CONVERTED_TO_DISCUSSION_EVENT",
+          "description": "<p>Represents a <code>converted_to_discussion</code> event on a given issue.</p>"
+        },
+        {
+          "name": "CROSS_REFERENCED_EVENT",
+          "description": "<p>Represents a mention made by one issue or pull request to another.</p>"
+        },
+        {
+          "name": "DEMILESTONED_EVENT",
+          "description": "<p>Represents a <code>demilestoned</code> event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "DISCONNECTED_EVENT",
+          "description": "<p>Represents a <code>disconnected</code> event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "ISSUE_COMMENT",
+          "description": "<p>Represents a comment on an Issue.</p>"
+        },
+        {
+          "name": "ISSUE_TYPE_ADDED_EVENT",
+          "description": "<p>Represents a <code>issue_type_added</code> event on a given issue.</p>"
+        },
+        {
+          "name": "ISSUE_TYPE_CHANGED_EVENT",
+          "description": "<p>Represents a <code>issue_type_changed</code> event on a given issue.</p>"
+        },
+        {
+          "name": "ISSUE_TYPE_REMOVED_EVENT",
+          "description": "<p>Represents a <code>issue_type_removed</code> event on a given issue.</p>"
+        },
+        {
+          "name": "LABELED_EVENT",
+          "description": "<p>Represents a <code>labeled</code> event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "LOCKED_EVENT",
+          "description": "<p>Represents a <code>locked</code> event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "MARKED_AS_DUPLICATE_EVENT",
+          "description": "<p>Represents a <code>marked_as_duplicate</code> event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "MENTIONED_EVENT",
+          "description": "<p>Represents a <code>mentioned</code> event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "MILESTONED_EVENT",
+          "description": "<p>Represents a <code>milestoned</code> event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "MOVED_COLUMNS_IN_PROJECT_EVENT",
+          "description": "<p>Represents a <code>moved_columns_in_project</code> event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "PARENT_ISSUE_ADDED_EVENT",
+          "description": "<p>Represents a <code>parent_issue_added</code> event on a given issue.</p>"
+        },
+        {
+          "name": "PARENT_ISSUE_REMOVED_EVENT",
+          "description": "<p>Represents a <code>parent_issue_removed</code> event on a given issue.</p>"
+        },
+        {
+          "name": "PINNED_EVENT",
+          "description": "<p>Represents a <code>pinned</code> event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "REFERENCED_EVENT",
+          "description": "<p>Represents a <code>referenced</code> event on a given <code>ReferencedSubject</code>.</p>"
+        },
+        {
+          "name": "REMOVED_FROM_PROJECT_EVENT",
+          "description": "<p>Represents a <code>removed_from_project</code> event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "RENAMED_TITLE_EVENT",
+          "description": "<p>Represents a <code>renamed</code> event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "REOPENED_EVENT",
+          "description": "<p>Represents a <code>reopened</code> event on any <code>Closable</code>.</p>"
+        },
+        {
+          "name": "SUBSCRIBED_EVENT",
+          "description": "<p>Represents a <code>subscribed</code> event on a given <code>Subscribable</code>.</p>"
+        },
+        {
+          "name": "SUB_ISSUE_ADDED_EVENT",
+          "description": "<p>Represents a <code>sub_issue_added</code> event on a given issue.</p>"
+        },
+        {
+          "name": "SUB_ISSUE_REMOVED_EVENT",
+          "description": "<p>Represents a <code>sub_issue_removed</code> event on a given issue.</p>"
+        },
+        {
+          "name": "TRANSFERRED_EVENT",
+          "description": "<p>Represents a <code>transferred</code> event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "UNASSIGNED_EVENT",
+          "description": "<p>Represents an <code>unassigned</code> event on any assignable object.</p>"
+        },
+        {
+          "name": "UNLABELED_EVENT",
+          "description": "<p>Represents an <code>unlabeled</code> event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "UNLOCKED_EVENT",
+          "description": "<p>Represents an <code>unlocked</code> event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "UNMARKED_AS_DUPLICATE_EVENT",
+          "description": "<p>Represents an <code>unmarked_as_duplicate</code> event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "UNPINNED_EVENT",
+          "description": "<p>Represents an <code>unpinned</code> event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "UNSUBSCRIBED_EVENT",
+          "description": "<p>Represents an <code>unsubscribed</code> event on a given <code>Subscribable</code>.</p>"
+        },
+        {
+          "name": "USER_BLOCKED_EVENT",
+          "description": "<p>Represents a <code>user_blocked</code> event on a given user.</p>"
         }
       ],
       "category": "issues"

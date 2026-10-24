@@ -14,7 +14,7 @@ category:
 
 ## About deployment environments
 
-For more information about environments, see [AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment). To manage environment secrets, see [AUTOTITLE](/rest/actions/secrets).
+For more information about environments, see [AUTOTITLE](/actions/how-tos/deploy/configure-and-manage-deployments/manage-environments). To manage environment secrets, see [AUTOTITLE](/rest/actions/secrets).
 
 {% data reusables.gated-features.environments %}
 

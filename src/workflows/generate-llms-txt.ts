@@ -1,24 +1,26 @@
 // Generates an llms.txt file from popularity data and the docs page catalog.
 //
 // Usage:
-//   npm run generate-llms-txt -- --config data/llms-txt/config-docs.yml --output data/llms-txt/docs.md
-//   npm run generate-llms-txt -- --config data/llms-txt/config-monolith.yml --output /tmp/monolith.md
+//   npm run generate-llms-txt -- \
+//     --config data/llms-txt/config-docs.yml \
+//     --output data/llms-txt/docs.md
+//   npm run generate-llms-txt -- \
+//     --config data/llms-txt/config-monolith.yml \
+//     --output /tmp/monolith.md
 //
-// Both targets layer overrides on top of data/llms-txt/config-default.yml.
-// Writers can edit categories, pinned pages, thresholds, and copy in the
-// configs without touching this script.
-//
-// Requires DOCS_BOT_PAT_BASE for fetching popularity data from
-// github/docs-internal-data.
+// Each target overrides data/llms-txt/config-default.yml, so writers can change
+// categories, pinned pages, thresholds, and copy without editing this script.
+// Requires DOCS_BOT_PAT_BASE because popularity data lives in github/docs-internal-data.
 
 import fs from 'fs'
 
-import yaml from 'js-yaml'
+import { loadYaml } from '@/frame/lib/load-yaml'
 
 import { loadPageMap } from '@/frame/lib/page-data'
 import { renderContent } from '@/content-render/index'
 import { getDataByLanguage } from '@/data-directory/lib/get-data'
 import { allVersions } from '@/versions/lib/all-versions'
+import { getFeaturesByVersion } from '@/versions/middleware/features'
 import type { Page, Context } from '@/types'
 
 interface LlmsTxtConfig {
@@ -44,13 +46,11 @@ export const ROLLUP_URL =
 const BASE_URL = 'https://docs.github.com'
 
 export function loadConfig(overridePath?: string): LlmsTxtConfig {
-  const defaults = yaml.load(fs.readFileSync(DEFAULT_CONFIG_PATH, 'utf8')) as Partial<LlmsTxtConfig>
+  const defaults = loadYaml(fs.readFileSync(DEFAULT_CONFIG_PATH, 'utf8')) as Partial<LlmsTxtConfig>
   if (!overridePath || overridePath === DEFAULT_CONFIG_PATH) {
     return defaults as LlmsTxtConfig
   }
-  const overrides = yaml.load(
-    fs.readFileSync(overridePath, 'utf8'),
-  ) as Partial<LlmsTxtConfig> | null
+  const overrides = loadYaml(fs.readFileSync(overridePath, 'utf8')) as Partial<LlmsTxtConfig> | null
   return { ...(defaults as LlmsTxtConfig), ...(overrides || {}) }
 }
 
@@ -72,10 +72,15 @@ export async function fetchRollup(): Promise<Rollup> {
   return (await res.json()) as Rollup
 }
 
+const RENDER_VERSION = 'free-pro-team@latest'
+
+// Match the short-versions and features middleware so ifversion fpt and feature flags resolve.
 const renderContext: Context = {
+  ...getFeaturesByVersion(RENDER_VERSION),
   currentLanguage: 'en',
-  currentVersion: 'free-pro-team@latest',
-  currentVersionObj: allVersions['free-pro-team@latest'],
+  currentVersion: RENDER_VERSION,
+  currentVersionObj: allVersions[RENDER_VERSION],
+  [allVersions[RENDER_VERSION].shortName]: true,
   getDottedData: (path: string) => getDataByLanguage(path, 'en'),
 } as Context
 
@@ -169,6 +174,13 @@ export async function generate(
   sections.push(config.how_to_use.trim(), '')
 
   const existingPinned = config.pinned_pages.filter((p) => pageExists(p, pages))
+  const missingPinned = config.pinned_pages.filter((p) => !pageExists(p, pages))
+  if (missingPinned.length > 0) {
+    // The ::warning:: prefix makes the skip visible as an annotation on the workflow run.
+    console.warn(
+      `::warning::Pinned llms.txt pages not found and skipped: ${missingPinned.join(', ')}. Update pinned_pages in ${DEFAULT_CONFIG_PATH}.`,
+    )
+  }
   if (existingPinned.length > 0) {
     sections.push(`## ${config.pinned_section_heading.trim()}`, '')
     for (const p of existingPinned) sections.push(await formatPageLine(p, pages))

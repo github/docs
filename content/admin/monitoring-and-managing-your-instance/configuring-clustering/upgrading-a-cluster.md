@@ -36,7 +36,7 @@ Use an upgrade package to upgrade a {% data variables.product.prodname_ghe_serve
 
 ### Preparing to upgrade
 
-1. Review [AUTOTITLE](/admin/enterprise-management/configuring-clustering/cluster-network-configuration) for the version you are upgrading to, and update your configuration as needed.
+1. Review [AUTOTITLE](/admin/monitoring-and-managing-your-instance/configuring-clustering/cluster-network-configuration) for the version you are upgrading to, and update your configuration as needed.
 1. Back up your data with [{% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#readme).
 1. Schedule a maintenance window for end users of your {% data variables.product.prodname_ghe_server %} cluster, as it will be unavailable for normal use during the upgrade. Maintenance mode blocks user access and prevents data changes while the cluster upgrade is in progress.
 1. On the [{% data variables.product.prodname_ghe_server %} Download Page](https://enterprise.github.com/download), copy the URL for the upgrade _.pkg_ file to the clipboard.

@@ -35,5 +35,5 @@ category:
 
 ## Further reading
 
-* [AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/permission-levels-for-repository-security-advisories)
-* [AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/adding-a-collaborator-to-a-repository-security-advisory)
+* [AUTOTITLE](/code-security/reference/permissions/repository-security-advisory)
+* [AUTOTITLE](/code-security/how-tos/report-and-fix-vulnerabilities/fix-reported-vulnerabilities/add-collaborators)

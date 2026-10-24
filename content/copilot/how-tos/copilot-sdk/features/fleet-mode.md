@@ -2,8 +2,13 @@
 title: Fleet mode
 shortTitle: Fleet Mode
 intro: >-
-    Use fleet mode to split work across multiple sub-agents and combine their
-    results in one parent session.
+  Fleet mode is Copilot's parallel orchestration pattern for work that can be
+  split across independent sub-agents. In the runtime research notes, fleet mode
+  is described as "the runtime's built-in pattern for dispatching multiple
+  sub-agents in parallel via the `task` tool, with SQL todos as the shared
+  coordination state." Use it when one parent session should coordinate several
+  workers, collect their results, and continue the conversation with the
+  combined context.
 versions:
   fpt: '*'
   ghec: '*'
@@ -59,7 +64,7 @@ if (result.started) {
 {% codetab python %}
 
 ```python
-from copilot.generated.rpc import FleetStartRequest
+from copilot.rpc import FleetStartRequest
 
 result = await session.rpc.fleet.start(
     FleetStartRequest(
@@ -73,38 +78,6 @@ if result.started:
 
 {% endcodetab %}
 {% codetab go %}
-
-```golang
-package main
-
-import (
-	"context"
-	"fmt"
-
-	copilot "github.com/github/copilot-sdk/go"
-	"github.com/github/copilot-sdk/go/rpc"
-)
-
-func main() {
-	ctx := context.Background()
-	client := copilot.NewClient(nil)
-	session, err := client.CreateSession(ctx, &copilot.SessionConfig{})
-	if err != nil {
-		return
-	}
-
-	prompt := "Update each package independently, then report validation results."
-	result, err := session.RPC.Fleet.Start(ctx, &rpc.FleetStartRequest{
-		Prompt: &prompt,
-	})
-	if err != nil {
-		return
-	}
-	if result.Started {
-		fmt.Println("Fleet mode started")
-	}
-}
-```
 
 ```golang
 prompt := "Update each package independently, then report validation results."
@@ -123,21 +96,6 @@ if result.Started {
 {% codetab dotnet %}
 
 ```csharp
-using GitHub.Copilot;
-
-await using var client = new CopilotClient();
-await using var session = await client.CreateSessionAsync(new SessionConfig());
-
-var result = await session.Rpc.Fleet.StartAsync(
-    "Audit each project independently, then summarize the findings.");
-
-if (result.Started)
-{
-    Console.WriteLine("Fleet mode started");
-}
-```
-
-```csharp
 var result = await session.Rpc.Fleet.StartAsync(
     "Audit each project independently, then summarize the findings.");
 
@@ -151,7 +109,7 @@ if (result.Started)
 {% codetab rust %}
 
 ```rust
-use github_copilot_sdk::generated::api_types::FleetStartRequest;
+use github_copilot_sdk::rpc::FleetStartRequest;
 
 let result = session
     .rpc()
@@ -176,7 +134,7 @@ Native typed bindings for fleet mode were verified in Node.js/TypeScript, Python
 Plan-mode UIs can start fleet deployment by returning the `autopilot_fleet` exit action. The generated session event types describe it as:
 
 ```typescript
-type PlanModeExitAction =
+type ExitPlanModeAction =
   | "exit_only"
   | "interactive"
   | "autopilot"
@@ -243,7 +201,9 @@ This pattern gives every worker a clear owner and lets the parent session reason
 
 Fleet mode invokes sub-agents through the runtime's task mechanism. The runtime emits hook activity for sub-agent tool calls: the runtime 1.0.52 changelog notes that `preToolUse`, `postToolUse`, `subagentStart`, and `subagentStop` fire correctly for sub-agent tool calls.
 
-A dedicated SDK hook callback for `subagentStart` or `subagentStop` was not found in the public SDK surface on this branch. SDK consumers can observe sub-agent activity through the generic session event stream, which includes events such as `subagent.started`, `subagent.completed`, `subagent.failed`, `subagent.selected`, and `subagent.deselected`.
+All six SDKs expose typed sub-agent lifecycle hooks: Node.js uses `onSubagentStart` and `onSubagentStop`, Python and Rust use `on_subagent_start` and `on_subagent_stop`, Go and .NET use `OnSubagentStart` and `OnSubagentStop`, and Java uses `setOnSubagentStart` and `setOnSubagentStop`. Register them when creating or resuming a session. The start hook can prepend `additionalContext` to the child's first prompt; the stop hook can request another child turn with a block reason or replace the response reported to the parent.
+
+For passive status updates, subscribe to the generic session event stream. It includes `subagent.started`, `subagent.completed`, `subagent.failed`, `subagent.selected`, and `subagent.deselected`:
 
 {% codetabs %}
 {% codetab typescript %}
@@ -262,29 +222,6 @@ session.on((event) => {
 
 {% endcodetab %}
 {% codetab python %}
-
-```python
-import asyncio
-from copilot import CopilotClient
-from copilot.session import PermissionHandler
-
-async def main():
-    client = CopilotClient()
-    await client.start()
-    session = await client.create_session(
-        on_permission_request=PermissionHandler.approve_all,
-    )
-
-    def handle_event(event):
-        if event.type == "subagent.started":
-            print(f"Started {event.data.agent_display_name}")
-        elif event.type == "subagent.completed":
-            print(f"Completed {event.data.agent_display_name}")
-
-    unsubscribe = session.on(handle_event)
-
-asyncio.run(main())
-```
 
 ```python
 def handle_event(event):
@@ -335,7 +272,7 @@ Keep plugin-provided sub-agent types narrow and descriptive so the orchestrator 
 
 * Fleet mode is exposed through generated session RPC bindings and is marked experimental in several SDKs.
 * The SQL todos pattern is the canonical coordination model in the runtime guidance, but whether it is a stable extensibility contract for SDK consumers is still an open question.
-* `subagentStart` and `subagentStop` are runtime hook names; this branch exposes sub-agent lifecycle to SDK consumers through the generic session event stream, not dedicated hook callbacks.
+* Sub-agent lifecycle hook inputs identify the parent session but do not yet carry a shared tool-call ID for correlating with `subagent.*` events.
 * Plugin sub-agent registration is configured at the runtime layer through `--plugin-dir`; no SDK-level plugin registration helper was verified on this branch.
 * Java native typed bindings for `session.fleet.start` were not found in the Java SDK source on this branch.
 * Fleet mode does not remove the need for parent-agent review. Parallel workers can produce inconsistent assumptions that the orchestrator must reconcile.

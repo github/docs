@@ -27,6 +27,6 @@ Based on the recommendations of the ESSP, the following guides show how {% data 
 
 We recommend defining your goals and planning your rollout accordingly. You should communicate your goals to staff and organize training to enable everyone to contribute.
 
-* [AUTOTITLE](/copilot/tutorials/rolling-out-github-copilot-at-scale/driving-downstream-impact/increase-test-coverage)
-* [AUTOTITLE](/copilot/tutorials/rolling-out-github-copilot-at-scale/driving-downstream-impact/accelerate-pull-requests)
-* [AUTOTITLE](/copilot/tutorials/rolling-out-github-copilot-at-scale/driving-downstream-impact/reduce-security-debt)
+* [AUTOTITLE](/copilot/tutorials/roll-out-at-scale/drive-downstream-impact/increase-test-coverage)
+* [AUTOTITLE](/copilot/tutorials/roll-out-at-scale/drive-downstream-impact/accelerate-pull-requests)
+* [AUTOTITLE](/copilot/tutorials/roll-out-at-scale/drive-downstream-impact/reduce-security-debt)

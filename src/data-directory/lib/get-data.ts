@@ -1,74 +1,76 @@
 import fs from 'fs'
 import path from 'path'
 
-import yaml from 'js-yaml'
+import { loadYaml } from '@/frame/lib/load-yaml'
 import matter from '@gr2m/gray-matter'
 import { merge, get } from 'lodash-es'
 
 import languages from '@/languages/lib/languages-server'
 import { correctTranslatedContentStrings } from '@/languages/lib/correct-translation-content'
 import { createLogger } from '@/observability/logger'
+import type { UIStrings } from '@/frame/components/context/MainContext'
 
 const logger = createLogger(import.meta.url)
 
 interface YAMLException extends Error {
-  mark?: any
+  mark?: unknown
 }
 
 interface FileSystemError extends Error {
   code?: string
 }
 
-// If you run `export DEBUG_JIT_DATA_READS=true` in your terminal,
-// next time it will mention every file it reads from disk.
+// Set DEBUG_JIT_DATA_READS=true to log every data file read from disk.
 const DEBUG_JIT_DATA_READS = Boolean(JSON.parse(process.env.DEBUG_JIT_DATA_READS || 'false'))
 
-// This is a list of files that we should always immediately fall back to
-// English for.
-// Having this is safer than trying to wrangle the translations to NOT
-// have them translated.
-const ALWAYS_ENGLISH_YAML_FILES = new Set(['data/variables/product.yml'])
+// Product and Copilot paths belong in the English-only set; translations can change fixed names.
+const ALWAYS_ENGLISH_YAML_FILES = new Set([
+  'data/variables/product.yml',
+  'data/variables/copilot.yml',
+])
 const ALWAYS_ENGLISH_MD_FILES = new Set([
   'data/reusables/ssh/fingerprints.md',
   'data/reusables/ssh/known_hosts.md',
 ])
 
-// Returns all the things inside a directory
 export const getDeepDataByLanguage = memoize(
-  (dottedPath: string, langCode: string, dir: string | null = null): any => {
+  (dottedPath: string, langCode: string, dir: string | null = null): Record<string, unknown> => {
     if (!(langCode in languages)) {
       throw new Error(`langCode '${langCode}' not a recognized language code`)
     }
 
-    // The `dir` argument is only used for testing purposes.
-    // For example, our unit tests that depend on using a fixtures root.
-    // If we don't allow those tests to override the `dir` argument,
-    // it'll be stuck from the first time `languages.ts` was imported.
+    // Tests pass a fixture root because languages-server.ts captures directories when it loads.
     if (dir === null) {
       dir = languages[langCode].dir
     }
-    return getDeepDataByDir(dottedPath, dir)
+    const englishRoot = langCode === 'en' ? dir : languages.en.dir
+    return getDeepDataByDir(dottedPath, dir, englishRoot)
   },
 )
 
 // Doesn't need to be memoized because it's used by getDataKeysByLanguage
 // which is already memoized.
-function getDeepDataByDir(dottedPath: string, dir: string): any {
+function getDeepDataByDir(
+  dottedPath: string,
+  dir: string,
+  englishRoot: string,
+): Record<string, unknown> {
   const fullPath = ['data']
   const split = dottedPath.split(/\./g)
   fullPath.push(...split)
 
-  const things: any = {}
-  const relPath = fullPath.join(path.sep)
+  const things: Record<string, unknown> = {}
+  const relPath = path.posix.join(...fullPath)
   for (const dirent of getDirents(dir, relPath)) {
     if (dirent.name === 'README.md') continue
-    const key = dirent.isDirectory() ? dirent.name : dirent.name.replace(/\.yml$/, '') // e.g. '3-5'  or '0-rc2'
+    // Release-note basenames like '3-5' and '0-rc2' stay intact.
+    const key = dirent.isDirectory() ? dirent.name : dirent.name.replace(/\.yml$/, '')
     if (dirent.isDirectory()) {
-      things[key] = getDeepDataByDir(`${dottedPath}.${key}`, dir)
+      things[key] = getDeepDataByDir(`${dottedPath}.${key}`, dir, englishRoot)
     } else if (dirent.name.endsWith('.yml')) {
-      things[key] = getYamlContent(dir, path.join(relPath, dirent.name))
+      things[key] = getYamlContent(dir, path.posix.join(relPath, dirent.name), englishRoot)
     } else if (dirent.name.endsWith('.md')) {
-      things[key] = getMarkdownContent(dir, path.join(relPath, dirent.name))
+      things[key] = getMarkdownContent(dir, path.posix.join(relPath, dirent.name), englishRoot)
     } else {
       throw new Error(`don't know how to read '${dirent.name}'`)
     }
@@ -81,30 +83,38 @@ function getDirents(root: string, relPath: string): fs.Dirent[] {
   return fs.readdirSync(filePath, { withFileTypes: true })
 }
 
-export const getUIDataMerged = memoize((langCode: string): any => {
+export const getUIDataMerged = memoize((langCode: string): UIStrings => {
   const uiEnglish = getUIData('en')
-  if (langCode === 'en') return uiEnglish
-  // Got to combine. Start with the English and put the translation on top.
-  // E.g.
-  //    english = {food: "Food", drink: "Drink"}
-  //    swedish = {food: "Mat"}
-  //    =>
-  //    combind = {food: "Mat", drink: "Drink"}
-  const combined: any = {}
+  if (langCode === 'en') return uiEnglish as UIStrings
+  // Merge translations over English so missing localized UI keys fall back to English.
+  const combined: Record<string, unknown> = {}
   merge(combined, uiEnglish)
-  merge(combined, getUIData(langCode))
-  return combined
+  try {
+    merge(combined, getUIData(langCode))
+  } catch (error) {
+    // Every request reads UI data, so a corrupt or missing translated ui.yml uses English.
+    if ((error as YAMLException).mark || (error as FileSystemError).code === 'ENOENT') {
+      logger.warn('Unable to read translated data/ui.yml, falling back to English', {
+        langCode,
+        error,
+      })
+    } else {
+      throw error
+    }
+  }
+  return combined as UIStrings
 })
 
-// Doesn't need to be memoized because it's used by another function
-// that is memoized.
-const getUIData = (langCode: string): any => {
+// getUIDataMerged memoizes results, so this reader needs no separate cache.
+const getUIData = (langCode: string): Record<string, unknown> => {
   const fullPath = ['data', 'ui.yml']
   const { dir } = languages[langCode]
-  return getYamlContent(dir, fullPath.join(path.sep))
+  return getYamlContent(dir, path.posix.join(...fullPath)) as Record<string, unknown>
 }
 
-export const getDataByLanguage = memoize((dottedPath: string, langCode: string): any => {
+// When translated data misses a dotted path, retry English.
+// lodash get returns undefined for the missing dotted path instead of ENOENT.
+export const getDataByLanguage = memoize((dottedPath: string, langCode: string): unknown => {
   if (!(langCode in languages))
     throw new Error(`langCode '${langCode}' not a recognized language code`)
   const { dir } = languages[langCode]
@@ -112,32 +122,21 @@ export const getDataByLanguage = memoize((dottedPath: string, langCode: string):
   try {
     const value = getDataByDir(dottedPath, dir, languages.en.dir, langCode)
 
-    // What could happens is that a new key has only been added to
-    // the English data/ui.yml but hasn't been added to Japanese, but
-    // there nevertheless exists a Japanese `data/ui.yml`.
-    // Since getDataByDir() uses `get(dataObject, 'dott.ed.path')` it
-    // will return `undefined` if it's not present.
-    // If this happens, we can't rely on `err.code === 'ENOENT'` to
-    // fall back the English one. So we just start over using the English data.
     if (value === undefined && langCode !== 'en') {
-      return getDataByDir(dottedPath, languages.en.dir)
+      return getDataByDir(dottedPath, languages.en.dir, languages.en.dir)
     }
     return value
   } catch (error) {
     if (error instanceof Error && (error as YAMLException).mark && error.message) {
-      // It's a yaml.load() generated error!
-      // Remember, the file that we read might have been a .yml or a .md
-      // file. If it was a .md file, with corrupt front-matter that too
-      // would have caused a YAMLException
+      // Corrupt YAML files and Markdown frontmatter raise YAMLException, so translations fall back.
       if (langCode !== 'en') {
         if (DEBUG_JIT_DATA_READS) {
           logger.warn('Unable to parse Yaml in translation', { langCode, dottedPath, error })
         }
         // Give it one more chance, but use English this time
-        return getDataByDir(dottedPath, languages.en.dir)
+        return getDataByDir(dottedPath, languages.en.dir, languages.en.dir)
       }
-      // Always throw English Yaml reading errors. Staff writers
-      // need to know early and explicitly that they are corrupt.
+      // Throw English YAML errors so staff writers see corrupt source data early.
       throw error
     }
 
@@ -146,36 +145,22 @@ export const getDataByLanguage = memoize((dottedPath: string, langCode: string):
   }
 })
 
+// getSmartSplit preserves dotted path segments such as version-3.4.
+// Release notes split normally because numeric paths such as 3-7/0.yml would combine incorrectly.
+// getDataByDir keeps {% data early-access.reusables.foo.bar %} under data/early-access.
+// That data lives at data/early-access/reusables/foo/bar.md.
 function getDataByDir(
   dottedPath: string,
   dir: string,
   englishRoot?: string,
   langCode?: string,
-): any {
+): unknown {
   const fullPath = ['data']
 
-  // Using English here because it doesn't matter. We just want to
-  // figure out how to turn `foo.version-3.4.deeper.key' into
-  // `['foo', 'version-3.4', 'deeper', 'key']` here and we'll need
-  // any directory to do that and English is always the most up-to-date.
-  // We need the getSmartSplit() as long as there's a chance that a
-  // directory or file inside data/ might contain a dot in the name,
-  // however the exception is the file names in data/release-notes/**/*.yml
-  // because it contains files that are just numbers like 3-7/0.yml and
-  // that can cause problems inside getSmartSplit().
   const split = dottedPath.startsWith('release-notes')
     ? dottedPath.split('.')
     : getSmartSplit(dottedPath)
 
-  // For early-access data stuff, they're referred to as...
-  //
-  //   {% data early-access.reusables.foo.bar %}
-  //
-  // When we "merge" in the early-access data, we put the whole directory
-  // within the root `data/` so it exists, on disk, as
-  //
-  //   data/early-access/reusables/foo/bar.md
-  //
   if (split[0] === 'early-access') {
     fullPath.push(split.shift()!)
   }
@@ -186,17 +171,20 @@ function getDataByDir(
     const basename = split.pop()!
     fullPath.push(...split)
     fullPath.push(`${basename}.yml`)
-    const allData = getYamlContent(dir, fullPath.join(path.sep), englishRoot)
+    const relPath = path.posix.join(...fullPath)
+    const allData = getYamlContent(dir, relPath, englishRoot) as Record<string, unknown> | undefined
     if (allData && key) {
       const value = allData[key]
       if (value) {
-        let content = matter(value).content
+        let content = matter(value as string).content
         if (dir !== englishRoot) {
           let englishContent = content
           try {
-            const englishData = getYamlContent(englishRoot, fullPath.join(path.sep), englishRoot)
+            const englishData = getYamlContent(englishRoot, relPath, englishRoot) as
+              | Record<string, unknown>
+              | undefined
             if (englishData?.[key]) {
-              englishContent = matter(englishData[key]).content
+              englishContent = matter(englishData[key] as string).content
             }
           } catch (error) {
             if ((error as FileSystemError).code !== 'ENOENT') {
@@ -211,7 +199,7 @@ function getDataByDir(
         return content
       }
     } else {
-      logger.warn('Unable to find variables Yaml file', { filePath: fullPath.join(path.sep) })
+      logger.warn('Unable to find variables Yaml file', { filePath: relPath })
     }
     return undefined
   }
@@ -220,27 +208,16 @@ function getDataByDir(
     const nakedname = split.pop()!
     fullPath.push(...split)
     fullPath.push(`${nakedname}.md`)
-    const markdown = getMarkdownContent(dir, fullPath.join(path.sep), englishRoot)
+    const relPath = path.posix.join(...fullPath)
+    const markdown = getMarkdownContent(dir, relPath, englishRoot)
     let { content } = matter(markdown)
     if (dir !== englishRoot) {
-      // If we're reading a translation, we need to replace the possible
-      // corruptions. For example `[AUTOTITLE"을](/foo/bar)`.
-      // To do this we'll need the English equivalent
+      // Translated reusables need English content to fix corruptions like [AUTOTITLE"을](/foo/bar).
       let englishContent = content
       try {
-        englishContent = getMarkdownContent(englishRoot, fullPath.join(path.sep), englishRoot)
+        englishContent = getMarkdownContent(englishRoot, relPath, englishRoot)
       } catch (error) {
-        // In some real but rare cases a reusable doesn't exist in English.
-        // At all.
-        // This can happen when the translation is really out of date.
-        // You might have an old `docs-internal.locale/content/**/*.md`
-        // file that mentions `{% data reusables.foo.bar %}`. And it's
-        // working fine, except none of that exists in English.
-        // If this is the case, we still want to executed the
-        // correctTranslatedContentStrings() function, but we can't
-        // genuinely give it the English equivalent content, which it
-        // sometimes uses to correct some Liquid tags. At least other
-        // good corrections might happen.
+        // Translated pages can reference reusables missing in English; other corrections still run.
         if ((error as FileSystemError).code !== 'ENOENT') {
           throw error
         }
@@ -253,11 +230,11 @@ function getDataByDir(
     return content
   }
 
-  // E.g. {% data ui.pages.foo.bar %}
+  // UI data references such as {% data ui.pages.foo.bar %} read from data/ui.yml.
   if (first === 'ui') {
-    const basename = split.shift() // i.e. 'ui'
+    const basename = split.shift()
     fullPath.push(`${basename}.yml`)
-    const allData = getYamlContent(dir, fullPath.join(path.sep), englishRoot)
+    const allData = getYamlContent(dir, path.posix.join(...fullPath), englishRoot)
     return get(allData, split.join('.'))
   }
 
@@ -265,7 +242,7 @@ function getDataByDir(
     const basename = split.pop()!
     fullPath.push(...split)
     fullPath.push(`${basename}.yml`)
-    return getYamlContent(dir, fullPath.join(path.sep), englishRoot)
+    return getYamlContent(dir, path.posix.join(...fullPath), englishRoot)
   }
 
   throw new Error(`Can't find the key '${dottedPath}' in the scope.`)
@@ -282,7 +259,7 @@ function getSmartSplit(dottedPath: string): string[] {
       const next = split[i + 1]
       if (/\d$/.test(bit) && /^\d/.test(next)) {
         bits.push([bit, next].join('.'))
-        i++ // jump ahead one position in the loop
+        i++
       } else {
         bits.push(bit)
       }
@@ -291,50 +268,23 @@ function getSmartSplit(dottedPath: string): string[] {
   return bits
 }
 
-// The reason this is memoized, even though the parent caller function
-// (`getDataByLanguage`) is also memoized is because we might read
-// the same file for two different keys. E.g.
-//
-//    getDataByLanguage('variables.product.prodname_ghe_server', 'en')
-//    getDataByLanguage('variables.product.company_short', 'en')
-//
-// ...will actually depend on reading `data/variables/product.yml`. Twice.
-// Well, actually not twice because we cache the disk reading. So the outcome
-// becomes this:
-//
-//    1. getDataByLanguage('variables.product.prodname_ghe_server', 'en')
-//      -> cache MISS
-//        1.1. read and parse data/variables/product.yml
-//          -> cache MISS
-//    2. getDataByLanguage('variables.product.company_short', 'en')
-//      -> cache MISS
-//        2.1. read and parse data/variables/product.yml
-//          -> cache HIT    (Yay!)
-//
+// getDataByLanguage caches each dotted key, but different keys can read the same YAML file.
+// Cache YAML reads too, so product name variables share data/variables/product.yml.
 const getYamlContent = memoize(
-  (root: string | undefined, relPath: string, englishRoot?: string): any => {
-    // Certain Yaml files we know we always want the English one
-    // no matter what the specified language is.
-    // For example, we never want `data/variables/product.yml` translated
-    // so we know to immediately fall back to the English one.
+  (root: string | undefined, relPath: string, englishRoot?: string): unknown => {
     if (ALWAYS_ENGLISH_YAML_FILES.has(relPath)) {
-      // This forces it to read from English. Later, when it goes
-      // into `getFileContent(...)` it will note that `root !== englishRoot`
-      // so it won't try to fall back.
+      // Passing englishRoot prevents getFileContent from treating this as a translation fallback.
       root = englishRoot
     }
     const fileContent = getFileContent(root, relPath, englishRoot)
-    return yaml.load(fileContent, { filename: relPath })
+    return loadYaml(fileContent, { filename: relPath })
   },
 )
 
-// The reason why this is memoized, is the same as for getYamlContent() above.
+// Cache Markdown reads too because different dotted keys can hit the same file.
 const getMarkdownContent = memoize(
   (root: string | undefined, relPath: string, englishRoot?: string): string => {
-    // Certain reusables we never want to be pulled from the translations.
-    // For example, certain reusables don't contain any English prose. Just
-    // facts like numbers or hardcoded key words.
-    // If this is the case, forcibly always draw from the English files.
+    // SSH fingerprints and known_hosts contain facts, not prose, so they are meant to use English.
     if (ALWAYS_ENGLISH_MD_FILES.has(relPath)) {
       root = englishRoot
     }
@@ -354,13 +304,9 @@ const getFileContent = (
   try {
     return fs.readFileSync(filePath, 'utf-8')
   } catch (err) {
-    // It might fail because that particular data entry doesn't yet
-    // exist in a translation
     if ((err as FileSystemError).code === 'ENOENT') {
-      // If looking it up as a file fails, give it one more chance if the
-      // read was for a translation.
       if (englishRoot && root !== englishRoot) {
-        // We can try again but this time using the English files
+        // Missing translated data falls back to English when an English root is available.
         return getFileContent(englishRoot, relPath, englishRoot)
       }
     }
@@ -368,22 +314,15 @@ const getFileContent = (
   }
 }
 
-function memoize<T extends (...args: any[]) => any>(func: T): T {
-  const cache = new Map<string, any>()
-  return ((...args: any[]) => {
+// Development bypasses caching because repeated sync reads stay cheap enough for debugging.
+// A benchmark sampled 10 common data files across 100 runs, with about 80% YAML files.
+// Median sync reads took 0.5 ms per 10 files, or 2.1 ms per 10 files with YAML parsing.
+function memoize<Args extends unknown[], Return>(
+  func: (...args: Args) => Return,
+): (...args: Args) => Return {
+  const cache = new Map<string, Return>()
+  return (...args: Args) => {
     if (process.env.NODE_ENV === 'development') {
-      // It is very possible that certain files, when caching is disabled,
-      // are read multiple times in short succession. E.g. `product.yml`.
-      // So how expensive is it to read these files excessively?
-      // To answer that, we benchmarked it by sampling 10 files from the
-      // most common files that are used from `data/`. In fact, we ran 100
-      // runs of 10 *different* files. About 80% of them were `.yml` files.
-      // As a median, it takes **0.5ms to read 10 files from disk**
-      // all in a sync manner.
-      // Since most files coming through here is `.yml` files (e.g.
-      // product.yml and ui.yml) if you also do the `yaml.load()` of the
-      // read content, that number becomes **2.1ms to read and parse 10 files**.
-      // So in conclusion, not a lot of time.
       return func(...args)
     }
 
@@ -391,6 +330,6 @@ function memoize<T extends (...args: any[]) => any>(func: T): T {
     if (!cache.has(key)) {
       cache.set(key, func(...args))
     }
-    return cache.get(key)
-  }) as T
+    return cache.get(key) as Return
+  }
 }

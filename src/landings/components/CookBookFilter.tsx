@@ -1,7 +1,8 @@
-import { TextInput, ActionMenu, ActionList, Button } from '@primer/react'
+import { ActionMenu, Button, TextInput } from '@primer/react-brand'
 import { SearchIcon } from '@primer/octicons-react'
-import { useRef, useEffect, useState } from 'react'
+import { useRef, useEffect, useState, type ChangeEvent } from 'react'
 import { ArticleCardItems } from '@/landings/types'
+import { onActionMenuItemKeyDownCapture } from '@/frame/components/lib/action-menu'
 import { useTranslation } from '@/languages/components/useTranslation'
 
 import styles from './CookBookFilter.module.scss'
@@ -67,89 +68,106 @@ export const CookBookFilter = ({
   }, [isSearchOpen])
 
   return (
-    <div className="d-lg-flex d-sm-block">
-      <div className="col-12 mr-2">
+    <div className={styles.controls}>
+      <div className={styles.search}>
         <form onSubmit={(e) => e.preventDefault()}>
           <TextInput
-            leadingVisual={SearchIcon}
-            className={`m-1 ${styles.textInput}`}
+            fullWidth
+            leadingVisual={<SearchIcon />}
             placeholder={t('search_articles')}
+            aria-label={t('search_articles')}
             ref={inputRef}
-            autoComplete="false"
-            // Using any because Primer React's TextInput doesn't export proper event types
-            onChange={(e: any) => {
+            autoComplete="off"
+            onChange={(e: ChangeEvent<HTMLInputElement>) => {
               const query = e.target.value || ''
               onSearch(query)
             }}
           />
         </form>
       </div>
-      <div className="d-flex flex-wrap flex-md-nowrap ">
-        <ActionMenu>
-          <ActionMenu.Button className="col-md-1 col-sm-2 m-1">
+      <div className={styles.filters}>
+        <ActionMenu
+          selectionVariant="single"
+          size="small"
+          menuAlignment="start"
+          onSelect={(value) => onFilter(categories[Number(value)], 'category', Number(value))}
+        >
+          <ActionMenu.Button>
             <span className={styles.categoryLabel}>{t('category')}:</span>{' '}
             {categories[selectedCategory]}
           </ActionMenu.Button>
-          <ActionMenu.Overlay width="auto">
-            <ActionList selectionVariant="single">
-              {categories.map((category, index) => (
-                <ActionList.Item
-                  key={index}
-                  selected={index === selectedCategory}
-                  onSelect={() => onFilter(category, 'category', index)}
-                >
-                  {category}
-                </ActionList.Item>
-              ))}
-            </ActionList>
+          <ActionMenu.Overlay aria-label={t('category')}>
+            {categories.map((category, index) => (
+              <ActionMenu.Item
+                key={index}
+                value={String(index)}
+                selected={index === selectedCategory}
+                onKeyDownCapture={onActionMenuItemKeyDownCapture}
+              >
+                {category}
+              </ActionMenu.Item>
+            ))}
           </ActionMenu.Overlay>
         </ActionMenu>
 
         {showSurface && (
-          <ActionMenu>
-            <ActionMenu.Button className="col-md-1 col-sm-2 m-1">
+          <ActionMenu
+            selectionVariant="single"
+            size="small"
+            menuAlignment="start"
+            onSelect={(value) => onFilter(surfaces[Number(value)], 'surface', Number(value))}
+          >
+            <ActionMenu.Button>
               <span className={styles.surfaceLabel}>{t('surface')}:</span>{' '}
               {surfaces[selectedSurface]}
             </ActionMenu.Button>
-            <ActionMenu.Overlay width="auto">
-              <ActionList selectionVariant="single">
-                {surfaces.map((surface, index) => (
-                  <ActionList.Item
-                    key={index}
-                    selected={index === selectedSurface}
-                    onSelect={() => onFilter(surface, 'surface', index)}
-                  >
-                    {surface}
-                  </ActionList.Item>
-                ))}
-              </ActionList>
+            <ActionMenu.Overlay aria-label={t('surface')}>
+              {surfaces.map((surface, index) => (
+                <ActionMenu.Item
+                  key={index}
+                  value={String(index)}
+                  selected={index === selectedSurface}
+                  onKeyDownCapture={onActionMenuItemKeyDownCapture}
+                >
+                  {surface}
+                </ActionMenu.Item>
+              ))}
             </ActionMenu.Overlay>
           </ActionMenu>
         )}
 
         {showComplexity && (
-          <ActionMenu>
-            <ActionMenu.Button className="col-md-1 col-sm-2 m-1">
-              <span className={styles.surfaceLabel}>{t('complexity')}:</span>{' '}
+          <ActionMenu
+            selectionVariant="single"
+            size="small"
+            menuAlignment="start"
+            onSelect={(value) => onFilter(complexities[Number(value)], 'complexity', Number(value))}
+          >
+            <ActionMenu.Button>
+              <span className={styles.complexityLabel}>{t('complexity')}:</span>{' '}
               {complexities[selectedComplexity]}
             </ActionMenu.Button>
-            <ActionMenu.Overlay width="auto">
-              <ActionList selectionVariant="single">
-                {complexities.map((complexity, index) => (
-                  <ActionList.Item
-                    key={index}
-                    selected={index === selectedComplexity}
-                    onSelect={() => onFilter(complexity, 'complexity', index)}
-                  >
-                    {complexity}
-                  </ActionList.Item>
-                ))}
-              </ActionList>
+            <ActionMenu.Overlay aria-label={t('complexity')}>
+              {complexities.map((complexity, index) => (
+                <ActionMenu.Item
+                  key={index}
+                  value={String(index)}
+                  selected={index === selectedComplexity}
+                  onKeyDownCapture={onActionMenuItemKeyDownCapture}
+                >
+                  {complexity}
+                </ActionMenu.Item>
+              ))}
             </ActionMenu.Overlay>
           </ActionMenu>
         )}
 
-        <Button variant="invisible" className="col-md-1 col-sm-2 mt-1" onClick={onResetFilter}>
+        <Button
+          variant="subtle"
+          size="small"
+          style={{ whiteSpace: 'nowrap' }}
+          onClick={onResetFilter}
+        >
           {t('reset_filters')}
         </Button>
       </div>

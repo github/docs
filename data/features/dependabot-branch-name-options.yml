@@ -1,0 +1,6 @@
+# Reference: Configurable branch name format options for Dependabot
+# Options: prefix, max-length, word-separator, branch-name-case, template
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '> 3.22'

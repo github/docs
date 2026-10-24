@@ -2,7 +2,7 @@
 
 This guide explains how to set up an A/B test on article content using the experiment framework. Both content variants live in the same Markdown file and are served in a single Fastly-cached response. Client-side JavaScript swaps which variant is visible based on the user's experiment group.
 
-For background on A/B testing at GitHub Docs, see [the A/B testing guide](https://github.com/github/docs-team/blob/main/analytics/ab-test.md).
+For background on A/B testing at GitHub Docs, see [the A/B testing guide](https://github.com/github/technical-content/blob/main/analytics/ab-test.md).
 
 > [!IMPORTANT]
 > Only one experiment can have `includeVariationInContext: true` at a time, because `experiment_variation` is a single key in the event context. Multiple experiments can run concurrently if the others use `sendExperimentSuccess` for tracking instead. See the [experiments README](./README.md) for details.
@@ -65,7 +65,7 @@ To analyze additional event types (such as scroll depth or time on page), add qu
 
 Use the **[Docs Experiment Results dashboard](https://gh.io/docs-8c0c)** to track split verification, CTA click-through rates, sequential significance testing, and per-article breakdowns. The dashboard has parameters for experiment name, path product, and minimum detectable effect.
 
-Dashboard source config: [`docs-team/analytics/dashboard-builder/experiment-results.config.ts`](https://github.com/github/docs-team/blob/main/analytics/dashboard-builder/experiment-results.config.ts)
+Dashboard source config: [`technical-content/analytics/dashboard-builder/experiment-results.config.ts`](https://github.com/github/technical-content/blob/main/analytics/dashboard-builder/experiment-results.config.ts)
 
 ## Ending the experiment
 

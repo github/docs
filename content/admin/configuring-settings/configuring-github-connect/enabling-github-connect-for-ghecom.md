@@ -12,7 +12,7 @@ category:
   - Install and configure your instance
 ---
 
-You can access additional features and workflows on {% data variables.location.product_location %} by enabling {% data variables.product.prodname_github_connect %}. See [AUTOTITLE](/admin/configuration/configuring-github-connect/about-github-connect).
+You can access additional features and workflows on {% data variables.location.product_location %} by enabling {% data variables.product.prodname_github_connect %}. See [AUTOTITLE](/admin/configuring-settings/configuring-github-connect/about-github-connect).
 
 {% data reusables.github-connect.what-is-available-ghecom %}
 
@@ -23,14 +23,14 @@ You can access additional features and workflows on {% data variables.location.p
 ## Prerequisites
 
 * **Administrative access:** You need administrative access to both an enterprise account on {% data variables.enterprise.data_residency_site %} and a {% data variables.product.prodname_ghe_server %} instance.
-* **Version requirement:** Your {% data variables.product.prodname_ghe_server %} instance must run {% data variables.product.prodname_ghe_server %} 3.12 or later.
+* **Version requirement:** To enable {% data variables.product.prodname_github_connect %} for {% data variables.enterprise.data_residency_site %}, your {% data variables.product.prodname_ghe_server %} instance must be on version 3.12 or later. Certain individual features of {% data variables.product.prodname_github_connect %} require later versions. See [AUTOTITLE](/admin/configuring-settings/configuring-github-connect/about-github-connect#github-connect-features).
 * **Proxy configuration:** If using a proxy server, allow connectivity to the following {% data variables.enterprise.data_residency_site %} hostnames (replace SUBDOMAIN with your enterprise's subdomain).
 
    * `{% data variables.enterprise.data_residency_domain %}`
    * `{% data variables.enterprise.data_residency_api %}`
    * `uploads.{% data variables.enterprise.data_residency_domain %}`
 
-   See [AUTOTITLE](/admin/configuration/configuring-network-settings/configuring-an-outbound-web-proxy-server).
+   See [AUTOTITLE](/admin/configuring-settings/configuring-network-settings/configuring-an-outbound-web-proxy-server).
 
 ## Step 1: Enable connection to {% data variables.enterprise.data_residency_site %}
 

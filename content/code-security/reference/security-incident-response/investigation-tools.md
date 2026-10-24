@@ -57,6 +57,7 @@ Read access to the repository.
 
 * [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)
 * [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization)
+* [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/reviewing-your-security-log)
 * [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/security-log-events){% ifversion ghec %}
 * [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/identifying-audit-log-events-performed-by-an-access-token){% endif %}
 
@@ -67,7 +68,9 @@ Read access to the repository.
   * Audit log streaming to an external SIEM or log management system requires prior configuration. See [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise).
    * Without audit log streaming, you won't be able to run more complex queries, such as correlating events across organizations or repositories, or pivoting from a specific token to all related events.
    * Git events data are included in the stream.
+{% ifversion audit-log-streaming-for-api %}
 * We recommend streaming **API request events**; this requires prior configuration. See [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise#enabling-audit-log-streaming-of-api-requests).
+{% endif %}
 * For enterprises on {% data variables.product.prodname_ghe_cloud %}, we recommend displaying **IP addresses** in the audit logs; this requires prior configuration. See [AUTOTITLE](/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/displaying-ip-addresses-in-the-audit-log-for-your-enterprise).
 * Different {% data variables.product.github %} plans have different data availability and data retention offerings:
    * {% data variables.product.prodname_free_team %} and {% data variables.product.prodname_team %} plans can't view API activity or Git events at all.
@@ -92,9 +95,9 @@ Read access to the repository.
 
 ### Key resources
 
-* [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/exploring-the-dependencies-of-a-repository)
+* [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/explore-dependencies)
 * [AUTOTITLE](/code-security/reference/supply-chain-security/dependency-graph-supported-package-ecosystems)
-* [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/establish-provenance-and-integrity/exporting-a-software-bill-of-materials-for-your-repository)
+* [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/establish-provenance-and-integrity/export-dependencies-as-sbom)
 
 ### Notes and limitations
 
@@ -143,8 +146,9 @@ Read access to the repository.
 
 ### Key resources
 
-* [AUTOTITLE](/code-security/concepts/security-at-scale/about-security-overview)
-* [AUTOTITLE](/code-security/how-tos/view-and-interpret-data/analyze-organization-data/viewing-security-insights#viewing-the-security-overview-dashboard-for-your-organization)
+* [AUTOTITLE](/code-security/concepts/security-at-scale/security-overview)
+* [AUTOTITLE](/code-security/how-tos/view-and-interpret-data/analyze-organization-data/viewing-security-insights)
+* [AUTOTITLE](/code-security/how-tos/view-and-interpret-data/analyze-organization-data/find-insecure-repositories)
 
 ### Notes and limitations
 
@@ -156,7 +160,8 @@ Read access to the repository.
 
 * Confirm what executed in CI/CD at a given time (such as the commands executed, or the dependency installed).
 * Investigate suspicious workflow runs, such as those triggered by an unfamiliar user or at an unusual time, to see what actions were performed, which secrets were accessed, and what code was executed.
-* Determine whether a workflow had access to any secrets.
+* Review what credentials a workflow job had access to, including the default `GITHUB_TOKEN`, any {% data variables.product.pat_generic_plural %}, {% data variables.product.prodname_github_app %} tokens, other credentials stored as secrets, and access tokens obtained during the workflow run.
+* Retrieve logs programmatically via the REST API for archival, forensic, or automation purposes.
 
 #### Permissions required
 
@@ -166,8 +171,22 @@ Read access to the repository.
 
 * [AUTOTITLE](/actions/how-tos/monitor-workflows/view-workflow-run-history)
 * [AUTOTITLE](/actions/how-tos/monitor-workflows/use-workflow-run-logs)
+* [AUTOTITLE](/actions/how-tos/manage-workflow-runs/download-workflow-artifacts)
+* [AUTOTITLE](/actions/concepts/security/github_token)
+* [AUTOTITLE](/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets)
+* [AUTOTITLE](/actions/reference/security/secure-use)
+* [AUTOTITLE](/rest/actions/workflow-runs)
+* [AUTOTITLE](/rest/actions/workflow-jobs)
+* [AUTOTITLE](/code-security/tutorials/implement-supply-chain-best-practices/securing-builds)
 
 ### Notes and limitations
 
 * {% data variables.product.github %} automatically redacts secrets from workflow logs.
-* By default, workflow logs are retained by {% data variables.product.github %} for 90 days, but you can configure this retention period to be longer (up to 400 days for private repositories).
+* By default, workflow logs are retained by {% data variables.product.github %} for 90 days, but you can configure this retention period. {% ifversion fpt or ghec %}For public repositories, the maximum retention is 90 days. For private{% ifversion ghec %} and internal{% endif %} repositories, the maximum is 400 days.{% else %}The maximum retention is 400 days.{% endif %} Retention can be configured at the enterprise, organization, or repository level. If a workflow run occurred outside of your configured retention window, the logs may no longer be available. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository), [AUTOTITLE](/organizations/managing-organization-settings/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization), or [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise).
+* Workflow runs (including their logs) can also be deleted via the REST API. To check whether a run was deleted, query for `workflows.delete_workflow_run` events in the audit log.
+* The default `GITHUB_TOKEN` issued to each job is scoped to that job and expires when the job finishes or after its effective maximum lifetime (up to 24 hours on self-hosted runners). Even if a step captured the token, it cannot be reused after the job finishes. For more information, see [AUTOTITLE](/actions/concepts/security/github_token).
+* Other credentials referenced in workflows, such as {% data variables.product.pat_generic_plural %}, {% data variables.product.prodname_github_app %} installation tokens, or third-party API keys stored as secrets, have their own lifecycle and do not expire when the job ends. If a workflow step exposed one of these credentials, the token remains valid until it is revoked or expires according to its own policy. Any credential that may have been exposed should be treated as compromised and rotated or replaced immediately. Review the workflow file and the repository, organization, and environment secrets to determine which credentials were accessible. For more information, see [AUTOTITLE](/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets).
+* You can download logs for an entire workflow run or for a specific job programmatically using the REST API. Both endpoints return a redirect URL that is valid for one minute. For more information, see [AUTOTITLE](/rest/actions/workflow-runs) and [AUTOTITLE](/rest/actions/workflow-jobs).
+* Workflow run logs only capture standard output from workflow steps. Activity that does not write to standard output, such as network calls, file system modifications, or background processes, does not appear in the logs.
+* For {% data variables.product.github %}-hosted runners, the runner environment is ephemeral and destroyed after the job completes. {% data variables.product.github %} does not retain any data beyond the workflow run logs for these runners. For self-hosted runners, additional host-level or network telemetry may be available from your own infrastructure.
+* For a more comprehensive investigation, correlate workflow run logs with audit log events. Events such as `git.clone`, `git.fetch`, `git.push`, `protected_branch.create`, and `protected_branch.policy_override` can provide additional context. Because Git events in {% data variables.product.github %}-hosted audit logs are currently retained for only 7 days for enterprises, setting up streamed enterprise audit logs ahead of time is important for this type of investigation. For more information, see [AUTOTITLE](/code-security/tutorials/secure-your-organization/prepare-for-a-security-incident).

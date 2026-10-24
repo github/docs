@@ -17,7 +17,7 @@ docsTeamMetrics:
 
 Where a task involves multiple operations, some or all of which can be worked on in parallel, the `/fleet` slash command can speed up task completion. When you use this command, {% data variables.product.prodname_copilot_short %} assigns separate parts of the work to subagents.
 
-For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/fleet).
+For more information, see [AUTOTITLE](/copilot/concepts/agent-capabilities/choosing-and-delegating-agent-work/delegating-and-parallelizing-work-with-agents).
 
 ## Using the `/fleet` slash command
 
@@ -32,8 +32,21 @@ Typically, you'll use the `/fleet` slash command after creating an implementatio
 1. Work with {% data variables.product.prodname_copilot_short %} in plan mode to create an implementation plan.
 1. Once the plan is complete, select one of the following options:
 
-   * **Accept plan and build on autopilot + /fleet** to allow {% data variables.product.prodname_copilot_short %} to use subagents and work autonomously to implement the plan without any further input.
+   * **Accept plan and continue in Autopilot execution mode + /fleet** to allow {% data variables.product.prodname_copilot_short %} to use subagents and work autonomously to implement the plan without any further input.
    * **Exit plan mode and I will prompt myself** and then enter a prompt such as `/fleet implement the plan`. {% data variables.product.prodname_copilot_short %} will start working on the plan, using subagents to run parts of the work in parallel where possible. It may ask you to answer questions or make decisions as it works through the plan.
+
+### Assigning specialized subagents
+
+If you have a custom agent with expertise suited to a particular subtask, name it in your `/fleet` prompt. {% data variables.product.prodname_copilot_short %} can also select an appropriate custom agent based on the task and the agent's description.
+
+For example, you could prompt:
+
+```copilot
+/fleet Implement the plan. Use the @CUSTOM-AGENT-NAME agent
+to create tests for each component.
+```
+
+Replace `@CUSTOM-AGENT-NAME` with the name of a custom agent available in your CLI session. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/create-custom-agents-for-cli).
 
 ### Monitoring progress
 
@@ -42,10 +55,48 @@ Use the `/tasks` slash command to see a list of background tasks relating to the
 Use up and down keyboard keys to navigate through the list of background tasks. For each subagent task, you can:
 
 * Press <kbd>Enter</kbd> to view details. When the subtask is complete, you will see a summary of what was done.
-* Press <kbd>k</kbd> to kill the process.
+* Press <kbd>x</kbd> to kill the process.
 * Press <kbd>r</kbd> to remove completed or killed subtasks from the list.
 
 Press <kbd>Esc</kbd> to exit the task list and return to the main CLI prompt.
+
+## Starting in fleet mode from the command line
+
+You can start {% data variables.copilot.copilot_cli_short %} in fleet mode directly from the command line by using the `--fleet` option. This is the command-line equivalent of the `/fleet` slash command. It wraps the prompt you supply, so {% data variables.product.prodname_copilot_short %} starts working on it in fleet mode straight away. You don't have to enter `/fleet` in an interactive session.
+
+The `--fleet` option is not supported in ACP server mode, so you cannot combine it with the `--acp` option.
+
+You must provide a prompt for {% data variables.product.prodname_copilot_short %} to work on. You can supply the prompt in one of three ways:
+
+* With the `-i` (interactive) option, to start an interactive session that begins in fleet mode.
+* With the `-p` (prompt) option, to run a task without an interactive session. The session exits when the task is complete.
+* By piping the prompt in through standard input.
+
+### When to use the `--fleet` option
+
+The `--fleet` option is particularly useful for automation, using the `-p` option, when you know that a task can be split into parts that run in parallel.
+
+For more information about the `-p` option and running tasks without an interactive session, see [AUTOTITLE](/copilot/how-tos/copilot-cli/automate-copilot-cli/run-cli-programmatically).
+
+### Examples
+
+Run a task in fleet mode without an interactive session:
+
+```shell copy
+copilot --fleet -p "Refactor the utils package and update everything that calls it" --allow-tool write
+```
+
+Pipe a prompt into fleet mode:
+
+```shell copy
+echo "Update the project dependencies and run the tests" | copilot --fleet
+```
+
+Start an interactive session that begins in fleet mode:
+
+```shell copy
+copilot --fleet -i "Add unit tests for every module in the src directory"
+```
 
 ## Further reading
 

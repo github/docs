@@ -7,7 +7,6 @@ versions:
 redirect_from:
   - /billing/using-the-enhanced-billing-platform-for-enterprises/about-the-billing-cycle
   - /billing/using-the-billing-platform/viewing-your-subscriptions-and-billing-date
-  - /billing/using-the-billing-platform/changing-the-duration-of-your-billing-cycle
   - /billing/using-the-new-billing-platform/viewing-your-subscriptions-and-billing-date
   - /billing/using-the-new-billing-platform/about-the-billing-cycle
   - /billing/managing-your-billing/about-the-billing-cycle
@@ -35,13 +34,6 @@ For example, if you started a paid plan or converted from a trial on the 15th of
 > [!NOTE]
 > From **December 1, 2025**, all self-serve, metered {% data variables.product.prodname_ghe_cloud %} accounts that pay by credit card will migrate to a **billing date** of 1st of the month. See [Billing date standardized to the first of the month for self-serve credit card metered Enterprise customers](https://github.blog/changelog/2025-11-17-billing-date-standardized-to-the-first-of-the-month-for-self-serve-credit-card-metered-enterprise-customers-now-generally-available/) in the changelog.
 
-## Billing cycle for {% data variables.copilot.sandbox %} during public preview
-
-During {% data variables.release-phases.public_preview %}, eligible accounts receive a **$10 monthly entitlement** for cloud sandbox usage in **June 2026**. The entitlement applies as follows:
-
-* Usage above the entitlement is metered against your standard billing cycle and billed on your normal billing date.
-* The entitlement is discontinued after June 2026. Pricing and packaging after the preview is subject to change.
-
 ## Billing cycles for volume-based products
 
 Volume-based licenses may follow a different billing cycle. These products are often billed based on the anniversary date of your subscription rather than by calendar month.
@@ -65,14 +57,18 @@ Changes you make mid-cycle, such as adding or removing users, seats, or resource
 * **Within the same billing account**: No double-billing. Moving users or resources between organizations under the same account is handled automatically.
 * **Between different billing accounts**: Each account is billed according to its own cycle. You may see charges in both accounts if the move overlaps billing periods.
 
+## Changing your billing cycle
+
+In some cases, you can change your billing cycle from monthly to annual, or vice versa. For information about when you can change your billing cycle and how to make the change, see [AUTOTITLE](/billing/how-tos/manage-plan-and-licenses/change-billing-cycle).
+
 ## Where to find usage details for specific products
 
 Find product-specific guidance on how usage is calculated and billed.
 
-* [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-actions/about-billing-for-github-actions)
-* [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)
-* [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-packages/about-billing-for-github-packages)
-* [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-copilot/about-billing-for-github-copilot)
+* [AUTOTITLE](/billing/concepts/product-billing/github-actions)
+* [AUTOTITLE](/billing/concepts/product-billing/github-codespaces)
+* [AUTOTITLE](/billing/concepts/product-billing/github-packages)
+* [AUTOTITLE](/billing/concepts/product-billing/github-copilot-licenses)
 * [AUTOTITLE](/billing/concepts/product-billing/cloud-and-local-sandboxes)
-* [AUTOTITLE](/billing/managing-billing-for-your-products/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/about-visual-studio-subscriptions-with-github-enterprise#about-licenses-for-visual-studio-subscriptions-with-github-enterprise-cloud)
-* [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-git-large-file-storage/about-billing-for-git-large-file-storage)
+* [AUTOTITLE]({% ifversion fpt %}/enterprise-cloud@latest{% endif %}/billing/concepts/enterprise-billing/visual-studio-subs#about-licenses-for-visual-studio-subscriptions-with-github-enterprise-cloud)
+* [AUTOTITLE](/billing/concepts/product-billing/git-lfs)

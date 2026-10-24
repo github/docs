@@ -11,8 +11,8 @@ how_to_use: |
   * [Versions API](https://docs.github.com/api/pagelist/versions): Lists all available documentation versions.
   * [Languages API](https://docs.github.com/api/pagelist/languages): Lists all available languages.
   * [Page List API](https://docs.github.com/api/pagelist/en/free-pro-team@latest): Returns every docs page path for a given language and version.
-  * [Article API](https://docs.github.com/api/article): Returns the full rendered content and context of any docs page as JSON. Example: `curl "https://docs.github.com/api/article?pathname=/en/get-started/start-your-journey/about-github-and-git"`
-  * [Article Body API](https://docs.github.com/api/article/body): Returns the full rendered content of any docs page as markdown. Example: `curl "https://docs.github.com/api/article/body?pathname=/en/get-started/start-your-journey/about-github-and-git"`
+  * [Article API](https://docs.github.com/api/article): Returns the full rendered content and context of any docs page as JSON. Example: `curl "https://docs.github.com/api/article?pathname=/en/get-started/start-your-journey/what-is-github"`
+  * [Article Body API](https://docs.github.com/api/article/body): Returns the full rendered content of any docs page as markdown. Example: `curl "https://docs.github.com/api/article/body?pathname=/en/get-started/start-your-journey/what-is-github"`
   * [Search API](https://docs.github.com/api/search/v1): Search across all docs content. Example: `curl "https://docs.github.com/api/search/v1?query=actions&language=en&version=free-pro-team@latest"`
   * [GitHub MCP server](https://github.com/github/github-mcp-server): For agents that connect via Model Context Protocol, the GitHub MCP server provides tools for working with GitHub itself: repositories, issues, pull requests, workflows, and code. It does not currently include docs search.
 
@@ -20,11 +20,11 @@ pinned_section_heading: |
   Building with GitHub, for coding agents and automation
 
 pinned_pages:
-  - copilot/how-tos/provide-context/use-mcp-in-your-ide/extend-copilot-chat-with-mcp
-  - copilot/how-tos/provide-context/use-mcp-in-your-ide/use-the-github-mcp-server
-  - copilot/how-tos/provide-context/use-mcp-in-your-ide/set-up-the-github-mcp-server
-  - copilot/concepts/agents/cloud-agent/about-cloud-agent
-  - copilot/how-tos/use-copilot-agents/cloud-agent/create-custom-agents-in-your-ide
+  - copilot/how-tos/copilot-in-your-ide/customize-copilot/extend-copilot-with-tools-and-context/extend-copilot-chat-with-mcp
+  - copilot/how-tos/copilot-in-your-ide/copilot-for-common-tasks/use-the-github-mcp-server
+  - copilot/how-tos/copilot-in-your-ide/customize-copilot/extend-copilot-with-tools-and-context/set-up-the-github-mcp-server
+  - copilot/concepts/copilot-surfaces/copilot-on-github
+  - copilot/how-tos/copilot-in-your-ide/use-copilot-agents/use-custom-agents
   - github-cli/github-cli
   - github-cli/github-cli/quickstart
   - rest

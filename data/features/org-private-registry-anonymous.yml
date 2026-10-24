@@ -1,0 +1,6 @@
+# Reference: github/releases#11330
+# Anonymous (unauthenticated) organization-level private registries used by Dependabot.
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.24'

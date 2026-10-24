@@ -44,12 +44,12 @@ If you published a {% data variables.product.prodname_pages %} site in a private
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 
-After an organization's plan is downgraded, the organization will lose access to any functionality that is not included in the new plan. If an advanced feature, such as {% data variables.product.prodname_pages %}, is not available for private repositories in your new plan, consider whether you'd like to retain access to the feature by making affected repositories public. For more information, see [Setting repository visibility](/articles/setting-repository-visibility).
+After an organization's plan is downgraded, the organization will lose access to any functionality that is not included in the new plan. If an advanced feature, such as {% data variables.product.prodname_pages %}, is not available for private repositories in your new plan, consider whether you'd like to retain access to the feature by making affected repositories public. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility).
 
 Downgrading from {% data variables.product.prodname_ghe_cloud %} disables any SAML settings. If you later purchase {% data variables.product.prodname_enterprise %}, you will need to reconfigure SAML.
 
 > [!NOTE]
-> If your organization is owned by an enterprise account, billing cannot be managed at the organization level. To downgrade, you must remove the organization from the enterprise account first. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-organizations-in-your-enterprise/removing-organizations-from-your-enterprise).
+> If your organization is owned by an enterprise account, billing cannot be managed at the organization level. To downgrade, you must remove the organization from the enterprise account first. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/removing-organizations-from-your-enterprise).
 
 {% data reusables.organizations.billing-settings %}
 1. Under "Current plan", use the **Edit** drop-down and click the downgrade option you want.
@@ -60,7 +60,7 @@ Downgrading from {% data variables.product.prodname_ghe_cloud %} disables any SA
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 
-{% data reusables.dotcom_billing.switch-legacy-billing %} For more information, see [AUTOTITLE](/billing/managing-the-plan-for-your-github-account/upgrading-your-accounts-plan#switching-your-organization-from-per-repository-to-per-user-pricing).
+{% data reusables.dotcom_billing.switch-legacy-billing %} For more information, see [AUTOTITLE](/billing/how-tos/manage-plan-and-licenses/upgrade-plan#switching-your-organization-from-per-repository-to-per-user-pricing).
 
 {% data reusables.organizations.billing-settings %}
 5. Under "Subscriptions", next to your current plan, select the **Edit** dropdown menu and click **Edit plan**.
@@ -75,7 +75,7 @@ If you want to stop paying for {% data variables.product.prodname_enterprise %} 
 
 If you have a self-serve enterprise account, an enterprise account owner can:
 
-1. Remove or delete all organizations from the enterprise. Removing an organization from an enterprise automatically downgrades the organization to {% data variables.product.prodname_free_team %}. See [AUTOTITLE](/admin/user-management/managing-organizations-in-your-enterprise/removing-organizations-from-your-enterprise).
+1. Remove or delete all organizations from the enterprise. Removing an organization from an enterprise automatically downgrades the organization to {% data variables.product.prodname_free_team %}. See [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/removing-organizations-from-your-enterprise).
 1. Review and remove any remaining unaffiliated members from the enterprise. Depending on your policy settings, members who don't belong to any organizations may remain in your enterprise as unaffiliated members. To fully close the account, remove these unaffiliated members.
 1. Delete the enterprise account to cancel the {% data variables.product.prodname_enterprise %} subscription. See [AUTOTITLE](/admin/managing-your-enterprise-account/deleting-an-enterprise-account).
 
@@ -83,6 +83,6 @@ If you have a self-serve enterprise account, an enterprise account owner can:
 
 * [AUTOTITLE](/billing/how-tos/manage-plan-and-licenses/manage-user-licenses)
 * [AUTOTITLE](/get-started/learning-about-github/githubs-plans)
-* [AUTOTITLE](/billing/managing-the-plan-for-your-github-account/how-does-upgrading-or-downgrading-affect-the-billing-process)
-* [AUTOTITLE](/billing/managing-your-billing/about-billing-on-github).
-* [AUTOTITLE](/billing/managing-the-plan-for-your-github-account/about-per-user-pricing)
+* [AUTOTITLE](/billing/concepts/impact-of-plan-changes)
+* [AUTOTITLE](/billing/get-started/how-billing-works).
+* [AUTOTITLE](/billing/reference/github-license-users)

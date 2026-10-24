@@ -13,9 +13,7 @@ export function formatTime(ms: number) {
   return `${seconds.toFixed(1)}s`
 }
 
-// Return '20220719012012' if the current date is
-// 2022-07-19T01:20:12.172Z. Note how the 6th month (July) becomes
-// '07'. All numbers become 2 character zero-padding strings individually.
+// Formats the current UTC time as YYYYMMDDHHmmss, such as 20220719012012.
 export function utcTimestamp() {
   const d = new Date()
 
@@ -28,22 +26,13 @@ export function utcTimestamp() {
       d.getUTCMinutes(),
       d.getUTCSeconds(),
     ]
-      // If it's a number make it a zero-padding 2 character string
+      // Numeric UTC parts need zero-padding before joining.
       .map((x) => (typeof x === 'number' ? `0${x}`.slice(-2) : x))
       .join('')
   )
 }
 
-/**
- * Converts a given number of seconds into a formatted time string "HH:mm:ss".
- *
- * @param {number} seconds - The total number of seconds to format.
- * @returns {string} A string representing the time in "hours:minutes:seconds" format.
- *
- * @example
- * // returns "01:30:45"
- * formatSeconds(5445);
- */
+// Formats seconds as HH:mm:ss. 5445 becomes 01:30:45. Wraps at 24 hours.
 export function formatSecondsToHHMMSS(seconds: number): string {
   return new Date(seconds * 1000).toISOString().substr(11, 8)
 }

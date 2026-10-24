@@ -173,10 +173,9 @@ Exactly one of these options must be given.
 
 #### `--query=<qlfile>`
 
-The path to the QL file we want to compile.
-
-Its directory and parent directories will be searched for qlpack.yml or
-legacy queries.xml files to determine necessary packs.
+The path to the QL file we want to compile. Its directory and parent
+directories will be searched for qlpack.yml or legacy queries.xml files
+to determine necessary packs.
 
 #### `--dir=<dir>`
 

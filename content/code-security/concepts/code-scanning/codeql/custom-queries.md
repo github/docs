@@ -58,9 +58,9 @@ For more information, see [Query help files](https://codeql.github.com/docs/writ
 
 ## Sharing custom queries
 
-You can share custom queries with the community by publishing your own query packs. See [AUTOTITLE](/code-security/tutorials/customize-code-scanning/publishing-and-using-codeql-packs).
+You can share custom queries with the community by publishing your own query packs. See [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/scan-from-the-command-line/publish-and-use-packs).
 
 ## Further reading
 
-* [AUTOTITLE](/code-security/how-tos/scan-code-for-vulnerabilities/scan-from-the-command-line/using-custom-queries-with-the-codeql-cli)
+* [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/scan-from-the-command-line/write-custom-queries)
 * [{% data variables.product.prodname_codeql %} queries](https://codeql.github.com/docs/writing-codeql-queries/codeql-queries/#codeql-queries)

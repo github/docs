@@ -29,7 +29,7 @@ Your current plan is shown with any options to upgrade to a different plan.
 
 If your organization or enterprise uses metered billing, then you are ready to start enabling {% data variables.product.prodname_GH_cs_and_sp %}. Whenever you enable a feature or apply a configuration, a modal dialog shows detailed information with estimated billing changes. You can confirm your change or return to the page without making changes.
 
-The most effective way to control and enable these features is using security configurations, see [AUTOTITLE](/code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/choosing-a-security-configuration-for-your-repositories).
+The most effective way to control and enable these features is using security configurations, see [AUTOTITLE](/code-security/concepts/security-at-scale/organization-security).
 
 ## Volume/subscription users
 
@@ -51,6 +51,6 @@ If you use volume/subscription billing, then you will need to purchase licenses 
 
 ## Further reading
 
-* [AUTOTITLE](/code-security/trialing-github-advanced-security/planning-a-trial-of-ghas)
-* [AUTOTITLE](/code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/about-enabling-security-features-at-scale){% ifversion ghec %}
-* [AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale/introduction-to-adopting-github-advanced-security-at-scale){% endif %}
+* [AUTOTITLE](/code-security/tutorials/trialing-github-advanced-security/planning-a-trial-of-ghas)
+* [AUTOTITLE](/code-security/concepts/security-at-scale/organization-security){% ifversion ghec %}
+* [AUTOTITLE](/code-security/tutorials/adopting-github-advanced-security-at-scale/introduction-to-adopting-github-advanced-security-at-scale){% endif %}

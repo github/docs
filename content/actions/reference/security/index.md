@@ -8,6 +8,7 @@ versions:
   ghec: '*'
 children:
   - /secure-use
+  - /securely-using-pull_request_target
   - /secrets
   - /oidc
 contentType: reference

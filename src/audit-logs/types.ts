@@ -7,7 +7,7 @@ export type AuditLogEventT = {
   description: string
   fields?: string[]
   docs_reference_links?: string
-  docs_reference_titles?: string
+  docs_reference_titles?: string | string[]
 }
 
 export type RawAuditLogEventT = {
@@ -27,3 +27,15 @@ export type AuditLogConfig = {
   appendedDescriptions: Record<string, string>
   categoryNotes?: CategoryNotes
 }
+
+// Shared entries store fields as indexes into fields-pool.json.
+export type DeduplicatedAuditLogEntry = {
+  action: string
+  description: string
+  docs_reference_links?: string
+  docs_reference_titles?: string | string[]
+  fieldsIndex?: number
+}
+
+// version-index.json maps version and page names to entries.json indexes.
+export type AuditLogVersionIndex = Record<string, Record<string, number[]>>

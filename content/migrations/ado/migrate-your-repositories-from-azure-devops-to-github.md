@@ -20,7 +20,7 @@ category:
 ## Prerequisites
 
 * You must have completed all previous phases of this guide.
-* {% data reusables.enterprise-migration-tool.link-to-support-limitations %} For more information, see [AUTOTITLE](/migrations/ado/phase-1-understand-migrations-from-azure-devops-to-github).
+* {% data reusables.enterprise-migration-tool.link-to-support-limitations %} For more information, see [AUTOTITLE](/migrations/ado/understand-migrations-from-azure-devops-to-github).
 * {% data reusables.enterprise-migration-tool.delta-migrations-not-supported %}
 
 ## Generate a migration script
@@ -44,7 +44,7 @@ gh ado2gh generate-script --ado-org SOURCE --github-org DESTINATION --output FIL
 | -------- | ----------- |
 | `--target-api-url TARGET-API-URL` | {% data reusables.enterprise-migration-tool.add-target-api-url %} |
 | `--all` | Add additional functionality to the script, such as rewiring pipelines, creating teams, and configuring Azure Boards integrations. |
-| `--download-migration-logs` | Download the migration log for each migrated repository. For more information about migration logs, see [AUTOTITLE](/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/accessing-your-migration-logs-for-github-enterprise-importer#downloading-all-migration-logs-for-an-organization). |
+| `--download-migration-logs` | Download the migration log for each migrated repository. For more information about migration logs, see [AUTOTITLE](/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/accessing-your-migration-logs-for-github-enterprise-importer#downloading-all-the-repository-migration-logs-for-a-migration-script). |
 
 ## Reviewing the migration script
 
@@ -59,7 +59,7 @@ gh ado2gh generate-script --ado-org SOURCE --github-org DESTINATION --output FIL
    You can use a single organization for all trial runs, or you can create one test organization for each intended destination organization. Consider including `-sandbox` at the end of the organization names, to clarify that the organizations are intended only for migration validation and not for production. You can delete the test organizations after you're done.
 
 1. Run the trial migrations.
-1. Confirm that you are able to complete the follow-up tasks in [AUTOTITLE](/migrations/ado/phase-6-follow-up-tasks).
+1. Confirm that you are able to complete the follow-up tasks in [AUTOTITLE](/migrations/ado/follow-up-tasks).
 1. Ask users to validate the results of the migrations.
 1. Resolve any issues uncovered by your trial migrations.
 {% data reusables.enterprise-migration-tool.delete-test-organization %}

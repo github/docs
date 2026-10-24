@@ -42,18 +42,19 @@ category:
 ---
 
 > [!TIP]
-> **{% data variables.product.prodname_ghe_server %}** administrators should instead see [AUTOTITLE](/billing/how-tos/products/download-ghas-license-use).
+> **{% data variables.product.prodname_ghe_server %}** administrators should instead see [AUTOTITLE](/billing/how-tos/products/download-license-use).
 
 ## Viewing a summary of usage
 
 The options available to you vary according to your role and {% data variables.product.github %} plan.
 
-{% data variables.product.github %} cloud:
-* Anyone can view usage data for their own personal account unless their account is managed by their enterprise (EMU).
+{% data variables.product.prodname_ghe_cloud %}:
+
+* Anyone can view usage data for their own personal account unless a license for a metered product (for example, {% data variables.product.prodname_copilot_short %}) is assigned to them by an organization or enterprise account.
 * If you are an **owner** or **billing manager** of an enterprise, or an organization on {% data variables.product.prodname_team %}, you will also have access to usage data for that organization or enterprise account.
 
 {% data variables.product.prodname_ghe_server %}:
-* Enterprise owners can access and download usage data for licenses, see [AUTOTITLE](/billing/how-tos/products/download-ghas-license-use).
+* Enterprise owners can access and download usage data for licenses, see [AUTOTITLE](/billing/how-tos/products/download-license-use).
 
 ### Personal accounts
 
@@ -83,7 +84,7 @@ The metered usage chart and usage break down table both show your current choice
 
 {% ifversion fpt or ghec %}
 > [!TIP]
-> For {% data variables.product.prodname_actions %}, you can also view the billable job execution minutes for an individual workflow run. For more information, see [AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/viewing-job-execution-time).
+> For {% data variables.product.prodname_actions %}, you can also view the billable job execution minutes for an individual workflow run. For more information, see [AUTOTITLE](/actions/how-tos/monitor-workflows/view-job-execution-time).
 {% endif %}
 
 {% ifversion copilot %}
@@ -93,14 +94,22 @@ The metered usage chart and usage break down table both show your current choice
 > [!NOTE]
 > Enterprise owners and billing managers can filter AI usage data by user. Organization owners cannot view user-level data directly—to see per-user consumption, download a usage report instead. See [Downloading usage reports](#downloading-usage-reports).
 
-If you use {% data variables.product.prodname_copilot_short %}, an additional **AI usage** view is listed under **Usage**. You can use this view to dig deeper into how your enterprise is consuming {% data variables.product.prodname_ai_credits_short %} and where additional spend is occurring. For example:
+If your account uses {% data variables.product.prodname_ai_credits_short %}, an additional **AI usage** view is listed under **Usage**. You can use this view to understand included and metered usage across products, including {% data variables.product.prodname_copilot_short %} and {% data variables.product.prodname_AS %}.
+
+To review combined AI Scan and agentic autofix usage, open the **AI usage** view, under "Group by," select **Products**, then review **{% data variables.product.prodname_AS %}**. These features share the Code Security AI Credits SKU, so their usage is reported together within the product total, not as separate totals for each feature.
+
+You can use the view to answer questions such as:
 
 * What's our total {% data variables.product.prodname_ai_credits_short %} consumption across all users?
 * Which users are the heaviest consumers, and are they within their budget?
 * Which models are driving the most spend?
 * How widespread is adoption in the organizations where we rolled out {% data variables.product.prodname_copilot_short %}?
 
-To understand how {% data variables.product.prodname_ai_credits_short %} are pooled across your enterprise and what the usage data represents, see [AUTOTITLE](/copilot/concepts/billing/usage-based-billing-for-organizations-and-enterprises).
+For information about {% data variables.product.prodname_copilot_short %} allowances and how {% data variables.product.prodname_ai_credits_short %} are pooled across your enterprise, see [AUTOTITLE](/copilot/concepts/billing-and-usage/organizations-and-enterprises/billing).
+
+App attribution is not available in the **AI usage** view. To identify usage from a {% data variables.product.prodname_github_app %} installed on an organization, download an AI usage report. Use the “List app installations for an organization” REST API endpoint and match `app_client_id` in the report to `client_id` in the response. The response’s `app_slug` identifies the app, and `id` identifies the installation. See [AUTOTITLE](/rest/orgs/orgs#list-app-installations-for-an-organization). For report field definitions, see [AUTOTITLE](/billing/reference/billing-reports#usage-report-fields).
+
+For information about {% data variables.product.prodname_AS %} AI-credit billing, see [AUTOTITLE](/billing/concepts/product-billing/github-advanced-security#how-ai-feature-usage-is-billed).
 
 {% endif %}
 
@@ -123,6 +132,6 @@ When the chart on the "Metered usage" {% ifversion copilot %}or "AI usage"{% end
 
 ## Next steps
 
-* [AUTOTITLE](/billing/reference/usage-reports){% ifversion fpt or ghec %}
-* [AUTOTITLE](/billing/managing-your-billing/using-budgets-control-spending)
-* [AUTOTITLE](/billing/managing-your-billing/automating-usage-reporting){% endif %}
+* [AUTOTITLE](/billing/reference/billing-reports){% ifversion fpt or ghec %}
+* [AUTOTITLE](/billing/how-tos/set-up-budgets)
+* [AUTOTITLE](/billing/tutorials/automate-usage-reporting){% endif %}

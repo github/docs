@@ -88,4 +88,4 @@ You can see the total amount of promotions and discounts applied to your account
 
 ## Creating a budget
 
-As an enterprise owner or billing manager, you can set the budget for your enterprise, an organization within your enterprise, or a cost center. As an organization owner, you are able to set the budgets for the repositories you manage. See [AUTOTITLE](/billing/managing-your-billing/using-budgets-control-spending#creating-a-budget).
+As an enterprise owner or billing manager, you can set the budget for your enterprise, an organization within your enterprise, or a cost center. As an organization owner, you are able to set the budgets for the repositories you manage. See [AUTOTITLE](/billing/how-tos/set-up-budgets#creating-a-budget).

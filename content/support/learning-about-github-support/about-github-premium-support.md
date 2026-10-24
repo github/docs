@@ -40,13 +40,13 @@ There are two {% data variables.contact.premium_support %} plans: Premium and {%
 |---|---|------|
 | Hours of operation | 24 x 7 | 24 x 7 |
 | Initial response time | <ul><li>30 minutes for {% data variables.product.support_ticket_priority_urgent %} (including initial troubleshooting)</li><li>4 hours for {% data variables.product.support_ticket_priority_high %}</li><li>48 hours for {% data variables.product.support_ticket_priority_normal %}</li><li>48 hours for {% data variables.product.support_ticket_priority_low %}</li></ul> | <ul><li>30 minutes for {% data variables.product.support_ticket_priority_urgent %} (including initial troubleshooting)</li><li>4 hours for {% data variables.product.support_ticket_priority_high %}</li><li>24 hours for {% data variables.product.support_ticket_priority_normal %}</li><li>48 hours for {% data variables.product.support_ticket_priority_low %}</li></ul> |
-| Support channels | <ul><li>Online ticket submission</li><li>Phone support in English via callback request (when required for ticket resolution)</li><li>Screen share request for critical issues</li></ul> | <ul><li>Online ticket submission</li><li>Phone support in English via callback request (when required for ticket resolution)</li><li>Screen share request for critical issues</li></ul> |
+| Support channels | <ul><li>Online ticket submission</li><li>Phone support in English via callback request (when required for ticket resolution)</li></ul> | <ul><li>Online ticket submission</li><li>Phone support in English via callback request (when required for ticket resolution)</li></ul> |
 | Training | Access to premium content  | <ul><li>Access to premium content</li><li>1 virtual training class per year</li></ul> |
 | Members with support entitlements | 20 | 40 |
 | Resources | Priority ticket handling | <ul><li>Priority ticket handling</li><li>Named Customer Reliability Engineer</li></ul>   |
 | Escalation management | For High and Urgent priority tickets | For High and Urgent priority tickets |
 | Incident management | None | For Urgent priority tickets, as needed |
-| Health checks | {% ifversion ghec %}None{% else %}Unlimited automated health check reports (see [Generating a health check for your enterprise](/admin/enterprise-management/monitoring-your-appliance/generating-a-health-check-for-your-enterprise)){% endif %} | <ul>{% ifversion ghes %}<li>Unlimited automated health check reports. For more information, see [AUTOTITLE](/admin/enterprise-management/monitoring-your-appliance/generating-a-health-check-for-your-enterprise))</li>{% endif %}<li>Quarterly enhanced health checks, with findings, interpretations, and recommendations from your CRE (by request)</li></ul>    |
+| Health checks | {% ifversion ghec %}None{% else %}Unlimited automated health check reports (see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/generating-a-health-check-for-your-enterprise)){% endif %} | <ul>{% ifversion ghes %}<li>Unlimited automated health check reports. For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/generating-a-health-check-for-your-enterprise)</li>{% endif %}<li>Quarterly enhanced health checks, with findings, interpretations, and recommendations from your CRE (by request)</li></ul>    |
 | {% ifversion ghes %} |
 | Crisis prevention | None | Yearly participation in guided incident simulations to help you be prepared |
 | {% endif %} |
@@ -57,7 +57,7 @@ There are two {% data variables.contact.premium_support %} plans: Premium and {%
 {% endrowheaders %}
 
   > [!NOTE]
-  > Enterprise owners and billing managers automatically have a support entitlement. Enterprise owners can add support entitlements to members of organizations owned by their enterprise account. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise).
+  > Enterprise owners and billing managers automatically have a support entitlement. Enterprise owners can add support entitlements to members of organizations owned by their enterprise account. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise).
 
 ## Billing for {% data variables.contact.premium_support %}
 

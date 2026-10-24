@@ -52,19 +52,6 @@ client = CopilotClient(log_level="debug")
 {% codetab go %}
 
 ```golang
-package main
-
-import copilot "github.com/github/copilot-sdk/go"
-
-func main() {
-	client := copilot.NewClient(&copilot.ClientOptions{
-		LogLevel: "debug",
-	})
-	_ = client
-}
-```
-
-```golang
 import copilot "github.com/github/copilot-sdk/go"
 
 client := copilot.NewClient(&copilot.ClientOptions{
@@ -112,7 +99,14 @@ var client = new CopilotClient(new CopilotClientOptions()
 
 ### Log directory
 
-The CLI writes logs to a directory. You can specify a custom location:
+The SDK-managed out-of-process runtime writes redacted
+`process-<timestamp>-<pid>.log` files under the Copilot home's `logs` directory
+by default in `copilot-cli` mode. SDKs in `empty` mode do not set the logging
+opt-in, but an inherited setting can still enable it; session events remain
+available to `collectLogs`. An explicitly selected older CLI executable may
+ignore this setting. You can specify a custom log location with `--log-dir`;
+`collectLogs` searches the configured directory. In-process connections do
+not start a separate logging process.
 
 {% codetabs %}
 {% codetab typescript %}
@@ -127,31 +121,15 @@ const client = new CopilotClient({
 {% codetab python %}
 
 ```python
-# The Python SDK does not currently support passing extra CLI arguments.
-# Logs are written to the default location or can be configured via
-# the CLI when running in server mode.
-```
+from copilot import CopilotClient, RuntimeConnection
 
-> [!NOTE]
-> Python SDK logging configuration is limited. For advanced logging, run the CLI manually with `--log-dir` and connect via `RuntimeConnection.for_uri(...)`.
+client = CopilotClient(
+    connection=RuntimeConnection.for_stdio(args=["--log-dir", "/path/to/logs"])
+)
+```
 
 {% endcodetab %}
 {% codetab go %}
-
-```golang
-package main
-
-import copilot "github.com/github/copilot-sdk/go"
-
-func main() {
-	client := copilot.NewClient(&copilot.ClientOptions{
-		Connection: copilot.StdioConnection{
-			Args: []string{"--log-dir", "/path/to/logs"},
-		},
-	})
-	_ = client
-}
-```
 
 ```golang
 client := copilot.NewClient(&copilot.ClientOptions{
@@ -177,9 +155,11 @@ var client = new CopilotClient(new CopilotClientOptions
 <!-- docs-validate: skip -->
 
 ```java
-// The Java SDK does not currently support passing extra CLI arguments.
-// For custom log directories, run the CLI manually with --log-dir
-// and connect via cliUrl.
+import com.github.copilot.CopilotClient;
+import com.github.copilot.rpc.CopilotClientOptions;
+
+var client = new CopilotClient(new CopilotClientOptions()
+    .setCliArgs(new String[] {"--log-dir", "/path/to/logs"}));
 ```
 
 {% endcodetab %}
@@ -204,7 +184,7 @@ var client = new CopilotClient(new CopilotClientOptions
 1. Or specify the full path:
 
 {% codetabs %}
-{% codetab javascript %}
+{% codetab typescript %}
 
    ```typescript
    const client = new CopilotClient({
@@ -265,7 +245,7 @@ var client = new CopilotClient(new CopilotClientOptions
 1. Or provide a token programmatically:
 
 {% codetabs %}
-{% codetab javascript %}
+{% codetab typescript %}
 
    ```typescript
    const client = new CopilotClient({
@@ -566,7 +546,7 @@ If you're still stuck:
 
 ## See also
 
-* [AUTOTITLE](/copilot/how-tos/copilot-sdk/getting-started)
+* [AUTOTITLE](/copilot/get-started/sdk-quickstart)
 * [AUTOTITLE](/copilot/how-tos/copilot-sdk/features/mcp) - MCP configuration and setup
 * [AUTOTITLE](/copilot/how-tos/copilot-sdk/troubleshooting/mcp-debugging) - Detailed MCP troubleshooting
 * [API Reference](https://github.com/github/copilot-sdk)

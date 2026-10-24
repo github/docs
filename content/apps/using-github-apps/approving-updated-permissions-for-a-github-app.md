@@ -10,7 +10,7 @@ category:
   - Install and authorize apps
 ---
 
-Occasionally, a {% data variables.product.prodname_github_app %} that you have installed will request additional permissions. This may happen if the {% data variables.product.prodname_github_app %} owner wants the app to make additional API requests or respond to additional webhook events. For more information about what different permissions enable a {% data variables.product.prodname_github_app %} to do, see [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/choosing-permissions-for-a-github-app).
+Occasionally, a {% data variables.product.prodname_github_app %} that you have installed will request additional permissions. This may happen if the {% data variables.product.prodname_github_app %} owner wants the app to make additional API requests or respond to additional webhook events. For more information about what different permissions enable a {% data variables.product.prodname_github_app %} to do, see [AUTOTITLE](/apps/creating-github-apps/registering-a-github-app/choosing-permissions-for-a-github-app).
 
 When a {% data variables.product.prodname_github_app %} requests additional permissions, {% data variables.product.company_short %} will notify you if the app is installed on your personal account or on an account that you own.
 

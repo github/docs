@@ -13,12 +13,16 @@ describe(codeAnnotationCommentSpacing.names.join(' - '), () => {
       '// This is a correct comment',
       'const express = require("express");',
       '',
-      '# This is also correct',
-      'const app = express();',
-      '',
       '//',
       'const emptyCommentAbove = "fine";',
+      '```',
       '',
+      '```yaml copy annotate',
+      '# This is also correct',
+      'name: test',
+      '```',
+      '',
+      '```sql copy annotate',
       '-- SQL comment with space',
       'SELECT * FROM users;',
       '```',
@@ -37,10 +41,14 @@ describe(codeAnnotationCommentSpacing.names.join(' - '), () => {
       '```javascript copy annotate',
       '//This should fail the content linter',
       'const express = require("express");',
+      '```',
       '',
+      '```yaml copy annotate',
       '#This should also fail',
-      'const app = express();',
+      'name: test',
+      '```',
       '',
+      '```sql copy annotate',
       '--This should fail too',
       'SELECT * FROM users;',
       '```',
@@ -50,7 +58,6 @@ describe(codeAnnotationCommentSpacing.names.join(' - '), () => {
     const errors = result.markdown
     expect(errors.length).toBe(3)
 
-    // Check first error (JavaScript comment)
     expect(errors[0].lineNumber).toBe(5)
     expect(errors[0].errorDetail).toContain("Comment must have exactly one space after '//'")
     expect(errors[0].fixInfo).toEqual({
@@ -60,21 +67,19 @@ describe(codeAnnotationCommentSpacing.names.join(' - '), () => {
       insertText: '// This should fail the content linter',
     })
 
-    // Check second error (Python/Shell comment)
-    expect(errors[1].lineNumber).toBe(8)
+    expect(errors[1].lineNumber).toBe(10)
     expect(errors[1].errorDetail).toContain("Comment must have exactly one space after '#'")
     expect(errors[1].fixInfo).toEqual({
-      lineNumber: 8,
+      lineNumber: 10,
       editColumn: 1,
       deleteCount: 22,
       insertText: '# This should also fail',
     })
 
-    // Check third error (SQL comment)
-    expect(errors[2].lineNumber).toBe(11)
+    expect(errors[2].lineNumber).toBe(15)
     expect(errors[2].errorDetail).toContain("Comment must have exactly one space after '--'")
     expect(errors[2].fixInfo).toEqual({
-      lineNumber: 11,
+      lineNumber: 15,
       editColumn: 1,
       deleteCount: 22,
       insertText: '-- This should fail too',
@@ -89,10 +94,14 @@ describe(codeAnnotationCommentSpacing.names.join(' - '), () => {
       '```javascript copy annotate',
       '//  This has too many spaces',
       'const express = require("express");',
+      '```',
       '',
+      '```yaml copy annotate',
       '#   This also has too many',
-      'const app = express();',
+      'name: test',
+      '```',
       '',
+      '```sql copy annotate',
       '--    This has way too many',
       'SELECT * FROM users;',
       '```',
@@ -102,7 +111,6 @@ describe(codeAnnotationCommentSpacing.names.join(' - '), () => {
     const errors = result.markdown
     expect(errors.length).toBe(3)
 
-    // Check first error (JavaScript comment)
     expect(errors[0].lineNumber).toBe(5)
     expect(errors[0].errorDetail).toContain(
       "Comment must have exactly one space after '//', found multiple spaces",
@@ -114,25 +122,23 @@ describe(codeAnnotationCommentSpacing.names.join(' - '), () => {
       insertText: '// This has too many spaces',
     })
 
-    // Check second error (Python/Shell comment)
-    expect(errors[1].lineNumber).toBe(8)
+    expect(errors[1].lineNumber).toBe(10)
     expect(errors[1].errorDetail).toContain(
       "Comment must have exactly one space after '#', found multiple spaces",
     )
     expect(errors[1].fixInfo).toEqual({
-      lineNumber: 8,
+      lineNumber: 10,
       editColumn: 1,
       deleteCount: 26,
       insertText: '# This also has too many',
     })
 
-    // Check third error (SQL comment)
-    expect(errors[2].lineNumber).toBe(11)
+    expect(errors[2].lineNumber).toBe(15)
     expect(errors[2].errorDetail).toContain(
       "Comment must have exactly one space after '--', found multiple spaces",
     )
     expect(errors[2].fixInfo).toEqual({
-      lineNumber: 11,
+      lineNumber: 15,
       editColumn: 1,
       deleteCount: 27,
       insertText: '-- This has way too many',
@@ -148,10 +154,13 @@ describe(codeAnnotationCommentSpacing.names.join(' - '), () => {
       'function test() {',
       '  //Missing space in indented comment',
       '  const x = 1;',
-      '  ',
-      '  #  Too many spaces',
-      '  const y = 2;',
       '}',
+      '```',
+      '',
+      '```yaml copy annotate',
+      'jobs:',
+      '  #  Too many spaces',
+      '  build:',
       '```',
     ].join('\n')
 
@@ -159,7 +168,6 @@ describe(codeAnnotationCommentSpacing.names.join(' - '), () => {
     const errors = result.markdown
     expect(errors.length).toBe(2)
 
-    // Check first error (indented JavaScript comment without space)
     expect(errors[0].lineNumber).toBe(6)
     expect(errors[0].errorDetail).toContain("Comment must have exactly one space after '//'")
     expect(errors[0].fixInfo).toEqual({
@@ -169,13 +177,12 @@ describe(codeAnnotationCommentSpacing.names.join(' - '), () => {
       insertText: '  // Missing space in indented comment',
     })
 
-    // Check second error (indented comment with multiple spaces)
-    expect(errors[1].lineNumber).toBe(9)
+    expect(errors[1].lineNumber).toBe(13)
     expect(errors[1].errorDetail).toContain(
       "Comment must have exactly one space after '#', found multiple spaces",
     )
     expect(errors[1].fixInfo).toEqual({
-      lineNumber: 9,
+      lineNumber: 13,
       editColumn: 1,
       deleteCount: 20,
       insertText: '  # Too many spaces',
@@ -221,7 +228,7 @@ describe(codeAnnotationCommentSpacing.names.join(' - '), () => {
     expect(errors.length).toBe(0)
   })
 
-  test('mixed comment types in same block', async () => {
+  test('only the comment syntax of the fence language is checked', async () => {
     const markdown = [
       '---',
       'layout: inline',
@@ -229,19 +236,15 @@ describe(codeAnnotationCommentSpacing.names.join(' - '), () => {
       '```bash copy annotate',
       '#!/bin/bash',
       '#This shell comment needs space',
-      'echo "Hello"',
-      '',
-      '// This JS-style comment is fine',
-      'node script.ts',
-      '',
-      '--This SQL comment needs space',
-      'psql -c "SELECT 1;"',
+      'curl \\',
+      '  --silent \\',
+      '  https://example.com',
       '```',
     ].join('\n')
 
     const result = await runRule(codeAnnotationCommentSpacing, { strings: { markdown } })
     const errors = result.markdown
-    expect(errors.length).toBe(2)
+    expect(errors.length).toBe(1)
 
     expect(errors[0].lineNumber).toBe(6)
     expect(errors[0].errorDetail).toContain("Comment must have exactly one space after '#'")
@@ -251,14 +254,43 @@ describe(codeAnnotationCommentSpacing.names.join(' - '), () => {
       deleteCount: 31,
       insertText: '# This shell comment needs space',
     })
+  })
 
-    expect(errors[1].lineNumber).toBe(12)
-    expect(errors[1].errorDetail).toContain("Comment must have exactly one space after '--'")
-    expect(errors[1].fixInfo).toEqual({
-      lineNumber: 12,
-      editColumn: 1,
-      deleteCount: 30,
-      insertText: '-- This SQL comment needs space',
-    })
+  test('code that looks like a comment in another language is ignored', async () => {
+    const markdown = [
+      '---',
+      'layout: inline',
+      '---',
+      '```yaml copy annotate',
+      '# Install ARC',
+      '- run: |',
+      '    helm install arc \\',
+      '      --namespace arc-systems \\',
+      '      oci://ghcr.io/actions/actions-runner-controller-charts/gha-runner-scale-set-controller',
+      '---',
+      '# Start a service',
+      'services:',
+      '  postgres:',
+      '    options: >-',
+      '      --health-cmd pg_isready',
+      '```',
+      '',
+      '```javascript copy annotate',
+      '// Track a count',
+      'class Counter {',
+      '  #count = 0',
+      '}',
+      '```',
+      '',
+      '```csharp copy annotate',
+      '// Group helpers',
+      '#region Helpers',
+      '#endregion',
+      '```',
+    ].join('\n')
+
+    const result = await runRule(codeAnnotationCommentSpacing, { strings: { markdown } })
+    const errors = result.markdown
+    expect(errors.length).toBe(0)
   })
 })

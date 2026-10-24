@@ -20,12 +20,12 @@ category:
 
 {% data reusables.enterprise-accounts.emu-cap-public-preview %}
 
-{% data variables.product.github %} supports CAP for any {% data variables.enterprise.prodname_emu_enterprise %} where OIDC SSO is enabled. Enterprise owners can choose to use this IP allow list configuration instead of {% data variables.product.github %}'s IP allow list, and can do so once OIDC SSO is configured. For more information about IP allow lists, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list#about-your-idps-allow-list) and [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-allowed-ip-addresses-for-your-organization).
+{% data variables.product.github %} supports CAP for any {% data variables.enterprise.prodname_emu_enterprise %} where OIDC SSO is enabled. Enterprise owners can choose to use this IP allow list configuration instead of {% data variables.product.github %}'s IP allow list, and can do so once OIDC SSO is configured. For more information about IP allow lists, see [AUTOTITLE](/admin/configuring-settings/hardening-security-for-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list#about-your-idps-allow-list) and [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-allowed-ip-addresses-for-your-organization).
 
 * {% data variables.product.github %} enforces your IdP's IP conditions but cannot enforce your device compliance conditions.
 * Policies for multi-factor authentication are only enforced at the point of sign-in to the IdP.
 
-For more information about using OIDC with {% data variables.product.prodname_emus %}, see [AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-oidc-for-enterprise-managed-users) and [AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/migrating-from-saml-to-oidc).
+For more information about using OIDC with {% data variables.product.prodname_emus %}, see [AUTOTITLE](/admin/managing-iam/configuring-authentication-for-enterprise-managed-users/configuring-oidc-for-enterprise-managed-users) and [AUTOTITLE](/admin/managing-iam/reconfiguring-iam-for-enterprise-managed-users/migrating-from-saml-to-oidc).
 
 ## About CAP and deploy keys
 
@@ -59,7 +59,7 @@ When {% data variables.product.prodname_github_apps %} call {% data variables.pr
 
 You can contact the owners of the apps you want to use, ask for their IP ranges, and configure your IdP's CAP to allow access from those IP ranges. If you're unable to contact the owners, you can review your IdP sign-in logs to review the IP addresses seen in the requests, then allow-list those addresses.
 
-If you do not wish to allow all of the IP ranges for all of your enterprise's apps, you can also exempt installed {% data variables.product.prodname_github_apps %} and authorized {% data variables.product.prodname_oauth_apps %} from the IdP allow list. If you do so, these apps will continue working regardless of the originating IP address. For more information, see [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#allowing-access-by-github-apps).
+If you do not wish to allow all of the IP ranges for all of your enterprise's apps, you can also exempt installed {% data variables.product.prodname_github_apps %} and authorized {% data variables.product.prodname_oauth_apps %} from the IdP allow list. If you do so, these apps will continue working regardless of the originating IP address. For more information, see [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#allowing-access-by-github-apps).
 
 ## Further reading
 

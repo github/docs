@@ -1,0 +1,5 @@
+# Default cooldown period of 3 days applied to Dependabot version updates
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.21'

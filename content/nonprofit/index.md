@@ -10,6 +10,7 @@ layout: discovery-landing
 includedCategories:
   - Apply for nonprofit benefits
   - Contribute to open source for good
+  - Submit a project for volunteer pods
 carousels:
   recommended:
     - /nonprofit/quickstart
@@ -17,7 +18,7 @@ carousels:
     - /nonprofit/nonprofit-enterprise-plan/getting-started-with-discounted-github-enterprise-cloud
     - /nonprofit/troubleshooting/frequently-asked-questions
     - /nonprofit/contributing-to-open-source-for-good/contributing-to-an-open-source-for-good-project
-    - /nonprofit/contributing-to-open-source-for-good/adding-an-open-source-project
+    - /nonprofit/project-pods
 versions:
   fpt: '*'
 children:
@@ -25,6 +26,7 @@ children:
   - /nonprofit-teams-plan
   - /nonprofit-enterprise-plan
   - /contributing-to-open-source-for-good
+  - /project-pods
   - /troubleshooting
 ---
 

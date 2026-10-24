@@ -59,7 +59,7 @@ This tutorial assumes you have a basic understanding of the [Ruby programming la
 Before you get started, you may want to familiarize yourself with the following concepts:
 
 * [{% data variables.product.prodname_github_apps %}](/apps)
-* [Webhooks](/webhooks-and-events/webhooks/about-webhooks)
+* [Webhooks](/webhooks/about-webhooks)
 * [REST API checks endpoints](/rest/checks)
 
 Checks are also available to use with the GraphQL API, but this tutorial focuses on the REST API. For more information about the GraphQL objects, see [Check Suite](/graphql/reference/checks#object-checksuite) and [Check Run](/graphql/reference/checks#object-checkrun) in the GraphQL documentation.
@@ -139,7 +139,7 @@ For this tutorial, you must register a {% data variables.product.prodname_github
 * Has the "Checks" repository permission
 * Subscribes to the "Check suite" and "Check run" webhook events
 
-The following steps will guide you through configuring a {% data variables.product.prodname_github_app %} with these settings. For more information about {% data variables.product.prodname_github_app %} settings, see [AUTOTITLE](/apps/creating-github-apps/creating-github-apps/creating-a-github-app).
+The following steps will guide you through configuring a {% data variables.product.prodname_github_app %} with these settings. For more information about {% data variables.product.prodname_github_app %} settings, see [AUTOTITLE](/apps/creating-github-apps/registering-a-github-app/registering-a-github-app).
 
 {% data reusables.apps.settings-step %}
 {% data reusables.apps.enterprise-apps-steps %}
@@ -448,7 +448,7 @@ The first helper method `get_payload_request` captures the webhook payload and c
 
 ##### Verifying the webhook signature
 
-The second helper method `verify_webhook_signature` performs verification of the webhook signature to ensure that {% data variables.product.prodname_dotcom %} generated the event. To learn more about the code in the `verify_webhook_signature` helper method, see [AUTOTITLE](/webhooks-and-events/webhooks/securing-your-webhooks). If the webhooks are secure, this method will log all incoming payloads to your terminal. The logger code is helpful in verifying your web server is working.
+The second helper method `verify_webhook_signature` performs verification of the webhook signature to ensure that {% data variables.product.prodname_dotcom %} generated the event. To learn more about the code in the `verify_webhook_signature` helper method, see [AUTOTITLE](/webhooks/using-webhooks/validating-webhook-deliveries). If the webhooks are secure, this method will log all incoming payloads to your terminal. The logger code is helpful in verifying your web server is working.
 
 ##### Authenticating as a {% data variables.product.prodname_github_app %}
 
@@ -573,7 +573,7 @@ Your app doesn't do anything yet, but at this point, you can get it running on t
 
 ## Test that the server is listening to your app
 
-You can test that the server is listening to your app by triggering an event for it to receive. You'll do that by installing the app on a test repository, which will send the [`installation` event](/webhooks-and-events/webhooks/webhook-events-and-payloads#installation) to your app. If the app receives it, you should see output in the terminal tab where you're running `server.rb`.
+You can test that the server is listening to your app by triggering an event for it to receive. You'll do that by installing the app on a test repository, which will send the [`installation` event](/webhooks/webhook-events-and-payloads#installation) to your app. If the app receives it, you should see output in the terminal tab where you're running `server.rb`.
 
 1. Create a new repository to use for testing your tutorial code. For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-new-repository).
 1. Install the {% data variables.product.prodname_github_app %} on the repository you just created. For more information, see [AUTOTITLE](/apps/using-github-apps/installing-your-own-github-app#installing-your-own-github-app). During the installation process, choose **Only select repositories**, and select the repository you created in the previous step.
@@ -607,7 +607,7 @@ These are the steps you'll complete in Part 1:
 
 ## Step 1.1. Add event handling
 
-Because your app is subscribed to the **Check suite** and **Check run** events, it will receive the [`check_suite`](/webhooks-and-events/webhooks/webhook-events-and-payloads#check_suite) and [`check_run`](/webhooks-and-events/webhooks/webhook-events-and-payloads#check_run) webhooks. {% data variables.product.prodname_dotcom %} sends webhook payloads as `POST` requests. Because you forwarded your Smee webhook payloads to `http://localhost:3000/event_handler`, your server will receive the `POST` request payloads at the `post '/event_handler'` route.
+Because your app is subscribed to the **Check suite** and **Check run** events, it will receive the [`check_suite`](/webhooks/webhook-events-and-payloads#check_suite) and [`check_run`](/webhooks/webhook-events-and-payloads#check_run) webhooks. {% data variables.product.prodname_dotcom %} sends webhook payloads as `POST` requests. Because you forwarded your Smee webhook payloads to `http://localhost:3000/event_handler`, your server will receive the `POST` request payloads at the `post '/event_handler'` route.
 
 Open the `server.rb` file that you created in [Add code for your {% data variables.product.prodname_github_app %}](#add-code-for-your-github-app), and look for the following code. An empty `post '/event_handler'` route is already included in the template code. The empty route looks like this:
 
@@ -1162,7 +1162,7 @@ To commit files, Git must know which username and email address to associate wit
 
 Next you'll need to add code to read the environment variables and set the Git configuration. You'll add that code soon.
 
-When someone clicks the "Fix this" button, your app receives the [check run webhook](/webhooks-and-events/webhooks/webhook-events-and-payloads#check_run) with the `requested_action` action type.
+When someone clicks the "Fix this" button, your app receives the [check run webhook](/webhooks/webhook-events-and-payloads#check_run) with the `requested_action` action type.
 
 In [Step 1.3. Update a check run](#step-13-update-a-check-run) you updated the `event_handler` in your `server.rb` file to look for actions in the `check_run` event. You already have a case statement to handle the `created` and `rerequested` action types:
 
@@ -1610,12 +1610,12 @@ set :port, ENV['PORT']
 
 You should never publicize your app's private key or webhook secret. This tutorial stored your app's credentials in a gitignored `.env` file. When you deploy your app, you should choose a secure way to store the credentials and update your code to get the value accordingly. For example, you can store the credentials with a secret management service like [Azure Key Vault](https://azure.microsoft.com/en-us/products/key-vault). When your app runs, it can retrieve the credentials and store them in environment variables on the server where your app is deployed.
 
-For more information, see [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/best-practices-for-creating-a-github-app).
+For more information, see [AUTOTITLE](/apps/creating-github-apps/about-creating-github-apps/best-practices-for-creating-a-github-app).
 
 ### Share your app
 
-If you want to share your app with other users and organizations, make your app public. For more information, see [AUTOTITLE](/apps/creating-github-apps/creating-github-apps/making-a-github-app-public-or-private).
+If you want to share your app with other users and organizations, make your app public. For more information, see [AUTOTITLE](/apps/creating-github-apps/registering-a-github-app/making-a-github-app-public-or-private).
 
 ### Follow best practices
 
-You should aim to follow best practices with your {% data variables.product.prodname_github_app %}. For more information, see [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/best-practices-for-creating-a-github-app).
+You should aim to follow best practices with your {% data variables.product.prodname_github_app %}. For more information, see [AUTOTITLE](/apps/creating-github-apps/about-creating-github-apps/best-practices-for-creating-a-github-app).

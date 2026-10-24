@@ -21,7 +21,7 @@ Security overview can show alerts across many repositories in your organization 
 
 You can combine multiple filters to narrow your results. For example, you can show only critical {% data variables.product.prodname_dependabot_alerts %} in public repositories owned by a specific team.
 
-For a complete list of available filters, see [AUTOTITLE](/code-security/reference/security-alert-management/available-filters-for-security-overview).
+For a complete list of available filters, see [AUTOTITLE](/code-security/reference/security-at-scale/overview-dashboard-filters).
 
 > [!NOTE]
 > {% data reusables.security-overview.information-varies-GHAS %}

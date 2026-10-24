@@ -112,11 +112,11 @@ Tables of contents are automatically generated. For more information see [Autoge
 
 ## Conceptual content
 
-Conceptual content helps people understand or learn about a topic. For more information, see [AUTOTITLE](/contributing/style-guide-and-content-model/conceptual-content-type) in the content model.
+Conceptual content helps people understand or learn about a topic. For more information, see [AUTOTITLE](/contributing/style-guide-and-content-model/concepts-content-type) in the content model.
 
 ## Referential content
 
-Referential content provides structured information related to actively using a product or feature. For more information, see [AUTOTITLE](/contributing/style-guide-and-content-model/referential-content-type) in the content model.
+Referential content provides structured information related to actively using a product or feature. For more information, see [AUTOTITLE](/contributing/style-guide-and-content-model/reference-content-type) in the content model.
 
 ## Prerequisites
 
@@ -137,8 +137,8 @@ Prerequisites are information that people need to know before proceeding with a 
 
 ### Examples of articles with prerequisites sections
 
-* [AUTOTITLE](/enterprise-server@latest/admin/installation/installing-github-enterprise-server-on-aws)
-* [AUTOTITLE](/enterprise-server@latest/admin/configuration/enabling-subdomain-isolation)
+* [AUTOTITLE](/enterprise-server@latest/admin/installing-your-enterprise-server/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-aws)
+* [AUTOTITLE](/enterprise-server@latest/admin/configuring-settings/hardening-security-for-your-enterprise/enabling-subdomain-isolation)
 
 ## How-to content
 
@@ -162,7 +162,7 @@ When an article describes one step in a larger process or has a logical next ste
 - {% data variables.product.company_short %} recommends that you review security considerations for self-hosted runner machines. See "Security hardening for {% data variables.product.prodname_actions %}."
 ```
 
-In this example from [AUTOTITLE](/enterprise-cloud@latest/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-self-hosted-runners-for-your-enterprise#next-steps), the next steps section includes links to procedures that someone will need to do after they start using the feature described in the article.
+In this example from [AUTOTITLE](/enterprise-cloud@latest/admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/getting-started-with-self-hosted-runners-for-your-enterprise#next-steps), the next steps section includes links to procedures that someone will need to do after they start using the feature described in the article.
 
 ```markdown
 ## Next steps

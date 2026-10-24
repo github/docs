@@ -3,13 +3,15 @@ import path from 'path'
 import fs from 'fs'
 
 import { describe, expect, test } from 'vitest'
-import yaml from 'js-yaml'
+import { load } from 'js-yaml'
 import { flatten } from 'flat'
 import { chain, get } from 'lodash-es'
 
 const githubOwnedActionsRegex =
   /^(actions\/(cache|checkout|download-artifact|upload-artifact)@v\d+(\.\d+)*)$/
 const actionHashRegexp = /^[A-Za-z0-9-/]+@[0-9a-f]{40}$/
+const internalReusableWorkflowRegexp =
+  /^github\/internal-actions\/\.github\/workflows\/[A-Za-z0-9_-]+\.ya?ml@main$/
 const checkoutRegexp = /^[actions/checkout]+@(v\d+(\.\d+)*|[0-9a-f]{40})$/
 const permissionsRegexp = /(read|write)/
 
@@ -36,6 +38,7 @@ interface WorkflowJob {
 
 interface WorkflowStep {
   uses?: string
+  with?: Record<string, unknown>
   [key: string]: unknown
 }
 
@@ -44,11 +47,12 @@ const workflowsDir = path.join(__dirname, '../../../.github/workflows')
 const workflows: WorkflowMeta[] = fs
   .readdirSync(workflowsDir)
   .filter((filename) => filename.endsWith('.yml') || filename.endsWith('.yaml'))
-  .filter((filename) => filename !== 'moda-ci.yaml') // Skip moda-ci
-  .filter((filename) => !filename.endsWith('.lock.yml')) // Skip auto-generated agentic workflow lock files
+  .filter((filename) => filename !== 'moda-ci.yaml')
+  // Agentic workflow lock files are auto-generated.
+  .filter((filename) => !filename.endsWith('.lock.yml'))
   .map((filename) => {
     const fullpath = path.join(workflowsDir, filename)
-    const data = yaml.load(fs.readFileSync(fullpath, 'utf8')) as WorkflowMeta['data']
+    const data = load(fs.readFileSync(fullpath, 'utf8')) as WorkflowMeta['data']
     return { filename, fullpath, data }
   })
 
@@ -68,18 +72,12 @@ const allUsedActions = chain(workflows)
 
 const scheduledWorkflows = workflows.filter(({ data }) => data.on.schedule)
 
-// Triggers where a workflow runs without a human actively watching and
-// therefore needs explicit failure reporting (Slack + issue). Attended
-// triggers (pull_request*, workflow_dispatch, workflow_call, merge_group)
-// are intentionally excluded: the person who triggered the run sees the
-// result directly.
+// Unattended triggers need explicit Slack and issue alerts because no human watches the run.
+// Pull request, workflow dispatch, workflow call, and merge group triggers are attended.
 //
-// `issues` and `issue_comment` are only considered unattended for jobs
-// running in docs-internal itself. When a job is scoped to the public
-// github/docs fork via `if: github.repository == 'github/docs'`, those
-// triggers fire from external reporters/commenters, and the issue or
-// comment itself is the natural failure surface — piling on automated
-// alert-issues there is duplicative and noisy.
+// Treat issues and issue_comment as unattended only for docs-internal jobs.
+// Jobs gated by if: github.repository == 'github/docs' surface failures on the public issue
+// or comment, so another alert issue would duplicate that signal.
 const ALWAYS_UNATTENDED_TRIGGERS = ['schedule', 'workflow_run', 'repository_dispatch', 'push']
 const DOCS_INTERNAL_ONLY_UNATTENDED_TRIGGERS = ['issues', 'issue_comment']
 
@@ -101,18 +99,19 @@ function jobRequiresFailureAlerts(workflow: WorkflowMeta, job: WorkflowJob): boo
   return false
 }
 
-// Workflows where at least one job requires failure alerts — used to drive
-// the parameterised tests below. Per-job filtering happens inside each test.
+// Workflows with steps are the candidate set. Each alert test filters jobs by trigger.
 const alertWorkflows = workflows.filter(({ data }) =>
   Object.values(data.jobs).some((job) => job.steps),
 )
-// to generate list, console.log(new Set(workflows.map(({ data }) => Object.keys(data.on)).flat()))
 
-const dailyWorkflows = scheduledWorkflows.filter(({ data }) =>
-  data.on.schedule!.find(({ cron }: { cron: string }) => /^20 \d{1,2} /.test(cron)),
-)
+const dailyWorkflows = scheduledWorkflows
+  // purge-fastly.yml soft-purges daily at 02:20 UTC, outside the standard 16:20 slot.
+  .filter(({ filename }) => filename !== 'purge-fastly.yml')
+  .filter(({ data }) =>
+    data.on.schedule!.find(({ cron }: { cron: string }) => /^20 \d{1,2} /.test(cron)),
+  )
 
-// Weekly workflows have a single day-of-week digit (e.g. "20 16 * * 1")
+// Weekly workflows use one day-of-week digit, such as "20 16 * * 1".
 const weeklyWorkflows = dailyWorkflows.filter(({ data }) =>
   data.on.schedule!.find(({ cron }: { cron: string }) => /^20 16 \* \* \d$/.test(cron)),
 )
@@ -121,7 +120,10 @@ describe('GitHub Actions workflows', () => {
   test.each(allUsedActions)('requires specific hash: %p', (actionName) => {
     const matchesGitHubOwnedActions = githubOwnedActionsRegex.test(actionName)
     const matchesActionHash = actionHashRegexp.test(actionName)
-    expect(matchesGitHubOwnedActions || matchesActionHash).toBe(true)
+    const matchesInternalReusableWorkflow = internalReusableWorkflowRegexp.test(actionName)
+    expect(matchesGitHubOwnedActions || matchesActionHash || matchesInternalReusableWorkflow).toBe(
+      true,
+    )
   })
 
   test.each(scheduledWorkflows)(
@@ -147,7 +149,7 @@ describe('GitHub Actions workflows', () => {
     for (const { cron } of data.on.schedule!) {
       const fields = cron.trim().split(/\s+/)
       const dayOfWeek = fields[4]
-      // Day-of-week must be 1-5 (Mon-Fri) or a range within 1-5
+      // Day-of-week must be a weekday digit, 1 through 5, or a range within it.
       expect(dayOfWeek).toMatch(/^[1-5](-[1-5])?$/)
     }
   })
@@ -156,7 +158,7 @@ describe('GitHub Actions workflows', () => {
     for (const { cron } of data.on.schedule!) {
       const fields = cron.trim().split(/\s+/)
       const dayOfWeek = fields[4]
-      // Day-of-week must be 1 (Monday)
+      // Day-of-week must be 1 for Monday.
       expect(dayOfWeek).toBe('1')
     }
   })
@@ -213,6 +215,43 @@ describe('GitHub Actions workflows', () => {
           throw new Error(
             `Job ${filename} # ${name} missing a checkout before calling the composite action`,
           )
+        }
+      }
+    },
+  )
+
+  // A long-lived shared personal access token, DOCS_BOT_PAT_BASE, must never pass to a
+  // local composite action, uses: ./..., inside a pull_request_target workflow. That
+  // trigger exposes repository secrets even for fork PRs from anonymous outside
+  // contributors, and the local action lives in the checked-out PR workspace, so a
+  // malicious fork PR could rewrite it to exfiltrate the token.
+  // Use a short-lived, scoped GitHub App token instead.
+  //
+  // Plain pull_request workflows stay out of scope because they do not expose secrets to fork PRs.
+  // Workflows such as get-docs-early-access intentionally pass DOCS_BOT_PAT_BASE to local actions
+  // on same-repo pull requests, where contributors already have write access.
+  const pullRequestTargetWorkflows = workflows.filter(({ data }) => {
+    const on = (data.on || {}) as Record<string, unknown>
+    // Check key presence because YAML parses a trigger with no nested value as null.
+    return 'pull_request_target' in on
+  })
+
+  test.each(pullRequestTargetWorkflows)(
+    'does not pass DOCS_BOT_PAT_BASE to a local composite action in $filename',
+    ({ filename, data }) => {
+      for (const [name, job] of Object.entries(data.jobs)) {
+        for (const step of job.steps || []) {
+          const usesLocalAction = typeof step.uses === 'string' && step.uses.startsWith('./')
+          if (!usesLocalAction || !step.with) continue
+          const passesPat = Object.values(step.with).some(
+            (value) => typeof value === 'string' && value.includes('DOCS_BOT_PAT_BASE'),
+          )
+          if (passesPat) {
+            throw new Error(
+              `Job ${filename} # ${name} passes DOCS_BOT_PAT_BASE into local action ${step.uses}; ` +
+                `pull_request_target workflows must use a scoped GitHub App token instead`,
+            )
+          }
         }
       }
     },

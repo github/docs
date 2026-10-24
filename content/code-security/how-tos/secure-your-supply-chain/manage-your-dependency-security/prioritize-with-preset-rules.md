@@ -19,7 +19,7 @@ category:
 
 ## Prerequisites
 
-Before you enable {% data variables.dependabot.github_presets %} for your repository, you should be familiar with their functionality and purpose. See [AUTOTITLE](/code-security/concepts/supply-chain-security/about-dependabot-auto-triage-rules).
+Before you enable {% data variables.dependabot.github_presets %} for your repository, you should be familiar with their functionality and purpose. See [AUTOTITLE](/code-security/concepts/supply-chain-security/dependabot-auto-triage-rules).
 
 ## Enabling {% data variables.product.company_short %} preset rules
 

@@ -21,4 +21,4 @@ You can connect an Azure subscription to your organization or enterprise account
 * Usage data is sent daily to Azure.
 * Charges for the calendar month appear on your Azure invoice at the start of the next month.
 
-To connect your Azure subscription, see [AUTOTITLE](/billing/managing-the-plan-for-your-github-account/connecting-an-azure-subscription).
+To connect your Azure subscription, see [AUTOTITLE](/billing/how-tos/set-up-payment/connect-azure-sub).

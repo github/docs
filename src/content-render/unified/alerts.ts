@@ -1,6 +1,4 @@
-/*
-Custom "Alerts", based on similar filter/styling in the monolith code.
-*/
+// Matches the monolith alert syntax and styling.
 
 import { visit } from 'unist-util-visit'
 import { h } from 'hastscript'
@@ -23,7 +21,7 @@ const alertTypes: Record<string, AlertType> = {
   CAUTION: { icon: 'stop', color: 'danger' },
 }
 
-// Must contain one of [!NOTE], [!IMPORTANT], ...
+// Matches alert markers such as [!NOTE] and [!IMPORTANT].
 const ALERT_REGEXP = new RegExp(`\\[!(${Object.keys(alertTypes).join('|')})\\]`, 'gi')
 // Non-global version for .test() and .match() to avoid stateful lastIndex issues
 const ALERT_REGEXP_DETECT = new RegExp(`\\[!(${Object.keys(alertTypes).join('|')})\\]`, 'i')
@@ -34,11 +32,12 @@ export default function alerts({ alertTitles = {} }: { alertTitles?: Record<stri
       const el = node as Element
       if (el.tagName !== 'blockquote' || !ALERT_REGEXP_DETECT.test(JSON.stringify(el.children)))
         return
-      const key = getAlertKey(el)
-      if (!(key in alertTypes)) {
-        logger.warn('Alert key should be all uppercase', { key, expected: key.toUpperCase() })
+      const rawKey = getAlertKey(el)
+      const key = rawKey.toUpperCase()
+      if (rawKey !== key) {
+        logger.warn('Alert key should be all uppercase', { key: rawKey, expected: key })
       }
-      const alertType = alertTypes[getAlertKey(el).toUpperCase()]
+      const alertType = alertTypes[key]
       el.tagName = 'div'
       el.properties.className = `ghd-alert ghd-alert-${alertType.color}`
       el.properties.dataContainer = 'alert'

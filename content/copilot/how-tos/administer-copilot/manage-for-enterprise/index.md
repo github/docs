@@ -8,10 +8,10 @@ children:
   - /manage-plan
   - /manage-access
   - /manage-enterprise-policies
+  - /use-managed-settings
   - /manage-agents
-  - /manage-spark
   - /manage-availability-of-default-models
-  - /use-your-own-api-keys
+  - /enable-custom-models
   - /review-audit-logs
 redirect_from:
   - /copilot/managing-copilot/managing-copilot-for-your-enterprise

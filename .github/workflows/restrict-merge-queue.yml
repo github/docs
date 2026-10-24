@@ -1,0 +1,199 @@
+name: Restrict who can queue merges
+
+# Checks merge-queue enqueuers against github/technical-content and ejects failures.
+# This avoids a branch-protection rule with its own merge queue, which could lock the branch.
+
+on:
+  # pull_request runs do no work, but without their passing context PRs can never enter the queue.
+  pull_request:
+    types: [opened, reopened, synchronize, ready_for_review]
+  merge_group:
+
+permissions:
+  contents: read
+  pull-requests: write
+
+# Key concurrency on head SHA because webhook delivery order can lag.
+# A late event for an old SHA must not cancel the newer run.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.head.sha || github.event.merge_group.head_sha }}
+  cancel-in-progress: true
+
+jobs:
+  # This check enforces nothing unless the refs/heads/main ruleset requires it.
+  # Make it required only after it reports on main, or PRs block on a check that never ran.
+  # To disable enforcement, remove the required check from the ruleset.
+  # This job omits name so its id becomes the required check name.
+  # Renaming it leaves the ruleset waiting for the old check, so PRs stay blocked.
+  merge-queue-restriction:
+    # Some workflows sync to public github/docs; this restriction only applies in docs-internal.
+    if: github.repository == 'github/docs-internal'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check that the enqueuer is on the Technical Content team
+        if: github.event_name == 'merge_group'
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        with:
+          # Reading team membership needs read:org, which GITHUB_TOKEN lacks.
+          # merge_group runs in the base repo, so this secret is available for forked PRs.
+          github-token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          script: |
+            // Numeric org and team IDs survive team renames; org github is 9919.
+            // Team technical-content is 325922.
+            const ORG_ID = 9919
+            const TEAM_ID = 325922
+            const TEAM = 'github/technical-content'
+            const MARKER = '<!-- merge-queue-restriction -->'
+            const EXEMPT_USERS = ['docs-bot']
+            const CONTENT_SLACK_CHANNEL = 'C0E9DK082'
+            const MAX_ATTEMPTS = 3
+
+            // github.actor stays the original enqueuer on re-runs.
+            // github.triggering_actor changes to the rerunner.
+            // Re-runs cannot turn a failing check into a passing one.
+            const actor = context.actor
+            core.info(`This merge group was queued by @${actor}.`)
+
+            // GitHub App actors always end in [bot], and [ cannot appear in a username.
+            // docs-bot is a User account, so name it explicitly.
+            core.info(`Checking whether @${actor} is an automation account...`)
+            if (actor.endsWith('[bot]') || EXEMPT_USERS.includes(actor)) {
+              core.info(`Checked: @${actor} is an automation account. Allowing the merge.`)
+              return
+            }
+            core.info(`Checked: @${actor} is a person, so they need to be on the team.`)
+
+            // Retry transient failures before failing closed.
+            // github/technical-content bypasses the ruleset,
+            // so a broken check blocks non-Docs merges only.
+            // A 404 returns null data instead of an error because both endpoints use it as a valid answer.
+            async function ask(description, route, params) {
+              for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
+                core.info(`${description} (attempt ${attempt} of ${MAX_ATTEMPTS})...`)
+                try {
+                  const { data } = await github.request(route, params)
+                  return { data }
+                } catch (error) {
+                  if (error.status === 404) return { data: null }
+                  if (attempt === MAX_ATTEMPTS) return { error }
+
+                  const seconds = attempt * 2
+                  core.warning(`Asked and failed with HTTP ${error.status}. Retrying in ${seconds}s.`)
+                  await new Promise((resolve) => setTimeout(resolve, seconds * 1000))
+                }
+              }
+            }
+
+            // Only comment on the pull request when membership is known.
+            function giveUp(detail) {
+              core.setFailed(`${detail} Failing closed, so this stays out of the queue. Ask in #docs-content.`)
+            }
+
+            // Checking the parent team covers every child team: docs-content,
+            // docs-engineering, docs-localization, docs-content-systems,
+            // docs-product-managers, docs-open-source, docs-design,
+            // docs-content-design, and copilot-docs.
+            // GitHub resolves child-team members as members of the parent.
+            const membershipResult = await ask(
+              `Asking the API whether @${actor} is on ${TEAM}`,
+              'GET /organizations/{org_id}/team/{team_id}/memberships/{username}',
+              { org_id: ORG_ID, team_id: TEAM_ID, username: actor },
+            )
+
+            if (membershipResult.error) {
+              giveUp(
+                `Could not check ${TEAM} membership for @${actor}. ` +
+                  `The last attempt returned HTTP ${membershipResult.error.status}.`,
+              )
+              return
+            }
+
+            const membership = membershipResult.data
+
+            if (membership) {
+              core.info(`Asked: @${actor} has membership state "${membership.state}" on ${TEAM}.`)
+            } else {
+              core.info(`Asked: the API reports no membership for @${actor} on ${TEAM} (HTTP 404).`)
+
+              // The 404 response is identical for a non-member, deleted team,
+              // and token without org visibility.
+              // Read the team before blocking the merge, or infrastructure failures would blame every enqueuer.
+              const teamResult = await ask(
+                `A 404 is ambiguous, so reading ${TEAM} back to confirm it is still visible`,
+                'GET /organizations/{org_id}/team/{team_id}',
+                { org_id: ORG_ID, team_id: TEAM_ID },
+              )
+
+              if (teamResult.error || !teamResult.data) {
+                giveUp(
+                  `Could not read ${TEAM} itself, so the 404 for @${actor} says nothing about their membership. ` +
+                    `The last attempt returned HTTP ${teamResult.error?.status ?? 404}. ` +
+                    'Either the team is gone or this token lost access to it.',
+                )
+                return
+              }
+
+              core.info(`Read it back: ${TEAM} is visible as "${teamResult.data.slug}", so the 404 is a real answer.`)
+            }
+
+            if (membership?.state === 'active') {
+              core.info(`@${actor} is an active member of ${TEAM}. Allowing the merge.`)
+              return
+            }
+
+            const reason = membership
+              ? `@${actor} has a "${membership.state}" membership on ${TEAM} rather than an active one.`
+              : `@${actor} is not a member of ${TEAM}.`
+            core.info(`Blocking the merge. ${reason}`)
+
+            // Queue ref refs/heads/gh-readonly-queue/<base>/pr-<number>-<sha> names this actor's PR.
+            const ref = context.payload.merge_group?.head_ref ?? context.ref
+            core.info(`Working out which pull request this merge group is for, from "${ref}"...`)
+            const number = Number(ref.match(/\/pr-(\d+)-[0-9a-f]+$/)?.[1])
+
+            if (!number) {
+              core.warning(`Worked it out: could not find a pull request number in "${ref}". Skipping the comment.`)
+            } else {
+              core.info(`Worked it out: this merge group is for #${number}.`)
+
+              // Comment once; repeated attempts already have the explanation,
+              // and repeating it adds noise.
+              core.info(`Reading the existing comments on #${number}...`)
+              const comments = await github.paginate(github.rest.issues.listComments, {
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: number,
+                per_page: 100,
+              })
+              core.info(`Read ${comments.length} comment(s) on #${number}.`)
+
+              if (comments.some((comment) => comment.body?.includes(MARKER))) {
+                core.info(`#${number} already has this explanation, so not commenting again.`)
+              } else {
+                core.info(`Commenting on #${number} to explain...`)
+                await github.rest.issues.createComment({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: number,
+                  body: [
+                    // Put the marker on its own line.
+                    // GitHub treats <!-- at the start of a block as an HTML block that runs
+                    // through the line containing -->, so shared-line content renders as literal text.
+                    MARKER,
+                    [
+                      `👋 Hi @${actor}, this pull request was removed from the merge queue.`,
+                      'Only the GitHub Technical Content team merges to `main` in this repository.',
+                      'Once this is reviewed and ready, ask in',
+                      `[#docs-content](https://github.slack.com/archives/${CONTENT_SLACK_CHANNEL})`,
+                      'and someone on the team can merge it for you.',
+                    ].join(' '),
+                  ].join('\n'),
+                })
+                core.info(`Commented on #${number}.`)
+              }
+            }
+
+            core.setFailed(
+              `Only ${TEAM} merges to main in this repository. ${reason} ` +
+                'Ask in #docs-content and someone on the team can merge this for you.',
+            )

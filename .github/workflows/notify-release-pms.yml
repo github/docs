@@ -1,10 +1,7 @@
 name: Notify release PMs
 
-# **What it does**: Posts review notification comments on release issues
-# in github/releases for generated GHES release notes.
-# **Why we have it**: So comments are always posted by docs-bot, without
-# needing to distribute a PAT to individual team members.
-# **Who does it impact**: Docs content (GHES release DRIs).
+# Docs-bot posts generated GHES release-note review comments on github/releases issues
+# so PMs do not need a shared PAT.
 
 on:
   workflow_dispatch:
@@ -36,6 +33,7 @@ on:
 
 permissions:
   contents: read
+  pull-requests: read
 
 jobs:
   notify:
@@ -43,8 +41,19 @@ jobs:
     if: github.repository == 'github/docs-internal'
     runs-on: ubuntu-latest
     steps:
+      - name: Get PR head branch
+        id: pr-ref
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ inputs.pr }}
+        run: |
+          ref=$(gh pr view "$PR_NUMBER" --repo github/docs-internal --json headRefName --jq '.headRefName')
+          echo "ref=$ref" >> "$GITHUB_OUTPUT"
+
       - name: Checkout repository code
-        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          ref: ${{ steps.pr-ref.outputs.ref }}
 
       - uses: ./.github/actions/node-npm-setup
 

@@ -1,5 +1,5 @@
 import fs from 'fs'
-import yaml from 'js-yaml'
+import { load } from 'js-yaml'
 import { cuss } from 'cuss'
 import { cuss as cussPt } from 'cuss/pt'
 import { cuss as cussFr } from 'cuss/fr'
@@ -17,7 +17,7 @@ async function getLanguageInstance() {
   return language
 }
 
-// Exported for the debugging CLI script
+// analyze-comment-cli.ts imports SIGNAL_RATINGS to show each signal.
 export const SIGNAL_RATINGS = [
   {
     reduction: 1.0,
@@ -91,15 +91,7 @@ export async function getGuessedLanguage(comment: string) {
 
   const lang = await getLanguageInstance()
   const bestGuess = lang.guessBest(comment.trim(), [])
-  if (!bestGuess) return // Can happen if the text is just whitespace
-  // // @horizon-rs/language-guesser is based on tri-grams and can lead
-  // // to false positives. For example, it thinks that 'Thamk you ❤️🙏' is
-  // // Haitian! And that 'I wanne robux 1000' is Polish!
-  // // But that's because they are short and there's not enough clues to
-  // // guess what language it is. You and I might know those are actually
-  // // attempts to be English, despite the spelling.
-  // // But are they useful comments? Given that this is just a signal,
-  // // and not a hard blocker, it's more of a clue than a fact.
+  if (!bestGuess) return // The guesser can return no result for non-empty text.
 
   return bestGuess.alpha2 || undefined
 }
@@ -129,8 +121,7 @@ function isEmailOnly(text: string) {
 
 function isContainingEmail(text: string) {
   if (text.includes('@') && !isEmailOnly(text)) {
-    // Don't use splitWords() here because `foo@example.com` will be
-    // split up into ['foo', 'example.com'].
+    // Don't use splitWords here, because it splits octocat@github.com into octocat and github.com.
     return text.split(/\s+/g).some((word) => isEmailOnly(word))
   }
   return false
@@ -150,40 +141,51 @@ function isAllUppercase(text: string) {
   return /[A-Z]/.test(text) && text === text.toUpperCase()
 }
 
+// Chinese and Japanese do not put spaces between words, so segment them instead.
+const CJK_REGEX = /[\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}]/u
+// Single Hiragana segments are particles or pieces of endings like ございます, not words.
+const SINGLE_HIRAGANA_REGEX = /^\p{Script=Hiragana}$/u
+
+function countWords(text: string) {
+  return text
+    .trim()
+    .split(/\s+/)
+    .reduce((count, token) => count + countTokenWords(token), 0)
+}
+
+function countTokenWords(token: string) {
+  // Path-like tokens such as www.example.com/some/path stay one word next to CJK text.
+  if (!CJK_REGEX.test(token)) return 1
+  const words = splitWords(token).filter((word) => !SINGLE_HIRAGANA_REGEX.test(word))
+  return Math.max(1, words.length)
+}
+
 function isTooShort(text: string) {
-  const split = text.trim().split(/\s+/)
-  if (split.length <= 3) {
+  if (countWords(text) <= 3) {
     return true
   }
 }
 
 function isSingleWord(text: string) {
-  const whitespaceSplit = text.trim().split(/\s+/)
-  // E.g. `this-has-no-whitespace` or `snap/hooks/install`
-  return whitespaceSplit.length === 1
+  // Single path-like tokens such as snap/hooks/install count as one word.
+  return countWords(text) === 1
 }
 
+// @horizon-rs/language-guesser can misclassify short misspelled English like `Thamk you`.
+// This signal lowers confidence instead of blocking because the guess is a clue, not a fact.
 async function isNotLanguage(text: string, language_: string) {
   const lang = await getLanguageInstance()
   const bestGuess = lang.guessBest(text.trim(), [])
-  if (!bestGuess) return true // Can happen if the text is just whitespace
-  // @horizon-rs/language-guesser is based on tri-grams and can lead
-  // to false positives. For example, it thinks that 'Thamk you ❤️🙏' is
-  // Haitian! And that 'I wanne robux 1000' is Polish!
-  // But that's because they are short and there's not enough clues to
-  // guess what language it is. You and I might know those are actually
-  // attempts to be English, despite the spelling.
-  // But are they useful comments? Given that this is just a signal,
-  // and not a hard blocker, it's more of a clue than a fact.
-
-  // We don't want to reduce the score for English comments. English
-  // comments, when evaluated by language, are always valid.
+  if (!bestGuess) return true // The guesser can return no result for non-empty text.
+  // Do not lower score when the guesser labels a comment as English.
   return bestGuess.alpha2 !== language_ && bestGuess.alpha2 !== 'en'
 }
 
 function isMostlyEmoji(text: string) {
   text = text.replace(/\s/g, '')
-  const emojiRegex = /\p{Emoji}/gu
+  // \p{Emoji} also matches bare 0-9, # and *, so keycaps only count as full sequences.
+  const emojiRegex =
+    /[\p{Extended_Pictographic}\p{Regional_Indicator}\p{Emoji_Modifier}]|[0-9#*]\uFE0F?\u20E3/gu
   const emojiMatches = text.match(emojiRegex)
   if (!emojiMatches) return false
   const emojiRatio = emojiMatches.length / text.length
@@ -225,14 +227,13 @@ function splitWords(text: string) {
   return [...segmentedText].filter((s) => s.isWordLike).map((s) => s.segment)
 }
 
-const surveyYaml = yaml.load(fs.readFileSync('data/survey-words.yml', 'utf8')) as {
+const surveyYaml = load(fs.readFileSync('data/survey-words.yml', 'utf8')) as {
   words: string[]
 }
 const surveyWords = surveyYaml.words.map((word: string) => word.toLowerCase())
 
 function isSpammyWordList(text: string) {
   const words = text.toLowerCase().split(/(\s+|\\n+)/g)
-  // Currently, we're intentionally not checking for
-  // survey words that are substrings of a comment word.
+  // Match whole survey-word tokens only, not substrings inside longer words.
   return Boolean(words.some((word) => surveyWords.includes(word)))
 }

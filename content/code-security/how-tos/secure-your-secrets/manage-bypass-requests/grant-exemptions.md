@@ -30,11 +30,11 @@ category:
 
 {% data reusables.secret-scanning.push-protection-grant-exemption %}
 1. Click **Save configuration**.
-1. Apply the security configuration to repositories in your organization. See [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/applying-a-custom-security-configuration).
+1. Apply the security configuration to repositories in your organization. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/apply-custom-configuration).
 
 ## Granting exemptions for your enterprise
 
 {% data reusables.secret-scanning.push-protection-grant-enterprise-bypass %}
 {% data reusables.secret-scanning.push-protection-grant-exemption %}
 1. Click **Save configuration**.
-1. Apply the security configuration to organizations and repositories in your enterprise. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-enterprise-security/establish-complete-coverage/applying-a-custom-security-configuration-to-your-enterprise).
+1. Apply the security configuration to organizations and repositories in your enterprise. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-enterprise-security/establish-complete-coverage/apply-custom-configuration).

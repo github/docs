@@ -14,7 +14,7 @@ category:
 
 ## Prerequisites
 
-Before you can delete an enterprise account, you must remove, transfer, or delete all organizations in the enterprise. For more information, see [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise#transferring-an-organization-between-enterprise-accounts) and [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/removing-organizations-from-your-enterprise).
+Before you can delete an enterprise account, you must remove, transfer, or delete all organizations in the enterprise. For more information, see [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise#transferring-an-existing-organization) and [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/removing-organizations-from-your-enterprise).
 
 After removing organizations, check the "People" tab in your enterprise settings and remove any unaffiliated members who remain in the enterprise. Unaffiliated members are users who are not part of any organization within the enterprise.
 

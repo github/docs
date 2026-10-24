@@ -17,13 +17,17 @@ redirect_from:
 contentType: how-tos
 category:
   - Configure Copilot
+docsTeamMetrics:
+  - ai-governance
 ---
 
 ## Enable {% data variables.product.prodname_copilot %}
 
-To purchase {% data variables.product.prodname_copilot %} for your enterprise, [contact {% data variables.product.github %}'s Sales team](https://github.com/enterprise/contact?ref_product=copilot&ref_type=engagement&ref_style=text).
+{% data reusables.copilot.plans.subscribe-for-enterprise %}
 
-A member of the Sales team will work with you to set up {% data variables.product.prodname_copilot_short %} for your enterprise.
+As an enterprise owner, contact {% data variables.contact.contact_support_page %} if the enterprise **Licensing** page shows **Contact support to enable**, or if the **{% data variables.product.prodname_copilot_short %}** card or **Manage** or **Enable** controls are missing. Also contact {% data variables.contact.github_support %} if activation remains unavailable after a trial expires, a plan change, or moving an organization into a new enterprise. Activation may need to be enabled for your enterprise first.
+
+After {% data variables.contact.github_support %} confirms the change, allow a short time for the change to propagate. Then return to the enterprise **Licensing** page and retry enabling {% data variables.product.prodname_copilot_short %}.
 
 ## Set policies
 
@@ -34,18 +38,18 @@ You will use enterprise policies to manage two aspects of governance:
 
 Generally, enterprise owners can either set each policy for the whole enterprise or "let organizations decide." With the latter option, users are subject to the policy of the organization where they receive their {% data variables.product.prodname_copilot_short %} license or to the default defined in your "Policies for enterprise-assigned users" setting.
 
-To manage policies, see [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise).
+To manage policies, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-enterprise-policies).
 
 ## Configure networking
 
-If your corporate network restricts users' traffic, add the required URLs to the allowlist for your firewall or proxy. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/configuring-your-proxy-server-or-firewall-for-copilot).
+If your corporate network restricts users' traffic, add the required URLs to the allowlist for your firewall or proxy. See [AUTOTITLE](/copilot/reference/copilot-allowlist-reference).
 
 If you route traffic via a proxy server, you may need to ask users to configure proxy settings in their environment. You may also need to install custom certificates on your users' machines. For more information, see [AUTOTITLE](/copilot/concepts/network-settings).
 
-If your enterprise is on {% data variables.enterprise.data_residency_site %}, users will also need to configure their environment to authenticate from their development environment. See [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/using-github-copilot-with-an-account-on-ghecom).
+If your enterprise is on {% data variables.enterprise.data_residency_site %}, users will also need to configure their environment to authenticate from their development environment. See [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/set-up-copilot/authenticate-to-ghecom).
 
 ## Assign licenses
 
 {% data reusables.copilot.enterprise-licensing %}
 
-For instructions, see [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-access-to-copilot-in-your-enterprise/enabling-copilot-for-organizations-in-your-enterprise).
+For instructions, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-access/grant-access).

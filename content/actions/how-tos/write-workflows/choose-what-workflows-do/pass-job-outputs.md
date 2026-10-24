@@ -62,9 +62,9 @@ contentType: how-tos
 
 ## Next steps
 
-To learn more about job outputs and the `needs` context, see the following sections of [AUTOTITLE](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idoutputs):
-* [`jobs.<job_id>.outputs`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idoutputs)
-* [`jobs.<job_id>.needs`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idneeds)
+To learn more about job outputs and the `needs` context, see the following sections of [AUTOTITLE](/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idoutputs):
+* [`jobs.<job_id>.outputs`](/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idoutputs)
+* [`jobs.<job_id>.needs`](/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idneeds)
 
 To learn more about passing job outputs from one workflow to another, see the following section of [AUTOTITLE](/actions/how-tos/reuse-automations/reuse-workflows):
 * [Using outputs from a reusable workflow](/actions/how-tos/reuse-automations/reuse-workflows#using-outputs-from-a-reusable-workflow)

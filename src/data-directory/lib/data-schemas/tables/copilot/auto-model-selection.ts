@@ -1,11 +1,9 @@
-// This schema enforces the structure in auto-model-selection.yml
-
 const autoModelSelectionSchema = {
   type: 'array',
   items: {
     type: 'object',
     additionalProperties: false,
-    required: ['name', 'cloud_agent', 'chat', 'cli'],
+    required: ['name', 'cloud_agent', 'chat', 'cli', 'app'],
     properties: {
       name: {
         type: 'string',
@@ -18,6 +16,9 @@ const autoModelSelectionSchema = {
         type: 'boolean',
       },
       cli: {
+        type: 'boolean',
+      },
+      app: {
         type: 'boolean',
       },
     },

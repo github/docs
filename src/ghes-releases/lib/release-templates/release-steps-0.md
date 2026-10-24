@@ -91,8 +91,8 @@ Optionally, use and update the following table to keep track of key deadlines.
 * Slides
   * `TBD`
 * Docs
-  * [Creating a GitHub Enterprise Server instance](https://github.com/github/docs-team/blob/main/contributing-to-docs/docs-work/creating-a-github-enterprise-server-instance.md) in `github/docs-team`
-    * [Internal builds](https://github.com/github/docs-team/blob/main/contributing-to-docs/docs-work/creating-a-github-enterprise-server-instance.md#internal-builds), for testing pre-release RC builds
+  * [Creating a GitHub Enterprise Server instance](https://github.com/github/technical-content/blob/main/contributing-to-docs/docs-work/creating-a-github-enterprise-server-instance.md) in `github/technical-content`
+    * [Internal builds](https://github.com/github/technical-content/blob/main/contributing-to-docs/docs-work/creating-a-github-enterprise-server-instance.md#internal-builds), for testing pre-release RC builds
 * Slack
   * #tmp-docs-ghes-3-1x
   * [#docs-driver-persona](https://github-grid.enterprise.slack.com/archives/C07KVNQ6AVA)

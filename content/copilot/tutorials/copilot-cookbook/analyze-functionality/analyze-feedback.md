@@ -93,7 +93,7 @@ Write a feature specification for Issue #426.
 # Feature Specification for Issue #426: Shortcut for --with-token CLI option
 
 ## Description:
-Currently, the --with-token option is used to to pass in a token to commands. Typing --with-token each time is cumbersome. This feature proposes a new flag -wt as a shortcut to quickly specify the --with-token option when running various commands.
+Currently, the --with-token option is used to pass in a token to commands. Typing --with-token each time is cumbersome. This feature proposes a new flag -wt as a shortcut to quickly specify the --with-token option when running various commands.
 
 ## Problem:
 Typing --with-token repeatedly is time-consuming and inconvenient for users who frequently use this option.

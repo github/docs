@@ -101,10 +101,7 @@ Migrations from {% data variables.product.prodname_dotcom_the_website %} include
 
 * **Scope:** Source, history, and metadata
 * **Tooling:** {% data variables.product.prodname_importer_proper_name %}
-* **More information:** [{% data variables.product.prodname_expert_services %}](https://github.com/services/) website
-* **Caveats:**
-  * If you want to migrate GitLab repositories to GitHub using {% data variables.product.prodname_importer_proper_name %}, please contact our {% data variables.product.prodname_expert_services %} team.
-  * {% data reusables.migrations.migration-instructions-for-any-git-repository-to-githubcom %}
+* **More information:** [AUTOTITLE]({% ifversion ghes %}/free-pro-team@latest{% endif %}/migrations/using-github-enterprise-importer/migrate-from-gitlab)
 
 ### Any Git repository to {% data variables.product.prodname_dotcom_the_website %}
 
@@ -160,6 +157,7 @@ Follow a link below to review the scope and tooling for your migration to {% dat
 
 * [{% data variables.product.prodname_ghe_server %} to {% data variables.enterprise.data_residency_site %}](#github-enterprise-server-to-ghecom)
 * [{% data variables.product.prodname_dotcom_the_website %} to {% data variables.enterprise.data_residency_site %}](#githubcom-to-ghecom)
+* [{% data variables.enterprise.data_residency_site %} to {% data variables.enterprise.data_residency_site %}](#ghecom-to-ghecom)
 * [Azure DevOps Services (Azure DevOps Cloud) to {% data variables.enterprise.data_residency_site %}](#azure-devops-services-azure-devops-cloud-to-ghecom)
 * [Azure DevOps Server to {% data variables.enterprise.data_residency_site %}](#azure-devops-server-to-ghecom)
 * [Bitbucket Cloud (Bitbucket.org) to {% data variables.enterprise.data_residency_site %}](#bitbucket-cloud-bitbucketorg-to-ghecom)
@@ -197,6 +195,14 @@ Follow a link below to review the scope and tooling for your migration to {% dat
   * {% data reusables.migrations.large-repositories-require-expert-services-ghecom %}
   * {% data reusables.migrations.migration-instructions-for-any-git-repository-to-ghecom %}
 
+### {% data variables.enterprise.data_residency_site %} to {% data variables.enterprise.data_residency_site %}
+
+* **Scope:** Source, history, and metadata
+* **Tooling:** {% data variables.product.prodname_importer_proper_name %}
+* **More information:** [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/migrating-repositories-between-two-data-resident-enterprises)
+* **Caveats:**
+  * Repository archives must be less than 5GB.
+
 ### Azure DevOps Services (Azure DevOps Cloud) to {% data variables.enterprise.data_residency_site %}
 
 * **Scope:** Source, history, and metadata
@@ -233,10 +239,8 @@ Follow a link below to review the scope and tooling for your migration to {% dat
 ### GitLab to {% data variables.enterprise.data_residency_site %}
 
 * **Scope:** Source, history, and metadata
-* **Tooling:** Contact {% data variables.product.prodname_expert_services %}
-* **More information:** [{% data variables.product.prodname_expert_services %}](https://github.com/services/) website
-* **Caveats:**
-  * {% data reusables.migrations.migration-instructions-for-any-git-repository-to-ghecom %}
+* **Tooling:** {% data variables.product.prodname_importer_proper_name %}
+* **More information:** [AUTOTITLE]({% ifversion ghes %}/free-pro-team@latest{% endif %}/migrations/using-github-enterprise-importer/migrate-from-gitlab)
 
 ### Any Git repository to {% data variables.enterprise.data_residency_site %}
 

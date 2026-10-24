@@ -9,10 +9,9 @@ export interface SupportPortalVaIframeProps {
 const PREVIEW_BUTTON_HEIGHT = 95
 const FULL_HEIGHT = 750
 
-// The Support Portal iframe starts as `height 0` and `display none` to prevent the iframe from visibly rendering
-// When the iframe loads and the Support Portal has the iframe feature flag set to on, a message is sent to the parent of the iframe indicating it is ready
-// The iframe height is then set to 95px and the display to inline to show a button the user can click on to log in / start the VA
-// The full height is used to show the entire interactive Virtual Assistant
+// Support Portal controls iframe visibility remotely: height 0 and display none
+// at load, 95px for the login button, and 750px for the full Virtual Assistant.
+// It sends the ready message only when its iframe feature flag is on.
 export function SupportPortalVaIframe({
   supportPortalVaIframeProps,
 }: {
@@ -31,13 +30,12 @@ export function SupportPortalVaIframe({
 
   useEffect(() => {
     function eventHandler(event: MessageEvent<{ type: vaIframeMessageType }>) {
-      // An extra security measure which double checks that the events originate from the Support Portal domain
+      // Check event.origin so only the Support Portal domain can control the iframe.
       if (event.origin !== supportPortalVaIframeProps.supportPortalUrl) return
       const message = event.data
       switch (message.type) {
         case vaIframeMessageType.OPEN:
-          // We need to set the display to inline from a ref explicitly to prevent the component from rerendering
-          // The iframe is hidden by default to allow Support Portal to disable the iframe remotely
+          // Set display through the ref to reveal the iframe without rerendering.
           if (iframeRef.current) {
             iframeRef.current.style.display = 'inline'
             iframeRef.current.style.height = autoStartVa
@@ -46,13 +44,13 @@ export function SupportPortalVaIframe({
           }
           break
         case vaIframeMessageType.START:
-          // We need to set the height explicitly from a ref to prevent the component from rerendering
+          // Mutate height through the ref so opening the assistant does not rerender the component.
           if (iframeRef.current) {
             iframeRef.current.style.height = `${FULL_HEIGHT}px`
           }
           break
         case vaIframeMessageType.STOP:
-          // Effectively hide iframe. If preferred the element can also be deleted or display set to hidden.
+          // Hide the iframe when Support Portal stops the assistant.
           setIframe(false)
           break
         default:

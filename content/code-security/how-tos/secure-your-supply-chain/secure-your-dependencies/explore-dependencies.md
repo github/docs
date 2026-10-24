@@ -24,7 +24,7 @@ category:
 
 ## Viewing the dependency graph
 
-The dependency graph shows the dependencies{% ifversion fpt or ghec %} and dependents{% endif %} of your repository.  {% data reusables.dependency-graph.repository-view-update %} For information about the detection of dependencies and which ecosystems are supported, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/dependency-graph-supported-package-ecosystems).
+The dependency graph shows the dependencies{% ifversion fpt or ghec %} and dependents{% endif %} of your repository.  {% data reusables.dependency-graph.repository-view-update %} For information about the detection of dependencies and which ecosystems are supported, see [AUTOTITLE](/code-security/reference/supply-chain-security/dependency-graph-supported-package-ecosystems).
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.accessing-repository-graphs %}
@@ -42,7 +42,7 @@ The dependency graph shows the dependencies{% ifversion fpt or ghec %} and depen
 {% endif %}
 
 {% ifversion ghes %}
-Enterprise owners can configure the dependency graph at an enterprise level. For more information, see [AUTOTITLE](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise).
+Enterprise owners can configure the dependency graph at an enterprise level. For more information, see [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-enterprise-security/configure-specific-tools/enable-dependency-graph).
 {% endif %}
 
 ### Dependencies view
@@ -55,7 +55,7 @@ For each dependency, you can see its ecosystem, the manifest file in which it wa
 * You can sort and filter dependencies by typing filters as `key:value` pairs into the search bar.
 
     * Use `ecosystem: <ecosystem-name>` to display dependencies for the selected ecosystem.{% ifversion transitive-dependency-labeling-npm %}
-    * Use `relationship:` to filter the list by relationship status. Possible values are `direct`, `transitive`, and `inconclusive`. Alternatively, you can click the relationship label adjacent to a dependency name to only show dependencies of the same relationship status. This filter is only available for ecosystems with transitive dependency support. See [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/dependency-graph-supported-package-ecosystems) for more information.{% endif %}
+    * Use `relationship:` to filter the list by relationship status. Possible values are `direct`, `transitive`, and `inconclusive`. Alternatively, you can click the relationship label adjacent to a dependency name to only show dependencies of the same relationship status. This filter is only available for ecosystems with transitive dependency support. See [AUTOTITLE](/code-security/reference/supply-chain-security/dependency-graph-supported-package-ecosystems) for more information.{% endif %}
 
 {% endif %}
 
@@ -63,7 +63,7 @@ For each dependency, you can see its ecosystem, the manifest file in which it wa
 Any direct and indirect dependencies that are specified in the repository's manifest or lock files are listed.
 {% endif %}
 
-Dependencies submitted to a project using the {% data variables.dependency-submission-api.name %} will show which detector was used for their submission and when they were submitted. For more information on using the {% data variables.dependency-submission-api.name %}, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api).
+Dependencies submitted to a project using the {% data variables.dependency-submission-api.name %} will show which detector was used for their submission and when they were submitted. For more information on using the {% data variables.dependency-submission-api.name %}, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/use-dependency-submission-api).
 
 If vulnerabilities have been detected in the repository, these are shown at the top of the view for users with access to {% data variables.product.prodname_dependabot_alerts %}.
 
@@ -84,9 +84,9 @@ For public repositories, the dependents view shows how the repository is used by
 
 ## Further reading
 
-* [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/troubleshooting-the-dependency-graph)
-* [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)
-* [AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts){% ifversion ghec %}
+* [AUTOTITLE](/code-security/reference/supply-chain-security/troubleshoot-dependabot/dependency-graph-errors)
+* [AUTOTITLE](/code-security/concepts/supply-chain-security/dependency-graph)
+* [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-dependabot-alerts/view-dependabot-alerts){% ifversion ghec %}
 * [AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-dependencies-in-your-organization){% endif %}{% ifversion fpt or ghec %}
-* [AUTOTITLE](/get-started/privacy-on-github)
+* [AUTOTITLE](/get-started/archiving-your-github-personal-account-and-public-repositories)
 {% endif %}

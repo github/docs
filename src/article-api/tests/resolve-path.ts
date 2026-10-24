@@ -2,7 +2,6 @@ import { describe, expect, test } from 'vitest'
 import { resolvePath } from '@/article-api/lib/resolve-path'
 import type { Context, Page } from '@/types'
 
-// Helper to create a minimal mock page
 function createMockPage(relativePath: string): Page {
   return {
     relativePath,
@@ -10,7 +9,6 @@ function createMockPage(relativePath: string): Page {
   } as unknown as Page
 }
 
-// Helper to create a minimal context with pages
 function createContext(pages: Record<string, Page>): Context {
   return { pages } as unknown as Context
 }
@@ -92,11 +90,9 @@ describe('resolvePath', () => {
   describe('versioned keys (endsWith matching)', () => {
     test('finds versioned page using endsWith strategy', () => {
       const page = createMockPage('copilot/index.md')
-      // The key ends with the path portion after the version string
       const context = createContext({
         '/en/enterprise-cloud@latest/copilot': page,
       })
-      // When looking for /copilot, strategy 4 will find keys ending with /copilot
       const result = resolvePath('/copilot', 'en', '/en', context)
       expect(result).toBe(page)
     })
@@ -108,6 +104,64 @@ describe('resolvePath', () => {
       })
       const result = resolvePath('/en/copilot', 'en', '/en', context)
       expect(result).toBe(page)
+    })
+  })
+
+  describe('content-root absolute paths', () => {
+    test('resolves /content/ href to the language-prefixed page', () => {
+      const page = createMockPage('pull-requests/x.md')
+      const context = createContext({
+        '/en/pull-requests/x': page,
+      })
+      const result = resolvePath('/content/pull-requests/x', 'en', '/en/copilot', context)
+      expect(result).toBe(page)
+    })
+
+    test('resolves /content/ href through a versioned key', () => {
+      const page = createMockPage('admin/x.md')
+      const context = createContext({
+        '/en/enterprise-cloud@latest/admin/x': page,
+      })
+      const result = resolvePath('/content/admin/x/', 'en', '/en/copilot', context)
+      expect(result).toBe(page)
+    })
+
+    test('resolves /content/ href for a non-English language', () => {
+      const enPage = createMockPage('pull-requests/x.md')
+      const jaPage = createMockPage('pull-requests/x.md')
+      const context = createContext({
+        '/en/pull-requests/x': enPage,
+        '/ja/pull-requests/x': jaPage,
+      })
+      const result = resolvePath('/content/pull-requests/x', 'ja', '/ja/copilot', context)
+      expect(result).toBe(jaPage)
+    })
+
+    test('skips /content/ children not available in the current version', () => {
+      const ghesVersion = 'enterprise-server@3.20'
+      const dotcomOnly = {
+        ...createMockPage('pull-requests/dotcom-only.md'),
+        applicableVersions: ['free-pro-team@latest', 'enterprise-cloud@latest'],
+      } as unknown as Page
+      const everywhere = {
+        ...createMockPage('rest/everywhere.md'),
+        applicableVersions: ['free-pro-team@latest', 'enterprise-cloud@latest', ghesVersion],
+      } as unknown as Page
+      const pages = {
+        '/en/pull-requests/dotcom-only': dotcomOnly,
+        '/en/rest/everywhere': everywhere,
+      }
+      const ghesContext = { pages, currentVersion: ghesVersion } as unknown as Context
+      const dotcomContext = { pages, currentVersion: 'free-pro-team@latest' } as unknown as Context
+      const pathname = `/en/${ghesVersion}/pull-requests`
+
+      expect(
+        resolvePath('/content/pull-requests/dotcom-only', 'en', pathname, ghesContext),
+      ).toBeUndefined()
+      expect(resolvePath('/content/rest/everywhere', 'en', pathname, ghesContext)).toBe(everywhere)
+      expect(
+        resolvePath('/content/pull-requests/dotcom-only', 'en', '/en/pull-requests', dotcomContext),
+      ).toBe(dotcomOnly)
     })
   })
 

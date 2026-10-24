@@ -98,7 +98,7 @@ If you have lost access to your two-factor authentication credentials and your r
 
 ## Unlinking your email address
 
-If you have exhausted your recovery options, you can unlink your email address from your account. The email address is then available for you to link it to a new or existing account, maintaining your commit history. See [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-personal-account/unlinking-your-email-address-from-a-locked-account).
+If you have exhausted your recovery options, you can unlink your email address from your account. The email address is then available for you to link it to a new or existing account, maintaining your commit history. See [AUTOTITLE](/account-and-profile/how-tos/account-management/unlinking-your-email-address-from-a-locked-account).
 
 {% endif %}
 

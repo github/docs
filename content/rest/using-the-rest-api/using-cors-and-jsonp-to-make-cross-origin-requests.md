@@ -54,7 +54,7 @@ $ curl {% data variables.product.rest_url %}?callback=foo
 >     "x-ratelimit-limit": "5000",
 >     "x-ratelimit-remaining": "4966",
 >     "x-ratelimit-reset": "1372700873",
->     "Link": [ // pagination headers and other links
+>     "link": [ // pagination headers and other links
 >       ["{% data variables.product.rest_url %}?page=2", {"rel": "next"}]
 >     ]
 >   },
@@ -90,19 +90,19 @@ document.getElementsByTagName('head')[0].appendChild(script);
 </html>
 ```
 
-All of the headers have the same string value as the HTTP Headers, except `Link`. `Link` headers are pre-parsed for you and come through as an array of `[url, options]` tuples.
+All of the headers have the same string value as the HTTP headers, except `link`. The `link` header is pre-parsed for you and comes through as an array of `[url, options]` tuples.
 
 For example, a link that looks like this:
 
 ```shell
-Link: <url1>; rel="next", <url2>; rel="foo"; bar="baz"
+link: <url1>; rel="next", <url2>; rel="foo"; bar="baz"
 ```
 
 will look like this in the Callback output:
 
 ```json
 {
-  "Link": [
+  "link": [
     [
       "url1",
       {

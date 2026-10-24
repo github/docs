@@ -25,4 +25,4 @@ The {% data variables.product.prodname_codeql %} extension builds a {% data vari
 
 ## Next steps
 
-To get started, see [AUTOTITLE](/code-security/how-tos/scan-code-for-vulnerabilities/scan-from-vs-code/running-codeql-queries-at-scale-with-multi-repository-variant-analysis).
+To get started, see [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/scan-from-vs-code/run-queries-at-scale).

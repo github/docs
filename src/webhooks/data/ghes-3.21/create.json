@@ -7,7 +7,8 @@
         "type": "string or null",
         "name": "description",
         "description": "<p>The repository's current description.</p>",
-        "isRequired": true
+        "isRequired": true,
+        "childParamsGroups": []
       },
       {
         "type": "object",
@@ -25,7 +26,8 @@
         "type": "string",
         "name": "master_branch",
         "description": "<p>The name of the repository's default branch (usually <code>main</code>).</p>",
-        "isRequired": true
+        "isRequired": true,
+        "childParamsGroups": []
       },
       {
         "type": "object",
@@ -37,13 +39,15 @@
         "type": "string",
         "name": "pusher_type",
         "description": "<p>The pusher type for the event. Can be either <code>user</code> or a deploy key.</p>",
-        "isRequired": true
+        "isRequired": true,
+        "childParamsGroups": []
       },
       {
         "type": "string",
         "name": "ref",
         "description": "<p>The <a href=\"https://docs.github.com/enterprise-server@3.21/rest/git/refs#get-a-reference\"><code>git ref</code></a> resource.</p>",
-        "isRequired": true
+        "isRequired": true,
+        "childParamsGroups": []
       },
       {
         "type": "string",
@@ -53,7 +57,8 @@
         "enum": [
           "tag",
           "branch"
-        ]
+        ],
+        "childParamsGroups": []
       },
       {
         "type": "object",

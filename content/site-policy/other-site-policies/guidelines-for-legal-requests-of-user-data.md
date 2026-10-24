@@ -60,7 +60,7 @@ They may be easiest to imagine as a project's folder.
 A repository contains all of the project files (including documentation), and stores each file's revision history.
 Repositories can have multiple collaborators and, at its administrators' discretion, may be publicly viewable or not.
 
-* [**Pages**](/pages/getting-started-with-github-pages/about-github-pages):
+* [**Pages**](/pages/getting-started-with-github-pages/what-is-github-pages):
 GitHub Pages are public webpages freely hosted by GitHub that users can easily publish through code stored in their repositories.
 If a user or organization has a GitHub Page, it can usually be found at a URL such as `https://username.github.io` or they may have the webpage mapped to their own custom domain name.
 
@@ -96,7 +96,7 @@ All user public profiles display:
 
 * <a name="private-account-data"></a>
 **Private account data:**
-GitHub also collects and maintains certain private information about users as outlined in our [Privacy Policy](/site-policy/privacy-policies/github-privacy-statement).
+GitHub also collects and maintains certain private information about users as outlined in our [Privacy Policy](/site-policy/privacy-policies/github-general-privacy-statement).
 This may include:
   * Private email addresses
   * Payment details

@@ -54,7 +54,7 @@ accDescr: A flow chart describing how the automation generates documentation for
     class security-markdown,quality-markdown,security-suites,quality-suites,codeql-cli file;
 ```
 
-A [workflow](../../.github/workflows/generate-codeql-query-lists.yml) is used to trigger the automation of the CodeQL query tables documentation. The workflow is manually triggered by a member of the GitHub Docs team approximately every two weeks to align to releases of the CodeQL CLI. The workflow takes an input parameter that specifies the branch to pull the source files from in the codeql repo. If the branch input is omitted, the workflow will default to the `main` branch.
+A [workflow](../../.github/workflows/generate-code-scanning-query-lists.yml) is used to trigger the automation of the CodeQL query tables documentation. The workflow is manually triggered by a member of the GitHub Docs team approximately every two weeks to align to releases of the CodeQL CLI. The workflow takes an input parameter that specifies the branch to pull the source files from in the codeql repo. If the branch input is omitted, the workflow will default to the `main` branch.
 
 The workflow runs two scripts in parallel:
 - `npm run generate-code-scanning-query-list` - generates security query tables under `data/reusables/code-scanning/codeql-query-tables/`
@@ -64,9 +64,43 @@ The workflow automatically creates a new pull request with changes from both scr
 
 ## Local development
 
-To run the pipeline locally, see the comments in the scripts:
-- Security queries: [generate-code-scanning-query-list.ts](scripts/generate-code-scanning-query-list.ts)
-- Code quality queries: [generate-code-quality-query-list.ts](scripts/generate-code-quality-query-list.ts)
+Both scripts need the CodeQL CLI and a local clone of `github/codeql`. The security script also needs a private npm package.
+
+### 1. Clone github/codeql
+
+The scripts resolve query suites by path, so the repo has to be on disk.
+
+```sh
+git clone git@github.com:github/codeql.git /tmp/codeql
+```
+
+### 2. Install the CodeQL CLI
+
+```sh
+gh extension install github/gh-codeql
+gh codeql set-channel nightly
+gh codeql version
+```
+
+`gh codeql version` prints where it installed the executable, something like `~/.local/share/gh/extensions/gh-codeql/dist/nightly/codeql-bundle-<date>/codeql`. Pass that path as `--codeql-path`.
+
+### 3. Install @github/cocofix
+
+Only `generate-code-scanning-query-list.ts` needs this, for autofix support data. It's a private package, so get the `DOCS_BOT_PAT_BASE` PAT from the vault, export it, then run this from the root of the repo:
+
+```sh
+npm i --no-save '--@github:registry=https://npm.pkg.github.com' '--//npm.pkg.github.com/:_authToken=${DOCS_BOT_PAT_BASE}' @github/cocofix
+```
+
+### 4. Run a script
+
+```sh
+npm run generate-code-quality-query-list -- \
+  --codeql-path <path from step 2> \
+  --codeql-dir /tmp/codeql python | tee /tmp/python.md
+```
+
+Use `generate-code-scanning-query-list` for the security tables. The last argument is the language.
 
 ## Content team
 
@@ -79,8 +113,8 @@ For code quality queries, reusables are stored in `data/reusables/code-quality/c
 
 ### For workflow and script problems
 
-Slack: `#docs-engineering`
-Repo: `github/docs-engineering`
+Slack: `#technical-content`
+Repo: `github/technical-content`
 
 ### For CodeQL repository and CLI problems
 

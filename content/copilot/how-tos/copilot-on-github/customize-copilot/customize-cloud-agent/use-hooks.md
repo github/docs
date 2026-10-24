@@ -30,6 +30,6 @@ redirect_from:
 ## Further reading
 
 * [AUTOTITLE](/copilot/reference/hooks-reference)
-* [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-cloud-agent)
-* [AUTOTITLE](/copilot/concepts/agents/about-copilot-cli)
-* [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/customize-the-agent-environment)
+* [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-on-github)
+* [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-cli)
+* [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/customize-the-agent-environment)

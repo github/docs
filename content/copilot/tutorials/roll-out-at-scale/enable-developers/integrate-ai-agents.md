@@ -14,6 +14,8 @@ contentType: tutorials
 category:
   - Roll Copilot out at scale
   - Manage Copilot for a team
+docsTeamMetrics:
+  - ai-governance
 ---
 
 ## About AI agents on {% data variables.product.github %}
@@ -60,6 +62,8 @@ To meet a tight deadline, you want to speed up each stage for both developers an
 1. After writing some code, the developer asks {% data variables.product.prodname_copilot_short %} to refactor the code into several different functions and lint it based on the organization's standards. They invoke one of the organization's custom agents, which includes custom instructions for the organization.
 
    {% data variables.product.prodname_copilot_short %} can update multiple files at once and, with the developer's authorization, run commands for actions like installing dependencies or running tests.
+
+1. Before opening a pull request, the developer runs `/security-review` to identify likely vulnerabilities in active local changes and apply remediations.
 
 1. The developer reviews the diff and chooses which code to keep.
 

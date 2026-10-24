@@ -6,13 +6,37 @@ import { sendEvent } from '@/events/components/events'
 import { SEARCH_OVERLAY_EVENT_GROUP } from '@/events/components/event-groups'
 import { sanitizeSearchQuery } from '@/search/lib/sanitize-search-query'
 
-// Search context values for identifying each search event
 export const GENERAL_SEARCH_CONTEXT = 'general-search'
 export const AI_SEARCH_CONTEXT = 'ai-search'
-export const COMBINED_SEARCH_CONTEXT = 'combined-search'
 
-// The logic that redirects to the /search page with the proper query params
-// The query params will be consumed in the general search middleware
+// The overlay's own params, which never travel to a destination page.
+const OVERLAY_PARAMS = [
+  'search-overlay-open',
+  'search-overlay-input',
+  'search-overlay-ask-ai',
+  'query',
+]
+
+// Landing grid params describe the source page's grid, so a destination landing must not reuse them.
+const PAGE_LOCAL_PARAMS = ['articles-category', 'articles-filter', 'articles-page']
+
+// Carries tool pickers, platform switches, and feature flags to the destination URL.
+// Not built from `router.query`, which also holds dynamic route params like `restPage`.
+// A `restPage` search param outranks the real path, so navigation would stay on this article.
+// Reads `window`, so call it only from event handlers, never during render.
+export function inheritableSearchParams(): URLSearchParams {
+  const params = new URLSearchParams(window.location.search)
+  for (const key of [...OVERLAY_PARAMS, ...PAGE_LOCAL_PARAMS]) {
+    params.delete(key)
+  }
+  return params
+}
+
+export function withInheritedParams(url: string): string {
+  const qs = inheritableSearchParams().toString()
+  return qs ? `${url}?${qs}` : url
+}
+
 export function executeGeneralSearch(
   router: NextRouter,
   currentVersion: string,
@@ -38,12 +62,34 @@ export function executeGeneralSearch(
   if (debug) {
     params.set('debug', '1')
   }
-  // Close the search overlay
   if (params.has('search-overlay-open')) {
     params.delete('search-overlay-open')
   }
+  // A new query starts on page 1 of all results, so an old page or category filter cannot leave it empty.
+  params.delete('page')
+  params.delete('toplevel')
   asPath += `?${params}`
   router.push(asPath, undefined, { shallow: false })
+}
+
+// A real href, so cmd-click and "copy link address" work on "View all N results".
+// Skips the current query string, so a copied link opens the results page without the overlay.
+// Reads no `window`: this renders during SSR, and a different client href breaks hydration.
+export function buildGeneralSearchPath(
+  router: NextRouter,
+  currentVersion: string,
+  localQuery: string,
+  debug = false,
+) {
+  let asPath = `/${router.locale}`
+  if (currentVersion !== DEFAULT_VERSION) {
+    asPath += `/${currentVersion}`
+  }
+  const params = new URLSearchParams({ query: localQuery })
+  if (debug) {
+    params.set('debug', '1')
+  }
+  return `${asPath}/search?${params}`
 }
 
 export async function executeAISearch(version: string, query: string, debug = false) {
@@ -65,9 +111,6 @@ export async function executeAISearch(version: string, query: string, debug = fa
   return response
 }
 
-/**
- * The AJAX request logic that fetches combined search results AI autocomplete suggestions + general search suggestions
- */
 export async function executeCombinedSearch(
   router: NextRouter,
   version: string,
@@ -82,17 +125,16 @@ export async function executeCombinedSearch(
     params.set('debug', '1')
   }
 
-  // Add client_name to identify requests from our frontend
+  // client_name identifies frontend requests to the search API.
   params.set('client_name', 'docs.github.com-client')
 
-  // Always fetch 4 results for autocomplete
+  // Autocomplete intentionally requests four results.
   params.set('size', '4')
 
   const response = await fetch(`/api/search/combined-search/v1?${params}`, {
     headers: {
       'Content-Type': 'application/json',
     },
-    // Allow the caller to pass in an AbortSignal to cancel the request
     signal: abortSignal || undefined,
   })
   if (!response?.ok) {

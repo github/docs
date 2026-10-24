@@ -1,4 +1,4 @@
-name: Feedback prompt for non-Docs team contributors when a PR is closed
+name: Feedback prompt for non-Technical Content team contributors when a PR is closed
 
 on:
   pull_request:
@@ -10,9 +10,8 @@ permissions:
 
 jobs:
   comment-on-pr:
-    # This workflow should only run on the 'github/docs-internal' repository because it posts a feedback request
-    # to non-Docs team contributors when their PR is merged into the main branch.
-    # The feedback request asks contributors to leave feedback on their contributing experience in Slack.
+    # Ask merged main-branch pull request authors for feedback when they are outside
+    # the docs-content team.
     if: github.repository == 'github/docs-internal' && github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'main'
 
     runs-on: ubuntu-latest
@@ -26,14 +25,13 @@ jobs:
           script: |
             try {
               const pr = context.payload.pull_request;
-              await github.rest.teams.getMembershipForUserInOrg({
-                org: 'github',
-                team_slug: 'docs-content',
+              // Numeric IDs survive team renames; slugs do not. GitHub org 9919, docs-content team 2796154.
+              await github.request('GET /organizations/{org_id}/team/{team_id}/memberships/{username}', {
+                org_id: 9919,
+                team_id: 2796154,
                 username: pr.user.login,
               });
-              // Author is in the team. Do nothing!
             } catch(err) {
-              // Author not in team
               core.exportVariable('NON_DOCS_HUBBER', 'true');
             }
 
@@ -64,7 +62,6 @@ jobs:
                 " - Thanks for your contribution! " +
                 "If you think something could be improved about the contributor experience, please post in `#docs-contributor-feedback` on Slack.";
             } else {
-              // nobody to mention!
               commentBody =
                 "👋 Thanks for your contribution! " +
                 "If you think something could be improved about the contributor experience, please post in `#docs-contributor-feedback` on Slack.";

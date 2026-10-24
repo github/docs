@@ -1,6 +1,11 @@
+import { useRouter } from 'next/router'
 import { LinkExternalIcon } from '@primer/octicons-react'
+import { Button, ButtonGroup, Heading, Text } from '@primer/react-brand'
 import styles from './LandingHero.module.scss'
+import { LandingSection } from './LandingSection'
 import { useTranslation } from '@/languages/components/useTranslation'
+import { DEFAULT_VERSION, useVersion } from '@/versions/components/useVersion'
+import { RenderedHTML } from '@/frame/components/ui/RenderedHTML/RenderedHTML'
 
 type LandingHeroProps = {
   title: string
@@ -10,7 +15,7 @@ type LandingHeroProps = {
 }
 
 function heroBackgroundCss(heroImage: string | undefined) {
-  if (!heroImage) return {}
+  if (!heroImage) return undefined
   return {
     backgroundImage: `image-set(
       url("${heroImage}.webp") type('image/webp'),
@@ -21,53 +26,58 @@ function heroBackgroundCss(heroImage: string | undefined) {
 
 export const LandingHero = ({ title, intro, heroImage, introLinks }: LandingHeroProps) => {
   const { t } = useTranslation(['product_landing'])
+  const router = useRouter()
+  const { currentVersion } = useVersion()
+
+  // Frontmatter paths lack locale and version, and redirects for bare paths take both from cookies or headers, not this page.
+  const localizeHref = (href: string) => {
+    if (!href.startsWith('/') || href.startsWith('//')) return href
+    const versionPrefix = currentVersion !== DEFAULT_VERSION ? `/${currentVersion}` : ''
+    return `/${router.locale}${versionPrefix}${href}`
+  }
 
   const linkEntries = introLinks ? Object.entries(introLinks) : []
-  const primaryAction = linkEntries[0]
-  const secondaryAction = linkEntries[1]
 
   return (
-    <div className={styles.landingHero} style={heroBackgroundCss(heroImage)}>
-      <div className={styles.heroContent}>
-        <div className={styles.heroText}>
-          <h1 className={styles.heroHeading}>{title}</h1>
+    <LandingSection>
+      <div className={styles.landingHero} style={heroBackgroundCss(heroImage)}>
+        <div className={styles.heroContent}>
+          <Heading as="h1" size="2" className={styles.heroHeading}>
+            {title}
+          </Heading>
           {intro && (
-            <div className={styles.heroDescription}>
-              <div dangerouslySetInnerHTML={{ __html: intro }} />
-            </div>
+            <Text
+              as="div"
+              size="200"
+              variant="muted"
+              className={`${styles.heroDescription} ${styles.heroIntroScrim}`}
+            >
+              <RenderedHTML as="div" html={intro} />
+            </Text>
           )}
-          {(primaryAction || secondaryAction) && (
-            <div className={styles.heroActions}>
-              {primaryAction && (
-                <a
-                  href={primaryAction[1]}
-                  className={`${styles.heroAction} ${styles.heroPrimaryAction}`}
-                >
-                  {t(primaryAction[0])}{' '}
-                  {primaryAction[1].startsWith('https') && (
-                    <span className="ml-1">
-                      <LinkExternalIcon aria-label="(external site)" size="small" />
-                    </span>
-                  )}
-                </a>
-              )}
-              {secondaryAction && (
-                <a
-                  href={secondaryAction[1]}
-                  className={`${styles.heroAction} ${styles.heroSecondaryAction}`}
-                >
-                  {t(secondaryAction[0])}{' '}
-                  {secondaryAction[1].startsWith('https') && (
-                    <span className="ml-1">
-                      <LinkExternalIcon aria-label="(external site)" size="small" />
-                    </span>
-                  )}
-                </a>
-              )}
+          {linkEntries.length > 0 && (
+            <div className={styles.heroButtons}>
+              <ButtonGroup>
+                {linkEntries.map(([label, href], i) => (
+                  <Button
+                    key={label}
+                    as="a"
+                    href={localizeHref(href)}
+                    variant={i === 0 ? 'primary' : 'secondary'}
+                    trailingVisual={
+                      href.startsWith('https') ? (
+                        <LinkExternalIcon aria-label="(external site)" size="small" />
+                      ) : undefined
+                    }
+                  >
+                    {t(label)}
+                  </Button>
+                ))}
+              </ButtonGroup>
             </div>
           )}
         </div>
       </div>
-    </div>
+    </LandingSection>
   )
 }

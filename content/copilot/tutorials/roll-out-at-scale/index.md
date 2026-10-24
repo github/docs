@@ -9,6 +9,7 @@ children:
   - /govern-at-scale
   - /enable-developers
   - /drive-downstream-impact
+  - /measure-copilot-impact
   - /measure-success
 redirect_from:
   - /copilot/rolling-out-github-copilot-at-scale

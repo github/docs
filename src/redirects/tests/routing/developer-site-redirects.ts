@@ -5,14 +5,13 @@ import { beforeAll, describe, expect, test, vi } from 'vitest'
 import enterpriseServerReleases from '@/versions/lib/enterprise-server-releases'
 import { get } from '@/tests/helpers/e2etest'
 import readJsonFile from '@/frame/lib/read-json-file'
+import { USER_VERSION_COOKIE_NAME } from '@/frame/lib/constants'
 
 describe('developer redirects', () => {
   vi.setConfig({ testTimeout: 60 * 1000 })
 
   beforeAll(async () => {
-    // The first page load takes a long time so let's get it out of the way in
-    // advance to call out that problem specifically rather than misleadingly
-    // attributing it to the first test
+    // Warm up the first page load so later failures point to the redirect under test.
     await get('/v4')
   })
 
@@ -60,6 +59,22 @@ describe('developer redirects', () => {
       expect(enumRes.statusCode).toBe(301)
       const enumResFinalPath = '/en/graphql/reference/search#enum-searchtype'
       expect(enumRes.headers.location).toBe(enumResFinalPath)
+
+      const queryRes = await get('/en/v4/scalar/boolean?utm_source=foo')
+      expect(queryRes.statusCode).toBe(301)
+      expect(queryRes.headers.location).toBe(
+        '/en/graphql/reference/other?utm_source=foo#scalar-boolean',
+      )
+    })
+
+    test('graphql reference paths keep the fragment with a version cookie', async () => {
+      const res = await get('/en/v4/enum/searchtype', {
+        headers: { Cookie: `${USER_VERSION_COOKIE_NAME}=enterprise-cloud@latest` },
+      })
+      expect(res.statusCode).toBe(302)
+      expect(res.headers.location).toBe(
+        '/en/enterprise-cloud@latest/graphql/reference/search#enum-searchtype',
+      )
     })
   })
 
@@ -70,27 +85,23 @@ describe('developer redirects', () => {
     expectedFinalPath = '/en/rest'
     expect(res.headers.location).toBe(expectedFinalPath)
 
-    // REST subresources like activity notifications don't have their own page
-    // anymore, so redirect to an anchor on the resource page
+    // REST subresource paths like activity notifications resolve under the resource page.
     res = await get('/en/v3/activity')
     expect(res.statusCode).toBe(301)
     expectedFinalPath = '/en/rest/activity'
     expect(res.headers.location).toBe(expectedFinalPath)
 
-    // REST subresources like activity notifications don't have their own page
-    // anymore, so redirect to an anchor on the resource page
+    // REST subresource paths like activity notifications resolve under the resource page.
     res = await get('/en/v3/activity/notifications')
     expect(res.statusCode).toBe(301)
     expectedFinalPath = '/en/rest/activity/notifications'
     expect(res.headers.location).toBe(expectedFinalPath)
 
-    // trailing slashes are handled separately by the `slashes` module;
-    // any request to a /v3 URL with a trailing slash will be redirected twice
+    // The slashes middleware removes trailing slash first, causing two redirects for /v3 URLs.
     res = await get('/en/v3/activity/notifications/')
     expect(res.statusCode).toBe(301)
     expect(res.headers.location).toBe('/en/v3/activity/notifications')
 
-    // non-reference redirects (e.g. guides)
     res = await get('/en/v3/guides/basics-of-authentication')
     expect(res.statusCode).toBe(301)
     expectedFinalPath =
@@ -99,30 +110,31 @@ describe('developer redirects', () => {
   })
 
   describe('fixtures', () => {
-    test.each(['developer', 'rest', 'graphql'])('%s redirects', async (label) => {
-      const FIXTURES = {
-        developer: './src/fixtures/fixtures/developer-redirects.json',
-        rest: './src/fixtures/fixtures/rest-redirects.json',
-        graphql: './src/fixtures/fixtures/graphql-redirects.json',
-      }
-      if (!(label in FIXTURES)) throw new Error('unrecognized label')
-      const fixtures = readJsonFile(FIXTURES[label as keyof typeof FIXTURES])
-      // Don't use a `Promise.all()` because it's actually slower
-      // because of all the eventloop context switching.
-      for (let [oldPath, newPath] of Object.entries(fixtures as Record<string, string>)) {
-        // REST and GraphQL developer Enterprise paths with a version are only supported up to 2.21.
-        // We make an exception to always redirect versionless paths to the latest version.
-        newPath = (newPath as string).replace(
+    const FIXTURES = {
+      developer: './src/fixtures/fixtures/developer-redirects.json',
+      rest: './src/fixtures/fixtures/rest-redirects.json',
+      graphql: './src/fixtures/fixtures/graphql-redirects.json',
+    }
+    for (const [label, file] of Object.entries(FIXTURES)) {
+      const fixtures = readJsonFile(file) as Record<string, string>
+      // Versioned developer Enterprise paths support up to 2.21; versionless paths use latest.
+      const cases = Object.entries(fixtures).map(([oldPath, newPath]) => [
+        oldPath,
+        newPath.replace(
           '/enterprise-server/',
           `/enterprise-server@${enterpriseServerReleases.latest}/`,
-        )
-        const res = await get(oldPath)
-        const sameFirstPrefix = oldPath.split('/')[1] === (newPath as string).split('/')[1]
-        expect(res.statusCode, `${oldPath} did not redirect to ${newPath}`).toBe(
-          sameFirstPrefix ? 301 : 302,
-        )
-        expect(res.headers.location).toBe(newPath)
-      }
-    })
+        ),
+      ])
+      describe(`${label} redirects`, () => {
+        test.each(cases)('%s', async (oldPath, newPath) => {
+          const res = await get(oldPath)
+          const sameFirstPrefix = oldPath.split('/')[1] === newPath.split('/')[1]
+          expect(res.statusCode, `${oldPath} did not redirect to ${newPath}`).toBe(
+            sameFirstPrefix ? 301 : 302,
+          )
+          expect(res.headers.location).toBe(newPath)
+        })
+      })
+    }
   })
 })

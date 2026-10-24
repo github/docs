@@ -1,23 +1,12 @@
-/*
- Flattens a JSON object and converts it to a logfmt string
- Nested objects are flattened with a dot separator, e.g. requestContext.path=/en
- This is because Splunk doesn't support nested JSON objects.
+// Flattens nested context for Splunk, which cannot query nested JSON objects.
+// Example: { requestContext: { path: "/en" } } becomes requestContext.path=/en.
 
- Example
- {
-   "a": 1,
-   "b": {
-     "c": 2
-    }
- }
- becomes
- a=1 b.c=2
-*/
+const CONTROL_ESCAPES: Record<string, string> = { '\n': '\\n', '\r': '\\r', '\t': '\\t' }
 
-/**
- * Custom logfmt stringify implementation
- * Based on the original node-logfmt library behavior
- */
+// Matches the original node-logfmt library's quoting and escaping behavior, except that it
+// also escapes line breaks and tabs in values and replaces separator characters in keys.
+// Log shippers split records on newlines, so raw line breaks from request data or error
+// stacks would split one record into several or let a value forge a new record.
 function stringify(data: Record<string, unknown>): string {
   let line = ''
 
@@ -34,10 +23,12 @@ function stringify(data: Record<string, unknown>): string {
     }
 
     const needs_quoting = stringValue.indexOf(' ') > -1 || stringValue.indexOf('=') > -1
-    const needs_escaping = stringValue.indexOf('"') > -1 || stringValue.indexOf('\\') > -1
+    const needs_escaping = /["\\\n\r\t]/.test(stringValue)
 
     if (needs_escaping) {
-      stringValue = stringValue.replace(/["\\]/g, '\\$&')
+      stringValue = stringValue
+        .replace(/["\\]/g, '\\$&')
+        .replace(/[\n\r\t]/g, (char) => CONTROL_ESCAPES[char])
     }
     if (needs_quoting || needs_escaping) {
       stringValue = `"${stringValue}"`
@@ -46,15 +37,13 @@ function stringify(data: Record<string, unknown>): string {
       stringValue = '""'
     }
 
-    line += `${key}=${stringValue} `
+    line += `${key.replace(/[\s\p{Cc}="]/gu, '_')}=${stringValue} `
   }
 
-  // trim trailing space
   return line.substring(0, line.length - 1)
 }
 
 export function toLogfmt(jsonString: Record<string, unknown>): string {
-  // Helper function to flatten nested objects
   const flattenObject = (
     obj: Record<string, unknown>,
     parentKey: string = '',
@@ -66,25 +55,21 @@ export function toLogfmt(jsonString: Record<string, unknown>): string {
       const value = obj[key]
 
       if (value && typeof value === 'object') {
-        // Handle circular references
         if (seen.has(value)) {
           result[newKey] = '[Circular]'
           continue
         }
 
-        // Handle Date objects specially
         if (value instanceof Date) {
           result[newKey] = value.toISOString()
           continue
         }
 
-        // Handle arrays
         if (Array.isArray(value)) {
           result[newKey] = value.join(',')
           continue
         }
 
-        // Handle other objects - only flatten if not empty
         const valueKeys = Object.keys(value as Record<string, unknown>)
         if (valueKeys.length > 0) {
           seen.add(value)
@@ -92,7 +77,7 @@ export function toLogfmt(jsonString: Record<string, unknown>): string {
           seen.delete(value)
         }
       } else {
-        // Convert undefined values to null, as they are not supported by logfmt
+        // undefined and empty strings become null, which logfmt can represent.
         result[newKey] =
           value === undefined || (typeof value === 'string' && value === '') ? null : value
       }

@@ -2,10 +2,12 @@
 title: Secure your secrets at scale with GitHub
 shortTitle: Secret protection
 allowTitleToDifferFromFilename: true
-intro: 'Leaked credentials expose your organization to data breaches. GitHub Secret Protection detects and prevents secret leaks automatically. Follow this adoption path to assess risk, pilot the solution, and scale protection organization-wide.'
+intro: 'Leaked credentials expose your organization to data breaches. {% data variables.product.prodname_GH_secret_protection %} detects and prevents secret leaks automatically. Follow this five-phase adoption path to assess your current risk, evaluate {% data variables.product.prodname_GH_secret_protection %}, run a pilot, monitor its value, and scale protection across your organization.'
 layout: journey-landing
 versions:
-  feature: secret-risk-assessment
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 contentType: tutorials
 category:
   - Secure at scale
@@ -23,11 +25,12 @@ journeyTracks:
       - href: '/code-security/how-tos/secure-at-scale/configure-organization-security/configure-specific-tools/viewing-your-security-risk-assessment-reports'
   - id: 'evaluate'
     title: 'Phase 2: Evaluate GitHub Secret Protection'
-    description: 'Determine if GHSP meets your needs and build a business case. Review detection capabilities, push protection features, and validity checking. Use the pricing calculator to estimate costs and calculate potential cost savings from preventing manual remediation.'
+    description: 'Determine if GHSP meets your needs and build a business case. Review detection capabilities, push protection features, public monitoring, and validity checking. Use the pricing calculator to estimate costs and calculate potential cost savings from preventing manual remediation.'
     timeCommitment: '2-4 hours'
     guides:
       - href: '/code-security/concepts/secret-security/secret-scanning'
       - href: '/code-security/concepts/secret-security/push-protection'
+      - href: '/code-security/concepts/secret-security/public-monitoring'
       - href: '/code-security/reference/secret-security/supported-secret-scanning-patterns'
       - href: '/code-security/how-tos/secure-at-scale/configure-organization-security/configure-specific-tools/estimate-price'
       - href: '/code-security/tutorials/remediate-leaked-secrets/calculate-cost-savings'
@@ -50,15 +53,17 @@ journeyTracks:
       - href: '/code-security/concepts/secret-security/push-protection-metrics'
       - href: '/code-security/tutorials/secure-your-organization/organize-leak-remediation'
       - href: '/code-security/tutorials/remediate-leaked-secrets/evaluating-alerts'
+      - href: '/code-security/how-tos/view-and-interpret-data/analyze-organization-data/viewing-public-monitoring-alerts'
   - id: 'scale'
     title: 'Phase 5: Scale, customize, and automate'
-    description: 'Expand GHSP organization-wide and tailor it to your specific workflows. Use validity checks to prioritize remediation, define custom patterns for organization-specific secrets, and apply security configurations at scale. For advanced use cases, enable AI-powered detection and integrate with automated workflows.'
+    description: 'Expand GHSP organization-wide and tailor it to your specific workflows. Use validity checks to prioritize remediation, define custom patterns for organization-specific secrets, and apply security configurations at scale. For advanced use cases, enable AI-powered detection, integrate with automated workflows, and extend coverage beyond your owned repositories with public monitoring.'
     timeCommitment: '1-2 weeks for initial rollout, ongoing for optimization'
     guides:
       - href: '/code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/apply-custom-configuration'
       - href: '/code-security/how-tos/secure-your-secrets/customize-leak-detection/define-custom-patterns'
       - href: '/code-security/how-tos/secure-your-secrets/manage-bypass-requests/enable-delegated-bypass'
-      - href: '/code-security/how-tos/secure-your-secrets/detect-secret-leaks/enabling-secret-scanning-for-non-provider-patterns'
-      - href: '/code-security/how-tos/secure-your-secrets/detect-secret-leaks/enabling-ai-powered-generic-secret-detection'
+      - href: '/code-security/how-tos/secure-your-secrets/detect-secret-leaks/enabling-secret-scanning-for-generic-patterns'
+      - href: '/code-security/how-tos/secure-your-secrets/detect-secret-leaks/enabling-secret-scanning-for-ai-detected-secrets'
       - href: '/code-security/how-tos/use-ghas-with-ai-coding-agents/scan-for-secrets-with-github-mcp-server'
+      - href: '/code-security/how-tos/secure-at-scale/configure-enterprise-security/manage-your-coverage/enabling-public-monitoring-for-your-enterprise'
 ---

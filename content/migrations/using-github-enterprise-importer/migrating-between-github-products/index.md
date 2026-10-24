@@ -13,5 +13,6 @@ children:
   - /migrating-repositories-from-github-enterprise-server-to-github-enterprise-cloud
   - /migrating-repositories-from-githubcom-to-github-enterprise-cloud
   - /migrating-organizations-from-githubcom-to-github-enterprise-cloud
+  - /migrating-repositories-between-two-data-resident-enterprises
 ---
 

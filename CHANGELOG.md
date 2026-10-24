@@ -1,5 +1,41 @@
 # Docs changelog
 
+**13 August 2026**
+
+We made improvements to the [Copilot allowlist reference](https://docs.github.com/en/enterprise-cloud@latest/copilot/reference/copilot-allowlist-reference), including:
+
+* A recommendation to use the `/meta` API to find recommended wildcard domains, with an explanation of which specific Copilot URLs these cover
+* A separate section for enterprises on GHE.com, who previously had no indication of which domains from GitHub.com they were or weren't required to allow
+* Structural improvements including moving the editor-specific requirements out of further reading, where they were easy to miss, and moving some explanations out of footnotes to make them easier to find
+
+<hr>
+
+**13 July 2026**
+
+We published [Bring your own key for GitHub Copilot](https://docs.github.com/en/copilot/concepts/models/bring-your-own-key). This article distinguishes between two different mechanisms for customers to use Copilot with custom models. We have also retitled corresponding how-to content to make the distinction clearer.
+
+<hr>
+
+**16 June 2026**
+
+We made some improvements to our documentation on Copilot policies:
+
+* Rewrote [GitHub Copilot policies for enterprises and organizations](https://docs.github.com/en/copilot/concepts/policies) to be more focused on common questions and points of confusion for enterprise customers, including more information on policy conflicts when users have multiple licenses
+* Published [Supported surfaces for policies](https://docs.github.com/en/copilot/reference/supported-surfaces-for-policies) to document which policies apply to which Copilot surfaces. Because the UI doesn't indicate which policies apply where, this allows customers to close governance gaps and be confident in the policy framework they set up
+
+<hr>
+
+**4 June 2026**
+
+We consolidated all Copilot and code security responsible use articles into structured application cards. Previously, each feature had its own standalone transparency note with inconsistent formatting. Now there are four standardized cards covering Chat, Agents, Inline Suggestions, and Code Security AI features, all following the same template with numbered sections for overview, key terms, capabilities, intended uses, models, limitations, and more.
+
+* [Application card: GitHub Copilot Chat](https://docs.github.com/en/copilot/responsible-use/chat)
+* [Application card: GitHub Copilot Agents](https://docs.github.com/en/copilot/responsible-use/agents)
+* [Application card: GitHub Copilot Inline Suggestions](https://docs.github.com/en/copilot/responsible-use/inline-suggestions)
+* [Application card: Security and code quality AI features](https://docs.github.com/en/code-security/responsible-use/security-and-quality-ai-features)
+
+<hr>
+
 **28 May 2026**
 
 We published a new guide for teams that run the CodeQL CLI in their own CI/CD systems and want faster scans. The article covers two techniques that can reduce scan times: diff-informed analysis (report only alerts in changed lines) and overlay analysis (reuse a cached base database instead of rebuilding from scratch).
@@ -93,7 +129,7 @@ LSP servers greatly improve Copilot CLI's ability to work with your code. For ex
 
 We've added documentation to explain LSP servers in greater detail and show how to install these for Copilot CLI:
 
-* [Using LSP servers with GitHub Copilot CLI](https://docs.github.com/copilot/concepts/agents/copilot-cli/lsp-servers)
+* [Using LSP servers with GitHub Copilot CLI](https://docs.github.com/copilot/concepts/customizations/lsp-servers)
 * [Adding LSP servers for GitHub Copilot CLI](https://docs.github.com/copilot/how-tos/copilot-cli/set-up-copilot-cli/add-lsp-servers)
 
 <hr>

@@ -110,7 +110,7 @@ The following table shows which toolkit functions are available within a workflo
 
 ## Setting a debug message
 
-Prints a debug message to the log. You must create a secret named `ACTIONS_STEP_DEBUG` with the value `true` to see the debug messages set by this command in the log. For more information, see [AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/enabling-debug-logging).
+Prints a debug message to the log. You must create a secret named `ACTIONS_STEP_DEBUG` with the value `true` to see the debug messages set by this command in the log. For more information, see [AUTOTITLE](/actions/how-tos/monitor-workflows/enable-debug-logging).
 
 ```text copy
 ::debug::{message}
@@ -386,7 +386,7 @@ If you want to pass a masked secret between jobs or workflows, you should store 
 #### Setup
 
 1. Set up a secret store to store the secret that you will generate during your workflow. For example, Vault.
-1. Generate a key for reading and writing to that secret store. Store the key as a repository secret. In the following example workflow, the secret name is `SECRET_STORE_CREDENTIALS`. For more information, see [AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions).
+1. Generate a key for reading and writing to that secret store. Store the key as a repository secret. In the following example workflow, the secret name is `SECRET_STORE_CREDENTIALS`. For more information, see [AUTOTITLE](/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets).
 
 #### Workflow
 
@@ -535,7 +535,7 @@ jobs:
 
 You can create environment variables for sharing with your workflow's `pre:` or `post:` actions by writing to the file located at `GITHUB_STATE`. For example, you can create a file with the `pre:` action, pass the file location to the `main:` action, and then use the `post:` action to delete the file. Alternatively, you could create a file with the `main:` action, pass the file location to the `post:` action, and also use the `post:` action to delete the file.
 
-If you have multiple `pre:` or `post:` actions, you can only access the saved value in the action where it was written to `GITHUB_STATE`. For more information on the `post:` action, see [AUTOTITLE](/actions/creating-actions/metadata-syntax-for-github-actions#runspost).
+If you have multiple `pre:` or `post:` actions, you can only access the saved value in the action where it was written to `GITHUB_STATE`. For more information on the `post:` action, see [AUTOTITLE](/actions/reference/workflows-and-actions/metadata-syntax#runspost).
 
 The `GITHUB_STATE` file is only available within an action. The saved value is stored as an environment value with the `STATE_` prefix.
 
@@ -558,7 +558,7 @@ console.log("The running PID from the main action is: " + process.env.STATE_proc
 
 ## Environment files
 
-During the execution of a workflow, the runner generates temporary files that can be used to perform certain actions. The path to these files can be accessed and edited using GitHub's default environment variables. See [AUTOTITLE](/actions/reference/variables-reference#default-environment-variables). You will need to use UTF-8 encoding when writing to these files to ensure proper processing of the commands. Multiple commands can be written to the same file, separated by newlines.
+During the execution of a workflow, the runner generates temporary files that can be used to perform certain actions. The path to these files can be accessed and edited using GitHub's default environment variables. See [AUTOTITLE](/actions/reference/workflows-and-actions/variables#default-environment-variables). You will need to use UTF-8 encoding when writing to these files to ensure proper processing of the commands. Multiple commands can be written to the same file, separated by newlines.
 To use environment variables in a GitHub Action, you create or modify `.env` files using specific GitHub Actions commands.
 
 Here's how:
@@ -651,7 +651,7 @@ echo "{environment_variable_name}={value}" >> "$GITHUB_ENV"
 
 You can make an environment variable available to any subsequent steps in a workflow job by defining or updating the environment variable and writing this to the `GITHUB_ENV` environment file. The step that creates or updates the environment variable does not have access to the new value, but all subsequent steps in a job will have access.
 
-{% data reusables.actions.environment-variables-are-fixed %} For more information about the default environment variables, see [AUTOTITLE](/actions/learn-github-actions/environment-variables#default-environment-variables).
+{% data reusables.actions.environment-variables-are-fixed %} For more information about the default environment variables, see [AUTOTITLE](/actions/reference/workflows-and-actions/variables#default-environment-variables).
 
 > [!NOTE]
 > Due to security restrictions, `GITHUB_ENV` cannot be used to set the `NODE_OPTIONS` environment variable.
@@ -741,7 +741,7 @@ steps:
 
 ## Setting an output parameter
 
-Sets a step's output parameter. Note that the step will need an `id` to be defined to later retrieve the output value. You can set multi-line output values with the same technique used in the [Multiline strings](/actions/using-workflows/workflow-commands-for-github-actions#multiline-strings) section to define multi-line environment variables.
+Sets a step's output parameter. Note that the step will need an `id` to be defined to later retrieve the output value. You can set multi-line output values with the same technique used in the [Multiline strings](/actions/reference/workflows-and-actions/workflow-commands#multiline-strings) section to define multi-line environment variables.
 
 {% bash %}
 
@@ -928,7 +928,7 @@ To completely remove a summary for the current step, the file that `GITHUB_STEP_
 
 {% endpowershell %}
 
-After a step has completed, job summaries are uploaded and subsequent steps cannot modify previously uploaded Markdown content. Summaries automatically mask any secrets that might have been added accidentally. If a job summary contains sensitive information that must be deleted, you can delete the entire workflow run to remove all its job summaries. For more information see [AUTOTITLE](/actions/managing-workflow-runs/deleting-a-workflow-run).
+After a step has completed, job summaries are uploaded and subsequent steps cannot modify previously uploaded Markdown content. Summaries automatically mask any secrets that might have been added accidentally. If a job summary contains sensitive information that must be deleted, you can delete the entire workflow run to remove all its job summaries. For more information, see [AUTOTITLE](/actions/how-tos/manage-workflow-runs/delete-a-workflow-run).
 
 ### Step isolation and limits
 
@@ -959,3 +959,98 @@ This example demonstrates how to add the user `$env:HOMEPATH/.local/bin` directo
 ```
 
 {% endpowershell %}
+
+{% ifversion actions-artifacts-file %}
+
+## Declaring workflow artifacts
+
+Declare files or OCI references as workflow artifacts by writing one declaration per line to the `GITHUB_ARTIFACTS` environment file. Each step writes to a fresh, per-step file; the path is unique to that step.
+
+Metadata about declared artifacts is collected across all steps in a job and exposed through the `GITHUB_ARTIFACTS_LIST` file.
+
+Each line must be one of the following formats. Blank lines and lines starting with `#` are ignored.
+
+* **File path**: A relative or absolute path to a file, optionally prefixed with `file://`. Relative paths are resolved against `GITHUB_WORKSPACE`. The path must point to an existing regular file (not a directory). The runner records the file's base name and its SHA-256 digest.
+* **OCI reference**: A reference in the form `REFERENCE@ALGORITHM:HEX`, optionally prefixed with `oci://`. `REFERENCE` is the image name (including optional tag), and `ALGORITHM` must be one of `sha256`, `sha384`, or `sha512`. `HEX` must be the full lowercase digest for the algorithm: 64 hexadecimal characters for `sha256`, 96 for `sha384`, or 128 for `sha512`.
+
+Limits:
+
+* The per-step command file is capped at 1MiB.
+* A job can accumulate up to 500 workflow artifacts across all steps.
+* If the same artifact is declared more than once with identical name and digest, it is deduplicated. Conflicting declarations (same name, different digest) produce an error.
+
+{% bash %}
+
+```bash copy
+echo "dist/my-binary" >> "$GITHUB_ARTIFACTS"
+```
+
+To declare an OCI reference:
+
+```bash copy
+echo "oci://ghcr.io/octocat/myapp:1.0.0@sha256:914b38d45a65e4263a179d9c2b09cc04dcbcaa8257fa85100cf42f9a3b408cfb" >> "$GITHUB_ARTIFACTS"
+```
+
+{% endbash %}
+
+{% powershell %}
+
+```powershell copy
+"dist/my-binary" >> $env:GITHUB_ARTIFACTS
+```
+
+To declare an OCI reference:
+
+```powershell copy
+"oci://ghcr.io/octocat/myapp:1.0.0@sha256:914b38d45a65e4263a179d9c2b09cc04dcbcaa8257fa85100cf42f9a3b408cfb" >> $env:GITHUB_ARTIFACTS
+```
+
+{% endpowershell %}
+
+## Reading workflow artifacts
+
+Read the aggregated workflow artifact metadata declared by earlier steps in the current job from the `GITHUB_ARTIFACTS_LIST` environment file. This file is read-only and is updated by the runner after each step completes. It contains a UTF-8-encoded JSON object with the following structure:
+
+```json
+{
+  "version": 1,
+  "subjects": [
+    {
+      "name": "my-binary",
+      "digest": "sha256:abc123...",
+      "kind": "file"
+    },
+    {
+      "name": "ghcr.io/octocat/myapp:1.0.0",
+      "digest": "sha256:a1b2c3d4...",
+      "kind": "oci"
+    }
+  ]
+}
+```
+
+Each entry in the `subjects` array contains:
+
+* `name`: The base name of the file or the OCI reference name (without the digest).
+* `digest`: The `algorithm:hex` digest of the artifact.
+* `kind`: Either `file` or `oci`.
+
+Artifacts are sorted alphabetically by `name`.
+
+{% bash %}
+
+```bash copy
+cat "$GITHUB_ARTIFACTS_LIST"
+```
+
+{% endbash %}
+
+{% powershell %}
+
+```powershell copy
+Get-Content $env:GITHUB_ARTIFACTS_LIST
+```
+
+{% endpowershell %}
+
+{% endif %}

@@ -15,8 +15,8 @@ This quickstart walks you through customizing {% data variables.product.prodname
 
 ## Prerequisites
 
-* Any paid {% data variables.product.prodname_copilot_short %} plan. For more information, see [AUTOTITLE](/copilot/about-github-copilot/subscription-plans-for-github-copilot).
-* {% data variables.copilot.copilot_cloud_agent_short_cap_c %} enabled for your organization or account. For more information, see [AUTOTITLE](/copilot/concepts/agents/cloud-agent/access-management).
+* Any paid {% data variables.product.prodname_copilot_short %} plan. For more information, see [AUTOTITLE](/copilot/get-started/plans).
+* {% data variables.copilot.copilot_cloud_agent_short_cap_c %} enabled for your organization or account. For more information, see [AUTOTITLE](/copilot/concepts/enterprise/cloud-agent-access).
 * Write access to a {% data variables.product.github %} repository.
 
 ## Step 1: Teach {% data variables.product.prodname_copilot_short %} your project's conventions

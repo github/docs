@@ -28,11 +28,18 @@ SBOMs include an inventory of a project's dependencies and associated informatio
 
 ## Exporting a software bill of materials for your repository using the REST API
 
+{% ifversion ghes %}
 If you want to use the REST API to export an SBOM for your repository, see [AUTOTITLE](/rest/dependency-graph/sboms#export-a-software-bill-of-materials-sbom-for-a-repository).
+{% else %}
+To export an SBOM for your repository using the REST API:
+
+1. Request generation of the SBOM. See [AUTOTITLE](/rest/dependency-graph/sboms#request-generation-of-a-software-bill-of-materials-sbom-for-a-repository).
+1. Poll the returned `sbom_url` while the response is `202`. When the response is `302`, follow the redirect to download the completed SBOM. See [AUTOTITLE](/rest/dependency-graph/sboms#fetch-a-software-bill-of-materials-sbom-for-a-repository).
+{% endif %}
 
 ## Generating a software bill of materials from {% data variables.product.prodname_actions %}
 
-The following actions will generate an SBOM for your repository and attach it as a workflow artifact which you can download and use in other applications. For more information about downloading workflow artifacts, see [AUTOTITLE](/actions/managing-workflow-runs/downloading-workflow-artifacts).
+The following actions will generate an SBOM for your repository and attach it as a workflow artifact which you can download and use in other applications. For more information about downloading workflow artifacts, see [AUTOTITLE](/actions/how-tos/manage-workflow-runs/download-workflow-artifacts).
 
 | Action | Details |
 | ---  | --- |

@@ -25,13 +25,9 @@ category:
   - Configure Copilot
 ---
 
-> [!IMPORTANT]
-> * {% data reusables.copilot.plans.individual-plans-paused %} {% data variables.product.prodname_copilot_short %} plans may still also be downgraded, or canceled.
-> * {% data reusables.copilot.plans.copilot-max-upgrade-only %}
+You can view your current plan details in your {% data variables.product.github %} account settings. The billing and licensing steps described in this article apply only if you can sign in to the personal account billed for the plan.
 
-You can view your current plan details in your {% data variables.product.github %} account settings. From there, you can change or cancel your plan.
-
-If you have access to {% data variables.product.prodname_copilot %} through an organization or enterprise, you will not be able to modify your plan.
+If you have access to {% data variables.product.prodname_copilot %} through an organization or enterprise, your plan can be modified by an organization or enterprise owner. See [AUTOTITLE](/enterprise-cloud@latest/copilot/how-tos/administer-copilot).
 
 ## Viewing your {% data variables.product.prodname_copilot_short %} plan
 
@@ -69,7 +65,7 @@ You can upgrade or downgrade your {% data variables.product.prodname_copilot_sho
 
 You can cancel your {% data variables.product.prodname_copilot_short %} plan at any time. You’ll retain access to your current features until your billing cycle ends. You will automatically be downgraded to {% data variables.copilot.copilot_free_short %} at the end of your billing cycle.
 
-If you have been granted free access to {% data variables.product.prodname_copilot_short %} as a verified student, teacher, or maintainer of a popular open source project, you won’t be able to cancel your plan. If you have access to {% data variables.product.prodname_copilot_short %} through an organization or enterprise, you will not be able to cancel your plan. In these cases, you can disable {% data variables.product.prodname_copilot_short %} in your environment. See [AUTOTITLE](/copilot/configuring-github-copilot/configuring-github-copilot-in-your-environment).
+{% data reusables.copilot.free-access-cancellation-note %} If you have access to {% data variables.product.prodname_copilot_short %} through an organization or enterprise, you will not be able to cancel your plan. In these cases, you can disable {% data variables.product.prodname_copilot_short %} in your environment. See [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/set-up-copilot/configure-in-ide).
 
 {% data reusables.copilot.copilot-one-account-short %}
 
@@ -78,5 +74,7 @@ If you have been granted free access to {% data variables.product.prodname_copil
 
 1. In the "{% data variables.product.prodname_copilot %}" section, select the **Manage subscription** dropdown on the right and then click **Cancel subscription**.
 1. Select **Cancel {% data variables.copilot.copilot_pro_short %}/{% data variables.copilot.copilot_pro_plus_short %}/{% data variables.copilot.copilot_max_short %}** to cancel your plan at the end of your current billing cycle.
+
+If you can't sign in to the personal account billed for your plan—for example, because you no longer have access to its work or school email or are blocked by account recovery—try the available account recovery methods. See [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/recovering-your-account-if-you-lose-your-2fa-credentials). If you still can't access the account or identify which account is being charged, contact {% data variables.contact.contact_support_page %} to request help stopping future {% data variables.product.prodname_copilot_short %} charges or to request removal of the payment method from the locked account.
 
 {% data reusables.billing.billing-info %}

@@ -739,6 +739,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{direction: DESC}",
               "description": "<p>Ordering options for contributions returned from the connection.</p>",
               "type": {
                 "name": "ContributionOrder",
@@ -894,6 +895,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{direction: DESC}",
               "description": "<p>Ordering options for contributions returned from the connection.</p>",
               "type": {
                 "name": "ContributionOrder",
@@ -987,6 +989,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{direction: DESC}",
               "description": "<p>Ordering options for contributions returned from the connection.</p>",
               "type": {
                 "name": "ContributionOrder",
@@ -1070,6 +1073,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{direction: DESC}",
               "description": "<p>Ordering options for contributions returned from the connection.</p>",
               "type": {
                 "name": "ContributionOrder",
@@ -2051,6 +2055,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: NAME, direction: ASC}",
               "description": "<p>Ordering options for repositories.</p>",
               "type": {
                 "name": "RepositoryOrder",
@@ -3557,6 +3562,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: NAME, direction: ASC}",
               "description": "<p>Ordering options for the User's enterprises.</p>",
               "type": {
                 "name": "EnterpriseOrder",
@@ -4103,6 +4109,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: SPONSOR_LOGIN, direction: ASC}",
               "description": "<p>Ordering options for results returned from the connection.</p>",
               "type": {
                 "name": "SponsorAndLifetimeValueOrder",
@@ -4329,6 +4336,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: CREATED_AT, direction: DESC}",
               "description": "<p>Ordering of the returned packages.</p>",
               "type": {
                 "name": "PackageOrder",
@@ -4652,6 +4660,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: NUMBER, direction: DESC}",
               "description": "<p>How to order the returned projects.</p>",
               "type": {
                 "name": "ProjectV2Order",
@@ -4956,6 +4965,7 @@
             },
             {
               "name": "ownerAffiliations",
+              "defaultValue": "[OWNER, COLLABORATOR]",
               "description": "<p>Array of owner's affiliation options for repositories returned from the\nconnection. For example, OWNER will include only repositories that the\norganization or user being viewed owns.</p>",
               "type": {
                 "name": "[RepositoryAffiliation]",
@@ -5228,6 +5238,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: CREATED_AT, direction: DESC}",
               "description": "<p>Ordering options for discussions returned from the connection.</p>",
               "type": {
                 "name": "DiscussionOrder",
@@ -5246,6 +5257,7 @@
             },
             {
               "name": "states",
+              "defaultValue": "[]",
               "description": "<p>A list of states to filter the discussions by.</p>",
               "type": {
                 "name": "[DiscussionState!]",
@@ -5307,6 +5319,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: UPDATED_AT, direction: DESC}",
               "description": "<p>The field to order saved replies by.</p>",
               "type": {
                 "name": "SavedReplyOrder",
@@ -5406,6 +5419,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: RELEVANCE, direction: DESC}",
               "description": "<p>Ordering options for the users and organizations returned from the connection.</p>",
               "type": {
                 "name": "SponsorOrder",
@@ -5460,6 +5474,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: RELEVANCE, direction: DESC}",
               "description": "<p>Ordering options for sponsors returned from the connection.</p>",
               "type": {
                 "name": "SponsorOrder",
@@ -5487,6 +5502,7 @@
           "arguments": [
             {
               "name": "actions",
+              "defaultValue": "[]",
               "description": "<p>Filter activities to only the specified actions.</p>",
               "type": {
                 "name": "[SponsorsActivityAction!]",
@@ -5552,6 +5568,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: TIMESTAMP, direction: DESC}",
               "description": "<p>Ordering options for activity returned from the connection.</p>",
               "type": {
                 "name": "SponsorsActivityOrder",
@@ -5679,6 +5696,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: CREATED_AT, direction: DESC}",
               "description": "<p>Ordering options for sponsorship updates returned from the connection.</p>",
               "type": {
                 "name": "SponsorshipNewsletterOrder",
@@ -5993,6 +6011,7 @@
             },
             {
               "name": "sponsorableLogins",
+              "defaultValue": "[]",
               "description": "<p>Filter payments to those made to the users or organizations with the specified usernames.</p>",
               "type": {
                 "name": "[String!]",
@@ -6192,6 +6211,7 @@
             },
             {
               "name": "ownerAffiliations",
+              "defaultValue": "[OWNER, COLLABORATOR]",
               "description": "<p>Array of owner's affiliation options for repositories returned from the\nconnection. For example, OWNER will include only repositories that the\norganization or user being viewed owns.</p>",
               "type": {
                 "name": "[RepositoryAffiliation]",
@@ -6233,7 +6253,7 @@
       "name": "UserBlockedEvent",
       "id": "userblockedevent",
       "href": "/graphql/reference/users#object-userblockedevent",
-      "description": "<p>Represents a<code>user_blocked</code>event on a given user.</p>",
+      "description": "<p>Represents a <code>user_blocked</code> event on a given user.</p>",
       "isDeprecated": false,
       "implements": [
         {
@@ -7131,6 +7151,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: UPDATED_AT, direction: DESC}",
               "description": "<p>Ordering options for user statuses returned from the connection.</p>",
               "type": {
                 "name": "UserStatusOrder",
@@ -7535,6 +7556,10 @@
         {
           "name": "REDDIT",
           "description": "<p>Social news aggregation and discussion website.</p>"
+        },
+        {
+          "name": "THREADS",
+          "description": "<p>Microblogging social platform.</p>"
         },
         {
           "name": "TWITCH",

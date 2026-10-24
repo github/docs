@@ -54,9 +54,11 @@ In addition to reviewing {% data variables.product.prodname_github_apps %} that 
 ## Reviewing permissions
 
 1. Navigate to the {% data variables.product.prodname_github_app %} you want to modify. For more information, see [Navigating to the GitHub App you want to review or modify](#navigating-to-the-github-app-you-want-to-review-or-modify).
-1. Under "Permissions," review the permissions that the {% data variables.product.prodname_github_app %} has. For more information about what different permissions enable a {% data variables.product.prodname_github_app %} to do, see [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/choosing-permissions-for-a-github-app).
+1. Under "Permissions," review the permissions that the {% data variables.product.prodname_github_app %} has. For more information about what different permissions enable a {% data variables.product.prodname_github_app %} to do, see [AUTOTITLE](/apps/creating-github-apps/registering-a-github-app/choosing-permissions-for-a-github-app).
 
 ## Modifying repository access
+
+Organization owners can change the repository access for an app installed on their organization. Repository administrators can also add their repositories to an existing installation{% ifversion github-app-repository-permission-improvements %} regardless of the app's permissions. The organization owner approved these permissions when they installed the app.{% else %} if the application does not use organization permissions or the "repository administration" permission.{% endif %}
 
 1. Navigate to the {% data variables.product.prodname_github_app %} you want to modify. For more information, see [Navigating to the GitHub App you want to review or modify](#navigating-to-the-github-app-you-want-to-review-or-modify).
 1. Under "Repository access," select **All repositories** or **Only select repositories**.

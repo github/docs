@@ -1,6 +1,6 @@
 import fs from 'fs/promises'
 import path from 'path'
-import yaml from 'js-yaml'
+import { load } from 'js-yaml'
 import { createLogger } from '@/observability/logger'
 import languages from './languages-server'
 
@@ -27,7 +27,7 @@ export async function getAlertTitles(page: { languageCode: string }) {
     try {
       const { dir } = languages[languageCode]
       file = await fs.readFile(path.join(dir, `data/ui.yml`), 'utf-8')
-      yamlFile = yaml.load(file) as UiYaml
+      yamlFile = load(file) as UiYaml
     } catch (e) {
       logger.warn('Failed to load translated alert titles', { error: e, languageCode })
     }
@@ -35,7 +35,7 @@ export async function getAlertTitles(page: { languageCode: string }) {
   if (!file || !yamlFile.alerts) {
     const { dir } = languages.en
     file = await fs.readFile(path.join(dir, `data/ui.yml`), 'utf-8')
-    yamlFile = yaml.load(file) as UiYaml
+    yamlFile = load(file) as UiYaml
   }
 
   cache[languageCode] = yamlFile.alerts ?? {}

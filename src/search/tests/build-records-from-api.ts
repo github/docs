@@ -72,11 +72,9 @@ Setup steps.
 ## **Bold** heading
 `
     const headings = extractHeadingsFromMarkdown(markdown)
-    // Verify complete heading text with formatting stripped
     expect(headings).toContain('Using code in headings')
     expect(headings).toContain('A link heading')
     expect(headings).toContain('Bold heading')
-    // Should not contain markdown syntax
     expect(headings).not.toContain('`')
     expect(headings).not.toContain('**')
     expect(headings).not.toContain('](')
@@ -89,6 +87,14 @@ Some content without sections.
 `
     const headings = extractHeadingsFromMarkdown(markdown)
     expect(headings).toBe('')
+  })
+
+  test('strips HTML anchors from headings', () => {
+    const markdown = `## Foo <a name="foo-anchor"></a>
+
+## Further reading <a name="further"></a>
+`
+    expect(extractHeadingsFromMarkdown(markdown)).toBe('Foo')
   })
 
   test('filters out Japanese navigational headings', () => {
@@ -115,15 +121,15 @@ Some content without sections.
   })
 
   test('filters out non-English navigational headings across languages', () => {
-    // Chinese
+    // Chinese translations stay filtered.
     expect(extractHeadingsFromMarkdown('## 本文内容\n\n## 实际内容')).toBe('实际内容')
     expect(extractHeadingsFromMarkdown('## 延伸阅读\n\n## 实际内容')).toBe('实际内容')
 
-    // Korean
+    // Korean translations stay filtered.
     expect(extractHeadingsFromMarkdown('## 이 문서의 내용\n\n## 실제 내용')).toBe('실제 내용')
     expect(extractHeadingsFromMarkdown('## 추가 참고 자료\n\n## 실제 내용')).toBe('실제 내용')
 
-    // Spanish
+    // Spanish translations stay filtered.
     expect(extractHeadingsFromMarkdown('## En este artículo\n\n## Contenido real')).toBe(
       'Contenido real',
     )
@@ -131,13 +137,13 @@ Some content without sections.
       'Contenido real',
     )
 
-    // French
+    // French translations stay filtered.
     expect(extractHeadingsFromMarkdown('## Dans cet article\n\n## Contenu réel')).toBe(
       'Contenu réel',
     )
     expect(extractHeadingsFromMarkdown('## Prérequis\n\n## Contenu réel')).toBe('Contenu réel')
 
-    // German
+    // German translations stay filtered.
     expect(extractHeadingsFromMarkdown('## Voraussetzungen\n\n## Echter Inhalt')).toBe(
       'Echter Inhalt',
     )
@@ -161,7 +167,6 @@ This is **bold** and *italic* text.
     expect(text).toContain('italic')
     expect(text).toContain('List item 1')
     expect(text).toContain('A link')
-    // Should not contain markdown syntax
     expect(text).not.toContain('**')
     expect(text).not.toContain('](')
   })
@@ -194,7 +199,7 @@ More text.
 2. Make a request using the CLI.
 `
     const text = markdownToPlainText(markdown)
-    // "SSH." and "Make" must not merge into "SSH.Make"
+    // SSH. and Make must not merge into SSH.Make.
     expect(text).not.toMatch(/SSH\.Make/)
     expect(text).toMatch(/SSH\.\n/)
     expect(text).toContain('Make a request')
@@ -206,7 +211,7 @@ More text.
 > Second paragraph in blockquote.
 `
     const text = markdownToPlainText(markdown)
-    // Paragraphs within a blockquote should be separated
+    // Paragraphs within a blockquote stay separated.
     expect(text).not.toMatch(/blockquote\.Second/)
     expect(text).toContain('First paragraph in blockquote.')
     expect(text).toContain('Second paragraph in blockquote.')
@@ -234,7 +239,7 @@ More text.
     expect(text).not.toContain('[!WARNING]')
     expect(text).not.toContain('[!IMPORTANT]')
     expect(text).not.toContain('[!CAUTION]')
-    // The alert body text should still be present
+    // Alert body text stays searchable.
     expect(text).toContain('This is a note.')
     expect(text).toContain('This is a tip.')
     expect(text).toContain('This is a warning.')
@@ -256,9 +261,83 @@ More text.
     expect(text).toContain('Column A')
     expect(text).toContain('Cell 1')
     expect(text).toContain('More text')
-    // Should not contain raw GFM table syntax artifacts
     expect(text).not.toContain('| ---')
     expect(text).not.toContain('---')
+  })
+
+  test('removes HTML comments', () => {
+    const markdown = `Before.
+
+<!-- Suppressed: internal lint note -->
+
+Inline <!-- docs-validate: skip --> text.
+`
+    const text = markdownToPlainText(markdown)
+    expect(text).toContain('Before.')
+    expect(text).toContain('Inline')
+    expect(text).toContain('text.')
+    expect(text).not.toContain('<!--')
+    expect(text).not.toContain('Suppressed')
+    expect(text).not.toContain('docs-validate')
+  })
+
+  test('strips HTML tags in GFM table cells', () => {
+    const markdown = `| Permission | Allowed |
+| --- | --- |
+| Create repos | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> |
+`
+    const text = markdownToPlainText(markdown)
+    expect(text).toContain('Create repos')
+    expect(text).toContain('✓')
+    expect(text).not.toMatch(/span|role|octicon|aria/)
+  })
+
+  test('strips inline kbd and svg tags', () => {
+    const markdown = `Press <kbd>Ctrl</kbd>+<kbd>C</kbd>.
+
+Click <svg version="1.1" class="octicon octicon-kebab-horizontal" aria-label="More options"><path d="M8 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"></path></svg>, then click **Settings**.
+`
+    const text = markdownToPlainText(markdown)
+    expect(text).toMatch(/Press\s+Ctrl\s*\+\s*C\s*\./)
+    expect(text).toMatch(/Click\s*, then click Settings\./)
+    expect(text).not.toMatch(/kbd|svg|path|octicon|<|>/)
+  })
+
+  test('keeps tag boundaries as whitespace', () => {
+    const text = markdownToPlainText('a<br>b')
+    expect(text).toMatch(/a\s+b/)
+  })
+
+  test('keeps text inside block HTML', () => {
+    const markdown = `<details><summary>Show example</summary>
+
+Example body.
+
+</details>
+`
+    const text = markdownToPlainText(markdown)
+    expect(text).toContain('Show example')
+    expect(text).toContain('Example body.')
+    expect(text).not.toMatch(/details|summary/)
+  })
+
+  test('keeps literal comparisons inside block HTML', () => {
+    const text = markdownToPlainText('<pre>if (a < b) return 0;</pre>\n')
+    expect(text).toContain('if (a < b) return 0;')
+    expect(text).not.toContain('pre>')
+  })
+
+  test('handles > inside quoted attribute values', () => {
+    const text = markdownToPlainText(
+      `Hover <span title="a > b">Text</span> and <a href='x>y'>link</a>.\n`,
+    )
+    expect(text).toMatch(/Hover\s+Text\s+and\s+link\s*\./)
+    expect(text).not.toMatch(/title|href|b"|y'/)
+  })
+
+  test('keeps placeholders that are not HTML elements', () => {
+    const text = markdownToPlainText('Use heads/<branch name> and tags/<tag name>.\n')
+    expect(text).toContain('heads/<branch name> and tags/<tag name>.')
   })
 })
 
@@ -284,10 +363,10 @@ More content.
 `
     const result = extractFromMarkdown(markdown)
 
-    // Headings should exclude "Further reading"
+    // Further reading stays out of headings.
     expect(result.headings).toBe('Section One\nSection Two')
 
-    // Content should include fenced code block text
+    // Fenced code block text stays searchable.
     expect(result.content).toContain('Some content')
     expect(result.content).toContain('More content')
     expect(result.content).toContain('"key"')
@@ -357,7 +436,7 @@ Here's how to begin.
         title: 'Archived Page',
         intro: 'This is archived.',
         product: 'Old product',
-        // No breadcrumbs - simulating archived page
+        // Archived pages can omit breadcrumbs.
       },
       body: '# Archived Page\n\nContent here.',
     }
@@ -382,7 +461,7 @@ Here's how to begin.
 
     const record = articleApiResponseToRecord('/en/get-started', response)
 
-    // For single breadcrumb, don't slice it off
+    // Single-breadcrumb product landing pages keep that breadcrumb.
     expect(record.breadcrumbs).toBe('Get started')
     expect(record.toplevel).toBe('Get started')
   })
@@ -417,8 +496,26 @@ Here's how to begin.
 
     const record = articleApiResponseToRecord('/en/test', response)
 
-    // Intro should appear only once
+    // The intro appears only once.
     const introCount = (record.content.match(/Same intro/g) || []).length
+    expect(introCount).toBe(1)
+  })
+
+  test('does not duplicate an intro that contains literal tag names', () => {
+    const intro = 'Create a collapsed section with the <details> tag.'
+    const response: ArticleApiResponse = {
+      meta: {
+        title: 'Test',
+        intro,
+        product: 'Test',
+        breadcrumbs: [],
+      },
+      body: `# Test\n\n${intro}\n\nMore content.`,
+    }
+
+    const record = articleApiResponseToRecord('/en/test', response)
+
+    const introCount = (record.content.match(/Create a collapsed section/g) || []).length
     expect(introCount).toBe(1)
   })
 
@@ -453,11 +550,47 @@ The \`name\` parameter is required.
 
     expect(record.content).toContain('Use the endpoint below')
     expect(record.content).toContain('parameter is required')
-    // Fenced code block content should be included for search
+    // Fenced code block content stays searchable.
     expect(record.content).toContain('ssh_url')
     expect(record.content).toContain('ssh://git@github.com')
-    // Inline code content should also be preserved
+    // Inline code content stays searchable.
     expect(record.content).toContain('name')
+  })
+
+  test('omits template section headings on landing pages', () => {
+    const response: ArticleApiResponse = {
+      meta: {
+        title: 'Cat',
+        intro: '',
+        product: 'Test',
+        documentType: 'category',
+        breadcrumbs: [],
+      },
+      body: '# Cat\n\n## Links\n\n* [A](/en/a)',
+    }
+
+    const record = articleApiResponseToRecord('/en/cat', response)
+
+    expect(record.headings).toBe('')
+    expect(record.content).toContain('Links')
+    expect(record.content).toContain('A')
+  })
+
+  test('keeps headings on article pages', () => {
+    const response: ArticleApiResponse = {
+      meta: {
+        title: 'Test',
+        intro: '',
+        product: 'Test',
+        documentType: 'article',
+        breadcrumbs: [],
+      },
+      body: '# Test\n\n## Getting started\n\nHere is how to begin.',
+    }
+
+    const record = articleApiResponseToRecord('/en/test', response)
+
+    expect(record.headings).toBe('Getting started')
   })
 })
 
@@ -655,11 +788,9 @@ describe('fetchArticleAsRecord', () => {
 
     const result = await fetchArticleAsRecord('/en/test', 'http://localhost:4002')
 
-    // Verify the shape of FetchResult
     expect(result).toHaveProperty('record')
     expect(result).toHaveProperty('failure')
 
-    // When successful, record should have all expected fields
     expect(result.record).toHaveProperty('objectID')
     expect(result.record).toHaveProperty('title')
     expect(result.record).toHaveProperty('intro')

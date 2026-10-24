@@ -7,7 +7,8 @@ export interface TermSchema {
 export const term: TermSchema = {
   type: 'string',
   minLength: 1,
-  pattern: '^((?!\\*).)*$', // no asterisks allowed
+  // Reject asterisks in glossary terms.
+  pattern: '^((?!\\*).)*$',
 }
 
 export interface GlossaryCandidateItem {

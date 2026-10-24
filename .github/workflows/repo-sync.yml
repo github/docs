@@ -1,20 +1,22 @@
 name: Repo Sync
 
-# **What it does**: GitHub Docs has two repositories: github/docs (public) and github/docs-internal (private).
-# This GitHub Actions workflow keeps the `main` branch of those two repos in sync.
-# **Why we have it**: To keep the open-source repository up-to-date
-# while still having an internal repository for sensitive work.
-# **Who does it impact**: Open-source.
-# For more details, see https://github.com/repo-sync/repo-sync#how-it-works
+# Syncs main between github/docs and github/docs-internal so public docs stay current
+# and sensitive work stays private. Mechanics: https://github.com/repo-sync/repo-sync#how-it-works
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: '20 14-23/3 * * 1-5' # Mon-Fri 6:20a, 9:20a, 12:20p, 3:20p PST
+    - cron: '20 14-23/3 * * 1-5'
 
 permissions:
   contents: write
   pull-requests: write
+
+# Queue overlapping runs. A second run closes every open repo-sync pull request, including one
+# the first run is still waiting to merge. Cancelling mid-merge would leave that pull request open.
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
 
 jobs:
   repo-sync:
@@ -23,13 +25,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repo
-        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
           persist-credentials: false
-
       - name: Sync repo to branch
         env:
-          SOURCE_REPO: https://${{ secrets.DOCS_BOT_PAT_REPO_SYNC }}@github.com/github/${{ github.repository == 'github/docs-internal' && 'docs' || 'docs-internal' }}.git
+          # https://github.com/actions/runner-images/issues/15014
+          SOURCE_REPO: https://x-access-token:${{ secrets.DOCS_BOT_PAT_REPO_SYNC }}@github.com/github/${{ github.repository == 'github/docs-internal' && 'docs' || 'docs-internal' }}.git
           SOURCE_BRANCH: main
           DESTINATION_BRANCH: repo-sync
           GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_REPO_SYNC }}
@@ -70,7 +72,7 @@ jobs:
                 pull_number: prNumber,
                 state: 'closed'
               })
-              // Error loud here, so no try/catch
+              // Let close failures fail the workflow.
               console.log('Closed pull request', prNumber)
             }
 
@@ -121,8 +123,7 @@ jobs:
               pull_number = pull.number
               console.log('Created pull request successfully', pull.html_url)
             } catch (err) {
-              // Don't error/alert if there's no commits to sync
-              // Don't throw if > 100 pulls with same head_sha issue
+              // Don't alert on "No commits" or on the "same head_sha" error from over 100 PRs with one head.
               if (err.message?.includes('No commits') || err.message?.includes('same head_sha')) {
                 console.log(err.message)
                 return
@@ -140,7 +141,7 @@ jobs:
               console.log('Locked the pull request to prevent spam')
             } catch (error) {
               console.error('Failed to lock the pull request.', error)
-              // Don't fail the workflow
+              // Lock failures must not fail the sync.
             }
 
             console.log('Counting files changed')
@@ -162,10 +163,9 @@ jobs:
             console.log('No detected merge conflicts')
 
             console.log('Merging the pull request')
-            // Admin merge pull request to avoid squash
-            // Retry once per minute for up to 15 minutes to wait for required checks (e.g. CodeQL)
+            // merge_method: merge keeps merge commits; retry each minute for up to 15 minutes for checks.
             const maxAttempts = 15
-            const delay = 60_000 // 1 minute
+            const delay = 60_000
             for (let attempt = 1; attempt <= maxAttempts; attempt++) {
               try {
                 await github.rest.pulls.merge({
@@ -188,13 +188,14 @@ jobs:
               }
             }
 
-      - uses: ./.github/actions/slack-alert
-        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
-        with:
-          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
-          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
-
       - uses: ./.github/actions/create-workflow-failure-issue
+        id: create-failure-issue
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
         with:
           token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+
+      - uses: ./.github/actions/slack-alert
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
+        with:
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+          issue_url: ${{ steps.create-failure-issue.outputs.issue_url }}

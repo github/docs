@@ -40,7 +40,7 @@ If you specify an API version that is no longer supported, you will receive a `4
 
 ## Upgrading to a new API version
 
-Before upgrading to a new REST API version, you should read the changelog of breaking changes for the new API version to understand what breaking changes are included and to learn more about how to upgrade to that specific API version. For more information, see [AUTOTITLE](/rest/overview/breaking-changes).
+Before upgrading to a new REST API version, you should read the changelog of breaking changes for the new API version to understand what breaking changes are included and to learn more about how to upgrade to that specific API version. For more information, see [AUTOTITLE](/rest/about-the-rest-api/breaking-changes).
 
 When you update your integration to specify the new API version in the `X-GitHub-Api-Version` header, you'll also need to make any changes required for your integration to work with the new API version.
 

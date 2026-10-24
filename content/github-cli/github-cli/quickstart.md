@@ -20,6 +20,8 @@ category:
 
 {% data reusables.rest-api.github-cli-install-and-auth %}
 
+For more ways to authenticate, including environment variables, {% data variables.product.prodname_actions %}, and expiring tokens, see [AUTOTITLE](/github-cli/github-cli/authenticating-with-github-cli).
+
 ## Some useful commands
 
 > [!NOTE]
@@ -47,7 +49,7 @@ Enter `gh repo create` and follow the on-screen instructions. You can create a n
 
 Enter `gh issue list --repo OWNER/REPO` to list the most recently created issues that are currently open for the specified repository. If you run the `issue` subcommand from within the directory of a local Git repository that has a remote on {% data variables.product.prodname_dotcom %} you can omit `--repo OWNER/REPO`. For example, enter `gh issue list --assignee "@me"` to list issues assigned to you in this repository, or `gh issue list --author monalisa` to list issues created by the user "monalisa."
 
-You can also create a new issue, see [AUTOTITLE](/issues/tracking-your-work-with-issues/creating-an-issue#creating-an-issue-with-github-cli), or search for an issue, see [AUTOTITLE](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests?tool=cli#searching-for-issues-and-pull-requests).
+You can also create a new issue, see [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/creating-an-issue#creating-an-issue-with-github-cli), or search for an issue, see [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/filtering-and-searching-issues-and-pull-requests?tool=cli#searching-for-issues-and-pull-requests).
 
 ### Working with pull requests
 
@@ -55,7 +57,7 @@ Enter `gh pr list --repo OWNER/REPO` to list the most recently created pull requ
 
 Enter `gh pr list --label LABEL-NAME` to list open pull requests with a specific label. Enter `gh search prs --review-requested=@me --state=open` to list pull requests that you've been asked to review.
 
-To create a pull request, enter `gh pr create` and follow the on-screen instructions. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request?tool=cli#creating-the-pull-request).
+To create a pull request, enter `gh pr create` and follow the on-screen instructions. For more information, see [AUTOTITLE](/pull-requests/how-tos/create-pull-requests/creating-a-pull-request?tool=cli#creating-the-pull-request).
 
 ### Working with codespaces
 
@@ -93,5 +95,6 @@ If you need to use the {% data variables.product.prodname_cli %} across multiple
 
 ## Further reading
 
+* [AUTOTITLE](/github-cli/github-cli/authenticating-with-github-cli)
 * [AUTOTITLE](/github-cli/github-cli/github-cli-reference)
 * [{% data variables.product.prodname_cli %} online manual](https://cli.github.com/manual/gh)

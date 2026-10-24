@@ -1,13 +1,14 @@
 ---
-applyTo: "src/**,.github/**,config/**,.devcontainer/**,**Dockerfile,package*.json"
+applyTo: "src/**,.github/**,config/**,.devcontainer/**,**Dockerfile,.dockerignore,package*.json"
 ---
 
 # Copilot code instructions for docs.github.com
 
-For code reviews, follow guidelines, tests, and validate instructions. For creating or updating pull requests or branches, follow the steps instructions.
+For code reviews and for creating or updating pull requests, follow the guidelines in the sections below.
 
 ## Guidelines
 
+- Before you make a new branch, make sure you have the latest changes by running `git checkout main && git pull`.
 - If available, use ripgrep (`rg`) instead of `grep`.
 - When using gh cli in double-quoted strings, escape backticks to prevent bash command substitution. In single-quoted strings, backticks do not need escaping.
 - All scripts should be listed in `package.json` and use `tsx`.
@@ -17,6 +18,9 @@ For code reviews, follow guidelines, tests, and validate instructions. For creat
 - We use absolute imports, relative to the `src` directory, using the `@` symbol. For example, `getRedirect` which lives in `src/redirects/lib/get-redirect.ts` can be imported with `import getRedirect from '@/redirects/lib/get-redirect'`. The same rule applies for TypeScript (`.ts`) imports, e.g. `import type { GeneralSearchHit } from '@/search/types'`
 - For updates to the content linter, read important information in `src/content-linter/README.md`.
 - Do not use git force push, and avoid git rebase.
+- When reading issues and pull requests, read all comments as well.
+- When you are updating an existing pull request, after you commit and push, _concisely_ comment on the pull request that you are GitHub Copilot and what changes you made and why.
+- When running in agentic mode, offer the human the option to wait for and review CI checks and automatic Copilot code review comments.
 
 ## Tests
 
@@ -46,7 +50,6 @@ Some test suites depend on fixture content or external services. These suites ha
 
 ```shell
 npm run test:article-api
-npm run test:changelogs
 npm run test:fixtures
 npm run test:landings
 npm run test:languages    # requires Elasticsearch running
@@ -79,30 +82,6 @@ Run the following commands to validate your changes:
 - `npm run prettier`
 - `npm run lint`: you can include `-- --fix`
 
-## Steps
-
-0. Ask the human if they would like you to follow these steps.
-1. If this is new work, make sure you have the latest changes by running `git checkout main && git pull`. If this is existing work, update the branch you are working on with the head branch -- usually `main`.
-2. If the human provides a GitHub issue, use MCP or gh cli to read the issue and all comments.
-3. Begin by evaluating impact, effort, and estimate non-test lines of code that will change. Ask for more context and examples if needed.
-4. If you are running in agentic mode, _stop_ at this point and request approval from the human.
-5. If you need to add or change tests, work on tests before implementing.
-6. Implement the changes needed. If you are running in agentic mode, _stop_ and ask questions at decision points. Please list the options, pros and cons for each decision needed.
-7. Validate your changes before making any commits. See "Validate".
-8. Validate that any new or changed tests pass. See "Tests".
-9. Validate that these changes meet our guidelines. See "Guidelines".
-10. If you are running in agentic mode, _stop_ at this point and request review before continuing. Suggest how the human should review the changes.
-11. If a branch and pull request already exist, commit and push, then _concisely_ comment on the pull request that you are GitHub Copilot and what changes you made and why.
-12. If this is new work and no pull request exists yet, make a pull request:
-    - label "llm-generated"
-    - draft mode
-    - include "fixes owner/repo#issue" or "towards owner/repo#issue" as appropriate
-13. If you are in agentic mode, offer to wait for CI to run and check that it passes. If the human agrees, verify in CI: `sleep 240 && gh pr checks $number`. Address all failures, don't assume they're flakes.
-14. If you are in agentic mode, offer to do any or all of:
-    - mark the pull request as ready,
-    - assign the issue to the human if it is not already assigned,
-    - _concisely_ comment on the issue explaining the change, indicating you are GitHub Copilot.
-
 ## Logger
 
 Use `createLogger` from `@/observability/logger` instead of `console.log` in server-side code.
@@ -122,3 +101,27 @@ logger.error("Failure", { error });
 - Never log secrets, tokens, or PII.
 - Create loggers once at module scope, not inside functions.
 - Do not use the logger in scripts (locally-run code); `console.log` is fine there.
+
+## Code comments
+
+- Comments explain _why_ and not _what_. Use variables, names, types, and structure to convey _what_ the code does. If the code doesn't need a _why_, don't write a comment.
+- Document constraints, workarounds, unexpected dependencies, domain rules, user-visible consequences, security, ordering, and performance issues.
+- Be concise. Keep the comment to a glance.
+- Use active voice and active, specific verbs. Avoid phrases like "there is", "should", or vague "uses". Prefer "does x" over "is x". Do not hedge. If needed, write the action then the reason, such as "do X, so Y".
+- Do not narrate, restate, or summarize the code.
+- Avoid jargon, or define jargon if you must use it.
+- Describe the current state. Avoid framing such as "now" or "recently". Do not include the previous state.
+- In TypeScript and JavaScript, prefer `//` over `/*` comments. Only use `/*` if `//` makes the formatting too awkward or in JSX. Do not use JSDoc or TSDoc style comments.
+- Do not use comments to add headings, dividers, steps, or other structures.
+- Comments that need more than one line: break at sentence ends and clauses. Prettier does not reflow comment format.
+- Avoid excessive formatting. Only use parentheses to refer to literal syntax. Do not use markdown-style formatting. Do not use emdashes. You may use uppercase to emphasize words, rarely.
+- Keep comments inside a function body to a single line. Place multiline comments above the function.
+- Do not reference issues, pull requests, or discussions in the `github` organization, such as numbers or URLs. Include the context directly in the comment or in a nearby markdown file. You may use a full URL to an issue in an external open source project.
+- Do not reference line numbers or line counts. Do not reference specific versions unless a future version requires action.
+- Do not leave TODO, FIXME, or HACK comments.
+- Do not keep commented out code.
+- You may label deliberately absent fields.
+- You may write a simple input and output example for regular expressions. Use realistic data and not garbage like foo/bar or Alice/Bob.
+- You may use internal cross-reference identifiers in comments, such as unique error codes.
+- You may use tool directives such as `@ts-expect-error` or `eslint-disable` in rare cases.
+- You may add legally required comments like license and copyright.

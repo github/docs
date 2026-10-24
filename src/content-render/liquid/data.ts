@@ -10,7 +10,7 @@ const logger = createLogger(import.meta.url)
 const Syntax = /([a-z0-9/\\_.\-[\]]+)/i
 const SyntaxHelp = "Syntax Error in 'data' - Valid syntax: data [path]"
 
-// Using unknown for scope because it has custom environments property not in Liquid's Scope type
+// Custom environments are not exposed in Liquid's Scope type.
 interface CustomScope {
   environments: {
     currentLanguage?: string
@@ -38,7 +38,9 @@ export default {
   },
 
   async render(scope: CustomScope) {
-    let text = getDataByLanguage(this.path, scope.environments.currentLanguage || '')
+    let text = getDataByLanguage(this.path, scope.environments.currentLanguage || '') as
+      | string
+      | undefined
     if (text === undefined) {
       if (scope.environments.currentLanguage === 'en') {
         const message = `Can't find the key 'data ${this.path}' in the scope.`
@@ -58,24 +60,14 @@ export default {
   },
 } as DataTag
 
+// Multiline data output keeps the tag's indentation so Markdown blocks, such as lists, stay intact.
+// Example: three spaces before {% data variables.foo.bar %} are kept on each output line.
 function handleIndent(tagToken: TagToken, text: string): string {
-  // Any time what we're about to replace in here has more than one line,
-  // if the use of `{% data ... %}` was itself indented, from the left,
-  // keep *that* indentation, in replaced output, for every line.
-  //
-  // For example:
-  //
-  //   1. Bullet point
-  //      {% data variables.foo.bar %}
-  //
-  // In this example, the `{% data ...` starts with 3 whitespaces
-  // (based on the `1. Bull...` in the example). So put 3 whitespaces
-  // in front every line of the output.
   if (text.split('\n').length === 0) return text
   const { input, begin } = tagToken
   let i = 1
   while (input.charAt(begin - i) === ' ') {
-    i++ // this goes one character "to the left"
+    i++
   }
   const goBack = input.slice(begin - i, begin)
   if (goBack.charAt(0) === '\n' && goBack.length > 1) {
@@ -85,21 +77,16 @@ function handleIndent(tagToken: TagToken, text: string): string {
   return text
 }
 
-// When a reusable has multiple lines, and the input line is a blockquote,
-// keep the blockquote character on every successive line.
+// Multiline reusables in blockquotes need the quote marker on every line.
+// Leading whitespace stays so code blocks and nested lists keep their structure.
 const blockquoteRegexp = /^\n?([ \t]*>[ \t]?)/
 function handleBlockquote(tagToken: TagToken, text: string): string {
-  // If the text isn't multiline, skip
   if (text.split('\n').length <= 1) return text
 
-  // If the line with the liquid tag starts with a blockquote...
-  const { input, content } = tagToken
-  if (!content) return text
-  const inputLine = input.split('\n').find((line) => line.includes(content))
-  if (!inputLine || !blockquoteRegexp.test(inputLine)) return text
-
-  // Keep the character on successive lines
-  const match = inputLine.match(blockquoteRegexp)
+  // Use this tag's own position because the same tag text can appear on other lines.
+  const { input, begin } = tagToken
+  const lineStart = input.lastIndexOf('\n', begin - 1) + 1
+  const match = input.slice(lineStart, begin).match(blockquoteRegexp)
   if (!match) return text
   const start = match[0]
   return text
@@ -107,7 +94,7 @@ function handleBlockquote(tagToken: TagToken, text: string): string {
     .map((line, i) => {
       if (i === 0) return line
       if (blockquoteRegexp.test(line)) return line
-      return start + line.trim()
+      return start + line.trimEnd()
     })
     .join('\n')
 }

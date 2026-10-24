@@ -1,13 +1,10 @@
-// Disables markdownlint rules in markdown files with same-line comments. This is
-// useful when introducing a new rule that causes many failures. The comments
-// can be fixed and removed at while updating the file later.
-//
-// Usage:
-//
-//  src/content-linter/scripts/disable-rules.ts no-generic-link-text
+// Add same-line markdownlint disables when a new rule creates many failures.
+// Run as src/content-linter/scripts/disable-rules.ts no-generic-link-text.
 
 import fs from 'fs'
 import { spawn } from 'child_process'
+
+type Violation = { lineNumber: number; isYamlFile?: boolean }
 
 const rule: string | undefined = process.argv[2]
 if (!rule) {
@@ -19,7 +16,6 @@ if (process.argv[3] === '--verbose' || process.argv[3] === '-v') {
   verbose = true
 }
 
-// Cleanup from previous run
 if (fs.existsSync('markdown-violations.json')) {
   fs.unlinkSync('markdown-violations.json')
 }
@@ -53,18 +49,21 @@ childProcess.on('close', (code: number | null) => {
     process.exit(0)
   }
 
-  const markdownViolations: Record<string, Array<{ lineNumber: number }>> = JSON.parse(
+  const markdownViolations: Record<string, Violation[]> = JSON.parse(
     fs.readFileSync('markdown-violations.json', 'utf8'),
   )
   console.log(`${Object.values(markdownViolations).flat().length} violations found.`)
 
-  const violationEntries = Object.entries(markdownViolations) as [
-    string,
-    Array<{ lineNumber: number }>,
-  ][]
+  const violationEntries = Object.entries(markdownViolations) as [string, Violation[]][]
+  const skipped: string[] = []
   for (const [fileName, results] of violationEntries) {
     console.log(fileName)
     console.log(results)
+    // YAML data keys are "<file> <instancePath>" and line numbers point into the extracted string.
+    if (results.some((result) => result.isYamlFile) || !fs.existsSync(fileName)) {
+      skipped.push(fileName)
+      continue
+    }
     const fileLines = fs.readFileSync(fileName, 'utf8').split('\n')
     for (const result of results) {
       matchingRulesFound++
@@ -76,4 +75,11 @@ childProcess.on('close', (code: number | null) => {
   }
 
   console.log(`${matchingRulesFound} violations ignored.`)
+
+  if (skipped.length) {
+    console.log(
+      `\n${skipped.length} YAML data values were skipped. Add <!-- markdownlint-disable-line ${rule} --> by hand inside each YAML string:`,
+    )
+    for (const key of skipped) console.log(`  ${key}`)
+  }
 })

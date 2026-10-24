@@ -20,6 +20,9 @@ This subject is responsible for:
 - `production/build-scripts/merge-early-access.sh` - Merges early-access content into production content
 - `Dockerfile` (root) - Multi-stage Docker build for production deployments
 - `.github/workflows/moda-ci.yaml` - CI/CD workflow that builds and deploys via Moda
+- `config/moda/deployment.yaml` - List of Moda environments: production, staging, and review lab
+- `config/kustomize/` - Kustomize source for the Kubernetes config of each environment. See [config/kustomize/README.md](../../config/kustomize/README.md).
+- `config/kubernetes/` - Kubernetes config that Kustomize generates. Don't edit it by hand.
 
 ## Setup & Usage
 
@@ -51,6 +54,17 @@ To deploy to a staging server:
 3. Wait for `docs-internal Moda CI` checks to pass
 4. In `#docs-ops` Slack, run: `.deploy docs-internal/<your-branch> to staging-<your-username>`
 5. Access at `https://docs-staging-<your-username>.service.iad.github.net` (requires Developer VPN)
+
+### Review lab deployments
+
+Review labs are temporary environments for a single branch. Each lab deletes itself 24 hours after you create it.
+
+1. Push your branch to `docs-internal`
+2. Wait for `docs-internal Moda CI` checks to pass
+3. In `#dotcom-environment-ops` Slack, run: `.proxima-review-lab create <lab-name> from docs-internal/v1 docs-internal=<your-branch>`
+4. Access at `https://docs-internal-<lab-name>.octoca.ts.net` (requires Tailscale)
+
+The `docs-internal-review-lab` environment in `config/moda/deployment.yaml` and the `docs-internal-review-lab` Kustomize overlay define the lab.
 
 ### Running tests
 
@@ -118,5 +132,5 @@ For detailed internal documentation, see:
 - Passed securely to Docker build via `--secret` flag
 
 ### Rollback procedures
-Rollback procedures are documented in the internal Docs Engineering repository. Contact @docs-engineering or #deploy-support assistance.
+Rollback procedures are documented in [`engineering/rollbacks.md`](https://github.com/github/technical-content/blob/main/engineering/rollbacks.md). Contact @docs-engineering or #deploy-support for assistance.
 

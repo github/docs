@@ -19,7 +19,7 @@ If you've enabled security updates, pull requests for security updates are trigg
 
 Each pull request contains everything you need to quickly and safely review and merge a proposed fix into your project. This includes information about the vulnerability like release notes, changelog entries, and commit details. Details of which vulnerability a pull request resolves are hidden from anyone who does not have access to {% data variables.product.prodname_dependabot_alerts %} for the repository.
 
-When you merge a pull request that contains a security update, the corresponding {% data variables.product.prodname_dependabot %} alert is marked as resolved for your repository. For more information about {% data variables.product.prodname_dependabot %} pull requests, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates).
+When you merge a pull request that contains a security update, the corresponding {% data variables.product.prodname_dependabot %} alert is marked as resolved for your repository. For more information about {% data variables.product.prodname_dependabot %} pull requests, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/manage-dependabot-prs).
 
 {% data reusables.dependabot.automated-tests-note %}
 
@@ -39,7 +39,7 @@ For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-
 
 For version updates, you specify how often to check each ecosystem for new versions in the configuration file: daily, weekly, or monthly.
 
-{% data reusables.dependabot.initial-updates %} For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/optimizing-pr-creation-version-updates).
+{% data reusables.dependabot.initial-updates %} For more information, see [AUTOTITLE](/code-security/tutorials/secure-your-dependencies/optimizing-pr-creation-version-updates).
 
 ## Commands for {% data variables.product.prodname_dependabot %} pull requests
 

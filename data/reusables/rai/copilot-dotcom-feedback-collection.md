@@ -1,1 +1,0 @@
-> [!NOTE] The ability to provide feedback to {% data variables.product.prodname_dotcom %} about {% data variables.copilot.copilot_for_prs %} is dependent on enterprise settings. For more information, see [AUTOTITLE](/enterprise-cloud@latest/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise).

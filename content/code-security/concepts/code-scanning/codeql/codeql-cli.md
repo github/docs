@@ -29,7 +29,7 @@ category:
 ---
 
 Software developers and security researchers can secure their code
-using {% data variables.product.prodname_codeql %} analysis. For more information about {% data variables.product.prodname_codeql %}, see [AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql#about-codeql).
+using {% data variables.product.prodname_codeql %} analysis. For more information about {% data variables.product.prodname_codeql %}, see [AUTOTITLE](/code-security/concepts/code-scanning/codeql/codeql-code-scanning#about-codeql).
 
 The {% data variables.product.prodname_codeql_cli %} is a standalone, command-line tool that you can use to analyze code. Its main purpose is to generate a database representation of a codebase, a {% data variables.product.prodname_codeql %} database. Once the database is ready, you can query it interactively, or run a suite of queries to generate a set of results in SARIF format and upload the results to {% data variables.product.github %}.
 
@@ -48,11 +48,11 @@ The {% data variables.product.prodname_codeql_cli %} can analyze:
 
 ## About using the {% data variables.product.prodname_codeql_cli %} for {% data variables.product.prodname_code_scanning %}
 
-You can use the {% data variables.product.prodname_codeql_cli %} to run {% data variables.product.prodname_code_scanning %} on code that you're processing in a third-party continuous integration (CI) system. {% data reusables.code-scanning.about-code-scanning %} For an overview of using code scanning with external CI systems, see [AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/using-code-scanning-with-your-existing-ci-system). For recommended specifications (RAM, CPU cores, and disk) for running {% data variables.product.prodname_codeql %} analysis, see [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/recommended-hardware-resources-for-running-codeql).
+You can use the {% data variables.product.prodname_codeql_cli %} to run {% data variables.product.prodname_code_scanning %} on code that you're processing in a third-party continuous integration (CI) system. {% data reusables.code-scanning.about-code-scanning %} For an overview of using code scanning with external CI systems, see [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/integrate-with-existing-tools/use-with-existing-ci-system). For recommended specifications (RAM, CPU cores, and disk) for running {% data variables.product.prodname_codeql %} analysis, see [AUTOTITLE](/code-security/reference/code-scanning/codeql/hardware-resources-for-codeql).
 
-Alternatively, you can use {% data variables.product.prodname_actions %} or Azure DevOps pipelines to scan code using the {% data variables.product.prodname_codeql_cli %}. For more information, see [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning) or [Configure {% data variables.product.prodname_ghas_azdo %}](https://learn.microsoft.com/en-us/azure/devops/repos/security/configure-github-advanced-security-features) in Microsoft Learn.
+Alternatively, you can use {% data variables.product.prodname_actions %} or Azure DevOps pipelines to scan code using the {% data variables.product.prodname_codeql_cli %}. For more information, see [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/configure-code-scanning/configure-code-scanning) or [Configure {% data variables.product.prodname_ghas_azdo %}](https://learn.microsoft.com/en-us/azure/devops/repos/security/configure-github-advanced-security-features) in Microsoft Learn.
 
-For an overview of all the options for using {% data variables.product.prodname_codeql %} analysis for code scanning, see [AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql).
+For an overview of all the options for using {% data variables.product.prodname_codeql %} analysis for code scanning, see [AUTOTITLE](/code-security/concepts/code-scanning/codeql/codeql-code-scanning).
 
 {% data reusables.code-scanning.licensing-note %}
 
@@ -62,9 +62,9 @@ If you choose to run the {% data variables.product.prodname_codeql_cli %} direct
 
 Once the {% data variables.product.prodname_codeql_cli %} is set up, you can use three different commands to generate results and upload them to {% data variables.product.github %}:
 
-1. `database create` to create a {% data variables.product.prodname_codeql %} database to represent the hierarchical structure of each supported programming language in the repository. For more information, see [AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/preparing-your-code-for-codeql-analysis).
-1. `database analyze` to run queries to analyze each {% data variables.product.prodname_codeql %} database and summarize the results in a SARIF file. For more information, see [AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/analyzing-your-code-with-codeql-queries).
-1. `github upload-results` to upload the resulting SARIF files to {% data variables.product.github %} where the results are matched to a branch or pull request and displayed as {% data variables.product.prodname_code_scanning %} alerts. For more information, see [AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/uploading-codeql-analysis-results-to-github).
+1. `database create` to create a {% data variables.product.prodname_codeql %} database to represent the hierarchical structure of each supported programming language in the repository. For more information, see [AUTOTITLE](/code-security/tutorials/customize-code-scanning/prepare-code-for-analysis).
+1. `database analyze` to run queries to analyze each {% data variables.product.prodname_codeql %} database and summarize the results in a SARIF file. For more information, see [AUTOTITLE](/code-security/tutorials/customize-code-scanning/analyze-code).
+1. `github upload-results` to upload the resulting SARIF files to {% data variables.product.github %} where the results are matched to a branch or pull request and displayed as {% data variables.product.prodname_code_scanning %} alerts. For more information, see [AUTOTITLE](/code-security/tutorials/customize-code-scanning/upload-results).
 
 {% data reusables.code-scanning.upload-sarif-ghas %}
 
@@ -118,14 +118,14 @@ The {% data variables.product.prodname_codeql_cli %} uses special programs, call
 
 The {% data variables.product.prodname_codeql_cli %} database bundle command can be used to create a relocatable archive of a {% data variables.product.prodname_codeql %} database.
 
-A copy of a database bundle can be used to share troubleshooting information with your team members or with {% data variables.contact.github_support %}. See [AUTOTITLE](/code-security/how-tos/scan-code-for-vulnerabilities/scan-from-the-command-line/creating-database-bundle-for-troubleshooting).
+A copy of a database bundle can be used to share troubleshooting information with your team members or with {% data variables.contact.github_support %}. See [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/scan-from-the-command-line/create-database-bundles).
 
 ## Getting started
 
-For the simplest way to get started, see [AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/setting-up-the-codeql-cli).
+For the simplest way to get started, see [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/scan-from-the-command-line/set-up-codeql-cli).
 
 More advanced setup options are available if you need them. For example, if you:
 
-* Want to contribute to open source shared {% data variables.product.prodname_codeql %} queries and prefer working with the {% data variables.product.prodname_codeql %} source code directly. See [AUTOTITLE](/code-security/how-tos/scan-code-for-vulnerabilities/scan-from-the-command-line/check-out-source-code).
+* Want to contribute to open source shared {% data variables.product.prodname_codeql %} queries and prefer working with the {% data variables.product.prodname_codeql %} source code directly. See [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/scan-from-the-command-line/check-out-source-code).
 * Need to install multiple versions of the {% data variables.product.prodname_codeql_cli %} side by side. For example, if one codebase requires a specific version while another uses the latest. You can download each version and unpack both CLI archives in the same parent directory.
-* Are researching or developing queries and want to download databases from {% data variables.product.prodname_dotcom_the_website %}. See [AUTOTITLE](/code-security/how-tos/scan-code-for-vulnerabilities/scan-from-the-command-line/download-databases).
+* Are researching or developing queries and want to download databases from {% data variables.product.prodname_dotcom_the_website %}. See [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/scan-from-the-command-line/download-databases).

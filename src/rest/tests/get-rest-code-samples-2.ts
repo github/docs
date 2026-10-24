@@ -1,33 +1,46 @@
 import { describe, expect, test } from 'vitest'
 
 import { getShellExample, getGHExample, getJSExample } from '../components/get-rest-code-samples'
-import type { Operation } from '../components/types'
+import type { CodeSample, Operation } from '../components/types'
+import {
+  getCurlBodyArguments,
+  needsExplicitContentTypeHeader,
+} from '@/rest/lib/curl-body-arguments'
+import type { VersionItem } from '@/frame/components/context/MainContext'
 
-// Mock version data similar to what's used in the actual app
-const mockVersions = {
+const mockVersions: Record<string, VersionItem> = {
   'free-pro-team@latest': {
+    version: 'free-pro-team@latest',
+    versionTitle: 'Free, Pro, & Team',
     apiVersions: ['2022-11-28'],
     latestApiVersion: '2022-11-28',
   },
   'enterprise-cloud@latest': {
+    version: 'enterprise-cloud@latest',
+    versionTitle: 'Enterprise Cloud',
     apiVersions: ['2022-11-28'],
     latestApiVersion: '2022-11-28',
   },
   'enterprise-cloud@2024-01-01': {
+    version: 'enterprise-cloud@2024-01-01',
+    versionTitle: 'Enterprise Cloud',
     apiVersions: ['2022-11-28'],
     latestApiVersion: '2022-11-28',
   },
   'enterprise-server@3.17': {
+    version: 'enterprise-server@3.17',
+    versionTitle: 'Enterprise Server 3.17',
     apiVersions: ['2022-11-28'],
     latestApiVersion: '2022-11-28',
   },
   'github-ae@latest': {
+    version: 'github-ae@latest',
+    versionTitle: 'GitHub AE',
     apiVersions: ['2022-11-28'],
     latestApiVersion: '2022-11-28',
   },
 }
 
-// Mock operation with standard authentication requirements
 const standardOperation: Operation = {
   verb: 'post',
   title: 'Create an issue',
@@ -50,7 +63,7 @@ const standardOperation: Operation = {
   },
 }
 
-// Mock operation with allowPermissionlessAccess (like revoke credentials)
+// Matches the revoke-credentials endpoint, which allows permissionless access.
 const unauthenticatedOperation: Operation = {
   verb: 'post',
   title: 'Revoke a list of credentials',
@@ -73,7 +86,6 @@ const unauthenticatedOperation: Operation = {
   },
 }
 
-// Mock operation with basic auth (like OAuth apps)
 const basicAuthOperation: Operation = {
   verb: 'post',
   title: 'Create an OAuth app',
@@ -96,7 +108,6 @@ const basicAuthOperation: Operation = {
   },
 }
 
-// Mock operation for GHES manage API
 const ghesManageOperation: Operation = {
   verb: 'post',
   title: 'Set maintenance mode',
@@ -118,8 +129,7 @@ const ghesManageOperation: Operation = {
   },
 }
 
-// Mock code sample
-const mockCodeSample: any = {
+const mockCodeSample = {
   key: 'default',
   request: {
     contentType: 'application/json',
@@ -136,9 +146,9 @@ const mockCodeSample: any = {
     example: { success: true },
     statusCode: '200',
   },
-}
+} as unknown as CodeSample
 
-const mockCodeSampleWithoutBody: any = {
+const mockCodeSampleWithoutBody = {
   key: 'default',
   request: {
     contentType: 'application/json',
@@ -153,7 +163,7 @@ const mockCodeSampleWithoutBody: any = {
     example: { message: 'Success' },
     statusCode: '200',
   },
-}
+} as unknown as CodeSample
 
 describe('REST code samples authentication header handling', () => {
   describe('version detection', () => {
@@ -162,7 +172,7 @@ describe('REST code samples authentication header handling', () => {
         unauthenticatedOperation,
         mockCodeSample,
         'free-pro-team@latest',
-        mockVersions as any,
+        mockVersions,
       )
 
       expect(result).not.toContain('-H "Authorization: Bearer <YOUR-TOKEN>"')
@@ -173,7 +183,7 @@ describe('REST code samples authentication header handling', () => {
         unauthenticatedOperation,
         mockCodeSample,
         'enterprise-cloud@latest',
-        mockVersions as any,
+        mockVersions,
       )
 
       expect(result).not.toContain('-H "Authorization: Bearer <YOUR-TOKEN>"')
@@ -184,7 +194,7 @@ describe('REST code samples authentication header handling', () => {
         unauthenticatedOperation,
         mockCodeSample,
         'enterprise-cloud@2024-01-01',
-        mockVersions as any,
+        mockVersions,
       )
 
       expect(result).not.toContain('-H "Authorization: Bearer <YOUR-TOKEN>"')
@@ -195,7 +205,7 @@ describe('REST code samples authentication header handling', () => {
         unauthenticatedOperation,
         mockCodeSample,
         'enterprise-server@3.17',
-        mockVersions as any,
+        mockVersions,
       )
 
       expect(result).toContain('-H "Authorization: Bearer <YOUR-TOKEN>"')
@@ -206,7 +216,7 @@ describe('REST code samples authentication header handling', () => {
         unauthenticatedOperation,
         mockCodeSample,
         'github-ae@latest',
-        mockVersions as any,
+        mockVersions,
       )
 
       expect(result).toContain('-H "Authorization: Bearer <YOUR-TOKEN>"')
@@ -219,7 +229,7 @@ describe('REST code samples authentication header handling', () => {
         standardOperation,
         mockCodeSample,
         'free-pro-team@latest',
-        mockVersions as any,
+        mockVersions,
       )
 
       expect(result).toContain('-H "Authorization: Bearer <YOUR-TOKEN>"')
@@ -232,7 +242,7 @@ describe('REST code samples authentication header handling', () => {
         unauthenticatedOperation,
         mockCodeSample,
         'free-pro-team@latest',
-        mockVersions as any,
+        mockVersions,
       )
 
       expect(result).not.toContain('-H "Authorization: Bearer <YOUR-TOKEN>"')
@@ -246,7 +256,7 @@ describe('REST code samples authentication header handling', () => {
         unauthenticatedOperation,
         mockCodeSample,
         'enterprise-cloud@latest',
-        mockVersions as any,
+        mockVersions,
       )
 
       expect(result).not.toContain('-H "Authorization: Bearer <YOUR-TOKEN>"')
@@ -259,7 +269,7 @@ describe('REST code samples authentication header handling', () => {
         unauthenticatedOperation,
         mockCodeSample,
         'enterprise-server@3.17',
-        mockVersions as any,
+        mockVersions,
       )
 
       expect(result).toContain('-H "Authorization: Bearer <YOUR-TOKEN>"')
@@ -272,7 +282,7 @@ describe('REST code samples authentication header handling', () => {
         basicAuthOperation,
         mockCodeSample,
         'free-pro-team@latest',
-        mockVersions as any,
+        mockVersions,
       )
 
       expect(result).toContain('-u "<YOUR_CLIENT_ID>:<YOUR_CLIENT_SECRET>"')
@@ -284,7 +294,7 @@ describe('REST code samples authentication header handling', () => {
         ghesManageOperation,
         mockCodeSample,
         'enterprise-server@3.17',
-        mockVersions as any,
+        mockVersions,
       )
 
       expect(result).toContain('-u "api_key:your-password"')
@@ -294,15 +304,89 @@ describe('REST code samples authentication header handling', () => {
     test('handles GET requests without body parameters correctly', () => {
       const getOperation = { ...unauthenticatedOperation, verb: 'get' }
       const result = getShellExample(
-        getOperation as any,
+        getOperation,
         mockCodeSampleWithoutBody,
         'free-pro-team@latest',
-        mockVersions as any,
+        mockVersions,
       )
 
       expect(result).not.toContain('-H "Authorization: Bearer <YOUR-TOKEN>"')
       expect(result).not.toContain("-d '")
       expect(result).toContain('curl -L')
+    })
+
+    test('sends text/plain bodies as raw text with a Content-Type header', () => {
+      const markdownRawOperation = {
+        ...standardOperation,
+        title: 'Render a Markdown document in raw mode',
+        requestPath: '/markdown/raw',
+        category: 'markdown',
+        subcategory: 'markdown',
+      }
+      const textPlainSample = {
+        ...mockCodeSample,
+        request: {
+          ...mockCodeSample.request,
+          contentType: 'text/plain',
+          bodyParameters: { text: 'Hello **world**' },
+        },
+      } as unknown as CodeSample
+
+      const result = getShellExample(
+        markdownRawOperation,
+        textPlainSample,
+        'free-pro-team@latest',
+        mockVersions,
+      )
+
+      expect(result).toContain('-H "Content-Type: text/plain"')
+      expect(result).toContain("--data-binary 'Hello **world**'")
+      expect(result).not.toContain("-d '{")
+    })
+
+    test('escapes single quotes in raw text/x-markdown bodies', () => {
+      const markdownRawOperation = {
+        ...standardOperation,
+        requestPath: '/markdown/raw',
+        category: 'markdown',
+        subcategory: 'markdown',
+      }
+      const markdownSample = {
+        ...mockCodeSample,
+        request: {
+          ...mockCodeSample.request,
+          contentType: 'text/x-markdown',
+          bodyParameters: "It's **bold**",
+        },
+      } as unknown as CodeSample
+
+      const result = getShellExample(
+        markdownRawOperation,
+        markdownSample,
+        'free-pro-team@latest',
+        mockVersions,
+      )
+
+      expect(result).toContain('-H "Content-Type: text/x-markdown"')
+      expect(result).toContain("--data-binary 'It'\\''s **bold**'")
+      expect(result).not.toContain("-d '")
+    })
+
+    test('article API curl helpers treat text bodies the same way', () => {
+      expect(needsExplicitContentTypeHeader('text/plain')).toBe(true)
+      expect(needsExplicitContentTypeHeader('text/x-markdown')).toBe(true)
+      expect(
+        getCurlBodyArguments({ text: 'Hello **world**' }, 'text/x-markdown', { jsonIndent: 2 }),
+      ).toEqual(["--data-binary 'Hello **world**'"])
+    })
+
+    test('uses --data-raw for text bodies that start with @ so curl does not read a file', () => {
+      expect(getCurlBodyArguments({ text: '@octocat' }, 'text/plain')).toEqual([
+        "--data-raw '@octocat'",
+      ])
+      expect(getCurlBodyArguments('Hi @octocat', 'text/plain')).toEqual([
+        "--data-binary 'Hi @octocat'",
+      ])
     })
   })
 
@@ -312,7 +396,7 @@ describe('REST code samples authentication header handling', () => {
         standardOperation,
         mockCodeSample,
         'free-pro-team@latest',
-        mockVersions as any,
+        mockVersions,
       )
 
       expect(result).toContain('gh api')
@@ -327,7 +411,7 @@ describe('REST code samples authentication header handling', () => {
         unauthenticatedOperation,
         mockCodeSample,
         'free-pro-team@latest',
-        mockVersions as any,
+        mockVersions,
       )
 
       expect(result).toContain('gh api')
@@ -335,7 +419,6 @@ describe('REST code samples authentication header handling', () => {
       expect(result).toContain('-H "Accept: application/vnd.github+json"')
       expect(result).toContain('-H "X-GitHub-Api-Version: 2022-11-28"')
       expect(result).toContain('/credentials/revoke')
-      // GitHub CLI handles authentication automatically, so we don't test for auth headers
     })
 
     test('returns undefined for operations with basic auth', () => {
@@ -343,7 +426,7 @@ describe('REST code samples authentication header handling', () => {
         basicAuthOperation,
         mockCodeSample,
         'free-pro-team@latest',
-        mockVersions as any,
+        mockVersions,
       )
 
       expect(result).toBeUndefined()
@@ -351,14 +434,80 @@ describe('REST code samples authentication header handling', () => {
 
     test('generates example for GHES with hostname parameter', () => {
       const ghesOp = { ...standardOperation, serverUrl: 'https://github.example.com' }
-      const result = getGHExample(
-        ghesOp,
-        mockCodeSample,
-        'enterprise-server@3.17',
-        mockVersions as any,
-      )
+      const result = getGHExample(ghesOp, mockCodeSample, 'enterprise-server@3.17', mockVersions)
 
       expect(result).toContain('--hostname HOSTNAME')
+    })
+
+    const uploadAssetOperation: Operation = {
+      ...standardOperation,
+      title: 'Upload a release asset',
+      requestPath: '/repos/{owner}/{repo}/releases/{release_id}/assets',
+      serverUrl: 'https://uploads.github.com',
+      category: 'releases',
+      subcategory: 'assets',
+      parameters: [
+        {
+          name: 'name',
+          in: 'query',
+          required: true,
+          description: '',
+          schema: { type: 'string' },
+        },
+      ],
+    }
+
+    const uploadAssetCodeSample = {
+      key: 'default',
+      request: {
+        contentType: 'application/octet-stream',
+        acceptHeader: 'application/vnd.github.v3+json',
+        bodyParameters: '@example.zip',
+        parameters: { owner: 'OWNER', repo: 'REPO', release_id: 'RELEASE_ID' },
+        description: 'Example',
+      },
+      response: {
+        contentType: 'application/json',
+        description: 'Response',
+        example: { name: 'example.zip' },
+        statusCode: '201',
+      },
+    } as unknown as CodeSample
+
+    test('uploads a binary file body with --input to the full upload URL', () => {
+      const result = getGHExample(
+        uploadAssetOperation,
+        uploadAssetCodeSample,
+        'free-pro-team@latest',
+        mockVersions,
+      )
+
+      expect(result).toContain(
+        '"https://uploads.github.com/repos/OWNER/REPO/releases/RELEASE_ID/assets?name=example.zip"',
+      )
+      expect(result).toContain('-H "Content-Type: application/octet-stream"')
+      expect(result).toContain('--input example.zip')
+      expect(result).not.toContain('--hostname')
+      expect(result).not.toContain("-f '@")
+    })
+
+    test('uses the GHES upload URL for binary file bodies', () => {
+      const ghesUploadOperation = {
+        ...uploadAssetOperation,
+        serverUrl: 'https://HOSTNAME/api/uploads',
+      }
+      const result = getGHExample(
+        ghesUploadOperation,
+        uploadAssetCodeSample,
+        'enterprise-server@3.17',
+        mockVersions,
+      )
+
+      expect(result).toContain(
+        '"https://HOSTNAME/api/uploads/repos/OWNER/REPO/releases/RELEASE_ID/assets?name=example.zip"',
+      )
+      expect(result).toContain('--input example.zip')
+      expect(result).not.toContain('--hostname')
     })
   })
 
@@ -368,7 +517,7 @@ describe('REST code samples authentication header handling', () => {
         standardOperation,
         mockCodeSample,
         'free-pro-team@latest',
-        mockVersions as any,
+        mockVersions,
       )
 
       expect(result).toContain("auth: 'YOUR-TOKEN'")
@@ -381,7 +530,7 @@ describe('REST code samples authentication header handling', () => {
         unauthenticatedOperation,
         mockCodeSample,
         'free-pro-team@latest',
-        mockVersions as any,
+        mockVersions,
       )
 
       expect(result).not.toContain('const octokit = new Octokit({\n  "auth": "YOUR-TOKEN"\n})')
@@ -395,7 +544,7 @@ describe('REST code samples authentication header handling', () => {
         unauthenticatedOperation,
         mockCodeSample,
         'enterprise-cloud@latest',
-        mockVersions as any,
+        mockVersions,
       )
 
       expect(result).not.toContain('const octokit = new Octokit({\n  "auth": "YOUR-TOKEN"\n})')
@@ -408,7 +557,7 @@ describe('REST code samples authentication header handling', () => {
         unauthenticatedOperation,
         mockCodeSample,
         'enterprise-server@3.17',
-        mockVersions as any,
+        mockVersions,
       )
 
       expect(result).toContain("auth: 'YOUR-TOKEN'")
@@ -420,7 +569,7 @@ describe('REST code samples authentication header handling', () => {
         basicAuthOperation,
         mockCodeSample,
         'free-pro-team@latest',
-        mockVersions as any,
+        mockVersions,
       )
 
       expect(result).toContain('import { createOAuthAppAuth } from "@octokit/auth-oauth-app"')
@@ -434,12 +583,158 @@ describe('REST code samples authentication header handling', () => {
         unauthenticatedOperation,
         mockCodeSampleWithoutBody,
         'free-pro-team@latest',
-        mockVersions as any,
+        mockVersions,
       )
 
       expect(result).toContain('const octokit = new Octokit()')
       expect(result).toContain("await octokit.request('POST /credentials/revo")
       expect(result).toContain("'X-GitHub-Api-Version': '2022-11-28'")
+    })
+
+    test('sends a top-level array body via the data option', () => {
+      const arrayBodyCodeSample: CodeSample = {
+        request: {
+          contentType: 'application/json',
+          description: 'Example',
+          acceptHeader: 'application/vnd.github+json',
+          bodyParameters: [{ id: 'MVS-2026-001', summary: 'Example summary' }],
+          parameters: {},
+        },
+        response: {
+          statusCode: '200',
+          contentType: 'application/json',
+          description: 'Response',
+          example: {},
+        },
+      }
+
+      const result = getJSExample(
+        standardOperation,
+        arrayBodyCodeSample,
+        'free-pro-team@latest',
+        mockVersions,
+      )
+
+      // The array must stay under data, not spread as numeric keys.
+      expect(result).toContain('data: [')
+      expect(result).toContain("id: 'MVS-2026-001'")
+      expect(result).not.toMatch(/["']0["']\s*:/)
+    })
+
+    test('includes required query params for GET requests', () => {
+      const searchOperation: Operation = {
+        ...standardOperation,
+        verb: 'get',
+        title: 'Search code',
+        requestPath: '/search/code',
+        parameters: [
+          {
+            in: 'query',
+            name: 'q',
+            description: '',
+            required: true,
+            schema: { type: 'string' },
+          },
+        ],
+      }
+      const searchCodeSample = {
+        request: {
+          description: 'Example',
+          acceptHeader: 'application/vnd.github+json',
+        },
+        response: {
+          statusCode: '200',
+          contentType: 'application/json',
+          description: 'Response',
+          example: { total_count: 0, items: [] },
+        },
+      } as unknown as CodeSample
+
+      const result = getJSExample(
+        searchOperation,
+        searchCodeSample,
+        'free-pro-team@latest',
+        mockVersions,
+      )
+
+      expect(result).toContain("await octokit.request('GET /search/code', {")
+      expect(result).toContain("q: 'Q'")
+    })
+
+    test('fills required query params in the URL template for mutating requests', () => {
+      const deleteCacheOperation: Operation = {
+        ...standardOperation,
+        verb: 'delete',
+        title: 'Delete GitHub Actions caches for a repository (using a cache key)',
+        requestPath: '/repos/{owner}/{repo}/actions/caches',
+        parameters: [
+          {
+            in: 'path',
+            name: 'owner',
+            description: '',
+            required: true,
+            schema: { type: 'string' },
+          },
+          {
+            in: 'path',
+            name: 'repo',
+            description: '',
+            required: true,
+            schema: { type: 'string' },
+          },
+          {
+            in: 'query',
+            name: 'key',
+            description: '',
+            required: true,
+            schema: { type: 'string' },
+          },
+          {
+            in: 'query',
+            name: 'ref',
+            description: '',
+            required: false,
+            schema: { type: 'string' },
+          },
+        ],
+      }
+      const deleteCacheCodeSample = {
+        request: {
+          description: 'Example',
+          acceptHeader: 'application/vnd.github+json',
+          parameters: { owner: 'OWNER', repo: 'REPO' },
+        },
+        response: {
+          statusCode: '200',
+          contentType: 'application/json',
+          description: 'Response',
+          example: {
+            total_count: 1,
+            actions_caches: [{ id: 505, ref: 'refs/heads/main', key: 'Linux-node-958aff96' }],
+          },
+        },
+      } as unknown as CodeSample
+
+      const jsResult = getJSExample(
+        deleteCacheOperation,
+        deleteCacheCodeSample,
+        'free-pro-team@latest',
+        mockVersions,
+      )
+      const shellResult = getShellExample(
+        deleteCacheOperation,
+        deleteCacheCodeSample,
+        'free-pro-team@latest',
+        mockVersions,
+      )
+
+      expect(jsResult).toContain(
+        "await octokit.request('DELETE /repos/{owner}/{repo}/actions/caches{?key,ref}'",
+      )
+      expect(jsResult).toContain("owner: 'OWNER'")
+      expect(jsResult).toContain("key: 'Linux-node-958aff96'")
+      expect(jsResult).not.toContain('ref:')
+      expect(shellResult).toContain('/repos/OWNER/REPO/actions/caches?key=Linux-node-958aff96')
     })
   })
 
@@ -452,13 +747,12 @@ describe('REST code samples authentication header handling', () => {
       }
 
       const shellResult = getShellExample(
-        operationWithoutProgAccess as any,
+        operationWithoutProgAccess as unknown as Operation,
         mockCodeSample,
         'free-pro-team@latest',
-        mockVersions as any,
+        mockVersions,
       )
 
-      // Should default to including authentication when progAccess is undefined
       expect(shellResult).toContain('-H "Authorization: Bearer <YOUR-TOKEN>"')
     })
 
@@ -479,10 +773,9 @@ describe('REST code samples authentication header handling', () => {
         operationWithoutProperty,
         mockCodeSample,
         'free-pro-team@latest',
-        mockVersions as any,
+        mockVersions,
       )
 
-      // Should default to including authentication when property is missing
       expect(shellResult).toContain('-H "Authorization: Bearer <YOUR-TOKEN>"')
     })
 
@@ -493,13 +786,13 @@ describe('REST code samples authentication header handling', () => {
           ...mockCodeSample.request,
           bodyParameters: null,
         },
-      }
+      } as unknown as CodeSample
 
       const result = getShellExample(
         unauthenticatedOperation,
         nullSample,
         'free-pro-team@latest',
-        mockVersions as any,
+        mockVersions,
       )
 
       expect(result).not.toContain('-H "Authorization: Bearer <YOUR-TOKEN>"')
@@ -516,16 +809,16 @@ describe('REST code samples authentication header handling', () => {
         mixedAuthOperation,
         mockCodeSample,
         'free-pro-team@latest',
-        mockVersions as any,
+        mockVersions,
       )
 
-      // Should still use management console auth even for allowPermissionlessAccess operations
+      // Management console auth wins even for allowPermissionlessAccess.
       expect(result).toContain('-u "api_key:your-password"')
       expect(result).not.toContain('-H "Authorization: Bearer <YOUR-TOKEN>"')
     })
 
     test('respects authentication precedence order: enterprise > basic auth > unauthenticated > standard', () => {
-      // Test enterprise management auth takes precedence over unauthenticated
+      // Enterprise management auth beats unauthenticated.
       const enterpriseUnauthOp = {
         ...unauthenticatedOperation,
         subcategory: 'manage-ghes',
@@ -535,13 +828,13 @@ describe('REST code samples authentication header handling', () => {
         enterpriseUnauthOp,
         mockCodeSample,
         'free-pro-team@latest',
-        mockVersions as any,
+        mockVersions,
       )
 
       expect(enterpriseResult).toContain('-u "api_key:your-password"')
       expect(enterpriseResult).not.toContain('-H "Authorization: Bearer <YOUR-TOKEN>"')
 
-      // Test basic auth takes precedence over unauthenticated
+      // Basic auth beats unauthenticated.
       const basicAuthUnauthOp = {
         ...unauthenticatedOperation,
         progAccess: {
@@ -554,7 +847,7 @@ describe('REST code samples authentication header handling', () => {
         basicAuthUnauthOp,
         mockCodeSample,
         'free-pro-team@latest',
-        mockVersions as any,
+        mockVersions,
       )
 
       expect(basicAuthResult).toContain('-u "<YOUR_CLIENT_ID>:<YOUR_CLIENT_SECRET>"')

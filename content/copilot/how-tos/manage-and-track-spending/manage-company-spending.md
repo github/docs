@@ -37,7 +37,7 @@ To track {% data variables.product.prodname_ai_credits_short %} consumption, nav
 
 ### Controlling usage with budgets
 
-You can set budgets at the user, cost center, and enterprise level to control how {% data variables.product.prodname_ai_credits_short %} are consumed. For an overview of how budget controls work, see [AUTOTITLE](/copilot/concepts/billing/budgets-for-usage-based-billing). For guidance on choosing the right configuration, see [AUTOTITLE](/copilot/tutorials/budgets/optimizing-your-budget-configuration).
+You can set budgets at the user, cost center, and enterprise level to control how {% data variables.product.prodname_ai_credits_short %} are consumed. For an overview of how budget controls work, see [AUTOTITLE](/copilot/concepts/billing-and-usage/organizations-and-enterprises/budgets). For guidance on choosing the right configuration, see [AUTOTITLE](/copilot/tutorials/budgets/optimizing-your-budget-configuration).
 
 ## Mapping spending to groups of users
 
@@ -86,6 +86,6 @@ If you're not sure how best to distribute licenses, {% data variables.product.co
 
 For detailed guidance, see:
 
-* [AUTOTITLE](/copilot/rolling-out-github-copilot-at-scale/driving-copilot-adoption-in-your-company)
-* [AUTOTITLE](/copilot/rolling-out-github-copilot-at-scale/setting-up-a-self-serve-process-for-github-copilot-licenses)
-* [AUTOTITLE](/copilot/rolling-out-github-copilot-at-scale/reminding-inactive-users)
+* [AUTOTITLE](/copilot/tutorials/roll-out-at-scale/enable-developers/drive-adoption)
+* [AUTOTITLE](/copilot/tutorials/roll-out-at-scale/assign-licenses/set-up-self-serve-licenses)
+* [AUTOTITLE](/copilot/tutorials/roll-out-at-scale/assign-licenses/remind-inactive-users)

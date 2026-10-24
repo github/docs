@@ -125,7 +125,7 @@ If you use a {% data variables.enterprise.prodname_managed_user %}, you cannot p
 
 1. The workflow that you created will run whenever a new release is created in your repository. If the tests pass, then the package will be published to {% data variables.product.prodname_registry %}.
 
-    To test this out, navigate to the **Code** tab in your repository and create a new release. For more information, see [Managing releases in a repository](/github/administering-a-repository/managing-releases-in-a-repository#creating-a-release).
+    To test this out, navigate to the **Code** tab in your repository and create a new release. For more information, see [Managing releases in a repository](/repositories/releasing-projects-on-github/managing-releases-in-a-repository#creating-a-release).
 
 ## Viewing your published package
 
@@ -146,5 +146,5 @@ The basic workflow you just added runs any time a new release is created in your
 Combining {% data variables.product.prodname_registry %} and {% data variables.product.prodname_actions %} can help you automate nearly every aspect of your application development processes. Ready to get started? Here are some helpful resources for taking your next steps with {% data variables.product.prodname_registry %} and {% data variables.product.prodname_actions %}:
 
 * [AUTOTITLE](/packages/learn-github-packages) for an in-depth tutorial on GitHub Packages
-* [AUTOTITLE](/actions/learn-github-actions) for an in-depth tutorial on GitHub Actions
+* [AUTOTITLE](/actions/how-tos/write-workflows) for an in-depth tutorial on GitHub Actions
 * [AUTOTITLE](/packages/working-with-a-github-packages-registry) for specific uses cases and examples

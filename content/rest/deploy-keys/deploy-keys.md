@@ -22,7 +22,7 @@ Deploy keys can either be set up using the following API endpoints, or by using 
 
 {% ifversion deploy-keys-enterprise-org-policy %}
 
-You may be unable to create deploy keys if your organization or enterprise owner has set a policy to restrict their use. Furthermore, if this policy is enabled at the organization or enterprise level, existing deploy keys may be disabled. For more information, see [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-deploy-keys) and [AUTOTITLE](/organizations/managing-organization-settings/restricting-deploy-keys-in-your-organization).
+You may be unable to create deploy keys if your organization or enterprise owner has set a policy to restrict their use. Furthermore, if this policy is enabled at the organization or enterprise level, existing deploy keys may be disabled. For more information, see [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-deploy-keys) and [AUTOTITLE](/organizations/managing-organization-settings/restricting-deploy-keys-in-your-organization).
 {% endif %}
 
 There are a few cases when a deploy key will be deleted by other activity:

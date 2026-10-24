@@ -1553,7 +1553,7 @@
                   "permissions": {
                     "title": "App Permissions",
                     "type": "object",
-                    "description": "The permissions granted to the user access token.",
+                    "description": "The permissions granted to the fine-grained access token.",
                     "properties": {
                       "actions": {
                         "type": "string",
@@ -1842,6 +1842,22 @@
                         "enum": [
                           "read",
                           "write"
+                        ]
+                      },
+                      "organization_copilot_requests": {
+                        "type": "string",
+                        "description": "The level of permission to grant the access token to make Copilot requests billed to the organization where the app is installed. This property is in public preview and is subject to change.",
+                        "enum": [
+                          "read"
+                        ]
+                      },
+                      "organization_external_properties_for_repos": {
+                        "type": "string",
+                        "description": "The level of permission to grant the access token for managing external custom properties for repositories in an organization.",
+                        "enum": [
+                          "read",
+                          "write",
+                          "admin"
                         ]
                       },
                       "organization_announcement_banners": {
@@ -2547,7 +2563,7 @@
                 "permissions": {
                   "title": "App Permissions",
                   "type": "object",
-                  "description": "The permissions granted to the user access token.",
+                  "description": "The permissions granted to the fine-grained access token.",
                   "properties": {
                     "actions": {
                       "type": "string",
@@ -2836,6 +2852,22 @@
                       "enum": [
                         "read",
                         "write"
+                      ]
+                    },
+                    "organization_copilot_requests": {
+                      "type": "string",
+                      "description": "The level of permission to grant the access token to make Copilot requests billed to the organization where the app is installed. This property is in public preview and is subject to change.",
+                      "enum": [
+                        "read"
+                      ]
+                    },
+                    "organization_external_properties_for_repos": {
+                      "type": "string",
+                      "description": "The level of permission to grant the access token for managing external custom properties for repositories in an organization.",
+                      "enum": [
+                        "read",
+                        "write",
+                        "admin"
                       ]
                     },
                     "organization_announcement_banners": {
@@ -3313,7 +3345,7 @@
         {
           "type": "object",
           "name": "permissions",
-          "description": "<p>The permissions granted to the user access token.</p>",
+          "description": "<p>The permissions granted to the fine-grained access token.</p>",
           "childParamsGroups": [
             {
               "type": "string",
@@ -3638,6 +3670,24 @@
               "enum": [
                 "read",
                 "write"
+              ]
+            },
+            {
+              "type": "string",
+              "name": "organization_copilot_requests",
+              "description": "<p>The level of permission to grant the access token to make Copilot requests billed to the organization where the app is installed. This property is in public preview and is subject to change.</p>",
+              "enum": [
+                "read"
+              ]
+            },
+            {
+              "type": "string",
+              "name": "organization_external_properties_for_repos",
+              "description": "<p>The level of permission to grant the access token for managing external custom properties for repositories in an organization.</p>",
+              "enum": [
+                "read",
+                "write",
+                "admin"
               ]
             },
             {
@@ -4021,7 +4071,7 @@
                 "permissions": {
                   "title": "App Permissions",
                   "type": "object",
-                  "description": "The permissions granted to the user access token.",
+                  "description": "The permissions granted to the fine-grained access token.",
                   "properties": {
                     "actions": {
                       "type": "string",
@@ -4310,6 +4360,22 @@
                       "enum": [
                         "read",
                         "write"
+                      ]
+                    },
+                    "organization_copilot_requests": {
+                      "type": "string",
+                      "description": "The level of permission to grant the access token to make Copilot requests billed to the organization where the app is installed. This property is in public preview and is subject to change.",
+                      "enum": [
+                        "read"
+                      ]
+                    },
+                    "organization_external_properties_for_repos": {
+                      "type": "string",
+                      "description": "The level of permission to grant the access token for managing external custom properties for repositories in an organization.",
+                      "enum": [
+                        "read",
+                        "write",
+                        "admin"
                       ]
                     },
                     "organization_announcement_banners": {
@@ -5373,7 +5439,7 @@
         {
           "type": "object",
           "name": "permissions",
-          "description": "<p>The permissions granted to the user access token.</p>",
+          "description": "<p>The permissions granted to the fine-grained access token.</p>",
           "childParamsGroups": [
             {
               "type": "string",
@@ -5702,6 +5768,24 @@
             },
             {
               "type": "string",
+              "name": "organization_copilot_requests",
+              "description": "<p>The level of permission to grant the access token to make Copilot requests billed to the organization where the app is installed. This property is in public preview and is subject to change.</p>",
+              "enum": [
+                "read"
+              ]
+            },
+            {
+              "type": "string",
+              "name": "organization_external_properties_for_repos",
+              "description": "<p>The level of permission to grant the access token for managing external custom properties for repositories in an organization.</p>",
+              "enum": [
+                "read",
+                "write",
+                "admin"
+              ]
+            },
+            {
+              "type": "string",
               "name": "organization_announcement_banners",
               "description": "<p>The level of permission to grant the access token to view and manage announcement banners for an organization.</p>",
               "enum": [
@@ -5941,7 +6025,7 @@
               "token_last_eight": "Ae178B4a",
               "hashed_token": "25f94a2a5c7fbaf499c665bc73d67c1c87e496da8985131633ee0a95819db2e8",
               "app": {
-                "url": "http://my-github-app.com",
+                "url": "https://example.com",
                 "name": "my github app",
                 "client_id": "Iv1.8a61f9b3a7aba766"
               },
@@ -6219,7 +6303,7 @@
                         "permissions": {
                           "title": "App Permissions",
                           "type": "object",
-                          "description": "The permissions granted to the user access token.",
+                          "description": "The permissions granted to the fine-grained access token.",
                           "properties": {
                             "actions": {
                               "type": "string",
@@ -6508,6 +6592,22 @@
                               "enum": [
                                 "read",
                                 "write"
+                              ]
+                            },
+                            "organization_copilot_requests": {
+                              "type": "string",
+                              "description": "The level of permission to grant the access token to make Copilot requests billed to the organization where the app is installed. This property is in public preview and is subject to change.",
+                              "enum": [
+                                "read"
+                              ]
+                            },
+                            "organization_external_properties_for_repos": {
+                              "type": "string",
+                              "description": "The level of permission to grant the access token for managing external custom properties for repositories in an organization.",
+                              "enum": [
+                                "read",
+                                "write",
+                                "admin"
                               ]
                             },
                             "organization_announcement_banners": {
@@ -7603,7 +7703,7 @@
                 "permissions": {
                   "title": "App Permissions",
                   "type": "object",
-                  "description": "The permissions granted to the user access token.",
+                  "description": "The permissions granted to the fine-grained access token.",
                   "properties": {
                     "actions": {
                       "type": "string",
@@ -7892,6 +7992,22 @@
                       "enum": [
                         "read",
                         "write"
+                      ]
+                    },
+                    "organization_copilot_requests": {
+                      "type": "string",
+                      "description": "The level of permission to grant the access token to make Copilot requests billed to the organization where the app is installed. This property is in public preview and is subject to change.",
+                      "enum": [
+                        "read"
+                      ]
+                    },
+                    "organization_external_properties_for_repos": {
+                      "type": "string",
+                      "description": "The level of permission to grant the access token for managing external custom properties for repositories in an organization.",
+                      "enum": [
+                        "read",
+                        "write",
+                        "admin"
                       ]
                     },
                     "organization_announcement_banners": {
@@ -8597,7 +8713,7 @@
                 "permissions": {
                   "title": "App Permissions",
                   "type": "object",
-                  "description": "The permissions granted to the user access token.",
+                  "description": "The permissions granted to the fine-grained access token.",
                   "properties": {
                     "actions": {
                       "type": "string",
@@ -8886,6 +9002,22 @@
                       "enum": [
                         "read",
                         "write"
+                      ]
+                    },
+                    "organization_copilot_requests": {
+                      "type": "string",
+                      "description": "The level of permission to grant the access token to make Copilot requests billed to the organization where the app is installed. This property is in public preview and is subject to change.",
+                      "enum": [
+                        "read"
+                      ]
+                    },
+                    "organization_external_properties_for_repos": {
+                      "type": "string",
+                      "description": "The level of permission to grant the access token for managing external custom properties for repositories in an organization.",
+                      "enum": [
+                        "read",
+                        "write",
+                        "admin"
                       ]
                     },
                     "organization_announcement_banners": {
@@ -9601,7 +9733,7 @@
                 "permissions": {
                   "title": "App Permissions",
                   "type": "object",
-                  "description": "The permissions granted to the user access token.",
+                  "description": "The permissions granted to the fine-grained access token.",
                   "properties": {
                     "actions": {
                       "type": "string",
@@ -9890,6 +10022,22 @@
                       "enum": [
                         "read",
                         "write"
+                      ]
+                    },
+                    "organization_copilot_requests": {
+                      "type": "string",
+                      "description": "The level of permission to grant the access token to make Copilot requests billed to the organization where the app is installed. This property is in public preview and is subject to change.",
+                      "enum": [
+                        "read"
+                      ]
+                    },
+                    "organization_external_properties_for_repos": {
+                      "type": "string",
+                      "description": "The level of permission to grant the access token for managing external custom properties for repositories in an organization.",
+                      "enum": [
+                        "read",
+                        "write",
+                        "admin"
                       ]
                     },
                     "organization_announcement_banners": {
@@ -10603,7 +10751,7 @@
                 "permissions": {
                   "title": "App Permissions",
                   "type": "object",
-                  "description": "The permissions granted to the user access token.",
+                  "description": "The permissions granted to the fine-grained access token.",
                   "properties": {
                     "actions": {
                       "type": "string",
@@ -10892,6 +11040,22 @@
                       "enum": [
                         "read",
                         "write"
+                      ]
+                    },
+                    "organization_copilot_requests": {
+                      "type": "string",
+                      "description": "The level of permission to grant the access token to make Copilot requests billed to the organization where the app is installed. This property is in public preview and is subject to change.",
+                      "enum": [
+                        "read"
+                      ]
+                    },
+                    "organization_external_properties_for_repos": {
+                      "type": "string",
+                      "description": "The level of permission to grant the access token for managing external custom properties for repositories in an organization.",
+                      "enum": [
+                        "read",
+                        "write",
+                        "admin"
                       ]
                     },
                     "organization_announcement_banners": {
@@ -12585,7 +12749,7 @@
                       "permissions": {
                         "title": "App Permissions",
                         "type": "object",
-                        "description": "The permissions granted to the user access token.",
+                        "description": "The permissions granted to the fine-grained access token.",
                         "properties": {
                           "actions": {
                             "type": "string",
@@ -12874,6 +13038,22 @@
                             "enum": [
                               "read",
                               "write"
+                            ]
+                          },
+                          "organization_copilot_requests": {
+                            "type": "string",
+                            "description": "The level of permission to grant the access token to make Copilot requests billed to the organization where the app is installed. This property is in public preview and is subject to change.",
+                            "enum": [
+                              "read"
+                            ]
+                          },
+                          "organization_external_properties_for_repos": {
+                            "type": "string",
+                            "description": "The level of permission to grant the access token for managing external custom properties for repositories in an organization.",
+                            "enum": [
+                              "read",
+                              "write",
+                              "admin"
                             ]
                           },
                           "organization_announcement_banners": {
@@ -14201,7 +14381,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Add a single repository to an installation. The authenticated user must have admin access to the repository.</p>\n<p>This endpoint only works for PATs (classic) with the <code>repo</code> scope.</p>",
+      "descriptionHTML": "<p>Add a single repository to an installation. The authenticated user must have admin access to the repository.</p>",
       "codeExamples": [
         {
           "request": {
@@ -14238,10 +14418,14 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": false,
-        "serverToServer": false,
-        "fineGrainedPat": false,
-        "permissions": []
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"GitHub App installation repository access\" repository permissions": "write"
+          }
+        ]
       }
     },
     {
@@ -14272,7 +14456,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Remove a single repository from an installation. The authenticated user must have admin access to the repository. The installation must have the <code>repository_selection</code> of <code>selected</code>.</p>\n<p>This endpoint only works for PATs (classic) with the <code>repo</code> scope.</p>",
+      "descriptionHTML": "<p>Remove a single repository from an installation. The authenticated user must have admin access to the repository. The installation must have the <code>repository_selection</code> of <code>selected</code>.</p>\n<p>To use a PAT (classic) with this endpoint, the <code>repo</code> scope is required</p>",
       "codeExamples": [
         {
           "request": {
@@ -14313,10 +14497,14 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": false,
-        "serverToServer": false,
-        "fineGrainedPat": false,
-        "permissions": []
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"GitHub App installation repository access\" repository permissions": "write"
+          }
+        ]
       }
     }
   ],
@@ -14441,7 +14629,7 @@
               "token_last_eight": "Ae178B4a",
               "hashed_token": "25f94a2a5c7fbaf499c665bc73d67c1c87e496da8985131633ee0a95819db2e8",
               "app": {
-                "url": "http://my-github-app.com",
+                "url": "https://example.com",
                 "name": "my github app",
                 "client_id": "Iv1.8a61f9b3a7aba766"
               },
@@ -14687,7 +14875,7 @@
                         "permissions": {
                           "title": "App Permissions",
                           "type": "object",
-                          "description": "The permissions granted to the user access token.",
+                          "description": "The permissions granted to the fine-grained access token.",
                           "properties": {
                             "actions": {
                               "type": "string",
@@ -14976,6 +15164,22 @@
                               "enum": [
                                 "read",
                                 "write"
+                              ]
+                            },
+                            "organization_copilot_requests": {
+                              "type": "string",
+                              "description": "The level of permission to grant the access token to make Copilot requests billed to the organization where the app is installed. This property is in public preview and is subject to change.",
+                              "enum": [
+                                "read"
+                              ]
+                            },
+                            "organization_external_properties_for_repos": {
+                              "type": "string",
+                              "description": "The level of permission to grant the access token for managing external custom properties for repositories in an organization.",
+                              "enum": [
+                                "read",
+                                "write",
+                                "admin"
                               ]
                             },
                             "organization_announcement_banners": {
@@ -15417,7 +15621,7 @@
               "token_last_eight": "Ae178B4a",
               "hashed_token": "25f94a2a5c7fbaf499c665bc73d67c1c87e496da8985131633ee0a95819db2e8",
               "app": {
-                "url": "http://my-github-app.com",
+                "url": "https://example.com",
                 "name": "my github app",
                 "client_id": "Iv1.8a61f9b3a7aba766"
               },
@@ -15663,7 +15867,7 @@
                         "permissions": {
                           "title": "App Permissions",
                           "type": "object",
-                          "description": "The permissions granted to the user access token.",
+                          "description": "The permissions granted to the fine-grained access token.",
                           "properties": {
                             "actions": {
                               "type": "string",
@@ -15952,6 +16156,22 @@
                               "enum": [
                                 "read",
                                 "write"
+                              ]
+                            },
+                            "organization_copilot_requests": {
+                              "type": "string",
+                              "description": "The level of permission to grant the access token to make Copilot requests billed to the organization where the app is installed. This property is in public preview and is subject to change.",
+                              "enum": [
+                                "read"
+                              ]
+                            },
+                            "organization_external_properties_for_repos": {
+                              "type": "string",
+                              "description": "The level of permission to grant the access token for managing external custom properties for repositories in an organization.",
+                              "enum": [
+                                "read",
+                                "write",
+                                "admin"
                               ]
                             },
                             "organization_announcement_banners": {

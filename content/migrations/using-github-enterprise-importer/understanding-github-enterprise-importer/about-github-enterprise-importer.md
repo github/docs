@@ -50,7 +50,7 @@ In supported patch releases in version 3.17 and later, {% data variables.product
 To learn more about the migration path you require, and the data that {% data variables.product.prodname_importer_proper_name %} migrates, see the following articles.
 
 {% ifversion fpt or ghec %}
-* [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/about-migrations-from-azure-devops-to-github-enterprise-cloud)
+* [AUTOTITLE](/migrations/ado/understand-migrations-from-azure-devops-to-github)
 {% endif %}
 * [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-bitbucket-server-to-github-enterprise-cloud/about-migrations-from-bitbucket-server-to-github-enterprise-cloud)
 * [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/about-migrations-between-github-products)

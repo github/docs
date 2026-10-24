@@ -32,3 +32,41 @@ Blocked issues are marked with a "Blocked" icon on your project boards or reposi
    * To indicate that your issue no longer depends on another issue being completed, select **Change blocked by**.
    * To indicate that your issue is no longer preventing another issue from being completed, select **Change blocking**.
 1. In the dialog box that opens, deselect the issues that are no longer blocked by, or blocking, your issue.
+
+## Managing issue dependencies with {% data variables.product.prodname_cli %}
+
+{% data reusables.cli.about-cli %} To learn more about {% data variables.product.prodname_cli %}, see [AUTOTITLE](/github-cli/github-cli/about-github-cli).
+
+To create a new issue with dependencies, use the `--blocked-by` and `--blocking` flags on `gh issue create`. Each flag accepts a comma-separated list of issue numbers or URLs.
+
+```shell
+gh issue create --title "TITLE" --body "ISSUE-DESCRIPTION" --blocked-by BLOCKED-BY-ISSUE-NUMBER --blocking BLOCKING-ISSUE-NUMBER
+```
+
+To add or remove dependencies on an existing issue, use the corresponding flags on `gh issue edit` with the issue number or URL.
+
+```shell
+gh issue edit ISSUE-NUMBER --add-blocked-by BLOCKED-BY-ISSUE-NUMBER --add-blocking BLOCKING-ISSUE-NUMBER
+gh issue edit ISSUE-NUMBER --remove-blocked-by BLOCKED-BY-ISSUE-NUMBER --remove-blocking BLOCKING-ISSUE-NUMBER
+```
+
+To see an issue's dependencies, use `gh issue view`. The output includes "Blocked by" and "Blocking" rows when relationships are set.
+
+```text
+My new issue octo-org/octo-repo#123
+Open • monalisa opened 3 days ago • 0 comments
+Blocked by: octo-org/octo-repo#200 Database schema migration
+Blocking: octo-org/octo-repo#300 Release v2.0
+
+
+  Here are more details.
+
+
+View this issue on GitHub: https://github.com/octo-org/octo-repo/issues/123
+```
+
+You can also access dependencies programmatically with the `--json` flag using the `blockedBy` and `blocking` fields.
+
+```shell
+gh issue view ISSUE-NUMBER --json blockedBy,blocking
+```

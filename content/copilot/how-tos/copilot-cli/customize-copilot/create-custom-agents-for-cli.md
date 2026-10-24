@@ -20,23 +20,23 @@ docsTeamMetrics:
 
 When you prompt {% data variables.product.prodname_copilot_short %} to carry out a task it may choose to use one of your {% data variables.copilot.custom_agents_short %}, if {% data variables.product.prodname_copilot_short %} determines that the agent's expertise is a good fit for the task.
 
-Work performed by a {% data variables.copilot.copilot_custom_agent_short %} is carried out using a subagent, which is a temporary agent spun up to complete the task. The subagent has its own context window, which can be populated by information that is not relevant to the main agent. In this way, especially for larger tasks, parts of the work can be offloaded to {% data variables.copilot.custom_agents_short %}, without cluttering the main agent's context window. The main agent can then focus on higher-level planning and coordination.
+When the main agent delegates work to a {% data variables.copilot.copilot_custom_agent_short %}, that work is carried out by a subagent with its own context window. This lets the specialist focus on its assigned task without cluttering the main agent's context. You can also select a {% data variables.copilot.copilot_custom_agent_short %} for the session directly.
 
-For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-custom-agents).
+For more information, see [AUTOTITLE](/copilot/concepts/customizations/custom-agents).
 
 ## Creating a {% data variables.copilot.copilot_custom_agent_short %}
 
 Each {% data variables.copilot.copilot_custom_agent_short %} is defined by a Markdown file with an `.agent.md` extension. You can create these files yourself, or you can add them from within the CLI, as described in the following steps.
 
 1. In interactive mode, enter `/agent`.
-1. Select **Create new agent** from the list of options.
+1. Press <kbd>N</kbd> to create a new agent.
 1. Choose between the options to create the {% data variables.copilot.copilot_custom_agent_short %} in the repository or in your home directory:
 
    * **Project** (`.github/agents/`)
    * **User** (`~/.copilot/agents/`)
 
    > [!NOTE]
-   > If you have {% data variables.copilot.custom_agents_short %} with the same name in both locations, the one in your home directory will be used, rather than the one in the repository.
+   > If personal and repository {% data variables.copilot.custom_agents_short %} have the same ID, the personal agent is used. For an agent at the root of an `agents` directory, the ID is the file name without the `.agent.md` or `.md` extension. The optional `name` field does not affect deduplication. Agents with the same `name` but different IDs both load, but if an `--agent` value matches more than one ID or `name`, the CLI uses the highest-priority match.
 
 1. Choose whether to get {% data variables.product.prodname_copilot_short %} to create the {% data variables.copilot.copilot_custom_agent_short %} file, or create it yourself.
 
@@ -98,7 +98,7 @@ Each {% data variables.copilot.copilot_custom_agent_short %} is defined by a Mar
   Enter `/agent` in interactive mode and choose from the list of available {% data variables.copilot.custom_agents_short %}. Then enter a prompt that will be passed to the selected agent.
 
   > [!NOTE]
-  > The CLI's default agents are not included in this list. For more information about the default agents, see [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli#use-custom-agents).
+  > The CLI's default agents are not included in this list. For more information about the default agents, see [AUTOTITLE](/copilot/concepts/customizations/custom-agents#built-in-agents).
 
 * **Explicit instruction**
 
@@ -132,11 +132,35 @@ Each {% data variables.copilot.copilot_custom_agent_short %} is defined by a Mar
   copilot --agent security-auditor --prompt "Check /src/app/validator.go"
   ```
 
-  Where `security-auditor` is the file name of the {% data variables.copilot.copilot_custom_agent_short %} profile, without the `.agent.md` extension. Typically, but not necessarily, this is the same as the `name` value in the agent profile.
+  In this example, `security-auditor` is the ID of the {% data variables.copilot.copilot_custom_agent_short %}. The ID is derived from the file name, without the `.md` or `.agent.md` extension. In this case, the path to the file is either `agents/security-auditor.md` or `agents/security-auditor.agent.md`. If the file is in a subdirectory of `agents`, the subdirectory name is included in the ID, with the directory separator replaced with `--`. So an agent file at `agents/security/security-auditor.agent.md` would have the ID `security--security-auditor`. Alternatively, you can use the value of the `name` field instead of the ID, enclosing it in quotes. For example, `--agent "Security Auditor"`.
+
+## Applying your repository's custom instructions to a {% data variables.copilot.copilot_custom_agent_short %}
+
+Custom instruction files—such as `.github/copilot-instructions.md`, `AGENTS.md`, and `CLAUDE.md`—tell {% data variables.product.prodname_copilot_short %} how to work in your repository. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions).
+
+When {% data variables.product.prodname_copilot_short %} runs your {% data variables.copilot.copilot_custom_agent_short %} as a subagent—to handle part of a larger task—the subagent does not follow your repository's custom instructions by default. This keeps the subagent focused on the specific task it was given.
+
+If you want a subagent to follow your repository's conventions—for example, an agent that reviews or edits code—add `include-custom-instructions: true` to the agent file's frontmatter:
+
+```text
+---
+name: RepoAwareReviewer
+description: Reviews a change against this repository's conventions
+tools: ["*"]
+include-custom-instructions: true
+---
+
+Review the change and flag anything that violates the repository's conventions.
+```
+
+> [!NOTE]
+> This setting only affects the agent when it runs as a subagent. A {% data variables.copilot.copilot_custom_agent_short %} that you select yourself—with `--agent`, `/agent`, or by inference—already follows your repository's custom instructions, so the setting has no effect in that case.
+
+For more information, including how this setting interacts with the `--no-custom-instructions` option, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference#repository-custom-instructions-for-subagents).
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/concepts/agents/copilot-cli/comparing-cli-features)
+* [AUTOTITLE](/copilot/concepts/customizations/comparing-customizations)
 * [AUTOTITLE](/copilot/reference/custom-agents-configuration)
 * [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference#custom-agents-reference)
 * [AUTOTITLE](/copilot/tutorials/customization-library/custom-agents)—a curated collection of examples

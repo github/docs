@@ -9,7 +9,7 @@ Always include a security admonition above this procedure. This is either one of
 {% data reusables.actions.settings-sidebar-actions-runner-groups-selection %}
 1. Under **Workflow access**, select the dropdown menu and click **Selected workflows**.
 1. Click {% octicon "gear" aria-label="the gear icon" %}.
-1. Enter a comma separated list of the workflows that can access the runner group. Use the full path, including the repository name and owner. Pin the workflow to a branch, tag, or full SHA. For example: `octo-org/octo-repo/.github/workflows/build.yml@v2, octo-org/octo-repo/.github/workflows/deploy.yml@d6dc6c96df4f32fa27b039f2084f576ed2c5c2a5, monalisa/octo-test/.github/workflows/test.yml@main`.
+1. Enter a comma separated list of the workflows that can access the runner group. Use the full path, including the repository name and owner. Pin non-reusable workflows to a branch. Pin reusable workflows to a branch, tag, or full SHA. For example: `octo-org/octo-repo/.github/workflows/build.yml@v2, octo-org/octo-repo/.github/workflows/deploy.yml@d6dc6c96df4f32fa27b039f2084f576ed2c5c2a5, monalisa/octo-test/.github/workflows/test.yml@main`.
 
    Only jobs directly defined within the selected workflows will have access to the runner group.
 

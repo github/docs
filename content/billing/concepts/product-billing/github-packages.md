@@ -58,7 +58,7 @@ Plan | Storage | Data transfer (per month)
 
 {% endrowheaders %}
 
-The storage amounts shown are **shared** with {% data variables.product.prodname_actions %}. This means your total storage across Packages, Actions artifacts, and Actions caches cannot exceed the included amount for your plan.
+The storage amounts shown are **shared** with {% data variables.product.prodname_actions %} artifacts. This means your total storage across Packages and Actions artifacts cannot exceed the included amount for your plan.
 
 > [!NOTE]
 > * **Billing for container image storage:** Container image storage and bandwidth for the {% data variables.product.prodname_container_registry %} is currently free. If you use {% data variables.product.prodname_container_registry %}, you'll be informed at least one month in advance of any change to this policy. For more information about the {% data variables.product.prodname_container_registry %}, see [AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-container-registry).
@@ -87,7 +87,7 @@ You pay for any additional use above your quota using the payment method set up 
 Data transfer is billed for each GB of data transferred. Storage is billed by calculating an hourly usage rate.
 
 * {% data reusables.dotcom_billing.pricing_calculator.pricing_cal_packages %}
-* To view your current storage and bandwidth, see [AUTOTITLE](/billing/managing-billing-for-your-products/viewing-your-product-usage).
+* To view your current storage and bandwidth, see [AUTOTITLE](/billing/how-tos/products/view-productlicense-use).
 
 ### Example of how usage is calculated over a month
 

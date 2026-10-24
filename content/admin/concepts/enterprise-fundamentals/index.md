@@ -6,6 +6,7 @@ versions:
   ghes: '*'
   ghec: '*'
 children:
+  - /choose-an-enterprise-type
   - /enterprise-accounts
   - /teams-in-an-enterprise
   - /roles-in-an-enterprise

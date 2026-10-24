@@ -41,12 +41,14 @@ children:
   - /learning-about-github
   - /empty-categories
   - /test-journey
+  - /test-journey-single
   - /carousel
   - /article-grid-discovery
   - /article-grid-bespoke
   - /multi-carousel
   - /non-child-resolution
   - /discovery-filtered
+  - /cookbook
 communityRedirect:
   name: Provide HubGit Feedback
   href: 'https://hubgit.com/orgs/community/discussions/categories/get-started'

@@ -22,13 +22,15 @@ export function checkCachingHeaders(
   }
 
   const maxAgeSeconds = parseInt(maxAgeMatch[1], 10)
-  // Let's not be too specific in the tests, just as long as it's testing
-  // that it's a reasonably large number of seconds.
+  // Use a lower bound so tests tolerate normal cache-window changes.
   expect(maxAgeSeconds).toBeGreaterThanOrEqual(minMaxAge)
 
-  // Because it doesn't have a unique URL
   const surrogateKeyHeader = res.headers['surrogate-key'] as string
-  expect(surrogateKeyHeader.split(/\s/g)[0]).toBe(
-    defaultSurrogateKey ? SURROGATE_ENUMS.DEFAULT : SURROGATE_ENUMS.MANUAL,
-  )
+  const firstToken = surrogateKeyHeader.split(/\s/g)[0]
+  if (defaultSurrogateKey) {
+    // Per-language purges need no-language or language:<code> as the first surrogate key.
+    expect(firstToken === 'no-language' || /^language:[a-z-]+$/.test(firstToken)).toBe(true)
+  } else {
+    expect(firstToken).toBe(SURROGATE_ENUMS.MANUAL)
+  }
 }

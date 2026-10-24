@@ -21,7 +21,7 @@ There are some additional {% data variables.product.prodname_secret_scanning %} 
 * [Controlling features for new repositories created in a user namespace](#controlling-features-for-new-repositories-created-in-a-user-namespace){% ifversion push-protected-pattern-configuration %}
 * [Specifying patterns to include in push protection for your enterprise](#specifying-patterns-to-include-in-push-protection-for-your-enterprise){% endif %}
 
-These additional settings apply only to repositories with {% data variables.product.prodname_secret_scanning %} and {% data variables.product.prodname_GHAS %} both enabled{% ifversion ghas-products %}, or with {% data variables.product.prodname_GH_secret_protection %} enabled{% endif %}.
+These additional settings apply only to repositories with {% data variables.product.prodname_secret_scanning %} and {% data variables.product.prodname_GHAS %} both enabled, or with {% data variables.product.prodname_GH_secret_protection %} enabled.
 
 ## Accessing the additional settings for {% data variables.product.prodname_secret_scanning %}
 
@@ -56,6 +56,6 @@ You can customize which secret patterns are included in push protection, giving 
 
 {% data reusables.secret-scanning.pattern-enablement-org-enterprise %}
 
-For more information on how to read data on the {% data variables.product.prodname_secret_scanning %} pattern configuration page, see [AUTOTITLE](/code-security/reference/secret-security/secret-scanning-pattern-configuration-data).
+For more information on how to read data on the {% data variables.product.prodname_secret_scanning %} pattern configuration page, see [AUTOTITLE](/code-security/reference/secret-security/secret-pattern-data).
 
 {% endif %}

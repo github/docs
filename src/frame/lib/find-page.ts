@@ -1,5 +1,5 @@
 import { getLanguageCode } from '@/frame/lib/patterns'
-import getRedirect from '@/redirects/lib/get-redirect'
+import getRedirect, { splitPathByLanguage } from '@/redirects/lib/get-redirect'
 import type { Context, Page } from '@/types'
 
 export default function findPage(
@@ -10,22 +10,27 @@ export default function findPage(
   if (Array.isArray(pages)) throw new Error("'pages' is not supposed to be an array")
   if (pages === undefined) return undefined
 
-  // remove any fragments
+  // Fragments do not affect page lookup.
   href = new URL(href, 'http://example.com').pathname
 
   const redirectsContext: Context = { redirects: redirects || {}, pages }
 
-  // find the page
   const redirectedHref = getRedirect(href, redirectsContext)
   const page = pages[href] || (redirectedHref ? pages[redirectedHref] : undefined)
   if (page) return page
 
-  // get the current language
+  // Missing translated pages and hrefs without a language prefix fall back to English.
+  const [, withoutLanguage] = splitPathByLanguage(href)
+  const englishHrefs = new Set([withoutLanguage === '/' ? '/en' : `/en${withoutLanguage}`])
+  // Also strip any two-letter prefix, such as a language not enabled here.
   const languageMatch = href.match(getLanguageCode)
-  const currentLang = getLanguageCode.test(href) && languageMatch ? languageMatch[1] : 'en'
+  if (languageMatch) englishHrefs.add(`/en${href.slice(languageMatch[0].length)}`)
 
-  // try to fall back to English if the translated page can't be found
-  const englishHref = href.replace(`/${currentLang}/`, '/en/')
-  const redirectedEnglishHref = getRedirect(englishHref, redirectsContext)
-  return pages[englishHref] || (redirectedEnglishHref ? pages[redirectedEnglishHref] : undefined)
+  for (const englishHref of englishHrefs) {
+    const redirectedEnglishHref = getRedirect(englishHref, redirectsContext)
+    const englishPage =
+      pages[englishHref] || (redirectedEnglishHref ? pages[redirectedEnglishHref] : undefined)
+    if (englishPage) return englishPage
+  }
+  return undefined
 }

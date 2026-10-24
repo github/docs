@@ -6,7 +6,9 @@ product: '{% data reusables.gated-features.secret-risk-assessment-report %}'
 permissions: '{% data reusables.permissions.secret-risk-assessment-report-generation %}'
 contentType: how-tos
 versions:
-  feature: secret-risk-assessment
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 redirect_from:
   - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/export-risk-report-csv
 category:
@@ -20,4 +22,4 @@ category:
 
 ## Next steps
 
-To better understand the fields of your CSV file, see [AUTOTITLE](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/risk-report-csv-contents).
+To better understand the fields of your CSV file, see [AUTOTITLE](/code-security/reference/secret-security/risk-report-csv-contents).

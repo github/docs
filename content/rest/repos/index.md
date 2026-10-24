@@ -19,6 +19,7 @@ children:
   - /contents
   - /custom-properties
   - /forks
+  - /issue-types
   - /lfs
   - /repos
   - /rule-suites

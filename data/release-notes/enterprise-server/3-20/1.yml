@@ -43,7 +43,7 @@ sections:
     - |
       When applying a hotpatch or running a configuration with `ghe-config-apply`, the configuration run could fail with "ERROR: Restoring CodeQL Action release tags" if internal Git services were not yet fully available. The error message "SpokesAPI::TwirpServerError: unavailable" appeared in logs.
     - |
-      On instances connected to GitHub Enterprise Cloud with data residency, the "GitHub.com actions" setting appeared in the GitHub Connect configuration despite this feature not being available for data residency deployments.
+      On instances connected to GitHub Enterprise Cloud with data residency, the "GitHub.com actions" setting appeared in the GitHub Connect configuration despite this feature not being available for data residency deployments. **Note: This feature is available from 3.20.6.** [Updated: 2026-08-21]
     - |
       On instances with GitHub Actions enabled, errors appeared in logs related to missing Elasticsearch field mappings for workflow runs. The workflow run data included an `archived` field that was not defined in the Elasticsearch index mapping.
     - |
@@ -104,7 +104,7 @@ sections:
     - |
       Running a config apply as part of the steps for [Replacing a node in an emergency](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-a-node-in-an-emergency) may fail with errors if the node being replaced is still reachable. If this occurs, shutdown the node and repeat the steps.
     - |
-      When restoring data originally backed up from a 3.13 or greater appliance version, the Elasticsearch indices need to be reindexed before some of the data will show up.  This happens via a nightly scheduled job.  It can also be forced by running `/usr/local/share/enterprise/ghe-es-search-repair`.
+      When restoring data originally backed up from a 3.13 or greater appliance version, the Elasticsearch indices need to be reindexed before some of the data will show up.  This happens via a scheduled job that runs on the first Saturday of each month.  It can also be forced by running `/usr/local/share/enterprise/ghe-es-search-repair`.
     - |
       When initializing a new GHES cluster, nodes with the `consul-server` role should be added to the cluster before adding additional nodes. Adding all nodes simultaneously creates a race condition between nomad server registration and nomad client registration.
     - |

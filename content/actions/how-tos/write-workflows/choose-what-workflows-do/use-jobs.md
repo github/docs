@@ -17,7 +17,7 @@ contentType: how-tos
 
 ## Prerequisites
 
-To implement jobs in your workflows, you need to understand what jobs are. See [AUTOTITLE](/actions/get-started/understanding-github-actions#jobs).
+To implement jobs in your workflows, you need to understand what jobs are. See [AUTOTITLE](/actions/get-started/understand-github-actions#jobs).
 
 ## Setting an ID for a job
 
@@ -35,4 +35,4 @@ To implement jobs in your workflows, you need to understand what jobs are. See [
 
 To automatically run a job with different combinations of variables, such as operating systems or language versions, define a `matrix` strategy in your workflow.
 
-For more information, see [AUTOTITLE](/actions/how-tos/writing-workflows/choosing-what-your-workflow-does/running-variations-of-jobs-in-a-workflow).
+For more information, see [AUTOTITLE](/actions/how-tos/write-workflows/choose-what-workflows-do/run-job-variations).

@@ -1,6 +1,6 @@
 ---
 title: Exploring projects on GitHub
-intro: 'Discover interesting projects on {% data variables.product.github %} and contribute to open source by collaborating with other people.'
+intro: Discover interesting projects on {% data variables.product.github %} and contribute to open source by collaborating with other people.
 redirect_from:
   - /categories/stars
   - /categories/87/articles
@@ -12,10 +12,11 @@ versions:
   ghes: '*'
   ghec: '*'
 children:
+  - /discovering-projects-on-github
+  - /contributing-to-a-project
   - /finding-ways-to-contribute-to-open-source-on-github
   - /contributing-to-open-source
   - /using-github-copilot-to-explore-projects
-  - /contributing-to-a-project
   - /saving-repositories-with-stars
   - /following-people
   - /following-organizations

@@ -17,6 +17,7 @@ export type ArticleContextT = {
   intro: string
   effectiveDate: string
   renderedPage: string | JSX.Element[]
+  renderedPageHast?: import('hast').Root | null
   miniTocItems: Array<MiniTocItem>
   permissions?: string
   includesPlatformSpecificContent: boolean
@@ -45,8 +46,8 @@ export const useArticleContext = (): ArticleContextT => {
   return context
 }
 
-const PagePathToVaFlowMapping: Record<string, string> = {
-  'content/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/why-are-my-contributions-not-showing-up-on-my-profile.md':
+export const PagePathToVaFlowMapping: Record<string, string> = {
+  'content/account-and-profile/how-tos/contribution-settings/troubleshooting-missing-contributions.md':
     'contribution_troubleshooting',
   'content/authentication/securing-your-account-with-two-factor-authentication-2fa/recovering-your-account-if-you-lose-your-2fa-credentials.md':
     '2fa',
@@ -54,12 +55,12 @@ const PagePathToVaFlowMapping: Record<string, string> = {
     'pages_ssl_check',
 }
 
-// Request type for context extraction — uses Record<string, unknown> for the page
-// because the Page type doesn't include all runtime-computed properties.
+// Context extraction uses Record<string, unknown> because Page omits runtime-computed properties.
 interface ContextRequest {
   context: {
     page: Record<string, unknown> & { fullPath: string; title: string; intro: string }
     renderedPage?: string
+    renderedPageHast?: import('hast').Root
     miniTocItems?: MiniTocItem[]
     currentJourneyTrack?: JourneyContext
     currentLayoutName?: string
@@ -84,7 +85,7 @@ export const getArticleContextFromRequest = (req: ContextRequest): ArticleContex
   const supportPortalUrl =
     process.env.NODE_ENV === 'production'
       ? 'https://support.github.com'
-      : // Assume that a developer is not testing the VA iframe locally if this env var is not set
+      : // Without SUPPORT_PORTAL_URL, local development assumes the VA iframe is disabled.
         process.env.SUPPORT_PORTAL_URL || ''
 
   const supportPortalVaIframeProps = {
@@ -97,6 +98,7 @@ export const getArticleContextFromRequest = (req: ContextRequest): ArticleContex
     intro: page.intro,
     effectiveDate,
     renderedPage: (req.context.renderedPage as string) || '',
+    renderedPageHast: req.context.renderedPageHast ?? null,
     miniTocItems: req.context.miniTocItems || [],
     permissions: (page.permissions as string) || '',
     includesPlatformSpecificContent: (page.includesPlatformSpecificContent as boolean) || false,

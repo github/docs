@@ -7,14 +7,11 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: concepts
-product: '{% data reusables.elm.ghes-version-requirement %}'
 ---
-
-{% data reusables.elm.preview-note %}
 
 ## What is {% data variables.product.prodname_elm %}?
 
-{% data variables.product.prodname_elm %} ({% data variables.product.prodname_elm_short %}) is a service for migrating repositories from {% data variables.product.prodname_ghe_server %} to {% data variables.enterprise.data_residency %} ({% data variables.enterprise.data_residency_site %}). It is operated using a command line tool on {% data variables.product.prodname_ghe_server %}.
+{% data variables.product.prodname_elm %} ({% data variables.product.prodname_elm_short %}) is a service for migrating repositories from {% data variables.product.prodname_ghe_server %} to {% data variables.enterprise.data_residency %} ({% data variables.enterprise.data_residency_site %}). It is operated using an extension of the {% data variables.product.prodname_cli %}.
 
 Migrations are "live" because users can continue using the source repository during most of the migration process. After the repository data is initially collected, webhooks check for changes to the repository, such as new commits or updates to settings. These changes are reported to {% data variables.product.prodname_elm_short %} and included in the migration.
 
@@ -36,14 +33,14 @@ You may want to use both tools over the course of a platform migration, prioriti
 
 ## Overview of a migration
 
-Typically, a site administrator runs a migration using the `elm` CLI tool, in a terminal session over SSH. The operator must provide {% data variables.product.pat_generic_plural %} with access to both {% data variables.product.prodname_ghe_server %} and the destination enterprise.
+A site administrator runs a migration using the {% data variables.product.prodname_cli %}. Before running the migration, the operator must configure the {% data variables.product.prodname_ghe_server %} instance and provide {% data variables.product.pat_generic_plural %} with access to both {% data variables.product.prodname_ghe_server %} and the destination enterprise.
 
 The high-level phases of a migration are:
 
 1. **Creation**: The site admin runs CLI commands to create and start the migration, specifying the source repository and destination.
 1. **Preflight checks**: The migration service verifies parameters, tokens, network connectivity, and repository configuration.
 1. **Backfill**: The {% data variables.product.prodname_elm_short %} tool does an initial crawl to capture all repository data and sends it to the migration service on the destination platform. During the backfill phase, webhooks check for live updates to the repository as the migration continues.
-1. **Cutover**: The source repository is locked and any final live updates are sent to {% data variables.product.prodname_elm_short %}. This is the downtime period for developers.
+1. **Cutover**: The source repository is archived (made read-only) and any final live updates are sent to {% data variables.product.prodname_elm_short %}. This is the downtime period for developers.
 1. **Completion**: The migration is finished. The site admin can check the data was migrated successfully.
 1. **Follow-up**: An organization owner performs follow-up tasks on the destination enterprise, such as reconfiguring organization settings and reattributing activity to users.
 

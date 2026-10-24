@@ -860,7 +860,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Gets the total GitHub Actions cache usage for an enterprise.\nThe data fetched using this API is refreshed approximately every 5 minutes, so values returned from this endpoint may take at least 5 minutes to get updated.</p>\n<p>OAuth tokens and personal access tokens (classic) need the <code>admin:enterprise</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Gets the total GitHub Actions cache usage for an enterprise.\nThe data fetched using this API is refreshed approximately every 5 minutes, so values returned from this endpoint may take at least 5 minutes to get updated.</p>\n<p>OAuth tokens and personal access tokens (classic) need the <code>admin:enterprise</code> scope to use this endpoint.</p>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThe \"Enterprise administration\" fine-grained permission is not available to callers. To use this API, you must use an OAuth app token or a personal access token (classic).</p>\n</div>",
       "codeExamples": [
         {
           "request": {
@@ -935,7 +935,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Gets the GitHub Actions cache usage policy for an enterprise.</p>\n<p>OAuth tokens and personal access tokens (classic) need the <code>admin:enterprise</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Gets the GitHub Actions cache usage policy for an enterprise.</p>\n<p>OAuth tokens and personal access tokens (classic) need the <code>admin:enterprise</code> scope to use this endpoint.</p>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThe \"Enterprise administration\" fine-grained permission is not available to callers. To use this API, you must use an OAuth app token or a personal access token (classic).</p>\n</div>",
       "codeExamples": [
         {
           "request": {
@@ -1019,7 +1019,7 @@
           "description": "<p>For repositories in an enterprise, the maximum value that can be set as the limit for the sum of all caches in a repository, in gigabytes.</p>"
         }
       ],
-      "descriptionHTML": "<p>Sets the GitHub Actions cache usage policy for an enterprise.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:enterprise</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Sets the GitHub Actions cache usage policy for an enterprise.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:enterprise</code> scope to use this endpoint.</p>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThe \"Enterprise administration\" fine-grained permission is not available to callers. To use this API, you must use an OAuth app token or a personal access token (classic).</p>\n</div>",
       "codeExamples": [
         {
           "request": {
@@ -24506,11 +24506,13 @@
               "properties": {
                 "id": {
                   "description": "The id of the job.",
-                  "type": "integer"
+                  "type": "integer",
+                  "format": "int64"
                 },
                 "run_id": {
                   "description": "The id of the associated workflow run.",
-                  "type": "integer"
+                  "type": "integer",
+                  "format": "int64"
                 },
                 "run_url": {
                   "type": "string"
@@ -25026,11 +25028,13 @@
                     "properties": {
                       "id": {
                         "description": "The id of the job.",
-                        "type": "integer"
+                        "type": "integer",
+                        "format": "int64"
                       },
                       "run_id": {
                         "description": "The id of the associated workflow run.",
-                        "type": "integer"
+                        "type": "integer",
+                        "format": "int64"
                       },
                       "run_url": {
                         "type": "string"
@@ -25483,11 +25487,13 @@
                     "properties": {
                       "id": {
                         "description": "The id of the job.",
-                        "type": "integer"
+                        "type": "integer",
+                        "format": "int64"
                       },
                       "run_id": {
                         "description": "The id of the associated workflow run.",
-                        "type": "integer"
+                        "type": "integer",
+                        "format": "int64"
                       },
                       "run_url": {
                         "type": "string"
@@ -26215,6 +26221,7 @@
                     "properties": {
                       "id": {
                         "type": "integer",
+                        "format": "int64",
                         "description": "The ID of the workflow run."
                       },
                       "name": {
@@ -26229,6 +26236,7 @@
                       },
                       "check_suite_id": {
                         "type": "integer",
+                        "format": "int64",
                         "description": "The ID of the associated check suite."
                       },
                       "check_suite_node_id": {
@@ -28401,6 +28409,7 @@
               "properties": {
                 "id": {
                   "type": "integer",
+                  "format": "int64",
                   "description": "The ID of the workflow run."
                 },
                 "name": {
@@ -28415,6 +28424,7 @@
                 },
                 "check_suite_id": {
                   "type": "integer",
+                  "format": "int64",
                   "description": "The ID of the associated check suite."
                 },
                 "check_suite_node_id": {
@@ -30955,6 +30965,7 @@
               "properties": {
                 "id": {
                   "type": "integer",
+                  "format": "int64",
                   "description": "The ID of the workflow run."
                 },
                 "name": {
@@ -30969,6 +30980,7 @@
                 },
                 "check_suite_id": {
                   "type": "integer",
+                  "format": "int64",
                   "description": "The ID of the associated check suite."
                 },
                 "check_suite_node_id": {
@@ -35075,6 +35087,7 @@
                     "properties": {
                       "id": {
                         "type": "integer",
+                        "format": "int64",
                         "description": "The ID of the workflow run."
                       },
                       "name": {
@@ -35089,6 +35102,7 @@
                       },
                       "check_suite_id": {
                         "type": "integer",
+                        "format": "int64",
                         "description": "The ID of the associated check suite."
                       },
                       "check_suite_node_id": {

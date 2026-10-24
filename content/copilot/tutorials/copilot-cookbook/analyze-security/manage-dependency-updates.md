@@ -24,7 +24,7 @@ contentType: tutorials
 
 Let's say your project depends on numerous libraries and packages. Vulnerable or outdated dependencies create security risks that can affect your project and others that rely on it.
 
-{% data variables.copilot.copilot_chat_short %} can help you get set up with {% data variables.product.prodname_dependabot %} security and version updates, so that your dependencies always remain on the most secure, and up-to-date versions. See [AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates) and [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates).
+{% data variables.copilot.copilot_chat_short %} can help you get set up with {% data variables.product.prodname_dependabot %} security and version updates, so that your dependencies always remain on the most secure, and up-to-date versions. See [AUTOTITLE](/code-security/concepts/supply-chain-security/dependabot-security-updates) and [AUTOTITLE](/code-security/concepts/supply-chain-security/dependabot-version-updates).
 
 Before you begin, ensure that {% data variables.product.prodname_dependabot %} is fully enabled under your repository's "Settings."
 1. Under your "Code security" settings, ensure **{% data variables.product.prodname_dependabot_alerts %}** and **{% data variables.product.prodname_dependabot_security_updates %}** are both set to "Enabled."
@@ -115,7 +115,7 @@ Draft an update to the dependabot.yml file in my repository that specifies these
 ```
 
 > [!TIP]
-> * There are many customization options to explore. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-security-updates/customizing-dependabot-security-prs) and [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/customizing-dependabot-prs).
+> * There are many customization options to explore. For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/customizing-dependabot-security-prs) and [AUTOTITLE](/code-security/tutorials/secure-your-dependencies/customizing-dependabot-prs).
 > * You can specify different customizations per package ecosystem.
 
 ### Example output

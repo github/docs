@@ -1,9 +1,9 @@
 ---
 title: Moderating gist comments
-intro: 'You can moderate comments on gists by turning them off or deleting unwanted entries.'
+intro: You can moderate comments on gists by turning them off or deleting unwanted entries.
 versions:
   fpt: '*'
-  ghes: '>=3.17'
+  ghes: '*'
   ghec: '*'
 category:
   - Share and reuse content

@@ -142,6 +142,13 @@ Tests that make HTTP requests to `localhost:4000`:
 - Vitest automatically starts/stops server via hooks
 - Disable with `START_VITEST_SERVER=false` for manual server control
 
+Unit tests that don't make HTTP requests can skip the server. This avoids the build, Elasticsearch, and translations:
+```bash
+START_VITEST_SERVER=false npm test -- src/languages/tests/correct-translation-content.ts
+```
+
+In CI, `.github/workflows/test.yml` sets `START_VITEST_SERVER=false` and skips the build for suites with no HTTP tests. If you add an HTTP test to one of those suites, remove the suite from that list.
+
 Manual server for debugging:
 ```bash
 # Terminal 1
@@ -154,6 +161,7 @@ START_VITEST_SERVER=false vitest src/versions/tests
 ## Cross-links & Ownership
 
 ### Related subjects
+- [`SUITES.md`](./SUITES.md) - Catalog of CI test suites: what each covers, its prereqs, and admin-merge risk
 - [`src/fixtures`](../fixtures/README.md) - Fixture-based testing with minimal content
 - All subjects with `/tests/` directories - Test consumers
 - CI workflows in `.github/workflows/` - Automated test execution
@@ -224,7 +232,7 @@ npm run lint
 
 Tests should be co-located with their subject:
 - ✅ `src/search/tests/api-search.ts`
-- ✅ `src/versions/tests/middleware.ts`
+- ✅ `src/events/tests/middleware.ts`
 - ❌ `src/tests/search-tests.ts` (wrong - not in subject)
 
 Shared utilities belong in `src/tests/`:

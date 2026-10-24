@@ -27,7 +27,7 @@ Use required reviewers to require a specific person or team to approve workflow 
 
 You also have the option to prevent self-reviews for deployments to protected environments. If you enable this setting, users who initiate a deployment cannot approve the deployment job, even if they are a required reviewer. This ensures that deployments to protected environments are always reviewed by more than one person.
 
-For more information on reviewing jobs that reference an environment with required reviewers, see [AUTOTITLE](/actions/managing-workflow-runs/reviewing-deployments).
+For more information on reviewing jobs that reference an environment with required reviewers, see [AUTOTITLE](/actions/how-tos/deploy/configure-and-manage-deployments/review-deployments).
 
 {% ifversion fpt %}
 
@@ -59,7 +59,7 @@ Use deployment branches and tags to restrict which branches and tags can deploy 
 
 * **Selected branches and tags:** Only branches and tags that match your specified name patterns can deploy to the environment.
 
-  The deployment branch or tag rule is matched against the `GITHUB_REF` of the workflow run. For values of `GITHUB_REF` for each workflow trigger, see [AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows). If you specify `releases/*` as a deployment branch or tag rule, only a `GITHUB_REF` whose name begins with `releases/` can deploy to the environment. Adding another branch rule for `refs/pull/*/merge` would also allow workflows triggered by `pull_request` events to deploy to the environment. Wildcard characters will not match `/`, to match branches or tags that begin with `release/` and contain an additional single slash, use `release/*/*`. For more information about syntax options for deployment branches, see the [Ruby `File.fnmatch` documentation](https://ruby-doc.org/core-2.5.1/File.html#method-c-fnmatch).
+  The deployment branch or tag rule is matched against the `GITHUB_REF` of the workflow run. For values of `GITHUB_REF` for each workflow trigger, see [AUTOTITLE](/actions/reference/workflows-and-actions/events-that-trigger-workflows). If you specify `releases/*` as a deployment branch or tag rule, only a `GITHUB_REF` whose name begins with `releases/` can deploy to the environment. Adding another branch rule for `refs/pull/*/merge` would also allow workflows triggered by `pull_request` events to deploy to the environment. Wildcard characters will not match `/`, to match branches or tags that begin with `release/` and contain an additional single slash, use `release/*/*`. For more information about syntax options for deployment branches, see the [Ruby `File.fnmatch` documentation](https://ruby-doc.org/core-2.5.1/File.html#method-c-fnmatch).
 
   {% data reusables.actions.branch-and-tag-deployment-rules-configuration %}
 
@@ -72,7 +72,7 @@ Use deployment branches and tags to restrict which branches and tags can deploy 
 
 ### Allow administrators to bypass configured protection rules
 
-By default, administrators can bypass the protection rules and force deployments to specific environments. For more information, see [AUTOTITLE](/actions/managing-workflow-runs/reviewing-deployments#bypassing-environment-protection-rules).
+By default, administrators can bypass the protection rules and force deployments to specific environments. For more information, see [AUTOTITLE](/actions/how-tos/deploy/configure-and-manage-deployments/review-deployments#bypassing-deployment-protection-rules).
 
 Alternatively, you can configure environments to disallow bypassing the protection rules for all deployments to the environment.
 
@@ -87,9 +87,9 @@ Alternatively, you can configure environments to disallow bypassing the protecti
 
 {% data reusables.actions.custom-deployment-protection-rules-beta-note %}
 
-{% data reusables.actions.about-custom-deployment-protection-rules %} For more information, see [AUTOTITLE](/actions/deployment/protecting-deployments/creating-custom-deployment-protection-rules).
+{% data reusables.actions.about-custom-deployment-protection-rules %} For more information, see [AUTOTITLE](/actions/how-tos/deploy/configure-and-manage-deployments/create-custom-protection-rules).
 
-Once custom deployment protection rules have been created and installed on a repository, you can enable the custom deployment protection rule for any environment in the repository. For more information about configuring and enabling custom deployment protection rules, see [AUTOTITLE](/actions/deployment/protecting-deployments/configuring-custom-deployment-protection-rules).
+Once custom deployment protection rules have been created and installed on a repository, you can enable the custom deployment protection rule for any environment in the repository. For more information about configuring and enabling custom deployment protection rules, see [AUTOTITLE](/actions/how-tos/deploy/configure-and-manage-deployments/configure-custom-protection-rules).
 
 {% ifversion fpt %}
 
@@ -100,23 +100,23 @@ Once custom deployment protection rules have been created and installed on a rep
 
 ## Environment secrets
 
-Secrets stored in an environment are only available to workflow jobs that reference the environment. If the environment requires approval, a job cannot access environment secrets until one of the required reviewers approves it. For more information about secrets, see [AUTOTITLE](/actions/security-for-github-actions/security-guides/about-secrets).
+Secrets stored in an environment are only available to workflow jobs that reference the environment. If the environment requires approval, a job cannot access environment secrets until one of the required reviewers approves it. For more information about secrets, see [AUTOTITLE](/actions/concepts/security/secrets).
 
 {% ifversion fpt %}
 > [!NOTE]
-> * Workflows that run on self-hosted runners are not run in an isolated container, even if they use environments. Environment secrets should be treated with the same level of security as repository and organization secrets. For more information, see [AUTOTITLE](/actions/security-guides/security-hardening-for-github-actions#hardening-for-self-hosted-runners).
-> * If you are using {% data variables.product.prodname_free_user %}, environment secrets are only available in public repositories. For access to environment secrets in private or internal repositories, you must use {% data variables.product.prodname_pro %}, {% data variables.product.prodname_team %}, or {% data variables.product.prodname_enterprise %}. For more information on switching your plan, see [AUTOTITLE](/billing/managing-the-plan-for-your-github-account/upgrading-your-accounts-plan).
+> * Workflows that run on self-hosted runners are not run in an isolated container, even if they use environments. Environment secrets should be treated with the same level of security as repository and organization secrets. For more information, see [AUTOTITLE](/actions/reference/security/secure-use#hardening-for-self-hosted-runners).
+> * If you are using {% data variables.product.prodname_free_user %}, environment secrets are only available in public repositories. For access to environment secrets in private or internal repositories, you must use {% data variables.product.prodname_pro %}, {% data variables.product.prodname_team %}, or {% data variables.product.prodname_enterprise %}. For more information on switching your plan, see [AUTOTITLE](/billing/how-tos/manage-plan-and-licenses/upgrade-plan).
 
 {% else %}
 
 > [!NOTE]
-> Workflows that run on self-hosted runners are not run in an isolated container, even if they use environments. Environment secrets should be treated with the same level of security as repository and organization secrets. For more information, see [AUTOTITLE](/actions/security-guides/security-hardening-for-github-actions#hardening-for-self-hosted-runners).
+> Workflows that run on self-hosted runners are not run in an isolated container, even if they use environments. Environment secrets should be treated with the same level of security as repository and organization secrets. For more information, see [AUTOTITLE](/actions/reference/security/secure-use#hardening-for-self-hosted-runners).
 
 {% endif %}
 
 ## Environment variables
 
-Variables stored in an environment are only available to workflow jobs that reference the environment. These variables are only accessible using the [`vars`](/actions/learn-github-actions/contexts#vars-context) context. For more information, see [AUTOTITLE](/actions/learn-github-actions/variables).
+Variables stored in an environment are only available to workflow jobs that reference the environment. These variables are only accessible using the [`vars`](/actions/reference/workflows-and-actions/contexts#vars-context) context. For more information, see [AUTOTITLE](/actions/how-tos/write-workflows/choose-what-workflows-do/use-variables).
 
 {% ifversion fpt %}
 

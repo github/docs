@@ -22,6 +22,6 @@ category:
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-1. In the "Code, planning, and automation" section of the sidebar, select the {% octicon "repo" aria-hidden="true" %} **Repository** dropdown menu, then click **General**.
+1. {% data reusables.user-settings.code-planning-automation %} select the {% octicon "repo" aria-hidden="true" %} **Repository** dropdown menu, then click **General**.
 1. In the "Releases" section of the page, select the **No policy** {% octicon "triangle-down" aria-hidden="true" %} dropdown menu, then click either **All repositories** or **Selected repositories**. Be aware that immutability will only apply to future releases.
 1. If you chose **Selected repositories**, to the right of the dropdown menu, click {% octicon "gear" aria-label="Select repositories" %}. Select the repositories you want to include, then click **Select repositories**.

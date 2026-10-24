@@ -1,6 +1,6 @@
 ---
 title: '{% data variables.product.prodname_GHAS %} license billing'
-intro: 'Learn how usage of {% data variables.product.prodname_AS %} features is measured and how to pay for additional licenses.'
+intro: 'Understand how {% data variables.product.prodname_AS %} licenses{% ifversion fpt or ghec %} and AI-credit usage{% endif %} are billed.'
 product: '{% data reusables.gated-features.ghas-billing %}'
 redirect_from:
 # Article on migrating to two separate SKUs
@@ -25,15 +25,9 @@ category:
 
 ## Licenses for {% data variables.product.prodname_GHAS %}
 
-{% ifversion ghas-products %}
-
 The {% data variables.product.prodname_AS %} product has two license SKUs (stock keeping units):
 
 {% data reusables.advanced-security.ghas-products-bullets+ghas %}
-
-{% else %}
-You can make extra features available to users by buying a license for {% data variables.product.prodname_AS %} products.
-{% endif %}
 
 For more information, see [feature summary and pricing information](https://github.com/enterprise/advanced-security#pricing) and [AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security).
 
@@ -41,7 +35,7 @@ For more information, see [feature summary and pricing information](https://gith
 
 A subset of {% data variables.product.prodname_AS %} features are available to **all public repositories** on {% data variables.product.prodname_dotcom_the_website %} **free of charge**. If you change the visibility of a public repository to private and don't pay for {% data variables.product.prodname_AS %}, {% data variables.product.prodname_AS %} features will be disabled for that repository.
 
-Use of {% data variables.product.prodname_AS %} features in **all other repositories requires a license**. Your license usage is calculated based on the number of **unique, active committers** to repositories with {% data variables.product.prodname_GH_cs_or_sp %} features enabled. {% data variables.product.prodname_github_app %} bots are ignored. For information about differences between bot and machine accounts, see [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/differences-between-github-apps-and-oauth-apps#machine-vs-bot-accounts).
+Use of {% data variables.product.prodname_AS %} features in **all other repositories requires a license**. Your license usage is calculated based on the number of **unique, active committers** to repositories with {% data variables.product.prodname_GH_cs_or_sp %} features enabled. {% data variables.product.prodname_github_app %} bots are ignored. For information about differences between bot and machine accounts, see [AUTOTITLE](/apps/oauth-apps/building-oauth-apps/differences-between-github-apps-and-oauth-apps#machine-vs-bot-accounts).
 
 ### Active and unique committers
 
@@ -52,19 +46,41 @@ Each **active committer** to at least one repository with an {% data variables.p
 
 > [!NOTE] When a repository is migrated to {% data variables.product.github %} using {% data variables.product.prodname_importer_proper_name %}, {% data variables.product.prodname_GHAS %} only consumes licenses for commits and pushes made _after_ migration. Historic contributions from _before_ the migration are not considered. For more information, see [AUTOTITLE](/migrations/using-github-enterprise-importer/understanding-github-enterprise-importer/about-github-enterprise-importer).
 
-You can see the active and unique committers to an organization on the Global settings page for {% data variables.product.UI_advanced_security %}. Under "{% data variables.product.prodname_secret_protection %} repositories" and "{% data variables.product.prodname_code_security %} repositories", summaries and repository-level details are reported. See [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization).
+You can see the active and unique committers to an organization on the Global settings page for {% data variables.product.UI_advanced_security %}. Under "{% data variables.product.prodname_secret_protection %} repositories" and "{% data variables.product.prodname_code_security %} repositories", summaries and repository-level details are reported. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/configure-global-settings).
 
 ## Free use of {% data variables.product.prodname_GHAS %} features
 
 {% data variables.product.github %} makes some {% data variables.product.prodname_AS %} features available free of charge on {% data variables.product.prodname_dotcom_the_website %}.
 
 * **All public repositories** have access to code scanning, secret scanning, and dependency review.
-* **{% data variables.product.prodname_secret_risk_assessment_caps %}** is available for organizations on {% data variables.product.prodname_dotcom_the_website %}. See {% ifversion fpt or ghec %}[AUTOTITLE](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/viewing-the-secret-risk-assessment-report-for-your-organization){% elsif ghes %}[AUTOTITLE](/enterprise-cloud@latest/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/viewing-the-secret-risk-assessment-report-for-your-organization) in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}.{% ifversion code-security-risk-assessment %}
-* **{% data variables.product.prodname_code_security_risk_assessment_caps %}** is available for organizations on  {% data variables.product.prodname_dotcom_the_website %}. See [AUTOTITLE](/code-security/concepts/code-scanning/code-security-risk-assessment).{% endif %}
+* **{% data variables.product.prodname_secret_risk_assessment_caps %}** is available for organizations on {% data variables.product.prodname_dotcom_the_website %}. See {% ifversion fpt or ghec %}[AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/configure-specific-tools/viewing-your-security-risk-assessment-reports){% elsif ghes %}[AUTOTITLE](/enterprise-cloud@latest/code-security/how-tos/secure-at-scale/configure-organization-security/configure-specific-tools/viewing-your-security-risk-assessment-reports) in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}.{% ifversion code-security-risk-assessment %}
+* **{% data variables.product.prodname_code_security_risk_assessment_caps %}** is available for organizations on  {% data variables.product.prodname_dotcom_the_website %}. See [AUTOTITLE](/code-security/concepts/code-scanning/risk-assessment).{% endif %}
 
 For full details of available features, see [AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security).
 
 You need to **pay** to use {% data variables.product.prodname_AS %} features in **private repositories** on {% data variables.product.prodname_dotcom_the_website %}, and in all repositories hosted by {% data variables.enterprise.data_residency_site %} and {% data variables.product.prodname_ghe_server %}.
+
+{% ifversion fpt or ghec %}
+
+## How AI feature usage is billed
+
+Some {% data variables.product.prodname_AS %} features consume {% data variables.product.prodname_ai_credits_short %} in addition to the active-committer licenses described in this article. AI Scan and agentic autofix consume the **Code Security AI Credits** SKU.
+
+These features consume Code Security AI Credits even when the repository is public and does not require active-committer licenses.
+
+If the account being billed has included {% data variables.product.prodname_ai_credits_short %} from a {% data variables.product.prodname_copilot %} entitlement, eligible usage draws from that allowance first. After the included allowance is exhausted, further usage is metered. If the account doesn't have included {% data variables.product.prodname_ai_credits_short %}, all usage is metered.
+
+For an organization-owned repository, usage is attributed to the account that pays for the organization's usage. This is the standalone organization account or its enterprise account. The included {% data variables.product.prodname_ai_credits_short %} and budgets for that account apply, including for public repositories.
+
+Repositories in the personal namespace of a {% data variables.enterprise.prodname_managed_user %} are not treated as ordinary personal-account repositories for Code Security AI Credits. AI Scan and agentic autofix are not currently available for these repositories and do not consume Code Security AI Credits there. Purchasing {% data variables.product.prodname_code_security %}, having included {% data variables.product.prodname_ai_credits_short %}, or configuring a Code Security AI Credits budget does not make these features available.
+
+This limitation does not affect classic {% data variables.copilot.copilot_autofix_short %}, which is distinct from agentic autofix and does not consume {% data variables.product.prodname_ai_credits_short %}.
+
+Before security administrators enable AI Scan or agentic autofix broadly, billing administrators should review the account's included {% data variables.product.prodname_ai_credits_short %} and set budgets for metered usage. After the included allowance is exhausted, a hard budget can prevent further metered usage. For more information, see [AUTOTITLE](/billing/concepts/budgets-and-alerts).
+
+For information about features that consume Code Security AI Credits, see [AUTOTITLE](/code-security/concepts/code-scanning/ai-powered-security-detections) and [AUTOTITLE](/code-security/concepts/code-scanning/autofix-for-code-scanning).
+
+{% endif %}
 
 ## Using more than your planned licenses
 
@@ -91,10 +107,10 @@ There are two different ways to pay for licenses.
 
 * **Volume/subscription billing** available for {% data variables.product.prodname_enterprise %} plans only
 
-  * Purchase a specific number of {% data variables.product.prodname_GHAS_cs_or_sp %} licenses that last for a defined period, typically at least a year, see {% ifversion fpt or ghec %}[AUTOTITLE](/billing/how-tos/products/add-advanced-security){% elsif ghes %}[AUTOTITLE](/enterprise-cloud@latest/billing/how-tos/products/add-advanced-security) in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}.
+  * Purchase a specific number of {% data variables.product.prodname_GHAS_cs_or_sp %} licenses that last for a defined period, typically at least a year, see {% ifversion fpt or ghec %}[AUTOTITLE](/billing/how-tos/products/buy-advanced-security){% elsif ghes %}[AUTOTITLE](/enterprise-cloud@latest/billing/how-tos/products/buy-advanced-security) in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}.
   * If the usage of {% data variables.product.prodname_AS %} by active committers exceeds the number of licenses purchased, you need to purchase additional licenses to cover this overage usage.
 
-To view your current license usage, see [AUTOTITLE](/billing/managing-billing-for-your-products/viewing-your-product-usage).
+To view your current license usage, see [AUTOTITLE](/billing/how-tos/products/view-productlicense-use).
 
 ### Understanding usage
 
@@ -148,7 +164,7 @@ For more information about budgets, see [AUTOTITLE](/billing/concepts/budgets-an
 
 {% data reusables.billing.actions-usage-delay %}
 
-If your enterprise uses {% data variables.product.prodname_AS %} on both {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %}, you can ensure users don't consume multiple licenses unnecessarily by synchronizing license usage between environments. See [AUTOTITLE](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud).
+If your enterprise uses {% data variables.product.prodname_AS %} on both {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %}, you can ensure users don't consume multiple licenses unnecessarily by synchronizing license usage between environments. See [AUTOTITLE]({% ifversion fpt %}/enterprise-cloud@latest{% endif %}/billing/how-tos/manage-server-licenses/sync-license-usage).
 
 ### Volume/subscription billing
 
@@ -156,7 +172,7 @@ Each license specifies a maximum number of accounts that can use {% data variabl
 
 As soon as you make licenses available, by disabling {% data variables.product.prodname_GHAS_cs_or_sp %} in some repositories, or by increasing your license size, the options for enabling {% data variables.product.prodname_GHAS_cs_and_sp %} will work again as normal.
 
-You can enforce policies to allow or disallow the use of {% data variables.product.prodname_AS %} by organizations owned by your enterprise account. See [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-advanced-security-in-your-enterprise).
+You can enforce policies to allow or disallow the use of {% data variables.product.prodname_AS %} by organizations owned by your enterprise account. See [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise).
 
 > [!TIP]
 > All standalone instances of {% data variables.product.prodname_ghe_server %} use volume/subscription licenses. Contact [{% data variables.product.github %}'s Sales team](https://enterprise.github.com/contact) if you want to make changes to your license.
@@ -178,8 +194,7 @@ See [AUTOTITLE](/billing/how-tos/products/disable-ghas-for-enterprise).
 
 ## Further reading
 
-* [AUTOTITLE](/code-security/trialing-github-advanced-security/planning-a-trial-of-ghas)
-* [AUTOTITLE](/code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/about-enabling-security-features-at-scale)
-* [AUTOTITLE](/admin/managing-code-security/securing-your-enterprise/about-security-configurations)
+* [AUTOTITLE](/code-security/tutorials/trialing-github-advanced-security/planning-a-trial-of-ghas)
+* [AUTOTITLE](/code-security/concepts/security-at-scale/organization-security)
 
 * [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise)

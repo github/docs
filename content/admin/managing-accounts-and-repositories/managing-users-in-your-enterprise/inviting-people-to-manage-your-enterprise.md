@@ -20,16 +20,16 @@ category:
 
 ## About administrator management
 
-{% ifversion ghec %}If you do not use {% data variables.product.prodname_emus %}, you{% else %}You{% endif %} can add or remove enterprise owners{% ifversion ghec %} and billing managers{% endif %} in your enterprise. For more information about the privileges that come with each enterprise role, see [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise).
+{% ifversion ghec %}If you do not use {% data variables.product.prodname_emus %}, you{% else %}You{% endif %} can add or remove enterprise owners{% ifversion ghec %} and billing managers{% endif %} in your enterprise. For more information about the privileges that come with each enterprise role, see [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-roles-in-your-enterprise/abilities-of-roles).
 
 {% ifversion ghes %}
 
-If you want to manage enterprise owners and billing managers for an enterprise account on {% data variables.product.prodname_dotcom_the_website %}, see [the {% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise).
+If you want to manage enterprise owners and billing managers for an enterprise account on {% data variables.product.prodname_dotcom_the_website %}, see [the {% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise).
 {% endif %}
 
 {% ifversion ghec %}
 
-If you do use {% data variables.product.prodname_emus %}, enterprise owners and billing managers can only be added or removed through your identity provider. For more information, see [AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users).
+If you do use {% data variables.product.prodname_emus %}, enterprise owners and billing managers can only be added or removed through your identity provider. For more information, see [AUTOTITLE](/admin/concepts/identity-and-access-management/enterprise-managed-users).
 
 {% endif %}
 
@@ -37,7 +37,7 @@ If you do use {% data variables.product.prodname_emus %}, enterprise owners and 
 
 {% ifversion ghec %}After you invite someone to join the enterprise account, they must accept the emailed invitation before they can access the enterprise account. Pending invitations will expire after 7 days.{% endif %}
 
-You can see all pending invitations to become an administrator of your enterprise account. For more information, see [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/viewing-people-in-your-enterprise#viewing-pending-invitations).
+You can see all pending invitations to become an administrator of your enterprise account. For more information, see [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/viewing-people-in-your-enterprise#viewing-pending-invitations).
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}

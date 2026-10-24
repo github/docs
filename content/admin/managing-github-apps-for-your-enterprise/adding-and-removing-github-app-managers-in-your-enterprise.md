@@ -18,7 +18,7 @@ Enterprise owners can designate other users in their enterprise as {% data varia
 
 An app manager:
 
-* Can manage the settings for a {% data variables.product.prodname_github_app %} registration that is owned by the enterprise. For the specific app settings that {% data variables.product.prodname_github_app %} managers can control, see [AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app).
+* Can manage the settings for a {% data variables.product.prodname_github_app %} registration that is owned by the enterprise. For the specific app settings that {% data variables.product.prodname_github_app %} managers can control, see [AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app-registration).
 * Cannot install and uninstall {% data variables.product.prodname_github_apps %} on an enterprise or organization.
 
 When an enterprise app manager adds permissions to a {% data variables.product.prodname_github_app %}, the update is automatically accepted in all organizations where the app manager is also an organization owner. When an enterprise owner adds permissions to a {% data variables.product.prodname_github_app %}, the update is automatically accepted in all organizations regardless of their organization membership.
@@ -55,5 +55,5 @@ Enterprise app manager is a predefined role that grants access to all app regist
 
 ## Further reading
 
-* [AUTOTITLE](/admin/managing-your-enterprise-account/creating-github-apps-for-your-enterprise)
+* [AUTOTITLE](/admin/managing-github-apps-for-your-enterprise/creating-github-apps-for-your-enterprise)
 * [AUTOTITLE](/apps/maintaining-github-apps/about-github-app-managers)

@@ -1,8 +1,10 @@
-import cx from 'classnames'
+import cx from 'clsx'
 
 import { useTranslation } from '@/languages/components/useTranslation'
 import { ChildBodyParametersRows } from './ChildBodyParametersRows'
 import type { ChildParameter } from './types'
+import { RenderedHTML } from '@/frame/components/ui/RenderedHTML/RenderedHTML'
+import { NO_CHILD_WEBHOOK_PROPERTIES } from '@/webhooks/lib/no-child-properties'
 
 type Props = {
   rowParams: ChildParameter
@@ -13,26 +15,6 @@ type Props = {
   bodyParamExpandCallback?: (target: HTMLDetailsElement) => void
   clickedBodyParameterName?: string | undefined
 }
-
-// Webhooks have these same properties in common that we describe separately in its
-// own section on the webhooks page:
-//
-//  https://docs.github.com/en/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#webhook-payload-object-common-properties
-//
-// Since there's more details for these particular properties, we chose not
-// show their child properties for each webhook and we also don't grab this
-// information from the schema.
-//
-// We use this list of common properties to make sure we don't try and request
-// the child properties for these specific properties.
-const NO_CHILD_WEBHOOK_PROPERTIES = [
-  'action',
-  'enterprise',
-  'installation',
-  'organization',
-  'repository',
-  'sender',
-]
 
 export function ParameterRow({
   rowParams,
@@ -45,8 +27,6 @@ export function ParameterRow({
 }: Props) {
   const { t } = useTranslation(['parameter_table'])
 
-  // This will be true if `rowParams` does not have a key called `default`
-  // and it will be true if it does and its actual value is `undefined`.
   const hasDefault = rowParams.default !== undefined
   return (
     <>
@@ -57,14 +37,11 @@ export function ParameterRow({
               {rowParams.name ? (
                 <>
                   <code className={`text-bold f5`}>{rowParams.name}</code>
-                  {/* This whitespace is important otherwise, when the CSS is
-                      ignored, the plain text becomes `foobar` if the HTML
-                      was `<code>foo</code><span>bar</span>`.
-                   */}{' '}
+                  {/* Keeps <code>foo</code><span>bar</span> from rendering as foobar without CSS. */}{' '}
                   <span className="color-fg-muted pl-2 f5">
                     {Array.isArray(rowParams.type) ? rowParams.type.join(' or ') : rowParams.type}
                   </span>
-                  {/* Ditto about the important explicit whitespace */}{' '}
+                  {/* Keeps readable text spacing if CSS fails to load. */}{' '}
                   {rowParams.isRequired ? (
                     <span className="color-fg-attention f5 pl-3">{t('required')}</span>
                   ) : null}
@@ -74,7 +51,7 @@ export function ParameterRow({
                   <span className="color-fg-muted pl-1 f5">
                     {Array.isArray(rowParams.type) ? rowParams.type.join(' or ') : rowParams.type}
                   </span>
-                  {/* Ditto about the important explicit whitespace */}{' '}
+                  {/* Keeps readable text spacing if CSS fails to load. */}{' '}
                   {rowParams.isRequired ? (
                     <span className="color-fg-attention f5 pl-3">{t('required')}</span>
                   ) : null}
@@ -83,7 +60,7 @@ export function ParameterRow({
             </div>
 
             <div className={cx('pl-1 f5', `${rowParams.description ? 'pt-2' : 'pt-0'}`)}>
-              <div dangerouslySetInnerHTML={{ __html: rowParams.description }} />
+              <RenderedHTML as="div" html={rowParams.description} />
               {numPreviews > 0 && (
                 <a href={`#${slug}-preview-notices`} className="d-inline">
                   {numPreviews > 1 ? ` ${t('see_preview_notices')}` : ` ${t('see_preview_notice')}`}
@@ -95,10 +72,7 @@ export function ParameterRow({
                     <span>{t('default')}: </span>
                     <code>
                       {typeof rowParams.default === 'string'
-                        ? // In the schema, the default value for strings can
-                          // potentially be the empty string so we handle this case
-                          // in particular by rendering it as "".  Otherwise we would
-                          // display an empty code block which could be confusing.
+                        ? // Empty string defaults need visible quotes.
                           rowParams.default || '""'
                         : JSON.stringify(rowParams.default)}
                     </code>
@@ -114,7 +88,16 @@ export function ParameterRow({
                     </span>
                     {rowParams.enum.map((item, index, array) => (
                       <span key={`${item}${index}`}>
-                        <code>{item === null ? <i>null</i> : item}</code>
+                        <code>
+                          {item === null ? (
+                            <i>null</i>
+                          ) : typeof item === 'string' ? (
+                            item
+                          ) : (
+                            // React renders nothing for boolean children.
+                            JSON.stringify(item)
+                          )}
+                        </code>
                         {index !== array.length - 1 && ','}{' '}
                       </span>
                     ))}
@@ -142,18 +125,10 @@ export function ParameterRow({
         />
       )}
 
-      {/* These conditions tell us:
-
-            1. the param is an object or array AND:
-            2. the param has no child param groups AND:
-            3. the param isn't one of the common webhook properties
-
-          If all these are true, then that means we haven't yet loaded the
-          nested parameters so we show a stub <details> element that triggers
-          an API request to get the nested parameter data.
-       */}
-      {rowParams.type &&
-      (rowParams.type.includes('object') || rowParams.type.includes('array of')) &&
+      {/* Empty child groups mark unloaded webhook objects except shared props; only rows with a callback can load them. */}
+      {bodyParamExpandCallback &&
+      rowParams.type &&
+      rowParams.type.includes('object') &&
       rowParams.childParamsGroups &&
       rowParams.childParamsGroups.length === 0 &&
       !NO_CHILD_WEBHOOK_PROPERTIES.includes(rowParams.name) ? (
@@ -163,10 +138,7 @@ export function ParameterRow({
               data-nested-param-id={rowParams.name}
               className="box px-3 ml-1 mb-0"
               onToggle={(event) => {
-                if (bodyParamExpandCallback) {
-                  const target = event.target as HTMLDetailsElement
-                  bodyParamExpandCallback(target)
-                }
+                bodyParamExpandCallback(event.target as HTMLDetailsElement)
               }}
             >
               <summary role="button" aria-expanded="false" className="mb-2 keyboard-focus">

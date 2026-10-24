@@ -8,6 +8,12 @@ redirect_from:
   - /copilot/tutorials/copilot-chat-cookbook/refactoring-code/refactoring-to-implement-a-design-pattern
   - /copilot/tutorials/copilot-chat-cookbook/refactoring-code/refactor-design-patterns
   - /copilot/tutorials/copilot-chat-cookbook/refactor-code/refactor-design-patterns
+  - /copilot/tutorials/copilot-cookbook/refactor-code/decouple-business-logic
+  - /copilot/example-prompts-for-github-copilot-chat/refactoring-code/decoupling-business-logic-from-ui-components
+  - /copilot/copilot-chat-cookbook/refactoring-code/decoupling-business-logic-from-ui-components
+  - /copilot/tutorials/copilot-chat-cookbook/refactoring-code/decoupling-business-logic-from-ui-components
+  - /copilot/tutorials/copilot-chat-cookbook/refactoring-code/decouple-business-logic
+  - /copilot/tutorials/copilot-chat-cookbook/refactor-code/decouple-business-logic
 versions:
   feature: copilot
 category:

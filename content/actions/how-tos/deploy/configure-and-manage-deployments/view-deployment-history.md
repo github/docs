@@ -37,7 +37,7 @@ By default, the deployments page shows currently active deployments from select 
    * **To view recent deployments for a specific environment**, in the "Environments" section of the left sidebar, click an environment.
    * **To pin an environment to the top of the deployment history list**, repository administrators can click {% octicon "pin" aria-label="Pin environment" %} to the right of the environment. You can pin up to ten environments.
    * **To view the commit that triggered a deployment**, in the deployment history list, click the commit message for the deployment you want to view.
-      >[!NOTE]Deployments from commits that originate from a fork outside of the repository will not show links to the source pull request and branch related to each deployment. For more information about forks, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks).
+      >[!NOTE]Deployments from commits that originate from a fork outside of the repository will not show links to the source pull request and branch related to each deployment. For more information about forks, see [AUTOTITLE](/pull-requests/reference/forks).
    * **To view the URL for a deployment**, to the right of the commit message in the deployment history list, click {% octicon "link-external" aria-label="Navigate to deployment URL" %}.
    * **To navigate to the workflow run logs associated with a deployment**, to the right of the commit message in the deployment history list, click {% octicon "kebab-horizontal" aria-label="View logs" %}, then click **View logs**.
 1. Optionally, to filter the deployment history list, create a filter.

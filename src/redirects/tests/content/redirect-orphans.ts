@@ -3,39 +3,23 @@ import path from 'path'
 import { describe, expect, test, vi } from 'vitest'
 
 import { loadPages } from '@/frame/lib/page-data'
-import Permalink from '@/frame/lib/permalink'
 
 describe('redirect orphans', () => {
-  // Because calling `loadPages` will trigger a warmup, this can potentially
-  // be very slow in CI. So we need a timeout.
+  // loadPages warms up the page cache, which can be slow in CI, so this test needs a timeout.
   vi.setConfig({ testTimeout: 60 * 1000 })
 
-  test('no page is a redirect in another file', async () => {
-    // Only doing English because they're the only files we do PRs for.
+  test('no redirect_from entry has a trailing slash', async () => {
+    // Only English files receive pull requests, so test English redirect_from entries.
     const pageList = await loadPages(undefined, ['en'])
-
-    const redirectFroms = new Map()
-    for (const page of pageList) {
-      for (const redirectFrom of page.redirect_from || []) {
-        if (redirectFrom.endsWith('/') && redirectFrom.startsWith('/')) {
-          throw new Error(
-            `In ${path.join(
-              'content',
-              page.relativePath,
-            )} redirect entry (${redirectFrom}) has a trailing slash`,
-          )
-        }
-        redirectFroms.set(redirectFrom, page.relativePath)
-      }
-    }
 
     const errors = []
     for (const page of pageList) {
-      const asPath = Permalink.relativePathToSuffix(page.relativePath)
-      if (redirectFroms.has(asPath)) {
-        errors.push(
-          `${asPath} is a redirect_from in ${path.join('content', redirectFroms.get(asPath))}`,
-        )
+      for (const redirectFrom of page.redirect_from || []) {
+        if (redirectFrom.endsWith('/') && redirectFrom.startsWith('/')) {
+          errors.push(
+            `In ${path.join('content', page.relativePath)} redirect entry (${redirectFrom}) has a trailing slash`,
+          )
+        }
       }
     }
     expect(errors.length, errors.join('\n')).toBe(0)

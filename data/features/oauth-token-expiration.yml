@@ -1,0 +1,6 @@
+# Support for expiring user access tokens and refresh tokens for OAuth apps.
+# Shipping to GHES 3.23 and GitHub.com (fpt/ghec).
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.23'

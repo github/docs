@@ -39,11 +39,3 @@ Teams are granted read permissions on any project they are added to. This permis
 {% data reusables.projects.project-settings %}
 1. Click **Manage access**.
 1. Next to the team that you want to remove from the project, click **Remove**.
-
-{% ifversion projects-v1 %}
-
-## Further reading
-
-* [Managing team access to an organization {% data variables.product.prodname_project_v1 %}](/organizations/managing-access-to-your-organizations-project-boards/managing-team-access-to-an-organization-project-board)
-
-{% endif %}

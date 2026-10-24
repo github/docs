@@ -28,7 +28,7 @@ Clicking the notification will display a dialog with details about the checks. O
 
 ## Notifications for pull request reviews
 
-{% data variables.product.prodname_desktop %} will surface a system notification when a teammate has approved, commented, or requested changes in your pull request. See [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews) for more information on pull request reviews.
+{% data variables.product.prodname_desktop %} will surface a system notification when a teammate has approved, commented, or requested changes in your pull request. See [AUTOTITLE](/pull-requests/reference/pull-request-reviews) for more information on pull request reviews.
 
 Clicking the notification will switch application focus to {% data variables.product.prodname_desktop %} and provide more context for the pull request review comment.
 

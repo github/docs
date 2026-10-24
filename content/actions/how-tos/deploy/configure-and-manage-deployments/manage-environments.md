@@ -35,8 +35,8 @@ contentType: how-tos
 
 {% endif %}
 
-* For general information about environments, see [AUTOTITLE](/actions/concepts/use-cases/deploying-with-github-actions#using-environments).
-* For information about available rules, see [AUTOTITLE](/actions/reference/deployments-and-environments).
+* For general information about environments, see [AUTOTITLE](/actions/how-tos/deploy/configure-and-manage-deployments/control-deployments#using-environments).
+* For information about available rules, see [AUTOTITLE](/actions/reference/workflows-and-actions/deployments-and-environments).
 
 ## Creating an environment
 
@@ -55,22 +55,22 @@ contentType: how-tos
 {% data reusables.actions.sidebar-environment %}
 {% data reusables.actions.new-environment %}
 {% data reusables.actions.name-environment %}
-1. Optionally, specify people or teams that must approve workflow jobs that use this environment. For more information, see [AUTOTITLE](/actions/reference/deployments-and-environments#required-reviewers).
+1. Optionally, specify people or teams that must approve workflow jobs that use this environment. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/deployments-and-environments#required-reviewers).
    1. Select **Required reviewers**.
    1. Enter up to 6 people or teams. Only one of the required reviewers needs to approve the job for it to proceed.
    1. Optionally, to prevent users from approving workflows runs that they triggered, select **Prevent self-review**.
    1. Click **Save protection rules**.
-1. Optionally, specify the amount of time to wait before allowing workflow jobs that use this environment to proceed. For more information, see [AUTOTITLE](/actions/reference/deployments-and-environments#wait-timer).
+1. Optionally, specify the amount of time to wait before allowing workflow jobs that use this environment to proceed. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/deployments-and-environments#wait-timer).
    1. Select **Wait timer**.
    1. Enter the number of minutes to wait.
    1. Click **Save protection rules**.
-1. Optionally, disallow bypassing configured protection rules. For more information, see [AUTOTITLE](/actions/reference/deployments-and-environments#allow-administrators-to-bypass-configured-protection-rules).
+1. Optionally, disallow bypassing configured protection rules. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/deployments-and-environments#allow-administrators-to-bypass-configured-protection-rules).
    1. Deselect **Allow administrators to bypass configured protection rules**.
    1. Click **Save protection rules**.
-1. Optionally, enable any custom deployment protection rules that have been created with {% data variables.product.prodname_github_apps %}. For more information, see [AUTOTITLE](/actions/reference/deployments-and-environments#custom-deployment-protection-rules).
+1. Optionally, enable any custom deployment protection rules that have been created with {% data variables.product.prodname_github_apps %}. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/deployments-and-environments#custom-deployment-protection-rules).
    1. Select the custom protection rule you want to enable.
    1. Click **Save protection rules**.
-1. Optionally, specify what branches and tags can deploy to this environment. For more information, see [AUTOTITLE](/actions/reference/deployments-and-environments#deployment-branches-and-tags).
+1. Optionally, specify what branches and tags can deploy to this environment. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/deployments-and-environments#deployment-branches-and-tags).
    1. Select the desired option in the **Deployment branches** dropdown.
    1. If you chose **Selected branches and tags**, to add a new rule, click **Add deployment branch or tag rule**
    1. In the "Ref type" dropdown menu, depending on what rule you want to apply, click **{% octicon "git-branch" aria-hidden="true" aria-label="git-branch" %} Branch** or **{% octicon "tag" aria-hidden="true" aria-label="tag" %} Tag**.
@@ -79,12 +79,12 @@ contentType: how-tos
       {% data reusables.actions.branch-and-tag-deployment-rules-configuration %}
 
    1. Click **Add rule**.
-1. Optionally, add environment secrets. These secrets are only available to workflow jobs that use the environment. Additionally, workflow jobs that use this environment can only access these secrets after any configured rules (for example, required reviewers) pass. For more information, see [AUTOTITLE](/actions/reference/deployments-and-environments#environment-secrets).
+1. Optionally, add environment secrets. These secrets are only available to workflow jobs that use the environment. Additionally, workflow jobs that use this environment can only access these secrets after any configured rules (for example, required reviewers) pass. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/deployments-and-environments#environment-secrets).
    1. Under **Environment secrets**, click **Add Secret**.
    1. Enter the secret name.
    1. Enter the secret value.
    1. Click **Add secret**.
-1. Optionally, add environment variables. These variables are only available to workflow jobs that use the environment, and are only accessible using the [`vars`](/actions/learn-github-actions/contexts#vars-context) context. For more information, see [AUTOTITLE](/actions/reference/deployments-and-environments#environment-variables).
+1. Optionally, add environment variables. These variables are only available to workflow jobs that use the environment, and are only accessible using the [`vars`](/actions/reference/workflows-and-actions/contexts#vars-context) context. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/deployments-and-environments#environment-variables).
    1. Under **Environment variables**, click **Add Variable**.
    1. Enter the variable name.
    1. Enter the variable value.
@@ -112,8 +112,8 @@ You can also delete environments through the REST API. For more information, see
 
 {% data reusables.actions.environment-deployment-event %}
 
-You can access these objects through the REST API or GraphQL API. You can also subscribe to these webhook events. For more information, see [AUTOTITLE](/rest/repos#deployments), [AUTOTITLE](/graphql/reference/deployments#object-deployment) (GraphQL API), or [AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#deployment).
+You can access these objects through the REST API or GraphQL API. You can also subscribe to these webhook events. For more information, see [AUTOTITLE](/rest/repos#deployments), [AUTOTITLE](/graphql/reference/deployments#object-deployment) (GraphQL API), or [AUTOTITLE](/webhooks/webhook-events-and-payloads#deployment).
 
 ## Next steps
 
-{% data variables.product.prodname_actions %} provides several features for managing your deployments. For more information, see [AUTOTITLE](/actions/deployment/about-deployments/deploying-with-github-actions).
+{% data variables.product.prodname_actions %} provides several features for managing your deployments. For more information, see [AUTOTITLE](/actions/how-tos/deploy/configure-and-manage-deployments/control-deployments).

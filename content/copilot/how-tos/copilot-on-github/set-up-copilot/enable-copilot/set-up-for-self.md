@@ -11,20 +11,17 @@ category:
 
 ## Get access to {% data variables.product.prodname_copilot %}
 
-> [!IMPORTANT]
-> {% data reusables.copilot.plans.individual-plans-paused %}
-
 {% data variables.copilot.copilot_free_short %} gives you up to 2,000 code completions and limited access to select {% data variables.product.prodname_copilot_short %} features, allowing you to try AI-powered coding assistance at no cost. [Start using {% data variables.copilot.copilot_free_short %}](https://github.com/copilot?ref_product=copilot&ref_type=engagement&ref_style=text&ref_plan=free).
 
 For higher limits and access to more models, subscribe to **{% data variables.copilot.copilot_pro_short %}**, **{% data variables.copilot.copilot_pro_plus_short %}**, or **{% data variables.copilot.copilot_max_short %}**. See [AUTOTITLE](/copilot/how-tos/manage-your-account/get-started-with-a-copilot-plan) for details on all plans, including free options for students, teachers, and open source maintainers.
 
 ## Configure settings (optional)
 
-If you have your own {% data variables.product.prodname_copilot_short %} plan, manage your policies and feature access from your [{% data variables.product.prodname_copilot_short %} settings](https://github.com/settings/copilot?ref_product=copilot&ref_type=engagement&ref_style=text). You can also enable {% data variables.copilot.copilot_memory %} so {% data variables.product.prodname_copilot_short %} remembers useful context about your repositories.
+If you have your own {% data variables.product.prodname_copilot_short %} plan, manage your policies and feature access from your [{% data variables.product.prodname_copilot_short %} settings](https://github.com/settings/copilot?ref_product=copilot&ref_type=engagement&ref_style=text). You can also enable {% data variables.copilot.copilot_memory %} so {% data variables.product.prodname_copilot_short %} remembers useful context about your repositories. See [AUTOTITLE](/copilot/concepts/prompting-and-context/copilot-memory).
 
 ## Set up personal custom instructions (optional)
 
-Personal custom instructions tell {% data variables.copilot.copilot_chat_short %} about your preferences — such as your preferred language, coding style, or response format. To add them, open any {% data variables.copilot.copilot_chat_short %} conversation on {% data variables.product.github %}, click your profile picture, and select **Personal instructions**. For more information, see [AUTOTITLE](/copilot/how-tos/configure-custom-instructions/add-personal-instructions).
+Personal custom instructions tell {% data variables.copilot.copilot_chat_short %} about your preferences — such as your preferred language, coding style, or response format. To add them, open any {% data variables.copilot.copilot_chat_short %} conversation on {% data variables.product.github %}, click your profile picture, and select **Personal instructions**. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-personal-instructions).
 
 ## Next step
 

@@ -23,7 +23,7 @@ category:
 
 ## Viewing dependencies monitored by {% data variables.product.prodname_dependabot %}
 
-After you've enabled version updates, you can confirm that your configuration is correct using the **{% data variables.product.prodname_dependabot %}** tab in the dependency graph for the repository. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates).
+After you've enabled version updates, you can confirm that your configuration is correct using the **{% data variables.product.prodname_dependabot %}** tab in the dependency graph for the repository. For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/configure-version-updates).
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.accessing-repository-graphs %}
@@ -35,4 +35,4 @@ After you've enabled version updates, you can confirm that your configuration is
 
 If any dependencies are missing, check the log files for errors. If any package managers are missing, review the configuration file.
 
-For information about {% data variables.product.prodname_dependabot %} job logs, see [AUTOTITLE](/code-security/dependabot/troubleshooting-dependabot/viewing-dependabot-job-logs).
+For information about {% data variables.product.prodname_dependabot %} job logs, see [AUTOTITLE](/code-security/how-tos/view-and-interpret-data/view-dependabot-logs).

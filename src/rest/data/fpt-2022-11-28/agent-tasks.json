@@ -355,6 +355,16 @@
                         "type": "string",
                         "format": "date-time",
                         "description": "Timestamp when the task was created"
+                      },
+                      "custom_agent": {
+                        "type": "object",
+                        "description": "Custom agent metadata associated with this task",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "description": "The custom agent's filename without the extension - for example, `performance-optimizer` for a `.github/agents/performance-optimizer.agent.md` custom agent."
+                          }
+                        }
                       }
                     }
                   },
@@ -441,6 +451,11 @@
           "type": "string",
           "name": "model",
           "description": "<p>The model to use for this task. The allowed models may change over time and depend on the user's GitHub Copilot plan and organization policies. Currently supported values: <code>claude-sonnet-4.6</code>, <code>claude-opus-4.6</code>, <code>gpt-5.2-codex</code>, <code>gpt-5.3-codex</code>, <code>gpt-5.4</code>, <code>claude-sonnet-4.5</code>, <code>claude-opus-4.5</code></p>"
+        },
+        {
+          "type": "string",
+          "name": "custom_agent",
+          "description": "<p>Optional identifier for a custom agent to use for this task. Use the custom agent's filename without the extension - for example, for a <code>.github/agents/performance-optimizer.agent.md</code> custom agent, use <code>performance-optimizer</code>.</p>"
         },
         {
           "type": "boolean",
@@ -694,6 +709,268 @@
                   "type": "string",
                   "format": "date-time",
                   "description": "Timestamp when the task was created"
+                },
+                "custom_agent": {
+                  "type": "object",
+                  "description": "Custom agent metadata associated with this task",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "The custom agent's filename without the extension - for example, `performance-optimizer` for a `.github/agents/performance-optimizer.agent.md` custom agent."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Task with a custom agent",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "prompt": "Fix the login button on the homepage",
+              "base_ref": "main",
+              "custom_agent": "my-custom-agent"
+            },
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO"
+            }
+          },
+          "response": {
+            "statusCode": "201",
+            "contentType": "application/json",
+            "description": "<p>Task created with a custom agent</p>",
+            "example": {
+              "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+              "url": "https://api.github.com/agents/repos/octocat/hello-world/tasks/a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+              "html_url": "https://github.com/octocat/hello-world/copilot/tasks/a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+              "name": "Fix the login button on the homepage",
+              "creator": {
+                "id": 1
+              },
+              "creator_type": "user",
+              "owner": {
+                "id": 1
+              },
+              "repository": {
+                "id": 1296269
+              },
+              "state": "queued",
+              "session_count": 1,
+              "custom_agent": {
+                "id": "my-custom-agent"
+              },
+              "artifacts": [],
+              "archived_at": null,
+              "created_at": "2025-01-01T00:00:00Z",
+              "updated_at": "2025-01-01T00:00:00Z"
+            },
+            "schema": {
+              "type": "object",
+              "required": [
+                "id",
+                "state",
+                "created_at"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "Unique task identifier"
+                },
+                "url": {
+                  "type": "string",
+                  "description": "API URL for this task"
+                },
+                "html_url": {
+                  "type": "string",
+                  "description": "Web URL for this task"
+                },
+                "name": {
+                  "type": "string",
+                  "description": "Human-readable name derived from the task prompt"
+                },
+                "creator": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "description": "A GitHub user",
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "format": "int64",
+                          "description": "The unique identifier of the user"
+                        }
+                      }
+                    }
+                  ],
+                  "description": "The entity who created this task"
+                },
+                "creator_type": {
+                  "type": "string",
+                  "description": "Type of the task creator",
+                  "enum": [
+                    "user",
+                    "organization"
+                  ]
+                },
+                "user_collaborators": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "description": "A GitHub user",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "format": "int64",
+                        "description": "The unique identifier of the user"
+                      }
+                    }
+                  },
+                  "description": "User objects of collaborators on this task",
+                  "deprecated": true
+                },
+                "owner": {
+                  "description": "The owner of the repository",
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "format": "int64",
+                      "description": "The unique identifier of the user"
+                    }
+                  }
+                },
+                "repository": {
+                  "description": "The repository this task belongs to",
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "format": "int64",
+                      "description": "The unique identifier of the repository"
+                    }
+                  }
+                },
+                "state": {
+                  "type": "string",
+                  "description": "Current state of the task, derived from its most recent session",
+                  "enum": [
+                    "queued",
+                    "in_progress",
+                    "completed",
+                    "failed",
+                    "idle",
+                    "waiting_for_user",
+                    "timed_out",
+                    "cancelled"
+                  ]
+                },
+                "session_count": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "Number of sessions in this task"
+                },
+                "artifacts": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "description": "A resource generated by the task",
+                    "required": [
+                      "provider",
+                      "type",
+                      "data"
+                    ],
+                    "properties": {
+                      "provider": {
+                        "type": "string",
+                        "enum": [
+                          "github"
+                        ],
+                        "description": "Provider namespace"
+                      },
+                      "type": {
+                        "type": "string",
+                        "enum": [
+                          "pull",
+                          "branch"
+                        ],
+                        "description": "Type of artifact. Available Values: `pull`, `branch`.\n"
+                      },
+                      "data": {
+                        "oneOf": [
+                          {
+                            "type": "object",
+                            "description": "A GitHub resource (pull request, issue, etc.)",
+                            "required": [
+                              "id"
+                            ],
+                            "properties": {
+                              "id": {
+                                "type": "integer",
+                                "format": "int64",
+                                "description": "GitHub resource ID"
+                              },
+                              "global_id": {
+                                "type": "string",
+                                "description": "GraphQL global ID"
+                              }
+                            }
+                          },
+                          {
+                            "type": "object",
+                            "description": "A Git branch reference",
+                            "required": [
+                              "head_ref",
+                              "base_ref"
+                            ],
+                            "properties": {
+                              "head_ref": {
+                                "type": "string",
+                                "description": "Head branch name"
+                              },
+                              "base_ref": {
+                                "type": "string",
+                                "description": "Base branch name"
+                              }
+                            }
+                          }
+                        ],
+                        "description": "Resource data (shape depends on type)"
+                      }
+                    }
+                  },
+                  "description": "Resources created by this task (PRs, branches, etc.)"
+                },
+                "archived_at": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date-time",
+                  "description": "Timestamp when the task was archived, null if not archived"
+                },
+                "updated_at": {
+                  "type": "string",
+                  "format": "date-time",
+                  "description": "Timestamp of the most recent update"
+                },
+                "created_at": {
+                  "type": "string",
+                  "format": "date-time",
+                  "description": "Timestamp when the task was created"
+                },
+                "custom_agent": {
+                  "type": "object",
+                  "description": "Custom agent metadata associated with this task",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "The custom agent's filename without the extension - for example, `performance-optimizer` for a `.github/agents/performance-optimizer.agent.md` custom agent."
+                    }
+                  }
                 }
               }
             }
@@ -1026,6 +1303,16 @@
                       "type": "string",
                       "format": "date-time",
                       "description": "Timestamp when the task was created"
+                    },
+                    "custom_agent": {
+                      "type": "object",
+                      "description": "Custom agent metadata associated with this task",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "description": "The custom agent's filename without the extension - for example, `performance-optimizer` for a `.github/agents/performance-optimizer.agent.md` custom agent."
+                        }
+                      }
                     }
                   }
                 },
@@ -1132,6 +1419,29 @@
                           "model": {
                             "type": "string",
                             "description": "Model used for this session"
+                          },
+                          "usage": {
+                            "type": "object",
+                            "description": "Structured information about billing units consumed by the session.",
+                            "required": [
+                              "type",
+                              "amount"
+                            ],
+                            "properties": {
+                              "type": {
+                                "type": "string",
+                                "description": "Billing unit used for this session. New sessions since June 1, 2026 use `ai_credits`, but older sessions use `premium_requests`.",
+                                "enum": [
+                                  "ai_credits",
+                                  "premium_requests"
+                                ]
+                              },
+                              "amount": {
+                                "type": "number",
+                                "format": "double",
+                                "description": "Number of billing units used by this session. When the `type` is `ai_credits`, the value is a whole number, expressed in nano units. When presenting this to a human, divide by 1,000,000,000 and round to one decimal place. When aggregating (for example, summing usage across sessions), sum the nano values first, and divide once at the end before presenting to a human to avoid losing precision. When the `type` is `premium_requests`, the value may be fractional (for example `1.5`)."
+                              }
+                            }
                           },
                           "error": {
                             "type": "object",
@@ -1505,6 +1815,16 @@
                         "type": "string",
                         "format": "date-time",
                         "description": "Timestamp when the task was created"
+                      },
+                      "custom_agent": {
+                        "type": "object",
+                        "description": "Custom agent metadata associated with this task",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "description": "The custom agent's filename without the extension - for example, `performance-optimizer` for a `.github/agents/performance-optimizer.agent.md` custom agent."
+                          }
+                        }
                       }
                     }
                   },
@@ -1831,6 +2151,16 @@
                       "type": "string",
                       "format": "date-time",
                       "description": "Timestamp when the task was created"
+                    },
+                    "custom_agent": {
+                      "type": "object",
+                      "description": "Custom agent metadata associated with this task",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "description": "The custom agent's filename without the extension - for example, `performance-optimizer` for a `.github/agents/performance-optimizer.agent.md` custom agent."
+                        }
+                      }
                     }
                   }
                 },
@@ -1937,6 +2267,29 @@
                           "model": {
                             "type": "string",
                             "description": "Model used for this session"
+                          },
+                          "usage": {
+                            "type": "object",
+                            "description": "Structured information about billing units consumed by the session.",
+                            "required": [
+                              "type",
+                              "amount"
+                            ],
+                            "properties": {
+                              "type": {
+                                "type": "string",
+                                "description": "Billing unit used for this session. New sessions since June 1, 2026 use `ai_credits`, but older sessions use `premium_requests`.",
+                                "enum": [
+                                  "ai_credits",
+                                  "premium_requests"
+                                ]
+                              },
+                              "amount": {
+                                "type": "number",
+                                "format": "double",
+                                "description": "Number of billing units used by this session. When the `type` is `ai_credits`, the value is a whole number, expressed in nano units. When presenting this to a human, divide by 1,000,000,000 and round to one decimal place. When aggregating (for example, summing usage across sessions), sum the nano values first, and divide once at the end before presenting to a human to avoid losing precision. When the `type` is `premium_requests`, the value may be fractional (for example `1.5`)."
+                              }
+                            }
                           },
                           "error": {
                             "type": "object",

@@ -1,7 +1,7 @@
 import { encode } from 'html-entities'
 import { TokenizationError, type TagToken, type TopLevelToken } from 'liquidjs'
 
-import { codeLanguages } from '@/code-tabs/lib/languages'
+import { codeLanguages } from '@/content-render/lib/code-languages'
 
 interface LiquidTemplate {
   [key: string]: unknown

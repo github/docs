@@ -1,4 +1,4 @@
-Alternatively, if you have a {% data variables.product.prodname_copilot_short %} license, you can delegate the remediation work to {% data variables.copilot.copilot_cloud_agent %}. Comment on the pull request mentioning `@{% data variables.product.prodname_copilot_short %}` and request that {% data variables.product.prodname_copilot_short %} fix the detected issues.
+If you have a {% data variables.product.prodname_copilot_short %} license, you can delegate the remediation work to {% data variables.copilot.copilot_cloud_agent %}. Comment on the pull request mentioning `@{% data variables.product.prodname_copilot_short %}` and request that {% data variables.product.prodname_copilot_short %} fix the detected issues.
 
 ![Screenshot showing a PR comment that invoked Copilot cloud agent.](/assets/images/help/code-quality/invoke-cloud-agent.png)
 
@@ -10,4 +10,4 @@ You can track {% data variables.copilot.copilot_cloud_agent %}'s work:
 * Using the [agents page](https://github.com/copilot/agents?ref_product=copilot&ref_type=engagement&ref_style=text) or session logs, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/use-copilot-agents/manage-and-track-agents).
 
 You need a {% data variables.product.prodname_copilot_short %} license to invoke {% data variables.copilot.copilot_cloud_agent %}.
-<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 aria-label="link-external" %}</a>
+<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=button&utm_campaign=code-quality-ga-july-2026&utm_medium=docs&utm_source=docs-fix-findings-pr-copilot-signup" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 aria-label="link-external" %}</a>

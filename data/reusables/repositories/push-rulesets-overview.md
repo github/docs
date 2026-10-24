@@ -7,9 +7,11 @@ Push rulesets allow you to:
 * **Restrict file paths:** Prevent commits that include changes in specified file paths from being pushed.
 
   {% data reusables.repositories.rulesets-push-rules-path-example %}
+  
+  {% ifversion push-rule-allowed-exceptions %}You can add allowed exceptions for paths that should remain pushable.{% endif %}
 * **Restrict file path length:** Prevent commits that include file paths that exceed a specified character limit from being pushed.
 * **Restrict file extensions:** Prevent commits that include files with specified file extensions from being pushed.
-* **Restrict file size:** Prevent commits that exceed a specified file size limit from being pushed.
+* **Restrict file size:** Prevent commits that exceed a specified file size limit from being pushed.{% ifversion push-rule-allowed-exceptions %} You can add allowed exceptions for files that may exceed the limit.{% endif %}
 
 ### About push rulesets for forked repositories
 

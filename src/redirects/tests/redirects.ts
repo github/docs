@@ -17,8 +17,7 @@ describe('redirects', () => {
 
   test('page.buildRedirects() returns an array', async () => {
     const page = await Page.init({
-      relativePath:
-        'pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches.md',
+      relativePath: 'pull-requests/reference/branches.md',
       basePath: path.join(__dirname, '../../../content'),
       languageCode: 'en',
     })
@@ -48,9 +47,12 @@ describe('redirects', () => {
   describe('query params', () => {
     test('are preserved in redirected URLs', async () => {
       const res = await get('/enterprise/admin?query=pulls')
-      expect(res.statusCode).toBe(301)
+      // Without a language prefix, the target depends on language preference.
+      expect(res.statusCode).toBe(302)
       const expected = `/en/enterprise-server@${enterpriseServerReleases.latest}/search?query=pulls`
       expect(res.headers.location).toBe(expected)
+      expect(res.headers.vary).toContain('accept-language')
+      expect(res.headers.vary).toContain('x-user-language')
     })
 
     test('have q= converted to query=', async () => {
@@ -60,19 +62,37 @@ describe('redirects', () => {
       expect(res.headers.location).toBe(expected)
     })
 
+    test('have q= converted to query= on Enterprise Cloud', async () => {
+      const res = await get('/en/enterprise-cloud@latest/admin?q=pulls')
+      expect(res.statusCode).toBe(301)
+      expect(res.headers.location).toBe('/en/enterprise-cloud@latest/search?query=pulls')
+    })
+
     test('convert q= to query= on search page', async () => {
       const res = await get('/en/search?q=pulls')
       expect(res.statusCode).toBe(301)
       const expected = '/en/search?query=pulls'
       expect(res.headers.location).toBe(expected)
+      expect(res.headers['cache-control']).toContain('public')
     })
 
     test('have faq= not converted to query=', async () => {
-      // Don't confuse `?faq=` for `?q=` just because they both start with `q=`
-      // Docs internal #21945
+      // Keep faq intact while q becomes query.
       const res = await get('/en/enterprise/admin?faq=pulls')
       expect(res.statusCode).toBe(301)
       const expected = `/en/enterprise-server@${enterpriseServerReleases.latest}/admin?faq=pulls`
+      expect(res.headers.location).toBe(expected)
+    })
+
+    test('with a raw second ? do not redirect an existing page', async () => {
+      const res = await get('/en/actions?utm_source=a?utm_medium=b')
+      expect(res.statusCode).toBe(200)
+    })
+
+    test('with a raw second ? are fully preserved in redirected URLs', async () => {
+      const res = await get('/en/enterprise/admin?faq=a?b')
+      expect(res.statusCode).toBe(301)
+      const expected = `/en/enterprise-server@${enterpriseServerReleases.latest}/admin?faq=a?b`
       expect(res.headers.location).toBe(expected)
     })
 
@@ -116,7 +136,7 @@ describe('redirects', () => {
       const res = await get('/')
       expect(res.statusCode).toBe(302)
       expect(res.headers.location).toBe('/en')
-      // language specific caching
+      // Language redirects vary by language preference.
       expect(res.headers['cache-control']).toContain('public')
       expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
       expect(res.headers.vary).toContain('accept-language')
@@ -223,15 +243,12 @@ describe('redirects', () => {
 
     test('frontmatter redirect', async () => {
       const res = await get('/enterprise/2.12/user/articles/github-flavored-markdown')
-      expect(res.statusCode).toBe(302) // because it doesn't have a language
+      expect(res.statusCode).toBe(302) // Missing language keeps this redirect temporary.
       expect(res.headers.location).toBe('/enterprise/2.12/user/categories/writing-on-github/')
     })
   })
 
   describe('enterprise admin', () => {
-    // firstRestoredAdminGuides = 2.21
-    // lastBeforeRestoredAdminGuides = 2.20
-    // (these won't change but it's more convenient to use constants)
     const { firstRestoredAdminGuides, getPreviousReleaseNumber, latest } = enterpriseServerReleases
     const lastBeforeRestoredAdminGuides = getPreviousReleaseNumber(firstRestoredAdminGuides)
     const enterpriseAdmin = `/en/enterprise-server@${latest}/admin`
@@ -312,7 +329,7 @@ describe('redirects', () => {
   })
 
   describe('enterprise user article', () => {
-    const userArticle = `/en/enterprise-server@${enterpriseServerReleases.latest}/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo`
+    const userArticle = `/en/enterprise-server@${enterpriseServerReleases.latest}/pull-requests/how-tos/work-with-forks/fork-a-repo`
 
     test('no product redirects to GitHub.com product on the latest version', async () => {
       const res = await get(
@@ -322,7 +339,7 @@ describe('redirects', () => {
       expect(res.headers.location).toBe(userArticle)
     })
 
-    // 2.16 was the first version where we moved /articles/foo to /github/<category>/foo
+    // Enterprise 2.16 is the redirect boundary for /articles/foo to /github/<category>/foo.
     test('no product does not redirect to GitHub.com product in <=2.15', async () => {
       const res = await get('/en/enterprise/2.15/user/articles/set-up-git')
       expect(res.statusCode).toBe(200)
@@ -344,7 +361,7 @@ describe('redirects', () => {
   })
 
   describe('enterprise user article with frontmatter redirect', () => {
-    const userArticle = `/en/enterprise-server@${enterpriseServerReleases.latest}/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo`
+    const userArticle = `/en/enterprise-server@${enterpriseServerReleases.latest}/pull-requests/how-tos/work-with-forks/fork-a-repo`
     const redirectFromPath = '/articles/fork-a-repo'
 
     test('redirects to expected article', async () => {
@@ -428,7 +445,7 @@ describe('redirects', () => {
     test('no domain redirect on //example.com/', async () => {
       const res = await get(`//example.com/`)
       expect(res.statusCode).toBe(301)
-      expect(res.headers.location).toBe(`/example.com`) // should not be //example.com
+      expect(res.headers.location).toBe(`/example.com`) // Guards against //example.com.
       const res2 = await get(res.headers.location)
       expect(res2.statusCode).toBe(404)
     })
@@ -437,6 +454,13 @@ describe('redirects', () => {
       const res = await get(`/en//rest`)
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe(`/en/rest`)
+    })
+
+    test('double-slash in the URL keeps the query string', async () => {
+      const res = await get(`/en//search?query=git`)
+      expect(res.statusCode).toBe(301)
+      expect(res.headers.location).toBe(`/en/search?query=git`)
+      expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
     })
 
     test('double-slash trailing in the URL', async () => {

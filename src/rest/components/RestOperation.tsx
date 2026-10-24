@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { useRouter } from 'next/router'
 import { slug } from 'github-slugger'
-import cx from 'classnames'
+import cx from 'clsx'
 
 import { HeadingLink } from '@/frame/components/article/HeadingLink'
 import { useTranslation } from '@/languages/components/useTranslation'
@@ -13,12 +13,13 @@ import { RestAuth } from './RestAuth'
 import { Operation } from './types'
 
 import styles from './RestOperation.module.scss'
+import { RenderedHTML } from '@/frame/components/ui/RenderedHTML/RenderedHTML'
 
 type Props = {
   operation: Operation
 }
 
-// all REST operations have this accept header by default
+// Use this as the default Accept header for REST operations.
 const DEFAULT_ACCEPT_HEADER = {
   name: 'accept',
   type: 'string',
@@ -37,7 +38,7 @@ export function RestOperation({ operation }: Props) {
   const titleSlug = slug(operation.title)
   const { t } = useTranslation('rest_reference')
   const router = useRouter()
-  // omit the default header if ghes specific api
+  // Omit the default Accept header for Management Console and GHES Manage APIs.
   const headers =
     operation.subcategory === 'management-console' || operation.subcategory === 'manage-ghes'
       ? []
@@ -71,9 +72,10 @@ export function RestOperation({ operation }: Props) {
       </HeadingLink>
       <div className="d-flex flex-wrap gutter mt-4">
         <div className="col-md-12 col-lg-6">
-          <div
+          <RenderedHTML
+            as="div"
             className={cx(styles.codeBlock)}
-            dangerouslySetInnerHTML={{ __html: operation.descriptionHTML }}
+            html={operation.descriptionHTML}
           />
 
           <RestAuth

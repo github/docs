@@ -3,10 +3,12 @@
 * GPT-4o
 * GPT-4.1
 * GPT-5.2
-* GPT-5.2-Codex
 * GPT-5.3-Codex
 * Claude Haiku 4.5
-* Claude Sonnet 4.5
-* Claude Opus 4.5
-* Claude Sonnet 4.6
-* Claude Opus 4.6
+* Claude Haiku 5.5
+* Claude Sonnet 5
+* Claude Sonnet 5.5
+* Claude Opus 4.8
+* Claude Opus 5
+* Claude Opus 5.5
+* Gemini 4 Argon

@@ -34,13 +34,27 @@ If you want your organization-owned application to be installed on your enterpri
 
 If you want your {% data variables.product.prodname_github_app %} to be available to organizations in a {% data variables.product.prodname_ghe_server %} instance that you are not part of, then you need to take additional steps. For more information, see [AUTOTITLE](/apps/sharing-github-apps/making-your-github-app-available-for-github-enterprise-server).
 
-If it is important for {% ifversion ghes %}other {% endif %}{% data variables.product.prodname_ghe_server %} users to be able to use your tool, consider using {% data variables.product.prodname_actions %} instead of a {% data variables.product.prodname_github_app %}. Public actions are available on {% data variables.product.prodname_ghe_server %} instances with GitHub Connect. For more information, see [AUTOTITLE]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect) and [AUTOTITLE]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises){% ifversion ghes %}.{% else %} in the {% data variables.product.prodname_ghe_server %} documentation.{% endif %}
+If it is important for {% ifversion ghes %}other {% endif %}{% data variables.product.prodname_ghe_server %} users to be able to use your tool, consider using {% data variables.product.prodname_actions %} instead of a {% data variables.product.prodname_github_app %}. Public actions are available on {% data variables.product.prodname_ghe_server %} instances with GitHub Connect. For more information, see [AUTOTITLE]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/managing-github-actions-for-your-enterprise/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect) and [AUTOTITLE]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises){% ifversion ghes %}.{% else %} in the {% data variables.product.prodname_ghe_server %} documentation.{% endif %}
 
-For information about changing the visibility of a {% data variables.product.prodname_github_app %} registration, see [AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app).
+For information about changing the visibility of a {% data variables.product.prodname_github_app %} registration, see [AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app-registration).
+{% ifversion github-app-details-visibility %}
+
+### Accessing details of other {% data variables.product.prodname_github_apps %}
+
+A {% data variables.product.prodname_github_app %} can use the "Get an app" REST API endpoint to access details of another app when one of these are true:
+
+* The target app is public.
+* Both apps are owned by the same organization, regardless of the target app's visibility.
+* The target app is internal, and both apps belong to the same enterprise.
+* The requesting app is owned by an enterprise, and the target app is owned by an organization in that enterprise.
+
+For more information, see [AUTOTITLE](/rest/apps/apps#get-an-app).
+
+{% endif %}
 
 ### Public installation flow
 
-Public {% data variables.product.prodname_github_apps %} have a landing page with an **Install** button, so that other people can install the app on their accounts. {% ifversion fpt or ghec %}If your {% data variables.product.prodname_github_app %} is public to all users on {% data variables.product.github %}, you can also choose to publish it to {% data variables.product.prodname_marketplace %}. For more information, see [AUTOTITLE](/apps/publishing-apps-to-github-marketplace/github-marketplace-overview/about-github-marketplace).{% endif %}
+Public {% data variables.product.prodname_github_apps %} have a landing page with an **Install** button, so that other people can install the app on their accounts. {% ifversion fpt or ghec %}If your {% data variables.product.prodname_github_app %} is public to all users on {% data variables.product.github %}, you can also choose to publish it to {% data variables.product.prodname_marketplace %}. For more information, see [AUTOTITLE](/apps/github-marketplace/github-marketplace-overview/about-github-marketplace-for-apps).{% endif %}
 
 ### Private installation flow
 

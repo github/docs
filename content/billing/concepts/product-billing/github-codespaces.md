@@ -82,7 +82,7 @@ If your account does not have a valid payment method on file, usage is blocked o
 
 If you are blocked from resuming a codespace and need to continue work on changes in your codespace, you can do any of the following:
 
-* Add a payment method and review your budget settings to ensure they meet your usage needs. See [AUTOTITLE](/billing/tutorials/set-up-budgets#viewing-budgets).
+* Add a payment method and review your budget settings to ensure they meet your usage needs. See [AUTOTITLE](/billing/how-tos/set-up-budgets#viewing-budgets).
 * Export the changes from the codespace to a branch. See [AUTOTITLE](/codespaces/troubleshooting/exporting-changes-to-a-branch).
 * Wait for your monthly included usage to reset at the start of the next monthly billing cycle.
 
@@ -91,7 +91,7 @@ If you are blocked from resuming a codespace and need to continue work on change
 You pay for using {% data variables.product.prodname_codespaces %} using the payment method set up for your {% data variables.product.github %} account. See [AUTOTITLE](/billing/how-tos/set-up-payment/manage-payment-info).
 
 * To estimate costs for paid {% data variables.product.prodname_github_codespaces %} usage, use the {% data variables.product.github %} [pricing calculator](https://github.com/pricing/calculator?feature=codespaces).
-* To view your current minutes and storage, see [AUTOTITLE](/billing/managing-billing-for-your-products/viewing-your-product-usage).
+* To view your current minutes and storage, see [AUTOTITLE](/billing/how-tos/products/view-productlicense-use).
 * To optimize the use of codespaces:
    * For personal accounts, see [AUTOTITLE](/codespaces/troubleshooting/troubleshooting-included-usage)
    * For organization accounts, see [AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/managing-the-cost-of-github-codespaces-in-your-organization)

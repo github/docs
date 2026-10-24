@@ -1,7 +1,7 @@
 version: 2
 
 registries:
-  ghcr: # Define access for a private registry
+  ghcr:
     type: docker-registry
     url: ghcr.io
     username: PAT
@@ -16,21 +16,25 @@ updates:
     cooldown:
       default-days: 7
     ignore:
-      # Because this is so dependent on the remote server we use
+      # Keep the Elasticsearch client pinned to the server-compatible version.
       - dependency-name: '@elastic/elasticsearch'
-      # Because whatever we have needs to match what @primer/react also uses
-      - dependency-name: 'styled-components'
       - dependency-name: '*'
         update-types:
           ['version-update:semver-patch', 'version-update:semver-minor']
 
   - package-ecosystem: 'github-actions'
-    directory: '/'
+    directories:
+      - '/'
+      - '/.github/actions/*'
     schedule:
       interval: weekly
       day: tuesday
     cooldown:
       default-days: 7
+    groups:
+      actions:
+        patterns:
+          - '*'
     ignore:
       - dependency-name: '*'
         update-types:
@@ -40,7 +44,9 @@ updates:
   - package-ecosystem: 'docker'
     registries:
       - ghcr
-    directory: '/'
+    directories:
+      - '/'
+      - '/.devcontainer'
     schedule:
       interval: daily
     cooldown:
@@ -50,4 +56,4 @@ updates:
         patterns:
           - '*'
     ignore:
-      - dependency-name: 'node' # Ignore Dockerfile.openapi_decorator
+      - dependency-name: 'node' # Ignore Dockerfile.openapi_decorator's Node image.

@@ -21,7 +21,7 @@ If you are having trouble with the {% data variables.copilot.copilot_chat_short 
 
 ### Push protection block
 
-If you are using the {% data variables.product.github %} MCP server and push protection blocks a secret that you believe is safe to expose, you may be able to bypass the block by specifying a reason for allowing the secret. See [AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-and-the-github-mcp-server#resolving-a-block).
+If you are using the {% data variables.product.github %} MCP server and push protection blocks a secret that you believe is safe to expose, you may be able to bypass the block by specifying a reason for allowing the secret. See [AUTOTITLE](/code-security/concepts/secret-security/push-protection-and-the-github-mcp-server#resolving-a-block).
 
 ### General tips
 

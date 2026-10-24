@@ -1,7 +1,7 @@
 import { unified } from 'unified'
 import remarkParse from 'remark-parse'
 import gfm from 'remark-gfm'
-import emoji from 'remark-gemoji-to-emoji'
+import emoji from 'remark-gemoji'
 import remark2rehype from 'remark-rehype'
 import raw from 'rehype-raw'
 import slug from 'rehype-slug'
@@ -15,6 +15,7 @@ import powershell from 'highlight.js/lib/languages/powershell'
 import graphql from 'highlight.js/lib/languages/graphql'
 import html from 'rehype-stringify'
 import codeHeader from './code-header'
+import mermaid from './mermaid'
 import rewriteLocalLinks from './rewrite-local-links'
 import rewriteImgSources from './rewrite-asset-urls'
 import rewriteAssetImgTags from './rewrite-asset-img-tags'
@@ -26,11 +27,15 @@ import rewriteEmptyTableRows from './rewrite-empty-table-rows'
 import rewriteForRowheaders from './rewrite-for-rowheaders'
 import rewriteTableCaptions from './rewrite-table-captions'
 import wrapProceduralImages from './wrap-procedural-images'
+import wrapCodeTerms from './wrap-code-terms'
 import parseInfoString from './parse-info-string'
 import annotate from './annotate'
 import alerts from './alerts'
 import removeHtmlComments from 'remark-remove-comments'
 import remarkStringify from 'remark-stringify'
+import { visit } from 'unist-util-visit'
+import type { Parents, Root, Text } from 'mdast'
+import type { Info, State } from 'mdast-util-to-markdown'
 import type { Context, UnifiedProcessor } from '@/content-render/types'
 import type { CollectedHeading } from '@/frame/lib/get-mini-toc-items'
 
@@ -40,38 +45,25 @@ export function createProcessor(context: Context): UnifiedProcessor {
       .use(remarkParse)
       .use(removeHtmlComments)
       .use(gfm)
-      // Markdown AST below vvv
       .use(parseInfoString)
-      // Using type assertion because rewriteLocalLinks is a factory function that takes context
-      // and returns a transformer, but TypeScript's unified plugin types don't handle this pattern
+      // TypeScript's unified plugin types do not model context-bound transformer factories.
       .use(rewriteLocalLinks as unknown as (ctx: Context) => void, context)
       .use(emoji)
-      // Markdown AST above ^^^
       .use(remark2rehype, { allowDangerousHtml: true })
-      // HTML AST below vvv
       .use(slug)
-      // useEnglishHeadings plugin requires context with englishHeadings property
       .use(useEnglishHeadings as unknown as (ctx: Context) => void, context || {})
       .use(headingLinks)
+      .use(mermaid)
       .use(codeHeader)
-      .use(annotate, context)
-      // Using type assertion for highlight plugin due to complex type mismatch between unified and rehype-highlight
+      .use(annotate as unknown as (ctx: Context) => void, context)
+      // TypeScript's unified plugin types do not model rehype-highlight's lowlight options.
       .use(highlight as unknown as (options: unknown) => void, {
         languages: { ...common, graphql, dockerfile, http, groovy, erb, powershell },
         subset: false,
         aliases: {
-          // As of Jan 2024, 'jsonc' is not supported by highlight.js. It
-          // just becomes plain text.
-          // But 'jsonc' works great in github.com. For example, when
-          // previewing and edited .md content in the browser. Or viewing
-          // PR diffs in web view.
-          // So by sticking to 'jsonc' where there's JSON with comments,
-          // it's technically more correct, looks good in github.com,
-          // but with this alias you get the nice syntax highlighting when
-          // viewed on our site.
+          // Register jsonc as a JSON alias so JSON with comments gets docs-site highlighting.
           json: 'jsonc',
-          // Docs supports a custom 'copilot' language, which is useful for contributors,
-          // but is not a supported highlight.js language, so alias to 'text'.
+          // Map docs-only copilot fences to text so contributors can use them.
           text: 'copilot',
         },
       })
@@ -84,12 +76,11 @@ export function createProcessor(context: Context): UnifiedProcessor {
       .use(rewriteTheadThScope)
       .use(rewriteForRowheaders)
       .use(rewriteTableCaptions)
+      .use(wrapCodeTerms)
       .use(rewriteImgSources)
       .use(rewriteAssetImgTags)
-      // alerts plugin requires context with alertTitles property
       .use(alerts as unknown as (ctx: Context) => void, context || {})
-      // HTML AST above ^^^
-      .use(html) as unknown as UnifiedProcessor // String below vvv
+      .use(html) as unknown as UnifiedProcessor
   )
 }
 
@@ -98,11 +89,47 @@ export function createMarkdownOnlyProcessor(context: Context): UnifiedProcessor 
     unified()
       .use(remarkParse)
       .use(gfm)
-      // Using type assertion because rewriteLocalLinks is a factory function that takes context
-      // and returns a transformer, but TypeScript's unified plugin types don't handle this pattern
+      .use(markUnescapedAlertMarkers)
+      // TypeScript's unified plugin types do not model context-bound transformer factories.
       .use(rewriteLocalLinks as unknown as (ctx: Context) => void, context)
-      .use(remarkStringify) as unknown as UnifiedProcessor
+      .use(remarkStringify, {
+        handlers: { text: textWithAlertMarkers },
+      }) as unknown as UnifiedProcessor
   )
+}
+
+// GitHub alert markers stop rendering as alerts once remark-stringify escapes their brackets.
+const ALERT_MARKER = /^\[!(NOTE|TIP|IMPORTANT|WARNING|CAUTION)\](?=\s|$)/i
+
+// remark-parse drops the backslash from `\[!NOTE]`, so only the source shows an intentionally literal marker.
+const unescapedAlertMarkers = new WeakSet<Text>()
+
+function markUnescapedAlertMarkers() {
+  return (tree: Root, file: { value: unknown }) => {
+    const source = String(file.value)
+    visit(tree, 'text', (node) => {
+      const offset = node.position?.start.offset
+      if (offset !== undefined && source[offset] === '[' && ALERT_MARKER.test(node.value)) {
+        unescapedAlertMarkers.add(node)
+      }
+    })
+  }
+}
+
+function textWithAlertMarkers(
+  node: Text,
+  parent: Parents | undefined,
+  state: State,
+  info: Info,
+): string {
+  const marker = node.value.match(ALERT_MARKER)?.[0]
+  const startsBlockquoteParagraph =
+    parent?.type === 'paragraph' &&
+    parent.children[0] === node &&
+    state.stack[state.stack.length - 3] === 'blockquote'
+  if (!marker || !startsBlockquoteParagraph || !unescapedAlertMarkers.has(node))
+    return state.safe(node.value, info)
+  return marker + state.safe(node.value.slice(marker.length), { ...info, before: ']' })
 }
 
 export function createMinimalProcessor(context: Context): UnifiedProcessor {
@@ -110,8 +137,7 @@ export function createMinimalProcessor(context: Context): UnifiedProcessor {
     unified()
       .use(remarkParse)
       .use(gfm)
-      // Using type assertion because rewriteLocalLinks is a factory function that takes context
-      // and returns a transformer, but TypeScript's unified plugin types don't handle this pattern
+      // TypeScript's unified plugin types do not model context-bound transformer factories.
       .use(rewriteLocalLinks as unknown as (ctx: Context) => void, context)
       .use(remark2rehype, { allowDangerousHtml: true })
       .use(slug)

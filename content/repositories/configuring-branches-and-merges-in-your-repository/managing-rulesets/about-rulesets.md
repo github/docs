@@ -16,7 +16,7 @@ category:
 
 A ruleset is a named list of rules that applies to a repository or to multiple repositories in an organization for customers on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %} plans. You can have up to 75 rulesets per repository, and 75 organization-wide rulesets.
 
-When you create a ruleset, you can allow certain users to bypass the rules in the ruleset. This can be users with a certain role, such as repository administrator, or it can be specific teams or {% data variables.product.prodname_github_apps %}. For more information about granting bypass permissions, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository#granting-bypass-permissions-for-your-ruleset).
+When you create a ruleset, you can allow certain users to bypass the rules in the ruleset. This can be users with a certain role, such as repository administrator, or it can be specific teams or {% data variables.product.prodname_github_apps %}. For more information about granting bypass permissions, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository).
 
 {% ifversion not ghes %}
 
@@ -24,11 +24,7 @@ For organizations on the {% data variables.product.prodname_enterprise %} plan, 
 
 {% endif %}
 
-{% ifversion push-rulesets %}
-
 You can use rulesets to target branches or tags in a repository or to block pushes to a repository and the repository's entire fork network.
-
-{% endif %}
 
 {% ifversion push-rule-delegated-bypass %}
 
@@ -42,24 +38,22 @@ You can create rulesets to control how people can interact with selected branche
 
 For each ruleset you create, you specify which branches or tags in your repository{% ifversion repo-rules-enterprise %}, or which repositories in your organization,{% endif %} the ruleset applies to. You can use `fnmatch` syntax to define a pattern to target specific {% ifversion repo-rules-enterprise %}branches, tags, and repositories{% else %}branches and tags{% endif %}. For example, you could use the pattern `releases/**/*` to target all branches in your repository whose name starts with the string `releases/`. For more information on `fnmatch` syntax, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository#using-fnmatch-syntax).
 
-{% ifversion push-rulesets %}
-
 ### Push rulesets
 
 {% data reusables.repositories.push-rulesets-overview %}
 
-{% endif %}
-
 ## About rulesets and protected branches
 
-Rulesets work alongside any branch protection rules in a repository. Many of the rules you can define in rulesets are similar to protection rules, and you can start using rulesets without overriding any of your existing protection rules.
+Rulesets and branch protection rules can both protect branches in a repository. They work alongside each other, and all applicable rules are enforced. For more information, see [About rule layering](#about-rule-layering).
 
-Rulesets have the following advantages over branch protection rules.
+Rulesets offer more flexible ways to manage and understand protections:
 
-* Unlike protection rules, multiple rulesets can apply at the same time, so you can be confident that every rule targeting a branch in your repository will be evaluated when someone interacts with that branch. See [About rule layering](#about-rule-layering).
-* Rulesets have statuses, so you can easily manage which rulesets are active in a repository without needing to delete rulesets.
-* Anyone with read access to a repository can view the active rulesets for the repository. This means a developer can understand why they have hit a rule, or an auditor can check the security constraints for the repository, without requiring admin access to the repository.
-* You can create additional rules to control the metadata of commits entering a repository, such as the commit message and the author's email address. See [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets#metadata-restrictions){% ifversion ghec %}."{% else %} in the {% data variables.product.prodname_ghe_cloud %} documentation.{% endif %}
+* Multiple rulesets can apply to the same branch at the same time, while only one branch protection rule applies.
+* You can change a ruleset's enforcement status without deleting the ruleset.
+* Anyone with read access to a repository can view its active rulesets. This helps developers understand which rules apply and allows auditors to review protections without administrator access.
+* Rulesets can also control commit metadata, such as commit messages and author email addresses. For more information, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets){% ifversion ghec %}."{% else %} in the {% data variables.product.prodname_ghe_cloud %} documentation.{% endif %}
+
+{% data reusables.repositories.rulesets-convert-branch-protection-rule %}
 
 ## Using ruleset enforcement statuses
 

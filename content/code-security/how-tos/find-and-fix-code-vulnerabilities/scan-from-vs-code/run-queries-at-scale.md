@@ -18,21 +18,21 @@ With multi-repository variant analysis (MRVA), you can run {% data variables.pro
 
 ## Prerequisites
 
-* You need to enable {% data variables.product.prodname_code_scanning %} using {% data variables.product.prodname_codeql %} on {% data variables.product.github %}, using either default setup or advanced setup, before adding your repository to a list for analysis. For information about enabling {% data variables.product.prodname_code_scanning %} using {% data variables.product.prodname_codeql %}, see [AUTOTITLE](/code-security/how-tos/scan-code-for-vulnerabilities/configure-code-scanning/configuring-default-setup-for-code-scanning).
+* You need to enable {% data variables.product.prodname_code_scanning %} using {% data variables.product.prodname_codeql %} on {% data variables.product.github %}, using either default setup or advanced setup, before adding your repository to a list for analysis. For information about enabling {% data variables.product.prodname_code_scanning %} using {% data variables.product.prodname_codeql %}, see [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/configure-code-scanning/configure-code-scanning).
 
 * You must define a controller repository before you can run your first multi-repository variant analysis.
 
 * Controller repositories can be empty, but they must have at least one commit.
 
 {% ifversion ghec %}
-* The controller repository must be hosted on the same site as the repositories that you want to analyze using MRVA, that is: {% data variables.product.prodname_dotcom_the_website %} or {% data variables.enterprise.data_residency_domain %}. If you want to run MRVA on {% data variables.enterprise.data_residency %}, see [Changing the {% data variables.product.github %} URL used by the extension](/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/customizing-settings#changing-the-github-url-used-by-the-extension).
+* The controller repository must be hosted on the same site as the repositories that you want to analyze using MRVA, that is: {% data variables.product.prodname_dotcom_the_website %} or {% data variables.enterprise.data_residency_domain %}. If you want to run MRVA on {% data variables.enterprise.data_residency %}, see [Changing the {% data variables.product.github %} URL used by the extension](/code-security/how-tos/find-and-fix-code-vulnerabilities/scan-from-vs-code/customize-settings#changing-the-github-url-used-by-the-extension).
 {% endif %}
 
 * On {% data variables.product.prodname_dotcom_the_website %}, the controller repository visibility can be "public" if you plan to analyze only public repositories. The variant analysis will be free.
 
 * The controller repository visibility must be "private" if you need to analyze any private or internal repositories on {% data variables.product.prodname_dotcom_the_website %}. {% ifversion fpt or ghec %}
 
-Any actions minutes that you use to run variant analysis on private or internal repositories, above the free limit, is charged to the repository owner. For more information about free minutes and billing, see [AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions).{% endif %}
+Any actions minutes that you use to run variant analysis on private or internal repositories, above the free limit, is charged to the repository owner. For more information about free minutes and billing, see [AUTOTITLE](/billing/concepts/product-billing/github-actions).{% endif %}
 
 ## Setting up a controller repository for MRVA
 
@@ -40,11 +40,11 @@ Any actions minutes that you use to run variant analysis on private or internal 
 
     ![Screenshot of the "Variant Analysis Repositories" view. The button to "Set up controller repository" is highlighted in dark orange.](/assets/images/help/security/codeql-for-vs-code-controller-repository.png)
 
-1. Type the owner and name of the repository on {% data variables.product.github %} that you want to use as your controller repository and press the **Enter** key. {% ifversion ghec %}This repository must be on the same instance of {% data variables.product.github %} as the repositories that you want to analyze, see [Changing the {% data variables.product.github %} URL used by the extension](/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/customizing-settings#changing-the-github-url-used-by-the-extension).{% endif %}
+1. Type the owner and name of the repository on {% data variables.product.github %} that you want to use as your controller repository and press the **Enter** key. {% ifversion ghec %}This repository must be on the same instance of {% data variables.product.github %} as the repositories that you want to analyze, see [Changing the {% data variables.product.github %} URL used by the extension](/code-security/how-tos/find-and-fix-code-vulnerabilities/scan-from-vs-code/customize-settings#changing-the-github-url-used-by-the-extension).{% endif %}
 
 1. If you are prompted to authenticate with {% data variables.product.github %}, follow the instructions and sign in to your account. When you have finished, a prompt from {% data variables.product.github %} Authentication may ask for permission to open in {% data variables.product.prodname_vscode %}, click **Open**.
 
-The name of the controller repository is saved in your settings for the {% data variables.product.prodname_codeql %} extension. For information on how to edit the controller repository, see [AUTOTITLE](/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/customizing-settings).
+The name of the controller repository is saved in your settings for the {% data variables.product.prodname_codeql %} extension. For information on how to edit the controller repository, see [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/scan-from-vs-code/customize-settings).
 
 ## Running a query at scale using MRVA
 
@@ -116,7 +116,7 @@ You can export your results for further analysis or to discuss them with collabo
 ## Creating a custom list of repositories
 
 > [!NOTE]
-> {% data variables.product.prodname_codeql %} analysis always requires a {% data variables.product.prodname_codeql %} database to run queries against. When you run variant analysis against a list of repositories, your query will only be executed against the repositories that currently have a {% data variables.product.prodname_codeql %} database available to download. The best way to make a repository available for variant analysis is to enable {% data variables.product.prodname_code_scanning %} with {% data variables.product.prodname_codeql %}. For information about enabling {% data variables.product.prodname_code_scanning %} using {% data variables.product.prodname_codeql %}, see [AUTOTITLE](/code-security/how-tos/scan-code-for-vulnerabilities/configure-code-scanning/configuring-default-setup-for-code-scanning).
+> {% data variables.product.prodname_codeql %} analysis always requires a {% data variables.product.prodname_codeql %} database to run queries against. When you run variant analysis against a list of repositories, your query will only be executed against the repositories that currently have a {% data variables.product.prodname_codeql %} database available to download. The best way to make a repository available for variant analysis is to enable {% data variables.product.prodname_code_scanning %} with {% data variables.product.prodname_codeql %}. For information about enabling {% data variables.product.prodname_code_scanning %} using {% data variables.product.prodname_codeql %}, see [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/configure-code-scanning/configure-code-scanning).
 
 1. In the "Variant Analysis Repositories" view, click the "Add list" icon.
 
@@ -182,8 +182,8 @@ You then need to add a new Actions repository variable in your controller reposi
 
 > [!NOTE]
 > You must set the `MRVA_RUNNER_OS` variable under the Actions repository variables in your controller repository's settings, and not an environment variable or Actions secret under your Actions settings or in your workflow's `.yml` file.
-> See [AUTOTITLE](/actions/writing-workflows/choosing-what-your-workflow-does/store-information-in-variables#creating-configuration-variables-for-a-repository).
+> See [AUTOTITLE](/actions/how-tos/write-workflows/choose-what-workflows-do/use-variables#creating-configuration-variables-for-a-repository).
 
-For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-a-repository) and [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups#changing-which-repositories-can-access-a-runner-group).
+For more information, see [AUTOTITLE](/actions/how-tos/manage-runners/self-hosted-runners/add-runners#adding-a-self-hosted-runner-to-a-repository) and [AUTOTITLE](/actions/how-tos/manage-runners/self-hosted-runners/manage-access#changing-which-repositories-can-access-a-runner-group).
 
 When you run a query with multi-repository variant analysis on a self-hosted runner, the analysis is run entirely on the self-hosted runner. You don't need to create any new workflows, but you must specify which repository the {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode %} extension should use as a controller repository. As the analysis of each repository completes, the results are sent to {% data variables.product.prodname_vscode_shortname %} for you to view.

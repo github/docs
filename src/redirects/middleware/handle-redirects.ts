@@ -4,6 +4,7 @@ import patterns from '@/frame/lib/patterns'
 import { pathLanguagePrefixed } from '@/languages/lib/languages-server'
 import { deprecatedWithFunctionalRedirects } from '@/versions/lib/enterprise-server-releases'
 import getRedirect from '../lib/get-redirect'
+import { getVersionPreference } from '../lib/version-preference'
 import { applyGraphqlCategoryRedirect } from '../lib/graphql-category-redirect'
 import {
   defaultCacheControl,
@@ -12,36 +13,42 @@ import {
 } from '@/frame/middleware/cache-control'
 import { ExtendedRequest, URLSearchParamsTypes } from '@/types'
 
+// Version preference redirects stay in their own branch so cookie-dependent paths use 302.
+// A 301 would cache one reader's version preference in the browser.
+// Deep links from search, the product UI, or bookmarks otherwise ignore the cookie and serve
+// Free/Pro/Team. Measured corrective switching showed 1,288 moves to Enterprise Cloud and 500
+// moves to Enterprise Server per 24 hours.
+// When getVersionPreference returns vary without redirectTo, append Vary: x-user-version,
+// because the 200 response depends on the cookie.
+// Use append, not set, to keep existing Vary values.
+// src/versions/tests/version-cookie.ts verifies the served header.
 export default function handleRedirects(req: ExtendedRequest, res: Response, next: NextFunction) {
   if (!req.context) throw new Error('Request not contextualized')
 
-  // Any double-slashes in the URL should be removed first
-  // This must be done before checking if the path
-  // is an asset (patterns.assetPaths)
+  // Collapse duplicate slashes before patterns.assetPaths, so //example.com cannot bypass handling.
   if (req.path.includes('//')) {
-    return res.safeRedirect(301, req.path.replace(/\/+/g, '/'))
+    // Take only the query from req.url, because an absolute-form req.url also holds the scheme and host.
+    const queryIndex = req.url.indexOf('?')
+    const query = queryIndex === -1 ? '' : req.url.slice(queryIndex)
+    defaultCacheControl(res)
+    return res.safeRedirect(301, req.path.replace(/\/+/g, '/') + query)
   }
 
-  // never redirect assets
   if (patterns.assetPaths.test(req.path)) return next()
 
-  // All /api/ endpoints handle their own redirects
-  // such as /api/pageinfo redirects to /api/pageinfo/v1
+  // API endpoints handle their own redirects.
   if (req.path.startsWith('/api/')) return next()
 
-  // blanket redirects for languageless homepage
   if (req.path === '/') {
     const language = getLanguage(req)
     languageAndVersionCacheControl(res)
 
-    // Build redirect path, optionally including user's preferred version
     let redirectPath = `/${language}`
     const userVersion = req.userVersion
     if (userVersion && userVersion !== 'free-pro-team@latest') {
       redirectPath += `/${userVersion}`
     }
 
-    // Forward query params to the new URL
     let queryParams = new URLSearchParams(req?.query as URLSearchParamsTypes).toString()
     if (queryParams) {
       queryParams = `?${queryParams}`
@@ -49,21 +56,19 @@ export default function handleRedirects(req: ExtendedRequest, res: Response, nex
     return res.safeRedirect(302, redirectPath + queryParams)
   }
 
-  // begin redirect handling
   let redirect = req.path
-  let queryParams = req.originalUrl.includes('?') ? req.originalUrl.split('?')[1] : null
+  // Slice from the first ? because query values can contain a raw ?.
+  const queryIndex = req.originalUrl.indexOf('?')
+  let queryParams = queryIndex === -1 ? null : req.originalUrl.slice(queryIndex + 1)
 
-  // Redirect `/some/uri?q=stuff` to `/en/search?query=stuff`
-  // Redirect `/some/uri?query=stuff` to `/en/search?query=stuff`
-  // Redirect `/fr/version@latest/some/uri?query=stuff`
-  // to `/fr/version@latest/search?query=stuff`
-  // The `q` param is deprecated, but we still need to support it in case
-  // there are links out there that use it.
+  // Route page searches to the search endpoint, and rename legacy q to query.
   const onSearch = req.path.endsWith('/search') || req.path.startsWith('/api/search')
   const hasQ = 'q' in req.query
   const hasQuery = 'query' in req.query
   if ((hasQ && !hasQuery) || (hasQuery && !onSearch)) {
-    const language = getLanguage(req)
+    // A browser-cached 301 cannot vary on the user_language cookie, so preference redirects use 302.
+    const languagePrefixed = pathLanguagePrefixed(req.path)
+    const language = languagePrefixed && req.language ? req.language : getLanguage(req)
     const sp = new URLSearchParams(req.query as URLSearchParamsTypes)
     if (sp.has('q') && !sp.has('query')) {
       sp.set('query', sp.get('q')!)
@@ -74,31 +79,31 @@ export default function handleRedirects(req: ExtendedRequest, res: Response, nex
     const { currentVersion } = req.context
     if (currentVersion !== 'free-pro-team@latest') {
       redirectTo += `/${currentVersion}`
-      // The `req.context.currentVersion` is just the portion of the URL
-      // pathname. It could be that the currentVersion is something
-      // like `enterprise` which needs to be redirected to its new name.
+      // currentVersion comes from the path, so legacy names such as enterprise need getRedirect.
       redirectTo = getRedirect(redirectTo, req.context) || redirectTo
     }
 
     redirectTo += `/search?${sp.toString()}`
-    return res.safeRedirect(301, redirectTo)
+    if (languagePrefixed) {
+      defaultCacheControl(res)
+      return res.safeRedirect(301, redirectTo)
+    }
+    languageCacheControl(res)
+    return res.safeRedirect(302, redirectTo)
   }
 
-  // have to do this now because searchPath replacement changes the path as well as the query params
   if (queryParams) {
     queryParams = `?${queryParams}`
   }
 
-  // remove query params temporarily so we can find the path in the redirects object
+  // Redirect keys omit query strings.
   let redirectWithoutQueryParams = removeQueryParams(redirect)
 
   const redirectTo = getRedirect(redirectWithoutQueryParams, req.context)
 
   redirectWithoutQueryParams = redirectTo || redirectWithoutQueryParams
 
-  // Resolve legacy `/graphql/reference/<kind>(#<name>)?` URLs to their
-  // per-category equivalent. Done before query-param re-application so the
-  // fragment parsing in the helper is unambiguous.
+  // Parse legacy GraphQL fragments before reapplying query params, so fragment parsing stays clear.
   const graphqlRewrite = applyGraphqlCategoryRedirect(
     redirectWithoutQueryParams,
     req.context.userLanguage || 'en',
@@ -107,19 +112,20 @@ export default function handleRedirects(req: ExtendedRequest, res: Response, nex
     redirectWithoutQueryParams = graphqlRewrite
   }
 
-  redirect = queryParams ? redirectWithoutQueryParams + queryParams : redirectWithoutQueryParams
+  // The query must come before the fragment, or browsers treat it as part of the anchor.
+  const hashIndex = redirectWithoutQueryParams.indexOf('#')
+  const hash = hashIndex >= 0 ? redirectWithoutQueryParams.slice(hashIndex) : ''
+  const redirectPath = hash
+    ? redirectWithoutQueryParams.slice(0, hashIndex)
+    : redirectWithoutQueryParams
+  redirect = redirectPath + (queryParams || '') + hash
+  // Query values can contain ://, so check only the destination path.
+  const isExternal = redirectWithoutQueryParams.includes('://')
 
   if (!redirectTo && !pathLanguagePrefixed(req.path)) {
-    // No redirect necessary, but perhaps it's to a known page, and the URL
-    // currently doesn't have a language prefix, then we need to add
-    // the language prefix.
-    // We can't always force on the language prefix because some URLs
-    // aren't pages. They're other middleware endpoints such as
-    // `/healthcheck` which should never redirect.
-    // But for example, a `/authentication/connecting-to-github-with-ssh`
-    // needs to become `/en/authentication/connecting-to-github-with-ssh`
+    // Add a language prefix only for pages or deprecated versions; /healthcheck passes through.
     const possibleRedirectTo = `/en${req.path}`
-    // Pages are keyed without .md, so strip it before lookup
+    // Pages are keyed without .md, so strip the extension before lookup.
     const lookupPath = possibleRedirectTo.endsWith('.md')
       ? possibleRedirectTo.replace(/\.md$/, '')
       : possibleRedirectTo
@@ -127,69 +133,72 @@ export default function handleRedirects(req: ExtendedRequest, res: Response, nex
     if (lookupPath in req.context.pages || isDeprecatedVersion(req.path)) {
       const language = getLanguage(req)
 
-      // Note, it's important to use `req.url` here and not `req.path`
-      // because the full URL can contain query strings.
-      // E.g. `/foo?json=breadcrumbs`
+      // Use req.url here so redirects preserve query strings such as ?json=breadcrumbs.
       redirect = `/${language}${req.url}`
     }
   }
 
-  // do not redirect a path to itself
+  if (!req.context.pages) throw new Error('req.context.pages not yet set')
+
+  if (!isExternal) {
+    const preference = getVersionPreference(
+      req.path,
+      removeQueryParams(redirect),
+      req.userVersion,
+      req.context.pages,
+    )
+    if (preference.vary && !preference.redirectTo) {
+      res.append('vary', 'x-user-version')
+    }
+    if (preference.redirectTo) {
+      languageAndVersionCacheControl(res)
+      // Keep the fragment because the original request had none for the browser to carry over.
+      return res.safeRedirect(302, preference.redirectTo + (queryParams || '') + hash)
+    }
+  }
+
   if (redirect === req.originalUrl) {
     return next()
   }
 
-  if (!req.context.pages) throw new Error('req.context.pages not yet set')
-
-  // do not redirect if the redirected page can't be found
+  // Skip internal redirects whose target page is missing.
   if (
     !(
       req.context.pages[removeQueryParams(redirect).replace(/\.md$/, '')] ||
       isDeprecatedVersion(req.path)
     ) &&
-    !redirect.includes('://')
+    !isExternal
   ) {
-    // display error on the page in development, but not in production
-    // include final full redirect path in the message
+    // Development responses expose the missing redirect target; production keeps the page clean.
     if (process.env.NODE_ENV !== 'production' && req.context) {
       req.context.redirectNotFound = redirect
     }
     return next()
   }
 
-  // do the redirect if the from-URL already had a language in it
-  if (pathLanguagePrefixed(req.path) || redirect.includes('://')) {
+  // Language-prefixed and external redirects do not vary by language preference.
+  if (pathLanguagePrefixed(req.path) || isExternal) {
     defaultCacheControl(res)
   } else {
     languageCacheControl(res)
   }
 
-  const permanent = redirect.includes('://') || usePermanentRedirect(req)
+  const permanent = isExternal || usePermanentRedirect(req)
   return res.safeRedirect(permanent ? 301 : 302, redirect)
 }
 
 function getLanguage(req: ExtendedRequest, default_ = 'en') {
-  // req.context.userLanguage, if it truthy, is always a valid supported
-  // language. It's whatever was in the user's request in lib/languages.ts
+  // detect-language.ts limits userLanguage to supported cookie or Accept-Language values.
   return req.context!.userLanguage || default_
 }
 
 function usePermanentRedirect(req: ExtendedRequest) {
-  // If the redirect was to essentially swap `enterprise-server@latest`
-  // for `enterprise-server@3.x` then, we definitely don't want to
-  // do a permanent redirect.
-  // When this is the case, we don't want a permanent redirect because
-  // it could overzealously cache in the users' browser which could
-  // be bad when whatever "latest" means changes.
+  // Redirects from enterprise-server@latest stay temporary because latest changes over time.
   if (req.path.includes('/enterprise-server@latest')) return false
 
-  // If the redirect involved injecting a language prefix, then don't
-  // permanently redirect because that could overly cache in users'
-  // browsers if we some day want to make the language redirect
-  // depend on a cookie or 'Accept-Language' header.
+  // Language-prefixed paths redirect permanently here; injected prefixes fall through to temporary.
   if (pathLanguagePrefixed(req.path)) return true
 
-  // The default is to *not* do a permanent redirect.
   return false
 }
 
@@ -197,13 +206,10 @@ function removeQueryParams(redirect: string) {
   return new URL(redirect, 'https://docs.github.com').pathname
 }
 
+// Deprecated enterprise-server releases in deprecatedWithFunctionalRedirects have functional
+// redirects but no lookup entries or active req.context.pages for custom Next.js paths such as
+// /admin/release-notes.
 function isDeprecatedVersion(path: string) {
-  // When we rewrote how redirects work, from a lookup model to a
-  // functional model, the enterprise-server releases that got
-  // deprecated since then fall between the cracks. Especially
-  // for custom NextJS page-like pages like /admin/release-notes
-  // These URLs don't come from any remaining .json lookup file
-  // and they're not active pages either (e.g. req.context.pages)
   const split = path.split('/')
   for (const version of deprecatedWithFunctionalRedirects) {
     if (split.includes(`enterprise-server@${version}`)) {

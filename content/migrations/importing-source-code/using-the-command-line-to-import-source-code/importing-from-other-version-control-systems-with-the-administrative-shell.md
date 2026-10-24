@@ -92,4 +92,4 @@ category:
 
 ## Further reading
 
-* [AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#import-and-export)
+* [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities#import-and-export)

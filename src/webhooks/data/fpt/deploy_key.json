@@ -30,65 +30,7 @@
         "name": "key",
         "description": "<p>The <a href=\"https://docs.github.com/rest/deploy-keys/deploy-keys#get-a-deploy-key\"><code>deploy key</code></a> resource.</p>",
         "isRequired": true,
-        "childParamsGroups": [
-          {
-            "type": "string or null",
-            "name": "added_by",
-            "description": ""
-          },
-          {
-            "type": "string",
-            "name": "created_at",
-            "description": "",
-            "isRequired": true
-          },
-          {
-            "type": "integer",
-            "name": "id",
-            "description": "",
-            "isRequired": true
-          },
-          {
-            "type": "string",
-            "name": "key",
-            "description": "",
-            "isRequired": true
-          },
-          {
-            "type": "string or null",
-            "name": "last_used",
-            "description": ""
-          },
-          {
-            "type": "boolean",
-            "name": "read_only",
-            "description": "",
-            "isRequired": true
-          },
-          {
-            "type": "string",
-            "name": "title",
-            "description": "",
-            "isRequired": true
-          },
-          {
-            "type": "string",
-            "name": "url",
-            "description": "",
-            "isRequired": true
-          },
-          {
-            "type": "boolean",
-            "name": "verified",
-            "description": "",
-            "isRequired": true
-          },
-          {
-            "type": "boolean",
-            "name": "enabled",
-            "description": ""
-          }
-        ]
+        "childParamsGroups": []
       },
       {
         "type": "object",
@@ -150,65 +92,7 @@
         "name": "key",
         "description": "<p>The <a href=\"https://docs.github.com/rest/deploy-keys/deploy-keys#get-a-deploy-key\"><code>deploy key</code></a> resource.</p>",
         "isRequired": true,
-        "childParamsGroups": [
-          {
-            "type": "string or null",
-            "name": "added_by",
-            "description": ""
-          },
-          {
-            "type": "string",
-            "name": "created_at",
-            "description": "",
-            "isRequired": true
-          },
-          {
-            "type": "integer",
-            "name": "id",
-            "description": "",
-            "isRequired": true
-          },
-          {
-            "type": "string",
-            "name": "key",
-            "description": "",
-            "isRequired": true
-          },
-          {
-            "type": "string or null",
-            "name": "last_used",
-            "description": ""
-          },
-          {
-            "type": "boolean",
-            "name": "read_only",
-            "description": "",
-            "isRequired": true
-          },
-          {
-            "type": "string",
-            "name": "title",
-            "description": "",
-            "isRequired": true
-          },
-          {
-            "type": "string",
-            "name": "url",
-            "description": "",
-            "isRequired": true
-          },
-          {
-            "type": "boolean",
-            "name": "verified",
-            "description": "",
-            "isRequired": true
-          },
-          {
-            "type": "boolean",
-            "name": "enabled",
-            "description": ""
-          }
-        ]
+        "childParamsGroups": []
       },
       {
         "type": "object",

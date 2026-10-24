@@ -1,0 +1,69 @@
+# Copilot feature support for Visual Studio.
+#
+# versions      Ordered newest-first. This is the display list: what is here is what renders.
+# versionGroups Table groupings, also newest-first. Every version listed must appear in "versions".
+# features      Feature name -> version -> support level.
+#               Valid levels are defined in data/tables/copilot/matrix-meta.yml.
+# notApplicable Optional. Features that do not apply to this IDE at all, rendered as "—"
+#               rather than "not supported". Omit the feature from "features" as well.
+name: Visual Studio
+versionType: ide
+versions:
+  - 18.6.0
+  - 17.14.0
+versionGroups:
+  latest releases:
+    - 18.6.0
+    - 17.14.0
+features:
+  .NET Upgrade Agent:
+    18.6.0: supported
+    17.14.0: supported
+  Agent skills:
+    18.6.0: supported
+    17.14.0: not-supported
+  Agent mode:
+    18.6.0: supported
+    17.14.0: supported
+  BYOK:
+    18.6.0: supported
+    17.14.0: supported
+  Chat:
+    18.6.0: supported
+    17.14.0: supported
+  Checkpoints:
+    18.6.0: supported
+    17.14.0: supported
+  Code completion:
+    18.6.0: supported
+    17.14.0: supported
+  Code referencing:
+    18.6.0: supported
+    17.14.0: supported
+  Copilot code review:
+    18.6.0: supported
+    17.14.0: supported
+  Custom agents:
+    18.6.0: supported
+    17.14.0: not-supported
+  Custom instructions:
+    18.6.0: supported
+    17.14.0: supported
+  Edit mode:
+    18.6.0: not-supported
+    17.14.0: not-supported
+  MCP:
+    18.6.0: supported
+    17.14.0: supported
+  Next edit suggestions:
+    18.6.0: supported
+    17.14.0: supported
+  Prompt files:
+    18.6.0: supported
+    17.14.0: supported
+  Vision:
+    18.6.0: supported
+    17.14.0: supported
+  Workspace indexing:
+    18.6.0: supported
+    17.14.0: not-supported

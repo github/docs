@@ -4,11 +4,6 @@ import type { RuleParams, RuleErrorCallback } from '../../types'
 import { getRange } from '../helpers/utils'
 import frontmatter from '@/frame/lib/read-frontmatter'
 
-/*
-  This rule currently only checks for one hardcoded string but
-  can be generalized in the future to check for strings that
-  have data variables.
-*/
 export const hardcodedDataVariable = {
   names: ['GHD005', 'hardcoded-data-variable'],
   description:

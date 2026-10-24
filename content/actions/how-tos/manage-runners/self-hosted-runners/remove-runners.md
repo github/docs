@@ -27,7 +27,7 @@ contentType: how-tos
 > * {% data reusables.actions.self-hosted-runner-auto-removal %}
 > * {% data reusables.actions.jit-runner-removal %}
 
-To remove a self-hosted runner from a user repository you must be the repository owner. Organization owners{% ifversion custom-org-roles %} and users with the "Manage organization runners and runner groups" permission{% endif %} can remove a runner from a repository in the organization. {% ifversion custom-org-roles %}For more information about custom organization roles, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles).{% endif %}
+To remove a self-hosted runner from a user repository you must be the repository owner. Organization owners{% ifversion custom-org-roles %} and users with the "Manage organization runners and runner groups" permission{% endif %} can remove a runner from a repository in the organization. {% ifversion custom-org-roles %}For more information about custom organization roles, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/permissions-of-custom-organization-roles).{% endif %}
 
 We recommend that you also have access to the self-hosted runner machine.
 
@@ -49,7 +49,7 @@ For information about how to remove a self-hosted runner with the REST API, see 
 
 To remove a self-hosted runner from an organization, you must be an organization owner{% ifversion custom-org-roles %} or have the "Manage organization runners and runner groups" permission{% endif %}. We recommend that you also have access to the self-hosted runner machine. For information about how to remove a self-hosted runner with the REST API, see [AUTOTITLE](/rest/actions/self-hosted-runners).
 
-{% ifversion custom-org-roles %}For more information about custom organization roles, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles).{% endif %}
+{% ifversion custom-org-roles %}For more information about custom organization roles, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/permissions-of-custom-organization-roles).{% endif %}
 
 {% data reusables.actions.self-hosted-runner-reusing %}
 {% data reusables.organizations.navigate-to-org %}
@@ -61,7 +61,7 @@ To remove a self-hosted runner from an organization, you must be an organization
 ## Removing a runner from an enterprise
 
 {% ifversion fpt %}
-If you use {% data variables.product.prodname_ghe_cloud %}, you can also remove runners from an enterprise. For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/actions/hosting-your-own-runners/managing-self-hosted-runners/removing-self-hosted-runners#removing-a-runner-from-an-enterprise).
+If you use {% data variables.product.prodname_ghe_cloud %}, you can also remove runners from an enterprise. For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/actions/how-tos/manage-runners/self-hosted-runners/remove-runners#removing-a-runner-from-an-enterprise).
 {% endif %}
 {% ifversion ghec or ghes %}
 

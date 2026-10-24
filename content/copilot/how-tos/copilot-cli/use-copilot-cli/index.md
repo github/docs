@@ -9,14 +9,20 @@ redirect_from:
 children:
   - /overview
   - /allowing-tools
+  - /use-autopilot-mode
   - /voice-input
+  - /computer-use
   - /connecting-vs-code
   - /delegate-tasks-to-cca
   - /browse-issues-prs-gists
+  - /ask-a-side-question
   - /roll-back-changes
+  - /work-with-multiple-sessions
   - /invoke-custom-agents
+  - /research-with-copilot-cli
   - /steer-agents
   - /steer-remotely
+  - /set-session-limit
   - /agentic-code-review
   - /manage-pull-requests
   - /speed-up-task-completion

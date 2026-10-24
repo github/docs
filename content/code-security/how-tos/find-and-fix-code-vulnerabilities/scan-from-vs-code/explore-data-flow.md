@@ -32,7 +32,7 @@ Before you can effectively use path queries, you should understand the basics of
 
 {% ifversion codeql-vs-code-mrva %}
 
-You can use the "Variant Analysis Repositories" view to run a query against up to 1,000 repositories on {% data variables.product.prodname_dotcom_the_website %}. See [AUTOTITLE](/code-security/codeql-for-vs-code/getting-started-with-codeql-for-vs-code/running-codeql-queries-at-scale-with-multi-repository-variant-analysis).
+You can use the "Variant Analysis Repositories" view to run a query against up to 1,000 repositories on {% data variables.product.prodname_dotcom_the_website %}. See [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/scan-from-vs-code/run-queries-at-scale).
 
 {% endif %}
 

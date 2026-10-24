@@ -16,7 +16,7 @@ category:
 
 Owners can set permissions for deleting or transferring repositories in an organization.
 
-Limiting the ability to delete or transfer repositories helps prevent sensitive information from being exposed. For more information, see [AUTOTITLE](/code-security/getting-started/best-practices-for-preventing-data-leaks-in-your-organization).
+Limiting the ability to delete or transfer repositories helps prevent sensitive information from being exposed. For more information, see [AUTOTITLE](/code-security/tutorials/secure-your-organization/prevent-data-leaks).
 
 {% ifversion repo-policy-rules %}
 

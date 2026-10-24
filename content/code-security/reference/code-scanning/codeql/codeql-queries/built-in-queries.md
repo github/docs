@@ -22,4 +22,4 @@ For each language, the following articles list which queries are included in the
 
 {% data reusables.code-scanning.codeql-query-tables.links-to-all-tables %}
 
-For more information about CodeQL query suites, see [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/codeql-query-suites).
+For more information about CodeQL query suites, see [AUTOTITLE](/code-security/concepts/code-scanning/codeql/codeql-query-suites).

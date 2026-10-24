@@ -44,7 +44,8 @@
           "success",
           "cancelled",
           "failure"
-        ]
+        ],
+        "childParamsGroups": []
       }
     ],
     "availability": [

@@ -14,7 +14,7 @@ redirect_from:
   - /code-security/reference/secret-security/secret-scanning-pattern-configuration-data
 ---
 
-When configuring push protection, you can view performance data for each secret pattern to make informed enablement decisions. Use metrics like alert volume and false positive rates to balance security with developer experience. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/configuring-global-security-settings-for-your-organization#specifying-patterns-to-include-in-push-protection){% ifversion security-configuration-enterprise-level %} or [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-enterprise-security/establish-complete-coverage/configuring-additional-secret-scanning-settings-for-your-enterprise#specifying-patterns-to-include-in-push-protection-for-your-enterprise){% endif %}.
+When configuring push protection, you can view performance data for each secret pattern to make informed enablement decisions. Use metrics like alert volume and false positive rates to balance security with developer experience. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/configure-global-settings#specifying-patterns-to-include-in-push-protection){% ifversion security-configuration-enterprise-level %} or [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-enterprise-security/establish-complete-coverage/configure-additional-settings#specifying-patterns-to-include-in-push-protection-for-your-enterprise){% endif %}.
 
 {% data reusables.secret-scanning.pattern-enablement-org-enterprise-chart %}
  

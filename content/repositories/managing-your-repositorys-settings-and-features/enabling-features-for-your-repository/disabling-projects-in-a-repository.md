@@ -24,19 +24,3 @@ When you disable {% data variables.projects.projects_v2 %} in a repository, link
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 1. Under "Features," deselect the **Projects** checkbox.
-
-{% ifversion projects-v1 %}
-
-## Disabling {% data variables.projects.projects_v1_boards %} in a repository
-
-When you disable {% data variables.projects.projects_v1_boards %} in a repository, existing {% data variables.projects.projects_v1_boards %} are inaccessible at their previous URLs. If you decide to re-enable {% data variables.projects.projects_v1_boards %}, any {% data variables.projects.projects_v1_boards %} that were previously added will be available.
-
-After you disable {% data variables.projects.projects_v1_boards %}, you will no longer see {% data variables.projects.projects_v1_board %} information in timelines or audit logs.
-
-{% ifversion projects-v1-create-repo-project %}{% else %}You can only create new {% data variables.projects.projects_v1_boards %} in a repository if one or more {% data variables.projects.projects_v1_boards %} already exist in the repository. If the repository has no {% data variables.projects.projects_v1_boards %}, this option will not be available.{% endif %}
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-1. Under "Features," deselect the **{% data variables.product.prodname_projects_v1_caps %}** checkbox.
-
-{% endif %}

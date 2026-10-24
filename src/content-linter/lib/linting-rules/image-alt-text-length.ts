@@ -18,8 +18,13 @@ export const incorrectAltTextLength = {
   tags: ['accessibility', 'images'],
   parser: 'markdownit',
   asynchronous: true,
-  function: (params: RuleParams, onError: RuleErrorCallback) => {
-    forEachInlineChild(params, 'image', async function forToken(token: ImageToken) {
+  function: async (params: RuleParams, onError: RuleErrorCallback) => {
+    const imageTokens: ImageToken[] = []
+    forEachInlineChild(params, 'image', (token: ImageToken) => {
+      imageTokens.push(token)
+    })
+
+    for (const token of imageTokens) {
       let renderedString = token.content
 
       if (token.content.includes('{%') || token.content.includes('{{')) {
@@ -27,12 +32,15 @@ export const incorrectAltTextLength = {
           currentLanguage: 'en',
           currentVersionObj: allVersions['free-pro-team@latest'],
         }
-        renderedString = await liquid.parseAndRender(token.content, context)
+        try {
+          renderedString = await liquid.parseAndRender(token.content, context)
+        } catch {
+          // GHD014 and GHD018 report bad data references and Liquid syntax errors.
+          continue
+        }
       }
 
-      // You can't compute a range if the content is empty
-      // because getRange() would throw an error. It's because it assumes to
-      // be able to find one string in another string.
+      // Empty alt text cannot produce a range because getRange requires a string it can find.
       const range = token.content ? getRange(token.line, token.content) : null
 
       if (renderedString.length < 40 || renderedString.length > 150) {
@@ -45,6 +53,6 @@ export const incorrectAltTextLength = {
           null, // No fix possible
         )
       }
-    })
+    }
   },
 }

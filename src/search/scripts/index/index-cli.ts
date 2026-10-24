@@ -7,12 +7,13 @@ import { languageKeys } from '@/languages/lib/languages-server'
 import { indexGeneralSearch } from './lib/index-general-search'
 import {
   allIndexVersionKeys,
+  allIndexVersionOptions,
   supportedAutocompletePlanVersions,
   versionToIndexVersionMap,
 } from '@/search/lib/elasticsearch-versions'
 import { indexAISearchAutocomplete } from './lib/index-ai-search-autocomplete'
 
-// If you optionally have ELASTICSEARCH_URL set in your .env file.
+// Reads ELASTICSEARCH_URL from .env when the shell environment lacks it.
 dotenv.config()
 
 program.name('index').description('CLI scripts for indexing Docs data into Elasticsearch')
@@ -25,7 +26,10 @@ const generalSearchCommand = new Command('general-search')
   )
   .option('-v, --verbose', 'Verbose outputs')
   .addOption(
-    new Option('-V, --version [VERSION...]', 'Specific versions').choices(allVersionKeysWithAll),
+    new Option('-V, --version [VERSION...]', 'Specific versions').choices([
+      ...allIndexVersionOptions,
+      'all',
+    ]),
   )
   .addOption(
     new Option('-l, --language <LANGUAGE...>', 'Which languages to focus on').choices(languageKeys),
@@ -73,13 +77,18 @@ const generalSearchCommand = new Command('general-search')
   .action(async (sourceDirectory, options) => {
     try {
       await indexGeneralSearch(sourceDirectory, options)
-    } catch (error: any) {
-      if (error instanceof errors.ElasticsearchClientError) {
-        if ((error as any)?.meta) {
-          console.error('Error meta: %O', (error as any).meta)
-        }
+    } catch (error: unknown) {
+      if (
+        error instanceof errors.ElasticsearchClientError &&
+        'meta' in error &&
+        (error as { meta?: unknown }).meta
+      ) {
+        console.error('Error meta: %O', (error as { meta?: unknown }).meta)
       }
-      console.error('general-search indexing error:', error.message)
+      console.error(
+        'general-search indexing error:',
+        error instanceof Error ? error.message : error,
+      )
       process.exit(1)
     }
   })
@@ -99,8 +108,7 @@ const aiSearchAutocompleteCommand = new Command('ai-search-autocomplete')
   .option('--index-prefix <prefix>', 'Prefix for the index names', '')
   .argument('<data-root>', 'path to the docs-internal-data repo')
   .action(async (dataRepoRoot: string, options) => {
-    // In the future, we may want to support multiple languages
-    // Currently (since this is an experiment), we only support english
+    // AI search autocomplete indexes English only while the experiment runs.
     const languages = ['en']
     const indexPrefix = options.indexPrefix || ''
     if (!Array.isArray(options.version)) {
@@ -123,13 +131,18 @@ const aiSearchAutocompleteCommand = new Command('ai-search-autocomplete')
         versions,
         indexPrefix,
       })
-    } catch (error: any) {
-      if (error instanceof errors.ElasticsearchClientError) {
-        if ((error as any)?.meta) {
-          console.error('Error meta: %O', (error as any).meta)
-        }
+    } catch (error: unknown) {
+      if (
+        error instanceof errors.ElasticsearchClientError &&
+        'meta' in error &&
+        (error as { meta?: unknown }).meta
+      ) {
+        console.error('Error meta: %O', (error as { meta?: unknown }).meta)
       }
-      console.error('ai-search-autocomplete indexing error:', error.message)
+      console.error(
+        'ai-search-autocomplete indexing error:',
+        error instanceof Error ? error.message : error,
+      )
       process.exit(1)
     }
   })

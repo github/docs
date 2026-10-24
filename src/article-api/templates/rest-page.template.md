@@ -17,6 +17,13 @@
 
 {{ operation.description }}
 
+{% if operation.basicAuth %}
+
+> [!NOTE]
+> This endpoint requires [Basic authentication](/rest/authentication/authenticating-to-the-rest-api#using-basic-authentication). Use the application's `client_id` as the username and the `client_secret` as the password. Do not send an `Authorization: Bearer` header with this request, because it replaces the Basic credentials.
+
+{% endif %}
+
 {% if operation.hasParameters %}
 
 ### Parameters
@@ -84,9 +91,11 @@
 ```curl
 curl -L \
   -X {{ operation.verb | upcase }} \
-  {{ example.request.url }}{% if example.request.acceptHeader and example.request.acceptHeader != 'application/vnd.github+json' and example.request.acceptHeader != 'application/vnd.github.v3+json' %} \
-  -H "Accept: {{ example.request.acceptHeader }}"{% endif %}{% if example.request.bodyParameters %} \
-  -d '{{ example.request.bodyParameters }}'{% endif %}
+  {{ example.request.url }}{% if operation.basicAuth %} \
+  -u "<YOUR_CLIENT_ID>:<YOUR_CLIENT_SECRET>"{% endif %}{% if example.request.acceptHeader and example.request.acceptHeader != 'application/vnd.github+json' and example.request.acceptHeader != 'application/vnd.github.v3+json' %} \
+  -H "Accept: {{ example.request.acceptHeader }}"{% endif %}{% if example.request.needsContentTypeHeader %} \
+  -H "Content-Type: {{ example.request.contentType }}"{% endif %}{% if example.request.bodyParameters.size > 0 %}{% for bodyParameter in example.request.bodyParameters %} \
+  {{ bodyParameter }}{% endfor %}{% endif %}
 ```
 
 **Response schema (Status: {{ example.response.statusCode }}):**

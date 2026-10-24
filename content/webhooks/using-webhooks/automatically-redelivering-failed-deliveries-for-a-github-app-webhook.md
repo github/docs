@@ -32,7 +32,7 @@ The endpoints to find and redeliver failed webhooks require a JSON web token, wh
 The endpoints to fetch and update the value of environment variables require a {% data variables.product.pat_generic %}, {% data variables.product.prodname_github_app %} installation access token, or {% data variables.product.prodname_github_app %} user access token. This example uses a {% data variables.product.pat_generic %}. If your {% data variables.product.prodname_github_app %} is installed on the repository where this workflow will run and has permission to write repository variables, you can modify this example to create an installation access token during the {% data variables.product.prodname_actions %} workflow instead of using a {% data variables.product.pat_generic %}. For more information, see [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/making-authenticated-api-requests-with-a-github-app-in-a-github-actions-workflow).
 
 1. Find the app ID for your {% data variables.product.prodname_github_app %}. You can find the app ID on the settings page for your app. The app ID is different from the client ID. For more information about navigating to the settings page for your {% data variables.product.prodname_github_app %}, see [AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app-registration#navigating-to-your-github-app-settings).
-1. Store the app ID from the previous step as a {% data variables.product.prodname_actions %} secret in the repository where you want the workflow to run. For more information about storing secrets, see [AUTOTITLE](/actions/security-guides/encrypted-secrets).
+1. Store the app ID from the previous step as a {% data variables.product.prodname_actions %} secret in the repository where you want the workflow to run. For more information about storing secrets, see [AUTOTITLE](/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets).
 1. Generate a private key for your app. For more information about generating a private key, see [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/managing-private-keys-for-github-apps).
 1. Store the private key, including `-----BEGIN RSA PRIVATE KEY-----` and `-----END RSA PRIVATE KEY-----`, from the previous step as a {% data variables.product.prodname_actions %} secret in the repository where you want the workflow to run.
 1. Create a {% data variables.product.pat_generic %} with the following access. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
@@ -329,7 +329,7 @@ async function updateVariable({
 
 ## Testing the script
 
-You can manually trigger your workflow to test the script. For more information, see [AUTOTITLE](/actions/using-workflows/manually-running-a-workflow) and [AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs).
+You can manually trigger your workflow to test the script. For more information, see [AUTOTITLE](/actions/how-tos/manage-workflow-runs/manually-run-a-workflow) and [AUTOTITLE](/actions/how-tos/monitor-workflows/use-workflow-run-logs).
 
 ## Alternative methods
 

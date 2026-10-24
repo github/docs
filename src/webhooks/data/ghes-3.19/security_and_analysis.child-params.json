@@ -1,0 +1,116 @@
+{
+  "default": {
+    "changes": [
+      {
+        "type": "object",
+        "name": "from",
+        "description": "",
+        "childParamsGroups": [
+          {
+            "type": "object or null",
+            "name": "security_and_analysis",
+            "description": "",
+            "childParamsGroups": [
+              {
+                "type": "object",
+                "name": "advanced_security",
+                "description": "<p>Enable or disable GitHub Advanced Security for the repository.</p>\n<p>For standalone Code Scanning or Secret Protection products, this parameter cannot be used.</p>",
+                "childParamsGroups": [
+                  {
+                    "type": "string",
+                    "name": "status",
+                    "description": "",
+                    "enum": [
+                      "enabled",
+                      "disabled"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "object",
+                "name": "code_security",
+                "description": "",
+                "childParamsGroups": [
+                  {
+                    "type": "string",
+                    "name": "status",
+                    "description": "",
+                    "enum": [
+                      "enabled",
+                      "disabled"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "object",
+                "name": "dependabot_security_updates",
+                "description": "<p>Enable or disable Dependabot security updates for the repository.</p>",
+                "childParamsGroups": [
+                  {
+                    "type": "string",
+                    "name": "status",
+                    "description": "<p>The enablement status of Dependabot security updates for the repository.</p>",
+                    "enum": [
+                      "enabled",
+                      "disabled"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "object",
+                "name": "secret_scanning",
+                "description": "",
+                "childParamsGroups": [
+                  {
+                    "type": "string",
+                    "name": "status",
+                    "description": "",
+                    "enum": [
+                      "enabled",
+                      "disabled"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "object",
+                "name": "secret_scanning_push_protection",
+                "description": "",
+                "childParamsGroups": [
+                  {
+                    "type": "string",
+                    "name": "status",
+                    "description": "",
+                    "enum": [
+                      "enabled",
+                      "disabled"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "object",
+                "name": "secret_scanning_non_provider_patterns",
+                "description": "",
+                "childParamsGroups": [
+                  {
+                    "type": "string",
+                    "name": "status",
+                    "description": "",
+                    "enum": [
+                      "enabled",
+                      "disabled"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

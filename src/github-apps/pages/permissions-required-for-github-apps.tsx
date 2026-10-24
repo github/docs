@@ -1,4 +1,6 @@
 import { GetServerSideProps } from 'next'
+import type { Response } from 'express'
+import type { ExtendedRequest } from '@/types'
 import {
   AutomatedPageContextT,
   getAutomatedPageContextFromRequest,
@@ -42,7 +44,10 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
 
   return {
     props: {
-      mainContext: await getMainContext(context.req, context.res),
+      mainContext: await getMainContext(
+        context.req as unknown as ExtendedRequest,
+        context.res as unknown as Response,
+      ),
       currentVersion,
       appsItems: appsItems as PermissionListT,
       automatedPageContext: getAutomatedPageContextFromRequest(context.req),

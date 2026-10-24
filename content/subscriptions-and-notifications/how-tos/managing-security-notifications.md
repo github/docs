@@ -19,10 +19,10 @@ The notification options for your user account are available at [https://github.
 {% data reusables.notifications.vulnerable-dependency-notification-delivery-method-customization2 %}
 {% data reusables.notifications.vulnerable-dependency-notification-options %}
 
-For more information about the notification delivery methods available to you, and advice on optimizing your notifications for {% data variables.product.prodname_dependabot_alerts %}, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts).
+For more information about the notification delivery methods available to you, and advice on optimizing your notifications for {% data variables.product.prodname_dependabot_alerts %}, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-dependabot-notifications).
 
 ## {% data variables.product.prodname_secret_scanning_caps %} notification options
 
 {% data reusables.secret-scanning.secret-scanning-configure-notifications %}
 
-For more information on how to configure notifications for {% data variables.secret-scanning.alerts %}, see [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/monitoring-alerts).
+For more information on how to configure notifications for {% data variables.secret-scanning.alerts %}, see [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-secret-scanning-alerts/monitoring-alerts).

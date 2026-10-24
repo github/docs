@@ -14,24 +14,15 @@ export const internalLinksNoLang: Rule = {
       for (const child of token.children!) {
         if (child.type !== 'link_open') continue
 
-        // Example child.attrs:
-        // [
-        //  ['href', 'get-started'], ['target', '_blank'],
-        //  ['rel', 'canonical'],
-        // ]
-        // Attribute arrays are tuples of [attributeName, attributeValue] from markdownit parser
-        const hrefsMissingSlashes = child
-          .attrs! // The attribute could also be `target` or `rel`
-          .filter((attr: [string, string]) => attr[0] === 'href')
+        const hrefsWithLanguageCode = child
+          // markdown-it attrs also include target and rel, so filter for href.
+          .attrs!.filter((attr: [string, string]) => attr[0] === 'href')
           .filter((attr: [string, string]) => attr[1].startsWith('/') || !attr[1].startsWith('//'))
-          // Filter out link paths that start with language code
           .filter((attr: [string, string]) =>
             languageKeys.some((lang) => attr[1].split('/')[1] === lang),
           )
-          // Get the link path from the attribute
           .map((attr: [string, string]) => attr[1])
-        // Create errors for each link path that includes a language code
-        for (const linkPath of hrefsMissingSlashes) {
+        for (const linkPath of hrefsWithLanguageCode) {
           const range = getRange(child.line, linkPath)
           const languageCode = linkPath.split('/')[1]
           const replaceChar = linkPath === `/${languageCode}` ? '/' : ''

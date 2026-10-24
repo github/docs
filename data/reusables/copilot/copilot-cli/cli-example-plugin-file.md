@@ -1,5 +1,6 @@
 ```json copy
 {
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "my-dev-tools",
   "description": "React development utilities",
   "version": "1.2.0",
@@ -8,10 +9,6 @@
     "email": "jane@example.com"
   },
   "license": "MIT",
-  "keywords": ["react", "frontend"],
-  "agents": "agents/",
-  "skills": ["skills/", "extra-skills/"],
-  "hooks": "hooks.json",
-  "mcpServers": ".mcp.json"
+  "keywords": ["react", "frontend"]
 }
 ```

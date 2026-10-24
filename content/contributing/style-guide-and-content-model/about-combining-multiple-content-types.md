@@ -30,6 +30,6 @@ Often, it's helpful to group information in context to help people complete a co
 ## Examples of articles that combine multiple content types
 
 * [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility)
-* [AUTOTITLE](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise)
-* [AUTOTITLE](/free-pro-team@latest/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription)
-* [AUTOTITLE](/enterprise-server@latest/admin/configuration/enabling-and-scheduling-maintenance-mode)
+* [AUTOTITLE](/enterprise-cloud@latest/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise)
+* [AUTOTITLE](/free-pro-team@latest/billing/how-tos/manage-plan-and-licenses/upgrade-plan)
+* [AUTOTITLE](/enterprise-server@latest/admin/administering-your-instance/configuring-maintenance-mode/enabling-and-scheduling-maintenance-mode)

@@ -23,7 +23,7 @@ When you enable SAML single sign-on for your enterprise account, each enterprise
 
 {% ifversion ghec %}
 
-If your enterprise is uses {% data variables.product.prodname_emus %}, your members will use accounts provisioned through your IdP. {% data variables.enterprise.prodname_managed_users_caps %} will not use their existing user account on {% data variables.product.github %}. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users).
+If your enterprise uses {% data variables.product.prodname_emus %}, your members will use accounts provisioned through your IdP. {% data variables.enterprise.prodname_managed_users_caps %} will not use their existing user account on {% data variables.product.github %}. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/concepts/identity-and-access-management/enterprise-managed-users).
 
 {% endif %}
 
@@ -75,6 +75,12 @@ The identity data on this page will include the SCIM data that was sent to {% da
 ## Viewing and revoking authorized credentials
 
 {% data reusables.saml.about-authorized-credentials %}
+
+{% ifversion single_user_cred_revocation %}
+
+> [!TIP] To respond to security incidents, enterprise and organization owners can also revoke all SSO authorizations at once for individual users, all users, or a specific credential type such as {% data variables.product.pat_v1_plural %}. For enterprises with {% data variables.product.prodname_emus %}, you can delete credentials entirely. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/managing-iam/respond-to-incidents/revoke-authorizations-or-tokens).
+
+{% endif %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}

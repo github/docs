@@ -3,6 +3,7 @@ import path from 'path'
 
 import { fromMarkdown } from 'mdast-util-from-markdown'
 import { toMarkdown } from 'mdast-util-to-markdown'
+import { toString } from 'mdast-util-to-string'
 import { visitParents } from 'unist-util-visit-parents'
 import { visit, SKIP } from 'unist-util-visit'
 import { remove } from 'unist-util-remove'
@@ -30,6 +31,20 @@ interface ConversionResult {
   data: Frontmatter
 }
 
+// The conversion mutates the mdast tree as loosely typed node bags,
+// changing node.type, value, url and so on.
+// Model only the fields we touch.
+interface MdNode {
+  type: string
+  value: string
+  depth: number
+  lang?: string
+  meta?: string
+  url: string
+  title?: string
+  children: MdNode[]
+}
+
 const config: Config = JSON.parse(
   await readFile(path.join('src/codeql-cli/lib/config.json'), 'utf-8'),
 )
@@ -40,7 +55,6 @@ const HEADING_BEGIN = '::: {.option}\n'
 const END_SECTION = '\n:::'
 const PROGRAM_SECTION = '::: {.program}\n'
 
-// Updates several properties of the Markdown file using the AST
 export async function convertContentToDocs(
   content: string,
   frontmatterDefaults: FrontmatterDefaults = {},
@@ -51,84 +65,74 @@ export async function convertContentToDocs(
   let depth = 0
   let secondaryOptions = false
   const frontmatter: Frontmatter = { title: '', ...frontmatterDefaults }
-  const akaMsLinkMatches: any[] = []
+  const akaMsLinkMatches: MdNode[] = []
 
-  // Visit all heading nodes
-  visit(ast, 'heading', (node: any) => {
-    // This is the title of the article, so we want to store it to
-    // the frontmatter
+  visit(ast, 'heading', (rawNode) => {
+    const node = rawNode as unknown as MdNode
     if (node.depth === 1) {
       frontmatter.title = node.children[0].value
     }
 
-    // There are some headings that include a title followed by
-    // some markup that looks like
-    // {#options-to-configure-the-package-manager.}
+    // Some headings end with markup like {#options-to-configure-the-package-manager.}
     if (node.children[0].value.includes('{#')) {
       node.children[0].value = node.children[0].value.split('{#')[0].trim()
     }
 
-    // This is a workaround for the secondary options that are at the
-    // wrong heading level in the source rst files. Everything after the
-    // headings "Synopsis", "Description", and "Options" should be
-    // one level higher in Markdown.
+    // Headings after Primary options sit one level too deep in source rst, so shift them up.
     if (secondaryOptions) {
       node.depth = Math.max(1, Math.min(6, node.depth - 1))
     }
 
-    // This needs to be assigned after node.depth is modified above
+    // Capture depth after secondary options shift changes node.depth.
     depth = node.depth
     if (node.children[0].value === LAST_PRIMARY_HEADING && node.children[0].type === 'text') {
       secondaryOptions = true
     }
   })
 
-  // Visit heading and paragraph nodes to get intro text
   let currentNodeIsDescription = false
-  visit(ast, (node: any) => {
-    if (node.type !== 'heading' && node.type !== 'paragraph') return false
+  let descriptionParagraph: MdNode | undefined
+  visit(ast, (rawNode) => {
+    const node = rawNode as unknown as MdNode
+    // A bare return is CONTINUE. Returning false would mean EXIT,
+    // which stops the whole walk on the root node.
+    if (node.type !== 'heading' && node.type !== 'paragraph') return
 
-    // The first paragraph sibling to the heading "Description" is the
-    // node that contains the first string of the description text. We
-    // want to use that first string as the intro frontmatter
+    // The first paragraph after Description becomes intro frontmatter.
     if (node.children[0]?.value === 'Description' && node.children[0]?.type === 'text') {
       currentNodeIsDescription = true
     }
     if (currentNodeIsDescription && node.type === 'paragraph') {
-      frontmatter.intro = node.children[0]?.value
+      descriptionParagraph = node
       currentNodeIsDescription = false
       return SKIP
     }
   })
 
-  // Modify the text, code, and link nodes
   const matchNodeTypes = ['text', 'code', 'link']
   visitParents(
     ast,
-    (node: any) => {
-      return node && matchNodeTypes.includes(node.type)
+    (rawNode) => {
+      const node = rawNode as unknown as MdNode
+      return Boolean(node && matchNodeTypes.includes(node.type))
     },
-    (node: any, ancestors: any[]) => {
-      // Add the copy button to the example command
+    (rawNode, rawAncestors) => {
+      const node = rawNode as unknown as MdNode
+      const ancestors = rawAncestors as unknown as MdNode[]
       if (node.type === 'code' && node.value.startsWith(`codeql ${frontmatter.title}`)) {
         node.lang = 'shell'
         node.meta = 'copy'
       }
 
-      // This is the beginning of a secondary options section. For example,
-      // "Output format options." The rst file doesn't have a heading level
-      // for these, so we want to make it a Markdown heading at one level
-      // higher than the previous heading (which is a level lower than Options)
+      // Secondary labels "Output format options." lack depth; depth+1 nests under last heading.
       if (node.type === 'text' && node.value && node.value.includes(HEADING_BEGIN)) {
         node.value = node.value.replace(HEADING_BEGIN, '')
-        // Ancestors are ordered from the furthest away (root) to the closest.
-        // Make the text node's parent a heading node.
+        // Ancestors run root first, so the last one is the parent.
         ancestors[ancestors.length - 1].type = 'heading'
         ancestors[ancestors.length - 1].depth = Math.max(1, Math.min(6, depth + 1))
       }
 
-      // There are some keywords like [Plumbing] used by the code comments
-      // but we don't want to render them in the docs.
+      // Source code keywords like [Plumbing] do not belong in docs output.
       if (node.type === 'text' && node.value) {
         for (const keyword of removeKeywords) {
           if (node.value.includes(keyword)) {
@@ -137,86 +141,67 @@ export async function convertContentToDocs(
         }
       }
 
-      // The subsections under the main headings (level 2) are commands
-      // and start with either `-` or `<`. We want to make these inline code
-      // instead of text.
+      // Level 2 command headings start with - or <, so render them as inline code.
       if (
         node.type === 'text' &&
         ancestors[ancestors.length - 1].type === 'heading' &&
         (node.value.startsWith('-') || node.value.startsWith('<'))
       ) {
         node.type = 'inlineCode'
+        // Placeholders like <name@range> parse as email autolinks, so merge siblings into one code span.
+        const heading = ancestors[ancestors.length - 1]
+        node.value = toString(heading).replace(END_SECTION, '')
+        heading.children = [node]
       }
 
-      // Removes the strings that denote the end of an options sections. These
-      // strings were added during the pandoc conversion.
+      // Pandoc adds a marker at the end of each options section. Remove it.
       if (node.type === 'text' && node.value && node.value.includes(END_SECTION)) {
         node.value = node.value.replace(END_SECTION, '')
       }
 
-      // These are links to other CodeQL CLI docs. We want to convert them to
-      // Markdown links. Pandoc converts the rst links to a format that
-      // looks like this:
-      // `codeql test run<test-run>`{.interpreted-text role=\"doc\"}
-      // Link title: codeql test run
-      // Relative path: test-run
-      // And the rest can be removed.
-      // The inline code tag `codeql test run<test-run>` is one node and the
-      // string {.interpreted-text role=\"doc\"} is another node.
+      // Pandoc emits "codeql test run<test-run>" as inline code plus role marker; convert to link.
       if (node.type === 'text' && node.value.includes('{.interpreted-text')) {
         const paragraph = ancestors[ancestors.length - 1].children
         const docRoleTagChild = paragraph.findIndex(
-          (child: any) => child.value && child.value.includes('{.interpreted-text'),
+          (child: MdNode) => child.value && child.value.includes('{.interpreted-text'),
         )
         const link = paragraph[docRoleTagChild - 1]
-        // If child node is already a link node, skip it
         if (link.type === 'link') {
           return
         }
-        // Currently, this applies to the Markdown files generated by Pandoc,
-        // but it may not always be the case. If we find an exception to this
-        // rule, we may need to modify this code to handle it.
         if (link.type !== 'inlineCode') {
           throw new Error(
             'Unexpected node type. The node before a text node with {.interpreted-text role="doc"} should be an inline code or link node.',
           )
         }
 
-        // Sometimes there are newline characters in the middle of the title
-        // or in the link path. We want to remove those.
+        // Titles and link paths sometimes contain newlines.
         const linkText = link.value.split('<')[0].replace(/\n/g, ' ').trim()
         const linkPath = link.value.split('<')[1].split('>')[0].replace(/'\n/g, '').trim()
 
-        // Remove the string {.interpreted-text role="doc"} from this node
         node.value = node.value.replace(/\n/g, ' ').replace('{.interpreted-text role="doc"}', '')
 
-        // Check for circular links - if the link points to the same file we're processing
+        // Links to the file being converted would be circular.
         const currentFileBaseName = currentFileName.replace('.md', '')
         if (currentFileBaseName && linkPath === currentFileBaseName) {
-          // Convert circular link to plain text instead of creating a link
           link.type = 'text'
           link.value = linkText
         } else {
-          // Make the previous sibling node a link
           link.type = 'link'
           link.url = `${RELATIVE_LINK_PATH}/${linkPath}`
-          link.children = [{ type: 'text', value: linkText }]
-          delete link.value
+          link.children = [{ type: 'text', value: linkText }] as unknown as MdNode[]
+          delete (link as { value?: string }).value
         }
       }
 
-      // Save any nodes that contain aka.ms links so we can convert them later
+      // Resolve aka.ms redirects after the tree walk, because visit callbacks cannot await.
       if (node.type === 'link' && node.url.includes('aka.ms')) {
         akaMsLinkMatches.push(node)
       }
 
-      // There are example links in the format https://containers.GHEHOSTNAME
-      // that we don't want our link checker to check so we need to make them
-      // inline code instead of links. Ideally, this should be done in the
-      // Java program that generates the rst files, but we can do it here for now.
-      // See https://github.com/syntax-tree/mdast#inlinecode
+      // Render https://containers.GHEHOSTNAME example links as inline code so the link checker skips them.
       if (node.type === 'link' && node.url.startsWith('https://containers')) {
-        // The nodes before and after contain double quotes that we want to remove
+        // Strip the double quotes from the nodes either side.
         const nodeBefore = ancestors[ancestors.length - 1].children[0]
         const nodeAfter = ancestors[ancestors.length - 1].children[2]
         if (nodeBefore.value && nodeBefore.value.endsWith('"')) {
@@ -225,23 +210,32 @@ export async function convertContentToDocs(
         if (nodeAfter.value && nodeAfter.value.startsWith('"')) {
           nodeAfter.value = nodeAfter.value.slice(1)
         }
-        // Change the node to an inline code node
-        node.type = 'inlineCode'
-        node.value = node.url
-        node.title = undefined
-        node.url = undefined
-        node.children = undefined
+        const inlineCode = node as {
+          type: string
+          value: string
+          url?: string
+          title?: string
+          children?: MdNode[]
+        }
+        inlineCode.type = 'inlineCode'
+        inlineCode.value = node.url
+        inlineCode.title = undefined
+        inlineCode.url = undefined
+        inlineCode.children = undefined
       }
     },
   )
 
-  // Convert all aka.ms links to the docs.github.com relative path
+  // Read the intro after doc role markup becomes links, but before aka.ms link text becomes AUTOTITLE.
+  if (descriptionParagraph) {
+    frontmatter.intro = toString(descriptionParagraph)
+  }
+
+  // aka.ms redirects supply the docs.github.com relative path.
   await Promise.all(
-    akaMsLinkMatches.map(async (node: any) => {
+    akaMsLinkMatches.map(async (node: MdNode) => {
       const url = await getRedirect(node.url)
-      // The aka.ms urls are Markdown links in the ast already,
-      // so we only need to update the url and description
-      // rewrite the aka.ms link
+      // Existing Markdown links only need AUTOTITLE text and the resolved URL.
       if (node.children[0]) {
         node.children[0].value = 'AUTOTITLE'
       }
@@ -249,15 +243,22 @@ export async function convertContentToDocs(
     }),
   )
 
-  // remove the program section from the AST
-  remove(ast, (node: any) => node.value && node.value.startsWith(PROGRAM_SECTION))
-  // remove the first heading from the AST because that becomes frontmatter
-  remove(ast, (node: any) => node.type === 'heading' && node.depth === 1)
+  remove(ast, (rawNode) => {
+    const node = rawNode as unknown as MdNode
+    return Boolean(node.value && node.value.startsWith(PROGRAM_SECTION))
+  })
+  // Level 1 headings become the frontmatter title, so drop them from the body.
+  remove(ast, (rawNode) => {
+    const node = rawNode as unknown as MdNode
+    return node.type === 'heading' && node.depth === 1
+  })
 
-  return { content: toMarkdown(ast, MARKDOWN_OPTIONS as any), data: frontmatter }
+  return {
+    content: toMarkdown(ast, MARKDOWN_OPTIONS as Parameters<typeof toMarkdown>[1]),
+    data: frontmatter,
+  }
 }
 
-// performs a get request for a aka.ms url and returns the redirect url
 async function getRedirect(url: string): Promise<string> {
   let response: Response
   try {
@@ -271,25 +272,18 @@ async function getRedirect(url: string): Promise<string> {
     throw new Error(errorMsg)
   }
 
-  // Get the redirect location from the response header
   const redirectLocation = response.headers.get('location')
   if (!redirectLocation) {
     throw new Error(`No redirect location found for ${url}`)
   }
 
-  // Parse the URL to get the pathname
   const redirect = new URL(redirectLocation).pathname
 
-  // Some of the aka.ms links have the /en language prefix.
-  // This removes all language prefixes from the redirect url.
-  const redirectNoLang = languageKeys.reduce((acc, lang) => {
-    return acc.replace(`/${lang}`, ``)
-  }, redirect)
-
-  if (!redirectNoLang) {
-    const errorMsg = `The aka.ms redirected to an unexpected url: ${url}`
-    throw new Error(errorMsg)
+  // Some aka.ms links redirect to a URL with a language prefix such as /en.
+  const parts = redirect.split('/')
+  if (parts.length > 1 && languageKeys.includes(parts[1])) {
+    parts.splice(1, 1)
   }
 
-  return redirectNoLang
+  return parts.join('/')
 }

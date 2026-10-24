@@ -2,11 +2,6 @@ import { addError, ellipsify } from 'markdownlint-rule-helpers'
 import type { RuleParams, RuleErrorCallback } from '../../types'
 
 import { getRange } from '../helpers/utils'
-/*
-  This rule currently only checks for one hardcoded string but
-  can be generalized in the future to check for strings that
-  have data reusables.
-*/
 export const githubOwnedActionReferences = {
   names: ['GHD013', 'github-owned-action-references'],
   description: 'GitHub-owned action references should not be hardcoded',

@@ -295,6 +295,36 @@
       "requestPath": "/orgs/{org}/actions/permissions/workflow"
     },
     {
+      "slug": "list-organization-actions-policies",
+      "subcategory": "policies",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/actions/policies"
+    },
+    {
+      "slug": "create-an-organization-actions-policy",
+      "subcategory": "policies",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/actions/policies"
+    },
+    {
+      "slug": "get-an-organization-actions-policy",
+      "subcategory": "policies",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/actions/policies/{policy_id}"
+    },
+    {
+      "slug": "update-an-organization-actions-policy",
+      "subcategory": "policies",
+      "verb": "put",
+      "requestPath": "/orgs/{org}/actions/policies/{policy_id}"
+    },
+    {
+      "slug": "delete-an-organization-actions-policy",
+      "subcategory": "policies",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/actions/policies/{policy_id}"
+    },
+    {
       "slug": "list-self-hosted-runner-groups-for-an-organization",
       "subcategory": "self-hosted-runner-groups",
       "verb": "get",
@@ -383,6 +413,12 @@
       "subcategory": "self-hosted-runners",
       "verb": "get",
       "requestPath": "/orgs/{org}/actions/runners"
+    },
+    {
+      "slug": "get-runner-version-end-of-life-schedule-for-an-organization",
+      "subcategory": "self-hosted-runners",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/actions/runners/deprecations/{version}"
     },
     {
       "slug": "list-runner-applications-for-an-organization",
@@ -661,6 +697,12 @@
       "requestPath": "/repos/{owner}/{repo}/actions/jobs/{job_id}/rerun"
     },
     {
+      "slug": "download-step-logs-for-a-workflow-run-job",
+      "subcategory": "workflow-jobs",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/actions/jobs/{job_id}/steps/{step_number}/logs"
+    },
+    {
       "slug": "get-the-customization-template-for-an-oidc-subject-claim-for-a-repository",
       "subcategory": "oidc",
       "verb": "get",
@@ -769,10 +811,46 @@
       "requestPath": "/repos/{owner}/{repo}/actions/permissions/workflow"
     },
     {
+      "slug": "list-repository-actions-policies",
+      "subcategory": "policies",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/actions/policies"
+    },
+    {
+      "slug": "create-a-repository-actions-policy",
+      "subcategory": "policies",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/actions/policies"
+    },
+    {
+      "slug": "get-a-repository-actions-policy",
+      "subcategory": "policies",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/actions/policies/{policy_id}"
+    },
+    {
+      "slug": "update-a-repository-actions-policy",
+      "subcategory": "policies",
+      "verb": "put",
+      "requestPath": "/repos/{owner}/{repo}/actions/policies/{policy_id}"
+    },
+    {
+      "slug": "delete-a-repository-actions-policy",
+      "subcategory": "policies",
+      "verb": "delete",
+      "requestPath": "/repos/{owner}/{repo}/actions/policies/{policy_id}"
+    },
+    {
       "slug": "list-self-hosted-runners-for-a-repository",
       "subcategory": "self-hosted-runners",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/actions/runners"
+    },
+    {
+      "slug": "get-runner-version-end-of-life-schedule-for-a-repository",
+      "subcategory": "self-hosted-runners",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/actions/runners/deprecations/{version}"
     },
     {
       "slug": "list-runner-applications-for-a-repository",
@@ -1125,6 +1203,30 @@
   ],
   "activity": [
     {
+      "slug": "list-public-events",
+      "subcategory": "events",
+      "verb": "get",
+      "requestPath": "/events"
+    },
+    {
+      "slug": "get-feeds",
+      "subcategory": "feeds",
+      "verb": "get",
+      "requestPath": "/feeds"
+    },
+    {
+      "slug": "list-public-events-for-a-network-of-repositories",
+      "subcategory": "events",
+      "verb": "get",
+      "requestPath": "/networks/{owner}/{repo}/events"
+    },
+    {
+      "slug": "list-public-organization-events",
+      "subcategory": "events",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/events"
+    },
+    {
       "slug": "list-repository-events",
       "subcategory": "events",
       "verb": "get",
@@ -1135,6 +1237,18 @@
       "subcategory": "starring",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/stargazers"
+    },
+    {
+      "slug": "get-stargazer-count",
+      "subcategory": "starring",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/stargazers/count"
+    },
+    {
+      "slug": "get-repository-star-history",
+      "subcategory": "starring",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/stargazers/history"
     },
     {
       "slug": "list-watchers",
@@ -1173,10 +1287,34 @@
       "requestPath": "/user/subscriptions"
     },
     {
+      "slug": "list-events-for-the-authenticated-user",
+      "subcategory": "events",
+      "verb": "get",
+      "requestPath": "/users/{username}/events"
+    },
+    {
       "slug": "list-organization-events-for-the-authenticated-user",
       "subcategory": "events",
       "verb": "get",
       "requestPath": "/users/{username}/events/orgs/{org}"
+    },
+    {
+      "slug": "list-public-events-for-a-user",
+      "subcategory": "events",
+      "verb": "get",
+      "requestPath": "/users/{username}/events/public"
+    },
+    {
+      "slug": "list-events-received-by-the-authenticated-user",
+      "subcategory": "events",
+      "verb": "get",
+      "requestPath": "/users/{username}/received_events"
+    },
+    {
+      "slug": "list-public-events-received-by-a-user",
+      "subcategory": "events",
+      "verb": "get",
+      "requestPath": "/users/{username}/received_events/public"
     },
     {
       "slug": "list-repositories-starred-by-a-user",
@@ -1393,25 +1531,39 @@
       "requestPath": "/orgs/{org}/announcement"
     }
   ],
+  "apps": [
+    {
+      "slug": "get-an-app",
+      "subcategory": "apps",
+      "verb": "get",
+      "requestPath": "/apps/{app_slug}"
+    },
+    {
+      "slug": "add-a-repository-to-an-app-installation",
+      "subcategory": "installations",
+      "verb": "put",
+      "requestPath": "/user/installations/{installation_id}/repositories/{repository_id}"
+    },
+    {
+      "slug": "remove-a-repository-from-an-app-installation",
+      "subcategory": "installations",
+      "verb": "delete",
+      "requestPath": "/user/installations/{installation_id}/repositories/{repository_id}"
+    },
+    {
+      "slug": "list-subscriptions-for-the-authenticated-user",
+      "subcategory": "marketplace",
+      "verb": "get",
+      "requestPath": "/user/marketplace_purchases"
+    },
+    {
+      "slug": "list-subscriptions-for-the-authenticated-user-stubbed",
+      "subcategory": "marketplace",
+      "verb": "get",
+      "requestPath": "/user/marketplace_purchases/stubbed"
+    }
+  ],
   "billing": [
-    {
-      "slug": "list-usage-report-exports",
-      "subcategory": "usage-reports",
-      "verb": "get",
-      "requestPath": "/enterprises/{enterprise}/settings/billing/reports"
-    },
-    {
-      "slug": "create-a-usage-report-export",
-      "subcategory": "usage-reports",
-      "verb": "post",
-      "requestPath": "/enterprises/{enterprise}/settings/billing/reports"
-    },
-    {
-      "slug": "get-a-usage-report-export",
-      "subcategory": "usage-reports",
-      "verb": "get",
-      "requestPath": "/enterprises/{enterprise}/settings/billing/reports/{report_id}"
-    },
     {
       "slug": "get-github-advanced-security-active-committers-for-an-organization",
       "subcategory": "billing",
@@ -1681,7 +1833,45 @@
       "requestPath": "/orgs/{org}/campaigns/{campaign_number}"
     }
   ],
+  "code-quality": [
+    {
+      "slug": "list-code-quality-findings-for-a-repository",
+      "subcategory": "code-quality",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/code-quality/findings"
+    },
+    {
+      "slug": "get-a-code-quality-finding",
+      "subcategory": "code-quality",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/code-quality/findings/{finding_number}"
+    },
+    {
+      "slug": "get-a-code-quality-setup-configuration",
+      "subcategory": "code-quality",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/code-quality/setup"
+    },
+    {
+      "slug": "update-a-code-quality-setup-configuration",
+      "subcategory": "code-quality",
+      "verb": "patch",
+      "requestPath": "/repos/{owner}/{repo}/code-quality/setup"
+    }
+  ],
   "code-scanning": [
+    {
+      "slug": "get-the-ai-scan-setting-for-an-organization",
+      "subcategory": "code-scanning",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/code-scanning/ai-scan"
+    },
+    {
+      "slug": "update-the-ai-scan-setting-for-an-organization",
+      "subcategory": "code-scanning",
+      "verb": "patch",
+      "requestPath": "/orgs/{org}/code-scanning/ai-scan"
+    },
     {
       "slug": "list-code-scanning-alerts-for-an-organization",
       "subcategory": "code-scanning",
@@ -1693,6 +1883,18 @@
       "subcategory": "alert-dismissal-requests",
       "verb": "get",
       "requestPath": "/orgs/{org}/dismissal-requests/code-scanning"
+    },
+    {
+      "slug": "get-ai-scan-enablement-for-a-repository",
+      "subcategory": "code-scanning",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/code-scanning/ai-scan"
+    },
+    {
+      "slug": "update-ai-scan-enablement-for-a-repository",
+      "subcategory": "code-scanning",
+      "verb": "patch",
+      "requestPath": "/repos/{owner}/{repo}/code-scanning/ai-scan"
     },
     {
       "slug": "list-code-scanning-alerts-for-a-repository",
@@ -1899,6 +2101,20 @@
       "subcategory": "configurations",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/code-security-configuration"
+    }
+  ],
+  "codes-of-conduct": [
+    {
+      "slug": "get-all-codes-of-conduct",
+      "subcategory": "codes-of-conduct",
+      "verb": "get",
+      "requestPath": "/codes_of_conduct"
+    },
+    {
+      "slug": "get-a-code-of-conduct",
+      "subcategory": "codes-of-conduct",
+      "verb": "get",
+      "requestPath": "/codes_of_conduct/{key}"
     }
   ],
   "codespaces": [
@@ -2425,12 +2641,6 @@
       "requestPath": "/orgs/{org}/copilot/content_exclusion"
     },
     {
-      "slug": "get-copilot-metrics-for-an-organization",
-      "subcategory": "copilot-metrics",
-      "verb": "get",
-      "requestPath": "/orgs/{org}/copilot/metrics"
-    },
-    {
       "slug": "get-copilot-organization-usage-metrics-for-a-specific-day",
       "subcategory": "copilot-usage-metrics",
       "verb": "get",
@@ -2441,6 +2651,12 @@
       "subcategory": "copilot-usage-metrics",
       "verb": "get",
       "requestPath": "/orgs/{org}/copilot/metrics/reports/organization-28-day/latest"
+    },
+    {
+      "slug": "get-copilot-organization-repository-report-for-a-specific-day",
+      "subcategory": "copilot-usage-metrics",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/copilot/metrics/reports/repos-1-day"
     },
     {
       "slug": "get-copilot-organization-user-teams-report-for-a-specific-day",
@@ -2461,16 +2677,22 @@
       "requestPath": "/orgs/{org}/copilot/metrics/reports/users-28-day/latest"
     },
     {
+      "slug": "get-model-policies-for-an-organization",
+      "subcategory": "copilot-model-policy-management",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/copilot/model-policies"
+    },
+    {
+      "slug": "update-model-policies-for-an-organization",
+      "subcategory": "copilot-model-policy-management",
+      "verb": "patch",
+      "requestPath": "/orgs/{org}/copilot/model-policies"
+    },
+    {
       "slug": "get-copilot-seat-assignment-details-for-a-user",
       "subcategory": "copilot-user-management",
       "verb": "get",
       "requestPath": "/orgs/{org}/members/{username}/copilot"
-    },
-    {
-      "slug": "get-copilot-metrics-for-a-team",
-      "subcategory": "copilot-metrics",
-      "verb": "get",
-      "requestPath": "/orgs/{org}/team/{team_slug}/copilot/metrics"
     },
     {
       "slug": "get-copilot-cloud-agent-configuration-for-a-repository",
@@ -2777,6 +2999,12 @@
       "subcategory": "dependency-submission",
       "verb": "post",
       "requestPath": "/repos/{owner}/{repo}/dependency-graph/snapshots"
+    },
+    {
+      "slug": "check-license-compliance-for-packages",
+      "subcategory": "license-compliance",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/license-compliance/package-checks"
     }
   ],
   "deploy-keys": [
@@ -2933,12 +3161,44 @@
       "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment_protection_rules/{protection_rule_id}"
     }
   ],
+  "emojis": [
+    {
+      "slug": "get-emojis",
+      "subcategory": "emojis",
+      "verb": "get",
+      "requestPath": "/emojis"
+    }
+  ],
   "gists": [
+    {
+      "slug": "list-gists-for-the-authenticated-user",
+      "subcategory": "gists",
+      "verb": "get",
+      "requestPath": "/gists"
+    },
     {
       "slug": "create-a-gist",
       "subcategory": "gists",
       "verb": "post",
       "requestPath": "/gists"
+    },
+    {
+      "slug": "list-public-gists",
+      "subcategory": "gists",
+      "verb": "get",
+      "requestPath": "/gists/public"
+    },
+    {
+      "slug": "list-starred-gists",
+      "subcategory": "gists",
+      "verb": "get",
+      "requestPath": "/gists/starred"
+    },
+    {
+      "slug": "get-a-gist",
+      "subcategory": "gists",
+      "verb": "get",
+      "requestPath": "/gists/{gist_id}"
     },
     {
       "slug": "update-a-gist",
@@ -2953,10 +3213,22 @@
       "requestPath": "/gists/{gist_id}"
     },
     {
+      "slug": "list-gist-comments",
+      "subcategory": "comments",
+      "verb": "get",
+      "requestPath": "/gists/{gist_id}/comments"
+    },
+    {
       "slug": "create-a-gist-comment",
       "subcategory": "comments",
       "verb": "post",
       "requestPath": "/gists/{gist_id}/comments"
+    },
+    {
+      "slug": "get-a-gist-comment",
+      "subcategory": "comments",
+      "verb": "get",
+      "requestPath": "/gists/{gist_id}/comments/{comment_id}"
     },
     {
       "slug": "update-a-gist-comment",
@@ -2971,10 +3243,28 @@
       "requestPath": "/gists/{gist_id}/comments/{comment_id}"
     },
     {
+      "slug": "list-gist-commits",
+      "subcategory": "gists",
+      "verb": "get",
+      "requestPath": "/gists/{gist_id}/commits"
+    },
+    {
+      "slug": "list-gist-forks",
+      "subcategory": "gists",
+      "verb": "get",
+      "requestPath": "/gists/{gist_id}/forks"
+    },
+    {
       "slug": "fork-a-gist",
       "subcategory": "gists",
       "verb": "post",
       "requestPath": "/gists/{gist_id}/forks"
+    },
+    {
+      "slug": "check-if-a-gist-is-starred",
+      "subcategory": "gists",
+      "verb": "get",
+      "requestPath": "/gists/{gist_id}/star"
     },
     {
       "slug": "star-a-gist",
@@ -2987,6 +3277,18 @@
       "subcategory": "gists",
       "verb": "delete",
       "requestPath": "/gists/{gist_id}/star"
+    },
+    {
+      "slug": "get-a-gist-revision",
+      "subcategory": "gists",
+      "verb": "get",
+      "requestPath": "/gists/{gist_id}/{sha}"
+    },
+    {
+      "slug": "list-gists-for-a-user",
+      "subcategory": "gists",
+      "verb": "get",
+      "requestPath": "/users/{username}/gists"
     }
   ],
   "git": [
@@ -3069,6 +3371,20 @@
       "requestPath": "/repos/{owner}/{repo}/git/trees/{tree_sha}"
     }
   ],
+  "gitignore": [
+    {
+      "slug": "get-all-gitignore-templates",
+      "subcategory": "gitignore",
+      "verb": "get",
+      "requestPath": "/gitignore/templates"
+    },
+    {
+      "slug": "get-a-gitignore-template",
+      "subcategory": "gitignore",
+      "verb": "get",
+      "requestPath": "/gitignore/templates/{name}"
+    }
+  ],
   "interactions": [
     {
       "slug": "get-interaction-restrictions-for-an-organization",
@@ -3089,6 +3405,18 @@
       "requestPath": "/orgs/{org}/interaction-limits"
     },
     {
+      "slug": "get-pull-request-creation-cap-for-an-org",
+      "subcategory": "orgs",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/interaction-limits/pulls/creation-cap"
+    },
+    {
+      "slug": "update-pull-request-creation-cap-for-an-org",
+      "subcategory": "orgs",
+      "verb": "patch",
+      "requestPath": "/orgs/{org}/interaction-limits/pulls/creation-cap"
+    },
+    {
       "slug": "get-interaction-restrictions-for-a-repository",
       "subcategory": "repos",
       "verb": "get",
@@ -3105,6 +3433,36 @@
       "subcategory": "repos",
       "verb": "delete",
       "requestPath": "/repos/{owner}/{repo}/interaction-limits"
+    },
+    {
+      "slug": "get-pull-request-creation-cap-bypass-list-for-a-repository",
+      "subcategory": "repos",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/interaction-limits/pulls/bypass-list"
+    },
+    {
+      "slug": "add-users-to-the-pull-request-creation-cap-bypass-list-for-a-repository",
+      "subcategory": "repos",
+      "verb": "put",
+      "requestPath": "/repos/{owner}/{repo}/interaction-limits/pulls/bypass-list"
+    },
+    {
+      "slug": "remove-users-from-the-pull-request-creation-cap-bypass-list-for-a-repository",
+      "subcategory": "repos",
+      "verb": "delete",
+      "requestPath": "/repos/{owner}/{repo}/interaction-limits/pulls/bypass-list"
+    },
+    {
+      "slug": "get-pull-request-creation-cap-for-a-repository",
+      "subcategory": "repos",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/interaction-limits/pulls/creation-cap"
+    },
+    {
+      "slug": "update-pull-request-creation-cap-for-a-repository",
+      "subcategory": "repos",
+      "verb": "patch",
+      "requestPath": "/repos/{owner}/{repo}/interaction-limits/pulls/creation-cap"
     },
     {
       "slug": "get-interaction-restrictions-for-your-public-repositories",
@@ -3126,6 +3484,18 @@
     }
   ],
   "issues": [
+    {
+      "slug": "list-issues-assigned-to-the-authenticated-user",
+      "subcategory": "issues",
+      "verb": "get",
+      "requestPath": "/issues"
+    },
+    {
+      "slug": "list-organization-issues-assigned-to-the-authenticated-user",
+      "subcategory": "issues",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/issues"
+    },
     {
       "slug": "list-assignees",
       "subcategory": "assignees",
@@ -3343,6 +3713,24 @@
       "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/parent"
     },
     {
+      "slug": "list-issues-related-to-an-issue",
+      "subcategory": "issues",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/relates_to"
+    },
+    {
+      "slug": "add-a-related-issue",
+      "subcategory": "issues",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/relates_to"
+    },
+    {
+      "slug": "remove-a-related-issue",
+      "subcategory": "issues",
+      "verb": "delete",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/relates_to/{issue_id}"
+    },
+    {
       "slug": "remove-sub-issue",
       "subcategory": "sub-issues",
       "verb": "delete",
@@ -3365,6 +3753,24 @@
       "subcategory": "sub-issues",
       "verb": "patch",
       "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/sub_issues/priority"
+    },
+    {
+      "slug": "list-issue-suggestions",
+      "subcategory": "issues",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/suggestions"
+    },
+    {
+      "slug": "approve-an-issue-suggestion",
+      "subcategory": "issues",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/suggestions/{suggestion_id}/approve"
+    },
+    {
+      "slug": "dismiss-an-issue-suggestion",
+      "subcategory": "issues",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/suggestions/{suggestion_id}/dismiss"
     },
     {
       "slug": "list-timeline-events-for-an-issue",
@@ -3437,9 +3843,27 @@
       "subcategory": "labels",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/milestones/{milestone_number}/labels"
+    },
+    {
+      "slug": "list-user-account-issues-assigned-to-the-authenticated-user",
+      "subcategory": "issues",
+      "verb": "get",
+      "requestPath": "/user/issues"
     }
   ],
   "licenses": [
+    {
+      "slug": "get-all-commonly-used-licenses",
+      "subcategory": "licenses",
+      "verb": "get",
+      "requestPath": "/licenses"
+    },
+    {
+      "slug": "get-a-license",
+      "subcategory": "licenses",
+      "verb": "get",
+      "requestPath": "/licenses/{license}"
+    },
     {
       "slug": "get-the-license-for-a-repository",
       "subcategory": "licenses",
@@ -3453,6 +3877,44 @@
       "subcategory": "markdown",
       "verb": "post",
       "requestPath": "/markdown"
+    },
+    {
+      "slug": "render-a-markdown-document-in-raw-mode",
+      "subcategory": "markdown",
+      "verb": "post",
+      "requestPath": "/markdown/raw"
+    }
+  ],
+  "meta": [
+    {
+      "slug": "github-api-root",
+      "subcategory": "meta",
+      "verb": "get",
+      "requestPath": "/"
+    },
+    {
+      "slug": "get-github-enterprise-cloud-meta-information",
+      "subcategory": "meta",
+      "verb": "get",
+      "requestPath": "/meta"
+    },
+    {
+      "slug": "get-octocat",
+      "subcategory": "meta",
+      "verb": "get",
+      "requestPath": "/octocat"
+    },
+    {
+      "slug": "get-all-api-versions",
+      "subcategory": "meta",
+      "verb": "get",
+      "requestPath": "/versions"
+    },
+    {
+      "slug": "get-the-zen-of-github",
+      "subcategory": "meta",
+      "verb": "get",
+      "requestPath": "/zen"
     }
   ],
   "metrics": [
@@ -3569,6 +4031,12 @@
   ],
   "orgs": [
     {
+      "slug": "list-organizations",
+      "subcategory": "orgs",
+      "verb": "get",
+      "requestPath": "/organizations"
+    },
+    {
       "slug": "closing-down---list-custom-repository-roles-in-an-organization",
       "subcategory": "custom-roles",
       "verb": "get",
@@ -3585,6 +4053,12 @@
       "subcategory": "custom-properties-for-orgs",
       "verb": "patch",
       "requestPath": "/organizations/{org}/org-properties/values"
+    },
+    {
+      "slug": "get-an-organization",
+      "subcategory": "orgs",
+      "verb": "get",
+      "requestPath": "/orgs/{org}"
     },
     {
       "slug": "update-an-organization",
@@ -3611,6 +4085,18 @@
       "requestPath": "/orgs/{org}/artifacts/metadata/deployment-record/cluster/{cluster}"
     },
     {
+      "slug": "create-a-cluster-deployment-records-job",
+      "subcategory": "artifact-metadata",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/artifacts/metadata/deployment-record/cluster/{cluster}/jobs"
+    },
+    {
+      "slug": "get-cluster-deployment-records-job-status",
+      "subcategory": "artifact-metadata",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/artifacts/metadata/deployment-record/cluster/{cluster}/jobs/{job_id}"
+    },
+    {
       "slug": "create-artifact-metadata-storage-record",
       "subcategory": "artifact-metadata",
       "verb": "post",
@@ -3627,6 +4113,12 @@
       "subcategory": "artifact-metadata",
       "verb": "get",
       "requestPath": "/orgs/{org}/artifacts/{subject_digest}/metadata/storage-records"
+    },
+    {
+      "slug": "list-attestations-by-bulk-subject-digests",
+      "subcategory": "attestations",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/attestations/bulk-list"
     },
     {
       "slug": "delete-attestations-in-bulk",
@@ -3651,6 +4143,12 @@
       "subcategory": "attestations",
       "verb": "delete",
       "requestPath": "/orgs/{org}/attestations/{attestation_id}"
+    },
+    {
+      "slug": "list-attestations",
+      "subcategory": "attestations",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/attestations/{subject_digest}"
     },
     {
       "slug": "get-the-audit-log-for-an-organization",
@@ -3695,10 +4193,34 @@
       "requestPath": "/orgs/{org}/credential-authorizations"
     },
     {
+      "slug": "revoke-all-credential-authorizations-for-an-organization",
+      "subcategory": "orgs",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/credential-authorizations/revoke-all"
+    },
+    {
+      "slug": "revoke-a-single-credential-type-for-an-organization",
+      "subcategory": "orgs",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/credential-authorizations/revoke-credential-type"
+    },
+    {
       "slug": "remove-a-saml-sso-authorization-for-an-organization",
       "subcategory": "orgs",
       "verb": "delete",
       "requestPath": "/orgs/{org}/credential-authorizations/{credential_id}"
+    },
+    {
+      "slug": "revoke-credential-authorizations-for-a-user-in-an-organization",
+      "subcategory": "orgs",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/credential-authorizations/{username}/revoke"
+    },
+    {
+      "slug": "revoke-a-single-credential-type-for-a-user-in-an-organization",
+      "subcategory": "orgs",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/credential-authorizations/{username}/revoke-credential-type"
     },
     {
       "slug": "list-custom-repository-roles-in-an-organization",
@@ -4103,6 +4625,18 @@
       "requestPath": "/orgs/{org}/outside_collaborators/{username}"
     },
     {
+      "slug": "get-registered-app-installations-for-external-custom-properties",
+      "subcategory": "custom-properties",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/properties/installations"
+    },
+    {
+      "slug": "register-an-app-installation-for-external-custom-properties",
+      "subcategory": "custom-properties",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/properties/installations"
+    },
+    {
       "slug": "get-all-custom-properties-for-an-organization",
       "subcategory": "custom-properties",
       "verb": "get",
@@ -4325,6 +4859,12 @@
       "requestPath": "/orgs/{org}/{security_product}/{enablement}"
     },
     {
+      "slug": "list-organization-memberships-for-the-authenticated-user",
+      "subcategory": "members",
+      "verb": "get",
+      "requestPath": "/user/memberships/orgs"
+    },
+    {
       "slug": "get-an-organization-membership-for-the-authenticated-user",
       "subcategory": "members",
       "verb": "get",
@@ -4335,6 +4875,38 @@
       "subcategory": "members",
       "verb": "patch",
       "requestPath": "/user/memberships/orgs/{org}"
+    },
+    {
+      "slug": "list-organizations-for-the-authenticated-user",
+      "subcategory": "orgs",
+      "verb": "get",
+      "requestPath": "/user/orgs"
+    },
+    {
+      "slug": "list-organizations-for-a-user",
+      "subcategory": "orgs",
+      "verb": "get",
+      "requestPath": "/users/{username}/orgs"
+    }
+  ],
+  "packages": [
+    {
+      "slug": "get-list-of-conflicting-packages-during-docker-migration-for-organization",
+      "subcategory": "packages",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/docker/conflicts"
+    },
+    {
+      "slug": "get-list-of-conflicting-packages-during-docker-migration-for-authenticated-user",
+      "subcategory": "packages",
+      "verb": "get",
+      "requestPath": "/user/docker/conflicts"
+    },
+    {
+      "slug": "get-list-of-conflicting-packages-during-docker-migration-for-user",
+      "subcategory": "packages",
+      "verb": "get",
+      "requestPath": "/users/{username}/docker/conflicts"
     }
   ],
   "pages": [
@@ -4621,6 +5193,18 @@
       "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/merge"
     },
     {
+      "slug": "merge-a-pull-request-asynchronously",
+      "subcategory": "pulls",
+      "verb": "put",
+      "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/merge-async"
+    },
+    {
+      "slug": "get-the-result-of-an-asynchronous-merge",
+      "subcategory": "pulls",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/merge-async/{uuid}"
+    },
+    {
       "slug": "get-all-requested-reviewers-for-a-pull-request",
       "subcategory": "review-requests",
       "verb": "get",
@@ -4637,6 +5221,12 @@
       "subcategory": "review-requests",
       "verb": "delete",
       "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/requested_reviewers"
+    },
+    {
+      "slug": "rerequest-reviewers-for-a-pull-request",
+      "subcategory": "review-requests",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/requested_reviewers/rerequest"
     },
     {
       "slug": "list-reviews-for-a-pull-request",
@@ -4691,6 +5281,44 @@
       "subcategory": "pulls",
       "verb": "put",
       "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/update-branch"
+    },
+    {
+      "slug": "list-pull-request-stacks",
+      "subcategory": "stacks",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/stacks"
+    },
+    {
+      "slug": "create-a-pull-request-stack",
+      "subcategory": "stacks",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/stacks"
+    },
+    {
+      "slug": "get-a-pull-request-stack",
+      "subcategory": "stacks",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/stacks/{stack_number}"
+    },
+    {
+      "slug": "add-pull-requests-to-a-pull-request-stack",
+      "subcategory": "stacks",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/stacks/{stack_number}/add"
+    },
+    {
+      "slug": "remove-pull-requests-from-a-pull-request-stack",
+      "subcategory": "stacks",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/stacks/{stack_number}/unstack"
+    }
+  ],
+  "rate-limit": [
+    {
+      "slug": "get-rate-limit-status-for-the-authenticated-user",
+      "subcategory": "rate-limit",
+      "verb": "get",
+      "requestPath": "/rate_limit"
     }
   ],
   "reactions": [
@@ -4765,6 +5393,24 @@
       "subcategory": "reactions",
       "verb": "delete",
       "requestPath": "/repos/{owner}/{repo}/pulls/comments/{comment_id}/reactions/{reaction_id}"
+    },
+    {
+      "slug": "list-reactions-for-a-release",
+      "subcategory": "reactions",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/releases/{release_id}/reactions"
+    },
+    {
+      "slug": "create-reaction-for-a-release",
+      "subcategory": "reactions",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/releases/{release_id}/reactions"
+    },
+    {
+      "slug": "delete-a-release-reaction",
+      "subcategory": "reactions",
+      "verb": "delete",
+      "requestPath": "/repos/{owner}/{repo}/releases/{release_id}/reactions/{reaction_id}"
     }
   ],
   "releases": [
@@ -5089,6 +5735,12 @@
       "requestPath": "/repos/{owner}/{repo}/immutable-releases"
     },
     {
+      "slug": "list-issue-types-for-a-repository",
+      "subcategory": "issue-types",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/issue-types"
+    },
+    {
       "slug": "list-repository-languages",
       "subcategory": "repos",
       "verb": "get",
@@ -5321,10 +5973,46 @@
   ],
   "search": [
     {
+      "slug": "search-code",
+      "subcategory": "search",
+      "verb": "get",
+      "requestPath": "/search/code"
+    },
+    {
+      "slug": "search-commits",
+      "subcategory": "search",
+      "verb": "get",
+      "requestPath": "/search/commits"
+    },
+    {
+      "slug": "search-issues-and-pull-requests",
+      "subcategory": "search",
+      "verb": "get",
+      "requestPath": "/search/issues"
+    },
+    {
       "slug": "search-labels",
       "subcategory": "search",
       "verb": "get",
       "requestPath": "/search/labels"
+    },
+    {
+      "slug": "search-repositories",
+      "subcategory": "search",
+      "verb": "get",
+      "requestPath": "/search/repositories"
+    },
+    {
+      "slug": "search-topics",
+      "subcategory": "search",
+      "verb": "get",
+      "requestPath": "/search/topics"
+    },
+    {
+      "slug": "search-users",
+      "subcategory": "search",
+      "verb": "get",
+      "requestPath": "/search/users"
     }
   ],
   "secret-scanning": [
@@ -5345,6 +6033,30 @@
       "subcategory": "secret-scanning",
       "verb": "get",
       "requestPath": "/orgs/{org}/secret-scanning/alerts"
+    },
+    {
+      "slug": "list-organization-custom-patterns",
+      "subcategory": "custom-patterns",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/secret-scanning/custom-patterns"
+    },
+    {
+      "slug": "bulk-create-organization-custom-patterns",
+      "subcategory": "custom-patterns",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/secret-scanning/custom-patterns"
+    },
+    {
+      "slug": "bulk-delete-organization-custom-patterns",
+      "subcategory": "custom-patterns",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/secret-scanning/custom-patterns"
+    },
+    {
+      "slug": "update-an-organization-custom-pattern",
+      "subcategory": "custom-patterns",
+      "verb": "patch",
+      "requestPath": "/orgs/{org}/secret-scanning/custom-patterns/{pattern_id}"
     },
     {
       "slug": "list-organization-pattern-configurations",
@@ -5425,6 +6137,30 @@
       "requestPath": "/repos/{owner}/{repo}/secret-scanning/alerts/{alert_number}/locations"
     },
     {
+      "slug": "list-repository-custom-patterns",
+      "subcategory": "custom-patterns",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/secret-scanning/custom-patterns"
+    },
+    {
+      "slug": "bulk-create-repository-custom-patterns",
+      "subcategory": "custom-patterns",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/secret-scanning/custom-patterns"
+    },
+    {
+      "slug": "bulk-delete-repository-custom-patterns",
+      "subcategory": "custom-patterns",
+      "verb": "delete",
+      "requestPath": "/repos/{owner}/{repo}/secret-scanning/custom-patterns"
+    },
+    {
+      "slug": "update-a-repository-custom-pattern",
+      "subcategory": "custom-patterns",
+      "verb": "patch",
+      "requestPath": "/repos/{owner}/{repo}/secret-scanning/custom-patterns/{pattern_id}"
+    },
+    {
       "slug": "create-a-push-protection-bypass",
       "subcategory": "secret-scanning",
       "verb": "post",
@@ -5438,6 +6174,18 @@
     }
   ],
   "security-advisories": [
+    {
+      "slug": "list-global-security-advisories",
+      "subcategory": "global-advisories",
+      "verb": "get",
+      "requestPath": "/advisories"
+    },
+    {
+      "slug": "get-a-global-security-advisory",
+      "subcategory": "global-advisories",
+      "verb": "get",
+      "requestPath": "/advisories/{ghsa_id}"
+    },
     {
       "slug": "list-repository-security-advisories-for-an-organization",
       "subcategory": "repository-advisories",
@@ -5733,9 +6481,21 @@
       "subcategory": "teams",
       "verb": "get",
       "requestPath": "/teams/{team_id}/teams"
+    },
+    {
+      "slug": "list-teams-for-the-authenticated-user",
+      "subcategory": "teams",
+      "verb": "get",
+      "requestPath": "/user/teams"
     }
   ],
   "users": [
+    {
+      "slug": "get-the-authenticated-user",
+      "subcategory": "users",
+      "verb": "get",
+      "requestPath": "/user"
+    },
     {
       "slug": "update-the-authenticated-user",
       "subcategory": "users",
@@ -5875,6 +6635,12 @@
       "requestPath": "/user/public_emails"
     },
     {
+      "slug": "list-social-accounts-for-the-authenticated-user",
+      "subcategory": "social-accounts",
+      "verb": "get",
+      "requestPath": "/user/social_accounts"
+    },
+    {
       "slug": "add-social-accounts-for-the-authenticated-user",
       "subcategory": "social-accounts",
       "verb": "post",
@@ -5911,6 +6677,30 @@
       "requestPath": "/user/ssh_signing_keys/{ssh_signing_key_id}"
     },
     {
+      "slug": "get-a-user-using-their-id",
+      "subcategory": "users",
+      "verb": "get",
+      "requestPath": "/user/{account_id}"
+    },
+    {
+      "slug": "list-users",
+      "subcategory": "users",
+      "verb": "get",
+      "requestPath": "/users"
+    },
+    {
+      "slug": "get-a-user",
+      "subcategory": "users",
+      "verb": "get",
+      "requestPath": "/users/{username}"
+    },
+    {
+      "slug": "list-attestations-by-bulk-subject-digests",
+      "subcategory": "attestations",
+      "verb": "post",
+      "requestPath": "/users/{username}/attestations/bulk-list"
+    },
+    {
       "slug": "delete-attestations-in-bulk",
       "subcategory": "attestations",
       "verb": "post",
@@ -5929,10 +6719,52 @@
       "requestPath": "/users/{username}/attestations/{attestation_id}"
     },
     {
+      "slug": "list-attestations",
+      "subcategory": "attestations",
+      "verb": "get",
+      "requestPath": "/users/{username}/attestations/{subject_digest}"
+    },
+    {
+      "slug": "list-followers-of-a-user",
+      "subcategory": "followers",
+      "verb": "get",
+      "requestPath": "/users/{username}/followers"
+    },
+    {
+      "slug": "list-the-people-a-user-follows",
+      "subcategory": "followers",
+      "verb": "get",
+      "requestPath": "/users/{username}/following"
+    },
+    {
+      "slug": "check-if-a-user-follows-another-user",
+      "subcategory": "followers",
+      "verb": "get",
+      "requestPath": "/users/{username}/following/{target_user}"
+    },
+    {
+      "slug": "list-gpg-keys-for-a-user",
+      "subcategory": "gpg-keys",
+      "verb": "get",
+      "requestPath": "/users/{username}/gpg_keys"
+    },
+    {
       "slug": "list-public-keys-for-a-user",
       "subcategory": "keys",
       "verb": "get",
       "requestPath": "/users/{username}/keys"
+    },
+    {
+      "slug": "list-social-accounts-for-a-user",
+      "subcategory": "social-accounts",
+      "verb": "get",
+      "requestPath": "/users/{username}/social_accounts"
+    },
+    {
+      "slug": "list-ssh-signing-keys-for-a-user",
+      "subcategory": "ssh-signing-keys",
+      "verb": "get",
+      "requestPath": "/users/{username}/ssh_signing_keys"
     }
   ]
 }

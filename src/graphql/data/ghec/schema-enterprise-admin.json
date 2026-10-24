@@ -60,7 +60,7 @@
       "type": "EnterpriseAdministratorInvitation",
       "id": "enterpriseadministratorinvitation",
       "href": "/graphql/reference/enterprise-admin#object-enterpriseadministratorinvitation",
-      "description": "<p>Look up a pending enterprise administrator invitation by invitation token.</p>",
+      "description": "<p>Look up a pending enterprise administrator invitation by invitation token. If\nthe invitation was sent to an email address, the viewer must have verified\nthat email address, or otherwise be an administrator of the enterprise.</p>",
       "args": [
         {
           "name": "invitationToken",
@@ -101,7 +101,7 @@
       "type": "EnterpriseMemberInvitation",
       "id": "enterprisememberinvitation",
       "href": "/graphql/reference/enterprise-admin#object-enterprisememberinvitation",
-      "description": "<p>Look up a pending enterprise unaffiliated member invitation by invitation token.</p>",
+      "description": "<p>Look up a pending enterprise unaffiliated member invitation by invitation\ntoken. If the invitation was sent to an email address, the viewer must have\nverified that email address, or otherwise be an administrator of the enterprise.</p>",
       "args": [
         {
           "name": "invitationToken",
@@ -378,7 +378,7 @@
       "name": "createEnterpriseOrganization",
       "id": "createenterpriseorganization",
       "href": "/graphql/reference/enterprise-admin#mutation-createenterpriseorganization",
-      "description": "<p>Creates an organization as part of an enterprise account. A personal access\ntoken used to create an organization is implicitly permitted to update the\norganization it created, if the organization is part of an enterprise that has\nSAML enabled or uses Enterprise Managed Users. If the organization is not part\nof such an enterprise, and instead has SAML enabled for it individually, the\ntoken will then require SAML authorization to continue working against that organization.</p>",
+      "description": "<p>Creates an organization as part of an enterprise account. User-authenticated\nrequests make the viewer an owner. Users listed in <code>adminLogins</code> are invited\nas owners unless owner invitations are disabled, in which case they are added\ndirectly. Installation requests also add existing enterprise members directly.\nInvitation failures do not roll back organization creation. A personal access\ntoken used to create an organization is implicitly permitted to update the\norganization it created, if the organization is part of an enterprise that has\nSAML enabled or uses Enterprise Managed Users. If the organization is not part\nof such an enterprise, and instead has SAML enabled for it individually, the\ntoken will then require SAML authorization to continue working against that organization.</p>",
       "isDeprecated": false,
       "inputFields": [
         {
@@ -694,7 +694,7 @@
       "name": "removeEnterpriseMember",
       "id": "removeenterprisemember",
       "href": "/graphql/reference/enterprise-admin#mutation-removeenterprisemember",
-      "description": "<p>Completely removes a user from the enterprise.</p>",
+      "description": "<p>Completely removes a user from the enterprise asynchronously.</p>",
       "isDeprecated": false,
       "inputFields": [
         {
@@ -1903,6 +1903,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: ID, direction: ASC}",
               "description": "<p>Ordering options for enterprise teams returned from the connection.</p>",
               "type": {
                 "name": "EnterpriseTeamOrder",
@@ -1918,6 +1919,15 @@
                 "id": "string",
                 "href": "/graphql/reference/other#scalar-string"
               }
+            },
+            {
+              "name": "userLogins",
+              "description": "<p>User logins to filter by. A maximum of 3 logins can be passed.</p>",
+              "type": {
+                "name": "[String!]",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
             }
           ]
         },
@@ -1927,6 +1937,88 @@
           "type": "ID!",
           "id": "id",
           "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "innersourceVulnerabilities",
+          "description": "<p>Innersource security vulnerabilities scoped to this enterprise.</p>",
+          "type": "SecurityVulnerabilityConnection!",
+          "id": "securityvulnerabilityconnection",
+          "href": "/graphql/reference/security-advisories#object-securityvulnerabilityconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "ecosystem",
+              "description": "<p>An ecosystem to filter vulnerabilities by.</p>",
+              "type": {
+                "name": "SecurityAdvisoryEcosystem",
+                "id": "securityadvisoryecosystem",
+                "href": "/graphql/reference/security-advisories#enum-securityadvisoryecosystem"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "defaultValue": "{field: UPDATED_AT, direction: DESC}",
+              "description": "<p>Ordering options for the returned vulnerabilities.</p>",
+              "type": {
+                "name": "SecurityVulnerabilityOrder",
+                "id": "securityvulnerabilityorder",
+                "href": "/graphql/reference/security-advisories#input-object-securityvulnerabilityorder"
+              }
+            },
+            {
+              "name": "package",
+              "description": "<p>A package name to filter vulnerabilities by.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "severities",
+              "description": "<p>A list of severities to filter vulnerabilities by.</p>",
+              "type": {
+                "name": "[SecurityAdvisorySeverity!]",
+                "id": "securityadvisoryseverity",
+                "href": "/graphql/reference/security-advisories#enum-securityadvisoryseverity"
+              }
+            }
+          ]
         },
         {
           "name": "location",
@@ -1998,6 +2090,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: LOGIN, direction: ASC}",
               "description": "<p>Ordering options for members returned from the connection.</p>",
               "type": {
                 "name": "EnterpriseMemberOrder",
@@ -2095,6 +2188,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: LOGIN, direction: ASC}",
               "description": "<p>Ordering options for organizations returned from the connection.</p>",
               "type": {
                 "name": "OrganizationOrder",
@@ -2349,6 +2443,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: NAME, direction: ASC}",
               "description": "<p>Ordering options for repositories returned from the connection.</p>",
               "type": {
                 "name": "RepositoryOrder",
@@ -3037,6 +3132,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: LOGIN, direction: ASC}",
               "description": "<p>Ordering options for administrators returned from the connection.</p>",
               "type": {
                 "name": "EnterpriseMemberOrder",
@@ -3186,6 +3282,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: LOGIN, direction: ASC}",
               "description": "<p>Ordering options for organizations with this setting.</p>",
               "type": {
                 "name": "OrganizationOrder",
@@ -3263,6 +3360,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: LOGIN, direction: ASC}",
               "description": "<p>Ordering options for organizations with this setting.</p>",
               "type": {
                 "name": "OrganizationOrder",
@@ -3344,6 +3442,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: DOMAIN, direction: ASC}",
               "description": "<p>Ordering options for verifiable domains returned.</p>",
               "type": {
                 "name": "VerifiableDomainOrder",
@@ -3408,6 +3507,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: HOST_NAME, direction: ASC}",
               "description": "<p>Ordering options for Enterprise Server installations returned.</p>",
               "type": {
                 "name": "EnterpriseServerInstallationOrder",
@@ -3523,6 +3623,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: ALLOW_LIST_VALUE, direction: ASC}",
               "description": "<p>Ordering options for IP allow list entries returned.</p>",
               "type": {
                 "name": "IpAllowListEntryOrder",
@@ -3612,6 +3713,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: LOGIN, direction: ASC}",
               "description": "<p>Ordering options for organizations with this setting.</p>",
               "type": {
                 "name": "OrganizationOrder",
@@ -3703,6 +3805,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: LOGIN, direction: ASC}",
               "description": "<p>Ordering options for organizations with this setting.</p>",
               "type": {
                 "name": "OrganizationOrder",
@@ -3773,6 +3876,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: LOGIN, direction: ASC}",
               "description": "<p>Ordering options for organizations with this setting.</p>",
               "type": {
                 "name": "OrganizationOrder",
@@ -3843,6 +3947,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: LOGIN, direction: ASC}",
               "description": "<p>Ordering options for organizations with this setting.</p>",
               "type": {
                 "name": "OrganizationOrder",
@@ -3913,6 +4018,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: LOGIN, direction: ASC}",
               "description": "<p>Ordering options for organizations with this setting.</p>",
               "type": {
                 "name": "OrganizationOrder",
@@ -3990,6 +4096,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: LOGIN, direction: ASC}",
               "description": "<p>Ordering options for organizations with this setting.</p>",
               "type": {
                 "name": "OrganizationOrder",
@@ -4060,6 +4167,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: LOGIN, direction: ASC}",
               "description": "<p>Ordering options for organizations with this setting.</p>",
               "type": {
                 "name": "OrganizationOrder",
@@ -4144,6 +4252,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: LOGIN, direction: ASC}",
               "description": "<p>Ordering options for organizations with this setting.</p>",
               "type": {
                 "name": "OrganizationOrder",
@@ -4225,6 +4334,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: LOGIN, direction: ASC}",
               "description": "<p>Ordering options for outside collaborators returned from the connection.</p>",
               "type": {
                 "name": "EnterpriseMemberOrder",
@@ -4315,6 +4425,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: CREATED_AT, direction: DESC}",
               "description": "<p>Ordering options for pending enterprise administrator invitations returned from the connection.</p>",
               "type": {
                 "name": "EnterpriseAdministratorInvitationOrder",
@@ -4387,6 +4498,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: CREATED_AT, direction: DESC}",
               "description": "<p>Ordering options for pending repository collaborator invitations returned from the connection.</p>",
               "type": {
                 "name": "RepositoryInvitationOrder",
@@ -4522,6 +4634,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: CREATED_AT, direction: DESC}",
               "description": "<p>Ordering options for pending enterprise member invitations returned from the connection.</p>",
               "type": {
                 "name": "EnterpriseMemberInvitationOrder",
@@ -4592,6 +4705,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: LOGIN, direction: ASC}",
               "description": "<p>Ordering options for organizations with this setting.</p>",
               "type": {
                 "name": "OrganizationOrder",
@@ -4662,6 +4776,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: LOGIN, direction: ASC}",
               "description": "<p>Ordering options for organizations with this setting.</p>",
               "type": {
                 "name": "OrganizationOrder",
@@ -4732,6 +4847,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: LOGIN, direction: ASC}",
               "description": "<p>Ordering options for organizations with this setting.</p>",
               "type": {
                 "name": "OrganizationOrder",
@@ -4795,6 +4911,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: LOGIN, direction: ASC}",
               "description": "<p>Ordering options for support entitlement users returned from the connection.</p>",
               "type": {
                 "name": "EnterpriseMemberOrder",
@@ -4872,6 +4989,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: LOGIN, direction: ASC}",
               "description": "<p>Ordering options for organizations with this setting.</p>",
               "type": {
                 "name": "OrganizationOrder",
@@ -5099,6 +5217,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: LOGIN, direction: ASC}",
               "description": "<p>Ordering options for Enterprise Server user accounts returned from the connection.</p>",
               "type": {
                 "name": "EnterpriseServerUserAccountOrder",
@@ -5153,6 +5272,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: CREATED_AT, direction: DESC}",
               "description": "<p>Ordering options for Enterprise Server user accounts uploads returned from the connection.</p>",
               "type": {
                 "name": "EnterpriseServerUserAccountsUploadOrder",
@@ -5358,6 +5478,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: EMAIL, direction: ASC}",
               "description": "<p>Ordering options for Enterprise Server user account emails returned from the connection.</p>",
               "type": {
                 "name": "EnterpriseServerUserAccountEmailOrder",
@@ -5795,6 +5916,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: ID, direction: ASC}",
               "description": "<p>Ordering options for organizations returned from the connection.</p>",
               "type": {
                 "name": "EnterpriseTeamOrganizationOrder",
@@ -5877,6 +5999,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: ID, direction: ASC}",
               "description": "<p>Order for the connection.</p>",
               "type": {
                 "name": "EnterpriseTeamMemberOrder",
@@ -6124,6 +6247,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: HOST_NAME, direction: ASC}",
               "description": "<p>Ordering options for installations returned from the connection.</p>",
               "type": {
                 "name": "EnterpriseServerInstallationOrder",
@@ -6217,6 +6341,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: LOGIN, direction: ASC}",
               "description": "<p>Ordering options for organizations returned from the connection.</p>",
               "type": {
                 "name": "OrganizationOrder",
@@ -12071,7 +12196,7 @@
       "inputFields": [
         {
           "name": "adminLogins",
-          "description": "<p>The logins for the administrators of the new organization.</p>",
+          "description": "<p>The logins of additional organization owners. Listed users are invited unless\nowner invitations are disabled, in which case they are added directly.\nInstallation requests also add existing enterprise members directly.</p>",
           "type": "[String!]!",
           "id": "string",
           "href": "/graphql/reference/other#scalar-string"
@@ -12123,7 +12248,7 @@
       "inputFields": [
         {
           "name": "allowListValue",
-          "description": "<p>An IP address or range of addresses in CIDR notation.</p>",
+          "description": "<p>An IP address or range of addresses in CIDR notation. Ranges that cover the\nentire address space, such as <code>0.0.0.0/0</code> or <code>::/0</code>, are not accepted for\norganizations or enterprises.</p>",
           "type": "String!",
           "id": "string",
           "href": "/graphql/reference/other#scalar-string"
@@ -13557,7 +13682,7 @@
       "inputFields": [
         {
           "name": "allowListValue",
-          "description": "<p>An IP address or range of addresses in CIDR notation.</p>",
+          "description": "<p>An IP address or range of addresses in CIDR notation. Ranges that cover the\nentire address space, such as <code>0.0.0.0/0</code> or <code>::/0</code>, are not accepted for\norganizations or enterprises.</p>",
           "type": "String!",
           "id": "string",
           "href": "/graphql/reference/other#scalar-string"

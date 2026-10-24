@@ -304,7 +304,7 @@
         {
           "type": "string",
           "name": "sha",
-          "description": "<p>The commit SHA associated with this dependency snapshot. Maximum length: 40 characters.</p>",
+          "description": "<p>The commit SHA associated with this dependency snapshot. Maximum length: 64 characters.</p>",
           "isRequired": true
         },
         {
@@ -546,6 +546,649 @@
       }
     }
   ],
+  "license-compliance": [
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/license-compliance/policies/{policy_id}",
+      "title": "Get the license compliance policy for an enterprise",
+      "category": "dependency-graph",
+      "subcategory": "license-compliance",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "description": "<p>The slug version of the enterprise name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "policy_id",
+          "in": "path",
+          "required": true,
+          "description": "<p>The unique identifier of the policy within the enterprise. Currently, only <code>default</code> is supported.</p>",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Gets the license compliance policy for an enterprise.</p>\n<p>Currently, only the policy with the ID <code>default</code> is supported.</p>\n<p>The authenticated user must be an enterprise owner, or have the \"View enterprise license policy\" or \"Edit enterprise license policy\" fine-grained permission on the enterprise.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "enterprise": "ENTERPRISE",
+              "policy_id": "POLICY_ID"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "created_at": "2026-09-22T12:00:00Z",
+              "licenses": {
+                "allowed": [
+                  {
+                    "spdx_id": "MIT",
+                    "added_at": "2026-09-22T12:00:00Z"
+                  }
+                ]
+              },
+              "packages": [
+                {
+                  "package_manager": "npm",
+                  "name": "example-package",
+                  "action": "allowed",
+                  "reason": "Approved exception.",
+                  "extra_allowed_spdx_ids": [
+                    "MIT"
+                  ],
+                  "added_at": "2026-09-22T12:00:00Z"
+                }
+              ]
+            },
+            "schema": {
+              "type": "object",
+              "title": "Enterprise license policy",
+              "description": "The license compliance policy for an enterprise.",
+              "allOf": [
+                {
+                  "type": "object",
+                  "title": "Enterprise license policy content",
+                  "properties": {
+                    "licenses": {
+                      "type": "object",
+                      "properties": {
+                        "allowed": {
+                          "type": "array",
+                          "description": "The licenses allowed by this policy.",
+                          "items": {
+                            "type": "object",
+                            "title": "Allowed license",
+                            "properties": {
+                              "spdx_id": {
+                                "type": "string",
+                                "description": "The SPDX identifier of the license."
+                              },
+                              "added_at": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "format": "date-time",
+                                "description": "The time the license was added to the policy."
+                              }
+                            },
+                            "required": [
+                              "spdx_id",
+                              "added_at"
+                            ]
+                          }
+                        }
+                      },
+                      "required": [
+                        "allowed"
+                      ]
+                    },
+                    "packages": {
+                      "type": "array",
+                      "description": "The package-level exceptions in this policy.",
+                      "items": {
+                        "type": "object",
+                        "title": "License policy package exception",
+                        "properties": {
+                          "package_manager": {
+                            "type": "string",
+                            "description": "The package manager the package belongs to.",
+                            "enum": [
+                              "unknown",
+                              "rubygems",
+                              "npm",
+                              "pip",
+                              "maven",
+                              "nuget",
+                              "composer",
+                              "gomod",
+                              "rust",
+                              "actions",
+                              "pub",
+                              "swift"
+                            ]
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "The name of the package."
+                          },
+                          "action": {
+                            "type": "string",
+                            "description": "How the package is treated by the policy.",
+                            "enum": [
+                              "unknown",
+                              "allowed",
+                              "private"
+                            ]
+                          },
+                          "reason": {
+                            "type": "string",
+                            "description": "The reason the exception was added."
+                          },
+                          "extra_allowed_spdx_ids": {
+                            "type": "array",
+                            "description": "Additional SPDX identifiers allowed for this package.",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "added_at": {
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "format": "date-time",
+                            "description": "The time the exception was added to the policy."
+                          }
+                        },
+                        "required": [
+                          "package_manager",
+                          "name",
+                          "action",
+                          "reason",
+                          "extra_allowed_spdx_ids",
+                          "added_at"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "licenses",
+                    "packages"
+                  ]
+                }
+              ],
+              "properties": {
+                "created_at": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date-time",
+                  "description": "The time the policy was created."
+                }
+              },
+              "required": [
+                "created_at"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "503",
+          "description": "<p>Service unavailable</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": false,
+        "permissions": [
+          {
+            "\"Enterprise license policy\" enterprise permissions": "read"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "put",
+      "requestPath": "/enterprises/{enterprise}/license-compliance/policies/{policy_id}",
+      "title": "Set the license compliance policy for an enterprise",
+      "category": "dependency-graph",
+      "subcategory": "license-compliance",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "description": "<p>The slug version of the enterprise name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "policy_id",
+          "in": "path",
+          "required": true,
+          "description": "<p>The unique identifier of the policy within the enterprise. Currently, only <code>default</code> is supported.</p>",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "object",
+          "name": "licenses",
+          "description": "",
+          "isRequired": true,
+          "childParamsGroups": [
+            {
+              "type": "array of objects",
+              "name": "allowed",
+              "description": "<p>The licenses allowed by this policy.</p>",
+              "isRequired": true,
+              "childParamsGroups": [
+                {
+                  "type": "string",
+                  "name": "spdx_id",
+                  "description": "<p>The SPDX identifier of the license.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string or null",
+                  "name": "added_at",
+                  "description": "<p>The time the license was added to the policy.</p>",
+                  "isRequired": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "array of objects",
+          "name": "packages",
+          "description": "<p>The package-level exceptions in this policy.</p>",
+          "isRequired": true,
+          "childParamsGroups": [
+            {
+              "type": "string",
+              "name": "package_manager",
+              "description": "<p>The package manager the package belongs to.</p>",
+              "isRequired": true,
+              "enum": [
+                "unknown",
+                "rubygems",
+                "npm",
+                "pip",
+                "maven",
+                "nuget",
+                "composer",
+                "gomod",
+                "rust",
+                "actions",
+                "pub",
+                "swift"
+              ]
+            },
+            {
+              "type": "string",
+              "name": "name",
+              "description": "<p>The name of the package.</p>",
+              "isRequired": true
+            },
+            {
+              "type": "string",
+              "name": "action",
+              "description": "<p>How the package is treated by the policy.</p>",
+              "isRequired": true,
+              "enum": [
+                "unknown",
+                "allowed",
+                "private"
+              ]
+            },
+            {
+              "type": "string",
+              "name": "reason",
+              "description": "<p>The reason the exception was added.</p>",
+              "isRequired": true
+            },
+            {
+              "type": "array of strings",
+              "name": "extra_allowed_spdx_ids",
+              "description": "<p>Additional SPDX identifiers allowed for this package.</p>",
+              "isRequired": true
+            },
+            {
+              "type": "string or null",
+              "name": "added_at",
+              "description": "<p>The time the exception was added to the policy.</p>",
+              "isRequired": true
+            }
+          ]
+        }
+      ],
+      "descriptionHTML": "<p>Sets the license compliance policy for an enterprise.</p>\n<p>Currently, only the policy with the ID <code>default</code> is supported.</p>\n<p>The authenticated user must be an enterprise owner, or have the \"Edit enterprise license policy\" fine-grained permission on the enterprise.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "licenses": {
+                "allowed": [
+                  {
+                    "spdx_id": "MIT",
+                    "added_at": "2026-09-22T12:00:00Z"
+                  }
+                ]
+              },
+              "packages": [
+                {
+                  "package_manager": "npm",
+                  "name": "example-package",
+                  "action": "allowed",
+                  "reason": "Approved exception.",
+                  "extra_allowed_spdx_ids": [
+                    "MIT"
+                  ],
+                  "added_at": "2026-09-22T12:00:00Z"
+                }
+              ]
+            },
+            "parameters": {
+              "enterprise": "ENTERPRISE",
+              "policy_id": "POLICY_ID"
+            }
+          },
+          "response": {
+            "statusCode": "204",
+            "description": "<p>A header with no content is returned.</p>"
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "204",
+          "description": "<p>A header with no content is returned.</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
+        },
+        {
+          "httpStatusCode": "503",
+          "description": "<p>Service unavailable</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": false,
+        "permissions": [
+          {
+            "\"Enterprise license policy\" enterprise permissions": "write"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/license-compliance/package-checks",
+      "title": "Check license compliance for packages",
+      "category": "dependency-graph",
+      "subcategory": "license-compliance",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "array of strings",
+          "name": "purls",
+          "description": "<p>Up to 40 package URLs to check against the license compliance policy. Duplicate package URLs count toward the limit but are checked once.</p>",
+          "isRequired": true
+        }
+      ],
+      "descriptionHTML": "<p>Checks whether packages identified by the supplied package URLs (PURLs) are allowed by the repository's license compliance policy.</p>\n<p>For requests made on behalf of a user, that user must have write access to the repository or the \"View repository license policy\" permission.\nOAuth apps and classic personal access tokens require the <code>repo</code> scope.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example 1: Status Code 200",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "purls": [
+                "pkg:npm/lodash@4.17.21"
+              ]
+            },
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Package license compliance results.</p>",
+            "example": {
+              "purls": {
+                "pkg:npm/lodash@4.17.21": {
+                  "status": "allowed",
+                  "license": "MIT",
+                  "reason": "allowed_license"
+                }
+              }
+            },
+            "schema": {
+              "type": "object",
+              "title": "Package license compliance results",
+              "description": "License compliance results keyed by the original submitted package URLs.",
+              "properties": {
+                "purls": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "object",
+                    "properties": {
+                      "status": {
+                        "type": "string",
+                        "description": "The package's license compliance result. Returns `unknown` for malformed package URLs, unsupported ecosystems, or package URLs that cannot be used for license lookup.",
+                        "enum": [
+                          "allowed",
+                          "denied",
+                          "unknown"
+                        ]
+                      },
+                      "license": {
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "description": "The resolved SPDX license expression, or null if unresolved. A package explicitly allowed by policy can return `allowed` with a null license."
+                      },
+                      "reason": {
+                        "type": "string",
+                        "description": "The reason for the compliance result. Returns `unknown` if no specific reason is available.",
+                        "enum": [
+                          "allowed_license",
+                          "allowed_package",
+                          "denied_license",
+                          "unsupported_package_ecosystem",
+                          "unknown"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "status",
+                      "license",
+                      "reason"
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "purls"
+              ]
+            }
+          }
+        },
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example 2: Status Code 200",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "purls": []
+            },
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Package license compliance results.</p>",
+            "example": {
+              "purls": {}
+            },
+            "schema": {
+              "type": "object",
+              "title": "Package license compliance results",
+              "description": "License compliance results keyed by the original submitted package URLs.",
+              "properties": {
+                "purls": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "object",
+                    "properties": {
+                      "status": {
+                        "type": "string",
+                        "description": "The package's license compliance result. Returns `unknown` for malformed package URLs, unsupported ecosystems, or package URLs that cannot be used for license lookup.",
+                        "enum": [
+                          "allowed",
+                          "denied",
+                          "unknown"
+                        ]
+                      },
+                      "license": {
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "description": "The resolved SPDX license expression, or null if unresolved. A package explicitly allowed by policy can return `allowed` with a null license."
+                      },
+                      "reason": {
+                        "type": "string",
+                        "description": "The reason for the compliance result. Returns `unknown` if no specific reason is available.",
+                        "enum": [
+                          "allowed_license",
+                          "allowed_package",
+                          "denied_license",
+                          "unsupported_package_ecosystem",
+                          "unknown"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "status",
+                      "license",
+                      "reason"
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "purls"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>Package license compliance results.</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>License compliance policy not found.</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
+        },
+        {
+          "httpStatusCode": "503",
+          "description": "<p>Service unavailable</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Repository license policy\" repository permissions": "read"
+          }
+        ]
+      }
+    }
+  ],
   "sboms": [
     {
       "serverUrl": "https://api.github.com",
@@ -575,7 +1218,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Exports the software bill of materials (SBOM) for a repository in SPDX JSON format.</p>",
+      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-attention\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z\"></path></svg>Warning</p>\n<p>\n<strong>Closing down notice:</strong> This operation is closing down and will not be accessible after November 13, 2026. Please migrate to the asynchronous flow. Use \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/dependency-graph/sboms#request-generation-of-a-software-bill-of-materials-sbom-for-a-repository\">Request generation of a software bill of materials (SBOM) for a repository</a>\" to trigger the report, then \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/dependency-graph/sboms#fetch-a-software-bill-of-materials-sbom-for-a-repository\">Fetch a software bill of materials (SBOM) for a repository</a>\" to retrieve it. For more information, see the <a href=\"https://github.blog/changelog/2026-05-12-synchronous-sbom-api-deprecated/\">changelog</a>.</p>\n</div>\n<p>Exports the software bill of materials (SBOM) for a repository in SPDX JSON format.</p>",
       "codeExamples": [
         {
           "request": {

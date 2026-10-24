@@ -1,23 +1,19 @@
-import type { Context, Page, ResolvedArticle } from '@/types'
-import type { PageTransformer, TemplateData, Section, LinkData } from './types'
+import type { Context, Page } from '@/types'
+import type { PageTransformer, TemplateData, Section } from './types'
 import { renderContent } from '@/content-render/index'
 import { loadTemplate } from '@/article-api/lib/load-template'
 import { getAllTocItems, flattenTocItems } from '@/article-api/lib/get-all-toc-items'
+import { getIntroLinksSection } from '@/article-api/lib/get-intro-links-section'
+import { resolveCarouselLinks } from '@/article-api/lib/resolve-carousel-links'
 
 interface BespokeLandingPage extends Omit<Page, 'featuredLinks'> {
   featuredLinks?: Record<string, Array<string | { href: string; title: string; intro?: string }>>
   children?: string[]
-  carousels?: Record<string, ResolvedArticle[]>
   rawCarousels?: Record<string, string[]>
   includedCategories?: string[]
 }
 
-/**
- * Transforms bespoke-landing pages into markdown format.
- * Handles carousels and full article listings.
- * Note: Unlike discovery-landing, bespoke-landing shows ALL articles
- * regardless of includedCategories.
- */
+// Bespoke landing pages ignore includedCategories; only discovery landing pages apply it.
 export class BespokeLandingTransformer implements PageTransformer {
   templateName = 'landing-page.template.md'
 
@@ -47,40 +43,19 @@ export class BespokeLandingTransformer implements PageTransformer {
     const bespokePage = page as BespokeLandingPage
     const sections: Section[] = []
 
-    // Process carousels (each carousel becomes a section)
-    const carousels = bespokePage.carousels ?? bespokePage.rawCarousels
-    if (carousels && typeof carousels === 'object') {
-      const { default: getPageLinkData } = await import('@/frame/lib/get-link-data')
+    // Intro links come first to match the hero, which renders above the carousels.
+    const introLinksSection = await getIntroLinksSection(page, context)
+    if (introLinksSection) sections.push(introLinksSection)
 
+    // resolve-carousels overwrites page.carousels on the shared Page with another version's links.
+    const carousels = bespokePage.rawCarousels
+    if (carousels && typeof carousels === 'object') {
       for (const [carouselKey, articles] of Object.entries(carousels)) {
         if (!Array.isArray(articles) || articles.length === 0) continue
 
-        let links: LinkData[]
-        if (typeof articles[0] === 'object' && 'title' in articles[0]) {
-          // Already resolved articles
-          links = articles.map((item) => ({
-            href: typeof item === 'string' ? item : item.href,
-            title: (typeof item === 'object' && item.title) || '',
-            intro: (typeof item === 'object' && item.intro) || '',
-          }))
-        } else {
-          // Raw paths that need resolution
-          const linkData = await getPageLinkData(articles as string[], context, {
-            title: true,
-            intro: true,
-          })
-          links = (linkData || []).map(
-            (item: { href: string; title?: string; intro?: string }) => ({
-              href: item.href,
-              title: item.title || '',
-              intro: item.intro || '',
-            }),
-          )
-        }
-
+        const links = await resolveCarouselLinks(articles, page, context)
         const validLinks = links.filter((l) => l.href && l.title)
         if (validLinks.length > 0) {
-          // Use carousel key as title (capitalize first letter)
           const sectionTitle = carouselKey.charAt(0).toUpperCase() + carouselKey.slice(1)
           sections.push({
             title: sectionTitle,
@@ -90,14 +65,11 @@ export class BespokeLandingTransformer implements PageTransformer {
       }
     }
 
-    // Articles section: recursively gather ALL descendant articles
-    // This matches the behavior of the site which uses genericTocFlat/genericTocNested
-    // Note: For bespoke-landing pages, the site shows ALL articles regardless of includedCategories
-    // (includedCategories only filters for discovery-landing pages)
+    // getAllTocItems matches the site's genericTocFlat and genericTocNested behavior.
     if (bespokePage.children && bespokePage.children.length > 0) {
       const tocItems = await getAllTocItems(page, context)
 
-      // Flatten to get all leaf articles (excludeParents: true means only get articles, not category pages)
+      // excludeParents keeps only leaf TOC items, dropping anything with children.
       const allArticles = flattenTocItems(tocItems, { excludeParents: true })
 
       if (allArticles.length > 0) {

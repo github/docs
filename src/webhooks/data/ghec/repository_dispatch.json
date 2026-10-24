@@ -14,13 +14,15 @@
         "type": "string",
         "name": "branch",
         "description": "",
-        "isRequired": true
+        "isRequired": true,
+        "childParamsGroups": []
       },
       {
         "type": "object or null",
         "name": "client_payload",
         "description": "<p>The <code>client_payload</code> that was specified in the <code>POST /repos/{owner}/{repo}/dispatches</code> request body.</p>",
-        "isRequired": true
+        "isRequired": true,
+        "childParamsGroups": []
       },
       {
         "type": "object",

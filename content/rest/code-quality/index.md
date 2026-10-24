@@ -7,4 +7,5 @@ children:
   - /code-quality
 versions:
   fpt: '*'
+  ghec: '*'
 ---

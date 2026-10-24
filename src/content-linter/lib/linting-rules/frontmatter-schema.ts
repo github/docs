@@ -1,7 +1,7 @@
 import { addError } from 'markdownlint-rule-helpers'
 import { intersection } from 'lodash-es'
+import matter from '@gr2m/gray-matter'
 
-import { getFrontmatter } from '../helpers/utils'
 import { frontmatter, deprecatedProperties } from '@/frame/lib/frontmatter'
 import readFrontmatter from '@/frame/lib/read-frontmatter'
 import type { RuleParams, RuleErrorCallback, Rule } from '../../types'
@@ -11,16 +11,34 @@ export const frontmatterSchema: Rule = {
   description: 'Frontmatter must conform to the schema',
   tags: ['frontmatter', 'schema'],
   function: (params: RuleParams, onError: RuleErrorCallback) => {
-    const fm = getFrontmatter(params.lines)
-    if (!fm) return
+    let fm: Record<string, unknown>
+    try {
+      // Passing options skips the gray-matter cache, which returns empty data after a failed parse.
+      fm = matter(params.lines.join('\n'), {}).data
+    } catch (error) {
+      const { mark, reason, message } = error as {
+        mark?: { line: number }
+        reason?: string
+        message: string
+      }
+      // The parsed YAML block starts on the opening delimiter line, so its line index plus 1 is the file line.
+      const lineNumber = Math.min((mark?.line ?? 0) + 1, params.lines.length)
+      addError(
+        onError,
+        lineNumber,
+        `Frontmatter YML parsing error: ${reason || message}`,
+        params.lines[lineNumber - 1],
+        null,
+        null, // No fix possible
+      )
+      return
+    }
+    if (Object.keys(fm).length === 0) return
 
-    // Check that frontmatter does not contain any deprecated keys
-    // Currently we only deprecate top-level properties and historically
-    // tests have only checked top-level properties. But, if more properties
-    // are deprecated in the future, we'll need to do a deep check.
+    // Deprecated checks cover only top-level frontmatter properties.
     const deprecatedKeys = intersection(Object.keys(fm), deprecatedProperties)
     for (const key of deprecatedKeys) {
-      // Early access articles are allowed to have deprecated properties
+      // Allow deprecated properties in early access articles.
       if (params.name.includes('early-access')) continue
       const line = params.lines.find((ln: string) => ln.trim().startsWith(key))
       const lineNumber = params.lines.indexOf(line!) + 1
@@ -34,8 +52,7 @@ export const frontmatterSchema: Rule = {
       )
     }
 
-    // Check that the frontmatter matches the schema.
-    // readFrontmatter returns errors as { property, message, reason } objects.
+    // readFrontmatter returns property, message, and reason for each schema error.
     const { errors } = readFrontmatter(params.lines.join('\n'), { schema: frontmatter.schema })
     for (const error of errors) {
       const property = error.property || ''
@@ -50,12 +67,11 @@ export const frontmatterSchema: Rule = {
       if (reason === 'additionalProperties') {
         detail = 'The frontmatter includes an unsupported property.'
         context = `Remove the property \`${property}\`.`
-        // Search for the offending additional property directly
         searchProperty = parts[parts.length - 1] || ''
       } else if (reason === 'required') {
         detail = 'The frontmatter has a missing required property'
         context = `Add the missing property \`${property}\``
-        // The property is missing, so point to its parent container
+        // Missing properties report on their parent container when one exists.
         searchProperty = parts.length > 1 ? parts[parts.length - 2] : ''
       } else {
         detail = `Frontmatter ${message}.`
@@ -63,8 +79,7 @@ export const frontmatterSchema: Rule = {
         searchProperty = parts[0] || ''
       }
 
-      // If the property is at the top level or missing, we don't have a line
-      // to point to. In that case, the error will be added to line 1.
+      // Missing top-level properties have no key to report, so they fall back to the file start.
       const query = (line: string) => line.trim().startsWith(`${searchProperty}:`)
       const line = searchProperty === '' ? null : params.lines.find(query)
       const lineNumber = line ? params.lines.indexOf(line) + 1 : 1

@@ -14,7 +14,7 @@ category:
 
 {% data variables.product.prodname_server_statistics %} can help you anticipate the needs of your organization, understand how your team works, and show the value you get from {% data variables.product.prodname_ghe_server %}.
 
-Once enabled, {% data variables.product.prodname_server_statistics %} collects aggregate data on how much certain features are used on your instance over time. Unlike other [Admin Stats API](/rest/enterprise-admin/admin-stats) endpoints, which only return data for the last day, {% data variables.product.prodname_server_statistics %} provides historical data of all {% data variables.product.prodname_server_statistics %} metrics collected since the day you enabled the feature. For more information, see [AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-server-statistics-for-your-enterprise).
+Once enabled, {% data variables.product.prodname_server_statistics %} collects aggregate data on how much certain features are used on your instance over time. Unlike other [Admin Stats API](/rest/enterprise-admin/admin-stats) endpoints, which only return data for the last day, {% data variables.product.prodname_server_statistics %} provides historical data of all {% data variables.product.prodname_server_statistics %} metrics collected since the day you enabled the feature. For more information, see [AUTOTITLE](/admin/configuring-settings/configuring-github-connect/enabling-server-statistics-for-your-enterprise).
 
 When you enable {% data variables.product.prodname_server_statistics %}, you're helping to build a better {% data variables.product.prodname_dotcom %}. The aggregated data you'll provide gives us insights into how {% data variables.product.prodname_dotcom %} adds value to our customers. This information allows {% data variables.product.company_short %} to make better and more informed product decisions, ultimately benefiting you.
 
@@ -36,7 +36,7 @@ For a better understanding of how we store and secure {% data variables.product.
 
 {% data variables.product.company_short %} collects {% data variables.product.prodname_server_statistics %} data for as long as your {% data variables.product.prodname_ghe_server %} license is active and the {% data variables.product.prodname_server_statistics %} feature is enabled.
 
-If you would like to delete your data, you may do so by contacting GitHub Support, your {% data variables.product.prodname_dotcom %} account representative, or your Customer Success Manager. Generally, we delete data in the timeframe specified in our privacy statement. For more information, see [{% data variables.product.company_short %}'s privacy statement](/free-pro-team@latest/site-policy/privacy-policies/github-privacy-statement#data-retention-and-deletion-of-data) in the {% data variables.product.prodname_dotcom_the_website %} documentation.
+If you would like to delete your data, you may do so by contacting GitHub Support, your {% data variables.product.prodname_dotcom %} account representative, or your Customer Success Manager. Generally, we delete data in the timeframe specified in our privacy statement. For more information, see [{% data variables.product.company_short %}'s privacy statement](/free-pro-team@latest/site-policy/privacy-policies/github-general-privacy-statement) in the {% data variables.product.prodname_dotcom_the_website %} documentation.
 
 ### About data portability
 
@@ -44,7 +44,7 @@ As an organization owner or enterprise owner on {% data variables.product.prodna
 
 ## About disabling data collection
 
-You can disable the {% data variables.product.prodname_server_statistics %} feature at any time. For more information, see [AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-server-statistics-for-your-enterprise).
+You can disable the {% data variables.product.prodname_server_statistics %} feature at any time. For more information, see [AUTOTITLE](/admin/configuring-settings/configuring-github-connect/enabling-server-statistics-for-your-enterprise).
 
 ## {% data variables.product.prodname_server_statistics %} data collected
 
@@ -54,7 +54,7 @@ The following aggregate metrics will be collected and transmitted on a daily bas
 
 | CSV column | Name | Description |
 | ---------- | ---- | ----------- |
-| A | `github_connect.features_enabled` | Array of {% data variables.product.prodname_github_connect %} features that are enabled for your instance (see [AUTOTITLE](/admin/configuration/configuring-github-connect/about-github-connect#github-connect-features) ) |
+| A | `github_connect.features_enabled` | Array of {% data variables.product.prodname_github_connect %} features that are enabled for your instance (see [AUTOTITLE](/admin/configuring-settings/configuring-github-connect/about-github-connect#github-connect-features) ) |
 | B | `host_name` | The hostname for your instance |
 | C | `dormant_users.dormancy_threshold` | The length of time a user must be inactive to be considered dormant |
 | D | `dormant_users.total_dormant_users` | Number of dormant user accounts |

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
-import cx from 'classnames'
+import cx from 'clsx'
 import { XIcon } from '@primer/octicons-react'
 
 import { useLanguages } from '@/languages/components/LanguagesContext'
@@ -13,6 +13,7 @@ import styles from './HeaderNotifications.module.scss'
 import { useSharedUIContext } from '@/frame/components/context/SharedUIContext'
 import Cookies from '@/frame/components/lib/cookies'
 import { MACHINE_TRANSLATION_BANNER_COOKIE_NAME } from '@/frame/lib/constants'
+import { RenderedHTML } from '@/frame/components/ui/RenderedHTML'
 
 enum NotificationType {
   RELEASE = 'RELEASE',
@@ -58,11 +59,7 @@ export const HeaderNotifications = () => {
           try {
             setUserLanguageCookie('en')
           } catch (err) {
-            // You can never be too careful because setting a cookie
-            // can fail. For example, some browser
-            // extensions disallow all setting of cookies and attempts
-            // at the `document.cookie` setter could throw. Just swallow
-            // and move on.
+            // Some extensions reject document.cookie writes, so ignore cookie-set failures.
             console.warn('Unable to set cookie', err)
           }
         },
@@ -96,7 +93,7 @@ export const HeaderNotifications = () => {
   const allNotifications: Array<Notif> = [
     ...translationNotices,
     ...releaseNotices,
-    // ONEOFF EARLY ACCESS NOTICE
+    // Early-access pages use this separate banner unless frontmatter opts out.
     (relativePath || '').includes('early-access/') && !page.noEarlyAccessBanner
       ? {
           type: NotificationType.EARLY_ACCESS,
@@ -140,7 +137,7 @@ export const HeaderNotifications = () => {
                 <XIcon size="small" className="octicon mr-1" />
               </button>
             )}
-            <p dangerouslySetInnerHTML={{ __html: content }} />
+            <RenderedHTML as="p" html={content} />
           </div>
         )
       })}

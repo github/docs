@@ -1,7 +1,8 @@
 import { renderLiquid } from './liquid/index'
-import { renderMarkdown, renderUnified } from './unified/index'
+import { renderMarkdown, renderUnified, renderUnifiedToHast } from './unified/index'
 import { engine } from './liquid/engine'
 import type { Context } from '@/types'
+import type { Root as HastRoot } from 'hast'
 import { createLogger } from '@/observability/logger'
 
 const logger = createLogger(import.meta.url)
@@ -14,14 +15,12 @@ interface RenderOptions {
 
 const globalCache = new Map<string, string>()
 
-// parse multiple times because some templates contain more templates. :]
 export async function renderContent(
   template = '',
   context: Context = {} as Context,
   options: RenderOptions = {},
 ): Promise<string> {
-  // If called with a falsy template, it can't ever become something
-  // when rendered. We can exit early to save some pointless work.
+  // Falsy templates cannot render into content, so skip Liquid and unified work.
   if (!template) return template
   let cacheKey: string | null = null
   if (options && options.cache) {
@@ -41,8 +40,7 @@ export async function renderContent(
   try {
     template = await renderLiquid(template, context)
     if (context.markdownRequested) {
-      // Skip the remark pipeline when there are no internal links to rewrite,
-      // since link rewriting is the only transformation the pipeline performs.
+      // Skip remark without internal links; link rewriting is the only markdownRequested transformation.
       if (!/\]\(\s*<?\//.test(template) && !/\]:\s*\//.test(template)) {
         return template.trim()
       }
@@ -64,6 +62,33 @@ export async function renderContent(
 
 function getDefaultCacheKey(template: string, context: Context): string {
   return `${template}:${context.currentVersion}:${context.currentLanguage}`
+}
+
+// render-page sends the hast tree through Next props so React can render the
+// article body without injecting the derived HTML string.
+// The same unified pass produces html and hast, so both outputs stay consistent.
+// renderContentToHast always produces HTML; use renderContent for markdown output.
+export async function renderContentToHast(
+  template = '',
+  context: Context = {} as Context,
+  options: Pick<RenderOptions, 'filename'> = {},
+): Promise<{ html: string; hast: HastRoot | null }> {
+  if (!template) return { html: template, hast: null }
+  if (context.markdownRequested) {
+    throw new Error(
+      'renderContentToHast does not support markdownRequested; use renderContent for markdown output',
+    )
+  }
+  try {
+    const liquidRendered = await renderLiquid(template, context)
+    const { hast, html } = await renderUnifiedToHast(liquidRendered, context)
+    return { html, hast }
+  } catch (error) {
+    if (options.filename) {
+      logger.error('renderContentToHast failed on file', { filename: options.filename })
+    }
+    throw error
+  }
 }
 
 export const liquid = engine

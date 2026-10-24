@@ -8,6 +8,8 @@ redirect_from:
   - /copilot/tutorials/copilot-chat-cookbook/refactoring-code/refactoring-for-performance-optimization
   - /copilot/tutorials/copilot-chat-cookbook/refactoring-code/refactor-for-optimization
   - /copilot/tutorials/copilot-chat-cookbook/refactor-code/refactor-for-optimization
+  - /copilot/tutorials/copilot-cookbook/refactor-code/refactor-for-sustainability
+  - /copilot/tutorials/copilot-chat-cookbook/refactor-code/refactor-for-sustainability
 versions:
   feature: copilot
 category:

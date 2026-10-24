@@ -53,4 +53,4 @@ As part of the downgrade to the free plan:
 
 ## Further reading
 
-* [AUTOTITLE](/admin/overview/about-enterprise-accounts)
+* [AUTOTITLE](/admin/concepts/enterprise-fundamentals/enterprise-accounts)

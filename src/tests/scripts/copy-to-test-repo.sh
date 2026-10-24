@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Copies certain directories over to docs-internal-test and pushes. Useful for debugging actions
-# Doesn't copy over content/ and data/ directories
+# Copies selected files to docs-internal-test and pushes them for GitHub Actions debugging.
+# Excludes content, data, node_modules, Git metadata, .gitattributes, and .github/CODEOWNERS.
 
 echo "Make sure to run this script in the root path of docs-internal!"
 
@@ -38,6 +38,4 @@ else
 fi;
 
 exit
-
-
 

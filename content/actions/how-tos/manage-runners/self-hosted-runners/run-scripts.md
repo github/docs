@@ -33,8 +33,8 @@ The following scripting languages are supported:
 
 Your custom scripts can use the following features:
 
-* **Variables:** Scripts have access to the default variables. The full webhook event payload can be found in `GITHUB_EVENT_PATH`. For more information, see [AUTOTITLE](/actions/reference/variables-reference#default-environment-variables).
-* **Workflow commands:** Scripts can use workflow commands. For more information, see [AUTOTITLE](/actions/using-workflows/workflow-commands-for-github-actions). Scripts can also use environment files. For more information, see [Environment files](/actions/using-workflows/workflow-commands-for-github-actions#environment-files).
+* **Variables:** Scripts have access to the default variables. The full webhook event payload can be found in `GITHUB_EVENT_PATH`. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/variables#default-environment-variables).
+* **Workflow commands:** Scripts can use workflow commands. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/workflow-commands). Scripts can also use environment files. For more information, see [Environment files](/actions/reference/workflows-and-actions/workflow-commands#environment-files).
 
 Your script files must use a file extension for the relevant language, such as `.sh` or `.ps1`, in order to run successfully.
 
@@ -43,9 +43,9 @@ Your script files must use a file extension for the relevant language, such as `
 
 ### Handling exit codes
 
-For pre-job scripts, exit code `0` indicates that the script completed successfully, and the job will then proceed to run. If there is any other exit code, the job will not run and will be marked as failed. To see the results of your pre-job scripts, check the logs for `Set up runner` entries. For more information on checking the logs, see [AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs#viewing-logs-to-diagnose-failures).
+For pre-job scripts, exit code `0` indicates that the script completed successfully, and the job will then proceed to run. If there is any other exit code, the job will not run and will be marked as failed. To see the results of your pre-job scripts, check the logs for `Set up runner` entries. For more information on checking the logs, see [AUTOTITLE](/actions/how-tos/monitor-workflows/use-workflow-run-logs#viewing-logs-to-diagnose-failures).
 
-The [`continue-on-error`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idcontinue-on-error) setting is not supported for use by these scripts.
+The [`continue-on-error`](/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idcontinue-on-error) setting is not supported for use by these scripts.
 
 ## Triggering the scripts
 
@@ -78,7 +78,7 @@ If you get a "permission denied" error when you attempt to run a script, make su
 chmod +x PATH/TO/FILE
 ```
 
-For information about using workflows to run scripts, see [AUTOTITLE](/actions/writing-workflows/choosing-what-your-workflow-does/adding-scripts-to-your-workflow).
+For information about using workflows to run scripts, see [AUTOTITLE](/actions/how-tos/write-workflows/choose-what-workflows-do/add-scripts).
 
 ### No timeout setting
 
@@ -86,4 +86,4 @@ There is currently no timeout setting available for scripts executed by `ACTIONS
 
 ### Reviewing the workflow run log
 
-To confirm whether your scripts are executing, you can review the logs for that job. The scripts will be listed within separate steps for either `Set up runner` or `Complete runner`, depending on which environment variable is triggering the script. For more information on checking the logs, see [AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs#viewing-logs-to-diagnose-failures).
+To confirm whether your scripts are executing, you can review the logs for that job. The scripts will be listed within separate steps for either `Set up runner` or `Complete runner`, depending on which environment variable is triggering the script. For more information on checking the logs, see [AUTOTITLE](/actions/how-tos/monitor-workflows/use-workflow-run-logs#viewing-logs-to-diagnose-failures).

@@ -18,7 +18,7 @@ category:
 
 ## Prerequisites
 
-Before you can review bypass requests, delegated bypass must be enabled for your organization or repositories. See [AUTOTITLE](/code-security/how-tos/secure-your-secrets/manage-bypass-requests/enabling-delegated-bypass-for-push-protection).
+Before you can review bypass requests, delegated bypass must be enabled for your organization or repositories. See [AUTOTITLE](/code-security/how-tos/secure-your-secrets/manage-bypass-requests/enable-delegated-bypass).
 
 You can review and manage these requests in security overview.
 
@@ -44,16 +44,14 @@ The following statuses are assigned to a request:
 
 |Status|Description|
 |---------|-----------|
-|{% ifversion fpt or ghec or ghes > 3.16 %}|
 |`Approved`|The request has been approved, but the commit(s) have not yet been pushed to the repository.|
-|{% endif %}|
 |`Cancelled`|The request has been cancelled by the contributor.|
-|`Completed`|The request has been approved and the commit(s) have been pushed to the repository{% ifversion fpt or ghec or ghes > 3.16 %}, or the request was rejected{% endif %}.|
+|`Completed`|The request has been approved and the commit(s) have been pushed to the repository, or the request was rejected.|
 |`Denied`|The request has been reviewed and denied.|
 |`Expired`|The request has expired. Requests are valid for 7 days.|
-|`Open`|The request has {% ifversion ghes < 3.17 %}either not yet been reviewed, or has been approved but the commit(s) have not been pushed to the repository{% else %}not yet been reviewed{% endif %}.|
+|`Open`|The request has not yet been reviewed.|
 
 ## Further reading
 
-* [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/about-delegated-bypass-for-push-protection)
-* [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/enabling-delegated-bypass-for-push-protection)
+* [AUTOTITLE](/code-security/concepts/secret-security/delegated-bypass)
+* [AUTOTITLE](/code-security/how-tos/secure-your-secrets/manage-bypass-requests/enable-delegated-bypass)

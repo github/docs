@@ -1,23 +1,25 @@
 name: 'Orphaned files check'
 
-# **What it does**: Checks that there are no files in ./assets/ and ./data/reusables that aren't mentioned in any source file.
-# **Why we have it**: To avoid orphans into the repo.
-# **Who does it impact**: Docs content.
+# This workflow opens deletion PRs for unused assets, reusables, and tables
+# so orphaned files leave the repo.
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: '20 16 * * 1' # Run every Monday at 16:20 UTC / 8:20 PST
+    - cron: '20 16 * * 1'
   pull_request:
     paths:
-      - .github/workflows/orphaned-assets-check.yml
       - .github/workflows/orphaned-files-check.yml
-      # In case any of the dependencies affect the script
+      # Dependency changes can break the orphaned-files scripts.
       - 'package*.json'
       - src/assets/scripts/find-orphaned-assets.ts
-      - src/content-render/scripts/reusables-cli/find/unused.ts
+      - src/content-render/scripts/reusables-cli.ts
+      - 'src/content-render/scripts/reusables-cli/**'
+      - src/content-linter/lib/helpers/liquid-utils.ts
+      - src/data-directory/scripts/find-orphaned-tables.ts
       - src/workflows/walk-files.ts
       - src/languages/lib/languages.ts
+      - src/languages/lib/languages-server.ts
       - .github/actions/clone-translations/action.yml
       - .github/actions/node-npm-setup/action.yml
 
@@ -30,15 +32,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout English repo
-        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
-          # Using a PAT is necessary so that the new commit will trigger the
-          # CI in the PR. (Events from GITHUB_TOKEN don't trigger new workflows.)
+          # A PAT triggers CI on the PR; GITHUB_TOKEN events do not start workflows.
           token: ${{ secrets.DOCS_BOT_PAT_BASE }}
 
-      # It's important because translations are often a bit behind.
-      # So if a translation is a bit behind, it might still be referencing
-      # an asset even though none of the English content does.
+      # Translations can lag English, so clone them before deciding that a file is unused.
       - name: Clone all translations
         uses: ./.github/actions/clone-translations
         with:
@@ -48,17 +47,19 @@ jobs:
 
       - name: Check for orphaned assets and reusables
         env:
-          # Needed for gh
+          # The gh CLI reads GITHUB_TOKEN.
           GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
           DRY_RUN: ${{ github.event_name == 'pull_request'}}
         run: |
           set -e
 
-          # The `-s` is to make npm run silent and not print verbose
-          # information about the npm script alias.
+          # The -s flag keeps npm script-alias noise out of the file lists.
           assetFilesToRemove=$(npm run -s find-orphaned-assets)
-          reusableFilesToRemove=$(npm run -s reusables -- find unused | grep '^data/reusables' || true)
-          [ -z "$assetFilesToRemove" ] && [ -z "$reusableFilesToRemove" ] && exit 0
+          # Keep the CLI out of the pipeline so set -e catches its failures; grep may match nothing.
+          reusablesOutput=$(npm run -s reusables -- find unused)
+          reusableFilesToRemove=$(printf '%s\n' "$reusablesOutput" | grep '^data/reusables' || true)
+          tableFilesToRemove=$(npm run -s find-orphaned-tables)
+          [ -z "$assetFilesToRemove" ] && [ -z "$reusableFilesToRemove" ] && [ -z "$tableFilesToRemove" ] && exit 0
 
           if [ -n "$assetFilesToRemove" ]; then
             echo $assetFilesToRemove | xargs git rm
@@ -66,20 +67,20 @@ jobs:
           if [ -n "$reusableFilesToRemove" ]; then
             echo $reusableFilesToRemove | xargs git rm
           fi
+          if [ -n "$tableFilesToRemove" ]; then
+            echo $tableFilesToRemove | xargs git rm
+          fi
 
           git status
 
-          # If nothing to commit, exit now. It's fine. No orphans.
           git status -- ':!translations*' | grep 'nothing to commit' && exit 0
 
-          # When run on a pull_request, we're just testing the tooling.
-          # Exit before it actually pushes the possible changes.
+          # Pull request runs exercise the tooling without pushing deletion PRs.
           if [ "$DRY_RUN" = "true" ]; then
             echo "Dry-run mode when run in a pull request"
             exit 0
           fi
 
-          # Replicated from the translation pipeline PR-maker Action
           git config --global user.name "docs-bot"
           git config --global user.email "77750099+docs-bot@users.noreply.github.com"
 
@@ -91,13 +92,15 @@ jobs:
           git push origin $branchname
 
           body=$(cat <<-EOM
-            Found with the `npm run find-orphaned-assets` and `npm run -s reusables -- find unused` scripts.
+            Found with the \`npm run find-orphaned-assets\`, \`npm run -s reusables -- find unused\`, and \`npm run find-orphaned-tables\` scripts.
 
             The orphaned files workflow file .github/workflows/orphaned-files-check.yml runs every Monday at 16:20 UTC / 8:20 PST.
 
-            If you are the first responder, please spot check some of the unused assets to make sure they aren't referenced anywhere. Then, approve and merge the pull request.
+            If you are the first responder, please spot check some of the unused assets, reusables, and tables to make sure they aren't referenced anywhere. Then, approve and merge the pull request.
 
-            For more information, see [Doc: Orphaned Assets](https://github.com/github/docs-engineering/blob/main/docs/orphaned-assets.md) and [Doc: Reusables CLI](https://github.com/github/docs-internal/tree/main/src/content-render/scripts/reusables-cli).
+            For more information, see [Doc: Orphaned Assets](https://github.com/github/technical-content/blob/main/engineering/orphaned-assets.md) and [Doc: Reusables CLI](https://github.com/github/docs-internal/tree/main/src/content-render/scripts/reusables-cli).
+
+            Generated by the [orphaned files workflow run]($GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID).
           EOM
           )
 
@@ -107,13 +110,14 @@ jobs:
             --repo github/docs-internal \
             --label docs-content-fr,workflow-generated
 
-      - uses: ./.github/actions/slack-alert
-        if: ${{ failure() && github.event_name == 'schedule' }}
-        with:
-          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
-          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
-
       - uses: ./.github/actions/create-workflow-failure-issue
+        id: create-failure-issue
         if: ${{ failure() && github.event_name == 'schedule' }}
         with:
           token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+
+      - uses: ./.github/actions/slack-alert
+        if: ${{ failure() && github.event_name == 'schedule' }}
+        with:
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+          issue_url: ${{ steps.create-failure-issue.outputs.issue_url }}

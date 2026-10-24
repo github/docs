@@ -98,7 +98,7 @@ Because this restriction only applies to requests that are sent via a proxy that
 | SSH access | Port 22 on {% data variables.product.prodname_dotcom_the_website %} | To restrict access, block the endpoint entirely. |
 | SSH over HTTPS        | `ssh.github.com`          | To restrict access, block the endpoint entirely. |
 | {% data variables.product.github %}-hosted runners | Various | To enforce specific routing, use Azure private networking. See [AUTOTITLE](/admin/configuring-settings/configuring-private-networking-for-hosted-compute-products/about-azure-private-networking-for-github-hosted-runners-in-your-enterprise). |
-| Self-hosted runners | Various | To enforce specific routing, utilize a proxy server. See [AUTOTITLE](/actions/how-tos/manage-runners/self-hosted-runners/use-proxy-servers). |
+| Self-hosted runners | Various | To enforce specific routing, utilize a proxy server. See [AUTOTITLE](/actions/how-tos/manage-runners/use-proxy-servers). |
 
 ### Endpoints that don't require restriction
 
@@ -221,4 +221,4 @@ Generally, `400` errors occur in the following situations.
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-access-to-github-copilot-in-your-organization/managing-github-copilot-access-to-your-organizations-network#configuring-copilot-subscription-based-network-routing-for-your-organization)
+* [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/manage-access/manage-network-access#configuring-copilot-subscription-based-network-routing-for-your-enterprise-or-organization)

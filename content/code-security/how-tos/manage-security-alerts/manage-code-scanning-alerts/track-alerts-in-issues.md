@@ -16,7 +16,7 @@ redirect_from:
 
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}
 
-When {% data variables.product.prodname_code_scanning %} identifies a vulnerability, you can link it to a new or existing {% data variables.product.github %} issue. This makes security fixes visible in your planning and project boards alongside your team's regular development work. For more information about how alert tracking works, see [AUTOTITLE](/code-security/concepts/code-scanning/code-scanning-alert-tracking-using-issues).
+When {% data variables.product.prodname_code_scanning %} identifies a vulnerability, you can link it to a new or existing {% data variables.product.github %} issue. This makes security fixes visible in your planning and project boards alongside your team's regular development work. For more information about how alert tracking works, see [AUTOTITLE](/code-security/concepts/code-scanning/alert-tracking-with-issues).
 
 ## Creating an issue from an alert
 

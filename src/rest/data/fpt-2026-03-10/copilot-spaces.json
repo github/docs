@@ -8727,7 +8727,269 @@
         }
       ],
       "descriptionHTML": "<p>Creates a new resource in a specific Copilot Space owned by an organization.\nThe authenticated user must have write permissions on the space.</p>\n<p>The following resource types are supported: <code>repository</code>, <code>github_file</code>, <code>free_text</code>, <code>github_issue</code>, <code>github_pull_request</code>.\nThe <code>uploaded_text_file</code> and <code>media_content</code> types are not supported via this endpoint.</p>\n<p>For <code>github_file</code> resources, if a resource with the same repository, file path, and SHA already exists, the existing resource is returned with a <code>200</code> status.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>write:org</code> scope to use this endpoint.</p>\n<p>Fine-grained tokens and GitHub App user access tokens must have been granted access to the organization that owns the space. They must also have been granted access to every repository referenced by resources in the space, including the resource being created.</p>",
-      "codeExamples": [],
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example 1: Status Code 201",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "resource_type": "free_text",
+              "metadata": {
+                "name": "notes.txt",
+                "text": "Some helpful notes"
+              }
+            },
+            "parameters": {
+              "org": "ORG",
+              "space_number": "SPACE_NUMBER"
+            }
+          },
+          "response": {
+            "statusCode": "201",
+            "contentType": "application/json",
+            "description": "<p>Resource created</p>",
+            "example": {
+              "id": 1,
+              "resource_type": "free_text",
+              "copilot_chat_attachment_id": null,
+              "metadata": {
+                "name": "notes.txt",
+                "text": "Some helpful notes"
+              },
+              "created_at": "2025-01-01T00:00:00Z",
+              "updated_at": "2025-01-01T00:00:00Z"
+            },
+            "schema": {
+              "title": "Copilot Space Resource",
+              "description": "A resource attached to a Copilot Space.",
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "description": "The unique identifier of the resource."
+                },
+                "resource_type": {
+                  "type": "string",
+                  "description": "The type of the resource.",
+                  "enum": [
+                    "repository",
+                    "github_file",
+                    "free_text",
+                    "github_issue",
+                    "github_pull_request",
+                    "media_content",
+                    "uploaded_text_file"
+                  ]
+                },
+                "copilot_chat_attachment_id": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "description": "The ID of the associated chat attachment, if any."
+                },
+                "metadata": {
+                  "type": "object",
+                  "description": "Resource-specific metadata. The keys and values depend on the resource type.",
+                  "additionalProperties": true
+                },
+                "created_at": {
+                  "type": "string",
+                  "format": "date-time",
+                  "description": "The date and time the resource was created."
+                },
+                "updated_at": {
+                  "type": "string",
+                  "format": "date-time",
+                  "description": "The date and time the resource was last updated."
+                }
+              },
+              "required": [
+                "id",
+                "resource_type",
+                "metadata",
+                "created_at",
+                "updated_at"
+              ]
+            }
+          }
+        },
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example 2: Status Code 201",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "resource_type": "repository",
+              "metadata": {
+                "repository_id": 42
+              }
+            },
+            "parameters": {
+              "org": "ORG",
+              "space_number": "SPACE_NUMBER"
+            }
+          },
+          "response": {
+            "statusCode": "201",
+            "contentType": "application/json",
+            "description": "<p>Resource created</p>",
+            "example": {
+              "id": 1,
+              "resource_type": "free_text",
+              "copilot_chat_attachment_id": null,
+              "metadata": {
+                "name": "notes.txt",
+                "text": "Some helpful notes"
+              },
+              "created_at": "2025-01-01T00:00:00Z",
+              "updated_at": "2025-01-01T00:00:00Z"
+            },
+            "schema": {
+              "title": "Copilot Space Resource",
+              "description": "A resource attached to a Copilot Space.",
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "description": "The unique identifier of the resource."
+                },
+                "resource_type": {
+                  "type": "string",
+                  "description": "The type of the resource.",
+                  "enum": [
+                    "repository",
+                    "github_file",
+                    "free_text",
+                    "github_issue",
+                    "github_pull_request",
+                    "media_content",
+                    "uploaded_text_file"
+                  ]
+                },
+                "copilot_chat_attachment_id": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "description": "The ID of the associated chat attachment, if any."
+                },
+                "metadata": {
+                  "type": "object",
+                  "description": "Resource-specific metadata. The keys and values depend on the resource type.",
+                  "additionalProperties": true
+                },
+                "created_at": {
+                  "type": "string",
+                  "format": "date-time",
+                  "description": "The date and time the resource was created."
+                },
+                "updated_at": {
+                  "type": "string",
+                  "format": "date-time",
+                  "description": "The date and time the resource was last updated."
+                }
+              },
+              "required": [
+                "id",
+                "resource_type",
+                "metadata",
+                "created_at",
+                "updated_at"
+              ]
+            }
+          }
+        },
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example 3: Status Code 201",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "resource_type": "github_file",
+              "metadata": {
+                "repository_id": 42,
+                "file_path": "README.md",
+                "sha": "abc123"
+              }
+            },
+            "parameters": {
+              "org": "ORG",
+              "space_number": "SPACE_NUMBER"
+            }
+          },
+          "response": {
+            "statusCode": "201",
+            "contentType": "application/json",
+            "description": "<p>Resource created</p>",
+            "example": {
+              "id": 1,
+              "resource_type": "free_text",
+              "copilot_chat_attachment_id": null,
+              "metadata": {
+                "name": "notes.txt",
+                "text": "Some helpful notes"
+              },
+              "created_at": "2025-01-01T00:00:00Z",
+              "updated_at": "2025-01-01T00:00:00Z"
+            },
+            "schema": {
+              "title": "Copilot Space Resource",
+              "description": "A resource attached to a Copilot Space.",
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "description": "The unique identifier of the resource."
+                },
+                "resource_type": {
+                  "type": "string",
+                  "description": "The type of the resource.",
+                  "enum": [
+                    "repository",
+                    "github_file",
+                    "free_text",
+                    "github_issue",
+                    "github_pull_request",
+                    "media_content",
+                    "uploaded_text_file"
+                  ]
+                },
+                "copilot_chat_attachment_id": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "description": "The ID of the associated chat attachment, if any."
+                },
+                "metadata": {
+                  "type": "object",
+                  "description": "Resource-specific metadata. The keys and values depend on the resource type.",
+                  "additionalProperties": true
+                },
+                "created_at": {
+                  "type": "string",
+                  "format": "date-time",
+                  "description": "The date and time the resource was created."
+                },
+                "updated_at": {
+                  "type": "string",
+                  "format": "date-time",
+                  "description": "The date and time the resource was last updated."
+                }
+              },
+              "required": [
+                "id",
+                "resource_type",
+                "metadata",
+                "created_at",
+                "updated_at"
+              ]
+            }
+          }
+        }
+      ],
       "statusCodes": [
         {
           "httpStatusCode": "200",
@@ -9349,7 +9611,269 @@
         }
       ],
       "descriptionHTML": "<p>Creates a new resource in a specific Copilot Space owned by a user.\nThe authenticated user must have write permissions on the space.</p>\n<p>The following resource types are supported: <code>repository</code>, <code>github_file</code>, <code>free_text</code>, <code>github_issue</code>, <code>github_pull_request</code>.\nThe <code>uploaded_text_file</code> and <code>media_content</code> types are not supported via this endpoint.</p>\n<p>For <code>github_file</code> resources, if a resource with the same repository, file path, and SHA already exists, the existing resource is returned with a <code>200</code> status.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>write:user</code> scope to use this endpoint.</p>",
-      "codeExamples": [],
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example 1: Status Code 201",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "resource_type": "free_text",
+              "metadata": {
+                "name": "notes.txt",
+                "text": "Some helpful notes"
+              }
+            },
+            "parameters": {
+              "username": "USERNAME",
+              "space_number": "SPACE_NUMBER"
+            }
+          },
+          "response": {
+            "statusCode": "201",
+            "contentType": "application/json",
+            "description": "<p>Resource created</p>",
+            "example": {
+              "id": 1,
+              "resource_type": "free_text",
+              "copilot_chat_attachment_id": null,
+              "metadata": {
+                "name": "notes.txt",
+                "text": "Some helpful notes"
+              },
+              "created_at": "2025-01-01T00:00:00Z",
+              "updated_at": "2025-01-01T00:00:00Z"
+            },
+            "schema": {
+              "title": "Copilot Space Resource",
+              "description": "A resource attached to a Copilot Space.",
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "description": "The unique identifier of the resource."
+                },
+                "resource_type": {
+                  "type": "string",
+                  "description": "The type of the resource.",
+                  "enum": [
+                    "repository",
+                    "github_file",
+                    "free_text",
+                    "github_issue",
+                    "github_pull_request",
+                    "media_content",
+                    "uploaded_text_file"
+                  ]
+                },
+                "copilot_chat_attachment_id": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "description": "The ID of the associated chat attachment, if any."
+                },
+                "metadata": {
+                  "type": "object",
+                  "description": "Resource-specific metadata. The keys and values depend on the resource type.",
+                  "additionalProperties": true
+                },
+                "created_at": {
+                  "type": "string",
+                  "format": "date-time",
+                  "description": "The date and time the resource was created."
+                },
+                "updated_at": {
+                  "type": "string",
+                  "format": "date-time",
+                  "description": "The date and time the resource was last updated."
+                }
+              },
+              "required": [
+                "id",
+                "resource_type",
+                "metadata",
+                "created_at",
+                "updated_at"
+              ]
+            }
+          }
+        },
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example 2: Status Code 201",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "resource_type": "repository",
+              "metadata": {
+                "repository_id": 42
+              }
+            },
+            "parameters": {
+              "username": "USERNAME",
+              "space_number": "SPACE_NUMBER"
+            }
+          },
+          "response": {
+            "statusCode": "201",
+            "contentType": "application/json",
+            "description": "<p>Resource created</p>",
+            "example": {
+              "id": 1,
+              "resource_type": "free_text",
+              "copilot_chat_attachment_id": null,
+              "metadata": {
+                "name": "notes.txt",
+                "text": "Some helpful notes"
+              },
+              "created_at": "2025-01-01T00:00:00Z",
+              "updated_at": "2025-01-01T00:00:00Z"
+            },
+            "schema": {
+              "title": "Copilot Space Resource",
+              "description": "A resource attached to a Copilot Space.",
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "description": "The unique identifier of the resource."
+                },
+                "resource_type": {
+                  "type": "string",
+                  "description": "The type of the resource.",
+                  "enum": [
+                    "repository",
+                    "github_file",
+                    "free_text",
+                    "github_issue",
+                    "github_pull_request",
+                    "media_content",
+                    "uploaded_text_file"
+                  ]
+                },
+                "copilot_chat_attachment_id": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "description": "The ID of the associated chat attachment, if any."
+                },
+                "metadata": {
+                  "type": "object",
+                  "description": "Resource-specific metadata. The keys and values depend on the resource type.",
+                  "additionalProperties": true
+                },
+                "created_at": {
+                  "type": "string",
+                  "format": "date-time",
+                  "description": "The date and time the resource was created."
+                },
+                "updated_at": {
+                  "type": "string",
+                  "format": "date-time",
+                  "description": "The date and time the resource was last updated."
+                }
+              },
+              "required": [
+                "id",
+                "resource_type",
+                "metadata",
+                "created_at",
+                "updated_at"
+              ]
+            }
+          }
+        },
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example 3: Status Code 201",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "resource_type": "github_file",
+              "metadata": {
+                "repository_id": 42,
+                "file_path": "README.md",
+                "sha": "abc123"
+              }
+            },
+            "parameters": {
+              "username": "USERNAME",
+              "space_number": "SPACE_NUMBER"
+            }
+          },
+          "response": {
+            "statusCode": "201",
+            "contentType": "application/json",
+            "description": "<p>Resource created</p>",
+            "example": {
+              "id": 1,
+              "resource_type": "free_text",
+              "copilot_chat_attachment_id": null,
+              "metadata": {
+                "name": "notes.txt",
+                "text": "Some helpful notes"
+              },
+              "created_at": "2025-01-01T00:00:00Z",
+              "updated_at": "2025-01-01T00:00:00Z"
+            },
+            "schema": {
+              "title": "Copilot Space Resource",
+              "description": "A resource attached to a Copilot Space.",
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "description": "The unique identifier of the resource."
+                },
+                "resource_type": {
+                  "type": "string",
+                  "description": "The type of the resource.",
+                  "enum": [
+                    "repository",
+                    "github_file",
+                    "free_text",
+                    "github_issue",
+                    "github_pull_request",
+                    "media_content",
+                    "uploaded_text_file"
+                  ]
+                },
+                "copilot_chat_attachment_id": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "description": "The ID of the associated chat attachment, if any."
+                },
+                "metadata": {
+                  "type": "object",
+                  "description": "Resource-specific metadata. The keys and values depend on the resource type.",
+                  "additionalProperties": true
+                },
+                "created_at": {
+                  "type": "string",
+                  "format": "date-time",
+                  "description": "The date and time the resource was created."
+                },
+                "updated_at": {
+                  "type": "string",
+                  "format": "date-time",
+                  "description": "The date and time the resource was last updated."
+                }
+              },
+              "required": [
+                "id",
+                "resource_type",
+                "metadata",
+                "created_at",
+                "updated_at"
+              ]
+            }
+          }
+        }
+      ],
       "statusCodes": [
         {
           "httpStatusCode": "200",

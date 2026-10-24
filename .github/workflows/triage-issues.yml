@@ -1,8 +1,6 @@
 name: Triage new issues
 
-# **What it does**: Add the 'triage' label to new issues in the open source repository.
-# **Why we have it**: We want to make sure that new issues are triaged and assigned to the right team.
-# **Who does it impact**: Docs open source.
+# Labels opened or reopened public docs issues for triage and team assignment.
 
 on:
   issues:
@@ -21,7 +19,7 @@ jobs:
 
     steps:
       - name: Check out repo
-        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
 
       - uses: ./.github/actions/node-npm-setup
 

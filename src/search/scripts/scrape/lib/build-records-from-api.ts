@@ -1,13 +1,7 @@
-/**
- * Build search records using the Article API instead of HTML scraping.
- *
- * This module provides functions to fetch article content via the Article API
- * and convert it to search index records. This approach is faster and more
- * reliable than HTML scraping because it:
- * - Fetches pre-rendered markdown directly (no full HTML rendering)
- * - Uses structured metadata (title, intro, breadcrumbs) from API
- * - Parses headings from markdown using mdast (proper AST parsing)
- */
+// Builds search records from the Article API rather than by scraping HTML.
+// Fetching pre-rendered markdown skips the full HTML render, takes title,
+// intro and breadcrumbs from structured metadata, and parses headings out of
+// an mdast tree instead of a DOM.
 
 import Bottleneck from 'bottleneck'
 import chalk from 'chalk'
@@ -35,67 +29,93 @@ import type {
   Redirects,
 } from '@/search/scripts/scrape/types'
 
-// GitHub-style alert markers (> [!NOTE], > [!TIP], etc.) that appear in
-// markdown returned by the Article API.  The rehype alerts plugin only runs
-// in the HTML pipeline, so these leak through as literal text when we index
-// the markdown-only output.  Strip them so they don't appear in search results.
+// The rehype alerts plugin only runs in the HTML pipeline, so GitHub-style alert
+// markers such as > [!NOTE] reach the markdown-only output as literal text.
+// Strip them so they stay out of search results.
 const ALERT_MARKER_REGEXP = /\[!(NOTE|TIP|WARNING|IMPORTANT|CAUTION)\]\n?/gi
 
-// Same ignored headings as the HTML scraping approach
+// The markdown body keeps raw HTML, such as octicon SVGs, kbd tags, and editorial
+// comments. Tags become a space so text on either side stays separate tokens.
+// The tag pattern follows CommonMark raw HTML so quoted attributes may contain >.
+const HTML_COMMENT_OR_TAG_REGEXP =
+  /<!--[\s\S]*?--!?>|<\/?([A-Za-z][A-Za-z0-9-]*)(?:\s+[A-Za-z_:][\w.:-]*(?:\s*=\s*(?:"[^"]*"|'[^']*'|[^\s"'=<>`]+))?)*\s*\/?>/g
+
+// Text-only Article API fields decode placeholders such as <branch name> into
+// literal text, so tags with unknown names stay in the content.
+const HTML_ELEMENT_NAMES = new Set(
+  [
+    'a abbr address area article aside audio b base bdi bdo blockquote body br button canvas',
+    'caption cite code col colgroup data datalist dd del details dfn dialog div dl dt em embed',
+    'fieldset figcaption figure footer form h1 h2 h3 h4 h5 h6 head header hgroup hr html i',
+    'iframe img input ins kbd label legend li link main map mark menu meta meter nav noscript',
+    'object ol optgroup option output p picture pre progress q rp rt ruby s samp script search',
+    'section select slot small source span strong style sub summary sup table tbody td template',
+    'textarea tfoot th thead time title tr track u ul var video wbr',
+    'svg circle clippath defs ellipse g line lineargradient mask path polygon polyline',
+    'radialgradient rect stop symbol text tspan use',
+  ]
+    .join(' ')
+    .split(' '),
+)
+
+function stripHtml(value: string): string {
+  return value.replace(HTML_COMMENT_OR_TAG_REGEXP, (match, tagName?: string) =>
+    tagName && !HTML_ELEMENT_NAMES.has(tagName.toLowerCase()) ? match : ' ',
+  )
+}
+
+// Match the HTML scraper's ignored navigation headings.
 const IGNORED_HEADING_SLUGS = new Set(['in-this-article', 'further-reading', 'prerequisites'])
 
-// Known translations of the 3 ignored navigational headings.
-// These are used as a fallback when github-slugger produces non-ASCII slugs
-// that don't match the English slug set above.
+// Fallback translations catch ignored headings when github-slugger emits non-ASCII slugs.
 const IGNORED_HEADING_TEXTS = new Set([
-  // English (lowercase)
+  // English, lowercase
   'in this article',
   'further reading',
   'prerequisites',
-  // Japanese (ja)
+  // Japanese, ja
   'この記事の内容',
   '参考資料',
   '前提条件',
-  // Chinese (zh)
+  // Chinese, zh
   '本文内容',
   '延伸阅读',
   '先决条件',
-  // Korean (ko)
+  // Korean, ko
   '이 문서의 내용',
   '추가 참고 자료',
   '필수 조건',
-  // Spanish (es)
+  // Spanish, es
   'en este artículo',
   'información adicional',
   'requisitos previos',
-  // Portuguese (pt)
+  // Portuguese, pt
   'neste artigo',
   'leitura adicional',
   'pré-requisitos',
-  // Russian (ru)
+  // Russian, ru
   'в этой статье',
   'дополнительные материалы',
   'необходимые компоненты',
-  // French (fr)
+  // French, fr
   'dans cet article',
   'pour aller plus loin',
   'prérequis',
-  // German (de)
+  // German, de
   'in diesem artikel',
   'weiterführende themen',
   'voraussetzungen',
 ])
 
-// Default port matches build-records.ts for consistency
+// Default port matches the general-search-scrape-server package script.
 const DEFAULT_PORT = 4002
 
 dotenv.config()
 
-// These defaults are known to work fine in GitHub Actions.
+// Use these request pacing defaults because they work in GitHub Actions.
 const MAX_CONCURRENT = parseInt(process.env.BUILD_RECORDS_MAX_CONCURRENT || '5', 10)
 const MIN_TIME = parseInt(process.env.BUILD_RECORDS_MIN_TIME || '200', 10)
 
-// These products forcibly get a popularity of 0
 const FORCE_0_POPULARITY_PRODUCTS = new Set(['contributing'])
 
 const pageMarker = chalk.green('|')
@@ -111,6 +131,7 @@ export interface ArticleApiResponse {
     title: string
     intro: string
     product: string
+    documentType?: string | null
     breadcrumbs?: Array<{ href: string; title: string }>
   }
   body: string
@@ -122,9 +143,6 @@ export interface ArticleApiErrorResponse {
 
 export type ArticleApiResult = ArticleApiResponse | ArticleApiErrorResponse
 
-/**
- * Parse markdown into an AST with GFM support (tables, strikethrough, etc.).
- */
 function parseMarkdown(markdown: string) {
   return fromMarkdown(markdown, {
     extensions: [gfm()],
@@ -132,10 +150,8 @@ function parseMarkdown(markdown: string) {
   })
 }
 
-// Block container types whose children should be separated by newlines.
-// These contain other block-level nodes (paragraphs, lists, etc.) and
-// toString() would concatenate them without whitespace, producing tokens
-// like "SSH.Make" that the ES tokenizer can't split.
+// Block containers need newlines between children because toString() would otherwise
+// produce tokens such as SSH.Make that the Elasticsearch tokenizer cannot split.
 const BLOCK_CONTAINER_TYPES = new Set([
   'root',
   'blockquote',
@@ -146,11 +162,9 @@ const BLOCK_CONTAINER_TYPES = new Set([
   'footnoteDefinition',
 ])
 
-/**
- * Convert an AST to plain text, joining block-level children with newlines.
- * Recurses into block containers (lists, blockquotes, etc.) so that nested
- * block boundaries also get whitespace — not just the root level.
- */
+// Converts an AST to plain text, joining block-level children with newlines.
+// It recurses into block containers such as lists and blockquotes so nested
+// block boundaries get whitespace too, not just the ones at the root.
 function astToPlainText(node: Node): string {
   const parent = node as Parent
   if (!parent.children) {
@@ -161,21 +175,21 @@ function astToPlainText(node: Node): string {
     return parent.children.map((child) => astToPlainText(child)).join('\n')
   }
 
-  // Leaf blocks (paragraph, heading, tableCell) and inline nodes:
-  // concatenate inline text directly.
+  // Leaf blocks such as paragraph, heading, and tableCell, plus inline nodes, concatenate text directly.
   return toString(node)
 }
 
-/**
- * Extract headings and plain-text content from markdown in a single AST pass.
- * Headings are extracted first, then the full AST (including code blocks)
- * is converted to plain text so that terms inside code examples remain
- * searchable (e.g. `ssh_url`, `ssh://`).
- */
+// Parses the markdown once, then extracts both headings and plain-text
+// content from the tree. Code blocks stay in the text so terms that only
+// appear in an example, such as ssh_url or ssh://, stay searchable.
 export function extractFromMarkdown(markdown: string): { headings: string; content: string } {
   const ast = parseMarkdown(markdown)
 
-  // 1. Extract h2 headings from the AST
+  // Keep the text inside block HTML such as <summary>, which toString's includeHtml: false would drop.
+  visit(ast, 'html', (node) => {
+    node.value = stripHtml(node.value)
+  })
+
   const headings: string[] = []
   const slugger = new GithubSlugger()
 
@@ -184,57 +198,46 @@ export function extractFromMarkdown(markdown: string): { headings: string; conte
     const headingNode = node as HeadingNode
     if (headingNode.depth !== 2) return
 
-    const headingText = toString(node)
+    const headingText = toString(node).trim()
     const slug = slugger.slug(headingText)
 
-    // Skip navigational headings by slug or known translated text
+    // Skip navigational headings by slug or known translated text.
     if (IGNORED_HEADING_SLUGS.has(slug)) return
     if (IGNORED_HEADING_TEXTS.has(headingText.toLowerCase().trim())) return
 
     headings.push(headingText)
   })
 
-  // 2. Convert full AST to plain text (code blocks are kept so that terms
-  //    appearing only in code examples remain searchable).
   const content = astToPlainText(ast).replace(ALERT_MARKER_REGEXP, '')
 
   return { headings: headings.join('\n'), content }
 }
 
-/**
- * Extract h2 headings from markdown content using mdast parser.
- * Filters out navigational headings (in-this-article, further-reading, prerequisites).
- */
+// Reuses extractFromMarkdown so navigational heading filters stay in one place.
 export function extractHeadingsFromMarkdown(markdown: string): string {
   return extractFromMarkdown(markdown).headings
 }
 
-/**
- * Convert markdown to plain text for search indexing using mdast.
- * This extracts all text content from the markdown AST, including code blocks.
- */
 export function markdownToPlainText(markdown: string): string {
   return extractFromMarkdown(markdown).content
 }
 
-/**
- * Convert Article API response to a search record.
- */
 export function articleApiResponseToRecord(pathname: string, data: ArticleApiResponse): Record {
-  // Build breadcrumbs string (excluding the last one which is the current page)
   const breadcrumbsArray = data.meta.breadcrumbs?.map((b) => b.title) || []
   const breadcrumbs =
     breadcrumbsArray
       .slice(0, breadcrumbsArray.length > 1 ? -1 : breadcrumbsArray.length)
       .join(' / ') || ''
 
-  // Single-pass extraction: parse markdown once to get both headings and content
-  const { headings, content: bodyText } = extractFromMarkdown(data.body)
+  const { headings: bodyHeadings, content: bodyText } = extractFromMarkdown(data.body)
+  const { documentType } = data.meta
+  // Landing page bodies use hard-coded template section titles, not author headings.
+  const headings = documentType && documentType !== 'article' ? '' : bodyHeadings
 
-  // Combine intro with body if intro isn't already in body
   const intro = data.meta.intro || ''
+  // The body copy of the intro went through the same HTML stripping, so compare against that form.
   const content =
-    intro && !bodyText.includes(intro.trim())
+    intro && !bodyText.includes(markdownToPlainText(intro).trim())
       ? `${intro.trim()}\n${bodyText.trim()}`.trim()
       : bodyText.trim()
 
@@ -258,9 +261,6 @@ function isErrorResponse(data: ArticleApiResult): data is ArticleApiErrorRespons
   return 'error' in data
 }
 
-/**
- * Fetch article from API and convert to search record.
- */
 export async function fetchArticleAsRecord(
   pathname: string,
   baseUrl: string = `http://localhost:${DEFAULT_PORT}`,
@@ -283,7 +283,7 @@ export async function fetchArticleAsRecord(
           errorType = 'API Error'
         }
       } catch {
-        /* ignore JSON parse errors */
+        // Ignore JSON parse errors so HTTP status fallback remains available.
       }
       return {
         record: null,
@@ -297,7 +297,6 @@ export async function fetchArticleAsRecord(
 
     const data = (await response.json()) as ArticleApiResult
 
-    // Check for error response (e.g., archived pages)
     if (isErrorResponse(data)) {
       return {
         record: null,
@@ -316,8 +315,7 @@ export async function fetchArticleAsRecord(
     const errorName = error instanceof Error ? error.name : undefined
     const errorCode = (error as { code?: string }).code
 
-    // Prefer structured timeout indicators (name/code), with a documented
-    // fallback to message inspection for environments that only expose text.
+    // Prefer structured timeout indicators, with message text as the fallback.
     const isTimeout =
       errorName === 'AbortError' ||
       errorCode === 'ETIMEDOUT' ||
@@ -340,10 +338,7 @@ export interface BuildRecordsResult {
   failedPages: FailedPage[]
 }
 
-/**
- * Build search records for a given index using the Article API.
- * This is a drop-in replacement for buildRecords from build-records.ts.
- */
+// Returns records and failures together so index workflows can publish partial results and alerts.
 export default async function buildRecordsFromApi(
   indexName: string,
   indexablePages: Page[],
@@ -360,14 +355,11 @@ export default async function buildRecordsFromApi(
   const records: Record[] = []
   const failedPages: FailedPage[] = []
 
-  // Filter pages for this language and version
   const pages = indexablePages
     .filter((page) => page.languageCode === languageCode)
     .filter((page) => page.permalinks.some((permalink) => permalink.pageVersion === pageVersion))
 
-  // Get permalinks for this language and version, deduplicating by href.
-  // Cross-product children can cause the same page to appear multiple
-  // times in the tree under different parents.
+  // Deduplicate permalinks by href, because cross-product children can repeat a page.
   const seen = new Set<string>()
   const permalinks = pages
     .map((page) =>
@@ -397,13 +389,11 @@ export default async function buildRecordsFromApi(
   const hasPopularPages = Object.keys(popularPages).length > 0
   const baseUrl = `http://localhost:${DEFAULT_PORT}`
 
-  // Use Bottleneck for rate limiting
   const limiter = new Bottleneck({
     maxConcurrent: MAX_CONCURRENT,
     minTime: MIN_TIME,
   })
 
-  // Process all permalinks with rate limiting
   const fetchPromises = permalinks.map((permalink) =>
     limiter.schedule(async () => {
       const result = await fetchArticleAsRecord(permalink.href, baseUrl)
@@ -416,7 +406,6 @@ export default async function buildRecordsFromApi(
       }
 
       if (result.record) {
-        // Validate required fields before adding to records
         if (!result.record.title) {
           failedPages.push({
             url: permalink.href,
@@ -428,7 +417,6 @@ export default async function buildRecordsFromApi(
           return null
         }
 
-        // Apply popularity
         const pathArticle = permalink.relativePath.replace('/index.md', '').replace('.md', '')
         let popularity = (hasPopularPages && popularPages[pathArticle]) || 0.0
 
@@ -455,7 +443,6 @@ export default async function buildRecordsFromApi(
 
   console.log('\nrecords in index: ', records.length)
 
-  // Report failed pages (same format as build-records.ts)
   if (failedPages.length > 0) {
     const failureCount = failedPages.length
     const header = chalk.bold.red(`${failureCount} page(s) failed to scrape\n\n`)

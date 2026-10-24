@@ -46,6 +46,8 @@ export default [
         typescript: true,
         node: true,
       },
+      // Maps Primer components to DOM elements for the github and jsx-a11y rules
+      ...primerReact.configs.recommended.settings,
     },
     plugins: {
       github,
@@ -72,6 +74,10 @@ export default [
 
       // TypeScript ESLint recommended rules
       ...tseslint.configs.recommended.rules,
+
+      // Primer React recommended extends plugin:github/react, which flat config does not apply.
+      // Keep before jsx-a11y recommended so its jsx-a11y rule settings win, as in the eslintrc extends order.
+      ...github.getFlatConfigs().react.rules,
 
       // Primer React recommended rules
       ...primerReact.configs.recommended.rules,
@@ -102,6 +108,10 @@ export default [
 
       // Custom rules
       'custom-rules/use-custom-logger': 'error',
+
+      // Disallow dangerouslySetInnerHTML; render trusted HTML via RenderedHTML /
+      // renderHTMLString or a hast tree instead (github/docs-engineering#6619).
+      'custom-rules/no-dangerously-set-inner-html': 'error',
 
       // Prevent direct res.redirect() usage — use res.safeRedirect() instead
       // to avoid open redirect vulnerabilities via protocol-relative URLs.
@@ -184,7 +194,6 @@ export default [
   // Remove directories from this list as they are migrated
   {
     files: [
-      'src/ai-tools/**/*.{ts,js}',
       'src/article-api/**/*.{ts,js}',
       'src/audit-logs/**/*.{ts,js}',
       'src/color-schemes/**/*.{ts,js}',
@@ -192,7 +201,6 @@ export default [
       'src/events/components/**/*.{ts,js}',
       'src/fixtures/**/*.{ts,js}',
       'src/journeys/**/*.{ts,js}',
-      'src/metrics/**/*.{ts,js}',
       'src/observability/lib/handle-package-not-found.ts',
     ],
     rules: {
@@ -231,59 +239,26 @@ export default [
     },
   },
 
-  // Legacy files with @typescript-eslint/no-explicit-any violations (see github/docs-engineering#5797)
+  // Allow role="list" on list-style:none <ul>/<ol> elements in these components.
+  // Chromium drops the implicit `list`/`listitem` roles from the accessibility tree
+  // when list-style:none is set, so NVDA/JAWS lose list semantics and the item count;
+  // role="list" on the <ul>/<ol> and role="listitem" on each <li> restore them and are not
+  // actually redundant here. See github/accessibility-audits#16815.
   {
     files: [
-      'src/article-api/transformers/audit-logs-transformer.ts',
-      'src/article-api/transformers/rest-transformer.ts',
-      'src/codeql-cli/scripts/convert-markdown-for-docs.ts',
-      'src/content-linter/scripts/lint-content.ts',
-      'src/content-render/liquid/index.ts',
-      'src/content-render/scripts/liquid-tags.ts',
-      'src/content-render/scripts/move-content.ts',
-      'src/content-render/unified/annotate.ts',
-      'src/content-render/unified/index.ts',
-      'src/data-directory/lib/get-data.ts',
-      'src/frame/components/context/MainContext.tsx',
-      'src/frame/lib/page-data.ts',
-      'src/frame/tests/page.ts',
-      'src/frame/tests/server.ts',
-      'src/graphql/lib/index.ts',
-      'src/graphql/pages/reference.tsx',
-      'src/graphql/scripts/utils/process-schemas.ts',
-      'src/graphql/scripts/utils/schema-helpers.ts',
-      'src/graphql/tests/validate-schema.ts',
-      'src/landings/components/CookBookFilter.tsx',
-      'src/languages/lib/correct-translation-content.ts',
-      'src/languages/lib/render-with-fallback.ts',
-      'src/links/lib/update-internal-links.ts',
-      'src/rest/components/get-rest-code-samples.ts',
-      'src/rest/pages/category.tsx',
-      'src/rest/pages/subcategory.tsx',
-      'src/rest/scripts/utils/create-rest-examples.ts',
-      'src/rest/scripts/utils/get-operations.ts',
-      'src/rest/scripts/utils/inject-models-schema.ts',
-      'src/rest/scripts/utils/operation.ts',
-      'src/rest/scripts/utils/sync.ts',
-      'src/rest/scripts/utils/update-markdown.ts',
-      'src/rest/tests/get-rest-code-samples-2.ts',
-      'src/rest/tests/get-rest-code-samples.ts',
-      'src/rest/tests/rendering.ts',
-      'src/search/components/hooks/useAISearchAutocomplete.ts',
-      'src/search/components/hooks/useAISearchLocalStorageCache.ts',
-      'src/search/components/input/SearchOverlay.tsx',
-      'src/search/lib/get-elasticsearch-results/ai-search-autocomplete.ts',
-      'src/search/lib/get-elasticsearch-results/general-search.ts',
-      'src/search/lib/routes/combined-search-route.ts',
-      'src/search/lib/search-request-params/get-search-from-request-params.ts',
-      'src/search/scripts/index/index-cli.ts',
-      'src/search/scripts/index/utils/indexing-elasticsearch-utils.ts',
-      'src/types/github__markdownlint-github.d.ts',
-      'src/types/markdownlint-lib-rules.d.ts',
-      'src/types/markdownlint-rule-helpers.d.ts',
+      'src/frame/components/ui/MiniTocs/MiniTocs.tsx',
+      'src/landings/components/TableOfContents.tsx',
+      'src/frame/components/GenericError.tsx',
+      'src/frame/components/page-footer/LegalFooter.tsx',
+      'src/landings/components/ProductSelectionCard.tsx',
+      'src/release-notes/components/GHESReleaseNotes.tsx',
+      'src/landings/components/journey/JourneyLearningTracks.tsx',
     ],
     rules: {
-      '@typescript-eslint/no-explicit-any': 'off',
+      'jsx-a11y/no-redundant-roles': [
+        'error',
+        { nav: ['navigation'], ul: ['list'], ol: ['list'], li: ['listitem'] },
+      ],
     },
   },
 

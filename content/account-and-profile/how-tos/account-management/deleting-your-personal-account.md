@@ -1,6 +1,6 @@
 ---
 title: Deleting your personal account
-intro: You can delete your personal account on {% data variables.location.product_location %} at any time.
+intro: You can delete your personal account on {% data variables.location.product_location %} from your account settings.
 redirect_from:
   - /articles/deleting-a-user-account
   - /articles/deleting-your-user-account
@@ -23,7 +23,7 @@ category:
 {% ifversion ghec %}
 
 > [!NOTE]
-> If your enterprise manages your account and you sign into {% data variables.product.github %} through your company's identity provider (IdP), you cannot delete your account. For more information, see [AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users).
+> If your enterprise manages your account and you sign into {% data variables.product.github %} through your company's identity provider (IdP), you cannot delete your account. For more information, see [AUTOTITLE](/admin/concepts/identity-and-access-management/enterprise-managed-users).
 
 {% endif %}
 
@@ -45,6 +45,14 @@ Before you delete your personal account, make a copy of all repositories, privat
 
 > [!WARNING]
 > Once your personal account has been deleted, {% ifversion fpt or ghec %}{% data variables.product.company_short %}{% elsif ghes %}an enterprise owner{% endif %} cannot restore your content.
+
+{% ifversion fpt or ghec %}
+
+If your account is flagged, suspended, or otherwise restricted, **Delete your account** may be unavailable, disabled, or direct you to {% data variables.contact.github_support %} instead of completing deletion. Contact {% data variables.contact.contact_support_page %} to request access to the normal self-service deletion flow.
+
+{% data variables.contact.github_support %} does not delete your personal account on your behalf. Once access is restored, you must complete the steps below to delete your account.
+
+{% endif %}
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.account_settings %}

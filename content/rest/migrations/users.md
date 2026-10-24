@@ -16,7 +16,7 @@ category:
 
 ## About user migrations
 
-These endpoints are only available to authenticated account owners. For more information, see [AUTOTITLE](/rest/overview/authenticating-to-the-rest-api).
+These endpoints are only available to authenticated account owners. For more information, see [AUTOTITLE](/rest/authentication/authenticating-to-the-rest-api).
 
 {% data variables.migrations.user_migrations_intro %} For a list of migration data that you can download, see [Download a user migration archive](#download-a-user-migration-archive).
 

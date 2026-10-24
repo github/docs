@@ -1,6 +1,7 @@
-import cx from 'classnames'
+import cx from 'clsx'
 
 import styles from './RestCodeSamples.module.scss'
+import { RenderedHTML } from '@/frame/components/ui/RenderedHTML/RenderedHTML'
 
 type RestMethodT = {
   verb: string
@@ -8,8 +9,7 @@ type RestMethodT = {
 }
 
 export function RestMethod({ verb, requestPath }: RestMethodT) {
-  // If the path is long, we want to break it up into multiple lines,
-  // breaking before the / character.
+  // Insert word breaks before slashes and after underscores so long paths wrap in narrow layouts.
   const displayPath =
     requestPath.length > 25
       ? requestPath.replaceAll('/', '<wbr/>/').replaceAll('_', '_<wbr/>')
@@ -19,7 +19,7 @@ export function RestMethod({ verb, requestPath }: RestMethodT) {
       <span className="IssueLabel IssueLabel--big color-bg-accent-emphasis color-fg-on-emphasis text-uppercase mr-2">
         {verb}
       </span>
-      <span dangerouslySetInnerHTML={{ __html: displayPath }} />
+      <RenderedHTML as="span" html={displayPath} />
     </div>
   )
 }

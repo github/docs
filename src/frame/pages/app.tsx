@@ -5,6 +5,7 @@ import Head from 'next/head'
 import { ThemeProvider } from '@primer/react'
 import { useRouter } from 'next/router'
 
+import { BrandThemeProvider } from '@/color-schemes/components/BrandThemeProvider'
 import { initializeEvents } from '@/events/components/events'
 import {
   initializeExperiments,
@@ -44,15 +45,11 @@ const stagingNames = new Set([
   'yew',
 ])
 
+// Cache-busting prefixes need any cb-number so Fastly assigns the manual surrogate key.
+// Change the cb number when the image changes, so browsers and the CDN miss the old URL.
 function getFaviconHref(stagingName?: string) {
-  /* The value in these "/cb-xxxxx" prefixes aren't important. They
-      just need to be present. They help the CDN cache the asset
-      for infinity.
-      Just remember, if you edit these images on disk, remember to
-      change these numbers
-   */
   if (stagingName) {
-    return `/assets/cb-345/images/site/evergreens/${stagingName}.png`
+    return `/assets/cb-346/images/site/evergreens/${stagingName}.png`
   }
   return '/assets/cb-345/images/site/favicon.png'
 }
@@ -77,45 +74,16 @@ const MyApp = ({ Component, pageProps, languagesContext, stagingName }: MyAppPro
   }, [])
 
   useEffect(() => {
+    let cleanup: (() => void) | undefined
     if (pageProps.mainContext) {
       try {
-        initializeForwardFeatureUrlParam(router, pageProps.mainContext.currentVersion)
+        cleanup = initializeForwardFeatureUrlParam(router, pageProps.mainContext.currentVersion)
       } catch (e) {
         console.error('Error initializing feature param forwarding:', e)
       }
     }
+    return cleanup
   }, [router, router.query, pageProps.mainContext])
-
-  useEffect(() => {
-    // The CSS from primer looks something like this:
-    //
-    //   @media (prefers-color-scheme: dark) [data-color-mode=auto][data-dark-theme=dark] {
-    //       --color-canvas-default: black;
-    //   }
-    //   html {
-    //       background-color: var(--color-canvas-default);
-    //   }
-    //
-    // So if that `[data-color-mode][data-dark-theme=dark]` isn't present
-    // on the html, but on a top-level wrapping `<div>` then the `<html>`
-    // doesn't get the right CSS.
-    // Normally, with Primer you make sure you set these things in the
-    // `<html>` tag and you can use `_document.tsx` for that but that's
-    // only something you can do in server-side rendering. So,
-    // we use a hook to assure that the `<html>` tag has the correct
-    // dataset attribute values.
-    const html = document.querySelector('html')
-    if (html) {
-      // Note, this is the same as setting `<html data-color-mode="...">`
-      // But you can't do `html.dataset['color-mode']` so you use the
-      // camelCase variant and you get the same effect.
-      // Appears Next.js can't modify <html> after server rendering:
-      // https://stackoverflow.com/a/54774431
-      html.dataset.colorMode = theme.css.colorMode
-      html.dataset.darkTheme = theme.css.darkTheme
-      html.dataset.lightTheme = theme.css.lightTheme
-    }
-  }, [theme])
 
   return (
     <>
@@ -141,14 +109,16 @@ const MyApp = ({ Component, pageProps, languagesContext, stagingName }: MyAppPro
         colorMode={theme.component.colorMode}
         dayScheme={theme.component.dayScheme}
         nightScheme={theme.component.nightScheme}
-        preventSSRMismatch
       >
-        <LanguagesContext.Provider value={languagesContext}>
-          <SharedUIContextProvider>
-            <ClientSideHashFocus />
-            <Component {...pageProps} />
-          </SharedUIContextProvider>
-        </LanguagesContext.Provider>
+        {/* @primer/react-brand context lets Brand components coexist with @primer/react. */}
+        <BrandThemeProvider>
+          <LanguagesContext.Provider value={languagesContext}>
+            <SharedUIContextProvider>
+              <ClientSideHashFocus />
+              <Component {...pageProps} />
+            </SharedUIContextProvider>
+          </LanguagesContext.Provider>
+        </BrandThemeProvider>
       </ThemeProvider>
     </>
   )
@@ -156,30 +126,22 @@ const MyApp = ({ Component, pageProps, languagesContext, stagingName }: MyAppPro
 
 MyApp.getInitialProps = async (appContext: AppContext) => {
   const { ctx } = appContext
-  // calls page's `getInitialProps` and fills `appProps.pageProps`
   const appProps = await App.getInitialProps(appContext)
   const req = ctx.req as unknown as ExtendedRequest
 
-  // Have to define the type manually here because `req.context.languages`
-  // comes from Node JS and is not type-aware.
   const languagesContext: LanguagesContextT = {
     languages: {},
   }
 
-  // If we're rendering certain 404 error pages, the middleware might not
-  // yet have contextualized the `context.languages`. So omit this
-  // context mutation and live without it.
-  // Note, `req` will be undefined if this is the client-side rendering
-  // of a 500 page ("Ooops! It looks like something went wrong.")
+  // Some 404 renders lack req.context.languages.
   if (req?.context?.languages) {
     const languageEntries = Object.entries(req.context.languages as Record<string, LanguageItem>)
     for (const [langCode, langObj] of languageEntries) {
-      // Only pick out the keys we actually need
       languagesContext.languages[langCode] = {
         name: langObj.name,
         code: langObj.code,
       }
-      // The `hreflang` is used for the `<link rel="alternate">` tags.
+      // hreflang drives alternate-language link tags.
       if (langObj.hreflang && langObj.hreflang !== langObj.code) {
         languagesContext.languages[langCode].hreflang = langObj.hreflang
       }
@@ -188,7 +150,7 @@ MyApp.getInitialProps = async (appContext: AppContext) => {
       }
     }
   }
-  const headerValue = req.headers['x-ong-external-url']
+  const headerValue = req?.headers['x-ong-external-url']
   const stagingName = (typeof headerValue === 'string' ? headerValue : headerValue?.[0])?.match(
     /staging-(\w+)\./,
   )?.[1]

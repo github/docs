@@ -2,8 +2,11 @@
 title: Plugin directories
 shortTitle: Plugin Directories
 intro: >-
-  Use plugin directories to load skills, hooks, MCP servers, custom agents, and
-  LSP settings from a single manifest.
+  A **plugin** is a directory that bundles SDK extensions — skills, hooks, MCP
+  servers, custom agents, and LSP configuration — behind a single manifest.
+  Pointing the SDK at a plugin directory loads everything the plugin
+  contributes, so you can ship reusable capability packs without writing
+  per-extension wiring in every host application.
 versions:
   fpt: '*'
   ghec: '*'
@@ -57,25 +60,6 @@ Plugin directories are loaded by passing `--plugin-dir <path>` to the Copilot CL
 ```typescript
 import { CopilotClient, RuntimeConnection } from "@github/copilot-sdk";
 
-async function main() {
-  const client = new CopilotClient({
-    connection: RuntimeConnection.forStdio({
-      args: [
-        "--plugin-dir", "./plugins/code-reviewer",
-        "--plugin-dir", "./plugins/lint-fix",
-      ],
-    }),
-  });
-
-  await client.start();
-}
-
-main();
-```
-
-```typescript
-import { CopilotClient, RuntimeConnection } from "@github/copilot-sdk";
-
 const client = new CopilotClient({
   connection: RuntimeConnection.forStdio({
     args: [
@@ -109,31 +93,6 @@ await client.start()
 
 {% endcodetab %}
 {% codetab go %}
-
-```golang
-package main
-
-import (
-	"context"
-
-	copilot "github.com/github/copilot-sdk/go"
-)
-
-func main() {
-	ctx := context.Background()
-	client := copilot.NewClient(&copilot.ClientOptions{
-		Connection: copilot.StdioConnection{
-			Args: []string{
-				"--plugin-dir", "./plugins/code-reviewer",
-				"--plugin-dir", "./plugins/lint-fix",
-			},
-		},
-	})
-	if err := client.Start(ctx); err != nil {
-		return
-	}
-}
-```
 
 ```golang
 client := copilot.NewClient(&copilot.ClientOptions{
@@ -171,24 +130,6 @@ await client.StartAsync();
 {% codetab java %}
 
 ```java
-import com.github.copilot.CopilotClient;
-import com.github.copilot.rpc.CopilotClientOptions;
-
-public class PluginDirectoriesExample {
-    public static void main(String[] args) throws Exception {
-        var options = new CopilotClientOptions()
-            .setCliArgs(new String[] {
-                "--plugin-dir", "./plugins/code-reviewer",
-                "--plugin-dir", "./plugins/lint-fix",
-            });
-
-        var client = new CopilotClient(options);
-        client.start().get();
-    }
-}
-```
-
-```java
 var options = new CopilotClientOptions()
     .setCliArgs(new String[] {
         "--plugin-dir", "./plugins/code-reviewer",
@@ -201,22 +142,6 @@ client.start().get();
 
 {% endcodetab %}
 {% codetab rust %}
-
-```rust
-use github_copilot_sdk::{Client, ClientOptions};
-
-#[tokio::main]
-async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let _client = Client::start(
-        ClientOptions::new().with_extra_args([
-            "--plugin-dir", "./plugins/code-reviewer",
-            "--plugin-dir", "./plugins/lint-fix",
-        ]),
-    )
-    .await?;
-    Ok(())
-}
-```
 
 ```rust
 use github_copilot_sdk::{Client, ClientOptions};
@@ -234,6 +159,51 @@ let client = Client::start(
 {% endcodetabs %}
 
 > The example above uses an stdio runtime connection — the default when the SDK bundles the CLI. If you connect to an external runtime via a URL (`forUri` / `ForUri`), pass `--plugin-dir` to the long-running CLI server when you start it; the SDK does not forward `--plugin-dir` to runtimes it didn't spawn.
+
+## Per-session plugin directories
+
+`--plugin-dir` is a launch argument, so it fixes one plugin set for the CLI process and every session created against it. When sessions need different plugin sets, or when the SDK is connected to a runtime it did not spawn, pass the directories on the session config instead. They travel in the `session.create` and `session.resume` payloads over JSON-RPC rather than as process arguments, so they reach an external runtime the same way the startup option does.
+
+```typescript
+import { CopilotClient } from "@github/copilot-sdk";
+
+const client = new CopilotClient();
+await client.start();
+
+const session = await client.createSession({
+  pluginDirectories: ["./plugins/code-reviewer"],
+});
+```
+
+Relative paths resolve against `workingDirectory`, or the runtime working directory when that is unset, so absolute paths are recommended. Entries that do not resolve are logged and skipped rather than failing session creation. The option is an explicit opt-in, which means plugin agents and rules load even when `enableConfigDiscovery` is false. Assets loaded this way sit between project sources and personal or home sources in the session-wide precedence order.
+
+The equivalent option in each SDK is:
+
+| SDK | Session option |
+|---|---|
+| Node.js / TypeScript | `pluginDirectories: string[]` |
+| Python | `plugin_directories=[...]` |
+| Go | `PluginDirectories: []string{...}` |
+| .NET | `PluginDirectories = [...]` |
+| Java | `.setPluginDirectories(List.of(...))` |
+| Rust | `.with_plugin_directories([...])` |
+
+## Trusted host-bundled plugin directories
+
+Applications that ship their own trusted plugins can register them as a client startup option. The SDK sends the complete ordered set after connecting and verifying the protocol, before `start` returns or any session can be created. Paths must be absolute; leaving the option unset or empty makes no RPC call.
+
+The equivalent option in each SDK is:
+
+| SDK | Startup option |
+|---|---|
+| Node.js / TypeScript | `builtinPluginDirectories: string[]` |
+| Python | `builtin_plugin_directories=[...]` |
+| Go | `BuiltinPluginDirectories: []string{...}` |
+| .NET | `BuiltinPluginDirectories = [...]` |
+| Java | `.setBuiltinPluginDirectories(List.of(Path.of(...)))` |
+| Rust | `.with_builtin_plugin_directories([...])` |
+
+This is a trust boundary for plugins bundled and controlled by the host application. It is distinct from `--plugin-dir`, which is a CLI process launch argument for explicitly loading ordinary plugin directories. The startup option also works when connecting to an existing runtime because it is sent over JSON-RPC rather than forwarded as a process argument.
 
 ## What a plugin can contribute
 
@@ -265,26 +235,6 @@ When the host machine may have other plugins installed (marketplace or personal)
 <details open>
 <summary><strong>Node.js / TypeScript</strong></summary>
 
-<!-- docs-validate: hidden -->
-
-```typescript
-import { CopilotClient, RuntimeConnection } from "@github/copilot-sdk";
-
-async function main() {
-  process.env.COPILOT_PLUGIN_DIR_ONLY = "true";
-  const client = new CopilotClient({
-    connection: RuntimeConnection.forStdio({
-      args: ["--plugin-dir", "./plugins/code-reviewer"],
-    }),
-  });
-  await client.start();
-}
-
-main();
-```
-
-<!-- /docs-validate: hidden -->
-
 ```typescript
 process.env.COPILOT_PLUGIN_DIR_ONLY = "true";
 
@@ -307,29 +257,6 @@ Once a session is created, list the active plugins to confirm a directory was pi
 <details open>
 <summary><strong>Node.js / TypeScript</strong></summary>
 
-<!-- docs-validate: hidden -->
-
-```typescript
-import { CopilotClient } from "@github/copilot-sdk";
-
-async function main() {
-  const client = new CopilotClient();
-  await client.start();
-  const session = await client.createSession({
-    onPermissionRequest: async () => ({ kind: "approve-once" }),
-  });
-
-  const plugins = await session.rpc.plugins.list();
-  for (const plugin of plugins.plugins) {
-    console.log(`${plugin.name} (${plugin.enabled ? "enabled" : "disabled"})`);
-  }
-}
-
-main();
-```
-
-<!-- /docs-validate: hidden -->
-
 ```typescript
 const plugins = await session.rpc.plugins.list();
 for (const plugin of plugins.plugins) {
@@ -340,6 +267,34 @@ for (const plugin of plugins.plugins) {
 </details>
 
 Plugins loaded via `--plugin-dir` appear in this list with their cache path set to the directory you provided. Marketplace installs are tagged with their registry source.
+
+## Retrying plugins required by managed settings
+
+When managed settings require plugins through `enabledPlugins`, the runtime installs or updates them before chat messages. If that fails, the session emits a `session.warning` with `warningType: "managed_plugins"` and waits an hour, or until the managed settings change, before trying again. The experimental `session.rpc.plugins.retryManaged()` tries again right away, for example from a Retry action next to that warning.
+
+Call it with no arguments to retry every plugin the managed settings require, or pass `plugin@marketplace` specs in `plugins` to retry only those. The result has one entry per plugin with a `status`: `installed`, `updated`, `already_present`, `failed`, `deferred`, or `not_required`. `failed` and `deferred` entries include an `error`. The session also emits the usual `session.info` progress and `session.warning` failure events.
+
+<details open>
+<summary><strong>Node.js / TypeScript</strong></summary>
+
+```typescript
+// Retry every plugin the managed settings require, for example from a Retry action.
+const result = await session.rpc.plugins.retryManaged();
+for (const entry of result.plugins) {
+  console.log(`${entry.spec}: ${entry.status}${entry.error ? ` (${entry.error})` : ""}`);
+}
+
+// Or retry only the required plugins that are still missing.
+const { plugins } = await session.rpc.plugins.list();
+const missing = plugins
+  .filter((plugin) => plugin.managedDesiredEnabled === true && plugin.installed === false)
+  .map((plugin) => `${plugin.name}@${plugin.marketplace}`);
+await session.rpc.plugins.retryManaged({ plugins: missing });
+```
+
+</details>
+
+Runtimes that do not prepare managed plugins for the session reject the call.
 
 ## Troubleshooting
 

@@ -19,7 +19,7 @@ When delegated bypass for push protection is enabled, designated reviewers can a
 
 This article explains how to review and manage bypass requests for repositories and organizations.
 
-For more information about how bypass requests work, see [AUTOTITLE](/code-security/concepts/secret-security/about-bypass-requests-for-push-protection).
+For more information about how bypass requests work, see [AUTOTITLE](/code-security/concepts/secret-security/bypass-requests).
 
 ## Managing requests for a repository
 
@@ -35,7 +35,7 @@ For more information about how bypass requests work, see [AUTOTITLE](/code-secur
 
 ## Managing requests for an organization
 
-Organization owners, security managers and organization members with the relevant fine-grained permission (via a custom role) can review and manage bypass requests for all repositories in the organization using security overview. See [AUTOTITLE](/code-security/security-overview/reviewing-requests-to-bypass-push-protection).
+Organization owners, security managers and organization members with the relevant fine-grained permission (via a custom role) can review and manage bypass requests for all repositories in the organization using security overview. See [AUTOTITLE](/code-security/how-tos/secure-your-secrets/manage-bypass-requests/review-bypass-requests).
 
 ## Filtering requests
 
@@ -60,6 +60,6 @@ The following statuses are assigned to a request:
 
 ## Further reading
 
-* [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/about-delegated-bypass-for-push-protection)
-* [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/enabling-delegated-bypass-for-push-protection)
-* [AUTOTITLE](/code-security/security-overview/reviewing-requests-to-bypass-push-protection)
+* [AUTOTITLE](/code-security/concepts/secret-security/delegated-bypass)
+* [AUTOTITLE](/code-security/how-tos/secure-your-secrets/manage-bypass-requests/enable-delegated-bypass)
+* [AUTOTITLE](/code-security/how-tos/secure-your-secrets/manage-bypass-requests/review-bypass-requests)

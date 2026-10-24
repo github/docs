@@ -3,10 +3,7 @@ import fs from 'fs'
 import { describe, expect, test } from 'vitest'
 
 import { get } from '@/tests/helpers/e2etest'
-import {
-  SURROGATE_ENUMS,
-  makeLanguageSurrogateKey,
-} from '@/frame/middleware/set-fastly-surrogate-key'
+import { makeLanguageSurrogateKey } from '@/frame/middleware/set-fastly-surrogate-key'
 
 describe('anchor-redirect api', () => {
   const clientSideRedirects = JSON.parse(
@@ -14,7 +11,6 @@ describe('anchor-redirect api', () => {
   )
 
   test('returns correct redirect to url', async () => {
-    // test the first entry
     const [key, value] = Object.entries(clientSideRedirects)[0]
     const [path, hash] = key.split('#')
     const sp = new URLSearchParams()
@@ -26,7 +22,6 @@ describe('anchor-redirect api', () => {
     expect(to).toBe(value)
   })
   test('errors when path is not passed', async () => {
-    // test the first entry
     const key = Object.keys(clientSideRedirects)[0]
     const hash = key.split('#')[1]
     const sp = new URLSearchParams()
@@ -35,7 +30,6 @@ describe('anchor-redirect api', () => {
     expect(res.statusCode).toBe(400)
   })
   test('errors when path is not passed', async () => {
-    // test the first entry
     const key = Object.keys(clientSideRedirects)[0]
     const path = key.split('#')[0]
     const sp = new URLSearchParams()
@@ -61,7 +55,6 @@ describe('anchor-redirect api', () => {
     expect(res.headers['surrogate-control']).toContain('public')
     expect(res.headers['surrogate-control']).toMatch(/max-age=[1-9]/)
     const surrogateKeySplit = res.headers['surrogate-key'].split(/\s/g)
-    expect(surrogateKeySplit.includes(SURROGATE_ENUMS.DEFAULT)).toBeTruthy()
     expect(surrogateKeySplit.includes(makeLanguageSurrogateKey())).toBeTruthy()
   })
 })

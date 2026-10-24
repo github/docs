@@ -1,20 +1,35 @@
 name: Purge Fastly
 
-# **What it does**: Sends a soft-purge to Fastly.
-# **Why we have it**: So that, right after a production deploy, we start afresh
-# **Who does it impact**: Writers and engineers.
+# Production deploys hard-purge changed English content, and manual runs clear bad Fastly cache state.
+# Full-cache purges affect all readers and spike origin traffic, so they stay gated below.
 
 on:
   deployment_status:
   workflow_dispatch:
     inputs:
       languages:
-        description: "Comma separated languages. E.g. 'en,es,ja,pt,zh,ru,fr,ko,de' (defaults to en)"
+        description: "Languages: Comma separated languages, e.g. 'en,es,ja,pt,zh,ru,fr,ko,de'. Blank = all languages."
         required: false
-        default: 'en' # Temporary, only purge English on deploy. Set to empty string for all
+        default: 'en'
+      soft:
+        description: 'Soft purge: Mark stale instead of evicting. Readers keep getting the old copy while Fastly refetches. Off by default, so purges evict immediately.'
+        type: boolean
+        required: false
+        default: false
+      everything:
+        description: 'Everything: Hard-purge the entire Fastly cache... every key, all readers. Ignores the languages/soft inputs. To confirm, type exactly: "purge everything". Otherwise leave blank.'
+        required: false
+        default: ''
 
 permissions:
   contents: read
+  deployments: read
+
+# Serialize full-cache purges so concurrent runs cannot leave the cache in an unknown state.
+# Per-deploy and per-language runs get unique groups so they never block each other.
+concurrency:
+  group: ${{ (inputs.everything == 'purge everything' && 'purge-fastly-all') || format('purge-fastly-{0}', github.run_id) }}
+  cancel-in-progress: false
 
 env:
   FASTLY_TOKEN: ${{ secrets.FASTLY_TOKEN }}
@@ -22,9 +37,8 @@ env:
 
 jobs:
   send-purges:
-    # Run when workflow_dispatch is the event (manual) or when deployment_status is the event (automatic) and it's a successful production deploy.
-    # NOTE: This workflow triggers on all deployment_status events (including staging), but only runs for production.
-    # Non-production deploys will show as "skipped" - this is expected behavior.
+    # This workflow sees every deployment_status event, but only production successes purge.
+    # Non-production deployments skip this job.
     if: >-
       ${{
         github.repository == 'github/docs-internal' &&
@@ -34,35 +48,64 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repo
-        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
 
       - uses: ./.github/actions/node-npm-setup
 
-      - name: Wait for production to match build number
-        if: github.event_name != 'workflow_dispatch'
-        run: |
-          needs=$(git rev-parse HEAD)
-          start_time=$(date +%s)
-          timeout_seconds=1200
-          while [[ $needs != $(curl -s --fail --retry-connrefused --retry 5 https://docs.github.com/_build) ]]
-          do
-            if [[ $(($(date +%s) - $start_time)) -gt $timeout_seconds ]]
-            then
-              echo "Production did not match the build number within $timeout_seconds seconds"
-              exit 1
-            fi
-            echo "Production is not up to date with the build commit"
-            sleep 10
-          done
-          echo "Production is up to date with the build commit"
-
-      - name: Purge Fastly edge cache per language
+      - name: Validate confirmation input
+        # A full-cache purge requires the exact string "purge everything"; typos must fail
+        # instead of falling through to a green language purge.
         env:
-          LANGUAGES: ${{ inputs.languages || 'en' }} # Temporary, only purge English on deploy. Set to empty string for all
-        run: npm run purge-fastly-edge-cache-per-language
+          EVERYTHING_INPUT: ${{ inputs.everything }}
+        run: |
+          if [ -n "$EVERYTHING_INPUT" ] && [ "$EVERYTHING_INPUT" != "purge everything" ]; then
+            echo "::error::To purge the entire cache, the 'everything' input must be exactly 'purge everything'. Got: '$EVERYTHING_INPUT'. Leave it blank for a normal purge."
+            exit 1
+          fi
+
+      - name: Wait for production to serve this build
+        if: ${{ github.event_name == 'deployment_status' }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npm run wait-for-build
+
+      - name: Purge Fastly (manual)
+        # Raw inputs pass through the environment as quoted arguments.
+        # A value like en' --everything cannot break out and inject another flag.
+        if: ${{ github.event_name == 'workflow_dispatch' }}
+        env:
+          LANGUAGES_INPUT: ${{ inputs.languages }}
+          SOFT_INPUT: ${{ inputs.soft }}
+          EVERYTHING_INPUT: ${{ inputs.everything }}
+        run: |
+          args=()
+          if [ -n "$LANGUAGES_INPUT" ]; then
+            args+=(--languages "$LANGUAGES_INPUT")
+          fi
+          if [ "$SOFT_INPUT" = "true" ]; then
+            args+=(--soft)
+          fi
+          if [ "$EVERYTHING_INPUT" = "purge everything" ]; then
+            args+=(--everything)
+          fi
+          npm run purge-fastly -- "${args[@]}"
+
+      - name: Hard-purge changed English content pages
+        # Production deploys purge surrogate keys for English pages whose content/ files changed.
+        if: ${{ github.event_name == 'deployment_status' }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          HEAD_SHA: ${{ github.event.deployment.sha }}
+        run: npm run purge-fastly-changed-content
+
+      - uses: ./.github/actions/create-workflow-failure-issue
+        id: create-failure-issue
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
+        with:
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
 
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
         with:
-          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+          issue_url: ${{ steps.create-failure-issue.outputs.issue_url }}

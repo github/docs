@@ -10,6 +10,7 @@ contentType: concepts
 children:
   - /secret-leakage-risks
   - /secret-scanning
+  - /public-monitoring
   - /push-protection
   - /secret-security-with-github
   - /about-alerts

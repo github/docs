@@ -18,7 +18,7 @@ category:
 
 ## About {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode %}
 
-You can run {% data variables.product.prodname_codeql %} queries on databases generated from source code, in order to find errors and security vulnerabilities in a codebase. For more information about {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}, see [AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql).
+You can run {% data variables.product.prodname_codeql %} queries on databases generated from source code, in order to find errors and security vulnerabilities in a codebase. For more information about {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}, see [AUTOTITLE](/code-security/concepts/code-scanning/codeql/codeql-code-scanning).
 
 With the {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode %} extension, you can:
 
@@ -51,10 +51,10 @@ You can run commands for the {% data variables.product.prodname_codeql %} for {%
 
 ## Data and telemetry
 
-If you specifically opt in to permit {% data variables.product.prodname_dotcom %} to do so, {% data variables.product.prodname_dotcom %} will collect usage data and metrics for the purposes of helping the core developers to improve the {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode %} extension. For more information, see [AUTOTITLE](/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/telemetry-in-codeql-for-visual-studio-code).
+If you specifically opt in to permit {% data variables.product.prodname_dotcom %} to do so, {% data variables.product.prodname_dotcom %} will collect usage data and metrics for the purposes of helping the core developers to improve the {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode %} extension. For more information, see [AUTOTITLE](/code-security/reference/code-scanning/codeql/codeql-for-vs-code/telemetry-in-codeql-for-visual-studio-code).
 
 {% data reusables.code-scanning.codeql-license %}
 
 ## Next steps
 
-To learn about how to install the {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode %} extension, see [AUTOTITLE](/code-security/codeql-for-vs-code/getting-started-with-codeql-for-vs-code/installing-codeql-for-vs-code).
+To learn about how to install the {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode %} extension, see [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/scan-from-vs-code/install-codeql-for-vs-code).

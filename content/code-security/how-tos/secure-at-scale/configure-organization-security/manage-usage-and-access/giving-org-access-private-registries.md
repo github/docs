@@ -4,7 +4,9 @@ shortTitle: Give access to private registries
 intro: If your organization uses private registries, you can improve the results of {% data variables.product.prodname_code_scanning %} analysis and enable {% data variables.product.prodname_dependabot %} to maintain more dependencies by setting up access to these registries.
 allowTitleToDifferFromFilename: true
 versions:
-  feature: org-private-registry
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 redirect_from:
   - /code-security/securing-your-organization/enabling-security-features-in-your-organization/giving-org-access-private-registries
 contentType: how-tos
@@ -14,7 +16,7 @@ category:
 
 ## About the importance of providing access to private registries
 
-When code in a repository has dependencies that are stored in a private registry, some security features need access to the registry to enable them to work effectively. Without access to all the dependencies of a repository, the effectiveness of {% ifversion code-quality %}{% data variables.product.prodname_code_quality_short %} ({% data variables.release-phases.public_preview %}), {% endif %}{% data variables.product.prodname_code_scanning %} default setup and {% data variables.product.prodname_dependabot %} are limited.
+When code in a repository has dependencies that are stored in a private registry, some security features need access to the registry to enable them to work effectively. Without access to all the dependencies of a repository, the effectiveness of {% ifversion code-quality %}{% data variables.product.prodname_code_quality_short %}, {% endif %}{% data variables.product.prodname_code_scanning %} default setup and {% data variables.product.prodname_dependabot %} are limited.
 
 ## {% data variables.product.prodname_code_scanning_caps %} default setup access to private registries
 
@@ -29,6 +31,12 @@ When you configure access to the private registries used in your organization, {
 | C# | NuGet Feed |
 | Go | GOPROXY server, Git Source |
 | Java | Maven Repository |
+
+{% ifversion codeql-config-property %}
+
+Additionally, _Git Source_ registries are supported for granting {% data variables.product.prodname_code_scanning %} access to configuration files in internal or private repositories. For more information about customizing {% data variables.product.prodname_code_scanning %} using custom configuration files, see [AUTOTITLE](/code-security/reference/code-scanning/workflow-configuration-options#custom-configuration-files).
+
+{% endif %}
 
 > [!TIP]
 > You can define one of each type of registry for each organization. If the codebases in your organization use more than one registry of a given type, you should set up a unified access point or define access to the most important registry for the codebases in that organization.
@@ -45,9 +53,12 @@ You need to be an **organization owner** to set up access to private registries 
    * **Type** is the type of registry.
 1. Select the authentication method for the registry:
    * **Token**: Enter the token used to authenticate with the registry.
-   * **Username and password**: Enter the username and password used to authenticate with the registry. Some types of authentication tokens, such as a {% data variables.product.github %} {% data variables.product.pat_generic_title_case %}, are tied to a particular user identity. Select this option for these and enter the relevant username as **Username** and the token as **Password**.
+   * **Username and password**: Enter the username and password used to authenticate with the registry. Some types of authentication tokens, such as a {% data variables.product.github %} {% data variables.product.pat_generic_title_case %}, are tied to a particular user identity. Select this option for these and enter the name of the user who created the token as **Username** and the token itself as **Password**. 
    {% ifversion org-private-registry-oidc %}
    * **OIDC (OpenID Connect)**: Use short-lived credentials from a cloud identity provider instead of storing long-lived secrets. When you select this option, choose a provider and fill in the provider-specific fields. For more information, see [Configuring OIDC authentication for a private registry](#configuring-oidc-authentication-for-a-private-registry).
+   {% endif %}
+   {% ifversion org-private-registry-anonymous %}
+   * **Anonymous**: Use this option for a registry that doesn't require authentication. No credentials are stored or sent to the registry. For more information, see [Configuring an anonymous private registry](#configuring-an-anonymous-private-registry).
    {% endif %}
 1. Define which repositories in the organization can access the private registry using these details: all, private and internal, or selected repositories only.
 1. When you have finished defining the private registry, select **Add Registry** to save the registry information.
@@ -61,7 +72,7 @@ When you enable {% data variables.product.prodname_code_scanning %} default setu
 
 When configuring private registries for the first time, you need to disable and re-enable {% data variables.product.prodname_code_scanning %} default setup for any repositories that you want to use the new definition. New or modified configurations will be automatically picked up on subsequent runs.
 
-For languages supporting private package registries, {% data variables.product.prodname_code_scanning %} default setup will produce information on the {% data variables.code-scanning.tool_status_page %}. This shows you which private registry configurations were available to an analysis, but not whether {% data variables.product.prodname_code_scanning %} default setup was able to successfully download private dependencies from them. For more information about the {% data variables.code-scanning.tool_status_page %}, see [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/about-the-tool-status-page).
+For languages supporting private package registries, {% data variables.product.prodname_code_scanning %} default setup will produce information on the {% data variables.code-scanning.tool_status_page %}. This shows you which private registry configurations were available to an analysis, but not whether {% data variables.product.prodname_code_scanning %} default setup was able to successfully download private dependencies from them. For more information about the {% data variables.code-scanning.tool_status_page %}, see [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/manage-your-configuration/use-the-tools-status-page-for-code-scanning).
 
 Alternatively, you can confirm whether private registries were used successfully by {% data variables.product.prodname_code_scanning %} analysis by looking in the Actions log files, see [AUTOTITLE](/code-security/reference/code-scanning/code-scanning-logs#diagnostic-information-for-private-package-registries).
 
@@ -71,24 +82,43 @@ Alternatively, you can confirm whether private registries were used successfully
 
 For compiled languages, the `codeql-action` must observe a build of the code. You can either revise your existing build workflow to also run the `codeql-action` or create a new workflow that builds the production version of the code and also runs the `codeql-action`.
 
-Any private registries used by the build must also be accessible to the workflow that runs the `codeql-action`. For more information on advanced setup, see [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning#configuring-advanced-setup-for-code-scanning-with-codeql).
+Any private registries used by the build must also be accessible to the workflow that runs the `codeql-action`. For more information on advanced setup, see [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/configure-code-scanning/configuring-advanced-setup-for-code-scanning#configuring-advanced-setup-for-code-scanning-with-codeql).
 
 ## {% data variables.product.prodname_dependabot %} updates access to private registries
 
 {% data variables.product.prodname_dependabot %} can use any of the org-level private registries, as well as uses any private registries defined in the `dependabot.yml` file in the repo.
 
+For each update job, {% data variables.product.prodname_dependabot %} supplies credentials only for organization-level private registry types that apply to the job's package ecosystem. Depending on the ecosystem, the applicable registry types can include Git source credentials in addition to credentials for the ecosystem's package registry.
+
+> [!NOTE]
+> The number of applicable organization-level private registry credentials provided to any single update job is capped at 100 for performance reasons.
+
+For a multi-ecosystem group, {% data variables.product.prodname_dependabot %} runs a separate update job for each ecosystem and combines the results into one pull request. Each ecosystem's update job has its own 100-registry limit, just as it would if the ecosystems were configured as separate updates.
+
 {% data variables.product.prodname_dependabot %} cannot check for security or version updates for code stored in a private registry unless it can access the registry. If you do not configure access to the private registry, then {% data variables.product.prodname_dependabot %} cannot raise pull requests to update any of the dependencies stored in the registry.
 
-When you configure access to one or more private registries, {% data variables.product.prodname_dependabot %} can propose pull requests to upgrade a vulnerable dependency or to maintain a dependency, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot) and [AUTOTITLE](/code-security/dependabot/working-with-dependabot/guidance-for-the-configuration-of-private-registries-for-dependabot).
+When you configure access to one or more private registries, {% data variables.product.prodname_dependabot %} can propose pull requests to upgrade a vulnerable dependency or to maintain a dependency, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-access-to-private-registries) and [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-private-registries).
+
+{% ifversion org-automatic-registry-access %}
+
+### Automatic access to {% data variables.product.github %}-hosted registries
+ 
+For packages stored in {% data variables.product.prodname_registry %} and {% data variables.product.prodname_container_registry %}, {% data variables.product.prodname_dependabot %} can authenticate automatically without {% data variables.product.pat_generic_plural %} or `dependabot.yml` registry configuration. 
+
+{% data variables.product.prodname_dependabot %} uses its `GITHUB_TOKEN` to request read access, reusing the same package access grants that {% data variables.product.prodname_actions %} workflows use.
+ 
+To enable this, grant the repository **Read** access to each package in the package settings. Once access is granted, {% data variables.product.prodname_dependabot %} can pull from those packages automatically, and you can remove any {% data variables.product.pat_generic %}-based registry entries you previously configured for them.
+ 
+See [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-access-to-private-registries#configuring-private-github-hosted-registries).
+{% endif %}
 
 {% ifversion org-private-registry-oidc %}
 
 ### Configuring OIDC authentication for a private registry
 
-OIDC (OpenID Connect) authentication allows {% data variables.product.prodname_dependabot %} to use short-lived credentials from your cloud identity provider to access private registries, eliminating the need to store long-lived secrets. With OIDC, credentials are generated dynamically for each {% data variables.product.prodname_dependabot %} update job. You must configure a trust relationship between your cloud provider and {% data variables.product.github %} before {% data variables.product.prodname_dependabot %} can authenticate.
+OIDC (OpenID Connect) authentication allows {% data variables.product.prodname_dependabot %} and {% data variables.product.prodname_code_scanning %} default setup to use short-lived credentials from your cloud identity provider to access private registries. Each feature is limited to its supported registry types.
 
-> [!NOTE]
-> OIDC authentication for organization-level private registries is currently supported by {% data variables.product.prodname_dependabot %}. It is not supported by {% data variables.product.prodname_code_scanning %} default setup.
+With OIDC, credentials are generated dynamically for update or analysis jobs, eliminating the need to store long-lived secrets. You must configure a trust relationship between your cloud provider and {% data variables.product.github %} before either feature can authenticate.
 
 When you select **OIDC** as the authentication method for a private registry, choose one of the supported providers and fill in the required fields:
 
@@ -104,11 +134,26 @@ For more information about how OIDC works, see [AUTOTITLE](/actions/concepts/sec
 
 {% endif %}
 
+{% ifversion org-private-registry-anonymous %}
+
+### Configuring an anonymous private registry
+
+Some registries, such as internal mirrors, don't require authentication. You can add these registries at the organization level with the **Anonymous** authentication method so that {% data variables.product.prodname_dependabot %} and {% data variables.product.prodname_code_scanning %} default setup can use them without a token, password, or OIDC configuration. 
+
+{% ifversion dependabot-egress-allowlist %}
+{% data variables.product.prodname_dependabot %} update jobs can only connect to hosts on an egress allowlist. Adding an anonymous registry allows {% data variables.product.prodname_dependabot %} to reach the registry's host for jobs in repositories that have access to the registry, without storing a secret or sending credentials. For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/resolve-a-blocked-host).
+{% endif %}
+
+When you select **Anonymous**, the credential fields are removed from the form. You still define the registry's **URL** and **Type**. You also choose which repositories can access the registry.
+
+
+After you create an anonymous registry, you can only update its URL and whether it replaces the default registry for the ecosystem. You can't change the authentication method of an existing registry. To switch to or from **Anonymous**, delete the registry and create a new one.
+
+{% endif %}
+
 {% ifversion code-quality %}
 
 ## {% data variables.product.prodname_code_quality_short %} access to private registries
-
-{% data reusables.code-quality.code-quality-preview-note %}
 
 {% data variables.product.prodname_code_quality %} can use any of the organization-level private registries that are available when it is enabled for a repository.
 

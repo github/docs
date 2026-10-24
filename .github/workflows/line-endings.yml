@@ -1,0 +1,37 @@
+name: Line endings
+
+# .gitattributes (*.md text eol=lf, * text=auto) normalizes local adds and checkouts,
+# but CRLF blobs from server-side squash merges look modified and break peter-evans/create-pull-request.
+
+on:
+  workflow_dispatch:
+  merge_group:
+  pull_request:
+
+permissions:
+  contents: read
+
+# Cancel older runs for the same ref to save runner time.
+concurrency:
+  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
+  cancel-in-progress: true
+
+jobs:
+  line-endings:
+    if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+
+      - name: Check line endings
+        # Re-stage through .gitattributes so git can detect blobs that check out differently.
+        run: |
+          git add --renormalize .
+          if ! git diff --cached --quiet; then
+            echo "::error::These files violate .gitattributes line-ending rules (usually CRLF that should be LF):"
+            git diff --cached --name-only
+            echo ""
+            echo "Fix locally with: git add --renormalize . && git commit"
+            exit 1
+          fi

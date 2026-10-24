@@ -84,4 +84,7 @@ Files matching these patterns are also excluded:
 * `**/bin/**/*`
 
   > [!NOTE]
-  > Rust files matching `**/bin/**/*.rs` _are_ included for review.
+  > Some files matching `**/bin/**/*` _are_ included for review:
+  >
+  > * Rust files matching `**/bin/**/*.rs`
+  > * SAP Commerce Cloud (Hybris) files under `**/hybris/bin/custom/**`

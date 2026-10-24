@@ -17,7 +17,7 @@ If you experience problems accessing the Management Console, you can try the fol
 
 ## Unlocking the {% data variables.enterprise.management_console %} after failed login attempts
 
-The {% data variables.enterprise.management_console %} locks after the number of failed login attempts configured by your authentication policies. For more information, see [AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/managing-access-to-the-management-console#configuring-rate-limits-for-authentication-to-the-management-console).
+The {% data variables.enterprise.management_console %} locks after the number of failed login attempts configured by your authentication policies. For more information, see [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-web-ui/managing-access-to-the-management-console#configuring-rate-limits-for-authentication-to-the-management-console).
 
 ### Unlocking the root site administrator account
 
@@ -37,4 +37,4 @@ If you cannot connect to the {% data variables.enterprise.management_console %} 
 
 ### Error: "Your session has expired" for connections through a load balancer
 
-If you access {% data variables.location.product_location %} through a load balancer and connections to the {% data variables.enterprise.management_console %} fail with a message that your session has expired, you may need to reconfigure your load balancer. For more information, see [AUTOTITLE](/admin/configuration/configuring-network-settings/using-github-enterprise-server-with-a-load-balancer#error-your-session-has-expired-for-connections-to-the-management-console).
+If you access {% data variables.location.product_location %} through a load balancer and connections to the {% data variables.enterprise.management_console %} fail with a message that your session has expired, you may need to reconfigure your load balancer. For more information, see [AUTOTITLE](/admin/configuring-settings/configuring-network-settings/using-github-enterprise-server-with-a-load-balancer#error-your-session-has-expired-for-connections-to-the-management-console).

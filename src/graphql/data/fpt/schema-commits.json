@@ -129,6 +129,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: CREATED_AT, direction: ASC}",
               "description": "<p>Ordering options for pull requests.</p>",
               "type": {
                 "name": "PullRequestOrder",
@@ -433,6 +434,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: CREATED_AT, direction: ASC}",
               "description": "<p>Ordering options for deployments returned from the connection.</p>",
               "type": {
                 "name": "DeploymentOrder",
@@ -1449,6 +1451,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: OCCURRED_AT, direction: DESC}",
               "description": "<p>Ordering options for commit contributions returned from the connection.</p>",
               "type": {
                 "name": "CommitContributionOrder",
@@ -2189,6 +2192,13 @@
           "type": "URI",
           "id": "uri",
           "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "updatedAt",
+          "description": "<p>Identifies the date and time when the object was last updated.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
         }
       ],
       "category": "commits"

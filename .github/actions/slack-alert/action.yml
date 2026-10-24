@@ -2,28 +2,73 @@ name: Send Slack notification if workflow fails
 description: Send Slack notification if workflow fails
 
 inputs:
-  slack_channel_id:
-    description: Slack channel ID
-    required: true
   slack_token:
     description: Slack token
     required: true
-  message:
-    description: The message to send to Slack
-    default: The last '${{ github.workflow }}' run failed. See ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+  slack_channel_id:
+    description: Slack channel ID. Defaults to the docs-alerts channel (CG5MJHMB2).
+    default: CG5MJHMB2 # docs-alerts
     required: false
-  color:
-    description: The color of the Slack message
-    default: failure
+  message:
+    description: >-
+      Optional message override. When set, it is sent verbatim. When empty (the
+      default), a standard multi-line failure message is built from the run
+      context, plus a link to the failure issue if issue_url is provided.
+    default: ''
+    required: false
+  issue_url:
+    description: >-
+      Optional link to the tracking failure issue (e.g. the output of the
+      create-workflow-failure-issue action). Appended to the default message.
+      Ignored when a custom message is provided.
+    default: ''
     required: false
 
 runs:
   using: composite
   steps:
+    # Build default Slack text in shell so it can include real newlines and an issue link.
+    # Caller-supplied messages pass through unchanged for backward compatibility.
+    - name: Build Slack message
+      id: build
+      shell: bash
+      env:
+        MESSAGE: ${{ inputs.message }}
+        ISSUE_URL: ${{ inputs.issue_url }}
+        SOURCE_REPO: ${{ github.repository }}
+        WORKFLOW_NAME: ${{ github.workflow }}
+        RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        EVENT_NAME: ${{ github.event_name }}
+        GIT_REF: ${{ github.ref }}
+        ACTOR: ${{ github.actor }}
+      run: |
+        # Escape generated fields so branch/ref text like <!channel> cannot inject Slack mentions.
+        esc() { printf '%s' "$1" | sed -e 's/&/\&amp;/g' -e 's/</\&lt;/g' -e 's/>/\&gt;/g'; }
+        # Pick a unique heredoc delimiter so custom messages cannot collide with it.
+        delim="SLACK_EOF_${RANDOM}${RANDOM}"
+        {
+          printf 'text<<%s\n' "$delim"
+          if [ -n "$MESSAGE" ]; then
+            printf '%s\n' "$MESSAGE"
+          else
+            printf ':actions: *Workflow failure* in %s: %s\n' "$(esc "$SOURCE_REPO")" "$(esc "$WORKFLOW_NAME")"
+            printf 'on %s · %s · by %s\n' "$(esc "$EVENT_NAME")" "$(esc "$GIT_REF")" "$(esc "$ACTOR")"
+            printf 'Run: %s\n' "$RUN_URL"
+            if [ -n "$ISSUE_URL" ]; then
+              printf 'Issue: %s\n' "$ISSUE_URL"
+            else
+              printf ':warning: No issue created\n'
+            fi
+          fi
+          printf '%s\n' "$delim"
+        } >> "$GITHUB_OUTPUT"
+
     - name: Send Slack notification if workflow fails
-      uses: someimportantcompany/github-actions-slack-message@a975b440de2bcef178d451cc70d4c1161b5a30cd
+      uses: slackapi/slack-github-action@dcb1066f776dd043e64d0e8ba94ca15cc7e1875d # v4.0.0
       with:
-        channel: ${{ inputs.slack_channel_id }}
-        bot-token: ${{ inputs.slack_token }}
-        color: ${{ inputs.color }}
-        text: ${{ inputs.message }}
+        method: chat.postMessage
+        token: ${{ inputs.slack_token }}
+        errors: true
+        payload: |
+          channel: ${{ toJSON(inputs.slack_channel_id) }}
+          text: ${{ toJSON(steps.build.outputs.text) }}

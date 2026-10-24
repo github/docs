@@ -42,11 +42,11 @@ For the most reliable graph, you should use lock files (or their equivalent), be
 
 ## Automatic dependency submission
 
-Some ecosystems resolve indirect dependencies at build time, so static analysis can't see the full dependency tree. When you enable automatic dependency submission for a repository, {% data variables.product.company_short %} automatically identifies the transitive dependencies in the repository for supported ecosystems. See [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/dependency-graph-supported-package-ecosystems).
+Some ecosystems resolve indirect dependencies at build time, so static analysis can't see the full dependency tree. When you enable automatic dependency submission for a repository, {% data variables.product.company_short %} automatically identifies the transitive dependencies in the repository for supported ecosystems. See [AUTOTITLE](/code-security/reference/supply-chain-security/dependency-graph-supported-package-ecosystems).
 
 In the background, automatic dependency submission runs a {% data variables.product.prodname_actions %} workflow that generates the complete tree and uploads it using the {% data variables.dependency-submission-api.name %}.{% ifversion fpt or ghec %} Automatic dependency submission runs on {% data variables.product.github %}-hosted runners by default and counts toward your {% data variables.product.prodname_actions %} minutes. Optionally, you can choose to run it on self-hosted runners or {% data variables.actions.hosted_runners %}.{% endif %}
 
-To enable automatic dependency submission, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-automatic-dependency-submission-for-your-repository).
+To enable automatic dependency submission, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/submit-dependencies-automatically).
 
 {% endif %}
 
@@ -59,7 +59,7 @@ To enable automatic dependency submission, see [AUTOTITLE](/code-security/supply
 For supported ecosystems, {% data variables.product.prodname_dependabot %} graph jobs provide:
 
 * Full transitive dependency coverage, which means {% data variables.product.prodname_dependabot %} can alert you to vulnerabilities in indirect dependencies that static analysis may miss.
-* Private registry access through {% data variables.product.prodname_dependabot %} secrets configured at the organization or repository level. For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configuring-access-to-private-registries-for-dependabot).
+* Private registry access through {% data variables.product.prodname_dependabot %} secrets configured at the organization or repository level. For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-access-to-private-registries).
 * Private packages that are not accessible through configured {% data variables.product.prodname_dependabot %} secrets are gracefully omitted from the dependency graph without causing a failure.
 
 This approach is similar to automatic dependency submission, but does not incur charges for {% data variables.product.prodname_actions %} minutes. It can also access organization-wide configurations for private registries you've set up for {% data variables.product.prodname_dependabot %}.
@@ -81,7 +81,7 @@ If you are calling the API in a {% data variables.product.prodname_actions %} wo
 
 {% data reusables.dependency-submission.about-dependency-submission %}
 
-For more information, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api).
+For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/use-dependency-submission-api).
 
 ## Prioritization
 

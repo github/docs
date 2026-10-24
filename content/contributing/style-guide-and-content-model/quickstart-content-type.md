@@ -45,6 +45,6 @@ Contents of quickstarts:
 
 ## Examples of quickstarts
 
-* [AUTOTITLE](/free-pro-team@latest/actions/quickstart)
+* [AUTOTITLE](/free-pro-team@latest/actions/get-started/quickstart)
 * [AUTOTITLE](/free-pro-team@latest/discussions/quickstart)
 * [Quickstart for GitHub Educators](/free-pro-team@latest/education/quickstart)

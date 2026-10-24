@@ -12,7 +12,7 @@ category:
 
 {% data reusables.education.about-github-community-exchange-intro %} {% data variables.product.prodname_community_exchange %} can help you make your first open source contribution or grow your own open source project.
 
-For more information about how {% data variables.product.prodname_community_exchange %} can help you as a student, see [AUTOTITLE](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/about-github-community-exchange).
+For more information about how {% data variables.product.prodname_community_exchange %} can help you as a student, see [AUTOTITLE](/education/about-github-education/github-education-for-students/about-github-community-exchange).
 
 ## Accessing {% data variables.product.prodname_community_exchange %}
 
@@ -42,4 +42,4 @@ To report an abusive repository: Go to your {% data variables.product.prodname_c
 
 ## Further reading
 
-* [AUTOTITLE](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/about-github-community-exchange)
+* [AUTOTITLE](/education/about-github-education/github-education-for-students/about-github-community-exchange)

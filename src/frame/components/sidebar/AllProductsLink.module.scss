@@ -1,0 +1,5 @@
+// Replace Primer Link--primary and color-fg-default because both use !important and
+// paint Primer's dark-mode foreground instead of Brand white.
+.allProductsLink {
+  color: var(--brand-color-text-default);
+}

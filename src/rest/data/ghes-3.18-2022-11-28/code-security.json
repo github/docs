@@ -133,7 +133,10 @@
                     ]
                   },
                   "description": {
-                    "type": "string",
+                    "type": [
+                      "string",
+                      "null"
+                    ],
                     "description": "A description of the code security configuration"
                   },
                   "advanced_security": {
@@ -640,7 +643,10 @@
                   ]
                 },
                 "description": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "A description of the code security configuration"
                 },
                 "advanced_security": {
@@ -867,7 +873,7 @@
         },
         {
           "httpStatusCode": "400",
-          "description": "<p>Bad Request</p>"
+          "description": "<p>Bad Request because security product settings conflict, are unsupported by your plan, or required products are not enabled in the configuration.</p>"
         },
         {
           "httpStatusCode": "403",
@@ -876,6 +882,10 @@
         {
           "httpStatusCode": "404",
           "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed because of unavailable security products, invalid feature dependencies, or an invalid configuration.</p>"
         }
       ],
       "previews": [],
@@ -1012,7 +1022,10 @@
                         ]
                       },
                       "description": {
-                        "type": "string",
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "description": "A description of the code security configuration"
                       },
                       "advanced_security": {
@@ -1336,7 +1349,10 @@
                   ]
                 },
                 "description": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "A description of the code security configuration"
                 },
                 "advanced_security": {
@@ -1840,7 +1856,10 @@
                   ]
                 },
                 "description": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "A description of the code security configuration"
                 },
                 "advanced_security": {
@@ -2070,6 +2089,10 @@
           "description": "<p>Not modified</p>"
         },
         {
+          "httpStatusCode": "400",
+          "description": "<p>Bad Request because of a global configuration, incompatible parameters, or invalid enforcement changes.</p>"
+        },
+        {
           "httpStatusCode": "403",
           "description": "<p>Forbidden</p>"
         },
@@ -2079,7 +2102,11 @@
         },
         {
           "httpStatusCode": "409",
-          "description": "<p>Conflict</p>"
+          "description": "<p>Conflict because security configuration work is already in progress.</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed because of unavailable security products or an invalid configuration.</p>"
         }
       ],
       "previews": [],
@@ -2245,7 +2272,11 @@
         },
         {
           "httpStatusCode": "409",
-          "description": "<p>Conflict</p>"
+          "description": "<p>Conflict because security configuration work is already in progress.</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed because the request does not match the request schema.</p>"
         }
       ],
       "previews": [],
@@ -2381,7 +2412,10 @@
                       ]
                     },
                     "description": {
-                      "type": "string",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "description": "A description of the code security configuration"
                     },
                     "advanced_security": {
@@ -2615,6 +2649,10 @@
         {
           "httpStatusCode": "404",
           "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed because a public default is not supported in the current environment.</p>"
         }
       ],
       "previews": [],
@@ -3179,6 +3217,10 @@
           "description": "<p>OK</p>"
         },
         {
+          "httpStatusCode": "400",
+          "description": "<p>Bad Request because of unsupported attachment statuses.</p>"
+        },
+        {
           "httpStatusCode": "403",
           "description": "<p>Forbidden</p>"
         },
@@ -3336,7 +3378,10 @@
                     ]
                   },
                   "description": {
-                    "type": "string",
+                    "type": [
+                      "string",
+                      "null"
+                    ],
                     "description": "A description of the code security configuration"
                   },
                   "advanced_security": {
@@ -3902,7 +3947,10 @@
                   ]
                 },
                 "description": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "A description of the code security configuration"
                 },
                 "advanced_security": {
@@ -4126,6 +4174,22 @@
         {
           "httpStatusCode": "201",
           "description": "<p>Successfully created code security configuration</p>"
+        },
+        {
+          "httpStatusCode": "400",
+          "description": "<p>Bad Request because security product settings conflict, are unsupported by your plan, or required products are not enabled in the configuration.</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed because of unavailable security products, invalid feature dependencies, or an invalid configuration.</p>"
         }
       ],
       "previews": [],
@@ -4266,7 +4330,10 @@
                         ]
                       },
                       "description": {
-                        "type": "string",
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "description": "A description of the code security configuration"
                       },
                       "advanced_security": {
@@ -4693,7 +4760,10 @@
                   ]
                 },
                 "description": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "A description of the code security configuration"
                 },
                 "advanced_security": {
@@ -5254,7 +5324,10 @@
                   ]
                 },
                 "description": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "A description of the code security configuration"
                 },
                 "advanced_security": {
@@ -5482,6 +5555,26 @@
         {
           "httpStatusCode": "204",
           "description": "<p>Response when no new updates are made</p>"
+        },
+        {
+          "httpStatusCode": "400",
+          "description": "<p>Bad Request because of a global configuration, incompatible parameters, or an attempt to update attributes of an enterprise-owned configuration.</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "409",
+          "description": "<p>Conflict because security configuration work is already in progress.</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed because of invalid enforcement values, unavailable security products, an attempt to change enterprise-enforced enforcement, or an invalid configuration.</p>"
         }
       ],
       "previews": [],
@@ -5656,6 +5749,26 @@
         {
           "httpStatusCode": "202",
           "description": "<p>Accepted</p>"
+        },
+        {
+          "httpStatusCode": "400",
+          "description": "<p>Bad Request</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "409",
+          "description": "<p>Conflict because security configuration work is already in progress for the\norganization, security configuration changes are blocked for the organization,\nor another organization in the same enterprise is applying security configurations.</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed because the body does not match the request schema, <code>scope</code>\nis <code>selected</code> but <code>selected_repository_ids</code> is missing or empty, or a non-empty\n<code>selected_repository_ids</code> array is provided for another scope.</p>"
         }
       ],
       "previews": [],
@@ -5795,7 +5908,10 @@
                       ]
                     },
                     "description": {
-                      "type": "string",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "description": "A description of the code security configuration"
                     },
                     "advanced_security": {
@@ -6029,6 +6145,10 @@
         {
           "httpStatusCode": "404",
           "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed because a public default is not supported in the current environment.</p>"
         }
       ],
       "previews": [],
@@ -6597,12 +6717,20 @@
           "description": "<p>OK</p>"
         },
         {
+          "httpStatusCode": "400",
+          "description": "<p>Bad Request because of unsupported attachment statuses.</p>"
+        },
+        {
           "httpStatusCode": "403",
           "description": "<p>Forbidden</p>"
         },
         {
           "httpStatusCode": "404",
           "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed because <code>removed</code> and <code>detached</code> are requested together.</p>"
         }
       ],
       "previews": [],
@@ -6726,7 +6854,10 @@
                       ]
                     },
                     "description": {
-                      "type": "string",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "description": "A description of the code security configuration"
                     },
                     "advanced_security": {

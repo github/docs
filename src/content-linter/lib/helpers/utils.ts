@@ -3,15 +3,14 @@ import matter from '@gr2m/gray-matter'
 
 import type { RuleParams, RuleErrorCallback, MarkdownToken } from '@/content-linter/types'
 
-// Adds an error object with details conditionally via the onError callback
 export function addFixErrorDetail(
   onError: RuleErrorCallback,
   lineNumber: number,
   expected: string,
   actual: string,
-  // Using flexible type to accommodate different range formats from various linting rules
+  // Accept the range shapes emitted by different linting rules.
   range: [number, number] | number[] | null,
-  // Using unknown for fixInfo as markdownlint-rule-helpers accepts various fix info structures
+  // markdownlint-rule-helpers accepts several fix info shapes.
   fixInfo: unknown,
 ): void {
   addError(onError, lineNumber, `Expected: ${expected}`, ` Actual: ${actual}`, range, fixInfo)
@@ -31,8 +30,7 @@ export function forEachInlineChild<T = MarkdownToken>(
 
 export function getRange(line: string, content: string): [number, number] | null {
   if (content.length === 0) {
-    // This function assumes that the content is something. If it's an
-    // empty string it can never produce a valid range.
+    // Empty content cannot produce a valid markdownlint range.
     throw new Error('invalid content (empty)')
   }
   const startColumnIndex = line.indexOf(content)
@@ -40,28 +38,17 @@ export function getRange(line: string, content: string): [number, number] | null
 }
 
 export function isStringQuoted(text: string): boolean {
-  // String starts with either a single or double quote
-  // ends with either a single or double quote
-  // and optionally ends with a question mark or exclamation point
-  // because that punctuation can exist outside of the quoted string
+  // Match quotes around the full string, with optional ? or ! outside the quote.
   return /^['"].*['"][?!]?$/.test(text)
 }
 
 export function isStringPunctuated(text: string): boolean {
-  // String ends with punctuation of either
-  // . ? ! and optionally ends with single
-  // or double quotes. This also allows
-  // for single or double quotes before
-  // the punctuation.
+  // Match sentence punctuation with an optional closing quote.
   return /^.*[.?!]['"]?$/.test(text)
 }
 
 export function doesStringEndWithPeriod(text: string): boolean {
-  // String ends with punctuation of either
-  // . ? ! and optionally ends with single
-  // or double quotes. This also allows
-  // for single or double quotes before
-  // the punctuation.
+  // String ends with a period, optionally followed by a single or double quote.
   return /^.*\.['"]?$/.test(text)
 }
 
@@ -70,86 +57,17 @@ export function quotePrecedesLinkOpen(text: string | undefined): boolean {
   return text.endsWith('"') || text.endsWith("'")
 }
 
-// Filters a list of tokens by token type only when they match
-// a specific token type order.
-// For example, if a list of tokens contains:
-//
-//   [
-//      { type: 'inline'},
-//      { type: 'list_item_close'},
-//      { type: 'list_item_open'},
-//      { type: 'paragraph_open'},
-//      { type: 'inline'},
-//      { type: 'paragraph_close'},
-//   ]
-//
-// And if the `tokenOrder` being looked for is:
-//
-//   [
-//      'list_item_open',
-//      'paragraph_open',
-//      'inline'
-//    ]
-//
-// Then the return value would be the items that match that sequence:
-// Index 2-4:
-//   [
-//      { type: 'inline'},            <-- Index 0 - NOT INCLUDED
-//      { type: 'list_item_close'},   <-- Index 1 - NOT INCLUDED
-//      { type: 'list_item_open'},    <-- Index 2 - INCLUDED
-//      { type: 'paragraph_open'},    <-- Index 3 - INCLUDED
-//      { type: 'inline'},            <-- Index 4 - INCLUDED
-//      { type: 'paragraph_close'},   <-- Index 5 - NOT INCLUDED
-//   ]
-//
-export function filterTokensByOrder(
-  tokens: MarkdownToken[],
-  tokenOrder: string[],
-): MarkdownToken[] {
-  const matches: MarkdownToken[] = []
-
-  // Get a list of token indexes that match the
-  // first token (root) in the tokenOrder array
-  const tokenRootIndexes: number[] = []
-  const firstTokenOrderType = tokenOrder[0]
-  for (let index = 0; index < tokens.length; index++) {
-    const token = tokens[index]
-    if (token.type === firstTokenOrderType) {
-      tokenRootIndexes.push(index)
-    }
-  }
-
-  // Loop through each root token index and check if
-  // the order matches the tokenOrder array
-  for (const tokenRootIndex of tokenRootIndexes) {
-    for (let i = 1; i < tokenOrder.length; i++) {
-      if (tokens[tokenRootIndex + i].type !== tokenOrder[i]) {
-        // This tokenRootIndex was a possible start,
-        // but doesn't match the tokenOrder perfectly, so break out
-        // of the inner loop before it reaches the end.
-        break
-      }
-      if (i === tokenOrder.length - 1) {
-        matches.push(...tokens.slice(tokenRootIndex, tokenRootIndex + i + 1))
-      }
-    }
-  }
-  return matches
-}
-
-export const docsDomains = ['docs.github.com', 'help.github.com', 'developer.github.com']
-
-// Lines is an array of strings read from a
-// Markdown file a split around new lines.
-// This is the format we get from Markdownlint.
-// Returns null if the lines do not contain
-// frontmatter properties.
-// Returns frontmatter as a Record with unknown values since YAML can contain various types
+// markdownlint passes files as line arrays, and gray-matter needs a string.
 export function getFrontmatter(lines: string[]): Record<string, unknown> | null {
   const fmString = lines.join('\n')
-  const { data } = matter(fmString)
-  // If there is no frontmatter or the frontmatter contains
-  // no keys, matter will return an empty object.
+  let data: Record<string, unknown>
+  try {
+    ;({ data } = matter(fmString))
+  } catch {
+    // GHD012 reports invalid YAML, so other rules skip the file instead of crashing the run.
+    return null
+  }
+  // gray-matter returns an empty object when frontmatter is absent or empty.
   if (Object.keys(data).length === 0) return null
   return data
 }

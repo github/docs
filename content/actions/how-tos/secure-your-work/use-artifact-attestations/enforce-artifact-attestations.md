@@ -14,7 +14,7 @@ category:
 contentType: how-tos
 ---
 
-> [!NOTE] Before proceeding, ensure you have enabled build provenance for container images, including setting the `push-to-registry` attribute in the [`attest` action](https://github.com/actions/attest) as documented in [Generating build provenance for container images](/actions/security-guides/using-artifact-attestations-to-establish-provenance-for-builds#generating-build-provenance-for-container-images). This is required for the Policy Controller to verify the attestation.
+> [!NOTE] Before proceeding, ensure you have enabled build provenance for container images, including setting the `push-to-registry` attribute in the [`attest` action](https://github.com/actions/attest) as documented in [Generating build provenance for container images](/actions/how-tos/secure-your-work/use-artifact-attestations/use-artifact-attestations#generating-build-provenance-for-container-images). This is required for the Policy Controller to verify the attestation.
 
 ## Getting started with Kubernetes admission controller
 

@@ -26,7 +26,7 @@ Team-level roles are roles that give permissions to manage a team. You can give 
 Organization-level roles are sets of permissions that can be assigned to individuals or teams to manage an organization and the organization's repositories, teams, and settings. For more information about all the roles available at the organization level, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/permissions-of-predefined-organization-roles).
 
 {% ifversion ghec or ghes %}
-If your organization is owned by an enterprise account, enterprise owners can choose to join your organization with any role. For more information, see [AUTOTITLE](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise).
+If your organization is owned by an enterprise account, enterprise owners can choose to join your organization with any role. For more information, see [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise).
 {% endif %}
 
 ## About predefined organization roles
@@ -80,16 +80,16 @@ If your organization has a security team, you can use the security manager role 
 
 ### {% data variables.product.prodname_github_app %} managers
 
-By default, only organization owners can manage the settings of {% data variables.product.prodname_github_app %} registrations owned by an organization. To allow additional users{% ifversion org-app-manager-teams %} or teams{% endif %} to manage {% data variables.product.prodname_github_app %} registrations owned by an organization, an owner can grant them {% data variables.product.prodname_github_app %} manager permissions.
+By default, only organization owners can manage the settings of {% data variables.product.prodname_github_app %} registrations owned by an organization. To allow additional users or teams to manage {% data variables.product.prodname_github_app %} registrations owned by an organization, an owner can grant them {% data variables.product.prodname_github_app %} manager permissions.
 
-When you designate a user{% ifversion org-app-manager-teams %} or team{% endif %} as a {% data variables.product.prodname_github_app %} manager in your organization, you can grant them access to manage the settings of some or all {% data variables.product.prodname_github_app %} registrations owned by the organization. The {% data variables.product.prodname_github_app %} manager role does not grant users access to install and uninstall {% data variables.product.prodname_github_apps %} on an organization. For more information, see [AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/adding-and-removing-github-app-managers-in-your-organization).
+When you designate a user or team as a {% data variables.product.prodname_github_app %} manager in your organization, you can grant them access to manage the settings of some or all {% data variables.product.prodname_github_app %} registrations owned by the organization. The {% data variables.product.prodname_github_app %} manager role does not grant users access to install and uninstall {% data variables.product.prodname_github_apps %} on an organization. For more information, see [AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/adding-and-removing-github-app-managers-in-your-organization).
 
 ### Outside collaborators{% ifversion repository-collaborators %} or repository collaborators{% endif %}
 
 To keep your organization's data secure while allowing access to repositories, you can add outside collaborators. An outside collaborator is a person who has access to one or more organization repositories but is not explicitly a member of the organization, such as a consultant or temporary employee.
 
 {% ifversion repository-collaborators %}
-If your enterprise uses {% data variables.enterprise.prodname_managed_users %}, the outside collaborator role is called "repository collaborator." A repository collaborator must be part of your enterprise, with a {% data variables.enterprise.prodname_managed_user %} provisioned from your identity provider. If the user does not already consume a license, the user will consume a license after you grant access to a repository. For more information, see [AUTOTITLE](/billing/managing-the-plan-for-your-github-account/about-per-user-pricing#about-changes-to-your-subscription).
+If your enterprise uses {% data variables.enterprise.prodname_managed_users %}, the outside collaborator role is called "repository collaborator." A repository collaborator must be part of your enterprise, with a {% data variables.enterprise.prodname_managed_user %} provisioned from your identity provider. If the user does not already consume a license, the user will consume a license after you grant access to a repository. For more information, see [AUTOTITLE](/billing/reference/github-license-users#about-changes-to-your-subscription).
 
 Generally, the outside collaborator and repository collaborator roles are equivalent, and the documentation for outside collaborators also applies to repository collaborators. However, the following distinctions apply:
 * You cannot enforce two-factor authentication (2FA) for repository collaborators, because this feature is not available with {% data variables.product.prodname_emus %}.
@@ -102,15 +102,15 @@ Generally, the outside collaborator and repository collaborator roles are equiva
 
 To manage access to repositories for outside collaborators{% ifversion repository-collaborators %} or repository collaborators{% endif %}, see:
 
-* [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization)
-* [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/converting-an-organization-member-to-an-outside-collaborator)
-* [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/removing-an-outside-collaborator-from-an-organization-repository)
+* [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-outside-collaborators/adding-outside-collaborators-to-repositories-in-your-organization)
+* [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-outside-collaborators/converting-an-organization-member-to-an-outside-collaborator)
+* [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-outside-collaborators/removing-an-outside-collaborator-from-an-organization-repository)
 
 {% ifversion ghec or ghes %}
 To control who can add outside collaborators{% ifversion repository-collaborators %} or repository collaborators{% endif %} to repositories, see:
 
 * [AUTOTITLE](/organizations/managing-organization-settings/setting-permissions-for-adding-outside-collaborators)
-* [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-outside-collaborators-to-repositories)
+* [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise)
 {% endif %}
 
 ## Next steps

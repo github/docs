@@ -3,8 +3,7 @@ import { fuzzyMatchScore, stripStopWords } from '@/landings/lib/fuzzy-match'
 
 const STOP_WORD_THRESHOLD = 0.8
 
-// Recursively flatten nested TOC items into leaf articles.
-// Excludes index pages (pages with childTocItems).
+// Parents with childTocItems are index pages, not article cards.
 const flattenArticlesRecursive = (articles: (TocItem | ChildTocItem)[]): ArticleCardItems => {
   const flattened: ArticleCardItems = []
 
@@ -19,8 +18,12 @@ const flattenArticlesRecursive = (articles: (TocItem | ChildTocItem)[]): Article
   return flattened
 }
 
-// Flatten, deduplicate by fullPath, and sort alphabetically by title.
-export const flattenArticles = (articles: (TocItem | ChildTocItem)[]): ArticleCardItems => {
+// Pass the page locale so server and browser sort with the same collation and
+// hydrate the same cards.
+export const flattenArticles = (
+  articles: (TocItem | ChildTocItem)[],
+  locale?: string,
+): ArticleCardItems => {
   const flattened = flattenArticlesRecursive(articles)
   const seen = new Set<string>()
   const deduped = flattened.filter((article) => {
@@ -28,11 +31,11 @@ export const flattenArticles = (articles: (TocItem | ChildTocItem)[]): ArticleCa
     seen.add(article.fullPath)
     return true
   })
-  return deduped.sort((a, b) => a.title.localeCompare(b.title))
+  return deduped.sort((a, b) => a.title.localeCompare(b.title, locale))
 }
 
-// Find words appearing in a high percentage of article titles/intros.
-// These add little signal to search since they match nearly everything.
+// Words that appear in most titles or intros add little signal because they
+// match nearly every article.
 export const deriveStopWords = (
   articles: ArticleCardItems,
   threshold = STOP_WORD_THRESHOLD,
@@ -49,9 +52,8 @@ export const deriveStopWords = (
   return [...wordCounts.entries()].filter(([, count]) => count >= minCount).map(([word]) => word)
 }
 
-// Score and rank articles against a search query, returning only matches.
-// Searches title, intro, and category fields. Returns all articles (scored 0.5)
-// when the query consists entirely of stop words.
+// Search matches title, intro, and category fields; queries made only of stop
+// words return every article with a neutral 0.5 score.
 export const searchArticles = (
   articles: ArticleCardItems,
   query: string,

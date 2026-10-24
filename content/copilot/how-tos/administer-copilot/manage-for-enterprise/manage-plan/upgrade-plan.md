@@ -29,7 +29,7 @@ category:
 
 ## Next steps
 
-After upgrading to {% data variables.copilot.copilot_enterprise_short %}, you can assign {% data variables.copilot.copilot_enterprise_short %} or {% data variables.copilot.copilot_business_short %} to individual organizations in the enterprise. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-access-to-copilot-in-your-enterprise/enabling-copilot-for-organizations-in-your-enterprise).
+After upgrading to {% data variables.copilot.copilot_enterprise_short %}, you can assign {% data variables.copilot.copilot_enterprise_short %} or {% data variables.copilot.copilot_business_short %} to individual organizations in the enterprise. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-access/grant-access).
 
 ## Troubleshooting plan migrations
 
@@ -48,4 +48,4 @@ Some migrations cannot be completed through self-service options.
 
 ## Further reading
 
-* [AUTOTITLE](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot)
+* [AUTOTITLE](/billing/concepts/product-billing/github-copilot-licenses)

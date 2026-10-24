@@ -19,7 +19,7 @@ runs:
       run: npm run what-docs-early-access-branch
 
     - name: Clone
-      uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+      uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       with:
         repository: github/docs-early-access
         token: ${{ inputs.token }}

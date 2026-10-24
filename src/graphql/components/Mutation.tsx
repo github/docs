@@ -4,6 +4,7 @@ import { Notice } from './Notice'
 import { useTranslation } from '@/languages/components/useTranslation'
 import { Table } from './Table'
 import type { MutationT } from './types'
+import { RenderedHTML } from '@/frame/components/ui/RenderedHTML/RenderedHTML'
 import React from 'react'
 
 type Props = {
@@ -35,7 +36,7 @@ export function Mutation({ item, headingLevel = 2 }: Props) {
 
           {input.preview && <Notice item={input} variant="preview" />}
           {input.isDeprecated && <Notice item={input} variant="deprecation" />}
-          <SubHeading dangerouslySetInnerHTML={{ __html: heading2 }} />
+          <RenderedHTML as={SubHeading} html={heading2} />
           <Table fields={item.returnFields} />
         </React.Fragment>
       ))}

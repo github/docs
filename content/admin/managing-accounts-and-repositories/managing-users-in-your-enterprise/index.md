@@ -17,7 +17,7 @@ versions:
 children:
   - /best-practices-for-user-security
   - /create-enterprise-teams
-  - /invite-users-directly
+  - /add-users
   - /inviting-people-to-manage-your-enterprise
   - /managing-invitations-to-organizations-within-your-enterprise
   - /about-reserved-usernames-for-github-enterprise-server

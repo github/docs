@@ -8,6 +8,7 @@ children:
   - /customize-copilot-overview
   - /add-custom-instructions
   - /customize-cloud-agent
+  - /customize-the-firewall
   - /configure-mcp-servers
   - /copilot-spaces
 contentType: how-tos

@@ -14,7 +14,7 @@ children:
   - triage-alerts-in-pull-requests
   - track-alerts-in-issues
   - resolve-alerts
+  - managing-access-to-agentic-autofix-for-code-scanning
   - enable-delegated-alert-dismissal
-  - disabling-autofix-for-code-scanning
+  - disabling-copilot-autofix-for-code-scanning
 ---
-

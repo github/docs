@@ -1,8 +1,6 @@
 name: Validate asset images
 
-# **What it does**: Run ./src/assets/scripts/validate-asset-images.ts on all images in assets/
-# **Why we have it**: To protect from innocent and potentially malicious bad image assets
-# **Who does it impact**: Docs content.
+# Rejects malformed or risky image assets before they ship.
 
 on:
   workflow_dispatch:
@@ -10,6 +8,10 @@ on:
     paths:
       - 'assets/**'
       - '.github/workflows/validate-asset-images.yml'
+      # Dependency changes can break the validator.
+      - 'package*.json'
+      - 'src/assets/scripts/validate-asset-images.ts'
+      - '.github/actions/node-npm-setup/action.yml'
 
 permissions:
   contents: read
@@ -20,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repo
-        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
 
       - uses: ./.github/actions/node-npm-setup
 

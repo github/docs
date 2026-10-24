@@ -2,7 +2,7 @@ name: 'Link Check: Internal'
 
 on:
   schedule:
-    - cron: '20 16 * * 1' # Run every Monday at 16:20 UTC / 8:20 PST
+    - cron: '20 16 * * 1'
   workflow_dispatch:
     inputs:
       version:
@@ -20,16 +20,15 @@ on:
         required: false
         default: false
       create_report:
-        description: 'Create the combined broken links report issue in docs-content'
+        description: "Publish the combined report to the rolling docs-content issue. A manual run only covers one version/language, so it will overwrite the scheduled run's fuller report."
         type: boolean
         required: false
-        default: true
+        default: false
 
 permissions:
   contents: read
 
 jobs:
-  # Determine which version/language combos to run
   setup-matrix:
     if: github.repository == 'github/docs-internal'
     runs-on: ubuntu-latest
@@ -37,36 +36,36 @@ jobs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
     steps:
       - name: Checkout
-        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
-
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
       - uses: ./.github/actions/node-npm-setup
 
       - name: Set matrix
         id: set-matrix
         run: |
           if [[ "${EVENT_NAME}" == "workflow_dispatch" ]]; then
-            # Manual run: use the provided version and language
             echo "matrix={\"include\":[{\"version\":\"${INPUT_VERSION}\",\"language\":\"${INPUT_LANGUAGE}\"}]}" >> $GITHUB_OUTPUT
           else
-            # Scheduled run: English free-pro-team + English latest enterprise-server
-            LATEST_GHES=$(npx tsx -e "import { latest } from './src/versions/lib/enterprise-server-releases'; console.log(latest)")
-            echo "matrix={\"include\":[{\"version\":\"free-pro-team@latest\",\"language\":\"en\"},{\"version\":\"enterprise-server@${LATEST_GHES}\",\"language\":\"en\"}]}" >> $GITHUB_OUTPUT
+            # Scheduled runs check every published version because links can break in one
+            # version and work in another; the report job merges the results into one issue.
+            MATRIX=$(npx tsx -e "import { allVersions } from './src/versions/lib/all-versions'; console.log(JSON.stringify({ include: Object.keys(allVersions).map((version) => ({ version, language: 'en' })) }))")
+            echo "matrix=${MATRIX}" >> $GITHUB_OUTPUT
           fi
         env:
           EVENT_NAME: ${{ github.event_name }}
           INPUT_VERSION: ${{ inputs.version }}
           INPUT_LANGUAGE: ${{ inputs.language }}
 
-      - uses: ./.github/actions/slack-alert
-        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
-        with:
-          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
-          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
-
       - uses: ./.github/actions/create-workflow-failure-issue
+        id: create-failure-issue
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
         with:
           token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+
+      - uses: ./.github/actions/slack-alert
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
+        with:
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+          issue_url: ${{ steps.create-failure-issue.outputs.issue_url }}
 
   check-internal-links:
     if: github.repository == 'github/docs-internal'
@@ -76,18 +75,13 @@ jobs:
       fail-fast: false
       matrix: ${{ fromJson(needs.setup-matrix.outputs.matrix) }}
     env:
-      # Disable Elasticsearch for faster warmServer
+      # Link checking does not need search data, so leave Elasticsearch unconfigured.
       ELASTICSEARCH_URL: ''
     steps:
       - name: Checkout
-        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
-
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
       - uses: ./.github/actions/node-npm-setup
 
-      - name: Install dependencies
-        run: npm ci
-
-      # Clone translations if not English
       - name: Clone translations
         if: matrix.language != 'en'
         uses: ./.github/actions/clone-translations
@@ -107,10 +101,14 @@ jobs:
         uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
         with:
           name: link-report-${{ matrix.version }}-${{ matrix.language }}
-          path: artifacts/link-report-*.md
+          # Include the JSON alongside the Markdown so the structured report is
+          # consumable outside this job, not just readable in the issue body.
+          path: artifacts/link-report-*
           retention-days: 5
           if-no-files-found: ignore
 
+      # The REST API agent_assignment field starts Copilot cloud agent sessions.
+      # Details: https://docs.github.com/en/copilot/how-tos/use-copilot-agents/cloud-agent/start-copilot-sessions#using-the-rest-api
       - name: Create Copilot redirect issue
         if: inputs.create_copilot_issue
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
@@ -126,20 +124,23 @@ jobs:
             }
 
             const report = JSON.parse(fs.readFileSync(reportFile, 'utf8'))
-            const allRedirectGroups = report.groups.filter(g => g.isWarning)
+            // Raw redirect targets can carry the checked version's prefix; replacementTarget does not.
+            // Skip strings that could break out of the inline code spans, since directives must stay exact.
+            const isSafe = s => typeof s === 'string' && s.length > 0 && !/[`\r\n]/.test(s)
+            const allRedirectGroups = report.groups.filter(g =>
+              g.isWarning && g.fixStrategy === 'codemod' &&
+              isSafe(g.target) && isSafe(g.replacementTarget) && isSafe(g.occurrences[0]?.file))
             const redirectGroups = allRedirectGroups.slice(0, 10)
 
             if (redirectGroups.length === 0) {
-              core.info('No redirect groups found, skipping Copilot issue.')
+              core.info('No renamed redirects found, skipping Copilot issue.')
               return
             }
 
             const directives = redirectGroups.map(g => {
               const occ = g.occurrences[0]
-              const redirectTarget = occ?.redirectTarget ?? 'unknown'
-              const file = occ?.file ?? 'unknown'
-              const lines = (occ?.lines ?? []).join(', ') || 'unknown'
-              return `- Update \`${g.target}\` to \`${redirectTarget}\` in \`${file}\` (line(s): ${lines})`
+              const lines = (occ.lines ?? []).filter(Number.isInteger).join(', ') || 'unknown'
+              return `- Update \`${g.target}\` to \`${g.replacementTarget}\` in \`${occ.file}\` (line(s): ${lines})`
             }).join('\n')
 
             const artifactsUrl = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}/artifacts`
@@ -168,8 +169,6 @@ jobs:
               body = body.slice(0, lastNewline > 0 ? lastNewline : truncatedLength) + artifactNote
             }
 
-            // Use the REST API with agent_assignment to properly trigger Copilot cloud agent.
-            // See: https://docs.github.com/en/copilot/how-tos/use-copilot-agents/cloud-agent/start-copilot-sessions#using-the-rest-api
             const issue = await github.request('POST /repos/{owner}/{repo}/issues', {
               owner: 'github',
               repo: 'docs-content',
@@ -186,28 +185,34 @@ jobs:
 
             core.info(`Created Copilot redirect issue: ${issue.data.html_url}`)
 
-      - uses: ./.github/actions/slack-alert
-        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
-        with:
-          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
-          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
-
       - uses: ./.github/actions/create-workflow-failure-issue
+        id: create-failure-issue
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
         with:
           token: ${{ secrets.DOCS_BOT_PAT_BASE }}
 
-  # Create combined report after all matrix jobs complete
+      - uses: ./.github/actions/slack-alert
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
+        with:
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+          issue_url: ${{ steps.create-failure-issue.outputs.issue_url }}
+
   create-report:
     if: always() && github.repository == 'github/docs-internal'
     needs: [setup-matrix, check-internal-links]
     runs-on: ubuntu-latest
+    # Serialize publishing so overlapping runs cannot create duplicate rolling issues
+    # or write results out of order.
+    concurrency:
+      group: broken-internal-links-report
+      cancel-in-progress: false
     permissions:
       contents: read
       issues: write
     steps:
       - name: Checkout
-        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+      - uses: ./.github/actions/node-npm-setup
 
       - name: Download all artifacts
         uses: actions/download-artifact@70fc10c6e5e1ce46ad2ea6f2b72d43f7d47b13c3 # v8.0.0
@@ -218,48 +223,195 @@ jobs:
 
       - name: Combine reports
         id: combine
+        env:
+          ACTION_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          # Pass the full matrix because versions with no broken links upload no report.
+          # The report needs those versions to claim a link breaks in all versions.
+          MATRIX: ${{ needs.setup-matrix.outputs.matrix }}
         run: |
-          # Check if any reports exist
-          if ls reports/*.md 1> /dev/null 2>&1; then
+          # Merge per-version JSON so a link broken in every version stays one problem.
+          if ls reports/*.json 1> /dev/null 2>&1; then
             echo "has_reports=true" >> $GITHUB_OUTPUT
-
-            # Combine all markdown reports
-            echo "# Internal Links Report" > combined-report.md
-            echo "" >> combined-report.md
-            echo "> [!NOTE]" >> combined-report.md
-            echo "> **No action needed right now.** The link checker is being actively worked on and may produce false positives. You can safely ignore this report for now. We'll let you know when it's reliable." >> combined-report.md
-            echo "" >> combined-report.md
-            echo "Generated: $(date -u +'%Y-%m-%d %H:%M UTC')" >> combined-report.md
-            echo "[Action run](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})" >> combined-report.md
-            echo "" >> combined-report.md
-
-            for report in reports/*.md; do
-              echo "---" >> combined-report.md
-              cat "$report" >> combined-report.md
-              echo "" >> combined-report.md
-            done
+            VERSIONS=$(echo "$MATRIX" | jq -r '[.include[] | "\(.version) \(.language)"] | join(",")')
+            npm run combine-link-reports -- \
+              --input reports \
+              --output combined-report.md \
+              --versions "$VERSIONS" \
+              --action-url "$ACTION_RUN_URL"
           else
             echo "has_reports=false" >> $GITHUB_OUTPUT
             echo "No broken link reports generated - all links valid!"
           fi
 
-      - name: Create issue if broken links found
-        if: steps.combine.outputs.has_reports == 'true' && (github.event_name != 'workflow_dispatch' || inputs.create_report != false)
-        uses: peter-evans/create-issue-from-file@fca9117c27cdc29c6c4db3b86c48e4115a786710 # v5
+      - name: Upload the combined report
+        if: steps.combine.outputs.has_reports == 'true'
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
+        with:
+          # Upload the artifact because issue notes point readers there when sections are capped.
+          name: combined-link-report
+          path: combined-report.md
+          retention-days: 5
+          if-no-files-found: error
+
+      - name: Create or update the rolling report issue
+        if: |
+          steps.combine.outputs.has_reports == 'true'
+          && needs.check-internal-links.result == 'success'
+          && (github.event_name != 'workflow_dispatch' || inputs.create_report)
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+        with:
+          github-token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          script: |
+            const fs = require('fs')
+            const title = '🔗 Broken Internal Links Report'
+            const owner = 'github'
+            const repo = 'docs-content'
+            const label = 'broken link report'
+
+            // GitHub rejects issue bodies over 65536 characters with a 422, so truncate and point at the artifact.
+            const MAX_BODY_SIZE = 60000
+            const runUrl = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`
+            let body = fs.readFileSync('combined-report.md', 'utf8')
+            if (body.length > MAX_BODY_SIZE) {
+              const notice = `\n\n---\n\n*Report truncated. Download the full report from the [workflow run artifacts](${runUrl}).*`
+              let cut = body.slice(0, MAX_BODY_SIZE - notice.length)
+              // Cut at a full line and close unbalanced <details> tags because one open tag hides later content.
+              cut = cut.slice(0, cut.lastIndexOf('\n'))
+              const opened = (cut.match(/<details>/g) || []).length
+              const closed = (cut.match(/<\/details>/g) || []).length
+              cut += '\n</details>'.repeat(Math.max(0, opened - closed))
+              body = cut + notice
+              core.warning(`Report exceeded ${MAX_BODY_SIZE} characters, so it was truncated.`)
+            }
+
+            // Reuse one rolling issue so weekly failures do not flood the first responders' board; sort newest first.
+            const open = await github.paginate(github.rest.issues.listForRepo, {
+              owner,
+              repo,
+              state: 'open',
+              labels: label,
+              per_page: 100,
+            })
+            const reportIssues = open
+              .filter((issue) => !issue.pull_request && issue.title === title)
+              .sort((a, b) => b.number - a.number)
+
+            if (reportIssues.length === 0) {
+              const created = await github.rest.issues.create({
+                owner,
+                repo,
+                title,
+                body,
+                labels: [label],
+              })
+              core.info(`Created rolling report issue: ${created.data.html_url}`)
+              return
+            }
+
+            // Refresh the newest open report and close duplicates so one canonical issue remains.
+            const [canonical, ...superseded] = reportIssues
+            await github.rest.issues.update({
+              owner,
+              repo,
+              issue_number: canonical.number,
+              title,
+              body,
+            })
+            core.info(`Updated rolling report issue: ${canonical.html_url}`)
+
+            // Close duplicates independently so one transient API error cannot leave the rest open.
+            const results = await Promise.allSettled(
+              superseded.map(async (issue) => {
+                await github.rest.issues.createComment({
+                  owner,
+                  repo,
+                  issue_number: issue.number,
+                  body: `Superseded by the current rolling report: #${canonical.number}.`,
+                })
+                await github.rest.issues.update({
+                  owner,
+                  repo,
+                  issue_number: issue.number,
+                  state: 'closed',
+                  state_reason: 'not_planned',
+                })
+                core.info(`Closed superseded report issue #${issue.number}`)
+              }),
+            )
+            const failures = results.filter((result) => result.status === 'rejected')
+            if (failures.length > 0) {
+              throw new AggregateError(
+                failures.map((failure) => failure.reason),
+                `Failed to close ${failures.length} superseded report issue(s).`,
+              )
+            }
+
+      - name: Close the rolling report issue when all links are valid
+        if: |
+          steps.combine.outputs.has_reports == 'false'
+          && needs.check-internal-links.result == 'success'
+          && github.event_name != 'workflow_dispatch'
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+        with:
+          github-token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          script: |
+            const title = '🔗 Broken Internal Links Report'
+            const owner = 'github'
+            const repo = 'docs-content'
+            const label = 'broken link report'
+
+            // Close stale reports so fixed failures leave the first responders' board.
+            const open = await github.paginate(github.rest.issues.listForRepo, {
+              owner,
+              repo,
+              state: 'open',
+              labels: label,
+              per_page: 100,
+            })
+            const reportIssues = open.filter(
+              (issue) => !issue.pull_request && issue.title === title,
+            )
+
+            if (reportIssues.length === 0) {
+              core.info('No open report issue to close.')
+              return
+            }
+
+            const runUrl = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`
+            const results = await Promise.allSettled(
+              reportIssues.map(async (issue) => {
+                await github.rest.issues.createComment({
+                  owner,
+                  repo,
+                  issue_number: issue.number,
+                  body: `All internal links are valid as of the [latest run](${runUrl}). Closing this report. A new one opens if links break again.`,
+                })
+                await github.rest.issues.update({
+                  owner,
+                  repo,
+                  issue_number: issue.number,
+                  state: 'closed',
+                  state_reason: 'completed',
+                })
+                core.info(`Closed resolved report issue #${issue.number}`)
+              }),
+            )
+            const failures = results.filter((result) => result.status === 'rejected')
+            if (failures.length > 0) {
+              throw new AggregateError(
+                failures.map((failure) => failure.reason),
+                `Failed to close ${failures.length} resolved report issue(s).`,
+              )
+            }
+
+      - uses: ./.github/actions/create-workflow-failure-issue
+        id: create-failure-issue
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
         with:
           token: ${{ secrets.DOCS_BOT_PAT_BASE }}
-          repository: github/docs-content
-          title: '🔗 Broken Internal Links Report'
-          content-filepath: combined-report.md
-          labels: broken link report
 
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
         with:
-          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
-
-      - uses: ./.github/actions/create-workflow-failure-issue
-        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
-        with:
-          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          issue_url: ${{ steps.create-failure-issue.outputs.issue_url }}

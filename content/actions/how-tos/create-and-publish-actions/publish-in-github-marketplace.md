@@ -23,7 +23,7 @@ contentType: how-tos
 >[!NOTE]
 > You must accept the terms of service to publish actions in {% data variables.product.prodname_marketplace %}.
 
-Before you can publish an action, you'll need to create an action in your repository. For more information, see [AUTOTITLE](/actions/creating-actions).
+Before you can publish an action, you'll need to create an action in your repository. For more information, see [AUTOTITLE](/actions/how-tos/reuse-automations).
 
 When you plan to publish your action to {% data variables.product.prodname_marketplace %}, you'll need to ensure that the repository only includes the metadata file, code, and files necessary for the action. Creating a single repository for the action allows you to tag, release, and package the code in a single unit. {% data variables.product.prodname_dotcom %} also uses the action's metadata on your {% data variables.product.prodname_marketplace %} page.
 

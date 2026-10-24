@@ -23,9 +23,11 @@ category:
 
 ## Repository questions
 
-Navigate to a repository to ask about its code, structure, or history.
+Navigate to a repository to ask about its purpose, structure, code, or history. {% data variables.copilot.copilot_chat_short %} grounds its answers in the actual files and symbols in the repository, so you can get a high-level overview and then ask follow-up questions within the same context.
 
 * {% prompt %}What is the main purpose of this repo?{% endprompt %}
+* {% prompt %}Give me an overview of how this project is structured.{% endprompt %}
+* {% prompt %}How do I set up and run this project locally?{% endprompt %}
 * {% prompt %}Where is rate limiting implemented in our API?{% endprompt %}
 * {% prompt %}What was the last merged PR by USERNAME{% endprompt %}
 
@@ -44,13 +46,25 @@ Navigate to a pull request to ask about changes, reviews, or failing workflows.
 * {% prompt %}Summarize the changes in this PR.{% endprompt %}
 * {% prompt %}What's the purpose of this file?{% endprompt %}
 * {% prompt %}Tell me why this job failed{% endprompt %}
+* {% prompt %}What did {% data variables.product.prodname_copilot_short %} change in this PR and why?{% endprompt %}
+* {% prompt %}What did {% data variables.product.prodname_copilot_short %} validate before opening this PR?{% endprompt %}
+
+## Debugging questions
+
+Navigate to a failed workflow run, a pull request with a failing check, or paste a stack trace to get help diagnosing and fixing the problem.
+
+* {% prompt %}Why did this workflow run fail?{% endprompt %}
+* {% prompt %}Explain this stack trace and suggest a fix.{% endprompt %}
+* {% prompt %}Which change in this PR most likely caused the failing test?{% endprompt %}
 
 ## Security alert questions
 
-Navigate to a {% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_secret_scanning %}, or {% data variables.product.prodname_dependabot %} alert to ask about it.
+Navigate to a repository in your organization to ask {% data variables.product.prodname_copilot_short %} about a security alert from {% data variables.product.prodname_GHAS %} features ({% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_secret_scanning %}, and {% data variables.product.prodname_dependabot_alerts %}). For example:
 
 * {% prompt %}How would I fix this alert?{% endprompt %}
 * {% prompt %}Which line of code is this alert referencing?{% endprompt %}
+* {% prompt %}How many alerts do I have on this pull request?{% endprompt %}
+* {% prompt %}What library is affected by this {% data variables.product.prodname_dependabot %} alert?{% endprompt %}
 
 ## Issue, discussion, and commit questions
 

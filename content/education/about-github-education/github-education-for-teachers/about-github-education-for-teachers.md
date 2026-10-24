@@ -18,11 +18,11 @@ category:
 
 {% data reusables.education.about-github-education-link %}
 
-As a faculty member at an accredited educational institution, you can apply for {% data variables.product.prodname_global_campus %}, which includes {% data variables.product.prodname_education %} benefits and resources. For more information, see [AUTOTITLE](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/apply-to-github-global-campus-as-a-teacher).
+As a faculty member at an accredited educational institution, you can apply for {% data variables.product.prodname_global_campus %}, which includes {% data variables.product.prodname_education %} benefits and resources. For more information, see [AUTOTITLE](/education/about-github-education/github-education-for-teachers/apply-to-github-education-as-a-teacher).
 
 {% data variables.product.prodname_global_campus %} is a portal that allows the GitHub Education Community to access their education benefits, all in one place. Once you are a verified {% data variables.product.prodname_global_campus %} teacher, you can access {% data variables.product.prodname_global_campus %} anytime by going to the [{% data variables.product.prodname_education %} website](https://education.github.com).
 
-Before applying for an individual discount, check if your learning community is already partnered with us as a {% data variables.product.prodname_campus_program %} school. For more information, see [AUTOTITLE](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-at-your-educational-institution/about-github-campus-program).
+Before applying for an individual discount, check if your learning community is already partnered with us as a {% data variables.product.prodname_campus_program %} school. For more information, see [AUTOTITLE](/education/about-github-education/use-github-at-your-educational-institution/about-github-campus-program).
 
 ## {% data variables.product.prodname_global_campus %} features for teachers
 
@@ -34,8 +34,8 @@ Before applying for an individual discount, check if your learning community is 
 * Stay in the know on what the student community is interested in by rewatching recent [Campus TV](https://www.twitch.tv/githubeducation) episodes. Campus TV is created by {% data variables.product.prodname_dotcom %} and student community leaders and can be watched live or on demand.
 * Request a {% data variables.product.prodname_dotcom %} swag bag with educational materials and goodies for your students.
 
-A free subscription for {% data variables.copilot.copilot_pro %} is available to verified teachers with {% data variables.product.prodname_education %}. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/getting-started-with-copilot-on-your-personal-account/getting-free-access-to-copilot-pro-as-a-student-teacher-or-maintainer).
+A free subscription for {% data variables.copilot.copilot_pro %} is available to verified teachers with {% data variables.product.prodname_education %}. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/enable-copilot/set-up-for-teachers-and-os-maintainers).
 
 ## Further reading
 
-* [AUTOTITLE](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/about-github-global-campus-for-students)
+* [AUTOTITLE](/education/about-github-education/github-education-for-students/about-github-education-for-students)

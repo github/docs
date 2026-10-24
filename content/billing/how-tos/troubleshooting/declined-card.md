@@ -38,14 +38,27 @@ For more detailed instructions, see [Managing payment information](/billing/how-
 
 Some international banks place restrictions on international, e-commerce, and automatically recurring transactions. If you're having trouble making a payment with your international credit card, call your bank to see if there are any restrictions on your card.
 
-We also support payments through PayPal. For more information, see [AUTOTITLE](/billing/managing-your-billing/managing-your-payment-and-billing-information).
+We also support payments through PayPal. For more information, see [AUTOTITLE](/billing/how-tos/set-up-payment/manage-payment-info).
 
 ## 3. Contact your bank for details about the transaction
 
 If your card is still valid, you have no restrictions on it, or the restrictions don't apply to your payments for {% data variables.product.company_short %} services, you need to call your bank. Your bank can provide additional information about declined payments if you specifically ask about the attempted transaction. Important information to provide includes:
 
-* **The amount you're being charged.** The amount for your subscription appears on your account's receipts. For more information, see [AUTOTITLE](/billing/managing-your-billing/managing-your-payment-and-billing-information).
+* **The amount you're being charged.** The amount for your subscription appears on your account's receipts. For more information, see [AUTOTITLE](/billing/how-tos/set-up-payment/manage-payment-info).
 * **The date when {% data variables.product.company_short %} bills you.** Your account's billing date appears on your receipts.
 * **The transaction ID number.** Your account's transaction ID appears on your receipts.
 * **The merchant name.** The merchant name is {% data variables.product.prodname_dotcom %}.
 * **The error message your bank sent with the declined charge.** You can find your bank's error message on the email we send you when a charge is declined.
+
+## Troubleshooting PayPal payment failures
+
+PayPal error `10417` means PayPal couldn't complete the transaction with the funding source you selected. The error doesn't tell you why.
+
+To resolve the error, try the following:
+
+* Select a different funding source in your PayPal wallet.
+* Edit and save your payment details on {% data variables.product.github %}, even if you don't change anything. This triggers a new payment attempt. See [Managing payment information](/billing/how-tos/set-up-payment/manage-payment-info#managing-payment-information).
+
+If payments still fail, contact PayPal or the issuer of the card linked to your PayPal account for more details.
+
+If you see "Invalid payment method - authorization hold failed", see [Unlocking an account's features due to a failed authorization hold](/billing/how-tos/troubleshooting/locked-account#unlocking-an-accounts-features-due-to-a-failed-authorization-hold).

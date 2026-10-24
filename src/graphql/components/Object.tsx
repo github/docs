@@ -3,6 +3,7 @@ import { GraphqlItem, headingTag } from './GraphqlItem'
 import { Table } from './Table'
 import { useTranslation } from '@/languages/components/useTranslation'
 import type { ObjectT, ImplementsT } from './types'
+import { RenderedHTML } from '@/frame/components/ui/RenderedHTML/RenderedHTML'
 
 type Props = {
   item: ObjectT
@@ -19,7 +20,7 @@ export function Object({ item, headingLevel = 2 }: Props) {
     <GraphqlItem item={item} headingLevel={headingLevel} kind="objects">
       {item.implements && (
         <>
-          <SubHeading dangerouslySetInnerHTML={{ __html: heading1 }} />
+          <RenderedHTML as={SubHeading} html={heading1} />
           <ul>
             {item.implements.map((implement: ImplementsT) => (
               <li key={`${implement.id}-${implement.href}-${implement.name}`}>
@@ -36,7 +37,7 @@ export function Object({ item, headingLevel = 2 }: Props) {
 
       {item.fields && (
         <>
-          <SubHeading dangerouslySetInnerHTML={{ __html: heading2 }} />
+          <RenderedHTML as={SubHeading} html={heading2} />
           <Table fields={item.fields} />
         </>
       )}

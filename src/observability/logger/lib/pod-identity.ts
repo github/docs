@@ -1,5 +1,5 @@
-// Static pod-identity fields — read once at module load, never change.
-// Only populated when running in Kubernetes (env vars set via Downward API + kube-cluster-metadata).
+// Read once at module load, so these never change.
+// Only populated in Kubernetes (env vars set via Downward API + kube-cluster-metadata).
 export const POD_IDENTITY: Record<string, string> = {}
 if (process.env.POD_NAME) POD_IDENTITY.podName = process.env.POD_NAME
 if (process.env.POD_NAMESPACE) POD_IDENTITY.podNamespace = process.env.POD_NAMESPACE

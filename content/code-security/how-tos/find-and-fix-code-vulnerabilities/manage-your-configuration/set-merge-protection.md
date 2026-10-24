@@ -27,7 +27,7 @@ category:
 {% data reusables.repositories.rulesets-general-step %}
 {% data reusables.repositories.rulesets-require-code-scanning-results %}
 
-For more information about managing rulesets in a repository, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/).
+For more information about managing rulesets in a repository, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets).
 
 {% ifversion ghec or ghes %}
 

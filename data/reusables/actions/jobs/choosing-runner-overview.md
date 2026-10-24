@@ -38,7 +38,7 @@ Use `jobs.<job_id>.runs-on` to define the type of machine to run the job on.
 
   {% endraw %}
 
-* If you would like to run your workflow on multiple machines, use [`jobs.<job_id>.strategy`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstrategy).
+* If you would like to run your workflow on multiple machines, use [`jobs.<job_id>.strategy`](/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idstrategy).
 
 > [!NOTE]
 > Quotation marks are not required around simple strings like `self-hosted`, but they are required for expressions like {% raw %} `"${{ inputs.chosen-os }}"`{% endraw %}.

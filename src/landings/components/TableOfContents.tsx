@@ -1,7 +1,9 @@
-import React from 'react'
-
 import { Link } from '@/frame/components/Link'
 import type { TocItem } from '@/landings/types'
+import { RenderedHTML } from '@/frame/components/ui/RenderedHTML/RenderedHTML'
+import { clsx } from 'clsx'
+
+import styles from './TableOfContents.module.scss'
 
 type Props = {
   items: Array<TocItem>
@@ -23,32 +25,39 @@ export const TableOfContents = (props: Props) => {
               className="pt-4 pb-3 f4 d-list-item width-full list-style-none border-bottom"
             >
               <h2 className="py-1 h4">
-                <Link href={href} className="color-fg-accent">
+                <Link href={href} className={styles.linkAccent}>
                   {title}
                 </Link>
               </h2>
               {intro && (
-                <div className="f4 color-fg-muted" dangerouslySetInnerHTML={{ __html: intro }} />
+                <RenderedHTML as="div" className={clsx('f4', styles.textMuted)} html={intro} />
               )}
             </div>
           )
         })}
 
       {variant === 'compact' && (
-        <ul className="list-style-none f4">
-          {items.map((item) => {
+        <ul role="list" className="list-style-none f4">
+          {items.map((item, index) => {
             const { fullPath, title, childTocItems } = item
+            const filteredChildren = (childTocItems || []).filter(Boolean)
             return (
-              <li key={fullPath} className="mb-2">
+              <li key={fullPath} role="listitem" className="mb-2">
                 <Link href={fullPath} className="text-underline mb-2 d-block">
                   {title}
+                  <span className="visually-hidden">
+                    , {index + 1} of {items.length}
+                  </span>
                 </Link>
-                {(childTocItems || []).filter(Boolean).length > 0 && (
-                  <ul className="pl-4 list-style-none">
-                    {(childTocItems || []).filter(Boolean).map((childItem) => (
-                      <li key={childItem.fullPath} className="mb-2">
+                {filteredChildren.length > 0 && (
+                  <ul role="list" className="pl-4 list-style-none">
+                    {filteredChildren.map((childItem, childIndex) => (
+                      <li key={childItem.fullPath} role="listitem" className="mb-2">
                         <Link href={childItem.fullPath} className="text-underline">
                           {childItem.title}
+                          <span className="visually-hidden">
+                            , {childIndex + 1} of {filteredChildren.length}
+                          </span>
                         </Link>
                       </li>
                     ))}

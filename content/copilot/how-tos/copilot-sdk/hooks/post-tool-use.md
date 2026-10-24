@@ -15,10 +15,10 @@ contentType: how-tos
 <!-- markdownlint-disable GHD046 GHD005 -->
 <!-- Suppressed: GHD046 (outdated release terminology), GHD005 (hardcoded data variable) -->
 
-- Transform or filter tool results
-- Log tool execution for auditing
-- Add context based on results
-- Suppress results from the conversation
+* Transform or filter tool results
+* Log tool execution for auditing
+* Add context based on results
+* Suppress results from the conversation
 
 > **Failure variant** — `onPostToolUse` only fires for successful tool executions. To observe **failed** tool calls, register `onPostToolUseFailure` (`on_post_tool_use_failure` in Python, `OnPostToolUseFailure` in Go/.NET, `on_post_tool_use_failure` in Rust). The handler receives `{ sessionId, toolName, toolArgs, error, timestamp, workingDirectory }` — the `error` field is a string extracted from the tool's failure result — and may return `{ additionalContext: string }` to inject extra guidance for the model (e.g. retry hints). See the [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/hooks-overview) for the full list.
 > <a id="failure-variant"></a>
@@ -27,19 +27,6 @@ contentType: how-tos
 
 {% codetabs %}
 {% codetab typescript %}
-
-```typescript
-import type {
-  PostToolUseHookInput,
-  HookInvocation,
-  PostToolUseHookOutput,
-} from "@github/copilot-sdk";
-type PostToolUseHandler = (
-  input: PostToolUseHookInput,
-  invocation: HookInvocation,
-) => Promise<PostToolUseHookOutput | null | undefined>;
-```
-
 
 ```typescript
 type PostToolUseHandler = (
@@ -52,17 +39,6 @@ type PostToolUseHandler = (
 {% codetab python %}
 
 ```python
-from copilot.session import PostToolUseHookInput, PostToolUseHookOutput
-from typing import Callable, Awaitable
-
-PostToolUseHandler = Callable[
-    [PostToolUseHookInput, dict[str, str]],
-    Awaitable[PostToolUseHookOutput | None]
-]
-```
-
-
-```python
 PostToolUseHandler = Callable[
     [PostToolUseHookInput, dict[str, str]],
     Awaitable[PostToolUseHookOutput | None]
@@ -71,20 +47,6 @@ PostToolUseHandler = Callable[
 
 {% endcodetab %}
 {% codetab go %}
-
-```golang
-package main
-
-import copilot "github.com/github/copilot-sdk/go"
-
-type PostToolUseHandler func(
-    input copilot.PostToolUseHookInput,
-    invocation copilot.HookInvocation,
-) (*copilot.PostToolUseHookOutput, error)
-
-func main() {}
-```
-
 
 ```golang
 type PostToolUseHandler func(
@@ -97,15 +59,6 @@ type PostToolUseHandler func(
 {% codetab dotnet %}
 
 ```csharp
-using GitHub.Copilot;
-
-public delegate Task<PostToolUseHookOutput?> PostToolUseHandler(
-    PostToolUseHookInput input,
-    HookInvocation invocation);
-```
-
-
-```csharp
 public delegate Task<PostToolUseHookOutput?> PostToolUseHandler(
     PostToolUseHookInput input,
     HookInvocation invocation);
@@ -113,17 +66,6 @@ public delegate Task<PostToolUseHookOutput?> PostToolUseHandler(
 
 {% endcodetab %}
 {% codetab java %}
-
-```java
-import com.github.copilot.rpc.*;
-import java.util.concurrent.CompletableFuture;
-
-public class PostToolUseSignature {
-    PostToolUseHandler handler = (PostToolUseHookInput input, HookInvocation invocation) ->
-        CompletableFuture.completedFuture(null);
-    public static void main(String[] args) {}
-}
-```
 
 ```java
 @FunctionalInterface
@@ -196,33 +138,6 @@ session = await client.create_session(on_permission_request=PermissionHandler.ap
 {% codetab go %}
 
 ```golang
-package main
-
-import (
-	"context"
-	"fmt"
-	copilot "github.com/github/copilot-sdk/go"
-)
-
-func main() {
-	client := copilot.NewClient(nil)
-	session, _ := client.CreateSession(context.Background(), &copilot.SessionConfig{
-		OnPermissionRequest: copilot.PermissionHandler.ApproveAll,
-		Hooks: &copilot.SessionHooks{
-			OnPostToolUse: func(input copilot.PostToolUseHookInput, inv copilot.HookInvocation) (*copilot.PostToolUseHookOutput, error) {
-				fmt.Printf("[%s] Tool: %s\n", inv.SessionID, input.ToolName)
-				fmt.Printf("  Args: %v\n", input.ToolArgs)
-				fmt.Printf("  Result: %v\n", input.ToolResult)
-				return nil, nil
-			},
-		},
-	})
-	_ = session
-}
-```
-
-
-```golang
 session, _ := client.CreateSession(context.Background(), &copilot.SessionConfig{
     Hooks: &copilot.SessionHooks{
         OnPostToolUse: func(input copilot.PostToolUseHookInput, inv copilot.HookInvocation) (*copilot.PostToolUseHookOutput, error) {
@@ -237,32 +152,6 @@ session, _ := client.CreateSession(context.Background(), &copilot.SessionConfig{
 
 {% endcodetab %}
 {% codetab dotnet %}
-
-```csharp
-using GitHub.Copilot;
-
-public static class PostToolUseExample
-{
-    public static async Task Main()
-    {
-        await using var client = new CopilotClient();
-        var session = await client.CreateSessionAsync(new SessionConfig
-        {
-            Hooks = new SessionHooks
-            {
-                OnPostToolUse = (input, invocation) =>
-                {
-                    Console.WriteLine($"[{invocation.SessionId}] Tool: {input.ToolName}");
-                    Console.WriteLine($"  Args: {input.ToolArgs}");
-                    Console.WriteLine($"  Result: {input.ToolResult}");
-                    return Task.FromResult<PostToolUseHookOutput?>(null);
-                },
-            },
-        });
-    }
-}
-```
-
 
 ```csharp
 var session = await client.CreateSessionAsync(new SessionConfig
@@ -488,6 +377,6 @@ const session = await client.createSession({
 
 ## See also
 
-- [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks)
-- [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/pre-tool-use)
-- [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/error-handling)
+* [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks)
+* [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/pre-tool-use)
+* [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/error-handling)

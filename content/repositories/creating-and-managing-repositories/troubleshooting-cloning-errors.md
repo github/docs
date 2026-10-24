@@ -74,7 +74,7 @@ Alternatively, you can change the URL through our
 
 ### Provide an access token
 
-To access {% data variables.product.prodname_dotcom %}, you must authenticate with a {% data variables.product.pat_generic %} instead of your password. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
+To access {% data variables.product.prodname_dotcom %}, you must authenticate with a {% data variables.product.pat_generic %} instead of your password. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
 
 {% data reusables.command_line.provide-an-access-token %}
 
@@ -108,7 +108,7 @@ If you are trying to clone a private repository but do not have permission to vi
 Make sure that you have access to the repository in one of these ways:
 
 * The owner of the repository
-* A [collaborator](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository) on the repository
+* A [collaborator](/repositories/managing-your-repositorys-settings-and-features/repository-access-and-collaboration/inviting-collaborators-to-a-personal-repository) on the repository
 * A [member of a team](/organizations/organizing-members-into-teams/adding-organization-members-to-a-team) that has access to the repository (if the repository belongs to an organization)
 
 ### Check your SSH access

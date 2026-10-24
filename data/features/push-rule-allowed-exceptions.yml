@@ -1,0 +1,7 @@
+# Reference: github/releases#9966
+# "Allowed exceptions" (ignored_file_paths) for the Restrict file paths
+# and Restrict file size push rules.
+# GHES availability TBC — add a ghes key once confirmed.
+versions:
+  fpt: '*'
+  ghec: '*'

@@ -2,6 +2,7 @@ import { describe, expect, test } from 'vitest'
 import { load } from 'cheerio'
 
 import { renderContent } from '@/content-render/index'
+import { TitleFromAutotitleError } from '@/content-render/unified/rewrite-local-links'
 import type { Context } from '@/types'
 
 const example = `
@@ -22,33 +23,27 @@ describe('annotate', () => {
     const res = await renderContent(example)
     const $ = load(res)
 
-    // Check that the annotation structure is rendered correctly
     const annotation = $('.annotate')
     expect(annotation.length).toBe(1)
     expect(annotation.hasClass('beside')).toBe(true)
 
-    // Check annotation header exists
     const header = $('.annotate-header')
     expect(header.length).toBe(1)
 
-    // Check both beside and inline modes are rendered
     const beside = $('.annotate-beside')
     const inline = $('.annotate-inline')
     expect(beside.length).toBe(1)
     expect(inline.length).toBe(1)
 
-    // Check that we have the correct number of annotation rows
     const rows = $('.annotate-row')
     expect(rows.length).toBe(2)
 
-    // Check that each row has both code and note sections
     rows.each((i, row) => {
       const $row = $(row)
       expect($row.find('.annotate-code').length).toBe(1)
       expect($row.find('.annotate-note').length).toBe(1)
     })
 
-    // Check specific content of the annotations
     const notes = $('.annotate-note p')
     const noteTexts = notes.map((i, el) => $(el).text()).get()
     expect(noteTexts).toEqual([
@@ -56,7 +51,6 @@ describe('annotate', () => {
       'Add the pull_request event, so that the workflow runs automatically\nevery time a pull request is created.',
     ])
 
-    // Check code content
     const codes = $('.annotate-code pre')
     const codeTexts = codes.map((i, el) => $(el).text()).get()
     expect(codeTexts).toEqual([
@@ -131,14 +125,13 @@ on: [push]
 \`\`\`
 `
 
-    // Create a mock context with pages for AUTOTITLE resolution
     const mockPages: Record<string, { href: string; rawTitle: string }> = {
-      '/get-started/start-your-journey/hello-world': {
-        href: '/get-started/start-your-journey/hello-world',
+      '/en/get-started/start-your-journey/hello-world': {
+        href: '/en/get-started/start-your-journey/hello-world',
         rawTitle: 'Hello World',
       },
-      '/get-started/foo': {
-        href: '/get-started/foo',
+      '/en/get-started/foo': {
+        href: '/en/get-started/foo',
         rawTitle: 'Fooing Around',
       },
     }
@@ -148,7 +141,7 @@ on: [push]
       currentVersion: 'free-pro-team@latest',
       pages: mockPages,
       redirects: {},
-      // Mock test object doesn't need all Context properties, using 'as unknown as' to bypass strict type checking
+      // AUTOTITLE resolution reads only these Context fields.
     } as unknown as Context
 
     const res = await renderContent(autotitleExample, mockContext)
@@ -157,7 +150,6 @@ on: [push]
     const rows = $('.annotate-row')
     const notes = $('.annotate-note', rows)
 
-    // Check that AUTOTITLE links were resolved to actual titles
     const firstNote = notes.eq(0).html()
     const secondNote = notes.eq(1).html()
 
@@ -165,5 +157,55 @@ on: [push]
     expect(firstNote).not.toContain('[AUTOTITLE]')
     expect(secondNote).toContain('Fooing Around')
     expect(secondNote).not.toContain('[AUTOTITLE]')
+
+    const hrefs = $('.annotate-note a', rows)
+      .map((i, el) => $(el).attr('href'))
+      .get()
+    expect(hrefs).toEqual(['/en/get-started/start-your-journey/hello-world', '/en/get-started/foo'])
+  })
+
+  test('throws on AUTOTITLE links in annotations that do not resolve', async () => {
+    const brokenExample = `
+\`\`\`yaml annotate copy
+# See [AUTOTITLE](/get-started/does-not-exist).
+name: Test workflow
+\`\`\`
+`
+
+    const mockContext = {
+      currentLanguage: 'en',
+      currentVersion: 'free-pro-team@latest',
+      pages: {},
+      redirects: {},
+    } as unknown as Context
+
+    await expect(renderContent(brokenExample, mockContext)).rejects.toThrow(TitleFromAutotitleError)
+  })
+
+  test('reports the source line of unresolvable AUTOTITLE links in later notes', async () => {
+    const brokenExample = `
+\`\`\`yaml annotate copy
+# See [AUTOTITLE](/get-started/foo).
+name: Test workflow
+
+# The second note starts here.
+
+# See [AUTOTITLE](/get-started/does-not-exist).
+on: [push]
+\`\`\`
+`
+
+    const mockContext = {
+      currentLanguage: 'en',
+      currentVersion: 'free-pro-team@latest',
+      pages: {
+        '/en/get-started/foo': { href: '/en/get-started/foo', rawTitle: 'Fooing Around' },
+      },
+      redirects: {},
+    } as unknown as Context
+
+    await expect(renderContent(brokenExample, mockContext)).rejects.toThrow(
+      /\/get-started\/does-not-exist.*\(Line: 8\)/,
+    )
   })
 })

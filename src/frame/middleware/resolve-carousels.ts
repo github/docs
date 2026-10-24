@@ -1,45 +1,37 @@
-import type { ExtendedRequest, Page, ResolvedArticle } from '@/types'
+import type { Context, ExtendedRequest, Page, ResolvedArticle } from '@/types'
 import type { Response, NextFunction } from 'express'
 import findPage from '@/frame/lib/find-page'
-import { renderContent } from '@/content-render/index'
 import Permalink from '@/frame/lib/permalink'
 
 import { createLogger } from '@/observability/logger/index'
 
-// The Page class has rawCarousels and carousels properties that aren't on the Page type
+// Page adds rawCarousels at runtime, but the Page type omits it.
 interface PageCarouselProps {
   rawCarousels?: Record<string, string[]>
-  carousels?: Record<string, ResolvedArticle[]>
 }
 
 const logger = createLogger('middleware:resolve-carousels')
 
-/**
- * Build an article path by combining language, optional base path, and article path
- */
 function buildArticlePath(currentLanguage: string, articlePath: string, basePath?: string): string {
   const pathPrefix = basePath ? `/${currentLanguage}/${basePath}` : `/${currentLanguage}`
   const separator = articlePath.startsWith('/') ? '' : '/'
   return `${pathPrefix}${separator}${articlePath}`
 }
 
-/**
- * Try to resolve an article path using multiple resolution strategies
- */
+// Resolve carousel paths as content-relative, then page-relative, then retry both with .md.
 function tryResolveArticlePath(
   rawPath: string,
   pageRelativePath: string | undefined,
   req: ExtendedRequest,
+  language?: string,
 ): Page | undefined {
   const { pages, redirects } = req.context!
-  const currentLanguage = req.context!.currentLanguage || 'en'
+  const currentLanguage = language || req.context!.currentLanguage || 'en'
 
-  // Check if we have the required dependencies
   if (!pages || !redirects) {
     return undefined
   }
 
-  // Strategy 1: Try content-relative path (add language prefix to raw path)
   const contentRelativePath = buildArticlePath(currentLanguage, rawPath)
   let foundPage = findPage(contentRelativePath, pages, redirects)
 
@@ -47,7 +39,6 @@ function tryResolveArticlePath(
     return foundPage
   }
 
-  // Strategy 2: Try page-relative path if page context is available
   if (pageRelativePath) {
     const pageDirPath = pageRelativePath.split('/').slice(0, -1).join('/')
     const pageRelativeFullPath = buildArticlePath(currentLanguage, rawPath, pageDirPath)
@@ -58,11 +49,9 @@ function tryResolveArticlePath(
     }
   }
 
-  // Strategy 3: Try with .md extension if not already present
   if (!rawPath.endsWith('.md')) {
     const pathWithExtension = `${rawPath}.md`
 
-    // Try Strategy 1 with .md extension
     const contentRelativePathWithExt = buildArticlePath(currentLanguage, pathWithExtension)
     foundPage = findPage(contentRelativePathWithExt, pages, redirects)
 
@@ -70,7 +59,6 @@ function tryResolveArticlePath(
       return foundPage
     }
 
-    // Try Strategy 2 with .md extension
     if (pageRelativePath) {
       const pageDirPath = pageRelativePath.split('/').slice(0, -1).join('/')
       const pageRelativeFullPathWithExt = buildArticlePath(
@@ -89,19 +77,25 @@ function tryResolveArticlePath(
   return foundPage
 }
 
-/**
- * Get the path for a page (without language/version)
- */
+function findEnglishArticle(
+  rawPath: string,
+  pageRelativePath: string | undefined,
+  req: ExtendedRequest,
+): Page {
+  const enPage = tryResolveArticlePath(rawPath, pageRelativePath, req, 'en')
+  if (!enPage) {
+    throw new Error(`Unable to find English carousel article: ${rawPath}`)
+  }
+  return enPage
+}
+
 function getPageHref(page: Page): string {
   if (page.relativePath) {
     return Permalink.relativePathToSuffix(page.relativePath)
   }
-  return '' // fallback
+  return ''
 }
 
-/**
- * Middleware to resolve carousel articles from rawCarousels object
- */
 async function resolveCarousels(
   req: ExtendedRequest,
   res: Response,
@@ -111,7 +105,6 @@ async function resolveCarousels(
     const page = req.context?.page
     const rawCarousels = (page as unknown as PageCarouselProps)?.rawCarousels
 
-    // Handle carousels format
     if (rawCarousels && typeof rawCarousels === 'object') {
       const resolvedCarousels: Record<string, ResolvedArticle[]> = {}
 
@@ -120,7 +113,6 @@ async function resolveCarousels(
           continue
         }
 
-        // Remove duplicate articles
         const uniquePaths = [...new Set(articlePaths)]
         const resolved: ResolvedArticle[] = []
 
@@ -138,9 +130,18 @@ async function resolveCarousels(
                 ? foundPage.relativePath.split('/').slice(0, -1).filter(Boolean)
                 : []
 
+              // The request's getEnglishPage resolves the landing page, not the carousel article.
+              const renderContext: Context = req.context!.getEnglishPage
+                ? {
+                    ...req.context!,
+                    getEnglishPage: () => findEnglishArticle(rawPath, page?.relativePath, req),
+                  }
+                : req.context!
+
               resolved.push({
-                title: await renderContent(foundPage.title, req.context, { textOnly: true }),
-                intro: await renderContent(foundPage.intro, req.context, { textOnly: true }),
+                // The shared Page keeps title and intro from its last render, which can be another version.
+                title: await foundPage.renderProp('title', renderContext, { textOnly: true }),
+                intro: await foundPage.renderProp('intro', renderContext, { textOnly: true }),
                 href,
                 category,
               })
@@ -151,7 +152,7 @@ async function resolveCarousels(
         }
 
         if (resolved.length > 0) {
-          // Prevent prototype pollution by rejecting __proto__ keys
+          // Reject unsafe object keys to prevent prototype pollution.
           if (
             carouselKey !== '__proto__' &&
             carouselKey !== 'constructor' &&
@@ -162,10 +163,8 @@ async function resolveCarousels(
         }
       }
 
-      // Store resolved carousels on the page
-      if (page && Object.keys(resolvedCarousels).length > 0) {
-        ;(page as unknown as PageCarouselProps).carousels = resolvedCarousels
-      }
+      // Every version shares one page object, so per-version results belong on the request.
+      req.context!.carousels = resolvedCarousels
     }
   } catch (error) {
     logger.error('Error in resolveCarousels middleware:', { error })

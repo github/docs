@@ -20,8 +20,8 @@ When you attempt to push a supported secret from the command line to a repositor
 
 You should either:
 
-* **Remove** the secret from your branch. For more information, see [Resolving a blocked push](/code-security/how-tos/secure-your-secrets/work-with-leak-prevention/working-with-push-protection-from-the-command-line#resolving-a-blocked-push).
-* **Follow a provided URL** to see what options are available to you to allow the push. For more information, see [Bypassing push protection](/code-security/how-tos/secure-your-secrets/work-with-leak-prevention/working-with-push-protection-from-the-command-line#bypassing-push-protection) and [Requesting bypass privileges](/code-security/how-tos/secure-your-secrets/work-with-leak-prevention/working-with-push-protection-from-the-command-line#requesting-bypass-privileges).
+* **Remove** the secret from your branch. For more information, see [Resolving a blocked push](/code-security/how-tos/secure-your-secrets/work-with-leak-prevention/push-protection-on-the-command-line#resolving-a-blocked-push).
+* **Follow a provided URL** to see what options are available to you to allow the push. For more information, see [Bypassing push protection](/code-security/how-tos/secure-your-secrets/work-with-leak-prevention/push-protection-on-the-command-line#bypassing-push-protection) and [Requesting bypass privileges](/code-security/how-tos/secure-your-secrets/work-with-leak-prevention/push-protection-on-the-command-line#requesting-bypass-privileges).
 
 Up to five detected secrets will be displayed at a time on the command line. If a particular secret has already been detected in the repository and an alert already exists, {% data variables.product.prodname_dotcom %} will not block that secret.
 

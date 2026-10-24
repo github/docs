@@ -19,7 +19,7 @@ category:
 
 To save a single notification to review later, to the right of the notification, click {% octicon "bookmark" aria-label="Save" %}. You can only save one notification at a time.
 
-Saved notifications are kept indefinitely and can be viewed by clicking **Saved** in the sidebar or with the `is:saved` query. If your saved notification is older than 5 months and becomes unsaved, the notification will disappear from your inbox within a day.
+Saved notifications are kept indefinitely and can be viewed by clicking **Saved** in the sidebar or with the `is:saved` query. If your saved notification is older than 3 months and becomes unsaved, the notification will disappear from your inbox within a day.
 
 ![Screenshot of a single notification from the "Notifications" page. The bookmark icon is highlighted with an orange outline.](/assets/images/help/notifications-v2/save-triaging-option.png)
 
@@ -32,7 +32,7 @@ When you click an individual notification from your inbox, you're directed to th
 * Save the notification for later
 * Return to your notifications inbox
 
-For more information about your triage options, see [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/viewing-and-triaging-notifications/managing-notifications-from-your-inbox#triaging-options).
+For more information about your triage options, see [AUTOTITLE](/subscriptions-and-notifications/how-tos/viewing-and-triaging-notifications/managing-notifications-from-your-inbox#triaging-options).
 
 ## Customizing when to receive future updates for an issue or pull request
 

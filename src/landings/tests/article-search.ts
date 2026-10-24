@@ -51,6 +51,34 @@ describe('flattenArticles', () => {
     expect(result.map((a) => a.title)).toEqual(['Alpha', 'Middle', 'Zebra'])
   })
 
+  test('sorts titles with the given locale instead of the runtime default', () => {
+    const zhItems: TocItem[] = [
+      { title: '关于 W', fullPath: '/guan', intro: '' },
+      { title: '创建 Z', fullPath: '/chuang', intro: '' },
+      { title: '安装 X', fullPath: '/an', intro: '' },
+      { title: '比较 Y', fullPath: '/bi', intro: '' },
+    ]
+    expect(flattenArticles(zhItems, 'zh').map((a) => a.title)).toEqual([
+      '安装 X',
+      '比较 Y',
+      '创建 Z',
+      '关于 W',
+    ])
+    expect(flattenArticles(zhItems, 'en').map((a) => a.title)).toEqual([
+      '关于 W',
+      '创建 Z',
+      '安装 X',
+      '比较 Y',
+    ])
+
+    const csItems: TocItem[] = [
+      { title: 'Hiding', fullPath: '/h', intro: '' },
+      { title: 'Choosing', fullPath: '/c', intro: '' },
+    ]
+    expect(flattenArticles(csItems, 'cs').map((a) => a.title)).toEqual(['Hiding', 'Choosing'])
+    expect(flattenArticles(csItems, 'en').map((a) => a.title)).toEqual(['Choosing', 'Hiding'])
+  })
+
   test('excludes index pages (parents with children)', () => {
     const items: TocItem[] = [
       {
@@ -93,7 +121,7 @@ describe('deriveStopWords', () => {
     ]
     // "copilot" appears in 3/3 = 100%, always a stop word
     expect(deriveStopWords(articles, 0.5)).toContain('copilot')
-    // At threshold 1.0, only words in every single article qualify
+    // With threshold 1.0, only words in every article qualify.
     const strict = deriveStopWords(articles, 1.0)
     expect(strict).toContain('copilot')
     expect(strict).not.toContain('agents')
@@ -125,6 +153,19 @@ describe('searchArticles', () => {
   test('returns empty array when no articles match', () => {
     const results = searchArticles(articles, 'xyznonexistent', [])
     expect(results).toHaveLength(0)
+  })
+
+  test('ignores unrelated long intros that contain every query bigram', () => {
+    const withNoise = [
+      makeArticle(
+        'About enterprise plugin policies',
+        'Enterprise administrators can define policies that restrict which plugins members can install, keeping availability consistent.',
+        '/policies',
+      ),
+      makeArticle('Understanding pricing', 'Learn how plans are charged', '/pricing'),
+    ]
+    const results = searchArticles(withNoise, 'pricing', [])
+    expect(results.map((a) => a.fullPath)).toEqual(['/pricing'])
   })
 
   test('searches title, intro, and category fields', () => {

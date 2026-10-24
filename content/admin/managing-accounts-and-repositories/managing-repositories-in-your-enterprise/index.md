@@ -10,6 +10,7 @@ versions:
   ghes: '*'
 children:
   - /governing-how-people-use-repositories-in-your-enterprise
+  - /bypass-push-rules-requests
   - /viewing-user-owned-repositories-in-your-enterprise
   - /accessing-user-owned-repositories-in-your-enterprise
   - /managing-custom-properties-for-repositories-in-your-enterprise

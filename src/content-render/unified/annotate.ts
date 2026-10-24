@@ -1,50 +1,40 @@
-/*
-Parses fenced code blocks with `annotate` in info string.
-Results in single line comments split out, output format is:
+// Annotate fences split single-line comments into rendered notes beside code examples.
 
-.annotate
-  .annotate-row (n)
-    .annotate-code
-    .annotate-note
-
-Contributing rules:
-- You must include `annotate` in the info string
-- You must include a language on the starting ` ``` ` tag.
-- Notes must start with one of: `#`, `//`, `<!--`, `%%`. (comment tag)
-- The comment tag style must match the language on the code fence.
-- Multiline-style comments, such as `/*` are not supported.
-- You can include any number of spaces before the comment tag starts.
-- You can include any number of spaces after the comment tag ends.
-- You can leave after the comment tag blank to create a blank annotation.
-- You cannot create a blank code block however.
-- Anything after the comment tag will be parsed with Markdown.
-- You can use any inline Markdown tag in the comment; recommend against using block tags such as headings, blockquote, horizontal rules, tables, lists, or code fences.
-- Multiple lines in row with the comment tag will result in a single annotation.
-- Empty lines, or lines that contain only space characters, will be discarded.
-- You must start the code section with a single line comment, otherwise the two will be flipped.
-- For HTML style, you can include a line after your annotations such as `<!-- -->` to maintain syntax highlighting; this will not impact what renders.
-
-`parse-info-string.ts` plugin is required for this to work, and must come before `remark-rehype`.
-`annotate` must come before the `highlight` plugin.
-*/
-
-import yaml from 'js-yaml'
+import { load } from 'js-yaml'
 import fs from 'fs'
 import { chunk, last } from 'lodash-es'
 import { visit } from 'unist-util-visit'
+import type { Test } from 'unist-util-visit'
+import type { Node, Parent, Position } from 'unist'
+import type { Element, Nodes } from 'hast'
 import { h } from 'hastscript'
 import { fromMarkdown } from 'mdast-util-from-markdown'
 import { toHast } from 'mdast-util-to-hast'
 import type { Root } from 'mdast'
 import { header } from './code-header'
 import findPage from '@/frame/lib/find-page'
-import { createLogger } from '@/observability/logger'
-
-const logger = createLogger(import.meta.url)
+import { autotitleResolutionError, getNewHref } from './rewrite-local-links'
+import type { Context } from '@/types'
 
 interface LanguageConfig {
   comment: 'number' | 'slash' | 'xml' | 'percent' | 'hyphen'
-  [key: string]: any
+  [key: string]: unknown
+}
+
+interface HastNode {
+  type?: string
+  value?: string
+  properties?: {
+    className?: string[]
+    [key: string]: unknown
+  }
+  children?: HastNode[]
+  data?: {
+    meta?: {
+      annotate?: boolean
+      [key: string]: unknown
+    }
+  }
 }
 
 interface ElementNode {
@@ -52,39 +42,25 @@ interface ElementNode {
   tagName: string
   properties: {
     className?: string[]
-    [key: string]: any
+    [key: string]: unknown
   }
-  children: any[]
+  children: HastNode[]
   data?: {
     meta?: {
       annotate?: boolean
-      [key: string]: any
+      [key: string]: unknown
     }
   }
+  position?: Position
 }
 
-const languages = yaml.load(fs.readFileSync('./data/code-languages.yml', 'utf8')) as Record<
+const languages = load(fs.readFileSync('./data/code-languages.yml', 'utf8')) as Record<
   string,
   LanguageConfig
 >
 
 const commentRegexes = {
-  // Also known has hash or sharp; but the unicode name is "number sign".
-  // The reason this has 2 variants is because the hash is used, in bash
-  // for both hash-hang and for comments.
-  // For example:
-  //
-  //     #!/bin/bash
-  //
-  // ...is not a comment.
-  // But if you only look for `#` followed by anything-but `!` it will not
-  // match if the line is just `#`.
-  //
-  //    > /^\s*#[^!]\s*/.test('#')
-  //    false
-  //
-  // Which makes sense, because the `#` is not followed by anything.
-  // That's why we use the | operator to make an "exception" for that case.
+  // Keep shebang lines in code, but treat a line that only contains a number sign as a comment.
   number: /^\s*#[^!]\s*|^\s*#$/,
   slash: /^\s*\/\/\s*/,
   xml: /^\s*<!--\s*/,
@@ -92,39 +68,47 @@ const commentRegexes = {
   hyphen: /^\s*--\s*/,
 }
 
-// Using 'any' for node because unist-util-visit requires broad type compatibility
-const matcher = (node: any): node is ElementNode =>
-  node.type === 'element' && node.tagName === 'pre' && Boolean(getPreMeta(node).annotate)
+const matcher = (node: Node): boolean =>
+  node.type === 'element' &&
+  (node as unknown as ElementNode).tagName === 'pre' &&
+  Boolean(getPreMeta(node as unknown as ElementNode).annotate)
 
-// Using 'any' for context because unified plugins receive different context types depending on processor configuration
-export default function annotate(context: any) {
-  // Using 'any' for tree because unified's AST types are complex and vary between processors
-  return (tree: any) => {
-    // Using 'any' for parent because unist-util-visit's callback typing doesn't provide specific parent types
-    visit(tree, matcher, (node: ElementNode, index: number | undefined, parent: any) => {
+export default function annotate(context: Context) {
+  return (tree: Node) => {
+    visit(tree, matcher as Test, (node, index, parent) => {
       if (index !== undefined && parent) {
-        parent.children[index] = createAnnotatedNode(node, context)
+        ;(parent as Parent).children[index] = createAnnotatedNode(
+          node as unknown as ElementNode,
+          context,
+        ) as unknown as Node
       }
     })
   }
 }
 
-// Using 'any' for context to match the plugin signature, and return type because hastscript returns complex hast types
-function createAnnotatedNode(node: ElementNode, context: any): any {
-  const lang = node.children[0].properties.className[0].replace('language-', '')
-  const code = node.children[0].children[0].value
+function createAnnotatedNode(node: ElementNode, context: Context): Element {
+  const lang = node.children[0].properties!.className![0].replace('language-', '')
+  const code = node.children[0].children![0].value as string
 
-  // Check the code is parse-able
   validate(lang, code)
 
-  // Group into code and notes
-  const lines = code.split('\n').filter(hasChar)
+  const allLines = code.split('\n')
+  const lines = allLines.filter(hasChar)
   const groups = chunkBy(lines, matchComment(lang))
 
-  // Group groups into rows
   const rows = chunk(groups, 2)
 
-  // Check the rows are formatted correctly
+  // Code starts on the line after the opening fence, and blank lines are dropped from groups.
+  const codeStart = (node.position?.start.line || 0) + 1
+  const sourceLines = allLines.flatMap((text, i) => (hasChar(text) ? [codeStart + i] : []))
+  let offset = 0
+  const groupSourceLines = groups.map((group) => {
+    const groupLines = sourceLines.slice(offset, offset + group.length)
+    offset += group.length
+    return groupLines
+  })
+  const noteSourceLines = chunk(groupSourceLines, 2).map(([noteLines]) => noteLines)
+
   for (const [note, codeBlock] of rows) {
     if (note === undefined || codeBlock === undefined) {
       throw new Error(
@@ -133,8 +117,7 @@ function createAnnotatedNode(node: ElementNode, context: any): any {
     }
   }
 
-  // Render the HTML
-  return template({ lang, code, rows, context })
+  return template({ lang, code, rows, context, noteSourceLines })
 }
 
 function validate(lang: string, code: string): void {
@@ -189,8 +172,7 @@ function matchComment(lang: string): (line: string) => boolean {
   return (line) => regex.test(line)
 }
 
-// Using 'any' return type because hastscript's h() function returns complex hast element types
-function getSubnav(): any {
+function getSubnav(): Element {
   const besideBtn = h(
     'button',
     {
@@ -215,18 +197,19 @@ function getSubnav(): any {
   return h('div', { className: 'annotate-toggle' }, [besideBtn, inlineBtn])
 }
 
-// Using 'any' for context and return type due to hastscript's complex type definitions
 function template({
   lang,
   code,
   rows,
   context,
+  noteSourceLines,
 }: {
   lang: string
   code: string
   rows: string[][][]
-  context: any
-}): any {
+  context: Context
+  noteSourceLines: number[][]
+}): Element {
   return h(
     'div',
     { class: 'annotate beside' },
@@ -234,7 +217,7 @@ function template({
     h(
       'div',
       { className: 'annotate-beside' },
-      rows.map(([note, codeBlock]) =>
+      rows.map(([note, codeBlock], i) =>
         h('div', { className: 'annotate-row' }, [
           h(
             'div',
@@ -245,7 +228,7 @@ function template({
           h(
             'div',
             { className: 'annotate-note' },
-            mdToHast(note.map(removeComment(lang)).join('\n'), context),
+            mdToHast(note.map(removeComment(lang)).join('\n'), context, noteSourceLines[i]),
           ),
         ]),
       ),
@@ -257,38 +240,31 @@ function template({
   )
 }
 
-// Using 'any' for context and return type to maintain compatibility with mdast-util-to-hast complex types
-function mdToHast(text: string, context: any): any {
+function mdToHast(text: string, context: Context, sourceLines: number[]): Nodes {
   const mdast: Root = fromMarkdown(text)
 
-  // Process AUTOTITLE links
-  processAutotitleInMdast(mdast, context)
+  processAutotitleInMdast(mdast, context, sourceLines)
 
   return toHast(mdast)
 }
 
-// Helper method to process AUTOTITLE links in MDAST
-// This can be reused for other MDAST processing that needs AUTOTITLE support
-// Using 'any' for context because it may or may not have pages/redirects properties depending on usage
-function processAutotitleInMdast(mdast: Root, context: any): void {
+// rewriteLocalLinks runs before annotation notes exist, so notes need the same href rewrite here.
+function processAutotitleInMdast(mdast: Root, context: Context, sourceLines: number[]): void {
+  const { currentLanguage, autotitleLanguage, currentVersion } = context
+  if (!currentLanguage || !currentVersion) return
   visit(mdast, 'link', (node) => {
     if (node.url && node.url.startsWith('/')) {
+      const originalHref = node.url
+      node.url = getNewHref(node, autotitleLanguage || currentLanguage, currentVersion) || node.url
       for (const child of node.children) {
         if (child.type === 'text' && /^\s*AUTOTITLE\s*$/.test(child.value)) {
-          // Find the page and get its title
           const page = findPage(node.url, context.pages, context.redirects)
-          if (page) {
-            try {
-              // Use rawTitle for synchronous processing in annotations
-              child.value = page.rawTitle || 'AUTOTITLE'
-            } catch (error) {
-              // Keep AUTOTITLE if we can't get the title
-              logger.warn('Could not resolve AUTOTITLE', {
-                url: node.url,
-                error: error instanceof Error ? error.message : String(error),
-              })
-            }
+          if (!page) {
+            const line = sourceLines[(node.position?.start.line || 1) - 1] || sourceLines[0] || 1
+            throw autotitleResolutionError(originalHref, line, context)
           }
+          // rawTitle avoids async title rendering while annotation notes convert to HAST.
+          child.value = page.rawTitle || 'AUTOTITLE'
         }
       }
     }
@@ -300,8 +276,7 @@ function removeComment(lang: string): (line: string) => string {
   return (line) => line.replace(regex, '')
 }
 
-function getPreMeta(node: ElementNode): { annotate?: boolean; [key: string]: any } {
-  // Here's why this monstrosity works:
-  // https://github.com/syntax-tree/mdast-util-to-hast/blob/c87cd606731c88a27dbce4bfeaab913a9589bf83/lib/handlers/code.js#L40-L42
+function getPreMeta(node: ElementNode): { annotate?: boolean; [key: string]: unknown } {
+  // mdast-util-to-hast stores code-fence metadata on the code child.
   return node.children[0]?.data?.meta || {}
 }

@@ -1,12 +1,6 @@
-// Versions used by cse-copilot
+// cse-copilot accepts this small docs version set.
 import { versionToIndexVersionMap } from '../elasticsearch-versions'
 const CSE_COPILOT_DOCS_VERSIONS = ['dotcom', 'ghec', 'ghes']
-
-// Languages supported by cse-copilot
-const DOCS_LANGUAGES = ['en']
-export function supportedCSECopilotLanguages() {
-  return DOCS_LANGUAGES
-}
 
 export function getCSECopilotSource(version: (typeof CSE_COPILOT_DOCS_VERSIONS)[number]) {
   if (!version) {
@@ -14,7 +8,7 @@ export function getCSECopilotSource(version: (typeof CSE_COPILOT_DOCS_VERSIONS)[
   }
 
   let mappedVersion = versionToIndexVersionMap[version]
-  // CSE-Copilot uses 'dotcom' as the version name for free-pro-team
+  // cse-copilot expects dotcom for free-pro-team.
   if (mappedVersion === 'fpt') {
     mappedVersion = 'dotcom'
   }
@@ -24,6 +18,6 @@ export function getCSECopilotSource(version: (typeof CSE_COPILOT_DOCS_VERSIONS)[
       `Invalid 'version' in request body: '${version}'. Must be one of: ${CSE_COPILOT_DOCS_VERSIONS.join(', ')}`,
     )
   }
-  // cse-copilot uses version names in the form `docs_<version-shortName>`, e.g. `docs_ghes-3.16`
+  // cse-copilot docs sources use docs_ plus the mapped index version, such as docs_ghes-X.
   return `docs_${mappedVersion}`
 }
