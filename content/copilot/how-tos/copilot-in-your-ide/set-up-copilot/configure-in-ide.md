@@ -269,7 +269,7 @@ You can specify which languages you want to enable or disable {% data variables.
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.access_applications %}
 {% data reusables.user-settings.access_authorized_oauth_apps %}
-1. Click the **...** next to **{% data variables.product.prodname_dotcom %} for {% data variables.product.prodname_vscode_shortname %}** and click **Revoke**.
+1. Click the **...** next to **Visual Studio Code** and click **Revoke**.
 {% data reusables.user-settings.access_authorized_github_apps %}
 1. If the **{% data variables.product.prodname_copilot %}** extension is listed, click **Revoke**.
 
