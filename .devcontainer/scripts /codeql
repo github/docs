@@ -1,0 +1,11 @@
+#!/bin/bash
+set -e
+
+CODEQL_PATH=/home/root/.vscode-remote/data/User/globalStorage/github.vscode-codeql/distribution1/codeql/codeql
+
+if [ ! -f $CODEQL_PATH ]; then
+    echo "CodeQL not found. Please install the CodeQL extension in VSCode and try again."
+    exit 1
+fi
+
+$CODEQL_PATH $@
