@@ -54,9 +54,11 @@ The {% data variables.copilot.github_copilot_app %} supports the following opera
 
 ## The {% data variables.copilot.github_copilot_app %} workflow
 
+Connect a repository or local folder to the app, then start agent sessions to work on it. Sessions are grouped by repository in the sidebar.
+
 A typical workflow in the {% data variables.copilot.github_copilot_app %} looks like this:
 
-1. Browse issues in a repository and pick one up, or start from a blank workspace.
+1. Start a new agent session in a repository or local folder, or browse issues in a repository and start a session from an issue.
 1. Choose a session mode—Interactive, Plan, or Autopilot—and select a model.
 1. Describe the task and let the agent create a branch, write code, and run tests.
 1. Review the agent's changes, provide feedback, and iterate.

@@ -29,12 +29,199 @@
       ],
       "bodyParameters": [
         {
-          "type": "",
+          "type": "string",
+          "name": "name",
+          "description": "<p>The name of the check. For example, \"code-coverage\".</p>",
+          "isRequired": true
+        },
+        {
+          "type": "string",
+          "name": "head_sha",
+          "description": "<p>The SHA of the commit.</p>",
+          "isRequired": true
+        },
+        {
+          "type": "string",
+          "name": "details_url",
+          "description": "<p>The URL of the integrator's site that has the full details of the check. If the integrator does not provide this, then the homepage of the GitHub app is used.</p>"
+        },
+        {
+          "type": "string",
+          "name": "external_id",
+          "description": "<p>A reference for the run on the integrator's system.</p>"
+        },
+        {
+          "type": "string",
           "name": "status",
-          "description": "",
-          "isRequired": true,
+          "description": "<p>The current status of the check run. Only GitHub Actions can set a status of <code>waiting</code>, <code>pending</code>, or <code>requested</code>.</p>",
           "enum": [
-            "completed"
+            "queued",
+            "in_progress",
+            "completed",
+            "waiting",
+            "requested",
+            "pending"
+          ],
+          "default": "queued"
+        },
+        {
+          "type": "string",
+          "name": "started_at",
+          "description": "<p>The time that the check run began. This is a timestamp in <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO 8601</a> format: <code>YYYY-MM-DDTHH:MM:SSZ</code>.</p>"
+        },
+        {
+          "type": "string",
+          "name": "conclusion",
+          "description": "<p><strong>Required if you provide <code>completed_at</code> or a <code>status</code> of <code>completed</code></strong>. The final conclusion of the check.\n<strong>Note:</strong> Providing <code>conclusion</code> will automatically set the <code>status</code> parameter to <code>completed</code>. You cannot change a check run conclusion to <code>stale</code>, only GitHub can set this.</p>",
+          "enum": [
+            "action_required",
+            "cancelled",
+            "failure",
+            "neutral",
+            "success",
+            "skipped",
+            "stale",
+            "timed_out"
+          ]
+        },
+        {
+          "type": "string",
+          "name": "completed_at",
+          "description": "<p>The time the check completed. This is a timestamp in <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO 8601</a> format: <code>YYYY-MM-DDTHH:MM:SSZ</code>.</p>"
+        },
+        {
+          "type": "object",
+          "name": "output",
+          "description": "<p>Check runs can accept a variety of data in the <code>output</code> object, including a <code>title</code> and <code>summary</code> and can optionally provide descriptive details about the run.</p>",
+          "childParamsGroups": [
+            {
+              "type": "string",
+              "name": "title",
+              "description": "<p>The title of the check run.</p>",
+              "isRequired": true
+            },
+            {
+              "type": "string",
+              "name": "summary",
+              "description": "<p>The summary of the check run. This parameter supports Markdown. <strong>Maximum length</strong>: 65535 characters.</p>",
+              "isRequired": true
+            },
+            {
+              "type": "string",
+              "name": "text",
+              "description": "<p>The details of the check run. This parameter supports Markdown. <strong>Maximum length</strong>: 65535 characters.</p>"
+            },
+            {
+              "type": "array of objects",
+              "name": "annotations",
+              "description": "<p>Adds information from your analysis to specific lines of code. Annotations are visible on GitHub in the <strong>Checks</strong> and <strong>Files changed</strong> tab of the pull request. The Checks API limits the number of annotations to a maximum of 50 per API request. To create more than 50 annotations, you have to make multiple requests to the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/checks/runs#update-a-check-run\">Update a check run</a> endpoint. Each time you update the check run, annotations are appended to the list of annotations that already exist for the check run. GitHub Actions are limited to 10 warning annotations and 10 error annotations per step. For details about how you can view annotations on GitHub, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/articles/about-status-checks#checks\">About status checks</a>\".</p>",
+              "childParamsGroups": [
+                {
+                  "type": "string",
+                  "name": "path",
+                  "description": "<p>The path of the file to add an annotation to. For example, <code>assets/css/main.css</code>.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "integer",
+                  "name": "start_line",
+                  "description": "<p>The start line of the annotation. Line numbers start at 1.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "integer",
+                  "name": "end_line",
+                  "description": "<p>The end line of the annotation.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "integer",
+                  "name": "start_column",
+                  "description": "<p>The start column of the annotation. Annotations only support <code>start_column</code> and <code>end_column</code> on the same line. Omit this parameter if <code>start_line</code> and <code>end_line</code> have different values. Column numbers start at 1.</p>"
+                },
+                {
+                  "type": "integer",
+                  "name": "end_column",
+                  "description": "<p>The end column of the annotation. Annotations only support <code>start_column</code> and <code>end_column</code> on the same line. Omit this parameter if <code>start_line</code> and <code>end_line</code> have different values.</p>"
+                },
+                {
+                  "type": "string",
+                  "name": "annotation_level",
+                  "description": "<p>The level of the annotation.</p>",
+                  "isRequired": true,
+                  "enum": [
+                    "notice",
+                    "warning",
+                    "failure"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "name": "message",
+                  "description": "<p>A short description of the feedback for these lines of code. The maximum size is 64 KB.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string",
+                  "name": "title",
+                  "description": "<p>The title that represents the annotation. The maximum size is 255 characters.</p>"
+                },
+                {
+                  "type": "string",
+                  "name": "raw_details",
+                  "description": "<p>Details about this annotation. The maximum size is 64 KB.</p>"
+                }
+              ]
+            },
+            {
+              "type": "array of objects",
+              "name": "images",
+              "description": "<p>Adds images to the output displayed in the GitHub pull request UI.</p>",
+              "childParamsGroups": [
+                {
+                  "type": "string",
+                  "name": "alt",
+                  "description": "<p>The alternative text for the image.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string",
+                  "name": "image_url",
+                  "description": "<p>The full URL of the image.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "string",
+                  "name": "caption",
+                  "description": "<p>A short image description.</p>"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "array of objects",
+          "name": "actions",
+          "description": "<p>Displays a button on GitHub that can be clicked to alert your app to do additional tasks. For example, a code linting app can display a button that automatically fixes detected errors. The button created in this object is displayed after the check run completes. When a user clicks the button, GitHub sends the <a href=\"https://docs.github.com/enterprise-cloud@latest/webhooks/event-payloads/#check_run\"><code>check_run.requested_action</code> webhook</a> to your app. Each action includes a <code>label</code>, <code>identifier</code> and <code>description</code>. A maximum of three actions are accepted. To learn more about check runs and requested actions, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/using-the-rest-api-to-interact-with-checks#check-runs-and-requested-actions\">Check runs and requested actions</a>.\"</p>",
+          "childParamsGroups": [
+            {
+              "type": "string",
+              "name": "label",
+              "description": "<p>The text to be displayed on a button in the web UI. The maximum size is 20 characters.</p>",
+              "isRequired": true
+            },
+            {
+              "type": "string",
+              "name": "description",
+              "description": "<p>A short explanation of what this action would do. The maximum size is 40 characters.</p>",
+              "isRequired": true
+            },
+            {
+              "type": "string",
+              "name": "identifier",
+              "description": "<p>A reference for the action on the integrator's system. The maximum size is 20 characters.</p>",
+              "isRequired": true
+            }
           ]
         }
       ],
