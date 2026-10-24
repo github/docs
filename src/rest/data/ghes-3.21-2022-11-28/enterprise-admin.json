@@ -18800,7 +18800,7 @@
         {
           "type": "array of strings",
           "name": "schemas",
-          "description": "<p>undefinedSupported values are: <code>urn:ietf:params:scim:api:messages:2.0:PatchOp</code></p>",
+          "description": "<p>Supported values are: <code>urn:ietf:params:scim:api:messages:2.0:PatchOp</code></p>",
           "isRequired": true
         }
       ],
@@ -21229,7 +21229,7 @@
         {
           "type": "array of strings",
           "name": "schemas",
-          "description": "<p>undefinedSupported values are: <code>urn:ietf:params:scim:api:messages:2.0:PatchOp</code></p>",
+          "description": "<p>Supported values are: <code>urn:ietf:params:scim:api:messages:2.0:PatchOp</code></p>",
           "isRequired": true
         }
       ],

@@ -17,17 +17,9 @@ redirect_from:
 
 {% data reusables.copilot.default-availability-policies %}
 
-<!-- expires 2026-10-22 -->
-
 ## Default availability of features
 
-The **Default policy for new features** policy is available to configure but is **not** currently active. Starting from October 22, 2026, the value you have defined for this policy will be the default setting: it will apply to any new or existing GA feature that you have not explicitly configured.
-
-In your policy settings, you will see a banner showing how many eligible policies are currently unconfigured, so you can assess the impact of your global default and explicitly configure individual policies before October 22.
-
-This policy is enabled by default. If you don't take action, unconfigured features will be enabled on October 22.
-
-<!-- end expires 2026-10-22 -->
+The **Default policy for new features and clients** policy applies to any new or existing GA feature that you have not explicitly configured.
 
 ### When does the policy apply?
 
@@ -46,7 +38,7 @@ At the enterprise level, the policy has the following possible states.
 
 Policy state | Outcome
 ------------ | --------
-**Let organizations decide** | Any unconfigured, GA feature is automatically available for organizations to enable or disable. The default state of the feature _in each of those organizations_ is determined by the organization-level **Default policy for new features** policy.
+**Let organizations decide** | The "default availability" policy decision is delegated to organizations. An unconfigured feature is set to "Let organizations decide" if its policy supports that option; otherwise, it is disabled. For a feature delegated to organizations and not explicitly configured by an organization owner, the organization-level "default policy" for new features determines its availability.
 **Enabled everywhere** | Any unconfigured, GA feature is automatically enabled for all your {% data variables.product.prodname_copilot_short %} users, and organizations cannot disable it.
 **Disabled everywhere** | Any unconfigured, GA feature is automatically disabled for all your {% data variables.product.prodname_copilot_short %} users, and organizations cannot enable it.
 
@@ -80,7 +72,7 @@ Policy state | Outcome
 ------------ | --------
 **Enabled** | Any model labeled **Delegate to Default Policy** is automatically enabled for all your {% data variables.product.prodname_copilot_short %} users, and organizations or teams cannot disable it.
 **Disabled** | Any model labeled **Delegate to Default Policy** is automatically disabled for all your {% data variables.product.prodname_copilot_short %} users, and organizations or teams cannot enable it.
-**Let organizations decide** | Any model labeled **Delegate to Default Policy** is automatically available for organizations to enable or disable. In each organization, an eligible model follows the organization-level **Default availability for released models** policy if the organization has not explicitly configured it. This state is not available if you have enabled enterprise teams mode.
+**Let organizations decide** | (Not available in enterprise teams mode.) Any model labeled **Delegate to Default Policy** is automatically available for organizations to enable or disable. In each organization, an eligible model follows the organization-level **Default availability for released models** policy if the organization has not explicitly configured it.
 
 #### Policy states for models
 

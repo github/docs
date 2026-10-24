@@ -68,14 +68,14 @@ You can create a new canvas from within a session using the `/create-canvas` ski
    * `Create an agentic kanban canvas with actions to create, assign, and move cards.`
    * `Create a markdown canvas that combines my meetings with prioritized issues and pull requests, then lets me launch and track agent sessions from that canvas.`
 1. You can choose whether the canvas should be shared with your team or kept personal:
-   * **Project scope:** `.github/extensions` for team-shared canvases committed to the repository.
+   * **Repository scope:** `.github/extensions` for team-shared canvases committed to the repository.
    * **User scope:** `~/.copilot/extensions` for personal canvases on your machine.
 
 The agent will build the canvas and open it in the right side panel once complete. After that, you can continue iterating by asking the agent to change the interface, shared state, and capabilities.
 
 ## How canvas extensions are structured
 
-Canvas extensions that you create in the app or install directly live in their own directory under either `.github/extensions` (project scope) or `~/.copilot/extensions` (user scope). 
+Canvas extensions that you create in the app or install directly live in their own directory under either `.github/extensions` (repository scope) or `~/.copilot/extensions` (user scope).
 
 Although implementations can vary, a canvas extension commonly includes:
 

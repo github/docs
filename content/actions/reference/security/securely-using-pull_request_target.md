@@ -61,7 +61,7 @@ To help protect your workflows from untrusted pull requests, {% data variables.p
 
 For public repositories that do not already have an applicable Actions event policy, GitHub adds a default policy that blocks workflows triggered by `pull_request_target`. For more information about policies, see [AUTOTITLE](/actions/concepts/about-actions-policies).
 
-<!-- expires 2026-11-02 -->
+<!-- expires 2026-12-02 -->
 <!-- default policy flips to active -->
 
 The default policy:
@@ -70,9 +70,9 @@ The default policy:
 * Does not replace an applicable event policy that you have already configured.
 * Currently runs in **evaluate** mode. In this mode, workflow runs continue, but you can use policy insights to identify runs that would be blocked after enforcement.
 
-On November 2, 2026, GitHub will enforce the default policy for affected repositories that were using the default `pull_request_target` policy before general availability.
+On December 2, 2026, GitHub will enforce the default policy for affected repositories that were using the default `pull_request_target` policy before general availability.
 
-<!-- end expires 2026-11-02 -->
+<!-- end expires 2026-12-02 -->
 
 ### Reviewing the impact before enforcement
 

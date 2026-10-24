@@ -199,14 +199,14 @@ To turn off sandboxing, enter:
 /sandbox off
 ```
 
-These commands turn sandboxing on or off immediately, unless enterprise managed settings prevent the change. Your choice applies to the current session, including after a restart, and takes precedence over the project default. It does not change the project default for other sessions.
+These commands turn sandboxing on or off immediately, unless enterprise managed settings prevent the change. Your choice applies to the current session, including after a restart, and takes precedence over the repository default. It does not change the repository default for other sessions.
 
 When local sandboxing is off, agent-run commands can access the same files, networks, and credentials as your user account.
 
 You cannot use local sandboxing for a cloud sandbox session or a session that runs on a remote host.
 
 > [!NOTE]
-> * If you enter either of the above commands before a session starts—for example, by clicking **New**, selecting a project, and then entering the command—the command changes the default sandboxing setting for the selected project. Alternatively, you can set the default in your settings. See [AUTOTITLE](/copilot/how-tos/cloud-and-local-sandboxes/configuring-local-sandbox-settings#enabling-local-sandboxing-for-a-project).
+> * If you enter either of the above commands before a session starts—for example, by clicking **New**, selecting a repository or local folder, and then entering the command—the command changes the default sandboxing setting for the selected repository or folder. Alternatively, you can set the default in your settings. See [AUTOTITLE](/copilot/how-tos/cloud-and-local-sandboxes/configuring-local-sandbox-settings#enabling-local-sandboxing-for-a-repository).
 > * Unlike in the CLI, entering `/sandbox` without `on` or `off` does not open a configuration interface.
 
 ### Running a tool outside the sandbox
@@ -221,7 +221,7 @@ To disable sandboxing from this prompt, click **More options**, then **Disable s
 
 If you disable sandboxing from this prompt, the app displays **Sandbox off for this session**. Click **Re-enable sandbox** to turn it back on.
 
-Temporarily disabling sandboxing does not change the project default or the session's saved setting. It ends when the session restarts or reattaches.
+Temporarily disabling sandboxing does not change the repository default or the session's saved setting. It ends when the session restarts or reattaches.
 
 An enterprise owner can prevent users from running tools outside the sandbox. For more information, see [AUTOTITLE](/copilot/reference/enterprise-administrators/enterprise-managed-settings#sandbox).
 

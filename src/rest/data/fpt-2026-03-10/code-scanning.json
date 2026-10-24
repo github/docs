@@ -12656,7 +12656,47 @@
           }
         }
       ],
-      "bodyParameters": [],
+      "bodyParameters": [
+        {
+          "type": "string",
+          "name": "language",
+          "description": "<p>The language targeted by the CodeQL query</p>",
+          "isRequired": true,
+          "enum": [
+            "actions",
+            "cpp",
+            "csharp",
+            "go",
+            "java",
+            "javascript",
+            "python",
+            "ruby",
+            "rust",
+            "swift"
+          ]
+        },
+        {
+          "type": "string",
+          "name": "query_pack",
+          "description": "<p>A Base64-encoded tarball containing a CodeQL query and all its dependencies</p>",
+          "isRequired": true
+        },
+        {
+          "type": "array of strings",
+          "name": "repositories",
+          "description": "<p>List of repository names (in the form <code>owner/repo-name</code>) to run the query against. Precisely one property from <code>repositories</code>, <code>repository_lists</code> and <code>repository_owners</code> is required.</p>"
+        },
+        {
+          "type": "array of strings",
+          "name": "repository_lists",
+          "description": "<p>List of repository lists to run the query against. Precisely one property from <code>repositories</code>, <code>repository_lists</code> and <code>repository_owners</code> is required.</p>"
+        },
+        {
+          "type": "array of strings",
+          "name": "repository_owners",
+          "description": "<p>List of organization or user names whose repositories the query should be run against. Precisely one property from <code>repositories</code>, <code>repository_lists</code> and <code>repository_owners</code> is required.</p>"
+        }
+      ],
       "descriptionHTML": "<p>Creates a new CodeQL variant analysis, which will run a CodeQL query against one or more repositories.</p>\n<p>Get started by learning more about <a href=\"https://docs.github.com/code-security/codeql-for-vs-code/getting-started-with-codeql-for-vs-code/running-codeql-queries-at-scale-with-multi-repository-variant-analysis\">running CodeQL queries at scale with Multi-Repository Variant Analysis</a>.</p>\n<p>Use the <code>owner</code> and <code>repo</code> parameters in the URL to specify the controller repository that\nwill be used for running GitHub Actions workflows and storing the results of the CodeQL variant analysis.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
