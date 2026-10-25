@@ -1,0 +1,37 @@
+# Chuỗi giao diện người dùng — Tiếng Việt (vi-vn)
+# Được tạo bởi: @Dennis-nham · NLP Labs Vietnam
+# Ngày: 2025
+
+header:
+  github_docs: "Tài liệu GitHub"
+  search_placeholder: "Tìm kiếm tài liệu..."
+  language_picker: "Ngôn ngữ"
+
+footer:
+  terms: "Điều khoản"
+  privacy: "Bảo mật"
+  security: "Bảo mật thông tin"
+  status: "Trạng thái"
+  docs: "Tài liệu"
+  contact: "Liên hệ"
+  manage_cookies: "Quản lý cookie"
+  do_not_share: "Không chia sẻ thông tin cá nhân"
+
+article:
+  contents: "Mục lục"
+  edit_on_github: "Chỉnh sửa trên GitHub"
+  scroll_to_top: "Lên đầu trang"
+  feedback_positive: "Bài viết có hữu ích không?"
+  feedback_yes: "Có"
+  feedback_no: "Không"
+  was_this_helpful: "Bài viết này có hữu ích không?"
+
+search:
+  label: "Tìm kiếm tài liệu"
+  results: "Kết quả tìm kiếm"
+  no_results: "Không tìm thấy kết quả cho"
+  search_again: "Tìm kiếm lại"
+
+errors:
+  page_not_found: "Không tìm thấy trang"
+  try_search: "Thử tìm kiếm để tìm nội dung bạn cần."
