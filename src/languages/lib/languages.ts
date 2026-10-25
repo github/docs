@@ -4,7 +4,7 @@
 // Client-safe definitions avoid fs and path; server code that needs directories
 // imports languages-server.ts.
 
-export type LanguageCode = 'en' | 'es' | 'ja' | 'pt' | 'zh' | 'ru' | 'fr' | 'ko' | 'de'
+export type LanguageCode = 'en' | 'es' | 'ja' | 'pt' | 'zh' | 'ru' | 'fr' | 'ko' | 'de' | 'vi'
 export type LocaleCode =
   | 'en'
   | 'es-es'
@@ -15,6 +15,7 @@ export type LocaleCode =
   | 'fr-fr'
   | 'ko-kr'
   | 'de-de'
+  | 'vi-vn'
 
 export interface Language {
   name: string
@@ -111,6 +112,15 @@ export const languages: Languages = {
     hreflang: 'de',
     locale: 'de-de',
     firstArchivedVersion: '3.3',
+  },
+  vi: {
+    name: 'Vietnamese',
+    nativeName: 'Tiếng Việt',
+    code: 'vi',
+    hreflang: 'vi',
+    redirectPatterns: [/^\/vn/],
+    locale: 'vi-vn',
+    firstArchivedVersion: '3.12',
   },
 }
 
