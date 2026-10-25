@@ -1,3 +1,4 @@
+/
 name: Close PRs for issues without help wanted
 
 # docs-internal mirrors workflows to github/docs, so enforce this rule only in the public repo.
