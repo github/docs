@@ -39,7 +39,7 @@ Add the `js-os-download` class and one or more of these data attributes to a lin
 | `data-os-download-linux` | Linux on x64, and Linux when the architecture is unknown |
 | `data-os-download-linux-arm` | Linux on Arm |
 
-Wrap the label text in `<span class="js-os-download-label">` to have it replaced with "Download for {os}". iOS, Android, ChromeOS, and missing attributes keep the original `href`.
+Wrap the label text in `<span class="js-os-download-label">` to have it replaced with "Download for {os}". iOS, Android, ChromeOS, and missing attributes keep the original `href`. Touch devices with Mac or Linux user agents, such as iPads and Android tablets in desktop mode, also keep the original `href`.
 
 ### State Management
 

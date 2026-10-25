@@ -406,7 +406,10 @@ export async function getProgAccessData(
     const operationData: ProgAccessOperationData = {
       userToServerRest: operation.user_to_server.enabled,
       serverToServer: operation.server_to_server.enabled,
-      fineGrainedPat: operation.user_to_server.enabled && !operation.disabled_for_patv2,
+      fineGrainedPat:
+        operation.user_to_server.enabled &&
+        !operation.disabled_for_patv2 &&
+        !isOperationExcludedForFineGrainedPat(operation.permission_sets || [], progActorResources),
       permissions: isRest
         ? getDisplayPermissions(operation.permission_sets || [], progActorResources)
         : operation.permission_sets || [],
@@ -563,6 +566,7 @@ export function isActorExcluded(
 }
 
 // Operations with no permission sets need no permissions, so they still work with fine-grained PATs.
+// Every permission in a set is required, so one excluded permission rules out the whole set.
 export function isOperationExcludedForFineGrainedPat(
   permissionSets: Array<Record<string, string>>,
   progActorResources: ProgActorResources,
@@ -570,7 +574,7 @@ export function isOperationExcludedForFineGrainedPat(
   return (
     permissionSets.length > 0 &&
     permissionSets.every((permissionSet) =>
-      Object.keys(permissionSet).every((permissionName) =>
+      Object.keys(permissionSet).some((permissionName) =>
         isActorExcluded(
           progActorResources[permissionName]?.excluded_actors,
           'fine_grained_pat',

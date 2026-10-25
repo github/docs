@@ -6,10 +6,16 @@ import walk from 'walk-sync'
 
 import { engine } from '@/content-render/liquid/engine'
 import { allVersions } from '@/versions/lib/all-versions'
+import { getFeaturesByVersion } from '@/versions/middleware/features'
 import languages from '@/languages/lib/languages-server'
 import warmServer from '@/frame/lib/warm-server'
 import type { Site } from '@/types'
 import { correctTranslatedContentStrings } from '@/languages/lib/correct-translation-content'
+import {
+  captureConsole,
+  parseFrontmatterErrors,
+  type FrontmatterError,
+} from '@/languages/lib/frontmatter-error-capture'
 
 if (import.meta.url === `file://${process.argv[1]}`) {
   program
@@ -43,11 +49,6 @@ interface LanguageResult {
   corruptions: CorruptionEntry[]
   byLocation: Record<string, number>
   topIllegalTags: Array<{ tag: string; count: number }>
-}
-
-interface FrontmatterError {
-  file: string
-  message: string
 }
 
 interface CorruptionReport {
@@ -84,18 +85,8 @@ async function main(languageCodes: string[], options: { versions?: string } = {}
   // Validate requested versions before suppressing console output, so errors stay visible.
   const versions = resolveRequestedVersions(options.versions)
 
-  // Capture warmServer frontmatter noise as structured data instead of stderr.
-  const originalError = console.error
-  const originalWarn = console.warn
-  const originalLog = console.log
-  const suppressedErrors: string[] = []
-  console.error = (...args: unknown[]) => {
-    suppressedErrors.push(args.map(String).join(' '))
-  }
-  console.warn = (...args: unknown[]) => {
-    suppressedErrors.push(args.map(String).join(' '))
-  }
-  console.log = () => {}
+  // Capture warmServer output so YAML frontmatter failures become structured data.
+  const capture = captureConsole()
 
   let langCodes: string[]
   let site: Site
@@ -118,12 +109,10 @@ async function main(languageCodes: string[], options: { versions?: string } = {}
     site = await warmServer(languageCodes.length ? ['en', ...langCodes] : [])
     reusables = getReusables()
   } finally {
-    console.error = originalError
-    console.warn = originalWarn
-    console.log = originalLog
+    capture.restore()
   }
 
-  const frontmatterErrors = parseFrontmatterErrors(suppressedErrors)
+  const frontmatterErrors = parseFrontmatterErrors(capture.output)
   const languageResults: LanguageResult[] = []
 
   for (const languageCode of langCodes) {
@@ -143,19 +132,6 @@ async function main(languageCodes: string[], options: { versions?: string } = {}
   console.log(JSON.stringify(report, null, 2))
 }
 
-function parseFrontmatterErrors(suppressedErrors: string[]): FrontmatterError[] {
-  const errors: FrontmatterError[] = []
-  const seen = new Set<string>()
-  for (const err of suppressedErrors) {
-    const match = err.match(/translations\/[^\s']+/)
-    if (match && !seen.has(match[0])) {
-      seen.add(match[0])
-      errors.push({ file: match[0], message: 'YML parsing error' })
-    }
-  }
-  return errors
-}
-
 function getReusables(): Reusables {
   const reusables = new Map()
   const files = walk('data/reusables', {
@@ -172,11 +148,13 @@ function getReusables(): Reusables {
 
 // Build a minimal Liquid render context for validating translated content.
 // ifversion needs currentVersionObj; data tags call getDataByLanguage internally.
-// Mirror shortVersions middleware so bare conditionals such as {% ifversion ghes %} resolve.
-// Without the short-name flag, Liquid sees an undefined variable and hides real corruptions.
-function buildRenderContext(languageCode: string, version: string) {
+// Mirror shortVersions and features middleware so bare conditionals such as
+// {% ifversion ghes %} or {% ifversion some-feature %} resolve.
+// Without these flags, Liquid sees an undefined variable and hides real corruptions.
+export function buildRenderContext(languageCode: string, version: string) {
   const currentVersionObj = allVersions[version]
   return {
+    ...getFeaturesByVersion(version),
     currentLanguage: languageCode,
     currentVersion: version,
     currentVersionObj,

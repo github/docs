@@ -29,6 +29,14 @@ The cost of an interaction depends on two things: the model and the number of to
 
 Code completions and {% data variables.copilot.next_edit_suggestions %} are **not** billed in {% data variables.product.prodname_ai_credits_short %}. They remain unlimited for all paid plans.
 
+## How is {% data variables.product.prodname_github_app %} usage billed?
+
+A {% data variables.product.prodname_github_app %} installed on an organization can use an installation access token to make {% data variables.product.prodname_copilot_short %} requests without a user signing in. The organization that owns the installation pays for the usage, and the organization’s model policies and spending controls apply.
+
+You cannot create a budget for an individual app or installation. This authentication method does not require the **Allow use of Copilot CLI billed to the organization** policy, which applies to a different authentication path.
+
+For information about approving access, identifying app usage, and blocking an app, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/manage-app-copilot-access).
+
 ## How do {% data variables.product.prodname_ai_credits_short %} work?
 
 Each assigned {% data variables.product.prodname_copilot_short %} license comes with a monthly amount of **included {% data variables.product.prodname_ai_credits_short %}**:

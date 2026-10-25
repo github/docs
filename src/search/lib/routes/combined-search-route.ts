@@ -20,6 +20,8 @@ export async function combinedSearchRoute(req: Request, res: Response) {
   } = getSearchFromRequestParams(req, 'aiSearchAutocomplete', {
     // force lets empty autocomplete queries return the top AI suggestions.
     query: typeof req.query.query !== 'string' ? '' : req.query.query,
+    // AI autocomplete indexes exist only in English; general search below uses the requested language.
+    language: 'en',
   })
 
   const {

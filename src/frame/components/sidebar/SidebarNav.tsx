@@ -17,7 +17,7 @@ type Props = {
 }
 
 export const SidebarNav = ({ variant = 'full', mobileOpen = false }: Props) => {
-  const { currentProduct, currentProductName } = useMainContext()
+  const { currentProduct, currentProductName, sidebarTree } = useMainContext()
   const router = useRouter()
   const isRestPage = currentProduct && currentProduct.id === 'rest'
 
@@ -69,7 +69,8 @@ export const SidebarNav = ({ variant = 'full', mobileOpen = false }: Props) => {
               <h2 className="mt-3" id="allproducts-menu">
                 <Link
                   data-testid="sidebar-product-xl"
-                  href={`/${router.locale}${currentProduct.href}`}
+                  // productMap hrefs use the product's first version, so prefer the versioned tree root.
+                  href={sidebarTree?.href || `/${router.locale}${currentProduct.href}`}
                   // Popover preview cards read _product-title for in-page link text.
                   className={cx(
                     'd-block pl-1 mb-2 h3 no-underline _product-title',

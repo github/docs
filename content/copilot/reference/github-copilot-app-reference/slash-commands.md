@@ -26,8 +26,8 @@ Some commands require specific context, such as an active session, session chang
 
 | Slash command | What it does |
 | --- | --- |
-| `/af` | Finds installable MCP servers, tools, skills, and agents by searching Agent Finder. This slash command is a built-in skill. See [AUTOTITLE](/copilot/concepts/context/mcp#agent-finder). |
-| `/agent` | Selects a {% data variables.copilot.copilot_custom_agent_short %} for the session. See [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-custom-agents). |
+| `/af` | Finds installable MCP servers, tools, skills, and agents by searching Agent Finder. This slash command is a built-in skill. See [AUTOTITLE](/copilot/concepts/customizations/mcp#agent-finder). |
+| `/agent` | Selects a {% data variables.copilot.copilot_custom_agent_short %} for the session. See [AUTOTITLE](/copilot/concepts/customizations/custom-agents). |
 | `/allow-all-tools` or `/yolo` | **Requires an active session.** Turns tool auto-approval on or shows its current state. |
 | `/attach-files` | Opens a file picker and attaches files to your message. |
 | `/attach-folder` | Opens a folder picker and attaches a folder to your message. |
@@ -66,7 +66,7 @@ Some commands require specific context, such as an active session, session chang
 | `/restart-session` | **Requires an active session.** Restarts the current session and keeps its history. |
 | `/review` | **Requires an active session.** Reviews the current session's changes. |
 | `/rubber-duck [PROMPT]` | Requests critique on your approach or implementation by a model other than the one you have used in the session. See [AUTOTITLE](/copilot/how-tos/github-copilot-app/agent-sessions#using-the-rubber-duck-agent). |
-| `/sandbox on` or `/sandbox off` | Enables or disables local sandboxing for the current session. If no session is active, changes the selected project's default for new sessions. Local sandboxing is not available for cloud sandbox or remote-host sessions. See [AUTOTITLE](/copilot/how-tos/cloud-and-local-sandboxes/using-local-sandboxing#using-local-sandboxing-in-the-copilot-app). |
+| `/sandbox on` or `/sandbox off` | Enables or disables local sandboxing for the current session. If no session is active, changes the selected repository's default for new sessions. Local sandboxing is not available for cloud sandbox or remote-host sessions. See [AUTOTITLE](/copilot/how-tos/cloud-and-local-sandboxes/using-local-sandboxing#using-local-sandboxing-in-the-copilot-app). |
 | `/security-review` | **Requires an active session with changes.** Runs a security-focused review against current diffs. See [AUTOTITLE](/copilot/how-tos/github-copilot-app/agent-sessions#using-security-review-in-app-sessions). |
 | `/skills` | Manages skills; use `/skills reload` to reload skills mid-session. |
 | `/spar [PROMPT]` | Runs adversarial reasoning to challenge your approach. |

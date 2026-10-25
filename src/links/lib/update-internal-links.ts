@@ -139,6 +139,7 @@ export async function updateFile(file: string, context: LinkContext, opts: typeo
   const parseSource = isYaml ? dedentLines(source) : source
   const lineStarts = buildLineStarts(source)
   const indents = isYaml ? source.split('\n').map((line) => /^[ \t]*/.exec(line)![0].length) : null
+  const blockScalarLines = isYaml ? findBlockScalarLines(source) : null
 
   // Report original columns by adding YAML indentation back onto the dedented parse.
   function sourceColumn(node: Nodes): number | undefined {
@@ -255,7 +256,13 @@ export async function updateFile(file: string, context: LinkContext, opts: typeo
       let baseHref = node.url
       let fragment: CarriedFragment | undefined
 
-      const hasQuotesAroundLink = content.includes(`"${asMarkdown}`)
+      const span = sourceSpan(node, asMarkdown)
+      const inYamlStructure =
+        blockScalarLines !== null && !blockScalarLines[(node.position?.start.line ?? 1) - 1]
+      // Without a source range, fall back to searching the whole file for a quoted copy.
+      const hasQuotesAroundLink = span
+        ? hasProseQuoteBefore(source, span[0], inYamlStructure)
+        : content.includes(`"${asMarkdown}`)
 
       const xValue = (node.children[0] as { value?: string } | undefined)?.value
 
@@ -305,7 +312,7 @@ export async function updateFile(file: string, context: LinkContext, opts: typeo
         baseHref,
         makeMarkdown: (href) => `[${newTitle}](${href})`,
         fragment,
-        span: sourceSpan(node, asMarkdown),
+        span,
       })
     } else if (opts.verbose) {
       logger.warn('Unable to find link as Markdown in the source content', {
@@ -405,6 +412,37 @@ function dedentLines(content: string): string {
     .split('\n')
     .map((line) => line.replace(/^[ \t]+/, ''))
     .join('\n')
+}
+
+// YAML requires quotes around a scalar that starts with '[', so a quote that opens the value is syntax.
+function hasProseQuoteBefore(source: string, start: number, inYamlStructure: boolean): boolean {
+  if (source[start - 1] !== '"') return false
+  if (!inYamlStructure) return true
+  const lineStart = source.lastIndexOf('\n', start - 1) + 1
+  return !/^\s*(?:-\s+)?(?:[\w.-]+:\s+)?$/.test(source.slice(lineStart, start - 1))
+}
+
+// Lines inside YAML | and > block scalars are Markdown text, so a quote there is never YAML syntax.
+function findBlockScalarLines(source: string): boolean[] {
+  const lines = source.split('\n')
+  const inside = lines.map(() => false)
+  // Block scalar content continues while lines are blank or indented past the parent key or dash.
+  let parentIndent = -1
+  for (const [i, line] of lines.entries()) {
+    if (parentIndent >= 0 && (line.trim() === '' || /^ */.exec(line)![0].length > parentIndent)) {
+      inside[i] = true
+      continue
+    }
+    parentIndent = -1
+    if (line.trimStart().startsWith('#')) continue
+    if (!/(?:^\s*-|:)\s+[|>](?:[1-9][+-]?|[+-][1-9]?)?\s*(?:#.*)?$/.test(line)) continue
+    const prefix = /^\s*(?:-\s+)*/.exec(line)![0]
+    // A sequence item like '- |' nests its content under the dash, not under the text after it.
+    parentIndent = /^[|>]/.test(line.slice(prefix.length))
+      ? prefix.trimEnd().length - 1
+      : prefix.length
+  }
+  return inside
 }
 
 function buildLineStarts(content: string): number[] {

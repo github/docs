@@ -4,6 +4,8 @@
 import fs from 'fs'
 import { spawn } from 'child_process'
 
+type Violation = { lineNumber: number; isYamlFile?: boolean }
+
 const rule: string | undefined = process.argv[2]
 if (!rule) {
   console.error('Please specify a rule to disable.')
@@ -47,18 +49,21 @@ childProcess.on('close', (code: number | null) => {
     process.exit(0)
   }
 
-  const markdownViolations: Record<string, Array<{ lineNumber: number }>> = JSON.parse(
+  const markdownViolations: Record<string, Violation[]> = JSON.parse(
     fs.readFileSync('markdown-violations.json', 'utf8'),
   )
   console.log(`${Object.values(markdownViolations).flat().length} violations found.`)
 
-  const violationEntries = Object.entries(markdownViolations) as [
-    string,
-    Array<{ lineNumber: number }>,
-  ][]
+  const violationEntries = Object.entries(markdownViolations) as [string, Violation[]][]
+  const skipped: string[] = []
   for (const [fileName, results] of violationEntries) {
     console.log(fileName)
     console.log(results)
+    // YAML data keys are "<file> <instancePath>" and line numbers point into the extracted string.
+    if (results.some((result) => result.isYamlFile) || !fs.existsSync(fileName)) {
+      skipped.push(fileName)
+      continue
+    }
     const fileLines = fs.readFileSync(fileName, 'utf8').split('\n')
     for (const result of results) {
       matchingRulesFound++
@@ -70,4 +75,11 @@ childProcess.on('close', (code: number | null) => {
   }
 
   console.log(`${matchingRulesFound} violations ignored.`)
+
+  if (skipped.length) {
+    console.log(
+      `\n${skipped.length} YAML data values were skipped. Add <!-- markdownlint-disable-line ${rule} --> by hand inside each YAML string:`,
+    )
+    for (const key of skipped) console.log(`  ${key}`)
+  }
 })

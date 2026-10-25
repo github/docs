@@ -3,6 +3,8 @@ import { expect, test, vi } from 'vitest'
 import { describeIfElasticsearchURL } from '@/tests/helpers/conditional-runs'
 import { get } from '@/tests/helpers/e2etest'
 
+import type { CombinedSearchResponse } from '@/search/types'
+
 // This suite only runs if $ELASTICSEARCH_URL is set.
 // The basic Japanese search test uses localized /ja/foo and /ja/bar records from
 // src/search/tests/fixtures/search-indexes/tests_github-docs_general-search_fpt_ja-records.json.
@@ -34,5 +36,32 @@ describeIfElasticsearchURL('search v1 middleware in non-English', () => {
     expect(hit.url).toBe('/ja/foo')
     expect(hit.title).toBe('フー')
     expect(hit.breadcrumbs).toBe('fooing')
+  })
+})
+
+// The search suite enables only English, so non-English combined search coverage lives here.
+describeIfElasticsearchURL('combined search v1 middleware in non-English', () => {
+  vi.setConfig({ testTimeout: 60 * 1000 })
+
+  test('Japanese uses English AI suggestions and localized general results', async () => {
+    const sp = new URLSearchParams()
+    sp.set('language', 'ja')
+    {
+      sp.set('query', 'rest')
+      const res = await get(`/api/search/combined-search/v1?${sp}`)
+      expect(res.statusCode).toBe(200)
+      const results = JSON.parse(res.body) as CombinedSearchResponse
+      expect(results.aiAutocompleteSuggestions.hits[0].term).toBe(
+        'How do I manage OAuth app access restrictions for my organization?',
+      )
+    }
+    {
+      sp.set('query', 'foo')
+      const res = await get(`/api/search/combined-search/v1?${sp}`)
+      expect(res.statusCode).toBe(200)
+      const results = JSON.parse(res.body) as CombinedSearchResponse
+      const titles = results.generalSearchResults.hits.map((hit) => hit.title)
+      expect(titles).toContain('フー')
+    }
   })
 })

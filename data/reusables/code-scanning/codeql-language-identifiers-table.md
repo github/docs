@@ -2,13 +2,13 @@
 | Language | Identifier | Optional alternative identifiers (if any)
 |------------------|------------------- | ---------------
 | C/C++ | `c-cpp` | `c` or `cpp` |
-| C# | `csharp` |
-| {% data variables.product.prodname_actions %} workflows | `actions` |
-| Go | `go` |
+| C# | `csharp` | |
+| {% data variables.product.prodname_actions %} workflows | `actions` | |
+| Go | `go` | |
 | Java/Kotlin | `java-kotlin` | `java` or `kotlin` |
 | JavaScript/TypeScript | `javascript-typescript` | `javascript` or `typescript` |
-| Python | `python` |
-| Ruby | `ruby` |
+| Python | `python` | |
+| Ruby | `ruby` | |
 | {% ifversion codeql-rust-available %} |
 Rust | `rust`
 | {% else ifversion codeql-rust-public-preview %}

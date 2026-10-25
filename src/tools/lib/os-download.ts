@@ -14,17 +14,16 @@ const OS_NAMES: Record<string, string> = {
 type DetectInput = {
   os: string
   arch: Arch
-  // iPadOS Safari reports a Mac user agent, but has touch support.
-  isTouchMac?: boolean
+  // iPadOS and Android tablets in desktop mode send Mac or Linux desktop user agents.
+  // Touch support tells them apart, at the cost of skipping Linux laptops with touchscreens.
+  isTouch?: boolean
 }
 
 // Unknown architecture follows github.com/features/ai/github-app:
 // macOS defaults to Apple silicon, and Windows and Linux default to x64.
-export function pickDownloadKey({ os, arch, isTouchMac }: DetectInput): DownloadKey | null {
-  if (os === 'mac') {
-    if (isTouchMac) return null
-    return arch === 'x86' ? 'mac-intel' : 'mac'
-  }
+export function pickDownloadKey({ os, arch, isTouch }: DetectInput): DownloadKey | null {
+  if (isTouch && (os === 'mac' || os === 'linux')) return null
+  if (os === 'mac') return arch === 'x86' ? 'mac-intel' : 'mac'
   if (os === 'windows') return arch === 'arm' ? 'windows-arm' : 'windows'
   if (os === 'linux') return arch === 'arm' ? 'linux-arm' : 'linux'
   return null
@@ -69,5 +68,5 @@ export async function detectDownloadKey(nav: NavigatorLike): Promise<DownloadKey
   let arch = await archFromClientHints(nav)
   // Mac and Windows user agents freeze the architecture, so only trust it on Linux.
   if (arch === 'unknown' && os === 'linux') arch = archFromUserAgent(nav.userAgent)
-  return pickDownloadKey({ os, arch, isTouchMac: os === 'mac' && (nav.maxTouchPoints ?? 0) > 1 })
+  return pickDownloadKey({ os, arch, isTouch: (nav.maxTouchPoints ?? 0) > 1 })
 }

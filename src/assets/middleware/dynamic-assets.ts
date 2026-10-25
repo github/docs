@@ -87,11 +87,12 @@ export default async function dynamicAssets(
       assetCacheControl(res)
       return res.type('image/webp').send(buffer)
     } catch (catchError) {
-      if (
-        catchError instanceof Error &&
-        'code' in catchError &&
-        (catchError as NodeJS.ErrnoException).code !== 'ENOENT'
-      ) {
+      // Sharp errors have no code, so only a missing source file may fall through to the cached 404.
+      const code =
+        catchError instanceof Error && 'code' in catchError
+          ? (catchError as NodeJS.ErrnoException).code
+          : undefined
+      if (!isFileNotFoundError(code)) {
         logger.error('Failed to process dynamic asset', { path: req.path, error: catchError })
         throw catchError
       }
@@ -110,6 +111,12 @@ function sendNotFound(res: Response) {
 
   // Keep missing asset responses plain text instead of rendering the HTML page-not-found response.
   res.status(404).type('text/plain').send('Asset not found')
+}
+
+// Request paths can run through an existing file or exceed the filename length limit.
+// express.static treats these errors as 404s, so match that here.
+function isFileNotFoundError(code: string | undefined) {
+  return code === 'ENOENT' || code === 'ENOTDIR' || code === 'ENAMETOOLONG'
 }
 
 function deconstructImageURL(url: string) {

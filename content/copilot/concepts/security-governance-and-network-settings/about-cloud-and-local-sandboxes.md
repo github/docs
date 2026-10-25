@@ -26,7 +26,7 @@ docsTeamMetrics:
 Sandboxing is available in both {% data variables.copilot.copilot_cli %} and the {% data variables.copilot.github_copilot_app %}, but the two surfaces expose it differently:
 
 * In {% data variables.copilot.copilot_cli_short %}, you control both local and cloud sandboxing with the commands and settings described in this article.
-* In the {% data variables.copilot.github_copilot_app %}, you can run a session in a cloud sandbox or use local sandboxing for local repository and working tree sessions. Project settings define the default for new local sessions, and you can change sandboxing for an active local session. For more information, see [AUTOTITLE](/copilot/how-tos/github-copilot-app/agent-sessions#using-cloud-and-local-sandboxes).
+* In the {% data variables.copilot.github_copilot_app %}, you can run a session in a cloud sandbox or use local sandboxing for local repository and working tree sessions. Repository settings define the default for new local sessions, and you can change sandboxing for an active local session. For more information, see [AUTOTITLE](/copilot/how-tos/github-copilot-app/agent-sessions#using-cloud-and-local-sandboxes).
 
 Local sandbox settings are configured separately in {% data variables.copilot.copilot_cli_short %} and the {% data variables.copilot.github_copilot_app %}. Enabling or configuring local sandboxing in one surface does not change it in the other.
 
@@ -63,7 +63,7 @@ If enterprise managed settings require sandboxing, ordinary settings and startup
 
 The CLI's built-in file tools—first-party commands that are part of the CLI, rather than shell commands like `sed`—run in-process in the CLI. Because the CLI itself is not sandboxed, the operating-system sandbox never sees the file operations these tools perform and cannot constrain them. Instead, the built-in tools are coded to check the sandbox policy themselves and honor your configured settings on a best-effort basis.
 
-In the {% data variables.copilot.github_copilot_app %}, project settings define the local sandboxing default for new local repository and working tree sessions. You can also change sandboxing for an active local session without changing the project default.
+In the {% data variables.copilot.github_copilot_app %}, repository settings define the local sandboxing default for new local repository and working tree sessions. You can also change sandboxing for an active local session without changing the repository default.
 
 For more information about enabling local sandboxing in {% data variables.copilot.copilot_cli_short %} and the {% data variables.copilot.github_copilot_app_short %}, see [AUTOTITLE](/copilot/how-tos/cloud-and-local-sandboxes/using-local-sandboxing).
 
@@ -80,13 +80,13 @@ In {% data variables.copilot.copilot_cli_short %}, you can control several dimen
 * **Keychain (macOS)**: Choose whether the system keychain is reachable from inside the sandbox.
 * **Per-command exceptions**: Allow or prevent individual commands from running outside the sandbox when they need broader access.
 
-In the {% data variables.copilot.github_copilot_app %}, project settings expose a subset of these controls:
+In the {% data variables.copilot.github_copilot_app %}, repository settings expose a subset of these controls:
 
 * **Filesystem**: Grant additional read-only or read/write access to specific paths, or deny paths.
 * **Network**: Allow or block outbound internet and local network access.
 * **Credentials**: Choose whether your Git and {% data variables.product.prodname_cli %} credentials are available inside the sandbox.
 
-The app can also ask you to approve an individual command to run outside the sandbox. You cannot configure whether bypass requests are allowed in the project settings. For more information about configuring local sandboxing in the app or CLI, see [AUTOTITLE](/copilot/how-tos/cloud-and-local-sandboxes/configuring-local-sandbox-settings).
+The app can also ask you to approve an individual command to run outside the sandbox. You cannot configure whether bypass requests are allowed in the repository settings. For more information about configuring local sandboxing in the app or CLI, see [AUTOTITLE](/copilot/how-tos/cloud-and-local-sandboxes/configuring-local-sandbox-settings).
 
 ### Cross-platform support
 
@@ -107,7 +107,7 @@ In {% data variables.copilot.copilot_cli_short %}, host rules and HTTP proxy set
 * **macOS and Linux**: The sandbox restricts outbound connections to the local proxy. Programs that ignore proxy settings cannot connect directly instead. The Linux requirements for outbound traffic listed in [Cross-platform support](#cross-platform-support) also apply when you configure a proxy.
 * **Windows**: Proxying and host rules require a supported Windows version and **Allow local network** to be turned on. On Windows, the sandbox relies on programs honoring the proxy settings. As a result, these controls do not provide the same protection against direct connections as on macOS and Linux.
 
-In the {% data variables.copilot.github_copilot_app %}, you can save denied paths in the project settings. If the active BaseContainer capabilities cannot enforce a denied path, the sandboxed command fails instead of running with a weaker policy or without a sandbox.
+In the {% data variables.copilot.github_copilot_app %}, you can save denied paths in the repository settings. If the active BaseContainer capabilities cannot enforce a denied path, the sandboxed command fails instead of running with a weaker policy or without a sandbox.
 
 On Linux, bubblewrap cannot control local network access independently for spawned processes, including shell commands and local MCP or LSP servers. The local network setting still applies to in-process operations, such as web requests and remote MCP connections, in both the CLI and the app.
 
@@ -137,7 +137,7 @@ Cloud sandboxing is built on Azure Container Apps Sandboxes, with {% data variab
 To start a cloud-backed session, run the following command:
 
 ```shell copy
-copilot ‑‑cloud ‑‑experimental
+copilot --cloud --experimental
 ```
 
 > [!NOTE]
@@ -145,7 +145,7 @@ copilot ‑‑cloud ‑‑experimental
 
 The `‑‑cloud` command line option launches an interactive {% data variables.copilot.copilot_cli_short %} session inside a cloud sandbox. You can prompt {% data variables.product.prodname_copilot_short %} to perform tasks, run shell commands, and iterate on code, the same way you would in a local session. The commands that {% data variables.product.prodname_copilot_short %} runs execute in the cloud environment, not on your local machine.
 
-Running `copilot ‑‑cloud` starts a single {% data variables.copilot.copilot_cli_short %} session in a cloud sandbox. It does not affect future {% data variables.product.prodname_copilot_short %} sessions. Each time you want to run a new session in a cloud sandbox, you must start the CLI with the `‑‑cloud` option.
+Running `copilot --cloud` starts a single {% data variables.copilot.copilot_cli_short %} session in a cloud sandbox. It does not affect future {% data variables.product.prodname_copilot_short %} sessions. Each time you want to run a new session in a cloud sandbox, you must start the CLI with the `‑‑cloud` option.
 
 > [!NOTE]
 > Cloud sandboxing is only available for interactive {% data variables.copilot.copilot_cli_short %} sessions. You can't run the CLI programmatically in a cloud sandbox—that is, you can't combine the `‑‑cloud` option with the `-p` or `-i` options.

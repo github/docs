@@ -114,6 +114,9 @@ export const dates: Record<string, EnhancedVersionDateData> = Object.fromEntries
   ]),
 ) as Record<string, EnhancedVersionDateData>
 
+// enterprise-dates.json keys 11.10.340 as 11.10, so alias it for templates that look up dates by release.
+if (!dates['11.10.340'] && dates['11.10']) dates['11.10.340'] = dates['11.10']
+
 export const nextDeprecationDate = dates[oldestSupported].deprecationDate
 export const isOldestReleaseDeprecated = nextDeprecationDate
   ? new Date() > new Date(nextDeprecationDate)

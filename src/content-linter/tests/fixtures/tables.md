@@ -57,3 +57,10 @@ Cargo | Rust | `Cargo.lock` | `Cargo.toml`, `Cargo.lock` {% endif %}
 | Package manager | Languages | Recommended formats | All supported formats | {% ifversion fpt %}
 | :- | :- | :- | :-|{% endif %}{% ifversion volvo %}
 |Cargo | Rust | `Cargo.lock` | `Cargo.toml`, `Cargo.lock`| {% endif %}
+
+1. This is a list with a table
+   | Package manager | Languages |
+   | --- | --- |
+   {% ifversion volvo %}
+   | Cargo | Rust |
+   {% endif %}

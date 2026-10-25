@@ -669,10 +669,15 @@ export function correctTranslatedContentStrings(
       'você precisa instalá-lo na sua {% ifversion enterprise-installed-apps %}empresa, {% endif %}organização ou conta pessoal.',
     )
 
-    content = content.replaceAll(
-      'tornando mais difícil para os atores mal-intencionados acessarem os repositórios e as configurações de uma organização.',
-      'tornando mais difícil para os atores mal-intencionados acessarem os repositórios e as configurações de uma organização.{% endif %}',
-    )
+    // Other pages reuse this sentence without an open conditional, so the extra endif breaks them.
+    if (
+      context.relativePath?.endsWith('/requiring-two-factor-authentication-in-your-organization.md')
+    ) {
+      content = content.replaceAll(
+        'tornando mais difícil para os atores mal-intencionados acessarem os repositórios e as configurações de uma organização.',
+        'tornando mais difícil para os atores mal-intencionados acessarem os repositórios e as configurações de uma organização.{% endif %}',
+      )
+    }
 
     content = content.replaceAll(
       'nos repositórios internos e {% endif %}privados {% ifversion ghec %}da sua organização.',
@@ -692,6 +697,11 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll(
       'do {% endif %}{% if ideEntry.versionType == "extension" %}{% data variables.copilot.copilot_extension %} IDE.',
       'do {% if ideEntry.versionType == "extension" %}{% data variables.copilot.copilot_extension %}{% endif %} IDE.',
+    )
+
+    content = content.replaceAll(
+      '{% ifversion ai-powered-security-detections %} e AI Scan funcionam em solicitações de pull',
+      '{% ifversion ai-powered-security-detections %} e AI Scan{% endif %} funcionam em solicitações de pull',
     )
   }
 
@@ -853,6 +863,21 @@ export function correctTranslatedContentStrings(
       '你可以使用圆括号嵌套筛选器，最多可达五层深度。{% ifversion ghes < 3.18 %} 目前无法在括号中包含`repo`、`org`或`user`限定符。\n\n{% endwebui %}',
       '你可以使用圆括号嵌套筛选器，最多可达五层深度。{% ifversion ghes < 3.18 %} 目前无法在括号中包含`repo`、`org`或`user`限定符。{% endif %}\n\n{% endwebui %}',
     )
+
+    content = content.replaceAll(
+      '了解 {% endif %}{% data variables.product.prodname_codeql %} 和 AI 扫描{% ifversion ai-powered-security-detections %}如何',
+      '了解 {% data variables.product.prodname_codeql %}{% ifversion ai-powered-security-detections %} 和 AI 扫描{% endif %}如何',
+    )
+
+    content = content.replaceAll(
+      '{% data variables.product.prodname_code_quality_short %}{% endif %}、{% data variables.product.prodname_copilot_short %}{% ifversion code-quality %}和',
+      '{% data variables.product.prodname_copilot_short %}{% ifversion code-quality %}、{% data variables.product.prodname_code_quality_short %}{% endif %}和',
+    )
+
+    content = content.replaceAll(
+      '才需要使用旧代码搜索语法{% else %}。您可以通过在任何组合中使用这些代码搜索限定符来搜索代码并缩小结果范围{% data variables.product.github %}。',
+      '才需要使用旧代码搜索语法{% else %}您可以通过在任何组合中使用这些代码搜索限定符来搜索代码并缩小结果范围{% data variables.product.github %}{% endif %}。',
+    )
   }
 
   if (context.code === 'ru') {
@@ -954,6 +979,11 @@ export function correctTranslatedContentStrings(
       /(\{%-?\s*indented_data_reference\s+)повторн[а-яё]*(?:\s+[а-яё]+)*\./g,
       '$1reusables.',
     )
+    // Genitive-case transliteration of octicon
+    content = content.replaceAll('{% октикона ', '{% octicon ')
+    content = content.replaceAll('{%- октикона ', '{%- octicon ')
+    content = content.replaceAll('{% oктикoнa ', '{% octicon ')
+    content = content.replaceAll('{%- oктикoнa ', '{%- octicon ')
     content = content.replaceAll('{% еще %}', '{% else %}')
     content = content.replaceAll('{%- еще %}', '{%- else %}')
     content = content.replaceAll('{% ещё %}', '{% else %}')
@@ -1325,6 +1355,11 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{%- 들여쓰기_데이터_참조 ', '{%- indented_data_reference ')
     content = content.replaceAll('{% 옥티콘 ', '{% octicon ')
     content = content.replaceAll('{%- 옥티콘 ', '{%- octicon ')
+    // "자료" (material) substituted for "data" in data variables/reusables tags
+    content = content.replaceAll('{% 자료 변수.', '{% data variables.')
+    content = content.replaceAll('{%- 자료 변수.', '{%- data variables.')
+    content = content.replaceAll('{% 자료 재사용 가능.', '{% data reusables.')
+    content = content.replaceAll('{%- 자료 재사용 가능.', '{%- data reusables.')
     content = content.replaceAll('{% 행 머리글 %}', '{% rowheaders %}')
     content = content.replaceAll('{%- 행 머리글 %}', '{%- rowheaders %}')
     content = content.replaceAll('{% 행머리글 %}', '{% rowheaders %}')
@@ -1479,11 +1514,27 @@ export function correctTranslatedContentStrings(
       '{% data variables.copilot.copilot_autofix_short %} 제안{% endif %} 사용 여부에 따라 수정된 경고 수 {% ifversion code-scanning-autofix %}, 해결되지 않은 상태로 병합된 수',
       '{% ifversion code-scanning-autofix %} {% data variables.copilot.copilot_autofix_short %} 제안 사용 여부에 따라{% endif %} 수정된 경고 수, 해결되지 않은 상태로 병합된 수',
     )
+
+    // The intro is a YAML block scalar, so whitespace after the stray endif varies.
+    content = content.replace(
+      /\{% endif %\}\s*\{% data variables\.product\.prodname_codeql %\} 및 AI Scan\{% ifversion ai-powered-security-detections %\}이/g,
+      '{% data variables.product.prodname_codeql %}{% ifversion ai-powered-security-detections %} 및 AI Scan{% endif %}이',
+    )
   }
 
   if (context.code === 'de') {
     // U+2013 appears where the Liquid trim hyphen belongs.
     content = content.replaceAll('{%–', '{%-')
+
+    // The translator rendered the Liquid operator "not" as "nicht", as in {% ifversion nicht ghes %}.
+    content = content.replace(/\{%-?\s*(?:ifversion|elsif)\s[^%]*?%\}/g, (match) =>
+      match.replace(/\bnicht\b/g, 'not'),
+    )
+    // A stray space after the dot in a data path, as in variables.release-phases. public_preview.
+    content = content.replace(
+      /\{%(-?)\s*data\s+variables\.release-phases\.\s+([A-Za-z0-9_-]+)/g,
+      '{%$1 data variables.release-phases.$2',
+    )
 
     content = content.replaceAll('{% Daten variables', '{% data variables')
     content = content.replaceAll('{% daten variables', '{% data variables')
@@ -1686,12 +1737,16 @@ export function correctTranslatedContentStrings(
       translatedMatches.length === englishNames.length &&
       translatedMatches.some((m, i) => m[1] !== englishNames[i])
     ) {
+      const aligned = realignTagArgs(
+        translatedMatches.map((m) => m[1]),
+        englishNames,
+      )
       let i = 0
       content = content.replace(
         /(\{%-?\s*octicon\s+")([^"]*)(")/g,
-        (_match, prefix, _name, suffix) => {
-          const englishName = englishNames[i++]
-          return `${prefix}${englishName}${suffix}`
+        (match, prefix, name, suffix) => {
+          const englishName = aligned[i++]
+          return englishName === name ? match : `${prefix}${englishName}${suffix}`
         },
       )
     } else if (englishNames.length > 0) {
@@ -1738,12 +1793,16 @@ export function correctTranslatedContentStrings(
       translatedMatches.length === englishArgs.length &&
       translatedMatches.some((m, i) => m[1].trim() !== englishArgs[i])
     ) {
+      const aligned = realignTagArgs(
+        translatedMatches.map((m) => m[1].trim()),
+        englishArgs,
+      )
       let i = 0
       content = content.replace(
         /(\{%-?\s*indented_data_reference\s+)([^%]*?)(\s*-?%\})/g,
-        (_match, prefix, _args, suffix) => {
-          const englishArg = englishArgs[i++]
-          return `${prefix}${englishArg}${suffix}`
+        (match, prefix, args, suffix) => {
+          const englishArg = aligned[i++]
+          return englishArg === args.trim() ? match : `${prefix}${englishArg}${suffix}`
         },
       )
     } else if (englishArgs.length > 0) {
@@ -1775,12 +1834,16 @@ export function correctTranslatedContentStrings(
       translatedMatches.length === englishArgs.length &&
       translatedMatches.some((m, i) => m[1].trim() !== englishArgs[i])
     ) {
+      const aligned = realignTagArgs(
+        translatedMatches.map((m) => m[1].trim()),
+        englishArgs,
+      )
       let i = 0
       content = content.replace(
         /(\{%-?\s*data\s+)([^%]*?)(\s*-?%\})/g,
-        (_match, prefix, _args, suffix) => {
-          const englishArg = englishArgs[i++]
-          return `${prefix}${englishArg}${suffix}`
+        (match, prefix, args, suffix) => {
+          const englishArg = aligned[i++]
+          return englishArg === args.trim() ? match : `${prefix}${englishArg}${suffix}`
         },
       )
     } else if (englishArgs.length > 0) {
@@ -1826,7 +1889,14 @@ export function correctTranslatedContentStrings(
   content = content.replaceAll('{%- endifen %}', '{%- endif %}')
   content = content.replaceAll('{% Endifen %}', '{% endif %}')
   content = content.replaceAll('{%- Endifen %}', '{%- endif %}')
-  content = content.replaceAll('{% endif _%}', '{% endif %}')
+  // A stray underscore before the closing delimiter, as in {% endif _ %} or {% else _%}.
+  content = content.replace(/\{%(-?)\s*(endif|else)\s+_\s*(-?)%\}/g, '{%$1 $2 $3%}')
+
+  // The translator localized the decimal point in a version comparison, as in
+  // {% ifversion ghes = 3,9 %}. Applies to every language.
+  content = content.replace(/\{%-?\s*(?:ifversion|elsif)\s[^%]*?%\}/g, (match) =>
+    match.replace(/(\d),(\d)/g, '$1.$2'),
+  )
 
   content = content.replaceAll('{% okticon ', '{% octicon ')
 
@@ -1927,6 +1997,15 @@ export function correctTranslatedContentStrings(
 
   content = content.replace(/\{ +%([^%]+?)% *\}/g, '{%$1%}')
 
+  content = content.replace(
+    // eslint-disable-next-line no-control-regex
+    /\{%(-?)\s*([^\x00-\x7F][^\x00-\x7F\s]*(?: [^\x00-\x7F]+){0,3})(?:\.\s*|\s+)((?:variables|reusables)\.)?([a-z][\w-]*\.[\w-]+(?:\.[\w-]+)*)\s*(-?)%\}/g,
+    (_m, open: string, label: string, kind: string | undefined, path: string, close: string) => {
+      const ns = kind ?? (/变量|変数|변수|переменн/.test(label) ? 'variables.' : 'reusables.')
+      return `{%${open} data ${ns}${path} ${close}%}`
+    },
+  )
+
   // eslint-disable-next-line no-control-regex -- Runs after per-language fixes; non-ASCII after {% is invalid.
   content = content.replace(/\{% (?=[^\x00-\x7F])/g, '')
 
@@ -1962,7 +2041,28 @@ export function correctTranslatedContentStrings(
     }
   }
 
-  content = content.replaceAll(' | | ', ' |\n| ')
+  // ' | | ' is also a legitimate empty table cell, so keep a row whose empty-cell layout matches an English row.
+  {
+    const rowShape = (line: string) =>
+      line
+        .split('|')
+        .map((cell) => (cell.trim() ? 'x' : ''))
+        .join('|')
+    const englishRowShapes = new Set(
+      englishContent
+        .split('\n')
+        .filter((line) => line.includes(' | | '))
+        .map(rowShape),
+    )
+    content = content
+      .split('\n')
+      .map((line) =>
+        line.includes(' | | ') && !englishRowShapes.has(rowShape(line))
+          ? line.replaceAll(' | | ', ' |\n| ')
+          : line,
+      )
+      .join('\n')
+  }
 
   // Run after specific fixes. Swap only when no tag sits between, so nesting survives.
   {
@@ -2065,6 +2165,23 @@ export function correctTranslatedContentStrings(
   }
 
   return content
+}
+
+// Translators may reorder valid tags to fit the sentence, so keep each known argument
+// up to its English count and fill the rest with the English arguments still unused.
+function realignTagArgs(translated: string[], english: string[]): string[] {
+  const remaining = new Map<string, number>()
+  for (const arg of english) remaining.set(arg, (remaining.get(arg) ?? 0) + 1)
+  const take = (arg: string) => {
+    const count = remaining.get(arg) ?? 0
+    if (count === 0) return false
+    remaining.set(arg, count - 1)
+    return true
+  }
+  const kept = translated.map(take)
+  const unused = english.filter(take)
+  let next = 0
+  return translated.map((arg, i) => (kept[i] ? arg : unused[next++]))
 }
 
 // Rejoin markers that the translation pipeline split from their content, which breaks rendering.

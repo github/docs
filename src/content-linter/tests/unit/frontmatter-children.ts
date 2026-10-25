@@ -7,6 +7,8 @@ const VALID_CONTENT_PREFIX =
   'src/content-linter/tests/fixtures/frontmatter-children/valid-content-prefix.md'
 const INVALID_PATHS = 'src/content-linter/tests/fixtures/frontmatter-children/invalid-paths.md'
 const NO_CHILDREN = 'src/content-linter/tests/fixtures/frontmatter-children/no-children.md'
+const EARLY_ACCESS_CHILD =
+  'src/content-linter/tests/fixtures/frontmatter-children/early-access-child.md'
 
 const ruleName = frontmatterChildren.names[1]
 
@@ -49,5 +51,13 @@ describe(ruleName, () => {
     expect(result[INVALID_PATHS][0].errorDetail).toContain('Found invalid children paths:')
     expect(result[INVALID_PATHS][0].errorDetail).toContain('/content/nonexistent/product')
     expect(result[INVALID_PATHS][0].errorDetail).toContain('/another/invalid/path')
+  })
+
+  test('missing early access children pass', async () => {
+    const result = await runRule(frontmatterChildren, {
+      files: [EARLY_ACCESS_CHILD],
+      ...fmOptions,
+    })
+    expect(result[EARLY_ACCESS_CHILD]).toEqual([])
   })
 })

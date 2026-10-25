@@ -34,6 +34,8 @@ jobs:
         env:
           ACTION_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           CACHE_MAX_AGE_DAYS: '7'
+          # The script checks github.com repo links through the REST API only when this is set.
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           if [[ -n "${{ inputs.max_urls }}" ]]; then
             npm run check-links-external -- --max ${{ inputs.max_urls }}

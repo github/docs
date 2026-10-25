@@ -691,6 +691,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: CREATED_AT, direction: ASC}",
               "description": "<p>Ordering options for labels returned from the connection.</p>",
               "type": {
                 "name": "LabelOrder",
@@ -1771,6 +1772,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: AUTHORED_ORDER, direction: ASC}",
               "description": "<p>How to order the options for the discussion poll.</p>",
               "type": {
                 "name": "DiscussionPollOptionOrder",
@@ -2135,6 +2137,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: CREATED_AT, direction: DESC}",
               "description": "<p>Ordering options for discussions returned from the connection.</p>",
               "type": {
                 "name": "DiscussionOrder",
@@ -2153,6 +2156,7 @@
             },
             {
               "name": "states",
+              "defaultValue": "[]",
               "description": "<p>A list of states to filter the discussions by.</p>",
               "type": {
                 "name": "[DiscussionState!]",

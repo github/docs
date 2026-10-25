@@ -5,8 +5,8 @@ import { addError } from 'markdownlint-rule-helpers'
 import { getFrontmatter } from '../helpers/utils'
 import type { RuleParams, RuleErrorCallback } from '@/content-linter/types'
 
-// Match frontmatter-landing-carousels.ts: content-root lookup, then relative lookup.
-function isValidGuidePath(guidePath: string, currentFilePath: string): boolean {
+// Journey guides render through getLinkData, which resolves hrefs only from the content root.
+function isValidGuidePath(guidePath: string): boolean {
   const ROOT = process.env.ROOT || '.'
 
   const contentDir = path.join(ROOT, 'content')
@@ -19,27 +19,7 @@ function isValidGuidePath(guidePath: string, currentFilePath: string): boolean {
 
   // A directory with an index.md in it is a landing page.
   const indexPath = path.join(contentDir, normalizedPath, 'index.md')
-  if (fs.existsSync(indexPath) && fs.statSync(indexPath).isFile()) {
-    return true
-  }
-
-  const currentDir = path.dirname(currentFilePath)
-
-  const relativePath = path.join(currentDir, `${normalizedPath}.md`)
-  try {
-    if (fs.existsSync(relativePath) && fs.statSync(relativePath).isFile()) {
-      return true
-    }
-  } catch {
-    // Fall through to the relative index lookup when the file check throws.
-  }
-
-  const relativeIndexPath = path.join(currentDir, normalizedPath, 'index.md')
-  try {
-    return fs.existsSync(relativeIndexPath) && fs.statSync(relativeIndexPath).isFile()
-  } catch {
-    return false
-  }
+  return fs.existsSync(indexPath) && fs.statSync(indexPath).isFile()
 }
 
 export const journeyTracksGuidePathExists = {
@@ -71,7 +51,7 @@ export const journeyTracksGuidePathExists = {
           if (!guideObj || typeof guideObj !== 'object') continue
 
           if ('href' in guideObj && typeof guideObj.href === 'string') {
-            if (!isValidGuidePath(guideObj.href, params.name)) {
+            if (!isValidGuidePath(guideObj.href)) {
               addError(
                 onError,
                 journeyTracksLineNumber,

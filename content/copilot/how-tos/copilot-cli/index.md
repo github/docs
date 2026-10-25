@@ -5,6 +5,7 @@ intro: Use {% data variables.product.prodname_copilot_short %} directly from you
 versions:
   feature: copilot
 redirect_from:
+  - /copilot/concepts/agents/copilot-cli
   - /copilot/github-copilot-in-the-cli
   - /copilot/github-copilot-in-the-cli/configuring-github-copilot-in-the-cli
   - /copilot/github-copilot-in-the-cli/using-github-copilot-in-the-cli
@@ -37,20 +38,20 @@ children:
   - /automate-copilot-cli/quickstart
   - /automate-copilot-cli/run-cli-programmatically
   - /automate-copilot-cli/schedule-prompts
-  - /content/copilot/concepts/agents/about-agent-skills
-  - /content/copilot/concepts/agents/about-plugins
+  - /content/copilot/concepts/customizations/agent-skills
+  - /content/copilot/concepts/customizations/plugins
   - /content/copilot/concepts/copilot-surfaces/copilot-cli
   - /content/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/dynamic-workflows
-  - /content/copilot/concepts/agents/copilot-cli/about-custom-agents
+  - /content/copilot/concepts/customizations/custom-agents
   - /content/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/about-remote-control
-  - /content/copilot/concepts/agents/copilot-cli/comparing-cli-features
+  - /content/copilot/concepts/customizations/comparing-customizations
   - /content/copilot/concepts/prompting-and-context/context-management
   - /content/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/tool-search
   - /content/copilot/concepts/agent-capabilities/choosing-and-delegating-agent-work/delegating-and-parallelizing-work-with-agents
-  - /content/copilot/concepts/agents/copilot-cli/lsp-servers
+  - /content/copilot/concepts/customizations/lsp-servers
   - /use-copilot-cli/research-with-copilot-cli
   - /content/copilot/concepts/agent-capabilities/choosing-and-delegating-agent-work/getting-a-second-opinion
-  - /content/copilot/concepts/agents/copilot-cli/about-cli-extensions
+  - /content/copilot/concepts/customizations/extensions
   - /content/copilot/how-tos/use-copilot-agents/use-dynamic-workflows
   - /content/copilot/reference/copilot-cli-reference/acp-server
   - /content/copilot/reference/copilot-cli-reference/cli-command-reference

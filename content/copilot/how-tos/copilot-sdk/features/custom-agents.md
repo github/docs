@@ -31,6 +31,8 @@ Custom agents are lightweight agent definitions you attach to a session. Each ag
 
 ## Defining custom agents
 
+To discover Markdown definitions from versioned packages or vendored folders, use `agentDirectories` or [AUTOTITLE](/copilot/how-tos/copilot-sdk/features/customization-locations).
+
 Pass `customAgents` when creating a session. Each agent needs at minimum a `name` and `prompt`.
 
 {% codetabs %}

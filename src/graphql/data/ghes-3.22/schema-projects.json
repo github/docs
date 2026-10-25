@@ -948,7 +948,7 @@
       "name": "AddedToProjectV2Event",
       "id": "addedtoprojectv2event",
       "href": "/graphql/reference/projects#object-addedtoprojectv2event",
-      "description": "<p>Represents a<code>added_to_project_v2</code>event on a given issue or pull request.</p>",
+      "description": "<p>Represents a <code>added_to_project_v2</code> event on a given issue or pull request.</p>",
       "isDeprecated": false,
       "implements": [
         {
@@ -1333,6 +1333,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: POSITION, direction: ASC}",
               "description": "<p>Ordering options for project v2 fields returned from the connection.</p>",
               "type": {
                 "name": "ProjectV2FieldOrder",
@@ -1374,6 +1375,7 @@
             },
             {
               "name": "archivedStates",
+              "defaultValue": "[NOT_ARCHIVED]",
               "description": "<p>Filter items by their archived state. Defaults to only returning items that are not archived.</p>",
               "type": {
                 "name": "[ProjectV2ItemArchivedState!]",
@@ -1410,6 +1412,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: POSITION, direction: ASC}",
               "description": "<p>Ordering options for project v2 items returned from the connection.</p>",
               "type": {
                 "name": "ProjectV2ItemOrder",
@@ -1502,6 +1505,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: CREATED_AT, direction: DESC}",
               "description": "<p>Ordering options for repositories returned from the connection.</p>",
               "type": {
                 "name": "RepositoryOrder",
@@ -1570,6 +1574,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: CREATED_AT, direction: DESC}",
               "description": "<p>Order for connection.</p>",
               "type": {
                 "name": "ProjectV2StatusOrder",
@@ -1624,6 +1629,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: NAME, direction: ASC}",
               "description": "<p>Ordering options for teams returned from this connection.</p>",
               "type": {
                 "name": "TeamOrder",
@@ -1745,6 +1751,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: POSITION, direction: ASC}",
               "description": "<p>Ordering options for project v2 views returned from the connection.</p>",
               "type": {
                 "name": "ProjectV2ViewOrder",
@@ -1817,6 +1824,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: NAME, direction: ASC}",
               "description": "<p>Ordering options for project v2 workflows returned from the connection.</p>",
               "type": {
                 "name": "ProjectV2WorkflowOrder",
@@ -2186,7 +2194,7 @@
         },
         {
           "name": "fieldValueByName",
-          "description": "<p>The field value of the first project field which matches the<code>name</code>argument that is set on the item.</p>",
+          "description": "<p>The field value of the first project field which matches the <code>name</code> argument that is set on the item.</p>",
           "type": "ProjectV2ItemFieldValue",
           "id": "projectv2itemfieldvalue",
           "href": "/graphql/reference/projects#union-projectv2itemfieldvalue",
@@ -2247,6 +2255,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: POSITION, direction: ASC}",
               "description": "<p>Ordering options for project v2 item field values returned from the connection.</p>",
               "type": {
                 "name": "ProjectV2ItemFieldValueOrder",
@@ -2768,6 +2777,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: CREATED_AT, direction: ASC}",
               "description": "<p>Ordering options for pull requests.</p>",
               "type": {
                 "name": "PullRequestOrder",
@@ -3207,7 +3217,7 @@
       "name": "ProjectV2ItemStatusChangedEvent",
       "id": "projectv2itemstatuschangedevent",
       "href": "/graphql/reference/projects#object-projectv2itemstatuschangedevent",
-      "description": "<p>Represents a<code>project_v2_item_status_changed</code>event on a given issue or pull request.</p>",
+      "description": "<p>Represents a <code>project_v2_item_status_changed</code> event on a given issue or pull request.</p>",
       "isDeprecated": false,
       "implements": [
         {
@@ -3982,6 +3992,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: POSITION, direction: ASC}",
               "description": "<p>Ordering options for the project v2 fields returned from the connection.</p>",
               "type": {
                 "name": "ProjectV2FieldOrder",
@@ -4050,6 +4061,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: POSITION, direction: ASC}",
               "description": "<p>Ordering options for the project v2 fields returned from the connection.</p>",
               "type": {
                 "name": "ProjectV2FieldOrder",
@@ -4106,6 +4118,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: POSITION, direction: ASC}",
               "description": "<p>Ordering options for the project v2 fields returned from the connection.</p>",
               "type": {
                 "name": "ProjectV2FieldOrder",
@@ -4294,6 +4307,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: POSITION, direction: ASC}",
               "description": "<p>Ordering options for the project v2 fields returned from the connection.</p>",
               "type": {
                 "name": "ProjectV2FieldOrder",
@@ -4350,6 +4364,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: POSITION, direction: ASC}",
               "description": "<p>Ordering options for the project v2 fields returned from the connection.</p>",
               "type": {
                 "name": "ProjectV2FieldOrder",
@@ -4404,6 +4419,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: POSITION, direction: ASC}",
               "description": "<p>Ordering options for the project v2 fields returned from the connection.</p>",
               "type": {
                 "name": "ProjectV2FieldOrder",
@@ -4624,7 +4640,7 @@
       "name": "RemovedFromProjectV2Event",
       "id": "removedfromprojectv2event",
       "href": "/graphql/reference/projects#object-removedfromprojectv2event",
-      "description": "<p>Represents a<code>removed_from_project_v2</code>event on a given issue or pull request.</p>",
+      "description": "<p>Represents a <code>removed_from_project_v2</code> event on a given issue or pull request.</p>",
       "isDeprecated": false,
       "implements": [
         {
@@ -4908,6 +4924,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: NUMBER, direction: DESC}",
               "description": "<p>How to order the returned projects.</p>",
               "type": {
                 "name": "ProjectV2Order",

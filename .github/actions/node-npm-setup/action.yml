@@ -6,7 +6,7 @@ runs:
   using: 'composite'
   steps:
     - name: Cache node_modules
-      uses: actions/cache@v4
+      uses: actions/cache@v6
       id: cache-node_modules
       env:
         # Cache restore failures are acceptable, so keep the segment timeout short.
@@ -17,7 +17,7 @@ runs:
 
     # The npm download cache only helps npm ci, so skip its 153 MB restore when node_modules hits.
     - name: Setup Node.js
-      uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 # v6.0.0
+      uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
       with:
         node-version-file: 'package.json'
         package-manager-cache: false

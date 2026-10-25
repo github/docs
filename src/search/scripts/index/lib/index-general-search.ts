@@ -162,6 +162,7 @@ async function indexVersion(
     retries: opts.retries,
     sleepTime: opts.sleepTime * 1000,
     verbose: opts.verbose,
+    idField: 'url',
   })
 
   await updateAlias(client, indexName, indexAlias, opts)

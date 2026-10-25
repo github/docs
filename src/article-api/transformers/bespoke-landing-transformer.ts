@@ -3,6 +3,7 @@ import type { PageTransformer, TemplateData, Section } from './types'
 import { renderContent } from '@/content-render/index'
 import { loadTemplate } from '@/article-api/lib/load-template'
 import { getAllTocItems, flattenTocItems } from '@/article-api/lib/get-all-toc-items'
+import { getIntroLinksSection } from '@/article-api/lib/get-intro-links-section'
 import { resolveCarouselLinks } from '@/article-api/lib/resolve-carousel-links'
 
 interface BespokeLandingPage extends Omit<Page, 'featuredLinks'> {
@@ -41,6 +42,10 @@ export class BespokeLandingTransformer implements PageTransformer {
   ): Promise<TemplateData> {
     const bespokePage = page as BespokeLandingPage
     const sections: Section[] = []
+
+    // Intro links come first to match the hero, which renders above the carousels.
+    const introLinksSection = await getIntroLinksSection(page, context)
+    if (introLinksSection) sections.push(introLinksSection)
 
     // resolve-carousels overwrites page.carousels on the shared Page with another version's links.
     const carousels = bespokePage.rawCarousels

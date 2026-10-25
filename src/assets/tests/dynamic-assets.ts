@@ -100,6 +100,18 @@ describe('dynamic assets', () => {
     expect(res.headers['content-type']).toMatch(/text\/plain/)
   })
 
+  test('WebP path through an existing PNG gets a 404', async () => {
+    const res = await get('/assets/images/_fixtures/screenshot.png/x.webp')
+    expect(res.statusCode).toBe(404)
+    expect(res.headers['content-type']).toMatch(/text\/plain/)
+  })
+
+  test('WebP filename longer than the filesystem limit gets a 404', async () => {
+    const res = await get(`/assets/images/${'a'.repeat(300)}.webp`)
+    expect(res.statusCode).toBe(404)
+    expect(res.headers['content-type']).toMatch(/text\/plain/)
+  })
+
   test.each(['key', 'key=value'])('any query string (%p) triggers a redirect', async (qs) => {
     const res = await get(`/assets/images/_fixtures/screenshot.webp?${qs}`)
     expect(res.statusCode).toBe(302)

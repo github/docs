@@ -31,17 +31,8 @@ if (import.meta.url.endsWith(process.argv[1])) {
     ignoreIfLabeled: boolEnvVar('IGNORE_IF_LABELED'),
   }
 
-  // Actions pass comma-separated labels.
-  if (typeof ADD_LABELS === 'string') {
-    opts.addLabels = [...ADD_LABELS.split(',')].map((l) => l.trim())
-  } else {
-    opts.addLabels = []
-  }
-  if (typeof REMOVE_LABELS === 'string') {
-    opts.removeLabels = [...REMOVE_LABELS.split(',')].map((l) => l.trim())
-  } else {
-    opts.removeLabels = []
-  }
+  opts.addLabels = parseLabels(ADD_LABELS)
+  opts.removeLabels = parseLabels(REMOVE_LABELS)
 
   const actionContext = getActionContext()
   const { owner, repo } = actionContext
@@ -56,6 +47,14 @@ if (import.meta.url.endsWith(process.argv[1])) {
   opts.repo = repo
 
   main(coreLib, octokit, opts)
+}
+
+// Actions pass comma-separated labels, and an omitted input arrives as an empty string.
+export function parseLabels(value?: string): string[] {
+  return (value || '')
+    .split(',')
+    .map((l) => l.trim())
+    .filter(Boolean)
 }
 
 export default async function main(

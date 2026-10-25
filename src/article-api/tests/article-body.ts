@@ -23,6 +23,14 @@ describe('article body api', () => {
     expect(res.headers['content-type']).toContain('text/markdown')
   })
 
+  test('sets the page surrogate key that deploy purges use', async () => {
+    const res = await get(makeURL('/en/get-started/start-your-journey/hello-world'))
+    expect(res.statusCode).toBe(200)
+    const keys = res.headers['surrogate-key'].split(/\s/g)
+    expect(keys).toContain('language:en')
+    expect(keys).toContain('language:en,path:get-started/start-your-journey/hello-world.md')
+  })
+
   test('body includes title and intro', async () => {
     const res = await get(makeURL('/en/get-started/start-your-journey/hello-world'))
     expect(res.statusCode).toBe(200)

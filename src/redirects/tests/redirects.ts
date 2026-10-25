@@ -47,9 +47,12 @@ describe('redirects', () => {
   describe('query params', () => {
     test('are preserved in redirected URLs', async () => {
       const res = await get('/enterprise/admin?query=pulls')
-      expect(res.statusCode).toBe(301)
+      // Without a language prefix, the target depends on language preference.
+      expect(res.statusCode).toBe(302)
       const expected = `/en/enterprise-server@${enterpriseServerReleases.latest}/search?query=pulls`
       expect(res.headers.location).toBe(expected)
+      expect(res.headers.vary).toContain('accept-language')
+      expect(res.headers.vary).toContain('x-user-language')
     })
 
     test('have q= converted to query=', async () => {
@@ -59,11 +62,18 @@ describe('redirects', () => {
       expect(res.headers.location).toBe(expected)
     })
 
+    test('have q= converted to query= on Enterprise Cloud', async () => {
+      const res = await get('/en/enterprise-cloud@latest/admin?q=pulls')
+      expect(res.statusCode).toBe(301)
+      expect(res.headers.location).toBe('/en/enterprise-cloud@latest/search?query=pulls')
+    })
+
     test('convert q= to query= on search page', async () => {
       const res = await get('/en/search?q=pulls')
       expect(res.statusCode).toBe(301)
       const expected = '/en/search?query=pulls'
       expect(res.headers.location).toBe(expected)
+      expect(res.headers['cache-control']).toContain('public')
     })
 
     test('have faq= not converted to query=', async () => {
@@ -71,6 +81,18 @@ describe('redirects', () => {
       const res = await get('/en/enterprise/admin?faq=pulls')
       expect(res.statusCode).toBe(301)
       const expected = `/en/enterprise-server@${enterpriseServerReleases.latest}/admin?faq=pulls`
+      expect(res.headers.location).toBe(expected)
+    })
+
+    test('with a raw second ? do not redirect an existing page', async () => {
+      const res = await get('/en/actions?utm_source=a?utm_medium=b')
+      expect(res.statusCode).toBe(200)
+    })
+
+    test('with a raw second ? are fully preserved in redirected URLs', async () => {
+      const res = await get('/en/enterprise/admin?faq=a?b')
+      expect(res.statusCode).toBe(301)
+      const expected = `/en/enterprise-server@${enterpriseServerReleases.latest}/admin?faq=a?b`
       expect(res.headers.location).toBe(expected)
     })
 
@@ -432,6 +454,13 @@ describe('redirects', () => {
       const res = await get(`/en//rest`)
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe(`/en/rest`)
+    })
+
+    test('double-slash in the URL keeps the query string', async () => {
+      const res = await get(`/en//search?query=git`)
+      expect(res.statusCode).toBe(301)
+      expect(res.headers.location).toBe(`/en/search?query=git`)
+      expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
     })
 
     test('double-slash trailing in the URL', async () => {

@@ -50,11 +50,33 @@ describe('redirects', () => {
     ['/jp', '/ja'],
     ['/br', '/pt'],
     ['/zh-CN', '/zh'],
+    ['/zh-Hans', '/zh'],
+    ['/zh-hant/get-started', '/zh/get-started'],
     ['/kr', '/ko'],
+    ['/jp/search?query=actions', '/ja/search?query=actions'],
+    ['/cn/rest?apiVersion=2022-11-28', '/zh/rest?apiVersion=2022-11-28'],
   ])('redirects %s to %s', async (from, to_) => {
     const res = await get(from)
     expect(res.statusCode).toBe(301)
     expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
     expect(res.headers.location).toBe(to_)
   })
+
+  // Archives before 3.3 include only en, es, ja, and pt.
+  test.each<[string, string, number, string]>([
+    ['/enterprise/3.1', 'ko', 302, '/en/enterprise-server@3.1'],
+    ['/enterprise/3.1', 'ja', 302, '/ja/enterprise-server@3.1'],
+    ['/enterprise/3.3', 'ko', 302, '/ko/enterprise-server@3.3'],
+    ['/ko/enterprise/3.1', 'ko', 301, '/ko/enterprise-server@3.1'],
+  ])(
+    'redirects archived %s with accept-language %s',
+    async (from, acceptLanguage, statusCode, to_) => {
+      const res = await get(from, {
+        headers: { 'accept-language': acceptLanguage },
+        followRedirects: false,
+      })
+      expect(res.statusCode).toBe(statusCode)
+      expect(res.headers.location).toBe(to_)
+    },
+  )
 })

@@ -22,7 +22,7 @@ category:
 
 ## Prerequisite
 
-Before setting up MCP servers for your repository, read [AUTOTITLE](/copilot/concepts/context/mcp) and [AUTOTITLE](/copilot/concepts/agents/cloud-agent/mcp-and-cloud-agent).
+Before setting up MCP servers for your repository, read [AUTOTITLE](/copilot/concepts/customizations/mcp).
 
 ## Introduction
 

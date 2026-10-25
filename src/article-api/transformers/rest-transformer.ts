@@ -46,6 +46,7 @@ type PreparedOperation = Omit<Operation, 'statusCodes' | 'codeExamples'> & {
   hasParameters: boolean
   showHeaders: boolean
   needsContentTypeHeader: boolean
+  basicAuth: boolean
   statusCodes?: Array<{ httpStatusCode: string; description?: string }>
   codeExamples: PreparedCodeExample[]
 }
@@ -262,6 +263,7 @@ export class RestTransformer implements PageTransformer {
       hasParameters,
       showHeaders,
       needsContentTypeHeader,
+      basicAuth: Boolean(operation.progAccess?.basicAuth),
       statusCodes,
       codeExamples,
     }

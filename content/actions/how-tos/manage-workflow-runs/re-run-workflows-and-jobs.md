@@ -21,6 +21,8 @@ Re-runs use the privileges of the actor who initially triggered the workflow, no
 
 A workflow run can be re-run a maximum of 50 times. This limit includes both full re-runs and re-runs of a subset of jobs.
 
+You can't re-run a workflow run, or any of its jobs, while the workflow is disabled. You need to enable the workflow first. See [AUTOTITLE](/actions/how-tos/manage-workflow-runs/disable-and-enable-workflows).
+
 ## Re-running all the jobs in a workflow
 
 {% webui %}

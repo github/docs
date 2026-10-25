@@ -72,7 +72,7 @@ If you run out of free minutes or premium requests, and you have _not_ set up bi
 
 {% data variables.copilot.copilot_cloud_agent %} uses a dedicated {% data variables.copilot.copilot_cloud_agent %} premium request SKU. This SKU still pulls from your monthly allowance of premium requests, but allows for more granular budget control and monitoring.
 
-For more information about {% data variables.copilot.copilot_cloud_agent %} and {% data variables.copilot.copilot_custom_agents %}, see [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-on-github) and [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-custom-agents).
+For more information about {% data variables.copilot.copilot_cloud_agent %} and {% data variables.copilot.copilot_custom_agents %}, see [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-on-github) and [AUTOTITLE](/copilot/concepts/customizations/custom-agents).
 
 ## Using more than your included premium requests
 
@@ -90,6 +90,21 @@ You can set a budget in your personal billing settings to receive alerts when yo
 
 * **Bundled premium request budget** - Combines all premium requests into a single budget (Recommended for most users)
 * **Individual SKU budgets** - Set separate budgets for each AI product (Copilot, {% data variables.product.prodname_spark_short %}, {% data variables.copilot.copilot_cloud_agent %})
+
+To prevent paid premium-request overages while keeping your annual {% data variables.product.prodname_copilot_short %} subscription:
+
+{% data reusables.user-settings.access_billing_settings_url %}
+
+1. Click **Budgets and alerts**.
+1. Create or edit a bundled premium request budget covering all premium-request SKUs, or individual SKU budgets covering every applicable premium-request SKU.
+1. Set each budget to **$0 USD**, enable **Stop usage when budget limit is reached**, and save your changes.
+
+This blocks additional paid premium requests after your included monthly allowance is exhausted without canceling your subscription. 
+
+> [!NOTE]
+> Deleting a budget is not a substitute for this configuration and can remove spending limits.
+
+For configuration steps, see [AUTOTITLE](/billing/how-tos/set-up-budgets#managing-budgets-for-your-personal-account).
 
 ## Monitoring usage
 

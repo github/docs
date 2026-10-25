@@ -10,6 +10,7 @@ import { useCategoryLandingContext } from '@/frame/components/context/CategoryLa
 import { ClientSideRedirects } from '@/rest/components/ClientSideRedirects'
 import { RestRedirect } from '@/rest/components/RestRedirect'
 import { ArticleCardItems } from '@/landings/types'
+import { filterCategoryItems } from '@/landings/lib/filter-category-items'
 import { UtmPreserver } from '@/frame/components/UtmPreserver'
 
 export const CategoryLanding = () => {
@@ -29,41 +30,12 @@ export const CategoryLanding = () => {
   const [selectedComplexity, setSelectedComplexity] = useState('All')
   const [selectedSurface, setSelectedSurface] = useState('All')
 
-  const applyFilters = () => {
-    let results = onlyFlatItems
-
-    if (searchQuery) {
-      results = results.filter((token) => {
-        return Object.values(token).some((value) => {
-          if (typeof value === 'string') {
-            return value.toLowerCase().includes(searchQuery.toLowerCase())
-          } else if (Array.isArray(value)) {
-            return value.some(
-              (item) =>
-                typeof item === 'string' && item.toLowerCase().includes(searchQuery.toLowerCase()),
-            )
-          }
-          return false
-        })
-      })
-    }
-
-    if (selectedCategory !== 'All') {
-      results = results.filter((item) => item.category?.includes(selectedCategory))
-    }
-
-    if (selectedComplexity !== 'All') {
-      results = results.filter((item) => item.complexity?.includes(selectedComplexity))
-    }
-
-    if (selectedSurface !== 'All') {
-      results = results.filter((item) => item.surface?.includes(selectedSurface))
-    }
-
-    return results
-  }
-
-  const searchResults = applyFilters()
+  const searchResults = filterCategoryItems(onlyFlatItems, {
+    query: searchQuery,
+    category: selectedCategory,
+    complexity: selectedComplexity,
+    surface: selectedSurface,
+  })
 
   const handleSearch = (query: string) => {
     setSearchQuery(query)

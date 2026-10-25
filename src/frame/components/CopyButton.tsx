@@ -6,11 +6,11 @@ type CopyButtonProps = ComponentPropsWithoutRef<'button'> & {
   'data-clipboard'?: string
 }
 
-// React replacement for the imperative copy-code.ts enhancer. The code-block
-// header in content-render/unified/code-header.ts emits this button into the HTML
-// AST next to a hidden pre[data-clipboard] element that holds the raw code.
-// MarkdownContent maps button.js-btn-copy to CopyButton so React owns the node
-// instead of a post-hydration document.querySelectorAll pass.
+// React handler for code-block copy buttons.
+// content-render/unified/code-header.ts emits this button into the HTML AST,
+// next to a hidden pre[data-clipboard] element that holds the raw code.
+// MarkdownContent maps button.js-btn-copy to CopyButton,
+// so React owns the node instead of a post-hydration document.querySelectorAll pass.
 // Do not send analytics here: events/components/events.ts already records
 // .js-btn-copy clicks through its delegated click listener.
 export function CopyButton({ className, children, ...props }: CopyButtonProps) {

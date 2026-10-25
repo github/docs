@@ -164,9 +164,13 @@ export function AskAIResults({
       let messageBuffer = ''
       let sourcesBuffer: AIReference[] = []
       let conversationIdBuffer = ''
+      // Errored or dropped streams leave a truncated answer that must not be cached as complete.
+      let streamSucceeded = false
 
       try {
         const response = await executeAISearch(version, query, debug)
+        // Parent overlay state is shared, so a stale request must not touch it after unmount.
+        if (isCancelled) return
         if (!response.ok) {
           // Classified non-OK responses include upstreamStatus from the proxy or upstream.
           let responseJson
@@ -175,6 +179,7 @@ export function AskAIResults({
           } catch (error) {
             console.error('Failed to parse JSON:', error)
           }
+          if (isCancelled) return
           const upstreamStatus = responseJson?.upstreamStatus
           // Missing upstreamStatus leaves this as an unclassified non-OK response.
           if (!upstreamStatus) {
@@ -282,6 +287,7 @@ export function AskAIResults({
 
         while (!done && !isCancelled) {
           const { value, done: readerDone } = await reader.read()
+          if (isCancelled) return
           done = readerDone
 
           // Buffer newline-delimited JSON until a whole record arrives; leftover means JSON.
@@ -329,13 +335,14 @@ export function AskAIResults({
             console.warn('Failed to parse tail JSON:', leftover, err)
           }
         }
+        streamSucceeded = true
       } catch (error: unknown) {
         if (!isCancelled) {
           console.error('Failed to fetch search results:', error)
           setAISearchError()
         }
       } finally {
-        if (!isCancelled && messageBuffer) {
+        if (!isCancelled && streamSucceeded && messageBuffer) {
           setItem(
             query,
             {

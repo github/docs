@@ -81,25 +81,7 @@ export default async function contextualizeGeneralSearch(
   if (!validationErrors.length && searchParams.query) {
     // Local development proxies to production when ELASTICSEARCH_URL is unset.
     if (!process.env.ELASTICSEARCH_URL) {
-      if (searchParams.aggregate && searchParams.toplevel && searchParams.toplevel.length > 0) {
-        // Fetch unfiltered aggregations separately when toplevel filters apply.
-        const searchWithoutFilter = Object.fromEntries(
-          Object.entries(searchParams).filter(([key]) => key !== 'toplevel'),
-        )
-        searchWithoutFilter.size = 0
-        const { aggregations } = await getProxySearch(
-          searchWithoutFilter as ComputedSearchQueryParamsMap['generalSearch'],
-        )
-        const searchWithoutAggregate = Object.fromEntries(
-          Object.entries(searchParams).filter(([key]) => key !== 'aggregate'),
-        )
-        req.context.search.results = await getProxySearch(
-          searchWithoutAggregate as ComputedSearchQueryParamsMap['generalSearch'],
-        )
-        req.context.search.results.aggregations = aggregations
-      } else {
-        req.context.search.results = await getProxySearch(searchParams)
-      }
+      req.context.search.results = await getProxySearch(searchParams)
     } else {
       const tags: string[] = [`indexName:${indexName}`, `toplevels:${searchParams.toplevel.length}`]
       const timed = statsd.asyncTimer(
@@ -112,21 +94,8 @@ export default async function contextualizeGeneralSearch(
         searchParams,
       }
       try {
-        if (searchParams.aggregate && searchParams.toplevel && searchParams.toplevel.length > 0) {
-          // Fetch unfiltered aggregations separately when toplevel filters apply.
-          const searchWithoutFilter = Object.fromEntries(
-            Object.entries(searchParams).filter(([key]) => key !== 'toplevel'),
-          )
-          searchWithoutFilter.size = 0
-          const { aggregations } = await timed({
-            ...getGeneralSearchArgs,
-            searchParams: searchWithoutFilter as ComputedSearchQueryParamsMap['generalSearch'],
-          })
-          req.context.search.results = await timed(getGeneralSearchArgs)
-          req.context.search.results.aggregations = aggregations
-        } else {
-          req.context.search.results = await timed(getGeneralSearchArgs)
-        }
+        // post_filter keeps facet counts unfiltered, so one search covers hits and counts.
+        req.context.search.results = await timed(getGeneralSearchArgs)
       } catch (error) {
         // Rethrow Elasticsearch response errors as plain errors so users get a 500.
         if (error instanceof errors.ResponseError) {

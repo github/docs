@@ -56,11 +56,13 @@ describe('sidebar', () => {
       const $: CheerioAPI = await getDOM('/enterprise-server@latest/pages')
       const link = $('#allproducts-menu a')
       expect(link.text()).toBe('Pages (HubGit Enterprise Server)')
+      expect(link.attr('href')).toMatch(/^\/en\/enterprise-server@\d+\.\d+\/pages$/)
     }
     {
       const $: CheerioAPI = await getDOM('/enterprise-cloud@latest/pages')
       const link = $('#allproducts-menu a')
       expect(link.text()).toBe('Pages (HubGit Enterprise Cloud)')
+      expect(link.attr('href')).toBe('/en/enterprise-cloud@latest/pages')
     }
   })
 

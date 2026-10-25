@@ -62,6 +62,12 @@ describe('Redirect Tests', () => {
     expect(res.headers.location).toBe('/api/pagelist/en/free-pro-team@latest')
   })
 
+  test('redirects a plan name without a version to English', async () => {
+    const res = await get('/api/pagelist/free-pro-team')
+    expect(res.statusCode).toBe(308)
+    expect(res.headers.location).toBe('/api/pagelist/en/free-pro-team@latest')
+  })
+
   test('should redirect to /pagelist/en/free-pro-team@lateset when URL does not include version', async () => {
     const res = await get('/api/pagelist/en')
     expect(res.statusCode).toBe(308)

@@ -20,7 +20,7 @@ export const DocsFooter = () => {
   const { t } = useTranslation('footer')
 
   const termsHref = `/${router.locale}/site-policy/github-terms/github-terms-of-service`
-  const privacyHref = `/${router.locale}/site-policy/privacy-policies/github-privacy-statement`
+  const privacyHref = `/${router.locale}/site-policy/privacy-policies/github-general-privacy-statement`
 
   // Match Breadcrumbs: plain clicks navigate client-side, while modified clicks and href stay native.
   const handleClick = (event: MouseEvent<HTMLAnchorElement>, href: string) => {

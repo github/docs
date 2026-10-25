@@ -34,13 +34,23 @@ jobs:
         run: npm run lint-content -- --paths content data --output-file /tmp/lint-results.json
 
       - name: Open issue in docs-content
-        if: ${{ always() && steps.linting-content-data.outcome == 'failure' }}
+        if: ${{ always() && steps.linting-content-data.outcome != 'skipped' }}
         env:
           GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
           REPORT_AUTHOR: docs-bot
           REPORT_LABEL: broken content markdown report
           REPORT_REPOSITORY: github/docs-content
-        run: npm run lint-report -- --path /tmp/lint-results.json
+          LINT_OUTCOME: ${{ steps.linting-content-data.outcome }}
+        # The linter exits 0 with warnings only, and writes no results file when the content is clean.
+        run: |
+          if [ -f /tmp/lint-results.json ]; then
+            npm run lint-report -- --path /tmp/lint-results.json
+          elif [ "$LINT_OUTCOME" != success ]; then
+            echo "Content linter failed without writing /tmp/lint-results.json"
+            exit 1
+          else
+            echo "No lint results to report"
+          fi
 
       - uses: ./.github/actions/create-workflow-failure-issue
         id: create-failure-issue

@@ -9,7 +9,7 @@ import {
 } from '../helpers/liquid-utils'
 import { getFrontmatter, getFrontmatterLines } from '../helpers/utils'
 import getApplicableVersions from '@/versions/lib/get-applicable-versions'
-import { difference } from 'lodash-es'
+import { difference, intersection } from 'lodash-es'
 import {
   getFeatureVersionsObject,
   isInAllGhes,
@@ -17,6 +17,7 @@ import {
 } from '@/ghes-releases/scripts/version-utils'
 import { nextNext, oldestSupported } from '@/versions/lib/enterprise-server-releases'
 import versionSatisfiesRange from '@/versions/lib/version-satisfies-range'
+import { allVersionShortnames } from '@/versions/lib/all-versions'
 import type { RuleParams, RuleErrorCallback } from '@/content-linter/types'
 
 // getLiquidIfVersionTokens exposes runtime properties that liquidjs TopLevelToken omits.
@@ -58,11 +59,18 @@ type CondTagItem = {
   versionsObj: VersionsObject
   featureVersionsObj?: VersionsObject
   versionsObjAll: VersionsObject
+  // A bare ghes in an and chain, such as ghes and ghes != 3.20, keeps fpt and ghec excluded.
+  ghesGuard: boolean
   versions: string[]
   action: CondTagAction
   // addError accepts this cached range, but this rule never sets it.
   contentRange?: [number, number] | number[] | string | null
 }
+
+// Frontmatter accepts full plan names, but conditions use short names.
+const planToShortName: Record<string, string> = Object.fromEntries(
+  Object.entries(allVersionShortnames).map(([shortName, plan]) => [plan, shortName]),
+)
 
 type DefaultProps = {
   fileVersionsFm: FileVersionsFm
@@ -308,6 +316,7 @@ async function initTagObject(
     versionsObj: {},
     featureVersionsObj: undefined,
     versionsObjAll: {},
+    ghesGuard: false,
     versions: [],
     action: { type: 'none' },
   }
@@ -320,12 +329,55 @@ async function initTagObject(
       ...condTagItem.versionsObj,
       ...condTagItem.featureVersionsObj,
     }
-    condTagItem.versions = getApplicableVersions(condTagItem.versionsObj, '', {
-      doNotThrow: true,
-      includeNextVersion: true,
-    })
+    condTagItem.ghesGuard = condTagItem.cond
+      .split(' or ')
+      .some(
+        (part) =>
+          part.includes(' and ') && part.split(' and ').some((and) => and.trim() === 'ghes'),
+      )
+    condTagItem.versions = getApplicableVersions(
+      toSemverVersionsObj(condTagItem.versionsObj, condTagItem.ghesGuard),
+      '',
+      { doNotThrow: true, includeNextVersion: true },
+    )
   }
   return condTagItem
+}
+
+// semver has no != comparator, so split each != term into < and > branches.
+// The ifversion tag renders a version comparison as false on other plans, except !=, which
+// renders as true. So a GHES range made only of != terms also applies to fpt and ghec.
+function toSemverVersionsObj(versionsObj: VersionsObject, ghesGuard: boolean): VersionsObject {
+  const ghes = versionsObj.ghes
+  if (!ghes || !ghes.includes('!=')) return versionsObj
+  const terms = rangeTerms(ghes)
+  const notEqualReleases = terms
+    .filter(([operator]) => operator === '!=')
+    .map(([, release]) => release)
+  const otherTerms = terms
+    .filter(([operator]) => operator !== '!=')
+    .map(([operator, release]) => `${operator} ${release}`)
+  let branches: string[][] = [otherTerms]
+  for (const release of notEqualReleases) {
+    branches = branches.flatMap((branch) => [
+      [...branch, `< ${release}`],
+      [...branch, `> ${release}`],
+    ])
+  }
+  const semverRange = branches.map((branch) => branch.join(' ')).join(' || ')
+  return otherTerms.length || ghesGuard
+    ? { ...versionsObj, ghes: semverRange }
+    : { ...versionsObj, fpt: '*', ghec: '*', ghes: semverRange }
+}
+
+// Dropping the last bound beside != terms would make the condition render true on fpt and ghec.
+function widensToOtherPlans(range: string, simplifiedRange: string): boolean {
+  return !isNotEqualOnly(range) && isNotEqualOnly(simplifiedRange)
+}
+
+function isNotEqualOnly(range: string): boolean {
+  const terms = rangeTerms(range)
+  return terms.length > 0 && terms.every(([operator]) => operator === '!=')
 }
 
 // Resolve each feature through getFeatureVersionsObject, which reads ROOT at call time.
@@ -389,11 +441,22 @@ function updateConditionals(condTagItems: CondTagItem[]) {
   // Skip endif during action updates because endif has no versions.
   for (let i = 0; i < condTagItems.length - 1; i++) {
     const item = condTagItems[i]
+    // An elsif can only collapse the statement when no earlier branch still renders in scope.
+    const scope = item.parent?.versions?.length ? item.parent.versions : item.fileVersions
+    const canCollapse =
+      item.name !== 'elsif' ||
+      condTagItems
+        .slice(0, i)
+        .every(
+          (prev) =>
+            prev.action.type === 'delete' || intersection(prev.versions, scope).length === 0,
+        )
 
     // Collapse feature conditions that cover all versions, including products named beside the feature.
     // Check the union of versions, because a feature's ghes range must not hide a plain ghes.
+    // Stop even when an earlier branch is live, because the deletion check below sees only the feature's ghes range.
     if (item.featureVersionsObj && coversAllVersions(item)) {
-      processConditionals(item, condTagItems, i)
+      if (canCollapse) processConditionals(item, condTagItems, i)
       break
     }
 
@@ -401,6 +464,7 @@ function updateConditionals(condTagItems: CondTagItem[]) {
     if (item.versionsObj?.feature && item.versionsObjAll?.ghes) {
       // A feature available in every supported GHES release can collapse into the parent condition.
       if (
+        canCollapse &&
         Object.keys(item.fileVersionsFmAll).length === 1 &&
         item.fileVersionsFmAll.ghes === '*' &&
         !!item.versionsObjAll.ghes &&
@@ -437,6 +501,7 @@ function updateConditionals(condTagItems: CondTagItem[]) {
 
     // A nested condition that covers every parent version can collapse into the parent.
     if (
+      canCollapse &&
       item.parent &&
       item.parent.versions &&
       item.parent.versions.length > 0 &&
@@ -448,7 +513,7 @@ function updateConditionals(condTagItems: CondTagItem[]) {
 
     // A condition matching page frontmatter applies to every rendered version for this file.
     const noDiffInFileVersions = difference(item.fileVersions, item.versions).length === 0
-    if (noDiffInFileVersions) {
+    if (canCollapse && noDiffInFileVersions) {
       processConditionals(item, condTagItems, i)
       break
     }
@@ -465,21 +530,29 @@ function updateConditionals(condTagItems: CondTagItem[]) {
     // Remove condition products that the page frontmatter does not define.
     const versionsNotInFrontmatter = difference(
       Object.keys(item.versionsObjAll),
-      Object.keys(item.fileVersionsFmAll),
+      Object.keys(item.fileVersionsFmAll).map((key) => planToShortName[key] || key),
     )
     if (versionsNotInFrontmatter.length !== 0) {
       for (const key of versionsNotInFrontmatter) {
         delete item.versionsObj[key]
       }
+      // A condition naming only products missing from frontmatter renders on no page version.
+      if (Object.keys(item.versionsObj).length === 0) {
+        item.action.type = 'delete'
+        continue
+      }
       // Also drop deprecated lower bounds so one fix pass leaves no GHD022 error.
       if (item.versionsObj.ghes && item.versionsObj.ghes !== '*') {
-        item.versionsObj.ghes = getSimplifiedSemverRange(
+        const simplifiedGhes = getSimplifiedSemverRange(
           rangeTerms(item.versionsObj.ghes)
             .map((term) => term.join(' '))
             .join(' '),
         )
+        if (!widensToOtherPlans(item.versionsObj.ghes, simplifiedGhes)) {
+          item.versionsObj.ghes = simplifiedGhes
+        }
       }
-      item.action.cond = toLiquidCondition(item.versionsObj)
+      item.action.cond = toLiquidCondition(item.versionsObj, item.ghesGuard)
       item.action.type = 'change'
       continue
     }
@@ -488,11 +561,12 @@ function updateConditionals(condTagItems: CondTagItem[]) {
     if (!item.versionsObjAll.ghes || item.versionsObjAll.ghes === '*') continue
 
     const simplifiedSemver = getSimplifiedSemverRange(item.versionsObjAll.ghes)
+    if (widensToOtherPlans(item.versionsObjAll.ghes, simplifiedSemver)) continue
     // Drop GHES from the conditional when other products still apply.
     if (simplifiedSemver === '' && Object.keys(item.versionsObj).length > 1) {
       item.action.type = 'change'
       delete item.versionsObj.ghes
-      item.action.cond = toLiquidCondition(item.versionsObj)
+      item.action.cond = toLiquidCondition(item.versionsObj, item.ghesGuard)
       continue
     }
 
@@ -500,7 +574,7 @@ function updateConditionals(condTagItems: CondTagItem[]) {
     if (item.versionsObjAll.ghes !== simplifiedSemver && !item.versionsObjAll.feature) {
       item.action.type = 'change'
       item.versionsObj.ghes = simplifiedSemver
-      item.action.cond = toLiquidCondition(item.versionsObj)
+      item.action.cond = toLiquidCondition(item.versionsObj, item.ghesGuard)
     }
   }
 
@@ -538,11 +612,12 @@ function updateConditionals(condTagItems: CondTagItem[]) {
 
 // Turn a versions object back into Liquid, such as { ghes: '> 3.18 < 3.22', fpt: '*' }
 // into 'ghes > 3.18 and ghes < 3.22 or fpt'.
-function toLiquidCondition(versionsObj: VersionsObject): string {
+function toLiquidCondition(versionsObj: VersionsObject, ghesGuard = false): string {
   return Object.entries(versionsObj)
     .map(([key, value]) => {
       if (key === 'feature') return value
       const terms = rangeTerms(value).map(([operator, release]) => `${key} ${operator} ${release}`)
+      if (key === 'ghes' && ghesGuard && isNotEqualOnly(value)) terms.unshift(key)
       return terms.length ? terms.join(' and ') : key
     })
     .join(' or ')

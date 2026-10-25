@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
     inputs:
       version:
-        description: "Version to exclusively generate the search index for. E.g. 'dotcom', 'ghes-3.12'"
+        description: "Version to exclusively generate the search index for: 'fpt', 'ghec', or a supported 'ghes-X.Y'. Leave empty for all."
         required: false
         default: ''
       languages:
@@ -202,12 +202,6 @@ jobs:
           # Avoid --fail because an empty index list can return a 404 instead of 200 OK.
           curl --retry-connrefused --retry 5 ${{ env.ELASTICSEARCH_URL }}/_cat/indices?v
           curl --retry-connrefused --retry 5 ${{ env.ELASTICSEARCH_URL }}/_cat/indices?v
-
-      - name: Purge Fastly edge cache
-        env:
-          FASTLY_TOKEN: ${{ secrets.FASTLY_TOKEN }}
-          FASTLY_SERVICE_ID: ${{ secrets.FASTLY_SERVICE_ID }}
-        run: npm run purge-fastly -- --surrogate-key api-search:${{ matrix.language }}
 
       - name: Upload failures artifact
         if: ${{ steps.check-failures.outputs.has_failures == 'true' }}

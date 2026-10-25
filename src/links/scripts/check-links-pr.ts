@@ -19,6 +19,8 @@ import {
   checkAssetLink,
   isAssetLink,
   getRelativePath,
+  getLinkCheckVersions,
+  type ExtractedLink,
 } from '@/links/lib/extract-links'
 import {
   buildRenderContext,
@@ -33,6 +35,7 @@ import {
   type CrossPageAnchorFlaw,
   generatePRComment,
   groupBrokenLinks,
+  mergeVersionedLinkFlaws,
 } from '@/links/lib/link-report'
 import { uploadArtifact } from '@/links/scripts/upload-artifact'
 import github from '@/workflows/github'
@@ -50,13 +53,11 @@ interface CheckResult {
 
 async function checkFile(
   filePath: string,
+  sourcePage: Page | undefined,
   pageMap: Record<string, Page>,
   redirects: Record<string, string>,
-  version: string = 'free-pro-team@latest',
   language: string = 'en',
 ): Promise<CheckResult> {
-  const brokenLinks: BrokenLink[] = []
-  const redirectLinks: BrokenLink[] = []
   let totalLinksChecked = 0
 
   let content: string
@@ -64,53 +65,60 @@ async function checkFile(
     content = fs.readFileSync(filePath, 'utf-8')
   } catch {
     console.warn(`Could not read file: ${filePath}`)
-    return { file: filePath, brokenLinks, redirectLinks, totalLinksChecked }
+    return { file: filePath, brokenLinks: [], redirectLinks: [], totalLinksChecked }
   }
 
-  const context = createLiquidContext(version, language)
+  const file = getRelativePath(filePath)
+  const flaws: BrokenLink[] = []
+  // Liquid shifts rendered lines, so use raw source lines unless a Liquid-built href has none.
+  const flawFor = (link: ExtractedLink): BrokenLink => {
+    const lines = findLinkLines(
+      content,
+      link.fragment ? `${link.href}#${link.fragment}` : link.href,
+    )
+    return {
+      href: link.href,
+      file,
+      lines: lines.length ? lines : [link.line],
+      text: link.text,
+      isAutotitle: link.isAutotitle,
+    }
+  }
 
-  const { internalLinks } = await extractLinksWithLiquid(content, context)
+  // ifversion blocks and versionless links depend on the version, so check each one.
+  for (const version of getLinkCheckVersions(sourcePage)) {
+    // Pages use the anchor check's context so version names and feature flags evaluate like the site.
+    const context = sourcePage
+      ? buildRenderContext(sourcePage, version, pageMap, redirects)
+      : createLiquidContext(version, language)
 
-  // imageLinks are excluded: they're static assets, not docs pages.
-  totalLinksChecked = internalLinks.length
+    const { internalLinks } = await extractLinksWithLiquid(content, context)
 
-  for (const link of internalLinks) {
-    if (isAssetLink(link.href)) {
-      if (!checkAssetLink(link.href)) {
-        brokenLinks.push({
-          href: link.href,
-          file: getRelativePath(filePath),
-          lines: [link.line],
-          text: link.text,
-          isAutotitle: link.isAutotitle,
+    // imageLinks are excluded: they're static assets, not docs pages.
+    totalLinksChecked = Math.max(totalLinksChecked, internalLinks.length)
+
+    for (const link of internalLinks) {
+      if (isAssetLink(link.href)) {
+        if (!checkAssetLink(link.href)) flaws.push(flawFor(link))
+        continue
+      }
+
+      const result = checkInternalLink(link.href, pageMap, redirects, version, language)
+
+      if (!result.exists) {
+        flaws.push(flawFor(link))
+      } else if (result.isRedirect) {
+        flaws.push({
+          ...flawFor(link),
+          isRedirect: true,
+          redirectTarget: result.redirectTarget,
+          requiresVersionContext: result.requiresVersionContext,
         })
       }
-      continue
-    }
-
-    const result = checkInternalLink(link.href, pageMap, redirects)
-
-    if (!result.exists) {
-      brokenLinks.push({
-        href: link.href,
-        file: getRelativePath(filePath),
-        lines: [link.line],
-        text: link.text,
-        isAutotitle: link.isAutotitle,
-      })
-    } else if (result.isRedirect) {
-      redirectLinks.push({
-        href: link.href,
-        file: getRelativePath(filePath),
-        lines: [link.line],
-        text: link.text,
-        isAutotitle: link.isAutotitle,
-        isRedirect: true,
-        redirectTarget: result.redirectTarget,
-      })
     }
   }
 
+  const { brokenLinks, redirectLinks } = mergeVersionedLinkFlaws(flaws)
   return { file: filePath, brokenLinks, redirectLinks, totalLinksChecked }
 }
 
@@ -369,13 +377,13 @@ async function main() {
       console.log(`  Checking: ${file}`)
     }
 
-    const result = await checkFile(filePath, pageMap, redirects)
+    const sourcePage = pageByRelativePath.get(getRelativePath(filePath))
+    const result = await checkFile(filePath, sourcePage, pageMap, redirects)
     allBrokenLinks.push(...result.brokenLinks)
     allRedirectLinks.push(...result.redirectLinks)
     totalLinksChecked += result.totalLinksChecked
 
     // Skip changed files outside pageByRelativePath because data and reusables have no versions of their own.
-    const sourcePage = pageByRelativePath.get(getRelativePath(filePath))
     if (checkAnchors && sourcePage) {
       allBrokenAnchors.push(
         ...(await checkFileAnchors(filePath, sourcePage, pageMap, redirects, headingCache)),

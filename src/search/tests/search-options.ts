@@ -208,4 +208,38 @@ describe('buildSearchOptions', () => {
     // The renderer's slices are untouched, so the rows come back unchanged afterwards.
     expect(model.general).toHaveLength(3)
   })
+
+  test('docs rows behind the ask-AI docs spinner leave the arrow-key order', () => {
+    const model = buildSearchOptions({
+      ...base,
+      isAskAIState: true,
+      searchLoading: true,
+      aiReferences: references(2),
+      generalSearchResults: generalHits(3),
+      showViewAllResults: true,
+    })
+    expect(model.options.map((option) => option.id)).toEqual([
+      'search-option-reference-0',
+      'search-option-reference-1',
+      VIEW_ALL_OPTION_ID,
+    ])
+    // The renderer still draws the docs group, with its spinner, from this slice.
+    expect(model.general).toHaveLength(3)
+  })
+
+  test('docs rows stay arrow-reachable while loading after an ask-AI error', () => {
+    // On an AI error the renderer shows the docs rows, not the ask-AI spinner.
+    const model = buildSearchOptions({
+      ...base,
+      isAskAIState: true,
+      searchLoading: true,
+      aiSearchError: true,
+      generalSearchResults: generalHits(3),
+    })
+    expect(model.options.map((option) => option.id)).toEqual([
+      'search-option-general-0',
+      'search-option-general-1',
+      'search-option-general-2',
+    ])
+  })
 })

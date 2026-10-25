@@ -51,6 +51,34 @@ describe('flattenArticles', () => {
     expect(result.map((a) => a.title)).toEqual(['Alpha', 'Middle', 'Zebra'])
   })
 
+  test('sorts titles with the given locale instead of the runtime default', () => {
+    const zhItems: TocItem[] = [
+      { title: '关于 W', fullPath: '/guan', intro: '' },
+      { title: '创建 Z', fullPath: '/chuang', intro: '' },
+      { title: '安装 X', fullPath: '/an', intro: '' },
+      { title: '比较 Y', fullPath: '/bi', intro: '' },
+    ]
+    expect(flattenArticles(zhItems, 'zh').map((a) => a.title)).toEqual([
+      '安装 X',
+      '比较 Y',
+      '创建 Z',
+      '关于 W',
+    ])
+    expect(flattenArticles(zhItems, 'en').map((a) => a.title)).toEqual([
+      '关于 W',
+      '创建 Z',
+      '安装 X',
+      '比较 Y',
+    ])
+
+    const csItems: TocItem[] = [
+      { title: 'Hiding', fullPath: '/h', intro: '' },
+      { title: 'Choosing', fullPath: '/c', intro: '' },
+    ]
+    expect(flattenArticles(csItems, 'cs').map((a) => a.title)).toEqual(['Hiding', 'Choosing'])
+    expect(flattenArticles(csItems, 'en').map((a) => a.title)).toEqual(['Choosing', 'Hiding'])
+  })
+
   test('excludes index pages (parents with children)', () => {
     const items: TocItem[] = [
       {

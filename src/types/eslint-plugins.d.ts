@@ -7,6 +7,9 @@ declare module 'eslint-plugin-github' {
     configs: {
       recommended: Linter.FlatConfig
     }
+    getFlatConfigs: () => {
+      react: Linter.FlatConfig
+    }
   }
 
   export default plugin

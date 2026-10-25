@@ -61,7 +61,7 @@ You pay for cloud sandboxes using the payment method set up for your {% data var
 
 Cloud sandbox usage is billed to the account that owns the sandbox.
 
-You are prompted to select an owner for the session only if you are not currently in a Git repository. In this case, when you create a cloud sandbox session with `copilot ‑‑cloud`, you are prompted to select an owner—your own personal account is listed first, ahead of any organizations you belong to. You must choose either your personal account or one of the listed organizations, and all usage for that session is billed to the account you select.
+You are prompted to select an owner for the session only if you are not currently in a Git repository. In this case, when you create a cloud sandbox session with `copilot --cloud`, you are prompted to select an owner—your own personal account is listed first, ahead of any organizations you belong to. You must choose either your personal account or one of the listed organizations, and all usage for that session is billed to the account you select.
 
 If you are in a repository, the owner of the repository is billed and no owner selection is required.
 

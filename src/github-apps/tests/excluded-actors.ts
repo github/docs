@@ -1,7 +1,9 @@
+import path from 'path'
 import { describe, expect, test } from 'vitest'
 import {
   isActorExcluded,
   actorTypeMap,
+  getProgAccessData,
   isOperationExcludedForFineGrainedPat,
 } from '../scripts/sync'
 
@@ -121,6 +123,7 @@ describe('excluded_actors filtering', () => {
 describe('isOperationExcludedForFineGrainedPat', () => {
   const progActorResources = {
     checks: { excluded_actors: ['fine_grained_personal_access_token'] },
+    legacy: { excluded_actors: ['UserProgrammaticAccess'] },
     contents: {},
   }
 
@@ -147,5 +150,54 @@ describe('isOperationExcludedForFineGrainedPat', () => {
     expect(isOperationExcludedForFineGrainedPat([{ contents: 'read' }], progActorResources)).toBe(
       false,
     )
+  })
+
+  test('returns true for the UserProgrammaticAccess alias', () => {
+    expect(isOperationExcludedForFineGrainedPat([{ legacy: 'read' }], progActorResources)).toBe(
+      true,
+    )
+  })
+
+  test('returns true when a set requires an excluded permission alongside an allowed one', () => {
+    expect(
+      isOperationExcludedForFineGrainedPat(
+        [{ checks: 'read', contents: 'read' }],
+        progActorResources,
+      ),
+    ).toBe(true)
+  })
+
+  test('returns false when another set has only allowed permissions', () => {
+    expect(
+      isOperationExcludedForFineGrainedPat(
+        [{ checks: 'read', contents: 'read' }, { contents: 'read' }],
+        progActorResources,
+      ),
+    ).toBe(false)
+  })
+
+  test('returns false when a permission has no resource definition', () => {
+    expect(isOperationExcludedForFineGrainedPat([{ unknown: 'read' }], progActorResources)).toBe(
+      false,
+    )
+  })
+})
+
+describe('getProgAccessData fine-grained PAT support', () => {
+  const fixtureSource = path.join(__dirname, 'fixtures/prog-access')
+
+  test('marks operations whose permissions all exclude fine-grained PATs as unsupported', async () => {
+    const { progAccessData } = await getProgAccessData(fixtureSource, true)
+    expect(progAccessData['checks/create'].fineGrainedPat).toBe(false)
+    expect(progAccessData['checks/create'].userToServerRest).toBe(true)
+    expect(progAccessData['checks/create'].permissions).toEqual([
+      { '"Checks" repository permissions': 'write' },
+    ])
+  })
+
+  test('keeps fine-grained PAT support for allowed and permissionless operations', async () => {
+    const { progAccessData } = await getProgAccessData(fixtureSource, true)
+    expect(progAccessData['repos/get-content'].fineGrainedPat).toBe(true)
+    expect(progAccessData['meta/get'].fineGrainedPat).toBe(true)
   })
 })

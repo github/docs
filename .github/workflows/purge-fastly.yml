@@ -65,6 +65,8 @@ jobs:
 
       - name: Wait for production to serve this build
         if: ${{ github.event_name == 'deployment_status' }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npm run wait-for-build
 
       - name: Purge Fastly (manual)

@@ -104,6 +104,84 @@ describe('getBodyParams — OAS 3.1 nullable handling', () => {
     ])
   })
 
+  it('merges object-only top-level anyOf alternatives and requires only shared fields', async () => {
+    const schema: Schema = {
+      anyOf: [
+        {
+          type: 'object',
+          properties: {
+            environment_name: { type: 'string', description: 'The environment name' },
+            comment: { type: 'string', description: 'Required when state is not provided.' },
+          },
+          required: ['environment_name', 'comment'],
+        },
+        {
+          type: 'object',
+          properties: {
+            environment_name: { type: 'string', description: 'The environment name' },
+            state: { type: 'string', description: 'The state', enum: ['approved', 'rejected'] },
+            comment: { type: 'string', description: 'Optional comment.' },
+          },
+          required: ['environment_name', 'state'],
+        },
+      ],
+    }
+    const params = await getBodyParams(schema, true)
+    expect(params.map(({ name, isRequired }) => [name, isRequired])).toEqual([
+      ['environment_name', true],
+      ['comment', undefined],
+      ['state', undefined],
+    ])
+    expect(params[1].description).toBe('Required when state is not provided.')
+  })
+
+  it('keeps parent required fields alongside a top-level object anyOf', async () => {
+    const schema: Schema = {
+      type: 'object',
+      required: ['environment_name'],
+      anyOf: [
+        {
+          type: 'object',
+          properties: {
+            environment_name: { type: 'string', description: 'The environment name' },
+            comment: { type: 'string', description: 'A comment' },
+          },
+          required: ['comment'],
+        },
+        {
+          type: 'object',
+          properties: {
+            environment_name: { type: 'string', description: 'The environment name' },
+            state: { type: 'string', description: 'The state' },
+          },
+          required: ['state'],
+        },
+      ],
+    }
+    const params = await getBodyParams(schema, true)
+    expect(params.map(({ name, isRequired }) => [name, isRequired])).toEqual([
+      ['environment_name', true],
+      ['comment', undefined],
+      ['state', undefined],
+    ])
+  })
+
+  it('keeps parent properties when a top-level anyOf only lists required fields', async () => {
+    const schema: Schema = {
+      type: 'object',
+      properties: {
+        first: { type: 'string', description: 'First value' },
+        second: { type: 'string', description: 'Second value' },
+      },
+      anyOf: [{ required: ['first'] }, { required: ['second'] }],
+    }
+    const params = await getBodyParams(schema, true)
+    expect(params.map(({ name, isRequired }) => [name, isRequired])).toEqual([
+      ['first', undefined],
+      ['second', undefined],
+    ])
+  })
+
   it('keeps parent properties when top-level oneOf options only constrain them', async () => {
     const schema: Schema = {
       type: 'object',
@@ -323,5 +401,123 @@ describe('getBodyParams — OAS 3.1 nullable handling', () => {
     expect(params[0].name).toBe('title')
     expect(params[0].type).toBe('string')
     expect(params[0].isRequired).toBe(true)
+  })
+
+  it('recurses into array items with type ["object", "null"]', async () => {
+    const schema: Schema = {
+      type: 'object',
+      properties: {
+        assignees: {
+          type: 'array',
+          items: {
+            type: ['object', 'null'],
+            properties: {
+              login: { type: 'string', description: 'The login' },
+            },
+          },
+        },
+      },
+    }
+    const params = await getBodyParams(schema, false)
+    expect(params).toHaveLength(1)
+    expect(params[0].type).toBe('array of objects')
+    expect(params[0].childParamsGroups?.map(({ name }) => name)).toEqual(['login'])
+  })
+
+  it('renders a nullable array of ["string", "null"] items as "array of strings or null"', async () => {
+    const schema: Schema = {
+      type: 'object',
+      properties: {
+        bullets: {
+          type: ['array', 'null'],
+          items: { type: ['string', 'null'] },
+        },
+      },
+    }
+    const params = await getBodyParams(schema, false)
+    expect(params).toHaveLength(1)
+    expect(params[0].type).toBe('array of strings or null')
+  })
+
+  it('adds supported values for enum array items with type ["string", "null"]', async () => {
+    const schema: Schema = {
+      type: 'object',
+      properties: {
+        tags: {
+          type: 'array',
+          description: 'Tags.',
+          items: { type: ['string', 'null'], enum: ['a', 'b'] },
+        },
+      },
+    }
+    const params = await getBodyParams(schema, false)
+    expect(params).toHaveLength(1)
+    expect(params[0].description).toContain('Supported values are: <code>a</code>, <code>b</code>')
+  })
+
+  it('adds supported values without a prefix when nullable enum items have no array description', async () => {
+    const schema: Schema = {
+      type: 'object',
+      properties: {
+        tags: {
+          type: 'array',
+          items: { type: ['string', 'null'], enum: ['a', 'b'] },
+        },
+      },
+    }
+    const params = await getBodyParams(schema, false)
+    expect(params).toHaveLength(1)
+    expect(params[0].description).toBe('Supported values are: <code>a</code>, <code>b</code>')
+  })
+
+  it('recurses into top-level array items with type ["object", "null"]', async () => {
+    const schema: Schema = {
+      type: 'array',
+      items: {
+        type: ['object', 'null'],
+        properties: {
+          id: { type: 'integer', description: 'The ID' },
+        },
+      },
+    }
+    const params = await getBodyParams(schema, true)
+    expect(params).toHaveLength(1)
+    expect(params[0].type).toBe('array')
+    expect(params[0].childParamsGroups?.map(({ name }) => name)).toEqual(['id'])
+  })
+})
+
+describe('getBodyParams enum notes on arrays of strings', () => {
+  it('adds supported values without "undefined" when the param has no description', async () => {
+    const schema: Schema = {
+      type: 'object',
+      properties: {
+        schemas: {
+          type: 'array',
+          items: { type: 'string', enum: ['urn:ietf:params:scim:api:messages:2.0:PatchOp'] },
+        },
+      },
+    }
+    const params = await getBodyParams(schema, false)
+    expect(params[0].description).toBe(
+      'Supported values are: <code>urn:ietf:params:scim:api:messages:2.0:PatchOp</code>',
+    )
+  })
+
+  it('appends supported values on a new line after an existing description', async () => {
+    const schema: Schema = {
+      type: 'object',
+      properties: {
+        languages: {
+          type: 'array',
+          description: 'Langs.',
+          items: { type: 'string', enum: ['go', 'ruby'] },
+        },
+      },
+    }
+    const params = await getBodyParams(schema, false)
+    expect(params[0].description).toBe(
+      'Langs.\nSupported values are: <code>go</code>, <code>ruby</code>',
+    )
   })
 })

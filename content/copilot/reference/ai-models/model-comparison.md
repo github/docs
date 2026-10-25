@@ -41,8 +41,8 @@ Use these models for common development tasks that require a balance of quality,
 
 | Model                                             | Why it's a good fit                                                                                                                             |
 |---------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
-| {% data variables.copilot.copilot_gpt_53_codex %} | Delivers higher-quality code on complex engineering tasks like features, tests, debugging, refactors, and reviews without lengthy instructions. |
-| {% data variables.copilot.copilot_gpt_56_terra %} | Balanced all-round choice for everyday interactive and agentic coding.                                                                          |
+| {% data variables.copilot.gpt_53_codex %} | Delivers higher-quality code on complex engineering tasks like features, tests, debugging, refactors, and reviews without lengthy instructions. |
+| {% data variables.copilot.gpt_56_terra %} | Balanced all-round choice for everyday interactive and agentic coding.                                                                          |
 
 ### When to use these models
 
@@ -65,8 +65,8 @@ These models are optimized for speed and responsiveness. They’re ideal for qui
 
 | Model                                                 | Why it's a good fit                                                                                        |
 |-------------------------------------------------------|------------------------------------------------------------------------------------------------------------|
-| {% data variables.copilot.copilot_gpt_56_luna %}      | Lightweight, cost-efficient option for smaller, faster tasks. The lowest-cost model in the GPT-5.6 family. |
-| {% data variables.copilot.copilot_claude_haiku_45 %}  | Balances fast responses with quality output. Ideal for small tasks and lightweight code explanations.      |
+| {% data variables.copilot.gpt_56_luna %}      | Lightweight, cost-efficient option for smaller, faster tasks. The lowest-cost model in the GPT-5.6 family. |
+| {% data variables.copilot.claude_haiku_45 %}  | Balances fast responses with quality output. Ideal for small tasks and lightweight code explanations.      |
 
 ### When to use these models
 
@@ -90,8 +90,8 @@ These models are designed for tasks that require step-by-step reasoning, complex
 
 | Model                                                 | Why it's a good fit                                                                                                                                             |
 |-------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| {% data variables.copilot.copilot_gpt_56_sol %}       | The highest reasoning ceiling in the GPT-5.6 family. Best for complex reasoning over large codebases and demanding, long-running agentic work. |
-| {% data variables.copilot.copilot_claude_sonnet_46 %} | Reliable completions and smarter reasoning under pressure.                                                                     |
+| {% data variables.copilot.gpt_56_sol %}       | The highest reasoning ceiling in the GPT-5.6 family. Best for complex reasoning over large codebases and demanding, long-running agentic work. |
+| {% data variables.copilot.claude_sonnet_46 %} | Reliable completions and smarter reasoning under pressure.                                                                     |
 
 ### When to use these models
 
@@ -114,8 +114,8 @@ Use these models when you want to ask questions about screenshots, diagrams, UI 
 
 | Model                                                 | Why it's a good fit                                                                                                                                                       |
 |-------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| {% data variables.copilot.copilot_gpt_56_luna %}      | Quick, cost-efficient responses for smaller coding tasks, and supports multimodal input for visual reasoning tasks. |
-| {% data variables.copilot.copilot_claude_sonnet_46 %} | Reliable completions and smarter reasoning under pressure.                                                                               |
+| {% data variables.copilot.gpt_56_luna %}      | Quick, cost-efficient responses for smaller coding tasks, and supports multimodal input for visual reasoning tasks. |
+| {% data variables.copilot.claude_sonnet_46 %} | Reliable completions and smarter reasoning under pressure.                                                                               |
 
 ### When to use these models
 
@@ -136,17 +136,17 @@ If your task involves deep reasoning or large-scale refactoring, consider a mode
 
 Some models have behaviors, limitations, or safeguards that are useful to understand before you choose them for a task.
 
-### {% data variables.copilot.copilot_kimi_k3 %}
+### {% data variables.copilot.kimi_k3 %}
 
-{% data variables.copilot.copilot_kimi_k3 %} is designed for long-context, multi-step coding and agentic workflows. Fine-tuned model variants may be included as part of the {% data variables.copilot.copilot_kimi_k3 %} ({% data variables.product.github %}) offering on individual plans only. Fine-tuned variants are not included for {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} plans. In pre-release testing, the model exhibited elevated risk on certain higher-risk prompts and was less consistent than some other models in refusing requests involving sensitive topics. These behaviors may reflect differences in the model's safety post-training and alignment. We have deployed additional safeguards in {% data variables.product.prodname_copilot %} to help mitigate the identified risks. As with any model, enterprises should evaluate model capabilities, limitations, and safeguards in light of their particular use cases and requirements.
+{% data variables.copilot.kimi_k3 %} is designed for long-context, multi-step coding and agentic workflows. Fine-tuned model variants may be included as part of the {% data variables.copilot.kimi_k3 %} ({% data variables.product.github %}) offering on individual plans only. Fine-tuned variants are not included for {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} plans. In pre-release testing, the model exhibited elevated risk on certain higher-risk prompts and was less consistent than some other models in refusing requests involving sensitive topics. These behaviors may reflect differences in the model's safety post-training and alignment. We have deployed additional safeguards in {% data variables.product.prodname_copilot %} to help mitigate the identified risks. As with any model, enterprises should evaluate model capabilities, limitations, and safeguards in light of their particular use cases and requirements.
 
 ## Next steps
 
 [^mai-models]: MAI models are continuously improving models. Performance and behavior may evolve over time as new checkpoints are released.
 
-[^kimi-k3]: For important information about {% data variables.copilot.copilot_kimi_k3 %} behavior and safeguards, see [Model-specific considerations](#kimi-k3).
+[^kimi-k3]: For important information about {% data variables.copilot.kimi_k3 %} behavior and safeguards, see [Model-specific considerations](#kimi-k3).
 
-Choosing the right model helps you get the most out of {% data variables.product.prodname_copilot_short %}. If you're not sure which model to use, start with a general-purpose option like {% data variables.copilot.copilot_gpt_56_terra %}, then adjust based on your needs.
+Choosing the right model helps you get the most out of {% data variables.product.prodname_copilot_short %}. If you're not sure which model to use, start with a general-purpose option like {% data variables.copilot.gpt_56_terra %}, then adjust based on your needs.
 
 * For detailed model specs and pricing, see [AUTOTITLE](/copilot/reference/ai-models/supported-models).
 * To switch between models, refer to [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/chat-with-copilot/change-the-chat-model) or [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/copilot-for-common-tasks/change-the-completion-model).

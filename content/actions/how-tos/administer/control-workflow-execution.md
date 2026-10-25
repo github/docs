@@ -15,7 +15,7 @@ product: 'All public repositories, and private repositories on {% data variables
 
 {% data reusables.actions.actions-policies-about-body %} For more information, see [AUTOTITLE](/actions/concepts/about-actions-policies).
 
-<!-- expires 2026-11-02 -->
+<!-- expires 2026-12-02 -->
 
 {% ifversion default-pull-req-target-policy %}
 
@@ -23,7 +23,7 @@ product: 'All public repositories, and private repositories on {% data variables
 
 {% endif %}
 
-<!-- end expires 2026-11-02 -->
+<!-- end expires 2026-12-02 -->
 
 ## Preparing to add protections
 

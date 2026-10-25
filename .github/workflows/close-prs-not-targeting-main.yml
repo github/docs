@@ -1,6 +1,6 @@
 name: Reject PRs targeting non-default branch (scheduled)
 
-# Backup check for check-for-spammy-prs.yml: closes PRs that don't target main
+# Backup check for check-for-spammy-prs.yml: closes PRs that don't target main, unless they have the skip-spammy-check label
 
 on:
   schedule:
@@ -39,6 +39,9 @@ jobs:
               if (pr.user.login === 'docs-bot') continue
 
               const labels = pr.labels.map(l => l.name)
+              // Maintainers add this label to allow a PR that targets another branch.
+              if (labels.some(label => label.toLowerCase() === 'skip-spammy-check')) continue
+
               if (!labels.includes('invalid')) {
                 await github.rest.issues.addLabels({
                   owner,

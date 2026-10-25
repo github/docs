@@ -3,7 +3,11 @@ import { stringify } from 'javascript-stringify'
 
 import type { BodyParameter, ChildParameter, CodeSample, Operation } from '@/rest/components/types'
 import { type VersionItem } from '@/frame/components/context/MainContext'
-import { getCurlBodyArguments, escapeShellValue } from '@/rest/lib/curl-body-arguments'
+import {
+  getCurlBodyArguments,
+  escapeShellValue,
+  needsExplicitContentTypeHeader,
+} from '@/rest/lib/curl-body-arguments'
 
 function shouldOmitAuthentication(operation: Operation, currentVersion: string): boolean {
   // Only explicitly permissionless operations can omit auth.
@@ -28,10 +32,8 @@ export function getShellExample(
 ) {
   let contentTypeHeader = ''
 
-  if (codeSample?.request?.contentType === 'application/octet-stream') {
-    contentTypeHeader = '-H "Content-Type: application/octet-stream"'
-  } else if (codeSample?.request?.contentType === 'multipart/form-data') {
-    contentTypeHeader = '-H "Content-Type: multipart/form-data"'
+  if (needsExplicitContentTypeHeader(codeSample?.request?.contentType)) {
+    contentTypeHeader = `-H "Content-Type: ${codeSample.request.contentType}"`
   }
 
   const omitAuth = shouldOmitAuthentication(operation, currentVersion)
@@ -119,7 +121,10 @@ export function getGHExample(
   if (operation?.progAccess?.basicAuth) return
 
   const defaultAcceptHeader = getAcceptHeader(codeSample)
-  const hostname = operation.serverUrl !== 'https://api.github.com' ? '--hostname HOSTNAME' : ''
+  // Scalar bodies are file uploads that must go to the upload server URL, not the API host.
+  const isFileUpload = typeof codeSample.request.bodyParameters === 'string'
+  const hostname =
+    !isFileUpload && operation.serverUrl !== 'https://api.github.com' ? '--hostname HOSTNAME' : ''
 
   let requestPath = codeSample?.request?.parameters
     ? parseTemplate(operation.requestPath).expand(codeSample.request.parameters)
@@ -133,6 +138,13 @@ export function getGHExample(
 
   const requiredQueryParams = getRequiredQueryParamsPath(operation, codeSample)
   requestPath += requiredQueryParams ? `?${requiredQueryParams}` : ''
+  if (isFileUpload) {
+    requestPath = `${operation.serverUrl}${requestPath}`
+  }
+  // Quote upload URLs and paths containing ? so shells don't expand it as a glob or split on &.
+  if (isFileUpload || requestPath.includes('?')) {
+    requestPath = `"${requestPath}"`
+  }
 
   let requestBodyParams = ''
   // Request bodies can be named object parameters or a single scalar value.
@@ -161,6 +173,8 @@ export function getGHExample(
       } else {
         requestBodyParams += handleObjectParameter(bodyParameters as NestedObjectParameter)
       }
+    } else if (isFileUpload) {
+      requestBodyParams = `--input ${(bodyParameters as string).replace(/^@/, '')}`
     } else {
       requestBodyParams += handleSingleParameter('', bodyParameters as NestedObjectParameter)
     }
@@ -170,6 +184,8 @@ export function getGHExample(
     operation.verb !== 'get' && `--method ${operation.verb.toUpperCase()}`,
     `-H "Accept: ${defaultAcceptHeader}"`,
     apiVersionHeader,
+    isFileUpload &&
+      `-H "Content-Type: ${codeSample.request.contentType || 'application/octet-stream'}"`,
     hostname,
     requestPath,
     requestBodyParams,
@@ -338,6 +354,13 @@ export function getJSExample(
     }
   }
 
+  // Code examples only carry path params, so required query params need explicit values.
+  for (const [name, value] of Object.entries(getRequiredQueryParams(operation, codeSample))) {
+    if (!Object.hasOwn(parameters, name)) {
+      parameters[name] = value
+    }
+  }
+
   let queryParameters = ''
 
   if (
@@ -399,17 +422,21 @@ function findMatchingQueryKey(exampleObj: CodeExamples | CodeExamples[], matchKe
   return match
 }
 
-export function getRequiredQueryParamsPath(operation: Operation, codeSample: CodeSample) {
-  const requiredQueryParams = new URLSearchParams()
+function getRequiredQueryParams(operation: Operation, codeSample: CodeSample) {
+  const requiredQueryParams: Record<string, string> = {}
   for (const param of operation.parameters) {
     if (param.in === 'query' && param.required === true) {
       const codeExamples = codeSample.response?.example
       const match = findMatchingQueryKey(codeExamples, param.name)
-      requiredQueryParams.append(param.name, match || param.name.toUpperCase())
+      requiredQueryParams[param.name] = match || param.name.toUpperCase()
     }
   }
 
-  return requiredQueryParams.toString()
+  return requiredQueryParams
+}
+
+export function getRequiredQueryParamsPath(operation: Operation, codeSample: CodeSample) {
+  return new URLSearchParams(getRequiredQueryParams(operation, codeSample)).toString()
 }
 
 export function getAcceptHeader(codeSample: CodeSample) {

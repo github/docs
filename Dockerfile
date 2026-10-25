@@ -4,7 +4,7 @@
 
 # Update the base image digest from the gh-base-noble package page:
 # https://github.com/github/gh-base-image/pkgs/container/gh-base-image%2Fgh-base-noble
-FROM ghcr.io/github/gh-base-image/gh-base-noble:20261016-181622-g7dfd3798b@sha256:d41c754579434b9b6479a3d3786a6a84ad7be50ce64626bbc07579ab4c36302b AS base
+FROM ghcr.io/github/gh-base-image/gh-base-noble:20261022-141141-gfa3bc27f7@sha256:c1175f242e207eeaf679305e553b6f1a2f69d06fa7b3840b199c5c33da2de130 AS base
 # Install curl for NodeSource setup.
 # Install git for early-access and translation clones.
 # Ubuntu's nodejs package lags the Node LTS release line.
@@ -43,7 +43,6 @@ FROM base AS all_deps
 USER node:node
 WORKDIR $APP_HOME
 COPY --chown=node:node package.json package-lock.json ./
-COPY --chown=node:node patches patches/
 RUN npm ci --registry https://registry.npmjs.org/
 
 FROM all_deps AS prod_deps
