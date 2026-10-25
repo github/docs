@@ -1,4 +1,4 @@
----
+-GitDocs--
 title: Approving workflow runs from forks
 intro: You can manually approve workflow runs triggered by a contributor's pull request.
 versions:
