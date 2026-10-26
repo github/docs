@@ -18519,6 +18519,11 @@ being pushed to the commit graph. This includes absolute paths that contain file
 """
 type FilePathRestrictionParameters @docsCategory(name: "repos") {
   """
+  Files matching these patterns are allowed even when they also match a restricted path.
+  """
+  ignoredFilePaths: [String!]
+
+  """
   The file paths that are restricted from being pushed to the commit graph.
   """
   restrictedFilePaths: [String!]!
@@ -18529,6 +18534,11 @@ Prevent commits that include changes in specified file and folder paths from
 being pushed to the commit graph. This includes absolute paths that contain file names.
 """
 input FilePathRestrictionParametersInput @docsCategory(name: "repos") {
+  """
+  Files matching these patterns are allowed even when they also match a restricted path.
+  """
+  ignoredFilePaths: [String!]
+
   """
   The file paths that are restricted from being pushed to the commit graph.
   """
@@ -25383,6 +25393,11 @@ Prevent commits with individual files that exceed the specified limit from being
 """
 type MaxFileSizeParameters @docsCategory(name: "repos") {
   """
+  Files matching these patterns may exceed the maximum size.
+  """
+  ignoredFilePaths: [String!]
+
+  """
   The maximum file size allowed in megabytes. This limit does not apply to Git Large File Storage (Git LFS).
   """
   maxFileSize: Int!
@@ -25392,6 +25407,11 @@ type MaxFileSizeParameters @docsCategory(name: "repos") {
 Prevent commits with individual files that exceed the specified limit from being pushed to the commit graph.
 """
 input MaxFileSizeParametersInput @docsCategory(name: "repos") {
+  """
+  Files matching these patterns may exceed the maximum size.
+  """
+  ignoredFilePaths: [String!]
+
   """
   The maximum file size allowed in megabytes. This limit does not apply to Git Large File Storage (Git LFS).
   """

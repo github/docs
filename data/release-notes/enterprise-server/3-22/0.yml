@@ -238,7 +238,7 @@ sections:
     - |
       After upgrading to {% data variables.product.prodname_ghe_server %} 3.22, scheduled {% data variables.product.prodname_dependabot_version_updates %} may stop running for pre-existing configurations. If you have already upgraded and want to trigger scheduled version updates, save a change to each affected repository's `.github/dependabot.yml` file.
     - |
-      When restoring an instance with `ghe-restore` while the replication controller is enabled, the storage directory is not restored.
+      When an administrator restores a backup to a configured standalone instance with Replication Controller enabled, `ghe-restore` may skip storage data, such as avatars and attachments, and still complete successfully. The restore output includes `Warning: no routes found, skipping storage restore ...`. This issue is fixed in {% data variables.product.prodname_ghe_server %} 3.22.1. If you see this warning or storage data is missing after a restore on {% data variables.product.prodname_ghe_server %} 3.22.0, contact {% data variables.contact.github_support %}. [Updated: 2026-10-22]
     - |
       In clustered {% data variables.product.prodname_ghe_server %} environments, nodes that remain in the cluster after losing the `git-server`, `pages-server`, or `storage-server` role may stay online and remain eligible to vote in the corresponding replication tables. Review the replication state for each role, and contact {% data variables.contact.github_support %} if stale rows affect replication.
     - |      
