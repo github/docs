@@ -33,7 +33,7 @@ All prices are **per 1 million tokens**.
 
 {% data reusables.copilot.extended-context-pricing %}
 
-{% data variables.copilot.gpt_56_sol %}, {% data variables.copilot.gpt_56_terra %}, {% data variables.copilot.gpt_56_luna %}, {% data variables.copilot.gpt_6_astra %}, {% data variables.copilot.gpt_6_luna %}, {% data variables.copilot.gpt_6_sol %}, and {% data variables.copilot.gpt_61_sol %} include a cache write cost in addition to cached input. Earlier OpenAI models have no cache write cost.
+{% data variables.copilot.gpt_56_sol %}, {% data variables.copilot.gpt_56_terra %}, {% data variables.copilot.gpt_56_luna %}, {% data variables.copilot.gpt_6_astra %}, {% data variables.copilot.gpt_6_luna %}, {% data variables.copilot.gpt_6_sol %}, {% data variables.copilot.gpt_61_sol %}, and {% data variables.copilot.gpt_61_terra %} include a cache write cost in addition to cached input. Earlier OpenAI models have no cache write cost.
 
 | Model | Release status | Category | Tier | Threshold (input tokens) | Input | Cached input | Cache write | Output |
 | --- | --- | --- | --- | --- | ---: | ---: | ---: | ---: |

@@ -9,6 +9,7 @@ versions:
 contentType: how-tos
 category:
   - Author and optimize with Copilot
+  - Appetizers - Plan your plate
 ---
 
 ## About canvas extensions
