@@ -51,6 +51,10 @@
   provider: 'OpenAI'
   release_status: 'GA'
 
+- name: 'GPT-6.1 Terra'
+  provider: 'OpenAI'
+  release_status: 'GA'
+
 # Anthropic models
 
 - name: 'Claude Fable 5'

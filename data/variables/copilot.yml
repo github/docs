@@ -234,6 +234,7 @@ gpt_6_astra: 'GPT-6 Astra'
 gpt_6_luna: 'GPT-6 Luna'
 gpt_6_sol: 'GPT-6 Sol'
 gpt_61_sol: 'GPT-6.1 Sol'
+gpt_61_terra: 'GPT-6.1 Terra'
 # OpenAI 'o' series:
 o3: 'o3'
 o4_mini: 'o4-mini'
