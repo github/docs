@@ -1,0 +1,6 @@
+# Reference: https://github.blog/changelog/2026-10-20-dependabot-now-supports-npm-12-pnpm-11-and-12-and-bun-1-4/
+# Dependabot support for npm 12, pnpm 11 and 12, and Bun 1.4
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.24'
