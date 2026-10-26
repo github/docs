@@ -17,6 +17,7 @@ redirect_from:
 contentType: how-tos
 category:
   - Author and optimize with Copilot
+  - Appetizers - Plan your plate
 ---
 
 > [!NOTE]

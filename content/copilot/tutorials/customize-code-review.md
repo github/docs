@@ -9,6 +9,7 @@ category:
   - Accelerate PR velocity
   - Team collaboration
   - Configure Copilot
+  - All day breakfast - Review your way to a sunny day
 redirect_from:
   - /copilot/tutorials/use-custom-instructions
 ---
