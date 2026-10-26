@@ -1,7 +1,8 @@
 ---
-title: 'Building guardrails for GitHub Copilot cloud agent'
-shortTitle: 'Build guardrails'
-intro: 'Configure your enterprise so that {% data variables.copilot.copilot_cloud_agent %} will operate in a secure, compliant environment.'
+title: Building guardrails for GitHub Copilot cloud agent in your enterprise
+shortTitle: Build enterprise guardrails
+allowTitleToDifferFromFilename: true
+intro: 'Prepare enterprise policies, repository protections, and runner settings for a controlled rollout of {% data variables.copilot.copilot_cloud_agent %}.'
 versions:
   feature: copilot
 contentType: tutorials
@@ -11,6 +12,8 @@ category:
 docsTeamMetrics:
   - ai-governance
 ---
+
+This tutorial is for enterprise owners, AI managers, and organization owners preparing to enable {% data variables.copilot.copilot_cloud_agent %} for their teams.
 
 Before you enable {% data variables.copilot.copilot_cloud_agent %}, it is good practice to set up your enterprise so you can be confident {% data variables.product.prodname_copilot_short %} will operate within secure, predictable guardrails.
 
