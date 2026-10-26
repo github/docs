@@ -26,7 +26,8 @@ docsTeamMetrics:
 
 ## Prerequisites
 
-You may want to run a trial before enabling {% data variables.copilot.copilot_cloud_agent %} for the enterprise. See [AUTOTITLE](/copilot/tutorials/cloud-agent/pilot-cloud-agent).
+- Optionally, run a trial. See [AUTOTITLE](/copilot/tutorials/cloud-agent/pilot-cloud-agent).
+- Review enterprise policies, repository protections, and runner settings with organization owners and repository administrators. See [AUTOTITLE](/copilot/tutorials/cloud-agent/build-guardrails).
 
 ## Enabling {% data variables.copilot.copilot_cloud_agent %}
 

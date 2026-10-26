@@ -52,6 +52,20 @@ The data **does not include** activity from other {% data variables.product.prod
 
 License and seat management data are not included in {% data variables.product.prodname_copilot_short %} usage metrics reports. To view or manage license assignments, use the {% data variables.product.prodname_copilot_short %} user management API, which is the source of truth for license and seat information. See [AUTOTITLE](/rest/copilot/copilot-user-management).
 
+### Troubleshooting missing usage data
+
+Detailed breakdowns depend on client-side telemetry from the IDE or {% data variables.copilot.copilot_cli_short %}. This telemetry provides data about features, languages, models, accepted suggestions, and lines of code. Server-side telemetry can show that a user was active, but it can't observe what happens in the editor.
+
+If client-side telemetry is missing, reports may contain lower numbers or empty breakdowns even when server-side data shows activity. Common causes include:
+
+| Cause | Effect on your reports | What you can check |
+|:--|:--|:--|
+| Telemetry is turned off in the IDE, for example with the `telemetry.telemetryLevel` setting in {% data variables.product.prodname_vscode_shortname %}. | The IDE sends no detailed activity. The user may still be counted as active through server-side telemetry, but feature, language, and lines of code breakdowns are empty. | Confirm that IDE telemetry is enabled for your developers. |
+| A network proxy, firewall, or VPN blocks the {% data variables.product.prodname_copilot_short %} telemetry endpoint. | Same as when telemetry is turned off. | Allow the {% data variables.product.prodname_copilot_short %} client telemetry endpoint. See [AUTOTITLE](/copilot/reference/copilot-allowlist-reference). |
+| The client isn't a supported IDE and doesn't send {% data variables.product.prodname_copilot_short %} telemetry. | The user may be counted as active through server-side telemetry, but the client doesn't appear in `totals_by_ide` or detailed breakdowns. | Use a supported IDE for complete metrics. |
+
+If a gap persists after you check the causes above, contact {% data variables.contact.contact_support %} and include the affected users, IDEs, versions, and dates.
+
 ## Why {% data variables.product.prodname_copilot_short %} usage metrics may differ across API resources
 
 The following API resources expose {% data variables.product.prodname_copilot_short %}-related data, but they are not interchangeable and should not be compared directly. Each API resource is designed for a specific use case and data model, and differences in totals or coverage are expected. Use this table to understand which API resource best fits your reporting needs.
@@ -88,19 +102,47 @@ In short: users must be licensed somewhere in the enterprise to appear in its me
 
 To be included in the {% data variables.product.prodname_copilot_short %} usage metrics, end users must use one of the following IDEs and {% data variables.copilot.copilot_chat_short %} extension versions.
 
+Older versions may not send all the events that usage metrics rely on, or may attribute activity to the wrong IDE. Keep IDEs and {% data variables.product.prodname_copilot_short %} extensions current, and use device management tooling to enforce these minimum versions where possible.
+
 | IDE | Minimum IDE version | Minimum {% data variables.copilot.copilot_chat_short %} extension version |
 |:--|:--|:--|
 | Eclipse | 4.31 | 0.9.3.202507240902 |
 | JetBrains / IntelliJ | 2024.2.6 | 1.5.52-241 |
 | {% data variables.product.prodname_vs %} | 17.14.13 | 18.0.471.29466 |
 | {% data variables.product.prodname_vscode_shortname %} | 1.107.1 | 0.35.3 |
-| Xcode | 13.2.1 | 0.40.0 |
+| Xcode | 14.3.1 | 0.40.0 |
+
+In per-user reports, each `totals_by_ide` entry includes `last_known_ide_version` and `last_known_plugin_version`. Use these fields to identify developers who need to update. See [AUTOTITLE](/copilot/reference/copilot-usage-metrics/copilot-usage-metrics).
+
+### Version requirements for SDK-based agent activity
+
+Some IDEs run {% data variables.product.prodname_copilot_short %} agent sessions through the {% data variables.product.prodname_copilot_short %} SDK. Some versions of these IDEs don't identify themselves when they send agent activity, so that activity is left out of usage metrics. This causes agent interactions and agent lines of code to be undercounted. To include this activity, end users must use one of the following versions or later:
+
+| IDE | Minimum version for SDK-based agent activity | Affected versions |
+|:--|:--|:--|
+| {% data variables.product.prodname_vscode_shortname %} | 1.139.0 | 1.134 through 1.138, when using the agent window |
+| {% data variables.product.prodname_copilot_short %} plugin for JetBrains IDEs | 1.20.0 | 1.15.0 through 1.19.x |
+| {% data variables.product.prodname_vs %} | 18.12 | Insiders (preview) builds before 18.12 |
+
+If you're planning IDE updates, move developers directly to these versions or later. Generally available versions of {% data variables.product.prodname_vs %} aren't affected.
+
+For JetBrains IDEs, avoid {% data variables.product.prodname_copilot_short %} plugin versions 1.15.0 through 1.19.x.
+
+Eclipse and Xcode don't run agent sessions through the {% data variables.product.prodname_copilot_short %} SDK, so they aren't affected.
+
+Missing data can't be backfilled, because activity from affected versions doesn't identify which IDE it came from.
+
+Some of this activity was counted as {% data variables.copilot.copilot_cli_short %} activity instead, which can inflate {% data variables.copilot.copilot_cli_short %} metrics. This clears up as developers update the affected IDEs, but earlier {% data variables.copilot.copilot_cli_short %} metrics can't be corrected. {% data variables.copilot.copilot_cli_short %} users don't need to update.
+
+This issue affects only how activity is attributed in usage metrics. Billing is not affected.
 
 ## Data freshness
 
 The data in the dashboards and API reports is updated on a regular schedule.
 
 You can expect data to be available within **two full days**. This means that data for a given day is processed and made available within two full UTC days after that day closes.
+
+Telemetry that is still being processed can make the most recent days appear incomplete. Wait for the processing window to close before investigating a gap.
 
 ## What does the data measure?
 
@@ -115,6 +157,8 @@ You can expect data to be available within **two full days**. This means that da
 **Lines of Code (LoC) metrics** measure the number of lines {% data variables.product.prodname_copilot_short %} suggested, added, or deleted in the editor, providing a directional view of {% data variables.product.prodname_copilot_short %}’s tangible output. For example, "Lines added" shows how much code was actually accepted and inserted into the editor.
 
 **Pull request lifecycle metrics** measure how {% data variables.product.prodname_copilot_short %} activity relates to pull request outcomes and delivery flow. These metrics include pull request creation and merge counts, median time to merge, and review suggestion activity. By comparing overall pull request activity with pull requests created by {% data variables.product.prodname_copilot_short %}, you can evaluate how AI-assisted workflows influence throughput and cycle time at the organization or enterprise level.
+
+Model breakdowns can include models that developers didn't select directly. For example, {% data variables.product.prodname_copilot_short %} can use other models for Auto model selection or for background tasks.
 
 ### Understanding adoption cohorts
 
