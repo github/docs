@@ -52,6 +52,7 @@ There are also other online reading resources to help you learn Git:
 * [Microsoft Learn training for {% data variables.product.github %}](https://learn.microsoft.com/en-us/training/github/) offers {% data variables.product.github %}-authored, free training paths.
 
 * [Git branching](https://learngitbranching.js.org/) is a free interactive tool for learning and practising Git concepts.
+* [Coddy's Git course](https://coddy.tech/landing/git) is a free interactive course where you run real Git commands in a browser terminal, from commit and branch to merge conflicts, push and pull.
 
 ## Training
 
