@@ -120,6 +120,7 @@ sections:
     - |
       In clustered GitHub Enterprise Server environments, administrators may find that nodes that remain in the cluster but no longer have the `git-server`, `pages-server`, or `storage-server` role remain online and eligible to vote in the corresponding replication tables. Review role-specific replication state and contact GitHub Support if stale rows affect replication.
     - |
-      _When restoring an instance with `ghe-restore` while the replication controller is enabled, the storage directory is not restored._
-    - |
       _On a newly booted {% data variables.product.prodname_ghe_server %} instance, the merge box on a newly created pull request can stay on "Checking for the ability to merge automatically" and not show the merge status. If encountered, refreshing the page shows the correct merge status._
+  errata:
+    - |
+      The known issues incorrectly indicated that this release doesn't restore the storage directory when you restore an instance with `ghe-restore` while Replication Controller is enabled. This issue is fixed in this release. [Updated: 2026-10-22]
