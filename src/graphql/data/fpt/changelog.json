@@ -4,6 +4,22 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Field <code>ignoredFilePaths</code> was added to object type <code>FilePathRestrictionParameters</code></p>",
+          "<p>Input field <code>ignoredFilePaths</code> of type <code>[String!]</code> was added to input object type <code>FilePathRestrictionParametersInput</code></p>",
+          "<p>Field <code>ignoredFilePaths</code> was added to object type <code>MaxFileSizeParameters</code></p>",
+          "<p>Input field <code>ignoredFilePaths</code> of type <code>[String!]</code> was added to input object type <code>MaxFileSizeParametersInput</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-10-26"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Field <code>fullDatabaseId</code> was added to object type <code>Repository</code></p>"
         ]
       }
