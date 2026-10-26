@@ -60,7 +60,7 @@ To use cloud {% data variables.copilot.copilot_automations %}, make sure the fol
    For a cloud {% data variables.copilot.copilot_automation %}, use the **Tools** dropdown to select the tools {% data variables.product.prodname_copilot_short %} can use, such as pushing changes, updating issue labels, or creating a pull request. Select only the tools the task requires.
 1. In the prompt box, describe the task you want {% data variables.product.prodname_copilot_short %} to perform each time the {% data variables.copilot.copilot_automation %} runs. You can type `/` to use an available skill.
 1. Use the controls below the prompt box to select the model, reasoning effort, and agent for the {% data variables.copilot.copilot_automation %}.
-1. Click **Select project**, then choose the project where the {% data variables.copilot.copilot_automation %} will run.
+1. Choose the repository or local folder where the {% data variables.copilot.copilot_automation %} will run.
 1. Click **Create** to save the {% data variables.copilot.copilot_automation %}. To save and test it immediately, open the dropdown next to **Create**, then click **Create and run**.
 
 ## Running an {% data variables.copilot.copilot_automation %} on demand

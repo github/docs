@@ -8302,7 +8302,48 @@
         }
       ],
       "descriptionHTML": "<p>Delete artifact attestations in bulk by either subject digests or unique ID.</p>",
-      "codeExamples": [],
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Delete by subject digests",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "subject_digests": [
+                "sha256:abc123",
+                "sha512:def456"
+              ]
+            },
+            "parameters": {
+              "org": "ORG"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "description": "<p>Response</p>"
+          }
+        },
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Delete by attestation IDs",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "attestation_ids": [
+                111,
+                222
+              ]
+            },
+            "parameters": {
+              "org": "ORG"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "description": "<p>Response</p>"
+          }
+        }
+      ],
       "statusCodes": [
         {
           "httpStatusCode": "200",
