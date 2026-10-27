@@ -1,2 +1,2 @@
 > [!NOTE]
-> Slash commands—such as `/allow-all`—are not currently available from the remote interface.
+> Slash commands—such as `/permissions assisted`—are not currently available from the remote interface.

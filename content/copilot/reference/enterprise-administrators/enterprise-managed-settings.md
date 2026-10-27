@@ -273,14 +273,34 @@ Each subkey is overridable for enterprise teams. Set the enterprise value to `{ 
 
 ### disableBypassPermissionsMode
 
-Prevents users from enabling bypass mode (also known as "YOLO mode"). Bypass mode lets an agent run commands, access files, and fetch URLs without asking for approval.
+Use this to prevent users from enabling bypass mode. Bypass mode lets an agent run commands, access files, and fetch URLs without asking for approval.
+
+Set this key to `"disable"` to turn off bypass mode.
+
+This setting does not prevent {% data variables.copilot.assisted_permissions %}. Read-only operations and requests allowed by applicable permission rules can still proceed without a prompt. Managed `deny` and `ask` rules continue to apply. For more information about {% data variables.copilot.assisted_permissions %}, see [AUTOTITLE](/copilot/concepts/customizations/allowing-safe-commands).
 
 When you set `disableBypassPermissionsMode` to `"disable"`, users cannot turn on bypass mode:
 
-* In {% data variables.copilot.copilot_cli_short %}, all of the command line options for allowing all permissions (`--yolo`, `--allow-all`, and the individual `--allow-all-tools`, `--allow-all-paths`, and `--allow-all-urls` options) are suppressed at startup and cannot grant elevated permissions. The `/yolo` and `/allow-all` slash commands are also blocked.
+* In {% data variables.copilot.copilot_cli_short %}, all of the command line options for allowing all permissions (`--yolo`, `--allow-all`, and the individual `--allow-all-tools`, `--allow-all-paths`, and `--allow-all-urls` options) have no effect at startup and cannot grant elevated permissions. The `/permissions allow-all` slash command, and its aliases `/allow-all` and `/yolo`, are also blocked. This setting does not block `/permissions assisted` or `/allow-all auto`. The `permissions.disableAssistedPermissionsMode` setting controls whether users can enable {% data variables.copilot.assisted_permissions %}.
 * In {% data variables.product.prodname_vscode_shortname %}, the global auto-approve setting (`chat.tools.global.autoApprove`) is turned off and cannot be re-enabled.
-* In the {% data variables.copilot.github_copilot_app %}, the "Allow all" setting for "Tool Permissions" is blocked in the sessions settings.
-* This key is overridable by enterprise team mapping. In your `{% data variables.copilot.managed_setting_file %}`, use the `{ "overridable": "disable" }` syntax to specialize the key's configuration on a per-team basis. You can then set `"disableBypassPermissionsMode": "unmanaged"` in a team settings file, providing a specialization that takes precedence over `{% data variables.copilot.managed_setting_file %}` for members of the subject team.
+* In the {% data variables.copilot.github_copilot_app %}, sessions cannot use **Approve all** for **Tool permissions**, even if a user selects it as their default in **Settings** > **Sessions**.
+
+For this key, the most restrictive value across all policy layers wins. A `"disable"` set by any layer takes effect and cannot be relaxed. A lower-authority layer or a per-team override cannot set this key back to unmanaged once any layer disables bypass mode.
+
+> [!NOTE]
+> If `disableBypassPermissionsMode` is set to a value that {% data variables.copilot.copilot_cli_short %} doesn't recognize, the CLI logs the problem and enforces `"disable"` as a fail-closed default.
+
+### disableAssistedPermissionsMode
+
+Set `permissions.disableAssistedPermissionsMode` to `true` to prevent users from enabling {% data variables.copilot.assisted_permissions %}. This setting does not disable bypass mode.
+
+### defaultMode
+
+Set `permissions.defaultMode` to `"manual"`, `"assisted"`, or `"allow-all"` to choose the default permission mode for new sessions. If the selected mode is unavailable or blocked by policy, the session starts with manual approval.
+
+This setting selects a default, not a locked mode. An explicit permitted choice for a session takes precedence over the managed default. Resumed sessions keep their saved mode, subject to current policy restrictions.
+
+In {% data variables.copilot.copilot_cli_short %}, this managed default takes precedence over the user's `defaultPermissionMode` setting.
 
 ## telemetry
 

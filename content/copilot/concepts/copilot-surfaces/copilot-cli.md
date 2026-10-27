@@ -227,7 +227,7 @@ When you start a {% data variables.copilot.copilot_cli %} session, you'll be ask
 
 ### Allowed tools
 
-The first time that {% data variables.product.prodname_copilot_short %} needs to use a tool that could be used to modify or execute a file—{% data reusables.cli.tools-needing-approval %}—it will ask you whether you want to allow it to use that tool.
+In manual approval mode, {% data variables.product.prodname_copilot_short %} asks for your approval when a tool request isn't already allowed. This can include tools that modify or execute files—{% data reusables.cli.tools-needing-approval %}.
 
 Typically, you can choose from three options:
 
@@ -317,7 +317,9 @@ copilot --allow-tool='My-MCP-Server' --deny-tool='My-MCP-Server(tool_name)'
 
 It's important to be aware of the security implications of using the approval command-line options. These options allow {% data variables.product.prodname_copilot_short %} to execute commands needed to complete your request, without giving you the opportunity to review and approve those commands before they are run. While this streamlines workflows, and allows headless operation of the CLI, it increases the risk of unintended actions being taken that might result in data loss or corruption, or other security issues.
 
-You can control which tools {% data variables.copilot.copilot_cli_short %} can use by responding to approval prompts when {% data variables.product.prodname_copilot_short %} attempts to use a tool, by specifying permissions with command-line flags, or (in an interactive session) by using slash commands (such as `/allow-all` and `/yolo`. See [AUTOTITLE](/copilot/how-tos/copilot-cli/set-up-copilot-cli/configure-copilot-cli#setting-allowed-tools).
+You can control which tools {% data variables.copilot.copilot_cli_short %} can use by responding to approval prompts when {% data variables.product.prodname_copilot_short %} attempts to use a tool, by specifying permissions with command-line flags, or (in an interactive session) by using slash commands, such as `/permissions allow-all` and `/yolo`. See [AUTOTITLE](/copilot/how-tos/copilot-cli/set-up-copilot-cli/configure-copilot-cli#setting-allowed-tools).
+
+To reduce how often you're prompted for an approval decision, without granting blanket permissions, you can use {% data variables.copilot.assisted_permissions %} by entering the `/permissions assisted` slash command in an interactive session. A large language model assesses eligible permission requests and automatically approves those it judges to be safe. Existing permissions and enterprise rules still apply, and requests that still need your approval are put to you. For more information, see [AUTOTITLE](/copilot/concepts/customizations/allowing-safe-commands).
 
 ### Risk mitigation
 
