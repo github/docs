@@ -265,7 +265,7 @@
     "@octokit/plugin-retry": "8.0.1",
     "@octokit/request-error": "7.0.0",
     "@octokit/rest": "22.0.0",
-    "@playwright/test": "^1.60.0",
+    "@playwright/test": "^1.64.1",
     "@types/accept-language-parser": "1.5.7",
     "@types/cookie": "0.6.0",
     "@types/cookie-parser": "1.4.8",
