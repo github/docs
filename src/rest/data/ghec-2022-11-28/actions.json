@@ -12122,6 +12122,7 @@
                         "type": "boolean"
                       },
                       "temp_clone_token": {
+                        "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                         "type": "string"
                       },
                       "allow_squash_merge": {
@@ -13537,6 +13538,7 @@
                         "type": "boolean"
                       },
                       "temp_clone_token": {
+                        "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                         "type": "string"
                       },
                       "allow_squash_merge": {
@@ -36657,6 +36659,7 @@
                         "type": "string"
                       },
                       "temp_clone_token": {
+                        "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                         "type": "string"
                       },
                       "delete_branch_on_merge": {
@@ -41917,6 +41920,7 @@
                         "type": "string"
                       },
                       "temp_clone_token": {
+                        "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                         "type": "string"
                       },
                       "delete_branch_on_merge": {
@@ -43207,8 +43211,9 @@
             "contentType": "application/json",
             "description": "<p>Response</p>",
             "example": {
-              "runner_version": "2.300.0",
-              "runtime_deprecates_at": "2026-09-01T00:00:00Z"
+              "runner_version": "2.328.0",
+              "registration_deprecates_at": "2026-09-29T00:00:00Z",
+              "runtime_deprecates_at": "2025-12-16T17:40:26Z"
             },
             "schema": {
               "type": "object",
@@ -43226,7 +43231,7 @@
                     "null"
                   ],
                   "format": "date-time",
-                  "description": "The date after which this runner version can no longer register. Null if no schedule is set."
+                  "description": "The date after which this runner version can no longer register. Only set for runner versions below the minimum version required to register (currently 2.329.0); `null` for versions with no registration end date."
                 },
                 "runtime_deprecates_at": {
                   "type": [
@@ -43234,7 +43239,7 @@
                     "null"
                   ],
                   "format": "date-time",
-                  "description": "The date after which jobs will no longer be dispatched to runners on this version."
+                  "description": "The date after which jobs will no longer be dispatched to runners on this version. `null` when no newer runner release exists yet."
                 }
               }
             }
@@ -44146,6 +44151,7 @@
                         "type": "boolean"
                       },
                       "temp_clone_token": {
+                        "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                         "type": "string"
                       },
                       "allow_squash_merge": {
@@ -44918,6 +44924,7 @@
                         "type": "boolean"
                       },
                       "temp_clone_token": {
+                        "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                         "type": "string"
                       },
                       "allow_squash_merge": {
@@ -46345,8 +46352,9 @@
             "contentType": "application/json",
             "description": "<p>Response</p>",
             "example": {
-              "runner_version": "2.300.0",
-              "runtime_deprecates_at": "2026-09-01T00:00:00Z"
+              "runner_version": "2.328.0",
+              "registration_deprecates_at": "2026-09-29T00:00:00Z",
+              "runtime_deprecates_at": "2025-12-16T17:40:26Z"
             },
             "schema": {
               "type": "object",
@@ -46364,7 +46372,7 @@
                     "null"
                   ],
                   "format": "date-time",
-                  "description": "The date after which this runner version can no longer register. Null if no schedule is set."
+                  "description": "The date after which this runner version can no longer register. Only set for runner versions below the minimum version required to register (currently 2.329.0); `null` for versions with no registration end date."
                 },
                 "runtime_deprecates_at": {
                   "type": [
@@ -46372,7 +46380,7 @@
                     "null"
                   ],
                   "format": "date-time",
-                  "description": "The date after which jobs will no longer be dispatched to runners on this version."
+                  "description": "The date after which jobs will no longer be dispatched to runners on this version. `null` when no newer runner release exists yet."
                 }
               }
             }
@@ -47296,6 +47304,7 @@
                         "type": "boolean"
                       },
                       "temp_clone_token": {
+                        "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                         "type": "string"
                       },
                       "allow_squash_merge": {
@@ -48072,6 +48081,7 @@
                         "type": "boolean"
                       },
                       "temp_clone_token": {
+                        "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                         "type": "string"
                       },
                       "allow_squash_merge": {
@@ -49547,8 +49557,9 @@
             "contentType": "application/json",
             "description": "<p>Response</p>",
             "example": {
-              "runner_version": "2.300.0",
-              "runtime_deprecates_at": "2026-09-01T00:00:00Z"
+              "runner_version": "2.328.0",
+              "registration_deprecates_at": "2026-09-29T00:00:00Z",
+              "runtime_deprecates_at": "2025-12-16T17:40:26Z"
             },
             "schema": {
               "type": "object",
@@ -49566,7 +49577,7 @@
                     "null"
                   ],
                   "format": "date-time",
-                  "description": "The date after which this runner version can no longer register. Null if no schedule is set."
+                  "description": "The date after which this runner version can no longer register. Only set for runner versions below the minimum version required to register (currently 2.329.0); `null` for versions with no registration end date."
                 },
                 "runtime_deprecates_at": {
                   "type": [
@@ -49574,7 +49585,7 @@
                     "null"
                   ],
                   "format": "date-time",
-                  "description": "The date after which jobs will no longer be dispatched to runners on this version."
+                  "description": "The date after which jobs will no longer be dispatched to runners on this version. `null` when no newer runner release exists yet."
                 }
               }
             }
@@ -50528,6 +50539,7 @@
                         "type": "boolean"
                       },
                       "temp_clone_token": {
+                        "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                         "type": "string"
                       },
                       "allow_squash_merge": {
@@ -51314,6 +51326,7 @@
                         "type": "boolean"
                       },
                       "temp_clone_token": {
+                        "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                         "type": "string"
                       },
                       "allow_squash_merge": {
@@ -53660,6 +53673,7 @@
                         "type": "string"
                       },
                       "temp_clone_token": {
+                        "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                         "type": "string"
                       },
                       "delete_branch_on_merge": {
@@ -55956,7 +55970,7 @@
         },
         {
           "name": "step_number",
-          "description": "<p>The zero-based position number of the step in the job.</p>",
+          "description": "<p>The number assigned to the step, as shown in the <code>number</code> field of the workflow job's <code>steps</code> array.</p>",
           "in": "path",
           "required": true,
           "schema": {
@@ -58371,6 +58385,7 @@
                             "type": "string"
                           },
                           "temp_clone_token": {
+                            "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                             "type": "string"
                           },
                           "delete_branch_on_merge": {
@@ -59092,6 +59107,7 @@
                             "type": "string"
                           },
                           "temp_clone_token": {
+                            "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                             "type": "string"
                           },
                           "delete_branch_on_merge": {
@@ -60733,6 +60749,7 @@
                       "type": "string"
                     },
                     "temp_clone_token": {
+                      "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                       "type": "string"
                     },
                     "delete_branch_on_merge": {
@@ -61454,6 +61471,7 @@
                       "type": "string"
                     },
                     "temp_clone_token": {
+                      "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                       "type": "string"
                     },
                     "delete_branch_on_merge": {
@@ -63553,6 +63571,7 @@
                       "type": "string"
                     },
                     "temp_clone_token": {
+                      "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                       "type": "string"
                     },
                     "delete_branch_on_merge": {
@@ -64274,6 +64293,7 @@
                       "type": "string"
                     },
                     "temp_clone_token": {
+                      "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                       "type": "string"
                     },
                     "delete_branch_on_merge": {
@@ -68127,6 +68147,7 @@
                             "type": "string"
                           },
                           "temp_clone_token": {
+                            "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                             "type": "string"
                           },
                           "delete_branch_on_merge": {
@@ -68848,6 +68869,7 @@
                             "type": "string"
                           },
                           "temp_clone_token": {
+                            "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                             "type": "string"
                           },
                           "delete_branch_on_merge": {

@@ -8481,6 +8481,7 @@
                       "type": "string"
                     },
                     "temp_clone_token": {
+                      "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                       "type": "string"
                     },
                     "delete_branch_on_merge": {
@@ -10084,6 +10085,7 @@
                       "type": "string"
                     },
                     "temp_clone_token": {
+                      "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                       "type": "string"
                     },
                     "delete_branch_on_merge": {
@@ -11273,6 +11275,7 @@
                       "type": "string"
                     },
                     "temp_clone_token": {
+                      "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                       "type": "string"
                     },
                     "delete_branch_on_merge": {
@@ -12810,6 +12813,7 @@
                       "type": "string"
                     },
                     "temp_clone_token": {
+                      "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                       "type": "string"
                     },
                     "delete_branch_on_merge": {
@@ -14482,6 +14486,7 @@
                             "type": "string"
                           },
                           "temp_clone_token": {
+                            "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                             "type": "string"
                           },
                           "delete_branch_on_merge": {
