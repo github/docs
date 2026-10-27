@@ -59,7 +59,7 @@ For more information, see [AUTOTITLE](/copilot/concepts/prompting-and-context/cu
 
 ### Configure allowed tools
 
-Manage which tools {% data variables.product.prodname_copilot_short %} can run without asking for permission. When {% data variables.product.prodname_copilot_short %} requests permission for an action, you can typically choose either to allow it just this time, or allow the tool to be used for the rest of the CLI session.
+Manage which tools {% data variables.product.prodname_copilot_short %} can use without asking for your permission. In manual approval mode, requests that aren't already allowed prompt you for approval. These can include running commands, editing files, or accessing URLs. When prompted, you can typically choose to allow the action just this once, or to allow that tool for the rest of the session. Use `/permissions show` to check your mode or `/permissions manual` to choose manual approval.
 
 To reset previously approved tools, use:
 
@@ -79,6 +79,8 @@ copilot --allow-tool='shell(git:*)' --deny-tool='shell(git push)'
 * `shell(npm run:*)` — Allow all npm scripts
 * `shell(npm run test:*)` — Allow npm test commands
 * `write` — Allow file writes
+
+For more information about allowing and denying permission for specific tools, see [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/allowing-tools#allowing-or-denying-permission-for-specific-tools).
 
 ### Select your preferred model
 
@@ -455,7 +457,7 @@ Optionally, you can usually speed up large tasks by using the `/fleet` slash com
 
 ### Security considerations
 
-* {% data variables.copilot.copilot_cli_short %} requires explicit approval for potentially destructive operations.
+* Review your permission mode and tool permissions before starting work. Automatic approval can allow potentially destructive operations without individual prompts.
 * Review all proposed changes before accepting.
 * Use permission allowlists judiciously.
 * Never commit secrets. {% data variables.product.prodname_copilot_short %} is designed to avoid this, but always verify.

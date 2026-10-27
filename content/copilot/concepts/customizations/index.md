@@ -7,6 +7,7 @@ versions:
 children:
   - /comparing-customizations
   - /agent-skills
+  - /allowing-safe-commands
   - /custom-agents
   - /mcp
   - /hooks

@@ -55,7 +55,7 @@ Install {% data variables.copilot.copilot_cli_short %}. See [AUTOTITLE](/copilot
 
    For some examples of prompts, see [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-cli).
 
-1. When {% data variables.product.prodname_copilot_short %} wants to use a tool that could modify or execute files—{% data reusables.cli.tools-needing-approval %}—it will ask you to approve the use of the tool.
+1. Review any permission prompts that {% data variables.product.prodname_copilot_short %} displays. Tools that modify or execute files—{% data reusables.cli.tools-needing-approval %}—can require approval, depending on your existing permissions and permission mode.
 
    Choose one of the options:
 
@@ -307,9 +307,12 @@ Details of your configured MCP servers are stored in the `mcp-config.json` file,
 
 {% data variables.copilot.copilot_cli %} automatically starts compressing your history in the background when your conversation approaches 80% of the token limit. This starting point is dynamic: when static context—your system messages and tool definitions—already uses a large share of the limit (roughly 75% or more), {% data variables.product.prodname_copilot_short %} waits until usage is closer to 90% before compacting, because compressing the conversation reclaims less space in that situation. If usage reaches approximately 95% before background compaction has finished, the CLI waits for it to complete before continuing.
 
-### Enable all permissions
+### Enable {% data variables.copilot.assisted_permissions %}
 
-For situations where you trust {% data variables.product.prodname_copilot_short %} to run freely, you can use the `--allow-all` or `--yolo` flags to enable all permissions at once.
+{% data variables.copilot.assisted_permissions_caps %} reduces approval prompts without granting blanket permissions. A large language model assesses eligible permission requests and automatically approves those it judges to be safe. Existing permissions and enterprise rules still apply, and requests that still need your approval are put to you. To turn it on during an interactive session, enter `/permissions assisted`. For more information, see [AUTOTITLE](/copilot/concepts/customizations/allowing-safe-commands).
+
+> [!NOTE]
+> To grant broad permissions without a model safety review, use the `--allow-all` or `--yolo` command line options (or the `/permissions allow-all` or `/yolo` slash commands within an interactive session). These options can allow destructive commands to run without individual approval, so only use them in a sandboxed or otherwise isolated environment. Deny rules and enterprise restrictions still apply.
 
 ### Use sandboxing
 
@@ -317,9 +320,9 @@ You can use sandboxing to restrict what {% data variables.product.prodname_copil
 
 Alternatively, with cloud sandboxing, the entire {% data variables.copilot.copilot_cli_short %} session runs remotely in an isolated environment. To start a {% data variables.copilot.copilot_cli_short %} session in the cloud, run `copilot --cloud`. For more information, see [AUTOTITLE](/copilot/concepts/about-cloud-and-local-sandboxes).
 
-### Toggle reasoning visibility
+### Toggle model thinking visibility
 
-Press <kbd>Ctrl</kbd>+<kbd>T</kbd> to show or hide the model's reasoning process while it generates a response. This setting persists across sessions, allowing you to observe how {% data variables.product.prodname_copilot_short %} works through complex problems.
+Press <kbd>Ctrl</kbd>+<kbd>T</kbd> to show or hide the model's thoughts as it works on a task. This expands/collapses text in the model output in the conversation in your interactive session. This setting persists across sessions, allowing you to observe how {% data variables.product.prodname_copilot_short %} works through complex problems.
 
 ### Configure settings
 

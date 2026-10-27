@@ -38,6 +38,7 @@ There are a number of command-line options that are particularly useful when run
 | `--allow-all-urls`            | Allow access to all URLs without explicit permission for each URL. |
 | `--allow-tool=TOOL ...`       | Selectively grant permission for a specific tool. For multiple tools, use a quoted, comma-separated list. |
 | `--allow-url=URL ...`         | Allow the agent to fetch a specific URL or domain. Useful when a workflow needs web access to known endpoints. For multiple URLs, use a quoted, comma-separated list. |
+| `--assisted-approval`         | Turn on {% data variables.copilot.assisted_permissions %} for the run, so that a safety review can approve eligible permission requests. Only valid for non-interactive runs. See [Using {% data variables.copilot.assisted_permissions %}](#using-assisted-permissions) below. |
 | `--attachment=PATH ...`       | Attach a file (image or native document) to the initial prompt. Only valid in non-interactive mode. Can be used multiple times to attach multiple files. |
 | `--available-tools=TOOL ...`  | Restrict the model to only the tools you list; all other tools are unavailable. Useful for tightly scoping what the agent can do in an automated workflow. For multiple tools, use a quoted, comma-separated list. |
 | `--deny-tool=TOOL ...`        | Deny a specific tool. Useful for restricting what the agent can do in a locked-down workflow. For multiple tools, use a quoted, comma-separated list. |
@@ -140,6 +141,7 @@ You can use environment variables to configure various aspects of the CLI's beha
 | Variable              | Description   |
 | --------------------- | ------------- |
 | `COPILOT_ALLOW_ALL`   | Set to `true` for full permissions |
+| `COPILOT_ASSISTED_APPROVAL` | Set to `true` to turn on {% data variables.copilot.assisted_permissions %} for a non-interactive run |
 | `COPILOT_MODEL`       | Set the model (for example, `gpt-6-astra`, `claude-haiku-4.5`) |
 | `COPILOT_HOME`        | Set the directory for the CLI configuration file (`~/.copilot` by default) |
 | `COPILOT_AUTO_UPDATE` | Set to `false` to disable automatic updates. Useful in CI and other automated environments where you want to pin the CLI version. |
@@ -149,6 +151,33 @@ You can use environment variables to configure various aspects of the CLI's beha
 | `GITHUB_COPILOT_PROMPT_MODE_EXTENSIONS` | Set to `true` to allow project extensions to load for a prompt or direct workflow run. Only use this for repository code you trust. This does not grant tool permissions. |
 
 For full details of environment variables for {% data variables.copilot.copilot_cli_short %}, use the command `copilot help environment` in your terminal.
+
+## Using {% data variables.copilot.assisted_permissions %}
+
+In a non-interactive run there is nobody available to answer approval prompts. Without any permission options, requests that need approval are denied, and {% data variables.product.prodname_copilot_short %} often can't finish the task. With `--allow-all-tools`, you grant blanket tool permissions without a model safety review.
+
+The `--assisted-approval` option is the middle ground. A safety review can assess eligible requests that aren't already resolved by existing permissions:
+
+* If the review judges the request to be safe, it's approved automatically and {% data variables.product.prodname_copilot_short %} continues.
+* If the review requires your approval, the request is denied and the reason is passed back to {% data variables.product.prodname_copilot_short %}, so that it can try a different approach to complete the task.
+
+Existing deny rules, mandatory approval requirements, and sandbox protections still apply. Requests that still require your approval are denied in non-interactive runs.
+
+For more information about how the safety review works, and which model is used, see [AUTOTITLE](/copilot/concepts/customizations/allowing-safe-commands).
+
+```shell copy
+copilot -p "Fix the failing tests" --assisted-approval
+```
+
+You can set the `COPILOT_ASSISTED_APPROVAL` environment variable to `true` instead of using the option. This is useful in automated environments where you can't easily change the command that's run.
+
+### Things to be aware of
+
+* **The option is only valid for non-interactive runs.** These are runs that use `-p` or `--prompt`, and runs in an environment with no terminal attached, such as a CI/CD workflow. If you use `--assisted-approval` when starting an interactive session, the CLI exits with an error.
+
+* **It overrides `--allow-all-tools` when successfully enabled.** Tool requests use {% data variables.copilot.assisted_permissions %} instead of blanket tool approval. However, `--allow-all-paths` and `--allow-all-urls`—including when they're set by `--allow-all` or `--yolo`—are unaffected, so file and URL access can still be unrestricted.
+
+* **Check for a warning if the run must not proceed without a safety review.** If {% data variables.copilot.assisted_permissions %} can't be turned on, because your enterprise settings block it for example, the CLI writes a warning to standard error and continues. It does not cancel a separate `--allow-all-tools` option that you supplied, so tool requests may still be approved without a safety review.
 
 ## Choosing a model
 
