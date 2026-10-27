@@ -20,7 +20,7 @@ export async function octoSecondaryRatelimitRetry<T>(
     } catch (error) {
       if (
         (isRequestError(error, 403) || isRequestError(error, 429)) &&
-        /You have exceeded a secondary rate limit/.test(error.message)
+        /You have exceeded a secondary rate limit|API rate limit exceeded/.test(error.message)
       ) {
         const retryAfterMs = getRetryAfterMs(error)
         if (retryAfterMs !== null && retryAfterMs > MAX_RETRY_AFTER_MS) {
@@ -46,7 +46,14 @@ export async function octoSecondaryRatelimitRetry<T>(
 
 function getRetryAfterMs(error: object): number | null {
   const headers = (error as { response?: { headers?: Record<string, unknown> } }).response?.headers
-  const value = headers?.['retry-after']
+  let value = headers?.['retry-after']
+  if (value === undefined) {
+    // The code search API's 30 requests/minute limit only sends a reset time.
+    const reset = Number(headers?.['x-ratelimit-reset'])
+    if (Number.isFinite(reset) && reset > 0) {
+      value = String(Math.max(0, Math.ceil(reset - Date.now() / 1000)) + 1)
+    }
+  }
   if (typeof value !== 'string' && typeof value !== 'number') return null
   const seconds = Number(value)
   if (String(value).trim() === '' || !Number.isFinite(seconds) || seconds < 0) return null
