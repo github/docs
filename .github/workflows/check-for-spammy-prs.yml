@@ -50,6 +50,21 @@ jobs:
               return changedLines.length > 0 &&
                 changedLines.every(line => line.slice(1).trim() === '')
             })
+            const onlyBreaksOpeningFrontmatter = files.length > 0 && files.every(file => {
+              if (
+                file.status !== 'modified' ||
+                !file.filename.startsWith('content/') ||
+                !file.filename.endsWith('.md') ||
+                file.additions !== 1 ||
+                file.deletions !== 1
+              ) return false
+
+              const lines = (file.patch || '').split('\n')
+              return /^@@ -1(?:,\d+)? \+1(?:,\d+)? @@/.test(lines[0]) &&
+                lines[1] === '----' && // Diff prefix "-" followed by the original "---".
+                lines[2]?.startsWith('+') &&
+                !/^---(?:\s*yaml)?\s*$/i.test(lines[2].slice(1))
+            })
             const onlyRenames = files.length > 0 && files.every(
               f => f.status === 'renamed' && f.additions === 0 && f.deletions === 0
             )
@@ -101,6 +116,7 @@ jobs:
               isEmptyCommit ||
               touchesTooMany ||
               isBlankLineEdit ||
+              onlyBreaksOpeningFrontmatter ||
               onlyRenames ||
               onlyIndexMd
             ) {
