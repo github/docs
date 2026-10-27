@@ -419,6 +419,11 @@
                   },
                   {
                     "type": "boolean",
+                    "name": "require_extra_approval_for_unattributed_changes",
+                    "description": "<p>When Copilot opens a pull request without a human collaborator, require one more approving review if a non-zero approval count is required.</p>"
+                  },
+                  {
+                    "type": "boolean",
                     "name": "require_last_push_approval",
                     "description": "<p>Whether the most recent reviewable push must be approved by someone other than the person who pushed it.</p>",
                     "isRequired": true
@@ -1063,6 +1068,11 @@
                 "childParamsGroups": [
                   {
                     "type": "array of strings",
+                    "name": "ignored_file_paths",
+                    "description": "<p>Files matching these patterns are allowed even when they also match a restricted path.</p>"
+                  },
+                  {
+                    "type": "array of strings",
                     "name": "restricted_file_paths",
                     "description": "<p>The file paths that are restricted from being pushed to the commit graph.</p>",
                     "isRequired": true
@@ -1148,6 +1158,11 @@
                 "name": "parameters",
                 "description": "",
                 "childParamsGroups": [
+                  {
+                    "type": "array of strings",
+                    "name": "ignored_file_paths",
+                    "description": "<p>Files matching these patterns may exceed the maximum size.</p>"
+                  },
                   {
                     "type": "integer",
                     "name": "max_file_size",
@@ -1593,6 +1608,11 @@
                   },
                   {
                     "type": "boolean",
+                    "name": "require_extra_approval_for_unattributed_changes",
+                    "description": "<p>When Copilot opens a pull request without a human collaborator, require one more approving review if a non-zero approval count is required.</p>"
+                  },
+                  {
+                    "type": "boolean",
                     "name": "require_last_push_approval",
                     "description": "<p>Whether the most recent reviewable push must be approved by someone other than the person who pushed it.</p>",
                     "isRequired": true
@@ -2237,6 +2257,11 @@
                 "childParamsGroups": [
                   {
                     "type": "array of strings",
+                    "name": "ignored_file_paths",
+                    "description": "<p>Files matching these patterns are allowed even when they also match a restricted path.</p>"
+                  },
+                  {
+                    "type": "array of strings",
                     "name": "restricted_file_paths",
                     "description": "<p>The file paths that are restricted from being pushed to the commit graph.</p>",
                     "isRequired": true
@@ -2322,6 +2347,11 @@
                 "name": "parameters",
                 "description": "",
                 "childParamsGroups": [
+                  {
+                    "type": "array of strings",
+                    "name": "ignored_file_paths",
+                    "description": "<p>Files matching these patterns may exceed the maximum size.</p>"
+                  },
                   {
                     "type": "integer",
                     "name": "max_file_size",
@@ -2767,6 +2797,11 @@
                   },
                   {
                     "type": "boolean",
+                    "name": "require_extra_approval_for_unattributed_changes",
+                    "description": "<p>When Copilot opens a pull request without a human collaborator, require one more approving review if a non-zero approval count is required.</p>"
+                  },
+                  {
+                    "type": "boolean",
                     "name": "require_last_push_approval",
                     "description": "<p>Whether the most recent reviewable push must be approved by someone other than the person who pushed it.</p>",
                     "isRequired": true
@@ -3411,6 +3446,11 @@
                 "childParamsGroups": [
                   {
                     "type": "array of strings",
+                    "name": "ignored_file_paths",
+                    "description": "<p>Files matching these patterns are allowed even when they also match a restricted path.</p>"
+                  },
+                  {
+                    "type": "array of strings",
                     "name": "restricted_file_paths",
                     "description": "<p>The file paths that are restricted from being pushed to the commit graph.</p>",
                     "isRequired": true
@@ -3496,6 +3536,11 @@
                 "name": "parameters",
                 "description": "",
                 "childParamsGroups": [
+                  {
+                    "type": "array of strings",
+                    "name": "ignored_file_paths",
+                    "description": "<p>Files matching these patterns may exceed the maximum size.</p>"
+                  },
                   {
                     "type": "integer",
                     "name": "max_file_size",
@@ -3968,6 +4013,11 @@
                       },
                       {
                         "type": "boolean",
+                        "name": "require_extra_approval_for_unattributed_changes",
+                        "description": "<p>When Copilot opens a pull request without a human collaborator, require one more approving review if a non-zero approval count is required.</p>"
+                      },
+                      {
+                        "type": "boolean",
                         "name": "require_last_push_approval",
                         "description": "<p>Whether the most recent reviewable push must be approved by someone other than the person who pushed it.</p>",
                         "isRequired": true
@@ -4612,6 +4662,11 @@
                     "childParamsGroups": [
                       {
                         "type": "array of strings",
+                        "name": "ignored_file_paths",
+                        "description": "<p>Files matching these patterns are allowed even when they also match a restricted path.</p>"
+                      },
+                      {
+                        "type": "array of strings",
                         "name": "restricted_file_paths",
                         "description": "<p>The file paths that are restricted from being pushed to the commit graph.</p>",
                         "isRequired": true
@@ -4697,6 +4752,11 @@
                     "name": "parameters",
                     "description": "",
                     "childParamsGroups": [
+                      {
+                        "type": "array of strings",
+                        "name": "ignored_file_paths",
+                        "description": "<p>Files matching these patterns may exceed the maximum size.</p>"
+                      },
                       {
                         "type": "integer",
                         "name": "max_file_size",
@@ -4987,6 +5047,11 @@
                       },
                       {
                         "type": "boolean",
+                        "name": "require_extra_approval_for_unattributed_changes",
+                        "description": "<p>When Copilot opens a pull request without a human collaborator, require one more approving review if a non-zero approval count is required.</p>"
+                      },
+                      {
+                        "type": "boolean",
                         "name": "require_last_push_approval",
                         "description": "<p>Whether the most recent reviewable push must be approved by someone other than the person who pushed it.</p>",
                         "isRequired": true
@@ -5631,6 +5696,11 @@
                     "childParamsGroups": [
                       {
                         "type": "array of strings",
+                        "name": "ignored_file_paths",
+                        "description": "<p>Files matching these patterns are allowed even when they also match a restricted path.</p>"
+                      },
+                      {
+                        "type": "array of strings",
                         "name": "restricted_file_paths",
                         "description": "<p>The file paths that are restricted from being pushed to the commit graph.</p>",
                         "isRequired": true
@@ -5716,6 +5786,11 @@
                     "name": "parameters",
                     "description": "",
                     "childParamsGroups": [
+                      {
+                        "type": "array of strings",
+                        "name": "ignored_file_paths",
+                        "description": "<p>Files matching these patterns may exceed the maximum size.</p>"
+                      },
                       {
                         "type": "integer",
                         "name": "max_file_size",
@@ -6008,6 +6083,11 @@
                             "name": "require_code_owner_review",
                             "description": "<p>Require an approving review in pull requests that modify files that have a designated code owner.</p>",
                             "isRequired": true
+                          },
+                          {
+                            "type": "boolean",
+                            "name": "require_extra_approval_for_unattributed_changes",
+                            "description": "<p>When Copilot opens a pull request without a human collaborator, require one more approving review if a non-zero approval count is required.</p>"
                           },
                           {
                             "type": "boolean",
@@ -6655,6 +6735,11 @@
                         "childParamsGroups": [
                           {
                             "type": "array of strings",
+                            "name": "ignored_file_paths",
+                            "description": "<p>Files matching these patterns are allowed even when they also match a restricted path.</p>"
+                          },
+                          {
+                            "type": "array of strings",
                             "name": "restricted_file_paths",
                             "description": "<p>The file paths that are restricted from being pushed to the commit graph.</p>",
                             "isRequired": true
@@ -6740,6 +6825,11 @@
                         "name": "parameters",
                         "description": "",
                         "childParamsGroups": [
+                          {
+                            "type": "array of strings",
+                            "name": "ignored_file_paths",
+                            "description": "<p>Files matching these patterns may exceed the maximum size.</p>"
+                          },
                           {
                             "type": "integer",
                             "name": "max_file_size",

@@ -13879,7 +13879,7 @@
               {
                 "id": 2,
                 "name": "DevTools Hook Env",
-                "image_url": "https://my_file_server/path/to/devtools_env.tar.gz",
+                "image_url": "https://fileserver.example.com/path/to/devtools_env.tar.gz",
                 "url": "https://github.example.com/api/v3/admin/pre-receive-environments/2",
                 "html_url": "https://github.example.com/admin/pre-receive-environments/2",
                 "default_environment": false,
@@ -13997,7 +13997,7 @@
             "acceptHeader": "application/vnd.github.v3+json",
             "bodyParameters": {
               "name": "DevTools Hook Env",
-              "image_url": "https://my_file_server/path/to/devtools_env.tar.gz"
+              "image_url": "https://fileserver.example.com/path/to/devtools_env.tar.gz"
             }
           },
           "response": {
@@ -14007,7 +14007,7 @@
             "example": {
               "id": 2,
               "name": "DevTools Hook Env",
-              "image_url": "https://my_file_server/path/to/devtools_env.tar.gz",
+              "image_url": "https://fileserver.example.com/path/to/devtools_env.tar.gz",
               "url": "https://github.example.com/api/v3/admin/pre-receive-environments/2",
               "html_url": "https://github.example.com/admin/pre-receive-environments/2",
               "default_environment": false,
@@ -14126,7 +14126,7 @@
             "example": {
               "id": 2,
               "name": "DevTools Hook Env",
-              "image_url": "https://my_file_server/path/to/devtools_env.tar.gz",
+              "image_url": "https://fileserver.example.com/path/to/devtools_env.tar.gz",
               "url": "https://github.example.com/api/v3/admin/pre-receive-environments/2",
               "html_url": "https://github.example.com/admin/pre-receive-environments/2",
               "default_environment": false,
@@ -14248,7 +14248,7 @@
             "acceptHeader": "application/vnd.github.v3+json",
             "bodyParameters": {
               "name": "DevTools Hook Env",
-              "image_url": "https://my_file_server/path/to/devtools_env.tar.gz"
+              "image_url": "https://fileserver.example.com/path/to/devtools_env.tar.gz"
             },
             "parameters": {
               "pre_receive_environment_id": "PRE_RECEIVE_ENVIRONMENT_ID"
@@ -14261,7 +14261,7 @@
             "example": {
               "id": 2,
               "name": "DevTools Hook Env",
-              "image_url": "https://my_file_server/path/to/devtools_env.tar.gz",
+              "image_url": "https://fileserver.example.com/path/to/devtools_env.tar.gz",
               "url": "https://github.example.com/api/v3/admin/pre-receive-environments/2",
               "html_url": "https://github.example.com/admin/pre-receive-environments/2",
               "default_environment": false,
@@ -14648,7 +14648,7 @@
                 "environment": {
                   "id": 2,
                   "name": "DevTools Hook Env",
-                  "image_url": "https://my_file_server/path/to/devtools_env.tar.gz",
+                  "image_url": "https://fileserver.example.com/path/to/devtools_env.tar.gz",
                   "url": "https://github.example.com/api/v3/admin/pre-receive-environments/2",
                   "html_url": "https://github.example.com/admin/pre-receive-environments/2",
                   "default_environment": false,
@@ -14856,7 +14856,7 @@
               "environment": {
                 "id": 2,
                 "name": "DevTools Hook Env",
-                "image_url": "https://my_file_server/path/to/devtools_env.tar.gz",
+                "image_url": "https://fileserver.example.com/path/to/devtools_env.tar.gz",
                 "url": "https://github.example.com/api/v3/admin/pre-receive-environments/2",
                 "html_url": "https://github.example.com/admin/pre-receive-environments/2",
                 "default_environment": false,
@@ -15025,7 +15025,7 @@
               "environment": {
                 "id": 2,
                 "name": "DevTools Hook Env",
-                "image_url": "https://my_file_server/path/to/devtools_env.tar.gz",
+                "image_url": "https://fileserver.example.com/path/to/devtools_env.tar.gz",
                 "url": "https://github.example.com/api/v3/admin/pre-receive-environments/2",
                 "html_url": "https://github.example.com/admin/pre-receive-environments/2",
                 "default_environment": false,

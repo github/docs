@@ -7,6 +7,8 @@ import type { JourneyTrack } from '@/journeys/lib/journey-path-resolver'
 
 export type LandingType = 'bespoke' | 'discovery' | 'journey'
 
+export type HeroTheme = 'mos-diner'
+
 export type LandingContextT = {
   landingType: LandingType
   title: string
@@ -19,6 +21,7 @@ export type LandingContextT = {
   renderedPage: string
   currentLayout: string
   heroImage?: string
+  heroTheme?: HeroTheme
   carousels?: Record<
     string,
     Array<{ title: string; intro: string; href: string; category: string[] }>
@@ -32,6 +35,7 @@ export type LandingContextT = {
 type LandingPage = NonNullable<Context['page']> & {
   includedCategories?: string[]
   heroImage?: string
+  heroTheme?: HeroTheme
   product?: string
   permissions?: string
   rawPermissions?: string
@@ -92,6 +96,7 @@ export const getLandingContextFromRequest = async (
     renderedPage: context.renderedPage ?? '',
     currentLayout: context.currentLayoutName ?? '',
     heroImage: page.heroImage || '/assets/images/banner-images/hero-1',
+    ...(page.heroTheme && { heroTheme: page.heroTheme }),
     introLinks: page.introLinks || null,
     carousels,
     journeyTracks,

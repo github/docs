@@ -61,3 +61,28 @@ describe('LandingHero introLinks', () => {
     ).toEqual(['https://github.com/features', '//example.com/x'])
   })
 })
+
+describe('LandingHero heroTheme', () => {
+  function renderHero(props: { heroImage?: string; heroTheme?: 'mos-diner' }) {
+    return load(renderToStaticMarkup(createElement(LandingHero, { title: 'Title', ...props })))
+  }
+
+  test('draws the hero image when no theme is set', () => {
+    const $ = renderHero({ heroImage: '/assets/images/banner-images/hero-1' })
+    expect($('[style*="background-image"]').length).toBe(1)
+    expect($('[data-hero-theme]').length).toBe(0)
+    expect($('[aria-hidden="true"]').length).toBe(0)
+    expect($('.visually-hidden').length).toBe(0)
+  })
+
+  test('replaces the hero image with the theme and its decorative accent', () => {
+    const $ = renderHero({
+      heroImage: '/assets/images/banner-images/hero-1',
+      heroTheme: 'mos-diner',
+    })
+    expect($('[data-hero-theme="mos-diner"]').length).toBe(1)
+    expect($('[style*="background-image"]').length).toBe(0)
+    expect($('[data-hero-theme="mos-diner"] > [aria-hidden="true"]').length).toBe(1)
+    expect($('.visually-hidden').text()).toBe('Title')
+  })
+})
