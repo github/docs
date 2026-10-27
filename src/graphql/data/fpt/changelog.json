@@ -4,6 +4,20 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Field <code>requireExtraApprovalForUnattributedChanges</code> was added to object type <code>PullRequestParameters</code></p>",
+          "<p>Input field <code>requireExtraApprovalForUnattributedChanges</code> of type <code>Boolean</code> was added to input object type <code>PullRequestParametersInput</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-10-27"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Field <code>ignoredFilePaths</code> was added to object type <code>FilePathRestrictionParameters</code></p>",
           "<p>Input field <code>ignoredFilePaths</code> of type <code>[String!]</code> was added to input object type <code>FilePathRestrictionParametersInput</code></p>",
           "<p>Field <code>ignoredFilePaths</code> was added to object type <code>MaxFileSizeParameters</code></p>",
