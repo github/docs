@@ -12,6 +12,7 @@ contentType: concepts
 category:
   - Learn about Copilot
   - Learn about Copilot CLI
+  - Mains - Hard code your meal
 docsTeamMetrics:
   - copilot-cli
 ---
