@@ -3337,10 +3337,14 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": false,
-        "serverToServer": false,
+        "userToServerRest": true,
+        "serverToServer": true,
         "fineGrainedPat": false,
-        "permissions": []
+        "permissions": [
+          {
+            "\"Enterprise bypass requests\" enterprise permissions": "read"
+          }
+        ]
       }
     }
   ],
@@ -17296,10 +17300,14 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": false,
-        "serverToServer": false,
+        "userToServerRest": true,
+        "serverToServer": true,
         "fineGrainedPat": false,
-        "permissions": []
+        "permissions": [
+          {
+            "\"Enterprise Ruleset\" enterprise permissions": "write"
+          }
+        ]
       }
     },
     {
@@ -17455,10 +17463,14 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": false,
-        "serverToServer": false,
+        "userToServerRest": true,
+        "serverToServer": true,
         "fineGrainedPat": false,
-        "permissions": []
+        "permissions": [
+          {
+            "\"Enterprise Ruleset\" enterprise permissions": "write"
+          }
+        ]
       }
     }
   ],

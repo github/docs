@@ -1775,7 +1775,12 @@
           "name": "has",
           "in": "query",
           "description": "<p>Filters the list of alerts based on whether the alert has the given value. If specified, only alerts meeting this criterion will be returned.\nMultiple <code>has</code> filters can be passed to filter for alerts that have all of the values. Currently, only <code>patch</code> is supported.</p>",
-          "schema": {}
+          "schema": {
+            "type": [
+              "string",
+              "array of strings"
+            ]
+          }
         },
         {
           "name": "assignee",
@@ -3640,7 +3645,12 @@
           "name": "has",
           "in": "query",
           "description": "<p>Filters the list of alerts based on whether the alert has the given value. If specified, only alerts meeting this criterion will be returned.\nMultiple <code>has</code> filters can be passed to filter for alerts that have all of the values.</p>",
-          "schema": {}
+          "schema": {
+            "type": [
+              "string",
+              "array of strings"
+            ]
+          }
         },
         {
           "name": "assignee",
@@ -5522,7 +5532,12 @@
           "name": "has",
           "in": "query",
           "description": "<p>Filters the list of alerts based on whether the alert has the given value. If specified, only alerts meeting this criterion will be returned.\nMultiple <code>has</code> filters can be passed to filter for alerts that have all of the values. Currently, only <code>patch</code> is supported.</p>",
-          "schema": {}
+          "schema": {
+            "type": [
+              "string",
+              "array of strings"
+            ]
+          }
         },
         {
           "name": "assignee",

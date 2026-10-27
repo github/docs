@@ -3575,6 +3575,18 @@
       "requestPath": "/enterprise-installation/{enterprise_or_org}/server-statistics"
     },
     {
+      "slug": "disable-access-restrictions-for-an-enterprise",
+      "subcategory": "enterprises",
+      "verb": "post",
+      "requestPath": "/enterprises/{enterprise}/access-restrictions/disable"
+    },
+    {
+      "slug": "enable-access-restrictions-for-an-enterprise",
+      "subcategory": "enterprises",
+      "verb": "post",
+      "requestPath": "/enterprises/{enterprise}/access-restrictions/enable"
+    },
+    {
       "slug": "get-enterprise-owned-organizations-that-can-have-github-apps-installed",
       "subcategory": "organization-installations",
       "verb": "get",
@@ -3633,6 +3645,12 @@
       "subcategory": "audit-log",
       "verb": "get",
       "requestPath": "/enterprises/{enterprise}/audit-log"
+    },
+    {
+      "slug": "list-push-rule-bypass-requests-within-an-enterprise",
+      "subcategory": "bypass-requests",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/bypass-requests/push-rules"
     },
     {
       "slug": "list-enterprise-consumed-licenses",
@@ -3879,6 +3897,18 @@
       "subcategory": "rules",
       "verb": "delete",
       "requestPath": "/enterprises/{enterprise}/rulesets/{ruleset_id}"
+    },
+    {
+      "slug": "get-enterprise-ruleset-history",
+      "subcategory": "rules",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/rulesets/{ruleset_id}/history"
+    },
+    {
+      "slug": "get-enterprise-ruleset-version",
+      "subcategory": "rules",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/rulesets/{ruleset_id}/history/{version_id}"
     },
     {
       "slug": "get-github-advanced-security-active-committers-for-an-enterprise",

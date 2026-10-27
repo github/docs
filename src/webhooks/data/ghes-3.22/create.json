@@ -7,47 +7,40 @@
         "type": "string or null",
         "name": "description",
         "description": "<p>The repository's current description.</p>",
-        "isRequired": true,
-        "childParamsGroups": []
+        "isRequired": true
       },
       {
         "type": "object",
         "name": "enterprise",
-        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.22/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
-        "childParamsGroups": []
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.22/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>"
       },
       {
         "type": "object",
         "name": "installation",
-        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.22/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
-        "childParamsGroups": []
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.22/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>"
       },
       {
         "type": "string",
         "name": "master_branch",
         "description": "<p>The name of the repository's default branch (usually <code>main</code>).</p>",
-        "isRequired": true,
-        "childParamsGroups": []
+        "isRequired": true
       },
       {
         "type": "object",
         "name": "organization",
-        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
-        "childParamsGroups": []
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>"
       },
       {
         "type": "string",
         "name": "pusher_type",
         "description": "<p>The pusher type for the event. Can be either <code>user</code> or a deploy key.</p>",
-        "isRequired": true,
-        "childParamsGroups": []
+        "isRequired": true
       },
       {
         "type": "string",
         "name": "ref",
         "description": "<p>The <a href=\"https://docs.github.com/enterprise-server@3.22/rest/git/refs#get-a-reference\"><code>git ref</code></a> resource.</p>",
-        "isRequired": true,
-        "childParamsGroups": []
+        "isRequired": true
       },
       {
         "type": "string",
@@ -57,22 +50,19 @@
         "enum": [
           "tag",
           "branch"
-        ],
-        "childParamsGroups": []
+        ]
       },
       {
         "type": "object",
         "name": "repository",
         "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
-        "isRequired": true,
-        "childParamsGroups": []
+        "isRequired": true
       },
       {
         "type": "object",
         "name": "sender",
         "description": "<p>A GitHub user.</p>",
-        "isRequired": true,
-        "childParamsGroups": []
+        "isRequired": true
       }
     ],
     "availability": [
