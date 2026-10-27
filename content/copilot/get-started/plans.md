@@ -26,11 +26,11 @@ category:
 
 * Available to verified students. Get access to {% data variables.product.prodname_copilot_short %}'s features for free. 
 
-**{% data variables.copilot.copilot_pro %}**: [Subscribe to {% data variables.copilot.copilot_pro_short %}](https://github.com/github-copilot/signup?ref_product=copilot&ref_type=purchase&ref_style=text&ref_plan=pro).
+**{% data variables.copilot.copilot_pro %}**: [Subscribe to {% data variables.copilot.copilot_pro_short %}](https://github.com/github-copilot/pro/signup?ref_product=copilot&ref_type=purchase&ref_style=text&ref_plan=pro).
 
 * Designed for individuals who want more flexibility with access to a selection of models and a monthly allowance of {% data variables.product.prodname_ai_credits_short %}. 
 
-**{% data variables.copilot.copilot_pro_plus %}**: [Subscribe to {% data variables.copilot.copilot_pro_plus_short %}](https://github.com/github-copilot/signup?ref_product=copilot&ref_type=purchase&ref_style=text&ref_plan=pro-plus).
+**{% data variables.copilot.copilot_pro_plus %}**: [Subscribe to {% data variables.copilot.copilot_pro_plus_short %}](https://github.com/github-copilot/pro-plus/signup?ref_product=copilot&ref_type=purchase&ref_style=text&ref_plan=pro-plus).
 
 * Ideal for AI power users who want access to the most advanced capabilities. This paid plan includes everything in {% data variables.copilot.copilot_pro %} and a higher monthly allowance of {% data variables.product.prodname_ai_credits_short %}. 
 
