@@ -46074,6 +46074,12 @@ type PullRequestParameters @docsCategory(name: "pulls") {
   requireCodeOwnerReview: Boolean!
 
   """
+  When Copilot opens a pull request without a human collaborator, require one
+  more approving review if a non-zero approval count is required.
+  """
+  requireExtraApprovalForUnattributedChanges: Boolean!
+
+  """
   Whether the most recent reviewable push must be approved by someone other than the person who pushed it.
   """
   requireLastPushApproval: Boolean!
@@ -46119,6 +46125,12 @@ input PullRequestParametersInput @docsCategory(name: "pulls") {
   Require an approving review in pull requests that modify files that have a designated code owner.
   """
   requireCodeOwnerReview: Boolean!
+
+  """
+  When Copilot opens a pull request without a human collaborator, require one
+  more approving review if a non-zero approval count is required.
+  """
+  requireExtraApprovalForUnattributedChanges: Boolean
 
   """
   Whether the most recent reviewable push must be approved by someone other than the person who pushed it.

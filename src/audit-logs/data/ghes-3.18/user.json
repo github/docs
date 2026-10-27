@@ -63,7 +63,9 @@
       "oauth_application_id",
       "operation_type"
     ],
-    "docs_reference_titles": "How GitHub billing works"
+    "docs_reference_titles": [
+      "How GitHub billing works"
+    ]
   },
   {
     "action": "account_recovery_token.confirm",
@@ -265,7 +267,9 @@
       "oauth_application_id",
       "operation_type"
     ],
-    "docs_reference_titles": "Managing your payment and billing information"
+    "docs_reference_titles": [
+      "Managing your payment and billing information"
+    ]
   },
   {
     "action": "billing.change_email",
@@ -302,7 +306,9 @@
       "operation_type",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "Managing your payment and billing information"
+    "docs_reference_titles": [
+      "Managing your payment and billing information"
+    ]
   },
   {
     "action": "billing.lock",
@@ -582,7 +588,9 @@
       "operation_type",
       "policy"
     ],
-    "docs_reference_titles": "Enforcing policies for GitHub Actions in your enterprise"
+    "docs_reference_titles": [
+      "Enforcing policies for GitHub Actions in your enterprise"
+    ]
   },
   {
     "action": "business.set_actions_private_fork_pr_approvals_policy",
@@ -618,7 +626,9 @@
       "operation_type",
       "policy"
     ],
-    "docs_reference_titles": "Enforcing policies for GitHub Actions in your enterprise"
+    "docs_reference_titles": [
+      "Enforcing policies for GitHub Actions in your enterprise"
+    ]
   },
   {
     "action": "business.set_actions_retention_limit",
@@ -654,7 +664,9 @@
       "oauth_application_id",
       "operation_type"
     ],
-    "docs_reference_titles": "Enforcing policies for GitHub Actions in your enterprise"
+    "docs_reference_titles": [
+      "Enforcing policies for GitHub Actions in your enterprise"
+    ]
   },
   {
     "action": "business.set_default_workflow_permissions",
@@ -690,7 +702,9 @@
       "oauth_application_id",
       "operation_type"
     ],
-    "docs_reference_titles": "Enforcing policies for GitHub Actions in your enterprise"
+    "docs_reference_titles": [
+      "Enforcing policies for GitHub Actions in your enterprise"
+    ]
   },
   {
     "action": "business.set_fork_pr_workflows_policy",
@@ -726,7 +740,9 @@
       "operation_type",
       "policy"
     ],
-    "docs_reference_titles": "Enforcing policies for GitHub Actions in your enterprise"
+    "docs_reference_titles": [
+      "Enforcing policies for GitHub Actions in your enterprise"
+    ]
   },
   {
     "action": "business.set_workflow_permission_can_approve_pr",
@@ -762,7 +778,9 @@
       "operation_type",
       "workflow_permission_can_approve_pr_value"
     ],
-    "docs_reference_titles": "Enforcing policies for GitHub Actions in your enterprise"
+    "docs_reference_titles": [
+      "Enforcing policies for GitHub Actions in your enterprise"
+    ]
   },
   {
     "action": "checks.auto_trigger_disabled",
@@ -798,7 +816,9 @@
       "public_repo",
       "visibility"
     ],
-    "docs_reference_titles": "/rest/checks#update-repository-preferences-for-check-suites"
+    "docs_reference_titles": [
+      "REST API endpoints for checks"
+    ]
   },
   {
     "action": "checks.auto_trigger_enabled",
@@ -834,7 +854,9 @@
       "public_repo",
       "visibility"
     ],
-    "docs_reference_titles": "/rest/checks#update-repository-preferences-for-check-suites"
+    "docs_reference_titles": [
+      "REST API endpoints for checks"
+    ]
   },
   {
     "action": "checks.delete_logs",
@@ -983,7 +1005,9 @@
       "pull_request_id",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "Creating a codespace for a repository"
+    "docs_reference_titles": [
+      "Creating a codespace for a repository"
+    ]
   },
   {
     "action": "codespaces.destroy",
@@ -1023,7 +1047,9 @@
       "pull_request_id",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "Deleting a codespace"
+    "docs_reference_titles": [
+      "Deleting a codespace"
+    ]
   },
   {
     "action": "codespaces.export_environment",
@@ -1208,7 +1234,9 @@
       "oauth_application_id",
       "operation_type"
     ],
-    "docs_reference_titles": "Managing access to other repositories within your codespace"
+    "docs_reference_titles": [
+      "Managing access to other repositories within your codespace"
+    ]
   },
   {
     "action": "copilot.cfb_seat_added",
@@ -1283,7 +1311,9 @@
       "owner_type",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "About GitHub Copilot"
+    "docs_reference_titles": [
+      "About GitHub Copilot"
+    ]
   },
   {
     "action": "copilot.cfb_seat_assignment_refreshed",
@@ -1709,7 +1739,9 @@
       "oauth_application_id",
       "operation_type"
     ],
-    "docs_reference_titles": "/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization#enabling-or-disabling-a-feature-for-all-existing-repositories"
+    "docs_reference_titles": [
+      "Managing security and analysis settings for your organization"
+    ]
   },
   {
     "action": "dependabot_alerts.enable",
@@ -1745,7 +1777,9 @@
       "operation_type",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization#enabling-or-disabling-a-feature-for-all-existing-repositories"
+    "docs_reference_titles": [
+      "Managing security and analysis settings for your organization"
+    ]
   },
   {
     "action": "dependabot_alerts_new_repos.disable",
@@ -1781,7 +1815,9 @@
       "operation_type",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization#enabling-or-disabling-a-feature-automatically-when-new-repositories-are-added"
+    "docs_reference_titles": [
+      "Managing security and analysis settings for your organization"
+    ]
   },
   {
     "action": "dependabot_alerts_new_repos.enable",
@@ -1817,7 +1853,9 @@
       "operation_type",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization#enabling-or-disabling-a-feature-automatically-when-new-repositories-are-added"
+    "docs_reference_titles": [
+      "Managing security and analysis settings for your organization"
+    ]
   },
   {
     "action": "dependabot_repository_access.repositories_updated",
@@ -1886,7 +1924,9 @@
       "oauth_application_id",
       "operation_type"
     ],
-    "docs_reference_titles": "/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization"
+    "docs_reference_titles": [
+      "Managing security and analysis settings for your organization"
+    ]
   },
   {
     "action": "dependabot_security_updates.enable",
@@ -1957,7 +1997,9 @@
       "operation_type",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization"
+    "docs_reference_titles": [
+      "Managing security and analysis settings for your organization"
+    ]
   },
   {
     "action": "dependabot_security_updates_new_repos.enable",
@@ -2026,7 +2068,9 @@
       "oauth_application_id",
       "operation_type"
     ],
-    "docs_reference_titles": "/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization"
+    "docs_reference_titles": [
+      "Managing security and analysis settings for your organization"
+    ]
   },
   {
     "action": "dependency_graph.enable",
@@ -2097,7 +2141,9 @@
       "operation_type",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization"
+    "docs_reference_titles": [
+      "Managing security and analysis settings for your organization"
+    ]
   },
   {
     "action": "dependency_graph_new_repos.enable",
@@ -2173,7 +2219,9 @@
       "topic",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "Managing environments for deployment"
+    "docs_reference_titles": [
+      "Managing environments for deployment"
+    ]
   },
   {
     "action": "environment.create",
@@ -2251,7 +2299,9 @@
       "user_programmatic_access_name",
       "visibility"
     ],
-    "docs_reference_titles": "Managing environments for deployment"
+    "docs_reference_titles": [
+      "Managing environments for deployment"
+    ]
   },
   {
     "action": "environment.create_actions_variable",
@@ -2291,7 +2341,9 @@
       "user_programmatic_access_name",
       "visibility"
     ],
-    "docs_reference_titles": "Store information in variables"
+    "docs_reference_titles": [
+      "Store information in variables"
+    ]
   },
   {
     "action": "environment.delete",
@@ -2330,7 +2382,9 @@
       "public_repo",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "Managing environments for deployment"
+    "docs_reference_titles": [
+      "Managing environments for deployment"
+    ]
   },
   {
     "action": "environment.remove_actions_secret",
@@ -2369,7 +2423,9 @@
       "public_repo",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "Managing environments for deployment"
+    "docs_reference_titles": [
+      "Managing environments for deployment"
+    ]
   },
   {
     "action": "environment.remove_actions_variable",
@@ -2408,7 +2464,9 @@
       "public_repo",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "Store information in variables"
+    "docs_reference_titles": [
+      "Store information in variables"
+    ]
   },
   {
     "action": "environment.remove_protection_rule",
@@ -2448,7 +2506,9 @@
       "public_repo",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "Managing environments for deployment"
+    "docs_reference_titles": [
+      "Managing environments for deployment"
+    ]
   },
   {
     "action": "environment.update_actions_secret",
@@ -2488,7 +2548,9 @@
       "user_programmatic_access_name",
       "visibility"
     ],
-    "docs_reference_titles": "Managing environments for deployment"
+    "docs_reference_titles": [
+      "Managing environments for deployment"
+    ]
   },
   {
     "action": "environment.update_actions_variable",
@@ -2528,7 +2590,9 @@
       "user_programmatic_access_name",
       "visibility"
     ],
-    "docs_reference_titles": "Store information in variables"
+    "docs_reference_titles": [
+      "Store information in variables"
+    ]
   },
   {
     "action": "environment.update_protection_rule",
@@ -2566,7 +2630,9 @@
       "old_value",
       "prevent_self_review"
     ],
-    "docs_reference_titles": "Managing environments for deployment"
+    "docs_reference_titles": [
+      "Managing environments for deployment"
+    ]
   },
   {
     "action": "gist.create",
@@ -2712,7 +2778,9 @@
       "title",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key"
+    "docs_reference_titles": [
+      "Telling Git about your signing key"
+    ]
   },
   {
     "action": "git_signing_ssh_public_key.delete",
@@ -2751,7 +2819,9 @@
       "title",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key"
+    "docs_reference_titles": [
+      "Telling Git about your signing key"
+    ]
   },
   {
     "action": "github_hosted_runner.create",
@@ -3062,7 +3132,9 @@
       "sponsors_listing_id",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "About webhooks"
+    "docs_reference_titles": [
+      "About webhooks"
+    ]
   },
   {
     "action": "hook.destroy",
@@ -3297,7 +3369,9 @@
       "trigger_id",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "/apps/using-github-apps/authorizing-github-apps"
+    "docs_reference_titles": [
+      "Authorizing GitHub Apps"
+    ]
   },
   {
     "action": "integration_installation.destroy",
@@ -3337,7 +3411,9 @@
       "repository_selection",
       "topic"
     ],
-    "docs_reference_titles": "/apps/using-github-apps/reviewing-and-modifying-installed-github-apps#blocking-access"
+    "docs_reference_titles": [
+      "Reviewing and modifying installed GitHub Apps"
+    ]
   },
   {
     "action": "integration_installation.repositories_added",
@@ -3380,7 +3456,9 @@
       "topic",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "/apps/using-github-apps/reviewing-and-modifying-installed-github-apps#modifying-repository-access"
+    "docs_reference_titles": [
+      "Reviewing and modifying installed GitHub Apps"
+    ]
   },
   {
     "action": "integration_installation.repositories_removed",
@@ -3422,7 +3500,9 @@
       "repository_selection",
       "topic"
     ],
-    "docs_reference_titles": "/apps/using-github-apps/reviewing-and-modifying-installed-github-apps#modifying-repository-access"
+    "docs_reference_titles": [
+      "Reviewing and modifying installed GitHub Apps"
+    ]
   },
   {
     "action": "integration_installation.suspend",
@@ -3460,7 +3540,9 @@
       "operation_type",
       "repository_selection"
     ],
-    "docs_reference_titles": "/apps/using-github-apps/reviewing-and-modifying-installed-github-apps#blocking-access"
+    "docs_reference_titles": [
+      "Reviewing and modifying installed GitHub Apps"
+    ]
   },
   {
     "action": "integration_installation.unsuspend",
@@ -3498,7 +3580,9 @@
       "operation_type",
       "repository_selection"
     ],
-    "docs_reference_titles": "/apps/using-github-apps/reviewing-and-modifying-installed-github-apps#blocking-access"
+    "docs_reference_titles": [
+      "Reviewing and modifying installed GitHub Apps"
+    ]
   },
   {
     "action": "integration_installation.version_updated",
@@ -3539,7 +3623,9 @@
       "operation_type",
       "repository_selection"
     ],
-    "docs_reference_titles": "/apps/using-github-apps/approving-updated-permissions-for-a-github-app"
+    "docs_reference_titles": [
+      "Approving updated permissions for a GitHub App"
+    ]
   },
   {
     "action": "integration.manager_added",
@@ -3576,7 +3662,9 @@
       "name",
       "operation_type"
     ],
-    "docs_reference_titles": "/organizations/managing-programmatic-access-to-your-organization/adding-and-removing-github-app-managers-in-your-organization#giving-someone-the-ability-to-manage-all-github-apps-owned-by-the-organization"
+    "docs_reference_titles": [
+      "Adding and removing GitHub App managers in your organization"
+    ]
   },
   {
     "action": "integration.manager_removed",
@@ -3613,7 +3701,9 @@
       "name",
       "operation_type"
     ],
-    "docs_reference_titles": "/organizations/managing-programmatic-access-to-your-organization/adding-and-removing-github-app-managers-in-your-organization#removing-a-github-app-managers-permissions-for-the-entire-organization"
+    "docs_reference_titles": [
+      "Adding and removing GitHub App managers in your organization"
+    ]
   },
   {
     "action": "integration.remove_client_secret",
@@ -3758,7 +3848,9 @@
       "operation_type",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "/apps/maintaining-github-apps/suspending-a-github-app-installation"
+    "docs_reference_titles": [
+      "Suspending a GitHub App installation"
+    ]
   },
   {
     "action": "integration.transfer",
@@ -3802,7 +3894,9 @@
       "transfer_to_id",
       "transfer_to_type"
     ],
-    "docs_reference_titles": "/apps/maintaining-github-apps/transferring-ownership-of-a-github-app"
+    "docs_reference_titles": [
+      "Transferring ownership of a GitHub App"
+    ]
   },
   {
     "action": "integration.unsuspend",
@@ -3838,7 +3932,9 @@
       "name",
       "operation_type"
     ],
-    "docs_reference_titles": "/apps/maintaining-github-apps/suspending-a-github-app-installation"
+    "docs_reference_titles": [
+      "Suspending a GitHub App installation"
+    ]
   },
   {
     "action": "marketplace_agreement_signature.create",
@@ -4560,7 +4656,10 @@
       "topic",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps, Managing your personal access tokens"
+    "docs_reference_titles": [
+      "Authorizing OAuth apps",
+      "Managing your personal access tokens"
+    ]
   },
   {
     "action": "oauth_access.destroy",
@@ -4600,7 +4699,9 @@
       "topic",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps"
+    "docs_reference_titles": [
+      "Authorizing OAuth apps"
+    ]
   },
   {
     "action": "oauth_access.regenerate",
@@ -4736,7 +4837,9 @@
       "oauth_application_id",
       "operation_type"
     ],
-    "docs_reference_titles": "/apps/oauth-apps/building-oauth-apps/authenticating-to-the-rest-api-with-an-oauth-app#registering-your-app"
+    "docs_reference_titles": [
+      "Authenticating to the REST API with an OAuth app"
+    ]
   },
   {
     "action": "oauth_application.destroy",
@@ -4771,7 +4874,9 @@
       "oauth_application_id",
       "operation_type"
     ],
-    "docs_reference_titles": "/apps/oauth-apps/building-oauth-apps/authenticating-to-the-rest-api-with-an-oauth-app#registering-your-app"
+    "docs_reference_titles": [
+      "Authenticating to the REST API with an OAuth app"
+    ]
   },
   {
     "action": "oauth_application.generate_client_secret",
@@ -4806,7 +4911,9 @@
       "oauth_application_id",
       "operation_type"
     ],
-    "docs_reference_titles": "/apps/oauth-apps/building-oauth-apps/authenticating-to-the-rest-api-with-an-oauth-app#registering-your-app"
+    "docs_reference_titles": [
+      "Authenticating to the REST API with an OAuth app"
+    ]
   },
   {
     "action": "oauth_application.remove_client_secret",
@@ -4841,7 +4948,9 @@
       "oauth_application_id",
       "operation_type"
     ],
-    "docs_reference_titles": "/apps/oauth-apps/building-oauth-apps/authenticating-to-the-rest-api-with-an-oauth-app#registering-your-app"
+    "docs_reference_titles": [
+      "Authenticating to the REST API with an OAuth app"
+    ]
   },
   {
     "action": "oauth_application.reset_secret",
@@ -4875,7 +4984,9 @@
       "oauth_application_id",
       "operation_type"
     ],
-    "docs_reference_titles": "/apps/oauth-apps/building-oauth-apps/authenticating-to-the-rest-api-with-an-oauth-app#registering-your-app"
+    "docs_reference_titles": [
+      "Authenticating to the REST API with an OAuth app"
+    ]
   },
   {
     "action": "oauth_application.revoke_all_tokens",
@@ -4910,7 +5021,9 @@
       "oauth_application_id",
       "operation_type"
     ],
-    "docs_reference_titles": "/apps/oauth-apps/building-oauth-apps/authenticating-to-the-rest-api-with-an-oauth-app#registering-your-app"
+    "docs_reference_titles": [
+      "Authenticating to the REST API with an OAuth app"
+    ]
   },
   {
     "action": "oauth_application.revoke_tokens",
@@ -4945,7 +5058,9 @@
       "oauth_application_id",
       "operation_type"
     ],
-    "docs_reference_titles": "/apps/oauth-apps/building-oauth-apps/authenticating-to-the-rest-api-with-an-oauth-app#registering-your-app"
+    "docs_reference_titles": [
+      "Authenticating to the REST API with an OAuth app"
+    ]
   },
   {
     "action": "oauth_application.transfer",
@@ -4980,7 +5095,9 @@
       "oauth_application_id",
       "operation_type"
     ],
-    "docs_reference_titles": "/apps/oauth-apps/building-oauth-apps/authenticating-to-the-rest-api-with-an-oauth-app#registering-your-app"
+    "docs_reference_titles": [
+      "Authenticating to the REST API with an OAuth app"
+    ]
   },
   {
     "action": "oauth_authorization.create",
@@ -5018,7 +5135,9 @@
       "topic",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "/apps/oauth-apps/using-oauth-apps/authorizing-oauth-apps"
+    "docs_reference_titles": [
+      "Authorizing OAuth apps"
+    ]
   },
   {
     "action": "oauth_authorization.destroy",
@@ -5057,7 +5176,9 @@
       "operation_type",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "Reviewing and revoking authorization of GitHub Apps"
+    "docs_reference_titles": [
+      "Reviewing and revoking authorization of GitHub Apps"
+    ]
   },
   {
     "action": "oauth_authorization.update",
@@ -5093,7 +5214,9 @@
       "operation_type",
       "topic"
     ],
-    "docs_reference_titles": "/apps/oauth-apps/using-oauth-apps/authorizing-oauth-apps"
+    "docs_reference_titles": [
+      "Authorizing OAuth apps"
+    ]
   },
   {
     "action": "org.add_member",
@@ -5520,7 +5643,9 @@
       "policy",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#requiring-approval-for-workflows-from-public-forks"
+    "docs_reference_titles": [
+      "Disabling or limiting GitHub Actions for your organization"
+    ]
   },
   {
     "action": "org.set_actions_private_fork_pr_approvals_policy",
@@ -5557,7 +5682,9 @@
       "policy",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#enabling-workflows-for-private-repository-forks"
+    "docs_reference_titles": [
+      "Disabling or limiting GitHub Actions for your organization"
+    ]
   },
   {
     "action": "org.set_actions_retention_limit",
@@ -5594,7 +5721,9 @@
       "operation_type",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "/organizations/managing-organization-settings/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization"
+    "docs_reference_titles": [
+      "Configuring the retention period for checks, workflow runs, commit statuses, artifacts, and logs in your organization"
+    ]
   },
   {
     "action": "org.set_default_workflow_permissions",
@@ -5631,7 +5760,9 @@
       "operation_type",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#setting-the-permissions-of-the-github_token-for-your-organization"
+    "docs_reference_titles": [
+      "Disabling or limiting GitHub Actions for your organization"
+    ]
   },
   {
     "action": "org.set_fork_pr_workflows_policy",
@@ -5668,7 +5799,9 @@
       "policy",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#enabling-workflows-for-private-repository-forks"
+    "docs_reference_titles": [
+      "Disabling or limiting GitHub Actions for your organization"
+    ]
   },
   {
     "action": "org.set_workflow_permission_can_approve_pr",
@@ -5705,7 +5838,9 @@
       "user_programmatic_access_name",
       "workflow_permission_can_approve_pr_value"
     ],
-    "docs_reference_titles": "/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#preventing-github-actions-from-creating-or-approving-pull-requests"
+    "docs_reference_titles": [
+      "Disabling or limiting GitHub Actions for your organization"
+    ]
   },
   {
     "action": "org.update_member",
@@ -5813,7 +5948,9 @@
       "operation_type",
       "permission"
     ],
-    "docs_reference_titles": "Setting permissions for adding outside collaborators"
+    "docs_reference_titles": [
+      "Setting permissions for adding outside collaborators"
+    ]
   },
   {
     "action": "pages_protected_domain.create",
@@ -5850,7 +5987,9 @@
       "owner_type",
       "state"
     ],
-    "docs_reference_titles": "/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages"
+    "docs_reference_titles": [
+      "Verifying your custom domain for GitHub Pages"
+    ]
   },
   {
     "action": "pages_protected_domain.delete",
@@ -5887,7 +6026,9 @@
       "owner_type",
       "state"
     ],
-    "docs_reference_titles": "/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages"
+    "docs_reference_titles": [
+      "Verifying your custom domain for GitHub Pages"
+    ]
   },
   {
     "action": "pages_protected_domain.verify",
@@ -5924,7 +6065,9 @@
       "owner_type",
       "state"
     ],
-    "docs_reference_titles": "/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages"
+    "docs_reference_titles": [
+      "Verifying your custom domain for GitHub Pages"
+    ]
   },
   {
     "action": "passkey.register",
@@ -6126,7 +6269,9 @@
       "user_programmatic_access_id",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "/organizations/managing-programmatic-access-to-your-organization/managing-requests-for-personal-access-tokens-in-your-organization"
+    "docs_reference_titles": [
+      "Managing requests for personal access tokens in your organization"
+    ]
   },
   {
     "action": "personal_access_token.access_revoked",
@@ -6165,7 +6310,9 @@
       "user_programmatic_access_id",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "/organizations/managing-programmatic-access-to-your-organization/reviewing-and-revoking-personal-access-tokens-in-your-organization"
+    "docs_reference_titles": [
+      "Reviewing and revoking personal access tokens in your organization"
+    ]
   },
   {
     "action": "personal_access_token.create",
@@ -6266,7 +6413,9 @@
       "operation_type",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "/code-security/getting-started/github-security-features#secret-scanning-alerts-for-users"
+    "docs_reference_titles": [
+      "GitHub security features"
+    ]
   },
   {
     "action": "personal_access_token.destroy",
@@ -6374,7 +6523,9 @@
       "user_programmatic_access_name",
       "user_programmatic_access_request_id"
     ],
-    "docs_reference_titles": "/organizations/managing-programmatic-access-to-your-organization/managing-requests-for-personal-access-tokens-in-your-organization"
+    "docs_reference_titles": [
+      "Managing requests for personal access tokens in your organization"
+    ]
   },
   {
     "action": "personal_access_token.request_denied",
@@ -6411,7 +6562,9 @@
       "user_programmatic_access_name",
       "user_programmatic_access_request_id"
     ],
-    "docs_reference_titles": "/organizations/managing-programmatic-access-to-your-organization/managing-requests-for-personal-access-tokens-in-your-organization"
+    "docs_reference_titles": [
+      "Managing requests for personal access tokens in your organization"
+    ]
   },
   {
     "action": "personal_access_token.update",
@@ -6447,7 +6600,9 @@
       "repository_selection",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#fine-grained-personal-access-tokens"
+    "docs_reference_titles": [
+      "Managing your personal access tokens"
+    ]
   },
   {
     "action": "premium_runner.create",
@@ -6707,7 +6862,9 @@
       "owner",
       "team"
     ],
-    "docs_reference_titles": "Personalize your profile"
+    "docs_reference_titles": [
+      "Personalize your profile"
+    ]
   },
   {
     "action": "project.access",
@@ -6778,7 +6935,9 @@
       "public_project",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "Planning and tracking with Projects"
+    "docs_reference_titles": [
+      "Planning and tracking with Projects"
+    ]
   },
   {
     "action": "project_collaborator.add",
@@ -6998,7 +7157,9 @@
       "operation_type",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "/issues/planning-and-tracking-with-projects/understanding-fields"
+    "docs_reference_titles": [
+      "Understanding fields"
+    ]
   },
   {
     "action": "project_field.delete",
@@ -7035,7 +7196,9 @@
       "topic",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "/issues/planning-and-tracking-with-projects/understanding-fields/deleting-custom-fields"
+    "docs_reference_titles": [
+      "Deleting custom fields"
+    ]
   },
   {
     "action": "project.link",
@@ -7106,7 +7269,9 @@
       "public_project",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "Planning and tracking with Projects"
+    "docs_reference_titles": [
+      "Planning and tracking with Projects"
+    ]
   },
   {
     "action": "project.rename",
@@ -7304,7 +7469,9 @@
       "operation_type",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/managing-your-views"
+    "docs_reference_titles": [
+      "Managing your views"
+    ]
   },
   {
     "action": "project_view.delete",
@@ -7340,7 +7507,9 @@
       "operation_type",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/managing-your-views"
+    "docs_reference_titles": [
+      "Managing your views"
+    ]
   },
   {
     "action": "project.visibility_private",
@@ -7455,7 +7624,9 @@
       "public_repo",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#require-merge-queue"
+    "docs_reference_titles": [
+      "About protected branches"
+    ]
   },
   {
     "action": "public_key.create",
@@ -7496,7 +7667,9 @@
       "title",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account"
+    "docs_reference_titles": [
+      "Adding a new SSH key to your GitHub account"
+    ]
   },
   {
     "action": "public_key.delete",
@@ -7538,7 +7711,9 @@
       "title",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "/authentication/keeping-your-account-and-data-secure/reviewing-your-ssh-keys"
+    "docs_reference_titles": [
+      "Reviewing your SSH keys"
+    ]
   },
   {
     "action": "public_key.unverification_failure",
@@ -7575,7 +7750,9 @@
       "read_only",
       "title"
     ],
-    "docs_reference_titles": "/authentication/connecting-to-github-with-ssh/managing-deploy-keys#deploy-keys"
+    "docs_reference_titles": [
+      "Managing deploy keys"
+    ]
   },
   {
     "action": "public_key.unverify",
@@ -7613,7 +7790,9 @@
       "read_only",
       "title"
     ],
-    "docs_reference_titles": "/authentication/connecting-to-github-with-ssh/managing-deploy-keys#deploy-keys"
+    "docs_reference_titles": [
+      "Managing deploy keys"
+    ]
   },
   {
     "action": "public_key.update",
@@ -7654,7 +7833,9 @@
       "title",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "/authentication/connecting-to-github-with-ssh/managing-deploy-keys#deploy-keys"
+    "docs_reference_titles": [
+      "Managing deploy keys"
+    ]
   },
   {
     "action": "public_key.verification_failure",
@@ -7695,7 +7876,9 @@
       "title",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "/authentication/connecting-to-github-with-ssh/managing-deploy-keys#deploy-keys"
+    "docs_reference_titles": [
+      "Managing deploy keys"
+    ]
   },
   {
     "action": "public_key.verify",
@@ -7736,7 +7919,9 @@
       "title",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "/authentication/connecting-to-github-with-ssh/managing-deploy-keys#deploy-keys"
+    "docs_reference_titles": [
+      "Managing deploy keys"
+    ]
   },
   {
     "action": "repo.access",
@@ -7775,7 +7960,9 @@
       "user_programmatic_access_name",
       "visibility"
     ],
-    "docs_reference_titles": "/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility"
+    "docs_reference_titles": [
+      "Setting repository visibility"
+    ]
   },
   {
     "action": "repo.actions_enabled",
@@ -7816,7 +8003,9 @@
       "topic",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization#using-the-audit-log-api"
+    "docs_reference_titles": [
+      "Reviewing the audit log for your organization"
+    ]
   },
   {
     "action": "repo.add_member",
@@ -7855,7 +8044,9 @@
       "user_programmatic_access_name",
       "visibility"
     ],
-    "docs_reference_titles": "Inviting collaborators to a personal repository"
+    "docs_reference_titles": [
+      "Inviting collaborators to a personal repository"
+    ]
   },
   {
     "action": "repo.add_topic",
@@ -7893,7 +8084,9 @@
       "topic",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics"
+    "docs_reference_titles": [
+      "Classifying your repository with topics"
+    ]
   },
   {
     "action": "repo.advanced_security_disabled",
@@ -7932,7 +8125,9 @@
       "user_programmatic_access_name",
       "visibility"
     ],
-    "docs_reference_titles": "/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository"
+    "docs_reference_titles": [
+      "Managing security and analysis settings for your repository"
+    ]
   },
   {
     "action": "repo.advanced_security_enabled",
@@ -7971,7 +8166,9 @@
       "user_programmatic_access_name",
       "visibility"
     ],
-    "docs_reference_titles": "/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository"
+    "docs_reference_titles": [
+      "Managing security and analysis settings for your repository"
+    ]
   },
   {
     "action": "repo.archived",
@@ -8009,7 +8206,9 @@
       "user_programmatic_access_name",
       "visibility"
     ],
-    "docs_reference_titles": "/repositories/archiving-a-github-repository"
+    "docs_reference_titles": [
+      "Archiving a GitHub repository"
+    ]
   },
   {
     "action": "repo.change_merge_setting",
@@ -8085,7 +8284,9 @@
       "tool",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "/rest/code-scanning#delete-a-code-scanning-analysis-from-a-repository"
+    "docs_reference_titles": [
+      "REST API endpoints for code scanning"
+    ]
   },
   {
     "action": "repo.code_scanning_configuration_for_branch_deleted",
@@ -8122,7 +8323,9 @@
       "public_repo",
       "tool"
     ],
-    "docs_reference_titles": "Resolving code scanning alerts"
+    "docs_reference_titles": [
+      "Resolving code scanning alerts"
+    ]
   },
   {
     "action": "repo.config.disable_collaborators_only",
@@ -8159,7 +8362,9 @@
       "topic",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository"
+    "docs_reference_titles": [
+      "Limiting interactions in your repository"
+    ]
   },
   {
     "action": "repo.config.disable_contributors_only",
@@ -8195,7 +8400,9 @@
       "public_repo",
       "topic"
     ],
-    "docs_reference_titles": "/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository"
+    "docs_reference_titles": [
+      "Limiting interactions in your repository"
+    ]
   },
   {
     "action": "repo.config.disable_sockpuppet_disallowed",
@@ -8232,7 +8439,9 @@
       "topic",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository"
+    "docs_reference_titles": [
+      "Limiting interactions in your repository"
+    ]
   },
   {
     "action": "repo.config.enable_collaborators_only",
@@ -8269,7 +8478,9 @@
       "public_repo",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository"
+    "docs_reference_titles": [
+      "Limiting interactions in your repository"
+    ]
   },
   {
     "action": "repo.config.enable_contributors_only",
@@ -8304,7 +8515,9 @@
       "operation_type",
       "public_repo"
     ],
-    "docs_reference_titles": "/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository"
+    "docs_reference_titles": [
+      "Limiting interactions in your repository"
+    ]
   },
   {
     "action": "repo.config.enable_sockpuppet_disallowed",
@@ -8340,7 +8553,9 @@
       "public_repo",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository"
+    "docs_reference_titles": [
+      "Limiting interactions in your repository"
+    ]
   },
   {
     "action": "repo.configure_self_hosted_jit_runner",
@@ -8377,7 +8592,9 @@
       "public_repo",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "/rest/actions/self-hosted-runners#create-configuration-for-a-just-in-time-runner-for-a-repository"
+    "docs_reference_titles": [
+      "REST API endpoints for self-hosted runners"
+    ]
   },
   {
     "action": "repo.create",
@@ -8417,7 +8634,9 @@
       "user_programmatic_access_name",
       "visibility"
     ],
-    "docs_reference_titles": "/repositories/creating-and-managing-repositories/creating-a-new-repository"
+    "docs_reference_titles": [
+      "Creating a new repository"
+    ]
   },
   {
     "action": "repo.create_actions_secret",
@@ -8456,7 +8675,9 @@
       "user_programmatic_access_name",
       "visibility"
     ],
-    "docs_reference_titles": "Using secrets in GitHub Actions"
+    "docs_reference_titles": [
+      "Using secrets in GitHub Actions"
+    ]
   },
   {
     "action": "repo.create_actions_variable",
@@ -8495,7 +8716,9 @@
       "user_programmatic_access_name",
       "visibility"
     ],
-    "docs_reference_titles": "Store information in variables"
+    "docs_reference_titles": [
+      "Store information in variables"
+    ]
   },
   {
     "action": "repo.create_integration_secret",
@@ -8574,7 +8797,9 @@
       "user_programmatic_access_name",
       "visibility"
     ],
-    "docs_reference_titles": "/repositories/creating-and-managing-repositories/deleting-a-repository"
+    "docs_reference_titles": [
+      "Deleting a repository"
+    ]
   },
   {
     "action": "repo.pages_cname",
@@ -8987,7 +9212,9 @@
       "operation_type",
       "public_repo"
     ],
-    "docs_reference_titles": "Adding self-hosted runners"
+    "docs_reference_titles": [
+      "Adding self-hosted runners"
+    ]
   },
   {
     "action": "repo.remove_actions_secret",
@@ -9025,7 +9252,9 @@
       "public_repo",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "Using secrets in GitHub Actions"
+    "docs_reference_titles": [
+      "Using secrets in GitHub Actions"
+    ]
   },
   {
     "action": "repo.remove_actions_variable",
@@ -9063,7 +9292,9 @@
       "public_repo",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "Store information in variables"
+    "docs_reference_titles": [
+      "Store information in variables"
+    ]
   },
   {
     "action": "repo.remove_integration_secret",
@@ -9139,7 +9370,9 @@
       "user_programmatic_access_name",
       "visibility"
     ],
-    "docs_reference_titles": "Removing a collaborator from a personal repository"
+    "docs_reference_titles": [
+      "Removing a collaborator from a personal repository"
+    ]
   },
   {
     "action": "repo.remove_self_hosted_runner",
@@ -9176,7 +9409,9 @@
       "public_repo",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "Removing self-hosted runners"
+    "docs_reference_titles": [
+      "Removing self-hosted runners"
+    ]
   },
   {
     "action": "repo.remove_topic",
@@ -9252,7 +9487,9 @@
       "user_programmatic_access_name",
       "visibility"
     ],
-    "docs_reference_titles": "/repositories/creating-and-managing-repositories/renaming-a-repository"
+    "docs_reference_titles": [
+      "Renaming a repository"
+    ]
   },
   {
     "action": "repo.restore",
@@ -9324,7 +9561,9 @@
       "user_programmatic_access_name",
       "visibility"
     ],
-    "docs_reference_titles": "/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-required-approval-for-workflows-from-public-forks"
+    "docs_reference_titles": [
+      "Managing GitHub Actions settings for a repository"
+    ]
   },
   {
     "action": "repo.set_actions_private_fork_pr_approvals_policy",
@@ -9363,7 +9602,9 @@
       "user_programmatic_access_name",
       "visibility"
     ],
-    "docs_reference_titles": "/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#enabling-workflows-for-forks-of-private-repositories"
+    "docs_reference_titles": [
+      "Managing GitHub Actions settings for a repository"
+    ]
   },
   {
     "action": "repo.set_actions_retention_limit",
@@ -9402,7 +9643,9 @@
       "user_programmatic_access_name",
       "visibility"
     ],
-    "docs_reference_titles": "/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository"
+    "docs_reference_titles": [
+      "Managing GitHub Actions settings for a repository"
+    ]
   },
   {
     "action": "repo.set_default_workflow_permissions",
@@ -9441,7 +9684,9 @@
       "user_programmatic_access_name",
       "visibility"
     ],
-    "docs_reference_titles": "/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#setting-the-permissions-of-the-github_token-for-your-repository"
+    "docs_reference_titles": [
+      "Managing GitHub Actions settings for a repository"
+    ]
   },
   {
     "action": "repo.set_fork_pr_workflows_policy",
@@ -9480,7 +9725,9 @@
       "user_programmatic_access_name",
       "visibility"
     ],
-    "docs_reference_titles": "/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#enabling-workflows-for-private-repository-forks"
+    "docs_reference_titles": [
+      "Managing GitHub Actions settings for a repository"
+    ]
   },
   {
     "action": "repo.set_workflow_permission_can_approve_pr",
@@ -9519,7 +9766,9 @@
       "visibility",
       "workflow_permission_can_approve_pr_value"
     ],
-    "docs_reference_titles": "/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#preventing-github-actions-from-creating-or-approving-pull-requests"
+    "docs_reference_titles": [
+      "Managing GitHub Actions settings for a repository"
+    ]
   },
   {
     "action": "repo.staff_unlock",
@@ -9587,7 +9836,9 @@
       "operation_type",
       "public_repo"
     ],
-    "docs_reference_titles": "Accessing user-owned repositories in your enterprise"
+    "docs_reference_titles": [
+      "Accessing user-owned repositories in your enterprise"
+    ]
   },
   {
     "action": "repo.transfer",
@@ -9626,7 +9877,9 @@
       "repo_was",
       "visibility"
     ],
-    "docs_reference_titles": "/repositories/creating-and-managing-repositories/transferring-a-repository"
+    "docs_reference_titles": [
+      "Transferring a repository"
+    ]
   },
   {
     "action": "repo.transfer_outgoing",
@@ -9735,7 +9988,9 @@
       "user_programmatic_access_name",
       "visibility"
     ],
-    "docs_reference_titles": "/repositories/archiving-a-github-repository"
+    "docs_reference_titles": [
+      "Archiving a GitHub repository"
+    ]
   },
   {
     "action": "repo.update_actions_access_settings",
@@ -9808,7 +10063,9 @@
       "user_programmatic_access_name",
       "visibility"
     ],
-    "docs_reference_titles": "Using secrets in GitHub Actions"
+    "docs_reference_titles": [
+      "Using secrets in GitHub Actions"
+    ]
   },
   {
     "action": "repo.update_actions_settings",
@@ -9891,7 +10148,9 @@
       "user_programmatic_access_name",
       "visibility"
     ],
-    "docs_reference_titles": "Store information in variables"
+    "docs_reference_titles": [
+      "Store information in variables"
+    ]
   },
   {
     "action": "repo.update_default_branch",
@@ -10272,7 +10531,9 @@
       "ruleset_source_type",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository"
+    "docs_reference_titles": [
+      "Creating rulesets for a repository"
+    ]
   },
   {
     "action": "repository_ruleset.destroy",
@@ -10317,7 +10578,9 @@
       "ruleset_source_type",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/managing-rulesets-for-a-repository#deleting-a-ruleset"
+    "docs_reference_titles": [
+      "Managing rulesets for a repository"
+    ]
   },
   {
     "action": "repository_ruleset.update",
@@ -10370,7 +10633,9 @@
       "ruleset_source_type",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/managing-rulesets-for-a-repository#editing-a-ruleset"
+    "docs_reference_titles": [
+      "Managing rulesets for a repository"
+    ]
   },
   {
     "action": "security_key.register",
@@ -10499,7 +10764,9 @@
       "operation_type",
       "sponsors_listing_id"
     ],
-    "docs_reference_titles": "/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-tiers"
+    "docs_reference_titles": [
+      "Managing your sponsorship tiers"
+    ]
   },
   {
     "action": "sponsors.fiscal_host_change",
@@ -10569,7 +10836,9 @@
       "topic",
       "visibility"
     ],
-    "docs_reference_titles": "/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/displaying-a-sponsor-button-in-your-repository"
+    "docs_reference_titles": [
+      "Displaying a sponsor button in your repository"
+    ]
   },
   {
     "action": "sponsors.sponsor_sponsorship_cancel",
@@ -10604,7 +10873,9 @@
       "oauth_application_id",
       "operation_type"
     ],
-    "docs_reference_titles": "Downgrading a sponsorship"
+    "docs_reference_titles": [
+      "Downgrading a sponsorship"
+    ]
   },
   {
     "action": "sponsors.sponsor_sponsorship_create",
@@ -10638,7 +10909,9 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "/sponsors/sponsoring-open-source-contributors/about-sponsorships-fees-and-taxes"
+    "docs_reference_titles": [
+      "About sponsorships, fees, and taxes"
+    ]
   },
   {
     "action": "sponsors.sponsor_sponsorship_payment_complete",
@@ -10672,7 +10945,9 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "/sponsors/sponsoring-open-source-contributors/about-sponsorships-fees-and-taxes"
+    "docs_reference_titles": [
+      "About sponsorships, fees, and taxes"
+    ]
   },
   {
     "action": "sponsors.sponsor_sponsorship_preference_change",
@@ -10707,7 +10982,9 @@
       "oauth_application_id",
       "operation_type"
     ],
-    "docs_reference_titles": "/sponsors/sponsoring-open-source-contributors/managing-your-sponsorship"
+    "docs_reference_titles": [
+      "Managing your sponsorship"
+    ]
   },
   {
     "action": "sponsors.sponsor_sponsorship_tier_change",
@@ -10741,7 +11018,10 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "Upgrading a sponsorship, Downgrading a sponsorship"
+    "docs_reference_titles": [
+      "Upgrading a sponsorship",
+      "Downgrading a sponsorship"
+    ]
   },
   {
     "action": "sponsors.sponsored_developer_approve",
@@ -10775,7 +11055,9 @@
       "operation_type",
       "sponsors_listing_id"
     ],
-    "docs_reference_titles": "/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account"
+    "docs_reference_titles": [
+      "Setting up GitHub Sponsors for your personal account"
+    ]
   },
   {
     "action": "sponsors.sponsored_developer_create",
@@ -10810,7 +11092,9 @@
       "operation_type",
       "sponsors_listing_id"
     ],
-    "docs_reference_titles": "/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account"
+    "docs_reference_titles": [
+      "Setting up GitHub Sponsors for your personal account"
+    ]
   },
   {
     "action": "sponsors.sponsored_developer_disable",
@@ -10878,7 +11162,9 @@
       "operation_type",
       "sponsors_listing_id"
     ],
-    "docs_reference_titles": "/sponsors/receiving-sponsorships-through-github-sponsors/editing-your-profile-details-for-github-sponsors"
+    "docs_reference_titles": [
+      "Editing your profile details for GitHub Sponsors"
+    ]
   },
   {
     "action": "sponsors.sponsored_developer_redraft",
@@ -10945,7 +11231,9 @@
       "operation_type",
       "sponsors_listing_id"
     ],
-    "docs_reference_titles": "/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account"
+    "docs_reference_titles": [
+      "Setting up GitHub Sponsors for your personal account"
+    ]
   },
   {
     "action": "sponsors.sponsored_developer_tier_description_update",
@@ -10980,7 +11268,9 @@
       "public_repo",
       "sponsors_listing_id"
     ],
-    "docs_reference_titles": "/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-tiers"
+    "docs_reference_titles": [
+      "Managing your sponsorship tiers"
+    ]
   },
   {
     "action": "sponsors.sponsored_developer_update_newsletter_send",
@@ -11013,7 +11303,9 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "/sponsors/receiving-sponsorships-through-github-sponsors/contacting-your-sponsors"
+    "docs_reference_titles": [
+      "Contacting your sponsors"
+    ]
   },
   {
     "action": "sponsors.sponsors_patreon_user_create",
@@ -11048,7 +11340,9 @@
       "patreon_email",
       "patreon_username"
     ],
-    "docs_reference_titles": "/sponsors/receiving-sponsorships-through-github-sponsors/enabling-sponsorships-through-patreon#linking-your-patreon-account-to-your-github-account"
+    "docs_reference_titles": [
+      "Enabling sponsorships through Patreon"
+    ]
   },
   {
     "action": "sponsors.sponsors_patreon_user_destroy",
@@ -11083,7 +11377,9 @@
       "patreon_email",
       "patreon_username"
     ],
-    "docs_reference_titles": "Unlinking your Patreon account from GitHub"
+    "docs_reference_titles": [
+      "Unlinking your Patreon account from GitHub"
+    ]
   },
   {
     "action": "sponsors.update_tier_repository",
@@ -11186,7 +11482,9 @@
       "operation_type",
       "sponsors_listing_id"
     ],
-    "docs_reference_titles": "/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account"
+    "docs_reference_titles": [
+      "Setting up GitHub Sponsors for your personal account"
+    ]
   },
   {
     "action": "sponsors.withdraw_agreement_signature",
@@ -11398,7 +11696,9 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "Maintaining ownership continuity of your personal account's repositories"
+    "docs_reference_titles": [
+      "Maintaining ownership continuity of your personal account's repositories"
+    ]
   },
   {
     "action": "successor_invitation.cancel",
@@ -11430,7 +11730,9 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "Maintaining ownership continuity of your personal account's repositories"
+    "docs_reference_titles": [
+      "Maintaining ownership continuity of your personal account's repositories"
+    ]
   },
   {
     "action": "successor_invitation.create",
@@ -11462,7 +11764,9 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "Maintaining ownership continuity of your personal account's repositories"
+    "docs_reference_titles": [
+      "Maintaining ownership continuity of your personal account's repositories"
+    ]
   },
   {
     "action": "successor_invitation.decline",
@@ -11495,7 +11799,9 @@
       "oauth_application_id",
       "operation_type"
     ],
-    "docs_reference_titles": "Maintaining ownership continuity of your personal account's repositories"
+    "docs_reference_titles": [
+      "Maintaining ownership continuity of your personal account's repositories"
+    ]
   },
   {
     "action": "successor_invitation.destroy",
@@ -11559,7 +11865,9 @@
       "oauth_application_id",
       "operation_type"
     ],
-    "docs_reference_titles": "Maintaining ownership continuity of your personal account's repositories"
+    "docs_reference_titles": [
+      "Maintaining ownership continuity of your personal account's repositories"
+    ]
   },
   {
     "action": "trusted_device.register",
@@ -11872,7 +12180,9 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication"
+    "docs_reference_titles": [
+      "Configuring two-factor authentication"
+    ]
   },
   {
     "action": "two_factor_authentication.disabled",
@@ -11905,7 +12215,9 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "Disabling two-factor authentication for your personal account"
+    "docs_reference_titles": [
+      "Disabling two-factor authentication for your personal account"
+    ]
   },
   {
     "action": "two_factor_authentication.enabled",
@@ -11938,7 +12250,9 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "Configuring two-factor authentication"
+    "docs_reference_titles": [
+      "Configuring two-factor authentication"
+    ]
   },
   {
     "action": "two_factor_authentication.password_reset_fallback_sms",
@@ -12034,7 +12348,9 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication"
+    "docs_reference_titles": [
+      "Configuring two-factor authentication"
+    ]
   },
   {
     "action": "two_factor_authentication.sign_in_fallback_sms",
@@ -12132,7 +12448,9 @@
       "operation_type",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "Adding an email address to your GitHub account"
+    "docs_reference_titles": [
+      "Adding an email address to your GitHub account"
+    ]
   },
   {
     "action": "user.async_delete",
@@ -12300,7 +12618,9 @@
       "public_repo",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "Managing access to other repositories within your codespace"
+    "docs_reference_titles": [
+      "Managing access to other repositories within your codespace"
+    ]
   },
   {
     "action": "user.codespaces_trusted_repo_access_revoked",
@@ -12333,7 +12653,9 @@
       "operation_type",
       "topic"
     ],
-    "docs_reference_titles": "Managing access to other repositories within your codespace"
+    "docs_reference_titles": [
+      "Managing access to other repositories within your codespace"
+    ]
   },
   {
     "action": "user.create",
@@ -12792,7 +13114,16 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "An, GitHub Help Documentation, managed, user, unclaimed, an, email, address."
+    "docs_reference_titles": [
+      "An",
+      "GitHub Help Documentation",
+      "managed",
+      "user",
+      "unclaimed",
+      "GitHub Help Documentation",
+      "email",
+      "address."
+    ]
   },
   {
     "action": "user.enable_collaborators_only",
@@ -12957,7 +13288,9 @@
       "email",
       "operation_type"
     ],
-    "docs_reference_titles": "/authentication/keeping-your-account-and-data-secure/updating-your-github-access-credentials"
+    "docs_reference_titles": [
+      "Updating your GitHub access credentials"
+    ]
   },
   {
     "action": "user.grant_github_developer",
@@ -13021,7 +13354,9 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "Manage visibility settings for private contributions"
+    "docs_reference_titles": [
+      "Manage visibility settings for private contributions"
+    ]
   },
   {
     "action": "user.login",
@@ -13384,7 +13719,9 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "Manage visibility settings for private contributions"
+    "docs_reference_titles": [
+      "Manage visibility settings for private contributions"
+    ]
   },
   {
     "action": "user.sign_in_from_unrecognized_device",
@@ -13523,7 +13860,9 @@
       "oauth_application_id",
       "operation_type"
     ],
-    "docs_reference_titles": "Personalize your profile"
+    "docs_reference_titles": [
+      "Personalize your profile"
+    ]
   },
   {
     "action": "user.suspend",
@@ -13812,7 +14151,9 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "/authentication/securing-your-account-with-two-factor-authentication-2fa/accessing-github-using-two-factor-authentication"
+    "docs_reference_titles": [
+      "Accessing GitHub using two-factor authentication"
+    ]
   },
   {
     "action": "user.unblock_user",
@@ -13989,7 +14330,9 @@
       "user_programmatic_access_name",
       "workflow_run_id"
     ],
-    "docs_reference_titles": "Reviewing deployments"
+    "docs_reference_titles": [
+      "Reviewing deployments"
+    ]
   },
   {
     "action": "workflows.bypass_protection_rules",
@@ -14107,7 +14450,9 @@
       "workflow_id",
       "workflow_run_id"
     ],
-    "docs_reference_titles": "Deleting a workflow run"
+    "docs_reference_titles": [
+      "Deleting a workflow run"
+    ]
   },
   {
     "action": "workflows.disable_workflow",
@@ -14254,7 +14599,9 @@
       "user_programmatic_access_name",
       "workflow_run_id"
     ],
-    "docs_reference_titles": "Reviewing deployments"
+    "docs_reference_titles": [
+      "Reviewing deployments"
+    ]
   },
   {
     "action": "workflows.unpin_workflow",

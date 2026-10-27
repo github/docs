@@ -2805,24 +2805,6 @@
   ],
   "dependabot": [
     {
-      "slug": "lists-the-repositories-dependabot-can-access-in-an-enterprise",
-      "subcategory": "repository-access",
-      "verb": "get",
-      "requestPath": "/enterprises/{enterprise}/dependabot/repository-access"
-    },
-    {
-      "slug": "updates-dependabots-repository-access-list-for-an-enterprise",
-      "subcategory": "repository-access",
-      "verb": "patch",
-      "requestPath": "/enterprises/{enterprise}/dependabot/repository-access"
-    },
-    {
-      "slug": "set-the-default-repository-access-level-for-dependabot-in-an-enterprise",
-      "subcategory": "repository-access",
-      "verb": "put",
-      "requestPath": "/enterprises/{enterprise}/dependabot/repository-access/default-level"
-    },
-    {
       "slug": "list-dependabot-alerts-for-an-organization",
       "subcategory": "alerts",
       "verb": "get",
