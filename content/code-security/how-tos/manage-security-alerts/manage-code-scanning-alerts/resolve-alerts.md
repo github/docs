@@ -21,6 +21,7 @@ redirect_from:
 contentType: how-tos
 category:
   - Find and fix code vulnerabilities
+  - Dessert - Operate your sweet tooth
 ---
 
 {% ifversion copilot-chat-ghas-alerts %}

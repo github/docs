@@ -15,6 +15,7 @@ redirect_from:
 contentType: concepts
 category:
   - Learn about Copilot
+  - All day breakfast - Review your way to a sunny day
 ---
 
 ## Introduction

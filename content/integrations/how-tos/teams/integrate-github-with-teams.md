@@ -41,7 +41,6 @@ To use the {% data variables.product.github %} integration for Teams, you need:
 
 {% ifversion copilot %}
 
-* You must have Microsoft Public Developer Preview enabled for your Microsoft Teams client, see [Public developer preview for Teams](https://learn.microsoft.com/en-us/microsoftteams/platform/resources/dev-preview/developer-preview-intro) in the Microsoft Learn documentation.
 {% data reusables.copilot.cloud-agent.cloud-sandboxes-prerequisite-teams %}
 
 ## Installing the {% data variables.product.github %} integration for Teams in a single workspace

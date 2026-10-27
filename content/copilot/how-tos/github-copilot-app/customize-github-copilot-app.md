@@ -29,7 +29,7 @@ You can add instructions that apply globally or only to a specific repository.
 
 ### Setting global instructions
 
-Global instructions apply to every session across all projects.
+Global instructions apply to every session across all repositories and local folders.
 
 1. Open the app settings.
 1. Click **Sessions**.
@@ -40,7 +40,7 @@ Global instructions apply to every session across all projects.
 Repository-specific instructions apply to every session for the selected repository.
 
 1. Open the app settings.
-1. Under "Projects," click the repository.
+1. Under "Repositories," click the repository.
 1. Edit the "Instructions" field.
 
 ## Adding agent skills
