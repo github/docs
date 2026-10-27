@@ -346,7 +346,7 @@
     "@opentelemetry/otlp-transformer": {
       "protobufjs": "^8.6.5"
     },
-    "undici": "^6.29.0",
+    "undici": "^6.29.1",
     "cheerio": {
       "undici": "^7.29.0"
     },
@@ -355,7 +355,7 @@
       "brace-expansion": "^5.0.8"
     },
     "sharp": "$sharp",
-    "fast-uri": "^3.1.8"
+    "fast-uri": "^3.1.9"
   },
   "engines": {
     "node": "^24 || ^26"
