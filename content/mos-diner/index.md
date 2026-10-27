@@ -1,13 +1,15 @@
 ---
 title: Mo's Diner
 shortTitle: Mo's Diner
-intro: "Thanks for coming to Mo's Diner! Now enjoy the recipes to help you get the most out of GitHub, from planning your projects to maintaining main."
+intro: |-
+  Thanks for coming to Mo's Diner!\
+  Now enjoy the recipes to help you get the most out of GitHub, from planning your projects to maintaining main.
 versions:
   fpt: '*'
   ghec: '*'
 contentType: landing
 layout: bespoke-landing
-heroImage: /assets/images/banner-images/mos-diner-pink
+heroTheme: mos-diner
 children:
   - /content/copilot/how-tos/copilot-on-github/copilot-for-github-tasks/use-copilot-to-create-or-update-issues
   - /content/copilot/tutorials/copilot-cookbook/communicate-effectively/summarize-repository-activity
