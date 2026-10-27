@@ -192,7 +192,7 @@ The customization fields shown in this example appear in both 1-day and 28-day p
 
 Customizations with unavailable names or names that look like file paths remain grouped under `other` or `custom`. In per-user 1-day reports, each of the five customization arrays retains up to 25 named entries per user. Additional entries are combined into a trailing `other` entry. An entry's absence from a capped array does not mean that it had zero usage.
 
-For coverage and naming rules, see [AUTOTITLE](/copilot/reference/copilot-usage-metrics/copilot-usage-metrics#copilot-cli-customization-fields-api-only).
+For coverage and naming rules, see [AUTOTITLE](/copilot/reference/copilot-usage-metrics/copilot-usage-metrics#customization-fields-api-only).
 
 In this example, `used_copilot_code_review_active` and `used_copilot_code_review_passive` are `null` because there was no {% data variables.copilot.copilot_code-review_short %} signal for the user that day. `used_copilot_cloud_agent` and `used_copilot_coding_agent` always carry the same value.
 
