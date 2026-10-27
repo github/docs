@@ -4,6 +4,7 @@ intro: 'Diagnose and resolve common problems with {% data variables.location.pro
 versions:
   ghes: '*'
 children:
+  - /troubleshooting-tls-and-certificates
   - /troubleshooting-upgrades-and-migrations
   - /troubleshooting-storage-and-disks
   - /troubleshooting-github-actions-data-and-database-health
