@@ -38,7 +38,7 @@ journeyTracks:
       - href: '/copilot/reference/copilot-usage-metrics/lines-of-code-metrics'
   - id: 'connect-impact'
     title: 'Phase 4: Connect adoption insights to engineering outcomes'
-    description: 'Define the engineering outcomes you want to improve and choose metrics that show progress. Compare adoption insights with metrics from your engineering systems to identify associations and evaluate results.'
+    description: 'Compare outcome measures with {% data variables.product.prodname_copilot_short %} usage and adoption trends to assess progress toward engineering goals such as improving test coverage or reducing security debt.'
     guides:
       - href: '/copilot/tutorials/roll-out-at-scale/drive-downstream-impact/achieve-company-goals'
       - href: '/copilot/how-tos/administer-copilot/view-impact-dashboard'
