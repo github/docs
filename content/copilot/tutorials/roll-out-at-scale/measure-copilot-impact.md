@@ -17,7 +17,7 @@ journeyArticlesHeading: 'All Copilot usage metrics articles'
 journeyTracks:
   - id: 'get-started'
     title: 'Phase 1: Choose metrics to monitor Copilot adoption.'
-    description: 'Understand what Copilot usage metrics measure and where the data comes from before you start monitoring adoption. Review the concepts behind usage metrics and the data available through the dashboard and API.'
+    description: 'Understand what Copilot usage metrics measure and where the data comes from before you start monitoring adoption. Use the reference articles for metric definitions, methodology, and schemas.'
     guides:
       - href: '/copilot/concepts/billing-and-usage/copilot-usage-metrics/copilot-metrics'
       - href: '/copilot/reference/copilot-usage-metrics/copilot-usage-metrics'
@@ -28,6 +28,8 @@ journeyTracks:
       - href: '/copilot/how-tos/administer-copilot/view-usage-and-adoption'
       - href: '/copilot/tutorials/roll-out-at-scale/assign-licenses/track-usage-and-adoption'
       - href: '/copilot/reference/copilot-usage-metrics/interpret-copilot-metrics'
+      - href: '/copilot/reference/copilot-usage-metrics/reconciling-usage-metrics'
+      - href: '/copilot/reference/copilot-usage-metrics/team-level-metrics'
   - id: 'code-generation'
     title: 'Phase 3: See how code is generated'
     description: 'Review code generation and Lines of Code metrics to understand how people and agents are using Copilot to produce code.'
