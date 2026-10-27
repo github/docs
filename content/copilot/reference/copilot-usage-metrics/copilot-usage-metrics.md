@@ -139,6 +139,7 @@ Per-user reports contain one record per user for the reporting period. The 28-da
 | `totals_by_cli` | `object` | Yes | CLI-specific metrics for the user. Omitted when the user had no {% data variables.copilot.copilot_cli_short %} usage that day. See [{% data variables.copilot.copilot_cli_short %} metrics fields](#copilot-cli-metrics-fields). |
 | `totals_by_copilot_app` | `object` | Yes | The {% data variables.copilot.github_copilot_app_short %} metrics for the user. Omitted when the user did not use the {% data variables.copilot.github_copilot_app_short %} that day. See [Metrics fields for the {% data variables.copilot.github_copilot_app_short %}](#copilot-app-metrics-fields). |
 | `totals_by_3rd_party_agent` | `array` | Yes | Per-agent usage metrics for recognized {% data variables.copilot.agent_apps %}. Omitted when the user had no recognized {% data variables.copilot.agent_app %} activity during the reporting period. See [{% data variables.copilot.agent_apps_caps %} metrics fields](#agent-apps-metrics-fields). |
+| `totals_by_client` | `array` | No | Per-client breakdown of the user's successful model requests and token usage, counted server-side. The array is always present and is empty when there is no usage to report. See [Client metrics fields](#client-metrics-fields). |
 | `totals_by_vscode_agent` | `object` | Yes | Dedicated {% data variables.product.prodname_vscode_shortname %} Agents-window metrics for the user. Omitted when both required counts are not available. See [{% data variables.product.prodname_vscode_shortname %} Agents-window metrics fields](#vs-code-agents-window-metrics-fields). |
 | `totals_by_ide` | `array` | No | Per-IDE breakdown of the user's activity. See [Activity breakdown objects](#activity-breakdown-objects). |
 | `totals_by_feature` | `array` | No | Per-feature breakdown of the user's activity. See [Activity breakdown objects](#activity-breakdown-objects). |
@@ -203,6 +204,7 @@ Activity totals and breakdowns:
 | `totals_by_cli` | `object` | Yes | Aggregated {% data variables.copilot.copilot_cli_short %} metrics for the day. Omitted when there is no CLI usage that day. Unlike the per-user form, it does not include `last_known_cli_version`. See [{% data variables.copilot.copilot_cli_short %} metrics fields](#copilot-cli-metrics-fields). |
 | `totals_by_copilot_app` | `object` | Yes | Aggregated daily metrics for the {% data variables.copilot.github_copilot_app_short %}. Null when the enterprise or organization has no activity in the {% data variables.copilot.github_copilot_app_short %} that day. See [Metrics fields for the {% data variables.copilot.github_copilot_app_short %}](#copilot-app-metrics-fields). |
 | `totals_by_3rd_party_agent` | `array` | Yes | Aggregated per-agent usage metrics for recognized {% data variables.copilot.agent_apps %}. Omitted when the enterprise or organization had no recognized {% data variables.copilot.agent_app %} activity that day. See [{% data variables.copilot.agent_apps_caps %} metrics fields](#agent-apps-metrics-fields). |
+| `totals_by_client` | `array` | No | Aggregated per-client breakdown of successful model requests and token usage for the day, counted server-side. The array is always present and is empty when there is no usage to report. In 28-day reports, this field appears within each `day_totals` entry. See [Client metrics fields](#client-metrics-fields). |
 | `totals_by_vscode_agent` | `object` | Yes | Aggregated dedicated {% data variables.product.prodname_vscode_shortname %} Agents-window metrics for the day. Omitted when both required counts are not available. See [{% data variables.product.prodname_vscode_shortname %} Agents-window metrics fields](#vs-code-agents-window-metrics-fields). |
 | `totals_by_ai_adoption_phase` | `array` | Yes | Per-phase aggregates of users and their average activity. Omitted when no adoption-phase data is available. See [AI adoption phase fields](#ai-adoption-phase-fields). |
 | `pull_requests` | `object` | No | Daily pull request activity for the enterprise or organization. See [Pull request activity fields](#pull-request-activity-fields). |
@@ -418,6 +420,34 @@ These metrics come from server-side job activity. The nested `user_initiated_int
 | `totals_by_3rd_party_agent[].agent_id` | `string` | No | Stable identifier for the {% data variables.copilot.agent_app %}. |
 | `totals_by_3rd_party_agent[].user_initiated_interaction_count` | `integer` | No | Number of user-initiated jobs started for the {% data variables.copilot.agent_app %} during the reporting period. Each job start increments the count once. |
 | `totals_by_3rd_party_agent[].session_count` | `integer` | No | Sum of distinct, non-empty session counts for integrations mapped to the agent during the reporting period. Included only in aggregated enterprise and organization reports; omitted from per-user reports. |
+
+### Client metrics fields
+
+The `totals_by_client` array breaks down successful model requests that went through the {% data variables.product.prodname_copilot_short %} API by the client that sent them. These metrics are counted server-side, so they include tools that use {% data variables.product.prodname_copilot_short %} as a model provider even when those tools send no editor telemetry, such as OpenCode. Activity from these tools doesn't appear in `totals_by_ide`, which relies on editor telemetry.
+
+`totals_by_client` is different from `totals_by_3rd_party_agent`. The `totals_by_3rd_party_agent` array counts job starts for recognized {% data variables.copilot.agent_apps %} and doesn't include token or model data.
+
+Clients are identified from the integration ID that each client sends with its requests. Treat `client` as a best-effort grouping, not a verified identity.
+
+Within `totals_by_client`, the `request_count` fields count successful model calls, not prompts. A single prompt can trigger several model calls. Don't compare these request counts with prompt or interaction counts, such as `user_initiated_interaction_count` or `totals_by_cli.prompt_count`.
+
+The `totals_by_client` array appears at the top level of each record in per-user 1-day and 28-day reports and in aggregated 1-day reports. In aggregated 28-day reports, it appears within each `day_totals` entry. The array is always present and is empty when there is no usage to report.
+
+| Field | Type | Nullable | Description |
+|:--|:--|:--|:--|
+| `totals_by_client[].client` | `string` | No | Normalized client name. Known values include `vscode`, `visualstudio`, `jetbrains`, `eclipse`, `xcode`, `zed`, `copilot_cli`, `github_app`, `copilot_sdk`, `cloud_agent`, `code_review`, `github_web`, `github_mobile`, `github_desktop`, `agentic_workflows`, `claude_code`, `codex`, `opencode`, `slack`, and `azure_devops`. Requests with an unrecognized or missing integration ID are grouped as `other`. Values may be added over time. |
+| `totals_by_client[].request_count` | `integer` | No | Number of successful model requests from the client. Counts model calls, not prompts. |
+| `totals_by_client[].session_count` | `integer` | No | Number of distinct sessions for the client. In aggregated enterprise and organization reports, sessions are de-duplicated across all users, so this value isn't the sum of per-user counts. Unlike `totals_by_3rd_party_agent[].session_count`, this field is also included in per-user reports. |
+| `totals_by_client[].token_usage.prompt_tokens_sum` | `integer` | No | Total number of prompt tokens sent across the client's requests. |
+| `totals_by_client[].token_usage.output_tokens_sum` | `integer` | No | Total number of output tokens generated across the client's requests. |
+| `totals_by_client[].token_usage.avg_tokens_per_request` | `number` | No | Average number of **output** and **prompt** tokens per request, computed as `(output_tokens_sum + prompt_tokens_sum) ÷ request_count`. |
+| `totals_by_client[].totals_by_model` | `array` | No | Per-model breakdown of the client's requests and token usage. Entries are keyed on `model` and `model_selection_mode`, so the same model can appear more than once with different selection modes. |
+| `totals_by_client[].totals_by_model[].model` | `string` | No | Model used for the requests. For `code_review`, the model is always reported as `unknown`. |
+| `totals_by_client[].totals_by_model[].model_selection_mode` | `string` | No | How the model was selected. Possible values are `user_selected` (a specific model was requested rather than Auto), `product_selected` (the product chose the model, used for all {% data variables.copilot.copilot_code-review_short %} and {% data variables.copilot.copilot_cloud_agent %} requests), `auto` (Auto chose the model), `other` (selection modes that are grouped together and not yet reported individually), and `unknown` (a selection mode sent by the client that couldn't be normalized). |
+| `totals_by_client[].totals_by_model[].request_count` | `integer` | No | Number of successful model requests from the client that used this model and selection mode. |
+| `totals_by_client[].totals_by_model[].token_usage.prompt_tokens_sum` | `integer` | No | Total number of prompt tokens sent across these requests. |
+| `totals_by_client[].totals_by_model[].token_usage.output_tokens_sum` | `integer` | No | Total number of output tokens generated across these requests. |
+| `totals_by_client[].totals_by_model[].token_usage.avg_tokens_per_request` | `number` | No | Average number of **output** and **prompt** tokens per request, computed as `(output_tokens_sum + prompt_tokens_sum) ÷ request_count`. |
 
 ### Pull request activity fields
 
