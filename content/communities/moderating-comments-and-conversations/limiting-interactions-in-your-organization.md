@@ -48,7 +48,7 @@ This setting helps maintainers manage contribution volume by preventing users fr
 
 You can choose whether draft pull requests count toward a user's limit. If you enable **Count draft pull requests toward the limit**, both draft and non-draft open pull requests count toward the maximum. Otherwise, only open, non-draft pull requests count.
 
-The organization-level limit takes precedence, but if a repository owned by your organization has its own pull request limit configured after the organization-level limit, the repository-level limit overrides the organization-level limit. See [AUTOTITLE](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository#limiting-concurrent-open-pull-requests-for-users-without-write-access).
+The organization-level limit applies to every repository in your organization that doesn't have its own pull request limit. If a repository has its own pull request limit configured, that limit is used instead of the organization-level limit. See [AUTOTITLE](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository#limiting-concurrent-open-pull-requests-for-users-without-write-access).
 
 ### Configuring the pull request limit
 
