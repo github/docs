@@ -40,15 +40,14 @@ export function printAnnotationResults(
 
       annotation += `${bits.join(',')}`
 
-      if (flaw.errorDetail) {
-        annotation += flaw.errorDetail.endsWith('.')
-          ? `::${flaw.errorDetail}`
-          : `::${flaw.errorDetail}.`
-      }
+      const detail =
+        flaw.errorDetail && !flaw.errorDetail.endsWith('.')
+          ? `${flaw.errorDetail}.`
+          : flaw.errorDetail
+      const message = [detail, flaw.context].filter(Boolean).join(' ') || flaw.ruleDescription || ''
 
-      if (flaw.context) {
-        annotation += ` ${flaw.context}`
-      }
+      // The runner ignores the whole command unless a second '::' precedes the message.
+      annotation += `::${message}`
 
       // Logging the annotation string keeps local debugging independent of @actions/core.
       console.log(annotation)

@@ -3,10 +3,12 @@ import fs from 'fs/promises'
 import { afterEach, describe, expect, test } from 'vitest'
 import { load } from 'js-yaml'
 import MockDate from 'mockdate'
+import type { Change } from '@graphql-inspector/core'
 
 import {
   createChangelogEntry,
   cleanPreviewTitle,
+  cleanMessagesFromChanges,
   previewAnchor,
   prependDatedEntry,
   ensureYearPage,
@@ -206,6 +208,69 @@ upcoming_changes:
     )
     expect(nullEntry).toBeNull()
   })
+
+  test('omits the schema changes group when only upcoming changes exist', async () => {
+    const schemaString = `
+    type Query {
+      i: Int!
+    }`
+
+    const entry: ChangelogEntry | null = await createChangelogEntry(
+      schemaString,
+      schemaString,
+      [],
+      [],
+      [
+        {
+          location: 'Query.i',
+          description: '`i` will be removed.',
+          date: '2021-06-01T00:00:00+00:00',
+        },
+      ],
+    )
+    expect(entry).not.toBeNull()
+    expect(entry!.schemaChanges).toEqual([])
+    expect(entry!.upcomingChanges).toHaveLength(1)
+  })
+
+  test('omits the schema changes group when only preview changes exist', async () => {
+    const oldSchemaString = `
+    type PreviewType {
+      a: Int
+    }
+
+    type Query {
+      previewField: PreviewType
+    }`
+
+    const newSchemaString = `
+    type PreviewType {
+      a: Int
+      b: Int
+    }
+
+    type Query {
+      previewField: PreviewType
+    }`
+
+    const previews = [
+      {
+        title: 'Test preview',
+        toggled_on: ['PreviewType'],
+      },
+    ]
+
+    const entry: ChangelogEntry | null = await createChangelogEntry(
+      oldSchemaString,
+      newSchemaString,
+      previews,
+      [],
+      [],
+    )
+    expect(entry).not.toBeNull()
+    expect(entry!.schemaChanges).toEqual([])
+    expect(entry!.previewChanges).toHaveLength(1)
+  })
 })
 
 describe('Preparing preview links', () => {
@@ -220,6 +285,25 @@ describe('Preparing preview links', () => {
   test('creates anchors from preview titles', () => {
     expect(previewAnchor('Merge info preview')).toEqual('merge-info-preview')
     expect(previewAnchor('some.punct123 preview')).toEqual('somepunct123-preview')
+  })
+})
+
+describe('cleaning change messages', () => {
+  test('wraps each quoted name in its own code span', () => {
+    const messages = [
+      "Enum value 'CREATED_AT' was added to enum 'IssueRelatesToOrderField'",
+      "Input field 'botIds' of type '[ID!]' was added to input object type 'RerequestReviewsInput'",
+      "Argument 'ids: [ID!]' added to field 'Query.f'",
+      "Type 'ProjectV2Field' was added",
+    ]
+    const changes = messages.map((message) => ({ message }) as Change)
+
+    expect(cleanMessagesFromChanges(changes)).toEqual([
+      'Enum value `CREATED_AT` was added to enum `IssueRelatesToOrderField`',
+      'Input field `botIds` of type `[ID!]` was added to input object type `RerequestReviewsInput`',
+      'Argument `ids: [ID!]` added to field `Query.f`',
+      'Type `ProjectV2Field` was added',
+    ])
   })
 })
 

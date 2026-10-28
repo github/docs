@@ -61,7 +61,7 @@ Organization-level secrets:
 
 ### Limitations and restrictions
 
-For workflows initiated by {% data variables.product.prodname_dependabot %}, the `pull_request_target` event is treated differently to other events. For this event, if the base ref of the pull request was created by {% data variables.product.prodname_dependabot %} (`github.event.pull_request.user.login == 'dependabot[bot]'`):
+For workflows initiated by {% data variables.product.prodname_dependabot %}, the `pull_request_target` event is treated differently to other events. For this event, if the base ref of the pull request was created by {% data variables.product.prodname_dependabot %}:
 
    * The workflow receives a read-only `GITHUB_TOKEN`.
    * Secrets are **not** available to the workflow.

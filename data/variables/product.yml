@@ -216,7 +216,7 @@ prodname_secret_protection: 'Secret Protection'
 prodname_cs_or_sp: 'Secret Protection or Code Security'
 prodname_cs_and_sp: 'Secret Protection and Code Security'
 UI_advanced_security: '{% data variables.product.prodname_AS %}'
-UI_advanced_security_ent: '{% data variables.product.prodname_AS %} Code security'
+UI_advanced_security_ent: '{% data variables.product.prodname_AS %}'
 UI_code_security_scanning: 'Code Security'
 UI_secret_protection_scanning: 'Secret Protection'
 
@@ -323,6 +323,10 @@ prodname_dependabot_malware_alerts_short_caps: 'Malware alerts'
 prodname_dependabot_security_updates: 'Dependabot security updates'
 prodname_dependabot_version_updates: 'Dependabot version updates'
 prodname_dependabot_updates: 'Dependabot updates'
+
+# GitHub package firewall
+prodname_GH_package_firewall: 'GitHub package firewall'
+prodname_package_firewall: 'Package firewall'
 
 # GitHub Archive Program
 prodname_archive: 'GitHub Archive Program'

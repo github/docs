@@ -3,7 +3,7 @@ title: Using deep links to open the GitHub Copilot app
 shortTitle: Open with deep links
 allowTitleToDifferFromFilename: true
 intro: "Use deep links to launch the {% data variables.copilot.github_copilot_app %} from the terminal, tickets, and internal tools, so people can jump directly into the right repository, pull request, automation, or session."
-product: '{% data reusables.gated-features.github-app %}<br><a href="https://github.com/features/ai/github-app" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Download {% data variables.copilot.github_copilot_app %}</span> {% octicon "link-external" height:16 %}</a>'
+product: '{% data reusables.gated-features.github-app %}<br>{% data reusables.copilot.github-app-download-button %}'
 versions:
   feature: copilot
 contentType: how-tos
@@ -231,8 +231,8 @@ The following app links can be wrapped in the hosted launcher. Query strings and
 | `ghapp://chats` | Chats | Opens Chats. |
 | `ghapp://mywork` | My work | Opens issues and pull requests in My work. |
 | `ghapp://github.com/OWNER/REPO` | Repository setup | Opens or clones the repository. |
-| `ghapp://github.com/OWNER/REPO/issues/NUMBER` | Issue | Opens the issue in My work when the repository is already added as a project. |
-| `ghapp://github.com/OWNER/REPO/pull/NUMBER` | Pull request | Opens the pull request in My work when the repository is already added as a project. Optional trailing path segments are preserved. |
+| `ghapp://github.com/OWNER/REPO/issues/NUMBER` | Issue | Opens the issue in My work when the repository is already connected to the app. |
+| `ghapp://github.com/OWNER/REPO/pull/NUMBER` | Pull request | Opens the pull request in My work when the repository is already connected to the app. Optional trailing path segments are preserved. |
 | `ghapp://github.com/OWNER/REPO/tasks/TASK_ID` | Agent task | Resumes a {% data variables.product.github %} {% data variables.product.prodname_copilot_short %} agent task. Use the {% data variables.product.github %} task ID, not an app-local session ID. |
 | `ghapp://automations` | Automations | Opens Automations. |
 | `ghapp://automations/new` | New automation draft | Opens the new automation dialog with supported query parameters pre-filled. See [Automation parameters](#automation-parameters). |

@@ -37,6 +37,8 @@ jobs:
         timeout-minutes: 5
         env:
           GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          # Manual Purge Fastly runs carry no deploy, so the script reads /_build instead.
+          DEPLOY_SHA: ${{ github.event.workflow_run.event == 'deployment_status' && github.event.workflow_run.head_sha || '' }}
         run: npm run find-past-built-pr
 
       - uses: ./.github/actions/create-workflow-failure-issue

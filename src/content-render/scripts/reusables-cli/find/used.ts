@@ -57,8 +57,10 @@ export function findTopUsed(numberOfMostUsedToFind: number, { absolute }: { abso
     )
     for (const token of liquidTokens) {
       const { args, name } = token
-      if (name === 'data' && args.startsWith('reusables.')) {
-        reusableCounts.set(args, (reusableCounts.get(args) || 0) + 1)
+      if (name !== 'data' && name !== 'indented_data_reference') continue
+      const key = args.trim().split(/\s+/)[0]
+      if (key.startsWith('reusables.')) {
+        reusableCounts.set(key, (reusableCounts.get(key) || 0) + 1)
       }
     }
   }

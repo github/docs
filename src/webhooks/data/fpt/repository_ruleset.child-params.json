@@ -417,6 +417,11 @@
                   },
                   {
                     "type": "boolean",
+                    "name": "require_extra_approval_for_unattributed_changes",
+                    "description": "<p>When Copilot opens a pull request without a human collaborator, require one more approving review if a non-zero approval count is required.</p>"
+                  },
+                  {
+                    "type": "boolean",
                     "name": "require_last_push_approval",
                     "description": "<p>Whether the most recent reviewable push must be approved by someone other than the person who pushed it.</p>",
                     "isRequired": true
@@ -436,7 +441,7 @@
                   {
                     "type": "array of objects",
                     "name": "required_reviewers",
-                    "description": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\n<code>required_reviewers</code> is in beta and subject to change.</p>\n</div>\n<p>A collection of reviewers and associated file patterns. Each reviewer has a list of file patterns which determine the files that reviewer is required to review.</p>",
+                    "description": "<p>A collection of reviewers and associated file patterns. Each reviewer has a list of file patterns which determine the files that reviewer is required to review.</p>",
                     "childParamsGroups": [
                       {
                         "type": "array of strings",
@@ -1061,6 +1066,11 @@
                 "childParamsGroups": [
                   {
                     "type": "array of strings",
+                    "name": "ignored_file_paths",
+                    "description": "<p>Files matching these patterns are allowed even when they also match a restricted path.</p>"
+                  },
+                  {
+                    "type": "array of strings",
                     "name": "restricted_file_paths",
                     "description": "<p>The file paths that are restricted from being pushed to the commit graph.</p>",
                     "isRequired": true
@@ -1146,6 +1156,11 @@
                 "name": "parameters",
                 "description": "",
                 "childParamsGroups": [
+                  {
+                    "type": "array of strings",
+                    "name": "ignored_file_paths",
+                    "description": "<p>Files matching these patterns may exceed the maximum size.</p>"
+                  },
                   {
                     "type": "integer",
                     "name": "max_file_size",
@@ -1589,6 +1604,11 @@
                   },
                   {
                     "type": "boolean",
+                    "name": "require_extra_approval_for_unattributed_changes",
+                    "description": "<p>When Copilot opens a pull request without a human collaborator, require one more approving review if a non-zero approval count is required.</p>"
+                  },
+                  {
+                    "type": "boolean",
                     "name": "require_last_push_approval",
                     "description": "<p>Whether the most recent reviewable push must be approved by someone other than the person who pushed it.</p>",
                     "isRequired": true
@@ -1608,7 +1628,7 @@
                   {
                     "type": "array of objects",
                     "name": "required_reviewers",
-                    "description": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\n<code>required_reviewers</code> is in beta and subject to change.</p>\n</div>\n<p>A collection of reviewers and associated file patterns. Each reviewer has a list of file patterns which determine the files that reviewer is required to review.</p>",
+                    "description": "<p>A collection of reviewers and associated file patterns. Each reviewer has a list of file patterns which determine the files that reviewer is required to review.</p>",
                     "childParamsGroups": [
                       {
                         "type": "array of strings",
@@ -2233,6 +2253,11 @@
                 "childParamsGroups": [
                   {
                     "type": "array of strings",
+                    "name": "ignored_file_paths",
+                    "description": "<p>Files matching these patterns are allowed even when they also match a restricted path.</p>"
+                  },
+                  {
+                    "type": "array of strings",
                     "name": "restricted_file_paths",
                     "description": "<p>The file paths that are restricted from being pushed to the commit graph.</p>",
                     "isRequired": true
@@ -2318,6 +2343,11 @@
                 "name": "parameters",
                 "description": "",
                 "childParamsGroups": [
+                  {
+                    "type": "array of strings",
+                    "name": "ignored_file_paths",
+                    "description": "<p>Files matching these patterns may exceed the maximum size.</p>"
+                  },
                   {
                     "type": "integer",
                     "name": "max_file_size",
@@ -2761,6 +2791,11 @@
                   },
                   {
                     "type": "boolean",
+                    "name": "require_extra_approval_for_unattributed_changes",
+                    "description": "<p>When Copilot opens a pull request without a human collaborator, require one more approving review if a non-zero approval count is required.</p>"
+                  },
+                  {
+                    "type": "boolean",
                     "name": "require_last_push_approval",
                     "description": "<p>Whether the most recent reviewable push must be approved by someone other than the person who pushed it.</p>",
                     "isRequired": true
@@ -2780,7 +2815,7 @@
                   {
                     "type": "array of objects",
                     "name": "required_reviewers",
-                    "description": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\n<code>required_reviewers</code> is in beta and subject to change.</p>\n</div>\n<p>A collection of reviewers and associated file patterns. Each reviewer has a list of file patterns which determine the files that reviewer is required to review.</p>",
+                    "description": "<p>A collection of reviewers and associated file patterns. Each reviewer has a list of file patterns which determine the files that reviewer is required to review.</p>",
                     "childParamsGroups": [
                       {
                         "type": "array of strings",
@@ -3405,6 +3440,11 @@
                 "childParamsGroups": [
                   {
                     "type": "array of strings",
+                    "name": "ignored_file_paths",
+                    "description": "<p>Files matching these patterns are allowed even when they also match a restricted path.</p>"
+                  },
+                  {
+                    "type": "array of strings",
                     "name": "restricted_file_paths",
                     "description": "<p>The file paths that are restricted from being pushed to the commit graph.</p>",
                     "isRequired": true
@@ -3490,6 +3530,11 @@
                 "name": "parameters",
                 "description": "",
                 "childParamsGroups": [
+                  {
+                    "type": "array of strings",
+                    "name": "ignored_file_paths",
+                    "description": "<p>Files matching these patterns may exceed the maximum size.</p>"
+                  },
                   {
                     "type": "integer",
                     "name": "max_file_size",
@@ -3962,6 +4007,11 @@
                       },
                       {
                         "type": "boolean",
+                        "name": "require_extra_approval_for_unattributed_changes",
+                        "description": "<p>When Copilot opens a pull request without a human collaborator, require one more approving review if a non-zero approval count is required.</p>"
+                      },
+                      {
+                        "type": "boolean",
                         "name": "require_last_push_approval",
                         "description": "<p>Whether the most recent reviewable push must be approved by someone other than the person who pushed it.</p>",
                         "isRequired": true
@@ -3981,7 +4031,7 @@
                       {
                         "type": "array of objects",
                         "name": "required_reviewers",
-                        "description": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\n<code>required_reviewers</code> is in beta and subject to change.</p>\n</div>\n<p>A collection of reviewers and associated file patterns. Each reviewer has a list of file patterns which determine the files that reviewer is required to review.</p>",
+                        "description": "<p>A collection of reviewers and associated file patterns. Each reviewer has a list of file patterns which determine the files that reviewer is required to review.</p>",
                         "childParamsGroups": [
                           {
                             "type": "array of strings",
@@ -4606,6 +4656,11 @@
                     "childParamsGroups": [
                       {
                         "type": "array of strings",
+                        "name": "ignored_file_paths",
+                        "description": "<p>Files matching these patterns are allowed even when they also match a restricted path.</p>"
+                      },
+                      {
+                        "type": "array of strings",
                         "name": "restricted_file_paths",
                         "description": "<p>The file paths that are restricted from being pushed to the commit graph.</p>",
                         "isRequired": true
@@ -4691,6 +4746,11 @@
                     "name": "parameters",
                     "description": "",
                     "childParamsGroups": [
+                      {
+                        "type": "array of strings",
+                        "name": "ignored_file_paths",
+                        "description": "<p>Files matching these patterns may exceed the maximum size.</p>"
+                      },
                       {
                         "type": "integer",
                         "name": "max_file_size",
@@ -4981,6 +5041,11 @@
                       },
                       {
                         "type": "boolean",
+                        "name": "require_extra_approval_for_unattributed_changes",
+                        "description": "<p>When Copilot opens a pull request without a human collaborator, require one more approving review if a non-zero approval count is required.</p>"
+                      },
+                      {
+                        "type": "boolean",
                         "name": "require_last_push_approval",
                         "description": "<p>Whether the most recent reviewable push must be approved by someone other than the person who pushed it.</p>",
                         "isRequired": true
@@ -5000,7 +5065,7 @@
                       {
                         "type": "array of objects",
                         "name": "required_reviewers",
-                        "description": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\n<code>required_reviewers</code> is in beta and subject to change.</p>\n</div>\n<p>A collection of reviewers and associated file patterns. Each reviewer has a list of file patterns which determine the files that reviewer is required to review.</p>",
+                        "description": "<p>A collection of reviewers and associated file patterns. Each reviewer has a list of file patterns which determine the files that reviewer is required to review.</p>",
                         "childParamsGroups": [
                           {
                             "type": "array of strings",
@@ -5625,6 +5690,11 @@
                     "childParamsGroups": [
                       {
                         "type": "array of strings",
+                        "name": "ignored_file_paths",
+                        "description": "<p>Files matching these patterns are allowed even when they also match a restricted path.</p>"
+                      },
+                      {
+                        "type": "array of strings",
                         "name": "restricted_file_paths",
                         "description": "<p>The file paths that are restricted from being pushed to the commit graph.</p>",
                         "isRequired": true
@@ -5710,6 +5780,11 @@
                     "name": "parameters",
                     "description": "",
                     "childParamsGroups": [
+                      {
+                        "type": "array of strings",
+                        "name": "ignored_file_paths",
+                        "description": "<p>Files matching these patterns may exceed the maximum size.</p>"
+                      },
                       {
                         "type": "integer",
                         "name": "max_file_size",
@@ -6005,6 +6080,11 @@
                           },
                           {
                             "type": "boolean",
+                            "name": "require_extra_approval_for_unattributed_changes",
+                            "description": "<p>When Copilot opens a pull request without a human collaborator, require one more approving review if a non-zero approval count is required.</p>"
+                          },
+                          {
+                            "type": "boolean",
                             "name": "require_last_push_approval",
                             "description": "<p>Whether the most recent reviewable push must be approved by someone other than the person who pushed it.</p>",
                             "isRequired": true
@@ -6024,7 +6104,7 @@
                           {
                             "type": "array of objects",
                             "name": "required_reviewers",
-                            "description": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\n<code>required_reviewers</code> is in beta and subject to change.</p>\n</div>\n<p>A collection of reviewers and associated file patterns. Each reviewer has a list of file patterns which determine the files that reviewer is required to review.</p>",
+                            "description": "<p>A collection of reviewers and associated file patterns. Each reviewer has a list of file patterns which determine the files that reviewer is required to review.</p>",
                             "childParamsGroups": [
                               {
                                 "type": "array of strings",
@@ -6649,6 +6729,11 @@
                         "childParamsGroups": [
                           {
                             "type": "array of strings",
+                            "name": "ignored_file_paths",
+                            "description": "<p>Files matching these patterns are allowed even when they also match a restricted path.</p>"
+                          },
+                          {
+                            "type": "array of strings",
                             "name": "restricted_file_paths",
                             "description": "<p>The file paths that are restricted from being pushed to the commit graph.</p>",
                             "isRequired": true
@@ -6734,6 +6819,11 @@
                         "name": "parameters",
                         "description": "",
                         "childParamsGroups": [
+                          {
+                            "type": "array of strings",
+                            "name": "ignored_file_paths",
+                            "description": "<p>Files matching these patterns may exceed the maximum size.</p>"
+                          },
                           {
                             "type": "integer",
                             "name": "max_file_size",

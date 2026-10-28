@@ -12,4 +12,4 @@
 
 [^gpt54nano]: GPT-5.4 nano is currently only available in the Codex {% data variables.product.prodname_vscode %} extension ({% data variables.copilot.copilot_pro_plus_short %} only) and is not available in {% data variables.copilot.copilot_chat_short %}.
 
-[^claude-sonnet-46-plans]: {% data variables.copilot.copilot_claude_sonnet_46 %} was retired on September 1, 2026, but remains available to individual {% data variables.product.prodname_copilot_short %} subscribers on annual {% data variables.copilot.copilot_pro_short %} and {% data variables.copilot.copilot_pro_plus_short %} plans. It is not available to subscribers on monthly plans.
+[^claude-sonnet-46-plans]: {% data variables.copilot.claude_sonnet_46 %} was retired on September 1, 2026, but remains available to individual {% data variables.product.prodname_copilot_short %} subscribers on annual {% data variables.copilot.copilot_pro_short %} and {% data variables.copilot.copilot_pro_plus_short %} plans. It is not available to subscribers on monthly plans.

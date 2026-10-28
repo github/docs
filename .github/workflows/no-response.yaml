@@ -20,11 +20,13 @@ jobs:
     runs-on: ubuntu-latest
     # Only run in the public repo, and skip automated comments.
     # Bot-authored issue_comment events are workflow chatter, not author responses.
+    # Scheduled runs often have a bot actor, so the actor check skips only comments.
     if: >-
       github.repository == 'github/docs' &&
-      github.actor != 'docs-bot' &&
+      (github.event_name != 'issue_comment' ||
+      (github.actor != 'docs-bot' &&
       github.actor != 'github-actions' &&
-      !endsWith(github.actor, '[bot]')
+      !endsWith(github.actor, '[bot]')))
     steps:
       - uses: actions/stale@4391f3da665fdf50b6810c1a66712fb9ba21aa93 # v11.0.0
         id: stale

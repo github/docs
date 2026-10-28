@@ -51,3 +51,22 @@ describe('GraphQL description links', () => {
     expect(offenders).toEqual([])
   })
 })
+
+describe('GraphQL description quoted words', () => {
+  test('keeps the spaces around a quoted word turned into code', async () => {
+    const rendered = await helpers.getDescription(
+      "Represents a 'deployed' event on a given pull request",
+    )
+
+    expect(rendered).toContain('a <code>deployed</code> event')
+  })
+
+  test('converts every quoted word in a description', async () => {
+    const rendered = await helpers.getDescription(
+      "Choose 'custom' or 'system' here. Defaults to 'custom' if not specified",
+    )
+
+    expect(rendered).toContain('Choose <code>custom</code> or <code>system</code> here')
+    expect(rendered).toContain('Defaults to <code>custom</code> if')
+  })
+})

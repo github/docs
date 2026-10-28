@@ -23,7 +23,14 @@ function readFrontmatter(markdown: string, opts: ReadFrontmatterOptions = {}) {
   let data
 
   try {
-    ;({ content, data } = matter(markdown))
+    // gray-matter evals JavaScript frontmatter by default, and some callers parse untrusted files.
+    ;({ content, data } = matter(markdown, {
+      engines: {
+        javascript: () => {
+          throw new Error('JavaScript frontmatter is not allowed')
+        },
+      },
+    }))
   } catch (e: unknown) {
     const defaultReason = 'invalid frontmatter entry'
 

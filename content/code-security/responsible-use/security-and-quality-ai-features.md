@@ -280,7 +280,7 @@ GitHub Code Quality's LLM-powered analysis shares the evaluation framework of Co
 * **Human-in-the-loop review**: Copilot Autofix presents all suggestions as proposed code changes that require explicit developer review and acceptance before being applied. Developers must evaluate each suggestion and verify it maintains the codebase's intended behavior.
 * **Content filtering**: A filtering system on the LLM detects and prevents potentially harmful suggestions from being displayed to users. The system is stress-tested through red teaming to identify potential vulnerabilities.
 * **Internal quality testing**: Suggestions that fail internal testing are not displayed to users. Fix generation is only shown when the system has sufficient confidence in the suggestion's quality.
-* **Opt-in/opt-out controls**: Copilot Autofix is allowed by default and enabled for every repository using CodeQL, but administrators can disable Copilot Autofix at the enterprise, organization, and repository levels. For more information, see [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-code-scanning-alerts/disabling-autofix-for-code-scanning).
+* **Opt-in/opt-out controls**: {% data variables.copilot.copilot_autofix_short %} is allowed by default and enabled for every repository using {% data variables.product.prodname_codeql %}, but administrators can disable {% data variables.copilot.copilot_autofix_short %} at the enterprise, organization, and repository levels. For more information, see [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-code-scanning-alerts/disabling-copilot-autofix-for-code-scanning).
 * **No training on customer data**: Data handled by Copilot Autofix is not employed for LLM training purposes. The use of this feature is governed by the existing terms and conditions associated with GitHub Advanced Security.
 {% endif %}
 * **False positive feedback loop**: When users close a generic secret detection alert and mark the reason as "False positive," GitHub uses the false positive volume to improve the model. GitHub does not have access to the secret literals themselves.
@@ -330,7 +330,7 @@ For additional guidance on the responsible use of GitHub Security AI features, w
 * [AUTOTITLE](/code-security/concepts/code-scanning/code-scanning-alerts)
 * [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-code-scanning-alerts/triage-alerts-in-pull-requests#working-with-copilot-autofix-suggestions-for-alerts-on-a-pull-request)
 * [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-code-scanning-alerts/resolve-alerts#generating-a-suggested-fix)
-* [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-code-scanning-alerts/disabling-autofix-for-code-scanning)
+* [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-code-scanning-alerts/disabling-copilot-autofix-for-code-scanning)
 {% endif %}
 * [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#advanced-security)
 * [AUTOTITLE](/code-security/concepts/secret-security/secret-scanning)

@@ -1844,6 +1844,13 @@
                           "write"
                         ]
                       },
+                      "organization_copilot_requests": {
+                        "type": "string",
+                        "description": "The level of permission to grant the access token to make Copilot requests billed to the organization where the app is installed. This property is in public preview and is subject to change.",
+                        "enum": [
+                          "read"
+                        ]
+                      },
                       "organization_external_properties_for_repos": {
                         "type": "string",
                         "description": "The level of permission to grant the access token for managing external custom properties for repositories in an organization.",
@@ -2847,6 +2854,13 @@
                         "write"
                       ]
                     },
+                    "organization_copilot_requests": {
+                      "type": "string",
+                      "description": "The level of permission to grant the access token to make Copilot requests billed to the organization where the app is installed. This property is in public preview and is subject to change.",
+                      "enum": [
+                        "read"
+                      ]
+                    },
                     "organization_external_properties_for_repos": {
                       "type": "string",
                       "description": "The level of permission to grant the access token for managing external custom properties for repositories in an organization.",
@@ -3660,6 +3674,14 @@
             },
             {
               "type": "string",
+              "name": "organization_copilot_requests",
+              "description": "<p>The level of permission to grant the access token to make Copilot requests billed to the organization where the app is installed. This property is in public preview and is subject to change.</p>",
+              "enum": [
+                "read"
+              ]
+            },
+            {
+              "type": "string",
               "name": "organization_external_properties_for_repos",
               "description": "<p>The level of permission to grant the access token for managing external custom properties for repositories in an organization.</p>",
               "enum": [
@@ -4338,6 +4360,13 @@
                       "enum": [
                         "read",
                         "write"
+                      ]
+                    },
+                    "organization_copilot_requests": {
+                      "type": "string",
+                      "description": "The level of permission to grant the access token to make Copilot requests billed to the organization where the app is installed. This property is in public preview and is subject to change.",
+                      "enum": [
+                        "read"
                       ]
                     },
                     "organization_external_properties_for_repos": {
@@ -5033,6 +5062,7 @@
                         "type": "boolean"
                       },
                       "temp_clone_token": {
+                        "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                         "type": "string"
                       },
                       "allow_squash_merge": {
@@ -5735,6 +5765,14 @@
               "enum": [
                 "read",
                 "write"
+              ]
+            },
+            {
+              "type": "string",
+              "name": "organization_copilot_requests",
+              "description": "<p>The level of permission to grant the access token to make Copilot requests billed to the organization where the app is installed. This property is in public preview and is subject to change.</p>",
+              "enum": [
+                "read"
               ]
             },
             {
@@ -6555,6 +6593,13 @@
                               "enum": [
                                 "read",
                                 "write"
+                              ]
+                            },
+                            "organization_copilot_requests": {
+                              "type": "string",
+                              "description": "The level of permission to grant the access token to make Copilot requests billed to the organization where the app is installed. This property is in public preview and is subject to change.",
+                              "enum": [
+                                "read"
                               ]
                             },
                             "organization_external_properties_for_repos": {
@@ -7950,6 +7995,13 @@
                         "write"
                       ]
                     },
+                    "organization_copilot_requests": {
+                      "type": "string",
+                      "description": "The level of permission to grant the access token to make Copilot requests billed to the organization where the app is installed. This property is in public preview and is subject to change.",
+                      "enum": [
+                        "read"
+                      ]
+                    },
                     "organization_external_properties_for_repos": {
                       "type": "string",
                       "description": "The level of permission to grant the access token for managing external custom properties for repositories in an organization.",
@@ -8951,6 +9003,13 @@
                       "enum": [
                         "read",
                         "write"
+                      ]
+                    },
+                    "organization_copilot_requests": {
+                      "type": "string",
+                      "description": "The level of permission to grant the access token to make Copilot requests billed to the organization where the app is installed. This property is in public preview and is subject to change.",
+                      "enum": [
+                        "read"
                       ]
                     },
                     "organization_external_properties_for_repos": {
@@ -9966,6 +10025,13 @@
                         "write"
                       ]
                     },
+                    "organization_copilot_requests": {
+                      "type": "string",
+                      "description": "The level of permission to grant the access token to make Copilot requests billed to the organization where the app is installed. This property is in public preview and is subject to change.",
+                      "enum": [
+                        "read"
+                      ]
+                    },
                     "organization_external_properties_for_repos": {
                       "type": "string",
                       "description": "The level of permission to grant the access token for managing external custom properties for repositories in an organization.",
@@ -10975,6 +11041,13 @@
                       "enum": [
                         "read",
                         "write"
+                      ]
+                    },
+                    "organization_copilot_requests": {
+                      "type": "string",
+                      "description": "The level of permission to grant the access token to make Copilot requests billed to the organization where the app is installed. This property is in public preview and is subject to change.",
+                      "enum": [
+                        "read"
                       ]
                     },
                     "organization_external_properties_for_repos": {
@@ -12044,6 +12117,7 @@
                             "type": "boolean"
                           },
                           "temp_clone_token": {
+                            "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                             "type": "string"
                           },
                           "allow_squash_merge": {
@@ -12252,6 +12326,10 @@
         {
           "httpStatusCode": "403",
           "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
         }
       ],
       "previews": [],
@@ -12980,6 +13058,13 @@
                             "enum": [
                               "read",
                               "write"
+                            ]
+                          },
+                          "organization_copilot_requests": {
+                            "type": "string",
+                            "description": "The level of permission to grant the access token to make Copilot requests billed to the organization where the app is installed. This property is in public preview and is subject to change.",
+                            "enum": [
+                              "read"
                             ]
                           },
                           "organization_external_properties_for_repos": {
@@ -14079,6 +14164,7 @@
                             "type": "boolean"
                           },
                           "temp_clone_token": {
+                            "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                             "type": "string"
                           },
                           "allow_squash_merge": {
@@ -15111,6 +15197,13 @@
                                 "write"
                               ]
                             },
+                            "organization_copilot_requests": {
+                              "type": "string",
+                              "description": "The level of permission to grant the access token to make Copilot requests billed to the organization where the app is installed. This property is in public preview and is subject to change.",
+                              "enum": [
+                                "read"
+                              ]
+                            },
                             "organization_external_properties_for_repos": {
                               "type": "string",
                               "description": "The level of permission to grant the access token for managing external custom properties for repositories in an organization.",
@@ -16094,6 +16187,13 @@
                               "enum": [
                                 "read",
                                 "write"
+                              ]
+                            },
+                            "organization_copilot_requests": {
+                              "type": "string",
+                              "description": "The level of permission to grant the access token to make Copilot requests billed to the organization where the app is installed. This property is in public preview and is subject to change.",
+                              "enum": [
+                                "read"
                               ]
                             },
                             "organization_external_properties_for_repos": {

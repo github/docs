@@ -1,6 +1,6 @@
 ---
 title: Session limits
-shortTitle: Session limits
+shortTitle: Session Limits
 intro: >-
   Session limits let an application set an AI Credits budget for a Copilot
   session. Use `sessionLimits` when creating or resuming a session to set a soft

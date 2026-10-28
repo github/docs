@@ -9,6 +9,7 @@ import getCodeSamples from './create-rest-examples'
 import operationSchema from './operation-schema'
 import { validateJson } from '@/tests/lib/validate-json-schema'
 import { getBodyParams, type TransformedParam } from './get-body-params'
+import { simplifyParameterSchema } from './parameter-schema'
 import type { OpenApiOperation, OpenApiParameter, OpenApiServer } from './openapi-types'
 import type { MergedExample } from './create-rest-examples'
 
@@ -155,12 +156,8 @@ export default class Operation {
           delete param.example
           delete param.examples
           delete param['x-multi-segment']
-          // Keep only parameter schema subfields that renderers consume: type, default, and enum.
           if (param.schema && typeof param.schema === 'object') {
-            const { type, default: defaultVal, enum: enumVal } = param.schema
-            param.schema = { type }
-            if (defaultVal !== undefined) param.schema.default = defaultVal
-            if (enumVal !== undefined) param.schema.enum = enumVal
+            param.schema = simplifyParameterSchema(param.schema)
           }
           return param
         }),

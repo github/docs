@@ -304,7 +304,7 @@ This file has no version headings yet.`,
 
     await syncChangelogs(githubDir, versionNames, outputPath)
 
-    // fpt and ghec get hardcoded initial version entries even with no changelog files.
+    // Every product gets a hardcoded initial version entry even with no changelog files.
     const output = await readFile(outputPath, 'utf-8')
     expect(output).toContain('{% ifversion fpt %}')
     expect(output).toContain('{% ifversion ghec %}')
@@ -314,6 +314,43 @@ This file has no version headings yet.`,
     expect(output).toContain(
       'first version of the GitHub Enterprise Cloud REST API after date-based versioning',
     )
+
+    const { allVersions } = await import('@/versions/lib/all-versions')
+    const ghesVersion = Object.values(allVersions).find((v) => v.shortName === 'ghes')
+    if (!ghesVersion) return
+    expect(output).toContain(`{% ifversion ghes = ${ghesVersion.currentRelease} %}`)
+    expect(output).toContain(
+      'first version of the {% data variables.product.prodname_ghe_server %} REST API after date-based versioning',
+    )
+  })
+
+  test('injects hardcoded initial version for GHES when changelog lacks it', async () => {
+    const { allVersions } = await import('@/versions/lib/all-versions')
+    const ghesVersion = Object.values(allVersions).find((v) => v.shortName === 'ghes')
+    if (!ghesVersion) return
+
+    const release = ghesVersion.currentRelease
+    const githubDir = path.join(tmpDir, 'github')
+    await createChangelog(
+      githubDir,
+      `ghes-${release}`,
+      `# REST API Breaking Changes for GHES ${release}
+
+## Version 2026-03-10
+
+- **GHES breaking change**`,
+    )
+
+    await syncChangelogs(githubDir, versionNames, outputPath)
+
+    const output = await readFile(outputPath, 'utf-8')
+    const ghesBlock = output.split(`{% ifversion ghes = ${release} %}`)[1].split('{% ifversion ')[0]
+    expect(ghesBlock).toContain('GHES breaking change')
+    expect(ghesBlock.match(/## Version 2022-11-28/g)).toHaveLength(1)
+    expect(ghesBlock).toContain(
+      'first version of the {% data variables.product.prodname_ghe_server %} REST API after date-based versioning',
+    )
+    expect(ghesBlock.indexOf('"2026-03-10"')).toBeLessThan(ghesBlock.indexOf('"2022-11-28"'))
   })
 
   test('does not duplicate initial version when changelog already includes it', async () => {

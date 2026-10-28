@@ -54,10 +54,12 @@ You can share the content of the current session as a shareable link to the sess
 > [!NOTE]
 > You can use `/export` as an alias for `/share` in any of the commands below.
 
-To share the session to {% data variables.product.github %} and print a shareable link, type the following in an interactive session:
+Typing `/share` with no arguments opens a full-screen sharing menu where you can choose how to share the session. Opening this menu does not itself share or export anything.
+
+To share the session to {% data variables.product.github %} and print a shareable link directly, type the following in an interactive session:
 
 ```copilot copy
-/share
+/share link
 ```
 
 To stop sharing the session, type `/share off`.
@@ -87,7 +89,7 @@ To export the session as an interactive HTML file, type:
 
 As with Markdown export, if you don't specify a file path the file is saved in the current working directory, with the name `copilot-session-SESSIONID.html`.
 
-If you have used the `/research` slash command in the current session, you can also use the `/share` command to share a research report. For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/research#viewing-and-sharing-a-research-report).
+If you have used the `/research` slash command in the current session, you can also use the `/share` command to share a research report. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/research-with-copilot-cli#viewing-and-sharing-a-research-report).
 
 ## Using the `/chronicle` slash command
 
@@ -240,6 +242,7 @@ The simplest way to delete sessions is to use the `/session` slash command in an
 * `/session delete SESSION-ID` deletes a specific session. This shows a preview first; add `--yes` to confirm, for example `/session delete SESSION-ID --yes`.
 * `/session delete-all` deletes all of your local sessions except the current one. Add `--yes` to confirm: `/session delete-all --yes`. Sessions that are in use by another process are skipped.
 * `/session prune --older-than DAYS` deletes sessions older than the specified number of days. Add `--dry-run` to preview what would be deleted.
+* `/session cleanup` shows a storage summary of your other local sessions, grouped by age, and suggests commands for deleting old sessions. It does not delete local or synced sessions. Use `/session prune --older-than DAYS --dry-run` to preview deletions, then remove `--dry-run` to delete those local sessions.
 
 When you delete a session that has been synced to your account, `/session delete` asks whether you also want to delete the synced (remote) copy. Deleting the synced copy also removes the session from your `/chronicle` insights and query results. The `/session delete-all` and `/session prune` subcommands only affect local sessions and do not delete synced data. To remove synced data for those sessions, manually delete it from {% data variables.product.prodname_dotcom_the_website %}.
 
@@ -248,7 +251,7 @@ For the full list of `/session` subcommands, see [AUTOTITLE](/copilot/reference/
 ### Deleting session data manually
 
 * **Local data**: To remove data for a particular CLI session locally, delete the relevant session directory from `~/.copilot/session-state/`. To clear all local session data, delete everything under `~/.copilot/session-state/`. After doing this you must manually reindex the session store. See [Reindexing the session store](#reindexing-the-session-store) later in this article. Deleting local files does not affect session data that has been synced to your account. You cannot delete synced data locally.
-* **Synced data**: You can delete or hide synced CLI sessions from {% data variables.product.prodname_dotcom_the_website %}. Hiding a session removes it from your session index so it no longer appears in query results. Deleting a session removes it from your session list on {% data variables.product.prodname_dotcom_the_website %}. Deletion applies to CLI, {% data variables.product.prodname_vscode_shortname %}, and {% data variables.copilot.github_copilot_app %} sessions.
+* **Synced data**: You can delete or hide synced CLI sessions from {% data variables.product.prodname_dotcom_the_website %}. Hiding a session removes it from your session index so it no longer appears in query results. Deleting a session removes it from your session list on {% data variables.product.prodname_dotcom_the_website %}. Deletion applies to sessions from {% data variables.copilot.copilot_cli_short %}, {% data variables.product.prodname_vscode_shortname %}, and the {% data variables.copilot.github_copilot_app %}.
 
 ## Reindexing the session store
 

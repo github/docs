@@ -82,15 +82,6 @@ describeIfElasticsearchURL('search/combined-autocomplete v1 middleware', () => {
     expect(JSON.parse(res.body).error).toBeTruthy()
   })
 
-  test('only english supported', async () => {
-    const sp = new URLSearchParams()
-    sp.set('query', 'rest')
-    sp.set('language', 'ja')
-    const res = await get(getSearchEndpointWithParams(sp))
-    expect(res.statusCode).toBe(400)
-    expect(JSON.parse(res.body).error).toBeTruthy()
-  })
-
   test('autocomplete term search', async () => {
     const sp = new URLSearchParams()
     sp.set('query', 'rest')

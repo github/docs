@@ -167,17 +167,19 @@ export async function createChangelogEntry(
       upcomingChanges: [],
     }
 
-    const cleanedSchemaChanges = cleanMessagesFromChanges(schemaChangesToReport)
-    const renderedScheamChanges = await Promise.all(
-      cleanedSchemaChanges.map(async (change): Promise<string> => {
-        return await renderContent(change)
-      }),
-    )
-    const schemaChange: ChangelogSchemaChange = {
-      title: 'The GraphQL schema includes these changes:',
-      changes: renderedScheamChanges,
+    if (schemaChangesToReport.length > 0) {
+      const cleanedSchemaChanges = cleanMessagesFromChanges(schemaChangesToReport)
+      const renderedScheamChanges = await Promise.all(
+        cleanedSchemaChanges.map(async (change): Promise<string> => {
+          return await renderContent(change)
+        }),
+      )
+      const schemaChange: ChangelogSchemaChange = {
+        title: 'The GraphQL schema includes these changes:',
+        changes: renderedScheamChanges,
+      }
+      changelogEntry.schemaChanges.push(schemaChange)
     }
-    changelogEntry.schemaChanges.push(schemaChange)
 
     for (const previewTitle in previewChangesToReport) {
       const previewChanges = previewChangesToReport[previewTitle]
@@ -244,7 +246,7 @@ export function previewAnchor(previewTitle: string): string {
 export function cleanMessagesFromChanges(changes: Change[]): string[] {
   return changes.map(function (change): string {
     // Wrap quoted GraphQL names in Markdown code spans for changelog rendering.
-    return change.message.replace(/'([a-zA-Z. :!]+)'/g, '`$1`')
+    return change.message.replace(/'([^']+)'/g, '`$1`')
   })
 }
 

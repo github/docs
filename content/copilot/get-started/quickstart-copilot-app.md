@@ -3,7 +3,7 @@ title: Getting started with the GitHub Copilot app
 shortTitle: Copilot app quickstart
 allowTitleToDifferFromFilename: true
 intro: 'Sign in to the {% data variables.copilot.github_copilot_app %}, connect a repository or local folder, and create your first agent session to make code changes.'
-product: '{% data reusables.gated-features.github-app %}<br><a href="https://github.com/features/ai/github-app" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Download {% data variables.copilot.github_copilot_app %}</span> {% octicon "link-external" height:16 %}</a>'
+product: '{% data reusables.gated-features.github-app %}<br>{% data reusables.copilot.github-app-download-button %}'
 versions:
   feature: copilot
 contentType: get-started
@@ -35,8 +35,9 @@ In this quickstart, you will:
 
 ## Installing the {% data variables.copilot.github_copilot_app %}
 
-1. Visit the [download page for {% data variables.copilot.github_copilot_app %}](https://github.com/features/ai/github-app).
-1. Download the app for your platform.
+Download and install the {% data variables.copilot.github_copilot_app %} for your operating system. For other operating systems and architectures, see the [download page](https://github.com/features/ai/github-app).
+
+{% data reusables.copilot.github-app-download-button %}
 
 ## Opening the {% data variables.copilot.github_copilot_app %} for the first time
 
@@ -46,22 +47,22 @@ In this quickstart, you will:
    If you use {% data variables.product.prodname_ghe_cloud %} with data residency, choose **Use GitHub Enterprise** and enter your `*.ghe.com` hostname when prompted. {% data variables.product.prodname_ghe_server %} is not supported by the {% data variables.copilot.github_copilot_app %}.
 1. If you do not have a {% data variables.product.prodname_copilot_short %} plan, choose whether to sign up for a plan or continue with your own model provider.
     * If you choose to use your own model provider, select a provider, enter any required credentials, then click **Save and continue**.
-1. When prompted, select one or more repositories based on your recent {% data variables.product.github %} activity. You can also add a local folder or repository, or skip this step and add projects later.
+1. When prompted, select one or more repositories based on your recent {% data variables.product.github %} activity. You can also add a local folder or repository, or skip this step and add repositories later.
 1. Choose a theme, then complete onboarding to open the app.
 
 ## Connecting a repository or folder
 
-To work on code, you need at least one project connected to the app. A project can be a folder already on your machine, including a repository you've already cloned locally, or a repository you clone from {% data variables.product.github %} or another remote Git host such as Azure DevOps. Connecting a project unlocks the core app workflow: reading code, making edits, and opening pull requests from agent sessions. If you skipped project setup during onboarding, or want to add more projects later:
+To work on code, you need at least one repository or local folder connected to the app. You can connect a folder already on your machine, including a repository you've already cloned locally, or a repository you clone from {% data variables.product.github %} or another remote Git host such as Azure DevOps. Connecting a repository or folder unlocks the core app workflow: reading code, making edits, and opening pull requests from agent sessions. If you skipped repository setup during onboarding, or want to add more repositories or folders later:
 
-1. In the sidebar, next to **Projects**, click {% octicon "plus" aria-label="Add project" %}.
-1. Under **Add project from**, choose one of the following:
-  * **Local folder or repository** — Select a folder already on your machine, including one that contains a repository you've already cloned locally.
-  * **{% data variables.product.github %} repository** — Browse and clone a repository from {% data variables.product.github %}.
-  * **Repository URL** — Clone from a Git URL for repositories hosted outside {% data variables.product.github %} (for example, on Azure DevOps) or for private repositories without app access.
+1. In the sidebar, next to **Sessions**, click {% octicon "plus" aria-label="New" %}.
+1. Choose where to add the repository or folder from:
+  * **Open local folder** — Select a folder already on your machine, including one that contains a repository you've already cloned locally.
+  * **Add {% data variables.product.github %} repository** — Browse and clone a repository from {% data variables.product.github %}.
+  * **Clone repository** — Clone from a Git URL for repositories hosted outside {% data variables.product.github %} (for example, on Azure DevOps) or for private repositories without app access.
 
 ## Making your first code changes
 
-1. Under **Projects** in the sidebar, find the connected folder or repository you want to use, then click {% octicon "plus" aria-label="Start a new session" %} next to it.
+1. In the sidebar, next to **Sessions**, click {% octicon "plus" aria-label="New" %}, then select the connected repository or folder under "Start session in."
 1. Select a session mode from the dropdown below the prompt field—for example, **Interactive** to work collaboratively with the agent.
 1. In the prompt box, paste this prompt:
 
@@ -86,7 +87,7 @@ The sidebar gives you access to the main areas of the app:
 * **[Automations](https://github.com/copilot/app/launch?open=ghapp%3A%2F%2Fautomations)** — Saved agent tasks that run on a schedule or on demand.
 * **Customize** — Discover and manage plugins, skills, MCP servers, and canvases.
 * **Search** — Search across your repositories directly from the app.
-* **Projects** — View connected projects and their active agent sessions, or start a new session for a project.
+* **Sessions** — View connected repositories, local folders, and their active agent sessions, or start a new session for a repository or folder.
 * **Chats** — General conversations that do not require a dedicated branch or workspace.
 
 ## Next steps

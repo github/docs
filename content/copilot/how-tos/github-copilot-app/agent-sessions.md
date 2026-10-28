@@ -3,7 +3,7 @@ title: Working with agent sessions in the GitHub Copilot app
 shortTitle: Agent sessions
 intro: 'Run multiple isolated agent sessions simultaneously, each with its own branch, and steer them using different session modes, models, and tools.'
 allowTitleToDifferFromFilename: true
-product: '{% data reusables.gated-features.github-app %}<br><a href="https://github.com/features/ai/github-app" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Download {% data variables.copilot.github_copilot_app %}</span> {% octicon "link-external" height:16 %}</a>'
+product: '{% data reusables.gated-features.github-app %}<br>{% data reusables.copilot.github-app-download-button %}'
 versions:
   feature: copilot
 contentType: how-tos
@@ -17,8 +17,8 @@ category:
 
 Each session in the {% data variables.copilot.github_copilot_app %} runs in its own isolated workspace, so you can run multiple sessions in parallel and make progress on several tasks without conflicts.
 
-1. In the sidebar, next to **Projects**, click {% octicon "plus" aria-label="Start a new session" %}.
-1. Choose a project—you can use a folder already on your machine, choose from {% data variables.product.github %}, or clone from a Git URL for repositories hosted outside {% data variables.product.github %} (for example, on Azure DevOps) or for private repositories without app access.
+1. In the sidebar, next to **Sessions**, click {% octicon "plus" aria-label="New" %}.
+1. Under "Start session in," select a connected repository or folder. To connect one first, choose **Add {% data variables.product.github %} repository**, **Clone repository**, or **Open local folder**.
 1. From the dropdown under the prompt box, choose where the session should run: in a new working tree, in your local repository, or in a cloud sandbox. Cloud sandboxes are fully isolated environments hosted by {% data variables.product.github %}.
 1. Select a session mode, model, and reasoning effort from the dropdowns below the prompt field. If you choose **Auto** for the model, the app selects the optimal model for your task based on task complexity.
 1. Describe the task in the prompt field. You can reference issues with `#`, add files with `@`, or use `/` for commands.
@@ -29,11 +29,35 @@ For a list of commands you can use in the prompt box, see [AUTOTITLE](/copilot/r
 
 ## Choosing a session mode
 
-The session mode controls how much autonomy the agent has. You can set the mode from the dropdown below the prompt field and change it at any time.
+The session mode controls how the agent works with you. It is separate from tool permissions, which control when the agent asks before running a tool. You can set the mode from the dropdown below the prompt field and change it at any time.
 
 * **Interactive**: You and the agent work together. The agent suggests changes and waits for your input before proceeding.
 * **Plan**: The agent creates a plan first. You review and approve the plan before the agent executes it.
 * **Autopilot**: The agent works fully autonomously—writing code, running tests, and iterating without waiting for input.
+
+## Choosing tool permissions
+
+In an app session, {% data variables.product.prodname_copilot_short %} uses tools to complete tasks, such as running terminal commands, reading and editing files, searching your codebase, fetching web content, and delegating work to specialized agents. Some tools can modify your system or access external resources, so tool permissions control when {% data variables.product.prodname_copilot_short %} asks for your approval before using them.
+
+You can choose between three options that determine how much you want to be involved in approving the tools {% data variables.product.prodname_copilot_short %} uses.
+
+* **Manual approval (Ask every time)**: Ask for your approval before running tools. This gives you the most oversight but requires you to respond to the most prompts.
+* **Assisted**: Use a model to assess each request, automatically approving requests it judges to be safe and prompting you to approve potentially unsafe requests. {% data variables.copilot.assisted_permissions_caps %} reduces prompts while maintaining oversight of potentially risky actions.
+* **Unconditional approval (Approve all)**: Run tools without asking for your approval. This is the most convenient option but removes your oversight of individual actions.
+
+For more information about using {% data variables.copilot.assisted_permissions %}, see [AUTOTITLE](/copilot/concepts/agents/allowing-safe-commands).
+
+To choose the permission level for an individual session:
+
+1. In the session, click the mode below the prompt field.
+1. Hover over **Tool permissions**.
+1. Select **Ask every time**, **Assisted**, or **Approve all**.
+
+To set the default permission level for future local sessions:
+
+1. Open the app settings.
+1. Click **Sessions**.
+1. Under **Tool permissions**, select **Ask every time**, **Assisted**, or **Approve all**.
 
 ## Choosing a model
 
@@ -68,7 +92,7 @@ Use **Manage sessions** to view, search, and filter sessions and chats, includin
 Cloud and local sandboxes protect sessions in different ways:
 
 * **Cloud sandbox**: Runs the entire session in an isolated environment hosted by {% data variables.product.github %}. Use a cloud sandbox when you want to keep the session off your machine or run several resource-intensive tasks in parallel. Choose the cloud sandbox execution location when starting a session.
-* **Local sandbox**: Runs the session on your machine, but restricts the filesystem, network, and credential access available to agent-run tools. Use local sandboxing when the agent needs your local tools or development services, but you want to limit its access to the rest of your machine. Configure the default for new local repository and working tree sessions in the project settings, or use `/sandbox on` or `/sandbox off` to change an active local session.
+* **Local sandbox**: Runs the session on your machine, but restricts the filesystem, network, and credential access available to agent-run tools. Use local sandboxing when the agent needs your local tools or development services, but you want to limit its access to the rest of your machine. Configure the default for new local repository and working tree sessions in the repository settings, or use `/sandbox on` or `/sandbox off` to change an active local session.
 
 Local sandboxing does not apply to cloud sandbox sessions or sessions that run on a remote host. For more information about how both types of sandbox work, see [AUTOTITLE](/copilot/concepts/about-cloud-and-local-sandboxes). To enable local sandboxing, see [AUTOTITLE](/copilot/how-tos/cloud-and-local-sandboxes/using-local-sandboxing).
 
@@ -96,7 +120,7 @@ You can also manually ask {% data variables.product.prodname_copilot_short %} to
 1. Open an active session.
 1. In the prompt box, type `/rubber-duck` and ask for a critique of your current plan, implementation, or tests.
 
-For more information on the rubber duck agent, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/rubber-duck).
+For more information on the rubber duck agent, see [AUTOTITLE](/copilot/concepts/agent-capabilities/choosing-and-delegating-agent-work/getting-a-second-opinion).
 
 ## Using `/chronicle` with app sessions
 

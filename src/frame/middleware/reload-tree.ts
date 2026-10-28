@@ -11,7 +11,12 @@ import type { ExtendedRequest, UnversionedTree, SiteTree } from '@/types'
 import languages, { languageKeys } from '@/languages/lib/languages-server'
 import createTree from '@/frame/lib/create-tree'
 import warmServer from '@/frame/lib/warm-server'
-import { loadSiteTree, loadPages, loadPageMap } from '@/frame/lib/page-data'
+import {
+  loadSiteTree,
+  loadPages,
+  loadPageMap,
+  setCategoryApplicableVersions,
+} from '@/frame/lib/page-data'
 import loadRedirects from '@/redirects/lib/precompile'
 
 const languagePrefixRegex = new RegExp(`^/(${languageKeys.join('|')})(/|$)`)
@@ -38,6 +43,8 @@ export default async function reloadTree(req: ExtendedRequest, res: Response, ne
   const after = getMtimes(warmed.unversionedTree.en)
   // Dependent maps take about 140ms after a 40ms tree refresh, so skip them when mtimes match.
   if (before !== after) {
+    // Reinitialized category pages lose the child-derived versions that startup applies.
+    setCategoryApplicableVersions(warmed.unversionedTree.en)
     warmed.siteTree = (await loadSiteTree(warmed.unversionedTree)) as SiteTree
     warmed.pageList = await loadPages(warmed.unversionedTree)
     warmed.pages = await loadPageMap(warmed.pageList)

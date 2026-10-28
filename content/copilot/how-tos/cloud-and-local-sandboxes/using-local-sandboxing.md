@@ -47,7 +47,7 @@ You manage local sandboxing from within a {% data variables.copilot.copilot_cli_
 | Command | Description |
 | --- | --- |
 | `/sandbox status` | Show whether sandboxing is currently being used for the session. See [Checking whether sandboxing is being used](#checking-whether-sandboxing-is-being-used). |
-| `/sandbox policy [COMMAND]` | Show the effective paths, network settings, and capabilities for the current directory. Optionally include a command to inspect the developer-tool access it would receive, without running it. For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/understanding-local-sandboxing). |
+| `/sandbox policy [COMMAND]` | Show the effective paths, network settings, and capabilities for the current directory. Optionally include a command to inspect the developer-tool access it would receive, without running it. For more information, see [AUTOTITLE](/copilot/concepts/security-governance-and-network-settings/understanding-local-sandboxing). |
 | `/sandbox config` | Open the interactive settings interface. Entering `/sandbox` on its own does the same thing. For more information, see [AUTOTITLE](/copilot/how-tos/cloud-and-local-sandboxes/configuring-local-sandbox-settings). |
 | `/sandbox enable` | Turn local sandboxing on. See [Enabling local sandboxing](#enabling-local-sandboxing). |
 | `/sandbox disable` | Turn local sandboxing off. If enterprise managed settings require sandboxing, this is refused unless the effective policy permits sandbox bypass, in which case it disables sandboxing for the rest of the current session only. See [Disabling local sandboxing](#disabling-local-sandboxing). |
@@ -114,7 +114,7 @@ To check whether local sandboxing is being used for the current session, enter:
 
 {% data variables.copilot.copilot_cli_short %} reports whether sandboxing is enabled for the session. If your organization's managed settings require sandboxing, the status notes this too. Because the status reflects what the session actually enforces, it is the reliable way to confirm whether the commands {% data variables.product.prodname_copilot_short %} runs are being sandboxed.
 
-To see not only whether sandboxing is on, but exactly which paths are readable, writable, or blocked, enter `/sandbox policy`. For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/understanding-local-sandboxing).
+To see not only whether sandboxing is on, but exactly which paths are readable, writable, or blocked, enter `/sandbox policy`. For more information, see [AUTOTITLE](/copilot/concepts/security-governance-and-network-settings/understanding-local-sandboxing).
 
 You can also see sandbox status at a glance in the status line, which contains `sandbox enabled` when sandboxing is being used. Display of sandbox information in the status line is turned on by default. If it has been turned off, you can turn it back on:
 
@@ -139,7 +139,7 @@ If a command cannot access a file, use a tool, or connect to a host, check the s
 
    This previews the policy without running `npm install`. Review the listed paths and network settings. Check **Notes** for settings that could not be applied.
 
-1. If the policy blocks access you intend to allow, use `/sandbox config` to update the required path or host rules. Grant only the access the command needs. For missing paths and symbolic links, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/understanding-local-sandboxing#troubleshooting-filesystem-access). To grant read and write access to a directory for the current session only, without changing your saved sandbox settings, use `/add-dir PATH`. Access granted this way is still subject to any sandbox policy managed by your organization.
+1. If the policy blocks access you intend to allow, use `/sandbox config` to update the required path or host rules. Grant only the access the command needs. For missing paths and symbolic links, see [AUTOTITLE](/copilot/concepts/security-governance-and-network-settings/understanding-local-sandboxing#troubleshooting-filesystem-access). To grant read and write access to a directory for the current session only, without changing your saved sandbox settings, use `/add-dir PATH`. Access granted this way is still subject to any sandbox policy managed by your organization.
 1. If the setting is managed by your organization, contact your administrator. If the error names a missing operating-system feature or Linux dependency, address that requirement, then restart {% data variables.copilot.copilot_cli_short %} before trying again.
 1. Ask {% data variables.product.prodname_copilot_short %} to run the command again. If a one-command bypass is offered, approve it only if you are comfortable with the broader access described. Disabling sandboxing for the whole session gives subsequent commands broader access, not just the blocked command.
 
@@ -199,14 +199,14 @@ To turn off sandboxing, enter:
 /sandbox off
 ```
 
-These commands turn sandboxing on or off immediately, unless enterprise managed settings prevent the change. Your choice applies to the current session, including after a restart, and takes precedence over the project default. It does not change the project default for other sessions.
+These commands turn sandboxing on or off immediately, unless enterprise managed settings prevent the change. Your choice applies to the current session, including after a restart, and takes precedence over the repository default. It does not change the repository default for other sessions.
 
 When local sandboxing is off, agent-run commands can access the same files, networks, and credentials as your user account.
 
 You cannot use local sandboxing for a cloud sandbox session or a session that runs on a remote host.
 
 > [!NOTE]
-> * If you enter either of the above commands before a session starts—for example, by clicking **New**, selecting a project, and then entering the command—the command changes the default sandboxing setting for the selected project. Alternatively, you can set the default in your settings. See [AUTOTITLE](/copilot/how-tos/cloud-and-local-sandboxes/configuring-local-sandbox-settings#enabling-local-sandboxing-for-a-project).
+> * If you enter either of the above commands before a session starts—for example, by clicking **New**, selecting a repository or local folder, and then entering the command—the command changes the default sandboxing setting for the selected repository or folder. Alternatively, you can set the default in your settings. See [AUTOTITLE](/copilot/how-tos/cloud-and-local-sandboxes/configuring-local-sandbox-settings#enabling-local-sandboxing-for-a-repository).
 > * Unlike in the CLI, entering `/sandbox` without `on` or `off` does not open a configuration interface.
 
 ### Running a tool outside the sandbox
@@ -221,7 +221,7 @@ To disable sandboxing from this prompt, click **More options**, then **Disable s
 
 If you disable sandboxing from this prompt, the app displays **Sandbox off for this session**. Click **Re-enable sandbox** to turn it back on.
 
-Temporarily disabling sandboxing does not change the project default or the session's saved setting. It ends when the session restarts or reattaches.
+Temporarily disabling sandboxing does not change the repository default or the session's saved setting. It ends when the session restarts or reattaches.
 
 An enterprise owner can prevent users from running tools outside the sandbox. For more information, see [AUTOTITLE](/copilot/reference/enterprise-administrators/enterprise-managed-settings#sandbox).
 

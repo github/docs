@@ -59,7 +59,8 @@ async function main({ owner, repo, baseSHA, headSHA }: MainArgs) {
     return ''
   }
 
-  let markdown = '**Please restore deleted assets**\n\n'
+  // dont-delete-assets.yml searches for this marker to update its earlier comment instead of posting a new one.
+  let markdown = '<!-- DELETED_ASSETS -->\n**Please restore deleted assets**\n\n'
   markdown +=
     "Even if you don't reference these assets anymore, as of this branch, please do not delete them.\n"
   markdown += 'They might still be referenced in translated content.\n'

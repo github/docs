@@ -40,6 +40,8 @@ category:
 
 This guide demonstrates how to get coding suggestions from {% data variables.product.prodname_copilot %} in a JetBrains IDE. To see instructions for other popular coding environments, use the tool switcher at the top of the page.
 
+{% data reusables.copilot.supported-languages %}
+
 The examples in this guide use Java, however other languages will work similarly.
 
 For more information, see [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-in-ides#code-suggestions).
@@ -221,7 +223,7 @@ To enable comment suggestions, you need to configure the comment style in {% dat
 1. Under the **Code Style** heading, click **General**.
 1. Under "Comments," select **Xml Doc Comments** from the dropdown.
 1. Select **Insert existing comment style at the start of new lines when writing comments** and **Continue single line comments.** Then click **OK**.
-1. In the **Options** tab, in the left-side panel, click **GitHub**. 
+1. In the **Options** tab, in the left-side panel, click **GitHub**.
 1. Click **Copilot**, then **Editor**.
 1. Select **Enable AI generated descriptions for auto-inserted documentation comments in supported languages**.
 
@@ -231,7 +233,7 @@ To enable comment suggestions, you need to configure the comment style in {% dat
 1. In the left-side panel, click **Languages**.
 1. Click **C#**, then **More Settings**, then **Advanced**.
 1. Under "Comments," select **Generate XML documentation comments for ///**, **Insert // at the start of new lines when writing // comments**, and **Insert \* at the start of new lines when writing /\* \*/ comments.** Then click **OK**.
-1. In the **Options** tab, in the left-side panel, click **GitHub**. 
+1. In the **Options** tab, in the left-side panel, click **GitHub**.
 1. Click **Copilot**, then **Editor**.
 1. Select **Enable AI generated descriptions for auto-inserted documentation comments in supported languages**.
 
@@ -607,7 +609,7 @@ An arrow in the gutter indicates an available edit suggestion. Hover over the ar
 
 ## Next steps
 
-* **Learn how to write effective prompts** - See [AUTOTITLE](/copilot/concepts/prompting/prompt-engineering).
+* **Learn how to write effective prompts** - See [AUTOTITLE](/copilot/concepts/prompting-and-context/prompt-engineering).
 * **Configure {% data variables.product.prodname_copilot_short %} in your editor** - You can enable or disable {% data variables.product.prodname_copilot %} from within your editor, and create your own preferred keyboard shortcuts for {% data variables.product.prodname_copilot_short %}. See [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/set-up-copilot/configure-in-ide).
 * **Get started with {% data variables.copilot.copilot_chat %}** - Learn how to ask {% data variables.product.prodname_copilot_short %} for information and assistance, using {% data variables.copilot.copilot_chat %}. See [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/chat-with-copilot/chat-in-ide){% ifversion ghec %} and [AUTOTITLE](/copilot/how-tos/copilot-on-github/chat-with-copilot/chat-in-github){% endif %}.
 * **Troubleshoot issues** - Learn more about how to troubleshoot common issues with {% data variables.product.prodname_copilot %}. See [AUTOTITLE](/copilot/how-tos/troubleshoot-copilot).

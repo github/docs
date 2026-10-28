@@ -85,9 +85,12 @@ export async function loadUnversionedTree(
 }
 
 // Category pages inherit applicable versions from immediate children.
-function setCategoryApplicableVersions(tree: UnversionedTree): void {
-  for (const childPage of tree.childPages) {
+export function setCategoryApplicableVersions(tree: UnversionedTree): void {
+  // Translated leaves have no childPages array.
+  for (const childPage of tree.childPages || []) {
     if (childPage.page.relativePath.endsWith('index.md')) {
+      // Nested categories settle first so the union reads their current versions.
+      setCategoryApplicableVersions(childPage)
       const combinedApplicableVersions: string[] = []
       let moreThanOneChild = false
       for (const childChildPage of childPage.childPages || []) {
@@ -96,7 +99,6 @@ function setCategoryApplicableVersions(tree: UnversionedTree): void {
             combinedApplicableVersions.push(version)
           }
         }
-        setCategoryApplicableVersions(childPage)
         moreThanOneChild = true
       }
       if (
@@ -156,8 +158,10 @@ async function translateTree(
     }
 
     for (const { property } of read.errors) {
+      // Type errors report a path like 'title.string', so match on the top-level key.
+      const key = property?.split('.')[0]
       // Translatable key errors fall back to English; untranslated key errors do not.
-      if (property && translatableFrontmatterKeys.includes(property)) {
+      if (key && translatableFrontmatterKeys.includes(key)) {
         const message = `frontmatter error on '${property}' (in ${fullPath}) so falling back to English`
         if (DEBUG_TRANSLATION_FALLBACKS) {
           // Object context lets the health report attribute the fallback to this path.
@@ -167,7 +171,7 @@ async function translateTree(
           throw new Error(message)
         }
         // Dynamic property names need a string-indexed record.
-        ;(data as Record<string, unknown>)[property] = (enData as Record<string, unknown>)[property]
+        ;(data as Record<string, unknown>)[key] = (enData as Record<string, unknown>)[key]
       }
     }
   } catch (error) {

@@ -240,6 +240,68 @@ describe('summarizeSchema — repeated titled type deduplication', () => {
     expect((result.match(/\(see above\)/g) || []).length).toBeGreaterThanOrEqual(2)
   })
 
+  it('expands every occurrence of a title that has more than one shape', () => {
+    const fullType: Schema = {
+      type: 'object',
+      title: 'Issue Type',
+      required: ['id', 'description'],
+      properties: {
+        id: { type: 'integer' },
+        description: { type: 'string' },
+        is_enabled: { type: 'boolean' },
+      },
+    }
+    const eventType: Schema = {
+      type: 'object',
+      title: 'Issue Type',
+      required: ['id'],
+      properties: {
+        id: { type: 'integer' },
+        color: { type: 'string' },
+      },
+    }
+    const schema: Schema = {
+      type: 'object',
+      properties: {
+        type: fullType,
+        issue_type: eventType,
+        prev_issue_type: { ...eventType },
+      },
+    }
+    const result = summarizeSchema(schema)
+    expect(result).toContain('`issue_type`: `Issue Type`:')
+    expect(result).toContain('`prev_issue_type`: `Issue Type`:')
+    expect(result.match(/`color`/g)?.length).toBe(2)
+    expect(result).not.toContain('(see above)')
+  })
+
+  it('treats a top-level array item title as one of the shapes for that title', () => {
+    const schema: Schema = {
+      type: 'array',
+      items: {
+        type: 'object',
+        title: 'Issue Type',
+        properties: {
+          id: { type: 'integer' },
+          description: { type: 'string' },
+          parent: {
+            type: 'object',
+            title: 'Issue Type',
+            properties: { id: { type: 'integer' }, color: { type: 'string' } },
+          },
+          sibling: {
+            type: 'object',
+            title: 'Issue Type',
+            properties: { id: { type: 'integer' }, color: { type: 'string' } },
+          },
+        },
+      },
+    }
+    const result = summarizeSchema(schema)
+    expect(result).toContain('`sibling`: `Issue Type`:')
+    expect(result).not.toContain('(see above)')
+  })
+
   it('does not reference untitled (anonymous) objects', () => {
     const anon: Schema = {
       type: 'object',

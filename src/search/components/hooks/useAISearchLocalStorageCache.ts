@@ -37,25 +37,31 @@ export function useAISearchLocalStorageCache<T = unknown>(
   const getItem = useCallback(
     (query: string, version: string, language: string): T | null => {
       const key = generateCacheKey(query, version, language)
-      const itemStr = localStorage.getItem(key)
-      if (!itemStr) return null
-
-      let cachedItem: CachedItem<T>
       try {
-        cachedItem = JSON.parse(itemStr)
-      } catch (e) {
-        console.error('Failed to parse cached item from localStorage', e)
-        localStorage.removeItem(key)
-        return null
-      }
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return null
 
-      const now = Date.now()
-      const expirationTime = cachedItem.timestamp + expirationDays * 24 * 60 * 60 * 1000
-      if (now < expirationTime) {
-        return cachedItem.data
-      } else {
-        localStorage.removeItem(key)
-        updateCacheIndex((index) => index.filter((entry) => entry.key !== key))
+        let cachedItem: CachedItem<T>
+        try {
+          cachedItem = JSON.parse(itemStr)
+        } catch (e) {
+          console.error('Failed to parse cached item from localStorage', e)
+          localStorage.removeItem(key)
+          return null
+        }
+
+        const now = Date.now()
+        const expirationTime = cachedItem.timestamp + expirationDays * 24 * 60 * 60 * 1000
+        if (now < expirationTime) {
+          return cachedItem.data
+        } else {
+          localStorage.removeItem(key)
+          updateCacheIndex((index) => index.filter((entry) => entry.key !== key))
+          return null
+        }
+      } catch (e) {
+        // Storage can be blocked by browser settings, so treat failures as a cache miss.
+        console.warn('Failed to read AI search cache from localStorage', e)
         return null
       }
     },
@@ -68,33 +74,38 @@ export function useAISearchLocalStorageCache<T = unknown>(
       const now = Date.now()
       const cachedItem: CachedItem<T> = { data, timestamp: now }
 
-      localStorage.setItem(key, JSON.stringify(cachedItem))
+      try {
+        localStorage.setItem(key, JSON.stringify(cachedItem))
 
-      const indexStr = localStorage.getItem(cacheIndexKey)
-      let index: CacheIndexEntry[] = []
-      if (indexStr) {
-        try {
-          index = JSON.parse(indexStr)
-        } catch (e) {
-          console.error('Failed to parse cache index from localStorage', e)
+        const indexStr = localStorage.getItem(cacheIndexKey)
+        let index: CacheIndexEntry[] = []
+        if (indexStr) {
+          try {
+            index = JSON.parse(indexStr)
+          } catch (e) {
+            console.error('Failed to parse cache index from localStorage', e)
+          }
         }
-      }
 
-      index = index.filter((entry) => entry.key !== key)
-      index.push({ key, timestamp: now })
+        index = index.filter((entry) => entry.key !== key)
+        index.push({ key, timestamp: now })
 
-      // Keep the newest entries when the cache exceeds maxEntries.
-      if (index.length > maxEntries) {
-        index.sort((a, b) => a.timestamp - b.timestamp)
-        const excess = index.length - maxEntries
-        const entriesToRemove = index.slice(0, excess)
-        for (const entry of entriesToRemove) {
-          localStorage.removeItem(entry.key)
+        // Keep the newest entries when the cache exceeds maxEntries.
+        if (index.length > maxEntries) {
+          index.sort((a, b) => a.timestamp - b.timestamp)
+          const excess = index.length - maxEntries
+          const entriesToRemove = index.slice(0, excess)
+          for (const entry of entriesToRemove) {
+            localStorage.removeItem(entry.key)
+          }
+          index = index.slice(excess)
         }
-        index = index.slice(excess)
-      }
 
-      localStorage.setItem(cacheIndexKey, JSON.stringify(index))
+        localStorage.setItem(cacheIndexKey, JSON.stringify(index))
+      } catch (e) {
+        // Caching is optional, so quota or blocked storage errors must not break the answer UI.
+        console.warn('Failed to write AI search cache to localStorage', e)
+      }
     },
     [cacheKeyPrefix, maxEntries],
   )

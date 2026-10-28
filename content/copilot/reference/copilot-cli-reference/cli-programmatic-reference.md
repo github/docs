@@ -38,22 +38,24 @@ There are a number of command-line options that are particularly useful when run
 | `--allow-all-urls`            | Allow access to all URLs without explicit permission for each URL. |
 | `--allow-tool=TOOL ...`       | Selectively grant permission for a specific tool. For multiple tools, use a quoted, comma-separated list. |
 | `--allow-url=URL ...`         | Allow the agent to fetch a specific URL or domain. Useful when a workflow needs web access to known endpoints. For multiple URLs, use a quoted, comma-separated list. |
+| `--assisted-approval`         | Turn on {% data variables.copilot.assisted_permissions %} for the run, so that a safety review can approve eligible permission requests. Only valid for non-interactive runs. See [Using {% data variables.copilot.assisted_permissions %}](#using-assisted-permissions) below. |
 | `--attachment=PATH ...`       | Attach a file (image or native document) to the initial prompt. Only valid in non-interactive mode. Can be used multiple times to attach multiple files. |
 | `--available-tools=TOOL ...`  | Restrict the model to only the tools you list; all other tools are unavailable. Useful for tightly scoping what the agent can do in an automated workflow. For multiple tools, use a quoted, comma-separated list. |
 | `--deny-tool=TOOL ...`        | Deny a specific tool. Useful for restricting what the agent can do in a locked-down workflow. For multiple tools, use a quoted, comma-separated list. |
 | `--deny-url=URL ...`          | Deny access to a specific URL or domain. Takes precedence over `--allow-url`. For multiple URLs, use a quoted, comma-separated list. |
 | `--excluded-tools=TOOL ...`   | Remove specific tools from those available to the model. For multiple tools, use a quoted, comma-separated list. |
 | `--fleet`                     | Run the prompt in fleet mode, so {% data variables.product.prodname_copilot_short %} uses parallel subagents to work on separate parts of the task. Combine with `-p` for non-interactive automation, `-i` for an interactive session, or a piped prompt. Not supported in ACP server mode. See [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/speed-up-task-completion). |
-| `--model=MODEL`               | Choose the AI model (for example, `gpt-5.4` or `claude-haiku-4.5`). Useful for pinning a model in reproducible workflows. See [Choosing a model](#choosing-a-model) below. |
+| `--model=MODEL`               | Choose the AI model (for example, `gpt-6-astra` or `claude-haiku-4.5`). Useful for pinning a model in reproducible workflows. See [Choosing a model](#choosing-a-model) below. |
 | `--no-ask-user`               | Prevent the agent from pausing to seek additional user input. |
 | `--output-format=FORMAT`      | Set the output format: `text` (the default) or `json`. With `json`, the CLI emits JSONL (one JSON object per line), which is convenient for parsing the agent's output in scripts. |
 | `--secret-env-vars=VAR ...`   | An environment variable whose value you want redacted in output. For multiple variables, use a quoted, comma-separated list. Essential for preventing secrets being exposed in logs. The values in the `GITHUB_TOKEN` and `COPILOT_GITHUB_TOKEN` environment variables are redacted by default. |
+| `--trust-folder`              | Trust the working directory's hooks, workspace MCP servers, and repository plugin settings for a single new non-interactive session (`-p` or piped standard input). The trust is not saved to `trustedFolders`, does not extend to parent or sibling directories, and does not grant tool, path, or URL permissions. Managed policy still applies. Cannot be combined with `--resume`, `--continue`, or `--session-id`. Only use this for configuration you have reviewed. |
 | `--share=PATH`                | Export the session transcript to a markdown file after non-interactive completion (defaults to `./copilot-session-<ID>.md`). Useful for auditing or archiving what the agent did. Note that session transcripts may contain sensitive information. |
 | `--share-gist`                | Publish the session transcript as a secret GitHub gist after completion. Convenient for sharing results from CI. Note that session transcripts may contain sensitive information. |
 
 ## Running dynamic workflows
 
-Use `copilot workflow run WORKFLOW-NAME` to run a dynamic workflow from a script. To find out about dynamic workflows, see [AUTOTITLE](/copilot/concepts/agents/dynamic-workflows).
+Use `copilot workflow run WORKFLOW-NAME` to run a dynamic workflow from a script. To find out about dynamic workflows, see [AUTOTITLE](/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/dynamic-workflows).
 
 Use `--args` for inline JSON or an `@`-prefixed JSON file path. Arguments are not read from standard input.
 
@@ -108,7 +110,7 @@ You can specify various kinds of tools with the `--allow-tool` option.
 | write  | Creating or modifying files. |
 | read   | Reading files or directories. |
 | url    | Fetching content from a URL. |
-| memory | Storing new facts to the agent's persistent memory. This does not affect using existing memories. See [AUTOTITLE](/copilot/concepts/agents/copilot-memory). |
+| memory | Storing new facts to the agent's persistent memory. This does not affect using existing memories. See [AUTOTITLE](/copilot/concepts/prompting-and-context/copilot-memory). |
 | MCP-SERVER | Invoking tools from a specific MCP server. Use the server's configured name as the identifier—for example, `github`. See [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/add-mcp-servers). |
 
 ### Tool filters
@@ -139,7 +141,8 @@ You can use environment variables to configure various aspects of the CLI's beha
 | Variable              | Description   |
 | --------------------- | ------------- |
 | `COPILOT_ALLOW_ALL`   | Set to `true` for full permissions |
-| `COPILOT_MODEL`       | Set the model (for example, `gpt-5.4`, `claude-haiku-4.5`) |
+| `COPILOT_ASSISTED_APPROVAL` | Set to `true` to turn on {% data variables.copilot.assisted_permissions %} for a non-interactive run |
+| `COPILOT_MODEL`       | Set the model (for example, `gpt-6-astra`, `claude-haiku-4.5`) |
 | `COPILOT_HOME`        | Set the directory for the CLI configuration file (`~/.copilot` by default) |
 | `COPILOT_AUTO_UPDATE` | Set to `false` to disable automatic updates. Useful in CI and other automated environments where you want to pin the CLI version. |
 | `COPILOT_GITHUB_TOKEN`| Authentication token (highest precedence) |
@@ -148,6 +151,33 @@ You can use environment variables to configure various aspects of the CLI's beha
 | `GITHUB_COPILOT_PROMPT_MODE_EXTENSIONS` | Set to `true` to allow project extensions to load for a prompt or direct workflow run. Only use this for repository code you trust. This does not grant tool permissions. |
 
 For full details of environment variables for {% data variables.copilot.copilot_cli_short %}, use the command `copilot help environment` in your terminal.
+
+## Using {% data variables.copilot.assisted_permissions %}
+
+In a non-interactive run there is nobody available to answer approval prompts. Without any permission options, requests that need approval are denied, and {% data variables.product.prodname_copilot_short %} often can't finish the task. With `--allow-all-tools`, you grant blanket tool permissions without a model safety review.
+
+The `--assisted-approval` option is the middle ground. A safety review can assess eligible requests that aren't already resolved by existing permissions:
+
+* If the review judges the request to be safe, it's approved automatically and {% data variables.product.prodname_copilot_short %} continues.
+* If the review requires your approval, the request is denied and the reason is passed back to {% data variables.product.prodname_copilot_short %}, so that it can try a different approach to complete the task.
+
+Existing deny rules, mandatory approval requirements, and sandbox protections still apply. Requests that still require your approval are denied in non-interactive runs.
+
+For more information about how the safety review works, and which model is used, see [AUTOTITLE](/copilot/concepts/customizations/allowing-safe-commands).
+
+```shell copy
+copilot -p "Fix the failing tests" --assisted-approval
+```
+
+You can set the `COPILOT_ASSISTED_APPROVAL` environment variable to `true` instead of using the option. This is useful in automated environments where you can't easily change the command that's run.
+
+### Things to be aware of
+
+* **The option is only valid for non-interactive runs.** These are runs that use `-p` or `--prompt`, and runs in an environment with no terminal attached, such as a CI/CD workflow. If you use `--assisted-approval` when starting an interactive session, the CLI exits with an error.
+
+* **It overrides `--allow-all-tools` when successfully enabled.** Tool requests use {% data variables.copilot.assisted_permissions %} instead of blanket tool approval. However, `--allow-all-paths` and `--allow-all-urls`—including when they're set by `--allow-all` or `--yolo`—are unaffected, so file and URL access can still be unrestricted.
+
+* **Check for a warning if the run must not proceed without a safety review.** If {% data variables.copilot.assisted_permissions %} can't be turned on, because your enterprise settings block it for example, the CLI writes a warning to standard error and continues. It does not cancel a separate `--allow-all-tools` option that you supplied, so tool requests may still be approved without a safety review.
 
 ## Choosing a model
 

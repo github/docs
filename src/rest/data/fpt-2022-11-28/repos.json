@@ -634,6 +634,7 @@
                     "type": "string"
                   },
                   "temp_clone_token": {
+                    "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                     "type": "string"
                   },
                   "delete_branch_on_merge": {
@@ -2582,6 +2583,7 @@
                           "type": "boolean"
                         },
                         "temp_clone_token": {
+                          "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                           "type": "string"
                         },
                         "allow_squash_merge": {
@@ -2766,6 +2768,7 @@
                   ]
                 },
                 "temp_clone_token": {
+                  "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                   "type": [
                     "string",
                     "null"
@@ -3496,6 +3499,7 @@
                       "type": "boolean"
                     },
                     "temp_clone_token": {
+                      "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                       "type": "string"
                     },
                     "allow_squash_merge": {
@@ -4173,6 +4177,7 @@
                       "type": "boolean"
                     },
                     "temp_clone_token": {
+                      "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                       "type": "string"
                     },
                     "allow_squash_merge": {
@@ -4703,7 +4708,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>The <code>parent</code> and <code>source</code> objects are present when the repository is a fork. <code>parent</code> is the repository this repository was forked from, <code>source</code> is the ultimate source for the network.</p>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p></p>\n<ul>\n<li>In order to see the <code>security_and_analysis</code> block for a repository you must have admin permissions for the repository or be an owner or security manager for the organization that owns the repository. For more information, see \"<a href=\"https://docs.github.com/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization\">Managing security managers in your organization</a>.\"</li>\n<li>To view merge-related settings, you must have the <code>contents:read</code> and <code>contents:write</code> permissions.</li>\n</ul>\n</div>",
+      "descriptionHTML": "<p>The <code>parent</code> and <code>source</code> objects are present when the repository is a fork. <code>parent</code> is the repository this repository was forked from, <code>source</code> is the ultimate source for the network.</p>\n<p>When present and non-empty, <code>temp_clone_token</code> is a temporary credential for read-only Git access to this repository. It expires five minutes after generation and cannot be used to push changes. Treat this value as sensitive and avoid recording it in logs.</p>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p></p>\n<ul>\n<li>In order to see the <code>security_and_analysis</code> block for a repository you must have admin permissions for the repository or be an owner or security manager for the organization that owns the repository. For more information, see \"<a href=\"https://docs.github.com/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization\">Managing security managers in your organization</a>.\"</li>\n<li>To view merge-related settings, you must have the <code>contents:read</code> and <code>contents:write</code> permissions.</li>\n</ul>\n</div>",
       "codeExamples": [
         {
           "request": {
@@ -6157,6 +6162,7 @@
                           "type": "boolean"
                         },
                         "temp_clone_token": {
+                          "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                           "type": "string"
                         },
                         "allow_squash_merge": {
@@ -6341,6 +6347,7 @@
                   ]
                 },
                 "temp_clone_token": {
+                  "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                   "type": [
                     "string",
                     "null"
@@ -7071,6 +7078,7 @@
                       "type": "boolean"
                     },
                     "temp_clone_token": {
+                      "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                       "type": "string"
                     },
                     "allow_squash_merge": {
@@ -7748,6 +7756,7 @@
                       "type": "boolean"
                     },
                     "temp_clone_token": {
+                      "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                       "type": "string"
                     },
                     "allow_squash_merge": {
@@ -10043,6 +10052,7 @@
                           "type": "boolean"
                         },
                         "temp_clone_token": {
+                          "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                           "type": "string"
                         },
                         "allow_squash_merge": {
@@ -10227,6 +10237,7 @@
                   ]
                 },
                 "temp_clone_token": {
+                  "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                   "type": [
                     "string",
                     "null"
@@ -10957,6 +10968,7 @@
                       "type": "boolean"
                     },
                     "temp_clone_token": {
+                      "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                       "type": "string"
                     },
                     "allow_squash_merge": {
@@ -11634,6 +11646,7 @@
                       "type": "boolean"
                     },
                     "temp_clone_token": {
+                      "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                       "type": "string"
                     },
                     "allow_squash_merge": {
@@ -15269,6 +15282,7 @@
                   "type": "string"
                 },
                 "temp_clone_token": {
+                  "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                   "type": "string"
                 },
                 "delete_branch_on_merge": {
@@ -17283,6 +17297,7 @@
                           "type": "boolean"
                         },
                         "temp_clone_token": {
+                          "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                           "type": "string"
                         },
                         "allow_squash_merge": {
@@ -17467,6 +17482,7 @@
                   ]
                 },
                 "temp_clone_token": {
+                  "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                   "type": [
                     "string",
                     "null"
@@ -18197,6 +18213,7 @@
                       "type": "boolean"
                     },
                     "temp_clone_token": {
+                      "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                       "type": "string"
                     },
                     "allow_squash_merge": {
@@ -18874,6 +18891,7 @@
                       "type": "boolean"
                     },
                     "temp_clone_token": {
+                      "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                       "type": "string"
                     },
                     "allow_squash_merge": {
@@ -19884,6 +19902,7 @@
                     "type": "string"
                   },
                   "temp_clone_token": {
+                    "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                     "type": "string"
                   },
                   "delete_branch_on_merge": {
@@ -20964,6 +20983,7 @@
                     "type": "boolean"
                   },
                   "temp_clone_token": {
+                    "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                     "type": "string"
                   },
                   "allow_squash_merge": {
@@ -22782,6 +22802,7 @@
                           "type": "boolean"
                         },
                         "temp_clone_token": {
+                          "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                           "type": "string"
                         },
                         "allow_squash_merge": {
@@ -22966,6 +22987,7 @@
                   ]
                 },
                 "temp_clone_token": {
+                  "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                   "type": [
                     "string",
                     "null"
@@ -23696,6 +23718,7 @@
                       "type": "boolean"
                     },
                     "temp_clone_token": {
+                      "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                       "type": "string"
                     },
                     "allow_squash_merge": {
@@ -24373,6 +24396,7 @@
                       "type": "boolean"
                     },
                     "temp_clone_token": {
+                      "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                       "type": "string"
                     },
                     "allow_squash_merge": {
@@ -25522,6 +25546,7 @@
                     "type": "string"
                   },
                   "temp_clone_token": {
+                    "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                     "type": "string"
                   },
                   "delete_branch_on_merge": {
@@ -31324,6 +31349,7 @@
                     "type": "string"
                   },
                   "temp_clone_token": {
+                    "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                     "type": "string"
                   },
                   "delete_branch_on_merge": {
@@ -33136,6 +33162,7 @@
                           "type": "boolean"
                         },
                         "temp_clone_token": {
+                          "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                           "type": "string"
                         },
                         "allow_squash_merge": {
@@ -33320,6 +33347,7 @@
                   ]
                 },
                 "temp_clone_token": {
+                  "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                   "type": [
                     "string",
                     "null"
@@ -34050,6 +34078,7 @@
                       "type": "boolean"
                     },
                     "temp_clone_token": {
+                      "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                       "type": "string"
                     },
                     "allow_squash_merge": {
@@ -34727,6 +34756,7 @@
                       "type": "boolean"
                     },
                     "temp_clone_token": {
+                      "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                       "type": "string"
                     },
                     "allow_squash_merge": {
@@ -35677,6 +35707,16 @@
           "schema": {
             "type": "integer"
           }
+        },
+        {
+          "name": "include_metadata",
+          "description": "<p>When set to <code>true</code>, the response will include additional metadata for pull request and required status check rule evaluation.\nResults are capped at 50 entries.</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "boolean",
+            "default": false
+          }
         }
       ],
       "bodyParameters": [],
@@ -35858,6 +35898,200 @@
                       "rule_type": {
                         "type": "string",
                         "description": "The type of rule."
+                      },
+                      "metadata": {
+                        "type": [
+                          "object",
+                          "null"
+                        ],
+                        "oneOf": [
+                          {
+                            "title": "Pull request rule suite metadata",
+                            "description": "Metadata for a pull request rule evaluation result.",
+                            "type": "object",
+                            "properties": {
+                              "pull_request": {
+                                "type": "object",
+                                "description": "The pull request associated with the rule evaluation.",
+                                "properties": {
+                                  "id": {
+                                    "type": "integer",
+                                    "description": "The unique identifier of the pull request."
+                                  },
+                                  "number": {
+                                    "type": "integer",
+                                    "description": "The number of the pull request."
+                                  },
+                                  "user": {
+                                    "type": "object",
+                                    "description": "The user who created the pull request.",
+                                    "properties": {
+                                      "id": {
+                                        "type": "integer",
+                                        "description": "The unique identifier of the user."
+                                      },
+                                      "login": {
+                                        "type": "string",
+                                        "description": "The handle for the GitHub user account."
+                                      },
+                                      "type": {
+                                        "type": "string",
+                                        "description": "The type of the user."
+                                      }
+                                    }
+                                  },
+                                  "reviews": {
+                                    "type": "array",
+                                    "description": "The reviews associated with the pull request.",
+                                    "items": {
+                                      "type": "object",
+                                      "properties": {
+                                        "id": {
+                                          "type": "integer",
+                                          "description": "The unique identifier of the review."
+                                        },
+                                        "user": {
+                                          "type": "object",
+                                          "description": "The user who submitted the review.",
+                                          "properties": {
+                                            "id": {
+                                              "type": "integer",
+                                              "description": "The unique identifier of the user."
+                                            },
+                                            "login": {
+                                              "type": "string",
+                                              "description": "The handle for the GitHub user account."
+                                            },
+                                            "type": {
+                                              "type": "string",
+                                              "description": "The type of the user."
+                                            }
+                                          }
+                                        },
+                                        "state": {
+                                          "type": "string",
+                                          "description": "The state of the review."
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "proof_of_presence": {
+                                    "type": [
+                                      "object",
+                                      "null"
+                                    ],
+                                    "description": "The proof of presence evaluation for the pull request. Null if proof of presence was not evaluated.",
+                                    "properties": {
+                                      "state": {
+                                        "type": "string",
+                                        "description": "The state of the proof of presence evaluation."
+                                      },
+                                      "code": {
+                                        "type": "string",
+                                        "description": "A code describing the reason for the proof of presence state."
+                                      },
+                                      "base_sha": {
+                                        "type": "string",
+                                        "description": "The base commit SHA the proof of presence evaluation applies to. Empty if unavailable."
+                                      },
+                                      "head_sha": {
+                                        "type": "string",
+                                        "description": "The head commit SHA the proof of presence evaluation applies to. Empty if unavailable."
+                                      },
+                                      "required_level": {
+                                        "type": "string",
+                                        "description": "The authentication level required by the rule. Empty if unavailable."
+                                      },
+                                      "verified_level": {
+                                        "type": "string",
+                                        "description": "The authentication level that was verified. Empty if proof of presence has not been completed."
+                                      },
+                                      "verified_at": {
+                                        "type": "string",
+                                        "description": "The time proof of presence was verified, in ISO 8601 format. Empty if proof of presence has not been completed."
+                                      },
+                                      "verifier": {
+                                        "type": [
+                                          "object",
+                                          "null"
+                                        ],
+                                        "description": "The user who provided proof of presence. Null if no proof of presence was recorded.",
+                                        "properties": {
+                                          "id": {
+                                            "type": "integer",
+                                            "description": "The unique identifier of the user."
+                                          },
+                                          "login": {
+                                            "type": "string",
+                                            "description": "The handle for the GitHub user account."
+                                          },
+                                          "type": {
+                                            "type": "string",
+                                            "description": "The type of the user."
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          {
+                            "title": "Required status checks rule suite metadata",
+                            "description": "Metadata for a required status checks rule evaluation result.",
+                            "type": "object",
+                            "properties": {
+                              "checks": {
+                                "type": "array",
+                                "description": "The status checks associated with the rule evaluation.",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "id": {
+                                      "type": "integer",
+                                      "description": "The unique identifier of the status check."
+                                    },
+                                    "context": {
+                                      "type": "string",
+                                      "description": "The context name of the status check."
+                                    },
+                                    "state": {
+                                      "type": "string",
+                                      "description": "The state of the status check."
+                                    },
+                                    "type": {
+                                      "type": "string",
+                                      "description": "The type of the status check."
+                                    },
+                                    "app": {
+                                      "type": [
+                                        "object",
+                                        "null"
+                                      ],
+                                      "description": "The GitHub App associated with the status check.",
+                                      "properties": {
+                                        "id": {
+                                          "type": "integer",
+                                          "description": "The unique identifier of the GitHub App."
+                                        },
+                                        "slug": {
+                                          "type": "string",
+                                          "description": "The slug of the GitHub App."
+                                        },
+                                        "name": {
+                                          "type": "string",
+                                          "description": "The name of the GitHub App."
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        ],
+                        "description": "Additional metadata about the rule evaluation."
                       },
                       "details": {
                         "type": [
@@ -36466,6 +36700,10 @@
                                 "type": "boolean",
                                 "description": "Require an approving review in pull requests that modify files that have a designated code owner."
                               },
+                              "require_extra_approval_for_unattributed_changes": {
+                                "type": "boolean",
+                                "description": "When Copilot opens a pull request without a human collaborator, require one more approving review if a non-zero approval count is required."
+                              },
                               "require_last_push_approval": {
                                 "type": "boolean",
                                 "description": "Whether the most recent reviewable push must be approved by someone other than the person who pushed it."
@@ -36482,7 +36720,7 @@
                               },
                               "required_reviewers": {
                                 "type": "array",
-                                "description": "> [!NOTE]\n> `required_reviewers` is in beta and subject to change.\n\nA collection of reviewers and associated file patterns. Each reviewer has a list of file patterns which determine the files that reviewer is required to review.",
+                                "description": "A collection of reviewers and associated file patterns. Each reviewer has a list of file patterns which determine the files that reviewer is required to review.",
                                 "items": {
                                   "title": "RequiredReviewerConfiguration",
                                   "description": "A reviewing team, and file patterns describing which files they must approve changes to.",
@@ -37465,6 +37703,13 @@
                           "parameters": {
                             "type": "object",
                             "properties": {
+                              "ignored_file_paths": {
+                                "type": "array",
+                                "description": "Files matching these patterns are allowed even when they also match a restricted path.",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
                               "restricted_file_paths": {
                                 "type": "array",
                                 "description": "The file paths that are restricted from being pushed to the commit graph.",
@@ -37635,6 +37880,13 @@
                           "parameters": {
                             "type": "object",
                             "properties": {
+                              "ignored_file_paths": {
+                                "type": "array",
+                                "description": "Files matching these patterns may exceed the maximum size.",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
                               "max_file_size": {
                                 "type": "integer",
                                 "description": "The maximum file size allowed in megabytes. This limit does not apply to Git Large File Storage (Git LFS).",
@@ -38515,6 +38767,10 @@
                                   "type": "boolean",
                                   "description": "Require an approving review in pull requests that modify files that have a designated code owner."
                                 },
+                                "require_extra_approval_for_unattributed_changes": {
+                                  "type": "boolean",
+                                  "description": "When Copilot opens a pull request without a human collaborator, require one more approving review if a non-zero approval count is required."
+                                },
                                 "require_last_push_approval": {
                                   "type": "boolean",
                                   "description": "Whether the most recent reviewable push must be approved by someone other than the person who pushed it."
@@ -38531,7 +38787,7 @@
                                 },
                                 "required_reviewers": {
                                   "type": "array",
-                                  "description": "> [!NOTE]\n> `required_reviewers` is in beta and subject to change.\n\nA collection of reviewers and associated file patterns. Each reviewer has a list of file patterns which determine the files that reviewer is required to review.",
+                                  "description": "A collection of reviewers and associated file patterns. Each reviewer has a list of file patterns which determine the files that reviewer is required to review.",
                                   "items": {
                                     "title": "RequiredReviewerConfiguration",
                                     "description": "A reviewing team, and file patterns describing which files they must approve changes to.",
@@ -39150,6 +39406,13 @@
                             "parameters": {
                               "type": "object",
                               "properties": {
+                                "ignored_file_paths": {
+                                  "type": "array",
+                                  "description": "Files matching these patterns are allowed even when they also match a restricted path.",
+                                  "items": {
+                                    "type": "string"
+                                  }
+                                },
                                 "restricted_file_paths": {
                                   "type": "array",
                                   "description": "The file paths that are restricted from being pushed to the commit graph.",
@@ -39242,6 +39505,13 @@
                             "parameters": {
                               "type": "object",
                               "properties": {
+                                "ignored_file_paths": {
+                                  "type": "array",
+                                  "description": "Files matching these patterns may exceed the maximum size.",
+                                  "items": {
+                                    "type": "string"
+                                  }
+                                },
                                 "max_file_size": {
                                   "type": "integer",
                                   "description": "The maximum file size allowed in megabytes. This limit does not apply to Git Large File Storage (Git LFS).",
@@ -39693,6 +39963,11 @@
                     },
                     {
                       "type": "boolean",
+                      "name": "require_extra_approval_for_unattributed_changes",
+                      "description": "<p>When Copilot opens a pull request without a human collaborator, require one more approving review if a non-zero approval count is required.</p>"
+                    },
+                    {
+                      "type": "boolean",
                       "name": "require_last_push_approval",
                       "description": "<p>Whether the most recent reviewable push must be approved by someone other than the person who pushed it.</p>",
                       "isRequired": true
@@ -39712,7 +39987,7 @@
                     {
                       "type": "array of objects",
                       "name": "required_reviewers",
-                      "description": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\n<code>required_reviewers</code> is in beta and subject to change.</p>\n</div>\n<p>A collection of reviewers and associated file patterns. Each reviewer has a list of file patterns which determine the files that reviewer is required to review.</p>",
+                      "description": "<p>A collection of reviewers and associated file patterns. Each reviewer has a list of file patterns which determine the files that reviewer is required to review.</p>",
                       "childParamsGroups": [
                         {
                           "type": "array of strings",
@@ -40337,6 +40612,11 @@
                   "childParamsGroups": [
                     {
                       "type": "array of strings",
+                      "name": "ignored_file_paths",
+                      "description": "<p>Files matching these patterns are allowed even when they also match a restricted path.</p>"
+                    },
+                    {
+                      "type": "array of strings",
                       "name": "restricted_file_paths",
                       "description": "<p>The file paths that are restricted from being pushed to the commit graph.</p>",
                       "isRequired": true
@@ -40422,6 +40702,11 @@
                   "name": "parameters",
                   "description": "",
                   "childParamsGroups": [
+                    {
+                      "type": "array of strings",
+                      "name": "ignored_file_paths",
+                      "description": "<p>Files matching these patterns may exceed the maximum size.</p>"
+                    },
                     {
                       "type": "integer",
                       "name": "max_file_size",
@@ -41228,6 +41513,10 @@
                                 "type": "boolean",
                                 "description": "Require an approving review in pull requests that modify files that have a designated code owner."
                               },
+                              "require_extra_approval_for_unattributed_changes": {
+                                "type": "boolean",
+                                "description": "When Copilot opens a pull request without a human collaborator, require one more approving review if a non-zero approval count is required."
+                              },
                               "require_last_push_approval": {
                                 "type": "boolean",
                                 "description": "Whether the most recent reviewable push must be approved by someone other than the person who pushed it."
@@ -41244,7 +41533,7 @@
                               },
                               "required_reviewers": {
                                 "type": "array",
-                                "description": "> [!NOTE]\n> `required_reviewers` is in beta and subject to change.\n\nA collection of reviewers and associated file patterns. Each reviewer has a list of file patterns which determine the files that reviewer is required to review.",
+                                "description": "A collection of reviewers and associated file patterns. Each reviewer has a list of file patterns which determine the files that reviewer is required to review.",
                                 "items": {
                                   "title": "RequiredReviewerConfiguration",
                                   "description": "A reviewing team, and file patterns describing which files they must approve changes to.",
@@ -41863,6 +42152,13 @@
                           "parameters": {
                             "type": "object",
                             "properties": {
+                              "ignored_file_paths": {
+                                "type": "array",
+                                "description": "Files matching these patterns are allowed even when they also match a restricted path.",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
                               "restricted_file_paths": {
                                 "type": "array",
                                 "description": "The file paths that are restricted from being pushed to the commit graph.",
@@ -41955,6 +42251,13 @@
                           "parameters": {
                             "type": "object",
                             "properties": {
+                              "ignored_file_paths": {
+                                "type": "array",
+                                "description": "Files matching these patterns may exceed the maximum size.",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
                               "max_file_size": {
                                 "type": "integer",
                                 "description": "The maximum file size allowed in megabytes. This limit does not apply to Git Large File Storage (Git LFS).",
@@ -42821,6 +43124,10 @@
                                 "type": "boolean",
                                 "description": "Require an approving review in pull requests that modify files that have a designated code owner."
                               },
+                              "require_extra_approval_for_unattributed_changes": {
+                                "type": "boolean",
+                                "description": "When Copilot opens a pull request without a human collaborator, require one more approving review if a non-zero approval count is required."
+                              },
                               "require_last_push_approval": {
                                 "type": "boolean",
                                 "description": "Whether the most recent reviewable push must be approved by someone other than the person who pushed it."
@@ -42837,7 +43144,7 @@
                               },
                               "required_reviewers": {
                                 "type": "array",
-                                "description": "> [!NOTE]\n> `required_reviewers` is in beta and subject to change.\n\nA collection of reviewers and associated file patterns. Each reviewer has a list of file patterns which determine the files that reviewer is required to review.",
+                                "description": "A collection of reviewers and associated file patterns. Each reviewer has a list of file patterns which determine the files that reviewer is required to review.",
                                 "items": {
                                   "title": "RequiredReviewerConfiguration",
                                   "description": "A reviewing team, and file patterns describing which files they must approve changes to.",
@@ -43456,6 +43763,13 @@
                           "parameters": {
                             "type": "object",
                             "properties": {
+                              "ignored_file_paths": {
+                                "type": "array",
+                                "description": "Files matching these patterns are allowed even when they also match a restricted path.",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
                               "restricted_file_paths": {
                                 "type": "array",
                                 "description": "The file paths that are restricted from being pushed to the commit graph.",
@@ -43548,6 +43862,13 @@
                           "parameters": {
                             "type": "object",
                             "properties": {
+                              "ignored_file_paths": {
+                                "type": "array",
+                                "description": "Files matching these patterns may exceed the maximum size.",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
                               "max_file_size": {
                                 "type": "integer",
                                 "description": "The maximum file size allowed in megabytes. This limit does not apply to Git Large File Storage (Git LFS).",
@@ -44004,6 +44325,11 @@
                     },
                     {
                       "type": "boolean",
+                      "name": "require_extra_approval_for_unattributed_changes",
+                      "description": "<p>When Copilot opens a pull request without a human collaborator, require one more approving review if a non-zero approval count is required.</p>"
+                    },
+                    {
+                      "type": "boolean",
                       "name": "require_last_push_approval",
                       "description": "<p>Whether the most recent reviewable push must be approved by someone other than the person who pushed it.</p>",
                       "isRequired": true
@@ -44023,7 +44349,7 @@
                     {
                       "type": "array of objects",
                       "name": "required_reviewers",
-                      "description": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\n<code>required_reviewers</code> is in beta and subject to change.</p>\n</div>\n<p>A collection of reviewers and associated file patterns. Each reviewer has a list of file patterns which determine the files that reviewer is required to review.</p>",
+                      "description": "<p>A collection of reviewers and associated file patterns. Each reviewer has a list of file patterns which determine the files that reviewer is required to review.</p>",
                       "childParamsGroups": [
                         {
                           "type": "array of strings",
@@ -44648,6 +44974,11 @@
                   "childParamsGroups": [
                     {
                       "type": "array of strings",
+                      "name": "ignored_file_paths",
+                      "description": "<p>Files matching these patterns are allowed even when they also match a restricted path.</p>"
+                    },
+                    {
+                      "type": "array of strings",
                       "name": "restricted_file_paths",
                       "description": "<p>The file paths that are restricted from being pushed to the commit graph.</p>",
                       "isRequired": true
@@ -44733,6 +45064,11 @@
                   "name": "parameters",
                   "description": "",
                   "childParamsGroups": [
+                    {
+                      "type": "array of strings",
+                      "name": "ignored_file_paths",
+                      "description": "<p>Files matching these patterns may exceed the maximum size.</p>"
+                    },
                     {
                       "type": "integer",
                       "name": "max_file_size",
@@ -45540,6 +45876,10 @@
                                 "type": "boolean",
                                 "description": "Require an approving review in pull requests that modify files that have a designated code owner."
                               },
+                              "require_extra_approval_for_unattributed_changes": {
+                                "type": "boolean",
+                                "description": "When Copilot opens a pull request without a human collaborator, require one more approving review if a non-zero approval count is required."
+                              },
                               "require_last_push_approval": {
                                 "type": "boolean",
                                 "description": "Whether the most recent reviewable push must be approved by someone other than the person who pushed it."
@@ -45556,7 +45896,7 @@
                               },
                               "required_reviewers": {
                                 "type": "array",
-                                "description": "> [!NOTE]\n> `required_reviewers` is in beta and subject to change.\n\nA collection of reviewers and associated file patterns. Each reviewer has a list of file patterns which determine the files that reviewer is required to review.",
+                                "description": "A collection of reviewers and associated file patterns. Each reviewer has a list of file patterns which determine the files that reviewer is required to review.",
                                 "items": {
                                   "title": "RequiredReviewerConfiguration",
                                   "description": "A reviewing team, and file patterns describing which files they must approve changes to.",
@@ -46175,6 +46515,13 @@
                           "parameters": {
                             "type": "object",
                             "properties": {
+                              "ignored_file_paths": {
+                                "type": "array",
+                                "description": "Files matching these patterns are allowed even when they also match a restricted path.",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
                               "restricted_file_paths": {
                                 "type": "array",
                                 "description": "The file paths that are restricted from being pushed to the commit graph.",
@@ -46267,6 +46614,13 @@
                           "parameters": {
                             "type": "object",
                             "properties": {
+                              "ignored_file_paths": {
+                                "type": "array",
+                                "description": "Files matching these patterns may exceed the maximum size.",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
                               "max_file_size": {
                                 "type": "integer",
                                 "description": "The maximum file size allowed in megabytes. This limit does not apply to Git Large File Storage (Git LFS).",

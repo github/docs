@@ -13,7 +13,8 @@ describe('FailBot', () => {
 
     nock('https://haystack.example.com')
       .post('/')
-      .reply(200, (uri, requestBody) => {
+      .reply(200, async (request: Request) => {
+        const requestBody = await request.json()
         requestBodiesSent.push(requestBody)
         return requestBody
       })

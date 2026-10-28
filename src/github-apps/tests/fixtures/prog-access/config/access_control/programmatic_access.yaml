@@ -1,0 +1,20 @@
+- operation_ids: checks/create
+  user_to_server:
+    enabled: true
+  server_to_server:
+    enabled: true
+  permission_sets:
+    - checks: write
+- operation_ids: repos/get-content
+  user_to_server:
+    enabled: true
+  server_to_server:
+    enabled: true
+  permission_sets:
+    - contents: read
+- operation_ids: meta/get
+  user_to_server:
+    enabled: true
+  server_to_server:
+    enabled: true
+  allows_permissionless_access: true

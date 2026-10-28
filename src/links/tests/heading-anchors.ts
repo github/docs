@@ -63,4 +63,58 @@ describe('computeHeadingIds', () => {
     )
     expect(ids.has('disabling-or-enabling-copilot-coding-agent-in-your-repositories')).toBe(true)
   })
+
+  test('ignores column-0 comments inside fenced code', () => {
+    const ids = computeHeadingIds(
+      '```bash\n# Install the dependencies\nnpm ci\n```\n\n## Next steps',
+    )
+    expect(ids.has('install-the-dependencies')).toBe(false)
+    expect(ids.has('next-steps')).toBe(true)
+  })
+
+  test('does not treat the line after a lone # as heading text', () => {
+    const ids = computeHeadingIds('#\necho hi')
+    expect(ids.has('echo-hi')).toBe(false)
+  })
+
+  test('ignores --- underlines inside fenced YAML', () => {
+    const ids = computeHeadingIds('```yaml\n---\nname: CI\n```')
+    expect(ids.has('yaml')).toBe(false)
+    expect(ids.size).toBe(0)
+  })
+
+  test('does not turn a closing fence followed by --- into a heading', () => {
+    const ids = computeHeadingIds('```shell\nls\n```\n---\n')
+    expect(ids.size).toBe(0)
+  })
+
+  test('masks tilde fences and indented fences in list items', () => {
+    const ids = computeHeadingIds(
+      '~~~shell\n# Tilde comment\n~~~\n\n1. Run this:\n\n   ```html\n   <a name="indented-anchor"></a>\n   ```\n',
+    )
+    expect(ids.has('tilde-comment')).toBe(false)
+    expect(ids.has('indented-anchor')).toBe(false)
+  })
+
+  test('keeps headings after a fence opened on a list marker line', () => {
+    const ids = computeHeadingIds(
+      '1. ```shell\n   echo hi\n   ```\n\n## Next steps\n\n```bash\nls\n```\n',
+    )
+    expect(ids.has('next-steps')).toBe(true)
+  })
+
+  test('does not treat four-space-indented backticks as fences', () => {
+    expect(computeHeadingIds('    ```\n## Real heading\n    ```\n').has('real-heading')).toBe(true)
+    const ids = computeHeadingIds('```bash\n    ```\n## Still code\n```\n\n## After')
+    expect(ids.has('still-code')).toBe(false)
+    expect(ids.has('after')).toBe(true)
+  })
+
+  test('keeps the base ID for a real heading that repeats a code comment', () => {
+    const ids = computeHeadingIds(
+      '```bash\n# Install the dependencies\n```\n\n## Install the dependencies',
+    )
+    expect(ids.has('install-the-dependencies')).toBe(true)
+    expect(ids.has('install-the-dependencies-1')).toBe(false)
+  })
 })

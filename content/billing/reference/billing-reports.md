@@ -68,6 +68,9 @@ The usage reports contain the following fields.
 | `net_amount`             | The billable amount of usage after applying the `discount_amount`. This is the amount that your account will be billed. `gross_amount - discount_amount = net_amount` |
 | `username`               | The user associated with the usage, if applicable. <br><br> Not included in the `Summarized usage report`. |
 | `organization`           | The organization associated with the usage, if applicable. |
+| {% ifversion copilot %} |
+| `app_client_id` | The client ID of the {% data variables.product.prodname_github_app %} associated with usage billed directly to an organization. Use this field with `organization` to identify an app installation. The field is empty for usage attributed to a user, {% data variables.product.prodname_actions %}, other {% data variables.product.company_short %}-owned apps, and usage from before app attribution was available. <br><br>Only available in the `AI usage report` |
+| {% endif %} |
 | `repository`             | The repository associated with the usage, if applicable. |
 | `workflow_path`          | The path of the {% data variables.product.prodname_actions %} workflow that generated the usage, if applicable. <br><br>Only available in the `Detailed usage report` |
 | `cost_center_name`       | The cost center associated with the usage, if applicable. |

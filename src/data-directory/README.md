@@ -31,7 +31,7 @@ Purpose-built utilities, schemas, and workflows that power our Liquid `{% data %
 - Tests: `src/data-directory/tests/data-schemas.ts` loads schemas via AJV and asserts every registered file validates.
 - Adding a schema:
   1. Create `src/data-directory/lib/data-schemas/<name>.ts` (or `tables/<table>.ts`).
-  2. If non-table, add to `manualSchemas` in `data-schemas/index.ts`; table schemas are auto-detected.
+  2. If non-table or nested under `data/tables/<subdir>/`, add to `manualSchemas` in `data-schemas/index.ts`. Only top-level `data/tables/*.yml` schemas are auto-detected.
   3. Run tests (see below).
 
 ## Middleware
@@ -39,7 +39,7 @@ Purpose-built utilities, schemas, and workflows that power our Liquid `{% data %
 
 ## Scripts & workflows
 - `npm run find-orphaned-features -- --source-directory data/features --output orphans.json`
-  - Scans pages, reusables, variables (all languages) for `{% ifversion %}` feature references and reports unused `data/features/*.yml`.
+  - Scans pages and their Liquid frontmatter, reusables (all languages), variables, tables, and early access content when present for `{% ifversion %}` feature references and reports unused `data/features/*.yml`.
 - `npm run find-orphaned-features delete -- orphans.json --max 10`
   - Deletes up to N orphaned feature files (English root) after manual review.
 - `npm run deleted-features-pr-comment -- <owner> <repo> <base_sha> <head_sha>`
@@ -70,7 +70,7 @@ Purpose-built utilities, schemas, and workflows that power our Liquid `{% data %
 - When adding a new data directory:
   - Prefer YAML for structured data; add schema if shape matters to correctness.
   - Add README under `data/<dir>/` when introducing new contracts.
-  - Update `manualSchemas` if not a table.
+  - Update `manualSchemas` if not a top-level table.
 
 ## Ownership & escalation
 - Primary: Docs Engineering.

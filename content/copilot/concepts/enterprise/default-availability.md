@@ -17,27 +17,30 @@ redirect_from:
 
 {% data reusables.copilot.default-availability-policies %}
 
-<!-- expires 2026-10-22 -->
-
 ## Default availability of features
 
-The **Default policy for new features** policy is available to configure but is **not** currently active. It will start applying to new and existing GA features from October 22, 2026. In your policy settings, you will see a banner showing how many eligible policies are currently unconfigured, so you can assess the impact of your global default and explicitly configure individual policies before October 22.
+The **Default policy for new features and clients** policy applies to any new or existing GA feature that you have not explicitly configured.
 
-This policy is enabled by default. If you don't take action, unconfigured features will be enabled on October 22.
+### When does the policy apply?
 
-<!-- end expires 2026-10-22 -->
+Your setting for this policy determines the default enablement status of:
 
-### What does the policy do?
-
-Your setting for this policy determines the enablement status of:
-
-* New GA (general availability) features
-* Features that move from preview to GA 
+* Newly released GA (general availability) features
 * Existing GA features that are **Unconfigured** in your policy settings
 
 The policy can be configured in an enterprise and its organizations. At the enterprise level, it applies to features labeled as **Unconfigured**. At the organization level, it applies to features that an enterprise owner has set to **Let organizations decide**, but that an organization owner has not explicitly configured.
 
 The policy does **not** apply to features in preview.
+
+### Policy states
+
+At the enterprise level, the policy has the following possible states.
+
+Policy state | Outcome
+------------ | --------
+**Let organizations decide** | The "default availability" policy decision is delegated to organizations. An unconfigured feature is set to "Let organizations decide" if its policy supports that option; otherwise, it is disabled. For a feature delegated to organizations and not explicitly configured by an organization owner, the organization-level "default policy" for new features determines its availability.
+**Enabled everywhere** | Any unconfigured, GA feature is automatically enabled for all your {% data variables.product.prodname_copilot_short %} users, and organizations cannot disable it.
+**Disabled everywhere** | Any unconfigured, GA feature is automatically disabled for all your {% data variables.product.prodname_copilot_short %} users, and organizations cannot enable it.
 
 ### What counts as a feature?
 
@@ -55,9 +58,32 @@ The following policies are exceptions and are **not** affected:
 
 The **Default availability for released models** policy is active and affects new and unconfigured GA models.
 
+>[!NOTE] This policy is **not** related to the default model that is selected for users' sessions. See [AUTOTITLE](/copilot/concepts/models/auto-model-selection).
+
 ### Which models follow the policy?
 
 {% data reusables.copilot.model-autoenablement-excluded-models %}
+
+### Policy states
+
+At the enterprise level, the **Default availability for released models** policy has the following possible states.
+
+Policy state | Outcome
+------------ | --------
+**Enabled** | Any model labeled **Delegate to Default Policy** is automatically enabled for all your {% data variables.product.prodname_copilot_short %} users, and organizations or teams cannot disable it.
+**Disabled** | Any model labeled **Delegate to Default Policy** is automatically disabled for all your {% data variables.product.prodname_copilot_short %} users, and organizations or teams cannot enable it.
+**Let organizations decide** | (Not available in enterprise teams mode.) Any model labeled **Delegate to Default Policy** is automatically available for organizations to enable or disable. In each organization, an eligible model follows the organization-level **Default availability for released models** policy if the organization has not explicitly configured it.
+
+#### Policy states for models
+
+The status of each model in your enterprise's model settings reflects whether or not it follows the default policy.
+
+Model status | Description
+------------ | -----------
+**Enabled** or **Disabled** | Explicitly configured. **Does not follow** the default availability policy.
+**Delegate to default policy** | Has not been configured. **Follows** the default availability policy.
+**Unconfigured** | Has not been configured. **Does not follow** the default availability policy. For example, a model in preview.
+**Delegate to organizations** or **Delegate to Enterprise Teams/Apps** | (Depends on whether you have enabled enterprise teams mode.) Explicitly configured. **Does not follow** the default availability policy at the enterprise level. However, if delegated to organizations, **will follow** the organization-level default availability policy _for each organization that does not explicitly configure the model_.
 
 ## How do I prevent default enablement?
 

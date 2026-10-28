@@ -12,13 +12,13 @@ redirect_from:
   - /copilot/how-tos/custom-instructions/add-organization-instructions
   - /copilot/how-tos/configure-custom-instructions/add-organization-instructions
 contentType: how-tos
-category: 
+category:
   - Configure Copilot
 ---
 
 {% data reusables.copilot.custom-instructions-org-support %}
 
-Organization owners can add instructions for {% data variables.product.prodname_copilot_short %}, to tailor responses to specific needs and preferences across the organization. For an overview of this, and other types of custom instructions for {% data variables.product.prodname_copilot_short %}, see [AUTOTITLE](/copilot/concepts/prompting/response-customization?tool=webui).
+Organization owners can add instructions for {% data variables.product.prodname_copilot_short %}, to tailor responses to specific needs and preferences across the organization. For an overview of this, and other types of custom instructions for {% data variables.product.prodname_copilot_short %}, see [AUTOTITLE](/copilot/concepts/prompting-and-context/custom-instructions).
 
 ## Adding organization custom instructions
 

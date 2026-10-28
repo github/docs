@@ -36,6 +36,18 @@ describe('codeql cli article body api', () => {
     expect(res.body).not.toContain('<!-- Content after this section is automatically generated -->')
   })
 
+  test('manual index page keeps its body and lists links to command pages', async () => {
+    const res = await get(makeURL('/en/code-security/codeql-cli/codeql-cli-manual'))
+
+    expect(res.statusCode).toBe(200)
+    expect(res.headers['content-type']).toContain('text/markdown')
+
+    expect(res.body).toContain('# CodeQL CLI Manual')
+    expect(res.body).toContain('This content describes the most recent release of the CodeQL CLI.')
+    expect(res.body).toContain('## Links')
+    expect(res.body).toContain('](/en/code-security/codeql-cli/codeql-cli-manual/database-analyze)')
+  })
+
   test('canTransform returns false for non-codeql-cli pages', async () => {
     const res = await get(makeURL('/en/get-started/start-your-journey/hello-world'))
     expect(res.statusCode).toBe(200)

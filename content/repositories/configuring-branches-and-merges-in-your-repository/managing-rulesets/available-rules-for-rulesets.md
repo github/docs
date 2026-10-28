@@ -248,6 +248,10 @@ If your repositories are configured with {% data variables.product.prodname_code
 
 For more information, see [AUTOTITLE](/code-security/concepts/code-quality/code-quality) and [AUTOTITLE](/code-security/how-tos/maintain-quality-code/set-pr-thresholds).
 
+## Require license compliance results before merging
+
+This enables the license compliance feature on the targeted repositories. License compliance checks added or changed dependencies against a policy of permitted licenses and will block pull requests which add dependencies whose licenses are not allowed. For more information, see [AUTOTITLE](/code-security/concepts/supply-chain-security/open-source-license-compliance).
+
 ## Restrict code coverage
 
 > [!NOTE]

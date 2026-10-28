@@ -113,15 +113,6 @@
   xcode: true
   jetbrains: true
 
-- name: Gemini 3.7 Flash
-  dotcom: false
-  cli: true
-  vscode: true
-  vs: true
-  eclipse: true
-  xcode: true
-  jetbrains: true
-
 - name: Gemini 3.8 Flash
   dotcom: false
   cli: true
@@ -149,34 +140,7 @@
   xcode: true
   jetbrains: true
 
-- name: GPT-5 mini
-  dotcom: false
-  cli: true
-  vscode: true
-  vs: true
-  eclipse: true
-  xcode: true
-  jetbrains: true
-
 - name: GPT-5.3-Codex
-  dotcom: true
-  cli: true
-  vscode: true
-  vs: true
-  eclipse: true
-  xcode: true
-  jetbrains: true
-
-- name: GPT-5.4
-  dotcom: true
-  cli: true
-  vscode: true
-  vs: true
-  eclipse: true
-  xcode: true
-  jetbrains: true
-
-- name: GPT-5.4 mini
   dotcom: true
   cli: true
   vscode: true
@@ -193,15 +157,6 @@
   eclipse: false
   xcode: false
   jetbrains: false
-
-- name: GPT-5.5
-  dotcom: true
-  cli: true
-  vscode: true
-  vs: true
-  eclipse: true
-  xcode: true
-  jetbrains: true
 
 - name: GPT-5.6 Luna
   dotcom: true
@@ -249,6 +204,15 @@
   jetbrains: true
 
 - name: GPT-6 Sol
+  dotcom: true
+  cli: true
+  vscode: true
+  vs: true
+  eclipse: true
+  xcode: true
+  jetbrains: true
+
+- name: GPT-6.1 Terra
   dotcom: true
   cli: true
   vscode: true

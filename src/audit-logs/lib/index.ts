@@ -119,6 +119,20 @@ export type TitleResolutionContext = Context & {
 // 500 titles on each request, adding about 90 to 150 ms of warm-server work.
 const referenceLinksMarkdownCache = new Map<string, Promise<string>>()
 
+const absoluteUrlPattern = /^[a-z][a-z\d+.-]*:/i
+
+function rootReferenceLink(link: string): string {
+  return link.startsWith('/') || absoluteUrlPattern.test(link) ? link : `/${link}`
+}
+
+// Upstream links have no language prefix, but pages are keyed by '/en/...' and live
+// paths are not in the redirect map, so current pages need the English prefix to match.
+function findReferencePage(link: string, context: TitleResolutionContext): Page | undefined {
+  const page = findPage(link, context.pages, context.redirects)
+  if (page || absoluteUrlPattern.test(link)) return page
+  return findPage(`/en${rootReferenceLink(link)}`, context.pages, context.redirects)
+}
+
 export function resolveReferenceLinksToMarkdown(
   docsReferenceLinks: string,
   context: TitleResolutionContext,
@@ -147,7 +161,7 @@ async function computeReferenceLinksToMarkdown(
   const markdownLinks = []
   for (const link of links) {
     try {
-      const page = findPage(link, context.pages, context.redirects)
+      const page = findReferencePage(link, context)
       if (page) {
         const renderContext = {
           currentLanguage: 'en',
@@ -156,7 +170,8 @@ async function computeReferenceLinksToMarkdown(
           redirects: context.redirects,
         } as unknown as Context
         const title = await page.renderProp('title', renderContext, { textOnly: true })
-        markdownLinks.push(`[${title}](${link})`)
+        // Slash-less hrefs would resolve relative to the audit log page and break.
+        markdownLinks.push(`[${title}](${rootReferenceLink(link)})`)
       } else {
         markdownLinks.push(link)
       }
@@ -179,9 +194,9 @@ async function computeReferenceLinksToMarkdown(
 async function resolveReferenceLinksToTitles(
   docsReferenceLinks: string,
   context: TitleResolutionContext,
-): Promise<string> {
+): Promise<string[]> {
   if (!docsReferenceLinks || docsReferenceLinks === 'N/A') {
-    return ''
+    return []
   }
 
   const links = docsReferenceLinks
@@ -192,7 +207,7 @@ async function resolveReferenceLinksToTitles(
   const titles = []
   for (const link of links) {
     try {
-      const page = findPage(link, context.pages, context.redirects)
+      const page = findReferencePage(link, context)
       if (page) {
         const renderContext = {
           currentLanguage: 'en',
@@ -218,7 +233,7 @@ async function resolveReferenceLinksToTitles(
     }
   }
 
-  return titles.join(', ')
+  return titles
 }
 
 export function getAuditLogEvents(page: string, version: string): AuditLogEventT[] {

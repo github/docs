@@ -18,7 +18,12 @@ const flattenArticlesRecursive = (articles: (TocItem | ChildTocItem)[]): Article
   return flattened
 }
 
-export const flattenArticles = (articles: (TocItem | ChildTocItem)[]): ArticleCardItems => {
+// Pass the page locale so server and browser sort with the same collation and
+// hydrate the same cards.
+export const flattenArticles = (
+  articles: (TocItem | ChildTocItem)[],
+  locale?: string,
+): ArticleCardItems => {
   const flattened = flattenArticlesRecursive(articles)
   const seen = new Set<string>()
   const deduped = flattened.filter((article) => {
@@ -26,7 +31,7 @@ export const flattenArticles = (articles: (TocItem | ChildTocItem)[]): ArticleCa
     seen.add(article.fullPath)
     return true
   })
-  return deduped.sort((a, b) => a.title.localeCompare(b.title))
+  return deduped.sort((a, b) => a.title.localeCompare(b.title, locale))
 }
 
 // Words that appear in most titles or intros add little signal because they

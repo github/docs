@@ -7,6 +7,7 @@ import {
   TREATMENT_VARIATION,
   getActiveExperiments,
 } from './experiments'
+import { shouldForwardFeatureParam } from '@/events/components/experiments/forward-feature-param'
 import { getUserEventsId } from '../events'
 import type { ParsedUrlQuery } from 'querystring'
 
@@ -208,10 +209,31 @@ export function initializeForwardFeatureUrlParam(router: NextRouter, currentVers
       }
     }
 
+    const shouldForward = (
+      event: MouseEvent | KeyboardEvent,
+      anchor: HTMLAnchorElement,
+      button: number,
+    ) =>
+      shouldForwardFeatureParam(
+        {
+          button,
+          metaKey: event.metaKey,
+          ctrlKey: event.ctrlKey,
+          shiftKey: event.shiftKey,
+          altKey: event.altKey,
+        },
+        {
+          target: anchor.getAttribute('target') || '',
+          hasDownload: anchor.hasAttribute('download'),
+          href: anchor.href,
+        },
+        window.location.origin,
+      )
+
     const handleClick = (event: MouseEvent) => {
       if (!(event.target instanceof Element)) return
       const anchor = event.target.closest('a')
-      if (anchor) {
+      if (anchor && shouldForward(event, anchor, event.button)) {
         event.preventDefault()
         updateAnchorHref(anchor)
       }
@@ -221,7 +243,7 @@ export function initializeForwardFeatureUrlParam(router: NextRouter, currentVers
       if (event.key !== 'Enter') return
       if (!(event.target instanceof Element)) return
       const anchor = event.target.closest('a')
-      if (anchor) {
+      if (anchor && shouldForward(event, anchor, 0)) {
         event.preventDefault()
         updateAnchorHref(anchor)
       }

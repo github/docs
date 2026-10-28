@@ -1,6 +1,20 @@
+import fs from 'fs'
+import { load } from 'js-yaml'
 import { addError, filterTokens } from 'markdownlint-rule-helpers'
 
 import type { RuleParams, RuleErrorCallback, MarkdownToken } from '@/content-linter/types'
+
+const languages = load(fs.readFileSync('data/code-languages.yml', 'utf8')) as Record<
+  string,
+  { comment?: string }
+>
+
+// Match the annotate renderer, which only treats the language's own comment syntax as a comment.
+const commentPrefixes: Record<string, string> = {
+  number: '#',
+  slash: '//',
+  hyphen: '--',
+}
 
 export const codeAnnotationCommentSpacing = {
   names: ['GHD045', 'code-annotation-comment-spacing'],
@@ -12,6 +26,10 @@ export const codeAnnotationCommentSpacing = {
     filterTokens(params, 'fence', (token: MarkdownToken) => {
       if (!token.info?.includes('annotate')) return
 
+      const lang = token.info.trim().split(/\s+/)[0]
+      const commentChar = commentPrefixes[languages[lang]?.comment ?? '']
+      if (!commentChar) return
+
       const content = token.content
       if (!content) return
 
@@ -22,26 +40,9 @@ export const codeAnnotationCommentSpacing = {
         const trimmedLine = line.trim()
         if (!trimmedLine) continue
 
-        const commentPatterns: Record<string, RegExp> = {
-          '//': /^(\/\/)(.*)/, // JavaScript/TypeScript/Java/C# style comments
-          '#': /^(#)(.*)/, // Python/Ruby/Shell/YAML style comments
-          '--': /^(--)(.*)/, // SQL/Lua style comments
-        }
+        if (trimmedLine.startsWith(commentChar)) {
+          const restOfLine = trimmedLine.slice(commentChar.length)
 
-        let commentMatch: RegExpMatchArray | null = null
-        let commentChar: string | null = null
-        let restOfLine: string | null = null
-
-        for (const [char, pattern] of Object.entries(commentPatterns)) {
-          if (trimmedLine.startsWith(char)) {
-            commentMatch = trimmedLine.match(pattern)
-            commentChar = char
-            restOfLine = commentMatch ? commentMatch[2] : ''
-            break
-          }
-        }
-
-        if (commentMatch && restOfLine !== null && commentChar !== null) {
           // Treat shebang lines as executable directives, not code comments.
           if (trimmedLine.startsWith('#!')) {
             continue

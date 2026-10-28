@@ -9278,6 +9278,61 @@
       },
       {
         "category": "issues",
+        "slug": "list-issue-artifacts",
+        "subcategory": "artifacts",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/artifacts",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "issues",
+        "slug": "create-an-issue-artifact",
+        "subcategory": "artifacts",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/artifacts",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "issues",
+        "slug": "get-an-issue-artifact",
+        "subcategory": "artifacts",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/artifacts/{artifact_number}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "issues",
+        "slug": "update-an-issue-artifact",
+        "subcategory": "artifacts",
+        "verb": "patch",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/artifacts/{artifact_number}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "issues",
+        "slug": "delete-an-issue-artifact",
+        "subcategory": "artifacts",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/artifacts/{artifact_number}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "issues",
         "slug": "add-assignees-to-an-issue",
         "subcategory": "assignees",
         "verb": "post",
@@ -10423,6 +10478,28 @@
         "verb": "patch",
         "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}",
         "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "issues",
+        "slug": "list-issue-artifacts",
+        "subcategory": "artifacts",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/artifacts",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "issues",
+        "slug": "get-an-issue-artifact",
+        "subcategory": "artifacts",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/artifacts/{artifact_number}",
+        "access": "read",
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": true

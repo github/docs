@@ -40,6 +40,8 @@ Add and remove credits for a security advisory (see [AUTOTITLE](/code-security/h
 Close the draft security advisory | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %}  |
 Publish the security advisory (see [AUTOTITLE](/code-security/how-tos/report-and-fix-vulnerabilities/fix-reported-vulnerabilities/publish-repository-advisory)) | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %}  |
 
+Collaborators with write permissions can't create a temporary private fork, with one exception: the reporter of a privately reported vulnerability can create one while they remain a collaborator on the security advisory. See [AUTOTITLE](/code-security/how-tos/report-and-fix-vulnerabilities/report-privately).
+
 Repository security advisory collaborators without write access to the repository cannot create or view confidential comments. This restriction includes the reporter of a privately reported vulnerability unless they also have write access. See [AUTOTITLE](/code-security/how-tos/report-and-fix-vulnerabilities/fix-reported-vulnerabilities/manage-vulnerability-reports#discussing-a-report-with-people-who-have-write-access).
 
 ### Permission differences for global security advisories

@@ -14,7 +14,7 @@ redirect_from:
 
 The {% data variables.product.github %} MCP server is pre-configured in {% data variables.copilot.copilot_chat_dotcom_short %} with a limited set of skills, so you can use it immediately. Instruct {% data variables.copilot.copilot_chat_short %} to perform tasks like creating branches or merging pull requests on your behalf.
 
-For a full list of available skills, see [AUTOTITLE](/copilot/reference/chat-cheat-sheet#mcp-skills). For more about MCP, see [AUTOTITLE](/copilot/concepts/context/mcp).
+For a full list of available skills, see [AUTOTITLE](/copilot/reference/chat-cheat-sheet#mcp-skills). For more about MCP, see [AUTOTITLE](/copilot/concepts/customizations/mcp).
 
 ## Use the {% data variables.product.github %} MCP server
 

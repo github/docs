@@ -8,9 +8,12 @@ import { octoSecondaryRatelimitRetry } from './secondary-ratelimit-retry'
 export const GONE_TO_PRODUCTION_MARKER = '<!-- GONE_TO_PRODUCTION -->'
 
 // The merge queue can batch multiple PRs into a single deploy. Walk back from
-// the deployed HEAD commit through main's linear squash-merged ancestry to find
-// every PR in the batch. The deployed SHA bounds the search, so it cannot include
-// a later batch.
+// the deployed HEAD commit along first parents only to find every PR in the
+// batch, because repo-sync merges bring in github/docs history whose PR numbers
+// belong to the public repo. The deployed SHA bounds the search, so it cannot
+// include a later batch. The SHA comes from the deploy that triggered this run,
+// because one /_build read can return a newer deploy that is still rolling out.
+// Manual runs have no deploy SHA and fall back to /_build.
 //
 // Default to the merge queue's max batch size. Overshooting into an already
 // notified batch is harmless because marker dedupe skips existing comments.
@@ -43,16 +46,23 @@ export async function findBatchPrNumbers(
   sha: string,
   maxCommits: number = BATCH_MAX_COMMITS,
 ): Promise<number[]> {
-  const { data: commits } = await octoSecondaryRatelimitRetry(() =>
-    octokit.rest.repos.listCommits({ owner, repo, sha, per_page: maxCommits }),
-  )
-
   const numbers: number[] = []
-  for (const commit of commits) {
+  let current: string | undefined = sha
+  for (let i = 0; i < maxCommits && current; i++) {
+    const ref: string = current
+    // listCommits follows every parent, so fetch one commit at a time and step to parents[0].
+    const { data: commits } = await octoSecondaryRatelimitRetry(() =>
+      octokit.rest.repos.listCommits({ owner, repo, sha: ref, per_page: 1 }),
+    )
+    const commit = commits[0]
+    if (!commit) {
+      break
+    }
     const number = extractPrNumber(commit.commit.message)
     if (number !== null && !numbers.includes(number)) {
       numbers.push(number)
     }
+    current = commit.parents[0]?.sha
   }
   return numbers
 }
@@ -124,8 +134,18 @@ export async function commentOnDeployBatch(
   }
 }
 
+export async function resolveDeploySha(
+  envSha: string | undefined,
+  fallback: () => Promise<string>,
+): Promise<string> {
+  if (envSha && /^[a-f0-9]{40}$/.test(envSha)) {
+    return envSha
+  }
+  return fallback()
+}
+
 async function main() {
-  const sha = await getBuiltSHA()
+  const sha = await resolveDeploySha(process.env.DEPLOY_SHA, getBuiltSHA)
   console.log({ sha })
 
   const { owner, repo } = getActionContext()

@@ -127,6 +127,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: CREATED_AT, direction: ASC}",
               "description": "<p>Ordering options for pull requests.</p>",
               "type": {
                 "name": "PullRequestOrder",
@@ -431,6 +432,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: CREATED_AT, direction: ASC}",
               "description": "<p>Ordering options for deployments returned from the connection.</p>",
               "type": {
                 "name": "DeploymentOrder",
@@ -1436,6 +1438,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: OCCURRED_AT, direction: DESC}",
               "description": "<p>Ordering options for commit contributions returned from the connection.</p>",
               "type": {
                 "name": "CommitContributionOrder",

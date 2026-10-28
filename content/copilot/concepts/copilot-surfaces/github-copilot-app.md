@@ -2,7 +2,7 @@
 title: GitHub Copilot app
 shortTitle: GitHub Copilot app
 intro: 'The {% data variables.copilot.github_copilot_app %} is a desktop application for agent-driven development that brings parallel workstreams, {% data variables.product.github %} integration, and PR lifecycle management into one place.'
-product: '{% data reusables.gated-features.github-app %}<br><a href="https://github.com/features/ai/github-app" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Download {% data variables.copilot.github_copilot_app %}</span> {% octicon "link-external" height:16 %}</a>'
+product: '{% data reusables.gated-features.github-app %}<br>{% data reusables.copilot.github-app-download-button %}'
 versions:
   feature: copilot
 contentType: concepts
@@ -50,13 +50,15 @@ The {% data variables.copilot.github_copilot_app %} supports the following opera
 * **Chats:** Brainstorm in a conversation mode without creating a dedicated branch or workspace.
 * **Session history:** Use `/chronicle` to get insights from previous sessions, including work you started in the app.
 * **Canvases:** Open custom, agent-driven artifacts and interfaces where people and agents can collaborate.
-* **Computer use:** Allow local sessions on macOS and Windows to interact with desktop applications, including legacy and GUI-only software that do not provide an API, command-line interface, or MCP integration. For more information, see [AUTOTITLE](/copilot/concepts/agents/computer-use).
+* **Computer use:** Allow local sessions on macOS and Windows to interact with desktop applications, including legacy and GUI-only software that do not provide an API, command-line interface, or MCP integration. For more information, see [AUTOTITLE](/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/computer-use).
 
-## {% data variables.copilot.github_copilot_app %} workflow
+## The {% data variables.copilot.github_copilot_app %} workflow
+
+Connect a repository or local folder to the app, then start agent sessions to work on it. Sessions are grouped by repository in the sidebar.
 
 A typical workflow in the {% data variables.copilot.github_copilot_app %} looks like this:
 
-1. Browse issues in a repository and pick one up, or start from a blank workspace.
+1. Start a new agent session in a repository or local folder, or browse issues in a repository and start a session from an issue.
 1. Choose a session mode—Interactive, Plan, or Autopilot—and select a model.
 1. Describe the task and let the agent create a branch, write code, and run tests.
 1. Review the agent's changes, provide feedback, and iterate.
@@ -86,7 +88,7 @@ For {% data variables.copilot.copilot_business_short %} and {% data variables.co
 
 ## Public code
 
-{% data variables.copilot.github_copilot_app %} may generate code that is a match or near match of publicly available code, even if the "Suggestions matching public code" policy is set to "Block." See [AUTOTITLE](/copilot/how-tos/manage-your-account/manage-policies#enabling-or-disabling-suggestions-matching-public-code).
+The {% data variables.copilot.github_copilot_app %} may generate code that is a match or near match of publicly available code, even if the "Suggestions matching public code" policy is set to "Block." See [AUTOTITLE](/copilot/how-tos/manage-your-account/manage-policies#enabling-or-disabling-suggestions-matching-public-code).
 
 ## Further reading
 

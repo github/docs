@@ -19,7 +19,7 @@ const allRedirectPatterns = Object.values(languages)
   )
   .flat() as [string, RegExp][] // flat() loses tuple type inference.
 
-// Redirect mistyped language codes, for example /jp* -> /ja* and /zh-TW* -> /zh*.
+// Redirect mistyped language codes, for example /jp* -> /ja* and /zh-TW* or /zh-Hans* -> /zh*.
 export default function languageCodeRedirects(
   req: ExtendedRequest,
   res: Response,
@@ -36,7 +36,10 @@ export default function languageCodeRedirects(
     const [code, pattern] = matched
     if (code && pattern) {
       defaultCacheControl(res)
-      return res.safeRedirect(301, req.path.replace(pattern, `/${code}`))
+      // Keep the query string so search terms and selectors such as apiVersion survive.
+      const queryIndex = req.url.indexOf('?')
+      const query = queryIndex === -1 ? '' : req.url.slice(queryIndex)
+      return res.safeRedirect(301, req.path.replace(pattern, `/${code}`) + query)
     }
   }
   return next()

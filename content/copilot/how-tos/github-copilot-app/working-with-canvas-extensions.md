@@ -3,12 +3,13 @@ title: Working with canvas extensions in the GitHub Copilot app
 shortTitle: Canvas extensions
 intro: 'Use canvases in the {% data variables.copilot.github_copilot_app %} to build shared, agent-driven artifacts and interfaces for human-agent collaboration.'
 allowTitleToDifferFromFilename: true
-product: '{% data reusables.gated-features.github-app %}<br><a href="https://github.com/features/ai/github-app" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Download {% data variables.copilot.github_copilot_app %}</span> {% octicon "link-external" height:16 %}</a>'
+product: '{% data reusables.gated-features.github-app %}<br>{% data reusables.copilot.github-app-download-button %}'
 versions:
   feature: copilot
 contentType: how-tos
 category:
   - Author and optimize with Copilot
+  - Appetizers - Plan your plate
 ---
 
 ## About canvas extensions
@@ -68,14 +69,14 @@ You can create a new canvas from within a session using the `/create-canvas` ski
    * `Create an agentic kanban canvas with actions to create, assign, and move cards.`
    * `Create a markdown canvas that combines my meetings with prioritized issues and pull requests, then lets me launch and track agent sessions from that canvas.`
 1. You can choose whether the canvas should be shared with your team or kept personal:
-   * **Project scope:** `.github/extensions` for team-shared canvases committed to the repository.
+   * **Repository scope:** `.github/extensions` for team-shared canvases committed to the repository.
    * **User scope:** `~/.copilot/extensions` for personal canvases on your machine.
 
 The agent will build the canvas and open it in the right side panel once complete. After that, you can continue iterating by asking the agent to change the interface, shared state, and capabilities.
 
 ## How canvas extensions are structured
 
-Canvas extensions that you create in the app or install directly live in their own directory under either `.github/extensions` (project scope) or `~/.copilot/extensions` (user scope). 
+Canvas extensions that you create in the app or install directly live in their own directory under either `.github/extensions` (repository scope) or `~/.copilot/extensions` (user scope).
 
 Although implementations can vary, a canvas extension commonly includes:
 

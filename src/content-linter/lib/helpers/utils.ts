@@ -60,7 +60,13 @@ export function quotePrecedesLinkOpen(text: string | undefined): boolean {
 // markdownlint passes files as line arrays, and gray-matter needs a string.
 export function getFrontmatter(lines: string[]): Record<string, unknown> | null {
   const fmString = lines.join('\n')
-  const { data } = matter(fmString)
+  let data: Record<string, unknown>
+  try {
+    ;({ data } = matter(fmString))
+  } catch {
+    // GHD012 reports invalid YAML, so other rules skip the file instead of crashing the run.
+    return null
+  }
   // gray-matter returns an empty object when frontmatter is absent or empty.
   if (Object.keys(data).length === 0) return null
   return data

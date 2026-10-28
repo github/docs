@@ -18,6 +18,7 @@ children:
   - /content/copilot/reference/copilot-usage-metrics/interpret-copilot-metrics
   - /content/copilot/reference/copilot-usage-metrics/reconciling-usage-metrics
   - /content/copilot/reference/copilot-usage-metrics/lines-of-code-metrics
+  - /content/copilot/reference/copilot-usage-metrics/team-level-metrics
   - /content/copilot/tutorials/roll-out-at-scale/measure-success
   - /content/copilot/tutorials/roll-out-at-scale/assign-licenses/track-usage-and-adoption
   - /content/copilot/reference/copilot-usage-metrics/example-schema

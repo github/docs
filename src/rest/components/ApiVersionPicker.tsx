@@ -55,7 +55,6 @@ export const ApiVersionPicker = () => {
       href: itemLink,
       extra: {
         info: false,
-        currentDate,
       },
     }
   })
@@ -68,7 +67,6 @@ export const ApiVersionPicker = () => {
     }${apiVersionPath}`,
     extra: {
       info: true,
-      currentDate,
     },
   })
 
@@ -84,7 +82,7 @@ export const ApiVersionPicker = () => {
         dataTestId="version"
         ariaLabel="Select API Version"
         onSelect={(item) => {
-          if (item.extra?.currentDate) rememberApiVersion(item.extra.currentDate)
+          if (!item.extra?.info) rememberApiVersion(item.text)
         }}
         renderItem={(item) => {
           return item.extra?.info ? (

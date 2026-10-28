@@ -4,16 +4,7 @@ import { renderContent } from '@/content-render/index'
 import { normalizeDocsUrls } from '../../rest/scripts/utils/normalize-docs-urls'
 import webhookSchema from './webhook-schema'
 import { getBodyParams, TransformedParam } from '../../rest/scripts/utils/get-body-params'
-
-const NO_CHILD_PROPERTIES = [
-  'action',
-  'comment',
-  'enterprise',
-  'installation',
-  'organization',
-  'repository',
-  'sender',
-]
+import { NO_CHILD_WEBHOOK_PROPERTIES } from '@/webhooks/lib/no-child-properties'
 
 const validate = getJsonValidator(webhookSchema)
 
@@ -99,7 +90,7 @@ export default class Webhook implements WebhookInterface {
 
     // Common top-level properties do not need expanded child parameter groups.
     for (const param of this.bodyParameters) {
-      if (NO_CHILD_PROPERTIES.includes(param.name)) {
+      if (NO_CHILD_WEBHOOK_PROPERTIES.includes(param.name)) {
         param.childParamsGroups = []
       }
     }

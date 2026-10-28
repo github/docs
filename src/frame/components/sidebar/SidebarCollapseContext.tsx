@@ -3,14 +3,16 @@ import type { ReactNode } from 'react'
 import { useRouter } from 'next/router'
 
 import Cookies from '@/frame/components/lib/cookies'
+import { useIsHydrating } from '@/frame/components/hooks/useIsHydrating'
 import { SIDEBAR_COLLAPSED_COOKIE_NAME } from '@/frame/lib/constants'
 
 // Keep two sidebar state channels separate. collapsed persists in a cookie and
 // syncs the desktop toggle with the rail layout, mirroring
 // src/landings/components/useSidebarExpandState.tsx. mobileNavOpen never persists;
-// the mobile trigger reads it for inline nav expansion. getMainContext reads the
-// cookie server-side and passes initialCollapsed, so server markup and hydration
-// match. Without an initial value, the client falls back to the SSR-safe cookie helper.
+// the mobile trigger reads it for inline nav expansion. Page HTML is publicly cached
+// and does not vary on Cookie, so the server and hydration render the rail open. The
+// cookie applies in the re-render right after hydration, and client-side mounts read it
+// on their first render.
 
 function readCollapsed(): boolean {
   try {
@@ -41,30 +43,21 @@ type SidebarCollapseContextValue = {
 
 const SidebarCollapseContext = createContext<SidebarCollapseContextValue | null>(null)
 
-export function SidebarCollapseProvider({
-  children,
-  initialCollapsed,
-}: {
-  children: ReactNode
-  initialCollapsed?: boolean
-}) {
+export function SidebarCollapseProvider({ children }: { children: ReactNode }) {
   const { asPath } = useRouter()
-  // Prefer the server-read cookie value so server markup and hydration match.
-  const [collapsed, setCollapsedState] = useState(() => initialCollapsed ?? readCollapsed())
+  const hydrating = useIsHydrating()
+  const saved = useMemo(() => !hydrating && readCollapsed(), [hydrating])
+  // Stays null until the reader toggles, so the saved state shows after hydration.
+  const [chosen, setChosen] = useState<boolean | null>(null)
+  const collapsed = chosen ?? saved
   const [mobileNavOpen, setMobileNavOpen] = useState(false)
 
   const setCollapsed = useCallback((next: boolean) => {
-    setCollapsedState(next)
+    setChosen(next)
     persistCollapsed(next)
   }, [])
 
-  const toggleCollapsed = useCallback(() => {
-    setCollapsedState((prev) => {
-      const next = !prev
-      persistCollapsed(next)
-      return next
-    })
-  }, [])
+  const toggleCollapsed = useCallback(() => setCollapsed(!collapsed), [collapsed, setCollapsed])
 
   const toggleMobileNav = useCallback(() => setMobileNavOpen((prev) => !prev), [])
   const closeMobileNav = useCallback(() => setMobileNavOpen(false), [])

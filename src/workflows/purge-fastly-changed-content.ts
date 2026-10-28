@@ -113,7 +113,9 @@ export async function resolvePreviousProductionSha(
     per_page: 30,
   })
 
-  for (const deployment of deployments) {
+  // A newer deploy can succeed before this run resolves its base, so search only older entries.
+  const headIndex = deployments.findIndex((deployment) => deployment.sha === headSha)
+  for (const deployment of deployments.slice(headIndex + 1)) {
     if (deployment.sha === headSha) continue
     const { data: statuses } = await octokit.rest.repos.listDeploymentStatuses({
       owner,

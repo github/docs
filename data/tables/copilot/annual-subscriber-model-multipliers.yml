@@ -38,17 +38,5 @@
 - model: 'GPT-5.3-Codex'
   new_multiplier: '6'
 
-- model: 'GPT-5.4'
-  new_multiplier: '6'
-
-- model: 'GPT-5.4 mini'
-  new_multiplier: '6'
-
-- model: 'GPT-5.5'
-  new_multiplier: '57'
-
-- model: 'GPT-5 mini'
-  new_multiplier: '0.33'
-
 - model: 'MAI-Code-1.1-Flash'
   new_multiplier: '0.25'

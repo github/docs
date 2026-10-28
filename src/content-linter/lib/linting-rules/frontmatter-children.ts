@@ -32,6 +32,12 @@ function isValidChildPath(childPath: string, currentFilePath: string): boolean {
     return false
   }
 
+  // Early access content comes from a separate repo that may not be cloned, so create-tree only warns when it is missing.
+  const earlyAccessDir = path.join(contentDir, 'early-access')
+  if (resolvedPath === earlyAccessDir || resolvedPath.startsWith(earlyAccessDir + path.sep)) {
+    return true
+  }
+
   const mdPath = `${resolvedPath}.md`
   if (fs.existsSync(mdPath) && fs.statSync(mdPath).isFile()) {
     return true

@@ -264,6 +264,9 @@ describe('get-data on corrupt translations', () => {
   beforeAll(() => {
     dd = new DataDirectory({
       data: {
+        ui: {
+          key: 'Value',
+        },
         variables: {
           everything: {
             is: 'Awesome',
@@ -275,6 +278,19 @@ describe('get-data on corrupt translations', () => {
       },
     })
     languages.en.dir = dd.root
+
+    // getUIDataMerged caches by language code, so use codes no other test has read.
+    const esTranslationsRoot = path.join(dd.root, 'translations', 'es-ES')
+    fs.mkdirSync(path.join(esTranslationsRoot, 'data'), { recursive: true })
+    fs.writeFileSync(
+      path.join(esTranslationsRoot, 'data', 'ui.yml'),
+      `>:This is not valid Yaml:>`,
+      'utf-8',
+    )
+    languages.es = Object.assign({}, languages.en, { dir: esTranslationsRoot })
+    const frTranslationsRoot = path.join(dd.root, 'translations', 'fr-FR')
+    fs.mkdirSync(frTranslationsRoot, { recursive: true })
+    languages.fr = Object.assign({}, languages.en, { dir: frTranslationsRoot })
 
     const jaTranslationsRoot = path.join(dd.root, 'translations', 'ja-JP')
     fs.mkdirSync(jaTranslationsRoot, { recursive: true })
@@ -305,6 +321,8 @@ describe('get-data on corrupt translations', () => {
   afterAll(() => {
     dd.destroy()
     languages.en.dir = enDirBefore
+    delete languages.es
+    delete languages.fr
   })
 
   test('getDataByLanguage on a corrupt .yml file', () => {
@@ -327,6 +345,16 @@ describe('get-data on corrupt translations', () => {
       const result = getDataByLanguage('reusables.cool', 'ja')
       expect(result).toBe('*English* /Markdown/')
     }
+  })
+
+  test('getUIDataMerged on a corrupt ui.yml file', () => {
+    const result = getUIDataMerged('es')
+    expect(result.key).toBe('Value')
+  })
+
+  test('getUIDataMerged on a missing ui.yml file', () => {
+    const result = getUIDataMerged('fr')
+    expect(result.key).toBe('Value')
   })
 })
 

@@ -173,6 +173,7 @@ export class GraphQLReferenceTransformer implements PageTransformer {
         type: arg.type,
         href: arg.href,
         description: arg.description ? fastTextOnly(arg.description) : '',
+        defaultValue: arg.defaultValue,
       })),
     }
   }
@@ -226,6 +227,10 @@ export class GraphQLReferenceTransformer implements PageTransformer {
       values: item.values.map((value) => ({
         name: value.name,
         description: value.description ? fastTextOnly(value.description) : '',
+        isDeprecated: value.isDeprecated || false,
+        deprecationReason: value.deprecationReason
+          ? fastTextOnly(value.deprecationReason)
+          : undefined,
       })),
     }
   }

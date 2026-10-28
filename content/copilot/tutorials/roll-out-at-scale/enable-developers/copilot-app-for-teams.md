@@ -97,7 +97,7 @@ Sessions that run in new working trees use isolated workspaces. Developers can m
 Ask developers to try this workflow:
 
 1. Keep the first session open.
-1. Click **+** next to **Sessions** and start another session in the same repository.
+1. In the sidebar, next to **Sessions**, click {% octicon "plus" aria-label="New" %}, then select the same repository under "Start session in."
 1. Choose to run the session in a new working tree.
 1. Give the second session an independent task.
 1. Switch between sessions in the sidebar to monitor progress and provide feedback.

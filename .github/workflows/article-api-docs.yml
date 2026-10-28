@@ -8,13 +8,16 @@ on:
     paths:
       - 'src/article-api/middleware/article.ts'
       - 'src/article-api/middleware/pagelist.ts'
+      - 'src/article-api/scripts/generate-api-docs.ts'
+      # Manual edits to generated docs must fail this check.
+      - 'src/article-api/README.md'
       - .github/workflows/article-api-docs.yml
 
 permissions:
   contents: read
 
 jobs:
-  check-content-linter-rules-docs:
+  check-article-api-docs:
     runs-on: ubuntu-latest
     if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
     steps:

@@ -17,6 +17,7 @@ redirect_from:
   - /github/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications
   - /account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications
   - /subscriptions-and-notifications/setting-up-notifications/configuring-notifications
+  - /repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/about-email-notifications-for-pushes-to-your-repository
 versions:
   fpt: '*'
   ghes: '*'
@@ -122,8 +123,6 @@ Choose a default email address where you want to send updates for conversations 
 * Your own updates, such as when you open, comment on, or close an issue or pull request
 
 Depending on the organization that owns the repository, you can also send notifications to different email addresses. Your organization may require the email address to be verified for a specific domain. For more information, see [AUTOTITLE](/subscriptions-and-notifications/how-tos/managing-organization-notifications#choosing-where-your-organizations-email-notifications-are-sent).
-
-You can also send notifications for a specific repository to an email address. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/about-email-notifications-for-pushes-to-your-repository).
 
 {% data reusables.notifications-v2.email-notification-caveats %}
 

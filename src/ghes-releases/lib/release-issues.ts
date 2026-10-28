@@ -38,6 +38,26 @@ export function buildReleaseIssueListArgs(version: string, issueState: IssueStat
   ]
 }
 
+// gh paginates up to this many results, and 1000 is the GitHub search API maximum.
+export const CHANGELOG_PR_LIMIT = 1000
+
+export function buildChangelogPrListArgs(since: string): string[] {
+  return [
+    'pr',
+    'list',
+    '--repo',
+    'github/blog',
+    '--state',
+    'merged',
+    '--search',
+    `Changelog in:title merged:>=${since}`,
+    '--limit',
+    String(CHANGELOG_PR_LIMIT),
+    '--json',
+    'number,body,url',
+  ]
+}
+
 // "public roadmap" and "not planned" issues never produce GHES release notes.
 export function isExcludedReleaseIssue(issue: IssueLike): boolean {
   return issue.labels.some((l) => EXCLUDED_RELEASE_LABELS.has(l.name.toLowerCase()))

@@ -58,7 +58,7 @@ See [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/secure-your-depe
 
 ## Alert ownership and assignments
 
-Users with write access or higher can assign {% data variables.product.prodname_dependabot_alerts %} to repository collaborators, teams, or AI agents to establish clear ownership for vulnerability remediation. Assignments help track who's responsible for each alert and prevent vulnerabilities from being overlooked.
+Users with write access or higher can assign {% data variables.product.prodname_dependabot_alerts %} to repository collaborators, teams, or AI agents to establish clear ownership for vulnerability remediation. Assignments help track who's responsible for each alert and prevent vulnerabilities from being overlooked. Assigning alerts requires a license for {% data variables.product.prodname_GHAS_or_code_security %}, including for public repositories.
 
 You can assign alerts to the following types of agents:
 

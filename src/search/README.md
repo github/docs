@@ -51,7 +51,7 @@ The workflow runs are only accessible to GitHub employees using internal resourc
 
 ## Manually triggering the search index update workflow
 
-You can manually run the workflow to generate the indexes after you push your changes to `main` to speed up the indexing when needed. It's recommended to do this for only the `free-pro-team@latest` version and the `en` language because running all languages and versions takes about 40 minutes. To run it manually, click "Run workflow" button in the Actions tab. Enter the language and version you'd like to generate the indexes for as inputs to the workflow. By default, all languages and versions are generated.
+You can manually run the workflow to generate the indexes after you push your changes to `main` to speed up the indexing when needed. It's recommended to do this for only the `fpt` version and the `en` language because running all languages and versions takes about 40 minutes. To run it manually, click "Run workflow" button in the Actions tab. Enter the language and version you'd like to generate the indexes for as inputs to the workflow. By default, all languages and versions are generated.
 
 ### Build and sync
 
@@ -62,7 +62,7 @@ The preferred way to build and sync the search indices is to do so via the [GitH
 ### Actions workflow files
 
 - [`.github/workflows/index-general-search.yml`](/.github/workflows/index-general-search.yml) - Populates search indices for **general search** using the `main` branch every four hours. Search indices are stored in an internal-only Elasticsearch instance. To run it manually, click "Run workflow" button in the Actions tab.
-- [`.github/workflows/index-autocomplete-search.yml`](/.github/workflows/index-general-search.yml) - Populates search indices for **AI search autocomplete** using data from an internal repo. Runs daily.
+- [`.github/workflows/index-autocomplete-search.yml`](/.github/workflows/index-autocomplete-search.yml) - Populates search indices for **AI search autocomplete** using data from an internal repo. Runs every weekday and when GHES releases change in `src/versions/lib/enterprise-server-releases.ts`.
 
 ### Notable code files and directories
 

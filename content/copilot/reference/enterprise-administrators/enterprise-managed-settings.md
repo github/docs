@@ -18,7 +18,7 @@ For instructions on creating the file, see [AUTOTITLE](/copilot/how-tos/administ
 
 {% rowheaders %}
 
-| Key | Purpose | {% data variables.copilot.copilot_cli_short %} | {% data variables.product.prodname_vscode_shortname %} | {% data variables.copilot.github_copilot_app %} | {% data variables.copilot.copilot_cloud_agent %} | {% data variables.product.prodname_jetbrains_ides %} |
+| Key | Purpose | {% data variables.copilot.copilot_cli_short %} | {% data variables.product.prodname_vscode_shortname %} | The {% data variables.copilot.github_copilot_app %} | {% data variables.copilot.copilot_cloud_agent %} | {% data variables.product.prodname_jetbrains_ides %} |
 | --- | --- | --- | --- | --- | --- | --- |
 | `permissions.disableBypassPermissionsMode` | Disables bypass or YOLO-style allow-all behavior | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} |
 | `permissions.deny` | Blocks specific operations | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
@@ -142,7 +142,7 @@ The following example shows these keys in one managed settings file.
 
 ## features.computerUse
 
-Controls whether users can enable computer use in {% data variables.copilot.copilot_cli %} and {% data variables.copilot.github_copilot_app %}. Set `features.computerUse` to `false` to prevent users from enabling computer use. A local setting cannot override this restriction. Set the value to `true`, or omit the key, to allow users to control computer use through their local settings.
+Controls whether users can enable computer use in {% data variables.copilot.copilot_cli %} and the {% data variables.copilot.github_copilot_app %}. Set `features.computerUse` to `false` to prevent users from enabling computer use. A local setting cannot override this restriction. Set the value to `true`, or omit the key, to allow users to control computer use through their local settings.
 
 ## enabledPlugins
 
@@ -273,14 +273,34 @@ Each subkey is overridable for enterprise teams. Set the enterprise value to `{ 
 
 ### disableBypassPermissionsMode
 
-Prevents users from enabling bypass mode (also known as "YOLO mode"). Bypass mode lets an agent run commands, access files, and fetch URLs without asking for approval.
+Use this to prevent users from enabling bypass mode. Bypass mode lets an agent run commands, access files, and fetch URLs without asking for approval.
+
+Set this key to `"disable"` to turn off bypass mode.
+
+This setting does not prevent {% data variables.copilot.assisted_permissions %}. Read-only operations and requests allowed by applicable permission rules can still proceed without a prompt. Managed `deny` and `ask` rules continue to apply. For more information about {% data variables.copilot.assisted_permissions %}, see [AUTOTITLE](/copilot/concepts/customizations/allowing-safe-commands).
 
 When you set `disableBypassPermissionsMode` to `"disable"`, users cannot turn on bypass mode:
 
-* In {% data variables.copilot.copilot_cli_short %}, all of the command line options for allowing all permissions (`--yolo`, `--allow-all`, and the individual `--allow-all-tools`, `--allow-all-paths`, and `--allow-all-urls` options) are suppressed at startup and cannot grant elevated permissions. The `/yolo` and `/allow-all` slash commands are also blocked.
+* In {% data variables.copilot.copilot_cli_short %}, all of the command line options for allowing all permissions (`--yolo`, `--allow-all`, and the individual `--allow-all-tools`, `--allow-all-paths`, and `--allow-all-urls` options) have no effect at startup and cannot grant elevated permissions. The `/permissions allow-all` slash command, and its aliases `/allow-all` and `/yolo`, are also blocked. This setting does not block `/permissions assisted` or `/allow-all auto`. The `permissions.disableAssistedPermissionsMode` setting controls whether users can enable {% data variables.copilot.assisted_permissions %}.
 * In {% data variables.product.prodname_vscode_shortname %}, the global auto-approve setting (`chat.tools.global.autoApprove`) is turned off and cannot be re-enabled.
-* In the {% data variables.copilot.github_copilot_app %}, the "Allow all" setting for "Tool Permissions" is blocked in the sessions settings.
-* This key is overridable by enterprise team mapping. In your `{% data variables.copilot.managed_setting_file %}`, use the `{ "overridable": "disable" }` syntax to specialize the key's configuration on a per-team basis. You can then set `"disableBypassPermissionsMode": "unmanaged"` in a team settings file, providing a specialization that takes precedence over `{% data variables.copilot.managed_setting_file %}` for members of the subject team.
+* In the {% data variables.copilot.github_copilot_app %}, sessions cannot use **Approve all** for **Tool permissions**, even if a user selects it as their default in **Settings** > **Sessions**.
+
+For this key, the most restrictive value across all policy layers wins. A `"disable"` set by any layer takes effect and cannot be relaxed. A lower-authority layer or a per-team override cannot set this key back to unmanaged once any layer disables bypass mode.
+
+> [!NOTE]
+> If `disableBypassPermissionsMode` is set to a value that {% data variables.copilot.copilot_cli_short %} doesn't recognize, the CLI logs the problem and enforces `"disable"` as a fail-closed default.
+
+### disableAssistedPermissionsMode
+
+Set `permissions.disableAssistedPermissionsMode` to `true` to prevent users from enabling {% data variables.copilot.assisted_permissions %}. This setting does not disable bypass mode.
+
+### defaultMode
+
+Set `permissions.defaultMode` to `"manual"`, `"assisted"`, or `"allow-all"` to choose the default permission mode for new sessions. If the selected mode is unavailable or blocked by policy, the session starts with manual approval.
+
+This setting selects a default, not a locked mode. An explicit permitted choice for a session takes precedence over the managed default. Resumed sessions keep their saved mode, subject to current policy restrictions.
+
+In {% data variables.copilot.copilot_cli_short %}, this managed default takes precedence over the user's `defaultPermissionMode` setting.
 
 ## telemetry
 
@@ -299,6 +319,7 @@ When you set the `telemetry` property, {% data variables.product.prodname_copilo
 * `serviceName`: A label for the telemetry service name (for example, `"copilot"`).
 * `resourceAttributes`: An object of OpenTelemetry resource attributes to attach to all exported telemetry (for example, `{"deployment.environment": "production"}`).
 * `headers`: An object of literal HTTP headers to include with each telemetry request (for example, an `Authorization` header for your collector). You must configure `endpoint` in the same `telemetry` object. Header values are not included in logs or status output. Use HTTPS when headers contain credentials because HTTP sends values in plaintext.
+* `headersProvider`: An object that runs a command to supply fresh OTLP headers, or `false` to disable dynamic headers. A managed helper overrides a user helper, and managed static `headers` take precedence over user helper output. This property applies to {% data variables.copilot.copilot_cli_short %}. For fields and behavior, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference#dynamic-authentication-headers).
 
 Managed `telemetry` values take precedence over local settings, SDK configuration, and environment variables. If more than one managed source defines `telemetry`, the highest-precedence source supplies the complete managed `telemetry` object. Objects from lower-precedence managed sources are not merged into it.
 
@@ -355,7 +376,7 @@ Each entry must contain exactly one matcher property.
 
 | Property | Matching behavior | Applicable servers |
 | --- | --- | --- |
-| `serverName` | Matches the user-assigned server label exactly. Wildcards are not supported. Because users choose server names, use `serverUrl` or `serverCommand` when you need to enforce the identity of a server. | Any server. In-memory servers can only use `serverName`. |
+| `serverName` | Matches the user-assigned server label exactly. Wildcards are not supported. Allowlist entries are case-sensitive and limited to letters, numbers, and the characters `_`, `.`, `/`, and `-`, so registry names such as `microsoft/playwright-mcp` are accepted. Because users choose server names, use `serverUrl` or `serverCommand` when you need to enforce the identity of a server. | Any server. In-memory servers can only use `serverName`. |
 | `serverUrl` | Matches a remote server URL. Supports `*` wildcards for subdomains or path prefixes—for example, `https://mcp.example.com/*` or `https://*.internal.example.com/*`. | Remote servers that connect over HTTP or server-sent events (SSE). This property does not apply to local servers, even if they have a URL. |
 | `serverCommand` | Matches the exact command and each argument for a local server—for example, `["npx", "-y", "my-mcp-server"]`. Wildcards and command-line expansion are not supported. | Local servers that use standard input and output (`stdio`). This property does not apply to remote servers, even if they have a command. |
 
@@ -392,11 +413,11 @@ Enforces minimum local sandbox restrictions for {% data variables.copilot.copilo
 
 In {% data variables.product.prodname_vscode_shortname %} 1.138.0 and later, these settings apply to {% data variables.product.prodname_copilot_short %} sessions that use Agent Host's built-in sandbox. This support does not extend to every type of chat session or terminal in {% data variables.product.prodname_vscode_shortname %}. In {% data variables.product.prodname_vscode_shortname %} 1.140.0 and later, setting `sandbox.enabled` to `true` prevents users from turning sandboxing off with the session's sandbox toggle. If your policy permits bypass, users can still turn it off for the current session when responding to a sandbox-bypass permission prompt. This does not change your organization's policy.
 
-In {% data variables.copilot.github_copilot_app_short %} sessions, the embedded runtime parses, combines, and enforces the complete managed `sandbox` object, including properties that are not available in the app's project settings. The app displays the user's project settings, not the complete effective managed policy, and does not show per-setting managed locks.
+For sessions in the {% data variables.copilot.github_copilot_app_short %}, the embedded runtime parses, combines, and enforces the complete managed `sandbox` object, including properties that are not available in the app's repository settings. The app displays the user's repository settings, not the complete effective managed policy, and does not show per-setting managed locks.
 
 The following sub-properties are supported:
 
-* `enabled`: `true` requires sandboxing by default. Users cannot disable it through their configuration or the CLI's `--no-sandbox` option. In the {% data variables.copilot.github_copilot_app %}, the project setting and `/sandbox off` command cannot override it. If the effective policy permits bypass, a user can still disable sandboxing for the rest of the current session from an active sandbox-bypass permission prompt. In {% data variables.copilot.copilot_cli_short %}, they can also use `/sandbox disable` for this session-only opt-out. Neither changes the saved policy.
+* `enabled`: `true` requires sandboxing by default. Users cannot disable it through their configuration or the CLI's `--no-sandbox` option. In the {% data variables.copilot.github_copilot_app %}, the repository setting and `/sandbox off` command cannot override it. If the effective policy permits bypass, a user can still disable sandboxing for the rest of the current session from an active sandbox-bypass permission prompt. In {% data variables.copilot.copilot_cli_short %}, they can also use `/sandbox disable` for this session-only opt-out. Neither changes the saved policy.
 * `failIfUnavailable`: `true`, combined with `enabled: true`, makes the managed sandbox mandatory. If {% data variables.product.prodname_copilot_short %} cannot validate, compile, or enforce the sandbox policy with an available sandbox backend, it blocks model and tool execution instead of allowing commands to fail or run unsandboxed. This property does not enable sandboxing by itself.
 * `allowBypass`: `false` prevents individual commands from running outside the sandbox and prevents users from disabling sandboxing for the rest of the current session from an active sandbox-bypass permission prompt. In {% data variables.copilot.copilot_cli_short %}, it also prevents users from disabling sandboxing with `/sandbox disable`.
 * `addCurrentWorkingDirectory`: `false` prevents the runtime from automatically adding the current working directory to the sandbox's read/write paths.

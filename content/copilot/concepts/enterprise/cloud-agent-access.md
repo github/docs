@@ -55,7 +55,7 @@ For information on disabling {% data variables.copilot.copilot_cloud_agent %} in
 
 ## Managing access to {% data variables.copilot.copilot_automations_cap %}
 
-{% data variables.copilot.copilot_automations_cap %} let users run {% data variables.copilot.copilot_cloud_agent %} automatically, on a schedule or in response to events. See [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-automations).
+{% data variables.copilot.copilot_automations_cap %} let users run {% data variables.copilot.copilot_cloud_agent %} automatically, on a schedule or in response to events. See [AUTOTITLE](/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/about-automations).
 
 {% data reusables.copilot.cloud-agent.automations-availability %}
 

@@ -33,5 +33,5 @@ To resolve the block, you can either:
 ## Further reading
 
 * [AUTOTITLE](/code-security/concepts/secret-security/push-protection)
-* [About the {% data variables.product.github %} MCP server](/copilot/concepts/context/mcp#about-the-github-mcp-server)
+* [About the {% data variables.product.github %} MCP server](/copilot/concepts/customizations/mcp#about-the-github-mcp-server)
 * [AUTOTITLE](/code-security/how-tos/use-ghas-with-ai-coding-agents/scan-for-secrets-with-github-mcp-server)

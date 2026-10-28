@@ -7,7 +7,9 @@ import { latestStable } from '@/versions/lib/enterprise-server-releases'
 import removeFPTFromPath from '@/versions/lib/remove-fpt-from-path'
 import { getDataByLanguage } from '@/data-directory/lib/get-data'
 import getRedirect from '@/redirects/lib/get-redirect'
+import { applyGraphqlCategoryRedirect } from '@/redirects/lib/graphql-category-redirect'
 import { isArchivedVersionByPath } from '@/archives/lib/is-archived-version'
+import { getFeaturesByVersion } from '@/versions/middleware/features'
 import type { Context, Page } from '@/types'
 
 const logger = createLogger(import.meta.url)
@@ -20,6 +22,13 @@ const EXTERNAL_LINK_PATTERN = /\]\((https?:\/\/[^()\s]*(?:\([^()]*\)[^()\s]*)*)\
 const IMAGE_LINK_PATTERN = /!\[[^\]]*\]\(([^)]+)\)/g
 
 const ANCHOR_LINK_PATTERN = /\]\(#[^)]+\)/g
+
+// Backtick fence info strings cannot contain backticks, per CommonMark.
+const FENCE_OPENER_PATTERN = /^( *)(`{3,})[^`]*$/
+const FENCE_CLOSER_PATTERN = /^( *)(`{3,})\s*$/
+// Groups are marker indent, marker, spaces after the marker, and the rest of the line.
+const LIST_ITEM_PATTERN = /^( *)([-*+]|\d{1,9}[.)])(?:$|( +)(.*)$)/
+const LIQUID_TAG_LINE_PATTERN = /^\s*{%.*%}\s*$/
 
 // Reference-style definitions look like [id]: /path or [id]: /path "title".
 const LINK_DEFINITION_PATTERN = /^\[[^\]]+\]:\s+(\/[^\s"'(<>]*)/gm
@@ -92,6 +101,72 @@ function extractLinkText(content: string, matchIndex: number): string | undefine
   return undefined
 }
 
+function leadingSpaces(line: string): number {
+  return line.length - line.trimStart().length
+}
+
+// Authors put Liquid tags at column 0 inside list items, and they do not end the item.
+function isBlankOrLiquid(line: string): boolean {
+  return !line.trim() || LIQUID_TAG_LINE_PATTERN.test(line)
+}
+
+// CommonMark measures fence indent from the enclosing list item's content column, so this
+// finds the nearest list item whose content still covers line i, or 0 at the top level.
+function listContentColumn(lines: string[], i: number): number {
+  let minIndent = leadingSpaces(lines[i])
+  for (let j = i - 1; j >= 0 && minIndent > 0; j--) {
+    if (isBlankOrLiquid(lines[j])) continue
+    const item = LIST_ITEM_PATTERN.exec(lines[j])
+    if (item) {
+      const markerEnd = item[1].length + item[2].length
+      const gap = item[3]?.length ?? 0
+      const column = gap === 0 || gap > 4 || !item[4]?.trim() ? markerEnd + 1 : markerEnd + gap
+      if (column <= minIndent) return column
+    }
+    minIndent = Math.min(minIndent, leadingSpaces(lines[j]))
+  }
+  return 0
+}
+
+// List items often open a fence at 3 spaces and close it at 4, or the reverse, so both
+// fences are measured from the list item's content column, as CommonMark does.
+function maskFencedCode(content: string): string {
+  const lines = content.split('\n')
+  let i = 0
+  while (i < lines.length) {
+    const opener = FENCE_OPENER_PATTERN.exec(lines[i])
+    const container = opener ? listContentColumn(lines, i) : 0
+    // A backtick line indented 4 or more past its container is indented code, not a fence.
+    if (!opener || opener[1].length - container > 3) {
+      i++
+      continue
+    }
+    const ticks = opener[2].length
+    let close = i + 1
+    let containerEnded = false
+    while (close < lines.length) {
+      const line = lines[close]
+      if (!isBlankOrLiquid(line) && leadingSpaces(line) < container) {
+        containerEnded = true
+        break
+      }
+      const closer = FENCE_CLOSER_PATTERN.exec(line)
+      if (closer && closer[1].length - container <= 3 && closer[2].length >= ticks) break
+      close++
+    }
+    // An unclosed fence stays unmasked so one stray fence cannot hide the rest of the file.
+    if (close === lines.length) {
+      i++
+      continue
+    }
+    // A fence inside a list item ends with the item, and the dedented line starts new content.
+    const last = containerEnded ? close - 1 : close
+    for (let j = i; j <= last; j++) lines[j] = ' '.repeat(lines[j].length)
+    i = last + 1
+  }
+  return lines.join('\n')
+}
+
 // extractLinksFromMarkdown masks code first because Markdown never renders links inside
 // code blocks or inline code spans. Inline spans require matching maximal backtick runs,
 // so malformed backticks stay literal and real links between them still get checked.
@@ -111,12 +186,7 @@ export function extractLinksFromMarkdown(content: string): LinkExtractionResult 
   }
 
   // Mask backtick-fenced code so placeholder links stay ignored without shifting positions.
-  const withoutFences = content.replace(
-    /^ {0,3}(`{3,})[^\n]*\n[\s\S]*?^ {0,3}\1\s*$/gm,
-    (match) => {
-      return match.replace(/[^\n]/g, ' ')
-    },
-  )
+  const withoutFences = maskFencedCode(content)
 
   // Mask inline code with same-length spaces so examples like `[AUTOTITLE](/PATH)` stay ignored.
   const strippedContent = withoutFences.replace(/(?<!`)(`+)(?!`)[^\n]*?(?<!`)\1(?!`)/g, (match) => {
@@ -264,6 +334,8 @@ export function createLiquidContext(
     currentVersion: version,
     currentLanguage: language,
     currentVersionObj: versionObj,
+    // ifversion evaluates bare plan and feature names as context variables.
+    [versionObj.shortName]: true,
     enterpriseServerVersions: Object.values(allVersions)
       .filter((v) => v.plan === 'enterprise-server')
       .map((v) => v.currentRelease),
@@ -271,7 +343,13 @@ export function createLiquidContext(
     // Link extraction only renders Liquid here, so redirects and pages can stay empty.
     pages: {},
     redirects: {},
+    ...getFeaturesByVersion(version),
   } as Context
+}
+
+// Data and reusable files have no versions of their own, so they render in every current version.
+export function getLinkCheckVersions(page?: Pick<Page, 'applicableVersions'>): string[] {
+  return page?.applicableVersions?.length ? page.applicableVersions : Object.keys(allVersions)
 }
 
 // Cache renderLiquid after a dynamic import to avoid circular imports and repeated import overhead.
@@ -401,6 +479,28 @@ function versionedPageKey(
   return { key: `/${language}${withoutLanguage}`, withoutLanguage }
 }
 
+// getRedirect guesses some destinations without checking pages, and the redirect middleware
+// skips those when the page is missing, so an unverified target is a broken link.
+function redirectTargetExists(
+  redirect: string,
+  redirectTarget: string,
+  pageMap: Record<string, Page>,
+  language: string,
+): boolean {
+  if (redirect.includes('://')) return true
+  // The redirect middleware looks up pages without query strings, fragments, or .md.
+  const toLookupKey = (uri: string) => uri.split(/[?#]/)[0].replace(/\.md$/, '')
+  const target = toLookupKey(redirectTarget)
+  // Non-English runs load only their own pages, so the target must exist in the checked language.
+  const localizedTarget = target === '/' ? `/${language}` : `/${language}${target}`
+  return Boolean(
+    pageMap[toLookupKey(redirect)] ||
+    pageMap[target] ||
+    pageMap[localizedTarget] ||
+    isArchivedVersionByPath(redirect).isArchived,
+  )
+}
+
 // Resolve versionless links inside the checked version first, matching runtime rendering.
 // Without version context, non-FPT versionless links can fall through to fallback redirects
 // and look like links that need updating.
@@ -500,13 +600,14 @@ export function checkInternalLink(
       userLanguage: 'en',
       pages: pageMap,
     }
-    const redirect = getRedirect(withEn, context as unknown as Context)
-    if (redirect) {
+    const resolvedRedirect = getRedirect(withEn, context as unknown as Context)
+    if (resolvedRedirect) {
+      // The redirect middleware rewrites legacy GraphQL kind URLs before it checks the target.
+      const redirect = applyGraphqlCategoryRedirect(resolvedRedirect) || resolvedRedirect
       // Strip locale prefixes to match flat-map branches; a bare locale root normalizes to /.
-      return {
-        exists: true,
-        isRedirect: true,
-        redirectTarget: redirect.replace(/^\/[a-z]{2}(-[a-z]{2})?(?=\/|$)/, '') || '/',
+      const redirectTarget = redirect.replace(/^\/[a-z]{2}(-[a-z]{2})?(?=\/|$)/, '') || '/'
+      if (redirectTargetExists(redirect, redirectTarget, pageMap, language)) {
+        return { exists: true, isRedirect: true, redirectTarget }
       }
     }
   } catch {

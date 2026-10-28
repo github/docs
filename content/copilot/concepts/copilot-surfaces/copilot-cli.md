@@ -124,7 +124,7 @@ The following sections provide examples of tasks you can complete with {% data v
 
 ### Computer use
 
-In local sessions on macOS and Windows, you can enable computer use to let {% data variables.product.prodname_copilot_short %} interact with desktop applications. This capability is useful for workflows in legacy and GUI-only software that do not provide an API, command-line interface, or MCP integration. For more information, see [AUTOTITLE](/copilot/concepts/agents/computer-use).
+In local sessions on macOS and Windows, you can enable computer use to let {% data variables.product.prodname_copilot_short %} interact with desktop applications. This capability is useful for workflows in legacy and GUI-only software that do not provide an API, command-line interface, or MCP integration. For more information, see [AUTOTITLE](/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/computer-use).
 
 ### Tasks involving {% data variables.product.prodname_dotcom_the_website %}
 
@@ -203,7 +203,7 @@ You can customize {% data variables.copilot.copilot_cli %} in a number of ways:
 * **{% data variables.copilot.custom_agents_caps_short %}**: {% data variables.copilot.custom_agents_caps_short %} allow you to create different specialized versions of {% data variables.product.prodname_copilot_short %} for different tasks. For example, you could customize {% data variables.product.prodname_copilot_short %} to be an expert frontend engineer following your team's guidelines. {% data variables.copilot.copilot_cli %} includes specialized {% data variables.copilot.custom_agents_short %} that it automatically delegates common tasks to. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/overview#use-custom-agents).
 * **Hooks**: Hooks allow you to execute custom shell commands at key points during agent execution, enabling you to add validation, logging, security scanning, or workflow automation. See [AUTOTITLE](/copilot/concepts/agents/hooks).
 * **Skills**: Skills allow you to enhance the ability of {% data variables.product.prodname_copilot_short %} to perform specialized tasks with instructions, scripts, and resources. For more information, see [AUTOTITLE](/copilot/concepts/agents/about-agent-skills).
-* **{% data variables.copilot.copilot_memory %}**: {% data variables.copilot.copilot_memory %} allows {% data variables.product.prodname_copilot_short %} to build a persistent understanding of your repository by storing "memories", which are pieces of information about coding conventions, patterns, and preferences that {% data variables.product.prodname_copilot_short %} deduces as it works. This reduces the need to repeatedly explain context in your prompts and makes future sessions more productive. For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-memory).
+* **{% data variables.copilot.copilot_memory %}**: {% data variables.copilot.copilot_memory %} allows {% data variables.product.prodname_copilot_short %} to build a persistent understanding of your repository by storing "memories", which are pieces of information about coding conventions, patterns, and preferences that {% data variables.product.prodname_copilot_short %} deduces as it works. This reduces the need to repeatedly explain context in your prompts and makes future sessions more productive. For more information, see [AUTOTITLE](/copilot/concepts/prompting-and-context/copilot-memory).
 
 ## Security considerations
 
@@ -227,7 +227,7 @@ When you start a {% data variables.copilot.copilot_cli %} session, you'll be ask
 
 ### Allowed tools
 
-The first time that {% data variables.product.prodname_copilot_short %} needs to use a tool that could be used to modify or execute a file—{% data reusables.cli.tools-needing-approval %}—it will ask you whether you want to allow it to use that tool.
+In manual approval mode, {% data variables.product.prodname_copilot_short %} asks for your approval when a tool request isn't already allowed. This can include tools that modify or execute files—{% data reusables.cli.tools-needing-approval %}.
 
 Typically, you can choose from three options:
 
@@ -317,7 +317,9 @@ copilot --allow-tool='My-MCP-Server' --deny-tool='My-MCP-Server(tool_name)'
 
 It's important to be aware of the security implications of using the approval command-line options. These options allow {% data variables.product.prodname_copilot_short %} to execute commands needed to complete your request, without giving you the opportunity to review and approve those commands before they are run. While this streamlines workflows, and allows headless operation of the CLI, it increases the risk of unintended actions being taken that might result in data loss or corruption, or other security issues.
 
-You can control which tools {% data variables.copilot.copilot_cli_short %} can use by responding to approval prompts when {% data variables.product.prodname_copilot_short %} attempts to use a tool, by specifying permissions with command-line flags, or (in an interactive session) by using slash commands (such as `/allow-all` and `/yolo`. See [AUTOTITLE](/copilot/how-tos/copilot-cli/set-up-copilot-cli/configure-copilot-cli#setting-allowed-tools).
+You can control which tools {% data variables.copilot.copilot_cli_short %} can use by responding to approval prompts when {% data variables.product.prodname_copilot_short %} attempts to use a tool, by specifying permissions with command-line flags, or (in an interactive session) by using slash commands, such as `/permissions allow-all` and `/yolo`. See [AUTOTITLE](/copilot/how-tos/copilot-cli/set-up-copilot-cli/configure-copilot-cli#setting-allowed-tools).
+
+To reduce how often you're prompted for an approval decision, without granting blanket permissions, you can use {% data variables.copilot.assisted_permissions %} by entering the `/permissions assisted` slash command in an interactive session. A large language model assesses eligible permission requests and automatically approves those it judges to be safe. Existing permissions and enterprise rules still apply, and requests that still need your approval are put to you. For more information, see [AUTOTITLE](/copilot/concepts/customizations/allowing-safe-commands).
 
 ### Risk mitigation
 

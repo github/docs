@@ -10,6 +10,7 @@ const OUTPUT_PATH = 'data/reusables/rest-api/breaking-changes-changelog.md'
 interface VersionMapping {
   sourceDir: string
   ifversionExpr: string
+  shortName: string
 }
 
 interface VersionSection {
@@ -18,7 +19,8 @@ interface VersionSection {
 }
 
 // The initial REST API version predates rest-api-description changelogs, so
-// this fallback keeps the generated output complete. Keyed by ifversion expression.
+// this fallback keeps the generated output complete. Keyed by product short name.
+// GitHub Enterprise Server shares one entry across all releases.
 const INITIAL_VERSION = '2022-11-28'
 const INITIAL_VERSION_SECTIONS: Record<string, VersionSection> = {
   fpt: {
@@ -28,6 +30,10 @@ const INITIAL_VERSION_SECTIONS: Record<string, VersionSection> = {
   ghec: {
     version: INITIAL_VERSION,
     content: `## Version ${INITIAL_VERSION}\n\nVersion \`${INITIAL_VERSION}\` is the first version of the GitHub Enterprise Cloud REST API after date-based versioning was introduced. This version does not include any breaking changes.`,
+  },
+  ghes: {
+    version: INITIAL_VERSION,
+    content: `## Version ${INITIAL_VERSION}\n\nVersion \`${INITIAL_VERSION}\` is the first version of the {% data variables.product.prodname_ghe_server %} REST API after date-based versioning was introduced. This version does not include any breaking changes.`,
   },
 }
 
@@ -60,7 +66,7 @@ function buildVersionMappings(versionNames: Record<string, string>): VersionMapp
       ifversionExpr = versionObj.shortName
     }
 
-    mappings.push({ sourceDir, ifversionExpr })
+    mappings.push({ sourceDir, ifversionExpr, shortName: versionObj.shortName })
   }
 
   return mappings
@@ -140,7 +146,7 @@ export async function syncChangelogs(
   const mappings = buildVersionMappings(versionNames)
   const outputBlocks: string[] = []
 
-  for (const { sourceDir, ifversionExpr } of mappings) {
+  for (const { sourceDir, ifversionExpr, shortName } of mappings) {
     const changelogPath = getChangelogPath(sourceRepoDir, sourceDir)
 
     let sections: VersionSection[]
@@ -155,8 +161,8 @@ export async function syncChangelogs(
 
     // Inject the hardcoded initial section when the source changelog lacks it for this product.
     const hasInitialVersion = sections.some((s) => s.version === INITIAL_VERSION)
-    if (!hasInitialVersion && ifversionExpr in INITIAL_VERSION_SECTIONS) {
-      sections.push(INITIAL_VERSION_SECTIONS[ifversionExpr])
+    if (!hasInitialVersion && shortName in INITIAL_VERSION_SECTIONS) {
+      sections.push(INITIAL_VERSION_SECTIONS[shortName])
     }
 
     if (sections.length === 0) {

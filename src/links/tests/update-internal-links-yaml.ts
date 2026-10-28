@@ -101,12 +101,12 @@ describe('rewriting links in YAML', () => {
     keepStaleFragments: false,
   }
 
-  async function run(yaml: string) {
+  async function run(yaml: string, overrides: Partial<typeof opts> = {}) {
     const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'codemod-yaml-'))
     const file = path.join(dir, 'notes.yml')
     fs.writeFileSync(file, yaml)
     try {
-      return await updateFile(file, context, opts)
+      return await updateFile(file, context, { ...opts, ...overrides })
     } finally {
       fs.rmSync(dir, { recursive: true, force: true })
     }
@@ -167,6 +167,44 @@ sections:
     const result = await run(yaml)
     expect(result.newContent).toContain('Real link: [x](/admin/new-path)')
     expect(result.newContent!.match(/\/admin\/old-path/g)).toHaveLength(1)
+  })
+
+  test('sets AUTOTITLE only on links inside prose quotes, not YAML string quotes', async () => {
+    const yaml = `rows:
+  - action: "[Custom text](/admin/new-path)"
+  - note: |
+      See "[Other](/admin/new-path)" here, or [Other](/admin/new-path) inline.
+`
+    const result = await run(yaml, { setAutotitle: true })
+    expect(result.newContent).toBe(`rows:
+  - action: "[Custom text](/admin/new-path)"
+  - note: |
+      See "[AUTOTITLE](/admin/new-path)" here, or [Other](/admin/new-path) inline.
+`)
+  })
+
+  test('sets AUTOTITLE on prose quotes that start a line inside YAML block scalars', async () => {
+    const yaml = `rows:
+  - note: |
+      "[Other](/admin/new-path)" has details.
+      - "[Other](/admin/new-path)" in a list.
+      See: "[Other](/admin/new-path)" for more.
+    action: "[Custom text](/admin/new-path)"
+  - >-
+    "[Other](/admin/new-path)" folded.
+  - "[Custom text](/admin/new-path)"
+`
+    const result = await run(yaml, { setAutotitle: true })
+    expect(result.newContent).toBe(`rows:
+  - note: |
+      "[AUTOTITLE](/admin/new-path)" has details.
+      - "[AUTOTITLE](/admin/new-path)" in a list.
+      See: "[AUTOTITLE](/admin/new-path)" for more.
+    action: "[Custom text](/admin/new-path)"
+  - >-
+    "[AUTOTITLE](/admin/new-path)" folded.
+  - "[Custom text](/admin/new-path)"
+`)
   })
 
   test('preserves every byte that is not a rewritten link', async () => {

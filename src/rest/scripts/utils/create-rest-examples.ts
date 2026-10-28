@@ -103,7 +103,9 @@ export default async function getCodeSamples(
 }
 
 // mergeExamples applies direct, status-code, and example-key rules to pair requests with responses.
-// If earlier rules do not apply, the fallback path matches request and response example keys.
+// If earlier rules do not apply, the fallback path matches request and response example keys,
+// then pairs every request with a success response when no keys match.
+// That fallback prefers a 201 because a 200 beside it can mean the resource already existed.
 export function mergeExamples(
   requestExamples: RequestExample[],
   responseExamples: ResponseExample[],
@@ -118,15 +120,20 @@ export function mergeExamples(
     return [{ ...requestExamples[0], response: responseExamples[0].response }]
   }
 
-  // A single request with example-less responses documents success status codes below 300.
+  // One request with example-less responses documents codes below 300, or the first non-304 code for redirect-only operations.
   if (
     requestExamples.length === 1 &&
     responseExamples.length > 1 &&
     !responseExamples.find((ex) => ex.response.example)
   ) {
-    return responseExamples
-      .filter((resp) => parseInt(resp.response.statusCode, 10) < 300)
-      .map((ex) => ({ ...requestExamples[0], ...ex }))
+    const successResponses = responseExamples.filter(
+      (resp) => parseInt(resp.response.statusCode, 10) < 300,
+    )
+    const documentedResponses =
+      successResponses.length > 0
+        ? successResponses
+        : responseExamples.filter((resp) => resp.response.statusCode !== '304').slice(0, 1)
+    return documentedResponses.map((ex) => ({ ...requestExamples[0], ...ex }))
   }
 
   // When one request has multiple responses, only responses with examples become docs examples.
@@ -145,13 +152,22 @@ export function mergeExamples(
   const source = requestsExamplesLarger ? responseExamples : requestExamples
 
   // The longer list drives key matching. Requests win ties on length, and the first key match wins.
-  return target
+  const keyMatched = target
     .filter((targetEx) => {
       const match = source.find((srcEx) => srcEx.key === targetEx.key)
       if (match) return Object.assign(targetEx, match)
       return false
     })
     .map((ex) => ex as MergedExample)
+
+  if (keyMatched.length > 0 || responseExamples.length === 0) return keyMatched
+
+  // Request and response example keys often differ, so pair every request with one success response.
+  const fallback =
+    responseExamples.find((ex) => ex.response.statusCode === '201') ||
+    responseExamples.find((ex) => parseInt(ex.response.statusCode, 10) < 300) ||
+    responseExamples[0]
+  return requestExamples.map((req) => ({ ...req, response: fallback.response }))
 }
 
 // Request examples fall back to path parameters or generic examples when bodies lack examples.
