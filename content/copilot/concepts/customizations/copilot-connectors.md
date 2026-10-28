@@ -6,6 +6,8 @@ intro: 'Connect a service once to bring its tools and context into supported {% 
 versions:
   feature: copilot
 contentType: concepts
+redirect_from:
+  - /copilot/concepts/prompting-and-context/copilot-connectors
 category:
   - Integrate Copilot with your tools
 ---
