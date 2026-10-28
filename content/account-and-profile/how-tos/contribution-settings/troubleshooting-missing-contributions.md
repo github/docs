@@ -23,6 +23,21 @@ category:
 
 After making a commit that meets the requirements to count as a contribution, you may need to wait for up to 24 hours to see the contribution appear on your contributions graph. For more information, see [AUTOTITLE](/account-and-profile/how-tos/contribution-settings/viewing-commit-details-from-your-timeline).
 
+## Contribution counts are stale after rewriting history
+
+If you own an account and squash commits or force-push rewritten history, your profile may continue to count commits that are no longer in the repository's visible history. This can include contributions to private repositories. This is a stale-count issue, not a missing-contribution issue, so the other troubleshooting steps in this article do not apply.
+
+{% ifversion ghes %}
+If you use {% data variables.product.prodname_ghe_server %}, ask your site administrator to rebuild your contribution data. For more information, see [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/rebuilding-contributions-data).
+{% else %}
+If the counts remain incorrect, {% data variables.contact.github_support %} may be able to rebuild your contribution data, depending on the support options available to your account. For more information, see [AUTOTITLE](/support/learning-about-github-support/about-github-support).
+{% endif %}
+
+After a rebuild, allow up to 24 hours for your profile's contributions graph and activity summary to refresh. Then:
+
+1. Recheck the affected dates.
+1. If the counts are still incorrect, {% ifversion ghes %}contact your site administrator{% else %}follow up through the support options available to your account{% endif %}.
+
 ## Your local Git commit email isn't connected to your account
 
 Commits must be made with an email address that is connected to your account on {% data variables.product.prodname_dotcom %}{% ifversion fpt or ghec %}, or the {% data variables.product.prodname_dotcom %}-provided `noreply` email address provided to you in your email settings,{% endif %} in order to appear on your contributions graph.{% ifversion fpt or ghec %} For more information about `noreply` email addresses, see [AUTOTITLE](/account-and-profile/reference/email-addresses-reference#your-noreply-email-address).{% endif %}

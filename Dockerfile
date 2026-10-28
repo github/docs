@@ -18,6 +18,8 @@ RUN --mount=type=secret,id=apt-auth-conf,target=/etc/apt/auth.conf.d/apt_auth.co
   && curl -sL https://deb.nodesource.com/setup_24.x | bash - \
   && apt-get install -y nodejs \
   && node --version
+# Fail the build if the NodeSource snapshot predates Node 24.22.1 (CVE-2026-111497 brotli decoder fix).
+RUN node -e 'const [maj, min, pat] = process.versions.node.split(".").map(Number); if (maj !== 24 || min < 22 || (min === 22 && pat < 1)) { throw new Error("Node >= 24.22.1 required (brotli CVE-2026-111497), got " + process.versions.node); }'
 # Stages built FROM base inherit this ARG, so every later stage can use APP_HOME.
 ARG APP_HOME="/home/node/app"
 RUN useradd -ms /bin/bash node \

@@ -106,6 +106,10 @@ copilot_old-cli_short: 'Copilot in the CLI'
 copilot_old-cli: 'GitHub Copilot in the CLI'
 copilot_cli_npm_version: 'Node.js 22 or later'
 
+## Assisted permissions
+assisted_permissions: 'assisted permissions'
+assisted_permissions_caps: 'Assisted permissions'
+
 ## Copilot custom agents
 copilot_custom_agent: 'Copilot custom agent'
 copilot_custom_agents: 'Copilot custom agents'
@@ -251,6 +255,9 @@ mai_code_1_1_flash: 'MAI-Code-1.1-Flash'
 raptor_mini: 'Raptor mini'
 # Open-weight models:
 kimi_k3: 'Kimi K3'
+
+## Current model used by Copilot cloud agent and Copilot CLI
+cca_current_model: '{% data variables.copilot.claude_opus_46 %}'
 
 ## Next edit suggestions
 next_edit_suggestions: 'next edit suggestions'

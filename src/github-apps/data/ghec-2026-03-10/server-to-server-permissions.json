@@ -238,7 +238,7 @@
     "permissions": [
       {
         "category": "enterprise-admin",
-        "slug": "get-model-policies-for-enterprise-apps",
+        "slug": "get-model-policies-for-agent-apps",
         "subcategory": "ai-controls",
         "verb": "get",
         "requestPath": "/enterprises/{enterprise}/copilot/apps/model-policies",
@@ -319,6 +319,28 @@
         "subcategory": "copilot-custom-agents",
         "verb": "delete",
         "requestPath": "/enterprises/{enterprise}/copilot/custom-agents/source",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "get-feature-policies-for-an-enterprise",
+        "subcategory": "ai-controls",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/copilot/feature-policies",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "update-feature-policies-for-an-enterprise",
+        "subcategory": "ai-controls",
+        "verb": "patch",
+        "requestPath": "/enterprises/{enterprise}/copilot/feature-policies",
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
@@ -481,6 +503,78 @@
       }
     ]
   },
+  "enterprise_ref_rules": {
+    "title": "Enterprise Ruleset",
+    "displayTitle": "Enterprise permissions for \"Enterprise Ruleset\"",
+    "permissions": [
+      {
+        "category": "enterprise-admin",
+        "slug": "create-an-enterprise-repository-ruleset",
+        "subcategory": "rules",
+        "verb": "post",
+        "requestPath": "/enterprises/{enterprise}/rulesets",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "get-an-enterprise-repository-ruleset",
+        "subcategory": "rules",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/rulesets/{ruleset_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "update-an-enterprise-repository-ruleset",
+        "subcategory": "rules",
+        "verb": "put",
+        "requestPath": "/enterprises/{enterprise}/rulesets/{ruleset_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "delete-an-enterprise-repository-ruleset",
+        "subcategory": "rules",
+        "verb": "delete",
+        "requestPath": "/enterprises/{enterprise}/rulesets/{ruleset_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "get-enterprise-ruleset-history",
+        "subcategory": "rules",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/rulesets/{ruleset_id}/history",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "get-enterprise-ruleset-version",
+        "subcategory": "rules",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/rulesets/{ruleset_id}/history/{version_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      }
+    ]
+  },
   "enterprise_scim": {
     "title": "Enterprise SCIM",
     "displayTitle": "Enterprise permissions for \"Enterprise SCIM\"",
@@ -612,6 +706,34 @@
         "subcategory": "scim",
         "verb": "delete",
         "requestPath": "/scim/v2/enterprises/{enterprise}/Users/{scim_user_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      }
+    ]
+  },
+  "enterprise_access_restrictions": {
+    "title": "Enterprise access restrictions",
+    "displayTitle": "Enterprise permissions for \"Enterprise access restrictions\"",
+    "permissions": [
+      {
+        "category": "enterprise-admin",
+        "slug": "disable-access-restrictions-for-an-enterprise",
+        "subcategory": "enterprises",
+        "verb": "post",
+        "requestPath": "/enterprises/{enterprise}/access-restrictions/disable",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "enable-access-restrictions-for-an-enterprise",
+        "subcategory": "enterprises",
+        "verb": "post",
+        "requestPath": "/enterprises/{enterprise}/access-restrictions/enable",
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
@@ -838,6 +960,23 @@
         "subcategory": "usage",
         "verb": "get",
         "requestPath": "/enterprises/{enterprise}/settings/billing/usage/summary",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      }
+    ]
+  },
+  "enterprise_bypass_requests": {
+    "title": "Enterprise bypass requests",
+    "displayTitle": "Enterprise permissions for \"Enterprise bypass requests\"",
+    "permissions": [
+      {
+        "category": "enterprise-admin",
+        "slug": "list-push-rule-bypass-requests-within-an-enterprise",
+        "subcategory": "bypass-requests",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/bypass-requests/push-rules",
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
@@ -2370,6 +2509,28 @@
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": true
+      },
+      {
+        "category": "copilot",
+        "slug": "get-feature-policies-for-an-organization",
+        "subcategory": "copilot-feature-policy-management",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/copilot/feature-policies",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "copilot",
+        "slug": "update-feature-policies-for-an-organization",
+        "subcategory": "copilot-feature-policy-management",
+        "verb": "patch",
+        "requestPath": "/orgs/{org}/copilot/feature-policies",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
       },
       {
         "category": "copilot",
@@ -11544,6 +11705,61 @@
       },
       {
         "category": "issues",
+        "slug": "list-issue-artifacts",
+        "subcategory": "artifacts",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/artifacts",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "issues",
+        "slug": "create-an-issue-artifact",
+        "subcategory": "artifacts",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/artifacts",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "issues",
+        "slug": "get-an-issue-artifact",
+        "subcategory": "artifacts",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/artifacts/{artifact_number}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "issues",
+        "slug": "update-an-issue-artifact",
+        "subcategory": "artifacts",
+        "verb": "patch",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/artifacts/{artifact_number}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "issues",
+        "slug": "delete-an-issue-artifact",
+        "subcategory": "artifacts",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/artifacts/{artifact_number}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "issues",
         "slug": "add-assignees-to-an-issue",
         "subcategory": "assignees",
         "verb": "post",
@@ -12689,6 +12905,28 @@
         "verb": "patch",
         "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}",
         "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "issues",
+        "slug": "list-issue-artifacts",
+        "subcategory": "artifacts",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/artifacts",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "issues",
+        "slug": "get-an-issue-artifact",
+        "subcategory": "artifacts",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/artifacts/{artifact_number}",
+        "access": "read",
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": true

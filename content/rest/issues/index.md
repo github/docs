@@ -13,6 +13,7 @@ versions:
   ghes: '*'
   ghec: '*'
 children:
+  - /artifacts
   - /assignees
   - /comments
   - /events

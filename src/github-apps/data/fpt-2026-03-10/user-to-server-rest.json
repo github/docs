@@ -3725,6 +3725,36 @@
       "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}"
     },
     {
+      "slug": "list-issue-artifacts",
+      "subcategory": "artifacts",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/artifacts"
+    },
+    {
+      "slug": "create-an-issue-artifact",
+      "subcategory": "artifacts",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/artifacts"
+    },
+    {
+      "slug": "get-an-issue-artifact",
+      "subcategory": "artifacts",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/artifacts/{artifact_number}"
+    },
+    {
+      "slug": "update-an-issue-artifact",
+      "subcategory": "artifacts",
+      "verb": "patch",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/artifacts/{artifact_number}"
+    },
+    {
+      "slug": "delete-an-issue-artifact",
+      "subcategory": "artifacts",
+      "verb": "delete",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/artifacts/{artifact_number}"
+    },
+    {
       "slug": "add-assignees-to-an-issue",
       "subcategory": "assignees",
       "verb": "post",

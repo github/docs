@@ -51,7 +51,7 @@ For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/chat-wi
 ## Step 2: Assign an issue to {% data variables.product.prodname_copilot_short %}
 
 > [!NOTE]
-> To use {% data variables.copilot.copilot_cloud_agent %} in this quickstart, upgrade to a paid plan such as [{% data variables.copilot.copilot_pro_short %}](https://github.com/github-copilot/signup?ref_product=copilot&ref_type=purchase&ref_style=text&ref_plan=pro).
+> To use {% data variables.copilot.copilot_cloud_agent %} in this quickstart, upgrade to a paid plan such as [{% data variables.copilot.copilot_pro_short %}](https://github.com/github-copilot/pro/signup?ref_product=copilot&ref_type=purchase&ref_style=text&ref_plan=pro).
 >
 > Without access to a paid plan, you can instead learn about the remaining steps by using {% data variables.product.prodname_copilot_short %} in your preferred editor. See [AUTOTITLE](/copilot/get-started/quickstart-for-using-github-copilot-in-your-ide).
 

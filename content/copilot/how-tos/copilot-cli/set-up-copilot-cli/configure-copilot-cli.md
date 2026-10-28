@@ -66,15 +66,16 @@ In this section, you can learn how to:
 
 ### Allowing a tool for the first time
 
-The first time that {% data variables.product.prodname_copilot_short %} needs to use a tool that may require approval—{% data reusables.cli.tools-needing-approval %}—it will ask you whether you want to allow it to run. Whether you’re prompted can depend on the tool and how it’s being used (such as the arguments provided or whether the tool has been previously approved).
+In manual approval mode, {% data variables.product.prodname_copilot_short %} asks you to approve tool requests that aren't already allowed—{% data reusables.cli.tools-needing-approval %}. Whether you're prompted depends on the permissions in effect and how the tool is being used, such as its arguments or previous approvals.
 
+1. Start an interactive session by running `copilot`, then enter `/permissions manual`.
 1. Prompt {% data variables.product.prodname_copilot_short %} to perform a task that requires a tool. For example:
 
-   ```shell
-   copilot -p "Create a new file called README.md with a project description"
+   ```copilot
+   Create a new file called README.md with a project description
    ```
 
-1. Choose from one of the three options:
+1. If the tool is not already allowed, choose from the approval options:
 
    * `1. Yes`
 
@@ -93,6 +94,8 @@ The first time that {% data variables.product.prodname_copilot_short %} needs to
 ### Allowing tools to be used without manual approval
 
 You can use command-line options to designate tools that {% data variables.product.prodname_copilot_short %} can use without asking for your approval.
+
+Alternatively, to reduce approval prompts without granting blanket permissions, enter `/permissions assisted` in an interactive session. With {% data variables.copilot.assisted_permissions %}, a large language model assesses eligible permission requests and automatically approves those it judges to be safe. Existing permissions and enterprise rules still apply, and requests that still need your approval are put to you. For more information, see [AUTOTITLE](/copilot/concepts/customizations/allowing-safe-commands).
 
 #### Allowing all tools
 
@@ -267,7 +270,7 @@ This option combines:
 * `--allow-all-paths` (disable path verification).
 * `--allow-all-urls` (disables URL verification).
 
-During an interactive session, you can also enable all permissions with the `/allow-all` or `/yolo` slash commands.
+During an interactive session, you can also enable all permissions with the `/permissions allow-all` slash command, or its aliases `/allow-all` and `/yolo`.
 
 > [!NOTE] {% data reusables.copilot.disable-bypass %}
 

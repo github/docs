@@ -21,7 +21,7 @@ env:
 jobs:
   playwright-tests:
     if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
-    runs-on: ubuntu-24.04 # Temp fix until we bump Playwright
+    runs-on: ubuntu-latest
     strategy:
       # Keep Playwright variants as separate checks while a11y false-positive rates settle.
       matrix:

@@ -29,11 +29,35 @@ For a list of commands you can use in the prompt box, see [AUTOTITLE](/copilot/r
 
 ## Choosing a session mode
 
-The session mode controls how much autonomy the agent has. You can set the mode from the dropdown below the prompt field and change it at any time.
+The session mode controls how the agent works with you. It is separate from tool permissions, which control when the agent asks before running a tool. You can set the mode from the dropdown below the prompt field and change it at any time.
 
 * **Interactive**: You and the agent work together. The agent suggests changes and waits for your input before proceeding.
 * **Plan**: The agent creates a plan first. You review and approve the plan before the agent executes it.
 * **Autopilot**: The agent works fully autonomously—writing code, running tests, and iterating without waiting for input.
+
+## Choosing tool permissions
+
+In an app session, {% data variables.product.prodname_copilot_short %} uses tools to complete tasks, such as running terminal commands, reading and editing files, searching your codebase, fetching web content, and delegating work to specialized agents. Some tools can modify your system or access external resources, so tool permissions control when {% data variables.product.prodname_copilot_short %} asks for your approval before using them.
+
+You can choose between three options that determine how much you want to be involved in approving the tools {% data variables.product.prodname_copilot_short %} uses.
+
+* **Manual approval (Ask every time)**: Ask for your approval before running tools. This gives you the most oversight but requires you to respond to the most prompts.
+* **Assisted**: Use a model to assess each request, automatically approving requests it judges to be safe and prompting you to approve potentially unsafe requests. {% data variables.copilot.assisted_permissions_caps %} reduces prompts while maintaining oversight of potentially risky actions.
+* **Unconditional approval (Approve all)**: Run tools without asking for your approval. This is the most convenient option but removes your oversight of individual actions.
+
+For more information about using {% data variables.copilot.assisted_permissions %}, see [AUTOTITLE](/copilot/concepts/agents/allowing-safe-commands).
+
+To choose the permission level for an individual session:
+
+1. In the session, click the mode below the prompt field.
+1. Hover over **Tool permissions**.
+1. Select **Ask every time**, **Assisted**, or **Approve all**.
+
+To set the default permission level for future local sessions:
+
+1. Open the app settings.
+1. Click **Sessions**.
+1. Under **Tool permissions**, select **Ask every time**, **Assisted**, or **Approve all**.
 
 ## Choosing a model
 
