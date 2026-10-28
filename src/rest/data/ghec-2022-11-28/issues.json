@@ -37858,7 +37858,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Lists artifacts attached to an issue. Results are ordered by artifact number.</p>\n<p>The <code>type</code> parameter filters the response to artifacts of one type.</p>",
+      "descriptionHTML": "<p>Lists artifacts attached to an issue. Results are ordered by artifact number.</p>\n<p>The <code>type</code> parameter filters the response to artifacts of one type.\nResults can be requested by page. The page defaults to <code>1</code>; the page size\ndefaults to <code>30</code> and can be set from <code>1</code> to <code>100</code>.</p>\n<p>The response is a bare array and does not include pagination metadata such as\na <code>Link</code> header, a total count, or the service's <code>has_next_page</code> signal.</p>",
       "codeExamples": [
         {
           "request": {
@@ -37930,7 +37930,8 @@
                   "creator",
                   "updated_by_actor",
                   "created_at",
-                  "updated_at"
+                  "updated_at",
+                  "description"
                 ],
                 "properties": {
                   "id": {
@@ -38128,7 +38129,7 @@
           "isRequired": true
         }
       ],
-      "descriptionHTML": "<p>Creates an artifact attached to an issue.</p>\n<p>The artifact type defaults to <code>generic</code> when omitted. Creating an artifact\nrequires permission to update the issue.</p>\n<p>To create an HTML artifact, set <code>type</code> to <code>embedded_html</code> and provide the HTML source\nin <code>body</code>. Open the returned <code>html_url</code> to inspect the source, then select\n<strong>Preview</strong> to view the rendered artifact. Select <strong>Show source</strong> to return\nto the HTML source.</p>",
+      "descriptionHTML": "<p>Creates an artifact attached to an issue.</p>\n<p>The artifact type defaults to <code>generic</code> when omitted. Creating an artifact\nrequires permission to update the issue.</p>\n<p>The request can return <code>403</code> if the repository is read-only or locked, or a\nGitHub App installation has only <code>issues: read</code> permission.</p>\n<p>To create an HTML artifact, set <code>type</code> to <code>embedded_html</code> and provide the HTML source\nin <code>body</code>. Open the returned <code>html_url</code> to inspect the source, then select\n<strong>Preview</strong> to view the rendered artifact. Select <strong>Show source</strong> to return\nto the HTML source.</p>",
       "codeExamples": [
         {
           "request": {
@@ -38152,11 +38153,13 @@
             "description": "<p>The created artifact.</p>",
             "example": {
               "id": 42,
+              "html_url": "https://github.com/octocat/Hello-World/issues/1347/artifacts/1",
               "number": 1,
               "type": "generic",
               "name": "Research notes",
               "body": "## Findings\n\nThe API supports issue artifacts.",
               "body_html": "<h2>Findings</h2>\n<p>The API supports issue artifacts.</p>",
+              "description": "The API supports issue artifacts.",
               "creator": {
                 "login": "octocat",
                 "id": 1
@@ -38182,7 +38185,8 @@
                 "creator",
                 "updated_by_actor",
                 "created_at",
-                "updated_at"
+                "updated_at",
+                "description"
               ],
               "properties": {
                 "id": {
@@ -38287,6 +38291,10 @@
         {
           "httpStatusCode": "201",
           "description": "<p>The created artifact.</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
         },
         {
           "httpStatusCode": "404",
@@ -38449,7 +38457,8 @@
                     "creator",
                     "updated_by_actor",
                     "created_at",
-                    "updated_at"
+                    "updated_at",
+                    "description"
                   ],
                   "properties": {
                     "id": {
@@ -38568,7 +38577,8 @@
                         "creator",
                         "updated_by_actor",
                         "created_at",
-                        "updated_at"
+                        "updated_at",
+                        "description"
                       ],
                       "properties": {
                         "id": {
@@ -38832,7 +38842,7 @@
           "description": "<p>The new artifact content.</p>"
         }
       ],
-      "descriptionHTML": "<p>Updates the name, body, or both for an artifact attached to an issue.</p>\n<p>Updating an artifact requires permission to update the issue.</p>",
+      "descriptionHTML": "<p>Updates the name, body, or both for an artifact attached to an issue.</p>\n<p>Updating an artifact requires permission to update the issue.</p>\n<p>The request can return <code>403</code> if the repository is read-only or locked, or a\nGitHub App installation has only <code>issues: read</code> permission.</p>",
       "codeExamples": [
         {
           "request": {
@@ -38856,11 +38866,13 @@
             "description": "<p>The updated artifact.</p>",
             "example": {
               "id": 42,
+              "html_url": "https://github.com/octocat/Hello-World/issues/1347/artifacts/1",
               "number": 1,
               "type": "plan",
               "name": "Revised implementation plan",
               "body": "## Plan\n\nBuild and validate the feature.",
               "body_html": "<h2>Plan</h2>\n<p>Build and validate the feature.</p>",
+              "description": "Build and validate the feature.",
               "creator": {
                 "login": "octocat",
                 "id": 1
@@ -38886,7 +38898,8 @@
                 "creator",
                 "updated_by_actor",
                 "created_at",
-                "updated_at"
+                "updated_at",
+                "description"
               ],
               "properties": {
                 "id": {
@@ -38993,6 +39006,10 @@
           "description": "<p>The updated artifact.</p>"
         },
         {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
           "httpStatusCode": "404",
           "description": "<p>Resource not found</p>"
         },
@@ -39071,7 +39088,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Permanently deletes an artifact attached to an issue.</p>\n<p>Deleting an artifact requires permission to update the issue.</p>",
+      "descriptionHTML": "<p>Permanently deletes an artifact attached to an issue.</p>\n<p>Deleting an artifact requires permission to update the issue.</p>\n<p>The request can return <code>403</code> if the repository is read-only or locked, or a\nGitHub App installation has only <code>issues: read</code> permission.</p>",
       "codeExamples": [
         {
           "request": {
@@ -39094,6 +39111,10 @@
         {
           "httpStatusCode": "204",
           "description": "<p>The artifact was deleted successfully. No content is returned.</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
         },
         {
           "httpStatusCode": "404",

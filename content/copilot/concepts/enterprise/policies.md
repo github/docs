@@ -18,7 +18,7 @@ docsTeamMetrics:
 
 You will find policies for {% data variables.product.prodname_copilot %} on your enterprise's **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} AI controls** tab or in your organization's settings. Policies control which {% data variables.product.prodname_copilot %} features, agents, and models your users can access, and how they can use those features. For example, a policy controls whether users can use {% data variables.copilot.copilot_cli_short %}.
 
-In an enterprise, policies are set at the enterprise level first. For most policies, enterprise administrators can either explicitly enable or disable a policy, or let organizations decide. As an exception, for {% data variables.copilot.copilot_cloud_agent %}, enterprises can select exactly which organizations receive access.
+In an enterprise, policies are set at the enterprise level first. For most policies, enterprise administrators can either explicitly enable or disable a policy, or let organizations decide.
 
 Users who receive access to {% data variables.product.prodname_copilot_short %} directly from the enterprise, rather than through an organization, are not covered by the "Let organizations decide" option. A separate **Policies for enterprise-assigned users** setting determines whether "Let organizations decide" policies default to enabled or disabled for these users.
 
@@ -26,7 +26,7 @@ Users who receive access to {% data variables.product.prodname_copilot_short %} 
 
 Generally, policies only apply to users on your {% data variables.product.prodname_copilot_short %} plan. A user is governed by the policies of the enterprise or organization where they receive a {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} license.
 
-A small number of policies work differently and govern a setting for everyone. For example, you can block {% data variables.copilot.copilot_cloud_agent %} for all users in your enterprise's repositories. If this is the case, you will see this highlighted in the policy description.
+A small number of policies work differently and govern a setting for everyone. For example, you can block {% data variables.copilot.copilot_in_the_cloud_short %} for all users in your enterprise's repositories. If this is the case, you will see this highlighted in the policy description.
 
 ## What about users with multiple licenses?
 
@@ -51,8 +51,6 @@ For more information, see [AUTOTITLE](/copilot/concepts/enterprise/default-avail
 Policies can apply to any surface where users authenticate to {% data variables.product.prodname_copilot_short %}, including IDEs, the {% data variables.product.github %} website, and {% data variables.copilot.copilot_cli_short %}.
 
 However, not all policies apply to every surface. See [AUTOTITLE](/copilot/reference/supported-surfaces-for-policies).
-
-The {% data variables.copilot.github_copilot_app %} and {% data variables.copilot.copilot_cli_short %} are governed by separate, independent client policies, so you can allow one without allowing the other.
 
 ## How can I prevent policy drift?
 

@@ -28,6 +28,10 @@ The models you see in {% data variables.product.prodname_copilot_short %} depend
 * **Administrator policies.** If you're part of an organization or enterprise, administrators can enable or disable specific models, which affects what you and {% data variables.copilot.copilot_auto_model_selection_short %} can use. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-access-to-ai-models).
 * **Model availability over time.** Providers periodically release new models and retire older ones, so the specific models available to you can change. Check [AUTOTITLE](/copilot/reference/ai-models/supported-models) for the current list.
 
+## {% data variables.copilot.copilot_fusion_short %}
+
+{% data variables.copilot.copilot_fusion_short %} is an advanced runtime model router and orchestrator. It chooses models and execution patterns for your task, then returns a single response. See [AUTOTITLE](/copilot/concepts/models/copilot-fusion).
+
 ## Auto model selection
 
 Rather than requiring you to track every model's strengths yourself, you can select **Auto** in the model picker. {% data variables.copilot.copilot_auto_model_selection_short_cap_a %} then routes your request to an appropriate supported model based on the complexity of your task and real-time model availability. See [AUTOTITLE](/copilot/concepts/models/auto-model-selection).

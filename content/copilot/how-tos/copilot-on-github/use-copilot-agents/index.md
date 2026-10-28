@@ -11,5 +11,6 @@ children:
   - /manage-and-track-agents
   - /copilot-code-review
   - /review-copilot-output
+  - /watch-and-fix-pull-requests
 contentType: how-tos
 ---

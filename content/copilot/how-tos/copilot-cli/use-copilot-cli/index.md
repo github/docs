@@ -11,6 +11,7 @@ children:
   - /allowing-tools
   - /use-autopilot-mode
   - /voice-input
+  - /choose-a-model
   - /computer-use
   - /connecting-vs-code
   - /delegate-tasks-to-cca
