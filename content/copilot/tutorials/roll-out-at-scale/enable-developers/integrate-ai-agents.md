@@ -1,6 +1,6 @@
 ---
-title: Planning an AI agent rollout in your enterprise
-shortTitle: Plan an AI agent rollout
+title: Understanding how AI agents fit into your enterprise's workflows
+shortTitle: Understand agent workflows
 intro: Identify where AI agents can help your teams, and plan the governance and support needed to adopt them across your enterprise.
 versions:
   feature: copilot
@@ -31,7 +31,7 @@ AI agents are more like peer programmers. They can:
 
 Collaborating with agents can give your employees more time to focus on other priorities, such as high-level planning, and bring the benefits of AI to non-developer roles by giving more power to natural language prompts.
 
-{% data variables.product.prodname_copilot %}'s agentic features are integrated into {% data variables.product.github %}'s platform, providing a streamlined experience and simplified licensing and governance compared to third-party tools.
+{% data variables.product.prodname_copilot %}'s agentic features are integrated into {% data variables.product.github %}'s platform, providing a streamlined experience and simplified licensing and governance compared to third-party tools. Users can start cloud sessions from a local client and resume them in {% data variables.product.github %}, with the same tools, permissions, and models.
 
 ## Example scenario
 
@@ -41,15 +41,17 @@ To meet a tight deadline, you want to speed up each stage for both developers an
 
 >[!NOTE] {% data variables.product.github %} is continually expanding its AI-powered platform. Some of the features described in this article are in {% data variables.release-phases.public_preview %}, and may not be enabled for enterprises by default. You will find resources for each feature in the [Get started with agentic AI](#get-started-with-agentic-ai) section.
 
-## 1. Plan with {% data variables.copilot.copilot_chat_short %}
+## 1. Plan with {% data variables.product.prodname_copilot_short %} on {% data variables.product.github %}
 
-1. A product manager starts planning with **{% data variables.copilot.copilot_chat_short %}** at [github.com/copilot](https://github.com/copilot).
+1. A product manager (PM) starts a session with {% data variables.product.prodname_copilot_short %} at [github.com/copilot](https://github.com/copilot?utm_source=integrate-ai-agents-roll-out-scale&utm_medium=docs&utm_campaign=universe-2026), working in the repository that contains the codebase for the project.
 
    They ask {% data variables.product.prodname_copilot_short %} high-level questions to get a sense of the development work required for the new feature. To give {% data variables.product.prodname_copilot_short %} access to important context about the project, they upload mockup files and link to the repository where the codebase is stored.
 
-1. When the PM has worked with {% data variables.product.prodname_copilot_short %} to get an overview of the tasks required, they ask {% data variables.product.prodname_copilot_short %} to **create issues** for each part of the work.
+1. The PM pins the cloud session to save it at the top of their session list. Later, while on the move to meet a customer, they resume the session in {% data variables.product.prodname_mobile %} to continue planning.
 
-   The PM marks some of the issues as nice-to-haves or maintenance. These may be good candidates for {% data variables.copilot.copilot_cloud_agent %}.
+   > [!TIP]
+   > If the organization requires single sign-on (SSO), the PM must authenticate with SSO to access the session from another client.
+1. When the PM has worked with {% data variables.product.prodname_copilot_short %} to get an overview of the tasks required, they ask {% data variables.product.prodname_copilot_short %} to **create issues** for each part of the work.
 
    ![Screenshot of Copilot Chat. Copilot asks if the user would like to proceed with creating a set of prioritized issues.](/assets/images/help/copilot/sdlc-guide/issue-creation.png)
 
@@ -59,14 +61,12 @@ To meet a tight deadline, you want to speed up each stage for both developers an
 
 ## 2. Create with {% data variables.copilot.copilot_cli_short %}
 
-1. After asking some initial questions in the {% data variables.product.prodname_copilot_short %} space, the developer starts a {% data variables.copilot.copilot_cli_short %} session in their terminal to start looking at the code.
-1. In "plan" mode, the developer asks {% data variables.product.prodname_copilot_short %} to recommend several AI models for the job and list the pros and cons of each.
+1. After asking some initial questions in the {% data variables.product.prodname_copilot_short %} space, the developer resumes the session in their terminal to start looking at the code. They ask {% data variables.product.prodname_copilot_short %} to recommend several AI models for the job and list the pros and cons of each.
 1. After writing some code, the developer asks {% data variables.product.prodname_copilot_short %} to refactor the code into several different functions and lint it based on the organization's standards. They invoke one of the organization's custom agents, which includes custom instructions for the organization.
 
    {% data variables.product.prodname_copilot_short %} can update multiple files at once and, with the developer's authorization, run commands for actions like installing dependencies or running tests.
 
 1. Before opening a pull request, the developer runs `/security-review` to identify likely vulnerabilities in active local changes and apply remediations.
-
 1. The developer reviews the diff and chooses which code to keep.
 
 ## 3. Test with an MCP server
@@ -87,18 +87,18 @@ To meet a tight deadline, you want to speed up each stage for both developers an
 1. A repository owner has configured automatic **code reviews** by {% data variables.product.prodname_copilot_short %} on the repository. {% data variables.product.prodname_copilot_short %} provides an initial review on the pull request, identifying bugs and potential performance issues that the developer can fix before a human reviewer gets to the pull request.
 1. The developer's colleague reviews and approves the pull request. The work is ready to merge.
 
-## 5. Optimize with {% data variables.copilot.copilot_cloud_agent %}
+## 5. Assign follow-up work to {% data variables.product.prodname_copilot_short %}
 
 1. After the release, the product manager identifies an opportunity to improve the widget by switching to a more reliable weather API. They create an issue and **assign it to {% data variables.product.prodname_copilot_short %}** directly on {% data variables.product.github %}.
-1. {% data variables.copilot.copilot_cloud_agent %} works in the background and opens a pull request, which the product manager marks as ready for review.
+1. {% data variables.product.prodname_copilot_short %} works in the background and opens a pull request, which the product manager marks as ready for review.
 
-   ![Screenshot of a pull request created by {% data variables.copilot.copilot_cloud_agent %}.](/assets/images/help/copilot/sdlc-guide/agent-pr.png)
+   ![Screenshot of a pull request created by {% data variables.product.prodname_copilot_short %}.](/assets/images/help/copilot/sdlc-guide/agent-pr.png)
 
 1. A developer reviews the pull request and leaves feedback, which {% data variables.product.prodname_copilot_short %} incorporates. The developer then merges the pull request.
 
-   >[!TIP] {% data variables.copilot.copilot_cloud_agent %} comes with default guardrails. For example, {% data variables.product.prodname_copilot_short %} cannot merge pull requests by itself. You can define additional protections for target branches using repository rulesets.
+   >[!TIP] {% data variables.product.prodname_copilot_short %} comes with default guardrails. For example, it cannot merge pull requests by itself. You can define additional protections for target branches using repository rulesets.
 
-1. Later, while working on a separate feature, the developer notices a small bug in the code for the AI widget. To avoid context switching, the developer delegates the work to {% data variables.copilot.copilot_cloud_agent %} directly from their {% data variables.copilot.copilot_cli_short %} session.
+1. Later, while working on a separate feature, the developer notices a small bug in the code for the AI widget. To avoid context switching, the developer delegates the work to {% data variables.product.prodname_copilot_short %} directly from their {% data variables.copilot.copilot_cli_short %} session.
 
    `/delegate Create a PR for the widget function to correctly validate that the user's age is a positive integer.`
 
@@ -109,7 +109,7 @@ To meet a tight deadline, you want to speed up each stage for both developers an
 
    ![Screenshot of a code scanning alert on GitHub.com. A button labeled "Generate fix" is outlined in orange.](/assets/images/help/copilot/sdlc-guide/autofix.png)
 
-## Plan your rollout
+## Planning your rollout
 
 Use the example above to identify where AI agents can help your teams. Work with your enterprise's administrators to plan for:
 

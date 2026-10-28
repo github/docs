@@ -1,8 +1,8 @@
 ---
-title: Research, plan, and iterate on code changes with {% data variables.copilot.copilot_cloud_agent %}
+title: Research, plan, and iterate on code changes with {% data variables.product.prodname_copilot_short %}
 shortTitle: Research, plan, iterate
 intro: "Perform deep research on a repository, create an implementation plan, and make iterative code changes on a branch, then create a pull request when you're ready."
-product: '{% data reusables.gated-features.copilot-cloud-agent %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
+product: '{% data reusables.gated-features.copilot-in-the-cloud %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=button&utm_source=research-plan-iterate-purchase&utm_medium=docs&utm_campaign=universe-2026" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
 contentType: how-tos
@@ -15,7 +15,7 @@ redirect_from:
   - /copilot/how-tos/use-copilot-agents/cloud-agent/provide-visual-inputs
 ---
 
-{% data variables.copilot.copilot_cloud_agent %} lets you:
+{% data variables.product.prodname_copilot_short %} lets you:
 
 * **Research** a repository by asking {% data variables.product.prodname_copilot_short %} questions.
 * **Plan** and refine an approach before {% data variables.product.prodname_copilot_short %} makes changes.
@@ -23,7 +23,7 @@ redirect_from:
 
 Sessions do not create pull requests automatically. To create one immediately, include that in your prompt—for example, "Create a pull request to ...".
 
-> [!NOTE] These capabilities are only available with {% data variables.copilot.copilot_cloud_agent %} on {% data variables.product.prodname_dotcom_the_website %}, and in {% data variables.release-phases.public_preview %} for the Teams and Slack integrations. Other {% data variables.copilot.copilot_cloud_agent_short_cap_c %} integrations (such as Azure Boards, JIRA, or Linear) only support creating a pull request directly.
+> [!NOTE] These capabilities are only available with {% data variables.product.prodname_copilot_short %} on {% data variables.product.prodname_dotcom_the_website %}, and in the Teams and Slack integrations. Other {% data variables.copilot.copilot_cloud_agent_short_cap_c %} integrations (such as Azure Boards, JIRA, or Linear) only support creating a pull request directly.
 
 ## Perform deep research
 

@@ -107,7 +107,13 @@ You can customize several {% data variables.product.prodname_global_settings %} 
 * [Enabling {% data variables.copilot.copilot_autofix_short %} for {% data variables.product.prodname_codeql %}](#enabling-copilot-autofix-for-codeql)
 {%- endif %}
 {%- ifversion ai-powered-security-detections %}
-* [Enabling AI Scan](#enabling-ai-scan)
+* [Enabling AI Scan for pull requests](#enabling-ai-scan-for-pull-requests)
+{%- endif %}
+{%- ifversion ai-scan-for-repositories %}
+* [Enabling AI Scan for repositories](#enabling-ai-scan-for-repositories)
+{%- endif %}
+{%- ifversion ai-applications-scanning %}
+* [Enabling {% data variables.product.prodname_ai_applications_scanning %}](#enabling-ai-applications-scanning)
 {%- endif %}
 * [Expanding {% data variables.product.prodname_codeql %} analysis](#expanding-codeql-analysis)
 {%- ifversion code-scanning-inactive-repos %}
@@ -130,9 +136,27 @@ You can select **{% data variables.copilot.copilot_autofix_short %}** to enable 
 
 {% ifversion ai-powered-security-detections %}
 
-### Enabling AI Scan
+### Enabling AI Scan for pull requests
 
-You can select **AI Scan** to enable AI Scan for eligible repositories in your organization where {% data variables.product.prodname_code_scanning %} is enabled. Repositories inherit the organization setting, but repository administrators can opt out for individual repositories. See [AUTOTITLE](/code-security/concepts/code-scanning/ai-powered-security-detections).
+You can select **AI Scan for pull requests** to enable the feature for eligible repositories in your organization where {% data variables.product.prodname_code_scanning %} is enabled. Repositories inherit the organization setting, but repository administrators can opt out for individual repositories. See [AUTOTITLE](/code-security/concepts/code-scanning/ai-powered-security-detections).
+
+{% endif %}
+
+{% ifversion ai-scan-for-repositories %}
+
+### Enabling AI Scan for repositories
+
+You can select **AI Scan for repositories** to enable the feature for eligible repositories in your organization where {% data variables.product.prodname_code_scanning %} is enabled. Repositories inherit the organization setting, but repository administrators can opt out for individual repositories. See [AUTOTITLE](/code-security/concepts/code-scanning/ai-scan-for-repositories).
+
+{% endif %}
+
+{% ifversion ai-applications-scanning %}
+
+### Enabling {% data variables.product.prodname_ai_applications_scanning %}
+
+You can select **Scan for AI applications** to enable {% data variables.product.prodname_ai_applications_scanning %} for eligible repositories in your organization. This setting is separate from **AI Scan** and controls a different detector. Repositories inherit the organization setting, but repository administrators can opt out for individual repositories. See [AUTOTITLE](/code-security/concepts/code-scanning/ai-applications-scanning-for-pull-requests).
+
+If your organization already has AI Scan enabled for pull requests, or you're moving from the private preview of {% data variables.product.prodname_ai_applications_scanning %}, you still need to select **Scan for AI applications** separately. Enabling AI Scan doesn't enable {% data variables.product.prodname_ai_applications_scanning %}.
 
 {% endif %}
 

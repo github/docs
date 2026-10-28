@@ -9,8 +9,6 @@ category:
   - Write workflows
 ---
 
-{% data reusables.copilot.agentic-workflows-preview-note %}
-
 ## Introduction
 
 {% data variables.copilot.github_agentic_workflows %} let you define repository automations in Markdown and choose the AI coding agent that runs them. The `gh aw` extension compiles each agentic workflow into a {% data variables.product.prodname_actions %} workflow.
@@ -54,7 +52,7 @@ This article walks through a simple setup that adds the agent's credential as a 
 | Google {% data variables.copilot.gemini %} CLI | `gemini` | `GEMINI_API_KEY` containing a Google AI Studio API key |
 | {% data variables.copilot.copilot_cli_short %} (default) | `copilot` | No secret needed for organization repositories (see below). For personal repositories, `COPILOT_GITHUB_TOKEN` containing a fine-grained {% data variables.product.pat_generic %} with **Copilot Requests** set to **Read**. |
 
-Other engines such as Pi (experimental) are also supported. For the full list, see the [{% data variables.copilot.github_agentic_workflows %} authentication reference](https://github.github.com/gh-aw/reference/auth/).
+Other engines such as Pi (experimental) are also supported. For the full list, see the [{% data variables.copilot.github_agentic_workflows %} authentication reference](https://github.github.com/gh-aw/reference/auth/?utm_source=agentic-workflow-actions-docs-linking-gh-aw-auth-reference&utm_medium=docs&utm_campaign=universe-2026).
 
 ### Organization billing for {% data variables.product.prodname_copilot %}
 
@@ -108,4 +106,4 @@ The generated workflow triggers automatically on pull requests, so it runs the n
 ## Next steps
 
 * To create a workflow that produces a weekly issue activity report, see [AUTOTITLE](/copilot/how-tos/github-agentic-workflows/creating-github-agentic-workflows).
-* For advanced engine configuration, safe outputs, and more workflow examples, see the [{% data variables.copilot.github_agentic_workflows %} documentation site](https://github.github.com/gh-aw/).
+* For advanced engine configuration, safe outputs, and more workflow examples, see the [{% data variables.copilot.github_agentic_workflows %} documentation site](https://github.github.com/gh-aw/?utm_source=linking-agentic-workflows-actions-docs-gh-aw-repo&utm_medium=docs&utm_campaign=universe-2026).

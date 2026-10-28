@@ -1,2 +1,1 @@
-1. In the left sidebar, click {% octicon "agent" aria-hidden="true" aria-label="agent" %} **Agents**.
-1. Under "Available agents", click **Copilot Cloud Agent**.
+1. On the "Agents" page, under "Available agents", click **{% data variables.copilot.copilot_in_the_cloud_short %}**.

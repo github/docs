@@ -82,6 +82,10 @@ More complex interactions consume more of your usage allowance. The main factors
 * **Agentic features**: Features like agent mode and {% data variables.copilot.copilot_cloud_agent %} can involve multiple model calls within a single task. A complex agentic session working across a large codebase will consume significantly more usage than a quick question in chat.
 * **Model choice**: Different models have different costs per token. More capable models designed for complex reasoning cost more than lighter models suited to quick tasks. Switching to a less expensive model is one way to extend your usage allowance.
 
+<!-- expires 2026-11-30 -->
+{% data reusables.copilot.fusion-promotional-discount %}
+<!-- end expires 2026-11-30 -->
+
 > [!NOTE] {% data reusables.copilot.auto-model-discount %}
 
 For guidance on how to optimize your usage and reduce spend, including how to set session limits to cap spend for agent tasks, see [AUTOTITLE](/copilot/tutorials/optimize-ai-usage).

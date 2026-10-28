@@ -15,10 +15,9 @@ The {% data variables.product.github %} integration for Microsoft Teams lets you
 
 {% ifversion copilot %}
 
-You can also use the {% data variables.product.github %} integration to initiate and steer {% data variables.copilot.copilot_cloud_agent %} sessions in a conversation, including asking {% data variables.product.prodname_copilot_short %} to perform deep research, planning and triage tasks within a thread. Teammates can collaborate with each other and the agent, add context, correct assumptions, continue an agent task, and review the resulting artifacts.
+The {% data variables.product.github %} app brings {% data variables.product.github %} notifications and {% data variables.product.prodname_copilot_short %} together. You can receive repository updates in a channel, group chat, or private chat, then reply to a notification and @mention {% data variables.product.github %} to delegate a task to {% data variables.product.prodname_copilot_short %}. {% data variables.product.prodname_copilot_short %} uses the linked issue or pull request and the thread conversation to understand the task.
 
-> [!NOTE]
-> * {% data variables.product.prodname_copilot %} in Teams is currently in {% data variables.release-phases.public_preview %} and subject to change.
+You can also use the {% data variables.product.github %} integration to initiate and steer {% data variables.copilot.copilot_cloud_agent %} sessions in a conversation, including asking {% data variables.product.prodname_copilot_short %} to perform deep research, planning and triage tasks within a thread. Teammates can collaborate with each other and the agent, add context, correct assumptions, continue an agent task, and review the resulting artifacts. You can also select the model, connect MCP servers, work across multiple repositories in one session, and benefit from {% data variables.copilot.copilot_memory %}.
 
 {% endif %}
 
@@ -27,13 +26,13 @@ You can also use the {% data variables.product.github %} integration to initiate
 >[!NOTE] Before you can connect your accounts, an admin for your Teams workspace must have installed the {% data variables.product.github %} app. See [AUTOTITLE](/integrations/how-tos/teams/integrate-github-with-teams).
 
 1. In Teams, open a direct message or personal app conversation with the {% data variables.product.github %} app.
-1. Run {% ifversion copilot %}`@{% data variables.product.github %}`{% else %}`@{% data variables.product.github %} Notifications signin`{% endif %} and follow the prompts in Teams and in your browser to authorize the connection.
+1. Run {% ifversion ghes %}`@{% data variables.product.github %} Notifications signin`{% else %}`@{% data variables.product.github %}`{% endif %} and follow the prompts in Teams and in your browser to authorize the connection.
 
 Once your {% data variables.product.github %} account is connected, Teams will show you a list of available commands and features.
 
 ## Using commands for notifications in Teams
 
-In channels, start commands with {% ifversion copilot %}`@{% data variables.product.github %}`{% else %}`@{% data variables.product.github %} Notifications`{% endif %}. In the personal app, omit the prefix. For the full list of commands, see [AUTOTITLE](/integrations/reference/teams-command-reference).
+In channels, start commands with {% ifversion ghes %}`@{% data variables.product.github %} Notifications`{% else %}`@{% data variables.product.github %}`{% endif %}. In the personal app, omit the prefix. For the full list of commands, see [AUTOTITLE](/integrations/reference/teams-command-reference).
 
 |Command|Description|
 |---|---|
@@ -103,7 +102,7 @@ Previews of links will not be shown if any of the following apply:
 
 ## Personal app experience
 
-The {% data variables.product.github %} personal app in Teams lets you manage subscriptions and receive notifications in a private chat. In the personal app, commands do not require the {% ifversion copilot %}`@{% data variables.product.github %}`{% else %}`@{% data variables.product.github %} Notifications`{% endif %} prefix and notifications are not threaded.
+The {% data variables.product.github %} personal app in Teams lets you manage subscriptions and receive notifications in a private chat. In the personal app, commands do not require the {% ifversion ghes %}`@{% data variables.product.github %} Notifications`{% else %}`@{% data variables.product.github %}`{% endif %} prefix and notifications are not threaded.
 
 ## Scheduling reminders for pull request reviews
 
@@ -117,20 +116,31 @@ The {% data variables.product.github %} app integrates {% data variables.copilot
 
 Use {% data variables.product.prodname_copilot_short %} in direct messages, threads, and channels. Besides creating issues, pull requests and other artifacts, working with {% data variables.product.prodname_copilot_short %} in Teams allows you to:
 
-* Move directly from discussion to investigation and implementation.
-* Ask questions and investigate failures.
-* Plan work before implementation.
-* Collaboratively steer an agent with teammates.
-* Delegate work from any device.
-* Let tasks run asynchronously.
-* Review the resulting work in the open.
-* Resume work on the agent-generated artifacts outside of Teams, in {% data variables.product.github %}, the terminal, or your preferred code editor.
+* Move from discussion to investigation, planning, and implementation.
+* Ask questions, investigate failures, and steer an agent together with teammates.
+* Delegate work from any device and let tasks run asynchronously.
+* Choose the model, connect MCP servers, and work across multiple repositories.
+* Follow the plan, changes, and pull request in a canvas beside your conversation.
+* Use {% data variables.copilot.copilot_memory %}, which is currently in {% data variables.release-phases.public_preview %} and subject to change, to help {% data variables.product.prodname_copilot_short %} learn from your work over time.
+* Review the resulting work in the open, then resume it outside of Teams, in {% data variables.product.github %}, the terminal, or your preferred code editor.
+
+For example, to investigate a failure before changing code:
+
+```text
+@{% data variables.product.github %} Investigate this failed workflow and explain the cause before changing code.
+```
+
+To work across multiple repositories:
+
+```text
+@{% data variables.product.github %} Update the API in octo-org/service and its client in octo-org/web, then open linked pull requests.
+```
+
+You need write access to every selected repository to start or steer work. Anyone in the conversation can add context.
 
 For more information, see [AUTOTITLE](/copilot/how-tos/copilot-integrations/integrate-cloud-agent-with-teams).
 
-## Feedback and support
-
-You can view and share feedback in our [discussion forum](https://github.com/orgs/community/discussions/205453).
+To change the settings for {% data variables.copilot.copilot_cloud_agent %} in Teams, use the `@{% data variables.product.github %} settings` command. These settings don't create notification subscriptions or review reminders. To change the model for only the current conversation, ask {% data variables.product.prodname_copilot_short %} to choose a model.
 
 {% endif %}
 

@@ -1,32 +1,4 @@
 {
-  "enterprise_copilot_settings": {
-    "title": "Copilot settings",
-    "displayTitle": "Enterprise permissions for \"Copilot settings\"",
-    "permissions": [
-      {
-        "category": "copilot",
-        "slug": "add-enterprise-teams-to-the-copilot-subscription-for-an-enterprise",
-        "subcategory": "copilot-user-management",
-        "verb": "post",
-        "requestPath": "/enterprises/{enterprise}/copilot/billing/selected_enterprise_teams",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": true
-      },
-      {
-        "category": "copilot",
-        "slug": "remove-enterprise-teams-from-the-copilot-subscription-for-an-enterprise",
-        "subcategory": "copilot-user-management",
-        "verb": "delete",
-        "requestPath": "/enterprises/{enterprise}/copilot/billing/selected_enterprise_teams",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": true
-      }
-    ]
-  },
   "enterprise_copilot_usage": {
     "title": "Copilot usage records",
     "displayTitle": "Enterprise permissions for \"Copilot usage records\"",
@@ -389,6 +361,34 @@
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": false
+      }
+    ]
+  },
+  "enterprise_copilot_licenses": {
+    "title": "Enterprise Copilot license management",
+    "displayTitle": "Enterprise permissions for \"Enterprise Copilot license management\"",
+    "permissions": [
+      {
+        "category": "copilot",
+        "slug": "add-enterprise-teams-to-the-copilot-subscription-for-an-enterprise",
+        "subcategory": "copilot-user-management",
+        "verb": "post",
+        "requestPath": "/enterprises/{enterprise}/copilot/billing/selected_enterprise_teams",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "copilot",
+        "slug": "remove-enterprise-teams-from-the-copilot-subscription-for-an-enterprise",
+        "subcategory": "copilot-user-management",
+        "verb": "delete",
+        "requestPath": "/enterprises/{enterprise}/copilot/billing/selected_enterprise_teams",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
       }
     ]
   },
@@ -1398,6 +1398,45 @@
         "subcategory": "organization-installations",
         "verb": "patch",
         "requestPath": "/enterprises/{enterprise}/apps/organizations/{org}/installations/{installation_id}/repositories/remove",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      }
+    ]
+  },
+  "enterprise_security_products": {
+    "title": "Enterprise security products",
+    "displayTitle": "Enterprise permissions for \"Enterprise security products\"",
+    "permissions": [
+      {
+        "category": "dependabot",
+        "slug": "lists-the-repositories-dependabot-can-access-in-an-enterprise",
+        "subcategory": "repository-access",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/dependabot/repository-access",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "dependabot",
+        "slug": "updates-dependabots-repository-access-list-for-an-enterprise",
+        "subcategory": "repository-access",
+        "verb": "patch",
+        "requestPath": "/enterprises/{enterprise}/dependabot/repository-access",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "dependabot",
+        "slug": "set-the-default-repository-access-level-for-dependabot-in-an-enterprise",
+        "subcategory": "repository-access",
+        "verb": "put",
+        "requestPath": "/enterprises/{enterprise}/dependabot/repository-access/default-level",
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
@@ -13791,6 +13830,50 @@
         "subcategory": "repository-advisories",
         "verb": "patch",
         "requestPath": "/repos/{owner}/{repo}/security-advisories/{ghsa_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "security-advisories",
+        "slug": "list-repository-security-advisory-comments",
+        "subcategory": "repository-advisories",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/security-advisories/{ghsa_id}/comments",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "security-advisories",
+        "slug": "create-a-repository-advisory-comment",
+        "subcategory": "repository-advisories",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/security-advisories/{ghsa_id}/comments",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "security-advisories",
+        "slug": "get-a-repository-advisory-comment",
+        "subcategory": "repository-advisories",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/security-advisories/{ghsa_id}/comments/{comment_id}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "security-advisories",
+        "slug": "update-a-repository-advisory-comment",
+        "subcategory": "repository-advisories",
+        "verb": "patch",
+        "requestPath": "/repos/{owner}/{repo}/security-advisories/{ghsa_id}/comments/{comment_id}",
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
