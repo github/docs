@@ -10,7 +10,7 @@ category:
   - Manage Copilot for a team
 ---
 
-"{% data variables.product.prodname_copilot_short %} access" is a new way for eligible enterprises to provide {% data variables.product.prodname_copilot_short %} to their developers. In this model, there is no {% data variables.product.prodname_copilot_short %} seat charge for users with an {% data variables.product.prodname_ghe_cloud %} license. For users without that license, {% data variables.copilot.copilot_standalone_short %} costs {% data variables.copilot.copilot_standalone_price_per_month %} per user per month. In both cases, metered usage is billed separately.
+"{% data variables.product.prodname_copilot_short %} access" is a new way for eligible enterprises to provide {% data variables.product.prodname_copilot_short %} to their developers. In this model, there is no {% data variables.product.prodname_copilot_short %} seat charge for users with a {% data variables.product.prodname_ghe_cloud %} license. For users without that license, {% data variables.copilot.copilot_standalone_short %} costs {% data variables.copilot.copilot_standalone_price_per_month %} per user per month. In both cases, metered usage is billed separately.
 
 If you already use {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %}, you can retain your current plan. Transitioning is voluntary.
 
