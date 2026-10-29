@@ -1,7 +1,7 @@
 ---
-title: 'Giving GitHub Copilot cloud agent access to resources in your organization'
+title: 'Giving GitHub Copilot cloud sessions access to resources in your organization'
 shortTitle: 'Give access to resources'
-intro: 'Get more out of {% data variables.product.prodname_copilot_short %} by giving it access to approved MCP servers and internal packages.'
+intro: 'Get more out of {% data variables.product.prodname_copilot_short %} by giving it access to approved MCP servers and internal packages in cloud sessions.'
 versions:
   feature: copilot
 contentType: tutorials
@@ -12,9 +12,15 @@ docsTeamMetrics:
   - ai-governance
 ---
 
-{% data variables.copilot.copilot_cloud_agent %} can connect to MCP servers, use private packages, and access external services, but only if your organization's repositories are configured to allow it.
+If you have enabled {% data variables.copilot.copilot_in_the_cloud_short %},  you should configure your organization's settings so that {% data variables.product.prodname_copilot_short %} agents can connect to MCP servers, use private packages, and access external services when they work autonomously on {% data variables.product.github %}.
 
-Although much of the configuration below is done at the repository level, organization owners have control over which resources are in scope and who can configure access to them.
+Some of the configuration below is done at the repository level. However, organization owners have control over which resources are in scope and who can configure access to them.
+
+## About session environments
+
+{% data reusables.copilot.agent-env-enterprise %}
+
+This guide assumes you are using **{% data variables.product.prodname_actions %}** as your compute environment. Cloud sandboxes currently have fewer options for configuring access to organization resources.
 
 ## Example scenario
 
@@ -30,22 +36,26 @@ You want {% data variables.product.prodname_copilot_short %} to:
 
 By default, the scope of {% data variables.product.prodname_copilot_short %}'s authentication token is limited to the repository where it's running. This means that {% data variables.product.prodname_copilot_short %} won't be able to authenticate to external systems or access private, organization-scoped packages.
 
-To provide {% data variables.product.prodname_copilot_short %} with access to secrets, repository administrators can configure Agents secrets. Organization owners can also add Agents secrets at the organization level to share configuration across multiple repositories. {% data variables.product.prodname_copilot_short %} can access this data during its setup and task execution. It won't be able to access {% data variables.product.prodname_actions %}, {% data variables.product.prodname_codespaces %}, or {% data variables.product.prodname_dependabot %} secrets and variables. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/configure-secrets-and-variables).
+Organization owners can add Agents secrets at the organization level to share configuration across multiple repositories. {% data variables.product.prodname_copilot_short %} can access this data during its setup and task execution. It won't be able to access secrets and variables for {% data variables.product.prodname_actions %}, {% data variables.product.prodname_codespaces %}, or {% data variables.product.prodname_dependabot %}. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/configure-secrets-and-variables).
+
+>[!NOTE] Secrets for MCP server connections (prefixed with `COPILOT_MCP_`) will also be available in cloud sandboxes. Other Agents secrets will only be available in {% data variables.product.prodname_actions %} environments.
 
 ### Example: Save a secret
 
-A repository administrator saves an authentication token for the organization's Sentry instance.
+An organization owner saves an authentication token for the organization's Sentry instance.
 
-1. Go to the **Secrets and variables** > **Agents** section of the repository settings.
+1. Go to the **Secrets and variables** > **Agents** section of the organization settings.
 1. Save an access token for your Sentry instance in a secret called `COPILOT_MCP_SENTRY_ACCESS_TOKEN`.
 
 > [!TIP] We don't need to save a token for our private {% data variables.product.prodname_registry %} registry, which we'll access using the standard {% data variables.product.prodname_actions %} `GITHUB_TOKEN`. However, you would want to save an authentication token if you were using an external package registry.
 
 ## Configuring access to MCP servers
 
-Organization and enterprise owners can set a policy to allow users to configure access to MCP servers. If this policy is enabled, users can configure MCP servers for {% data variables.copilot.copilot_cloud_agent %} in repository settings or in custom agent profiles. For organization-wide consistency, we recommend creating **custom agent profiles** at the organization or enterprise level.
+Organization and enterprise owners can set a policy to allow users to configure access to MCP servers. If this policy is enabled, users can configure MCP servers for {% data variables.product.prodname_copilot_short %} in repository settings or in custom agent profiles. For organization-wide consistency, we recommend creating **custom agent profiles** at the organization or enterprise level.
 
 A session using a custom agent has access to MCP servers configured in **both** the repository settings and the agent profile. However, the more use cases you cover with organization-wide custom agents, the less users will need to configure ad hoc access to MCP servers in repository settings.
+
+You can also use an enterprise's `{% data variables.copilot.managed_setting_file %}` file to create an allowlist of approved MCP servers. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-mcp-usage/configure-enterprise-allowlist). {% data reusables.copilot.cloud-agent.mcp-allowlist-caveat %}
 
 We recommend browsing the [{% data variables.product.github %} MCP Registry](https://github.com/mcp) to find trusted, highly rated options.
 
@@ -93,13 +103,13 @@ A developer creates a workflow to install the Node dependencies defined in a rep
 
 1. An organization administrator ensures that the repository has access to the organization's private packages by granting access to the repository in each package's settings. See [AUTOTITLE](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#github-actions-access-for-packages-scoped-to-organizations).
 
->[!TIP] If you need to access packages that are hosted internally within your corporate network, you may need to run {% data variables.copilot.copilot_cloud_agent %} on self-hosted {% data variables.product.prodname_actions %} runners.
+>[!TIP] If you need to access packages that are hosted internally within your corporate network, you may need to run {% data variables.product.prodname_copilot_short %} agents on self-hosted {% data variables.product.prodname_actions %} runners.
 
 ## Controlling who can configure these settings
 
 Now you have seen how access to resources is controlled at the repository and organization levels, consider how much scope you want to give users to manage these settings.
 
-1. **Choose which repositories have access** to {% data variables.copilot.copilot_cloud_agent %}. If you're concerned about a specific repository, you can block it for all users.
+1. **Choose which repositories have access** to {% data variables.copilot.copilot_in_the_cloud_short %}. If you're concerned about a specific repository, you can block it for all users.
 1. **Consider who gets admin access** to these repositories. You can control this at the organization level by creating a team with the **All-repository admin** custom role. These users will be able to manage configuration _settings_, such as MCP configuration and Agents secrets and variables, in every repository.
 1. **Use rulesets and CODEOWNERS files** to control edits of configuration _files_, such as `copilot-setup-steps.yml`, which anyone with write access can edit by default.
 1. **Review the default firewall**. The firewall doesn't affect connections to MCP servers or setup steps in `copilot-setup-steps.yml`, but it does limit {% data variables.product.prodname_copilot_short %}'s access to the Internet during task execution. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-the-firewall).

@@ -37,6 +37,12 @@ You can view, sort, and filter {% data variables.product.prodname_dependabot_ale
 
 By default, alerts are sorted by **Most important**, which helps you prioritize fixes based on factors such as potential impact, actionability, and relevance. This prioritization is continuously improved and considers signals like CVSS score, dependency scope, and whether vulnerable function calls are detected.
 
+{% ifversion dependabot-reachability %}
+
+When {% data variables.product.prodname_dependabot_reachability %} is enabled, **Most important** ranks alerts marked "Reachable," "Potentially reachable," or "Reachability unavailable" higher. Only alerts marked "Unreachable" are deprioritized. To enable analysis for your repository, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/configure-reachability-analysis).
+
+{% endif %}
+
 {% data reusables.dependabot.where-to-view-dependabot-alerts %}
 
 {% ifversion dependabot-alerts-assignees %}
@@ -52,9 +58,16 @@ When you assign an alert to an AI agent, the agent automatically creates a sessi
 1. Optionally, refine the list of alerts:
    * Use the dropdown menus at the top of the list to sort or filter alerts.
 
+     {% ifversion dependabot-reachability %}
+     ![Screenshot of the filter and sort menus in the {% data variables.product.prodname_dependabot %} tab.](/assets/images/help/graphs/dependabot-alerts-filters-checkbox-with-reachability.png)
+     {% else %}
      ![Screenshot of the filter and sort menus in the {% data variables.product.prodname_dependabot %} tab.](/assets/images/help/graphs/dependabot-alerts-filters-checkbox.png)
+     {% endif %}
 
    * Type directly in the search bar to filter alerts, including full-text search across alert details and related security advisories.
+   {% ifversion dependabot-reachability %}
+   * If {% data variables.product.prodname_dependabot_reachability %} is enabled, use the **Reachability** dropdown menu to filter by verdict. Analysis currently supports JavaScript and TypeScript dependencies. For example, select "Reachable" and "Potentially reachable", or type `reachability:reachable,potentially-reachable` in the search bar.
+   {% endif %}
    * Click a label on an alert to automatically filter the list by that label.
    * To identify alerts that affect development dependencies, filter by the `scope:development` filter or look for alerts labeled "Development". This can help you prioritize alerts that affect production dependencies first.
 
@@ -80,6 +93,11 @@ When you assign an alert to an AI agent, the agent automatically creates a sessi
 ### Tips for prioritizing alerts
 
 * Use the **Most important** sort order to focus on alerts with the highest potential impact.
+{% ifversion dependabot-reachability %}
+* Prioritize alerts labeled "Reachable" or "Potentially reachable", considering severity, EPSS, dependency scope, and dependency relationship alongside reachability.
+* Give "Unreachable" alerts a lower priority, but do not dismiss them solely because of that verdict. Results can change as your code or the advisory changes.
+* For "Reachability unavailable" results, use the other prioritization signals. An unavailable result does not mean the vulnerable function cannot be called.
+{% endif %}
 * Prioritize alerts that affect production dependencies over development dependencies.{% ifversion dependabot-alerts-assignees %}
 * Use the **Assignees** feature to clarify who is responsible for addressing each alert, so your team can track and remediate vulnerabilities more effectively.{% endif %}
 * Use {% data variables.dependabot.auto_triage_rules %} to automatically prioritize or manage alerts. See [AUTOTITLE](/code-security/concepts/supply-chain-security/dependabot-auto-triage-rules).
@@ -99,6 +117,24 @@ With a {% data variables.copilot.copilot_enterprise %} license, you can also ask
 {% endif %}
 
 You can review the details of a {% data variables.product.prodname_dependabot %} alert to understand the vulnerability and how to fix it.
+
+{% ifversion dependabot-reachability %}
+
+### Reviewing reachability evidence
+
+> [!NOTE]
+> {% data reusables.dependabot.reachability-public-preview %} {% data variables.product.prodname_dependabot_reachability_caps %} supports JavaScript repositories that use npm, pnpm, or Yarn, and TypeScript repositories.
+
+{% data variables.product.prodname_dependabot_reachability_caps %} adds a verdict to your alerts and, for reachable alerts, call-path evidence that shows how your code can call a vulnerable function. A call path does not prove that a vulnerability can be exploited. For information about verdict definitions and feature availability, see [AUTOTITLE](/code-security/concepts/supply-chain-security/about-reachability-analysis-for-dependabot-alerts).
+
+1. Open an alert with a "Reachable" verdict.
+1. In the "Reachability call paths" section, review the code location, then click **View call paths**.
+1. Follow the path from your repository's code through its dependencies to the vulnerable function. Use the code locations to identify where your application calls the affected dependency.
+1. If multiple sample paths are available, use the dropdown menu in the dialog to inspect another path.
+
+The dialog shows up to five sample paths, not every possible call path. Verdicts reflect the most recent completed scan, not necessarily your latest code changes. Use this evidence to prioritize and plan remediation. {% data variables.product.prodname_dependabot_reachability_caps %} does not automatically close or dismiss alerts.
+
+{% endif %}
 
 ### Fixing vulnerable dependencies
 

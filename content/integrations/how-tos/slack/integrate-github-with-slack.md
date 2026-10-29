@@ -24,9 +24,9 @@ With the {% data variables.product.github %} integration for Slack, you can:
 {% ifversion copilot %}
 
 * **Initiate and steer {% data variables.copilot.copilot_cloud_agent %} sessions** in a conversation. Teammates can collaborate with each other and the agent, add context, correct assumptions, continue an agent task, and review the resulting plan, issues, pull requests and other artifacts.
-
-   > [!NOTE]
-   > * This feature is currently in {% data variables.release-phases.public_preview %} and subject to change.
+* **Work across repositories and tools** with multi-repository sessions, and repository-configured MCP servers.
+* **Choose a model** for a conversation or set a default for new conversations in a channel.
+* **Retain context across sessions** with {% data variables.copilot.copilot_memory %}.
 
 {% endif %}
 
@@ -39,6 +39,8 @@ To use the {% data variables.product.github %} integration for Slack, you need:
 * A Slack workspace where you have permission to install apps.
 
 {% ifversion copilot %}
+
+To use {% data variables.copilot.copilot_cloud_agent %}, you also need a paid {% data variables.product.prodname_copilot_short %} plan. To start or steer work, you need write access to every repository selected for the session.
 
 {% data reusables.copilot.cloud-agent.cloud-sandboxes-prerequisite-slack %}
 
@@ -54,6 +56,14 @@ The {% data variables.product.github %} integration for Slack only needs to be i
 1. Also once the integration is installed, to work with {% data variables.copilot.copilot_cloud_agent %}, @mention the app by typing `@{% data variables.product.github %}` in a Slack message or channel. Then, if prompted, connect your {% data variables.product.github %} account.
 
 To see what else you can do with {% data variables.product.prodname_copilot_short %}, in the thread, @mention the app by typing `@{% data variables.product.github %} help`.
+
+## Choosing what to configure next
+
+* To receive repository events, use `/github subscribe OWNER/REPO`. See [AUTOTITLE](/integrations/how-tos/slack/customize-notifications).
+* To set repositories, the default owner, or a default model for new channel conversations, run `/github settings`.
+* To start a task, mention `@{% data variables.product.github %}` and describe the work. Name the repositories in your prompt when using a direct message.
+
+Notification subscriptions and {% data variables.product.prodname_copilot_short %} repository defaults are separate. Subscribing to a repository does not select it for agent work, and selecting it for agent work does not subscribe the channel to notifications. For multi-repository sessions, MCP, and {% data variables.copilot.copilot_memory %}, see [AUTOTITLE](/copilot/how-tos/copilot-integrations/integrate-cloud-agent-with-slack).
 
 ## Installing the {% data variables.product.github %} integration for Slack on the Slack Enterprise Grid
 

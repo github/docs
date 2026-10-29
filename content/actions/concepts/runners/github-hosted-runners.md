@@ -97,7 +97,18 @@ To get started with custom images, see [AUTOTITLE](/actions/how-tos/manage-runne
 
 ## Cloud hosts used by {% data variables.product.prodname_dotcom %}-hosted runners
 
-{% data variables.product.prodname_dotcom %} hosts Linux and Windows runners on virtual machines in Microsoft Azure with the {% data variables.product.prodname_actions %} runner application installed. The {% data variables.product.prodname_dotcom %}-hosted runner application is a fork of the Azure Pipelines Agent. Inbound ICMP packets are blocked for all Azure virtual machines, so ping or traceroute commands might not work. {% data variables.product.prodname_dotcom %} hosts macOS runners in Azure data centers.
+{% data variables.product.prodname_actions %} uses a multi-cloud compute pool to help improve runner availability for eligible Linux jobs. These jobs can run on either Amazon Web Services (AWS) or Microsoft Azure.
+
+Multi-cloud compute is used for standard 2-core and 4-core Linux runners and compatible 2-core and 4-core {% data variables.actions.hosted_runners %} without specialized configurations. It does not apply to Windows runners or runners with private networking or other specialized configurations. Jobs are automatically scheduled across available cloud providers.
+
+> [!NOTE] If you used {% data variables.product.prodname_dotcom %}-hosted Linux runners before multi-cloud compute was introduced, existing runner labels and workflow syntax remain unchanged.
+
+<!-- Before publication, confirm GHE.com availability: the release description and later release discussion conflict. -->
+Eligible runners on {% data variables.product.prodname_free_user %}, {% data variables.product.prodname_pro %}, and {% data variables.product.prodname_team %} automatically use multi-cloud compute. Enterprises on {% data variables.product.prodname_ghe_cloud %} can opt in. See [AUTOTITLE]({% ifversion ghec %}/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enabling-multi-cloud-compute{% else %}/enterprise-cloud@latest/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enabling-multi-cloud-compute{% endif %}).
+
+If your workflows depend on network allowlists or Azure SDK credentials, running on a different cloud provider can cause connection or authentication failures. Review [IP address requirements](/actions/reference/runners/github-hosted-runners#ip-addresses) and [Azure SDK authentication troubleshooting](/actions/how-tos/troubleshoot-workflows#azure-sdk-authentication-failures).
+
+{% data variables.product.prodname_dotcom %} hosts Windows runners and Linux runners that don't use multi-cloud compute on virtual machines in Azure. Inbound ICMP packets are blocked for Azure virtual machines, so ping or traceroute commands might not work. {% data variables.product.prodname_dotcom %} hosts macOS runners in Azure data centers.
 
 ## Workflow continuity
 

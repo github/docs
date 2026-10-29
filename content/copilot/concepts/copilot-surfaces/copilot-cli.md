@@ -75,10 +75,9 @@ You can enable local sandboxing inside a {% data variables.copilot.copilot_cli_s
 
 ### Cloud sandboxing
 
-> [!NOTE]
-> {% data reusables.cli.public-preview-cloud-sandbox %}
+You can start a {% data variables.copilot.copilot_cli_short %} session in a cloud sandbox. The `--cloud` option starts the same kind of cloud sandbox as other {% data variables.product.prodname_copilot_short %} clients, so the session runs in an isolated environment that {% data variables.product.github %} hosts, without using your machine.
 
-You can start a {% data variables.copilot.copilot_cli_short %} session inside an isolated, cloud-hosted environment with cloud sandboxes. This is useful when you want to run code without affecting your local machine, keep a session's state between uses, continue a session from a different machine, or run multiple tasks in parallel. Cloud sandbox policies inherit from {% data variables.copilot.copilot_cloud_agent %} policies, so existing security controls like firewall rules extend to cloud sandboxes without additional setup.
+Because the session runs in the cloud, you can follow and steer it from any {% data variables.product.prodname_copilot_short %} client. For example, you can start work in {% data variables.copilot.copilot_cli_short %}, steer it from {% data variables.product.prodname_mobile %} while away, then pick it back up in {% data variables.copilot.copilot_cli_short %} or another client. For more information, see [AUTOTITLE](/copilot/concepts/security-governance-and-network-settings/about-cloud-sandboxes).
 
 To start a cloud-backed session, run:
 
@@ -203,7 +202,7 @@ You can customize {% data variables.copilot.copilot_cli %} in a number of ways:
 * **{% data variables.copilot.custom_agents_caps_short %}**: {% data variables.copilot.custom_agents_caps_short %} allow you to create different specialized versions of {% data variables.product.prodname_copilot_short %} for different tasks. For example, you could customize {% data variables.product.prodname_copilot_short %} to be an expert frontend engineer following your team's guidelines. {% data variables.copilot.copilot_cli %} includes specialized {% data variables.copilot.custom_agents_short %} that it automatically delegates common tasks to. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/overview#use-custom-agents).
 * **Hooks**: Hooks allow you to execute custom shell commands at key points during agent execution, enabling you to add validation, logging, security scanning, or workflow automation. See [AUTOTITLE](/copilot/concepts/agents/hooks).
 * **Skills**: Skills allow you to enhance the ability of {% data variables.product.prodname_copilot_short %} to perform specialized tasks with instructions, scripts, and resources. For more information, see [AUTOTITLE](/copilot/concepts/agents/about-agent-skills).
-* **{% data variables.copilot.copilot_memory %}**: {% data variables.copilot.copilot_memory %} allows {% data variables.product.prodname_copilot_short %} to build a persistent understanding of your repository by storing "memories", which are pieces of information about coding conventions, patterns, and preferences that {% data variables.product.prodname_copilot_short %} deduces as it works. This reduces the need to repeatedly explain context in your prompts and makes future sessions more productive. For more information, see [AUTOTITLE](/copilot/concepts/prompting-and-context/copilot-memory).
+* **{% data variables.copilot.copilot_memory %}**: {% data variables.copilot.copilot_memory %} allows {% data variables.product.prodname_copilot_short %} to build a persistent understanding of your repository by storing "memories", which are pieces of information about coding conventions, patterns, and preferences that {% data variables.product.prodname_copilot_short %} deduces as it works. This reduces the need to repeatedly explain context in your prompts and makes future sessions more productive. {% data variables.copilot.copilot_cli_short %} stores both repository-level facts and your personal preferences. In interactive sessions, depending on your permission settings, {% data variables.product.prodname_copilot_short %} asks you to approve storing a new memory. For more information, see [AUTOTITLE](/copilot/concepts/prompting-and-context/copilot-memory) and [AUTOTITLE](/copilot/how-tos/use-copilot-agents/copilot-memory/create-memories).
 
 ## Security considerations
 
@@ -323,7 +322,7 @@ To reduce how often you're prompted for an approval decision, without granting b
 
 ### Risk mitigation
 
-You can mitigate the risks associated with using the automatic approval options by running {% data variables.copilot.copilot_cli_short %} in a sandboxed environment. {% data variables.product.github %} provides first-party sandboxing for this, with local sandboxing to restrict access on your machine and cloud sandboxing for fully isolated execution. For more information, see [AUTOTITLE](/copilot/concepts/about-cloud-and-local-sandboxes).
+You can mitigate the risks associated with using the automatic approval options by running {% data variables.copilot.copilot_cli_short %} in a sandboxed environment. {% data variables.product.github %} provides first-party sandboxing for this, with local sandboxing to restrict access on your machine and cloud sandboxing for fully isolated execution. For more information, see [AUTOTITLE](/copilot/concepts/security-governance-and-network-settings/about-cloud-and-local-sandboxes) and [AUTOTITLE](/copilot/concepts/security-governance-and-network-settings/about-cloud-sandboxes).
 
 Alternatively, you can run {% data variables.copilot.copilot_cli_short %} in a virtual machine, container, or dedicated system with tightly controlled permissions and network access.
 

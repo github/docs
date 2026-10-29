@@ -318,7 +318,7 @@ Details of your configured MCP servers are stored in the `mcp-config.json` file,
 
 You can use sandboxing to restrict what {% data variables.product.prodname_copilot_short %} can access. Local sandboxing does not run the CLI itself in a sandbox; instead, the commands and tools that {% data variables.copilot.copilot_cli_short %} runs on your behalf are restricted, limiting their access to your filesystem, network, and system capabilities. To enable local sandboxing, enter `/sandbox enable` inside a session.
 
-Alternatively, with cloud sandboxing, the entire {% data variables.copilot.copilot_cli_short %} session runs remotely in an isolated environment. To start a {% data variables.copilot.copilot_cli_short %} session in the cloud, run `copilot --cloud`. For more information, see [AUTOTITLE](/copilot/concepts/about-cloud-and-local-sandboxes).
+Alternatively, you can run the entire {% data variables.copilot.copilot_cli_short %} session in a cloud sandbox. To start a {% data variables.copilot.copilot_cli_short %} session in a cloud sandbox, run `copilot --cloud`. For more information, see [AUTOTITLE](/copilot/concepts/security-governance-and-network-settings/about-cloud-sandboxes).
 
 ### Toggle model thinking visibility
 

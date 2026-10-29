@@ -24,11 +24,11 @@ Before you begin, see [AUTOTITLE](/copilot/concepts/enterprise/about-enterprise-
 
 If you will pay by credit card or PayPal, you can create an enterprise account and purchase {% data variables.copilot.copilot_business_short %} yourself.
 
->[!NOTE] For other payment methods, contact [{% data variables.product.github %}'s Sales team](https://github.com/enterprise/contact?ref_product=copilot&ref_type=engagement&ref_style=text) and ask for an enterprise account with {% data variables.product.prodname_copilot_short %} enabled.
+> [!NOTE] For other payment methods, contact [{% data variables.product.github %}'s Sales team](https://github.com/enterprise/contact?ref_product=copilot&ref_type=engagement&ref_style=text&utm_source=setting-up-enterprise-business-article-contact-sales-cta&utm_medium=docs&utm_campaign=universe-2026) and ask for an enterprise account with {% data variables.product.prodname_copilot_short %} enabled.
 
 1. Start a trial of {% data variables.product.prodname_ghe_cloud %}.
 
-   <a href="https://github.com/account/enterprises/new?ref_product=ghec&ref_type=trial&ref_style=button&ref_plan=enterprise" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Set up a trial of {% data variables.product.prodname_ghe_cloud %}</span> {% octicon "link-external" height:16 aria-label="link-external" %}</a>
+   <a href="https://github.com/account/enterprises/new?ref_product=ghec&ref_type=trial&ref_style=button&ref_plan=enterprise&utm_source=set-up-enterprise-business-article-enterprise-account-trial&utm_medium=docs&utm_campaign=universe-2026" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Set up a trial of {% data variables.product.prodname_ghe_cloud %}</span> {% octicon "link-external" height:16 aria-label="link-external" %}</a>
 
 1. End the trial immediately and add a credit card or PayPal as a payment method. This is required because trial enterprises cannot sign up for {% data variables.copilot.copilot_business_short %}. However, with the setup described in this article, you will **not** pay for {% data variables.product.prodname_ghe_cloud %} licenses even when the trial has ended.
 
@@ -48,15 +48,15 @@ Group users to scale license assignment by creating enterprise teams. Unaffiliat
 
 An enterprise owner must purchase a {% data variables.copilot.copilot_business_short %} plan so you can start assigning licenses to users.
 
-If you pay by credit card or PayPal, you can [subscribe to {% data variables.copilot.copilot_business_short %}](https://github.com/github-copilot/purchase?ref_product=copilot&ref_type=purchase&ref_style=button&ref_plan=business) yourself.
+If you pay by credit card or PayPal, you can [subscribe to {% data variables.copilot.copilot_business_short %}](https://github.com/github-copilot/purchase?ref_product=copilot&ref_type=purchase&ref_style=button&ref_plan=business&utm_source=set-up-enterprise-business-article-business-cta&utm_medium=docs&utm_campaign=universe-2026) yourself.
 
-For other payment methods, [contact {% data variables.product.github %}'s Sales team](https://github.com/enterprise/contact?ref_product=copilot&ref_type=engagement&ref_style=text).
+For other payment methods, [contact {% data variables.product.github %}'s Sales team](https://github.com/enterprise/contact?ref_product=copilot&ref_type=engagement&ref_style=text&utm_source=set-up-enterprise-business-article-contact-enterprise-sales&utm_medium=docs&utm_campaign=universe-2026).
 
 ## Assign {% data variables.product.prodname_copilot_short %} licenses
 
 Give people access to {% data variables.product.prodname_copilot_short %} by assigning {% data variables.copilot.copilot_business_short %} licenses to users or enterprise teams.
 
-For detailed steps, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-access/grant-access#assigning-licenses-to-users-or-teams).
+For detailed steps, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-access/grant-access#assigning-seats-directly).
 
 ## Govern the use of {% data variables.product.prodname_copilot_short %} in your enterprise
 

@@ -16,6 +16,7 @@ children:
   - dependency-graph-data
   - dependency-review
   - dependabot-alerts
+  - about-reachability-analysis-for-dependabot-alerts
   - malware-alerts
   - dependabot-alert-metrics
   - dependabot-security-updates

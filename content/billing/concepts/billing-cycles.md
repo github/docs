@@ -1,6 +1,6 @@
 ---
 title: Billing cycles
-intro: 'Learn about the billing cycles for self-serve, Azure, and invoiced payment methods.'
+intro: 'Understand when usage is measured, included amounts reset, and charges are billed for self-serve, Azure, and invoiced payment methods.'
 shortTitle: Billing cycles
 versions:
   feature: enhanced-billing-platform
@@ -33,6 +33,10 @@ For example, if you started a paid plan or converted from a trial on the 15th of
 
 > [!NOTE]
 > From **December 1, 2025**, all self-serve, metered {% data variables.product.prodname_ghe_cloud %} accounts that pay by credit card will migrate to a **billing date** of 1st of the month. See [Billing date standardized to the first of the month for self-serve credit card metered Enterprise customers](https://github.blog/changelog/2025-11-17-billing-date-standardized-to-the-first-of-the-month-for-self-serve-credit-card-metered-enterprise-customers-now-generally-available/) in the changelog.
+
+## Included compute usage reset
+
+Your plan's included compute usage is available for eligible {% data variables.product.prodname_actions %} runner usage and cloud sandbox compute and memory. This value resets to the full amount at the start of each billing cycle. Additional usage is billed on your normal billing date. For more information, see [AUTOTITLE](/billing/concepts/product-billing/github-actions).
 
 ## Billing cycles for volume-based products
 

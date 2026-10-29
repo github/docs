@@ -48,6 +48,8 @@ category:
 
 GitHub Copilot Chat is a chat interface that lets you interact with GitHub Copilot to ask and receive answers to coding-related questions. GitHub Copilot Chat is available on GitHub.com, in supported IDEs (VS Code, Visual Studio, JetBrains, and Eclipse), on GitHub Mobile, and in Windows Terminal. On GitHub.com and in GitHub Desktop, Copilot can also generate pull request summaries and commit messages—AI-powered overviews of changes made in a pull request or commit.
 
+**Copilot Cloud**: Copilot in the Cloud (GitHub Copilot on GitHub.com, GitHub Mobile, or anywhere that "Cloud" is selected as a session environment) can answer questions about your repositories, plan and make changes, review or create pull requests, and automate repository tasks. A single interface built on the Copilot SDK combines chat and agentic work.
+
 GitHub Copilot Chat can answer a wide range of coding-related questions on topics including syntax, programming concepts, test cases, debugging, and more. GitHub Copilot Chat is not designed to answer non-coding questions or provide general information on topics outside of coding.
 
 The primary supported language for GitHub Copilot Chat is English.
@@ -81,7 +83,7 @@ The key features and capabilities outlined here describe what GitHub Copilot Cha
 
 ## 4. Intended uses
 
-GitHub Copilot Chat can be used in multiple scenarios across a variety of industries. Some examples of use cases include:
+GitHub Copilot can be used in multiple scenarios across a variety of industries. Some examples of use cases include:
 
 * **Answering coding questions**: Ask GitHub Copilot Chat for help or clarification on specific coding problems and receive responses in natural language or code snippet format. The response may draw on the model's training data, repository context, and web search results (when enabled).
 * **Explaining code and suggesting improvements**: Generate natural language descriptions of a function's purpose, inputs, outputs, and dependencies. GitHub Copilot Chat can also suggest improvements such as better error handling or more readable control flow. Note that generated explanations may not always be accurate or complete and should be reviewed.
@@ -99,7 +101,7 @@ GitHub Copilot Chat can be used in multiple scenarios across a variety of indust
 
 ## 5. Models and training data
 
-GitHub Copilot Chat leverages a variety of AI models to power the experience that users see. For a comparison of the models available for Copilot, see [AUTOTITLE](/copilot/reference/ai-models/model-comparison). For the full list of supported models, see [AUTOTITLE](/copilot/reference/ai-models/supported-models). For information on where models are hosted, see [AUTOTITLE](/copilot/reference/ai-models/model-hosting). To learn more about the data used to train the foundation models behind GitHub Copilot Chat, refer to the linked AI model comparison above and [What data has GitHub Copilot been trained on?](https://github.com/features/copilot#faq) in the GitHub Copilot FAQ.
+GitHub Copilot leverages a variety of AI models to power the experience that users see. For a comparison of the models available for Copilot, see [AUTOTITLE](/copilot/reference/ai-models/model-comparison). For the full list of supported models, see [AUTOTITLE](/copilot/reference/ai-models/supported-models). For information on where models are hosted, see [AUTOTITLE](/copilot/reference/ai-models/model-hosting). To learn more about the data used to train the foundation models behind GitHub Copilot Chat, refer to the linked AI model comparison above and [What data has GitHub Copilot been trained on?](https://github.com/features/copilot#faq) in the GitHub Copilot FAQ.
 
 ### Using Bring Your Own Key (BYOK)
 
@@ -173,11 +175,11 @@ Understanding GitHub Copilot Chat's limitations is crucial to determine if it is
 
 ### Performance and quality evaluations
 
-GitHub Copilot Chat AI features are evaluated using a combination of industry-standard benchmarks (e.g., SWE-Bench) and internally developed evaluation suites. Benchmark tasks are sourced from public open-source repositories and synthetic scenarios; no real user queries or customer code are used. Each evaluation includes multiple independent runs to account for nondeterminism in model outputs. Key metrics include resolution rate (percentage of tasks successfully completed), token efficiency, latency, and tool call reliability. Models are re-evaluated when updates are made and monitored continuously in production via error rates, response latency, and aggregate usage patterns.
+GitHub Copilot is evaluated across its supported surfaces using a combination of industry standard benchmarks (e.g., SWE-Bench) and internally developed evaluation suites. Benchmark tasks are sourced from public open-source repositories and synthetic scenarios; no real user queries or customer code are used. Each evaluation includes multiple independent runs to account for nondeterminism in model outputs. Key metrics include resolution rate (percentage of tasks successfully completed), token efficiency, latency, and tool call reliability. Models are re-evaluated when updates are made and monitored continuously in production via error rates, response latency, and aggregate usage patterns.
 
 ### Performance and quality evaluation methods
 
-New models for GitHub Copilot Chat undergo a staged evaluation process before deployment. Integrator teams run benchmark suites specific to their surface, testing the model on representative coding tasks such as bug fixes, code generation, and multi-file refactoring. Results are reviewed against established baselines and existing production models. Models must meet or exceed baseline performance across key metrics like resolution rate, token efficiency, and latency, before advancing to the next stage. A cross-functional review board makes a formal go/no-go decision before any model is approved for user-facing deployment.
+New models for GitHub Copilot undergo a staged evaluation process before deployment. Integrator teams run benchmark suites specific to their surface, testing the model on representative coding tasks such as bug fixes, code generation, and multi-file refactoring. Results are reviewed against established baselines and existing production models. Models must meet or exceed baseline performance across key metrics like resolution rate, token efficiency, and latency, before advancing to the next stage. A cross-functional review board makes a formal go/no-go decision before any model is approved for user-facing deployment.
 
 ### Risk and safety evaluations
 
@@ -196,7 +198,7 @@ As part of our product development process, we undertake red teaming to understa
 * **Content filtering**: When enabled, the content filtering system detects and prevents the output of harmful content. If you encounter offensive content, report it to `copilot-safety@github.com`.
 * **Public code matching**: Depending on your settings, GitHub Copilot Chat may have the duplicate detection filter turned on or off. If on, GitHub Copilot Chat either blocks suggestions that match public code or annotates them with links to the source repositories and any license details. In VS Code, if you have enabled suggestions that match public code, GitHub Copilot Chat displays a message with a link to show the matched code and any license details in the editor. In Visual Studio, JetBrains, Eclipse, and GitHub Mobile, GitHub Copilot Chat uses filters that block matches with public code. Regardless of settings, you should take the same precautions as with any code that uses material you did not independently originate—including rigorous testing, IP scanning, and checking for security vulnerabilities. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/copilot-for-common-tasks/find-matching-code).
 
-## 10. Best practices for deploying and adopting GitHub Copilot Chat
+## 10. Best practices for deploying and adopting GitHub Copilot
 
 Responsible AI is a shared commitment between GitHub and its customers. While GitHub builds AI applications with safety, fairness, and transparency at the core, customers play a critical role in deploying and using these technologies responsibly within their own contexts. To support this partnership, we offer the following best practices for deployers and end users to help customers implement responsible AI effectively.
 
@@ -207,7 +209,7 @@ Responsible AI is a shared commitment between GitHub and its customers. While Gi
 * **Be aware of the risk of overreliance**: {% data reusables.rai.copilot.application-card-overreliance %}
 * **Exercise caution when designing agentic AI in sensitive domains**: {% data reusables.rai.copilot.application-card-agentic-ai-caution %}
 * **Use GitHub Copilot Chat as a tool, not a replacement**: While GitHub Copilot Chat can be a powerful tool for generating code, it is important to use it as a tool rather than a replacement for human programming. Always review and test code generated by GitHub Copilot Chat to ensure it meets your requirements and is free of errors or security concerns.
-* **Keep prompts on topic**: GitHub Copilot Chat is intended to address coding-related queries. Limiting prompts to coding questions or tasks enhances the model's output quality.
+* **Keep prompts on topic**: GitHub Copilot is intended to address coding-related queries. Limiting prompts to coding questions or tasks enhances the model's output quality.
 * **Use secure coding and code review practices**: Follow best practices for secure coding—such as avoiding hard-coded passwords or SQL injection vulnerabilities—and review all generated code.
 * **Be selective with context (Spaces)**: Adding only the most relevant files, repositories, and notes to a space helps Copilot stay focused. Overloading a space with unnecessary content can dilute response quality.
 * **Keep context updated (Spaces)**: As your project evolves, refresh the files, issues, or documentation in your space. Outdated context may cause Copilot to generate inaccurate or incomplete answers.

@@ -14,7 +14,7 @@ This guide will walk you through setting up the products in your {% data variabl
 
 ### 1. Learn about the {% data variables.product.prodname_ghe_cloud %} trial
 
-For full details of what is included in the trial, and what happens during, and after the trial, see [AUTOTITLE](/enterprise-cloud@latest/admin/overview/setting-up-a-trial-of-github-enterprise-cloud).
+For full details of the trial's features and what happens during the trial and when you convert to a paid enterprise, see [AUTOTITLE](/enterprise-cloud@latest/admin/overview/setting-up-a-trial-of-github-enterprise-cloud).
 
 ### 2. Sign up for the trial
 
@@ -29,5 +29,3 @@ You can find full instructions on setting up {% data variables.product.prodname_
 ## Part 3: Setting up {% data variables.product.prodname_GHAS %}
 
 You can find information about planning a trial of {% data variables.product.prodname_GHAS %} and exploring the additional options available with {% data variables.product.prodname_ghe_cloud %} in the [AUTOTITLE](/code-security/tutorials/trialing-github-advanced-security) articles.
-
-

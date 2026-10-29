@@ -131,11 +131,19 @@ Across all of your enterprise's organizations, you can allow or disallow people 
 
 As an enterprise owner, you can control whether organizations in your enterprise can enable AI Scan. This policy is set to "Not allowed" by default.
 
-Allowing AI Scan at the enterprise level does not enable it for any organization. Organization administrators must enable AI Scan for their organization. Eligible repositories where {% data variables.product.prodname_code_scanning %} is enabled inherit the organization setting, and repository administrators can opt out for individual repositories.
+{% ifversion ai-applications-scanning %}
+This same policy also controls {% data variables.product.prodname_ai_applications_scanning %}; there's no separate enterprise-level policy for that detector.
+{% endif %}
+
+Allowing this policy does not enable AI Scan{% ifversion ai-applications-scanning %} or {% data variables.product.prodname_ai_applications_scanning %}{% endif %} for any organization. Organization administrators must separately enable {% ifversion ai-applications-scanning %}each detector{% else %}AI Scan{% endif %} for their organization. Eligible repositories where {% data variables.product.prodname_code_scanning %} is enabled inherit the organization setting, and repository administrators can opt out for individual repositories{% ifversion ai-applications-scanning %}, for each detector{% endif %}.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.code-security-and-analysis-policies %}
 1. Under "AI Scan", select the dropdown menu and click a policy.
+
+{% ifversion ai-applications-scanning %}
+For information about enabling {% data variables.product.prodname_ai_applications_scanning %} at the organization level, see [AUTOTITLE](/code-security/concepts/code-scanning/ai-applications-scanning-for-pull-requests#how-to-enable-ai-applications-scanning).
+{% endif %}
 
 {% endif %}

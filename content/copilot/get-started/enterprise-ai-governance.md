@@ -31,7 +31,6 @@ journeyTracks:
     description: 'Learn what agents can do for your enterprise, and prepare to roll them out.'
     guides:
       - href: '/copilot/tutorials/roll-out-at-scale/enable-developers/integrate-ai-agents'
-      - href: '/copilot/concepts/enterprise/agent-management'
       - href: '/copilot/tutorials/cloud-agent/build-guardrails'
       - href: '/copilot/how-tos/administer-copilot/manage-mcp-usage/configure-enterprise-allowlist'
   - id: 'enable_agents'
@@ -40,7 +39,7 @@ journeyTracks:
     guides:
       - href: '/copilot/tutorials/roll-out-at-scale/enable-developers/drive-team-agentic-adoption'
       - href: '/copilot/tutorials/roll-out-at-scale/enable-developers/copilot-app-for-teams'
-      - href: '/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/enable-copilot-cloud-agent'
+      - href: '/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/manage-copilot-in-the-cloud'
       - href: '/copilot/tutorials/cloud-agent/give-access-to-resources'
       - href: '/copilot/how-tos/copilot-cli/administer-copilot-cli-for-your-enterprise'
       - href: '/copilot/tutorials/copilot-cli-hooks'

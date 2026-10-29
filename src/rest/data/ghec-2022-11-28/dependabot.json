@@ -10011,6 +10011,9 @@
         "permissions": [
           {
             "\"Enterprise administration\" enterprise permissions": "read"
+          },
+          {
+            "\"Enterprise security products\" enterprise permissions": "read"
           }
         ]
       }
@@ -10084,6 +10087,9 @@
         "permissions": [
           {
             "\"Enterprise administration\" enterprise permissions": "write"
+          },
+          {
+            "\"Enterprise security products\" enterprise permissions": "write"
           }
         ]
       }
@@ -10160,6 +10166,9 @@
         "permissions": [
           {
             "\"Enterprise administration\" enterprise permissions": "write"
+          },
+          {
+            "\"Enterprise security products\" enterprise permissions": "write"
           }
         ]
       }
