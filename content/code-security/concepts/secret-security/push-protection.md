@@ -23,15 +23,58 @@ Push protection is a {% data variables.product.prodname_secret_scanning %} featu
 
 ## How push protection works
 
-Push protection blocks secrets detected in:
-
-* Pushes from the command line
-* Commits made in the {% data variables.product.prodname_dotcom %} UI
-* File uploads to a repository on {% data variables.product.github %}
-* Requests to the REST API
-* Interactions with the {% data variables.product.github %} MCP server (public repositories only)
-
 When push protection detects a potential secret during a push attempt, it will block the push and provide a detailed message explaining the reason for the block. You will need to review the code in question, remove any sensitive information, and reattempt the push.
+
+Push protection can block the following types of secrets.
+
+### Partner patterns
+
+{% data variables.product.github %} blocks pushes containing provider-specific credentials where push protection is supported for that secret as part of {% data variables.product.prodname_secret_scanning %}'s partner program. See [Supported provider patterns](/code-security/reference/secret-security/supported-secret-scanning-patterns#supported-provider-patterns).
+
+### Generic patterns
+
+{% data variables.product.github %} blocks pushes containing structured secrets that are not tied to a specific provider, such as private keys and database connection strings. Scanning for generic patterns and push protection must be enabled in your repository's security settings or security configuration for this to work.{% ifversion push-protected-pattern-configuration %} The relevant patterns must also be enabled in your organization or enterprise's push protection pattern configuration. See [Specifying patterns to include in push protection](/code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/configure-global-settings#specifying-patterns-to-include-in-push-protection).{% endif %}
+
+### Custom patterns
+
+{% data variables.product.github %} blocks pushes containing custom patterns, which are regular expressions that you define to detect secrets specific to your repository, organization, or enterprise. When defining a custom pattern, you can choose to enable push protection for it. See [AUTOTITLE](/code-security/how-tos/secure-your-secrets/customize-leak-detection/define-custom-patterns).
+
+{% ifversion secret-scanning-ai-push-protection %}
+
+### Generic secrets found with AI
+
+> [!NOTE]
+> {% data reusables.secret-scanning.ai-push-protection-public-preview %}
+
+{% data variables.product.github %} blocks pushing containing unstructured secrets, such as passwords, that have been found using AI based on surrounding code context. To understand how this feature is billed, see [AUTOTITLE](/billing/concepts/product-billing/github-advanced-security#secret-protection-ai-credits). To enable the feature, see [AUTOTITLE](/code-security/how-tos/secure-your-secrets/prevent-future-leaks/enable-ai-push-protection).
+
+{% endif %}
+
+### Supported push surfaces
+
+The following table shows which secret types are blocked on each push surface.
+
+{% ifversion secret-scanning-ai-push-protection %}
+
+| Push surface | Partner patterns | Generic patterns | Custom patterns | Generic secrets found with AI |
+| --- | :-: | :-: | :-: | :-: |
+| Pushes from the command line | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| Commits made in the {% data variables.product.prodname_dotcom %} UI | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| File uploads to a repository on {% data variables.product.github %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| Requests to the REST API | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| Interactions with the {% data variables.product.github %} MCP server (public repositories only) | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+
+{% else %}
+
+| Push surface | Partner patterns | Generic patterns | Custom patterns |
+| --- | :-: | :-: | :-: |
+| Pushes from the command line | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| Commits made in the {% data variables.product.prodname_dotcom %} UI | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| File uploads to a repository on {% data variables.product.github %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| Requests to the REST API | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| Interactions with the {% data variables.product.github %} MCP server (public repositories only) | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+
+{% endif %}
 
 ## Types of push protection
 
@@ -76,7 +119,8 @@ If you want greater control over which contributors can bypass push protection a
 * **Reduced risk of credential leaks:** By blocking commits that contain hardcoded credentials, push protection significantly reduces the risk of accidental credential leaks and secret sprawl. This helps in safeguarding against potential breaches and maintaining the integrity of the codebase.
 * **Efficient secret management:** Instead of retrospectively dealing with exposed secrets, developers can address issues at the source. This makes secret management more efficient and less time-consuming.
 * **Bypass functionality for flexibility:** For cases where false positives occur or when certain patterns are necessary, you can bypass push protection for users, and designated users can use the delegated bypass feature to bypass push protection for repositories. {% ifversion push-protection-org-enterprise-exemptions %}Additionally, you can exempt trusted actors {% ifversion push-protection-repo-exemptions %}{% else %}at the organization and enterprise levels {% endif %}from push protection entirely. {% endif %}This provides flexibility without compromising overall security.
-* **Ability to detect custom patterns (for repositories in organizations):** Organizations can define custom patterns for detecting secrets unique to their environment. This customization ensures that push protection can effectively identify and block even non-standard secrets.
+* **Ability to detect custom patterns (for repositories in organizations):** Organizations can define custom patterns for detecting secrets unique to their environment. This customization ensures that push protection can effectively identify and block even non-standard secrets.{% ifversion secret-scanning-ai-push-protection %}
+* **Coverage beyond known patterns:** AI detects unstructured secrets, such as passwords, that no regular expression can reliably match.{% endif %}
 
 ## Customization
 
@@ -85,4 +129,3 @@ After you enable push protection for repositories, you can customize it by:
 * Defining custom patterns to block pushes containing unique secret patterns
 * Designating contributors who can bypass push protection and approve bypass requests for other contributors{% ifversion push-protection-org-enterprise-exemptions %}, or are exempt from push protection entirely{% endif %}{% ifversion push-protected-pattern-configuration %}
 * Configuring which secret patterns are included in push protection at the enterprise or organization level{% endif %}
-

@@ -20,7 +20,7 @@ You can also configure {% data variables.copilot.copilot_desktop_short %} to use
 * You have the base URL and at least one model identifier for the provider you want to use.
 
 > [!NOTE]
-> Custom LLM providers in {% data variables.product.prodname_desktop %} require access to {% data variables.copilot.copilot_desktop_short %}. To use your own LLM models with {% data variables.copilot.copilot_cli_short %}, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/use-byok-models).
+> Custom LLM providers in {% data variables.product.prodname_desktop %} require access to {% data variables.copilot.copilot_desktop_short %}. To use your own LLM models with {% data variables.copilot.copilot_cli_short %}, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/add-llm-models).
 
 ## Supported provider types
 
@@ -78,4 +78,4 @@ Always review generated commit messages and conflict-resolution suggestions befo
 
 * [AUTOTITLE](/desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project-in-github-desktop)
 * [AUTOTITLE](/copilot/reference/ai-models/supported-models)
-* [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/use-byok-models)
+* [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/add-llm-models)

@@ -25,7 +25,7 @@ You can view available apps on [{% data variables.product.prodname_marketplace %
 
 {% data reusables.copilot.agent-apps-entrypoints %}
 
-You can use these entry points in the same way as you use {% data variables.copilot.copilot_cloud_agent %} and other third-party coding agents. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/use-agent-apps).
+You can use these entry points in the same way as you use {% data variables.product.prodname_copilot_short %} and other third-party coding agents. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/use-agent-apps).
 
 ## How {% data variables.copilot.agent_apps %} work
 

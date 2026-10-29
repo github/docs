@@ -29,9 +29,9 @@ Setting up this feature involves two roles:
 * You have administrative SSH access to the {% data variables.product.prodname_ghe_server %} instance.
 * You have an API key from a supported LLM provider.
 * {% data variables.copilot.copilot_cli_short %} is installed on client machines. See [AUTOTITLE](/enterprise-cloud@latest/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli).
-* {% data variables.product.prodname_cli %} (`gh`) is installed on client machines. See [{% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/) in the {% data variables.product.prodname_cli %} documentation.
+* {% data variables.product.prodname_cli %} (`gh`) is installed on client machines. See [{% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/?utm_source=set-up-cli-ghes-docs-cli-manual&utm_medium=docs&utm_campaign=universe-2026) in the {% data variables.product.prodname_cli %} documentation.
 
-For information about supported providers and model requirements, see [AUTOTITLE](/enterprise-cloud@latest/copilot/how-tos/copilot-cli/customize-copilot/use-byok-models).
+For information about supported providers and model requirements, see [AUTOTITLE](/enterprise-cloud@latest/copilot/how-tos/copilot-cli/customize-copilot/add-llm-models).
 
 ## Configuring your {% data variables.product.prodname_ghe_server %} instance
 
@@ -81,7 +81,7 @@ Configure {% data variables.copilot.copilot_cli_short %} to connect to your {% d
 
 {% data variables.copilot.copilot_cli_short %} needs access to LLM inference, so `COPILOT_PROVIDER_GHES_TOKEN` is always required. You will also very likely want {% data variables.copilot.copilot_cli_short %} to perform {% data variables.product.github %} operations such as create issues, pull requests, and search repositories. Such operations can be done via the {% data variables.product.prodname_cli %}.
 
-It is recommended and preferred that you run `gh auth login --hostname YOUR-GHES-HOSTNAME`. After it succeeds, next step is to set `COPILOT_PROVIDER_GHES_TOKEN` to the token generated in `gh auth login --hostname YOUR-GHES-HOSTNAME`. It is more secure to retrieve the token dynamically rather than copying it from `~/.config/gh/hosts.yml`. You can do so by using `COPILOT_PROVIDER_GHES_TOKEN="$(gh auth token --hostname YOUR-GHES-HOSTNAME)"`. 
+It is recommended and preferred that you run `gh auth login --hostname YOUR-GHES-HOSTNAME`. After it succeeds, next step is to set `COPILOT_PROVIDER_GHES_TOKEN` to the token generated in `gh auth login --hostname YOUR-GHES-HOSTNAME`. It is more secure to retrieve the token dynamically rather than copying it from `~/.config/gh/hosts.yml`. You can do so by using `COPILOT_PROVIDER_GHES_TOKEN="$(gh auth token --hostname YOUR-GHES-HOSTNAME)"`.
 
 Alternatively, you can generate a {% data variables.product.pat_generic %} on your {% data variables.product.prodname_ghe_server %} instance, set that token as `COPILOT_PROVIDER_GHES_TOKEN`, and use the same token when running `gh auth login --hostname YOUR-GHES-HOSTNAME`.
 
@@ -107,7 +107,7 @@ The above approach works when you are using {% data variables.copilot.copilot_cl
    ```
 
    If you are authenticated with `gh auth login` to multiple accounts, you can set `GH_HOST` to your server's hostname and set `GH_ENTERPRISE_TOKEN` (or `GITHUB_ENTERPRISE_TOKEN`) to `"$(gh auth token --hostname YOUR-GHES-HOSTNAME)"`. This ensures {% data variables.product.prodname_cli %} targets your {% data variables.product.prodname_ghe_server %} instance.
-   
+
    ```shell
    export GH_HOST=YOUR-GHES-HOSTNAME
    export GH_ENTERPRISE_TOKEN="$(gh auth token --hostname YOUR-GHES-HOSTNAME)"
@@ -134,7 +134,7 @@ If both {% data variables.product.prodname_ghe_server %} and your {% data variab
 
  ❯ what is going on in github/codeql-action repo?                          13:33
 
- ● I’ll check recent repository activity on the GHES host: repo metadata, open 
+ ● I’ll check recent repository activity on the GHES host: repo metadata, open
    PRs/issues, and latest commits.
 
  $ Shell Fetch repo metadata 2 lines…                                         5s
@@ -157,4 +157,3 @@ The following table provides a directional overview of what is available in {% d
 | {% data variables.product.prodname_copilot_short %} model selection ({% data variables.product.github %}-hosted models) | {% octicon "check" aria-label="Available" %} | {% octicon "x" aria-label="Not available" %} |
 | Telemetry and usage reporting | {% octicon "check" aria-label="Available" %} | {% octicon "x" aria-label="Not available" %} |
 | Auto-update | {% octicon "check" aria-label="Available" %} | {% octicon "x" aria-label="Not available" %} |
-

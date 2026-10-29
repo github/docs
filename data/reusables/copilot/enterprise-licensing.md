@@ -1,4 +1,7 @@
-There are two main ways to grant access to {% data variables.product.prodname_copilot_short %} in an enterprise:
+Each user needs an assigned {% data variables.product.prodname_copilot_short %} seat, even when access has no incremental charge. {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_copilot_short %} assignments remain separate.
 
-* **Assign licenses directly to users or teams** in the enterprise. This approach simplifies license management at scale and provides the option of granting {% data variables.product.prodname_copilot_short %} licenses to users who don't consume a {% data variables.product.prodname_enterprise %} license. This approach is currently only available for **{% data variables.copilot.copilot_business_short %}** licenses.
-* **Enable {% data variables.product.prodname_copilot_short %} for organizations**. This approach allows you to choose {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} for individual organizations and give organization owners control to grant licenses to the users who need them most.
+Choose an assignment route for your enterprise's plan:
+
+* **{% data variables.product.prodname_copilot_short %} access**: Enterprise owners assign access to individuals, enterprise teams, or organizations. This applies for users who receive access through {% data variables.product.prodname_ghe_cloud %} and as {% data variables.copilot.copilot_standalone_short %}.
+* **{% data variables.copilot.copilot_business_short %}**: Enterprise owners can assign licenses directly to users or enterprise teams.
+* **{% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} through organizations**: Enterprise owners enable organizations, then organization owners assign licenses to members. Enterprise owners choose the plan for each organization.

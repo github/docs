@@ -26,6 +26,7 @@ docsTeamMetrics:
 | `copilot init`         | Initialize {% data variables.product.prodname_copilot_short %} custom instructions for this repository. |
 | `copilot login [OPTION]` | Authenticate with {% data variables.product.prodname_copilot_short %} via OAuth. See [`copilot login` options](#copilot-login-options). |
 | `copilot mcp`          | Manage MCP server configurations from the command line. |
+| `copilot memories import FILE` | Import prepared memories from a JSONL file. See [Importing memories](#importing-memories). |
 | `copilot plugin`       | Manage plugins and plugin marketplaces, including listing, enabling, disabling, and uninstalling them. `copilot plugins` (plural) is a legacy alias. See [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-plugin-reference). |
 | `copilot instruction` | Non-interactively list custom instruction sources discovered for the current working directory. See [Using `copilot instruction`](#using-copilot-instruction). |
 | `copilot lsp`          | Non-interactively list configured language servers. See [Using `copilot lsp`](#using-copilot-lsp). |
@@ -184,6 +185,22 @@ copilot lsp list --json
 Each `--json` entry has the shape `{ id, fileExtensions?, sourcePlugin? }`.
 
 Custom agents and session-scoped hooks aren't covered by `copilot instruction`, `copilot lsp`, `copilot plugin`, `copilot mcp`, or `copilot skill`. All require a live session.
+
+### Importing memories
+
+Use `copilot memories import` to validate and import user-level preferences and repository-level facts from a JSONL file.
+
+```shell
+copilot memories import PATH-TO-FILE
+```
+
+| Option | Description |
+| --- | --- |
+| `--dry-run` | Validate the complete file without authenticating or submitting memories. |
+| `--on-conflict skip\|error` | Skip conflicting records or treat them as errors. The default is `error`. |
+| `--output json` | Return the import result as JSON instead of human-readable text. |
+
+If any line fails schema validation, no records are submitted. After validation succeeds, records are submitted individually, so a service failure can result in a partial import. Check the per-record results and retry only failed records. The `--on-conflict skip` option skips duplicate IDs within the input file and conflicts reported by the memory service. It does not guarantee that repeating an import will avoid duplicate memories. For the file format and examples, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/copilot-memory/create-memories#importing-memories-with-copilot-cli).
 
 ### Using `copilot workflow run`
 
@@ -878,7 +895,7 @@ The `--allow-tool` and `--deny-tool` options accept permission patterns in the f
 
 | Kind | Description | Example patterns |
 |------|-------------|-----------------|
-| `memory` | Storing facts to agent memory | `memory` |
+| `memory` | Storing facts to agent memory. See [AUTOTITLE](/copilot/concepts/agents/copilot-memory). | `memory` |
 | `read` | File or directory reads | `read`, `read(.env)` |
 | `shell` | Shell command execution | `shell(git push)`, `shell(git:*)`, `shell` |
 | `url` | URL access via web-fetch or shell | `url(github.com)`, `url(https://*.api.com)` |

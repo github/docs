@@ -73,7 +73,7 @@ In repositories where automatic code review is enabled, {% data variables.produc
 * **Full project context gathering**. This provides more specific, accurate, and contextually aware code reviews. This capability analyzes your entire repository to better understand the context of code changes.
 * **The ability to pass suggestions to {% data variables.copilot.copilot_cloud_agent %}**. This automates creating a new pull request against your branch with the suggested fixes applied. Passing suggestions to {% data variables.copilot.copilot_cloud_agent %} is in public preview and subject to change.
 
-These capabilities are enabled automatically for all plans that include {% data variables.copilot.copilot_code-review_short %}. See [Review effort level](#review-effort-level) later in this article for information about choosing between Lite and Balanced analysis levels.
+These capabilities are enabled automatically for all plans that include {% data variables.copilot.copilot_code-review_short %}. See [Review effort level](#review-effort-level) later in this article for information about choosing between Lite, Balanced, and Max analysis levels.
 
 If {% data variables.product.prodname_actions %} is unavailable or if Actions workflows used by {% data variables.copilot.copilot_code-review_short %} fail, reviews will still be generated. However, they will not include the additional features provided by the agentic capabilities.
 
@@ -94,9 +94,9 @@ You can view the {% data variables.product.prodname_actions %} minutes associate
 
 ### Estimated consumption
 
-A review typically consumes an estimated $0.05 USD to $1 USD worth of {% data variables.product.prodname_ai_credits_short %} with "Lite" effort, and $0.25 USD to $5 USD worth of {% data variables.product.prodname_ai_credits_short %} with "Balanced" effort.
+The following table shows the estimated {% data variables.product.prodname_ai_credits_short %} consumption of a single review at each review effort level.
 
-Consumption generally increases with pull request size and repository custom instructions, and the ranges may change as models evolve. These estimates do not include {% data variables.product.prodname_actions %} minutes.
+{% data reusables.copilot.code-review.estimated-consumption %}
 
 Repository and organization administrators can set the default review effort level for automatic code reviews. For configuration steps, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-code-review#customizing-copilot-code-review-1).
 
@@ -182,8 +182,13 @@ For full instructions, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up
 
 * **Lite**: Standard review. Provides fast, targeted feedback on common issues such as bugs, security vulnerabilities, and style inconsistencies.
 * **Balanced**: Routes pull requests to a higher-reasoning model for longer analysis of complex logic, security-sensitive code, and cross-service changes (default). Balanced reviews use more {% data variables.product.prodname_ai_credits_short %}, and may consume marginally more {% data variables.product.prodname_actions %} minutes, than Lite reviews.
+* **Max**: The highest-effort review. Uses multiple high-reasoning models for the most intensive review of pull requests that require the most scrutiny.
 
-Use Balanced for security-sensitive code, multi-service pull requests, or repositories with strict quality standards. Use Lite for routine changes where fast feedback is more important than exhaustive analysis.
+>[!NOTE] Max review effort level is currently in {% data variables.release-phases.public_preview %} and subject to change.
+
+Use Max for high-risk or release-critical pull requests that need the most thorough review. Use Balanced for security-sensitive code, multi-service pull requests, or repositories with strict quality standards. Use Lite for routine changes where fast feedback is more important than exhaustive analysis.
+
+Higher effort levels consume more {% data variables.product.prodname_ai_credits_short %}. On average, a review costs an estimated {% data variables.copilot.copilot_code_review_lite_average_cost %} with Lite, {% data variables.copilot.copilot_code_review_balanced_average_cost %} with Balanced, and {% data variables.copilot.copilot_code_review_max_average_cost %} with Max. For typical ranges, see [Estimated consumption](#estimated-consumption).
 
 You can select {% data variables.product.prodname_copilot_short %} review effort when requesting a review in the pull request, under the **Reviewers** section where {% data variables.product.prodname_copilot_short %} appears as a reviewer. You can also set a default {% data variables.product.prodname_copilot_short %} review effort in your {% data variables.copilot.copilot_code-review_short %} settings. Organization owners can set a default {% data variables.product.prodname_copilot_short %} review effort for automatic code reviews in their organization. Repository administrators can override the organization default for a specific repository.
 
@@ -201,9 +206,6 @@ After {% data variables.copilot.copilot_code-review_short %} reviews a pull requ
 For configuration steps, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-code-review).
 
 ## {% data variables.product.prodname_copilot_short %} approvals
-
-> [!NOTE]
-> {% data reusables.copilot.automatic-approvals-public-preview %}
 
 Every {% data variables.copilot.copilot_code-review_short %} includes an approval assessment in the overview comment, indicating whether {% data variables.product.prodname_copilot_short %} has determined the pull request ready to approve after reviewing it. By default, {% data variables.product.prodname_copilot_short %}'s reviews do not count toward required approvals for the pull request.
 
@@ -268,9 +270,9 @@ These are short, natural-language statements that you write and store as one or 
 
 For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/add-skills) and [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions).
 
-### {% data variables.copilot.copilot_memory %} ({% data variables.release-phases.public_preview %})
+### {% data variables.copilot.copilot_memory %}
 
-If you have a {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, or {% data variables.copilot.copilot_max_short %} plan, you can enable {% data variables.copilot.copilot_memory %}. This allows {% data variables.product.prodname_copilot_short %} to store useful details it has learned about a repository. {% data variables.product.prodname_copilot_short %} can then use this information when it reviews pull requests in that repository. For more information, see [AUTOTITLE](/copilot/concepts/prompting-and-context/copilot-memory).
+When repository settings and applicable policies allow it, {% data variables.product.prodname_copilot_short %} can store useful details it has learned about a repository and use them when reviewing pull requests. {% data variables.copilot.copilot_code-review_short %} uses repository-level facts, not user-level preferences. For defaults and settings, see [AUTOTITLE](/copilot/concepts/prompting-and-context/copilot-memory#default-settings).
 
 ## Getting detailed code quality feedback across your repository
 

@@ -27,7 +27,7 @@ This article collects resources that you can send to teams in your company to ac
 
 These teams need to know the terms that will govern your company's purchase of {% data variables.product.prodname_copilot_short %}.
 
-* If you purchase directly from {% data variables.product.github %}, you'll be governed by the [GitHub Generative AI Services Terms](https://github.com/customer-terms/github-generative-ai-services-terms).
+* If you purchase directly from {% data variables.product.github %}, you'll be governed by the [GitHub Generative AI Services Terms](https://github.com/customer-terms/github-generative-ai-services-terms?utm_source=resources-getting-approval-article-generative-ai-services&utm_medium=docs&utm_campaign=universe-2026).
 * If you purchase through Microsoft, you'll be governed by [Microsoft's Product Terms](https://www.microsoft.com/licensing/terms). This includes both the [Microsoft Generative AI Service terms](https://www.microsoft.com/licensing/terms/product/ForOnlineServices/all), and terms specifically for [GitHub Offerings](https://www.microsoft.com/licensing/terms/productoffering/GitHubOfferings/allprograms).
 * {% data variables.product.prodname_copilot_short %} also falls under the [GitHub Data Protection Agreement](https://gh.io/dpa). This applies to all generally available (GA) {% data variables.product.prodname_copilot_short %} features and to the preview features listed in [GitHub DPA-Covered Previews](https://gh.io/dpa-previews).
 
@@ -55,7 +55,7 @@ These teams need to know how {% data variables.product.prodname_copilot_short %}
 
 * The allowlist required for a firewall or proxy to ensure {% data variables.product.prodname_copilot_short %} works as expected. See [AUTOTITLE](/copilot/reference/copilot-allowlist-reference).
 * The network protocol that {% data variables.product.prodname_copilot_short %} operates on by default, and your company's options for routing traffic through a proxy server and intercepting traffic. See [AUTOTITLE](/copilot/concepts/network-settings).
-* The option to use {% data variables.product.prodname_copilot_short %} in air-gapped environments by configuring API keys locally. See [AUTOTITLE](/copilot/concepts/models/bring-your-own-key#local-byok).
+* The option to use {% data variables.product.prodname_copilot_short %} in air-gapped environments by configuring API keys locally. See [AUTOTITLE](/copilot/concepts/models/bring-your-own-key#byok-configured-by-users).
 * The clients where users will be using {% data variables.product.prodname_copilot_short %}.
   * Your enterprise can enable or disable {% data variables.product.prodname_copilot_short %} in IDEs, on {% data variables.product.prodname_mobile %}, in the CLI, and on the {% data variables.product.github %} website.
   * If your company distributes approved software for users, IT teams may need to approve the supported versions of IDEs. See [AUTOTITLE](/copilot/reference/copilot-feature-matrix).

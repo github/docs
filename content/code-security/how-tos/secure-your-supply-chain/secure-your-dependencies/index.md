@@ -10,6 +10,7 @@ contentType: how-tos
 children:
   - /configure-dependabot-alerts
   - /configure-malware-alerts
+  - /configure-reachability-analysis
   - /protecting-endpoints-with-package-firewall
   - /configure-security-updates
   - /configure-version-updates

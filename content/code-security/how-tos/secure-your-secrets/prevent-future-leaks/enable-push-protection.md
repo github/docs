@@ -20,3 +20,11 @@ category:
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
 1. If you have not already enabled {% data variables.product.prodname_secret_protection %}, to the right of "{% data variables.product.prodname_secret_protection %}", click **Enable**.
 1. In the "{% data variables.product.prodname_secret_protection %}" section, to the right of "Push protection", click **Enable**.
+
+{% ifversion secret-scanning-ai-push-protection %}
+
+## Next steps
+
+* [AUTOTITLE](/code-security/how-tos/secure-your-secrets/prevent-future-leaks/enable-ai-push-protection)
+
+{% endif %}

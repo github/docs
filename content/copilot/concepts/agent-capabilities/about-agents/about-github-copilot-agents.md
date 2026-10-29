@@ -41,21 +41,21 @@ You can work with agents in several {% data variables.product.prodname_copilot_s
 
 ### {% data variables.copilot.github_copilot_app %}
 
-The {% data variables.copilot.github_copilot_app %} is a desktop application for directing agent-driven development. You can run multiple agent sessions in parallel, use local or cloud environments, and manage work from an initial task through pull request review. See [AUTOTITLE](/copilot/concepts/agents/github-copilot-app).
+The {% data variables.copilot.github_copilot_app %} is a desktop application for directing agent-driven development. You can run multiple agent sessions in parallel, use local or cloud environments, and manage work from an initial task through pull request review. See [AUTOTITLE](/copilot/concepts/copilot-surfaces/github-copilot-app).
 
 ### {% data variables.copilot.copilot_cli_short %}
 
-{% data variables.copilot.copilot_cli %} lets you work with an agent from your terminal. The agent can answer questions, modify files, run commands, and complete multi-step tasks in local or sandboxed environments. See [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-copilot-cli).
+{% data variables.copilot.copilot_cli %} lets you work with an agent from your terminal. The agent can answer questions, modify files, run commands, and complete multi-step tasks in local or sandboxed environments. See [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-cli).
 
 ### {% data variables.product.prodname_copilot_short %} in IDEs
 
-Agent mode in supported IDEs provides a collaborative experience in your local development environment. The agent can identify files to change, propose edits, run commands, and respond to your feedback while you work. See [AUTOTITLE](/copilot/how-tos/chat-with-copilot/chat-in-ide).
+Agent mode in supported IDEs provides a collaborative experience in your local development environment. The agent can identify files to change, propose edits, run commands, and respond to your feedback while you work. See [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/use-copilot-agents/use-agent-mode).
 
 ### {% data variables.product.github %}
 
-On {% data variables.product.github %}, you can delegate asynchronous work to {% data variables.copilot.copilot_cloud_agent %} from entry points such as the Agents view, issues, pull requests, and {% data variables.copilot.copilot_chat_short %}. The agent works in a cloud environment and can research a repository, create a plan, make changes on a branch, and open a pull request for review. See [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-cloud-agent).
+On {% data variables.product.github %}, you can delegate asynchronous work to {% data variables.product.prodname_copilot_short %} from entry points such as [github.com/copilot](https://github.com/copilot?ref_product=copilot&ref_type=engagement&ref_style=text&utm_source=about-agents-docs-dotcom&utm_medium=docs&utm_campaign=universe-2026), issues, and pull requests. The agent works in a cloud environment and can research a repository, create a plan, make changes on a branch, and open a pull request for review. See [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-on-github).
 
-You can also delegate tasks to supported third-party coding agents. These agents work alongside {% data variables.copilot.copilot_cloud_agent %} and return their changes through the same pull request workflow. See [AUTOTITLE](/copilot/concepts/agent-capabilities/about-agents/about-third-party-coding-agents).
+You can also delegate tasks to supported third-party coding agents. These agents work alongside {% data variables.product.prodname_copilot_short %} and return their changes through the same pull request workflow. See [AUTOTITLE](/copilot/concepts/agent-capabilities/about-agents/about-third-party-coding-agents).
 
 ### {% data variables.copilot.agent_apps_caps %}
 
@@ -67,7 +67,7 @@ You can configure agents to perform recurring or event-driven work. For example,
 
 ### {% data variables.product.prodname_copilot_short %} integrations
 
-You can integrate {% data variables.copilot.copilot_cloud_agent %} with various tools and platforms to enhance its functionality and streamline your development workflow. With integrations, you can work with and trigger {% data variables.copilot.copilot_cloud_agent %} from within your existing tools, such as Microsoft Teams, Slack, Linear, Azure Boards, and Jira, providing the cloud agent with the context it needs to assist you. See [AUTOTITLE](/copilot/concepts/agent-capabilities/choosing-and-delegating-agent-work/about-copilot-integrations).
+You can integrate {% data variables.product.prodname_copilot_short %} with various tools and platforms to enhance its functionality and streamline your development workflow. With integrations, you can work with and trigger {% data variables.product.prodname_copilot_short %} from within your existing tools, such as Microsoft Teams, Slack, Linear, Azure Boards, and Jira, providing the cloud agent with the context it needs to assist you. See [AUTOTITLE](/copilot/concepts/agent-capabilities/choosing-and-delegating-agent-work/about-copilot-integrations).
 
 ## Choosing an agent experience
 

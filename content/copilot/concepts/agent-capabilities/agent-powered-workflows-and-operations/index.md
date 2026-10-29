@@ -14,5 +14,6 @@ children:
   - /autopilot
   - /tool-search
   - /computer-use
+  - /image-generation
 contentType: concepts
 ---
