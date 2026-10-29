@@ -10,6 +10,7 @@ children:
   - /allowing-safe-commands
   - /custom-agents
   - /mcp
+  - /copilot-connectors
   - /hooks
   - /extensions
   - /plugins

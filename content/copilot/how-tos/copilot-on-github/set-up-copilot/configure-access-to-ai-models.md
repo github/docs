@@ -34,8 +34,12 @@ For individual {% data variables.product.prodname_copilot_short %} plans, you ca
 
 As an enterprise or organization owner, you can enable or disable access to AI models for members with a {% data variables.copilot.copilot_enterprise_short %} or {% data variables.copilot.copilot_business_short %} seat. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-availability-of-default-models) or [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/manage-default-models).
 
+Image generation uses a dedicated image generation model, which you manage in the same model policy. To turn off image generation for members, disable this model. See [AUTOTITLE](/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/image-generation).
+
 ## Custom models
 
 {% data reusables.copilot.byok-two-mechanisms %}
 
 For more information, see [AUTOTITLE](/copilot/concepts/models/bring-your-own-key).
+
+Windows users can also add the {% data variables.copilot.mai_code_1_1_flash %} model to their local machine, directly from {% data variables.copilot.copilot_cli_short %}, the {% data variables.copilot.github_copilot_app_short %}, or {% data variables.product.prodname_vscode %}, provided their computer meets the required system resources. {% data reusables.copilot.model-download-from-app %}

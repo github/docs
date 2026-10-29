@@ -8,7 +8,7 @@ children:
   - /prepare-for-custom-agents
   - /create-github-private-repo
   - /monitor-agentic-activity
-  - /enable-copilot-cloud-agent
+  - /manage-copilot-in-the-cloud
   - /block-agentic-features
   - /enable-copilot-code-review
 contentType: how-tos

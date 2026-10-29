@@ -13,7 +13,8 @@ docsTeamMetrics:
   - copilot-cli
 ---
 
-{% data reusables.public-preview.public-preview %}
+> [!NOTE]
+> {% data reusables.public-preview.public-preview %}
 
 This article explains how to create, use, and share dynamic workflows in {% data variables.copilot.copilot_cli %} and the {% data variables.copilot.github_copilot_app %}.
 
@@ -187,7 +188,7 @@ Plugins provide a way to distribute custom {% data variables.product.prodname_co
 
 For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/plugins-creating).
 
-After creating a plugin containing your dynamic workflow, and publishing it on a plugin marketplace, people will be able to discover and install it. See [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/plugins-finding-installing#installing-plugins).
+After creating a plugin containing your dynamic workflow and publishing it on a plugin marketplace, people can discover and install it. For instructions, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/plugins-finding-installing).
 
 ## Monitoring and managing dynamic workflow runs
 

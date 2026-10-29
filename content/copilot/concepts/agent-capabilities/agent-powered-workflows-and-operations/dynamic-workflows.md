@@ -13,7 +13,8 @@ docsTeamMetrics:
   - copilot-cli
 ---
 
-{% data reusables.public-preview.public-preview %}
+> [!NOTE]
+> {% data reusables.public-preview.public-preview %}
 
 This article explains what dynamic workflows are and what they can do. For details of how to use them, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/use-dynamic-workflows).
 
@@ -58,7 +59,7 @@ In {% data variables.copilot.copilot_cli_short %}, you can also run an existing 
 
 The command waits for the run to finish or stop before returning control to your shell. Use this approach to repeat a workflow with specific inputs, save its result, or run it from a script or CI/CD pipeline. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/use-dynamic-workflows#running-a-dynamic-workflow-from-the-command-line).
 
-You can also start a workflow through an extension's slash command, custom tool, or programmatic hook, or from other code that uses the {% data variables.copilot.copilot_sdk %}. In the {% data variables.copilot.github_copilot_app_short %}, an extension can provide a canvas—a custom interface—with controls to start the workflow. These alternatives depend on the extension and the client you're using.
+You can also start a workflow through an extension's slash command, custom tool, or programmatic hook, or from other code that uses the {% data variables.copilot.copilot_sdk_short %}. In the {% data variables.copilot.github_copilot_app_short %}, an extension can provide a canvas—a custom interface—with controls to start the workflow. These alternatives depend on the extension and the client you're using.
 
 For more information about canvases, see [AUTOTITLE](/copilot/how-tos/github-copilot-app/working-with-canvas-extensions).
 

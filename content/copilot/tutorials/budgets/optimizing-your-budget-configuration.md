@@ -12,7 +12,7 @@ redirect_from:
 versions:
   feature: copilot
 permissions: Enterprise owners, organization owners, and billing managers
-product: '{% data variables.copilot.copilot_enterprise_short %} or {% data variables.copilot.copilot_business_short %}'
+product: '{% data reusables.copilot.enterprise-billing-availability %}'
 contentType: tutorials
 category:
   - Manage Copilot for a team
@@ -22,24 +22,22 @@ Before optimizing your budget configuration, make sure you understand how budget
 
 If you haven't set up budgets yet, start with [AUTOTITLE](/copilot/tutorials/budgets/getting-started-with-budget-controls) to get the basics in place, then come back to this guide to optimize your configuration.
 
-To decide between managing cost centers using the user interface or the REST API see [AUTOTITLE](/billing/tutorials/control-costs-at-scale).
+To decide between managing cost centers using the user interface or the REST API, see [AUTOTITLE](/billing/tutorials/control-costs-at-scale).
 
 ## Sizing your budgets
 
-The relationship between user-level budgets (ULB) and other budgets is the most common source of unexpected blocking. If user-level budgets collectively allow more consumption than the shared pool provides, the difference becomes metered charges, and your budgets need to be high enough to cover that gap.
+Size user-level budgets (ULBs) for expected consumption, then calculate how much metered spending they could allow. Use historical consumption if available. If you have no history, start with a small rollout and use its consumption to refine your estimate.
 
-Here's how to estimate:
+1. Calculate the maximum total consumption your ULBs allow. Count each user once, using their most specific budget: an individual override, otherwise a cost center ULB, otherwise the universal ULB.
+1. Calculate any included pool value:
+   * With {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %}, multiply the credits included per license by the number of seats, then convert the total to US dollars at 1 {% data variables.product.prodname_ai_credit_singular %} = {% data variables.product.prodname_ai_credits_value %}.
+   * With {% data variables.product.prodname_copilot_short %} access, through {% data variables.product.prodname_ghe_cloud %} or as {% data variables.copilot.copilot_standalone_short %}, use $0 USD. Neither option includes credits. The access price is not a usage allowance.
+1. Subtract any included pool value from the maximum consumption. The result, or $0 USD if the pool covers all consumption, is the maximum metered spend those ULBs allow.
+1. Set spending limits based on your approved spend. Enable **Stop usage when budget limit is reached** to enforce them.
 
-1. Calculate the maximum total consumption your user-level budgets allow. For users on the universal budget, multiply their number by the universal ULB. Add the total for any cost center user-level budgets—the per-user amount multiplied by the number of users in each cost center. Then add the sum of any individual ULB overrides.
-1. Calculate your pool value: multiply your {% data variables.copilot.copilot_business_short %} seats by {% data variables.copilot.cfb_price_per_month %} and your {% data variables.copilot.copilot_enterprise_short %} seats by {% data variables.copilot.ce_price_per_month %}, then add them together.
-1. Subtract the pool value from the maximum total consumption. The result is the maximum metered charges your budgets need to cover.
+A spending limit can be lower than the consumption your ULBs allow. In that case, users may be blocked before reaching their individual limits. Recheck the calculation whenever you raise ULBs.
 
-If you also use cost center budgets, the sum of your cost center budgets and your enterprise budget should cover the gap. The enterprise budget applies to users not assigned to a cost center.
-
-If you want each cost center to stay within the {% data variables.product.prodname_ai_credits_short %} its own licenses fund, apply an included usage control to that cost center. This automatically caps the team's draw from the shared pool, so heavy use by one team doesn't consume another team's share before metered budgets apply. See [AUTOTITLE](/copilot/concepts/billing-and-usage/organizations-and-enterprises/budgets#included-usage-controls-for-cost-centers).
-
-> [!TIP]
-> Whenever you raise user-level budgets, re-check this calculation. Raising ULBs without raising the enterprise budget can cause the enterprise budget to block users before they reach their individual budgets.
+For plans with an included pool, you can also limit each cost center's draw from it. See [AUTOTITLE](/copilot/concepts/billing-and-usage/organizations-and-enterprises/budgets#included-usage-controls-for-cost-centers).
 
 ## Choosing a scope
 
@@ -51,7 +49,7 @@ For most enterprises, we recommend **cost center budgets with users directly ass
 | Organization budget | Organization owners need to set their own spending limits without enterprise admin involvement. | Organization owners |
 | Enterprise budget | You need a failsafe that caps total metered charges for all users not covered by a narrower budget. | Enterprise owners, billing managers |
 
-If users in your enterprise have {% data variables.product.prodname_copilot_short %} licenses from multiple organizations, both organization budgets and cost centers that only contain organizations (not users) will enforce unpredictably. The billing organization is chosen at random each cycle, so spend may count against a different budget from month to month. Assigning users directly to cost centers avoids this problem.
+With {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %}, users can receive licenses from multiple organizations. For these users, both organization budgets and cost centers that only contain organizations (not users) will enforce unpredictably. The billing organization is chosen at random each cycle, so spend may count against a different budget from month to month. Assigning users directly to cost centers avoids this problem.
 
 ### Migrating from organization budgets to cost centers
 
@@ -65,13 +63,13 @@ If your enterprise already has organization budgets, they will continue to work.
 
 The following scenarios show common budget configurations for different enterprise structures.
 
-### Manage shared usage responsibly
+### Set a baseline for individual consumption
 
-**Situation:** You want to prevent any single user from consuming a disproportionate share of the pool, while still allowing flexibility for heavier users.
+**Situation:** You want to limit individual consumption while allowing flexibility for heavier users.
 
 **Configuration:**
 
-* Set a **universal user-level budget** above the per-license value to allow pooling to work.
+* Set a **universal user-level budget** based on expected consumption. If your plan includes a shared pool, set it above the per-user allowance value so heavier users can draw on lighter users' unused credits.
 * Set **individual user-level budget overrides** for known power users who need higher limits.
 * Set an **enterprise budget** as a safety net for metered charges.
 * Enable **"Stop usage when budget limit is reached"** on the enterprise budget.
@@ -85,7 +83,7 @@ This is the simplest configuration and a good starting point for most enterprise
 **Configuration:**
 
 * Create **cost centers** scoped to each organization. See [AUTOTITLE](/billing/how-tos/products/use-cost-centers).
-* Apply an **included usage control** to each cost center so a business unit can't draw more of the shared pool than the included {% data variables.product.prodname_ai_credits_short %} its own licenses fund, choosing whether to block or allow paid overage at the cap.
+* On {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %}, apply an **included usage control** to each cost center. This limits each business unit's use of the shared pool to the {% data variables.product.prodname_ai_credits_short %} its own licenses fund. Choose whether to block or allow paid overage at the cap.
 * Set a **cost center budget** for each business unit.
 * Set an **enterprise budget** as a failsafe for any users not assigned to a cost center.
 * Enable **"Stop usage when budget limit is reached"** on all budgets.
@@ -135,7 +133,7 @@ This is the most granular configuration. It combines per-user controls (who can 
 
 Organization budgets are the only budget option available to organization owners. An organization budget can only further restrict usage below any budget set by an enterprise admin. It cannot override a higher-level budget.
 
-If users in your enterprise have {% data variables.product.prodname_copilot_short %} licenses assigned through multiple organizations, organization budgets may not enforce predictably for those users. In this case, {% data variables.product.github %} picks one organization at random each billing cycle to bill the seat. This means the user's spend could count against a different organization's budget from month to month, making enforcement unpredictable. To avoid this, ensure each user has a single license through one organization, or use cost center budgets with direct user assignment.
+For {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %} users with licenses assigned through multiple organizations, organization budgets may not enforce predictably. {% data variables.product.github %} picks one organization at random each billing cycle to bill the seat. To avoid spend counting against different budgets from month to month, ensure each user has a single license through one organization, or use cost center budgets with direct user assignment.
 
 ## Using historical data to size budgets
 

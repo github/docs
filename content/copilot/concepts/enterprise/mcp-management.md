@@ -18,6 +18,8 @@ You can manage MCP server usage in your organization or enterprise by configurin
 
 The **MCP servers in {% data variables.product.prodname_copilot_short %}** policy defines whether MCP servers can run at all across {% data variables.product.prodname_copilot_short %} clients. We recommend keeping this policy enabled and, if necessary, restricting the MCP servers that users can run to an approved list.
 
+This policy also applies to {% data variables.product.prodname_copilot_short %} connectors. Because connectors are in {% data variables.release-phases.public_preview %}, the **Editor preview features** policy must also be enabled. To enable it, see [AUTOTITLE](/enterprise-cloud@latest/copilot/how-tos/administer-copilot/manage-for-organization/manage-policies#enabling-copilot-features-and-models-in-your-organization) or [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-enterprise-policies#defining-policies-for-your-enterprise). On clients that enforce your MCP restrictions, connectors are blocked if **Restrict MCP access to registry servers** is set to **Registry only**, or if your allowlist doesn't include connector URLs. See [AUTOTITLE](/copilot/concepts/customizations/copilot-connectors#enabling-connectors-in-your-organization).
+
 ## MCP allowlists
 
 The recommended method for creating an allowlist is to use your enterprise's `{% data variables.copilot.managed_setting_file %}` file. This allows you to apply settings across clients that users cannot override.
