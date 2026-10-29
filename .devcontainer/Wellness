@@ -1,0 +1,430 @@
+<!--
+  index.md — repository landing / getting started
+  Replace every <PLACEHOLDER> before publishing.
+  Placeholders are wrapped in <> so they are easy to find-and-replace.
+-->
+
+# <PROJECT_NAME>
+
+> <ONE_LINE_DESCRIPTION_OF_PROJECT>
+
+[![License](https://img.shields.io/badge/license-<LICENSE>-blue.svg)](LICENSE)
+[![Python](https://img.shields.io/badge/python-3.11%2B-blue.svg)](https://www.python.org/)
+[![CI](https://github.com/<ORG>/<REPO>/actions/workflows/ci.yml/badge.svg)](https://github.com/<ORG>/<REPO>/actions/workflows/ci.yml)
+[![Contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](CONTRIBUTING.md)
+
+**Repo:** https://github.com/&lt;ORG&gt;/&lt;REPO&gt;
+**Docs:** https://github.com/&lt;ORG&gt;/&lt;REPO&gt;/tree/main/docs
+**Issues:** https://github.com/&lt;ORG&gt;/&lt;REPO&gt;/issues
+**Discussions:** https://github.com/&lt;ORG&gt;/&lt;REPO&gt;/discussions
+
+---
+
+## Table of Contents
+
+1. [What This Project Is](#1-what-this-project-is)
+2. [Prerequisites](#2-prerequisites)
+3. [Quick Start (5 Minutes)](#3-quick-start-5-minutes)
+4. [Dependency Pinning & Lock Files](#4-dependency-pinning--lock-files)
+5. [Repository Layout](#5-repository-layout)
+6. [AI-Assisted Development (Per-User Access)](#6-ai-assisted-development-per-user-access)
+7. [Pull Request Workflow](#7-pull-request-workflow)
+8. [Testing & Quality Gates](#8-testing--quality-gates)
+9. [Documentation Map](#9-documentation-map)
+10. [Troubleshooting](#10-troubleshooting)
+11. [Getting Help](#11-getting-help)
+
+---
+
+## 1. What This Project Is
+
+<PROJECT_NAME> is <WHAT IT DOES>. It is released under the <LICENSE> license and is developed in the open — anyone may read the source, file issues, propose changes, or fork it.
+
+Because the project is open source, contributions arrive from many different environments and toolchains. This document therefore specifies **exactly one canonical setup path** so that builds are reproducible for everyone, regardless of which editor or AI assistant a given contributor prefers.
+
+**Design goals**
+
+| Goal | How it is enforced |
+|---|---|
+| Reproducible installs | Fully pinned `requirements.txt` + hash-checked lock file |
+| Consistent formatting | `ruff` + `black`, run via pre-commit |
+| Predictable reviews | PR template, conventional commits, required CI |
+| Tool-neutral contribution | No contributor is required to use any specific AI tool |
+
+---
+
+## 2. Prerequisites
+
+| Requirement | Minimum | Check |
+|---|---|---|
+| Python | 3.11 | `python --version` |
+| Git | 2.40 | `git --version` |
+| pip | 24.0 | `pip --version` |
+| Node.js *(only if building docs)* | 20 LTS | `node --version` |
+| OS | Linux, macOS, or Windows + WSL2 | — |
+
+Recommended but optional:
+
+- [`uv`](https://docs.astral.sh/uv/) — fastest resolver, reads the same lock file
+- [`pre-commit`](https://pre-commit.com/) — runs lint/format hooks before each commit
+- [`gh`](https://cli.github.com/) — GitHub CLI, handy for opening PRs from the terminal
+
+---
+
+## 3. Quick Start (5 Minutes)
+
+```bash
+# 1. Fork on GitHub, then clone YOUR fork
+git clone https://github.com/<YOUR_USERNAME>/<REPO>.git
+cd <REPO>
+
+# 2. Add the upstream remote so you can stay in sync
+git remote add upstream https://github.com/<ORG>/<REPO>.git
+
+# 3. Create an isolated environment
+python -m venv .venv
+source .venv/bin/activate        # macOS / Linux
+# .venv\Scripts\activate         # Windows PowerShell
+
+# 4. Upgrade the installer itself, then install PINNED dependencies
+python -m pip install --upgrade pip==<PINNED_PIP_VERSION>
+pip install --require-hashes -r requirements.txt
+
+# 5. Install the package in editable mode with dev extras
+pip install -e ".[dev]"
+
+# 6. Install git hooks
+pre-commit install
+
+# 7. Verify everything works
+pytest -q
+```
+
+If step 7 passes, you are ready to work. Nothing else is required.
+
+---
+
+## 4. Dependency Pinning & Lock Files
+
+This project pins **everything**: the installer, the runtime dependencies, the dev dependencies, and the transitive tree. Three equivalent workflows are supported — pick whichever matches your habits, but commit the lock file your tool produces.
+
+### Option A — `pip-tools` (recommended, plain `pip`)
+
+Keep loose constraints in `.in` files; compile them into pinned, hash-checked `.txt` files.
+
+```bash
+pip install pip-tools
+
+# requirements.in holds top-level, loosely-ranged pins
+cat > requirements.in <<'EOF'
+httpx>=0.27,<0.28
+pydantic>=2.7,<3
+EOF
+
+# Compile to a fully pinned lock with hashes
+pip-compile --generate-hashes --output-file=requirements.txt requirements.in
+
+# Dev dependencies separately
+pip-compile --generate-hashes --output-file=requirements-dev.txt requirements-dev.in
+```
+
+Install exactly what the lock says, refusing anything whose hash does not match:
+
+```bash
+pip install --require-hashes -r requirements.txt
+```
+
+**Rules**
+
+- `requirements.in` / `requirements-dev.in` — hand-edited, ranges allowed.
+- `requirements.txt` / `requirements-dev.txt` — **generated, never hand-edited.** Every line carries `==` and a `--hash=sha256:...`.
+- Regenerate the lock in its own commit, titled `chore(deps): recompile lock files`.
+
+### Option B — `uv`
+
+```bash
+uv venv
+uv pip compile requirements.in --generate-hashes -o requirements.txt
+uv pip sync requirements.txt
+```
+
+`uv.lock` is committed alongside `pyproject.toml`.
+
+### Option C — Poetry
+
+```bash
+poetry lock          # writes poetry.lock
+poetry install --sync
+```
+
+Commit `poetry.lock`. Never commit a lock file generated by a different tool than the one the project declares in `pyproject.toml`.
+
+### Pin the interpreter too
+
+Declare the supported range once, in `pyproject.toml`:
+
+```toml
+[project]
+requires-python = ">=3.11,<3.14"
+```
+
+And pin the CI matrix so local and remote agree:
+
+```yaml
+# .github/workflows/ci.yml (excerpt)
+strategy:
+  matrix:
+    python-version: ["3.11", "3.12", "3.13"]
+```
+
+### Why pin?
+
+| Without pinning | With pinning |
+|---|---|
+| Build breaks when a transitive dep ships a breaking minor | Identical tree everywhere, forever |
+| "Works on my machine" bug reports | Reproducible bug reports |
+| Silent supply-chain substitution | Hash mismatch aborts the install |
+
+---
+
+## 5. Repository Layout
+
+```
+<REPO>/
+├── .github/
+│   ├── workflows/ci.yml          # lint, type-check, test matrix
+│   ├── ISSUE_TEMPLATE/
+│   └── pull_request_template.md
+├── docs/                         # long-form documentation
+│   ├── index.md                  # ← you are here
+│   ├── development.md            # architecture & internals
+│   ├── api-reference.md
+│   └── ai-tooling.md             # per-user AI access policy
+├── src/<package>/                # library code
+├── tests/                        # unit + integration tests
+├── requirements.in               # loose, hand-edited
+├── requirements.txt              # pinned, generated
+├── pyproject.toml                # metadata, tool config
+├── CONTRIBUTING.md
+├── CODE_OF_CONDUCT.md
+├── SECURITY.md
+└── LICENSE
+```
+
+---
+
+## 6. AI-Assisted Development (Per-User Access)
+
+The project does not mandate or bundle any AI assistant. Contributors may use whichever tool their own account or employer permits. This section records the landscape so reviewers know what to expect in a diff.
+
+### 6.1 The important caveat
+
+Availability is **per user and per subscription tier**, and it changes frequently — models are added and retired on a rolling basis. According to GitHub's own documentation, the supported-model list and the retirement schedule are revised regularly, and GitHub's changelog notes that model rollouts differ between surfaces (IDE, CLI, and web chat). Treat any table below as a snapshot, not a contract, and confirm against the live docs before relying on it.
+
+### 6.2 GitHub Copilot tiers (snapshot, Oct 2026)
+
+Reporting on Copilot's model lineup describes roughly 32 models from Anthropic, OpenAI, Google, xAI, Moonshot AI and Microsoft as of mid-October 2026, with access gated by plan:
+
+| Plan | Model selection |
+|---|---|
+| **Free / Student** | Auto selection only — Copilot chooses the model |
+| **Pro** | Auto, plus manual choice of smaller/faster models (Haiku- and Sonnet-class Claude, smaller GPT models, Gemini Flash, Grok, Kimi K3, MAI-Code-1.1-Flash) |
+| **Pro+ / Max / Business / Enterprise** | Everything above, plus frontier models (Opus- and Fable-class Claude, larger GPT tiers, Gemini 4 Argon) |
+
+Separately, GitHub documents **base** and **long-term support (LTS)** models that apply only to Business and Enterprise plans, and designates an LTS model that GitHub commits to keeping available for an extended period. Per GitHub's docs, GPT-5.3-Codex was designated the base model on 18 March 2026.
+
+Sources: GitHub Docs — *Supported AI models in GitHub Copilot*, *Plans for GitHub Copilot*, *Base and long-term support (LTS) models*; GitHub Changelog; third-party reporting on Copilot model tiers (October 2026).
+
+### 6.3 Extension and plugin surface
+
+Beyond raw model choice, Copilot can be extended:
+
+- **Copilot Extensions** — partner-built integrations announced by GitHub, including DataStax, Docker, LambdaTest, LaunchDarkly, McKinsey & Company, Microsoft Azure and Teams, MongoDB, Octopus Deploy, Pangea, Pinecone, Product Science, ReadMe, Sentry, and Stripe. Availability rolled out progressively; check the GitHub Marketplace for current listings.
+- **Copilot CLI plugins** — installable from marketplaces such as GitHub's official `github/copilot-plugins` and the community `github/awesome-copilot` collections, e.g. `copilot plugin install ai-ready@awesome-copilot`.
+
+Source: GitHub Blog — *Introducing GitHub Copilot Extensions*; community write-up on Copilot CLI plugins and marketplaces.
+
+### 6.4 Data-handling notes worth knowing
+
+GitHub documents a zero-data-retention agreement with Anthropic covering generally available Anthropic features in Copilot, with certain newer Claude models excluded by default and subject to a time-bound exemption through the end of 2026 for eligible enterprises. GitHub has also stated that, from 24 April, interactions from Free, Pro and Pro+ subscribers may be used to improve its models unless the user opts out.
+
+Practical consequence for this repo: **do not paste secrets, customer data, or unreleased security fixes into any AI assistant.** See `SECURITY.md`.
+
+### 6.5 House rules for AI-assisted contributions
+
+1. **Disclose, don't apologize.** Note in the PR description if an AI assistant produced a substantial portion of the diff.
+2. **You own the code.** The contributor is the author of record and answers review questions personally.
+3. **No generated licenses or headers.** Do not let a tool insert a license header it invented.
+4. **Tests are not optional.** Generated code arrives with tests, or it does not merge.
+5. **Verify claims.** AI-suggested APIs, flags, and version numbers must be checked against pinned dependency versions in this repo.
+6. **One tool, no lock-in.** Nothing in the build, CI, or docs may depend on a specific AI vendor.
+
+---
+
+## 7. Pull Request Workflow
+
+### 7.1 Branch naming
+
+```
+feat/<short-slug>       new capability
+fix/<short-slug>        bug fix
+docs/<short-slug>       documentation only
+chore/<short-slug>      tooling, deps, CI
+refactor/<short-slug>   behaviour-preserving restructuring
+```
+
+### 7.2 Conventional commits
+
+```
+feat(parser): support nested include directives
+fix(cli): exit non-zero when config is malformed
+docs(index): add pinned-install instructions
+chore(deps): recompile lock files
+```
+
+Types: `feat`, `fix`, `docs`, `style`, `refactor`, `perf`, `test`, `build`, `ci`, `chore`, `revert`.
+
+### 7.3 Step by step
+
+```bash
+# Stay current
+git fetch upstream
+git switch -c feat/my-change upstream/main
+
+# Work, committing in logical chunks
+git add -p
+git commit -m "feat(scope): describe the change"
+
+# Rebase rather than merge to keep history linear
+git fetch upstream
+git rebase upstream/main
+
+# Push and open the PR
+git push -u origin feat/my-change
+gh pr create --fill --base main
+```
+
+### 7.4 What reviewers look for
+
+| Area | Expectation |
+|---|---|
+| Scope | One logical change per PR; unrelated cleanup goes in its own PR |
+| Tests | New behaviour is covered; bug fixes include a regression test |
+| Types | Public functions annotated; `mypy` clean |
+| Deps | Any new dependency is justified, pinned, and reflected in the lock file |
+| Docs | User-visible changes update `docs/` and `CHANGELOG.md` |
+| Security | No secrets, no `eval` on untrusted input, no disabled TLS verification |
+| Accessibility | UI changes keep keyboard operability and accessible names intact |
+
+### 7.5 PR description template
+
+```markdown
+## Summary
+<what changed and why, in two sentences>
+
+## Linked issue
+Closes #<NUMBER>
+
+## Type of change
+- [ ] Bug fix
+- [ ] New feature
+- [ ] Breaking change
+- [ ] Documentation
+- [ ] Dependency / tooling
+
+## How it was tested
+<commands run, environments covered>
+
+## AI assistance
+- [ ] No AI assistance used
+- [ ] AI assistance used — tool: <NAME>, scope: <WHAT IT GENERATED>
+
+## Checklist
+- [ ] Follows the style guide and passes `pre-commit run --all-files`
+- [ ] Tests added or updated, and passing locally
+- [ ] Lock files regenerated if dependencies changed
+- [ ] Docs and CHANGELOG updated
+- [ ] No secrets or personal data included
+```
+
+### 7.6 Review etiquette
+
+- Authors: keep PRs under ~400 changed lines where possible; respond to every comment, even if only to say "done" or "disagree because…".
+- Reviewers: distinguish blocking issues from nits — prefix nits with `nit:`. Approve when the change is an improvement, not when it is perfect.
+- Anyone may open a draft PR early to gather direction before investing effort.
+
+---
+
+## 8. Testing & Quality Gates
+
+```bash
+pre-commit run --all-files     # format + lint
+ruff check src/ tests/         # lint
+mypy src/                      # static types
+pytest -q                      # unit tests
+pytest --cov=<package> --cov-report=term-missing   # coverage
+```
+
+Required to merge:
+
+- All CI jobs green on the pinned Python matrix
+- Coverage not reduced relative to `main`
+- At least one maintainer approval
+- No unresolved review threads
+
+---
+
+## 9. Documentation Map
+
+| Document | Audience | Contents |
+|---|---|---|
+| `README.md` | Everyone | Pitch, badges, one-paragraph install |
+| `docs/index.md` *(this file)* | New contributors | Setup, pinning, PR flow, AI policy |
+| `docs/development.md` | Contributors | Architecture, module boundaries, debugging |
+| `docs/api-reference.md` | Integrators | Public API surface, signatures, examples |
+| `docs/ai-tooling.md` | Contributors | Fuller per-user AI access notes |
+| `CONTRIBUTING.md` | Contributors | Short pointer back to this file |
+| `CODE_OF_CONDUCT.md` | Everyone | Expected conduct and enforcement |
+| `SECURITY.md` | Everyone | Vulnerability reporting, data-handling rules |
+| `CHANGELOG.md` | Users | Notable changes per release |
+
+---
+
+## 10. Troubleshooting
+
+**`pip install` fails with a hash mismatch**
+Something in the resolved tree differs from the lock. Do not bypass with `--no-deps`. Delete `.venv`, re-run `pip install --require-hashes -r requirements.txt`, and if it still fails, open an issue with your platform and Python version.
+
+**`ModuleNotFoundError` for a local package**
+Editable install missing: `pip install -e ".[dev]"`.
+
+**`pre-commit` reformats files on every commit**
+Expected on first run. Stage the reformatted files and commit again.
+
+**CI passes locally but fails remotely**
+Compare Python versions. Locally you may be on 3.13 while CI also runs 3.11. Use `tox` or `uv` to test the full matrix.
+
+**Rebase conflicts in a lock file**
+Regenerate rather than resolve by hand: take `main`'s version, then re-run the compile step.
+
+---
+
+## 11. Getting Help
+
+- **Questions about usage** → GitHub Discussions
+- **Bug reports** → Issues, using the bug template
+- **Feature proposals** → Issues, using the feature template, or an RFC PR against `docs/rfcs/`
+- **Security disclosures** → private channel described in `SECURITY.md`; never a public issue
+- **Conduct concerns** → contacts listed in `CODE_OF_CONDUCT.md`
+
+---
+
+<div align="center">
+
+**Thanks for contributing.** Every issue triaged, typo fixed, and test written makes the project better for the next person.
+
+</div>
+
+---
+
+*Document version: 1.0 · Last reviewed: <DATE> · Maintainer: <MAINTAINER_HANDLE>*
