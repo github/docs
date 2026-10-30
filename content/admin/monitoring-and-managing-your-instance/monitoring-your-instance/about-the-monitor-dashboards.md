@@ -52,11 +52,13 @@ Starting with {% data variables.product.prodname_ghe_server %} 3.18, you can cre
 
 > [!IMPORTANT] Pre-built dashboards can be opened and edited for inspection, but changes cannot be saved. Create a copy of a dashboard to apply and retain any customizations.
 
-You can use OpenTelemetry and collectd metrics concurrently for external monitoring. During the {% data variables.release-phases.public_preview %}, collectd remains enabled and cannot be disabled.
-
 For more information about OpenTelemetry metrics, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/opentelemetry-metrics/about-opentelemetry-metrics).
 
+{% ifversion ghes < 3.23 %}
+
 For more information about collectd metrics, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/collectd-metrics/about-collectd-metrics).
+
+{% endif %}
 
 ## About the metrics on the monitor dashboards
 
