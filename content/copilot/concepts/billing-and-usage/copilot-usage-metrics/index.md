@@ -20,6 +20,7 @@ children:
   - /content/copilot/reference/copilot-usage-metrics/lines-of-code-metrics
   - /content/copilot/reference/copilot-usage-metrics/team-level-metrics
   - /content/copilot/tutorials/roll-out-at-scale/measure-success
+  - /content/copilot/tutorials/roll-out-at-scale/communicate-copilot-impact
   - /content/copilot/tutorials/roll-out-at-scale/assign-licenses/track-usage-and-adoption
   - /content/copilot/reference/copilot-usage-metrics/example-schema
 includedCategories:
