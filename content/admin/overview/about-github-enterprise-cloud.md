@@ -30,6 +30,10 @@ A key difference between {% data variables.product.prodname_ghe_cloud %} and oth
 
 {% data reusables.enterprise.enterprise-types %}
 
+## {% data variables.product.prodname_copilot_short %} access
+
+Eligible enterprises can provide {% data variables.product.prodname_copilot_short %} access to licensed users at no additional per-user access charge. Administrators must assign access separately, and metered usage is billed from the first use without an included allowance. For eligibility and details, see [AUTOTITLE](/copilot/get-started/whats-changing-with-github-enterprise-and-copilot).
+
 ## About {% data variables.enterprise.data_residency_short %}
 
 If you choose an enterprise with managed users, you can also choose where your company's data is stored.

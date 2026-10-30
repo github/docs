@@ -38,7 +38,7 @@ With {% data variables.product.prodname_free_user %}, your personal account incl
 * 120 {% data variables.product.prodname_github_codespaces %} core hours per month
 * 15 GB {% data variables.product.prodname_github_codespaces %} storage per month {% endif %}
 * {% data variables.product.prodname_actions %} features:
-  * 2,000 minutes per month
+  * {% ifversion fpt or ghec %}$12 USD of included compute usage per month{% else %}2,000 minutes per month{% endif %}
   * Deployment protection rules for public repositories
 * GitHub Pages in public repositories
 
@@ -46,7 +46,7 @@ With {% data variables.product.prodname_free_user %}, your personal account incl
 
 In addition to the features available with {% data variables.product.prodname_free_user %} for personal accounts, {% data variables.product.prodname_pro %} includes:
 * {% data variables.contact.github_support %} via email
-* 3,000 {% data variables.product.prodname_actions %} minutes per month
+* {% ifversion fpt or ghec %}$18 USD of included compute usage per month for eligible {% data variables.product.prodname_actions %} and cloud sandbox usage{% else %}3,000 {% data variables.product.prodname_actions %} minutes per month{% endif %}
 * 2 GB {% data variables.product.prodname_registry %} storage {% ifversion fpt or ghec %}
 * 180 {% data variables.product.prodname_github_codespaces %} core hours per month
 * 20 GB {% data variables.product.prodname_github_codespaces %} storage per month {% endif %}
@@ -74,13 +74,13 @@ With {% data variables.product.prodname_free_team %} for organizations, you can 
 In addition to the features available with {% data variables.product.prodname_free_user %} for personal accounts, {% data variables.product.prodname_free_team %} for organizations includes:
 * {% data variables.product.prodname_gcf %}
 * Team access controls for managing groups
-* 2,000 {% data variables.product.prodname_actions %} minutes per month
+* {% ifversion fpt or ghec %}$12 USD of included compute usage per month for eligible {% data variables.product.prodname_actions %} and cloud sandbox usage{% else %}2,000 {% data variables.product.prodname_actions %} minutes per month{% endif %}
 
 ### {% data variables.product.prodname_team %}
 
 In addition to the features available with {% data variables.product.prodname_free_team %} for organizations, {% data variables.product.prodname_team %} includes:
 * {% data variables.contact.github_support %} via email
-* 3,000 {% data variables.product.prodname_actions %} minutes per month
+* {% ifversion fpt or ghec %}$18 USD of included compute usage per month for eligible {% data variables.product.prodname_actions %} and cloud sandbox usage{% else %}3,000 {% data variables.product.prodname_actions %} minutes per month{% endif %}
 * 2 GB {% data variables.product.prodname_registry %} storage
 * The option to purchase {% data variables.product.prodname_GHAS %} products:
   * {% data variables.product.prodname_GH_code_security %}
@@ -132,8 +132,8 @@ In addition to the features available with {% data variables.product.prodname_te
 * Additional features such as internal repositories and repository rules.
 
 {% data variables.product.prodname_ghe_cloud %} specifically includes:
-* 50,000 {% data variables.product.prodname_actions %} minutes per month
-  * Included minutes can be used with standard {% data variables.product.prodname_dotcom %}-hosted runners only. For more information about billing for {% data variables.actions.hosted_runners %}, see [AUTOTITLE](/enterprise-cloud@latest/actions/concepts/runners/larger-runners#billing).
+* {% ifversion fpt or ghec %}$300 USD of included compute usage per month for eligible {% data variables.product.prodname_actions %} and cloud sandbox usage. For details about which usage qualifies, see [AUTOTITLE](/billing/concepts/product-billing/github-actions).{% else %}50,000 {% data variables.product.prodname_actions %} minutes per month
+  * Included minutes can be used with standard {% data variables.product.prodname_dotcom %}-hosted runners only. For more information about billing for {% data variables.actions.hosted_runners %}, see [AUTOTITLE](/enterprise-cloud@latest/actions/concepts/runners/larger-runners#billing).{% endif %}
 * 50 GB {% data variables.product.prodname_registry %} storage
 * A service level agreement for 99.9% monthly uptime
 * The option to centrally manage policy and billing for multiple {% data variables.product.prodname_dotcom %} organizations with an enterprise account. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/concepts/enterprise-fundamentals/enterprise-accounts).

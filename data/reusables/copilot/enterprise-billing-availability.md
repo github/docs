@@ -1,0 +1,1 @@
+{% data variables.copilot.copilot_business_short %}, {% data variables.copilot.copilot_enterprise_short %}, or the {% data variables.product.prodname_copilot_short %} access plan for eligible enterprises

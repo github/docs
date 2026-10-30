@@ -50,7 +50,7 @@ sections:
     - |
       The first user created via SAML-JIT during first-run bootstrap on a fresh GHES appliance was not added as an Enterprise owner.
     - |
-      Enterprise Managed Users could remain absent from enterprise membership listings and the `enterprise.members` GraphQL response after being reinstated.
+      After a user account was unsuspended, the user could remain missing from the enterprise member list and the results of GraphQL queries using `enterprise.members`. [Updated: 2026-10-30]
     - |
       On the secret scanning metrics page for a large enough enterprise, the page could time out.
     - |

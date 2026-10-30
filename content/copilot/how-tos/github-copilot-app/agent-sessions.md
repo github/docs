@@ -13,14 +13,17 @@ category:
   - Author and optimize with Copilot
 ---
 
+You can start a session from a repository to tackle work in that repository, or start a project to give {% data variables.product.prodname_copilot_short %} a goal and let it coordinate the work. Projects can span one or more repositories or focus on tasks that don't require a repository. See [AUTOTITLE](/copilot/how-tos/github-copilot-app/working-with-projects).
+
 ## Starting a session
 
-Each session in the {% data variables.copilot.github_copilot_app %} runs in its own isolated workspace, so you can run multiple sessions in parallel and make progress on several tasks without conflicts.
+You can run sessions in separate worktrees to make progress on several tasks in parallel, or work in an existing checkout.
 
 1. In the sidebar, next to **Sessions**, click {% octicon "plus" aria-label="New" %}.
 1. Under "Start session in," select a connected repository or folder. To connect one first, choose **Add {% data variables.product.github %} repository**, **Clone repository**, or **Open local folder**.
-1. From the dropdown under the prompt box, choose where the session should run: in a new working tree, in your local repository, or in a cloud sandbox. Cloud sandboxes are fully isolated environments hosted by {% data variables.product.github %}.
-1. Select a session mode, model, and reasoning effort from the dropdowns below the prompt field. If you choose **Auto** for the model, the app selects the optimal model for your task based on task complexity.
+1. Below the prompt box, open the "Environment" dropdown menu and select **This computer** or **Cloud**. Cloud sessions run in isolated sandboxes hosted by {% data variables.product.github %}. See [Using cloud and local sandboxes](#using-cloud-and-local-sandboxes).
+1. Below the prompt box, open the "Workspace" dropdown menu and select **New worktree** to use a separate working copy of the repository, or **Current checkout** to work in the existing checkout. You can also choose the base branch.
+1. Select a session mode, model, and reasoning effort from the dropdowns below the prompt field. If you choose **{% data variables.copilot.copilot_fusion_short %}** and an effort level, {% data variables.product.prodname_copilot_short %} analyzes each task and selects a model to complete it, orchestrating multiple models through the available execution patterns when needed.
 1. Describe the task in the prompt field. You can reference issues with `#`, add files with `@`, or use `/` for commands.
 
 The agent starts working. Your active sessions appear in the sidebar grouped by repository—click any session to switch to it.
@@ -63,9 +66,9 @@ To set the default permission level for future local sessions:
 
 You can select a model and reasoning effort from the dropdowns below the prompt field. Higher reasoning effort gives the agent more time to think through complex problems but may take longer. You can change both settings at any time during a session.
 
-If you choose **Auto** in the model picker, the app automatically selects the optimal model for your task based on task complexity. After the session starts, the picker next to **Auto** shows which model handled each response. For more information, see [AUTOTITLE](/copilot/concepts/models/auto-model-selection).
+If you choose **Fusion** in the model picker and then an effort level, the app automatically selects the models and execution patterns for your task. While {% data variables.copilot.copilot_fusion_short %} works, you can follow the progress of each step and the model being used. When the response is provided, you can hover over the effort level name below the response to see a list of models used. For more information, see [AUTOTITLE](/copilot/concepts/models/copilot-fusion).
 
-If you configured your own model provider in the app, those models also appear in the picker. For setup steps, see [AUTOTITLE](/copilot/how-tos/github-copilot-app/use-byok-models).
+If you configured your own model provider in the app, those models also appear in the picker. For setup steps, see [AUTOTITLE](/copilot/how-tos/github-copilot-app/add-llm-models).
 
 Hover over the {% octicon "info" aria-label="the info icon" %} icon in the model picker to see model details.
 
@@ -86,15 +89,28 @@ Use **Manage sessions** to view, search, and filter sessions and chats, includin
 
 ## Using cloud and local sandboxes
 
-> [!NOTE]
-> {% data reusables.cli.public-preview-cloud-sandbox %}
-
 Cloud and local sandboxes protect sessions in different ways:
 
-* **Cloud sandbox**: Runs the entire session in an isolated environment hosted by {% data variables.product.github %}. Use a cloud sandbox when you want to keep the session off your machine or run several resource-intensive tasks in parallel. Choose the cloud sandbox execution location when starting a session.
-* **Local sandbox**: Runs the session on your machine, but restricts the filesystem, network, and credential access available to agent-run tools. Use local sandboxing when the agent needs your local tools or development services, but you want to limit its access to the rest of your machine. Configure the default for new local repository and working tree sessions in the repository settings, or use `/sandbox on` or `/sandbox off` to change an active local session.
+* **Cloud sandbox**: Runs the entire session in an isolated environment hosted by {% data variables.product.github %}. Use a cloud sandbox when you want to keep the session off your machine or run several resource-intensive tasks in parallel. Select **Cloud** from the **Environment** dropdown menu when starting a session. You can then follow and steer the session from any {% data variables.product.prodname_copilot_short %} client.
+* **Local sandbox**: Runs the session on your machine, but restricts the filesystem, network, and credential access available to agent-run tools. Use local sandboxing when the agent needs your local tools or development services, but you want to limit its access to the rest of your machine. Configure the default for new local repository and working tree sessions in the project settings, or use `/sandbox on` or `/sandbox off` to change an active local session.
 
-Local sandboxing does not apply to cloud sandbox sessions or sessions that run on a remote host. For more information about how both types of sandbox work, see [AUTOTITLE](/copilot/concepts/about-cloud-and-local-sandboxes). To enable local sandboxing, see [AUTOTITLE](/copilot/how-tos/cloud-and-local-sandboxes/using-local-sandboxing).
+> [!NOTE]
+> {% data reusables.copilot.cloud-and-local-sandboxes-separate %}
+
+Local sandboxing does not apply to cloud sandbox sessions or sessions that run on a remote host. For more information about how both types of sandbox work, see [AUTOTITLE](/copilot/concepts/security-governance-and-network-settings/about-cloud-and-local-sandboxes) and [AUTOTITLE](/copilot/concepts/security-governance-and-network-settings/about-cloud-sandboxes). To enable local sandboxing, see [AUTOTITLE](/copilot/how-tos/cloud-and-local-sandboxes/using-local-sandboxing).
+
+## Running sessions in WSL
+
+On Windows, you can use the app to run agent sessions in a Windows Subsystem for Linux (WSL) 2 distribution. Before you begin, sign in to the app with your {% data variables.product.github %} account and make sure WSL 2 is installed with a repository or folder available in the distribution.
+
+1. Open a terminal in your WSL distribution and run `gh auth login` to authenticate with {% data variables.product.github %}. Authentication inside WSL is separate from signing in to the app on Windows.
+1. Open the app settings, then select **Environments** in the sidebar. The app automatically discovers installed WSL distributions.
+1. Click **Connect** for your WSL distribution.
+1. Open the distribution's details. Under **Repositories and folders**, click **Add repository or folder**.
+1. Select or type the Linux path to your repository or folder, then click **Add repository** or **Add folder**.
+1. Start a session for the repository or folder. From the **Environment** dropdown menu under the prompt box, select your distribution under **Environments**.
+
+If **Environments** is not visible, select **Experimental** in app settings and make sure **WSL hosts** is enabled.
 
 ## Using `/security-review` in app sessions
 
@@ -108,6 +124,8 @@ You can run the `/security-review` slash command in an active agent session to r
 1. Review the findings, then update your code changes as needed.
 
 This lightweight, on-demand review complements {% data variables.product.github %} {% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_dependabot %}, and {% data variables.product.prodname_secret_scanning %} by giving you an initial check on your local changes before opening a pull request.
+
+To work with local review findings and existing {% data variables.product.prodname_code_scanning %} alerts alongside your session, install the {% data variables.product.github %} security extension. See [AUTOTITLE](/copilot/how-tos/github-copilot-app/view-and-fix-security-alerts).
 
 ## Using the rubber duck agent
 

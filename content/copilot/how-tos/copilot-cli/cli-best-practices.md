@@ -88,17 +88,17 @@ Use `/model` to choose from available models based on your task complexity:
 
 | Model | Best For | Tradeoffs |
 | ----- | -------- | --------- |
-| **Auto** | Reduced rate limiting and lower latency and errors | See [AUTOTITLE](/copilot/concepts/models/auto-model-selection) |
+| **{% data variables.copilot.copilot_fusion_short %}** | Offers multiple effort levels to let you prioritize the quality, cost, and capability tradeoffs that the system prioritizes for each prompt. | See [AUTOTITLE](/copilot/concepts/models/copilot-fusion) |
 | **{% data variables.copilot.claude_opus_5 %}** | Complex architecture, difficult debugging, nuanced refactoring | Most capable but more costly |
 | **{% data variables.copilot.claude_sonnet_5 %}** | Day-to-day coding, most routine tasks | Fast, cost-effective, handles most work well |
 | **{% data variables.copilot.gpt_53_codex %}** | Code generation, code review, straightforward implementations | Excellent for reviewing code produced by other models |
 
 **Recommendations:**
 
-* **Auto** intelligently chooses models based on real-time system health and model performance (reducing rate limiting and providing lower latency and errors), and the complexity of the task you have given {% data variables.product.prodname_copilot_short %}.
+* **{% data variables.copilot.copilot_fusion_short %}** is an advanced runtime model router and orchestrator. It chooses models and execution patterns for your task, then returns a single response.
 * **{% data variables.copilot.claude_opus_5 %}** is ideal for tasks requiring deep reasoning, complex system design, subtle bug investigation, or extensive context understanding.
 * **Switch to {% data variables.copilot.claude_sonnet_5 %}** for routine tasks where speed and cost efficiency matter—it handles the majority of everyday coding effectively.
-* **Use Codex** for high-volume code generation and as a second opinion for reviewing code produced by other models.
+* **Use {% data variables.copilot.gpt_53_codex %}** for high-volume code generation and as a second opinion for reviewing code produced by other models.
 
 You can switch models mid-session with `/model` as task complexity changes.
 

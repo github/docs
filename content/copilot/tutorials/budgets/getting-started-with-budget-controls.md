@@ -5,21 +5,24 @@ intro: 'Set up budget guardrails for your enterprise before your team starts con
 versions:
   feature: copilot
 permissions: Enterprise owners, organization owners, and billing managers
-product: '{% data variables.copilot.copilot_enterprise_short %} or {% data variables.copilot.copilot_business_short %}'
+product: '{% data reusables.copilot.enterprise-billing-availability %}'
 contentType: tutorials
 category:
   - Manage Copilot for a team
 ---
 
-Under usage-based billing, your enterprise's included {% data variables.product.prodname_ai_credits_short %} are pooled and shared across all licensed users. Without budget controls in place, a single heavy user or automated agent session can consume a disproportionate share of the pool early in the billing cycle, leaving less for everyone else.
+Set budget controls before rolling out {% data variables.product.prodname_copilot_short %} so that usage stays within your approved spending limits. A heavy user or automated agent session can consume a large amount of {% data variables.product.prodname_ai_credits_short %} in a short time.
 
 Before you begin, make sure you understand how the four budget controls work and how the system evaluates them. See [AUTOTITLE](/copilot/concepts/billing-and-usage/organizations-and-enterprises/budgets).
 
 ## Step 1: Set a universal user-level budget
 
-The universal user-level budget (ULB) is the single most important control. It caps how much any one user can consume per billing cycle—from both the shared pool and any additional metered usage—and applies automatically to every licensed user in your enterprise.
+The universal user-level budget (ULB) caps how much any one user can consume per billing cycle. It applies automatically to every licensed user in your enterprise.
 
-Set the universal ULB **above** the per-license value ({% data variables.copilot.cfb_price_per_month %} for {% data variables.copilot.copilot_business_short %}, {% data variables.copilot.ce_price_per_month %} for {% data variables.copilot.copilot_enterprise_short %}). Setting it above the per-license value lets pooling work as intended: heavier users can draw from lighter users' unused portions, rather than being capped at exactly their own license value.
+Size this budget for expected consumption, including any usage covered by an included allowance:
+
+* With {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %}, set it **above** the value of the per-user allowance ({% data variables.copilot.cfb_price_per_month %} or {% data variables.copilot.ce_price_per_month %}, respectively). This lets heavier users draw on lighter users' unused credits.
+* With the {% data variables.product.prodname_copilot_short %} access plan, through {% data variables.product.prodname_ghe_cloud %} or as {% data variables.copilot.copilot_standalone_short %}, there is no included allowance. Do not use the per-user access charge as a consumption limit.
 
 For step-by-step instructions, see [AUTOTITLE](/billing/how-tos/set-up-budgets#creating-a-budget).
 
@@ -36,7 +39,7 @@ If the override is only meant to be temporary, such as a higher limit for one sp
 
 ## Step 3: Set an enterprise spending limit
 
-The enterprise spending limit caps your total metered charges after the shared pool is exhausted. It doesn't affect how users draw from the pool, it only applies once the pool runs out and usage moves to pay-as-you-go.
+The enterprise spending limit caps metered charges. On {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %}, the limit applies only after the shared pool is exhausted, not while users draw from the pool. With included {% data variables.product.prodname_copilot_short %} access or {% data variables.copilot.copilot_standalone_short %}, metered charges begin at first use.
 
 See [Sizing your spending limits](/copilot/tutorials/budgets/optimizing-your-budget-configuration#sizing-your-budgets) for guidance on calculating the right amount for your enterprise.
 
@@ -53,9 +56,9 @@ To turn your spending limit into a hard stop, enable "Stop usage when budget lim
 
 Once your budgets are in place, check your AI usage dashboard at least monthly. Look for:
 
-* **Users getting blocked early in the cycle**: Your universal ULB is too restrictive, or that a power user needs an individual override.
-* **Metered charges appearing unexpectedly**: The pool is being exhausted before the end of the cycle. Consider whether usage patterns have changed and whether your spending limits need adjusting.
-* **Pool lasting all month with no blocked users**: This is the target state. Your budgets are well-sized.
+* **Users getting blocked early in the cycle**: Check whether the applicable ULB or spending limit needs adjusting.
+* **Metered charges exceeding expectations**: Review consumption and adjust your spending limits. If your plan includes an allowance, check whether the pool is being exhausted earlier than expected.
+* **Usage staying within your approved spending limits with no blocked users**: This is the target state. On plans with an included allowance, also check how long the pool lasts.
 
 ## Next steps
 

@@ -82,7 +82,9 @@ Windows virtual machines are configured to run as administrators with User Accou
 
 To get a list of IP address ranges that {% data variables.product.prodname_actions %} uses for {% data variables.product.prodname_dotcom %}-hosted runners, you can use the {% data variables.product.prodname_dotcom %} REST API. For more information, see the `actions` key in the response of the `GET /meta` endpoint. For more information, see [AUTOTITLE](/rest/meta/meta#get-github-meta-information).
 
-Windows and Ubuntu runners are hosted in Azure and subsequently have the same IP address ranges as the Azure datacenters. macOS runners are hosted in {% data variables.product.prodname_dotcom %}'s own macOS cloud.
+Eligible Linux runners use a multi-cloud compute pool, so their outbound IP addresses are not limited to Azure datacenter ranges. Keep any IP allowlists or network-based access policies used by your workflows in sync with all ranges in the `actions` array, rather than relying on cloud-provider-specific ranges. Policies that allow only Azure or Microsoft-owned ranges, including Microsoft Entra Conditional Access policies, can block connections or authentication from these runners.
+
+For multi-cloud eligibility, see [Cloud hosts used by {% data variables.product.prodname_dotcom %}-hosted runners](/actions/concepts/runners/github-hosted-runners#cloud-hosts-used-by-github-hosted-runners). macOS runners are hosted in {% data variables.product.prodname_dotcom %}'s own macOS cloud.
 
 Since there are so many IP address ranges for {% data variables.product.prodname_dotcom %}-hosted runners, we do not recommend that you use these as allowlists for your internal resources. Instead, we recommend you use {% data variables.actions.hosted_runner %}s with a static IP address range, or self-hosted runners. For more information, see [AUTOTITLE](/actions/how-tos/manage-runners/larger-runners) or [AUTOTITLE](/actions/concepts/runners/self-hosted-runners).
 

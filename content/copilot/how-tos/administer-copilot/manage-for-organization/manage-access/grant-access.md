@@ -26,7 +26,9 @@ category:
 
 {% ifversion ghec %}After a {% data variables.product.prodname_dotcom %} enterprise owner enables {% data variables.copilot.copilot_enterprise_short %} or {% data variables.copilot.copilot_business_short %} for an organization, an owner of that organization can grant {% data variables.product.prodname_copilot %} access to members of their organization.{% else %}After setting up a {% data variables.copilot.copilot_business_short %} plan, an organization owner can grant {% data variables.product.prodname_copilot %} access to members of their organization.{% endif %}
 
-Billing for {% data variables.product.prodname_copilot %} starts when you grant an organization member access, irrespective of when they first use {% data variables.product.prodname_copilot_short %}. If you grant an organization member access midway through a billing cycle, the cost is prorated for the remainder of the cycle. For more information, see [AUTOTITLE](/billing/concepts/product-billing/github-copilot-licenses).
+For these plans, seat billing starts when you grant an organization member access, irrespective of when they first use {% data variables.product.prodname_copilot_short %}. If you grant an organization member access midway through a billing cycle, the cost is prorated for the remainder of the cycle. For more information, see [AUTOTITLE](/billing/concepts/product-billing/github-copilot-licenses).
+
+Enterprise owners can also assign seats to users directly, without going through an organization. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-access/grant-access).
 
 ## Granting access to {% data variables.product.prodname_copilot %} for all current and future users in your organization
 

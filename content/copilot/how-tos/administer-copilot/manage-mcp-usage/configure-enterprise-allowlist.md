@@ -16,9 +16,11 @@ docsTeamMetrics:
 
 ## About allowlists
 
-You can define an allowlist and denylist to control which MCP servers users in your enterprise can run in {% data variables.product.prodname_copilot_short %} clients. These lists are defined in your enterprise's `{% data variables.copilot.managed_setting_file %}`, which you can store on {% data variables.product.github %}.
+You can define an allowlist and denylist to control which MCP servers users in your enterprise can run in {% data variables.product.prodname_copilot_short %} clients and cloud sandboxes. These lists are defined in your enterprise's `{% data variables.copilot.managed_setting_file %}`, which you can store on {% data variables.product.github %}. For more information, see [AUTOTITLE](/copilot/concepts/enterprise/mcp-management).
 
-For more information, see [AUTOTITLE](/copilot/concepts/enterprise/mcp-management).
+{% data reusables.copilot.cloud-agent.mcp-allowlist-caveat %}
+
+These controls also apply to {% data variables.product.prodname_copilot_short %} connectors on clients that support MCP managed settings. If you define an allowlist, users can only use connectors whose URLs match an allowlist entry. See [Allowing {% data variables.product.prodname_copilot_short %} connectors](#allowing-copilot-connectors).
 
 ## Prerequisites
 
@@ -53,6 +55,43 @@ You can find these settings in the {% octicon "mcp" aria-hidden="true" aria-labe
      ]
    }
    ```
+
+## Allowing {% data variables.product.prodname_copilot_short %} connectors
+
+{% data variables.product.prodname_copilot_short %} connectors are remote MCP servers, so you allow or block them with `serverUrl` entries. If you don't define `allowedMcpServers`, connectors are allowed unless they match a `deniedMcpServers` entry, and you don't need to add them. If you define `allowedMcpServers`, connectors are blocked unless their URLs match an entry.
+
+To allow all connectors, including connectors added in the future, add the following wildcard entry to your existing `allowedMcpServers` list.
+
+```json copy
+{
+  "allowedMcpServers": [
+    { "serverUrl": "https://api.github.com/copilot-connectors/api/v1/connectors/*/mcp" }
+  ]
+}
+```
+
+To allow only specific connectors, add an entry for each connector's URL instead. For the URL of each connector, see [Connector URLs](#connector-urls). For example, the following entries allow the Slack and Sentry connectors.
+
+```json copy
+{
+  "allowedMcpServers": [
+    { "serverUrl": "https://api.github.com/copilot-connectors/api/v1/connectors/githubcopilotslackmcp/mcp" },
+    { "serverUrl": "https://api.github.com/copilot-connectors/api/v1/connectors/githubcopilotsentrymcp/mcp" }
+  ]
+}
+```
+
+These examples show only the connector entries. Keep the other entries in your allowlist, because any MCP server that doesn't match an entry is blocked.
+
+To block specific connectors, add their URLs to `deniedMcpServers`. Because deny rules take precedence, you can combine the wildcard allowlist entry with denylist entries to allow all connectors except the ones you block. To block all connectors, add the wildcard URL to `deniedMcpServers`.
+
+### Connector URLs
+
+{% rowheaders %}
+
+{% data reusables.copilot.connector-urls %}
+
+{% endrowheaders %}
 
 ## Evaluation rules
 

@@ -18,40 +18,44 @@ category:
 
 {% data variables.product.company_short %} offers a variety of plans for {% data variables.product.prodname_copilot_short %}. Choose between them depending on your needs and whether you're using {% data variables.product.prodname_copilot_short %} as an individual or as part of an organization or enterprise.
 
-**{% data variables.copilot.copilot_free_short %}**: [Start using {% data variables.copilot.copilot_free_short %}](https://github.com/copilot?ref_product=copilot&ref_type=engagement&ref_style=text&ref_plan=free).
+**{% data variables.copilot.copilot_free_short %}**: [Start using {% data variables.copilot.copilot_free_short %}](https://github.com/copilot?ref_product=copilot&ref_type=engagement&ref_style=text&ref_plan=free&utm_source=get-started-plans-doc-web&utm_medium=docs&utm_campaign=universe-2026).
 
 * This plan includes limited access to a selection of {% data variables.product.prodname_copilot_short %} features allowing you to try AI-powered coding assistance at no cost.
 
 **{% data variables.copilot.copilot_student_short %}**: [Get access to {% data variables.copilot.copilot_student_short %}](/copilot/how-tos/copilot-on-github/set-up-copilot/enable-copilot/set-up-for-students).
 
-* Available to verified students. Get access to {% data variables.product.prodname_copilot_short %}'s features for free. 
+* Available to verified students. Get access to {% data variables.product.prodname_copilot_short %}'s features for free.
 
-**{% data variables.copilot.copilot_pro %}**: [Subscribe to {% data variables.copilot.copilot_pro_short %}](https://github.com/github-copilot/pro/signup?ref_product=copilot&ref_type=purchase&ref_style=text&ref_plan=pro).
+**{% data variables.copilot.copilot_pro %}**: [Subscribe to {% data variables.copilot.copilot_pro_short %}](https://github.com/github-copilot/pro/signup?ref_product=copilot&ref_type=purchase&ref_style=text&ref_plan=pro&utm_source=get-started-plans-doc-signup-pro&utm_medium=docs&utm_campaign=universe-2026).
 
-* Designed for individuals who want more flexibility with access to a selection of models and a monthly allowance of {% data variables.product.prodname_ai_credits_short %}. 
+* Designed for individuals who want more flexibility with access to a selection of models and a monthly allowance of {% data variables.product.prodname_ai_credits_short %}.
 
-**{% data variables.copilot.copilot_pro_plus %}**: [Subscribe to {% data variables.copilot.copilot_pro_plus_short %}](https://github.com/github-copilot/pro-plus/signup?ref_product=copilot&ref_type=purchase&ref_style=text&ref_plan=pro-plus).
+**{% data variables.copilot.copilot_pro_plus %}**: [Subscribe to {% data variables.copilot.copilot_pro_plus_short %}](https://github.com/github-copilot/pro-plus/signup?ref_product=copilot&ref_type=purchase&ref_style=text&ref_plan=pro-plus&utm_source=get-started-plans-doc-signup-pro-plan&utm_medium=docs&utm_campaign=universe-2026).
 
-* Ideal for AI power users who want access to the most advanced capabilities. This paid plan includes everything in {% data variables.copilot.copilot_pro %} and a higher monthly allowance of {% data variables.product.prodname_ai_credits_short %}. 
+* Ideal for AI power users who want access to the most advanced capabilities. This paid plan includes everything in {% data variables.copilot.copilot_pro %} and a higher monthly allowance of {% data variables.product.prodname_ai_credits_short %}.
 
-**{% data variables.copilot.copilot_max %}**: [Upgrade to {% data variables.copilot.copilot_max_short %}](https://github.com/settings/billing/licensing?ref_product=copilot&ref_type=purchase&ref_style=text&ref_plan=max).
+**{% data variables.copilot.copilot_max %}**: [Upgrade to {% data variables.copilot.copilot_max_short %}](https://github.com/settings/billing/licensing?ref_product=copilot&ref_type=purchase&ref_style=text&ref_plan=max&utm_source=get-started-plans-doc-max-licensing-billing-settings&utm_medium=docs&utm_campaign=universe-2026).
 
-* Ideal for sustained, high-volume AI power users who want access to the most AI credits available to them. This paid plan includes everything in {% data variables.copilot.copilot_pro_plus_short %}, plus our highest individual monthly allowance of {% data variables.product.prodname_ai_credits_short %}. 
+* Ideal for sustained, high-volume AI power users who want access to the most AI credits available to them. This paid plan includes everything in {% data variables.copilot.copilot_pro_plus_short %}, plus our highest individual monthly allowance of {% data variables.product.prodname_ai_credits_short %}.
 
-**{% data variables.copilot.copilot_for_business %}**: [Subscribe to {% data variables.copilot.copilot_business_short %}](https://github.com/github-copilot/purchase?ref_product=copilot&ref_type=purchase&ref_style=button&ref_plan=business).
+**{% data variables.copilot.copilot_for_business %}**: [Subscribe to {% data variables.copilot.copilot_business_short %}](https://github.com/github-copilot/purchase?ref_product=copilot&ref_type=purchase&ref_style=button&ref_plan=business&utm_source=get-started-plans-section-activates-business-purchase&utm_medium=docs&utm_campaign=universe-2026).
 
 * Made for organizations and enterprises, this plan offers centralized management and {% data variables.product.prodname_copilot_short %} policy control for organization members.
 
-**{% data variables.copilot.copilot_enterprise %}**: [Subscribe to {% data variables.copilot.copilot_enterprise_short %}](https://github.com/github-copilot/purchase?ref_product=copilot&ref_type=purchase&ref_style=button&ref_plan=enterprise).
+**{% data variables.copilot.copilot_enterprise %}**: [Subscribe to {% data variables.copilot.copilot_enterprise_short %}](https://github.com/github-copilot/purchase?ref_product=copilot&ref_type=purchase&ref_style=button&ref_plan=enterprise&utm_source=getting-started-plans-doc-purchase-enterprise-cta&utm_medium=docs&utm_campaign=universe-2026).
 
-* Designed for enterprises using {% data variables.product.prodname_ghe_cloud %}. This plan includes all the features of {% data variables.copilot.copilot_business_short %}, offers a larger monthly pool of {% data variables.product.prodname_ai_credits_short %}, plus additional enterprise-grade capabilities. 
+* Designed for enterprises using {% data variables.product.prodname_ghe_cloud %}. This plan includes all the features of {% data variables.copilot.copilot_business_short %}, offers a larger monthly pool of {% data variables.product.prodname_ai_credits_short %}, plus additional enterprise-grade capabilities.
+
+**{% data variables.product.prodname_copilot_short %} access**: Available to eligible enterprises.
+
+* Provides the same feature and model eligibility as {% data variables.copilot.copilot_enterprise_short %}, with a $0 seat charge for users with a {% data variables.product.prodname_ghe_cloud %} license or {% data variables.copilot.copilot_standalone_price_per_month %} per user per month for {% data variables.copilot.copilot_standalone_short %}. Metered usage is billed separately, with no included allowance.
 
 > [!NOTE]
 > {% data variables.product.prodname_copilot_short %} is not currently available for {% data variables.product.prodname_ghe_server %}.
 
 ## {% data variables.product.prodname_copilot_short %} plans overview
 
-The table below provides an overview of differences between plans. All plans include {% data variables.copilot.copilot_cli_short %} and the {% data variables.copilot.github_copilot_app_short %}.
+The table below compares pricing, usage allowances, agents, and models. All plans include {% data variables.copilot.copilot_cli_short %} and the {% data variables.copilot.github_copilot_app_short %}.
 
 {% rowheaders %}
 
@@ -64,26 +68,30 @@ The table below provides an overview of differences between plans. All plans inc
 | {% data variables.copilot.copilot_max_short %}        | {% data variables.copilot.cm_price_per_month %} per month                           | Base: {% data variables.copilot.ai_credits_per_user_max %}                | {% octicon "check" aria-label="Included" %}                                | Priority access to premium models |
 | {% data variables.copilot.copilot_business_short %}   | {% data variables.copilot.cfb_price_per_month %} per granted seat per month         | Total per user per month: {% data variables.copilot.ai_credits_per_user_business %}                | {% octicon "check" aria-label="Included" %}                                | Access to premium models          |
 | {% data variables.copilot.copilot_enterprise_short %} | {% data variables.copilot.ce_price_per_month %} per granted seat per month          | Total per user per month: {% data variables.copilot.ai_credits_per_user_enterprise %}                | {% octicon "check" aria-label="Included" %}                                | Priority access to premium models |
+| {% data variables.product.prodname_copilot_short %} access | $0 for licensed users of {% data variables.product.prodname_ghe_cloud %}<br><br>{% data variables.copilot.copilot_standalone_price_per_month %} per user per month for {% data variables.copilot.copilot_standalone_short %} (users with no {% data variables.product.prodname_ghe_cloud %} license) | No included allowance | {% octicon "check" aria-label="Included" %} | Priority access to premium models |
 
 {% endrowheaders %}
 
-Each plan comes with an allowance of {% data variables.product.prodname_ai_credits %}. For more information, including how {% data variables.product.prodname_ai_credits %} work, see [AUTOTITLE](/copilot/concepts/billing-and-usage/individuals/billing) and [AUTOTITLE](/copilot/concepts/billing-and-usage/organizations-and-enterprises/billing).
+For more information about how {% data variables.product.prodname_ai_credits %} work, see [AUTOTITLE](/copilot/concepts/billing-and-usage/individuals/billing) and [AUTOTITLE](/copilot/concepts/billing-and-usage/organizations-and-enterprises/billing).
 
-For more detail on what's uniquely available in each plan, see the following sections: 
+Feature and model availability is subject to administrator policies and spending controls.
+
+For more detail on what's uniquely available in each plan, see the following sections:
 * [Individual plans](#individual-plans)
 * [Organization and enterprise plans](#organization-and-enterprise-plans)
 
 ## Individual plans
 
-The individual plans available are: 
+The individual plans available are:
 * Free plans including {% data variables.copilot.copilot_free_short %} and {% data variables.copilot.copilot_student_short %}.
 * Paid plans including {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, and {% data variables.copilot.copilot_max_short %}.
 
-With these plans you'll receive access to the following features and capabilities. 
+With these plans you'll receive access to the following features and capabilities.
 
-> [!NOTE] 
+> [!NOTE]
 > * {% data variables.copilot.copilot_free_short %} plans are only available to individual developers who don't have access to {% data variables.product.prodname_copilot_short %} through an organization or enterprise.
-> * Verified teachers, and maintainers of popular open source projects may be eligible for free access to {% data variables.copilot.copilot_pro_short %}. 
+> * Verified teachers and maintainers of popular open source projects may be eligible for free access to {% data variables.copilot.copilot_pro_short %}.
+> * Users on paid plans have access to {% data variables.copilot.copilot_in_the_cloud_short %}, subject to applicable organization and enterprise policies. {% data variables.copilot.copilot_free_short %} users can continue to use {% data variables.copilot.copilot_chat_short %} on {% data variables.product.prodname_dotcom_the_website %} and {% data variables.product.prodname_mobile %}, and can upgrade to a paid plan to access {% data variables.copilot.copilot_in_the_cloud_short %}.
 
 ### {% data variables.product.prodname_ai_credits %} allowance by plan
 
@@ -97,8 +105,8 @@ For more information on how {% data variables.product.prodname_ai_credits %} wor
 
 ### Inline suggestions and {% data variables.copilot.copilot_chat_short %}
 
-Inline suggestions are real-time code suggestions with included models in IDEs and {% data variables.copilot.next_edit_suggestions_caps %}. 
-* Limited to 2000 completions per month on {% data variables.copilot.copilot_free_short %}. 
+Inline suggestions are real-time code suggestions with included models in IDEs and {% data variables.copilot.next_edit_suggestions_caps %}.
+* Limited to 2000 completions per month on {% data variables.copilot.copilot_free_short %}.
 
 **{% data variables.copilot.copilot_chat_short %}** features available include:
 * {% data variables.copilot.copilot_chat_short %} in IDEs
@@ -129,7 +137,7 @@ On {% data variables.copilot.copilot_free_short %} and {% data variables.copilot
 
 | Agents                                                                  | {% data variables.copilot.copilot_free_short %}                                   | {% data variables.copilot.copilot_student_short %} | {% data variables.copilot.copilot_pro_short %} | {% data variables.copilot.copilot_pro_plus_short %} | {% data variables.copilot.copilot_max_short %} |
 | ----------------------------------------------------------------------- | --------------------------------------------------------------------------------- | -------------------------------------------------- | ---------------------------------------------- | --------------------------------------------------- | ---------------------------------------------- |
-| {% data variables.copilot.copilot_cloud_agent %}                        | {% octicon "x" aria-label="Not included" %}                                       | {% octicon "check" aria-label="Included" %}        | {% octicon "check" aria-label="Included" %}    | {% octicon "check" aria-label="Included" %}         | {% octicon "check" aria-label="Included" %}    |
+| {% data variables.copilot.copilot_in_the_cloud_short %}                        | {% octicon "x" aria-label="Not included" %}                                       | {% octicon "check" aria-label="Included" %}        | {% octicon "check" aria-label="Included" %}    | {% octicon "check" aria-label="Included" %}         | {% octicon "check" aria-label="Included" %}    |
 | Agent mode                                                              | {% octicon "check" aria-label="Included" %}                                       | {% octicon "check" aria-label="Included" %}        | {% octicon "check" aria-label="Included" %}    | {% octicon "check" aria-label="Included" %}         | {% octicon "check" aria-label="Included" %}    |
 | {% data variables.product.prodname_copilot_short %} code review         | Only "Review selection" in {% data variables.product.prodname_vscode_shortname %} | {% octicon "check" aria-label="Included" %}        | {% octicon "check" aria-label="Included" %}    | {% octicon "check" aria-label="Included" %}         | {% octicon "check" aria-label="Included" %}    |
 | Model Context Protocol (MCP)                                            | {% octicon "check" aria-label="Included" %}                                       | {% octicon "check" aria-label="Included" %}        | {% octicon "check" aria-label="Included" %}    | {% octicon "check" aria-label="Included" %}         | {% octicon "check" aria-label="Included" %}    |
@@ -164,53 +172,69 @@ On {% data variables.copilot.copilot_free_short %} and {% data variables.copilot
 | Content exclusion                                                                                | {% octicon "x" aria-label="Not included" %}     | {% octicon "x" aria-label="Not included" %}        | {% octicon "x" aria-label="Not included" %}    | {% octicon "x" aria-label="Not included" %}         | {% octicon "x" aria-label="Not included" %}    |
 | {% data variables.copilot.copilot_cli_short %}                                                   | {% octicon "check" aria-label="Included" %}     | {% octicon "check" aria-label="Included" %}        | {% octicon "check" aria-label="Included" %}    | {% octicon "check" aria-label="Included" %}         | {% octicon "check" aria-label="Included" %}    |
 | The {% data variables.copilot.github_copilot_app_short %}                                                   | {% octicon "check" aria-label="Included" %}     | {% octicon "check" aria-label="Included" %}        | {% octicon "check" aria-label="Included" %}    | {% octicon "check" aria-label="Included" %}         | {% octicon "check" aria-label="Included" %}    |
-| {% data variables.product.prodname_spark %} ({% data variables.release-phases.public_preview %}) | {% octicon "x" aria-label="Not included" %}     | {% octicon "x" aria-label="Not included" %}        | {% octicon "x" aria-label="Not included" %}    | {% octicon "check" aria-label="Included" %}         | {% octicon "x" aria-label="Not included" %}    |
 
 {% endrowheaders %}
 
 ## Organization and enterprise plans
 
-The {% data variables.product.prodname_copilot_short %} plans available for organizations and enterprises are: 
-* {% data variables.copilot.copilot_business_short %}
-* {% data variables.copilot.copilot_enterprise_short %}
+Organizations and enterprises can centrally manage access, policies, and usage controls with {% data variables.copilot.copilot_business_short %}, {% data variables.copilot.copilot_enterprise_short %}, or {% data variables.product.prodname_copilot_short %} access for eligible enterprises.
 
-With these plans you'll receive access to the following features and capabilities. 
+For organizations within an enterprise, enterprise owners make the plan decisions.
 
-> [!NOTE] With {% data variables.product.prodname_ghe_cloud %}, an enterprise owner chooses the plan for each organization in the enterprise. For guidance on choosing a plan, see [AUTOTITLE](/copilot/tutorials/roll-out-at-scale/assign-licenses/choose-enterprise-plan).
+### How the billing models differ
+
+There are two billing models:
+
+* **With included credits**: {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %} charge a monthly fee per seat and include a shared pool of {% data variables.product.prodname_ai_credits_short %}. {% data variables.copilot.copilot_enterprise_short %} includes more credits per seat and priority access to new models and features. Usage beyond the shared pool is billed separately.
+* **Without included credits**: {% data variables.product.prodname_copilot_short %} access provides the same feature and model eligibility as {% data variables.copilot.copilot_enterprise_short %}, but metered usage is billed from the first use.
+
+An enterprise must choose one billing model. {% data variables.product.prodname_copilot_short %} access cannot coexist with {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} seats in the same enterprise. Organizations within the enterprise cannot choose a different billing model.
+
+Eligible enterprises can provide {% data variables.product.prodname_copilot_short %} access through two options:
+
+* **Through {% data variables.product.prodname_ghe_cloud %}**: {% data variables.product.prodname_copilot_short %} access has a $0 seat cost for users with a {% data variables.product.prodname_ghe_cloud %} license.
+* **As {% data variables.copilot.copilot_standalone_short %}**: {% data variables.product.prodname_copilot_short %} access costs {% data variables.copilot.copilot_standalone_price_per_month %} per user per month, without requiring a {% data variables.product.prodname_ghe_cloud %} license for the user.
+
+An enterprise can use both access options. Existing {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %} plans remain supported, and transitioning is voluntary. For eligibility and transition details, see [AUTOTITLE](/copilot/get-started/whats-changing-with-github-enterprise-and-copilot).
 
 ### {% data variables.product.prodname_ai_credits %} allowance by plan
 
-| Plan | Price per granted seat per month | {% data variables.product.prodname_ai_credits %} per user per month | 
-| --- | --- | --- | 
-| {% data variables.copilot.copilot_business_short %} | {% data variables.copilot.cfb_price_per_month %}  | {% data variables.copilot.ai_credits_per_user_business %} | 
-| {% data variables.copilot.copilot_enterprise_short %}| {% data variables.copilot.ce_price_per_month %}  | {% data variables.copilot.ai_credits_per_user_enterprise %} | 
+{% data variables.product.prodname_copilot_short %} access does not include any {% data variables.product.prodname_ai_credits %}. {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %} include the following allowances:
 
-{% data variables.product.prodname_copilot_short %} usage is measured in {% data variables.product.prodname_ai_credits_short %} under usage-based billing. Each license contributes {% data variables.product.prodname_ai_credits_short %} to a shared enterprise pool, and usage beyond the pool is charged at {% data variables.product.prodname_ai_credits_value %} per {% data variables.product.prodname_ai_credit_singular %}. Code completions and {% data variables.copilot.next_edit_suggestions %} are not billed in {% data variables.product.prodname_ai_credits_short %} and remain unlimited for all paid plans.
+| Plan | Price per granted seat per month | {% data variables.product.prodname_ai_credits %} per user per month |
+| --- | --- | --- |
+| {% data variables.copilot.copilot_business_short %} | {% data variables.copilot.cfb_price_per_month %}  | {% data variables.copilot.ai_credits_per_user_business %} |
+| {% data variables.copilot.copilot_enterprise_short %}| {% data variables.copilot.ce_price_per_month %}  | {% data variables.copilot.ai_credits_per_user_enterprise %} |
+
+These licenses contribute credits to a shared pool, and usage beyond the pool is charged at {% data variables.product.prodname_ai_credits_value %} per {% data variables.product.prodname_ai_credit_singular %}.
 
 For a full explanation of how {% data variables.product.prodname_ai_credits_short %} work, including pooling, additional usage, and what happens when credits run out, see [AUTOTITLE](/copilot/concepts/billing-and-usage/organizations-and-enterprises/billing).
 
-### Inline suggestions and {% data variables.copilot.copilot_chat_short %}
+### Inline suggestions and {% data variables.copilot.copilot_in_the_cloud %}
 
 **Inline suggestions**: Inline suggestion features are available in all plans:
 
 * Real-time code suggestions with included models
 * {% data variables.copilot.next_edit_suggestions_caps %}
 
-**{% data variables.copilot.copilot_chat_short %}** features are available in all plans: 
+These features are unlimited and do not consume credits, including when a user has a $0 USD budget or reaches an enforced spending limit.
 
-* {% data variables.copilot.copilot_chat_short %} in IDEs
+Chat features are available in all plans:
+
+* {% data variables.product.prodname_copilot_short %} in IDEs
 * Inline chat
 * Slash commands
-* {% data variables.copilot.copilot_mobile_short %}
-* {% data variables.copilot.copilot_chat_dotcom_short %}
-* {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_windows_terminal %}
-* {% data variables.copilot.copilot_chat_short %} skills in IDEs[^1]
+* {% data variables.product.prodname_copilot_short %} in {% data variables.product.github %}
+* {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_mobile %}
+* {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_windows_terminal %}
+* {% data variables.product.prodname_copilot_short %} skills in IDEs[^1]
+* {% data variables.copilot.copilot_in_the_cloud %}
 
 ### Models
 
 {% rowheaders %}
 
-| Available models                               | {% data variables.copilot.copilot_business_short %} | {% data variables.copilot.copilot_enterprise_short %} |
+| Available models                               | {% data variables.copilot.copilot_business_short %} | {% data variables.copilot.copilot_enterprise_short %} and {% data variables.product.prodname_copilot_short %} access |
 |---------------------------------------------------------|-----------------------------------------------------|-------------------------------------------------------|
 | {% for model in tables.copilot.model-supported-plans %} |
 | {{ model.name }}{% if model.name == 'GPT-5.4 nano' %}[^gpt54nano]{% endif %}{% if model.name == 'Claude Fable 5' or model.name == 'Claude Fable 5.1' %}[^claude-fable-5]{% endif %} | {% if model.business == true %}{% octicon "check" aria-label="Included" %}{% else %}{% octicon "x" aria-label="Not included" %}{% endif %} | {% if model.enterprise == true %}{% octicon "check" aria-label="Included" %}{% else %}{% octicon "x" aria-label="Not included" %}{% endif %} |
@@ -224,9 +248,9 @@ For a full explanation of how {% data variables.product.prodname_ai_credits_shor
 
 {% rowheaders %}
 
-| Agents                                                                  | {% data variables.copilot.copilot_business_short %} | {% data variables.copilot.copilot_enterprise_short %} |
+| Agents                                                                  | {% data variables.copilot.copilot_business_short %} | {% data variables.copilot.copilot_enterprise_short %} and {% data variables.product.prodname_copilot_short %} access |
 | ----------------------------------------------------------------------- | --------------------------------------------------- | ----------------------------------------------------- |
-| {% data variables.copilot.copilot_cloud_agent %}                        | {% octicon "check" aria-label="Included" %}         | {% octicon "check" aria-label="Included" %}           |
+| {% data variables.copilot.copilot_in_the_cloud_short %}                         | {% octicon "check" aria-label="Included" %}         | {% octicon "check" aria-label="Included" %}           |
 | Agent mode                                                              | {% octicon "check" aria-label="Included" %}         | {% octicon "check" aria-label="Included" %}           |
 | {% data variables.product.prodname_copilot_short %} code review         | {% octicon "check" aria-label="Included" %}         | {% octicon "check" aria-label="Included" %}           |
 | Model Context Protocol (MCP)                                            | {% octicon "check" aria-label="Included" %}         | {% octicon "check" aria-label="Included" %}           |
@@ -238,7 +262,7 @@ For a full explanation of how {% data variables.product.prodname_ai_credits_shor
 
 {% rowheaders %}
 
-| Customization                                                                    | {% data variables.copilot.copilot_business_short %} | {% data variables.copilot.copilot_enterprise_short %} |
+| Customization                                                                    | {% data variables.copilot.copilot_business_short %} | {% data variables.copilot.copilot_enterprise_short %} and {% data variables.product.prodname_copilot_short %} access |
 | -------------------------------------------------------------------------------- | --------------------------------------------------- | ----------------------------------------------------- |
 | Repository and personal custom instructions                                      | {% octicon "check" aria-label="Included" %}         | {% octicon "check" aria-label="Included" %}           |
 | Organization custom instructions                                                 | {% octicon "check" aria-label="Included" %}         | {% octicon "check" aria-label="Included" %}           |
@@ -254,14 +278,13 @@ For a full explanation of how {% data variables.product.prodname_ai_credits_shor
 
 {% rowheaders %}
 
-|                                                                                                  | {% data variables.copilot.copilot_business_short %} | {% data variables.copilot.copilot_enterprise_short %} |
+|                                                                                                  | {% data variables.copilot.copilot_business_short %} | {% data variables.copilot.copilot_enterprise_short %} and {% data variables.product.prodname_copilot_short %} access |
 | ------------------------------------------------------------------------------------------------ | --------------------------------------------------- | ----------------------------------------------------- |
 | {% data variables.copilot.copilot_for_prs %}                                                     | {% octicon "check" aria-label="Included" %}         | {% octicon "check" aria-label="Included" %}           |
 | Audit logs                                                                                       | {% octicon "check" aria-label="Included" %}         | {% octicon "check" aria-label="Included" %}           |
 | Content exclusion                                                                                | {% octicon "check" aria-label="Included" %}         | {% octicon "check" aria-label="Included" %}           |
 | {% data variables.copilot.copilot_cli_short %}                                                   | {% octicon "check" aria-label="Included" %}         | {% octicon "check" aria-label="Included" %}           |
 | The {% data variables.copilot.github_copilot_app_short %}                                                  | {% octicon "check" aria-label="Included" %}         | {% octicon "check" aria-label="Included" %}           |
-| {% data variables.product.prodname_spark %} ({% data variables.release-phases.public_preview %}) | {% octicon "x" aria-label="Not included" %}         | {% octicon "check" aria-label="Included" %}           |
 
 {% endrowheaders %}
 

@@ -11,6 +11,7 @@ children:
   - /configure-toolsets
   - /change-mcp-registry
   - /use-copilot-spaces
+  - /using-plugins
 redirect_from:
   - /copilot/customizing-copilot/using-model-context-protocol
   - /copilot/how-tos/context/model-context-protocol

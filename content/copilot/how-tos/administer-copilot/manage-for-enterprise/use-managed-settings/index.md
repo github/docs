@@ -8,6 +8,7 @@ children:
   - /get-started
   - /deploy-managed-settings
   - /override-settings-for-teams
+  - /manage-plugin-marketplaces-and-plugins
   - /copilot-business-only
 contentType: how-tos
 ---

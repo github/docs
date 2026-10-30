@@ -12,6 +12,7 @@ const { data } = frontmatter(fs.readFileSync(homepage, 'utf8'))
 const productIds = data.children as string[]
 
 const config: NextConfig = {
+  allowedDevOrigins: ['127.0.0.1'],
   // Transpile @primer/react and @primer/react-brand so Next's webpack can process their
   // CSS and other assets. This ensures CSS from these node_modules packages is handled by
   // the app's loaders.

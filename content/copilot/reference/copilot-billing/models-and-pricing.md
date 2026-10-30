@@ -97,6 +97,16 @@ Anthropic models include a cache write cost in addition to cached input.
 | {{ entry.model }} | {{ entry.release_status }} | {{ entry.category }} | {{ entry.input }} | {{ entry.cached_input }} | {{ entry.output }} |
 | {% endif %}{% endfor %} |
 
+### Image generation models
+
+Image generation models are billed separately from the model you use for your session. Text sent to the image generation model counts as text input, images sent to the model count as image input, and the generated image counts as image output. Image generation models produce images, not text, so they have no text output price. For more information, see [AUTOTITLE](/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/image-generation).
+
+| Model | Release status | Text input | Cached text input | Image input | Cached image input | Image output |
+| --- | --- | ---: | ---: | ---: | ---: | ---: |
+| {% for entry in tables.copilot.image-models-and-pricing %} |
+| {{ entry.model }} | {{ entry.release_status }} | {{ entry.text_input }} | {{ entry.cached_text_input }} | {{ entry.image_input }} | {{ entry.cached_image_input }} | {{ entry.image_output }} |
+| {% endfor %} |
+
 ## Code completions
 
 {% data reusables.copilot.tbb-completions %}
@@ -106,6 +116,10 @@ Anthropic models include a cache write cost in addition to cached input.
 For most {% data variables.product.prodname_copilot_short %} features, the model used for each interaction is visible to you, so you can reference the pricing tables above to estimate costs. {% data variables.copilot.copilot_code-review_short %} is an exception—the model is selected automatically and is not disclosed, so per-token costs may vary between reviews.
 
 Each code review is billed in two ways: token consumption is billed in {% data variables.product.prodname_ai_credits_short %}, and the agentic infrastructure that powers the review consumes {% data variables.product.prodname_actions %} minutes.
+
+The number of {% data variables.product.prodname_ai_credits_short %} a review consumes depends on the review effort level. The following table shows estimated {% data variables.product.prodname_ai_credits_short %} consumption per review, which you can use to plan for costs.
+
+{% data reusables.copilot.code-review.estimated-consumption %}
 
 {% data variables.product.prodname_actions %} minutes are attributed to the repository, and from there to the enterprise or cost center where applicable. For requests associated with organization members who have paid {% data variables.product.prodname_copilot_short %} licenses, {% data variables.product.prodname_ai_credits_short %} are charged to the member or organization, depending on how the **Choose how members with a {% data variables.product.prodname_copilot_short %} license are billed** policy is configured.
 

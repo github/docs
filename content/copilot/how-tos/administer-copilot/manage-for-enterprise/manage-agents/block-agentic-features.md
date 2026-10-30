@@ -15,7 +15,7 @@ redirect_from:
 
 Most {% data variables.product.prodname_copilot_short %} policies only affect users who receive a {% data variables.product.prodname_copilot_short %} license from your enterprise or organizations. However, there are dedicated policies to completely disable features in your repositories, including for users who get access to {% data variables.product.prodname_copilot_short %} from a personal plan or another enterprise.
 
-## Blocking {% data variables.copilot.copilot_cloud_agent %}
+## Blocking {% data variables.copilot.copilot_in_the_cloud_short %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.ai-controls-tab %}
@@ -26,6 +26,7 @@ Most {% data variables.product.prodname_copilot_short %} policies only affect us
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.ai-controls-tab %}
-1. In the left sidebar, click {% octicon "agent" aria-hidden="true" aria-label="agent" %} **Agents**.
-1. Under "Available Agents", click **{% data variables.copilot.copilot_code-review_short %}**.
+1. In the sidebar, click {% octicon "copilot" aria-hidden="true" aria-label="copilot" %} **{% data variables.product.prodname_copilot_short %}**.
+1. Under "Features & clients", click **Configure features & clients**.
+1. Find the **{% data variables.copilot.copilot_code-review_short %}** policies.
 1. Next to **Block {% data variables.copilot.copilot_code-review_short %} in all enterprise repositories**, click the toggle.

@@ -1,0 +1,1 @@
+If you select **{% data variables.copilot.copilot_fusion_short %}** and then an effort level, {% data variables.copilot.copilot_fusion_short %} will select the best model and execution pattern based on the task. See [AUTOTITLE](/copilot/concepts/models/copilot-fusion).

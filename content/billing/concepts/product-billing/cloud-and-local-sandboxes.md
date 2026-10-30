@@ -10,9 +10,6 @@ category:
   - Understand product costs
 ---
 
-> [!NOTE]
-> {% data reusables.cli.public-preview-cloud-sandbox %}
-
 ## How sandbox usage is measured
 
 Billing applies to cloud sandboxing only. Local sandboxing is included in the standard {% data variables.product.prodname_copilot %} seat at no additional cost.
@@ -37,13 +34,19 @@ The memory meter tracks the memory allocated to a cloud sandbox while it is runn
 
 The storage meter tracks snapshot storage for stopped sessions. When you stop a cloud sandbox, {% data variables.product.github %} retains a snapshot of the sandbox's state so you can resume it later. Snapshot storage is metered from the time the sandbox is stopped until the sandbox is deleted.
 
-For more information about cloud and local sandboxes, see [AUTOTITLE](/copilot/concepts/about-cloud-and-local-sandboxes).
+For more information about cloud and local sandboxes, see [AUTOTITLE](/copilot/concepts/security-governance-and-network-settings/about-cloud-sandboxes) and [AUTOTITLE](/copilot/concepts/security-governance-and-network-settings/about-cloud-and-local-sandboxes).
 
 ## Free and billed use
 
-During public preview, eligible {% data variables.product.github %} accounts receive a **$10 monthly entitlement** to try cloud sandboxes. This entitlement is available through the end of July 2026. Any usage beyond the monthly entitlement is billed to your account.
+{% data reusables.billing.compute-allowance-model %}
 
-After the preview period ends, the entitlement no longer applies and all usage is billed.
+For example, suppose a cloud sandbox runs for 600 seconds with 4 GiB of memory. At the published rates below:
+
+* The compute cost is 600 compute seconds × $0.000024 USD, or $0.0144 USD.
+* The memory cost is 2,400 GiB-seconds (4 GiB × 600 seconds) × $0.000003 USD, or $0.0072 USD.
+* A total of $0.0216 USD is deducted from the account's included compute usage.
+
+This example shows how usage measured in seconds and GiB-seconds draws from the same monetary value as runner usage measured in minutes. For the amount included with each plan, see [AUTOTITLE](/billing/reference/product-usage-included).
 
 ## Paying for use
 
@@ -59,11 +62,12 @@ You pay for cloud sandboxes using the payment method set up for your {% data var
 
 ## How costs are assigned to a billable account
 
-Cloud sandbox usage is billed to the account that owns the sandbox.
+Cloud sandbox usage is billed to the account that owns the sandbox:
 
-You are prompted to select an owner for the session only if you are not currently in a Git repository. In this case, when you create a cloud sandbox session with `copilot --cloud`, you are prompted to select an owner—your own personal account is listed first, ahead of any organizations you belong to. You must choose either your personal account or one of the listed organizations, and all usage for that session is billed to the account you select.
+* **Sessions that work in repositories**: A session can work across multiple repositories, as long as they all have the same owner. That owner is billed, whether it's your personal account or an organization.
+* **Sessions that don't work in a repository**: The account you choose as the owner is billed. You can choose your personal account or an organization you belong to. If you don't choose an owner, your personal account is billed.
 
-If you are in a repository, the owner of the repository is billed and no owner selection is required.
+For example, if you start a session with `copilot --cloud` when you aren't in a Git repository, {% data variables.copilot.copilot_cli_short %} prompts you to select an owner. Your personal account is listed first, ahead of any organizations you belong to. All usage for that session is billed to the account you select.
 
 ## Managing your budget for cloud sandboxes
 
@@ -74,7 +78,7 @@ You can set budgets and alerts to monitor and control your cloud sandbox spendin
 When you create a budget for cloud sandboxes, you can choose between two budget types:
 
 * **Product-level budget**: caps spending across all cloud sandbox usage, regardless of SKU.
-* **SKU-level budget**: caps spending for a specific cloud sandbox SKU (for example, "Sandbox Linux"). For a full list of cloud sandbox SKUs, see [AUTOTITLE](/billing/reference/product-and-sku-names).
+* **SKU-level budget**: caps spending for a specific cloud sandbox SKU (for example, "Sandboxes for {% data variables.product.prodname_copilot %}: Linux"). For a full list of cloud sandbox SKUs, see [AUTOTITLE](/billing/reference/product-and-sku-names).
 
 If you enable **Stop usage when budget limit is reached**, additional cloud sandbox usage is blocked once the budget reaches 100%, and a banner notifies users in the affected scope.
 
@@ -83,10 +87,11 @@ If you enable **Stop usage when budget limit is reached**, additional cloud sand
 
 ## Viewing your cloud sandbox usage
 
-To view your cloud sandbox usage, billable amounts, and the monthly preview entitlement, see [AUTOTITLE](/billing/how-tos/products/estimate-spending) and [AUTOTITLE](/billing/tutorials/gather-insights).
+To view your cloud sandbox usage, billable amounts, and remaining included compute usage, see [AUTOTITLE](/billing/how-tos/products/estimate-spending) and [AUTOTITLE](/billing/tutorials/gather-insights).
 
 ## Further reading
 
+* [AUTOTITLE](/copilot/concepts/security-governance-and-network-settings/about-cloud-sandboxes)
 * [AUTOTITLE](/copilot/concepts/about-cloud-and-local-sandboxes)
 * [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-copilot-cli)
 * [AUTOTITLE](/billing/get-started/how-billing-works)

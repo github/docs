@@ -2,7 +2,7 @@
 title: Measure and demonstrate the impact of GitHub Copilot
 shortTitle: '{% data variables.product.prodname_copilot_short %} usage metrics'
 allowTitleToDifferFromFilename: true
-intro: 'Understanding how {% data variables.product.prodname_copilot_short %} is used across your enterprise is the first step to demonstrating its value. Follow this path to establish a usage baseline, see how code is being generated, and connect adoption to measurable outcomes.'
+intro: 'Use {% data variables.product.prodname_copilot_short %} metrics and engineering outcomes to assess your rollout and guide investment decisions.'
 layout: journey-landing
 versions:
   feature: copilot
@@ -42,4 +42,9 @@ journeyTracks:
     guides:
       - href: '/copilot/tutorials/roll-out-at-scale/drive-downstream-impact/achieve-company-goals'
       - href: '/copilot/how-tos/administer-copilot/view-impact-dashboard'
+  - id: 'communicate-impact'
+    title: 'Phase 5: Communicate impact and guide investment decisions'
+    description: 'Turn your findings into a clear recommendation for leadership about your next {% data variables.product.prodname_copilot_short %} investment.'
+    guides:
+      - href: '/copilot/tutorials/roll-out-at-scale/communicate-copilot-impact'
 ---
