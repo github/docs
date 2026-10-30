@@ -17,6 +17,8 @@ When you enable SAML SSO for your {% data variables.product.github %} organizati
 
 {% data reusables.saml.ghec-only %}
 
+## Supported identity providers
+
 You can find the SAML and SCIM implementation details for your IdP in the IdP's documentation.
 * Microsoft Active Directory Federation Services (AD FS) [SAML](https://docs.microsoft.com/windows-server/identity/active-directory-federation-services)
 * Microsoft Entra ID (previously known as Azure AD) [SAML](https://docs.microsoft.com/azure/active-directory/active-directory-saas-github-tutorial) and [SCIM](https://docs.microsoft.com/azure/active-directory/active-directory-saas-github-provisioning-tutorial)
@@ -25,10 +27,11 @@ You can find the SAML and SCIM implementation details for your IdP in the IdP's 
 * PingOne [SAML](https://support.pingidentity.com/s/marketplace-integration/a7i1W0000004ID3QAM/github-connector)
 * Shibboleth [SAML](https://shibboleth.atlassian.net/wiki/spaces/IDP4/overview)
 
-> [!NOTE]
-> {% data variables.product.github %}'s supported identity providers for SCIM are Entra ID, Okta, and OneLogin. For more information about SCIM, see [AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations).
->
-> {% data reusables.scim.enterprise-account-scim %}
+{% data reusables.enterprise-accounts.gov-cloud-idp-not-supported %}
+
+{% data variables.product.github %}'s supported identity providers for SCIM are Entra ID, Okta, and OneLogin. For more information about SCIM, see [AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations).
+
+{% data reusables.scim.enterprise-account-scim %}
 
 ## SAML metadata
 

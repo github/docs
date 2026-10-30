@@ -235,6 +235,8 @@ sections:
       Starting in {% data variables.product.prodname_ghe_server %} version 3.20, we have reserved the `/repos` path for a forthcoming product feature. If you currently use `/repos` for a route (for example, a username, organization name, a GitHub App, an OAuth app, reverse proxy, or internal integration), you may need to update your configuration to avoid routing conflicts.
 
   known_issues:
+    - |
+      After a user account is unsuspended, the user may remain missing from the enterprise member list and the results of GraphQL queries using `enterprise.members`. [Updated: 2026-10-30]
     # Known issues from "GHES Release Note Tracking" project
     - |
       During an upgrade of GitHub Enterprise Server, custom firewall rules are removed. If you use custom firewall rules, you must reapply them after upgrading.
