@@ -14,7 +14,7 @@ import createApp from './lib/app'
 import warmServer from './lib/warm-server'
 import { createLogger } from '@/observability/logger'
 
-dotenv.config()
+dotenv.config({ quiet: true })
 
 checkNodeVersion()
 

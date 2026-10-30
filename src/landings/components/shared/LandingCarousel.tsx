@@ -5,7 +5,7 @@ import { Card } from '@primer/react-brand'
 import cx from 'clsx'
 import type { ResolvedArticle } from '@/types'
 import { useTranslation } from '@/languages/components/useTranslation'
-import { useVersion } from '@/versions/components/useVersion'
+import { DEFAULT_VERSION, useVersion } from '@/versions/components/useVersion'
 import styles from './LandingCarousel.module.scss'
 import { RenderedHTML } from '@/frame/components/ui/RenderedHTML/RenderedHTML'
 
@@ -120,6 +120,7 @@ export const LandingCarousel = ({
     }, 100)
   }
 
+  const versionPrefix = currentVersion !== DEFAULT_VERSION ? `/${currentVersion}` : ''
   const startIndex = currentPage * itemsPerView
   const visibleItems = processedItems.slice(startIndex, startIndex + itemsPerView)
 
@@ -164,7 +165,7 @@ export const LandingCarousel = ({
         {visibleItems.map((article: ResolvedArticle, index) => (
           <Card
             key={startIndex + index}
-            href={`/${router.locale}/${currentVersion}${article.href}`}
+            href={`/${router.locale}${versionPrefix}${article.href}`}
             className={styles.card}
             ctaVariant="none"
             disableAnimation

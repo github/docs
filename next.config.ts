@@ -40,9 +40,10 @@ const config: NextConfig = {
     quietDeps: true,
     silenceDeprecations: ['legacy-js-api', 'import', 'global-builtin', 'color-4-api'],
   },
-  // Don't use automatic Next.js logging in dev unless the log level is `debug` or higher
+  // Don't use automatic Next.js request logging unless the log level is `debug` or higher.
+  // Our own request logger already covers it. `false` would also stop `[browser]` console forwarding.
   // See `src/observability/logger/README.md` for log levels
-  logging: getLogLevelNumber() < 3 ? undefined : {},
+  logging: getLogLevelNumber() < 3 ? { incomingRequests: false } : {},
   async rewrites() {
     const DEFAULT_VERSION = 'free-pro-team@latest'
     return productIds.map((productId) => {
@@ -100,6 +101,12 @@ const config: NextConfig = {
   // This causes problems with serving stale content, since upon revalidating
   // the CDN marks the cached content as "fresh".
   generateEtags: false,
+
+  experimental: {
+    // getServerSideProps returns rendered Markdown, so many pages exceed the 128 kB default.
+    // https://nextjs.org/docs/messages/large-page-data
+    largePageDataBytes: 1024 * 1024, // 1 MB
+  },
 
   // Disable Next.js's in-memory data cache. We don't use ISR or cached
   // fetch — all pages render via Express middleware with getServerSideProps.

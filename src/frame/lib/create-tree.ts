@@ -8,6 +8,9 @@ const logger = createLogger(import.meta.url)
 
 const isProduction = process.env.NODE_ENV === 'production'
 
+// Development rebuilds the tree on every request, so each missing path warns once until it appears.
+const warnedMissingPaths = new Set<string>()
+
 export default async function createTree(
   originalPath: string,
   rootPath?: string,
@@ -41,12 +44,16 @@ export default async function createTree(
         originalPath === 'content/early-access' ||
         originalPath.startsWith('content/early-access/')
       ) {
-        logger.warn(msg, { path: originalPath })
+        if (!warnedMissingPaths.has(originalPath)) {
+          warnedMissingPaths.add(originalPath)
+          logger.warn(msg, { path: originalPath })
+        }
         return
       }
       throw new Error(msg)
     }
   }
+  warnedMissingPaths.delete(originalPath)
 
   const relativePath = filepath.replace(`${basePath}/`, '')
 
