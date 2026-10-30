@@ -2314,7 +2314,7 @@
       "progAccess": {
         "userToServerRest": true,
         "serverToServer": true,
-        "fineGrainedPat": true,
+        "fineGrainedPat": false,
         "permissions": [
           {
             "\"Checks\" repository permissions": "write"
@@ -3381,7 +3381,7 @@
       "progAccess": {
         "userToServerRest": true,
         "serverToServer": true,
-        "fineGrainedPat": true,
+        "fineGrainedPat": false,
         "permissions": [
           {
             "\"Checks\" repository permissions": "read"
@@ -4676,7 +4676,7 @@
       "progAccess": {
         "userToServerRest": true,
         "serverToServer": true,
-        "fineGrainedPat": true,
+        "fineGrainedPat": false,
         "permissions": [
           {
             "\"Checks\" repository permissions": "write"
@@ -4852,7 +4852,7 @@
       "progAccess": {
         "userToServerRest": true,
         "serverToServer": true,
-        "fineGrainedPat": true,
+        "fineGrainedPat": false,
         "permissions": [
           {
             "\"Checks\" repository permissions": "read"
@@ -4947,7 +4947,7 @@
       "progAccess": {
         "userToServerRest": true,
         "serverToServer": true,
-        "fineGrainedPat": true,
+        "fineGrainedPat": false,
         "permissions": [
           {
             "\"Checks\" repository permissions": "write"
@@ -6089,7 +6089,7 @@
       "progAccess": {
         "userToServerRest": true,
         "serverToServer": true,
-        "fineGrainedPat": true,
+        "fineGrainedPat": false,
         "permissions": [
           {
             "\"Checks\" repository permissions": "read"
@@ -7241,7 +7241,7 @@
       "progAccess": {
         "userToServerRest": true,
         "serverToServer": true,
-        "fineGrainedPat": true,
+        "fineGrainedPat": false,
         "permissions": [
           {
             "\"Checks\" repository permissions": "read"
@@ -8478,6 +8478,7 @@
                       "type": "string"
                     },
                     "temp_clone_token": {
+                      "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                       "type": "string"
                     },
                     "delete_branch_on_merge": {
@@ -10102,6 +10103,7 @@
                       "type": "string"
                     },
                     "temp_clone_token": {
+                      "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                       "type": "string"
                     },
                     "delete_branch_on_merge": {
@@ -10552,7 +10554,7 @@
       "progAccess": {
         "userToServerRest": true,
         "serverToServer": true,
-        "fineGrainedPat": true,
+        "fineGrainedPat": false,
         "permissions": [
           {
             "\"Checks\" repository permissions": "write"
@@ -11312,6 +11314,7 @@
                       "type": "string"
                     },
                     "temp_clone_token": {
+                      "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                       "type": "string"
                     },
                     "delete_branch_on_merge": {
@@ -11637,7 +11640,7 @@
       "progAccess": {
         "userToServerRest": true,
         "serverToServer": true,
-        "fineGrainedPat": true,
+        "fineGrainedPat": false,
         "permissions": [
           {
             "\"Checks\" repository permissions": "write"
@@ -12870,6 +12873,7 @@
                       "type": "string"
                     },
                     "temp_clone_token": {
+                      "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                       "type": "string"
                     },
                     "delete_branch_on_merge": {
@@ -13316,7 +13320,7 @@
       "progAccess": {
         "userToServerRest": true,
         "serverToServer": true,
-        "fineGrainedPat": true,
+        "fineGrainedPat": false,
         "permissions": [
           {
             "\"Checks\" repository permissions": "read"
@@ -13399,7 +13403,7 @@
       "progAccess": {
         "userToServerRest": true,
         "serverToServer": true,
-        "fineGrainedPat": true,
+        "fineGrainedPat": false,
         "permissions": [
           {
             "\"Checks\" repository permissions": "write"
@@ -14563,6 +14567,7 @@
                             "type": "string"
                           },
                           "temp_clone_token": {
+                            "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                             "type": "string"
                           },
                           "delete_branch_on_merge": {
@@ -15012,7 +15017,7 @@
       "progAccess": {
         "userToServerRest": true,
         "serverToServer": true,
-        "fineGrainedPat": true,
+        "fineGrainedPat": false,
         "permissions": [
           {
             "\"Checks\" repository permissions": "read"

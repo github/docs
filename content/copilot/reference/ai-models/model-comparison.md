@@ -23,7 +23,8 @@ contentType: reference
 
 > [!NOTE]
 > * Different models consume {% data variables.product.prodname_ai_credits_short %} at different rates based on their token pricing. For details, see [AUTOTITLE](/copilot/reference/copilot-billing/models-and-pricing).
-> * Choosing the **Auto** option when selecting a model automatically selects the optimum model for your task, based on model availability and task complexity.  If you are on a paid {% data variables.product.prodname_copilot_short %} plan, you qualify for a discount on model costs when you use the **Auto** option. See [AUTOTITLE](/copilot/concepts/models/auto-model-selection).
+> * {% data reusables.copilot.copilot-fusion-model-picker %}
+> * {% data reusables.copilot.auto-model-option %}
 
 ### Recommended models by task
 

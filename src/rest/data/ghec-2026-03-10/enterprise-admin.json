@@ -468,7 +468,7 @@
       "serverUrl": "https://api.github.com",
       "verb": "get",
       "requestPath": "/enterprises/{enterprise}/copilot/apps/model-policies",
-      "title": "Get model policies for enterprise apps",
+      "title": "Get model policies for agent apps",
       "category": "enterprise-admin",
       "subcategory": "ai-controls",
       "parameters": [
@@ -483,7 +483,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Use this endpoint to retrieve Copilot model policies for enterprise apps.\nThe response shows which model settings can be changed and which are\ncontrolled by enterprise policy.</p>\n<p>For models whose settings can be changed, the response shows the configured\nsetting or <code>optional</code> if no setting has been configured. For models\ncontrolled by enterprise policy, it shows the enterprise setting or the\napplicable default. These settings do not necessarily determine whether\nan individual user can access a model.</p>\n<p>Enterprise owners and users with the <code>read_enterprise_ai_controls</code> permission can use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:enterprise</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Use this endpoint to retrieve Copilot model policies for agent apps.\nThe response shows which model settings can be changed and which are\ncontrolled by enterprise policy.</p>\n<p>For models whose settings can be changed, the response shows the configured\nsetting or <code>optional</code> if no setting has been configured. For models\ncontrolled by enterprise policy, it shows the enterprise setting or the\napplicable default. These settings do not necessarily determine whether\nan individual user can access a model.</p>\n<p>Enterprise owners and users with the <code>read_enterprise_ai_controls</code> permission can use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:enterprise</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -534,7 +534,7 @@
                       },
                       "policy_state": {
                         "type": "string",
-                        "description": "When editable, the apps layer's configured value, or `optional` if the apps layer has not configured this model.\nWhen locked, the enterprise's explicit value or its applied default availability for an eligible model.\nReturns `disabled` when locked without an explicit enterprise value and the model is excluded from default availability.",
+                        "description": "When editable, the agent apps policy's configured value, or `optional` if no agent apps policy has been configured for this model.\nWhen locked, the enterprise's explicit value or its applied default availability for an eligible model.\nReturns `disabled` when locked without an explicit enterprise value and the model is excluded from default availability.",
                         "enum": [
                           "enabled",
                           "disabled",
@@ -543,7 +543,7 @@
                       },
                       "enterprise_policy_state": {
                         "type": "string",
-                        "description": "The separately read enterprise-layer policy for this model, used to determine whether the apps layer can edit its policy.",
+                        "description": "The separately read enterprise-layer policy for this model, used to determine whether the agent apps policy can be edited.",
                         "enum": [
                           "enabled",
                           "disabled",
@@ -554,7 +554,7 @@
                       },
                       "editable": {
                         "type": "boolean",
-                        "description": "Whether the enterprise policy and available apps policy controls allow the apps layer's policy to be updated."
+                        "description": "Whether the enterprise policy and available apps policy controls allow the agent apps policy to be updated."
                       }
                     }
                   }
@@ -612,7 +612,7 @@
                       },
                       "policy_state": {
                         "type": "string",
-                        "description": "When editable, the apps layer's configured value, or `optional` if the apps layer has not configured this model.\nWhen locked, the enterprise's explicit value or its applied default availability for an eligible model.\nReturns `disabled` when locked without an explicit enterprise value and the model is excluded from default availability.",
+                        "description": "When editable, the agent apps policy's configured value, or `optional` if no agent apps policy has been configured for this model.\nWhen locked, the enterprise's explicit value or its applied default availability for an eligible model.\nReturns `disabled` when locked without an explicit enterprise value and the model is excluded from default availability.",
                         "enum": [
                           "enabled",
                           "disabled",
@@ -621,7 +621,7 @@
                       },
                       "enterprise_policy_state": {
                         "type": "string",
-                        "description": "The separately read enterprise-layer policy for this model, used to determine whether the apps layer can edit its policy.",
+                        "description": "The separately read enterprise-layer policy for this model, used to determine whether the agent apps policy can be edited.",
                         "enum": [
                           "enabled",
                           "disabled",
@@ -632,7 +632,7 @@
                       },
                       "editable": {
                         "type": "boolean",
-                        "description": "Whether the enterprise policy and available apps policy controls allow the apps layer's policy to be updated."
+                        "description": "Whether the enterprise policy and available apps policy controls allow the agent apps policy to be updated."
                       }
                     }
                   }
@@ -721,7 +721,7 @@
           ]
         }
       ],
-      "descriptionHTML": "<p>Use this endpoint to set Copilot model policies for enterprise apps. Set a\nmodel to <code>enabled</code> to configure an apps policy, or to <code>optional</code> to remove\nthe stored apps policy for that model.\nLocked models cannot be updated.</p>\n<p>Returns the apps policy state representation, including enterprise policy and editability.\nThese states are not a final access decision for a user.</p>\n<p>Enterprise owners and users with the <code>write_enterprise_ai_controls</code> permission can use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:enterprise</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Use this endpoint to set Copilot model policies for agent apps. Set a\nmodel to <code>enabled</code> to configure an apps policy, or to <code>optional</code> to remove\nthe stored apps policy for that model. Locked models cannot be updated.</p>\n<p>Returns the apps policy state representation, including enterprise policy and editability.\nThese states are not a final access decision for a user.</p>\n<p>Enterprise owners and users with the <code>write_enterprise_ai_controls</code> permission can use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:enterprise</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -781,7 +781,7 @@
                       },
                       "policy_state": {
                         "type": "string",
-                        "description": "When editable, the apps layer's configured value, or `optional` if the apps layer has not configured this model.\nWhen locked, the enterprise's explicit value or its applied default availability for an eligible model.\nReturns `disabled` when locked without an explicit enterprise value and the model is excluded from default availability.",
+                        "description": "When editable, the agent apps policy's configured value, or `optional` if no agent apps policy has been configured for this model.\nWhen locked, the enterprise's explicit value or its applied default availability for an eligible model.\nReturns `disabled` when locked without an explicit enterprise value and the model is excluded from default availability.",
                         "enum": [
                           "enabled",
                           "disabled",
@@ -790,7 +790,7 @@
                       },
                       "enterprise_policy_state": {
                         "type": "string",
-                        "description": "The separately read enterprise-layer policy for this model, used to determine whether the apps layer can edit its policy.",
+                        "description": "The separately read enterprise-layer policy for this model, used to determine whether the agent apps policy can be edited.",
                         "enum": [
                           "enabled",
                           "disabled",
@@ -801,7 +801,7 @@
                       },
                       "editable": {
                         "type": "boolean",
-                        "description": "Whether the enterprise policy and available apps policy controls allow the apps layer's policy to be updated."
+                        "description": "Whether the enterprise policy and available apps policy controls allow the agent apps policy to be updated."
                       }
                     }
                   }
@@ -835,6 +835,228 @@
         {
           "httpStatusCode": "503",
           "description": "<p>Service unavailable</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": false,
+        "permissions": [
+          {
+            "\"Enterprise AI controls\" enterprise permissions": "write"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/copilot/feature-policies",
+      "title": "Get feature policies for an enterprise",
+      "category": "enterprise-admin",
+      "subcategory": "ai-controls",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "description": "<p>The slug version of the enterprise name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Use this endpoint to retrieve the Copilot default availability policy for new features and clients\nfor an enterprise. A policy state of <code>delegate_to_organizations</code> means each organization sets its\nown default.</p>\n<p>Enterprise owners and users with the <code>read_enterprise_ai_controls</code> permission can use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:enterprise</code> scope to use this endpoint.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "enterprise": "ENTERPRISE"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>OK</p>",
+            "example": {
+              "default_availability": {
+                "policy_state": "enabled"
+              }
+            },
+            "schema": {
+              "type": "object",
+              "required": [
+                "default_availability"
+              ],
+              "properties": {
+                "default_availability": {
+                  "type": "object",
+                  "required": [
+                    "policy_state"
+                  ],
+                  "properties": {
+                    "policy_state": {
+                      "type": "string",
+                      "description": "The enterprise default policy applied to newly released Copilot features and clients. `delegate_to_organizations` means each organization sets its own default.",
+                      "enum": [
+                        "enabled",
+                        "disabled",
+                        "delegate_to_organizations"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "401",
+          "description": "<p>Requires authentication</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": false,
+        "permissions": [
+          {
+            "\"Enterprise AI controls\" enterprise permissions": "read"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "patch",
+      "requestPath": "/enterprises/{enterprise}/copilot/feature-policies",
+      "title": "Update feature policies for an enterprise",
+      "category": "enterprise-admin",
+      "subcategory": "ai-controls",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "description": "<p>The slug version of the enterprise name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "object",
+          "name": "default_availability",
+          "description": "",
+          "isRequired": true,
+          "childParamsGroups": [
+            {
+              "type": "string",
+              "name": "policy_state",
+              "description": "<p>The enterprise default policy applied to newly released Copilot features and clients. <code>delegate_to_organizations</code> is only accepted for enterprises that manage Copilot through organizations.</p>",
+              "isRequired": true,
+              "enum": [
+                "enabled",
+                "disabled",
+                "delegate_to_organizations"
+              ]
+            }
+          ]
+        }
+      ],
+      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Use this endpoint to update the Copilot default availability policy for new features and clients\nfor an enterprise. Use <code>delegate_to_organizations</code> to let each organization set its own default.\nEnterprises without organizations cannot use <code>delegate_to_organizations</code>.</p>\n<p>Changing this policy does not change any Copilot feature or client policy that has already been set.</p>\n<p>Enterprise owners and users with the <code>write_enterprise_ai_controls</code> permission can use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:enterprise</code> scope to use this endpoint.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "default_availability": {
+                "policy_state": "enabled"
+              }
+            },
+            "parameters": {
+              "enterprise": "ENTERPRISE"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>OK</p>",
+            "example": {
+              "default_availability": {
+                "policy_state": "enabled"
+              }
+            },
+            "schema": {
+              "type": "object",
+              "required": [
+                "default_availability"
+              ],
+              "properties": {
+                "default_availability": {
+                  "type": "object",
+                  "required": [
+                    "policy_state"
+                  ],
+                  "properties": {
+                    "policy_state": {
+                      "type": "string",
+                      "description": "The enterprise default policy applied to newly released Copilot features and clients. `delegate_to_organizations` means each organization sets its own default.",
+                      "enum": [
+                        "enabled",
+                        "disabled",
+                        "delegate_to_organizations"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "401",
+          "description": "<p>Requires authentication</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
         }
       ],
       "previews": [],
@@ -3544,10 +3766,14 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": false,
-        "serverToServer": false,
+        "userToServerRest": true,
+        "serverToServer": true,
         "fineGrainedPat": false,
-        "permissions": []
+        "permissions": [
+          {
+            "\"Enterprise bypass requests\" enterprise permissions": "read"
+          }
+        ]
       }
     }
   ],
@@ -8700,10 +8926,14 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": false,
-        "serverToServer": false,
+        "userToServerRest": true,
+        "serverToServer": true,
         "fineGrainedPat": false,
-        "permissions": []
+        "permissions": [
+          {
+            "\"Enterprise access restrictions\" enterprise permissions": "write"
+          }
+        ]
       }
     },
     {
@@ -8791,10 +9021,14 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": false,
-        "serverToServer": false,
+        "userToServerRest": true,
+        "serverToServer": true,
         "fineGrainedPat": false,
-        "permissions": []
+        "permissions": [
+          {
+            "\"Enterprise access restrictions\" enterprise permissions": "write"
+          }
+        ]
       }
     }
   ],
@@ -14780,6 +15014,11 @@
                     },
                     {
                       "type": "boolean",
+                      "name": "require_extra_approval_for_unattributed_changes",
+                      "description": "<p>When Copilot opens a pull request without a human collaborator, require one more approving review if a non-zero approval count is required.</p>"
+                    },
+                    {
+                      "type": "boolean",
                       "name": "require_last_push_approval",
                       "description": "<p>Whether the most recent reviewable push must be approved by someone other than the person who pushed it.</p>",
                       "isRequired": true
@@ -15187,6 +15426,11 @@
                   "childParamsGroups": [
                     {
                       "type": "array of strings",
+                      "name": "ignored_file_paths",
+                      "description": "<p>Files matching these patterns are allowed even when they also match a restricted path.</p>"
+                    },
+                    {
+                      "type": "array of strings",
                       "name": "restricted_file_paths",
                       "description": "<p>The file paths that are restricted from being pushed to the commit graph.</p>",
                       "isRequired": true
@@ -15272,6 +15516,11 @@
                   "name": "parameters",
                   "description": "",
                   "childParamsGroups": [
+                    {
+                      "type": "array of strings",
+                      "name": "ignored_file_paths",
+                      "description": "<p>Files matching these patterns may exceed the maximum size.</p>"
+                    },
                     {
                       "type": "integer",
                       "name": "max_file_size",
@@ -16217,6 +16466,10 @@
                                 "type": "boolean",
                                 "description": "Require an approving review in pull requests that modify files that have a designated code owner."
                               },
+                              "require_extra_approval_for_unattributed_changes": {
+                                "type": "boolean",
+                                "description": "When Copilot opens a pull request without a human collaborator, require one more approving review if a non-zero approval count is required."
+                              },
                               "require_last_push_approval": {
                                 "type": "boolean",
                                 "description": "Whether the most recent reviewable push must be approved by someone other than the person who pushed it."
@@ -16852,6 +17105,13 @@
                           "parameters": {
                             "type": "object",
                             "properties": {
+                              "ignored_file_paths": {
+                                "type": "array",
+                                "description": "Files matching these patterns are allowed even when they also match a restricted path.",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
                               "restricted_file_paths": {
                                 "type": "array",
                                 "description": "The file paths that are restricted from being pushed to the commit graph.",
@@ -16944,6 +17204,13 @@
                           "parameters": {
                             "type": "object",
                             "properties": {
+                              "ignored_file_paths": {
+                                "type": "array",
+                                "description": "Files matching these patterns may exceed the maximum size.",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
                               "max_file_size": {
                                 "type": "integer",
                                 "description": "The maximum file size allowed in megabytes. This limit does not apply to Git Large File Storage (Git LFS).",
@@ -16995,6 +17262,9 @@
         "permissions": [
           {
             "\"Enterprise administration\" enterprise permissions": "write"
+          },
+          {
+            "\"Enterprise Ruleset\" enterprise permissions": "write"
           }
         ]
       }
@@ -17778,6 +18048,10 @@
                                 "type": "boolean",
                                 "description": "Require an approving review in pull requests that modify files that have a designated code owner."
                               },
+                              "require_extra_approval_for_unattributed_changes": {
+                                "type": "boolean",
+                                "description": "When Copilot opens a pull request without a human collaborator, require one more approving review if a non-zero approval count is required."
+                              },
                               "require_last_push_approval": {
                                 "type": "boolean",
                                 "description": "Whether the most recent reviewable push must be approved by someone other than the person who pushed it."
@@ -18413,6 +18687,13 @@
                           "parameters": {
                             "type": "object",
                             "properties": {
+                              "ignored_file_paths": {
+                                "type": "array",
+                                "description": "Files matching these patterns are allowed even when they also match a restricted path.",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
                               "restricted_file_paths": {
                                 "type": "array",
                                 "description": "The file paths that are restricted from being pushed to the commit graph.",
@@ -18505,6 +18786,13 @@
                           "parameters": {
                             "type": "object",
                             "properties": {
+                              "ignored_file_paths": {
+                                "type": "array",
+                                "description": "Files matching these patterns may exceed the maximum size.",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
                               "max_file_size": {
                                 "type": "integer",
                                 "description": "The maximum file size allowed in megabytes. This limit does not apply to Git Large File Storage (Git LFS).",
@@ -18556,6 +18844,9 @@
         "permissions": [
           {
             "\"Enterprise administration\" enterprise permissions": "write"
+          },
+          {
+            "\"Enterprise Ruleset\" enterprise permissions": "write"
           }
         ]
       }
@@ -19423,6 +19714,11 @@
                     },
                     {
                       "type": "boolean",
+                      "name": "require_extra_approval_for_unattributed_changes",
+                      "description": "<p>When Copilot opens a pull request without a human collaborator, require one more approving review if a non-zero approval count is required.</p>"
+                    },
+                    {
+                      "type": "boolean",
                       "name": "require_last_push_approval",
                       "description": "<p>Whether the most recent reviewable push must be approved by someone other than the person who pushed it.</p>",
                       "isRequired": true
@@ -19830,6 +20126,11 @@
                   "childParamsGroups": [
                     {
                       "type": "array of strings",
+                      "name": "ignored_file_paths",
+                      "description": "<p>Files matching these patterns are allowed even when they also match a restricted path.</p>"
+                    },
+                    {
+                      "type": "array of strings",
                       "name": "restricted_file_paths",
                       "description": "<p>The file paths that are restricted from being pushed to the commit graph.</p>",
                       "isRequired": true
@@ -19915,6 +20216,11 @@
                   "name": "parameters",
                   "description": "",
                   "childParamsGroups": [
+                    {
+                      "type": "array of strings",
+                      "name": "ignored_file_paths",
+                      "description": "<p>Files matching these patterns may exceed the maximum size.</p>"
+                    },
                     {
                       "type": "integer",
                       "name": "max_file_size",
@@ -20861,6 +21167,10 @@
                                 "type": "boolean",
                                 "description": "Require an approving review in pull requests that modify files that have a designated code owner."
                               },
+                              "require_extra_approval_for_unattributed_changes": {
+                                "type": "boolean",
+                                "description": "When Copilot opens a pull request without a human collaborator, require one more approving review if a non-zero approval count is required."
+                              },
                               "require_last_push_approval": {
                                 "type": "boolean",
                                 "description": "Whether the most recent reviewable push must be approved by someone other than the person who pushed it."
@@ -21496,6 +21806,13 @@
                           "parameters": {
                             "type": "object",
                             "properties": {
+                              "ignored_file_paths": {
+                                "type": "array",
+                                "description": "Files matching these patterns are allowed even when they also match a restricted path.",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
                               "restricted_file_paths": {
                                 "type": "array",
                                 "description": "The file paths that are restricted from being pushed to the commit graph.",
@@ -21588,6 +21905,13 @@
                           "parameters": {
                             "type": "object",
                             "properties": {
+                              "ignored_file_paths": {
+                                "type": "array",
+                                "description": "Files matching these patterns may exceed the maximum size.",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
                               "max_file_size": {
                                 "type": "integer",
                                 "description": "The maximum file size allowed in megabytes. This limit does not apply to Git Large File Storage (Git LFS).",
@@ -21639,6 +21963,9 @@
         "permissions": [
           {
             "\"Enterprise administration\" enterprise permissions": "write"
+          },
+          {
+            "\"Enterprise Ruleset\" enterprise permissions": "write"
           }
         ]
       }
@@ -21710,6 +22037,9 @@
         "permissions": [
           {
             "\"Enterprise administration\" enterprise permissions": "write"
+          },
+          {
+            "\"Enterprise Ruleset\" enterprise permissions": "write"
           }
         ]
       }
@@ -21855,10 +22185,14 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": false,
-        "serverToServer": false,
+        "userToServerRest": true,
+        "serverToServer": true,
         "fineGrainedPat": false,
-        "permissions": []
+        "permissions": [
+          {
+            "\"Enterprise Ruleset\" enterprise permissions": "write"
+          }
+        ]
       }
     },
     {
@@ -22014,10 +22348,14 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": false,
-        "serverToServer": false,
+        "userToServerRest": true,
+        "serverToServer": true,
         "fineGrainedPat": false,
-        "permissions": []
+        "permissions": [
+          {
+            "\"Enterprise Ruleset\" enterprise permissions": "write"
+          }
+        ]
       }
     }
   ],

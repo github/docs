@@ -66,7 +66,7 @@ sections:
     - |
       On instances with multiple Git storage nodes in a voting configuration, including cluster and geo-replication high availability topologies, upgrading may fail to correctly install Actions that ship with the new version. In some cases, previous versions of these Actions remain on the instance. To resolve this issue, run the following commands on the primary node: `ghe-config --unset 'app.actions.actions-repos-sha1sum'`, `ghe-config-apply`, and `/usr/local/share/enterprise/ghe-run-init-actions-graph`.
     - |
-      When restoring an instance with `ghe-restore` while the replication controller is enabled, the storage directory is not restored.
+      When an administrator restores a backup to a configured standalone instance with Replication Controller enabled, `ghe-restore` may skip storage data, such as avatars and attachments, and still complete successfully. The restore output includes `Warning: no routes found, skipping storage restore ...`. Replication Controller is disabled by default in {% data variables.product.prodname_ghe_server %} 3.20. If you see this warning or storage data is missing after a restore, contact {% data variables.contact.github_support %}. [Updated: 2026-10-22]
   errata:
     - |
       The known issues incorrectly indicated that Elasticsearch indices are reindexed by a nightly scheduled job after restoring data backed up from GitHub Enterprise Server 3.13 or later. The scheduled job runs on the first Saturday of each month. [Updated: 2026-10-15]

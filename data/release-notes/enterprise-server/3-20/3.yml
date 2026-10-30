@@ -33,6 +33,8 @@ sections:
       The `code_scanning_alert` webhook event includes a new `assignment` action type that fires when an alert is assigned or reassigned to a user.
   known_issues:
     - |
+      After a user account is unsuspended, the user may remain missing from the enterprise member list and the results of GraphQL queries using `enterprise.members`. [Updated: 2026-10-30]
+    - |
       During an upgrade of GitHub Enterprise Server, custom firewall rules are removed. If you use custom firewall rules, you must reapply them after upgrading.
     - |
       During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.

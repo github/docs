@@ -69,9 +69,9 @@ sections:
     - |
       In a clustered GitHub Enterprise Server environment, a node that remained in the cluster after losing the `git-server`, `pages-server`, or `storage-server` role could continue to appear online and eligible for replication. This could cause replica placement failures, incorrect replica counts, or replication status to show a node without the relevant service as healthy. If you experience these symptoms, contact GitHub Support.
     - |
-      When restoring an instance with `ghe-restore` while the replication controller is enabled, the storage directory is not restored.
-    - |
       On a newly booted {% data variables.product.prodname_ghe_server %} instance, the merge box on a newly created pull request can stay on "Checking for the ability to merge automatically" and not show the merge status. If encountered, refreshing the page shows the correct merge status.
   errata:
     - |
       The known issues incorrectly indicated that Elasticsearch indices are reindexed by a nightly scheduled job after restoring data backed up from GitHub Enterprise Server 3.13 or later. The scheduled job runs on the first Saturday of each month. [Updated: 2026-10-15]
+    - |
+      The known issues incorrectly indicated that this release doesn't restore the storage directory when you restore an instance with `ghe-restore` while Replication Controller is enabled. This issue was fixed in {% data variables.product.prodname_ghe_server %} 3.22.1. [Updated: 2026-10-22]

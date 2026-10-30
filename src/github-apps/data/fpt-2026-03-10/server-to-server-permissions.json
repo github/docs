@@ -71,6 +71,45 @@
       }
     ]
   },
+  "enterprise_security_products": {
+    "title": "Enterprise security products",
+    "displayTitle": "Enterprise permissions for \"Enterprise security products\"",
+    "permissions": [
+      {
+        "category": "dependabot",
+        "slug": "lists-the-repositories-dependabot-can-access-in-an-enterprise",
+        "subcategory": "repository-access",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/dependabot/repository-access",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "dependabot",
+        "slug": "updates-dependabots-repository-access-list-for-an-enterprise",
+        "subcategory": "repository-access",
+        "verb": "patch",
+        "requestPath": "/enterprises/{enterprise}/dependabot/repository-access",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "dependabot",
+        "slug": "set-the-default-repository-access-level-for-dependabot-in-an-enterprise",
+        "subcategory": "repository-access",
+        "verb": "put",
+        "requestPath": "/enterprises/{enterprise}/dependabot/repository-access/default-level",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      }
+    ]
+  },
   "organization_api_insights": {
     "title": "API Insights",
     "displayTitle": "Organization permissions for \"API Insights\"",
@@ -9278,6 +9317,61 @@
       },
       {
         "category": "issues",
+        "slug": "list-issue-artifacts",
+        "subcategory": "artifacts",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/artifacts",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "issues",
+        "slug": "create-an-issue-artifact",
+        "subcategory": "artifacts",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/artifacts",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "issues",
+        "slug": "get-an-issue-artifact",
+        "subcategory": "artifacts",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/artifacts/{artifact_number}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "issues",
+        "slug": "update-an-issue-artifact",
+        "subcategory": "artifacts",
+        "verb": "patch",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/artifacts/{artifact_number}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "issues",
+        "slug": "delete-an-issue-artifact",
+        "subcategory": "artifacts",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/artifacts/{artifact_number}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "issues",
         "slug": "add-assignees-to-an-issue",
         "subcategory": "assignees",
         "verb": "post",
@@ -10429,6 +10523,28 @@
       },
       {
         "category": "issues",
+        "slug": "list-issue-artifacts",
+        "subcategory": "artifacts",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/artifacts",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "issues",
+        "slug": "get-an-issue-artifact",
+        "subcategory": "artifacts",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/artifacts/{artifact_number}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "issues",
         "slug": "add-assignees-to-an-issue",
         "subcategory": "assignees",
         "verb": "post",
@@ -11270,6 +11386,50 @@
         "subcategory": "repository-advisories",
         "verb": "patch",
         "requestPath": "/repos/{owner}/{repo}/security-advisories/{ghsa_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "security-advisories",
+        "slug": "list-repository-security-advisory-comments",
+        "subcategory": "repository-advisories",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/security-advisories/{ghsa_id}/comments",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "security-advisories",
+        "slug": "create-a-repository-advisory-comment",
+        "subcategory": "repository-advisories",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/security-advisories/{ghsa_id}/comments",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "security-advisories",
+        "slug": "get-a-repository-advisory-comment",
+        "subcategory": "repository-advisories",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/security-advisories/{ghsa_id}/comments/{comment_id}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "security-advisories",
+        "slug": "update-a-repository-advisory-comment",
+        "subcategory": "repository-advisories",
+        "verb": "patch",
+        "requestPath": "/repos/{owner}/{repo}/security-advisories/{ghsa_id}/comments/{comment_id}",
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,

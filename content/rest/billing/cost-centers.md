@@ -8,6 +8,10 @@ allowTitleToDifferFromFilename: true
 category:
   - Administer enterprises and billing
 ---
+## Authentication
+
+{% data reusables.rest-api.enterprise-billing-authentication %}
+
 ## Required roles
 
 The following roles can access cost center API endpoints:

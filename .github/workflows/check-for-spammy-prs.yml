@@ -1,6 +1,6 @@
 name: Check for Spammy PRs
 
-# Flags low-value public PRs and closes PRs that target branches other than main.
+# Flags low-value public PRs and closes PRs with non-main targets or emoji titles.
 # Maintainers add the skip-spammy-check label to exempt a PR.
 
 on:
@@ -10,9 +10,57 @@ on:
 permissions:
   contents: read
   issues: read
-  pull-requests: write
 
 jobs:
+  emoji-title-check:
+    name: Close PRs with emoji titles
+    if: github.repository == 'github/docs'
+    concurrency:
+      group: ${{ github.workflow }}-emoji-title-${{ github.event.pull_request.number }}
+      cancel-in-progress: false
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+        with:
+          github-token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          script: |
+            const item = context.payload.pull_request
+            const params = { ...context.repo, issue_number: item.number }
+
+            // Events can predate title edits or an exemption label, so read the current PR.
+            const { data: current } = await github.rest.issues.get(params)
+            if (current.state !== 'open' || current.user.login === 'docs-bot') {
+              return
+            }
+
+            // Text-default symbols need an emoji selector; plain digits, #, and * need a keycap.
+            const hasEmoji = /\p{Emoji_Presentation}(?!\uFE0E)|\p{Extended_Pictographic}\uFE0F|[#*0-9]\uFE0F?\u20E3/u.test(current.title)
+            if (!hasEmoji) {
+              return
+            }
+
+            if (current.labels.some(label => label.name.toLowerCase() === 'skip-spammy-check')) {
+              core.info('Skipping because the pull request has the skip-spammy-check label.')
+              return
+            }
+
+            // Mark automated closures so the skip label can trigger the existing recovery workflow.
+            await github.rest.issues.addLabels({
+              ...params,
+              labels: ['invalid'],
+            })
+
+            await github.rest.pulls.update({
+              ...context.repo,
+              pull_number: item.number,
+              state: 'closed',
+            })
+
+            await github.rest.issues.createComment({
+              ...params,
+              body: 'Closing because the title contains emoji. Please remove the emoji and open a new PR.',
+            })
+
   spammy-pr-check:
     name: Label spammy PRs and reject non-main targets
     if: >
@@ -49,6 +97,21 @@ jobs:
                 .filter(line => /^[+-]/.test(line))
               return changedLines.length > 0 &&
                 changedLines.every(line => line.slice(1).trim() === '')
+            })
+            const onlyBreaksOpeningFrontmatter = files.length > 0 && files.every(file => {
+              if (
+                file.status !== 'modified' ||
+                !file.filename.startsWith('content/') ||
+                !file.filename.endsWith('.md') ||
+                file.additions !== 1 ||
+                file.deletions !== 1
+              ) return false
+
+              const lines = (file.patch || '').split('\n')
+              return /^@@ -1(?:,\d+)? \+1(?:,\d+)? @@/.test(lines[0]) &&
+                lines[1] === '----' && // Diff prefix "-" followed by the original "---".
+                lines[2]?.startsWith('+') &&
+                !/^---(?:\s*yaml)?\s*$/i.test(lines[2].slice(1))
             })
             const onlyRenames = files.length > 0 && files.every(
               f => f.status === 'renamed' && f.additions === 0 && f.deletions === 0
@@ -101,6 +164,7 @@ jobs:
               isEmptyCommit ||
               touchesTooMany ||
               isBlankLineEdit ||
+              onlyBreaksOpeningFrontmatter ||
               onlyRenames ||
               onlyIndexMd
             ) {

@@ -1869,6 +1869,7 @@
                         "type": "boolean"
                       },
                       "temp_clone_token": {
+                        "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                         "type": "string"
                       },
                       "allow_squash_merge": {
@@ -5167,6 +5168,7 @@
                         "type": "boolean"
                       },
                       "temp_clone_token": {
+                        "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                         "type": "string"
                       },
                       "allow_squash_merge": {
@@ -8393,6 +8395,7 @@
                         "type": "boolean"
                       },
                       "temp_clone_token": {
+                        "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                         "type": "string"
                       },
                       "allow_squash_merge": {
@@ -11541,6 +11544,7 @@
                       "type": "boolean"
                     },
                     "temp_clone_token": {
+                      "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                       "type": "string"
                     },
                     "allow_squash_merge": {
@@ -14643,6 +14647,7 @@
                       "type": "boolean"
                     },
                     "temp_clone_token": {
+                      "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                       "type": "string"
                     },
                     "allow_squash_merge": {
@@ -17716,6 +17721,7 @@
                       "type": "boolean"
                     },
                     "temp_clone_token": {
+                      "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                       "type": "string"
                     },
                     "allow_squash_merge": {
@@ -19238,7 +19244,7 @@
         {
           "type": "integer",
           "name": "duplicate_issue_id",
-          "description": "<p>The ID of the issue to mark as the canonical duplicate when <code>state_reason</code> is <code>duplicate</code>. The issue must exist and be accessible to the authenticated user. Ignored when <code>state_reason</code> is not <code>duplicate</code>.</p>"
+          "description": "<p>The ID of the issue that this issue duplicates, used when marking this issue as a duplicate with <code>status: Duplicate</code> or <code>state_reason: duplicate</code>. The issue must exist and be accessible to the authenticated user.</p>"
         },
         {
           "type": "null or string or integer",
@@ -20920,6 +20926,7 @@
                           "type": "boolean"
                         },
                         "temp_clone_token": {
+                          "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                           "type": "string"
                         },
                         "allow_squash_merge": {
@@ -24467,6 +24474,7 @@
                         "type": "boolean"
                       },
                       "temp_clone_token": {
+                        "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                         "type": "string"
                       },
                       "allow_squash_merge": {
@@ -27568,6 +27576,7 @@
                       "type": "boolean"
                     },
                     "temp_clone_token": {
+                      "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                       "type": "string"
                     },
                     "allow_squash_merge": {
@@ -30674,6 +30683,7 @@
                       "type": "boolean"
                     },
                     "temp_clone_token": {
+                      "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                       "type": "string"
                     },
                     "allow_squash_merge": {
@@ -34776,6 +34786,7 @@
                         "type": "boolean"
                       },
                       "temp_clone_token": {
+                        "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                         "type": "string"
                       },
                       "allow_squash_merge": {
@@ -36214,6 +36225,1364 @@
         "fineGrainedPat": true,
         "permissions": [],
         "allowPermissionlessAccess": true
+      }
+    }
+  ],
+  "artifacts": [
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/artifacts",
+      "title": "List issue artifacts",
+      "category": "issues",
+      "subcategory": "artifacts",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "issue_number",
+          "description": "<p>The number that identifies the issue.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "type",
+          "description": "<p>The artifact type to return.</p>",
+          "in": "query",
+          "schema": {
+            "type": "string",
+            "enum": [
+              "generic",
+              "link",
+              "plan",
+              "embedded_html"
+            ]
+          }
+        },
+        {
+          "name": "per_page",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "default": 30
+          }
+        },
+        {
+          "name": "page",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "default": 1
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Lists artifacts attached to an issue. Results are ordered by artifact number.</p>\n<p>The <code>type</code> parameter filters the response to artifacts of one type.\nResults can be requested by page. The page defaults to <code>1</code>; the page size\ndefaults to <code>30</code> and can be set from <code>1</code> to <code>100</code>.</p>\n<p>The response is a bare array and does not include pagination metadata such as\na <code>Link</code> header, a total count, or the service's <code>has_next_page</code> signal.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO",
+              "issue_number": "ISSUE_NUMBER"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>A list of artifacts attached to the issue.</p>",
+            "example": [
+              {
+                "id": 42,
+                "number": 1,
+                "type": "plan",
+                "name": "Implementation plan",
+                "body": "## Plan\n\nBuild the feature in two phases.",
+                "body_html": "<h2>Plan</h2>\n<p>Build the feature in two phases.</p>",
+                "description": "Build the feature in two phases.",
+                "creator": {
+                  "login": "octocat",
+                  "id": 1
+                },
+                "updated_by_actor": {
+                  "login": "monalisa",
+                  "id": 2
+                },
+                "created_at": "2026-09-21T15:00:00Z",
+                "updated_at": "2026-09-21T15:30:00Z"
+              },
+              {
+                "id": 43,
+                "number": 2,
+                "type": "link",
+                "name": "Design discussion",
+                "body": "https://github.com/octo-org/example/discussions/1",
+                "body_html": "<p>https://github.com/octo-org/example/discussions/1</p>",
+                "description": "",
+                "creator": {
+                  "login": "octocat",
+                  "id": 1
+                },
+                "updated_by_actor": {
+                  "login": "octocat",
+                  "id": 1
+                },
+                "created_at": "2026-09-21T16:00:00Z",
+                "updated_at": "2026-09-21T16:00:00Z"
+              }
+            ],
+            "schema": {
+              "type": "array",
+              "items": {
+                "title": "Issue artifact",
+                "description": "Issue artifacts are named, typed pieces of content attached to an issue.\nThey give people and agents a durable place to preserve context and\nsupporting material alongside the work. Each artifact has a number unique\nwithin the issue.",
+                "type": "object",
+                "required": [
+                  "id",
+                  "number",
+                  "type",
+                  "name",
+                  "body",
+                  "body_html",
+                  "creator",
+                  "updated_by_actor",
+                  "created_at",
+                  "updated_at",
+                  "description"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "The globally unique identifier of the artifact."
+                  },
+                  "html_url": {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "The canonical browser URL for the artifact in its issue context."
+                  },
+                  "number": {
+                    "type": "integer",
+                    "description": "The artifact number within the issue."
+                  },
+                  "type": {
+                    "type": "string",
+                    "description": "The artifact type. The types supported for external creation and filtering are:\n\n- `generic` is a general-purpose Markdown document.\n- `link` represents a named link.\n- `plan` is a Markdown plan.\n- `embedded_html` is a self-contained HTML document. Its `body` contains the HTML source."
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "The human-readable name of the artifact."
+                  },
+                  "body": {
+                    "type": "string",
+                    "description": "The artifact content. For `embedded_html` artifacts, this is the HTML source."
+                  },
+                  "body_html": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "The artifact content rendered as HTML, or `null` if rendering times out or is skipped\nto protect the response's time budget. The raw content remains available in `body`."
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "A short, generated summary of the artifact."
+                  },
+                  "creator": {
+                    "type": [
+                      "object",
+                      "null"
+                    ],
+                    "description": "The user or integration that created the artifact.",
+                    "required": [
+                      "login",
+                      "id"
+                    ],
+                    "properties": {
+                      "login": {
+                        "type": "string"
+                      },
+                      "id": {
+                        "type": "integer",
+                        "format": "int64"
+                      }
+                    }
+                  },
+                  "updated_by_actor": {
+                    "type": [
+                      "object",
+                      "null"
+                    ],
+                    "description": "The user or integration that most recently updated the artifact.",
+                    "required": [
+                      "login",
+                      "id"
+                    ],
+                    "properties": {
+                      "login": {
+                        "type": "string"
+                      },
+                      "id": {
+                        "type": "integer",
+                        "format": "int64"
+                      }
+                    }
+                  },
+                  "created_at": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "format": "date-time",
+                    "description": "The time the artifact was created."
+                  },
+                  "updated_at": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "format": "date-time",
+                    "description": "The time the artifact was last updated."
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>A list of artifacts attached to the issue.</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "410",
+          "description": "<p>Gone</p>"
+        },
+        {
+          "httpStatusCode": "503",
+          "description": "<p>Service unavailable</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Issues\" repository permissions": "read"
+          },
+          {
+            "\"Pull requests\" repository permissions": "read"
+          }
+        ],
+        "allowsPublicRead": true
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/artifacts",
+      "title": "Create an issue artifact",
+      "category": "issues",
+      "subcategory": "artifacts",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "issue_number",
+          "description": "<p>The number that identifies the issue.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "string",
+          "name": "type",
+          "description": "<p>The artifact type.</p>",
+          "enum": [
+            "generic",
+            "link",
+            "plan",
+            "embedded_html"
+          ],
+          "default": "generic"
+        },
+        {
+          "type": "string",
+          "name": "name",
+          "description": "<p>The human-readable name of the artifact.</p>",
+          "isRequired": true
+        },
+        {
+          "type": "string",
+          "name": "body",
+          "description": "<p>The artifact content. For <code>embedded_html</code> artifacts, provide the HTML source.</p>",
+          "isRequired": true
+        }
+      ],
+      "descriptionHTML": "<p>Creates an artifact attached to an issue.</p>\n<p>The artifact type defaults to <code>generic</code> when omitted. Creating an artifact\nrequires permission to update the issue.</p>\n<p>The request can return <code>403</code> if the repository is read-only or locked, or a\nGitHub App installation has only <code>issues: read</code> permission.</p>\n<p>To create an HTML artifact, set <code>type</code> to <code>embedded_html</code> and provide the HTML source\nin <code>body</code>. Open the returned <code>html_url</code> to inspect the source, then select\n<strong>Preview</strong> to view the rendered artifact. Select <strong>Show source</strong> to return\nto the HTML source.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "type": "generic",
+              "name": "Research notes",
+              "body": "## Findings\n\nThe API supports issue artifacts."
+            },
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO",
+              "issue_number": "ISSUE_NUMBER"
+            }
+          },
+          "response": {
+            "statusCode": "201",
+            "contentType": "application/json",
+            "description": "<p>The created artifact.</p>",
+            "example": {
+              "id": 42,
+              "html_url": "https://github.com/octocat/Hello-World/issues/1347/artifacts/1",
+              "number": 1,
+              "type": "generic",
+              "name": "Research notes",
+              "body": "## Findings\n\nThe API supports issue artifacts.",
+              "body_html": "<h2>Findings</h2>\n<p>The API supports issue artifacts.</p>",
+              "description": "The API supports issue artifacts.",
+              "creator": {
+                "login": "octocat",
+                "id": 1
+              },
+              "updated_by_actor": {
+                "login": "octocat",
+                "id": 1
+              },
+              "created_at": "2026-09-21T15:00:00Z",
+              "updated_at": "2026-09-21T15:00:00Z"
+            },
+            "schema": {
+              "title": "Issue artifact",
+              "description": "Issue artifacts are named, typed pieces of content attached to an issue.\nThey give people and agents a durable place to preserve context and\nsupporting material alongside the work. Each artifact has a number unique\nwithin the issue.",
+              "type": "object",
+              "required": [
+                "id",
+                "number",
+                "type",
+                "name",
+                "body",
+                "body_html",
+                "creator",
+                "updated_by_actor",
+                "created_at",
+                "updated_at",
+                "description"
+              ],
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "format": "int64",
+                  "description": "The globally unique identifier of the artifact."
+                },
+                "html_url": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The canonical browser URL for the artifact in its issue context."
+                },
+                "number": {
+                  "type": "integer",
+                  "description": "The artifact number within the issue."
+                },
+                "type": {
+                  "type": "string",
+                  "description": "The artifact type. The types supported for external creation and filtering are:\n\n- `generic` is a general-purpose Markdown document.\n- `link` represents a named link.\n- `plan` is a Markdown plan.\n- `embedded_html` is a self-contained HTML document. Its `body` contains the HTML source."
+                },
+                "name": {
+                  "type": "string",
+                  "description": "The human-readable name of the artifact."
+                },
+                "body": {
+                  "type": "string",
+                  "description": "The artifact content. For `embedded_html` artifacts, this is the HTML source."
+                },
+                "body_html": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The artifact content rendered as HTML, or `null` if rendering times out or is skipped\nto protect the response's time budget. The raw content remains available in `body`."
+                },
+                "description": {
+                  "type": "string",
+                  "description": "A short, generated summary of the artifact."
+                },
+                "creator": {
+                  "type": [
+                    "object",
+                    "null"
+                  ],
+                  "description": "The user or integration that created the artifact.",
+                  "required": [
+                    "login",
+                    "id"
+                  ],
+                  "properties": {
+                    "login": {
+                      "type": "string"
+                    },
+                    "id": {
+                      "type": "integer",
+                      "format": "int64"
+                    }
+                  }
+                },
+                "updated_by_actor": {
+                  "type": [
+                    "object",
+                    "null"
+                  ],
+                  "description": "The user or integration that most recently updated the artifact.",
+                  "required": [
+                    "login",
+                    "id"
+                  ],
+                  "properties": {
+                    "login": {
+                      "type": "string"
+                    },
+                    "id": {
+                      "type": "integer",
+                      "format": "int64"
+                    }
+                  }
+                },
+                "created_at": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date-time",
+                  "description": "The time the artifact was created."
+                },
+                "updated_at": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date-time",
+                  "description": "The time the artifact was last updated."
+                }
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "201",
+          "description": "<p>The created artifact.</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "410",
+          "description": "<p>Gone</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
+        },
+        {
+          "httpStatusCode": "429",
+          "description": "<p>Artifact writes are temporarily throttled. Retry after the indicated delay.</p>"
+        },
+        {
+          "httpStatusCode": "500",
+          "description": "<p>Internal Error</p>"
+        },
+        {
+          "httpStatusCode": "503",
+          "description": "<p>Service unavailable</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Issues\" repository permissions": "write"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/artifacts/{artifact_number}",
+      "title": "Get an issue artifact",
+      "category": "issues",
+      "subcategory": "artifacts",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "issue_number",
+          "description": "<p>The number that identifies the issue.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "artifact_number",
+          "description": "<p>The artifact number within the issue.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Returns an artifact attached to an issue by its per-issue artifact number,\nalong with its version history ordered from newest to oldest.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO",
+              "issue_number": "ISSUE_NUMBER",
+              "artifact_number": "ARTIFACT_NUMBER"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>The requested artifact.</p>",
+            "example": {
+              "artifact": {
+                "id": 42,
+                "number": 1,
+                "type": "plan",
+                "name": "Updated implementation plan",
+                "body": "## Updated plan\n\nBuild the feature in three phases.",
+                "body_html": "<h2>Updated plan</h2>\n<p>Build the feature in three phases.</p>",
+                "description": "Build the feature in three phases.",
+                "creator": {
+                  "login": "octocat",
+                  "id": 1
+                },
+                "updated_by_actor": {
+                  "login": "monalisa",
+                  "id": 2
+                },
+                "created_at": "2026-09-21T15:00:00Z",
+                "updated_at": "2026-09-21T15:30:00Z"
+              },
+              "versions": [
+                {
+                  "version": 2,
+                  "name": "Updated implementation plan",
+                  "body": "## Updated plan\n\nBuild the feature in three phases.",
+                  "body_html": "<h2>Updated plan</h2>\n<p>Build the feature in three phases.</p>",
+                  "created_at": "2026-09-21T15:30:00Z",
+                  "actor": {
+                    "login": "monalisa",
+                    "id": 2
+                  }
+                },
+                {
+                  "version": 1,
+                  "name": "Implementation plan",
+                  "body": "## Plan\n\nBuild the feature in two phases.",
+                  "body_html": "<h2>Plan</h2>\n<p>Build the feature in two phases.</p>",
+                  "created_at": "2026-09-21T15:00:00Z",
+                  "actor": {
+                    "login": "octocat",
+                    "id": 1
+                  }
+                }
+              ]
+            },
+            "schema": {
+              "oneOf": [
+                {
+                  "title": "Issue artifact",
+                  "description": "Issue artifacts are named, typed pieces of content attached to an issue.\nThey give people and agents a durable place to preserve context and\nsupporting material alongside the work. Each artifact has a number unique\nwithin the issue.",
+                  "type": "object",
+                  "required": [
+                    "id",
+                    "number",
+                    "type",
+                    "name",
+                    "body",
+                    "body_html",
+                    "creator",
+                    "updated_by_actor",
+                    "created_at",
+                    "updated_at",
+                    "description"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "format": "int64",
+                      "description": "The globally unique identifier of the artifact."
+                    },
+                    "html_url": {
+                      "type": "string",
+                      "format": "uri",
+                      "description": "The canonical browser URL for the artifact in its issue context."
+                    },
+                    "number": {
+                      "type": "integer",
+                      "description": "The artifact number within the issue."
+                    },
+                    "type": {
+                      "type": "string",
+                      "description": "The artifact type. The types supported for external creation and filtering are:\n\n- `generic` is a general-purpose Markdown document.\n- `link` represents a named link.\n- `plan` is a Markdown plan.\n- `embedded_html` is a self-contained HTML document. Its `body` contains the HTML source."
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "The human-readable name of the artifact."
+                    },
+                    "body": {
+                      "type": "string",
+                      "description": "The artifact content. For `embedded_html` artifacts, this is the HTML source."
+                    },
+                    "body_html": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "description": "The artifact content rendered as HTML, or `null` if rendering times out or is skipped\nto protect the response's time budget. The raw content remains available in `body`."
+                    },
+                    "description": {
+                      "type": "string",
+                      "description": "A short, generated summary of the artifact."
+                    },
+                    "creator": {
+                      "type": [
+                        "object",
+                        "null"
+                      ],
+                      "description": "The user or integration that created the artifact.",
+                      "required": [
+                        "login",
+                        "id"
+                      ],
+                      "properties": {
+                        "login": {
+                          "type": "string"
+                        },
+                        "id": {
+                          "type": "integer",
+                          "format": "int64"
+                        }
+                      }
+                    },
+                    "updated_by_actor": {
+                      "type": [
+                        "object",
+                        "null"
+                      ],
+                      "description": "The user or integration that most recently updated the artifact.",
+                      "required": [
+                        "login",
+                        "id"
+                      ],
+                      "properties": {
+                        "login": {
+                          "type": "string"
+                        },
+                        "id": {
+                          "type": "integer",
+                          "format": "int64"
+                        }
+                      }
+                    },
+                    "created_at": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "format": "date-time",
+                      "description": "The time the artifact was created."
+                    },
+                    "updated_at": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "format": "date-time",
+                      "description": "The time the artifact was last updated."
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "required": [
+                    "artifact",
+                    "versions"
+                  ],
+                  "properties": {
+                    "artifact": {
+                      "title": "Issue artifact",
+                      "description": "Issue artifacts are named, typed pieces of content attached to an issue.\nThey give people and agents a durable place to preserve context and\nsupporting material alongside the work. Each artifact has a number unique\nwithin the issue.",
+                      "type": "object",
+                      "required": [
+                        "id",
+                        "number",
+                        "type",
+                        "name",
+                        "body",
+                        "body_html",
+                        "creator",
+                        "updated_by_actor",
+                        "created_at",
+                        "updated_at",
+                        "description"
+                      ],
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "format": "int64",
+                          "description": "The globally unique identifier of the artifact."
+                        },
+                        "html_url": {
+                          "type": "string",
+                          "format": "uri",
+                          "description": "The canonical browser URL for the artifact in its issue context."
+                        },
+                        "number": {
+                          "type": "integer",
+                          "description": "The artifact number within the issue."
+                        },
+                        "type": {
+                          "type": "string",
+                          "description": "The artifact type. The types supported for external creation and filtering are:\n\n- `generic` is a general-purpose Markdown document.\n- `link` represents a named link.\n- `plan` is a Markdown plan.\n- `embedded_html` is a self-contained HTML document. Its `body` contains the HTML source."
+                        },
+                        "name": {
+                          "type": "string",
+                          "description": "The human-readable name of the artifact."
+                        },
+                        "body": {
+                          "type": "string",
+                          "description": "The artifact content. For `embedded_html` artifacts, this is the HTML source."
+                        },
+                        "body_html": {
+                          "type": [
+                            "string",
+                            "null"
+                          ],
+                          "description": "The artifact content rendered as HTML, or `null` if rendering times out or is skipped\nto protect the response's time budget. The raw content remains available in `body`."
+                        },
+                        "description": {
+                          "type": "string",
+                          "description": "A short, generated summary of the artifact."
+                        },
+                        "creator": {
+                          "type": [
+                            "object",
+                            "null"
+                          ],
+                          "description": "The user or integration that created the artifact.",
+                          "required": [
+                            "login",
+                            "id"
+                          ],
+                          "properties": {
+                            "login": {
+                              "type": "string"
+                            },
+                            "id": {
+                              "type": "integer",
+                              "format": "int64"
+                            }
+                          }
+                        },
+                        "updated_by_actor": {
+                          "type": [
+                            "object",
+                            "null"
+                          ],
+                          "description": "The user or integration that most recently updated the artifact.",
+                          "required": [
+                            "login",
+                            "id"
+                          ],
+                          "properties": {
+                            "login": {
+                              "type": "string"
+                            },
+                            "id": {
+                              "type": "integer",
+                              "format": "int64"
+                            }
+                          }
+                        },
+                        "created_at": {
+                          "type": [
+                            "string",
+                            "null"
+                          ],
+                          "format": "date-time",
+                          "description": "The time the artifact was created."
+                        },
+                        "updated_at": {
+                          "type": [
+                            "string",
+                            "null"
+                          ],
+                          "format": "date-time",
+                          "description": "The time the artifact was last updated."
+                        }
+                      }
+                    },
+                    "versions": {
+                      "type": "array",
+                      "description": "The artifact version history, ordered from newest to oldest.",
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "version",
+                          "name",
+                          "body",
+                          "body_html",
+                          "created_at",
+                          "actor"
+                        ],
+                        "properties": {
+                          "version": {
+                            "type": "integer",
+                            "description": "The sequential version number."
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "The artifact name at this version."
+                          },
+                          "body": {
+                            "type": "string",
+                            "description": "The artifact content at this version."
+                          },
+                          "body_html": {
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "description": "The artifact content at this version rendered as HTML, or `null` if rendering times out\nor is skipped to protect the response's time budget. The raw content remains available in `body`."
+                          },
+                          "created_at": {
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "format": "date-time",
+                            "description": "The time this version was created."
+                          },
+                          "actor": {
+                            "type": [
+                              "object",
+                              "null"
+                            ],
+                            "description": "The user or integration that created this version.",
+                            "required": [
+                              "login",
+                              "id"
+                            ],
+                            "properties": {
+                              "login": {
+                                "type": "string"
+                              },
+                              "id": {
+                                "type": "integer",
+                                "format": "int64"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>The requested artifact.</p>"
+        },
+        {
+          "httpStatusCode": "301",
+          "description": "<p>Moved permanently</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "410",
+          "description": "<p>Gone</p>"
+        },
+        {
+          "httpStatusCode": "503",
+          "description": "<p>Service unavailable</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Issues\" repository permissions": "read"
+          },
+          {
+            "\"Pull requests\" repository permissions": "read"
+          }
+        ],
+        "allowsPublicRead": true
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "patch",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/artifacts/{artifact_number}",
+      "title": "Update an issue artifact",
+      "category": "issues",
+      "subcategory": "artifacts",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "issue_number",
+          "description": "<p>The number that identifies the issue.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "artifact_number",
+          "description": "<p>The artifact number within the issue.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "string",
+          "name": "name",
+          "description": "<p>The new human-readable name of the artifact.</p>"
+        },
+        {
+          "type": "string",
+          "name": "body",
+          "description": "<p>The new artifact content.</p>"
+        }
+      ],
+      "descriptionHTML": "<p>Updates the name, body, or both for an artifact attached to an issue.</p>\n<p>Updating an artifact requires permission to update the issue.</p>\n<p>The request can return <code>403</code> if the repository is read-only or locked, or a\nGitHub App installation has only <code>issues: read</code> permission.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "name": "Revised implementation plan",
+              "body": "## Plan\n\nBuild and validate the feature."
+            },
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO",
+              "issue_number": "ISSUE_NUMBER",
+              "artifact_number": "ARTIFACT_NUMBER"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>The updated artifact.</p>",
+            "example": {
+              "id": 42,
+              "html_url": "https://github.com/octocat/Hello-World/issues/1347/artifacts/1",
+              "number": 1,
+              "type": "plan",
+              "name": "Revised implementation plan",
+              "body": "## Plan\n\nBuild and validate the feature.",
+              "body_html": "<h2>Plan</h2>\n<p>Build and validate the feature.</p>",
+              "description": "Build and validate the feature.",
+              "creator": {
+                "login": "octocat",
+                "id": 1
+              },
+              "updated_by_actor": {
+                "login": "monalisa",
+                "id": 2
+              },
+              "created_at": "2026-09-21T15:00:00Z",
+              "updated_at": "2026-09-21T16:00:00Z"
+            },
+            "schema": {
+              "title": "Issue artifact",
+              "description": "Issue artifacts are named, typed pieces of content attached to an issue.\nThey give people and agents a durable place to preserve context and\nsupporting material alongside the work. Each artifact has a number unique\nwithin the issue.",
+              "type": "object",
+              "required": [
+                "id",
+                "number",
+                "type",
+                "name",
+                "body",
+                "body_html",
+                "creator",
+                "updated_by_actor",
+                "created_at",
+                "updated_at",
+                "description"
+              ],
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "format": "int64",
+                  "description": "The globally unique identifier of the artifact."
+                },
+                "html_url": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The canonical browser URL for the artifact in its issue context."
+                },
+                "number": {
+                  "type": "integer",
+                  "description": "The artifact number within the issue."
+                },
+                "type": {
+                  "type": "string",
+                  "description": "The artifact type. The types supported for external creation and filtering are:\n\n- `generic` is a general-purpose Markdown document.\n- `link` represents a named link.\n- `plan` is a Markdown plan.\n- `embedded_html` is a self-contained HTML document. Its `body` contains the HTML source."
+                },
+                "name": {
+                  "type": "string",
+                  "description": "The human-readable name of the artifact."
+                },
+                "body": {
+                  "type": "string",
+                  "description": "The artifact content. For `embedded_html` artifacts, this is the HTML source."
+                },
+                "body_html": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The artifact content rendered as HTML, or `null` if rendering times out or is skipped\nto protect the response's time budget. The raw content remains available in `body`."
+                },
+                "description": {
+                  "type": "string",
+                  "description": "A short, generated summary of the artifact."
+                },
+                "creator": {
+                  "type": [
+                    "object",
+                    "null"
+                  ],
+                  "description": "The user or integration that created the artifact.",
+                  "required": [
+                    "login",
+                    "id"
+                  ],
+                  "properties": {
+                    "login": {
+                      "type": "string"
+                    },
+                    "id": {
+                      "type": "integer",
+                      "format": "int64"
+                    }
+                  }
+                },
+                "updated_by_actor": {
+                  "type": [
+                    "object",
+                    "null"
+                  ],
+                  "description": "The user or integration that most recently updated the artifact.",
+                  "required": [
+                    "login",
+                    "id"
+                  ],
+                  "properties": {
+                    "login": {
+                      "type": "string"
+                    },
+                    "id": {
+                      "type": "integer",
+                      "format": "int64"
+                    }
+                  }
+                },
+                "created_at": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date-time",
+                  "description": "The time the artifact was created."
+                },
+                "updated_at": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date-time",
+                  "description": "The time the artifact was last updated."
+                }
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>The updated artifact.</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "410",
+          "description": "<p>Gone</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
+        },
+        {
+          "httpStatusCode": "429",
+          "description": "<p>Artifact writes are temporarily throttled. Retry after the indicated delay.</p>"
+        },
+        {
+          "httpStatusCode": "503",
+          "description": "<p>Service unavailable</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Issues\" repository permissions": "write"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "delete",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/artifacts/{artifact_number}",
+      "title": "Delete an issue artifact",
+      "category": "issues",
+      "subcategory": "artifacts",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "issue_number",
+          "description": "<p>The number that identifies the issue.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "artifact_number",
+          "description": "<p>The artifact number within the issue.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Permanently deletes an artifact attached to an issue.</p>\n<p>Deleting an artifact requires permission to update the issue.</p>\n<p>The request can return <code>403</code> if the repository is read-only or locked, or a\nGitHub App installation has only <code>issues: read</code> permission.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO",
+              "issue_number": "ISSUE_NUMBER",
+              "artifact_number": "ARTIFACT_NUMBER"
+            }
+          },
+          "response": {
+            "statusCode": "204",
+            "description": "<p>The artifact was deleted successfully. No content is returned.</p>"
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "204",
+          "description": "<p>The artifact was deleted successfully. No content is returned.</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "410",
+          "description": "<p>Gone</p>"
+        },
+        {
+          "httpStatusCode": "429",
+          "description": "<p>Artifact writes are temporarily throttled. Retry after the indicated delay.</p>"
+        },
+        {
+          "httpStatusCode": "503",
+          "description": "<p>Service unavailable</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Issues\" repository permissions": "write"
+          }
+        ]
       }
     }
   ],
@@ -38180,6 +39549,7 @@
                       "type": "boolean"
                     },
                     "temp_clone_token": {
+                      "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                       "type": "string"
                     },
                     "allow_squash_merge": {
@@ -41272,6 +42642,7 @@
                       "type": "boolean"
                     },
                     "temp_clone_token": {
+                      "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                       "type": "string"
                     },
                     "allow_squash_merge": {
@@ -49802,6 +51173,7 @@
                                 "type": "boolean"
                               },
                               "temp_clone_token": {
+                                "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                                 "type": "string"
                               },
                               "allow_squash_merge": {
@@ -56118,6 +57490,7 @@
                               "type": "boolean"
                             },
                             "temp_clone_token": {
+                              "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                               "type": "string"
                             },
                             "allow_squash_merge": {
@@ -79442,6 +80815,7 @@
                         "type": "boolean"
                       },
                       "temp_clone_token": {
+                        "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                         "type": "string"
                       },
                       "allow_squash_merge": {
@@ -82543,6 +83917,7 @@
                       "type": "boolean"
                     },
                     "temp_clone_token": {
+                      "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                       "type": "string"
                     },
                     "allow_squash_merge": {
@@ -85650,6 +87025,7 @@
                       "type": "boolean"
                     },
                     "temp_clone_token": {
+                      "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                       "type": "string"
                     },
                     "allow_squash_merge": {
@@ -88793,6 +90169,7 @@
                         "type": "boolean"
                       },
                       "temp_clone_token": {
+                        "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                         "type": "string"
                       },
                       "allow_squash_merge": {
@@ -97318,6 +98695,7 @@
                       "type": "boolean"
                     },
                     "temp_clone_token": {
+                      "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                       "type": "string"
                     },
                     "allow_squash_merge": {
@@ -100418,6 +101796,7 @@
                       "type": "boolean"
                     },
                     "temp_clone_token": {
+                      "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                       "type": "string"
                     },
                     "allow_squash_merge": {
@@ -103548,6 +104927,7 @@
                         "type": "boolean"
                       },
                       "temp_clone_token": {
+                        "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                         "type": "string"
                       },
                       "allow_squash_merge": {
@@ -106650,6 +108030,7 @@
                       "type": "boolean"
                     },
                     "temp_clone_token": {
+                      "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                       "type": "string"
                     },
                     "allow_squash_merge": {
@@ -109764,6 +111145,7 @@
                       "type": "boolean"
                     },
                     "temp_clone_token": {
+                      "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                       "type": "string"
                     },
                     "allow_squash_merge": {
@@ -120804,6 +122186,7 @@
                                     "type": "boolean"
                                   },
                                   "temp_clone_token": {
+                                    "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                                     "type": "string"
                                   },
                                   "allow_squash_merge": {

@@ -2,7 +2,7 @@
 title: Finding and installing plugins for {% data variables.copilot.copilot_cli %}
 shortTitle: 'Plugins: Find and install'
 allowTitleToDifferFromFilename: true
-intro: 'Extend {% data variables.product.prodname_copilot_short %}''s functionality by installing plugins created by the community or by your team.'
+intro: 'Extend {% data variables.product.prodname_copilot_short %} by installing plugins created by the community or your organization.'
 versions:
   feature: copilot
 category:
@@ -14,128 +14,145 @@ docsTeamMetrics:
   - copilot-cli
 ---
 
-## Introduction
-
 Plugins are packages that extend the functionality of {% data variables.copilot.copilot_cli_short %}. You can install a plugin from a marketplace that you have registered with the CLI.
 
-For more information, see [AUTOTITLE](/copilot/concepts/agents/about-plugins).
+For an overview, see [AUTOTITLE](/copilot/concepts/customizations/plugins).
 
 {% data reusables.copilot.copilot-cli.cli-help-note %}
 
-## Finding plugins
+## Find plugins
 
-Plugins are collected together in marketplaces. A marketplace is a registry of plugins that you can browse and install from. You can add a marketplace to your CLI configuration, which allows you to use the CLI to browse and install plugins from that marketplace—see [Adding plugin marketplaces](#adding-plugin-marketplaces). {% data variables.product.prodname_copilot_short %} comes with one marketplace already registered by default: `awesome-copilot`.
+Plugins are collected in marketplaces. A marketplace is a registry of plugins that you can browse and install. {% data variables.copilot.copilot_cli_short %} includes the `awesome-copilot` marketplace by default.
 
-To use the CLI to browse the plugins in one of your registered marketplaces:
+To list registered marketplaces, enter:
 
-1. **Check which marketplaces are currently registered.**
+```shell copy
+copilot plugin marketplace list
+```
 
-   In the terminal, list the available marketplaces by entering:
+In an interactive session, enter:
 
-   ```shell copy
-   copilot plugin marketplace list
-   ```
+```copilot copy
+/plugin marketplace list
+```
 
-   Alternatively, in an interactive session, enter:
+To browse plugins in a registered marketplace, enter:
 
-   ```copilot copy
-   /plugin marketplace list
-   ```
+```shell copy
+copilot plugin marketplace browse MARKETPLACE-NAME
+```
 
-1. **Browse the plugins in a registered marketplace.**
+Replace `MARKETPLACE-NAME` with the marketplace name.
 
-   From the list of registered marketplaces, copy the name of the marketplace you want to browse—for example, `awesome-copilot`—then enter the following command, replacing `MARKETPLACE-NAME`:
+In an interactive session, enter:
 
-   ```shell copy
-   copilot plugin marketplace browse MARKETPLACE-NAME
+```copilot copy
+/plugin marketplace browse MARKETPLACE-NAME
+```
 
-   ```
+## Install plugins
 
-## Installing plugins
-
-You can install plugins from a registered marketplace. For information on how to register additional marketplaces, see [Adding plugin marketplaces](#adding-plugin-marketplaces).
-
-To install a plugin, enter:
+To install a plugin from a registered marketplace, enter:
 
 ```shell copy
 copilot plugin install PLUGIN-NAME@MARKETPLACE-NAME
 ```
 
-For example, to install the `database-data-management` plugin from the `awesome-copilot` marketplace enter:
+For example, to install `database-data-management` from `awesome-copilot`, enter:
 
 ```shell copy
 copilot plugin install database-data-management@awesome-copilot
 ```
 
-Alternatively, in an interactive session, enter:
+In an interactive session, enter:
 
 ```copilot copy
 /plugin install PLUGIN-NAME@MARKETPLACE-NAME
 ```
 
-## Managing installed plugins
+You can also install a plugin from a {% data variables.product.github %} repository, a Git URL, a repository subdirectory, or a local path. For accepted formats, see [Plugin specification for the `install` command](/copilot/reference/copilot-cli-reference/cli-plugin-reference#plugin-specification-for-install-command).
 
-```bash
-copilot plugin list                    # View installed plugins
-copilot plugin update PLUGIN-NAME      # Update plugin to latest version
-copilot plugin uninstall PLUGIN-NAME   # Remove plugin completely
-copilot plugin disable PLUGIN-NAME     # Disable a plugin without uninstalling it
-copilot plugin enable PLUGIN-NAME      # Re-enable a previously disabled plugin
-```
+## Manage installed plugins
 
-## Adding plugin marketplaces
-
-To add a marketplace to the list of registered marketplaces, enter the following command in the terminal:
+Use these commands to manage installed plugins:
 
 ```shell copy
-copilot plugin marketplace add OWNER/REPO
+copilot plugin list
+copilot plugin update PLUGIN-NAME
+copilot plugin uninstall PLUGIN-NAME
+copilot plugin disable PLUGIN-NAME
+copilot plugin enable PLUGIN-NAME
 ```
 
-Where OWNER/REPO identifies a repository on {% data variables.product.prodname_dotcom_the_website %} that has been configured as a CLI plugin marketplace.
+`disable` turns off a plugin without uninstalling it. `uninstall` removes it. For all commands and options, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-plugin-reference).
 
-For example to add the `claude-code-plugins` marketplace, hosted at https://github.com/anthropics/claude-code, enter:
+## Add a marketplace
+
+To register a marketplace hosted in a {% data variables.product.github %} repository, enter:
+
+```shell copy
+copilot plugin marketplace add OWNER/REPOSITORY
+```
+
+Replace `OWNER/REPOSITORY` with the repository that hosts the marketplace. For example:
 
 ```shell copy
 copilot plugin marketplace add anthropics/claude-code
 ```
 
-Alternatively, in an interactive session, enter:
+In an interactive session, enter:
 
 ```copilot copy
-/plugin marketplace add OWNER/REPO
+/plugin marketplace add OWNER/REPOSITORY
 ```
 
-If a marketplace is located on the local file system, instead of on {% data variables.product.prodname_dotcom_the_website %}, use the path to the marketplace directory instead of OWNER/REPO. For example:
+You can also add a marketplace from a local directory or from a Git repository hosted elsewhere. Use the marketplace directory path for a local source:
 
 ```shell copy
 copilot plugin marketplace add /PATH/TO/MARKETPLACE-DIRECTORY
 ```
 
-If a marketplace is located in a Git repository that is not hosted on {% data variables.product.prodname_dotcom_the_website %}, use the URL of the Git repository. For example:
+For a Git repository hosted elsewhere, use its Git URL:
 
 ```shell copy
 copilot plugin marketplace add https://gitlab.com/OWNER/REPO.git
 ```
 
-## Removing plugin marketplaces
+For guidance on publishing a {% data variables.product.github %}-hosted marketplace, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/create-and-share-plugin-marketplaces).
 
-To remove a marketplace from the CLI enter:
+## Remove a marketplace
+
+To unregister a marketplace, enter:
 
 ```shell copy
 copilot plugin marketplace remove MARKETPLACE-NAME
 ```
 
-Or, in an interactive session:
+In an interactive session, enter:
 
 ```copilot copy
 /plugin marketplace remove MARKETPLACE-NAME
 ```
 
-> [!NOTE]
-> * When adding a marketplace you reference the marketplace using the OWNER/REPO of the {% data variables.product.github %} repository that has been configured as a marketplace. When removing a marketplace, however, you reference the name of the marketplace as it appears in your list of registered marketplaces.
-> * If you attempt to remove a marketplace that has plugins installed, the command will fail with an error message that lists the plugins that are currently installed from that marketplace. Add the `--force` option to the command to remove the marketplace and uninstall all plugins that were installed from that marketplace.
+When adding a marketplace, you identify it by its source. When removing it, use the marketplace name shown in the marketplace list. The command fails if plugins from the marketplace are still installed. Add `--force` to also uninstall those plugins.
+
+## Turn off a repository default
+
+Repository defaults are optional. To turn off a plugin enabled by repository settings, add a `false` entry to `enabledPlugins` in `.github/copilot/settings.local.json`:
+
+```json copy
+{
+  "enabledPlugins": {
+    "PLUGIN-NAME@MARKETPLACE-NAME": false
+  }
+}
+```
+
+Replace the identifier with the plugin's name and marketplace name. Save the file and start a new session. To turn the plugin back on, set the entry to `true`.
+
+Do not commit this local settings file. Enterprise managed settings take precedence over repository defaults and local overrides. For details, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-config-dir-reference#repository-settings-githubcopilotsettingsjson).
 
 ## Further reading
 
 * [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/plugins-creating)
-* [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/plugins-marketplace)
+* [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-plugin-reference)

@@ -62,7 +62,8 @@ Your business can:
 * An enterprise account, which provides a single place to manage teams, grant access, enforce policies, and audit activity.
 * Additional features such as SAML authentication and internal repositories. For a detailed list, see {% data variables.product.pricing_link %}.
 * Extra allowances for usage-based products such as {% data variables.product.prodname_actions %}.
-* The option to add <!-- Enterprise is no longer a pre-requisite with the GHAS products release -->{% data variables.contact.premium_support %}, and {% data variables.copilot.copilot_enterprise %}.
+* Included {% data variables.product.prodname_copilot_short %} access for eligible {% data variables.product.prodname_ghe_cloud %} enterprises. See [AUTOTITLE](/enterprise-cloud@latest/copilot/get-started/whats-changing-with-github-enterprise-and-copilot).
+* The option to add {% data variables.contact.premium_support %}.
 
 When businesses adopt {% data variables.product.prodname_enterprise %}, their return on investment (ROI) is high. For example, their developers **save 45 minutes per day**, and onboarding and **training time is reduced by 40%**. See [The Total Economic Impact of {% data variables.product.prodname_enterprise %}](https://resources.github.com/forrester/).
 

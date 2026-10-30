@@ -8,7 +8,8 @@ versions:
 contentType: concepts
 ---
 
-{% data reusables.public-preview.public-preview %}
+> [!NOTE]
+> {% data reusables.public-preview.public-preview %}
 
 ## About Proof of Presence
 

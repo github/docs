@@ -1,8 +1,9 @@
 ---
-title: Using Copilot cloud agent on GitHub
-shortTitle: Use cloud agent on GitHub
-intro: 'Start {% data variables.copilot.copilot_cloud_agent %} sessions directly on {% data variables.product.github %}, then iterate on the results without leaving your browser.'
-product: '{% data reusables.gated-features.copilot-cloud-agent %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
+title: Using Copilot in the cloud on GitHub
+shortTitle: Use Copilot in the cloud on GitHub
+allowTitleToDifferFromFilename: true
+intro: 'Start {% data variables.copilot.copilot_in_the_cloud_short %} sessions directly on {% data variables.product.github %}, then iterate on the results without leaving your browser.'
+product: '{% data reusables.gated-features.copilot-in-the-cloud %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=button&utm_source=use-cloud-gh-purchase&utm_medium=docs&utm_campaign=universe-2026" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
 redirect_from:
@@ -16,20 +17,80 @@ category:
 
 ## Introduction
 
-You can start {% data variables.copilot.copilot_cloud_agent %} sessions from several places on {% data variables.product.github %}. Once a session is running, you can monitor its progress, steer it with follow-up prompts, and iterate on the resulting pull request—all without leaving the browser.
+You can start {% data variables.copilot.copilot_in_the_cloud %} sessions from several places on {% data variables.product.github %}. Once a session is running, you can monitor its progress, steer it with follow-up prompts, and iterate on the resulting pull request without leaving the browser.
 
-For more information about {% data variables.copilot.copilot_cloud_agent %}, see [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-on-github).
+For more information about {% data variables.copilot.copilot_in_the_cloud_short %}, see [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-on-github).
 
 You can also start partner-built agents from these same entry points using {% data variables.copilot.agent_apps %}. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/use-agent-apps).
 
-## Starting a session from the agents tab or panel
+## Starting a {% data variables.copilot.copilot_in_the_cloud_short %} session
+
+You can start sessions from several different entry points.
+
+* Your {% data variables.product.prodname_copilot_short %} {% octicon "home" aria-label="The home icon" %} home page at [github.com/copilot](https://github.com/copilot?ref_product=copilot&ref_type=engagement&ref_style=text&utm_source=cloud-gh-docs-home-cta&utm_medium=docs&utm_campaign=universe-2026).
+* Your {% octicon "mark-github" aria-label="The github octocat logo" %} {% data variables.product.github %} personal dashboard or {% octicon "home" aria-label="The home icon" %} home page when signed in at [https://github.com](https://github.com?ref_product=copilot&ref_type=engagement&ref_style=text).
+* The **{% octicon "agent" aria-label="The Agents icon" %} Agents** tab or panel in a repository.
+
+You can send a prompt immediately with the default settings, or configure the session to suit your task before sending a prompt.
+
+1. In the prompt box, describe what you want {% data variables.product.prodname_copilot_short %} to do. Include the outcome you want and any constraints.
+
+   > [!TIP]
+   > You can also use slash commands in your prompt to perform specific actions, such as `/rubber-duck` to get an second opinion, `/security-review` to review a repository for vulnerabilities, or `/usage` to display usage information for your session.
+
+1. Optionally, click **{% octicon "plus" aria-hidden="true" aria-label="plus" %} Attach** to give {% data variables.product.prodname_copilot_short %} references for your request.
+
+   Select **Files and folders**, **Upload from computer**, **Repository**, or **Space** to provide context for your request.
+
+   For cloud sandbox sessions, you can provide additional context from third-party sources by configuring connectors and personal custom MCP servers, see [AUTOTITLE](/copilot/concepts/customizations/copilot-connectors) and [AUTOTITLE](/copilot/concepts/customizations/mcp#personal-mcp-servers).
+
+1. Open the **Mode** picker to choose how you want to collaborate with {% data variables.product.prodname_copilot_short %}.
+
+   * **Interactive**: (default) Work with {% data variables.product.prodname_copilot_short %} step by step.
+   * **Autopilot**: Delegate the task to {% data variables.product.prodname_copilot_short %} for end-to-end execution.
+
+   In the same menu, use **Tool permissions** to control how tool requests are approved.
+
+   * Choose **Assisted** (default), which uses a safety check to decide whether to approve a request or ask you.
+   * Choose **Always ask** to require approval for each request.
+   * Choose **Allow all** to automatically approve all tool, path, and URL requests.
+
+1. Open the **Models** picker and select **Auto** (default) or a specific model. Models are grouped by their strengths to help you choose between speed and cost efficiency, versatility and intelligence, or capability for complex tasks. If the selected model supports configurable reasoning, such as **Balance**, you can also use the dropdown menu to select the reasoning level.
+
+1. Below the prompt box, use the **Chat** session context picker to choose the scope of your session (personal, organization, or repository).
+
+   * In the search box, type a repository name to search for a repository to add.
+   * Under **Ask anything across repositories**, choose **Chat** to ask questions across repositories. The default scope is your personal repositories. Click on the image to the right to open the account menu, and change the scope by selecting an organization, or searching by repository owner (either a user or an organization).
+   * Under **Work in a repository**, select a recent repository to work in. The repositories listed reflect the selected scope.
+
+   > [!NOTE]
+   > * Adding a repository through the **Attach** menu (an earlier step) provides a reference (context material) for your prompt. Whereas selecting it here under **Start a session** makes the repository the working repository (scope) for the session. At the start of the session, the cloud sandbox takes a copy of the repository and gives {% data variables.product.prodname_copilot_short %} permission, within existing constraints, to work with its content.
+   > * If a repository isn't listed, it may be excluded from {% data variables.product.prodname_copilot_short %} by your personal settings or an organization or enterprise policy.
+
+   Optionally and if you selected a repository above, you can also click **main** (or the default branch name listed) to choose a branch that {% data variables.product.prodname_copilot_short %} uses as the working context and operates within.
+
+{% data reusables.copilot.environment-picker %}
+
+1. Click **Send message** or press <kbd>Enter</kbd> to send the prompt and start the session.
+
+{% data variables.product.prodname_copilot_short %} will respond to your prompt and start the session based on the selected context and environment. If requested, {% data variables.product.prodname_copilot_short %} will generate a list of files changed, a pull request, artifacts it generated (such as a research plan), and any other relevant outputs.
+
+### Starting {% data variables.product.prodname_copilot_short %} from within a file, issue, or pull request
+
+When you open a chat session with {% data variables.product.prodname_copilot_short %} from a contextual page, the session begins with the context of your open file, issue, or pull request.
+
+You cannot start a new agent session from within the contextual panel itself; you need to initiate it from the {% data variables.product.prodname_copilot_short %} page, your home page, or the agents tab.
+
+## Starting a session with {% data variables.copilot.copilot_cloud_agent %}
+
+### Starting a session from the agents tab or panel
 
 You can start sessions from the agents tab and the agents panel. The only difference is the entry point—once you see the "New agent task" form, the steps are the same.
 
 {% data reusables.copilot.open-agents-panel-or-page %}
 {% data reusables.copilot.cloud-agent.new-agent-task-form-instructions %}
 
-## Starting a session from the dashboard
+### Starting a session from the dashboard
 
 You can ask {% data variables.product.prodname_copilot_short %} to start work from the prompt box in the dashboard. The dashboard is your personalized overview of your activity on {% data variables.product.github %}, seen when you visit [https://github.com](https://github.com) while logged in.
 
@@ -51,7 +112,7 @@ You can ask {% data variables.product.prodname_copilot_short %} to start work fr
    > [!NOTE]
    > If you have enabled the **New Dashboard Experience** in feature preview, the new session will appear in "Agent sessions" under the prompt box in your dashboard. For more information, see [AUTOTITLE](/account-and-profile/reference/personal-dashboard#home-dashboard-view).
 
-## Starting from {% data variables.copilot.copilot_chat_short %}
+### Starting from {% data variables.copilot.copilot_chat_short %}
 
 When you start a task from {% data variables.copilot.copilot_chat_short %}, the new {% data variables.copilot.copilot_cloud_agent %} session incorporates the context of your current chat conversation. This means you don't need to restate details you have already shared with {% data variables.product.prodname_copilot_short %} in your `/task` prompt.
 
@@ -180,9 +241,9 @@ You can ask {% data variables.product.prodname_copilot_short %} to resolve merge
 
 {% data variables.product.prodname_copilot_short %} analyzes the conflicting changes, resolves them, and verifies that the build, tests, and linter still pass. It then requests your review so you can confirm the resolution before merging.
 
-## Running {% data variables.copilot.copilot_cloud_agent %} automatically with {% data variables.copilot.copilot_automations %}
+## Running {% data variables.product.prodname_copilot_short %} automatically with {% data variables.copilot.copilot_automations %}
 
-You can set up {% data variables.copilot.copilot_automations %} to run {% data variables.copilot.copilot_cloud_agent %} automatically, on a schedule or in response to events such as an issue being opened. You create and manage {% data variables.copilot.copilot_automations %} from the **{% data variables.copilot.copilot_automations_cap %}** pane in the **Agents** tab of a repository. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/create-automations).
+You can set up {% data variables.copilot.copilot_automations %} to run {% data variables.product.prodname_copilot_short %} automatically, on a schedule or in response to events such as an issue being opened. You create and manage {% data variables.copilot.copilot_automations %} from the **{% data variables.copilot.copilot_automations_cap %}** pane in the **Agents** tab of a repository. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/create-automations).
 
 ## Managing {% data variables.product.prodname_actions %} workflow runs
 

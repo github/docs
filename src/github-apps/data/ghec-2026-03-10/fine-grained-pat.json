@@ -2641,6 +2641,18 @@
       "requestPath": "/orgs/{org}/copilot/content_exclusion"
     },
     {
+      "slug": "get-feature-policies-for-an-organization",
+      "subcategory": "copilot-feature-policy-management",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/copilot/feature-policies"
+    },
+    {
+      "slug": "update-feature-policies-for-an-organization",
+      "subcategory": "copilot-feature-policy-management",
+      "verb": "patch",
+      "requestPath": "/orgs/{org}/copilot/feature-policies"
+    },
+    {
       "slug": "get-copilot-organization-usage-metrics-for-a-specific-day",
       "subcategory": "copilot-usage-metrics",
       "verb": "get",
@@ -2788,24 +2800,6 @@
     }
   ],
   "dependabot": [
-    {
-      "slug": "lists-the-repositories-dependabot-can-access-in-an-enterprise",
-      "subcategory": "repository-access",
-      "verb": "get",
-      "requestPath": "/enterprises/{enterprise}/dependabot/repository-access"
-    },
-    {
-      "slug": "updates-dependabots-repository-access-list-for-an-enterprise",
-      "subcategory": "repository-access",
-      "verb": "patch",
-      "requestPath": "/enterprises/{enterprise}/dependabot/repository-access"
-    },
-    {
-      "slug": "set-the-default-repository-access-level-for-dependabot-in-an-enterprise",
-      "subcategory": "repository-access",
-      "verb": "put",
-      "requestPath": "/enterprises/{enterprise}/dependabot/repository-access/default-level"
-    },
     {
       "slug": "list-dependabot-alerts-for-an-organization",
       "subcategory": "alerts",
@@ -3579,6 +3573,36 @@
       "subcategory": "issues",
       "verb": "patch",
       "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}"
+    },
+    {
+      "slug": "list-issue-artifacts",
+      "subcategory": "artifacts",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/artifacts"
+    },
+    {
+      "slug": "create-an-issue-artifact",
+      "subcategory": "artifacts",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/artifacts"
+    },
+    {
+      "slug": "get-an-issue-artifact",
+      "subcategory": "artifacts",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/artifacts/{artifact_number}"
+    },
+    {
+      "slug": "update-an-issue-artifact",
+      "subcategory": "artifacts",
+      "verb": "patch",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/artifacts/{artifact_number}"
+    },
+    {
+      "slug": "delete-an-issue-artifact",
+      "subcategory": "artifacts",
+      "verb": "delete",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/artifacts/{artifact_number}"
     },
     {
       "slug": "add-assignees-to-an-issue",
@@ -6221,6 +6245,30 @@
       "subcategory": "repository-advisories",
       "verb": "patch",
       "requestPath": "/repos/{owner}/{repo}/security-advisories/{ghsa_id}"
+    },
+    {
+      "slug": "list-repository-security-advisory-comments",
+      "subcategory": "repository-advisories",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/security-advisories/{ghsa_id}/comments"
+    },
+    {
+      "slug": "create-a-repository-advisory-comment",
+      "subcategory": "repository-advisories",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/security-advisories/{ghsa_id}/comments"
+    },
+    {
+      "slug": "get-a-repository-advisory-comment",
+      "subcategory": "repository-advisories",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/security-advisories/{ghsa_id}/comments/{comment_id}"
+    },
+    {
+      "slug": "update-a-repository-advisory-comment",
+      "subcategory": "repository-advisories",
+      "verb": "patch",
+      "requestPath": "/repos/{owner}/{repo}/security-advisories/{ghsa_id}/comments/{comment_id}"
     },
     {
       "slug": "request-a-cve-for-a-repository-security-advisory",

@@ -1541,6 +1541,7 @@
                         "type": "string"
                       },
                       "temp_clone_token": {
+                        "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                         "type": "string"
                       },
                       "delete_branch_on_merge": {
@@ -3058,6 +3059,241 @@
         "permissions": [
           {
             "\"Enterprise AI controls\" enterprise permissions": "write"
+          }
+        ]
+      }
+    }
+  ],
+  "copilot-feature-policy-management": [
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/copilot/feature-policies",
+      "title": "Get feature policies for an organization",
+      "category": "copilot",
+      "subcategory": "copilot-feature-policy-management",
+      "parameters": [
+        {
+          "name": "org",
+          "description": "<p>The organization name. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Use this endpoint to retrieve the Copilot default availability policy for new features and\nclients for an organization.</p>\n<p>The enterprise default is used when the enterprise has set one. Otherwise, the organization's\nown default is used, and an organization that has not enabled a default is reported as\n<code>disabled</code>. For more information, see\n<a href=\"https://docs.github.com/enterprise-cloud@latest/copilot/concepts/enterprise/default-availability\">About default availability</a>.</p>\n<p>Organization owners can use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> or <code>repo</code> scope to use this endpoint.\nOrganization SAML authorization and OAuth app access restrictions also apply.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "org": "ORG"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>OK</p>",
+            "example": {
+              "default_availability": {
+                "policy_state": "enabled",
+                "editable": true
+              }
+            },
+            "schema": {
+              "type": "object",
+              "required": [
+                "default_availability"
+              ],
+              "properties": {
+                "default_availability": {
+                  "type": "object",
+                  "description": "The default policy applied to newly released Copilot features and clients.",
+                  "required": [
+                    "policy_state",
+                    "editable"
+                  ],
+                  "properties": {
+                    "policy_state": {
+                      "type": "string",
+                      "description": "The effective default availability. The enterprise default is used when the\nenterprise has set one. Otherwise, the organization's own default is used.",
+                      "enum": [
+                        "enabled",
+                        "disabled"
+                      ]
+                    },
+                    "editable": {
+                      "type": "boolean",
+                      "description": "Whether the organization can update its default availability."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "401",
+          "description": "<p>Requires authentication</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Administration\" organization permissions": "write"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "patch",
+      "requestPath": "/orgs/{org}/copilot/feature-policies",
+      "title": "Update feature policies for an organization",
+      "category": "copilot",
+      "subcategory": "copilot-feature-policy-management",
+      "parameters": [
+        {
+          "name": "org",
+          "description": "<p>The organization name. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "object",
+          "name": "default_availability",
+          "description": "",
+          "isRequired": true,
+          "childParamsGroups": [
+            {
+              "type": "string",
+              "name": "policy_state",
+              "description": "<p>The organization default policy applied to newly released Copilot features and clients.</p>",
+              "isRequired": true,
+              "enum": [
+                "enabled",
+                "disabled"
+              ]
+            }
+          ]
+        }
+      ],
+      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Use this endpoint to update the Copilot default availability policy for new features and\nclients for an organization.</p>\n<p>An organization can only set its own default while its enterprise has not set one. For more\ninformation, see\n<a href=\"https://docs.github.com/enterprise-cloud@latest/copilot/concepts/enterprise/default-availability\">About default availability</a>.</p>\n<p>Changing this policy does not change any Copilot feature or client policy that has already been set.</p>\n<p>Organization owners can use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> or <code>repo</code> scope to use this endpoint.\nOrganization SAML authorization and OAuth app access restrictions also apply.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "default_availability": {
+                "policy_state": "enabled"
+              }
+            },
+            "parameters": {
+              "org": "ORG"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>OK</p>",
+            "example": {
+              "default_availability": {
+                "policy_state": "enabled",
+                "editable": true
+              }
+            },
+            "schema": {
+              "type": "object",
+              "required": [
+                "default_availability"
+              ],
+              "properties": {
+                "default_availability": {
+                  "type": "object",
+                  "description": "The default policy applied to newly released Copilot features and clients.",
+                  "required": [
+                    "policy_state",
+                    "editable"
+                  ],
+                  "properties": {
+                    "policy_state": {
+                      "type": "string",
+                      "description": "The effective default availability. The enterprise default is used when the\nenterprise has set one. Otherwise, the organization's own default is used.",
+                      "enum": [
+                        "enabled",
+                        "disabled"
+                      ]
+                    },
+                    "editable": {
+                      "type": "boolean",
+                      "description": "Whether the organization can update its default availability."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "401",
+          "description": "<p>Requires authentication</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Administration\" organization permissions": "write"
           }
         ]
       }
@@ -5567,7 +5803,8 @@
                         "enum": [
                           "business",
                           "enterprise",
-                          "unknown"
+                          "unknown",
+                          "access"
                         ]
                       }
                     },
@@ -5711,7 +5948,7 @@
         "fineGrainedPat": false,
         "permissions": [
           {
-            "\"Copilot settings\" enterprise permissions": "write"
+            "\"Enterprise Copilot license management\" enterprise permissions": "write"
           },
           {
             "\"Enterprise administration\" enterprise permissions": "write"
@@ -5855,7 +6092,7 @@
         "fineGrainedPat": false,
         "permissions": [
           {
-            "\"Copilot settings\" enterprise permissions": "write"
+            "\"Enterprise Copilot license management\" enterprise permissions": "write"
           },
           {
             "\"Enterprise administration\" enterprise permissions": "write"
@@ -6731,7 +6968,8 @@
                         "enum": [
                           "business",
                           "enterprise",
-                          "unknown"
+                          "unknown",
+                          "access"
                         ]
                       }
                     },
@@ -6916,7 +7154,8 @@
                   "description": "The Copilot plan of the organization, or the parent enterprise, when applicable.",
                   "enum": [
                     "business",
-                    "enterprise"
+                    "enterprise",
+                    "access"
                   ]
                 }
               },
@@ -7647,7 +7886,8 @@
                         "enum": [
                           "business",
                           "enterprise",
-                          "unknown"
+                          "unknown",
+                          "access"
                         ]
                       }
                     },
@@ -8753,7 +8993,8 @@
                   "enum": [
                     "business",
                     "enterprise",
-                    "unknown"
+                    "unknown",
+                    "access"
                   ]
                 }
               },

@@ -48,6 +48,11 @@
   excels_at: Advanced, efficient reasoning for complex coding tasks
   further_reading: '[GPT-6.1 Sol model card](https://deploymentsafety.openai.com/gpt-6-1-sol/gpt-6-1-sol.pdf)'
 
+- name: GPT-6.1 Terra
+  task_area: General-purpose coding and agent tasks
+  excels_at: Everyday agentic coding and terminal work
+  further_reading: TBD
+
 # Anthropic
 - name: Claude Fable 5
   task_area: Long-horizon, autonomous coding and knowledge-work

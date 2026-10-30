@@ -664,6 +664,10 @@ To customize the spec, comment out or remove `containerMode`, and append the con
 #### Example: running `dind-rootless`
 
 Before deciding to run `dind-rootless`, make sure you are aware of [known limitations](https://docs.docker.com/engine/security/rootless/#known-limitations).
+
+> [!WARNING]
+> On Kubernetes nodes running Ubuntu 24.04 and later, restrictions on unprivileged user namespaces can prevent RootlessKit from starting the Docker daemon in the `dind` container. Before using this configuration, see [Troubleshooting](https://docs.docker.com/engine/security/rootless/troubleshoot/#distribution-specific-hint) in the Docker documentation and review the Ubuntu-specific guidance with your cluster administrator.
+
 {% ifversion not ghes %}
 
 For versions of Kubernetes >= v1.29, sidecar container will be used to run docker daemon.
