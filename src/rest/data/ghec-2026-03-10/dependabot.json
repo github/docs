@@ -1775,7 +1775,12 @@
           "name": "has",
           "in": "query",
           "description": "<p>Filters the list of alerts based on whether the alert has the given value. If specified, only alerts meeting this criterion will be returned.\nMultiple <code>has</code> filters can be passed to filter for alerts that have all of the values. Currently, only <code>patch</code> is supported.</p>",
-          "schema": {}
+          "schema": {
+            "type": [
+              "string",
+              "array of strings"
+            ]
+          }
         },
         {
           "name": "assignee",
@@ -3141,6 +3146,50 @@
                       ]
                     }
                   },
+                  "reachability": {
+                    "type": "object",
+                    "description": "The reachability result for the vulnerability that triggered the alert, indicating whether a\nvulnerable function is reachable from the repository's own code.\n",
+                    "readOnly": true,
+                    "properties": {
+                      "verdict": {
+                        "type": "string",
+                        "description": "The reachability verdict for the alert.\n\n- `reachable`: a path from the repository's code reaches a vulnerable function.\n- `unreachable`: no path from the repository's code reaches a vulnerable function.\n- `potentially_reachable`: reachability could not be determined with confidence; review manually.\n- `unavailable`: no verdict has been computed for the alert yet.\n- `disabled`: reachability analysis is not enabled for the repository.\n",
+                        "readOnly": true,
+                        "enum": [
+                          "reachable",
+                          "unreachable",
+                          "potentially_reachable",
+                          "unavailable",
+                          "disabled"
+                        ]
+                      },
+                      "reason": {
+                        "type": "string",
+                        "description": "The reason for the reachability verdict. This field is omitted when reachability analysis is disabled or no result has been computed.",
+                        "readOnly": true,
+                        "nullable": false,
+                        "enum": [
+                          "unknown",
+                          "unavailable_unsupported_ecosystem",
+                          "unavailable_analysis_timed_out",
+                          "potentially_reachable_invalid_manifest_path",
+                          "potentially_reachable_missing_vulnerable_function_annotation",
+                          "potentially_reachable_dependency_not_found",
+                          "potentially_reachable_dependency_analysis_incomplete",
+                          "potentially_reachable_repository_analysis_incomplete",
+                          "potentially_reachable_call_found_outside_manifest_scope",
+                          "potentially_reachable_unclassified_analysis_state",
+                          "reachable_vulnerable_function_called",
+                          "unreachable_vulnerable_function_not_called",
+                          "potentially_reachable_unresolved_dynamic_call"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "verdict"
+                    ],
+                    "additionalProperties": false
+                  },
                   "repository": {
                     "title": "Simple Repository",
                     "description": "A GitHub repository.",
@@ -3645,7 +3694,12 @@
           "name": "has",
           "in": "query",
           "description": "<p>Filters the list of alerts based on whether the alert has the given value. If specified, only alerts meeting this criterion will be returned.\nMultiple <code>has</code> filters can be passed to filter for alerts that have all of the values.</p>",
-          "schema": {}
+          "schema": {
+            "type": [
+              "string",
+              "array of strings"
+            ]
+          }
         },
         {
           "name": "assignee",
@@ -5019,6 +5073,50 @@
                       ]
                     }
                   },
+                  "reachability": {
+                    "type": "object",
+                    "description": "The reachability result for the vulnerability that triggered the alert, indicating whether a\nvulnerable function is reachable from the repository's own code.\n",
+                    "readOnly": true,
+                    "properties": {
+                      "verdict": {
+                        "type": "string",
+                        "description": "The reachability verdict for the alert.\n\n- `reachable`: a path from the repository's code reaches a vulnerable function.\n- `unreachable`: no path from the repository's code reaches a vulnerable function.\n- `potentially_reachable`: reachability could not be determined with confidence; review manually.\n- `unavailable`: no verdict has been computed for the alert yet.\n- `disabled`: reachability analysis is not enabled for the repository.\n",
+                        "readOnly": true,
+                        "enum": [
+                          "reachable",
+                          "unreachable",
+                          "potentially_reachable",
+                          "unavailable",
+                          "disabled"
+                        ]
+                      },
+                      "reason": {
+                        "type": "string",
+                        "description": "The reason for the reachability verdict. This field is omitted when reachability analysis is disabled or no result has been computed.",
+                        "readOnly": true,
+                        "nullable": false,
+                        "enum": [
+                          "unknown",
+                          "unavailable_unsupported_ecosystem",
+                          "unavailable_analysis_timed_out",
+                          "potentially_reachable_invalid_manifest_path",
+                          "potentially_reachable_missing_vulnerable_function_annotation",
+                          "potentially_reachable_dependency_not_found",
+                          "potentially_reachable_dependency_analysis_incomplete",
+                          "potentially_reachable_repository_analysis_incomplete",
+                          "potentially_reachable_call_found_outside_manifest_scope",
+                          "potentially_reachable_unclassified_analysis_state",
+                          "reachable_vulnerable_function_called",
+                          "unreachable_vulnerable_function_not_called",
+                          "potentially_reachable_unresolved_dynamic_call"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "verdict"
+                    ],
+                    "additionalProperties": false
+                  },
                   "repository": {
                     "title": "Simple Repository",
                     "description": "A GitHub repository.",
@@ -5532,7 +5630,12 @@
           "name": "has",
           "in": "query",
           "description": "<p>Filters the list of alerts based on whether the alert has the given value. If specified, only alerts meeting this criterion will be returned.\nMultiple <code>has</code> filters can be passed to filter for alerts that have all of the values. Currently, only <code>patch</code> is supported.</p>",
-          "schema": {}
+          "schema": {
+            "type": [
+              "string",
+              "array of strings"
+            ]
+          }
         },
         {
           "name": "assignee",
@@ -6764,6 +6867,50 @@
                         "url"
                       ]
                     }
+                  },
+                  "reachability": {
+                    "type": "object",
+                    "description": "The reachability result for the vulnerability that triggered the alert, indicating whether a\nvulnerable function is reachable from the repository's own code.\n",
+                    "readOnly": true,
+                    "properties": {
+                      "verdict": {
+                        "type": "string",
+                        "description": "The reachability verdict for the alert.\n\n- `reachable`: a path from the repository's code reaches a vulnerable function.\n- `unreachable`: no path from the repository's code reaches a vulnerable function.\n- `potentially_reachable`: reachability could not be determined with confidence; review manually.\n- `unavailable`: no verdict has been computed for the alert yet.\n- `disabled`: reachability analysis is not enabled for the repository.\n",
+                        "readOnly": true,
+                        "enum": [
+                          "reachable",
+                          "unreachable",
+                          "potentially_reachable",
+                          "unavailable",
+                          "disabled"
+                        ]
+                      },
+                      "reason": {
+                        "type": "string",
+                        "description": "The reason for the reachability verdict. This field is omitted when reachability analysis is disabled or no result has been computed.",
+                        "readOnly": true,
+                        "nullable": false,
+                        "enum": [
+                          "unknown",
+                          "unavailable_unsupported_ecosystem",
+                          "unavailable_analysis_timed_out",
+                          "potentially_reachable_invalid_manifest_path",
+                          "potentially_reachable_missing_vulnerable_function_annotation",
+                          "potentially_reachable_dependency_not_found",
+                          "potentially_reachable_dependency_analysis_incomplete",
+                          "potentially_reachable_repository_analysis_incomplete",
+                          "potentially_reachable_call_found_outside_manifest_scope",
+                          "potentially_reachable_unclassified_analysis_state",
+                          "reachable_vulnerable_function_called",
+                          "unreachable_vulnerable_function_not_called",
+                          "potentially_reachable_unresolved_dynamic_call"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "verdict"
+                    ],
+                    "additionalProperties": false
                   }
                 },
                 "required": [
@@ -7870,6 +8017,50 @@
                       "url"
                     ]
                   }
+                },
+                "reachability": {
+                  "type": "object",
+                  "description": "The reachability result for the vulnerability that triggered the alert, indicating whether a\nvulnerable function is reachable from the repository's own code.\n",
+                  "readOnly": true,
+                  "properties": {
+                    "verdict": {
+                      "type": "string",
+                      "description": "The reachability verdict for the alert.\n\n- `reachable`: a path from the repository's code reaches a vulnerable function.\n- `unreachable`: no path from the repository's code reaches a vulnerable function.\n- `potentially_reachable`: reachability could not be determined with confidence; review manually.\n- `unavailable`: no verdict has been computed for the alert yet.\n- `disabled`: reachability analysis is not enabled for the repository.\n",
+                      "readOnly": true,
+                      "enum": [
+                        "reachable",
+                        "unreachable",
+                        "potentially_reachable",
+                        "unavailable",
+                        "disabled"
+                      ]
+                    },
+                    "reason": {
+                      "type": "string",
+                      "description": "The reason for the reachability verdict. This field is omitted when reachability analysis is disabled or no result has been computed.",
+                      "readOnly": true,
+                      "nullable": false,
+                      "enum": [
+                        "unknown",
+                        "unavailable_unsupported_ecosystem",
+                        "unavailable_analysis_timed_out",
+                        "potentially_reachable_invalid_manifest_path",
+                        "potentially_reachable_missing_vulnerable_function_annotation",
+                        "potentially_reachable_dependency_not_found",
+                        "potentially_reachable_dependency_analysis_incomplete",
+                        "potentially_reachable_repository_analysis_incomplete",
+                        "potentially_reachable_call_found_outside_manifest_scope",
+                        "potentially_reachable_unclassified_analysis_state",
+                        "reachable_vulnerable_function_called",
+                        "unreachable_vulnerable_function_not_called",
+                        "potentially_reachable_unresolved_dynamic_call"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "verdict"
+                  ],
+                  "additionalProperties": false
                 }
               },
               "required": [
@@ -9020,6 +9211,50 @@
                       "url"
                     ]
                   }
+                },
+                "reachability": {
+                  "type": "object",
+                  "description": "The reachability result for the vulnerability that triggered the alert, indicating whether a\nvulnerable function is reachable from the repository's own code.\n",
+                  "readOnly": true,
+                  "properties": {
+                    "verdict": {
+                      "type": "string",
+                      "description": "The reachability verdict for the alert.\n\n- `reachable`: a path from the repository's code reaches a vulnerable function.\n- `unreachable`: no path from the repository's code reaches a vulnerable function.\n- `potentially_reachable`: reachability could not be determined with confidence; review manually.\n- `unavailable`: no verdict has been computed for the alert yet.\n- `disabled`: reachability analysis is not enabled for the repository.\n",
+                      "readOnly": true,
+                      "enum": [
+                        "reachable",
+                        "unreachable",
+                        "potentially_reachable",
+                        "unavailable",
+                        "disabled"
+                      ]
+                    },
+                    "reason": {
+                      "type": "string",
+                      "description": "The reason for the reachability verdict. This field is omitted when reachability analysis is disabled or no result has been computed.",
+                      "readOnly": true,
+                      "nullable": false,
+                      "enum": [
+                        "unknown",
+                        "unavailable_unsupported_ecosystem",
+                        "unavailable_analysis_timed_out",
+                        "potentially_reachable_invalid_manifest_path",
+                        "potentially_reachable_missing_vulnerable_function_annotation",
+                        "potentially_reachable_dependency_not_found",
+                        "potentially_reachable_dependency_analysis_incomplete",
+                        "potentially_reachable_repository_analysis_incomplete",
+                        "potentially_reachable_call_found_outside_manifest_scope",
+                        "potentially_reachable_unclassified_analysis_state",
+                        "reachable_vulnerable_function_called",
+                        "unreachable_vulnerable_function_not_called",
+                        "potentially_reachable_unresolved_dynamic_call"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "verdict"
+                  ],
+                  "additionalProperties": false
                 }
               },
               "required": [
@@ -9632,10 +9867,13 @@
       "progAccess": {
         "userToServerRest": true,
         "serverToServer": true,
-        "fineGrainedPat": true,
+        "fineGrainedPat": false,
         "permissions": [
           {
             "\"Enterprise administration\" enterprise permissions": "read"
+          },
+          {
+            "\"Enterprise security products\" enterprise permissions": "read"
           }
         ]
       }
@@ -9705,10 +9943,13 @@
       "progAccess": {
         "userToServerRest": true,
         "serverToServer": true,
-        "fineGrainedPat": true,
+        "fineGrainedPat": false,
         "permissions": [
           {
             "\"Enterprise administration\" enterprise permissions": "write"
+          },
+          {
+            "\"Enterprise security products\" enterprise permissions": "write"
           }
         ]
       }
@@ -9781,10 +10022,13 @@
       "progAccess": {
         "userToServerRest": true,
         "serverToServer": true,
-        "fineGrainedPat": true,
+        "fineGrainedPat": false,
         "permissions": [
           {
             "\"Enterprise administration\" enterprise permissions": "write"
+          },
+          {
+            "\"Enterprise security products\" enterprise permissions": "write"
           }
         ]
       }
@@ -11583,6 +11827,7 @@
                         "type": "string"
                       },
                       "temp_clone_token": {
+                        "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                         "type": "string"
                       },
                       "delete_branch_on_merge": {

@@ -24,7 +24,7 @@ import styles from './DocsSecondaryBar.module.scss'
 // the unversioned route matches router.route === '/search'.
 export const DocsSecondaryBar = () => {
   const router = useRouter()
-  const { isHomepageVersion, currentProduct } = useMainContext()
+  const { isHomepageVersion, currentProduct, page } = useMainContext()
   const { t } = useTranslation('header')
   const { collapsed, toggleCollapsed, mobileNavOpen, toggleMobileNav } = useSidebarCollapsed()
 
@@ -40,7 +40,7 @@ export const DocsSecondaryBar = () => {
     <>
       <div data-container="secondary-nav" data-testid="docs-secondary-bar" className={styles.bar}>
         <div className={styles.leftSegment}>
-          {!isEarlyAccessPage && (
+          {!isEarlyAccessPage && !page?.hideSidebar && (
             <div className={styles.toggleCell}>
               <IconButton
                 data-testid="sidebar-collapse-toggle"

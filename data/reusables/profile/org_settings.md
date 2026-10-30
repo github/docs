@@ -1,2 +1,2 @@
-1. Select an organization by clicking on it.
+1. Select an organization by clicking it.
 {% data reusables.organizations.org_settings %}

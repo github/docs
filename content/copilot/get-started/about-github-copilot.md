@@ -78,19 +78,26 @@ You can start using {% data variables.product.prodname_copilot_short %} in sever
 
 ### Individuals
 
-* **Try {% data variables.product.prodname_copilot_short %} for free.** Use [{% data variables.copilot.copilot_free_short %}](https://github.com/copilot?ref_product=copilot&ref_plan=free&ref_style=text&ref_type=engagement) to explore core features with no paid plan required.
+* **Try {% data variables.product.prodname_copilot_short %} for free.** Use [{% data variables.copilot.copilot_free_short %}](https://github.com/copilot?ref_product=copilot&ref_plan=free&ref_style=text&ref_type=engagement&utm_source=setup-guide-link-web-app&utm_medium=docs&utm_campaign=universe-2026) to explore core features with no paid plan required.
 * **Subscribe to a paid plan.** Upgrade to a paid plan for access to premium features, increased access to models, and a higher monthly allowance of {% data variables.product.prodname_ai_credits_short %}. See [AUTOTITLE](/copilot/how-tos/manage-your-account/get-started-with-a-copilot-plan) for more information.
 * **Get free access if you're eligible.** Students, teachers, and open source maintainers may qualify for access to premium features at no cost. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/enable-copilot/set-up-for-students) and [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/enable-copilot/set-up-for-teachers-and-os-maintainers).
 
 ### Members of an organization
 
-* **Request access from your organization.** If your organization or enterprise has a {% data variables.product.prodname_copilot %} plan, go to [https://github.com/settings/copilot](https://github.com/settings/copilot) and request access under "Get {% data variables.product.prodname_copilot_short %} from an organization."
+To use {% data variables.product.prodname_copilot_short %} at the expense of your organization or enterprise, an administrator must assign you a seat, even if the right to use {% data variables.product.prodname_copilot_short %} is included with your enterprise license.
 
-### Organization and enterprise owners
+* **Request access from your organization.** Go to [https://github.com/settings/copilot](https://github.com/settings/copilot?utm_source=get-started-about-doc-settings&utm_medium=docs&utm_campaign=universe-2026) and, where available, request access under "Get {% data variables.product.prodname_copilot_short %} from an organization."
+* **Ask your administrator.** If the request option is not available, ask your organization or enterprise administrator how to get access.
+
+Once access is assigned, sign in with that account. See [AUTOTITLE](/copilot/get-started/quickstart-for-using-github-copilot-in-your-ide).
+
+### Organization owners
 
 {% data reusables.copilot.plans.subscribe-for-org %}
 
-{% data reusables.copilot.plans.subscribe-for-enterprise %}
+### Enterprise owners
+
+Choose a plan and prepare policies, budgets, and access assignment for your enterprise. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/enable-copilot/set-up-for-enterprise).
 
 If you are on **{% data variables.product.prodname_ghe_server %}**, see [AUTOTITLE](/enterprise-server@latest/copilot/copilot-on-ghes/about-copilot-on-ghes).
 
@@ -103,4 +110,4 @@ These settings help administrators manage {% data variables.product.prodname_cop
 ## Next steps
 
 * Start using {% data variables.product.prodname_copilot_short %}. See [AUTOTITLE](/copilot/get-started/where-to-use-github-copilot).
-* View the {% data variables.product.prodname_copilot_short %} features available to you by navigating to your {% data variables.product.prodname_copilot_short %} settings at [https://github.com/settings/copilot/features](https://github.com/settings/copilot/features?ref_product=copilot&ref_type=engagement&ref_style=text).
+* View the {% data variables.product.prodname_copilot_short %} features available to you by navigating to your {% data variables.product.prodname_copilot_short %} settings at [https://github.com/settings/copilot/features](https://github.com/settings/copilot/features?ref_product=copilot&ref_type=engagement&ref_style=text&utm_source=getting-started-overview-links-settings-feature&utm_medium=docs&utm_campaign=universe-2026).

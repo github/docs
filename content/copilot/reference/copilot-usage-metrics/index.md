@@ -1,7 +1,7 @@
 ---
 title: GitHub Copilot usage metrics
 shortTitle: Copilot usage metrics
-intro: Find information about usage metrics for {% data variables.product.prodname_copilot %}.
+intro: Interpret and validate {% data variables.product.prodname_copilot %} usage metrics with guidance on data reconciliation, methodology, team-level analysis, metric definitions, and example schemas.
 versions:
   feature: copilot
 children:
@@ -13,4 +13,3 @@ children:
   - /example-schema
 contentType: reference
 ---
-

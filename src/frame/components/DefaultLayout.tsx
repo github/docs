@@ -276,13 +276,14 @@ type LayoutBodyProps = {
 }
 const LayoutBody = ({ children, hasDrawer }: LayoutBodyProps) => {
   const { collapsed, mobileNavOpen } = useSidebarCollapsed()
-  const { currentProduct } = useMainContext()
+  const { currentProduct, page } = useMainContext()
   const isSearchResultsPage = currentProduct?.id === 'search'
+  const hideSidebar = page?.hideSidebar && !isSearchResultsPage
   const miniTocItems = useMiniTocItems()
   const hasSubBar = miniTocItems.length > 1
   return (
     <div className={cx('d-lg-flex', isSearchResultsPage && styles.searchColumns)}>
-      {collapsed && !mobileNavOpen && !isSearchResultsPage ? null : (
+      {hideSidebar || (collapsed && !mobileNavOpen && !isSearchResultsPage) ? null : (
         <SidebarNav mobileOpen={mobileNavOpen} />
       )}
       <div
@@ -293,7 +294,7 @@ const LayoutBody = ({ children, hasDrawer }: LayoutBodyProps) => {
           hasSubBar &&
             hasDrawer &&
             (collapsed ? styles.stickyStackYieldsWhenCollapsed : styles.stickyStackYieldsAtXxl),
-          mobileNavOpen && styles.contentHiddenForNav,
+          mobileNavOpen && !hideSidebar && styles.contentHiddenForNav,
         )}
       >
         <main id="main-content" className={styles.mainContent}>

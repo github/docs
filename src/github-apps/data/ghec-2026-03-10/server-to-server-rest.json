@@ -2817,6 +2817,18 @@
       "requestPath": "/orgs/{org}/copilot/content_exclusion"
     },
     {
+      "slug": "get-feature-policies-for-an-organization",
+      "subcategory": "copilot-feature-policy-management",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/copilot/feature-policies"
+    },
+    {
+      "slug": "update-feature-policies-for-an-organization",
+      "subcategory": "copilot-feature-policy-management",
+      "verb": "patch",
+      "requestPath": "/orgs/{org}/copilot/feature-policies"
+    },
+    {
       "slug": "get-copilot-organization-usage-metrics-for-a-specific-day",
       "subcategory": "copilot-usage-metrics",
       "verb": "get",
@@ -3365,6 +3377,18 @@
       "requestPath": "/enterprise-installation/{enterprise_or_org}/server-statistics"
     },
     {
+      "slug": "disable-access-restrictions-for-an-enterprise",
+      "subcategory": "enterprises",
+      "verb": "post",
+      "requestPath": "/enterprises/{enterprise}/access-restrictions/disable"
+    },
+    {
+      "slug": "enable-access-restrictions-for-an-enterprise",
+      "subcategory": "enterprises",
+      "verb": "post",
+      "requestPath": "/enterprises/{enterprise}/access-restrictions/enable"
+    },
+    {
       "slug": "get-enterprise-owned-organizations-that-can-have-github-apps-installed",
       "subcategory": "organization-installations",
       "verb": "get",
@@ -3425,13 +3449,19 @@
       "requestPath": "/enterprises/{enterprise}/audit-log"
     },
     {
+      "slug": "list-push-rule-bypass-requests-within-an-enterprise",
+      "subcategory": "bypass-requests",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/bypass-requests/push-rules"
+    },
+    {
       "slug": "list-enterprise-consumed-licenses",
       "subcategory": "licensing",
       "verb": "get",
       "requestPath": "/enterprises/{enterprise}/consumed-licenses"
     },
     {
-      "slug": "get-model-policies-for-enterprise-apps",
+      "slug": "get-model-policies-for-agent-apps",
       "subcategory": "ai-controls",
       "verb": "get",
       "requestPath": "/enterprises/{enterprise}/copilot/apps/model-policies"
@@ -3441,6 +3471,18 @@
       "subcategory": "ai-controls",
       "verb": "patch",
       "requestPath": "/enterprises/{enterprise}/copilot/apps/model-policies"
+    },
+    {
+      "slug": "get-feature-policies-for-an-enterprise",
+      "subcategory": "ai-controls",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/copilot/feature-policies"
+    },
+    {
+      "slug": "update-feature-policies-for-an-enterprise",
+      "subcategory": "ai-controls",
+      "verb": "patch",
+      "requestPath": "/enterprises/{enterprise}/copilot/feature-policies"
     },
     {
       "slug": "get-model-policies-for-an-enterprise",
@@ -3693,6 +3735,18 @@
       "subcategory": "rules",
       "verb": "delete",
       "requestPath": "/enterprises/{enterprise}/rulesets/{ruleset_id}"
+    },
+    {
+      "slug": "get-enterprise-ruleset-history",
+      "subcategory": "rules",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/rulesets/{ruleset_id}/history"
+    },
+    {
+      "slug": "get-enterprise-ruleset-version",
+      "subcategory": "rules",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/rulesets/{ruleset_id}/history/{version_id}"
     },
     {
       "slug": "get-github-advanced-security-active-committers-for-an-enterprise",
@@ -4171,6 +4225,36 @@
       "subcategory": "issues",
       "verb": "patch",
       "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}"
+    },
+    {
+      "slug": "list-issue-artifacts",
+      "subcategory": "artifacts",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/artifacts"
+    },
+    {
+      "slug": "create-an-issue-artifact",
+      "subcategory": "artifacts",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/artifacts"
+    },
+    {
+      "slug": "get-an-issue-artifact",
+      "subcategory": "artifacts",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/artifacts/{artifact_number}"
+    },
+    {
+      "slug": "update-an-issue-artifact",
+      "subcategory": "artifacts",
+      "verb": "patch",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/artifacts/{artifact_number}"
+    },
+    {
+      "slug": "delete-an-issue-artifact",
+      "subcategory": "artifacts",
+      "verb": "delete",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/artifacts/{artifact_number}"
     },
     {
       "slug": "add-assignees-to-an-issue",
@@ -6913,6 +6997,30 @@
       "subcategory": "repository-advisories",
       "verb": "patch",
       "requestPath": "/repos/{owner}/{repo}/security-advisories/{ghsa_id}"
+    },
+    {
+      "slug": "list-repository-security-advisory-comments",
+      "subcategory": "repository-advisories",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/security-advisories/{ghsa_id}/comments"
+    },
+    {
+      "slug": "create-a-repository-advisory-comment",
+      "subcategory": "repository-advisories",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/security-advisories/{ghsa_id}/comments"
+    },
+    {
+      "slug": "get-a-repository-advisory-comment",
+      "subcategory": "repository-advisories",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/security-advisories/{ghsa_id}/comments/{comment_id}"
+    },
+    {
+      "slug": "update-a-repository-advisory-comment",
+      "subcategory": "repository-advisories",
+      "verb": "patch",
+      "requestPath": "/repos/{owner}/{repo}/security-advisories/{ghsa_id}/comments/{comment_id}"
     },
     {
       "slug": "request-a-cve-for-a-repository-security-advisory",

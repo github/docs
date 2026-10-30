@@ -13,10 +13,9 @@ children:
   - /add-skills
   - /add-mcp-servers
   - /create-custom-agents-for-cli
-  - /use-byok-models
+  - /add-llm-models
   - /plugins-finding-installing
   - /plugins-creating
-  - /plugins-marketplace
 docsTeamMetrics:
   - copilot-cli
 ---

@@ -1,0 +1,1 @@
+For public repositories owned by a personal account, usage is billed to that personal account unless the repository owner has a {% data variables.product.prodname_copilot %} license provided by an organization or enterprise. In that case, usage is billed to the organization or enterprise that provides the license.

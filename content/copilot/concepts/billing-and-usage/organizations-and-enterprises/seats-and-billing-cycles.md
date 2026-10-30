@@ -25,36 +25,49 @@ category:
 
 ## Available plans
 
-{% data variables.product.company_short %} offers the following plans for organization accounts:
+Organizations and enterprises provide {% data variables.product.prodname_copilot_short %} through assigned seats. The per-user access charge and included usage depend on the plan:
 
 * **{% data variables.copilot.copilot_business_short %}** at {% data variables.copilot.cfb_price_per_month %} per user per month, includes {% data variables.copilot.ai_credits_per_user_business %} {% data variables.product.prodname_ai_credits_short %} per user, and access to a broad model catalog.
 * **{% data variables.copilot.copilot_enterprise_short %}** at {% data variables.copilot.ce_price_per_month %} per user per month, includes {% data variables.copilot.ai_credits_per_user_enterprise %} {% data variables.product.prodname_ai_credits_short %} per user ({% data variables.product.prodname_ghe_cloud %} only), and priority access to new models and features.
+* **{% data variables.product.prodname_copilot_short %} access**, for eligible enterprises, at $0 incremental charge through {% data variables.product.prodname_ghe_cloud %} for licensed users, or {% data variables.copilot.copilot_standalone_price_per_month %} per user per month as {% data variables.copilot.copilot_standalone_short %} without a {% data variables.product.prodname_ghe_cloud %} license. This plan has no included usage allowance.
 
-With {% data variables.product.prodname_ghe_cloud %}:
+For eligibility and a comparison of the models, see [AUTOTITLE](/copilot/get-started/whats-changing-with-github-enterprise-and-copilot).
 
-* An enterprise owner chooses the plan for each organization in the enterprise. For guidance on choosing a plan, see [AUTOTITLE](/copilot/tutorials/roll-out-at-scale/assign-licenses/choose-enterprise-plan).
-
-* Data-resident and FedRAMP-compliant {% data variables.product.prodname_copilot_short %} requests include a 10% model multiplier increase. See [AUTOTITLE](/admin/data-residency/github-copilot-with-data-residency#pricing-changes).
+Data-resident and FedRAMP-compliant {% data variables.product.prodname_copilot_short %} requests include a 10% model multiplier increase. See [AUTOTITLE](/admin/data-residency/github-copilot-with-data-residency#pricing-changes).
 
 ## {% data variables.product.prodname_ai_credits %}
 
-{% data variables.product.prodname_copilot_short %} usage is measured in {% data variables.product.prodname_ai_credits_short %} under usage-based billing. Each license contributes {% data variables.product.prodname_ai_credits_short %} to a shared enterprise pool, and usage beyond the pool is charged at {% data variables.product.prodname_ai_credits_value %} per {% data variables.product.prodname_ai_credit_singular %}. Code completions and {% data variables.copilot.next_edit_suggestions %} are not billed in {% data variables.product.prodname_ai_credits_short %} and remain unlimited for all paid plans.
+Metered usage is measured in {% data variables.product.prodname_ai_credits_short %}. On {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %}, each license contributes credits to a shared pool, and usage beyond the pool is billed separately. On the {% data variables.product.prodname_copilot_short %} access plan, metered usage is billed from the first use.
+
+Inline code completions and {% data variables.copilot.next_edit_suggestions %} do not consume credits and remain unlimited, including when a user has a $0 USD budget or reaches an enforced spending limit.
 
 For a full explanation of how {% data variables.product.prodname_ai_credits_short %} work, including pooling, additional usage, and what happens when credits run out, see [AUTOTITLE](/copilot/concepts/billing-and-usage/organizations-and-enterprises/billing).
 
 ## Seat assignment
 
-A {% data variables.product.prodname_copilot_short %} seat is a license to use {% data variables.product.prodname_copilot %} for a user. Each month, your organization or enterprise is billed for the number of assigned seats.
+A {% data variables.product.prodname_copilot_short %} seat is a license for one user. Assignment is required even when access has no incremental charge.
 
-Seat assignment is managed by enterprise or organization owners. With {% data variables.product.prodname_ghe_cloud %}, an enterprise owner must have enabled {% data variables.product.prodname_copilot %} for the organization before an organization owner can assign seats. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-access/grant-access) or [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/manage-access/grant-access).
+With {% data variables.product.prodname_copilot_short %} access or {% data variables.copilot.copilot_business_short %}, enterprise owners can assign seats directly to individuals or enterprise teams. Each member of an assigned team receives a seat.
 
-If a user receives a seat from multiple organizations in the same enterprise, the enterprise will be billed only once, and one organization is selected and billed for the seat. To determine which organization is billed for a given user, request a detailed usage report and refer to the `organization` column for the user's {% data variables.product.prodname_copilot_short %} license. See [AUTOTITLE](/billing/reference/billing-reports).
+Organization-wide assignment works differently by plan. With {% data variables.product.prodname_copilot_short %} access, enterprise owners can assign seats to all members of an organization. With {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %}, enterprise owners enable {% data variables.product.prodname_copilot_short %} for an organization, then organization owners assign seats to its members.
+
+With licenses assigned through organizations on {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %}, a user with seats from multiple organizations in the same enterprise is billed only once. One organization is selected and billed for the seat. To identify it, request a detailed usage report and refer to the `organization` column. See [AUTOTITLE](/billing/reference/billing-reports).
+
+For assignment instructions, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-access/grant-access) or [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/manage-access/grant-access).
 
 ## Billing cycles
 
+You can add or remove seats during a billing cycle. The effect on billing and access depends on your plan and the action taken.
+
+### {% data variables.product.prodname_copilot_short %} access through {% data variables.product.prodname_ghe_cloud %} or as {% data variables.copilot.copilot_standalone_short %}
+
+Removing a member's seat with **Remove access** retains their access until the end of the billing cycle. Losing the underlying {% data variables.product.prodname_ghe_cloud %} license or leaving the enterprise revokes access immediately. For the billing effects of each change, see [AUTOTITLE](/copilot/reference/copilot-billing/license-changes#copilot-access).
+
+### {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %}
+
 Billed users are calculated at the end of each billing cycle, based on the number of {% data variables.product.prodname_copilot %} seats that are assigned. You can add or remove seats at any time during the billing cycle.
 
-When you add seats, you will be billed pro rata for those seats for the rest of the billing cycle. Included {% data variables.product.prodname_ai_credits_short %} for the seats may also be prorated. If you pay by credit card or PayPal, you will need to pay a prorated amount upfront to cover the seats for the rest of the current billing cycle. 
+When you add seats, you will be billed pro rata for those seats for the rest of the billing cycle. Included {% data variables.product.prodname_ai_credits_short %} for the seats may also be prorated. If you pay by credit card or PayPal, you will need to pay a prorated amount upfront to cover the seats for the rest of the current billing cycle.
 
 When you remove seats, billing for those seats continues until the end of the current billing cycle.
 
@@ -63,7 +76,7 @@ When you remove seats, billing for those seats continues until the end of the cu
 
 For more information, see [AUTOTITLE](/copilot/reference/copilot-billing/license-changes).
 
-## Payment dates for credit card or PayPal
+#### Payment dates for credit card or PayPal
 
 If you pay by credit card or PayPal, you will be charged at the following times:
 

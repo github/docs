@@ -12,9 +12,10 @@ children:
   - /prompt-engineering
   - /context-management
   - /custom-instructions
+  - /copilot-memory
+  - /copilot-dreaming
   - /prompt-files
   - /repository-indexing
   - /spaces
-  - /copilot-memory
 contentType: concepts
 ---

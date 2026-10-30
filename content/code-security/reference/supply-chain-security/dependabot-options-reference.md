@@ -590,7 +590,7 @@ Package manager | YAML value      | Supported versions |
 | {% ifversion dependabot-nix-support %} |
 | Nix flakes | `nix`            | Not applicable   |
 | {% endif %} |
-| npm            | `npm`            |  v7, v8, v9, v10, v11   |
+| npm            | `npm`            | v7, v8, v9, v10, v11{% ifversion dependabot-npm12-pnpm11-pnpm12-bun14 %}, v12{% endif %} |
 | NuGet          | `nuget`          | <=6.12.0 |
 | {% ifversion dependabot-opentofu-support %} |
 | OpenTofu     | `opentofu`       | Not applicable     |
@@ -598,7 +598,7 @@ Package manager | YAML value      | Supported versions |
 | pip         | `pip`            | 26.1.1             |
 | pip-compile | `pip`            | 7.5.3            |
 | pipenv      | `pip`            | 2024.4.1      |
-| pnpm   | `npm`            | v7, v8, v9, v10   |
+| pnpm        | `npm` | v7, v8, v9, v10{% ifversion dependabot-npm12-pnpm11-pnpm12-bun14 %}, v11, v12{% endif %} |
 | poetry      | `pip`    | v2    |
 | {% ifversion dependabot-pre-commit-support %} |
 | pre-commit | `pre-commit` | Not applicable |

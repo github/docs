@@ -8,7 +8,6 @@ versions:
 contentType: concepts
 category:
   - Learn about Copilot
-  - Learn about Copilot CLI
 docsTeamMetrics:
   - copilot-cli
 redirect_from:
@@ -16,7 +15,7 @@ redirect_from:
   - /copilot/concepts/agents/about-enterprise-plugin-standards
 ---
 
-Enterprise-managed plugin standards allow administrators to **define and enforce policies for plugin availability**. By configuring a `{% data variables.copilot.managed_setting_file %}` file, administrators can specify which plugin marketplaces are available to users and which plugins are installed automatically.
+Enterprise-managed plugin standards allow administrators to define plugin marketplace availability and require or block specific plugins in a `{% data variables.copilot.managed_setting_file %}` file.
 
 ## Where plugin standards apply
 
@@ -29,9 +28,11 @@ Users must upgrade to a supported client version for these standards to be appli
 For plugin standards, the `{% data variables.copilot.managed_setting_file %}` file can define:
 
 * **Known marketplaces**. Plugin marketplaces that are available to users for browsing and installing plugins.
-* **Default-enabled plugins**. Specific plugins that are automatically installed when users authenticate.
+* **Required or blocked plugins**. Specific plugins that are required to be enabled or disabled.
 
 When a user authenticates to {% data variables.product.prodname_copilot_short %} in a supported client, the client queries the `{% data variables.copilot.managed_setting_file %}` file. The policies defined in the file are then applied to the user's session.
+
+Repositories can enable plugins by default, but managed plugin requirements and marketplace restrictions always win. Repository defaults cannot enable a blocked plugin or bypass a marketplace restriction.
 
 ## Why use enterprise-managed plugin standards
 
@@ -40,8 +41,8 @@ Enterprise-managed plugin standards help administrators address several common c
 * **Consistency across clients**. Ensure that all developers have access to the same plugins and marketplaces.
 * **Centralized governance**. Manage plugin availability from a single configuration file, rather than relying on individual developers to install the correct plugins.
 * **Version-controlled policies**. Because the configuration lives in a Git repository, all changes to plugin standards are tracked, auditable, and reviewable through pull requests.
-* **Reduced onboarding friction**. New developers automatically receive the enterprise's standard plugins when they authenticate, without any manual setup.
+* **Reduced onboarding friction**. Developers can access approved plugin marketplaces without registering each one themselves.
 
 ## Next step
 
-To configure enterprise plugin standards, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/use-managed-settings/get-started).
+To configure enterprise plugin standards, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/use-managed-settings/manage-plugin-marketplaces-and-plugins).

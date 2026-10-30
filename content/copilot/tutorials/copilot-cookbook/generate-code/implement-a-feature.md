@@ -6,6 +6,7 @@ versions:
   feature: copilot
 category:
   - Author and optimize with Copilot
+  - Mains - Hard code your meal
 surface:
   - CLI
 octicon: rocket

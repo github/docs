@@ -1,0 +1,1 @@
+Cloud sandboxes and local sandboxing are separate technologies. A cloud sandbox is a {% data variables.product.github %}-hosted environment that runs the whole session. Local sandboxing is a set of operating system restrictions on your own machine. Settings, policies, and commands for one don't apply to the other.

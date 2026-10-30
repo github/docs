@@ -2123,6 +2123,12 @@
       "requestPath": "/enterprises/{enterprise}/audit-log"
     },
     {
+      "slug": "list-push-rule-bypass-requests-within-an-enterprise",
+      "subcategory": "bypass-requests",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/bypass-requests/push-rules"
+    },
+    {
       "slug": "get-organization-custom-properties-schema-for-an-enterprise",
       "subcategory": "custom-properties-for-orgs",
       "verb": "get",
@@ -2199,6 +2205,18 @@
       "subcategory": "custom-properties",
       "verb": "delete",
       "requestPath": "/enterprises/{enterprise}/properties/schema/{custom_property_name}"
+    },
+    {
+      "slug": "get-enterprise-ruleset-history",
+      "subcategory": "rules",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/rulesets/{ruleset_id}/history"
+    },
+    {
+      "slug": "get-enterprise-ruleset-version",
+      "subcategory": "rules",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/rulesets/{ruleset_id}/history/{version_id}"
     },
     {
       "slug": "get-github-advanced-security-active-committers-for-an-enterprise",

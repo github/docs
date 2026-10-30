@@ -874,6 +874,7 @@
                           "type": "boolean"
                         },
                         "temp_clone_token": {
+                          "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                           "type": "string"
                         },
                         "allow_squash_merge": {
@@ -2026,6 +2027,7 @@
                         "type": "boolean"
                       },
                       "temp_clone_token": {
+                        "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                         "type": "string"
                       },
                       "allow_squash_merge": {
@@ -3142,6 +3144,7 @@
                         "type": "boolean"
                       },
                       "temp_clone_token": {
+                        "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                         "type": "string"
                       },
                       "allow_squash_merge": {
@@ -4188,6 +4191,7 @@
                     "type": "string"
                   },
                   "temp_clone_token": {
+                    "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                     "type": "string"
                   },
                   "delete_branch_on_merge": {
@@ -5343,6 +5347,7 @@
                           "type": "boolean"
                         },
                         "temp_clone_token": {
+                          "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                           "type": "string"
                         },
                         "allow_squash_merge": {
@@ -6488,6 +6493,7 @@
                         "type": "boolean"
                       },
                       "temp_clone_token": {
+                        "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                         "type": "string"
                       },
                       "allow_squash_merge": {
@@ -6770,7 +6776,21 @@
       ],
       "bodyParameters": [],
       "descriptionHTML": "<p>Fetches the URL to download the migration archive as a <code>tar.gz</code> file. Depending on the resources your repository uses, the migration archive can contain JSON files with data for these objects:</p>\n<ul>\n<li>attachments</li>\n<li>bases</li>\n<li>commit_comments</li>\n<li>issue_comments</li>\n<li>issue_events</li>\n<li>issues</li>\n<li>milestones</li>\n<li>organizations</li>\n<li>projects</li>\n<li>protected_branches</li>\n<li>pull_request_reviews</li>\n<li>pull_requests</li>\n<li>releases</li>\n<li>repositories</li>\n<li>review_comments</li>\n<li>schema</li>\n<li>users</li>\n</ul>\n<p>The archive will also contain an <code>attachments</code> directory that includes all attachment files uploaded to GitHub.com and a <code>repositories</code> directory that contains the repository's Git data.</p>",
-      "codeExamples": [],
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "migration_id": "MIGRATION_ID"
+            }
+          },
+          "response": {
+            "statusCode": "302",
+            "description": "<p>Response</p>"
+          }
+        }
+      ],
       "statusCodes": [
         {
           "httpStatusCode": "302",
@@ -7384,6 +7404,7 @@
                     "type": "string"
                   },
                   "temp_clone_token": {
+                    "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                     "type": "string"
                   },
                   "delete_branch_on_merge": {

@@ -25,9 +25,17 @@ Usage of {% data variables.product.prodname_copilot %} is measured through a com
 |-------------------|-------------------------------------------------------------------------|
 | **Personal accounts** | <ul><li>{% data variables.copilot.copilot_pro_short %}: {% data variables.copilot.cfi_price_per_month %} per calendar month.</li><li>{% data variables.copilot.copilot_pro_plus_short %}: {% data variables.copilot.cpp_price_per_month %} per calendar month.</li><li>{% data variables.copilot.copilot_max_short %}: {% data variables.copilot.cm_price_per_month %} per calendar month.</li><li>{% data variables.copilot.copilot_student_short %}: access to {% data variables.product.prodname_copilot_short %} premium features at no cost.</li><li>{% data variables.copilot.copilot_free_short %}: limited access to {% data variables.product.prodname_copilot_short %} features at no cost.</li></ul> |
 | **Organizations** | {% data variables.copilot.copilot_business_short %}: {% data variables.copilot.cfb_price_per_month %} per user per month (billed monthly). |
-| **Enterprises**   | Choose {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %}, or mix them across organizations. Both are billed monthly, pricing varies. |
+| **Enterprises**   | Two licensing models are available. See [Enterprise licensing models](#enterprise-licensing-models). |
 
 > [!NOTE] {% data reusables.copilot.copilot-one-account %}
+
+### Enterprise licensing models
+
+Most enterprises already using {% data variables.product.prodname_copilot_short %} have {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %}. These plans charge a monthly fee per assigned seat and include a pooled allowance of {% data variables.product.prodname_ai_credits_short %}.
+
+The {% data variables.product.prodname_copilot_short %} access plan is rolling out to eligible enterprises. It provides {% data variables.product.prodname_copilot_short %} through {% data variables.product.prodname_ghe_cloud %} with no {% data variables.product.prodname_copilot_short %} seat charge, or as {% data variables.copilot.copilot_standalone_short %} for {% data variables.copilot.copilot_standalone_price_per_month %} per user per month without a {% data variables.product.prodname_ghe_cloud %} license. It has no included usage allowance. Existing plans remain supported, and transitioning is voluntary.
+
+For eligibility, pricing, and a comparison of the models, see [AUTOTITLE](/copilot/get-started/whats-changing-with-github-enterprise-and-copilot).
 
 ## Free use of {% data variables.product.prodname_copilot_short %}
 
@@ -60,9 +68,8 @@ For details on billing and proration, see [AUTOTITLE](/copilot/concepts/billing-
 ### Organizations and enterprises
 
 * A seat is a license for one user.
-* Organizations and enterprises are billed for the number of assigned seats at the end of each monthly billing cycle.
-* If a user has seats in multiple organizations within the same enterprise, the enterprise is only billed once per cycle.
-* If both a {% data variables.copilot.copilot_business_short %} and a {% data variables.copilot.copilot_enterprise_short %} seat are assigned, only the enterprise seat is billed.
+* Under the {% data variables.product.prodname_copilot_short %} access plan, enterprise owners assign seats, even when access is included through {% data variables.product.prodname_ghe_cloud %}.
+* With {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %}, organizations and enterprises are billed for assigned seats each monthly billing cycle. If a user has seats in multiple organizations within the same enterprise, the enterprise is only billed once per cycle. If both plans are assigned, only the {% data variables.copilot.copilot_enterprise_short %} seat is billed.
 
 For more information about seat assignment, see [AUTOTITLE](/copilot/reference/copilot-billing/seat-assignment).
 
@@ -70,7 +77,7 @@ For more information about seat assignment, see [AUTOTITLE](/copilot/reference/c
 
 Individual plans are tied to a single account and can’t include additional seats. To license multiple users, upgrade to an organizational plan.
 
-For **organizations and enterprises**:
+For **organizations and enterprises** on {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %}:
 
 * You can assign additional {% data variables.product.prodname_copilot_short %} seats at any time.
 * Additional seats are billed immediately on a prorated basis for the rest of the current billing cycle.

@@ -31,7 +31,7 @@ The following clients are supported, although not every client supports every pr
 * {% data variables.copilot.copilot_cli_short %}
 * {% data variables.product.prodname_vscode_shortname %}
 * The {% data variables.copilot.github_copilot_app %}
-* {% data variables.copilot.copilot_cloud_agent %}
+* {% data variables.copilot.copilot_in_the_cloud_short %}
 * {% data variables.product.prodname_jetbrains_ides %}
 
 For a full reference of supported keys, see [AUTOTITLE](/copilot/reference/enterprise-administrators/enterprise-managed-settings).

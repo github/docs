@@ -2,14 +2,13 @@
 title: Plugins for {% data variables.product.prodname_copilot %}
 shortTitle: Plugins
 allowTitleToDifferFromFilename: true
-intro: Plugins are installable packages that extend {% data variables.product.prodname_copilot_short %} with reusable agents, skills, hooks, and integrations.
+intro: Plugins package related customizations so you can install them together across supported {% data variables.product.prodname_copilot_short %} surfaces.
 product: '{% data reusables.gated-features.copilot-cli %}<br><br>{% data reusables.gated-features.copilot-cloud-agent %}<br><br>{% data reusables.gated-features.github-app %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
 contentType: concepts
 category:
   - Learn about Copilot
-  - Learn about Copilot CLI
 docsTeamMetrics:
   - copilot-cli
 redirect_from:
@@ -17,42 +16,37 @@ redirect_from:
   - /copilot/concepts/agents/about-plugins
 ---
 
-Plugins let you install related customizations together instead of setting up each one separately. For example, a testing plugin could combine a skill for running tests, a review agent, and an MCP server for a test-reporting service.
+Plugins package related customizations so you can install and manage them together instead of setting up each one separately. For example, a testing plugin could combine a skill for running tests, an agent for code review, and an MCP server for a test-reporting service.
 
 ## Where you can use plugins
 
-You can use plugins in:
+Plugins are available on these {% data variables.product.prodname_copilot_short %} surfaces:
 
-* The {% data variables.copilot.github_copilot_app %}.
-* {% data variables.copilot.copilot_cli %}.
-* {% data variables.copilot.copilot_cloud_agent %}.
-* {% data variables.product.prodname_vscode %}. For supported components and installation, see [Agent plugins in {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/agent-customization/agent-plugins).
+* {% data variables.product.prodname_vscode %}. Browse and install plugins from **Customize** in the Chat side panel or Agents window. For VS Code plugin format details, see the [Agent Plugins authoring reference](https://code.visualstudio.com/docs/agents/reference/agent-plugin-reference).
+* {% data variables.copilot.copilot_cli %}. Browse and install plugins from a registered marketplace.
+* The {% data variables.copilot.github_copilot_app %}. Browse and install plugins from **Customize**.
+* {% data variables.copilot.copilot_in_the_cloud_short %}. Configure plugins through repository settings.
 
-A plugin can contain components that only work in a particular surface. Check that the plugin supports the surface you use. For example, the LSP server configuration described in this category is for {% data variables.copilot.copilot_cli_short %}.
-
-The component paths and directory examples below describe plugin formats for {% data variables.copilot.copilot_cli_short %}. Other surfaces can support different components.
+A plugin can contain components that only work in a particular surface. Check that the plugin supports the surface you use. For example, the LSP server configuration described in this category is for {% data variables.copilot.copilot_cli_short %}. For more information, see [AUTOTITLE](/copilot/reference/plugin-and-marketplace-reference).
 
 ## What plugins contain
 
-A plugin can contain some or all of the following components. The locations of these components depend on the plugin format:
+A plugin can package some or all of these components. Available components and their locations depend on the plugin format and surface:
 
 * **Custom agents** — Specialized AI assistants (`*.agent.md` files in `agents/`)
-* **Skills** — Task-specific instructions, scripts, and resources (skills subdirectories in `skills/`, containing a `SKILL.md` file)
-* **Hooks** — Event handlers that intercept agent behavior (a `hooks.json` file in the plugin root, or in `hooks/`)
-* **Extensions** — Code that adds capabilities such as tools and slash commands in supported surfaces
-* **MCP server configurations** — Model Context Protocol integrations
-* **LSP server configurations** — Language Server Protocol integrations (an `lsp.json` file in the plugin root, or in `.github/`)
+* **Skills** — Task-specific instructions, scripts, and resources (skill subdirectories in `skills/`, containing a `SKILL.md` file)
+* **Hooks** — Event handlers that respond to agent actions (a `hooks.json` file in the plugin root, or in `hooks/`)
+* **Extensions** — Surface-specific code that adds capabilities such as tools and slash commands
+* **MCP server configurations** — Model Context Protocol integrations (root `mcp.json` in Agent Plugins 1.0)
+* **LSP server configurations** — Language Server Protocol integrations on supported surfaces
 
 ## Plugin formats
 
-{% data variables.product.prodname_copilot_short %} supports two plugin formats:
+Agent Plugins is a format for sharing plugin manifests, skills, and MCP server configurations across compatible surfaces. Agent Plugins 1.0 plugins declare the canonical schema in `plugin.json`; its schema and component locations are not supported by every surface in the same way. {% data variables.copilot.copilot_cli_short %} also supports a legacy {% data variables.product.prodname_copilot_short %} plugin format. In the CLI, a manifest without the Agent Plugins schema uses this legacy format.
 
-* **Agent Plugins 1.0** is a portable format for sharing skills and MCP server configurations across compatible clients. To use this format, set `$schema` in `plugin.json` to `https://agent-plugins.org/schemas/1.0.0/plugin.schema.json`. Skills are discovered from `skills/`, and MCP server configuration is discovered from `mcp.json` at the plugin root. These locations cannot be configured in the manifest. Choose Agent Plugins 1.0 when you want to make skills and MCP servers portable.
-* **Legacy {% data variables.product.prodname_copilot_short %} plugins** do not declare the Agent Plugins `$schema`. They use the existing manifest fields and component discovery behavior, including configurable component paths and MCP configuration in `.mcp.json`, `.github/mcp.json`, or the `mcpServers` manifest field. Choose the legacy format when you need configurable component paths or are maintaining an existing {% data variables.product.prodname_copilot_short %}-specific plugin.
+Choose Agent Plugins when you want to share skills and MCP servers across compatible surfaces. Use the legacy CLI format when you need configurable component paths or are maintaining an existing Copilot-specific plugin.
 
 For a new plugin, use Agent Plugins 1.0 unless you require configurable component paths. Use the legacy format primarily for existing legacy plugins.
-
-Both formats are supported. Adding `$schema` changes how {% data variables.product.prodname_copilot_short %} interprets the manifest and discovers components. Plugins without `$schema` continue to load as legacy plugins.
 
 ## How plugins are structured
 
@@ -107,43 +101,41 @@ For the full set of fields you can include in the manifest, see [AUTOTITLE](/cop
 Plugins provide the following benefits:
 
 * Reusability across projects
-* Team standardization of {% data variables.product.prodname_copilot_short %} configuration
+* Shared {% data variables.product.prodname_copilot_short %} configuration across repositories
 * Share domain expertise (for example, by providing the skills of a Rails expert, or a Kubernetes expert)
 * Encapsulate complex MCP server setups
 
-## Where can I get plugins?
+## Where plugins come from
 
-You can install plugins from:
+The built-in marketplace in {% data variables.product.prodname_vscode %}, {% data variables.copilot.copilot_cli_short %}, and the {% data variables.copilot.github_copilot_app %} is [awesome-copilot](https://github.com/github/awesome-copilot?utm_source=customization-plugin-doc-awesome&utm_medium=docs&utm_campaign=universe-2026). Other marketplaces must be added before their plugins are available.
 
-* A marketplace
-* A repository
-* A local path
+Adding a marketplace makes its plugins available to browse. It does not install or enable them. A plugin's identifier combines the plugin name with the marketplace name as `PLUGIN-NAME@MARKETPLACE-NAME`. The marketplace name comes from the `name` field in its `marketplace.json` file, not from the repository name.
 
-A marketplace is a location where developers can publish, discover, install, and manage plugins. It's a bit like an app store—but for plugins.
+## What decides whether a plugin is enabled
 
-Examples of marketplaces include:
+Plugins can be available, installed, or enabled. Adding a marketplace makes its plugins available to browse. Installing a plugin adds it to a surface, and enabling it makes its components available in sessions on that surface. Shared configuration can set a default or enforce whether a plugin is enabled:
 
-* [copilot-plugins](https://github.com/github/copilot-plugins) (added by default)
-* [awesome-copilot](https://github.com/github/awesome-copilot) (added by default)
-* [claude-code-plugins](https://github.com/anthropics/claude-code)
-* [claudeforge-marketplace](https://github.com/claudeforge/marketplace)
+| Configuration source | Effect | Can a member turn the plugin off? |
+| --- | --- | --- |
+| Enterprise managed settings | Require or block a plugin across supported surfaces. | No. Managed policy always wins. |
+| Enterprise team managed settings | Add required plugins through `enabledPlugins` in enterprise team files, layered on the enterprise baseline. | No. These entries are managed policy. |
+| Repository defaults | Enable a plugin for everyone who works in a repository. | Yes, where the surface supports a local override. |
 
-How you install a plugin depends on which client you're using:
+Repository defaults do not make a plugin mandatory. They cannot enable a plugin that managed policy blocks or use a marketplace that policy disallows. Managed settings cannot enable an optional plugin by default. They only require or block plugins.
 
-* In {% data variables.copilot.copilot_cli_short %}, you can install plugins using the `copilot plugin install` command or the `/plugin install` slash command, or by adding the plugin to the `enabledPlugins` field of either a user-level `~/.copilot/settings.json` file or a repository-level `.github/copilot/settings.json` file. See [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/plugins-finding-installing).
-* In {% data variables.copilot.copilot_cloud_agent %}, you install plugins by adding them to the `enabledPlugins` field of the repository's `.github/copilot/settings.json` file. To install plugins from a marketplace that isn't registered by default, you can also add the marketplace to the `extraKnownMarketplaces` field in the same file.
-* In the {% data variables.copilot.github_copilot_app %}, click **Customize**, then click **Plugins** to browse marketplaces and install plugins.
-* In {% data variables.product.prodname_vscode %}, use the plugin marketplace commands described in the {% data variables.product.prodname_vscode_shortname %} documentation linked above.
+Enterprise team files add managed `enabledPlugins` entries to the enterprise baseline. Members cannot turn off required plugins. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/use-managed-settings/override-settings-for-teams).
 
-Enterprise administrators can define plugin standards that apply to users on the enterprise's {% data variables.product.prodname_copilot_short %} plan, including specifying additional marketplaces and plugins that are automatically installed. See [AUTOTITLE](/copilot/concepts/enterprise/plugin-standards).
+Repository defaults use `.github/copilot/settings.json`. For configuration and surface-specific local overrides, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-config-dir-reference#repository-settings-githubcopilotsettingsjson).
+
+Enterprise administrators can specify additional marketplaces and plugins that are required or blocked. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/use-managed-settings/manage-plugin-marketplaces-and-plugins).
 
 ## How plugin marketplaces work
 
-A plugin marketplace is a registry of plugins that you can browse and install from. A marketplace can be hosted in a repository on {% data variables.product.prodname_dotcom_the_website %}, in any other online Git hosting service, or on your local or shared file system.
+A plugin marketplace is a registry of plugins that you can browse and install from. A marketplace can be hosted in a repository on {% data variables.product.prodname_dotcom_the_website %}, another Git host, or a local directory. Because plugins in a marketplace are versioned, marketplaces make it easier to discover, install, and update plugins.
 
-A marketplace is defined by a `marketplace.json` file, which provides metadata about the marketplace and lists the plugins it makes available. Each entry in the marketplace's `plugins` array describes a plugin—including its name, description, version, and the path to the plugin's directory.
+A marketplace is defined by a `marketplace.json` file, which provides metadata about the marketplace and lists its plugins.
 
-Because plugins in a marketplace are versioned, marketplaces make it easy to discover, install, and update plugins, and to share them across a team. For step-by-step guidance on creating a marketplace, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/plugins-marketplace).
+For surface-specific instructions to use plugins or publish a marketplace in a {% data variables.product.github %} repository, see [Further reading](#further-reading).
 
 ## Plugins compared with manual configuration
 
@@ -158,7 +150,8 @@ Any functionality that you could add with a plugin, you could also add by config
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/concepts/customizations/extensions)
-* [AUTOTITLE](/copilot/concepts/agents/about-agent-skills)
-* [AUTOTITLE](/copilot/concepts/agents/hooks)
-* [AUTOTITLE](/copilot/concepts/customizations/custom-agents)
+* [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/customize-copilot/extend-copilot-with-tools-and-context/using-plugins)
+* [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/plugins-finding-installing)
+* [AUTOTITLE](/copilot/how-tos/github-copilot-app/customize-github-copilot-app#adding-plugins)
+* [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/configuring-agent-settings#configuring-plugins-for-github-copilot-cloud-agent)
+* [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/create-and-share-plugin-marketplaces)

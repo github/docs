@@ -32,6 +32,8 @@ These identity providers (IdPs) are compatible with the {% data variables.produc
 * Okta
 * OneLogin
 
+{% data reusables.enterprise-accounts.gov-cloud-idp-not-supported %}
+
 ## About SCIM configuration for organizations
 
 {% data reusables.scim.dedicated-configuration-account %}

@@ -15,6 +15,7 @@ import powershell from 'highlight.js/lib/languages/powershell'
 import graphql from 'highlight.js/lib/languages/graphql'
 import html from 'rehype-stringify'
 import codeHeader from './code-header'
+import mermaid from './mermaid'
 import rewriteLocalLinks from './rewrite-local-links'
 import rewriteImgSources from './rewrite-asset-urls'
 import rewriteAssetImgTags from './rewrite-asset-img-tags'
@@ -52,6 +53,7 @@ export function createProcessor(context: Context): UnifiedProcessor {
       .use(slug)
       .use(useEnglishHeadings as unknown as (ctx: Context) => void, context || {})
       .use(headingLinks)
+      .use(mermaid)
       .use(codeHeader)
       .use(annotate as unknown as (ctx: Context) => void, context)
       // TypeScript's unified plugin types do not model rehype-highlight's lowlight options.

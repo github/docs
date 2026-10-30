@@ -9,11 +9,9 @@ children:
   - /default-availability
   - /fedramp-models
   - /learning-about-new-features-and-models
-  - /agent-management
   - /mcp-management
   - /plugin-standards
   - /opentelemetry
-  - /cloud-agent-access
   - /about-enterprise-accounts-for-copilot-business
 contentType: concepts
 ---

@@ -11,6 +11,7 @@ versions:
   ghes: '*'
   ghec: '*'
 children:
+  - /agent-merge
   - /comments
   - /pulls
   - /review-requests

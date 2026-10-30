@@ -25,7 +25,7 @@ category:
 You can only assign issues to {% data variables.product.prodname_copilot_short %} if you have access to {% data variables.product.prodname_copilot_short %} through a paid {% data variables.product.prodname_copilot_short %} plan.
 
 If you do not already have a subscription for one of these plans, click this button for more information:<br>
-<a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=engagement&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 aria-label="link-external" %}</a>
+<a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=engagement&ref_style=button&utm_source=troubleshooting-cca-signup-cta&utm_medium=docs&utm_campaign=universe-2026" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 aria-label="link-external" %}</a>
 
 If you _do_ have a paid {% data variables.product.prodname_copilot_short %} plan, check that {% data variables.copilot.copilot_cloud_agent %} {% ifversion ghec %}is enabled and{% endif %} has not been manually disabled for the repository:
 
@@ -40,7 +40,7 @@ If you _do_ have a paid {% data variables.product.prodname_copilot_short %} plan
 * For personal repositories, the availability of {% data variables.copilot.copilot_cloud_agent %} in the repository is configured in your account settings. See [AUTOTITLE](/copilot/how-tos/manage-your-account/manage-policies#disabling-or-enabling-copilot-cloud-agent-in-your-repositories).
 
 > [!NOTE]
-> You can check whether {% data variables.copilot.copilot_cloud_agent %} has been enabled for you in the features page of your {% data variables.product.prodname_copilot_short %} settings: [github.com/settings/copilot/features](https://github.com/settings/copilot/features).
+> You can check whether {% data variables.copilot.copilot_cloud_agent %} has been enabled for you in the features page of your {% data variables.product.prodname_copilot_short %} settings: [github.com/settings/copilot/features](https://github.com/settings/copilot/features?utm_source=troubleshooting-cca-article-features&utm_medium=docs&utm_campaign=universe-2026).
 
 ## I have an {% data variables.product.prodname_emu %} account and {% data variables.product.prodname_copilot_short %} won't work in my personal repository
 
@@ -56,6 +56,10 @@ If you asked {% data variables.product.prodname_copilot_short %} to create a pul
 
 > [!IMPORTANT]
 > {% data reusables.copilot.cloud-agent.use-chat-participant-in-vsc %}
+
+## {% data variables.product.prodname_copilot_short %} can't start a session in a cloud sandbox
+
+If {% data variables.product.prodname_copilot_short %} can't start a session that runs in a cloud sandbox, check that you can use {% data variables.copilot.copilot_in_the_cloud_short %}. If you get {% data variables.product.prodname_copilot_short %} through an organization or enterprise, an owner must enable the **{% data variables.copilot.copilot_in_the_cloud_short %}** policy. See [AUTOTITLE](/copilot/how-tos/cloud-and-local-sandboxes/enabling-or-disabling-cloud-sandboxes-for-your-organization).
 
 ## I assigned an issue to {% data variables.product.prodname_copilot_short %}, but nothing is happening
 
@@ -77,7 +81,7 @@ If this doesn't happen, {% data variables.product.prodname_copilot_short %} may 
 
 {% data variables.product.prodname_copilot_short %} can appear to be stuck for a while, and then get moving again.
 
-If the session remains stuck, it will time out after an hour. You can retry by unassigning the issue and then reassigning it to {% data variables.product.prodname_copilot_short %}.
+If a session that runs on {% data variables.product.prodname_actions %} remains stuck, it will time out after an hour. You can retry by unassigning the issue and then reassigning it to {% data variables.product.prodname_copilot_short %}.
 
 If {% data variables.product.prodname_copilot_short %} got stuck while responding to a comment, try adding the same comment to the pull request again.
 
@@ -89,7 +93,7 @@ To allow {% data variables.product.prodname_actions %} workflows to run, click t
 
 ## {% data variables.product.prodname_copilot_short %} is pushing changes which don't pass my CI checks
 
-While working on an issue, {% data variables.product.prodname_copilot_short %} has access to its own ephemeral development environment, powered by {% data variables.product.prodname_actions %}, where it can execute automated tests and linters to validate its work before it pushes.
+While working on an issue, {% data variables.product.prodname_copilot_short %} has access to its own ephemeral development environment, either in a cloud sandbox or on {% data variables.product.prodname_actions %}, where it can execute automated tests and linters to validate its work before it pushes.
 
 It is most likely to do this if given clear instructions on what to do. The best way to do this is with a `.github/copilot-instructions.md` file. See [AUTOTITLE](/copilot/tutorials/cloud-agent/get-the-best-results#adding-custom-instructions-to-your-repository).
 

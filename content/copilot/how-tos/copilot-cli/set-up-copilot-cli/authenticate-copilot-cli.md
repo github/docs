@@ -218,7 +218,7 @@ To revoke the OAuth app authorization on {% data variables.product.github %} and
    1. In the upper-right corner of any page on {% data variables.product.prodname_dotcom %}, click your profile picture.
    1. Click **Settings**.
 1. In the left sidebar, click **Applications**.
-1. Under **Authorized OAuth Apps**, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} next to **GitHub CLI** to expand the menu and select **Revoke**.
+1. Under **Authorized OAuth Apps**, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} next to **{% data variables.copilot.copilot_cli %}** to expand the menu and select **Revoke**.
 
 ## Next steps
 
