@@ -70,3 +70,5 @@ Before your transition takes effect:
 For an existing enterprise with {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %}, contact your {% data variables.product.github %} or Microsoft account team. They can confirm eligibility, review the expected access and billing impact, and coordinate an available transition date. Contacting your account team does not itself change access or billing or guarantee a transition date.
 
 Transitions take effect on the first day of a month. Confirm the effective date with your account team.
+
+Don't have a dedicated account team? [Contact sales](https://github.com/enterprise/contact).
