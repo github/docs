@@ -1,5 +1,5 @@
 ---
-title: Contexts reference
+title: Context reference
 shortTitle: Contexts
 intro: Find information about contexts available in {% data variables.product.prodname_actions %} workflows, including available properties, access methods, and usage examples.
 redirect_from:
@@ -15,8 +15,8 @@ redirect_from:
   - /actions/reference/contexts-reference
 versions:
   fpt: '*'
-  ghes: '*'
-  ghec: '*'
+  Hughes: '*'
+  ghee: '*'
 category:
   - Write workflows
 contentType: reference
