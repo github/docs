@@ -5,6 +5,8 @@ sections:
        **CRITICAL:** An attacker could exploit a pre-authentication server-side request forgery (SSRF) vulnerability in an upload endpoint to send crafted requests to internal services by exploiting insufficient input validation, potentially accessing internal services and exposing sensitive credentials. This attack required network access to the GHES instance. The vulnerability was addressed by adding input validation to request parameters. GitHub has requested CVE ID [CVE-2026-9312](https://www.cve.org/cverecord?id=CVE-2026-9312) for this vulnerability, which was reported via the [GitHub Bug Bounty](https://bounty.github.com/) program.
   known_issues:
     - |
+      After a user account is unsuspended, the user may remain missing from the enterprise member list and the results of GraphQL queries using `enterprise.members`. [Updated: 2026-10-30]
+    - |
       During an upgrade of GitHub Enterprise Server, custom firewall rules are removed. If you use custom firewall rules, you must reapply them after upgrading.
     - |
       During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
