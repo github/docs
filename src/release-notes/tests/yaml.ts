@@ -74,5 +74,19 @@ describe('lint enterprise release notes', () => {
         ).resolves.not.toThrow()
       }
     })
+
+    // PatchNotes uses each note as its React key.
+    test('has no duplicate notes in a list', () => {
+      for (const [key, section] of Object.entries(yamlContent.sections || {})) {
+        const lists = [section.filter((item) => typeof item === 'string')]
+        for (const item of section) {
+          if (typeof item !== 'string' && Array.isArray(item.notes)) lists.push(item.notes)
+        }
+        for (const notes of lists) {
+          const duplicates = notes.filter((note, i) => notes.indexOf(note) !== i)
+          expect(duplicates, `sections.${key} has duplicate notes`).toEqual([])
+        }
+      }
+    })
   })
 })
