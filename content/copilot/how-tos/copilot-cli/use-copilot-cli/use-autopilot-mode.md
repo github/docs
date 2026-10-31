@@ -64,15 +64,16 @@ This command moves from planning to Autopilot mode automatically when the plan i
 
 ## Configuring permissions
 
-When entering autopilot mode, if you have not already granted {% data variables.product.prodname_copilot_short %} all permissions, a message is displayed prompting you to choose between three options:
+When entering autopilot mode, if you have not already granted {% data variables.product.prodname_copilot_short %} all permissions, a message is displayed prompting you to choose between four options:
 
 ```text
-1. Enable all permissions (recommended)
-2. Use Manual Approval for this session
-3. Cancel (Esc)
+1. Use Allow All for this session (recommended)
+2. Use Assisted Permissions for this session
+3. Use Manual Approval for this session
+4. Cancel (Esc)
 ```
 
-You will get the best results from Autopilot mode if you enable all permissions. If you choose manual approval, {% data variables.product.prodname_copilot_short %} will automatically deny any tool requests that require approval, which may prevent it from completing certain tasks. You can change your mind later and grant full permissions, during an Autopilot session, by using the `/allow-all` command (or its alias `/yolo`).
+You will get the best results from Autopilot mode if you enable all permissions. If you choose Assisted Permissions, {% data variables.product.prodname_copilot_short %} will use a model to assess eligible permission requests and automatically approve those it judges to be safe. If you choose manual approval, {% data variables.product.prodname_copilot_short %} will automatically deny any tool requests that require approval, which may prevent it from completing certain tasks. You can change your mind later and grant full permissions, during an Autopilot session, by using the `/allow-all` command (or its alias `/yolo`).
 
 Before granting {% data variables.product.prodname_copilot_short %} wide-ranging permissions, consider using local sandboxing, or running the session in a cloud sandbox, to limit what {% data variables.product.prodname_copilot_short %} can access.
 
