@@ -20,6 +20,8 @@ runs:
       uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
       with:
         node-version-file: 'package.json'
+        # Resolve from the Node manifest so CI uses the newest allowed version, not an older cached match.
+        check-latest: true
         package-manager-cache: false
         cache: ${{ steps.cache-node_modules.outputs.cache-hit != 'true' && 'npm' || '' }}
 

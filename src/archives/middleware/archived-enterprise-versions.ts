@@ -278,8 +278,6 @@ export default async function archivedEnterpriseVersions(
       versionSatisfiesRange(requestedVersion, `>=${firstReleaseStoredInBlobStorage}`) &&
       versionSatisfiesRange(requestedVersion, `<=3.9`)
     ) {
-      // Fastly sets x-host, and GLB removes x-forwarded-host.
-      const host = req.get('x-host') || req.get('x-forwarded-host') || req.get('host')
       const modifiedBody = body
         .replaceAll(
           `${OLD_AZURE_BLOB_ENTERPRISE_DIR}/${requestedVersion}/assets/cb-`,
@@ -287,7 +285,8 @@ export default async function archivedEnterpriseVersions(
         )
         .replaceAll(
           `${OLD_AZURE_BLOB_ENTERPRISE_DIR}/${requestedVersion}/`,
-          `${req.protocol}://${host}/enterprise-server@${requestedVersion}/`,
+          // Root-relative, so request headers never end up in the page.
+          `/enterprise-server@${requestedVersion}/`,
         )
 
       return res.send(modifiedBody)

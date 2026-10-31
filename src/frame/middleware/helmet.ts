@@ -30,7 +30,6 @@ const DEFAULT_OPTIONS = {
   contentSecurityPolicy: {
     directives: {
       defaultSrc: ["'none'"],
-      prefetchSrc: ["'self'"],
       // Safari local development needs ws: for Next.js hot module reloading.
       connectSrc: ["'self'", 'https://collector.githubapp.com', isDev && 'ws:'].filter(
         Boolean,
