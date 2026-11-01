@@ -44,7 +44,7 @@ In an app session, {% data variables.product.prodname_copilot_short %} uses tool
 
 You can choose between three options that determine how much you want to be involved in approving the tools {% data variables.product.prodname_copilot_short %} uses.
 
-* **Manual approval (Ask every time)**: Ask for your approval before running tools. This gives you the most oversight but requires you to respond to the most prompts.
+* **Manual approval (Always ask)**: Ask for your approval before running tools. This gives you the most oversight but requires you to respond to the most prompts.
 * **Assisted**: Use a model to assess each request, automatically approving requests it judges to be safe and prompting you to approve potentially unsafe requests. {% data variables.copilot.assisted_permissions_caps %} reduces prompts while maintaining oversight of potentially risky actions.
 * **Unconditional approval (Approve all)**: Run tools without asking for your approval. This is the most convenient option but removes your oversight of individual actions.
 
@@ -54,13 +54,13 @@ To choose the permission level for an individual session:
 
 1. In the session, click the mode below the prompt field.
 1. Hover over **Tool permissions**.
-1. Select **Ask every time**, **Assisted**, or **Approve all**.
+1. Select **Always ask**, **Assisted**, or **Approve all**.
 
 To set the default permission level for future local sessions:
 
 1. Open the app settings.
 1. Click **Sessions**.
-1. Under **Tool permissions**, select **Ask every time**, **Assisted**, or **Approve all**.
+1. Under **Tool permissions**, select **Always ask**, **Assisted**, or **Approve all**.
 
 ## Choosing a model
 
