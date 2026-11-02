@@ -1,6 +1,6 @@
-name: Daily non-employee comment digest
+name: Daily non-employee comment and review digest
 
-# Include issue/PR conversation comments, not inline review comments.
+# Include conversation comments, inline review comments, and submitted reviews without their bodies.
 on:
   workflow_dispatch:
   schedule:
@@ -51,45 +51,121 @@ jobs:
             core.info(`Building digest for ${since.toISOString()} to ${until.toISOString()}.`);
 
             const authors = new Map();
+            function addActivity({ author, createdAt, url, conversation, kind }) {
+              const timestamp = Date.parse(createdAt);
+              if (!(timestamp >= since.getTime() && timestamp < until.getTime())) {
+                return;
+              }
+              if (!author) {
+                core.warning('Skipping an activity whose author is unavailable.');
+                return;
+              }
+              const login = author.login.toLowerCase();
+              if (author.type === 'Bot' || author.__typename === 'Bot' ||
+                ['docs-bot', 'copilot'].includes(login)) {
+                return;
+              }
+              if (!authors.has(login)) {
+                authors.set(login, { login: author.login, activities: [] });
+              }
+              authors.get(login).activities.push({ url, conversation, kind });
+            }
+
             let page = 0;
             try {
-              for await (const { data: comments } of github.paginate.iterator(
+              for (const listComments of [
                 github.rest.issues.listCommentsForRepo,
-                {
-                  owner: 'github',
-                  repo: 'docs',
-                  since: since.toISOString(),
-                  sort: 'created',
-                  direction: 'asc',
-                  per_page: 100,
-                },
-              )) {
-                core.info(`Fetched comments page ${++page} (${comments.length} comments).`);
-                for (const comment of comments) {
-                  const createdAt = Date.parse(comment.created_at);
-                  if (!(createdAt >= since.getTime() && createdAt < until.getTime())) {
-                    continue;
+                github.rest.pulls.listReviewCommentsForRepo,
+              ]) {
+                for await (const { data: comments } of github.paginate.iterator(
+                  listComments,
+                  {
+                    owner: 'github',
+                    repo: 'docs',
+                    since: since.toISOString(),
+                    sort: 'created',
+                    direction: 'asc',
+                    per_page: 100,
+                  },
+                )) {
+                  core.info(`Fetched comments page ${++page} (${comments.length} comments).`);
+                  for (const comment of comments) {
+                    addActivity({
+                      author: comment.user,
+                      createdAt: comment.created_at,
+                      url: comment.html_url,
+                      conversation: comment.issue_url ??
+                        comment.pull_request_url.replace('/pulls/', '/issues/'),
+                      kind: 'comment',
+                    });
                   }
-                  const author = comment.user;
-                  if (!author) {
-                    core.warning('Skipping a comment whose author is unavailable.');
-                    continue;
-                  }
-                  const login = author.login.toLowerCase();
-                  if (author.type === 'Bot' || ['docs-bot', 'copilot'].includes(login)) {
-                    continue;
-                  }
-                  if (!authors.has(login)) {
-                    authors.set(login, { login: author.login, comments: [] });
-                  }
-                  authors.get(login).comments.push({
-                    url: comment.html_url,
-                    conversation: comment.issue_url,
-                  });
                 }
               }
             } catch (error) {
               throw new Error(`Fetching digest comments failed (HTTP ${error.status || 'unknown'}).`);
+            }
+
+            const reviewFields = `
+              fragment digestReviews on PullRequest {
+                reviews(first: 100, after: $reviewsCursor) {
+                  nodes {
+                    author { login __typename }
+                    submittedAt
+                    url
+                  }
+                  pageInfo { hasNextPage endCursor }
+                }
+              }
+            `;
+            let pullRequestsCursor = null;
+            try {
+              do {
+                const { repository } = await github.graphql(`
+                  query DigestPullRequests($pullRequestsCursor: String, $reviewsCursor: String) {
+                    repository(owner: "github", name: "docs") {
+                      pullRequests(first: 50, after: $pullRequestsCursor,
+                        orderBy: { field: UPDATED_AT, direction: DESC }) {
+                        nodes { id number updatedAt ...digestReviews }
+                        pageInfo { hasNextPage endCursor }
+                      }
+                    }
+                  }
+                  ${reviewFields}
+                `, { pullRequestsCursor, reviewsCursor: null });
+                const pullRequests = repository.pullRequests;
+                const recentPullRequests = pullRequests.nodes.filter(
+                  (pullRequest) => Date.parse(pullRequest.updatedAt) >= since.getTime(),
+                );
+                for (const pullRequest of recentPullRequests) {
+                  let reviews = pullRequest.reviews;
+                  while (true) {
+                    for (const review of reviews.nodes) {
+                      addActivity({
+                        author: review.author,
+                        createdAt: review.submittedAt,
+                        url: review.url,
+                        conversation: `https://api.github.com/repos/github/docs/issues/${pullRequest.number}`,
+                        kind: 'review',
+                      });
+                    }
+                    if (!reviews.pageInfo.hasNextPage) {
+                      break;
+                    }
+                    const { node } = await github.graphql(`
+                      query DigestReviewPage($id: ID!, $reviewsCursor: String) {
+                        node(id: $id) { ...digestReviews }
+                      }
+                      ${reviewFields}
+                    `, { id: pullRequest.id, reviewsCursor: reviews.pageInfo.endCursor });
+                    reviews = node.reviews;
+                  }
+                }
+                // Updated ordering includes closed/merged PRs and lets us stop at the cutoff.
+                pullRequestsCursor = recentPullRequests.length === pullRequests.nodes.length &&
+                  pullRequests.pageInfo.hasNextPage ? pullRequests.pageInfo.endCursor : null;
+              } while (pullRequestsCursor);
+            } catch (error) {
+              throw new Error(`Fetching digest reviews failed (HTTP ${error.status || 'unknown'}).`);
             }
 
             const nonEmployees = [];
@@ -110,23 +186,27 @@ jobs:
               }
             }
 
-            const totalComments = nonEmployees.reduce((sum, author) => sum + author.comments.length, 0);
-            core.info(`Found ${totalComments} comments by ${nonEmployees.length} non-employees.`);
-            if (totalComments === 0) {
+            const activities = nonEmployees.flatMap((author) => author.activities);
+            const totalComments = activities.filter((activity) => activity.kind === 'comment').length;
+            const totalReviews = activities.length - totalComments;
+            core.info(`Found ${totalComments} comments and ${totalReviews} reviews by ${nonEmployees.length} non-employees.`);
+            if (activities.length === 0) {
               return;
             }
 
-            let message = `Daily non-employee comment digest for github/docs\n` +
+            let message = `Daily non-employee comment and review digest for github/docs\n` +
               `${since.toISOString()} to ${until.toISOString()} (UTC)\n` +
-              `Non-employee users: ${nonEmployees.length}; comments: ${totalComments}\n` +
-              'Comment bodies omitted; follow the links to read them on GitHub.';
-            const shortened = '\n\n[Digest shortened to fit one Slack message; some authors or comment links are omitted.]';
+              `Non-employee users: ${nonEmployees.length}; comments: ${totalComments}; reviews: ${totalReviews}\n` +
+              'Comment and review bodies omitted; follow the links to read them on GitHub.';
+            const shortened = '\n\n[Digest shortened to fit one Slack message; some authors or activity links are omitted.]';
             const maximumLength = 35000 - shortened.length;
             const lines = nonEmployees.flatMap((author) => [
               `\n\n@${author.login} (https://github.com/${author.login})\n` +
-                `Comments: ${author.comments.length}; conversations: ` +
-                `${new Set(author.comments.map((comment) => comment.conversation)).size}`,
-              ...author.comments.map((comment) => `\n  ${comment.url}`),
+                `Comments: ${author.activities.filter((activity) => activity.kind === 'comment').length}; ` +
+                `reviews: ${author.activities.filter((activity) => activity.kind === 'review').length}; conversations: ` +
+                `${new Set(author.activities.map((activity) => activity.conversation)).size}`,
+              ...author.activities.map((activity) =>
+                `\n  ${activity.kind === 'review' ? 'Review: ' : ''}${activity.url}`),
             ]);
             for (const line of lines) {
               if (message.length + line.length > maximumLength) {
