@@ -32,7 +32,7 @@ For example, you can build an internal system that issues a new certificate to y
 {% ifversion ghec %}
 Organization contributors can use their signed certificates for authentication even if you've enforced SAML single sign-on (SSO), without the need to authorize the signed certificates.
 
-Unless you make SSH certificates a requirement, organization members and outside collaborators can continue to use other means of authentication to access your organization's resources with Git, including their username and password, {% data variables.product.pat_generic %}s, and their own SSH keys.
+Unless you make SSH certificates a requirement, organization members and outside collaborators can continue to use other means of authentication to access your organization's resources with Git, including their username and {% data variables.product.pat_generic %}s, and their own SSH keys.
 {% endif %}
 
 {% data reusables.emus.ssh-ca-support-for-emu %}

@@ -120,6 +120,7 @@ export type MainContextT = {
     introPlainText?: string
     hidden: boolean
     noEarlyAccessBanner: boolean
+    hideSidebar: boolean
     applicableVersions: string[]
     docsTeamMetrics: string[] | null
   } | null
@@ -228,6 +229,7 @@ export const getMainContext = async (
       applicableVersions: page.permalinks.map((obj: Permalink) => obj.pageVersion),
       hidden: page.hidden || false,
       noEarlyAccessBanner: page.noEarlyAccessBanner || false,
+      hideSidebar: page.hideSidebar || false,
       docsTeamMetrics: page.docsTeamMetrics || null,
     }) ||
     null

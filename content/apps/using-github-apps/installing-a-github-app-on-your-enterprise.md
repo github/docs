@@ -13,9 +13,6 @@ docsTeamMetrics:
   - enterprise-onboarding
 ---
 
-> [!NOTE]
-> Enterprise-installed {% data variables.product.prodname_github_apps %} are in {% data variables.release-phases.public_preview %} and subject to change.
-
 ## About installing {% data variables.product.prodname_github_apps %} on your enterprise
 
 Enterprise-installed {% data variables.product.prodname_github_apps %} are apps that request enterprise-level permissions and can perform operations on your enterprise account. Unlike organization or user installations, they do not have access to any organization or repository permissions—they only manage the enterprise itself.
@@ -54,11 +51,11 @@ The installation token for an enterprise-installed {% data variables.product.pro
 
 ## Current limitations
 
-Enterprise-installed {% data variables.product.prodname_github_apps %} are currently in {% data variables.release-phases.public_preview %} with the following limitations.
+Enterprise-installed {% data variables.product.prodname_github_apps %} have some limitations in what they're able to do.
 
 ### API support
 
-Not all APIs support enterprise-installed {% data variables.product.prodname_github_apps %} yet. As more permissions are built and APIs updated, support will become broader. For more information about the APIs and permissions that support enterprise-installed {% data variables.product.prodname_github_apps %}, see [AUTOTITLE](/rest/authentication/permissions-required-for-github-apps).
+Not all APIs support enterprise-installed {% data variables.product.prodname_github_apps %} yet. As more permissions are built and APIs updated, support will become broader. For more information about the APIs and permissions that support enterprise-installed {% data variables.product.prodname_github_apps %}, see [AUTOTITLE](/rest/authentication/permissions-required-for-github-apps) and [AUTOTITLE](/graphql/guides/managing-enterprise-accounts).
 
 ### Webhook support
 

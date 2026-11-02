@@ -52,6 +52,8 @@ copilot --acp --port 3000 --effort=max --available-tools="bash,view"
 
 Every session the connected client opens against that server inherits those settings. Because the values are fixed when the server starts, a client cannot change them per session through `session/new`.
 
+Sessions also honor saved sandbox settings and the `--sandbox` and `--no-sandbox` options, including when a session is resumed. An enterprise-managed policy that enforces sandboxing will override `--no-sandbox`.
+
 ### stdio mode
 
 stdio mode is inferred by default when you start the ACP server. You can also use the `--stdio` option for disambiguation.

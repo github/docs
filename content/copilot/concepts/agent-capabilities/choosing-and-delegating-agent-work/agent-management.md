@@ -2,7 +2,7 @@
 title: Agent management
 shortTitle: Agent management
 intro: 'Use one centralized control page to jump between agent sessions, check progress, and stay in control without losing your place.'
-product: '{% data reusables.gated-features.copilot-cloud-agent %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
+product: '{% data reusables.gated-features.copilot-in-the-cloud %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=button&utm_source=agent-management-docs-purchase-cta&utm_medium=docs&utm_campaign=universe-2026" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
 redirect_from:
@@ -30,7 +30,7 @@ Utilizing {% data variables.copilot.custom_agents_short %} you can build out a t
 
 Model choice allows you to choose from a selection of AI models to use with your agents, each with its own particular strengths. See [AUTOTITLE](/copilot/reference/ai-models/supported-models).
 
-To learn more about {% data variables.copilot.copilot_cloud_agent %}, see [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-on-github).
+To learn more about {% data variables.copilot.copilot_in_the_cloud_short %}, see [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-on-github).
 
 ## Managing agents
 
@@ -45,7 +45,7 @@ From the Agents tab, you can:
 * **Open a session in {% data variables.product.prodname_vscode_shortname %} or {% data variables.copilot.copilot_cli %}**: When you want to start working on changes to an agent session in your local development environment, click **{% octicon "vscode" aria-label="VS Code" %} Open in {% data variables.product.prodname_vscode_shortname %}** or **{% octicon "agent" aria-label="Agent" %} Continue in {% data variables.copilot.copilot_cli %}** to bring the session to your local machine.
     {% data reusables.copilot.cloud-agent.use-latest-vscode %}
 * **Review and merge agent code**: Once the agent completes a session, you can jump to the pull request to review the changes, request further improvements, or approve and merge. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/use-copilot-agents/review-copilot-output).
-* **Set up {% data variables.copilot.copilot_automations %}**: Run {% data variables.copilot.copilot_cloud_agent %} automatically, on a schedule or in response to events such as an issue being opened. See [AUTOTITLE](/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/about-automations).
+* **Set up {% data variables.copilot.copilot_automations %}**: Run {% data variables.product.prodname_copilot_short %} automatically, on a schedule or in response to events such as an issue being opened. See [AUTOTITLE](/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/about-automations).
 * **Query your past sessions**: You can search and reference your past agent sessions using natural language from {% data variables.copilot.copilot_cli_short %} or {% data variables.product.prodname_vscode_shortname %}. See [AUTOTITLE](/copilot/concepts/security-governance-and-network-settings/session-data).
 
 ## Next steps

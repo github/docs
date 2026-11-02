@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router'
+import cx from 'clsx'
 import { LinkExternalIcon } from '@primer/octicons-react'
 import { Button, ButtonGroup, Heading, Text } from '@primer/react-brand'
 import styles from './LandingHero.module.scss'
@@ -6,12 +7,21 @@ import { LandingSection } from './LandingSection'
 import { useTranslation } from '@/languages/components/useTranslation'
 import { DEFAULT_VERSION, useVersion } from '@/versions/components/useVersion'
 import { RenderedHTML } from '@/frame/components/ui/RenderedHTML/RenderedHTML'
+import type { HeroTheme } from '@/landings/context/LandingContext'
 
 type LandingHeroProps = {
   title: string
   intro?: string
   heroImage?: string
+  heroTheme?: HeroTheme
   introLinks?: Record<string, string> | null
+}
+
+const heroThemes: Record<HeroTheme, { className: string; wordmark?: string }> = {
+  'mos-diner': {
+    className: styles.mosDiner,
+    wordmark: '/assets/images/banner-images/mos-diner-logo.svg',
+  },
 }
 
 function heroBackgroundCss(heroImage: string | undefined) {
@@ -24,7 +34,13 @@ function heroBackgroundCss(heroImage: string | undefined) {
   }
 }
 
-export const LandingHero = ({ title, intro, heroImage, introLinks }: LandingHeroProps) => {
+export const LandingHero = ({
+  title,
+  intro,
+  heroImage,
+  heroTheme,
+  introLinks,
+}: LandingHeroProps) => {
   const { t } = useTranslation(['product_landing'])
   const router = useRouter()
   const { currentVersion } = useVersion()
@@ -36,21 +52,38 @@ export const LandingHero = ({ title, intro, heroImage, introLinks }: LandingHero
     return `/${router.locale}${versionPrefix}${href}`
   }
 
+  const theme = heroTheme ? heroThemes[heroTheme] : undefined
   const linkEntries = introLinks ? Object.entries(introLinks) : []
 
   return (
     <LandingSection>
-      <div className={styles.landingHero} style={heroBackgroundCss(heroImage)}>
+      <div
+        className={cx(styles.landingHero, theme?.className)}
+        style={heroTheme ? undefined : heroBackgroundCss(heroImage)}
+        data-hero-theme={heroTheme}
+      >
         <div className={styles.heroContent}>
           <Heading as="h1" size="2" className={styles.heroHeading}>
-            {title}
+            {theme?.wordmark ? (
+              <>
+                <span className="visually-hidden">{title}</span>
+                {/* The mask paints the artwork in the current text color, so it follows color mode. */}
+                <span
+                  className={styles.heroWordmark}
+                  style={{ maskImage: `url("${theme.wordmark}")` }}
+                  aria-hidden="true"
+                />
+              </>
+            ) : (
+              title
+            )}
           </Heading>
           {intro && (
             <Text
               as="div"
-              size="200"
-              variant="muted"
-              className={`${styles.heroDescription} ${styles.heroIntroScrim}`}
+              size={theme ? '300' : '200'}
+              variant={theme ? 'default' : 'muted'}
+              className={cx(styles.heroDescription, !heroTheme && styles.heroIntroScrim)}
             >
               <RenderedHTML as="div" html={intro} />
             </Text>
@@ -77,6 +110,7 @@ export const LandingHero = ({ title, intro, heroImage, introLinks }: LandingHero
             </div>
           )}
         </div>
+        {heroTheme && <div className={styles.themeAccent} aria-hidden="true" />}
       </div>
     </LandingSection>
   )

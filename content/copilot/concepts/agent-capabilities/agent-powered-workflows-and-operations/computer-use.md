@@ -20,6 +20,8 @@ category:
 
 Computer use is available in {% data variables.copilot.copilot_cli %} and the {% data variables.copilot.github_copilot_app %} on macOS and Windows.
 
+{% data variables.product.prodname_copilot_short %} interacts with applications in the background where possible, so you can continue working in other applications.
+
 Computer use expands the tasks {% data variables.product.prodname_copilot_short %} can help automate, including workflows in legacy and GUI-only software that do not provide an API, command-line interface, or MCP integration.
 
 Computer use can help you complete tasks such as:

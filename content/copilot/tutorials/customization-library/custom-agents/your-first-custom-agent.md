@@ -18,7 +18,7 @@ contentType: tutorials
 
 ## About {% data variables.copilot.custom_agents_short %}
 
-{% data variables.copilot.custom_agents_caps_short %} are specialized versions of {% data variables.copilot.copilot_cloud_agent %} that maintain consistent expertise across entire workflows. Unlike custom instructions that apply broadly, or prompt files for one-time tasks, {% data variables.copilot.custom_agents_short %} are selected for specific tasks and maintain their configuration throughout the workflow.
+{% data variables.copilot.custom_agents_caps_short %} are specialized versions of {% data variables.product.prodname_copilot_short %} that maintain consistent expertise across entire workflows. Unlike custom instructions that apply broadly, or prompt files for one-time tasks, {% data variables.copilot.custom_agents_short %} are selected for specific tasks and maintain their configuration throughout the workflow.
 
 For a more in-depth overview, see [AUTOTITLE](/copilot/concepts/customizations/custom-agents).
 

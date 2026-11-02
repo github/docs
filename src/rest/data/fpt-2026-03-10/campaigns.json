@@ -637,7 +637,66 @@
           }
         }
       ],
-      "bodyParameters": [],
+      "bodyParameters": [
+        {
+          "type": "string",
+          "name": "name",
+          "description": "<p>The name of the campaign</p>",
+          "isRequired": true
+        },
+        {
+          "type": "string",
+          "name": "description",
+          "description": "<p>A description for the campaign</p>",
+          "isRequired": true
+        },
+        {
+          "type": "array of strings",
+          "name": "managers",
+          "description": "<p>The logins of the users to set as the campaign managers. At this time, only a single manager can be supplied.</p>"
+        },
+        {
+          "type": "array of strings",
+          "name": "team_managers",
+          "description": "<p>The slugs of the teams to set as the campaign managers.</p>"
+        },
+        {
+          "type": "string",
+          "name": "ends_at",
+          "description": "<p>The end date and time of the campaign. The date must be in the future.</p>",
+          "isRequired": true
+        },
+        {
+          "type": "string or null",
+          "name": "contact_link",
+          "description": "<p>The contact link of the campaign. Must be a URI.</p>"
+        },
+        {
+          "type": "array of objects or null",
+          "name": "code_scanning_alerts",
+          "description": "<p>The code scanning alerts to include in this campaign</p>",
+          "childParamsGroups": [
+            {
+              "type": "integer",
+              "name": "repository_id",
+              "description": "<p>The repository id</p>",
+              "isRequired": true
+            },
+            {
+              "type": "array of integers",
+              "name": "alert_numbers",
+              "description": "<p>The alert numbers</p>",
+              "isRequired": true
+            }
+          ]
+        },
+        {
+          "type": "boolean",
+          "name": "generate_issues",
+          "description": "<p>If true, will automatically generate issues for the campaign. The default is false.</p>",
+          "default": false
+        }
+      ],
       "descriptionHTML": "<p>Create a campaign for an organization.</p>\n<p>The authenticated user must be an owner or security manager for the organization to use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>security_events</code> scope to use this endpoint.</p>\n<p>Fine-grained tokens must have the \"Code scanning alerts\" repository permissions (read) on all repositories included\nin the campaign.</p>",
       "codeExamples": [
         {

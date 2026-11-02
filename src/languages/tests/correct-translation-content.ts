@@ -3814,4 +3814,27 @@ Para más información, consulta "[AUTOTITLE](/path)".
       for (const code of ['zh', 'ja', 'ko', 'ru']) expect(fix(ok, code)).toBe(ok)
     })
   })
+
+  describe('stray underscore, localized decimal, and "nicht" in conditionals', () => {
+    test.each([
+      ['ru', '{% endif _ %}', '{% endif %}'],
+      ['ru', '{% else _%}', '{% else %}'],
+      ['ja', '{% ifversion ghes = 3,9 %}', '{% ifversion ghes = 3.9 %}'],
+      ['fr', '{% elsif ghes > 3,18 %}', '{% elsif ghes > 3.18 %}'],
+      ['de', '{% ifversion nicht ghes %}', '{% ifversion not ghes %}'],
+      [
+        'de',
+        '{% data variables.release-phases. public_preview %}',
+        '{% data variables.release-phases.public_preview %}',
+      ],
+    ])('fixes %s: %s', (code, before, after) => {
+      expect(fix(`a ${before} b`, code)).toBe(`a ${after} b`)
+    })
+
+    test('leaves already-correct tags unchanged', () => {
+      const ok =
+        '{% ifversion not ghes %}x{% else %}y{% endif %} {% ifversion ghes = 3.9 %}1,5{% endif %} {% data variables.release-phases.public_preview %}'
+      for (const code of ['ru', 'ja', 'fr', 'de']) expect(fix(ok, code)).toBe(ok)
+    })
+  })
 })

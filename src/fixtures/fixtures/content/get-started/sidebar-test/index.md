@@ -10,6 +10,7 @@ sidebarLink:
   href: /get-started/sidebar-test
 children:
   - /test-child
+  - /hidden-sidebar
 ---
 
 This is a test page for the sidebar custom link functionality.

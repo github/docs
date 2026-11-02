@@ -5,7 +5,7 @@ intro: 'Under usage-based billing, {% data variables.product.prodname_copilot_sh
 permissions: Enterprise and organization owners and billing managers
 versions:
   feature: copilot
-product: '{% data variables.copilot.copilot_enterprise_short %} or {% data variables.copilot.copilot_business_short %}'
+product: '{% data reusables.copilot.enterprise-billing-availability %}'
 redirect_from:
   - /copilot/how-tos/manage-and-track-spending/prepare-for-usage-based-billing
   - /copilot/concepts/billing/usage-based-billing-for-organizations-and-enterprises
@@ -17,7 +17,7 @@ category:
 
 ## What are {% data variables.product.prodname_ai_credits %}?
 
-{% data variables.product.prodname_ai_credits %} are the billing unit for {% data variables.product.prodname_copilot_short %} usage in {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %}.
+{% data variables.product.prodname_ai_credits %} are the billing unit for metered {% data variables.product.prodname_copilot_short %} usage in organizations and enterprises.
 
 When someone in your organization uses {% data variables.product.prodname_copilot_short %}, the interaction consumes tokens: input tokens (what's sent to the model), output tokens (what the model generates), and cached tokens (context the model reuses or stores). Each token is priced based on the model used, and the total is converted into {% data variables.product.prodname_ai_credits_short %}, where 1 {% data variables.product.prodname_ai_credit_singular %} = {% data variables.product.prodname_ai_credits_value %}.
 
@@ -25,9 +25,16 @@ The cost of an interaction depends on two things: the model and the number of to
 
 ## What is billed in {% data variables.product.prodname_ai_credits_short %}?
 
-{% data variables.product.prodname_copilot_short %} features that use AI models consume {% data variables.product.prodname_ai_credits_short %}. This includes {% data variables.copilot.copilot_chat_short %}, {% data variables.copilot.copilot_cli_short %}, {% data variables.copilot.copilot_cloud_agent %}, {% data variables.copilot.copilot_spaces %}, {% data variables.product.prodname_spark_short %}, and third-party coding agents.
+The following features consume {% data variables.product.prodname_ai_credits_short %}:
 
-Code completions and {% data variables.copilot.next_edit_suggestions %} are **not** billed in {% data variables.product.prodname_ai_credits_short %}. They remain unlimited for all paid plans.
+* {% data variables.copilot.copilot_chat_short %}
+* {% data variables.copilot.copilot_cli_short %}
+* {% data variables.copilot.copilot_cloud_agent %}
+* {% data variables.copilot.copilot_spaces %}
+* {% data variables.product.prodname_spark_short %}
+* Third-party coding agents
+
+Inline code completions and {% data variables.copilot.next_edit_suggestions %} are **not** billed in {% data variables.product.prodname_ai_credits_short %} and remain unlimited. They remain available when a user has a $0 USD budget or reaches an enforced spending limit.
 
 ## How is {% data variables.product.prodname_github_app %} usage billed?
 
@@ -39,7 +46,20 @@ For information about approving access, identifying app usage, and blocking an a
 
 ## How do {% data variables.product.prodname_ai_credits_short %} work?
 
-Each assigned {% data variables.product.prodname_copilot_short %} license comes with a monthly amount of **included {% data variables.product.prodname_ai_credits_short %}**:
+Some plans include a monthly allowance of {% data variables.product.prodname_ai_credits_short %}, while others do not:
+
+* **{% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %}** include credits that are pooled across the organization or enterprise. Usage draws from this pool first, and is billed separately only after the pool is exhausted.
+* **{% data variables.product.prodname_copilot_short %} access**, through {% data variables.product.prodname_ghe_cloud %} or as {% data variables.copilot.copilot_standalone_short %}, has no included allowance. Metered usage is billed from the first use.
+
+The **{% data variables.product.prodname_ai_credits_short %} paid usage** policy is enabled by default for {% data variables.copilot.copilot_business_short %}, {% data variables.copilot.copilot_enterprise_short %}, and {% data variables.product.prodname_copilot_short %} access. With {% data variables.product.prodname_copilot_short %} access, it must remain enabled for users to use features that consume credits. If the policy is disabled, those features are blocked because there is no included allowance.
+
+In both cases, budgets control how much users can consume and how much metered spending is allowed. Configure budgets before users begin consuming {% data variables.product.prodname_ai_credits_short %}.
+
+## Included credits for {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %}
+
+Each assigned license contributes a monthly allowance to the shared pool.
+
+### Allowances and monthly reset
 
 | Plan | Total {% data variables.product.prodname_ai_credits_short %} per user per month |
 | --- | --- |
@@ -52,7 +72,7 @@ Adding licenses mid-cycle increases the pool immediately. Removing licenses mid-
 
 Included {% data variables.product.prodname_ai_credits_short %} do not carry over between months. Unused credits are forfeited, and the pool resets to the full monthly amount at 00:00:00 UTC on the first day of each calendar month. This reset date is fixed and does not change based on when licenses are added, removed, or billed. See [AUTOTITLE](/billing/concepts/billing-cycles#billing-cycles-for-metered-products).
 
-## What happens if I exceed my included {% data variables.product.prodname_ai_credits_short %}?
+### What happens if I exceed my included {% data variables.product.prodname_ai_credits_short %}?
 
 When your pooled {% data variables.product.prodname_ai_credits_short %} are exhausted, what happens next depends on how you have configured policies for additional usage.
 
@@ -60,20 +80,22 @@ When your pooled {% data variables.product.prodname_ai_credits_short %} are exha
 * **Additional usage not allowed**: Usage is blocked until the next billing cycle when monthly amounts are refreshed.
 
 > [!NOTE]
-> Additional usage is **enabled by default** for organizations and enterprises. If you want to prevent any spending beyond your included {% data variables.product.prodname_ai_credits_short %}, an administrator must explicitly disable the **{% data variables.product.prodname_ai_credits_short %} paid usage** policy in your enterprise's or organization's AI Controls settings.
-
-If you have set a user-level budget and a user exhausts it, that user's access to {% data variables.product.prodname_copilot_short %} is halted, regardless of whether the organization's pool still has capacity. A user can also be blocked by an enterprise spending limit before they reach their individual user-level budget, if the spending limit runs out first. There is no automatic fallback to lower-cost models when a budget is exhausted. For more information about how these controls interact, see [AUTOTITLE](/copilot/concepts/billing-and-usage/organizations-and-enterprises/budgets).
-
-Additional usage budgets are set in US dollars, and usage is shown in {% data variables.product.prodname_ai_credits_short %}. {% data variables.product.prodname_ai_credits_short %} draw down the budget at a fixed rate: 1 {% data variables.product.prodname_ai_credit_singular %} = {% data variables.product.prodname_ai_credits_value %}, so a $10 USD budget covers 1,000 AI credits.
+> On {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %}, additional usage is **enabled by default**. If you want to prevent any spending beyond your included {% data variables.product.prodname_ai_credits_short %}, an administrator must explicitly disable the **{% data variables.product.prodname_ai_credits_short %} paid usage** policy in your enterprise's or organization's AI Controls settings.
 
 ## How can I control costs with budgets?
 
-Budget controls let you govern how individual users draw from the shared pool and cap any additional spending once it's exhausted. You can set budgets at multiple levels:
+Budgets let you limit individual consumption and metered charges. They are set in US dollars, while usage is shown in {% data variables.product.prodname_ai_credits_short %}. At 1 {% data variables.product.prodname_ai_credit_singular %} = {% data variables.product.prodname_ai_credits_value %}, a $10 USD budget covers 1,000 {% data variables.product.prodname_ai_credits_short %}.
 
-* **User-level budgets** cap how much an individual user can consume per billing cycle, from both the shared pool and additional usage. A $0 USD user-level budget blocks the user immediately.
-* **Cost-center budgets** cap metered charges for a defined group of users after the pool is exhausted.
-* **Enterprise spending limits** cap total metered charges across your entire enterprise after the pool is exhausted.
-* **Organization-level budgets** cap metered charges for users whose {% data variables.product.prodname_copilot_short %} seats are billed to the organization, after the pool is exhausted.
+You can set budgets at multiple levels:
+
+* **User-level budgets** cap an individual's total consumption per billing cycle, including any usage drawn from an included pool. They always enforce a hard stop. A $0 USD user-level budget immediately blocks features that consume {% data variables.product.prodname_ai_credits_short %}.
+* **Cost-center budgets** limit metered charges for a defined group of users.
+* **Enterprise spending limits** limit total metered charges across your enterprise.
+* **Organization-level budgets** limit metered charges for users whose {% data variables.product.prodname_copilot_short %} seats are billed to the organization.
+
+With {% data variables.product.prodname_copilot_short %} access, spending limits apply from the first metered use. With {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %}, they apply after the included pool is exhausted. Enable **Stop usage when budget limit is reached** on spending limits to enforce them.
+
+An enforced spending limit can block a user before they reach their user-level budget. Budget restrictions do not remove assigned seats.
 
 For a full explanation of how these controls work together and when usage gets blocked, see [AUTOTITLE](/copilot/concepts/billing-and-usage/organizations-and-enterprises/budgets).
 

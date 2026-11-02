@@ -36,6 +36,9 @@ For a curated list of MCP servers from partners and the community, see the [{% d
 * **{% data variables.product.prodname_vscode %} version 1.99 or later**. For information on installing {% data variables.product.prodname_vscode %}, see the [{% data variables.product.prodname_vscode %} download page](https://code.visualstudio.com/Download?ref_product=copilot&ref_type=engagement&ref_style=text).
 * {% data reusables.copilot.mcp-policy-requirement %}
 
+> [!NOTE]
+> You can connect services through {% data variables.product.github %}-verified MCP servers (connectors) from **Customizations** in the Agents window. Sign in to a service and approve access once, then use the connection across supported {% data variables.product.prodname_copilot_short %} surfaces without repeating setup. See [AUTOTITLE](/copilot/concepts/customizations/copilot-connectors).
+
 ## Configuring MCP servers in {% data variables.product.prodname_vscode %}
 
 MCP servers can be configured manually in a configuration file, or through the {% data variables.product.github %} MCP Registry. The {% data variables.product.github %} MCP Registry provides a curated list of MCP servers that you can easily add to your {% data variables.product.prodname_vscode %} instance.

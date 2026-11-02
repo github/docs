@@ -21,6 +21,8 @@ sections:
       To avoid data processing delays on instances with a large number of internal message topics, administrators can configure the network timeouts used during topic discovery via `app.github.topic-checker-connect-timeout-sec` and `app.github.topic-checker-socket-timeout-sec`. The default timeout has been increased from 10 to 30 seconds, and values between 1 and 300 seconds are accepted. 
   known_issues:
     - |
+      After a restart, an instance can remain unavailable with "Starting..." displayed in the web interface. To recover, an administrator can connect using administrative SSH and rerun `ghe-config-apply`. This provides temporary recovery but does not prevent the issue from recurring. This issue is resolved in {% data variables.product.prodname_ghe_server %} 3.21.0 and later. [Updated: 2026-10-30]
+    - |
       During an upgrade of GitHub Enterprise Server, custom firewall rules are removed. If you use custom firewall rules, you must reapply them after upgrading.
     - |
       If the root site administrator is locked out of the Management Console after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-web-ui/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account).

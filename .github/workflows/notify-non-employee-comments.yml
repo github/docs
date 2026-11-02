@@ -1,0 +1,172 @@
+name: Daily non-employee comment digest
+
+# Include issue/PR conversation comments, not inline review comments.
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '20 16 * * *'
+
+permissions:
+  contents: read
+
+jobs:
+  notify:
+    if: github.repository == 'github/docs'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          persist-credentials: false
+
+      - name: Build daily digest
+        id: digest
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        with:
+          github-token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          script: |
+            // Octokit request logs include author names, even for expected non-member 404s.
+            github.log = {
+              ...github.log,
+              debug: () => {},
+              info: () => {},
+              warn: () => {},
+              error: () => {},
+            };
+            // Fixed schedule boundaries avoid gaps or overlaps when scheduled runs start late.
+            const { data: run } = await github.rest.actions.getWorkflowRun({
+              ...context.repo,
+              run_id: context.runId,
+            }).catch((error) => {
+              throw new Error(`Fetching workflow run failed (HTTP ${error.status || 'unknown'}).`);
+            });
+            const runCreatedAt = new Date(run.created_at);
+            const until = new Date(runCreatedAt.getTime());
+            until.setUTCHours(16, 20, 0, 0);
+            if (until.getTime() > runCreatedAt.getTime()) {
+              until.setUTCDate(until.getUTCDate() - 1);
+            }
+            const since = new Date(until.getTime() - 24 * 60 * 60 * 1000);
+            core.info(`Building digest for ${since.toISOString()} to ${until.toISOString()}.`);
+
+            const authors = new Map();
+            let page = 0;
+            try {
+              for await (const { data: comments } of github.paginate.iterator(
+                github.rest.issues.listCommentsForRepo,
+                {
+                  owner: 'github',
+                  repo: 'docs',
+                  since: since.toISOString(),
+                  sort: 'created',
+                  direction: 'asc',
+                  per_page: 100,
+                },
+              )) {
+                core.info(`Fetched comments page ${++page} (${comments.length} comments).`);
+                for (const comment of comments) {
+                  const createdAt = Date.parse(comment.created_at);
+                  if (!(createdAt >= since.getTime() && createdAt < until.getTime())) {
+                    continue;
+                  }
+                  const author = comment.user;
+                  if (!author) {
+                    core.warning('Skipping a comment whose author is unavailable.');
+                    continue;
+                  }
+                  const login = author.login.toLowerCase();
+                  if (author.type === 'Bot' || ['docs-bot', 'copilot'].includes(login)) {
+                    continue;
+                  }
+                  if (!authors.has(login)) {
+                    authors.set(login, { login: author.login, comments: [] });
+                  }
+                  authors.get(login).comments.push({
+                    url: comment.html_url,
+                    conversation: comment.issue_url,
+                  });
+                }
+              }
+            } catch (error) {
+              throw new Error(`Fetching digest comments failed (HTTP ${error.status || 'unknown'}).`);
+            }
+
+            const nonEmployees = [];
+            let checked = 0;
+            for (const author of authors.values()) {
+              core.info(`Checking employee membership (${++checked}/${authors.size}).`);
+              try {
+                await github.rest.teams.getMembershipForUserInOrg({
+                  org: 'github',
+                  team_slug: 'employees',
+                  username: author.login,
+                });
+              } catch (error) {
+                if (error.status !== 404) {
+                  throw new Error(`Employee membership check failed (HTTP ${error.status || 'unknown'}).`);
+                }
+                nonEmployees.push(author);
+              }
+            }
+
+            const totalComments = nonEmployees.reduce((sum, author) => sum + author.comments.length, 0);
+            core.info(`Found ${totalComments} comments by ${nonEmployees.length} non-employees.`);
+            if (totalComments === 0) {
+              return;
+            }
+
+            let message = `Daily non-employee comment digest for github/docs\n` +
+              `${since.toISOString()} to ${until.toISOString()} (UTC)\n` +
+              `Non-employee users: ${nonEmployees.length}; comments: ${totalComments}\n` +
+              'Comment bodies omitted; follow the links to read them on GitHub.';
+            const shortened = '\n\n[Digest shortened to fit one Slack message; some authors or comment links are omitted.]';
+            const maximumLength = 35000 - shortened.length;
+            const lines = nonEmployees.flatMap((author) => [
+              `\n\n@${author.login} (https://github.com/${author.login})\n` +
+                `Comments: ${author.comments.length}; conversations: ` +
+                `${new Set(author.comments.map((comment) => comment.conversation)).size}`,
+              ...author.comments.map((comment) => `\n  ${comment.url}`),
+            ]);
+            for (const line of lines) {
+              if (message.length + line.length > maximumLength) {
+                message += shortened;
+                core.warning('Digest shortened to fit one Slack message.');
+                break;
+              }
+              message += line;
+            }
+            for (const author of nonEmployees) {
+              core.setSecret(author.login);
+            }
+            core.setOutput('slack_message', message);
+
+      - name: Notify the docs-open-source channel
+        if: ${{ steps.digest.outputs.slack_message != '' }}
+        uses: slackapi/slack-github-action@dcb1066f776dd043e64d0e8ba94ca15cc7e1875d # v4.0.0
+        with:
+          method: chat.postMessage
+          token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+          errors: true
+          # Slack channel ID for docs-open-source.
+          payload: |
+            channel: C017M6T23GA
+            text: ${{ toJSON(steps.digest.outputs.slack_message) }}
+            mrkdwn: false
+            link_names: false
+            unfurl_links: false
+            unfurl_media: false
+
+      - uses: ./.github/actions/create-workflow-failure-issue
+        id: create-failure-issue
+        if: ${{ failure() }}
+        with:
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+
+      - name: Notify Slack about workflow failure
+        if: ${{ failure() }}
+        uses: ./.github/actions/slack-alert
+        with:
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+          slack_channel_id: C017M6T23GA
+          issue_url: ${{ steps.create-failure-issue.outputs.issue_url }}

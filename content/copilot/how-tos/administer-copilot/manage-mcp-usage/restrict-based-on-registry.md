@@ -35,7 +35,7 @@ To ensure uniform access, you can set and maintain your MCP registry URL and all
 
 1. In the **Restrict MCP access to registry servers** section, select the dropdown menu, then click one of the following options:
    * **Allow all**: No restrictions. All MCP servers can be used.
-   * **Registry only**: Only servers from the registry may run.
+   * **Registry only**: Only servers from the registry may run, so users can't use {% data variables.product.prodname_copilot_short %} connectors. To allow connectors, select **Allow all**.
 
     Your chosen policy will immediately apply to developers in your enterprise.
 
@@ -51,7 +51,7 @@ To ensure uniform access, you can set and maintain your MCP registry URL and all
 
 1. In the **Restrict MCP access to registry servers** section, select the dropdown menu, then click one of the following options:
    * **Allow all**: No restrictions. All MCP servers can be used.
-   * **Registry only**: Only servers from the registry may run.
+   * **Registry only**: Only servers from the registry may run, so users can't use {% data variables.product.prodname_copilot_short %} connectors. To allow connectors, select **Allow all**.
 
     Your chosen policy will immediately apply to developers in your organization.
 

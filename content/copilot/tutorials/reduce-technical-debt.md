@@ -24,7 +24,7 @@ Technical debt accumulates in every codebase: duplicate code, missing tests, out
 
 This tutorial is designed to help engineering teams and technical leads reduce technical debt while maintaining the pace at which new features are delivered. You should have:
 
-* A {% data variables.product.prodname_copilot_short %} subscription with access to {% data variables.copilot.copilot_cloud_agent %}
+* A {% data variables.product.prodname_copilot_short %} subscription with access to {% data variables.copilot.copilot_in_the_cloud_short %}
 * Admin access to at least one repository
 * Familiarity with your team's development workflow
 
@@ -33,7 +33,7 @@ This tutorial is designed to help engineering teams and technical leads reduce t
 By the end of this tutorial, you'll have learned about:
 
 * Using {% data variables.product.prodname_copilot_short %} to implement in-the-moment fixes
-* Leveraging {% data variables.copilot.copilot_cloud_agent %} for large-scale cleanup tasks
+* Leveraging {% data variables.copilot.copilot_in_the_cloud_short %} for large-scale cleanup tasks
 * Creating custom instructions to align {% data variables.product.prodname_copilot_short %} with your team's standards
 * Measuring the impact of {% data variables.product.prodname_copilot_short %} on your technical debt
 
@@ -117,13 +117,13 @@ By adopting the in-the-moment fix approach, you help to ensure that substandard 
 
 For more details on using {% data variables.product.prodname_copilot_short %} in your IDE, see [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/chat-with-copilot/chat-in-ide).
 
-## Using {% data variables.copilot.copilot_cloud_agent %} for large-scale refactoring
+## Using {% data variables.product.prodname_copilot_short %} for large-scale refactoring
 
-Some refactoring tasks are just too big to complete while everyone on the team is busy developing new features. In this situation you can use {% data variables.copilot.copilot_cloud_agent %} to handle these tasks autonomously. Human effort will still be required—at a minimum for reviewing the changes {% data variables.copilot.copilot_cloud_agent %} proposes—but getting {% data variables.product.prodname_copilot_short %} to do the bulk of the work can allow you to carry out large-scale refactoring with much less impact on your team's productivity.
+Some refactoring tasks are just too big to complete while everyone on the team is busy developing new features. In this situation you can use {% data variables.product.prodname_copilot_short %} to handle these tasks autonomously. Human effort will still be required—at a minimum for reviewing the changes {% data variables.product.prodname_copilot_short %} proposes—but getting {% data variables.product.prodname_copilot_short %} to do the bulk of the work can allow you to carry out large-scale refactoring with much less impact on your team's productivity.
 
-### When to use {% data variables.copilot.copilot_cloud_agent %}
+### When to use {% data variables.copilot.copilot_in_the_cloud_short %}
 
-Use {% data variables.copilot.copilot_cloud_agent %} for tasks that:
+Use {% data variables.copilot.copilot_in_the_cloud_short %} for tasks that:
 
 * Touch many files across your codebase
 * Require systematic changes (like removing old feature flags)
@@ -138,7 +138,7 @@ Examples include:
 * Updating dependency versions
 * Standardizing import patterns
 
-### Workflow for {% data variables.copilot.copilot_cloud_agent %}
+### Workflow for {% data variables.copilot.copilot_in_the_cloud_short %}
 
 1. Create a {% data variables.product.prodname_dotcom %} issue describing the refactoring task.
 
@@ -158,7 +158,7 @@ Examples include:
    ```
 
 1. Assign the issue to the **Copilot** user.
-1. {% data variables.copilot.copilot_cloud_agent %} will:
+1. {% data variables.product.prodname_copilot_short %} will:
 
    * Set up a development environment
    * Open a draft pull request
@@ -168,7 +168,7 @@ Examples include:
    * Request your review of the pull request
 
 1. Review the pull request just as you would a pull request raised by a human.
-1. Leave comments if changes are needed—{% data variables.copilot.copilot_cloud_agent %} will update the pull request based on your feedback.
+1. Leave comments if changes are needed—{% data variables.product.prodname_copilot_short %} will update the pull request based on your feedback.
 1. Iterate in this way until the work is completed correctly.
 1. Approve and merge the pull request.
 
@@ -176,7 +176,7 @@ For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-
 
 ### Safety guardrails
 
-{% data variables.copilot.copilot_cloud_agent %} operates with built-in safety measures:
+{% data variables.product.prodname_copilot_short %} operates with built-in safety measures:
 
 * It can only push to its own `copilot/*` branches
 * It cannot merge pull requests—requires your approval
@@ -240,7 +240,7 @@ Start small to validate {% data variables.product.prodname_copilot_short %}'s im
 
 ### Week 1: Set up and establish baselines
 
-1. Ensure all pilot participants have {% data variables.product.prodname_copilot_short %} access with {% data variables.copilot.copilot_cloud_agent %} enabled.
+1. Ensure all pilot participants have {% data variables.product.prodname_copilot_short %} access with {% data variables.copilot.copilot_in_the_cloud_short %} enabled.
 1. Count the technical debt items in your backlog:
 
    * Number of "tech debt", "chore", or similar labeled issues
@@ -264,7 +264,7 @@ Start small to validate {% data variables.product.prodname_copilot_short %}'s im
    * Outdated dependencies
 
 1. Use {% data variables.product.prodname_copilot_short %} in your IDE for quick fixes as you encounter issues.
-1. Assign larger cleanup tasks to {% data variables.copilot.copilot_cloud_agent %}.
+1. Assign larger cleanup tasks to {% data variables.product.prodname_copilot_short %}.
 1. Review all {% data variables.product.prodname_copilot_short %}-generated PRs carefully.
 1. Provide feedback on suggestions to help {% data variables.product.prodname_copilot_short %} learn your preferences.
 
@@ -274,7 +274,7 @@ After the pilot, measure your results:
 
 * How much faster are refactoring pull requests getting merged?
 * How many review rounds do they require now?
-* Which types of code change suggestions, made by {% data variables.copilot.copilot_cloud_agent %} in pull requests, did developers accept most often?
+* Which types of code change suggestions, made by {% data variables.product.prodname_copilot_short %} in pull requests, did developers accept most often?
 * Which suggestions needed the most revision?
 * Are your technical debt metrics improving?
 
@@ -321,21 +321,21 @@ If {% data variables.product.prodname_copilot_short %} consistently suggests cod
 * Review your custom instructions—they may be too vague or contradictory
 * Provide more specific context in your prompts
 * Add examples of good code to your custom instructions
-* Leave detailed feedback in pull request reviews to allow {% data variables.copilot.copilot_cloud_agent %} to fix the problems
+* Leave detailed feedback in pull request reviews to allow {% data variables.product.prodname_copilot_short %} to fix the problems
 
 ### Pull requests are too large to review
 
-If {% data variables.copilot.copilot_cloud_agent %} creates pull requests that are difficult to review:
+If {% data variables.product.prodname_copilot_short %} creates pull requests that are difficult to review:
 
 * Break large tasks into smaller, focused issues
-* Ask {% data variables.copilot.copilot_cloud_agent %} to handle one file or directory at a time
+* Ask {% data variables.product.prodname_copilot_short %} to handle one file or directory at a time
 * Use more specific issue descriptions
 
 ### Changes break tests
 
 If refactoring introduces test failures:
 
-* Ensure your test suite runs reliably before using {% data variables.copilot.copilot_cloud_agent %}
+* Ensure your test suite runs reliably before using {% data variables.product.prodname_copilot_short %}
 * Review {% data variables.product.prodname_copilot_short %} changes carefully before merging
 * Ask {% data variables.product.prodname_copilot_short %} to update tests along with the code changes
 
@@ -353,7 +353,7 @@ If your team isn't using {% data variables.product.prodname_copilot_short %} for
 In this tutorial, you learned how to use {% data variables.product.prodname_copilot_short %} to systematically reduce technical debt. You now know how to:
 
 * Fix technical debt immediately using {% data variables.product.prodname_copilot_short %} in your IDE
-* Assign large refactoring tasks to {% data variables.copilot.copilot_cloud_agent %}
+* Assign large refactoring tasks to {% data variables.product.prodname_copilot_short %}
 * Create custom instructions that align {% data variables.product.prodname_copilot_short %} with your team's standards
 * Run a pilot program to validate the approach
 * Measure {% data variables.product.prodname_copilot_short %}'s impact on technical debt
@@ -373,7 +373,7 @@ After reading this tutorial, do you feel confident you can use {% data variables
 ## Next steps
 
 * **Expand your pilot**: Roll out to more repositories based on your pilot results.
-* **Automate dependency updates**: Create recurring issues for {% data variables.copilot.copilot_cloud_agent %} to handle dependency updates.
+* **Automate dependency updates**: Create recurring issues for {% data variables.product.prodname_copilot_short %} to handle dependency updates.
 * **Build a refactoring queue**: Label issues in your backlog as good for {% data variables.product.prodname_copilot_short %} then regularly assign a batch of these to {% data variables.product.prodname_copilot_short %} to work on.
 * **Share best practices**: Document successful prompts and custom instructions for your team.
 

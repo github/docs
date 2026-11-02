@@ -1,7 +1,7 @@
 ---
 title: Choosing your enterprise's plan for GitHub Copilot
 shortTitle: Choose enterprise plan
-intro: 'Choose between {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %}.'
+intro: 'Compare enterprise access charges, usage allowances, and capabilities to choose a {% data variables.product.prodname_copilot_short %} plan for your rollout.'
 versions:
   feature: copilot
 redirect_from:
@@ -19,34 +19,33 @@ docsTeamMetrics:
 
 ## Introduction
 
-When you adopt {% data variables.product.prodname_copilot %} in a company, you will sign up to a {% data variables.product.prodname_copilot_short %} plan designed for businesses. These plans allow you to grant access to users and meet security requirements with policies and audit logs.
+{% data variables.product.prodname_copilot %} plans let enterprises grant access to users and meet security requirements with policies and audit logs. To choose a plan, compare the cost of access and expected usage alongside the capabilities your company needs.
 
 To identify which plan is right for your company:
 
 1. Define the overall goals you are hoping to achieve with your {% data variables.product.prodname_copilot_short %} rollout. Think about downstream goals such as reducing security debt, as opposed to earlier success indicators such as developer satisfaction or feature adoption.
-1. Understand the benefits of {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %}, including included {% data variables.product.prodname_ai_credits_short %}.
-1. Choose the {% data variables.product.prodname_copilot_short %} plan with the allowances and features that will help you meet your goals.
-
-   >[!TIP] When you subscribe to {% data variables.product.prodname_copilot_short %} at the enterprise level, you can choose a plan individually for each organization in your enterprise. This allows you to evaluate the benefits of {% data variables.copilot.copilot_enterprise_short %} with a pilot program or enable it in the organizations where it will have the most impact.
-
-This article explains the available plans and provides examples for how {% data variables.copilot.copilot_enterprise_short %} can help you achieve specific business goals.
+1. Compare plan capabilities, access charges, and included {% data variables.product.prodname_ai_credits_short %} using the options below.
+1. Estimate total monthly costs for your users and expected consumption, then choose a plan and spending controls that support your goals.
 
 ## Plans and {% data variables.product.prodname_ai_credits_short %}
 
-{% data variables.product.company_short %} offers two {% data variables.product.prodname_copilot_short %} plans for customers on {% data variables.product.prodname_ghe_cloud %}:
+The plans differ in how they charge for access and metered usage:
 
 * **{% data variables.copilot.copilot_business_short %}** ({% data variables.copilot.cfb_price_per_month %} per user per month): includes {% data variables.copilot.ai_credits_per_user_business %} {% data variables.product.prodname_ai_credits_short %} per user and most {% data variables.product.prodname_copilot_short %} features in IDEs and on {% data variables.product.github %}.
 * **{% data variables.copilot.copilot_enterprise_short %}** ({% data variables.copilot.ce_price_per_month %} per user per month): includes {% data variables.copilot.ai_credits_per_user_enterprise %} {% data variables.product.prodname_ai_credits_short %} per user, and often allows earlier access to new features and models.
+* **{% data variables.product.prodname_copilot_short %} access** (eligible enterprises only): provides the same feature and model eligibility as {% data variables.copilot.copilot_enterprise_short %}, subject to administrator policies and spending controls. Access is $0 incremental through {% data variables.product.prodname_ghe_cloud %} for licensed users, or {% data variables.copilot.copilot_standalone_price_per_month %} per user per month as {% data variables.copilot.copilot_standalone_short %} without a {% data variables.product.prodname_ghe_cloud %} license. Neither option includes credits, so metered usage is billed from the first use.
 
-For a full comparison, see our [plans page](https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=text).
+To check eligibility for {% data variables.product.prodname_copilot_short %} access, see [AUTOTITLE](/copilot/get-started/whats-changing-with-github-enterprise-and-copilot).
 
-{% data variables.product.prodname_ai_credits_short %} are consumed by advanced {% data variables.product.prodname_copilot_short %} features and models, including AI agents. Each plan's included {% data variables.product.prodname_ai_credits_short %} are pooled across your enterprise, so heavier users can draw from lighter users' unused portions. By giving members access to more {% data variables.product.prodname_ai_credits_short %}, you can scale your company with AI agents and drive real business outcomes.
+With {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %}, an enterprise owner can choose a plan for each organization. You can pilot {% data variables.copilot.copilot_enterprise_short %} or enable it in organizations where its capabilities will have the most impact.
 
-By default, usage can continue beyond the included pool, with additional usage charged at {% data variables.product.prodname_ai_credits_value %} per {% data variables.product.prodname_ai_credit_singular %}. You can control this with budget controls. See [AUTOTITLE](/copilot/concepts/billing-and-usage/organizations-and-enterprises/billing).
+{% data variables.product.prodname_ai_credits_short %} are consumed by metered features and models, including AI agents. On plans with an included allowance, credits are pooled across your enterprise so heavier users can draw from lighter users' unused portions. By default, usage can continue beyond that pool with additional charges. On every plan, budget controls let you govern consumption and metered spending. See [AUTOTITLE](/copilot/concepts/billing-and-usage/organizations-and-enterprises/billing).
 
 ## How does {% data variables.copilot.copilot_enterprise_short %} support business goals?
 
 The following table shows examples of goals your company might set for a {% data variables.product.prodname_copilot_short %} rollout, and how {% data variables.product.prodname_ai_credits_short %} and other {% data variables.copilot.copilot_enterprise_short %} features can help you achieve those goals.
+
+The {% data variables.product.prodname_copilot_short %} access plan provides the same feature eligibility, but all credit consumption is metered rather than drawing from an included pool.
 
 | Goal | Problem to solve | How {% data variables.copilot.copilot_enterprise_short %} helps |
 | ---- | ---------------- | --------------------------------------------------------------- |
@@ -60,4 +59,7 @@ We recommend considering the included {% data variables.product.prodname_ai_cred
 
 If your company is gaining value from agentic workflows, you will likely want to make more {% data variables.product.prodname_ai_credits_short %} available to developers. Depending on consumption patterns, the most cost effective approach is either to upgrade users to {% data variables.copilot.copilot_enterprise_short %} or to allow additional usage beyond the included pool with appropriate budget controls.
 
+If your enterprise is eligible for {% data variables.product.prodname_copilot_short %} access, also compare its access and metered usage costs with the full cost of your current plan. Include usage currently covered by your pool, not just overage charges.
+
 To review your enterprise's consumption, see the AI usage dashboard in your enterprise billing settings. For guidance on managing spend, see [AUTOTITLE](/copilot/tutorials/budgets/optimizing-your-budget-configuration).
+

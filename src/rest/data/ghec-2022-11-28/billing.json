@@ -744,7 +744,7 @@
         {
           "type": "string",
           "name": "budget_scope",
-          "description": "<p>The scope of the budget.</p>\n<ul>\n<li><code>enterprise</code>: Apply the budget to the entire enterprise.</li>\n<li><code>organization</code>: Apply the budget to a specific organization in the enterprise.</li>\n<li><code>repository</code>: Apply the budget to a specific repository.</li>\n<li><code>cost_center</code>: Apply the budget to a specific cost center.</li>\n<li><code>multi_user_customer</code>: Apply a universal budget to all users in the enterprise.</li>\n<li><code>multi_user_cost_center</code>: Apply a universal budget to all users in a cost center.</li>\n<li><code>user</code>: Apply the budget to a single user.</li>\n</ul>\n<p><code>user</code>, <code>multi_user_customer</code>, and <code>multi_user_cost_center</code> scopes are only supported when <code>budget_product_sku</code> is <code>ai_credits</code> or <code>premium_requests</code>.</p>",
+          "description": "<p>The scope of the budget.</p>\n<ul>\n<li><code>enterprise</code>: Apply the budget to the entire enterprise.</li>\n<li><code>organization</code>: Apply the budget to a specific organization in the enterprise.</li>\n<li><code>repository</code>: Apply the budget to a specific repository.</li>\n<li><code>cost_center</code>: Apply the budget to a specific cost center.</li>\n<li><code>multi_user_customer</code>: Apply a universal budget to all users in the enterprise.</li>\n<li><code>multi_user_cost_center</code>: Apply a universal budget to all users in a cost center. The cost center may be empty or contain only users and teams. Organization and repository members are not supported.</li>\n<li><code>user</code>: Apply the budget to a single user.</li>\n</ul>\n<p><code>user</code>, <code>multi_user_customer</code>, and <code>multi_user_cost_center</code> scopes are only supported when <code>budget_product_sku</code> is <code>ai_credits</code> or <code>premium_requests</code>.</p>",
           "isRequired": true,
           "enum": [
             "enterprise",
@@ -759,7 +759,7 @@
         {
           "type": "string",
           "name": "budget_entity_name",
-          "description": "<p>The name of the entity to apply the budget to</p>",
+          "description": "<p>The entity to apply the budget to. The expected value depends on <code>budget_scope</code>.</p>\n<ul>\n<li><code>organization</code>: The organization login.</li>\n<li><code>repository</code>: The repository in <code>owner/repo</code> format.</li>\n<li><code>cost_center</code>: The cost center UUID.</li>\n<li><code>multi_user_cost_center</code>: The cost center UUID.</li>\n<li><code>enterprise</code>, <code>multi_user_customer</code>, and <code>user</code>: Not used. For <code>user</code>, set the <code>user</code> field instead.</li>\n</ul>",
           "default": ""
         },
         {

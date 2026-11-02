@@ -12,6 +12,7 @@ contentType: tutorials
 category:
   - Secure at scale
   - Protect your secrets
+  - Dessert - Operate your sweet tooth
 journeyArticlesHeading: 'All secret protection articles'
 journeyTracks:
   - id: 'assess'

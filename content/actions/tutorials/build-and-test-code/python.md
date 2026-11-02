@@ -17,6 +17,7 @@ versions:
 shortTitle: Python
 category:
   - Build and test code
+  - Soup - Test your tasks, to taste
 contentType: tutorials
 ---
 

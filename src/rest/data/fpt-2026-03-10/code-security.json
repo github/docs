@@ -198,6 +198,15 @@
                       "not_set"
                     ]
                   },
+                  "dependabot_reachability": {
+                    "type": "string",
+                    "description": "The enablement status of reachability analysis for Dependabot. Only returned for organizations and enterprises with access to reachability analysis.",
+                    "enum": [
+                      "enabled",
+                      "disabled",
+                      "not_set"
+                    ]
+                  },
                   "dependabot_security_updates": {
                     "type": "string",
                     "description": "The enablement status of Dependabot security updates",
@@ -375,6 +384,15 @@
                   "secret_scanning_generic_secrets": {
                     "type": "string",
                     "description": "The enablement status of Copilot secret scanning",
+                    "enum": [
+                      "enabled",
+                      "disabled",
+                      "not_set"
+                    ]
+                  },
+                  "secret_scanning_generic_secrets_push_protection": {
+                    "type": "string",
+                    "description": "The enablement status of generic secrets push protection",
                     "enum": [
                       "enabled",
                       "disabled",
@@ -563,6 +581,17 @@
         },
         {
           "type": "string",
+          "name": "dependabot_reachability",
+          "description": "<p>The enablement status of reachability analysis for Dependabot. Only available for enterprises with access to reachability analysis.\nRequires Dependabot alerts to be enabled when set to <code>enabled</code>. Must be <code>disabled</code> when Dependabot alerts is <code>disabled</code>.\n<code>not_set</code> leaves existing repository settings unchanged.</p>",
+          "enum": [
+            "enabled",
+            "disabled",
+            "not_set"
+          ],
+          "default": "disabled"
+        },
+        {
+          "type": "string",
           "name": "dependabot_security_updates",
           "description": "<p>The enablement status of Dependabot security updates</p>",
           "enum": [
@@ -695,6 +724,17 @@
         },
         {
           "type": "string",
+          "name": "secret_scanning_generic_secrets_push_protection",
+          "description": "<p>The enablement status of generic secrets push protection</p>",
+          "enum": [
+            "enabled",
+            "disabled",
+            "not_set"
+          ],
+          "default": "disabled"
+        },
+        {
+          "type": "string",
           "name": "secret_scanning_delegated_alert_dismissal",
           "description": "<p>The enablement status of secret scanning delegated alert dismissal</p>",
           "enum": [
@@ -782,6 +822,7 @@
               "secret_scanning_validity_checks": "disabled",
               "secret_scanning_non_provider_patterns": "disabled",
               "secret_scanning_generic_secrets": "disabled",
+              "secret_scanning_generic_secrets_push_protection": "disabled",
               "secret_scanning_delegated_alert_dismissal": "disabled",
               "private_vulnerability_reporting": "disabled",
               "enforcement": "enforced",
@@ -859,6 +900,15 @@
                 "dependabot_alerts": {
                   "type": "string",
                   "description": "The enablement status of Dependabot alerts",
+                  "enum": [
+                    "enabled",
+                    "disabled",
+                    "not_set"
+                  ]
+                },
+                "dependabot_reachability": {
+                  "type": "string",
+                  "description": "The enablement status of reachability analysis for Dependabot. Only returned for organizations and enterprises with access to reachability analysis.",
                   "enum": [
                     "enabled",
                     "disabled",
@@ -1042,6 +1092,15 @@
                 "secret_scanning_generic_secrets": {
                   "type": "string",
                   "description": "The enablement status of Copilot secret scanning",
+                  "enum": [
+                    "enabled",
+                    "disabled",
+                    "not_set"
+                  ]
+                },
+                "secret_scanning_generic_secrets_push_protection": {
+                  "type": "string",
+                  "description": "The enablement status of generic secrets push protection",
                   "enum": [
                     "enabled",
                     "disabled",
@@ -1332,6 +1391,15 @@
                           "not_set"
                         ]
                       },
+                      "dependabot_reachability": {
+                        "type": "string",
+                        "description": "The enablement status of reachability analysis for Dependabot. Only returned for organizations and enterprises with access to reachability analysis.",
+                        "enum": [
+                          "enabled",
+                          "disabled",
+                          "not_set"
+                        ]
+                      },
                       "dependabot_security_updates": {
                         "type": "string",
                         "description": "The enablement status of Dependabot security updates",
@@ -1515,6 +1583,15 @@
                           "not_set"
                         ]
                       },
+                      "secret_scanning_generic_secrets_push_protection": {
+                        "type": "string",
+                        "description": "The enablement status of generic secrets push protection",
+                        "enum": [
+                          "enabled",
+                          "disabled",
+                          "not_set"
+                        ]
+                      },
                       "secret_scanning_delegated_alert_dismissal": {
                         "type": "string",
                         "description": "The enablement status of secret scanning delegated alert dismissal",
@@ -1655,6 +1732,7 @@
               "secret_scanning_validity_checks": "disabled",
               "secret_scanning_non_provider_patterns": "disabled",
               "secret_scanning_generic_secrets": "disabled",
+              "secret_scanning_generic_secrets_push_protection": "disabled",
               "secret_scanning_delegated_alert_dismissal": "disabled",
               "private_vulnerability_reporting": "disabled",
               "enforcement": "enforced",
@@ -1732,6 +1810,15 @@
                 "dependabot_alerts": {
                   "type": "string",
                   "description": "The enablement status of Dependabot alerts",
+                  "enum": [
+                    "enabled",
+                    "disabled",
+                    "not_set"
+                  ]
+                },
+                "dependabot_reachability": {
+                  "type": "string",
+                  "description": "The enablement status of reachability analysis for Dependabot. Only returned for organizations and enterprises with access to reachability analysis.",
                   "enum": [
                     "enabled",
                     "disabled",
@@ -1915,6 +2002,15 @@
                 "secret_scanning_generic_secrets": {
                   "type": "string",
                   "description": "The enablement status of Copilot secret scanning",
+                  "enum": [
+                    "enabled",
+                    "disabled",
+                    "not_set"
+                  ]
+                },
+                "secret_scanning_generic_secrets_push_protection": {
+                  "type": "string",
+                  "description": "The enablement status of generic secrets push protection",
                   "enum": [
                     "enabled",
                     "disabled",
@@ -2109,6 +2205,16 @@
         },
         {
           "type": "string",
+          "name": "dependabot_reachability",
+          "description": "<p>The enablement status of reachability analysis for Dependabot. Only available for enterprises with access to reachability analysis.\nRequires Dependabot alerts to be enabled when set to <code>enabled</code>. Must be <code>disabled</code> when Dependabot alerts is <code>disabled</code>.\n<code>not_set</code> leaves existing repository settings unchanged. Omit this field to preserve the configuration's current value.</p>",
+          "enum": [
+            "enabled",
+            "disabled",
+            "not_set"
+          ]
+        },
+        {
+          "type": "string",
           "name": "dependabot_security_updates",
           "description": "<p>The enablement status of Dependabot security updates</p>",
           "enum": [
@@ -2235,6 +2341,17 @@
         },
         {
           "type": "string",
+          "name": "secret_scanning_generic_secrets_push_protection",
+          "description": "<p>The enablement status of generic secrets push protection</p>",
+          "enum": [
+            "enabled",
+            "disabled",
+            "not_set"
+          ],
+          "default": "disabled"
+        },
+        {
+          "type": "string",
           "name": "secret_scanning_delegated_alert_dismissal",
           "description": "<p>The enablement status of secret scanning delegated alert dismissal</p>",
           "enum": [
@@ -2318,6 +2435,7 @@
               "secret_scanning_validity_checks": "disabled",
               "secret_scanning_non_provider_patterns": "disabled",
               "secret_scanning_generic_secrets": "disabled",
+              "secret_scanning_generic_secrets_push_protection": "disabled",
               "secret_scanning_delegated_alert_dismissal": "disabled",
               "private_vulnerability_reporting": "disabled",
               "enforcement": "enforced",
@@ -2395,6 +2513,15 @@
                 "dependabot_alerts": {
                   "type": "string",
                   "description": "The enablement status of Dependabot alerts",
+                  "enum": [
+                    "enabled",
+                    "disabled",
+                    "not_set"
+                  ]
+                },
+                "dependabot_reachability": {
+                  "type": "string",
+                  "description": "The enablement status of reachability analysis for Dependabot. Only returned for organizations and enterprises with access to reachability analysis.",
                   "enum": [
                     "enabled",
                     "disabled",
@@ -2578,6 +2705,15 @@
                 "secret_scanning_generic_secrets": {
                   "type": "string",
                   "description": "The enablement status of Copilot secret scanning",
+                  "enum": [
+                    "enabled",
+                    "disabled",
+                    "not_set"
+                  ]
+                },
+                "secret_scanning_generic_secrets_push_protection": {
+                  "type": "string",
+                  "description": "The enablement status of generic secrets push protection",
                   "enum": [
                     "enabled",
                     "disabled",
@@ -2950,6 +3086,7 @@
                   "secret_scanning_validity_checks": "disabled",
                   "secret_scanning_non_provider_patterns": "disabled",
                   "secret_scanning_generic_secrets": "disabled",
+                  "secret_scanning_generic_secrets_push_protection": "disabled",
                   "secret_scanning_delegated_alert_dismissal": "disabled",
                   "private_vulnerability_reporting": "disabled",
                   "enforcement": "enforced",
@@ -3042,6 +3179,15 @@
                     "dependabot_alerts": {
                       "type": "string",
                       "description": "The enablement status of Dependabot alerts",
+                      "enum": [
+                        "enabled",
+                        "disabled",
+                        "not_set"
+                      ]
+                    },
+                    "dependabot_reachability": {
+                      "type": "string",
+                      "description": "The enablement status of reachability analysis for Dependabot. Only returned for organizations and enterprises with access to reachability analysis.",
                       "enum": [
                         "enabled",
                         "disabled",
@@ -3225,6 +3371,15 @@
                     "secret_scanning_generic_secrets": {
                       "type": "string",
                       "description": "The enablement status of Copilot secret scanning",
+                      "enum": [
+                        "enabled",
+                        "disabled",
+                        "not_set"
+                      ]
+                    },
+                    "secret_scanning_generic_secrets_push_protection": {
+                      "type": "string",
+                      "description": "The enablement status of generic secrets push protection",
                       "enum": [
                         "enabled",
                         "disabled",
@@ -4103,6 +4258,15 @@
                       "not_set"
                     ]
                   },
+                  "dependabot_reachability": {
+                    "type": "string",
+                    "description": "The enablement status of reachability analysis for Dependabot. Only returned for organizations and enterprises with access to reachability analysis.",
+                    "enum": [
+                      "enabled",
+                      "disabled",
+                      "not_set"
+                    ]
+                  },
                   "dependabot_security_updates": {
                     "type": "string",
                     "description": "The enablement status of Dependabot security updates",
@@ -4286,6 +4450,15 @@
                       "not_set"
                     ]
                   },
+                  "secret_scanning_generic_secrets_push_protection": {
+                    "type": "string",
+                    "description": "The enablement status of generic secrets push protection",
+                    "enum": [
+                      "enabled",
+                      "disabled",
+                      "not_set"
+                    ]
+                  },
                   "secret_scanning_delegated_alert_dismissal": {
                     "type": "string",
                     "description": "The enablement status of secret scanning delegated alert dismissal",
@@ -4463,6 +4636,17 @@
           "type": "string",
           "name": "dependabot_alerts",
           "description": "<p>The enablement status of Dependabot alerts</p>",
+          "enum": [
+            "enabled",
+            "disabled",
+            "not_set"
+          ],
+          "default": "disabled"
+        },
+        {
+          "type": "string",
+          "name": "dependabot_reachability",
+          "description": "<p>The enablement status of reachability analysis for Dependabot. Only available for organizations with access to reachability analysis.\nRequires Dependabot alerts to be enabled when set to <code>enabled</code>. Must be <code>disabled</code> when Dependabot alerts is <code>disabled</code>.\n<code>not_set</code> leaves existing repository settings unchanged.</p>",
           "enum": [
             "enabled",
             "disabled",
@@ -4666,6 +4850,17 @@
         },
         {
           "type": "string",
+          "name": "secret_scanning_generic_secrets_push_protection",
+          "description": "<p>The enablement status of generic secrets push protection</p>",
+          "enum": [
+            "enabled",
+            "disabled",
+            "not_set"
+          ],
+          "default": "disabled"
+        },
+        {
+          "type": "string",
           "name": "secret_scanning_delegated_alert_dismissal",
           "description": "<p>The enablement status of secret scanning delegated alert dismissal</p>",
           "enum": [
@@ -4766,6 +4961,7 @@
               "secret_scanning_validity_checks": "disabled",
               "secret_scanning_non_provider_patterns": "disabled",
               "secret_scanning_generic_secrets": "disabled",
+              "secret_scanning_generic_secrets_push_protection": "disabled",
               "secret_scanning_delegated_alert_dismissal": "disabled",
               "private_vulnerability_reporting": "disabled",
               "enforcement": "enforced",
@@ -4843,6 +5039,15 @@
                 "dependabot_alerts": {
                   "type": "string",
                   "description": "The enablement status of Dependabot alerts",
+                  "enum": [
+                    "enabled",
+                    "disabled",
+                    "not_set"
+                  ]
+                },
+                "dependabot_reachability": {
+                  "type": "string",
+                  "description": "The enablement status of reachability analysis for Dependabot. Only returned for organizations and enterprises with access to reachability analysis.",
                   "enum": [
                     "enabled",
                     "disabled",
@@ -5026,6 +5231,15 @@
                 "secret_scanning_generic_secrets": {
                   "type": "string",
                   "description": "The enablement status of Copilot secret scanning",
+                  "enum": [
+                    "enabled",
+                    "disabled",
+                    "not_set"
+                  ]
+                },
+                "secret_scanning_generic_secrets_push_protection": {
+                  "type": "string",
+                  "description": "The enablement status of generic secrets push protection",
                   "enum": [
                     "enabled",
                     "disabled",
@@ -5320,6 +5534,15 @@
                           "not_set"
                         ]
                       },
+                      "dependabot_reachability": {
+                        "type": "string",
+                        "description": "The enablement status of reachability analysis for Dependabot. Only returned for organizations and enterprises with access to reachability analysis.",
+                        "enum": [
+                          "enabled",
+                          "disabled",
+                          "not_set"
+                        ]
+                      },
                       "dependabot_security_updates": {
                         "type": "string",
                         "description": "The enablement status of Dependabot security updates",
@@ -5497,6 +5720,15 @@
                       "secret_scanning_generic_secrets": {
                         "type": "string",
                         "description": "The enablement status of Copilot secret scanning",
+                        "enum": [
+                          "enabled",
+                          "disabled",
+                          "not_set"
+                        ]
+                      },
+                      "secret_scanning_generic_secrets_push_protection": {
+                        "type": "string",
+                        "description": "The enablement status of generic secrets push protection",
                         "enum": [
                           "enabled",
                           "disabled",
@@ -5758,6 +5990,7 @@
               "secret_scanning_validity_checks": "disabled",
               "secret_scanning_non_provider_patterns": "disabled",
               "secret_scanning_generic_secrets": "disabled",
+              "secret_scanning_generic_secrets_push_protection": "disabled",
               "secret_scanning_delegated_alert_dismissal": "disabled",
               "private_vulnerability_reporting": "disabled",
               "enforcement": "enforced",
@@ -5835,6 +6068,15 @@
                 "dependabot_alerts": {
                   "type": "string",
                   "description": "The enablement status of Dependabot alerts",
+                  "enum": [
+                    "enabled",
+                    "disabled",
+                    "not_set"
+                  ]
+                },
+                "dependabot_reachability": {
+                  "type": "string",
+                  "description": "The enablement status of reachability analysis for Dependabot. Only returned for organizations and enterprises with access to reachability analysis.",
                   "enum": [
                     "enabled",
                     "disabled",
@@ -6018,6 +6260,15 @@
                 "secret_scanning_generic_secrets": {
                   "type": "string",
                   "description": "The enablement status of Copilot secret scanning",
+                  "enum": [
+                    "enabled",
+                    "disabled",
+                    "not_set"
+                  ]
+                },
+                "secret_scanning_generic_secrets_push_protection": {
+                  "type": "string",
+                  "description": "The enablement status of generic secrets push protection",
                   "enum": [
                     "enabled",
                     "disabled",
@@ -6216,6 +6467,16 @@
         },
         {
           "type": "string",
+          "name": "dependabot_reachability",
+          "description": "<p>The enablement status of reachability analysis for Dependabot. Only available for organizations with access to reachability analysis.\nRequires Dependabot alerts to be enabled when set to <code>enabled</code>. Must be <code>disabled</code> when Dependabot alerts is <code>disabled</code>.\n<code>not_set</code> leaves existing repository settings unchanged. Omit this field to preserve the configuration's current value.</p>",
+          "enum": [
+            "enabled",
+            "disabled",
+            "not_set"
+          ]
+        },
+        {
+          "type": "string",
           "name": "dependabot_security_updates",
           "description": "<p>The enablement status of Dependabot security updates</p>",
           "enum": [
@@ -6401,6 +6662,16 @@
         },
         {
           "type": "string",
+          "name": "secret_scanning_generic_secrets_push_protection",
+          "description": "<p>The enablement status of generic secrets push protection</p>",
+          "enum": [
+            "enabled",
+            "disabled",
+            "not_set"
+          ]
+        },
+        {
+          "type": "string",
           "name": "secret_scanning_delegated_alert_dismissal",
           "description": "<p>The enablement status of secret scanning delegated alert dismissal</p>",
           "enum": [
@@ -6488,6 +6759,7 @@
               "secret_scanning_validity_checks": "disabled",
               "secret_scanning_non_provider_patterns": "disabled",
               "secret_scanning_generic_secrets": "disabled",
+              "secret_scanning_generic_secrets_push_protection": "disabled",
               "secret_scanning_delegated_alert_dismissal": "disabled",
               "private_vulnerability_reporting": "disabled",
               "enforcement": "enforced",
@@ -6565,6 +6837,15 @@
                 "dependabot_alerts": {
                   "type": "string",
                   "description": "The enablement status of Dependabot alerts",
+                  "enum": [
+                    "enabled",
+                    "disabled",
+                    "not_set"
+                  ]
+                },
+                "dependabot_reachability": {
+                  "type": "string",
+                  "description": "The enablement status of reachability analysis for Dependabot. Only returned for organizations and enterprises with access to reachability analysis.",
                   "enum": [
                     "enabled",
                     "disabled",
@@ -6748,6 +7029,15 @@
                 "secret_scanning_generic_secrets": {
                   "type": "string",
                   "description": "The enablement status of Copilot secret scanning",
+                  "enum": [
+                    "enabled",
+                    "disabled",
+                    "not_set"
+                  ]
+                },
+                "secret_scanning_generic_secrets_push_protection": {
+                  "type": "string",
+                  "description": "The enablement status of generic secrets push protection",
                   "enum": [
                     "enabled",
                     "disabled",
@@ -7148,6 +7438,7 @@
                   "secret_scanning_validity_checks": "disabled",
                   "secret_scanning_non_provider_patterns": "disabled",
                   "secret_scanning_generic_secrets": "disabled",
+                  "secret_scanning_generic_secrets_push_protection": "disabled",
                   "secret_scanning_delegated_alert_dismissal": "disabled",
                   "private_vulnerability_reporting": "disabled",
                   "enforcement": "enforced",
@@ -7240,6 +7531,15 @@
                     "dependabot_alerts": {
                       "type": "string",
                       "description": "The enablement status of Dependabot alerts",
+                      "enum": [
+                        "enabled",
+                        "disabled",
+                        "not_set"
+                      ]
+                    },
+                    "dependabot_reachability": {
+                      "type": "string",
+                      "description": "The enablement status of reachability analysis for Dependabot. Only returned for organizations and enterprises with access to reachability analysis.",
                       "enum": [
                         "enabled",
                         "disabled",
@@ -7423,6 +7723,15 @@
                     "secret_scanning_generic_secrets": {
                       "type": "string",
                       "description": "The enablement status of Copilot secret scanning",
+                      "enum": [
+                        "enabled",
+                        "disabled",
+                        "not_set"
+                      ]
+                    },
+                    "secret_scanning_generic_secrets_push_protection": {
+                      "type": "string",
+                      "description": "The enablement status of generic secrets push protection",
                       "enum": [
                         "enabled",
                         "disabled",
@@ -8169,6 +8478,7 @@
                 "secret_scanning_validity_checks": "disabled",
                 "secret_scanning_non_provider_patterns": "disabled",
                 "secret_scanning_generic_secrets": "disabled",
+                "secret_scanning_generic_secrets_push_protection": "disabled",
                 "secret_scanning_delegated_alert_dismissal": "disabled",
                 "private_vulnerability_reporting": "disabled",
                 "enforcement": "enforced",
@@ -8266,6 +8576,15 @@
                     "dependabot_alerts": {
                       "type": "string",
                       "description": "The enablement status of Dependabot alerts",
+                      "enum": [
+                        "enabled",
+                        "disabled",
+                        "not_set"
+                      ]
+                    },
+                    "dependabot_reachability": {
+                      "type": "string",
+                      "description": "The enablement status of reachability analysis for Dependabot. Only returned for organizations and enterprises with access to reachability analysis.",
                       "enum": [
                         "enabled",
                         "disabled",
@@ -8449,6 +8768,15 @@
                     "secret_scanning_generic_secrets": {
                       "type": "string",
                       "description": "The enablement status of Copilot secret scanning",
+                      "enum": [
+                        "enabled",
+                        "disabled",
+                        "not_set"
+                      ]
+                    },
+                    "secret_scanning_generic_secrets_push_protection": {
+                      "type": "string",
+                      "description": "The enablement status of generic secrets push protection",
                       "enum": [
                         "enabled",
                         "disabled",

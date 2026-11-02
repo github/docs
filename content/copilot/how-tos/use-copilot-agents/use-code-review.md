@@ -86,15 +86,15 @@ With review effort levels, you can choose the level of thoroughness of {% data v
 
 * **Lite**: Cost-efficient review that provides targeted feedback on glaring issues such as bugs, security vulnerabilities, and style inconsistencies.
 * **Balanced**: Deeper analysis of complex logic, security-sensitive code, and cross-service changes, using a higher-reasoning model.
+* **Max**: The highest-effort review. Uses multiple high-reasoning models for the most intensive review of pull requests that require the most scrutiny.
+
+Higher effort levels consume more {% data variables.product.prodname_ai_credits_short %}. As a rough guide, a review costs approximately {% data variables.copilot.copilot_code_review_lite_average_cost %} on average with Lite, {% data variables.copilot.copilot_code_review_balanced_average_cost %} with Balanced, and {% data variables.copilot.copilot_code_review_max_average_cost %} with Max. Actual costs vary by review, depending on factors such as pull request size. For estimated ranges, see [AUTOTITLE](/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/code-review#estimated-consumption).
 
 You can select {% data variables.product.prodname_copilot_short %} review effort in the pull request before you request a review from {% data variables.product.prodname_copilot_short %}, under the **Reviewers** section where {% data variables.product.prodname_copilot_short %} appears as a reviewer. You can also set a default {% data variables.product.prodname_copilot_short %} review effort in your settings. Organization owners and repository administrators can set a default {% data variables.product.prodname_copilot_short %} review effort for automatic reviews.
 
 For more information, see [AUTOTITLE](/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/code-review#review-effort-level).
 
 ## Pull request approvals from {% data variables.product.prodname_copilot_short %}
-
-> [!NOTE]
-> {% data reusables.copilot.automatic-approvals-public-preview %}
 
 Every {% data variables.copilot.copilot_code-review_short %} includes an approval assessment in the overview comment, indicating whether {% data variables.product.prodname_copilot_short %} considers the pull request ready to approve. On its own, this assessment does not count toward merge requirements.
 

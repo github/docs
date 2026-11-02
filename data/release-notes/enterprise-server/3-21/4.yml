@@ -60,6 +60,8 @@ sections:
     - |
       Users can see the progress of a repository being migrated with Enterprise Live Migrations (ELM). A banner indicates when the migration is in progress and the repository is still editable, when the repository has entered read-only cutover, and when the migration is complete, with a link to the destination repository. 
   known_issues:
+    - |
+      After a user account is unsuspended, the user may remain missing from the enterprise member list and the results of GraphQL queries using `enterprise.members`. [Updated: 2026-10-30]
     # https://github.com/github/ghes/issues/19970
     - |
       On appliances with 84 GB or more of RAM, MySQL could consume most available memory after an upgrade because the default InnoDB buffer pool scales with available RAM. Before adding RAM to increase memory headroom, contact GitHub Support about setting an appropriate `mysql.max-memory` limit. [Updated: 2026-09-24]
@@ -96,4 +98,4 @@ sections:
     - |
       On instances with multiple Git storage nodes in a voting configuration, including cluster and geo-replication high availability topologies, upgrading may fail to correctly install Actions that ship with the new version. In some cases, previous versions of these Actions remain on the instance. To resolve this issue, run the following commands on the primary node: `ghe-config --unset 'app.actions.actions-repos-sha1sum'`, `ghe-config-apply`, and `/usr/local/share/enterprise/ghe-run-init-actions-graph`.
     - |
-      When restoring an instance with `ghe-restore` while the replication controller is enabled, the storage directory is not restored. [Updated: 2026-08-27]
+      When an administrator restores a backup to a configured standalone instance with Replication Controller enabled, which is the default in {% data variables.product.prodname_ghe_server %} 3.21, `ghe-restore` may skip storage data, such as avatars and attachments, and still complete successfully. The restore output includes `Warning: no routes found, skipping storage restore ...`. Restores with {% data variables.product.prodname_enterprise_backup_service %} on {% data variables.product.prodname_ghe_server %} 3.21.6 or later aren't affected. If you see this warning or storage data is missing after a restore, contact {% data variables.contact.github_support %}. [Updated: 2026-10-22]

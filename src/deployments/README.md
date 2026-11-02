@@ -57,12 +57,14 @@ To deploy to a staging server:
 
 ### Review lab deployments
 
-Review labs are temporary environments for a single branch. Each lab deletes itself 24 hours after you create it.
+Review labs are temporary environments for a single branch. Each lab deletes itself 7 days after you create it. Updating a lab does not extend that. The lifetime is set in `github/proxima-review-lab`, not in this repo.
 
 1. Push your branch to `docs-internal`
-2. Wait for `docs-internal Moda CI` checks to pass
-3. In `#dotcom-environment-ops` Slack, run: `.proxima-review-lab create <lab-name> from docs-internal/v1 docs-internal=<your-branch>`
-4. Access at `https://docs-internal-<lab-name>.octoca.ts.net` (requires Tailscale)
+2. Open a draft PR. Heaven requires the `moda-linter` check, which only runs on pull requests.
+3. Wait for `docs-internal Moda CI` checks to pass
+4. In `#dotcom-environment-ops` Slack, run: `.proxima-review-lab create <lab-name> from docs-internal/v1 docs-internal=<your-branch>`
+5. Access at `https://docs-internal-<lab-name>.octoca.ts.net` (requires Tailscale)
+6. To deploy new commits, run `.proxima-review-lab update <lab-name>` in `#dotcom-environment-ops`. Use the `<lab-name>` from step 4, not the hostname from the URL.
 
 The `docs-internal-review-lab` environment in `config/moda/deployment.yaml` and the `docs-internal-review-lab` Kustomize overlay define the lab.
 

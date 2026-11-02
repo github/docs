@@ -41,7 +41,7 @@ category:
 {% data reusables.copilot.stop-response-generation %}
 1. Within a conversation thread, you can ask follow-up questions. {% data variables.product.prodname_copilot_short %} will answer within the context of the conversation.
 
-### Viewing an editing generated files
+### Viewing and editing generated files
 
 > [!NOTE]
 > This feature is currently in {% data variables.release-phases.public_preview %} and subject to change.

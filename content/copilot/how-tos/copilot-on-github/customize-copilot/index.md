@@ -10,6 +10,7 @@ children:
   - /customize-cloud-agent
   - /customize-the-firewall
   - /configure-mcp-servers
+  - /create-and-share-plugin-marketplaces
   - /copilot-spaces
 contentType: how-tos
 ---

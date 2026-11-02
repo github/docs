@@ -59,7 +59,7 @@ For more information, see [AUTOTITLE](/copilot/concepts/prompting-and-context/cu
 
 ### Configure allowed tools
 
-Manage which tools {% data variables.product.prodname_copilot_short %} can run without asking for permission. When {% data variables.product.prodname_copilot_short %} requests permission for an action, you can typically choose either to allow it just this time, or allow the tool to be used for the rest of the CLI session.
+Manage which tools {% data variables.product.prodname_copilot_short %} can use without asking for your permission. In manual approval mode, requests that aren't already allowed prompt you for approval. These can include running commands, editing files, or accessing URLs. When prompted, you can typically choose to allow the action just this once, or to allow that tool for the rest of the session. Use `/permissions show` to check your mode or `/permissions manual` to choose manual approval.
 
 To reset previously approved tools, use:
 
@@ -80,23 +80,25 @@ copilot --allow-tool='shell(git:*)' --deny-tool='shell(git push)'
 * `shell(npm run test:*)` — Allow npm test commands
 * `write` — Allow file writes
 
+For more information about allowing and denying permission for specific tools, see [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/allowing-tools#allowing-or-denying-permission-for-specific-tools).
+
 ### Select your preferred model
 
 Use `/model` to choose from available models based on your task complexity:
 
 | Model | Best For | Tradeoffs |
 | ----- | -------- | --------- |
-| **Auto** | Reduced rate limiting and lower latency and errors | See [AUTOTITLE](/copilot/concepts/models/auto-model-selection) |
+| **{% data variables.copilot.copilot_fusion_short %}** | Offers multiple effort levels to let you prioritize the quality, cost, and capability tradeoffs that the system prioritizes for each prompt. | See [AUTOTITLE](/copilot/concepts/models/copilot-fusion) |
 | **{% data variables.copilot.claude_opus_5 %}** | Complex architecture, difficult debugging, nuanced refactoring | Most capable but more costly |
 | **{% data variables.copilot.claude_sonnet_5 %}** | Day-to-day coding, most routine tasks | Fast, cost-effective, handles most work well |
 | **{% data variables.copilot.gpt_53_codex %}** | Code generation, code review, straightforward implementations | Excellent for reviewing code produced by other models |
 
 **Recommendations:**
 
-* **Auto** intelligently chooses models based on real-time system health and model performance (reducing rate limiting and providing lower latency and errors), and the complexity of the task you have given {% data variables.product.prodname_copilot_short %}.
+* **{% data variables.copilot.copilot_fusion_short %}** is an advanced runtime model router and orchestrator. It chooses models and execution patterns for your task, then returns a single response.
 * **{% data variables.copilot.claude_opus_5 %}** is ideal for tasks requiring deep reasoning, complex system design, subtle bug investigation, or extensive context understanding.
 * **Switch to {% data variables.copilot.claude_sonnet_5 %}** for routine tasks where speed and cost efficiency matter—it handles the majority of everyday coding effectively.
-* **Use Codex** for high-volume code generation and as a second opinion for reviewing code produced by other models.
+* **Use {% data variables.copilot.gpt_53_codex %}** for high-volume code generation and as a second opinion for reviewing code produced by other models.
 
 You can switch models mid-session with `/model` as task complexity changes.
 
@@ -455,7 +457,7 @@ Optionally, you can usually speed up large tasks by using the `/fleet` slash com
 
 ### Security considerations
 
-* {% data variables.copilot.copilot_cli_short %} requires explicit approval for potentially destructive operations.
+* Review your permission mode and tool permissions before starting work. Automatic approval can allow potentially destructive operations without individual prompts.
 * Review all proposed changes before accepting.
 * Use permission allowlists judiciously.
 * Never commit secrets. {% data variables.product.prodname_copilot_short %} is designed to avoid this, but always verify.

@@ -4215,6 +4215,7 @@
                         "type": "string"
                       },
                       "temp_clone_token": {
+                        "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                         "type": "string"
                       },
                       "delete_branch_on_merge": {
@@ -8302,7 +8303,48 @@
         }
       ],
       "descriptionHTML": "<p>Delete artifact attestations in bulk by either subject digests or unique ID.</p>",
-      "codeExamples": [],
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Delete by subject digests",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "subject_digests": [
+                "sha256:abc123",
+                "sha512:def456"
+              ]
+            },
+            "parameters": {
+              "org": "ORG"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "description": "<p>Response</p>"
+          }
+        },
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Delete by attestation IDs",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "attestation_ids": [
+                111,
+                222
+              ]
+            },
+            "parameters": {
+              "org": "ORG"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "description": "<p>Response</p>"
+          }
+        }
+      ],
       "statusCodes": [
         {
           "httpStatusCode": "200",
@@ -25154,6 +25196,7 @@
                     "type": "string"
                   },
                   "temp_clone_token": {
+                    "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                     "type": "string"
                   },
                   "delete_branch_on_merge": {
@@ -26701,6 +26744,7 @@
                     "type": "string"
                   },
                   "temp_clone_token": {
+                    "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                     "type": "string"
                   },
                   "delete_branch_on_merge": {
@@ -28541,6 +28585,10 @@
                                   "type": "boolean",
                                   "description": "Require an approving review in pull requests that modify files that have a designated code owner."
                                 },
+                                "require_extra_approval_for_unattributed_changes": {
+                                  "type": "boolean",
+                                  "description": "When Copilot opens a pull request without a human collaborator, require one more approving review if a non-zero approval count is required."
+                                },
                                 "require_last_push_approval": {
                                   "type": "boolean",
                                   "description": "Whether the most recent reviewable push must be approved by someone other than the person who pushed it."
@@ -29176,6 +29224,13 @@
                             "parameters": {
                               "type": "object",
                               "properties": {
+                                "ignored_file_paths": {
+                                  "type": "array",
+                                  "description": "Files matching these patterns are allowed even when they also match a restricted path.",
+                                  "items": {
+                                    "type": "string"
+                                  }
+                                },
                                 "restricted_file_paths": {
                                   "type": "array",
                                   "description": "The file paths that are restricted from being pushed to the commit graph.",
@@ -29268,6 +29323,13 @@
                             "parameters": {
                               "type": "object",
                               "properties": {
+                                "ignored_file_paths": {
+                                  "type": "array",
+                                  "description": "Files matching these patterns may exceed the maximum size.",
+                                  "items": {
+                                    "type": "string"
+                                  }
+                                },
                                 "max_file_size": {
                                   "type": "integer",
                                   "description": "The maximum file size allowed in megabytes. This limit does not apply to Git Large File Storage (Git LFS).",
@@ -29794,6 +29856,11 @@
                     },
                     {
                       "type": "boolean",
+                      "name": "require_extra_approval_for_unattributed_changes",
+                      "description": "<p>When Copilot opens a pull request without a human collaborator, require one more approving review if a non-zero approval count is required.</p>"
+                    },
+                    {
+                      "type": "boolean",
                       "name": "require_last_push_approval",
                       "description": "<p>Whether the most recent reviewable push must be approved by someone other than the person who pushed it.</p>",
                       "isRequired": true
@@ -30201,6 +30268,11 @@
                   "childParamsGroups": [
                     {
                       "type": "array of strings",
+                      "name": "ignored_file_paths",
+                      "description": "<p>Files matching these patterns are allowed even when they also match a restricted path.</p>"
+                    },
+                    {
+                      "type": "array of strings",
                       "name": "restricted_file_paths",
                       "description": "<p>The file paths that are restricted from being pushed to the commit graph.</p>",
                       "isRequired": true
@@ -30286,6 +30358,11 @@
                   "name": "parameters",
                   "description": "",
                   "childParamsGroups": [
+                    {
+                      "type": "array of strings",
+                      "name": "ignored_file_paths",
+                      "description": "<p>Files matching these patterns may exceed the maximum size.</p>"
+                    },
                     {
                       "type": "integer",
                       "name": "max_file_size",
@@ -31266,6 +31343,10 @@
                                 "type": "boolean",
                                 "description": "Require an approving review in pull requests that modify files that have a designated code owner."
                               },
+                              "require_extra_approval_for_unattributed_changes": {
+                                "type": "boolean",
+                                "description": "When Copilot opens a pull request without a human collaborator, require one more approving review if a non-zero approval count is required."
+                              },
                               "require_last_push_approval": {
                                 "type": "boolean",
                                 "description": "Whether the most recent reviewable push must be approved by someone other than the person who pushed it."
@@ -31901,6 +31982,13 @@
                           "parameters": {
                             "type": "object",
                             "properties": {
+                              "ignored_file_paths": {
+                                "type": "array",
+                                "description": "Files matching these patterns are allowed even when they also match a restricted path.",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
                               "restricted_file_paths": {
                                 "type": "array",
                                 "description": "The file paths that are restricted from being pushed to the commit graph.",
@@ -31993,6 +32081,13 @@
                           "parameters": {
                             "type": "object",
                             "properties": {
+                              "ignored_file_paths": {
+                                "type": "array",
+                                "description": "Files matching these patterns may exceed the maximum size.",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
                               "max_file_size": {
                                 "type": "integer",
                                 "description": "The maximum file size allowed in megabytes. This limit does not apply to Git Large File Storage (Git LFS).",
@@ -32851,6 +32946,10 @@
                                 "type": "boolean",
                                 "description": "Require an approving review in pull requests that modify files that have a designated code owner."
                               },
+                              "require_extra_approval_for_unattributed_changes": {
+                                "type": "boolean",
+                                "description": "When Copilot opens a pull request without a human collaborator, require one more approving review if a non-zero approval count is required."
+                              },
                               "require_last_push_approval": {
                                 "type": "boolean",
                                 "description": "Whether the most recent reviewable push must be approved by someone other than the person who pushed it."
@@ -33486,6 +33585,13 @@
                           "parameters": {
                             "type": "object",
                             "properties": {
+                              "ignored_file_paths": {
+                                "type": "array",
+                                "description": "Files matching these patterns are allowed even when they also match a restricted path.",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
                               "restricted_file_paths": {
                                 "type": "array",
                                 "description": "The file paths that are restricted from being pushed to the commit graph.",
@@ -33578,6 +33684,13 @@
                           "parameters": {
                             "type": "object",
                             "properties": {
+                              "ignored_file_paths": {
+                                "type": "array",
+                                "description": "Files matching these patterns may exceed the maximum size.",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
                               "max_file_size": {
                                 "type": "integer",
                                 "description": "The maximum file size allowed in megabytes. This limit does not apply to Git Large File Storage (Git LFS).",
@@ -34109,6 +34222,11 @@
                     },
                     {
                       "type": "boolean",
+                      "name": "require_extra_approval_for_unattributed_changes",
+                      "description": "<p>When Copilot opens a pull request without a human collaborator, require one more approving review if a non-zero approval count is required.</p>"
+                    },
+                    {
+                      "type": "boolean",
                       "name": "require_last_push_approval",
                       "description": "<p>Whether the most recent reviewable push must be approved by someone other than the person who pushed it.</p>",
                       "isRequired": true
@@ -34516,6 +34634,11 @@
                   "childParamsGroups": [
                     {
                       "type": "array of strings",
+                      "name": "ignored_file_paths",
+                      "description": "<p>Files matching these patterns are allowed even when they also match a restricted path.</p>"
+                    },
+                    {
+                      "type": "array of strings",
                       "name": "restricted_file_paths",
                       "description": "<p>The file paths that are restricted from being pushed to the commit graph.</p>",
                       "isRequired": true
@@ -34601,6 +34724,11 @@
                   "name": "parameters",
                   "description": "",
                   "childParamsGroups": [
+                    {
+                      "type": "array of strings",
+                      "name": "ignored_file_paths",
+                      "description": "<p>Files matching these patterns may exceed the maximum size.</p>"
+                    },
                     {
                       "type": "integer",
                       "name": "max_file_size",
@@ -35582,6 +35710,10 @@
                                 "type": "boolean",
                                 "description": "Require an approving review in pull requests that modify files that have a designated code owner."
                               },
+                              "require_extra_approval_for_unattributed_changes": {
+                                "type": "boolean",
+                                "description": "When Copilot opens a pull request without a human collaborator, require one more approving review if a non-zero approval count is required."
+                              },
                               "require_last_push_approval": {
                                 "type": "boolean",
                                 "description": "Whether the most recent reviewable push must be approved by someone other than the person who pushed it."
@@ -36217,6 +36349,13 @@
                           "parameters": {
                             "type": "object",
                             "properties": {
+                              "ignored_file_paths": {
+                                "type": "array",
+                                "description": "Files matching these patterns are allowed even when they also match a restricted path.",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
                               "restricted_file_paths": {
                                 "type": "array",
                                 "description": "The file paths that are restricted from being pushed to the commit graph.",
@@ -36309,6 +36448,13 @@
                           "parameters": {
                             "type": "object",
                             "properties": {
+                              "ignored_file_paths": {
+                                "type": "array",
+                                "description": "Files matching these patterns may exceed the maximum size.",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
                               "max_file_size": {
                                 "type": "integer",
                                 "description": "The maximum file size allowed in megabytes. This limit does not apply to Git Large File Storage (Git LFS).",

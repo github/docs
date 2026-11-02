@@ -287,6 +287,9 @@
               "web": [
                 "192.0.2.1"
               ],
+              "shared_ingress": [
+                "192.0.2.1/32"
+              ],
               "api": [
                 "192.0.2.1"
               ],
@@ -376,6 +379,13 @@
                   }
                 },
                 "web": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "shared_ingress": {
+                  "description": "Public destination IP ranges in CIDR notation for shared GitHub-managed ingress infrastructure.\nThese ranges may serve multiple GitHub services and are not outbound source ranges.\nUse them alongside the relevant product-specific network requirements.\nOmitted when no ranges are available.",
                   "type": "array",
                   "items": {
                     "type": "string"

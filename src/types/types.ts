@@ -41,6 +41,7 @@ export type PageFrontmatter = {
   subcategory?: boolean
   hidden?: boolean
   noEarlyAccessBanner?: boolean
+  hideSidebar?: boolean
   earlyAccessToc?: string
   layout?: string | boolean
   redirect_from?: string[]
@@ -340,6 +341,7 @@ export type Page = {
   children?: string[]
   introPlainText?: string
   noEarlyAccessBanner?: boolean
+  hideSidebar?: boolean
   communityRedirect?: {
     name: string
     href: string

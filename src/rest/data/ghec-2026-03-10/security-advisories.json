@@ -80,7 +80,12 @@
           "name": "cwes",
           "in": "query",
           "description": "<p>If specified, only advisories with these Common Weakness Enumerations (CWEs) will be returned.</p>\n<p>Example: <code>cwes=79,284,22</code> or <code>cwes[]=79&#x26;cwes[]=284&#x26;cwes[]=22</code></p>",
-          "schema": {}
+          "schema": {
+            "type": [
+              "string",
+              "array of strings"
+            ]
+          }
         },
         {
           "name": "is_withdrawn",
@@ -94,7 +99,12 @@
           "name": "affects",
           "in": "query",
           "description": "<p>If specified, only return advisories that affect any of <code>package</code> or <code>package@version</code>. A maximum of 1000 packages can be specified.\nIf the query parameter causes the URL to exceed the maximum URL length supported by your client, you must specify fewer packages.</p>\n<p>Example: <code>affects=package1,package2@1.0.0,package3@2.0.0</code> or <code>affects[]=package1&#x26;affects[]=package2@1.0.0</code></p>",
-          "schema": {}
+          "schema": {
+            "type": [
+              "string",
+              "array of strings"
+            ]
+          }
         },
         {
           "name": "published",
@@ -15107,6 +15117,1288 @@
     },
     {
       "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/security-advisories/{ghsa_id}/comments",
+      "title": "List repository security advisory comments",
+      "category": "security-advisories",
+      "subcategory": "repository-advisories",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "ghsa_id",
+          "description": "<p>The GHSA (GitHub Security Advisory) identifier of the advisory.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "since",
+          "description": "<p>Only show results that were last updated after the given time. This is a timestamp in <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO 8601</a> format: <code>YYYY-MM-DDTHH:MM:SSZ</code>.</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "per_page",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "default": 30
+          }
+        },
+        {
+          "name": "page",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "default": 1
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Lists comments on a repository security advisory.</p>\n<p>Accessing internal comments requires write access to the advisory.</p>\n<p>Callers with read-only access to the advisory receive only eligible post-publication comments. For unpublished advisories, these callers receive an empty list.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO",
+              "ghsa_id": "GHSA_ID"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": [
+              {
+                "id": 1,
+                "node_id": "MDI1OlJlcG9zaXRvcnlBZHZpc29yeUNvbW1lbnQx",
+                "url": "https://api.github.com/repos/exampleUser/exampleRepo/security-advisories/GHSA-1234-5678-1234/comments/1",
+                "html_url": "https://github.com/exampleUser/exampleRepo/security/advisories/GHSA-1234-5678-1234#advisory-comment-1",
+                "body": "Body of the attachment",
+                "user": {
+                  "login": "octocat",
+                  "id": 1,
+                  "node_id": "MDQ6VXNlcjE=",
+                  "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+                  "gravatar_id": "41d064eb2195891e12d0413f63227ea7",
+                  "url": "https://api.github.com/users/octocat",
+                  "html_url": "https://github.com/octocat",
+                  "followers_url": "https://api.github.com/users/octocat/followers",
+                  "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+                  "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+                  "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+                  "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+                  "organizations_url": "https://api.github.com/users/octocat/orgs",
+                  "repos_url": "https://api.github.com/users/octocat/repos",
+                  "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+                  "received_events_url": "https://api.github.com/users/octocat/received_events",
+                  "type": "User",
+                  "site_admin": false
+                },
+                "created_at": "2011-04-18T23:23:56Z",
+                "updated_at": "2011-04-18T23:23:56Z",
+                "advisory_url": "https://api.github.com/repos/exampleUser/exampleRepo/security-advisories/GHSA-1234-5678-1234",
+                "author_association": "CONTRIBUTOR"
+              }
+            ],
+            "schema": {
+              "type": "array",
+              "items": {
+                "title": "Repository Advisory Comment",
+                "description": "A comment on a repository security advisory.",
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "description": "Unique identifier of the advisory comment.",
+                    "type": "integer",
+                    "format": "int64"
+                  },
+                  "node_id": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "description": "API URL for the advisory comment.",
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "html_url": {
+                    "description": "Web URL for the advisory comment.",
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "body": {
+                    "description": "Contents of the advisory comment.",
+                    "type": "string"
+                  },
+                  "user": {
+                    "anyOf": [
+                      {
+                        "type": "null"
+                      },
+                      {
+                        "title": "Simple User",
+                        "description": "A GitHub user.",
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "email": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "login": {
+                            "type": "string"
+                          },
+                          "id": {
+                            "type": "integer",
+                            "format": "int64"
+                          },
+                          "node_id": {
+                            "type": "string"
+                          },
+                          "avatar_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "gravatar_id": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "html_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "followers_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "following_url": {
+                            "type": "string"
+                          },
+                          "gists_url": {
+                            "type": "string"
+                          },
+                          "starred_url": {
+                            "type": "string"
+                          },
+                          "subscriptions_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "organizations_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "repos_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "events_url": {
+                            "type": "string"
+                          },
+                          "received_events_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "type": {
+                            "type": "string"
+                          },
+                          "site_admin": {
+                            "type": "boolean"
+                          },
+                          "starred_at": {
+                            "type": "string"
+                          },
+                          "user_view_type": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "avatar_url",
+                          "events_url",
+                          "followers_url",
+                          "following_url",
+                          "gists_url",
+                          "gravatar_id",
+                          "html_url",
+                          "id",
+                          "node_id",
+                          "login",
+                          "organizations_url",
+                          "received_events_url",
+                          "repos_url",
+                          "site_admin",
+                          "starred_url",
+                          "subscriptions_url",
+                          "type",
+                          "url"
+                        ]
+                      }
+                    ]
+                  },
+                  "created_at": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "updated_at": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "advisory_url": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "author_association": {
+                    "title": "author_association",
+                    "type": "string",
+                    "description": "How the author is associated with the repository.",
+                    "enum": [
+                      "COLLABORATOR",
+                      "CONTRIBUTOR",
+                      "FIRST_TIMER",
+                      "FIRST_TIME_CONTRIBUTOR",
+                      "MANNEQUIN",
+                      "MEMBER",
+                      "NONE",
+                      "OWNER"
+                    ]
+                  }
+                },
+                "required": [
+                  "id",
+                  "node_id",
+                  "url",
+                  "html_url",
+                  "body",
+                  "user",
+                  "created_at",
+                  "updated_at",
+                  "advisory_url",
+                  "author_association"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Repository security advisories\" repository permissions": "read"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/security-advisories/{ghsa_id}/comments",
+      "title": "Create a repository advisory comment",
+      "category": "security-advisories",
+      "subcategory": "repository-advisories",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "ghsa_id",
+          "description": "<p>The GHSA (GitHub Security Advisory) identifier of the advisory.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "string",
+          "name": "body",
+          "description": "<p>The contents of the comment.</p>",
+          "isRequired": true
+        }
+      ],
+      "descriptionHTML": "<p>Creates a comment on a repository security advisory.</p>\n<p>In order to create a comment, the authenticated user must be an advisory collaborator, security manager, or repository administrator.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "body": "Thanks for the report. We are working on a fix."
+            },
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO",
+              "ghsa_id": "GHSA_ID"
+            }
+          },
+          "response": {
+            "statusCode": "201",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "id": 1,
+              "node_id": "MDEzOlJlcG9zaXRvcnlBZHZpc29yeUNvbW1lbnQx",
+              "body": "Thanks for the report. We are working on a fix.",
+              "user": {
+                "login": "octocat",
+                "id": 1,
+                "node_id": "MDQ6VXNlcjE=",
+                "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+                "gravatar_id": "",
+                "url": "https://api.github.com/users/octocat",
+                "html_url": "https://github.com/octocat",
+                "followers_url": "https://api.github.com/users/octocat/followers",
+                "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+                "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+                "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+                "organizations_url": "https://api.github.com/users/octocat/orgs",
+                "repos_url": "https://api.github.com/users/octocat/repos",
+                "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+                "received_events_url": "https://api.github.com/users/octocat/received_events",
+                "type": "User",
+                "site_admin": false
+              },
+              "author_association": "OWNER",
+              "created_at": "2022-01-01T00:00:00Z",
+              "updated_at": "2022-01-01T00:00:00Z",
+              "url": "https://api.github.com/repos/octocat/Hello-World/security-advisories/GHSA-abcd-1234-efgh/comments/1",
+              "html_url": "https://github.com/octocat/Hello-World/security/advisories/GHSA-abcd-1234-efgh#advisory-comment-1",
+              "advisory_url": "https://api.github.com/repos/octocat/Hello-World/security-advisories/GHSA-abcd-1234-efgh"
+            },
+            "schema": {
+              "title": "Repository Advisory Comment",
+              "description": "A comment on a repository security advisory.",
+              "type": "object",
+              "properties": {
+                "id": {
+                  "description": "Unique identifier of the advisory comment.",
+                  "type": "integer",
+                  "format": "int64"
+                },
+                "node_id": {
+                  "type": "string"
+                },
+                "url": {
+                  "description": "API URL for the advisory comment.",
+                  "type": "string",
+                  "format": "uri"
+                },
+                "html_url": {
+                  "description": "Web URL for the advisory comment.",
+                  "type": "string",
+                  "format": "uri"
+                },
+                "body": {
+                  "description": "Contents of the advisory comment.",
+                  "type": "string"
+                },
+                "user": {
+                  "anyOf": [
+                    {
+                      "type": "null"
+                    },
+                    {
+                      "title": "Simple User",
+                      "description": "A GitHub user.",
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "email": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "login": {
+                          "type": "string"
+                        },
+                        "id": {
+                          "type": "integer",
+                          "format": "int64"
+                        },
+                        "node_id": {
+                          "type": "string"
+                        },
+                        "avatar_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "gravatar_id": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "html_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "followers_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "following_url": {
+                          "type": "string"
+                        },
+                        "gists_url": {
+                          "type": "string"
+                        },
+                        "starred_url": {
+                          "type": "string"
+                        },
+                        "subscriptions_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "organizations_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "repos_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "events_url": {
+                          "type": "string"
+                        },
+                        "received_events_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "type": {
+                          "type": "string"
+                        },
+                        "site_admin": {
+                          "type": "boolean"
+                        },
+                        "starred_at": {
+                          "type": "string"
+                        },
+                        "user_view_type": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "avatar_url",
+                        "events_url",
+                        "followers_url",
+                        "following_url",
+                        "gists_url",
+                        "gravatar_id",
+                        "html_url",
+                        "id",
+                        "node_id",
+                        "login",
+                        "organizations_url",
+                        "received_events_url",
+                        "repos_url",
+                        "site_admin",
+                        "starred_url",
+                        "subscriptions_url",
+                        "type",
+                        "url"
+                      ]
+                    }
+                  ]
+                },
+                "created_at": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "updated_at": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "advisory_url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "author_association": {
+                  "title": "author_association",
+                  "type": "string",
+                  "description": "How the author is associated with the repository.",
+                  "enum": [
+                    "COLLABORATOR",
+                    "CONTRIBUTOR",
+                    "FIRST_TIMER",
+                    "FIRST_TIME_CONTRIBUTOR",
+                    "MANNEQUIN",
+                    "MEMBER",
+                    "NONE",
+                    "OWNER"
+                  ]
+                }
+              },
+              "required": [
+                "id",
+                "node_id",
+                "url",
+                "html_url",
+                "body",
+                "user",
+                "created_at",
+                "updated_at",
+                "advisory_url",
+                "author_association"
+              ],
+              "additionalProperties": false
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "201",
+          "description": "<p>Created</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Repository security advisories\" repository permissions": "write"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/security-advisories/{ghsa_id}/comments/{comment_id}",
+      "title": "Get a repository advisory comment",
+      "category": "security-advisories",
+      "subcategory": "repository-advisories",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "ghsa_id",
+          "description": "<p>The GHSA (GitHub Security Advisory) identifier of the advisory.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "comment_id",
+          "description": "<p>The unique identifier of the comment.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Get a comment on a repository security advisory using the comment's ID.</p>\n<p>Advisory collaborators can view all non-confidential comments on advisories they have access to.\nOther users can only view comments that are not considered internal.</p>\n<p>GitHub Apps and fine-grained personal access tokens with the <code>repository_advisories: read</code> permission can view all non-confidential comments, including internal comments.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> or <code>repository_advisories:read</code> scope to get a comment on a security advisory in a private repository, or any unpublished security advisory that the authenticated user has access to.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO",
+              "ghsa_id": "GHSA_ID",
+              "comment_id": "COMMENT_ID"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "id": 1,
+              "node_id": "MDI1OlJlcG9zaXRvcnlBZHZpc29yeUNvbW1lbnQx",
+              "url": "https://api.github.com/repos/octocat/Hello-World/security-advisories/GHSA-1234-5678-1234/comments/1",
+              "html_url": "https://github.com/octocat/Hello-World/security/advisories/GHSA-1234-5678-1234#advisory-comment-1",
+              "body": "Me too",
+              "user": {
+                "login": "octocat",
+                "id": 1,
+                "node_id": "MDQ6VXNlcjE=",
+                "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+                "gravatar_id": "",
+                "url": "https://api.github.com/users/octocat",
+                "html_url": "https://github.com/octocat",
+                "followers_url": "https://api.github.com/users/octocat/followers",
+                "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+                "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+                "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+                "organizations_url": "https://api.github.com/users/octocat/orgs",
+                "repos_url": "https://api.github.com/users/octocat/repos",
+                "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+                "received_events_url": "https://api.github.com/users/octocat/received_events",
+                "type": "User",
+                "site_admin": false
+              },
+              "created_at": "2011-04-14T16:00:49Z",
+              "updated_at": "2011-04-14T16:00:49Z",
+              "advisory_url": "https://api.github.com/repos/octocat/Hello-World/security-advisories/GHSA-1234-5678-1234",
+              "author_association": "COLLABORATOR"
+            },
+            "schema": {
+              "title": "Repository Advisory Comment",
+              "description": "A comment on a repository security advisory.",
+              "type": "object",
+              "properties": {
+                "id": {
+                  "description": "Unique identifier of the advisory comment.",
+                  "type": "integer",
+                  "format": "int64"
+                },
+                "node_id": {
+                  "type": "string"
+                },
+                "url": {
+                  "description": "API URL for the advisory comment.",
+                  "type": "string",
+                  "format": "uri"
+                },
+                "html_url": {
+                  "description": "Web URL for the advisory comment.",
+                  "type": "string",
+                  "format": "uri"
+                },
+                "body": {
+                  "description": "Contents of the advisory comment.",
+                  "type": "string"
+                },
+                "user": {
+                  "anyOf": [
+                    {
+                      "type": "null"
+                    },
+                    {
+                      "title": "Simple User",
+                      "description": "A GitHub user.",
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "email": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "login": {
+                          "type": "string"
+                        },
+                        "id": {
+                          "type": "integer",
+                          "format": "int64"
+                        },
+                        "node_id": {
+                          "type": "string"
+                        },
+                        "avatar_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "gravatar_id": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "html_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "followers_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "following_url": {
+                          "type": "string"
+                        },
+                        "gists_url": {
+                          "type": "string"
+                        },
+                        "starred_url": {
+                          "type": "string"
+                        },
+                        "subscriptions_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "organizations_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "repos_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "events_url": {
+                          "type": "string"
+                        },
+                        "received_events_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "type": {
+                          "type": "string"
+                        },
+                        "site_admin": {
+                          "type": "boolean"
+                        },
+                        "starred_at": {
+                          "type": "string"
+                        },
+                        "user_view_type": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "avatar_url",
+                        "events_url",
+                        "followers_url",
+                        "following_url",
+                        "gists_url",
+                        "gravatar_id",
+                        "html_url",
+                        "id",
+                        "node_id",
+                        "login",
+                        "organizations_url",
+                        "received_events_url",
+                        "repos_url",
+                        "site_admin",
+                        "starred_url",
+                        "subscriptions_url",
+                        "type",
+                        "url"
+                      ]
+                    }
+                  ]
+                },
+                "created_at": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "updated_at": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "advisory_url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "author_association": {
+                  "title": "author_association",
+                  "type": "string",
+                  "description": "How the author is associated with the repository.",
+                  "enum": [
+                    "COLLABORATOR",
+                    "CONTRIBUTOR",
+                    "FIRST_TIMER",
+                    "FIRST_TIME_CONTRIBUTOR",
+                    "MANNEQUIN",
+                    "MEMBER",
+                    "NONE",
+                    "OWNER"
+                  ]
+                }
+              },
+              "required": [
+                "id",
+                "node_id",
+                "url",
+                "html_url",
+                "body",
+                "user",
+                "created_at",
+                "updated_at",
+                "advisory_url",
+                "author_association"
+              ],
+              "additionalProperties": false
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Repository security advisories\" repository permissions": "read"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "patch",
+      "requestPath": "/repos/{owner}/{repo}/security-advisories/{ghsa_id}/comments/{comment_id}",
+      "title": "Update a repository advisory comment",
+      "category": "security-advisories",
+      "subcategory": "repository-advisories",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "ghsa_id",
+          "description": "<p>The GHSA (GitHub Security Advisory) identifier of the advisory.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "comment_id",
+          "description": "<p>The unique identifier of the comment.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "string",
+          "name": "body",
+          "description": "<p>The contents of the comment.</p>",
+          "isRequired": true
+        }
+      ],
+      "descriptionHTML": "<p>Update the body of a comment on a repository security advisory using the comment's ID.</p>\n<p>In order to update a comment, the authenticated user must be the author of the comment, or a security manager or administrator of the repository.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> or <code>repository_advisories:write</code> scope to use this endpoint.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "body": "Updated comment body."
+            },
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO",
+              "ghsa_id": "GHSA_ID",
+              "comment_id": "COMMENT_ID"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "id": 1,
+              "node_id": "MDI1OlJlcG9zaXRvcnlBZHZpc29yeUNvbW1lbnQx",
+              "url": "https://api.github.com/repos/octocat/Hello-World/security-advisories/GHSA-1234-5678-1234/comments/1",
+              "html_url": "https://github.com/octocat/Hello-World/security/advisories/GHSA-1234-5678-1234#advisory-comment-1",
+              "body": "Me too",
+              "user": {
+                "login": "octocat",
+                "id": 1,
+                "node_id": "MDQ6VXNlcjE=",
+                "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+                "gravatar_id": "",
+                "url": "https://api.github.com/users/octocat",
+                "html_url": "https://github.com/octocat",
+                "followers_url": "https://api.github.com/users/octocat/followers",
+                "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+                "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+                "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+                "organizations_url": "https://api.github.com/users/octocat/orgs",
+                "repos_url": "https://api.github.com/users/octocat/repos",
+                "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+                "received_events_url": "https://api.github.com/users/octocat/received_events",
+                "type": "User",
+                "site_admin": false
+              },
+              "created_at": "2011-04-14T16:00:49Z",
+              "updated_at": "2011-04-14T16:00:49Z",
+              "advisory_url": "https://api.github.com/repos/octocat/Hello-World/security-advisories/GHSA-1234-5678-1234",
+              "author_association": "COLLABORATOR"
+            },
+            "schema": {
+              "title": "Repository Advisory Comment",
+              "description": "A comment on a repository security advisory.",
+              "type": "object",
+              "properties": {
+                "id": {
+                  "description": "Unique identifier of the advisory comment.",
+                  "type": "integer",
+                  "format": "int64"
+                },
+                "node_id": {
+                  "type": "string"
+                },
+                "url": {
+                  "description": "API URL for the advisory comment.",
+                  "type": "string",
+                  "format": "uri"
+                },
+                "html_url": {
+                  "description": "Web URL for the advisory comment.",
+                  "type": "string",
+                  "format": "uri"
+                },
+                "body": {
+                  "description": "Contents of the advisory comment.",
+                  "type": "string"
+                },
+                "user": {
+                  "anyOf": [
+                    {
+                      "type": "null"
+                    },
+                    {
+                      "title": "Simple User",
+                      "description": "A GitHub user.",
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "email": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "login": {
+                          "type": "string"
+                        },
+                        "id": {
+                          "type": "integer",
+                          "format": "int64"
+                        },
+                        "node_id": {
+                          "type": "string"
+                        },
+                        "avatar_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "gravatar_id": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "html_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "followers_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "following_url": {
+                          "type": "string"
+                        },
+                        "gists_url": {
+                          "type": "string"
+                        },
+                        "starred_url": {
+                          "type": "string"
+                        },
+                        "subscriptions_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "organizations_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "repos_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "events_url": {
+                          "type": "string"
+                        },
+                        "received_events_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "type": {
+                          "type": "string"
+                        },
+                        "site_admin": {
+                          "type": "boolean"
+                        },
+                        "starred_at": {
+                          "type": "string"
+                        },
+                        "user_view_type": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "avatar_url",
+                        "events_url",
+                        "followers_url",
+                        "following_url",
+                        "gists_url",
+                        "gravatar_id",
+                        "html_url",
+                        "id",
+                        "node_id",
+                        "login",
+                        "organizations_url",
+                        "received_events_url",
+                        "repos_url",
+                        "site_admin",
+                        "starred_url",
+                        "subscriptions_url",
+                        "type",
+                        "url"
+                      ]
+                    }
+                  ]
+                },
+                "created_at": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "updated_at": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "advisory_url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "author_association": {
+                  "title": "author_association",
+                  "type": "string",
+                  "description": "How the author is associated with the repository.",
+                  "enum": [
+                    "COLLABORATOR",
+                    "CONTRIBUTOR",
+                    "FIRST_TIMER",
+                    "FIRST_TIME_CONTRIBUTOR",
+                    "MANNEQUIN",
+                    "MEMBER",
+                    "NONE",
+                    "OWNER"
+                  ]
+                }
+              },
+              "required": [
+                "id",
+                "node_id",
+                "url",
+                "html_url",
+                "body",
+                "user",
+                "created_at",
+                "updated_at",
+                "advisory_url",
+                "author_association"
+              ],
+              "additionalProperties": false
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Repository security advisories\" repository permissions": "write"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
       "verb": "post",
       "requestPath": "/repos/{owner}/{repo}/security-advisories/{ghsa_id}/cve",
       "title": "Request a CVE for a repository security advisory",
@@ -16664,6 +17956,7 @@
                           "type": "boolean"
                         },
                         "temp_clone_token": {
+                          "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                           "type": "string"
                         },
                         "allow_squash_merge": {
@@ -16838,6 +18131,7 @@
                   ]
                 },
                 "temp_clone_token": {
+                  "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                   "type": [
                     "string",
                     "null"
@@ -17559,6 +18853,7 @@
                       "type": "boolean"
                     },
                     "temp_clone_token": {
+                      "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                       "type": "string"
                     },
                     "allow_squash_merge": {
@@ -18220,6 +19515,7 @@
                       "type": "boolean"
                     },
                     "temp_clone_token": {
+                      "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                       "type": "string"
                     },
                     "allow_squash_merge": {

@@ -1,7 +1,7 @@
 ---
 title: Subscribing to GitHub Copilot for your enterprise
 shortTitle: Subscribe
-intro: 'Enterprise owners can set up a {% data variables.copilot.copilot_enterprise_short %} or {% data variables.copilot.copilot_business_short %} plan for their enterprise.'
+intro: 'Activate a {% data variables.product.prodname_copilot_short %} plan to manage access and usage across your enterprise.'
 permissions: Enterprise owners
 product: 'Enterprises on {% data variables.product.prodname_ghe_cloud %}'
 versions:

@@ -40,7 +40,9 @@ A merge queue helps merge pull requests into a busy protected branch after requi
    ![Screenshot of the merge queue options for a pull request.](/assets/images/help/pull_requests/merge-queue-options.png)
 
    > [!NOTE]
-   > You can click **Merge when ready** before all requirements pass. {% data variables.product.github %} adds the pull request to the queue when requirements are met.
+   > You can click **Merge when ready** before all requirements pass. If the pull request can't be added to the queue immediately, {% data variables.product.github %} enables auto-merge and adds the pull request to the queue when requirements are met, even if **Allow auto-merge** is disabled for the repository.
+
+   To cancel this waiting state, click **Disable auto-merge** in the merge box.
 
 1. Confirm you want to add the pull request to the merge queue by clicking **Confirm merge when ready**.
 
@@ -49,6 +51,8 @@ A merge queue helps merge pull requests into a busy protected branch after requi
 {% cli %}
 
 With {% data variables.product.prodname_cli %}, use the `gh pr merge` command to add a pull request to a merge queue. If you are targeting a branch that requires a merge queue, this command automatically adds the pull request to the queue if required checks have passed. If required checks have not passed, this command enables auto-merge for the pull request. See [`gh pr merge`](https://cli.github.com/manual/gh_pr_merge) in the {% data variables.product.prodname_cli %} manual.
+
+To add a pull request to the queue only if it can be added immediately, without enabling auto-merge, use the [`enqueuePullRequest`](/graphql/reference/pulls#mutation-enqueuepullrequest) GraphQL mutation. If the pull request can't be added, the mutation returns an error that explains why.
 
 {% endcli %}
 

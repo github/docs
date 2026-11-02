@@ -1,6 +1,6 @@
 ---
 title: GitHub Actions billing
-intro: 'Learn how usage of {% data variables.product.prodname_actions %} is measured against your free allowance and how to pay for additional use.'
+intro: 'Understand which runner and storage costs your plan covers, how usage measured in different units draws from the included compute usage, and when additional charges apply.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions/about-billing-for-github-actions
@@ -21,22 +21,22 @@ contentType: concepts
 
 ## How use of {% data variables.product.prodname_actions %} is measured
 
-{% data variables.product.prodname_actions %} usage is **free** for **self-hosted runners** and for **public repositories** that use standard {% data variables.product.github %}-hosted runners. See [AUTOTITLE](/actions/how-tos/write-workflows/choose-where-workflows-run/choose-the-runner-for-a-job#standard-github-hosted-runners-for-public-repositories).
+{% data reusables.billing.compute-allowance-model %}
 
-For **private repositories**, each {% data variables.product.github %} account receives a quota of free minutes, artifact storage, and cache storage for use with {% data variables.product.github %}-hosted runners, depending on the account's plan. Any usage beyond the included amounts is billed to your account.
+For **private repositories**, usage is measured against two parts of your plan:
 
-* **Minutes:** Your free minutes reset to the full amount at the start of each billing cycle. Minutes usage is charged to the repository owner, not the person who triggered the workflow runs.
-* **Storage:** Storage charges accumulate throughout the month based on hourly usage. Your accrued storage charges reset to zero at the start of each billing cycle.
+* **Compute:** The calculated cost of eligible runner usage draws from your monthly included compute usage. This value is also available for cloud sandbox compute and memory. Usage is charged to the repository owner, not the person who triggered the workflow runs.
+* **Storage:** Artifact and cache storage have separate allowances. Storage charges accumulate throughout the month based on hourly usage, and your accrued storage charges reset to zero at the start of each billing cycle.
 
 > [!TIP]
 > Anyone with write access to a repository can run actions. Any costs of running the actions are billed to the repository owner.
 
-### {% data variables.copilot.copilot_code-review_short %} and {% data variables.product.prodname_actions %} minutes
+### {% data variables.copilot.copilot_code-review_short %} and {% data variables.product.prodname_actions %} usage
 
-Each {% data variables.copilot.copilot_code-review_short %} consumes {% data variables.product.prodname_actions %} minutes in addition to {% data variables.product.prodname_ai_credits_short %}.
+Each {% data variables.copilot.copilot_code-review_short %} consumes {% data variables.product.prodname_actions %} compute in addition to {% data variables.product.prodname_ai_credits_short %}.
 
-* **Private repositories:** Minutes are consumed from your account or organization's existing plan entitlement. Any usage beyond your included minutes is billed at standard {% data variables.product.prodname_actions %} rates.
-* **Public repositories:** Minutes remain free.
+* **Private repositories:** The runner cost draws from your account or organization's included compute usage. Additional usage is billed at standard {% data variables.product.prodname_actions %} rates.
+* **Public repositories:** This usage remains free.
 
 {% data variables.copilot.copilot_code-review_short %} runs on standard {% data variables.product.github %}-hosted Ubuntu Linux runners by default. You can also configure {% data variables.actions.github_hosted_larger_runners %} or self-hosted runners via Actions Runner Controller (ARC), which are billed at different rates.
 
@@ -111,16 +111,18 @@ For example:
 
 ### Examples of how usage is measured
 
-* If you run a workflow on a Linux runner and it takes 10 minutes to complete, you'll use 10 minutes of the repository owner's allowance. If the workflow generates a 10 MB artifact, then you'll also use 10 MB of the repository owner's artifact storage allowance.
-* If you run a workflow that normally takes 10 minutes and it fails after 5 minutes because a dependency isn't available, you'll use 5 minutes of the repository owner's allowance. If you fix the problem and re-run the workflow successfully, in total you'll use 15 minutes of the repository owner's allowance.
+* If you run a workflow on a standard Linux runner and it takes 10 minutes to complete, $0.06 USD is deducted from the repository owner's included compute usage (10 × $0.006 USD). If the workflow generates a 10 MB artifact, then you'll also use 10 MB of the repository owner's artifact storage allowance.
+* If you run a workflow that normally takes 10 minutes and it fails after 5 minutes because a dependency isn't available, the cost of 5 minutes is deducted from the included compute usage. If you fix the problem and re-run the workflow successfully, the total cost is based on 15 minutes.
 * If you run a workflow that generates many log files and a long job summary, these files do not count towards the repository owner's artifact storage allowance.
 * Cache storage usage is measured by the peak usage for each hour. The included allowance is 10 GB per repository. For a given hour, if a repository has a peak cache usage of 15 GB, then the repository owner will be charged for the 5 GB of usage above the 10 GB included for that repository. The repository owner will only be charged if the repository cache storage limit has been configured higher than the included usage.
 
-## Free use of {% data variables.product.prodname_actions %}
+## Included compute usage and storage
 
-The following amounts of time for standard runners, artifact storage, and cache storage are included in your {% data variables.product.github %} plan. At the start of each month, the minutes used by the account are reset to zero.
+The following included compute usage and storage amounts are included in your {% data variables.product.github %} plan. The included compute usage resets at the start of each billing cycle.
 
 {% data reusables.billing.actions-included-quotas %}
+
+The included compute usage is expressed as a monetary amount, not a fixed number of minutes or other usage units. Products measure usage in different units, such as minutes, seconds, or GiB-seconds, and apply the corresponding rate. {% data variables.product.github %} deducts the calculated cost from the same included compute usage. As a guide, $300 USD covers 50,000 minutes on a standard Linux runner at $0.006 USD per minute.
 
 The use of standard {% data variables.product.github %}-hosted runners is free:
 
@@ -130,29 +132,29 @@ The use of standard {% data variables.product.github %}-hosted runners is free:
 
 > [!NOTE]
 >
-> * Larger runners are always charged for, even when used by public repositories or when you have quota available from your plan.
+> * Where {% data variables.actions.hosted_runners %} are available, their cost can draw from the included compute usage for billing accounts on {% data variables.product.prodname_team %} and {% data variables.product.prodname_ghe_cloud %}. {% data variables.actions.hosted_runners_caps %} are billed for public repositories.
 > * The artifact storage amounts shown are **shared** with {% data variables.product.prodname_registry %}. This means your total storage across Actions artifacts and {% data variables.product.prodname_registry %} storage cannot exceed the included amount for your plan. Cache storage and custom image storage are separate allowances.
-> * {% data variables.copilot.copilot_code-review_short %} consumes {% data variables.product.prodname_actions %} minutes on private repositories. For public repositories, {% data variables.product.prodname_actions %} minutes remain free.
+> * {% data variables.copilot.copilot_code-review_short %} runner costs draw from the included compute usage on private repositories. For public repositories, this usage remains free.
 
-## Using more than your included quota
+## Using more than your included compute usage
 
-If your account does not have a valid payment method on file, usage is blocked once you use up your quota. Usage of larger runners is always blocked until you set up a payment method.
+If your account does not have a valid payment method on file, usage is blocked once you consume the included compute usage. {% data variables.actions.hosted_runners_caps %} require a valid payment method.
 
 ## Paying for additional {% data variables.product.prodname_actions %} use
 
-You pay for any additional use above your quota using the payment method set up for your {% data variables.product.github %} account. See [AUTOTITLE](/billing/how-tos/set-up-payment/manage-payment-info).
+You pay for additional use after the included compute usage is consumed using the payment method set up for your {% data variables.product.github %} account. See [AUTOTITLE](/billing/how-tos/set-up-payment/manage-payment-info).
 
-For {% data variables.product.github %}-hosted runners, storage is billed based on hourly usage of artifacts and caches throughout the month. Minutes are calculated based on the total processing time used by each runner type during the month.
+For {% data variables.product.github %}-hosted runners, storage is billed based on hourly usage of artifacts and caches throughout the month. Compute is billed based on the total processing time used by each runner type during the month.
 
 * To estimate costs for paid usage, use the {% data variables.product.github %} [pricing calculator](https://github.com/pricing/calculator?feature=actions).
 * To view your current costs, see [AUTOTITLE](/billing/how-tos/products/view-productlicense-use).
 
 > [!NOTE]
-> The billing dashboard may show your Actions usage as a dollar amount ("spend") rather than raw minutes. This amount already reflects any applicable minute costs.
+> The billing dashboard may show your Actions usage as a dollar amount ("spend") rather than raw minutes. This amount already reflects any applicable compute costs.
 
 ### Baseline minute costs
 
-Each type of runner hosted by {% data variables.product.github %} has a cost per-minute that is determined by the operating system and processing power.
+Each type of runner hosted by {% data variables.product.github %} has a per-minute rate that is determined by the operating system and processing power. The rate determines the cost deducted from the included compute usage.
 
 For example, jobs that run on Windows and macOS runners hosted by {% data variables.product.github %} cost more to run than jobs on Linux runners.
 
@@ -170,9 +172,9 @@ Usage beyond your included allowances is billed at the following rates:
 | Actions cache | $0.07 USD |
 | Custom image storage | $0.07 USD |
 
-### Example minutes cost calculation for {% data variables.product.github %}-hosted runners
+### Example additional runner cost calculation
 
-For example, if your organization uses {% data variables.product.prodname_team %}, using 5,000 minutes beyond the included quota on {% data variables.product.github %}-hosted runners would have a total actions minutes cost of $38 USD currently, if you used baseline Linux and Windows runners.
+For example, if your organization uses {% data variables.product.prodname_team %}, 5,000 minutes after the included compute usage is consumed would cost $38 USD if you used baseline Linux and Windows runners.
 
 * 5,000 (3,000 Linux and 2,000 Windows) minutes = $38 USD ($18 USD + $20 USD).
   * 3,000 Linux minutes at $0.006 USD per minute = $18 USD.

@@ -1,0 +1,3 @@
+{% data variables.product.prodname_copilot_short %} supports a range of AI models. Different models have different strengths. For example, some prioritize low latency, while others are optimized for complex reasoning or large context windows. You can choose the model you think best fits your needs for a particular task.
+
+For details of models and their capabilities, see [AUTOTITLE](/copilot/reference/ai-models/supported-models) and [AUTOTITLE](/copilot/reference/ai-models/model-comparison). The models available to you depend on your {% data variables.product.prodname_copilot_short %} plan and your enterprise or organization settings.

@@ -1,6 +1,6 @@
 ---
 title: AI Scan for pull requests
-shortTitle: AI Scan
+shortTitle: AI Scan for pull requests
 allowTitleToDifferFromFilename: true
 intro: 'AI Scan uses an AI-based scanning engine to find security vulnerabilities in pull requests for languages and frameworks not covered by {% data variables.product.prodname_codeql %}.'
 versions:
@@ -10,20 +10,17 @@ category:
   - Find and fix code vulnerabilities
 ---
 
-AI Scan for pull requests produces additional security findings with an AI-based scanning engine that runs on pull requests and complements {% data variables.product.prodname_codeql %}. Unlike {% data variables.product.prodname_codeql %} alerts, AI Scan findings are only available on pull requests and do not appear as backlog alerts in the repository's security view.
+AI Scan for pull requests produces additional security findings with an AI-based scanning engine that runs on pull requests and complements {% data variables.product.prodname_codeql %}.
 
-AI Scan expands {% data variables.product.prodname_code_scanning %} coverage without requiring a separate scanning tool or build configuration.
+AI Scan expands {% data variables.product.prodname_code_scanning %} coverage for pull requests without requiring a separate scanning tool or build configuration.
+
+AI Scan for pull requests is one of the independently controlled features grouped under **AI Scan** in {% data variables.product.github %} settings. See [AUTOTITLE](/code-security/concepts/code-scanning/ai-scan).
 
 ## Availability
 
 Availability depends on who owns the repository and its visibility.
 
-| Repository owner | Visibility | Availability and requirement |
-| --- | --- | --- |
-| Organization | Public | Available without an active-committer license |
-| Organization | Private or internal | Available with {% data variables.product.prodname_GH_code_security %} or {% data variables.product.prodname_GHAS %} |
-| Personal account | Public | Available |
-| Personal account | Private | Not available |
+{% data reusables.code-scanning.ai-scan-availability %}
 
 AI Scan for pull requests is not available for repositories in a {% data variables.enterprise.prodname_managed_user %}'s personal namespace, even if {% data variables.product.prodname_code_scanning %} is enabled for the repository.
 
@@ -31,13 +28,13 @@ You do not need a {% data variables.product.prodname_copilot %} license to use A
 
 ## Billing
 
-AI Scan usage is separate from active-committer licensing and is reported under the **Code Security AI Credits** SKU. Usage begins only when a qualifying pull request is scanned.
+AI Scan usage is separate from active-committer licensing and is reported under the **{% data variables.product.prodname_code_security %} {% data variables.product.prodname_ai_credits_short %}s** SKU. Usage begins only when a qualifying pull request is scanned.
 
 For organization-owned repositories, usage is billed to the account responsible for the organization's billing.
 
-For public repositories owned by a personal account, usage is billed to that personal account unless the repository owner has a {% data variables.product.prodname_copilot %} license provided by an organization or enterprise. In that case, usage is billed to the organization or enterprise that provides the license.
+{% data reusables.code-scanning.ai-scan-personal-account-billing %}
 
-If the billing account receives included {% data variables.product.prodname_ai_credits_short %} through a {% data variables.product.prodname_copilot %} entitlement, AI Scan uses those credits first. After the included credits are exhausted, or if the account has no included credits, usage is metered and governed by the applicable budgets. If a hard budget leaves no Code Security AI Credits available, AI Scan cannot produce findings. Scanning resumes when an administrator increases the limiting budget or a new billing cycle begins.
+{% data reusables.code-scanning.ai-scan-billing-credits %}
 
 For details about the billing model, see [AUTOTITLE](/billing/concepts/product-billing/github-advanced-security#how-ai-feature-usage-is-billed).
 
@@ -69,7 +66,6 @@ You can use the thumbs up or thumbs down control to provide feedback and help im
 
 ## Limitations
 
-* AI Scan analyzes pull requests only. Full repository scans are not supported.
 * AI Scan findings cannot yet be used in rulesets to enforce merge requirements.
 * AI Scan does not run on pull requests from forks or pull requests created by {% data variables.product.prodname_dependabot %}.
 * Detection categories and supported languages may change as the feature evolves.
@@ -77,7 +73,7 @@ You can use the thumbs up or thumbs down control to provide feedback and help im
 
 ## Supported languages
 
-AI Scan supports selected languages and frameworks that {% data variables.product.prodname_codeql %} does not currently cover. Examples include PHP, Shell/Bash, Terraform configuration (HCL), Dockerfiles, JSP for Java, and Blazor for C#.
+AI Scan on pull requests supports selected languages and frameworks that {% data variables.product.prodname_codeql %} does not currently cover. Examples include PHP, Shell/Bash, Terraform configuration (HCL), Dockerfiles, JSP for Java, and Blazor for C#.
 
 To check whether {% data variables.product.prodname_codeql %} supports a language, see [AUTOTITLE](/code-security/concepts/code-scanning/codeql/codeql-code-scanning).
 
@@ -97,14 +93,20 @@ AI Scan currently classifies findings into the following categories. Coverage ma
 
 ## Enabling AI Scan
 
+{% ifversion ai-applications-scanning %}
+
+AI Scan for pull requests and {% data variables.product.prodname_ai_applications_scanning %} are separate features under AI Scan. {% data variables.product.prodname_ai_applications_scanning %} has its own **Scan for AI applications** control and detects risks such as indirect prompt injection in AI applications and agents. Enabling either feature doesn't enable the other. For more information about {% data variables.product.prodname_ai_applications_scanning %}, see [AUTOTITLE](/code-security/concepts/code-scanning/ai-applications-scanning-for-pull-requests).
+
+{% endif %}
+
 Before enabling AI Scan on pull requests for an organization, confirm repository eligibility, review the billing account's included {% data variables.product.prodname_ai_credits_short %}, and configure budgets for metered usage.
 
 Enabling the organization setting enables AI Scan immediately for all eligible repositories where {% data variables.product.prodname_code_scanning %} is enabled. Repository administrators can then opt out, but qualifying pull requests can consume Code Security AI Credits before they do.
 
 You do not need to select a model to enable AI Scan.
 
-* **Enterprise**: Enterprise owners can allow or prevent organizations from enabling AI Scan. The policy is set to "Not allowed" by default. Allowing AI Scan does not enable it automatically. See [AUTOTITLE](/enterprise-cloud@latest/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise#enforcing-a-policy-to-manage-ai-scan-in-your-enterprises-repositories).
-* **Organization**: Organization owners and security managers can enable AI Scan for pull requests for eligible repositories. Repositories inherit the organization setting. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/configure-global-settings#enabling-ai-scan).
+* **Enterprise**: Enterprise owners can allow or prevent organizations from enabling AI Scan. The policy is set to "Not allowed" by default. This policy controls both AI Scan on pull requests and AI Scan for a repository's backlog. Allowing AI Scan does not enable it automatically. See [AUTOTITLE](/enterprise-cloud@latest/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise#enforcing-a-policy-to-manage-ai-scan-in-your-enterprises-repositories).
+* **Organization**: Organization owners and security managers can enable AI Scan for pull requests for eligible repositories. Repositories inherit the organization setting. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/configure-global-settings#enabling-ai-scan-for-pull-requests).
 * **Organization-owned repository**: People with admin access to the repository can opt out when the organization has enabled AI Scan. They cannot opt in when the organization setting is disabled.
 * **Public repository owned by a personal account**: People with admin access to the repository enable or disable AI Scan directly by using the **AI Scan for pull requests** toggle under "{% data variables.product.prodname_code_scanning_caps %}".
 

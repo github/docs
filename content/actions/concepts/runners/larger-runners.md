@@ -57,7 +57,7 @@ For more information on configuring {% data variables.actions.hosted_runners %} 
 ## Billing
 
 > [!NOTE]
-> {% data variables.actions.hosted_runner_caps %}s are not eligible for the use of included minutes on private repositories. For both private and public repositories, when {% data variables.actions.hosted_runners %} are in use, they will always be billed at the per-minute rate.
+> Where available, {% data variables.actions.hosted_runner %} costs can draw from the included compute usage for accounts on {% data variables.product.prodname_team %} and {% data variables.product.prodname_ghe_cloud %}. After the included value is consumed, usage is billed at the per-minute rate. Usage in public repositories is also billed at the per-minute rate.
 
 Compared to standard {% data variables.product.github %}-hosted runners, {% data variables.actions.hosted_runners %} are billed differently. {% data reusables.actions.about-larger-runners-billing %} For more information, see [AUTOTITLE](/billing/reference/actions-runner-pricing).
 
@@ -68,4 +68,3 @@ To start using larger runners, see [AUTOTITLE](/actions/how-tos/manage-runners/l
 To find reference information about using {% data variables.actions.hosted_runners %}, see [AUTOTITLE](/actions/reference/runners/larger-runners).
 
 {% endif %}
-

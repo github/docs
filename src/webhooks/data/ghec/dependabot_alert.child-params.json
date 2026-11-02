@@ -790,6 +790,46 @@
             "description": ""
           }
         ]
+      },
+      {
+        "type": "object",
+        "name": "reachability",
+        "description": "<p>The reachability result for the vulnerability that triggered the alert, indicating whether a\nvulnerable function is reachable from the repository's own code.</p>",
+        "childParamsGroups": [
+          {
+            "type": "string",
+            "name": "verdict",
+            "description": "<p>The reachability verdict for the alert.</p>\n<ul>\n<li><code>reachable</code>: a path from the repository's code reaches a vulnerable function.</li>\n<li><code>unreachable</code>: no path from the repository's code reaches a vulnerable function.</li>\n<li><code>potentially_reachable</code>: reachability could not be determined with confidence; review manually.</li>\n<li><code>unavailable</code>: no verdict has been computed for the alert yet.</li>\n<li><code>disabled</code>: reachability analysis is not enabled for the repository.</li>\n</ul>",
+            "isRequired": true,
+            "enum": [
+              "reachable",
+              "unreachable",
+              "potentially_reachable",
+              "unavailable",
+              "disabled"
+            ]
+          },
+          {
+            "type": "string",
+            "name": "reason",
+            "description": "<p>The reason for the reachability verdict. This field is omitted when reachability analysis is disabled or no result has been computed.</p>",
+            "enum": [
+              "unknown",
+              "unavailable_unsupported_ecosystem",
+              "unavailable_analysis_timed_out",
+              "potentially_reachable_invalid_manifest_path",
+              "potentially_reachable_missing_vulnerable_function_annotation",
+              "potentially_reachable_dependency_not_found",
+              "potentially_reachable_dependency_analysis_incomplete",
+              "potentially_reachable_repository_analysis_incomplete",
+              "potentially_reachable_call_found_outside_manifest_scope",
+              "potentially_reachable_unclassified_analysis_state",
+              "reachable_vulnerable_function_called",
+              "unreachable_vulnerable_function_not_called",
+              "potentially_reachable_unresolved_dynamic_call"
+            ]
+          }
+        ]
       }
     ]
   },
@@ -1582,6 +1622,46 @@
             "type": "string",
             "name": "user_view_type",
             "description": ""
+          }
+        ]
+      },
+      {
+        "type": "object",
+        "name": "reachability",
+        "description": "<p>The reachability result for the vulnerability that triggered the alert, indicating whether a\nvulnerable function is reachable from the repository's own code.</p>",
+        "childParamsGroups": [
+          {
+            "type": "string",
+            "name": "verdict",
+            "description": "<p>The reachability verdict for the alert.</p>\n<ul>\n<li><code>reachable</code>: a path from the repository's code reaches a vulnerable function.</li>\n<li><code>unreachable</code>: no path from the repository's code reaches a vulnerable function.</li>\n<li><code>potentially_reachable</code>: reachability could not be determined with confidence; review manually.</li>\n<li><code>unavailable</code>: no verdict has been computed for the alert yet.</li>\n<li><code>disabled</code>: reachability analysis is not enabled for the repository.</li>\n</ul>",
+            "isRequired": true,
+            "enum": [
+              "reachable",
+              "unreachable",
+              "potentially_reachable",
+              "unavailable",
+              "disabled"
+            ]
+          },
+          {
+            "type": "string",
+            "name": "reason",
+            "description": "<p>The reason for the reachability verdict. This field is omitted when reachability analysis is disabled or no result has been computed.</p>",
+            "enum": [
+              "unknown",
+              "unavailable_unsupported_ecosystem",
+              "unavailable_analysis_timed_out",
+              "potentially_reachable_invalid_manifest_path",
+              "potentially_reachable_missing_vulnerable_function_annotation",
+              "potentially_reachable_dependency_not_found",
+              "potentially_reachable_dependency_analysis_incomplete",
+              "potentially_reachable_repository_analysis_incomplete",
+              "potentially_reachable_call_found_outside_manifest_scope",
+              "potentially_reachable_unclassified_analysis_state",
+              "reachable_vulnerable_function_called",
+              "unreachable_vulnerable_function_not_called",
+              "potentially_reachable_unresolved_dynamic_call"
+            ]
           }
         ]
       }
@@ -2378,6 +2458,46 @@
             "description": ""
           }
         ]
+      },
+      {
+        "type": "object",
+        "name": "reachability",
+        "description": "<p>The reachability result for the vulnerability that triggered the alert, indicating whether a\nvulnerable function is reachable from the repository's own code.</p>",
+        "childParamsGroups": [
+          {
+            "type": "string",
+            "name": "verdict",
+            "description": "<p>The reachability verdict for the alert.</p>\n<ul>\n<li><code>reachable</code>: a path from the repository's code reaches a vulnerable function.</li>\n<li><code>unreachable</code>: no path from the repository's code reaches a vulnerable function.</li>\n<li><code>potentially_reachable</code>: reachability could not be determined with confidence; review manually.</li>\n<li><code>unavailable</code>: no verdict has been computed for the alert yet.</li>\n<li><code>disabled</code>: reachability analysis is not enabled for the repository.</li>\n</ul>",
+            "isRequired": true,
+            "enum": [
+              "reachable",
+              "unreachable",
+              "potentially_reachable",
+              "unavailable",
+              "disabled"
+            ]
+          },
+          {
+            "type": "string",
+            "name": "reason",
+            "description": "<p>The reason for the reachability verdict. This field is omitted when reachability analysis is disabled or no result has been computed.</p>",
+            "enum": [
+              "unknown",
+              "unavailable_unsupported_ecosystem",
+              "unavailable_analysis_timed_out",
+              "potentially_reachable_invalid_manifest_path",
+              "potentially_reachable_missing_vulnerable_function_annotation",
+              "potentially_reachable_dependency_not_found",
+              "potentially_reachable_dependency_analysis_incomplete",
+              "potentially_reachable_repository_analysis_incomplete",
+              "potentially_reachable_call_found_outside_manifest_scope",
+              "potentially_reachable_unclassified_analysis_state",
+              "reachable_vulnerable_function_called",
+              "unreachable_vulnerable_function_not_called",
+              "potentially_reachable_unresolved_dynamic_call"
+            ]
+          }
+        ]
       }
     ]
   },
@@ -3170,6 +3290,46 @@
             "type": "string",
             "name": "user_view_type",
             "description": ""
+          }
+        ]
+      },
+      {
+        "type": "object",
+        "name": "reachability",
+        "description": "<p>The reachability result for the vulnerability that triggered the alert, indicating whether a\nvulnerable function is reachable from the repository's own code.</p>",
+        "childParamsGroups": [
+          {
+            "type": "string",
+            "name": "verdict",
+            "description": "<p>The reachability verdict for the alert.</p>\n<ul>\n<li><code>reachable</code>: a path from the repository's code reaches a vulnerable function.</li>\n<li><code>unreachable</code>: no path from the repository's code reaches a vulnerable function.</li>\n<li><code>potentially_reachable</code>: reachability could not be determined with confidence; review manually.</li>\n<li><code>unavailable</code>: no verdict has been computed for the alert yet.</li>\n<li><code>disabled</code>: reachability analysis is not enabled for the repository.</li>\n</ul>",
+            "isRequired": true,
+            "enum": [
+              "reachable",
+              "unreachable",
+              "potentially_reachable",
+              "unavailable",
+              "disabled"
+            ]
+          },
+          {
+            "type": "string",
+            "name": "reason",
+            "description": "<p>The reason for the reachability verdict. This field is omitted when reachability analysis is disabled or no result has been computed.</p>",
+            "enum": [
+              "unknown",
+              "unavailable_unsupported_ecosystem",
+              "unavailable_analysis_timed_out",
+              "potentially_reachable_invalid_manifest_path",
+              "potentially_reachable_missing_vulnerable_function_annotation",
+              "potentially_reachable_dependency_not_found",
+              "potentially_reachable_dependency_analysis_incomplete",
+              "potentially_reachable_repository_analysis_incomplete",
+              "potentially_reachable_call_found_outside_manifest_scope",
+              "potentially_reachable_unclassified_analysis_state",
+              "reachable_vulnerable_function_called",
+              "unreachable_vulnerable_function_not_called",
+              "potentially_reachable_unresolved_dynamic_call"
+            ]
           }
         ]
       }
@@ -3966,6 +4126,46 @@
             "description": ""
           }
         ]
+      },
+      {
+        "type": "object",
+        "name": "reachability",
+        "description": "<p>The reachability result for the vulnerability that triggered the alert, indicating whether a\nvulnerable function is reachable from the repository's own code.</p>",
+        "childParamsGroups": [
+          {
+            "type": "string",
+            "name": "verdict",
+            "description": "<p>The reachability verdict for the alert.</p>\n<ul>\n<li><code>reachable</code>: a path from the repository's code reaches a vulnerable function.</li>\n<li><code>unreachable</code>: no path from the repository's code reaches a vulnerable function.</li>\n<li><code>potentially_reachable</code>: reachability could not be determined with confidence; review manually.</li>\n<li><code>unavailable</code>: no verdict has been computed for the alert yet.</li>\n<li><code>disabled</code>: reachability analysis is not enabled for the repository.</li>\n</ul>",
+            "isRequired": true,
+            "enum": [
+              "reachable",
+              "unreachable",
+              "potentially_reachable",
+              "unavailable",
+              "disabled"
+            ]
+          },
+          {
+            "type": "string",
+            "name": "reason",
+            "description": "<p>The reason for the reachability verdict. This field is omitted when reachability analysis is disabled or no result has been computed.</p>",
+            "enum": [
+              "unknown",
+              "unavailable_unsupported_ecosystem",
+              "unavailable_analysis_timed_out",
+              "potentially_reachable_invalid_manifest_path",
+              "potentially_reachable_missing_vulnerable_function_annotation",
+              "potentially_reachable_dependency_not_found",
+              "potentially_reachable_dependency_analysis_incomplete",
+              "potentially_reachable_repository_analysis_incomplete",
+              "potentially_reachable_call_found_outside_manifest_scope",
+              "potentially_reachable_unclassified_analysis_state",
+              "reachable_vulnerable_function_called",
+              "unreachable_vulnerable_function_not_called",
+              "potentially_reachable_unresolved_dynamic_call"
+            ]
+          }
+        ]
       }
     ]
   },
@@ -4758,6 +4958,46 @@
             "type": "string",
             "name": "user_view_type",
             "description": ""
+          }
+        ]
+      },
+      {
+        "type": "object",
+        "name": "reachability",
+        "description": "<p>The reachability result for the vulnerability that triggered the alert, indicating whether a\nvulnerable function is reachable from the repository's own code.</p>",
+        "childParamsGroups": [
+          {
+            "type": "string",
+            "name": "verdict",
+            "description": "<p>The reachability verdict for the alert.</p>\n<ul>\n<li><code>reachable</code>: a path from the repository's code reaches a vulnerable function.</li>\n<li><code>unreachable</code>: no path from the repository's code reaches a vulnerable function.</li>\n<li><code>potentially_reachable</code>: reachability could not be determined with confidence; review manually.</li>\n<li><code>unavailable</code>: no verdict has been computed for the alert yet.</li>\n<li><code>disabled</code>: reachability analysis is not enabled for the repository.</li>\n</ul>",
+            "isRequired": true,
+            "enum": [
+              "reachable",
+              "unreachable",
+              "potentially_reachable",
+              "unavailable",
+              "disabled"
+            ]
+          },
+          {
+            "type": "string",
+            "name": "reason",
+            "description": "<p>The reason for the reachability verdict. This field is omitted when reachability analysis is disabled or no result has been computed.</p>",
+            "enum": [
+              "unknown",
+              "unavailable_unsupported_ecosystem",
+              "unavailable_analysis_timed_out",
+              "potentially_reachable_invalid_manifest_path",
+              "potentially_reachable_missing_vulnerable_function_annotation",
+              "potentially_reachable_dependency_not_found",
+              "potentially_reachable_dependency_analysis_incomplete",
+              "potentially_reachable_repository_analysis_incomplete",
+              "potentially_reachable_call_found_outside_manifest_scope",
+              "potentially_reachable_unclassified_analysis_state",
+              "reachable_vulnerable_function_called",
+              "unreachable_vulnerable_function_not_called",
+              "potentially_reachable_unresolved_dynamic_call"
+            ]
           }
         ]
       }
@@ -5554,6 +5794,46 @@
             "description": ""
           }
         ]
+      },
+      {
+        "type": "object",
+        "name": "reachability",
+        "description": "<p>The reachability result for the vulnerability that triggered the alert, indicating whether a\nvulnerable function is reachable from the repository's own code.</p>",
+        "childParamsGroups": [
+          {
+            "type": "string",
+            "name": "verdict",
+            "description": "<p>The reachability verdict for the alert.</p>\n<ul>\n<li><code>reachable</code>: a path from the repository's code reaches a vulnerable function.</li>\n<li><code>unreachable</code>: no path from the repository's code reaches a vulnerable function.</li>\n<li><code>potentially_reachable</code>: reachability could not be determined with confidence; review manually.</li>\n<li><code>unavailable</code>: no verdict has been computed for the alert yet.</li>\n<li><code>disabled</code>: reachability analysis is not enabled for the repository.</li>\n</ul>",
+            "isRequired": true,
+            "enum": [
+              "reachable",
+              "unreachable",
+              "potentially_reachable",
+              "unavailable",
+              "disabled"
+            ]
+          },
+          {
+            "type": "string",
+            "name": "reason",
+            "description": "<p>The reason for the reachability verdict. This field is omitted when reachability analysis is disabled or no result has been computed.</p>",
+            "enum": [
+              "unknown",
+              "unavailable_unsupported_ecosystem",
+              "unavailable_analysis_timed_out",
+              "potentially_reachable_invalid_manifest_path",
+              "potentially_reachable_missing_vulnerable_function_annotation",
+              "potentially_reachable_dependency_not_found",
+              "potentially_reachable_dependency_analysis_incomplete",
+              "potentially_reachable_repository_analysis_incomplete",
+              "potentially_reachable_call_found_outside_manifest_scope",
+              "potentially_reachable_unclassified_analysis_state",
+              "reachable_vulnerable_function_called",
+              "unreachable_vulnerable_function_not_called",
+              "potentially_reachable_unresolved_dynamic_call"
+            ]
+          }
+        ]
       }
     ]
   },
@@ -6346,6 +6626,46 @@
             "type": "string",
             "name": "user_view_type",
             "description": ""
+          }
+        ]
+      },
+      {
+        "type": "object",
+        "name": "reachability",
+        "description": "<p>The reachability result for the vulnerability that triggered the alert, indicating whether a\nvulnerable function is reachable from the repository's own code.</p>",
+        "childParamsGroups": [
+          {
+            "type": "string",
+            "name": "verdict",
+            "description": "<p>The reachability verdict for the alert.</p>\n<ul>\n<li><code>reachable</code>: a path from the repository's code reaches a vulnerable function.</li>\n<li><code>unreachable</code>: no path from the repository's code reaches a vulnerable function.</li>\n<li><code>potentially_reachable</code>: reachability could not be determined with confidence; review manually.</li>\n<li><code>unavailable</code>: no verdict has been computed for the alert yet.</li>\n<li><code>disabled</code>: reachability analysis is not enabled for the repository.</li>\n</ul>",
+            "isRequired": true,
+            "enum": [
+              "reachable",
+              "unreachable",
+              "potentially_reachable",
+              "unavailable",
+              "disabled"
+            ]
+          },
+          {
+            "type": "string",
+            "name": "reason",
+            "description": "<p>The reason for the reachability verdict. This field is omitted when reachability analysis is disabled or no result has been computed.</p>",
+            "enum": [
+              "unknown",
+              "unavailable_unsupported_ecosystem",
+              "unavailable_analysis_timed_out",
+              "potentially_reachable_invalid_manifest_path",
+              "potentially_reachable_missing_vulnerable_function_annotation",
+              "potentially_reachable_dependency_not_found",
+              "potentially_reachable_dependency_analysis_incomplete",
+              "potentially_reachable_repository_analysis_incomplete",
+              "potentially_reachable_call_found_outside_manifest_scope",
+              "potentially_reachable_unclassified_analysis_state",
+              "reachable_vulnerable_function_called",
+              "unreachable_vulnerable_function_not_called",
+              "potentially_reachable_unresolved_dynamic_call"
+            ]
           }
         ]
       }

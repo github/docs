@@ -1318,7 +1318,51 @@
         }
       ],
       "descriptionHTML": "<p>Updates a private registry configuration with an encrypted value for an organization. Encrypt your secret using <a href=\"https://libsodium.gitbook.io/doc/bindings_for_other_languages\">LibSodium</a>. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.20/rest/guides/encrypting-secrets-for-the-rest-api\">Encrypting secrets for the REST API</a>.\"\nFor OIDC-based registries (<code>oidc_azure</code>, <code>oidc_aws</code>, <code>oidc_jfrog</code>, <code>oidc_cloudsmith</code>, or <code>oidc_gcp</code>), the <code>encrypted_value</code> and <code>key_id</code> fields should be omitted.\nFor anonymous registries (<code>anonymous</code>), the <code>username</code>, <code>encrypted_value</code>, and <code>key_id</code> fields must be omitted, and <code>auth_type</code> cannot be changed to or from <code>anonymous</code>.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
-      "codeExamples": [],
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Update a secret-based private registry",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "username": "monalisa",
+              "encrypted_value": "c2VjcmV0",
+              "key_id": "012345678912345678"
+            },
+            "parameters": {
+              "org": "ORG",
+              "secret_name": "SECRET_NAME"
+            }
+          },
+          "response": {
+            "statusCode": "204",
+            "description": "<p>Response</p>"
+          }
+        },
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Update an OIDC private registry (Azure)",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "tenant_id": "12345678-1234-1234-1234-123456789012",
+              "visibility": "selected",
+              "selected_repository_ids": [
+                1296269,
+                1296280
+              ]
+            },
+            "parameters": {
+              "org": "ORG",
+              "secret_name": "SECRET_NAME"
+            }
+          },
+          "response": {
+            "statusCode": "204",
+            "description": "<p>Response</p>"
+          }
+        }
+      ],
       "statusCodes": [
         {
           "httpStatusCode": "204",

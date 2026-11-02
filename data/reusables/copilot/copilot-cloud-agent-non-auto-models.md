@@ -12,6 +12,7 @@
 * {% data variables.copilot.gpt_6_luna %}
 * {% data variables.copilot.gpt_6_sol %}
 * {% data variables.copilot.gpt_61_sol %}
+* {% data variables.copilot.gpt_61_terra %}
 * {% data variables.copilot.grok_45 %}
 * {% data variables.copilot.grok_46 %}
 * {% data variables.copilot.grok_47 %}

@@ -2,7 +2,7 @@
 title: About rationale, confidence, and approvals for issues
 shortTitle: Rationale, confidence, and approvals
 allowTitleToDifferFromFilename: true
-intro: 'When {% data variables.copilot.copilot_automations %} triage issues, it explains each change, rates its confidence, and holds lower-confidence changes for your review.'
+intro: 'When {% data variables.copilot.copilot_automations %} triage issues, they explain each change, rate their confidence, and hold lower-confidence changes for your review.'
 product: '{% data reusables.gated-features.copilot-automations %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=engagement&ref_style=button&utm_source=docs-about-cca-automations&utm_medium=docs&utm_campaign=msbuild-2026" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
@@ -16,9 +16,7 @@ category:
 > [!NOTE]
 > Rationale, confidence, and approvals for {% data variables.copilot.copilot_automations %} are in {% data variables.release-phases.public_preview %} and subject to change.
 
-{% data variables.copilot.copilot_automations_cap %} run an agent to triage issues for you, applying labels, setting types and fields, assigning issues, and closing them, without a person initiating each change. Rationale, confidence, and approvals give you visibility into that automated work and control over when it applies.
-
-This capability is not specific to any one platform. It works the same whether the agent runs through {% data variables.copilot.copilot_cloud_agent %} {% data variables.copilot.copilot_automations %}, [{% data variables.copilot.github_agentic_workflows %}](https://gh.io/gh-aw), or the REST and GraphQL APIs.
+You can create an {% data variables.copilot.copilot_automation %} to triage issues for you, applying labels, setting types and fields, assigning issues, and closing them, without a person initiating each change. Rationale, confidence, and approvals give you visibility into that automated work and control over when it applies.
 
 This capability applies only to the changes an {% data variables.copilot.copilot_automation %} makes to **issues**. It does not apply to changes people make by hand, and it does not affect other actions an {% data variables.copilot.copilot_automation %} can take, such as opening pull requests or pushing code.
 

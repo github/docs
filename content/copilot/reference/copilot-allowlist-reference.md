@@ -51,7 +51,7 @@ The following table lists specific domains required for {% data variables.produc
 | `https://*.githubcopilot.com/*`                             | API service for {% data variables.product.prodname_copilot_short %} suggestions. Allows access to authorized users regardless of {% data variables.product.prodname_copilot_short %} plan. Do not add this URL to your allowlist if you are using subscription-based network routing. For more information on subscription-based network routing, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-access/manage-network-access). | `*.githubcopilot.com` |
 | `https://*.individual.githubcopilot.com`                    | API service for {% data variables.product.prodname_copilot_short %} suggestions. Allows access to authorized users via a {% data variables.copilot.copilot_individuals_short %} plan. Do not add this URL to your allowlist if you are using subscription-based network routing. | Not included |
 | `https://*.business.githubcopilot.com`                      | API service for {% data variables.product.prodname_copilot_short %} suggestions. Allows access to authorized users via a {% data variables.copilot.copilot_business_short %} plan. Do not add this URL to your allowlist if you want to use subscription-based network routing to block users from using {% data variables.copilot.copilot_business_short %} on your network. | Not included |
-| `https://*.enterprise.githubcopilot.com`                    | API service for {% data variables.product.prodname_copilot_short %} suggestions. Allows access to authorized users via a {% data variables.copilot.copilot_enterprise_short %} plan. Do not add this URL to your allowlist if you want to use subscription-based network routing to block users from using {% data variables.copilot.copilot_enterprise_short %} on your network. | Not included |
+| `https://*.enterprise.githubcopilot.com`                    | API service for {% data variables.product.prodname_copilot_short %} suggestions. Allows access to authorized users via a {% data variables.copilot.copilot_enterprise_short %} plan or the {% data variables.product.prodname_copilot_short %} access billing model. Blocking this URL blocks access through both billing models. | Not included |
 | `https://copilot-reports.github.com`                        | {% data variables.product.prodname_copilot_short %} usage metrics report downloads | `*.github.com` |
 | `https://copilot-reports-*.b01.azurefd.net`                 | {% data variables.product.prodname_copilot_short %} usage metrics report downloads (fallback). Required for fallback scenarios where downloads bypass the custom domain and are served from an Azure Front Door CDN. | Not included |
 | `https://usagereports*.blob.core.windows.net`               | {% data variables.product.prodname_copilot_short %} usage metrics report downloads (fallback). Required for fallback scenarios where downloads bypass the Azure Front Door CDN and are served directly from Azure Blob Storage. | Not included |
@@ -93,9 +93,11 @@ Voice features in {% data variables.copilot.copilot_cli %} and the {% data varia
 | `https://*.api.azureml.ms`                     | Regional model catalog endpoints |
 | `https://amlwlrt4*.blob.core.windows.net`      | Model downloads from regional Azure Blob Storage. The `amlwlrt4*` wildcard matches the regional Azure Blob Storage accounts that Foundry Local voice features use to download models. The specific storage account depends on the Azure region closest to the user. |
 
-## {% data variables.copilot.copilot_cloud_agent %} recommended allowlist
+<a name="copilot-cloud-agent-recommended-allowlist"></a>
 
-The {% data variables.copilot.copilot_cloud_agent %} includes a built-in firewall with a recommended allowlist that is enabled by default. The recommended allowlist allows access to:
+## {% data variables.copilot.copilot_in_the_cloud_short %} recommended allowlist
+
+The {% data variables.copilot.copilot_in_the_cloud_short %} includes a built-in firewall with a recommended allowlist that is enabled by default. The recommended allowlist allows access to:
 
 * Common operating system package repositories (for example, Debian, Ubuntu, Red Hat).
 * Common container registries (for example, Docker Hub, Azure Container Registry, AWS Elastic Container Registry).
@@ -103,7 +105,7 @@ The {% data variables.copilot.copilot_cloud_agent %} includes a built-in firewal
 * Common certificate authorities (to allow SSL certificates to be validated).
 * Hosts used to download web browsers for the Playwright MCP server.
 
-For more information about configuring the {% data variables.copilot.copilot_cloud_agent %} firewall, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-the-firewall).
+For more information about configuring the {% data variables.copilot.copilot_in_the_cloud_short %} firewall, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-the-firewall).
 
 The allowlist allows access to the following hosts:
 

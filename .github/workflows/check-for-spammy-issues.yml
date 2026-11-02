@@ -1,10 +1,12 @@
 name: Check for Spammy Issues
 
-# Closes low-value public issues so spam does not stay open in github/docs.
+# Closes low-value public issues and issues with emoji titles in github/docs.
+# GitHub employees, docs-bot, and the skip-spammy-check label are exempt.
+# Add skip-spammy-check before reopening an issue whose title still contains emoji.
 
 on:
   issues:
-    types: [opened]
+    types: [opened, edited, reopened]
 
 permissions:
   contents: read
@@ -13,58 +15,78 @@ jobs:
   spammy-title-check:
     name: Remove issues with spammy titles
     if: github.repository == 'github/docs'
+    concurrency:
+      group: ${{ github.workflow }}-spammy-title-${{ github.event.issue.number }}
+      cancel-in-progress: false
     runs-on: ubuntu-latest
     steps:
       - uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
         with:
           github-token: ${{ secrets.DOCS_BOT_PAT_BASE }}
           script: |
+            const params = { ...context.repo, issue_number: context.payload.issue.number }
 
-            const issue = context.payload.issue
-            const owner = 'github'
-            const repo = 'docs'
+            // Events can predate title edits or an exemption label, so read the current issue.
+            const { data: issue } = await github.rest.issues.get(params)
+            if (issue.state !== 'open' || issue.user.login === 'docs-bot') {
+              return
+            }
+            if (issue.labels.some(label => label.name.toLowerCase() === 'skip-spammy-check')) {
+              core.info('Skipping because the issue has the skip-spammy-check label.')
+              return
+            }
 
             const titleWordCount = issue.title.trim().split(' ').length
             const titleWordCountMin = 3
             const urlRegex = /https?:\/\/\S+/i
             const titleHasUrl = urlRegex.test(issue.title)
             const titleHasDollarSign = issue.title.includes('$')
+            // Text-default symbols need an emoji selector; plain digits, #, and * need a keycap.
+            const titleHasEmoji = /\p{Emoji_Presentation}(?!\uFE0E)|\p{Extended_Pictographic}\uFE0F|[#*0-9]\uFE0F?\u20E3/u.test(issue.title)
+            // Keep the existing non-emoji heuristics limited to newly opened issues.
+            const hasOtherSpam = context.payload.action === 'opened' &&
+              (titleWordCount < titleWordCountMin || titleHasUrl || titleHasDollarSign)
+            if (!titleHasEmoji && !hasOtherSpam) {
+              return
+            }
 
             try {
               await github.rest.teams.getMembershipForUserInOrg({
                 org: 'github',
                 team_slug: 'employees',
-                username: context.payload.sender.login,
-              });
+                username: issue.user.login,
+              })
 
               // Skip GitHub employees so legitimate internal reports stay open.
               return
             } catch (err) {
-              // The membership lookup throws for non-employees, so fall through to title checks.
-              if (titleWordCount >= titleWordCountMin && !titleHasUrl && !titleHasDollarSign) {
-                return
+              // Only a missing membership means non-employee; other failures must stop moderation.
+              if (err.status !== 404) {
+                throw err
               }
             }
 
-            await github.rest.issues.update({
-              owner: owner,
-              repo: repo,
-              issue_number: issue.number,
+            await github.rest.issues.addLabels({
+              ...params,
               labels: ['invalid'],
-              state: 'closed'
-            });
+            })
+
+            await github.rest.issues.update({
+              ...params,
+              state: 'closed',
+            })
 
             await github.rest.issues.createComment({
-              owner: owner,
-              repo: repo,
-              issue_number: issue.number,
-              body: `This issue may have been opened accidentally. I'm going to close it now, but feel free to open a new issue with a more descriptive title! Make sure not to include full URLs in your issue titles, and use paths instead.`
-            });
+              ...params,
+              body: titleHasEmoji
+                ? 'Closing because the title contains emoji. Please remove the emoji and open a new issue.'
+                : `This issue may have been opened accidentally. I'm going to close it now, but feel free to open a new issue with a more descriptive title! Make sure not to include full URLs in your issue titles, and use paths instead.`,
+            })
 
             try {
               await github.rest.projects.createCard({
                 column_id: 11167427,
-                content_id: context.payload.issue.id,
+                content_id: issue.id,
                 content_type: "Issue"
               });
             } catch (error) {

@@ -101,3 +101,91 @@
     margin: -0.5rem -0.75rem;
   }
 }
+
+// Mo's Diner event theme, set by the heroTheme frontmatter key. A wordmark cell
+// and an intro cell sit above a checkered strip, all bleeding to the section's
+// side rules. Colors follow the color mode, so the wordmark uses the text color.
+.mosDiner {
+  --mos-diner-checker: color-mix(
+    in srgb,
+    #d5336b 45%,
+    var(--brand-color-canvas-default)
+  );
+  --mos-diner-square: 0.75rem;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  width: auto;
+  margin-inline: -16px;
+
+  @media (min-width: 768px) {
+    margin-inline: -32px;
+  }
+
+  // Heading and intro become grid cells of their own.
+  .heroContent {
+    display: contents;
+  }
+
+  .heroHeading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: none;
+    padding: 2.5rem 2rem;
+    border-right: 1px solid var(--brand-color-border-subtle);
+  }
+
+  .heroDescription,
+  .heroButtons {
+    grid-column: 2;
+    align-self: center;
+    padding-inline: 3.5rem 2rem;
+  }
+
+  .themeAccent {
+    grid-column: 1 / -1;
+  }
+}
+
+// The artwork's aspect ratio keeps the mask from cropping.
+.heroWordmark {
+  display: block;
+  width: clamp(12rem, 75%, 21rem);
+  aspect-ratio: 470 / 238;
+  background-color: currentColor;
+  mask-repeat: no-repeat;
+  mask-size: contain;
+}
+
+// Offset conic gradients draw a two-row checkerboard strip.
+.themeAccent {
+  height: calc(var(--mos-diner-square) * 2);
+  background-image: conic-gradient(
+    var(--mos-diner-checker) 25%,
+    transparent 0 50%,
+    var(--mos-diner-checker) 0 75%,
+    transparent 0
+  );
+  background-size: calc(var(--mos-diner-square) * 2)
+    calc(var(--mos-diner-square) * 2);
+  background-position: left top;
+}
+
+@media (max-width: 865px) {
+  .mosDiner {
+    grid-template-columns: minmax(0, 1fr);
+
+    .heroHeading {
+      justify-content: flex-start;
+      padding: 2rem 1.5rem 1rem;
+      border-right: 0;
+    }
+
+    .heroDescription,
+    .heroButtons {
+      grid-column: 1;
+      padding: 0 1.5rem 2rem;
+    }
+  }
+}

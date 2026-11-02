@@ -9,8 +9,6 @@ product: '{% data variables.product.prodname_ghe_cloud %}'
 contentType: how-tos
 ---
 
-> [!NOTE] {% data reusables.actions.workflow-lockfiles-preview %}
-
 Locking your workflows' dependencies ensures that the actions you reference contain the same code that was originally reviewed. For more information, see [AUTOTITLE](/actions/concepts/security/workflow-dependency-lockfiles).
 
 ## 1. Check your action references
@@ -19,7 +17,7 @@ Creating a lockfile pins your dependencies to commits based on the current branc
 
 Check that each `uses` reference in your workflows points to a supported, current version of the action. For best practices, see [AUTOTITLE](/actions/reference/security/secure-use#using-third-party-actions).
 
-If any of your workflows call a reusable workflow in another repository, check those references too. Dependencies of reusable workflows are covered by the lockfile of the repository where the reusable workflow is defined. If your organization maintains shared workflows, we recommend onboarding those repositories first. See [AUTOTITLE](/actions/concepts/workflows-and-actions/reusing-workflow-configurations).
+If any of your workflows call a reusable workflow in another repository, check those references too. A reusable workflow's dependencies are covered by the lockfile of the repository where it's defined, not by your lockfile. That source repository needs its own lockfile for full coverage. If your organization maintains shared workflows, onboard those repositories first. See [AUTOTITLE](/actions/concepts/workflows-and-actions/reusing-workflow-configurations).
 
 We recommend letting {% data variables.product.prodname_dependabot %} manage your {% data variables.product.prodname_actions %} dependencies. If it's not already enabled, enable it before you create the lockfile. See [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/auto-update-actions).
 
@@ -49,28 +47,72 @@ To onboard a single workflow instead of the whole directory, pass its path.
 gh actions-lock .github/workflows/ci.yml
 ```
 
-If the extension reports that it has skipped a workflow because local path actions aren't supported, this means a `uses: ./…` reference in that workflow didn't resolve to a real action file. Local paths resolve from the repository root, **not** from the directory of the file that contains them, so a path that looks right next to its own file may not resolve. Correct the path and run the command again.
+The extension never follows or locks a local path action (`uses: ./…`). A `./` path runs whatever is checked out in the runner's workspace, so the extension can't pin it or see what it uses. A `$/` path runs your repository's own action at the workflow's commit, so it's pinned and the actions it uses can be locked. For a comparison of the two, see [AUTOTITLE](/actions/reference/workflows-and-actions/workflow-syntax#example-using-an-action-in-the-same-repository-as-the-workflow-at-the-running-commit-recommended).
 
-For the full set of options, run `gh actions-lock --help`.
+If a local action in your checkout uses other actions, the extension reports a `local-action` error and writes nothing, because those actions would fail at run time without lockfile entries. To lock the local action as a same-repository reference, run:
+
+```bash copy
+gh actions-lock --migrate-local-actions
+```
+
+To keep the `./` reference and report it as a warning instead, pass `--ignore-local-actions`. See [Keeping a local path action](#keeping-a-local-path-action).
+
+For the full set of options, run `gh actions-lock --help`. For help with a specific error or warning, see the [gh-actions-lock troubleshooting guide](https://github.com/github/gh-actions-lock/blob/main/docs/troubleshooting.md?utm_source=locking-action-dependencies-repo-workflow-doc-linking-gh&utm_medium=docs&utm_campaign=universe-2026).
+
+### Keeping a local path action
+
+If you pass `--ignore-local-actions`, what happens at run time depends on the actions that the local action uses:
+
+* **It uses no other actions**, for example only `run:` steps: The workflow runs normally.
+* **It uses actions that have lockfile entries for the same workflow**: The workflow runs normally.
+* **It uses an action that has no lockfile entry for that workflow**: The job fails when it reaches the local action's step, with an error such as `lockfile missing pin for octo-org/setup-tool@v2.0.0`. Earlier steps have already run.
+
+We recommend `--migrate-local-actions` instead, so the action runs as a pinned `$/` reference. If you need to keep the `./` reference, give the workflow lockfile entries for the actions that the local action uses. Add a composite action that uses the same actions, with the same references, and call it from the workflow in a step that never runs. Then run `gh actions-lock --ignore-local-actions`.
+
+```yaml
+# .github/actions/lock-local-deps/action.yml
+name: Lock local action dependencies
+description: Never runs. Lists the actions that ./.github/actions/build uses.
+runs:
+  using: composite
+  steps:
+    - uses: octo-org/setup-tool@v2.0.0
+```
+
+```yaml
+# In the workflow
+steps:
+  - uses: {% data reusables.actions.action-checkout %}
+  - if: false
+    uses: $/.github/actions/lock-local-deps
+  - uses: ./.github/actions/build
+```
+
+The entries must be recorded for the same workflow. An entry recorded only for a different workflow doesn't count. When the local action's dependencies change, update the composite action and run `gh actions-lock --ignore-local-actions` again.
 
 ## 4. Review the changes and commit
 
 The extension changes more than the lockfile, so review the full diff before you commit. It also rewrites your workflow `uses` references to the specific version it resolved, so a reference such as `octo-org/deploy-action@v3` can become `octo-org/deploy-action@v3.1.0`. This makes the reference more specific without changing the commit it resolves to.
 
-If your repository, organization, or enterprise only allows specified actions, check the allowlist before you commit. After a workflow is onboarded, the allowlist is checked against locked commit SHAs, because a tag can be moved to different code but a locked SHA can't. Entries pinned to a tag, such as `{% data reusables.actions.action-checkout %}`, no longer match. Use a wildcard or the full commit SHA instead. See [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-select-actions-and-reusable-workflows-to-run).
+> [!IMPORTANT]
+> If your repository, organization, or enterprise only allows specified actions, check the allowlist before you commit. After a workflow is onboarded, the allowlist is checked against locked commit SHAs instead of tags, because a tag can be moved to different code but a locked SHA can't. Entries pinned to a tag, such as `{% data reusables.actions.action-checkout %}`, no longer match once a workflow is onboarded. Use a wildcard or the full commit SHA instead. See [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-select-actions-and-reusable-workflows-to-run).
 
-References to actions in your own repository are rewritten too, from `uses: ./…` to the equivalent `uses: $/…`, in both your workflows and your in-repository `action.yml` files. A `$/…` reference always resolves to the running commit, so it's inherently pinned and needs no lockfile entry.
+If you passed `--migrate-local-actions`, the extension also rewrites references to actions in your own repository, from `uses: ./…` to `uses: $/…`, in your workflows and your repository's `action.yml` files. It only does this when you pass the option, because the two forms behave differently. A `./` path resolves against whatever is in the runner's workspace, while a `$/…` reference always runs at the workflow's own commit, so it needs no lockfile entry. Review each rewritten line.
 
 ## 5. Keep the lockfile current
 
 Keep the lockfile up to date with your repository's workflow files and security updates.
 
 1. **Re-run the extension when you change dependencies.** Run `gh actions-lock` again whenever you add a workflow that has `uses` dependencies, or add or remove `uses` dependencies in an existing workflow.
-1. **Let {% data variables.product.prodname_dependabot %} handle version bumps.** When {% data variables.product.prodname_dependabot %} opens a version update for an action in a workflow you've onboarded, it will also regenerate the matching lockfile entry in the same pull request, so your workflow file and lockfile can't drift apart.
-   
-   {% data variables.product.prodname_dependabot %} will **not** onboard a workflow for you. If it bumps a dependency in a workflow with no lockfile entry, it just reports that onboarding is required.
+1. **Let {% data variables.product.prodname_dependabot %} handle version bumps.** When {% data variables.product.prodname_dependabot %} opens a version update for an action in a workflow you've onboarded, it also regenerates the matching lockfile entry in the same pull request. Your workflow file and lockfile can't drift apart.
 
-1. **Re-resolve references that have moved.** References to branches or partial versions, such as `main` or `v3`, are trusted from the lockfile and aren't re-resolved on a normal run. If the extension reports an error because a tag now points to a different upstream commit, check the upstream repository's history first. If the move was legitimate, re-resolve the reference with `gh actions-lock --relock`. If the commit you originally locked is no longer reachable at all, for example because the upstream repository force-pushed or deleted it, `--relock` will still report an error. To accept the new commit, run `gh actions-lock --relock --accept-moved`.
+   {% data variables.product.prodname_dependabot %} only updates lockfile entries for workflows that are already onboarded. If it bumps an action in a workflow that isn't in the lockfile, it updates the workflow file as usual and leaves the lockfile unchanged.
+
+1. **Re-resolve references that have moved.** How the extension handles a moved reference depends on the reference:
+
+   * **A branch or partial version**, such as `main` or `v3`, keeps its locked commit, and the extension reports a `ref-moved` warning. To advance it, check the upstream history, then run `gh actions-lock --relock`.
+   * **A full version tag**, such as `v3.1.0`, must point at its locked commit. If the tag moved, the extension reports an error until you run `gh actions-lock --relock` or change the `uses:` line.
+   * **A rewritten history**, where the locked commit is no longer in the reference's history, for example after a force-push, is an error that `--relock` doesn't fix. After you've reviewed the upstream history, run `gh actions-lock --accept-moved`. Don't use `--accept-moved` in automation.
 
 ### Reviewing lockfile changes
 

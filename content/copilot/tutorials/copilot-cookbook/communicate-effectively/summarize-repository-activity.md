@@ -11,6 +11,8 @@ category:
   - Communicate effectively
   - Author and optimize with Copilot
   - Scale institutional knowledge
+  - Appetizers - Plan your plate
+
 contentType: tutorials
 redirect_from:
   - /copilot/tutorials/copilot-chat-cookbook/communicate-effectively/extracting-information

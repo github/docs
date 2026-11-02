@@ -1,0 +1,4 @@
+# GitHub App authentication for supported enterprise GraphQL operations
+versions:
+  ghec: '*'
+  ghes: '>=3.24'

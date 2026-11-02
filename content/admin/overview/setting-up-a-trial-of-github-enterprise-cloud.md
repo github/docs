@@ -38,8 +38,7 @@ The 50,000 monthly {% data variables.product.prodname_actions %} minutes include
 ## Features not included in the trial
 
 * {% data variables.product.prodname_github_codespaces %}
-* {% data variables.copilot.copilot_enterprise %}
-* {% data variables.copilot.copilot_for_business %}
+* {% data variables.product.prodname_copilot %}
 * {% data variables.product.prodname_sponsors %}
 * Paid {% data variables.product.prodname_marketplace %} apps
 * {% data variables.product.prodname_github_connect %}
@@ -48,6 +47,8 @@ The 50,000 monthly {% data variables.product.prodname_actions %} minutes include
 * Access to {% data variables.product.prodname_ghe_server %}. To test this, contact {% data variables.contact.contact_enterprise_sales %}.
 
 If you invite an existing organization into your trial enterprise, **all of these features will be disabled**. If you remove the organization from the enterprise, the features will be re-enabled.
+
+To arrange a separate {% data variables.product.prodname_copilot_short %} trial, contact {% data variables.contact.contact_enterprise_sales %} and confirm the trial terms with them.
 
 ## Do I need to provide a payment method?
 
@@ -76,6 +77,12 @@ For help setting up the included features, once you've started your trial, see [
 You can end your trial at any time by purchasing {% data variables.product.prodname_enterprise %} or canceling the trial. Otherwise, after {% data reusables.enterprise.ghec-trial-length %} days, your trial will expire.
 
 {% data variables.product.prodname_enterprise %} trial accounts are automatically deleted 90 days after the trial period ends if the account has not been converted to a paid account.
+
+### If you convert to a paid enterprise
+
+Purchasing {% data variables.product.prodname_enterprise %} ends the trial and starts your paid subscription.
+
+If you want {% data variables.product.prodname_copilot_short %} access included with your paid {% data variables.product.prodname_ghe_cloud %} licenses, contact your {% data variables.product.github %} or Microsoft account team before converting to confirm eligibility. See [AUTOTITLE](/copilot/get-started/whats-changing-with-github-enterprise-and-copilot).
 
 ### If you cancel your trial
 

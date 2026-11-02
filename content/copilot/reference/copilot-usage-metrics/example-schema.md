@@ -27,7 +27,7 @@ The following examples show schemas for user-, enterprise-, and repository-level
   "ai_credits_used": 12.5,
   "code_acceptance_activity_count": 3,
   "code_generation_activity_count": 3,
-  "day": "2025-10-01",
+  "day": "2026-10-19",
   "distinct_custom_agent_use_count": 2,
   "distinct_mcp_use_count": 2,
   "distinct_plugin_use_count": 1,
@@ -40,8 +40,8 @@ The following examples show schemas for user-, enterprise-, and repository-level
   "loc_suggested_to_delete_sum": 6,
   "totals_by_cli": {
     "last_known_cli_version": {
-      "cli_version": "1.0.8",
-      "sampled_at": "2025-10-01T00:01:43.000Z"
+      "cli_version": "1.0.97",
+      "sampled_at": "2026-10-19T00:01:43.000Z"
     },
     "prompt_count": 2,
     "request_count": 2,
@@ -52,6 +52,54 @@ The following examples show schemas for user-, enterprise-, and repository-level
       "prompt_tokens_sum": 3800
     }
   },
+  "totals_by_client": [{
+    "client": "opencode",
+    "request_count": 3,
+    "session_count": 2,
+    "token_usage": {
+      "avg_tokens_per_request": 1100.0,
+      "output_tokens_sum": 900,
+      "prompt_tokens_sum": 2400
+    },
+    "totals_by_model": [{
+      "model": "claude-opus-5.5",
+      "model_selection_mode": "user_selected",
+      "request_count": 2,
+      "token_usage": {
+        "avg_tokens_per_request": 1200.0,
+        "output_tokens_sum": 600,
+        "prompt_tokens_sum": 1800
+      }
+    }, {
+      "model": "claude-sonnet-5",
+      "model_selection_mode": "auto",
+      "request_count": 1,
+      "token_usage": {
+        "avg_tokens_per_request": 900.0,
+        "output_tokens_sum": 300,
+        "prompt_tokens_sum": 600
+      }
+    }]
+  }, {
+    "client": "copilot_cli",
+    "request_count": 1,
+    "session_count": 1,
+    "token_usage": {
+      "avg_tokens_per_request": 600.0,
+      "output_tokens_sum": 100,
+      "prompt_tokens_sum": 500
+    },
+    "totals_by_model": [{
+      "model": "gpt-5.6-sol",
+      "model_selection_mode": "user_selected",
+      "request_count": 1,
+      "token_usage": {
+        "avg_tokens_per_request": 600.0,
+        "output_tokens_sum": 100,
+        "prompt_tokens_sum": 500
+      }
+    }]
+  }],
   "totals_by_copilot_app": {
     "prompt_count": 1,
     "request_count": 3,
@@ -66,7 +114,7 @@ The following examples show schemas for user-, enterprise-, and repository-level
     "custom_agent": "general-purpose",
     "interaction_count": 4
   }, {
-    "custom_agent": "other",
+    "custom_agent": "release-reviewer",
     "interaction_count": 2
   }],
   "totals_by_3rd_party_agent": [{
@@ -103,12 +151,12 @@ The following examples show schemas for user-, enterprise-, and repository-level
     "ide": "vscode",
     "last_known_ide_version": {
       "ide_version": "1.85.0",
-      "sampled_at": "2025-10-01T00:00:02.000Z"
+      "sampled_at": "2026-10-19T00:00:02.000Z"
     },
     "last_known_plugin_version": {
       "plugin": "",
       "plugin_version": "",
-      "sampled_at": "2025-10-01T00:00:02.000Z"
+      "sampled_at": "2026-10-19T00:00:02.000Z"
     },
     "loc_added_sum": 8,
     "loc_deleted_sum": 0,
@@ -141,7 +189,7 @@ The following examples show schemas for user-, enterprise-, and repository-level
     "mcp": "github-mcp-server"
   }, {
     "interaction_count": 3,
-    "mcp": "other"
+    "mcp": "docs-search"
   }],
   "totals_by_model_feature": [],
   "totals_by_vscode_agent": {
@@ -150,10 +198,16 @@ The following examples show schemas for user-, enterprise-, and repository-level
   },
   "totals_by_plugin": [{
     "interaction_count": 2,
-    "plugin": "other"
+    "plugin": "engineering-tools"
   }],
   "totals_by_skill": [{
-    "interaction_count": 5,
+    "interaction_count": 2,
+    "skill": "code-review"
+  }, {
+    "interaction_count": 2,
+    "skill": "release-checks"
+  }, {
+    "interaction_count": 1,
     "skill": "other"
   }],
   "totals_by_slash_cmd": [{
@@ -161,7 +215,7 @@ The following examples show schemas for user-, enterprise-, and repository-level
     "slash_cmd": "/plan"
   }, {
     "interaction_count": 1,
-    "slash_cmd": "custom"
+    "slash_cmd": "/release-check"
   }],
   "used_agent": false,
   "used_chat": false,
@@ -182,7 +236,13 @@ Organization per-user reports use the same `totals_by_3rd_party_agent` entry fie
 
 In both enterprise and organization per-user reports, `used_vscode_agent` and `totals_by_vscode_agent` provide dedicated metrics for the {% data variables.product.prodname_vscode_shortname %} Agents window. These fields appear at the top level in both 1-day and 28-day reports. They are omitted when no dedicated {% data variables.product.prodname_vscode_shortname %} Agents-window data is available, and `totals_by_vscode_agent` is omitted unless both of its counts are available.
 
-The {% data variables.copilot.copilot_cli_short %} customization fields shown in this example appear in both 1-day and 28-day per-user reports.
+The customization fields shown in this example appear in both 1-day and 28-day per-user reports for enterprises and organizations. Configured names such as `release-reviewer` and `docs-search` identify customizations created by your organization.
+
+Customizations with unavailable names or names that look like file paths remain grouped under `other` or `custom`. In per-user 1-day reports, each of the five customization arrays retains up to 25 named entries per user. Additional entries are combined into a trailing `other` entry. An entry's absence from a capped array does not mean that it had zero usage.
+
+For coverage and naming rules, see [AUTOTITLE](/copilot/reference/copilot-usage-metrics/copilot-usage-metrics#customization-fields-api-only).
+
+The `totals_by_client` array appears at the top level of each user record in both 1-day and 28-day per-user reports, for both enterprise and organization scopes. It counts successful model requests server-side, so it can include clients, such as OpenCode, that don't appear in `totals_by_ide`.
 
 In this example, `used_copilot_code_review_active` and `used_copilot_code_review_passive` are `null` because there was no {% data variables.copilot.copilot_code-review_short %} signal for the user that day. `used_copilot_cloud_agent` and `used_copilot_coding_agent` always carry the same value.
 
@@ -290,6 +350,54 @@ In this example, `used_copilot_code_review_active` and `used_copilot_code_review
         "prompt_tokens_sum" : 5300
       }
     },
+    "totals_by_client" : [ {
+      "client" : "opencode",
+      "request_count" : 3,
+      "session_count" : 2,
+      "token_usage" : {
+        "avg_tokens_per_request" : 1100.0,
+        "output_tokens_sum" : 900,
+        "prompt_tokens_sum" : 2400
+      },
+      "totals_by_model" : [ {
+        "model" : "claude-opus-5.5",
+        "model_selection_mode" : "user_selected",
+        "request_count" : 2,
+        "token_usage" : {
+          "avg_tokens_per_request" : 1200.0,
+          "output_tokens_sum" : 600,
+          "prompt_tokens_sum" : 1800
+        }
+      }, {
+        "model" : "claude-sonnet-5",
+        "model_selection_mode" : "auto",
+        "request_count" : 1,
+        "token_usage" : {
+          "avg_tokens_per_request" : 900.0,
+          "output_tokens_sum" : 300,
+          "prompt_tokens_sum" : 600
+        }
+      } ]
+    }, {
+      "client" : "copilot_cli",
+      "request_count" : 1,
+      "session_count" : 1,
+      "token_usage" : {
+        "avg_tokens_per_request" : 600.0,
+        "output_tokens_sum" : 100,
+        "prompt_tokens_sum" : 500
+      },
+      "totals_by_model" : [ {
+        "model" : "gpt-5.6-sol",
+        "model_selection_mode" : "user_selected",
+        "request_count" : 1,
+        "token_usage" : {
+          "avg_tokens_per_request" : 600.0,
+          "output_tokens_sum" : 100,
+          "prompt_tokens_sum" : 500
+        }
+      } ]
+    } ],
     "totals_by_copilot_app" : {
       "prompt_count" : 2,
       "request_count" : 6,
@@ -491,6 +599,45 @@ In this example, `used_copilot_code_review_active` and `used_copilot_code_review
       "users_in_phase_28d" : 1,
       "total_pull_requests_merged" : 0
     } ],
+    "totals_by_client" : [ {
+      "client" : "github_app",
+      "request_count" : 2,
+      "session_count" : 1,
+      "token_usage" : {
+        "avg_tokens_per_request" : 1000.0,
+        "output_tokens_sum" : 500,
+        "prompt_tokens_sum" : 1500
+      },
+      "totals_by_model" : [ {
+        "model" : "gpt-5.6-sol",
+        "model_selection_mode" : "user_selected",
+        "request_count" : 2,
+        "token_usage" : {
+          "avg_tokens_per_request" : 1000.0,
+          "output_tokens_sum" : 500,
+          "prompt_tokens_sum" : 1500
+        }
+      } ]
+    }, {
+      "client" : "code_review",
+      "request_count" : 2,
+      "session_count" : 1,
+      "token_usage" : {
+        "avg_tokens_per_request" : 800.0,
+        "output_tokens_sum" : 400,
+        "prompt_tokens_sum" : 1200
+      },
+      "totals_by_model" : [ {
+        "model" : "unknown",
+        "model_selection_mode" : "product_selected",
+        "request_count" : 2,
+        "token_usage" : {
+          "avg_tokens_per_request" : 800.0,
+          "output_tokens_sum" : 400,
+          "prompt_tokens_sum" : 1200
+        }
+      } ]
+    } ],
     "totals_by_custom_agent" : [ ],
     "totals_by_feature" : [ {
       "code_acceptance_activity_count" : 1,
@@ -587,7 +734,9 @@ In each `totals_by_ai_adoption_phase` entry, `total_engaged_users` is the subset
 
 Organization aggregated reports use the same top-level `copilot_feature_engagement` object, `totals_by_ai_adoption_phase` entry fields, and `totals_by_3rd_party_agent` entry fields, including `session_count`. They also include `organization_id`.
 
-The {% data variables.copilot.copilot_cli_short %} customization fields shown in `day_totals` apply to enterprise and organization aggregated 28-day reports. They also appear directly in enterprise and organization aggregated 1-day reports.
+The customization fields shown in `day_totals` apply to enterprise and organization aggregated 28-day reports. They also appear directly in enterprise and organization aggregated 1-day reports. Like per-user reports, these aggregated reports include configured names for customizations created by your organization.
+
+Similarly, `totals_by_client` appears within each `day_totals` entry in enterprise and organization aggregated 28-day reports, and directly on the record in aggregated 1-day reports. In aggregated reports, each `totals_by_client` entry's `session_count` is de-duplicated across all users rather than summed from per-user counts.
 
 The following user-teams report examples are returned by the `user-teams-1-day` endpoints and are intended to be joined with the per-user usage report on `user_id`, `day`, and the relevant entity id (`organization_id` for the organization scope, `enterprise_id` for the enterprise scope) to derive team-level metrics. For more guidance, see [AUTOTITLE](/copilot/reference/copilot-usage-metrics/team-level-metrics).
 

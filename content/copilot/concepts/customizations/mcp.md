@@ -51,20 +51,22 @@ For more information on MCP, see [the official MCP documentation](https://modelc
 
 MCP complements the context you provide through prompts, files, and instructions. It adds connections to tools and data, rather than replacing guidance about how the agent should work. For guidance about prompting and managing context, see [AUTOTITLE](/copilot/concepts/prompting-and-context).
 
+Connect a service once through {% data variables.product.github %}-verified MCP servers (connectors), then use the connection across supported {% data variables.product.prodname_copilot_short %} surfaces without repeating setup or signing in separately in each one. These connections also work in {% data variables.product.prodname_copilot_short %} sessions running in a cloud sandbox, but not in sessions running on {% data variables.product.prodname_actions %}. See [AUTOTITLE](/copilot/concepts/customizations/copilot-connectors).
+
 ## Where you can use MCP
 
 MCP setup depends on where you use {% data variables.product.prodname_copilot_short %}:
 
 * **The {% data variables.copilot.github_copilot_app %}**: You can use MCP servers configured for your repository or in your local {% data variables.product.prodname_copilot_short %} configuration. You can also discover and install additional MCP servers from the **Customize** tab.
 * **{% data variables.copilot.copilot_cli_short %}**: {% data variables.copilot.copilot_cli %} supports both local and remote MCP servers. The {% data variables.product.github %} MCP server is built in and available without additional configuration.
-* **{% data variables.copilot.copilot_cloud_agent %} and {% data variables.copilot.copilot_code-review_short %}**: {% data variables.product.prodname_dotcom_the_website %} supports MCP servers configured at the repository level. The configuration applies to both {% data variables.copilot.copilot_cloud_agent %} and {% data variables.copilot.copilot_code-review_short %}. The {% data variables.product.github %} MCP server and Playwright MCP server are configured by default.
+* **{% data variables.copilot.copilot_cloud_agent %} (including {% data variables.copilot.copilot_automations %}) and {% data variables.copilot.copilot_code-review_short %}**: {% data variables.product.prodname_dotcom_the_website %} supports MCP servers configured at the repository level. The configuration applies to {% data variables.copilot.copilot_cloud_agent %}, {% data variables.copilot.copilot_automations %} and {% data variables.copilot.copilot_code-review_short %}. The {% data variables.product.github %} MCP server and Playwright MCP server are configured by default.
 * **IDEs**: MCP servers are supported in {% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, {% data variables.jetbrains.prodname_jetbrains_ides %}, Xcode, and Eclipse. Connection and authentication options depend on the IDE. See [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/customize-copilot/extend-copilot-with-tools-and-context/extend-copilot-chat-with-mcp).
 
 Chat on {% data variables.product.prodname_dotcom_the_website %} has preconfigured tools, such as tools for creating branches and searching code. This is separate from the repository MCP settings for {% data variables.copilot.copilot_cloud_agent %} and {% data variables.copilot.copilot_code-review_short %}. See [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-on-github).
 
 ## MCP for {% data variables.copilot.copilot_cloud_agent %}
 
-The following sections describe MCP defaults and configuration for {% data variables.copilot.copilot_cloud_agent %}. Repository-level MCP settings also apply to {% data variables.copilot.copilot_code-review_short %}, as noted below. For other surfaces, use the setup guides in [Next steps](#next-steps).
+The following sections describe MCP defaults and configuration for {% data variables.copilot.copilot_cloud_agent %}, including {% data variables.copilot.copilot_automations %}. Repository-level MCP settings also apply to {% data variables.copilot.copilot_code-review_short %}, as noted below. For other surfaces, use the setup guides in [Next steps](#next-steps).
 
 ### Default MCP servers
 
@@ -75,14 +77,45 @@ The following sections describe MCP defaults and configuration for {% data varia
 
 These defaults are specific to the cloud environment. For example, {% data variables.copilot.copilot_cli_short %} includes the {% data variables.product.github %} MCP server without additional configuration, but you configure other servers separately.
 
+### Personal MCP servers
+
+Personal MCP servers connect {% data variables.product.prodname_copilot_short %} to tools and data for your own workflow. Configure a server once to make it available in every cloud session you start. These servers are available only to you and do not affect other users working in the same repository.
+
+Before configuring a personal MCP server, check if the service you need is covered by {% data variables.product.github %}-verified MCP servers (connectors). {% data variables.product.github %}-verified MCP servers are available in both cloud and local sessions, and {% data variables.product.github %} handles MCP server configuration and authentication for you. By contrast, personal MCP servers only support key-based authentication and are only available in cloud sandboxes. See [AUTOTITLE](/copilot/concepts/customizations/copilot-connectors).
+
+Use personal MCP servers for connections you want across repositories or that require your own credentials. To provide a shared configuration for collaborators working in a particular repository, use [repository-level configuration](#repository-level-configuration) instead.
+
+1. Navigate to your {% data variables.product.prodname_copilot_short %} {% octicon "home" aria-label="The home icon" %} home page at [github.com/copilot](https://github.com/copilot?ref_product=copilot&ref_type=engagement&ref_style=text&utm_source=customization-concept-doc-home&utm_medium=docs&utm_campaign=universe-2026).
+1. In the left menu, click the **{% octicon "tools" aria-label="The tools icon" %} Customize** menu.
+1. Check whether the service you need is covered by a {% data variables.product.github %}-verified MCP server.
+1. If a {% data variables.product.github %}-verified MCP server doesn't cover your needs and you want to configure your own MCP server, select the **{% octicon "plus" aria-label="The plus icon" %} Add** dropdown menu, then click **{% octicon "server" aria-label="The server icon" %} MCP server**.
+1. Enter the server name, transport type, URL or startup command, and other required configuration.
+1. If authentication is required, create secrets in [Personal MCP server secrets](https://github.com/settings/copilot/agent-secrets?utm_source=customization-concept-doc-agent-secrets&utm_medium=docs&utm_campaign=universe-2026) with names prefixed with `COPILOT_MCP_`, such as `COPILOT_MCP_API_KEY`, and reference them in the server configuration.
+1. Click **Add server**.
+
+By default, personal MCP server secrets are available in sessions scoped to your personal account. You can also allow their use in selected organizations to use your authenticated servers there.
+
+#### Limitations
+
+* Personal MCP servers are available in every cloud session. You cannot currently choose which servers to enable for an individual session.
+* Custom HTTP and SSE MCP servers do not support query parameters in their URLs. Pass these values as request headers instead.
+* If a server is unavailable, check its configuration and confirm that any required secrets exist and are available to the account or organization where the session runs.
+* You can use up to 50 MCP servers in total across personal and repository-level configurations.
+
 ### Repository-level configuration
 
-Repository administrators can configure MCP servers in repository settings on {% data variables.product.prodname_dotcom_the_website %}. These settings are shared by {% data variables.copilot.copilot_cloud_agent %} and {% data variables.copilot.copilot_code-review_short %}. You can disable MCP tool use for code review separately.
+Repository-level MCP servers connect {% data variables.product.prodname_copilot_short %} to tools and data for work in a specific repository. Repository administrators configure these servers in repository settings on {% data variables.product.prodname_dotcom_the_website %}, and the configuration is available to anyone with write access to the repository. These settings apply to both {% data variables.copilot.copilot_in_the_cloud_short %} (including {% data variables.copilot.copilot_automations %}) and {% data variables.copilot.copilot_code-review_short %}. You can disable MCP tool use for code review separately.
+
+Use repository-level configuration when collaborators need the same tools, such as a shared issue tracker or documentation service. For servers that require authentication, use a service account for {% data variables.product.prodname_copilot_short %} rather than personal credentials. Repository-level servers cannot reference personal MCP server secrets.
+
+You can use personal and repository-level servers together. If both configurations define a server with the same name, the repository-level configuration takes precedence.
 
 This repository setting is distinct from project MCP configuration files used by {% data variables.copilot.copilot_cli_short %}. Use the setup guide for your surface rather than assuming that the same configuration location applies everywhere.
 
+{% data variables.copilot.copilot_automations_cap %} can use tools from these MCP servers, but only the tools you select for each {% data variables.copilot.copilot_automation %}. See [AUTOTITLE](/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/about-automations#tools-and-actions).
+
 > [!WARNING]
-> {% data variables.copilot.copilot_cloud_agent %} uses configured MCP tools autonomously and does not ask for approval before calling them. Review each server and allow only the tools and access needed for your tasks.
+> When you delegate work to {% data variables.product.prodname_copilot_short %} by @mentioning it or assigning it an issue or pull request, {% data variables.product.prodname_copilot_short %} uses configured MCP tools autonomously and does not ask for approval before calling them. For these workflows, review each server and allow only the tools and access needed for your tasks.
 
 {% data reusables.copilot.mcp.repo-mcp-limitations %}
 
@@ -101,7 +134,7 @@ For the profile format, supported properties, and processing rules, see [AUTOTIT
 ## Best practices
 
 * Review third-party servers before enabling them. Check their tools, authentication requirements, and data access against your organization's requirements.
-* Enable only the tools a task needs. In repository settings, use the `tools` field to allowlist specific tools, preferably read-only tools, rather than enabling every tool.
+* Enable only the tools a task needs. In repository settings, use the `tools` field to allowlist specific tools, preferably read-only tools, rather than enabling every tool. In {% data variables.copilot.copilot_automations %}, pick the specific tools you need.
 * Keep credentials scoped to the required resources. Do not broaden the default token's access for {% data variables.copilot.copilot_cloud_agent %} unless the task needs it.
 * Validate configuration before relying on it. Confirm which servers and tools are available in your agent session. For setup instructions for your environment, see [Next steps](#next-steps).
 

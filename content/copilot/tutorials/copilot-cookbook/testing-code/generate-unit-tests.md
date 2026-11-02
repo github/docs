@@ -14,6 +14,7 @@ category:
   - Testing code
   - Author and optimize with Copilot
   - Improve quality and maintainability
+  - Soup - Test your tasks, to taste
 surface:
   - Chat
 octicon: beaker

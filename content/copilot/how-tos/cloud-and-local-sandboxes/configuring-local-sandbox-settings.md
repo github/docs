@@ -31,29 +31,35 @@ For a conceptual overview of cloud and local sandboxes for {% data variables.pro
 
 ## Configuring the {% data variables.copilot.github_copilot_app_short %}
 
-You configure local sandboxing separately for each project in the {% data variables.copilot.github_copilot_app %}. The configuration applies to local repository and working tree sessions. It does not apply to cloud sandbox sessions or sessions that run on a remote host.
+You configure local sandboxing separately for each repository or local folder in the {% data variables.copilot.github_copilot_app %}. The configuration applies to local repository and working tree sessions. It does not apply to cloud sandbox sessions or sessions that run on a remote host.
 
 A working tree keeps the branches and files for concurrent sessions separate, but it does not restrict what a command can access elsewhere on your machine. Local sandboxing provides that additional protection.
 
-### Enabling local sandboxing for a project
+<!-- Anchor to preserve links from before the Projects to Repositories rename. -->
+<a name="enabling-local-sandboxing-for-a-project"></a>
 
-Local sandboxing is turned off by default unless enterprise managed settings require it. The sandbox settings are not available for remote-only projects. To enable sandboxing for new local sessions in a project:
+### Enabling local sandboxing for a repository
+
+Local sandboxing is turned off by default unless enterprise managed settings require it. The sandbox settings are not available for remote-only repositories. To enable sandboxing for new local sessions in a repository or local folder:
 
 1. In the app sidebar, open **Settings**.
-1. Under "Projects," select the project that you want to configure.
+1. Under "Repositories," select the repository or folder that you want to configure.
 1. Under "Sandbox," turn on **Sandbox new sessions**.
 
-The setting applies to new sessions in the project. It does not change a session that is already running. For details of how to turn on local sandboxing for the current session, see [AUTOTITLE](/copilot/how-tos/cloud-and-local-sandboxes/using-local-sandboxing#enabling-and-disabling-sandboxing-for-your-session).
+The setting applies to new sessions in the repository or folder. It does not change a session that is already running. For details of how to turn on local sandboxing for the current session, see [AUTOTITLE](/copilot/how-tos/cloud-and-local-sandboxes/using-local-sandboxing#enabling-and-disabling-sandboxing-for-your-session).
 
-For most projects, you can start with the default sandboxing policy. This allows access needed for common development tasks such as installing dependencies, connecting to a local development server, pushing a branch, and creating a pull request. Add restrictions when the project is next to sensitive folders, does not need network access, or should not use your credentials.
+For most repositories, you can start with the default sandboxing policy. This allows access needed for common development tasks such as installing dependencies, connecting to a local development server, pushing a branch, and creating a pull request. Add restrictions when the repository is next to sensitive folders, does not need network access, or should not use your credentials.
 
-### Configuring the sandbox policy for a project
+<!-- Anchor to preserve links from before the Projects to Repositories rename. -->
+<a name="configuring-the-sandbox-policy-for-a-project"></a>
 
-A sandbox policy is a set of rules that controls which files, networks, and credentials agent-run tools can access. The project settings describe the policy that the app requests when a sandboxed session starts. The effective policy can be more restrictive, for example, when enterprise managed settings apply.
+### Configuring the sandbox policy for a repository
+
+A sandbox policy is a set of rules that controls which files, networks, and credentials agent-run tools can access. The repository settings describe the policy that the app requests when a sandboxed session starts. The effective policy can be more restrictive, for example, when enterprise managed settings apply.
 
 The "Configured policy summary" shows your selected folder, network, and credential settings. It does not confirm that the sandbox is running or show every restriction that applies. Changes are saved automatically.
 
-In the project settings, you can configure:
+In the repository settings, you can configure:
 
 * [**Filesystem access**](#configuring-filesystem-access): Grant additional read-only or read/write access to specific paths, or deny paths.
 * [**Network access**](#configuring-network-access): Allow or block outbound internet and local network access.
@@ -63,7 +69,7 @@ In the project settings, you can configure:
 
 By default, a sandboxed session has read/write access to its workspace and current working directory. You can grant access to additional folders or prevent access to specific folders.
 
-In the "Sandbox" section of the project settings, configure any of the following lists:
+In the "Sandbox" section of the repository settings, configure any of the following lists:
 
 * **Additional read/write**: Folders that agent-run tools can read and modify.
 * **Additional read-only**: Folders that agent-run tools can read but not modify.
@@ -73,11 +79,11 @@ To add a folder, click **Add folder** for the appropriate list, then choose the 
 
 A more-specific denied folder remains denied when a broader parent folder has read or write access.
 
-On Windows, you can save a denied path in the project settings. If the active Windows sandbox capabilities cannot guarantee the denial, a sandboxed command fails with an unsupported-policy message. The command does not run with the denied path accessible or without a sandbox.
+On Windows, you can save a denied path in the repository settings. If the active Windows sandbox capabilities cannot guarantee the denial, a sandboxed command fails with an unsupported-policy message. The command does not run with the denied path accessible or without a sandbox.
 
 #### Configuring network access
 
-By default, both network settings are turned on in the app. In the "Sandbox" section of the project settings, you can change the following settings:
+By default, both network settings are turned on in the app. In the "Sandbox" section of the repository settings, you can change the following settings:
 
 * **Outbound internet**: Allow connections to internet services, such as {% data variables.product.github %} and package registries.
 * **Local network**: Allow loopback and local-network connections, including connections to local development servers.

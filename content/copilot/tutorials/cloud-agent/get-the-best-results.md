@@ -2,8 +2,8 @@
 title: Best practices for using GitHub Copilot to work on tasks
 shortTitle: Get the best results
 allowTitleToDifferFromFilename: true
-intro: 'Learn how to get the best results from {% data variables.copilot.copilot_cloud_agent %}.'
-product: '{% data reusables.gated-features.copilot-cloud-agent %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=engagement&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
+intro: 'Learn how to get the best results from {% data variables.copilot.copilot_in_the_cloud_short %}.'
+product: '{% data reusables.gated-features.copilot-cloud-agent %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=engagement&ref_style=button&utm_source=best-practices-using-work-tasks-article-signup-cta&utm_medium=docs&utm_campaign=universe-2026" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
 redirect_from:
@@ -22,7 +22,7 @@ category:
 ---
 
 > [!NOTE]
-> For an introduction to {% data variables.copilot.copilot_cloud_agent %}, see [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-on-github).
+> For an introduction to {% data variables.copilot.copilot_in_the_cloud_short %}, see [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-on-github).
 
 ## Making sure your issues are well-scoped
 
@@ -33,7 +33,7 @@ category:
 * Directions about which files need to be changed.
 
 > [!TIP]
-> {% data variables.copilot.copilot_cloud_agent %} has the ability to search your codebase, including semantic code search, which helps it find relevant code based on meaning rather than just exact text matches. Even if you don't specify exact file paths in a task, the agent can often discover the right code on its own.
+> {% data variables.copilot.copilot_in_the_cloud_short %} has the ability to search your codebase, including semantic code search, which helps it find relevant code based on meaning rather than just exact text matches. Even if you don't specify exact file paths in a task, the agent can often discover the right code on its own.
 
 If you pass a task to {% data variables.product.prodname_copilot_short %} by assigning an issue, it's useful to think of the issue you assign to {% data variables.product.prodname_copilot_short %} as a prompt. Consider whether the issue description is likely to work as an AI prompt, and will enable {% data variables.product.prodname_copilot_short %} to make the required code changes.
 
@@ -63,7 +63,7 @@ Issues that you may choose to work on yourself, rather than assigning to {% data
 
 ## Researching, planning, and iterating before opening a pull request
 
-Rather than asking {% data variables.product.prodname_copilot_short %} to open a pull request right away, you can use {% data variables.copilot.copilot_cloud_agent %} to research a repository, create an implementation plan, and make iterative code changes on a branch first. This lets you review the diff and refine the work before deciding to open a pull request.
+Rather than asking {% data variables.product.prodname_copilot_short %} to open a pull request right away, you can use {% data variables.product.prodname_copilot_short %} to research a repository, create an implementation plan, and make iterative code changes on a branch first. This lets you review the diff and refine the work before deciding to open a pull request.
 
 This workflow is useful when you want to:
 
@@ -95,7 +95,7 @@ By adding custom instructions to your repository, you can guide {% data variable
 
 If {% data variables.product.prodname_copilot_short %} is able to build, test and validate its changes in its own development environment, it is more likely to produce good pull requests which can be merged quickly.
 
-{% data variables.copilot.copilot_cloud_agent %} supports a number of different types of custom instructions files:
+{% data variables.copilot.copilot_in_the_cloud_short %} supports a number of different types of custom instructions files:
 
 * `/.github/copilot-instructions.md`
 * `/.github/instructions/**/*.instructions.md`
@@ -176,11 +176,11 @@ When writing Playwright tests, please follow these guidelines to ensure consiste
 
 ## Organization-wide custom instructions
 
-{% data variables.copilot.copilot_cloud_agent %} leverages your organization's custom instructions as part of its work. {% data variables.copilot.copilot_cloud_agent %} first prioritizes repository-wide custom instructions. For more information on how to configure organization custom instructions, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-organization-instructions).
+{% data variables.copilot.copilot_in_the_cloud_short %} leverages your organization's custom instructions as part of its work. {% data variables.copilot.copilot_in_the_cloud_short %} first prioritizes repository-wide custom instructions. For more information on how to configure organization custom instructions, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-organization-instructions).
 
 ## Using the Model Context Protocol (MCP)
 
-You can extend the capabilities of {% data variables.copilot.copilot_cloud_agent %} by using MCP. This allows {% data variables.copilot.copilot_cloud_agent %} to use tools provided by local and remote MCP servers. The {% data variables.product.github %} MCP server and [Playwright MCP server](https://github.com/microsoft/playwright-mcp) are enabled by default. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/configure-mcp-servers).
+You can extend the capabilities of {% data variables.copilot.copilot_in_the_cloud_short %} by using MCP. This allows {% data variables.product.prodname_copilot_short %} to use tools provided by local and remote MCP servers. The {% data variables.product.github %} MCP server and [Playwright MCP server](https://github.com/microsoft/playwright-mcp?utm_source=best-practices-using-work-tasks-article-playwright-mcp&utm_medium=docs&utm_campaign=universe-2026) are enabled by default. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/configure-mcp-servers).
 
 ## Creating {% data variables.copilot.custom_agents_short %}
 
@@ -192,16 +192,16 @@ Here are some examples of {% data variables.copilot.custom_agents_short %} you c
 
 By default, {% data variables.copilot.custom_agents_short %} inherit any MCP server tools that have been configured in the repository, but you can also configure {% data variables.copilot.custom_agents_short %} to only have access to specific tools.
 
-You can use {% data variables.copilot.custom_agents_short %} anywhere you use {% data variables.copilot.copilot_cloud_agent %}, including when assigning an issue or prompting with a task.
+You can use {% data variables.copilot.custom_agents_short %} anywhere you use {% data variables.copilot.copilot_in_the_cloud_short %}, including when assigning an issue or prompting with a task.
 
 For more information on creating and configuring {% data variables.copilot.custom_agents_short %}, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/create-custom-agents).
 
 ## Pre-installing dependencies in {% data variables.product.prodname_copilot %}'s environment
 
-While working on a task, {% data variables.product.prodname_copilot_short %} has access to its own ephemeral development environment, powered by {% data variables.product.prodname_actions %}, where it can explore your code, make changes, execute automated tests and linters and more.
+During a {% data variables.copilot.copilot_cloud_agent %} session, {% data variables.product.prodname_copilot_short %} has access to its own ephemeral development environment, either in a cloud sandbox or on {% data variables.product.prodname_actions %}, where it can explore your code, make changes, execute automated tests and linters and more.
 
 If {% data variables.product.prodname_copilot_short %} is able to build, test and validate its changes in its own development environment, it is more likely to produce good pull requests which can be merged quickly.
 
 To do that, it will need your project's dependencies. {% data variables.product.prodname_copilot_short %} can discover and install these dependencies itself via a process of trial and error - but this can be slow and unreliable, given the non-deterministic nature of large language models (LLMs).
 
-You can configure a `copilot-setup-steps.yml` file to pre-install these dependencies before the agent starts working so it can hit the ground running. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/customize-the-agent-environment#preinstalling-tools-or-dependencies-in-copilots-environment).
+When {% data variables.product.prodname_copilot_short %} runs on {% data variables.product.prodname_actions %}, you can configure a `copilot-setup-steps.yml` file to pre-install these dependencies before the agent starts working so it can hit the ground running. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/customize-the-agent-environment#preinstalling-tools-or-dependencies-in-copilots-environment).

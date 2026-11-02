@@ -10,14 +10,12 @@
         "isRequired": true,
         "enum": [
           "anonymous_access_disabled"
-        ],
-        "childParamsGroups": []
+        ]
       },
       {
         "type": "object",
         "name": "sender",
-        "description": "<p>A GitHub user.</p>",
-        "childParamsGroups": []
+        "description": "<p>A GitHub user.</p>"
       }
     ],
     "availability": [
@@ -37,14 +35,12 @@
         "isRequired": true,
         "enum": [
           "anonymous_access_enabled"
-        ],
-        "childParamsGroups": []
+        ]
       },
       {
         "type": "object",
         "name": "sender",
-        "description": "<p>A GitHub user.</p>",
-        "childParamsGroups": []
+        "description": "<p>A GitHub user.</p>"
       }
     ],
     "availability": [

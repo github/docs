@@ -15,6 +15,7 @@ contentType: get-started
 category:
   - Quickstarts
   - Integrate Copilot with your tools
+  - Mains - Hard code your meal
 ---
 
 **What you'll build:**

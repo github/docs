@@ -36,6 +36,8 @@ sections:
       To avoid data processing delays on instances with a large number of internal message topics, administrators can configure the network timeouts used during topic discovery via `app.github.topic-checker-connect-timeout-sec` and `app.github.topic-checker-socket-timeout-sec`. The default timeout has been increased from 10 to 30 seconds, and values between 1 and 300 seconds are accepted. 
   known_issues:
     - |
+      After a restart, an instance can remain unavailable with "Starting..." displayed in the web interface. To recover, an administrator can connect using administrative SSH and rerun `ghe-config-apply`. This provides temporary recovery but does not prevent the issue from recurring. This issue is resolved in {% data variables.product.prodname_ghe_server %} 3.21.0 and later. [Updated: 2026-10-30]
+    - |
       During an upgrade of GitHub Enterprise Server, custom firewall rules are removed. If you use custom firewall rules, you must reapply them after upgrading.
     - |
       During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
@@ -66,7 +68,7 @@ sections:
     - |
       On instances with multiple Git storage nodes in a voting configuration, including cluster and geo-replication high availability topologies, upgrading may fail to correctly install Actions that ship with the new version. In some cases, previous versions of these Actions remain on the instance. To resolve this issue, run the following commands on the primary node: `ghe-config --unset 'app.actions.actions-repos-sha1sum'`, `ghe-config-apply`, and `/usr/local/share/enterprise/ghe-run-init-actions-graph`.
     - |
-      When restoring an instance with `ghe-restore` while the replication controller is enabled, the storage directory is not restored.
+      When an administrator restores a backup to a configured standalone instance with Replication Controller enabled, `ghe-restore` may skip storage data, such as avatars and attachments, and still complete successfully. The restore output includes `Warning: no routes found, skipping storage restore ...`. Replication Controller is disabled by default in {% data variables.product.prodname_ghe_server %} 3.20. If you see this warning or storage data is missing after a restore, contact {% data variables.contact.github_support %}. [Updated: 2026-10-22]
   errata:
     - |
       The known issues incorrectly indicated that Elasticsearch indices are reindexed by a nightly scheduled job after restoring data backed up from GitHub Enterprise Server 3.13 or later. The scheduled job runs on the first Saturday of each month. [Updated: 2026-10-15]

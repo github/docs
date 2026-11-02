@@ -32,6 +32,8 @@ To request changes from {% data variables.product.prodname_copilot_short %} on i
 
 {% data reusables.copilot.cloud-agent-workflow-run-approval-default %} For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/configuring-agent-settings).
 
+To have {% data variables.product.prodname_copilot_short %} watch a pull request and fix failed {% data variables.product.prodname_actions %} workflows or merge conflicts automatically, enable {% data variables.copilot.agent_merge %} with **Watch and fix** in the merge box. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/use-copilot-agents/get-pull-requests-ready-to-merge).
+
 ## Give feedback on {% data variables.product.prodname_copilot_short %}'s work
 
 Use the feedback buttons on {% data variables.product.prodname_copilot_short %}'s pull requests and comments to rate the output. Your feedback helps improve {% data variables.product.prodname_copilot_short %}'s quality.

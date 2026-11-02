@@ -54,10 +54,12 @@ You can share the content of the current session as a shareable link to the sess
 > [!NOTE]
 > You can use `/export` as an alias for `/share` in any of the commands below.
 
-To share the session to {% data variables.product.github %} and print a shareable link, type the following in an interactive session:
+Typing `/share` with no arguments opens a full-screen sharing menu where you can choose how to share the session. Opening this menu does not itself share or export anything.
+
+To share the session to {% data variables.product.github %} and print a shareable link directly, type the following in an interactive session:
 
 ```copilot copy
-/share
+/share link
 ```
 
 To stop sharing the session, type `/share off`.
@@ -240,6 +242,7 @@ The simplest way to delete sessions is to use the `/session` slash command in an
 * `/session delete SESSION-ID` deletes a specific session. This shows a preview first; add `--yes` to confirm, for example `/session delete SESSION-ID --yes`.
 * `/session delete-all` deletes all of your local sessions except the current one. Add `--yes` to confirm: `/session delete-all --yes`. Sessions that are in use by another process are skipped.
 * `/session prune --older-than DAYS` deletes sessions older than the specified number of days. Add `--dry-run` to preview what would be deleted.
+* `/session cleanup` shows a storage summary of your other local sessions, grouped by age, and suggests commands for deleting old sessions. It does not delete local or synced sessions. Use `/session prune --older-than DAYS --dry-run` to preview deletions, then remove `--dry-run` to delete those local sessions.
 
 When you delete a session that has been synced to your account, `/session delete` asks whether you also want to delete the synced (remote) copy. Deleting the synced copy also removes the session from your `/chronicle` insights and query results. The `/session delete-all` and `/session prune` subcommands only affect local sessions and do not delete synced data. To remove synced data for those sessions, manually delete it from {% data variables.product.prodname_dotcom_the_website %}.
 

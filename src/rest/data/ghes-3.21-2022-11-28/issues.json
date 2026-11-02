@@ -1988,6 +1988,7 @@
                         "type": "boolean"
                       },
                       "temp_clone_token": {
+                        "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                         "type": "string"
                       },
                       "allow_squash_merge": {
@@ -5416,6 +5417,7 @@
                         "type": "boolean"
                       },
                       "temp_clone_token": {
+                        "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                         "type": "string"
                       },
                       "allow_squash_merge": {
@@ -8772,6 +8774,7 @@
                         "type": "boolean"
                       },
                       "temp_clone_token": {
+                        "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                         "type": "string"
                       },
                       "allow_squash_merge": {
@@ -12075,6 +12078,7 @@
                       "type": "boolean"
                     },
                     "temp_clone_token": {
+                      "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                       "type": "string"
                     },
                     "allow_squash_merge": {
@@ -15327,6 +15331,7 @@
                       "type": "boolean"
                     },
                     "temp_clone_token": {
+                      "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                       "type": "string"
                     },
                     "allow_squash_merge": {
@@ -18550,6 +18555,7 @@
                       "type": "boolean"
                     },
                     "temp_clone_token": {
+                      "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                       "type": "string"
                     },
                     "allow_squash_merge": {
@@ -20088,7 +20094,7 @@
         {
           "type": "integer",
           "name": "duplicate_issue_id",
-          "description": "<p>The ID of the issue to mark as the canonical duplicate when <code>state_reason</code> is <code>duplicate</code>. The issue must exist and be accessible to the authenticated user. Ignored when <code>state_reason</code> is not <code>duplicate</code>.</p>"
+          "description": "<p>The ID of the issue that this issue duplicates, used when marking this issue as a duplicate with <code>status: Duplicate</code> or <code>state_reason: duplicate</code>. The issue must exist and be accessible to the authenticated user.</p>"
         },
         {
           "type": "null or string or integer",
@@ -21909,6 +21915,7 @@
                           "type": "boolean"
                         },
                         "temp_clone_token": {
+                          "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                           "type": "string"
                         },
                         "allow_squash_merge": {
@@ -25735,6 +25742,7 @@
                         "type": "boolean"
                       },
                       "temp_clone_token": {
+                        "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                         "type": "string"
                       },
                       "allow_squash_merge": {
@@ -29289,6 +29297,7 @@
                       "type": "boolean"
                     },
                     "temp_clone_token": {
+                      "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                       "type": "string"
                     },
                     "allow_squash_merge": {
@@ -32531,6 +32540,7 @@
                       "type": "boolean"
                     },
                     "temp_clone_token": {
+                      "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                       "type": "string"
                     },
                     "allow_squash_merge": {
@@ -41191,6 +41201,7 @@
                                 "type": "boolean"
                               },
                               "temp_clone_token": {
+                                "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                                 "type": "string"
                               },
                               "allow_squash_merge": {
@@ -47628,6 +47639,7 @@
                               "type": "boolean"
                             },
                             "temp_clone_token": {
+                              "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                               "type": "string"
                             },
                             "allow_squash_merge": {
@@ -71055,6 +71067,7 @@
                         "type": "boolean"
                       },
                       "temp_clone_token": {
+                        "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                         "type": "string"
                       },
                       "allow_squash_merge": {
@@ -74306,6 +74319,7 @@
                       "type": "boolean"
                     },
                     "temp_clone_token": {
+                      "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                       "type": "string"
                     },
                     "allow_squash_merge": {
@@ -77563,6 +77577,7 @@
                       "type": "boolean"
                     },
                     "temp_clone_token": {
+                      "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                       "type": "string"
                     },
                     "allow_squash_merge": {
@@ -80836,6 +80851,7 @@
                         "type": "boolean"
                       },
                       "temp_clone_token": {
+                        "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                         "type": "string"
                       },
                       "allow_squash_merge": {
@@ -96707,6 +96723,7 @@
                                     "type": "boolean"
                                   },
                                   "temp_clone_token": {
+                                    "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                                     "type": "string"
                                   },
                                   "allow_squash_merge": {

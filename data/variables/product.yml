@@ -296,6 +296,7 @@ prodname_secret_scanning_caps: 'Secret scanning'
 # Code scanning
 prodname_code_scanning: 'code scanning'
 prodname_code_scanning_caps: 'Code scanning'
+prodname_ai_applications_scanning: 'AI applications scanning'
 
 # Visual Studio
 prodname_vs: 'Visual Studio'
@@ -319,6 +320,8 @@ prodname_dependabot_alerts: 'Dependabot alerts'
 prodname_dependabot_malware_alerts: 'Dependabot malware alerts'
 prodname_dependabot_malware_alerts_short: 'malware alerts'
 prodname_dependabot_malware_alert_short: 'malware alert'
+prodname_dependabot_reachability: 'reachability analysis'
+prodname_dependabot_reachability_caps: 'Reachability analysis'
 prodname_dependabot_malware_alerts_short_caps: 'Malware alerts'
 prodname_dependabot_security_updates: 'Dependabot security updates'
 prodname_dependabot_version_updates: 'Dependabot version updates'

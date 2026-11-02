@@ -7,7 +7,6 @@ versions:
   feature: copilot
 children:
   - /get-the-best-results
-  - /pilot-cloud-agent
   - /improve-a-project
   - /build-guardrails
   - /give-access-to-resources

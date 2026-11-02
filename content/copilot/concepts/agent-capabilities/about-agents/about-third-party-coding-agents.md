@@ -2,7 +2,7 @@
 title: Third-party coding agents
 allowTitleToDifferFromFilename: true
 shortTitle: Third-party coding agents
-intro: 'You can use third-party coding agents alongside {% data variables.copilot.copilot_cloud_agent %} to work asynchronously on your development tasks on {% data variables.product.github %}.'
+intro: 'You can use third-party coding agents alongside {% data variables.product.prodname_copilot_short %} to work asynchronously on your development tasks on {% data variables.product.github %}.'
 product: '{% data reusables.copilot.plans.permission-paid-plans-no-purchase-link %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
@@ -18,15 +18,15 @@ redirect_from:
 
 ## Introduction
 
-You can use third-party coding agents alongside {% data variables.copilot.copilot_cloud_agent %} to work asynchronously on your development tasks. You can assign an existing issue or give a prompt to an agent, which will work on the required changes and create a pull request. When the agent finishes, it will request a review from you, and you can leave pull request comments to ask the agent to iterate.
+You can use third-party coding agents alongside {% data variables.product.prodname_copilot_short %} to work asynchronously on your development tasks. You can assign an existing issue or give a prompt to an agent, which will work on the required changes and create artifact, such as a pull request. When the agent finishes, it will tell you, and a pull request was created it will request a review from you. You can then leave comments asking the agent to iterate.
 
-Coding agents are subject to the same security protections, mitigations, and limitations as {% data variables.copilot.copilot_cloud_agent %}. To learn more about how you can use coding agents, see [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-on-github).
+Coding agents are subject to the same security protections, mitigations, and limitations as {% data variables.product.prodname_copilot_short %}. To learn more about how you can use coding agents, see [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-on-github).
 
 ### Where you can use coding agents
 
 You can kick off tasks with coding agents in the following locations:
 
-* **The Agents tab**: Select an agent under the prompt box in the [Agents tab](https://github.com/copilot/agents?ref_product=copilot&ref_type=engagement&ref_style=text&utm_source=docs-3p-agents-tab-cta&utm_medium=docs&utm_campaign=agent-3p-platform-feb-2026), then kick off a new task and watch the agent get to work on a pull request.
+* **The Agents tab**: In the Agents tab of a repository (`https://github.com/OWNER/REPO_NAME/agents`), click {% octicon "copilot" aria-hidden="true" aria-label="copilot" %} under the prompt box to select an agent, then kick off a new task and watch the agent get to work.
 * **Issues**: Assign the agent to an existing issue in a repository.
 * **Pull requests**: Mention `@AGENT_NAME` in a comment on an existing pull request to ask it to make changes.
 * On [**{% data variables.product.prodname_mobile %}**](/copilot/how-tos/copilot-on-github/chat-with-copilot/chat-in-mobile): From the **Home** view, click {% octicon "plus" aria-hidden="true" aria-label="plus" %} to start a new agent session.
@@ -34,9 +34,9 @@ You can kick off tasks with coding agents in the following locations:
 
 ### Making coding agents available
 
-Before you can assign tasks to coding agents on {% data variables.product.github %}, they must be enabled in your account policies.
+Before you can assign tasks to coding agents on {% data variables.product.github %}, they must be enabled in your account settings, your organization policies, or the "Agents" section of an enterprise's AI controls.
 
-* For **{% data variables.copilot.copilot_pro %}, {% data variables.copilot.copilot_pro_plus %}, and {% data variables.copilot.copilot_max %} subscribers**, see [AUTOTITLE](/free-pro-team@latest/copilot/how-tos/manage-your-account/manage-policies#enabling-or-disabling-third-party-coding-agents-in-your-repositories).
+* For **{% data variables.copilot.copilot_pro %}, {% data variables.copilot.copilot_pro_plus %}, and {% data variables.copilot.copilot_max %} subscribers**, see [AUTOTITLE](/free-pro-team@latest/copilot/how-tos/manage-your-account/manage-policies).
 * For **{% data variables.copilot.copilot_for_business %} and {% data variables.copilot.copilot_enterprise %} subscribers**, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/manage-policies) or [AUTOTITLE](/enterprise-cloud@latest/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-enterprise-policies).
 
 These policies do not apply to **local** agents in {% data variables.product.prodname_vscode %}. To configure agent settings in {% data variables.product.prodname_vscode %}, see [Types of agents](https://code.visualstudio.com/docs/copilot/agents/overview#_types-of-agents) in the {% data variables.product.prodname_vscode %} documentation. To adjust enterprise agent settings in {% data variables.product.prodname_vscode %}, see [Enable or disable the use of agents](https://code.visualstudio.com/docs/enterprise/ai-settings#_enable-or-disable-the-use-of-agents) in the {% data variables.product.prodname_vscode %} documentation.
@@ -104,7 +104,7 @@ Within your included {% data variables.product.prodname_actions %} minutes and {
 
 ## Partner agents
 
-When enabling partner agents in your user or organization {% data variables.copilot.copilot_cloud_agent %} settings, a {% data variables.product.prodname_github_app %} will be installed for the corresponding agent.
+When enabling partner agents in your user or organization {% data variables.product.prodname_copilot_short %} settings, a {% data variables.product.prodname_github_app %} will be installed for the corresponding agent.
 
 * **Allow Claude coding agent** will install `anthropic code agent`
 * **Allow Codex coding agent** will install `openai code agent`

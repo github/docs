@@ -731,6 +731,24 @@
       },
       {
         "category": "copilot",
+        "slug": "get-feature-policies-for-an-organization",
+        "subcategory": "copilot-feature-policy-management",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/copilot/feature-policies",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "copilot",
+        "slug": "update-feature-policies-for-an-organization",
+        "subcategory": "copilot-feature-policy-management",
+        "verb": "patch",
+        "requestPath": "/orgs/{org}/copilot/feature-policies",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "copilot",
         "slug": "get-model-policies-for-an-organization",
         "subcategory": "copilot-model-policy-management",
         "verb": "get",
@@ -8039,6 +8057,51 @@
       },
       {
         "category": "issues",
+        "slug": "list-issue-artifacts",
+        "subcategory": "artifacts",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/artifacts",
+        "additional-permissions": true,
+        "access": "read"
+      },
+      {
+        "category": "issues",
+        "slug": "create-an-issue-artifact",
+        "subcategory": "artifacts",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/artifacts",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "issues",
+        "slug": "get-an-issue-artifact",
+        "subcategory": "artifacts",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/artifacts/{artifact_number}",
+        "additional-permissions": true,
+        "access": "read"
+      },
+      {
+        "category": "issues",
+        "slug": "update-an-issue-artifact",
+        "subcategory": "artifacts",
+        "verb": "patch",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/artifacts/{artifact_number}",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "issues",
+        "slug": "delete-an-issue-artifact",
+        "subcategory": "artifacts",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/artifacts/{artifact_number}",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "issues",
         "slug": "add-assignees-to-an-issue",
         "subcategory": "assignees",
         "verb": "post",
@@ -8975,6 +9038,24 @@
       },
       {
         "category": "issues",
+        "slug": "list-issue-artifacts",
+        "subcategory": "artifacts",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/artifacts",
+        "additional-permissions": true,
+        "access": "read"
+      },
+      {
+        "category": "issues",
+        "slug": "get-an-issue-artifact",
+        "subcategory": "artifacts",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/artifacts/{artifact_number}",
+        "additional-permissions": true,
+        "access": "read"
+      },
+      {
+        "category": "issues",
         "slug": "add-assignees-to-an-issue",
         "subcategory": "assignees",
         "verb": "post",
@@ -9681,6 +9762,42 @@
         "subcategory": "repository-advisories",
         "verb": "patch",
         "requestPath": "/repos/{owner}/{repo}/security-advisories/{ghsa_id}",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "security-advisories",
+        "slug": "list-repository-security-advisory-comments",
+        "subcategory": "repository-advisories",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/security-advisories/{ghsa_id}/comments",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "security-advisories",
+        "slug": "create-a-repository-advisory-comment",
+        "subcategory": "repository-advisories",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/security-advisories/{ghsa_id}/comments",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "security-advisories",
+        "slug": "get-a-repository-advisory-comment",
+        "subcategory": "repository-advisories",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/security-advisories/{ghsa_id}/comments/{comment_id}",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "security-advisories",
+        "slug": "update-a-repository-advisory-comment",
+        "subcategory": "repository-advisories",
+        "verb": "patch",
+        "requestPath": "/repos/{owner}/{repo}/security-advisories/{ghsa_id}/comments/{comment_id}",
         "additional-permissions": false,
         "access": "write"
       },

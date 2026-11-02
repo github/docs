@@ -1,0 +1,1 @@
+This article tells you how to configure custom models for your own use. To set up custom models for users in an organization or enterprise, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/enable-custom-models) and [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/enable-custom-models).

@@ -161,6 +161,8 @@
 - startsWith: https://github.com/new?
 - startsWith: https://github.com/github/copilot-plugins/
 - startsWith: https://github.com/github-copilot/signup?
+- startsWith: https://github.com/github-copilot/pro/signup?
+- startsWith: https://github.com/github-copilot/pro-plus/signup?
 
 # gh.io is a GitHub URL shortener; links return transient 500 errors from CI.
 - startsWith: https://gh.io/

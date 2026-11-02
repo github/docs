@@ -32,6 +32,23 @@ describe('octoSecondaryRatelimitRetry', () => {
     expect(fn).toHaveBeenCalledTimes(2)
   })
 
+  test('retries a search API rate limit using x-ratelimit-reset', async () => {
+    vi.useFakeTimers()
+    vi.setSystemTime(new Date('2026-01-01T00:00:00Z'))
+    const reset = String(Date.parse('2026-01-01T00:00:10Z') / 1000)
+    const fn = failOnceThen(
+      makeError(403, 'API rate limit exceeded for user ID 1.', { 'x-ratelimit-reset': reset }),
+      'ok',
+    )
+    const promise = octoSecondaryRatelimitRetry(fn, { attempts: 2, sleepTime: 0 })
+
+    await vi.advanceTimersByTimeAsync(10_999)
+    expect(fn).toHaveBeenCalledTimes(1)
+    await vi.advanceTimersByTimeAsync(1)
+    expect(fn).toHaveBeenCalledTimes(2)
+    await expect(promise).resolves.toBe('ok')
+  })
+
   test('does not retry a 429 without the secondary rate limit message', async () => {
     const error = makeError(429, 'Too Many Requests')
     const fn = vi.fn().mockRejectedValue(error)

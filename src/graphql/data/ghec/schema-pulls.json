@@ -5234,6 +5234,13 @@
           "href": "/graphql/reference/other#scalar-boolean"
         },
         {
+          "name": "requireExtraApprovalForUnattributedChanges",
+          "description": "<p>When Copilot opens a pull request without a human collaborator, require one\nmore approving review if a non-zero approval count is required.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
           "name": "requireLastPushApproval",
           "description": "<p>Whether the most recent reviewable push must be approved by someone other than the person who pushed it.</p>",
           "type": "Boolean!",
@@ -10540,6 +10547,13 @@
           "name": "requireCodeOwnerReview",
           "description": "<p>Require an approving review in pull requests that modify files that have a designated code owner.</p>",
           "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "requireExtraApprovalForUnattributedChanges",
+          "description": "<p>When Copilot opens a pull request without a human collaborator, require one\nmore approving review if a non-zero approval count is required.</p>",
+          "type": "Boolean",
           "id": "boolean",
           "href": "/graphql/reference/other#scalar-boolean"
         },

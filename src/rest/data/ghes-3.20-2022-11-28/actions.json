@@ -5085,6 +5085,7 @@
                         "type": "boolean"
                       },
                       "temp_clone_token": {
+                        "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                         "type": "string"
                       },
                       "allow_squash_merge": {
@@ -6500,6 +6501,7 @@
                         "type": "boolean"
                       },
                       "temp_clone_token": {
+                        "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                         "type": "string"
                       },
                       "allow_squash_merge": {
@@ -9480,6 +9482,7 @@
                         "type": "string"
                       },
                       "temp_clone_token": {
+                        "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                         "type": "string"
                       },
                       "delete_branch_on_merge": {
@@ -14254,6 +14257,7 @@
                         "type": "string"
                       },
                       "temp_clone_token": {
+                        "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                         "type": "string"
                       },
                       "delete_branch_on_merge": {
@@ -16314,6 +16318,7 @@
                         "type": "boolean"
                       },
                       "temp_clone_token": {
+                        "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                         "type": "string"
                       },
                       "allow_squash_merge": {
@@ -17086,6 +17091,7 @@
                         "type": "boolean"
                       },
                       "temp_clone_token": {
+                        "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                         "type": "string"
                       },
                       "allow_squash_merge": {
@@ -19378,6 +19384,7 @@
                         "type": "boolean"
                       },
                       "temp_clone_token": {
+                        "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                         "type": "string"
                       },
                       "allow_squash_merge": {
@@ -20154,6 +20161,7 @@
                         "type": "boolean"
                       },
                       "temp_clone_token": {
+                        "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                         "type": "string"
                       },
                       "allow_squash_merge": {
@@ -22514,6 +22522,7 @@
                         "type": "boolean"
                       },
                       "temp_clone_token": {
+                        "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                         "type": "string"
                       },
                       "allow_squash_merge": {
@@ -23300,6 +23309,7 @@
                         "type": "boolean"
                       },
                       "temp_clone_token": {
+                        "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                         "type": "string"
                       },
                       "allow_squash_merge": {
@@ -25646,6 +25656,7 @@
                         "type": "string"
                       },
                       "temp_clone_token": {
+                        "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                         "type": "string"
                       },
                       "delete_branch_on_merge": {
@@ -30186,6 +30197,7 @@
                             "type": "string"
                           },
                           "temp_clone_token": {
+                            "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                             "type": "string"
                           },
                           "delete_branch_on_merge": {
@@ -30820,6 +30832,7 @@
                             "type": "string"
                           },
                           "temp_clone_token": {
+                            "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                             "type": "string"
                           },
                           "delete_branch_on_merge": {
@@ -32374,6 +32387,7 @@
                       "type": "string"
                     },
                     "temp_clone_token": {
+                      "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                       "type": "string"
                     },
                     "delete_branch_on_merge": {
@@ -33008,6 +33022,7 @@
                       "type": "string"
                     },
                     "temp_clone_token": {
+                      "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                       "type": "string"
                     },
                     "delete_branch_on_merge": {
@@ -34930,6 +34945,7 @@
                       "type": "string"
                     },
                     "temp_clone_token": {
+                      "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                       "type": "string"
                     },
                     "delete_branch_on_merge": {
@@ -35564,6 +35580,7 @@
                       "type": "string"
                     },
                     "temp_clone_token": {
+                      "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                       "type": "string"
                     },
                     "delete_branch_on_merge": {
@@ -36052,7 +36069,28 @@
           }
         }
       ],
-      "bodyParameters": [],
+      "bodyParameters": [
+        {
+          "type": "string",
+          "name": "environment_name",
+          "description": "<p>The name of the environment to approve or reject.</p>",
+          "isRequired": true
+        },
+        {
+          "type": "string",
+          "name": "comment",
+          "description": "<p>Comment associated with the pending deployment protection rule. <strong>Required when state is not provided.</strong></p>"
+        },
+        {
+          "type": "string",
+          "name": "state",
+          "description": "<p>Whether to approve or reject deployment to the specified environments.</p>",
+          "enum": [
+            "approved",
+            "rejected"
+          ]
+        }
+      ],
       "descriptionHTML": "<p>Approve or reject custom deployment protection rules provided by a GitHub App for a workflow run. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.20/actions/deployment/targeting-different-environments/using-environments-for-deployment\">Using environments for deployment</a>.\"</p>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nGitHub Apps can only review their own custom deployment protection rules. To approve or reject pending deployments that are waiting for review from a specific person or team, see <a href=\"/rest/actions/workflow-runs#review-pending-deployments-for-a-workflow-run\"><code>POST /repos/{owner}/{repo}/actions/runs/{run_id}/pending_deployments</code></a>.</p>\n</div>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint with a private repository.</p>",
       "codeExamples": [
         {
@@ -37720,7 +37758,12 @@
           "in": "path",
           "description": "<p>The ID of the workflow. You can also pass the workflow file name as a string.</p>",
           "required": true,
-          "schema": {}
+          "schema": {
+            "type": [
+              "integer",
+              "string"
+            ]
+          }
         },
         {
           "name": "actor",
@@ -39052,6 +39095,7 @@
                             "type": "string"
                           },
                           "temp_clone_token": {
+                            "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                             "type": "string"
                           },
                           "delete_branch_on_merge": {
@@ -39686,6 +39730,7 @@
                             "type": "string"
                           },
                           "temp_clone_token": {
+                            "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                             "type": "string"
                           },
                           "delete_branch_on_merge": {
@@ -40193,7 +40238,12 @@
           "in": "path",
           "description": "<p>The ID of the workflow. You can also pass the workflow file name as a string.</p>",
           "required": true,
-          "schema": {}
+          "schema": {
+            "type": [
+              "integer",
+              "string"
+            ]
+          }
         }
       ],
       "bodyParameters": [],
@@ -40340,7 +40390,12 @@
           "in": "path",
           "description": "<p>The ID of the workflow. You can also pass the workflow file name as a string.</p>",
           "required": true,
-          "schema": {}
+          "schema": {
+            "type": [
+              "integer",
+              "string"
+            ]
+          }
         }
       ],
       "bodyParameters": [],
@@ -40411,7 +40466,12 @@
           "in": "path",
           "description": "<p>The ID of the workflow. You can also pass the workflow file name as a string.</p>",
           "required": true,
-          "schema": {}
+          "schema": {
+            "type": [
+              "integer",
+              "string"
+            ]
+          }
         }
       ],
       "bodyParameters": [
@@ -40502,7 +40562,12 @@
           "in": "path",
           "description": "<p>The ID of the workflow. You can also pass the workflow file name as a string.</p>",
           "required": true,
-          "schema": {}
+          "schema": {
+            "type": [
+              "integer",
+              "string"
+            ]
+          }
         }
       ],
       "bodyParameters": [],

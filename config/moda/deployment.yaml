@@ -204,7 +204,7 @@ environments:
     timeout: 900
     cluster_selector:
       name: rl-1-test-cnc-01-az1
-    extra_completed_message: 'Review at {{ENVIRONMENT_URL}}. This environment is deleted after 24 hours.'
+    extra_completed_message: 'Review at {{ENVIRONMENT_URL}}. The lab expires 7 days after you created it, and updates do not extend that. To deploy new commits, run `.proxima-review-lab update <lab-name>` in #dotcom-environment-ops, using the lab name from your create command.'
 
 required_builds:
   - docs-internal-moda-config-bundle / docs-internal-moda-config-bundle

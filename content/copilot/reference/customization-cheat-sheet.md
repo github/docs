@@ -23,7 +23,7 @@ This table shows what each customization feature is and where it lives.
 | [{% data variables.copilot.subagents_caps_short %}](/copilot/how-tos/copilot-in-your-ide/use-copilot-agents/use-subagents) | Separate agent spawned by the main agent to handle delegated work in an isolated context | N/A (runtime process, not a user-configured file) |
 | [Agent skills](/copilot/concepts/agents/about-agent-skills) | Folder of instructions, scripts, and resources that {% data variables.product.prodname_copilot_short %} loads when relevant to a task | `.github/skills/<skill-name>/SKILL.md`, `.claude/skills/<skill-name>/SKILL.md`, or `.agents/skills/<skill-name>/SKILL.md` (project); `~/.copilot/skills/<skill-name>/SKILL.md` or `~/.agents/skills/<skill-name>/SKILL.md` (personal) |
 | [Hooks](/copilot/concepts/agents/hooks) | Custom shell commands that execute deterministically at specific points in an agent's workflow | `.github/hooks/*.json` |
-| [AUTOTITLE](/copilot/concepts/customizations/mcp) | Connection to external systems, APIs, and databases | `mcp.json` (path varies by IDE), repository MCP settings on {% data variables.product.github %} (applies to {% data variables.copilot.copilot_cloud_agent_short %} and {% data variables.copilot.copilot_code-review_short %}), or `mcp-servers` property in {% data variables.copilot.copilot_custom_agent_short %} configurations |
+| [AUTOTITLE](/copilot/concepts/customizations/mcp) | Connection to external systems, APIs, and databases | `mcp.json` (path varies by IDE), repository MCP settings on {% data variables.product.github %} (applies to {% data variables.copilot.copilot_in_the_cloud_short %} and {% data variables.copilot.copilot_code-review_short %}), or `mcp-servers` property in {% data variables.copilot.copilot_custom_agent_short %} configurations |
 
 ## Usage comparison
 
@@ -38,6 +38,7 @@ This table helps you decide which customization feature to use.
 | [Agent skills](/copilot/concepts/agents/about-agent-skills) | Automatic: chosen by {% data variables.product.prodname_copilot_short %} when relevant to your prompt | Multi-step workflows with bundled assets that should be loaded as needed | {% data variables.product.prodname_actions %} failure debugging, deployment procedures, release note drafting |
 | [Hooks](/copilot/concepts/agents/hooks) | Automatic: at configured lifecycle events | Tasks that need to run at a specific point in the agent lifecycle, with guaranteed execution | Run a formatter after every file edit, approve or deny tool executions, prevent credential leaks with {% data variables.product.prodname_secret_scanning %} |
 | [AUTOTITLE](/copilot/concepts/customizations/mcp) | Automatic, or ask for a specific tool by name | Tasks that require access to external tools or real-time data | Manage issues and PRs ({% data variables.product.github %} MCP server), automate browser testing (Playwright MCP server) |
+| {% data variables.product.prodname_copilot_short %} connectors | Automatic when relevant, or ask for a connected service | Tasks that combine repository context with external project information | Find requirements in connected documents, then propose code changes and tests |
 
 ## IDE and surface support
 
@@ -60,6 +61,8 @@ This table shows which customization features are supported in each IDE and surf
 | Agent skills | ✓ | ✓ | P | ✗ | ✗ | ✓ | ✓ |
 | Hooks | P | ✗ | ✗ | ✗ | ✗ | ✓ | ✓ |
 | MCP servers | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+
+Connectors are in {% data variables.release-phases.public_preview %} in the {% data variables.copilot.github_copilot_app %}, {% data variables.copilot.copilot_cli %}, {% data variables.product.prodname_vscode %}, {% data variables.copilot.copilot_in_the_cloud_short %}, and {% data variables.product.prodname_mobile %}. In {% data variables.copilot.copilot_in_the_cloud_short %}, they work in sessions running in a cloud sandbox, but not in sessions running on {% data variables.product.prodname_actions %}. See [AUTOTITLE](/copilot/concepts/customizations/copilot-connectors).
 
 For a detailed breakdown of which types of custom instructions are supported in each IDE and surface, see [AUTOTITLE](/copilot/reference/custom-instructions-support).
 

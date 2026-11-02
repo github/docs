@@ -35,7 +35,7 @@ When enforced, disallowed workflow runs will fail with an error. For example:
 Event 'workflow_dispatch' is not allowed to trigger Actions workflows. Workflow file: '.github/workflows/0-welcome.yml'.
 ```
 
-<!-- expires 2026-11-02 -->
+<!-- expires 2026-12-02 -->
 
 {% ifversion default-pull-req-target-policy %}
 
@@ -43,7 +43,7 @@ Event 'workflow_dispatch' is not allowed to trigger Actions workflows. Workflow 
 
 {% endif %}
 
-<!-- end expires 2026-11-02 -->
+<!-- end expires 2026-12-02 -->
 
 ### Available rules
 

@@ -24,7 +24,7 @@ category:
 
 ## Public monitoring scope
 
-When public monitoring is enabled for your enterprise, {% data variables.product.prodname_secret_scanning %} extends detection beyond repositories your enterprise owns. Public monitoring scans public repositories, including non-code content like pull request comments, across {% data variables.product.github %} for secrets associated with your enterprise members or users with an email address matching your enterprise's verified domain.
+When public monitoring is enabled for your enterprise, {% data variables.product.prodname_secret_scanning %} extends detection beyond repositories your enterprise owns. Public monitoring scans public repositories across {% data variables.product.github %}, including non-code content such as issue and pull request comments, and gists. Public monitoring detects secrets associated with your enterprise members or with users whose email address matches your enterprise's verified domain. If your enterprise is on {% data variables.enterprise.data_residency %}, only the verified domain method applies.
 
 Public monitoring alerts appear in the enterprise-level security overview, on the dedicated **Public monitoring** page. See [AUTOTITLE](/code-security/concepts/secret-security/public-monitoring).
 

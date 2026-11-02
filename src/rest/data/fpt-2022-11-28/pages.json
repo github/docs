@@ -1831,7 +1831,12 @@
           "description": "<p>The ID of the Pages deployment. You can also give the commit SHA of the deployment.</p>",
           "in": "path",
           "required": true,
-          "schema": {}
+          "schema": {
+            "type": [
+              "integer",
+              "string"
+            ]
+          }
         }
       ],
       "bodyParameters": [],
@@ -1934,7 +1939,12 @@
           "description": "<p>The ID of the Pages deployment. You can also give the commit SHA of the deployment.</p>",
           "in": "path",
           "required": true,
-          "schema": {}
+          "schema": {
+            "type": [
+              "integer",
+              "string"
+            ]
+          }
         }
       ],
       "bodyParameters": [],

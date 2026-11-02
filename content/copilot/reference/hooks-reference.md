@@ -1,7 +1,7 @@
 ---
 title: GitHub Copilot hooks reference
 shortTitle: Hooks reference
-intro: 'Find hook events, configuration formats, and input payloads for hooks in {% data variables.copilot.copilot_cli_short %} and {% data variables.copilot.copilot_cloud_agent %}.'
+intro: 'Find hook events, configuration formats, and input payloads for hooks in {% data variables.copilot.copilot_cli_short %} and {% data variables.copilot.copilot_in_the_cloud_short %}.'
 versions:
   feature: copilot
 redirect_from:
@@ -20,7 +20,7 @@ docsTeamMetrics:
 
 Hooks are external commands that execute at specific lifecycle points during a session, enabling custom automation, security controls, and integrations.
 
-Hooks are supported in two {% data variables.product.prodname_copilot_short %} surfaces: {% data variables.copilot.copilot_cli_short %} and {% data variables.copilot.copilot_cloud_agent %}. Most of the configuration format and event payloads are identical, but the execution environment and the set of events that can fire differ.
+Hooks are supported in two {% data variables.product.prodname_copilot_short %} surfaces: {% data variables.copilot.copilot_cli_short %} and {% data variables.copilot.copilot_in_the_cloud_short %}. Most of the configuration format and event payloads are identical, but the execution environment and the set of events that can fire differ.
 
 Throughout this article, behavior that differs between the two surfaces is called out in "CLI only" and "Cloud agent only" notes. Anything not marked applies to both.
 
@@ -39,14 +39,14 @@ The locations where hooks run, and where you can store hook configuration files,
   * **Inline `hooks` block in user-level config** — the `hooks` field at the top level of `~/.copilot/settings.json`. The CLI no longer reads `~/.copilot/config.json` for hooks.
   * **Hooks contributed by installed plugins** — declared by each plugin in its own `hooks.json` (or under `hooks/hooks.json`) inside the plugin's installation directory.
 
-* **{% data variables.copilot.copilot_cloud_agent %}** — hooks run inside the ephemeral Linux sandbox that cloud agent provisions for each job. The sandbox is non-interactive, has a constrained network, and is destroyed when the job ends. A subset of events fires, and only `bash` (or `command`) entries are honored.
+* **{% data variables.copilot.copilot_in_the_cloud_short %}** — hooks run inside the ephemeral Linux sandbox that cloud agent provisions for each job. The sandbox is non-interactive, has a constrained network, and is destroyed when the job ends. A subset of events fires, and only `bash` (or `command`) entries are honored.
 
   Hook configuration is loaded from `.github/hooks/*.json` files in the cloned repository.
 
 ### Policy hooks
 
 > [!NOTE]
-> **{% data variables.copilot.copilot_cli_short %} only.** Policy hooks are not supported under {% data variables.copilot.copilot_cloud_agent %}.
+> **{% data variables.copilot.copilot_cli_short %} only.** Policy hooks are not supported under {% data variables.copilot.copilot_in_the_cloud_short %}.
 
 Policy hooks are machine-wide hooks loaded by administrators. They load before all other hooks and cannot be disabled by `disableAllHooks`.
 
@@ -91,14 +91,14 @@ Format the files you change.
 
 ## Cloud agent execution environment
 
-This section applies to **{% data variables.copilot.copilot_cloud_agent %} only**. It describes constraints that affect how you write hook scripts and configure hook entries for cloud agent jobs.
+This section applies to **{% data variables.copilot.copilot_in_the_cloud_short %} only**. It describes constraints that affect how you write hook scripts and configure hook entries for cloud agent jobs.
 
 | Property | Value |
 |----------|-------|
 | Operating system | Linux. Only the `bash` field on command hooks is honored; `powershell` entries are ignored. The cross-platform `command` field is honored as a fallback. |
 | Working directory | `/workspace` when a repository is cloned, otherwise `/root`. Use this path when setting `cwd` on a hook entry or when referencing files from a script. |
 | Filesystem | Ephemeral. Files written by hooks (logs, CSVs, transcripts) are discarded when the job ends. To retain hook output, send it via an `http` hook entry. |
-| Outbound network | Restricted by the cloud agent firewall. By default only GitHub and {% data variables.product.prodname_copilot_short %} hostnames are reachable; reaching any other host (for example `https://hooks.example.com`) requires an admin-configured firewall allow rule. |
+| Outbound network | Restricted by the cloud agent firewall. By default only GitHub and {% data variables.product.prodname_copilot_short %} hostnames are reachable; reaching any other host (for example `https://hooks.example.com`) requires an admin-configured firewall allow rule. The cloud agent firewall applies only to {% data variables.copilot.copilot_in_the_cloud_short %} jobs. |
 | Available environment variables | `GITHUB_COPILOT_API_TOKEN` and `GITHUB_COPILOT_GIT_TOKEN` are set in the sandbox. `COPILOT_AGENT_PROMPT` holds the prompt the job was invoked with. `HOME` is set to `/root`, so any hook script that resolves `~/...` paths writes into the ephemeral sandbox. `GITHUB_TOKEN` is not set. |
 | Interactivity | Fully non-interactive. The agent runs with all tool permissions pre-granted, so no permission dialogs are shown and no notifications are surfaced to a user. |
 | Configuration discovery | In a cloud agent job, the only hook configuration that exists by default is `.github/hooks/*.json` inside the cloned repository. The sandbox does not ship with user-level hook files, `settings.json`, `config.json`, or installed plugins. |
@@ -413,7 +413,7 @@ When multiple `sessionStart` hooks run, successful hooks that return a non-empty
 Return `{}` or empty to leave the prompt unchanged.
 
 > [!NOTE]
-> * `modifiedPrompt` is only honored by SDK programmatic hooks. Command and HTTP config-file `userPromptSubmitted` hooks have their output dropped, including `modifiedPrompt`. The lighter hooks-processing runtime used by hosted or steering {% data variables.copilot.copilot_cloud_agent %} sessions also ignores it. This is the same runtime split as `preToolUse`.
+> * `modifiedPrompt` is only honored by SDK programmatic hooks. Command and HTTP config-file `userPromptSubmitted` hooks have their output dropped, including `modifiedPrompt`. The lighter hooks-processing runtime used by hosted or steering {% data variables.copilot.copilot_in_the_cloud_short %} sessions also ignores it. This is the same runtime split as `preToolUse`.
 > * A non-string `modifiedPrompt`, `modifiedTransformedPrompt`, or a handled `responseContent` value is ignored rather than corrupting the session—a type warning naming the field is logged and emitted as a `session.warning` event. An empty-string override is rejected instead of blanking the model-facing content. A `null` `additionalContext` value is treated as absent instead of being injected as the literal text `null`. Hook output (stdout for command hooks, the response body for HTTP hooks) is bounded at 10 MiB per invocation—a larger response is truncated rather than exhausting memory.
 
 ### `userPromptTransformed`
@@ -797,7 +797,7 @@ Return `{}` or empty output to keep the original successful result.
 ## `permissionRequest` decision control
 
 > [!NOTE]
-> **{% data variables.copilot.copilot_cli_short %} only.** The `permissionRequest` hook does not apply under {% data variables.copilot.copilot_cloud_agent %}—tool calls there are pre-approved (see the **Interactivity** row in the Cloud agent execution environment table). Use `preToolUse` to make permission decisions in cloud agent.
+> **{% data variables.copilot.copilot_cli_short %} only.** The `permissionRequest` hook does not apply under {% data variables.copilot.copilot_in_the_cloud_short %}—tool calls there are pre-approved (see the **Interactivity** row in the Cloud agent execution environment table). Use `preToolUse` to make permission decisions in cloud agent.
 
 The `permissionRequest` hook fires before the permission service runs—before rule checks, session approvals, auto-allow/auto-deny, and user prompting. If hooks return `behavior: "allow"` or `"deny"`, that decision short-circuits the normal permission flow. Returning nothing falls through to normal permission handling. Use it to approve or deny tool calls programmatically—especially useful in CLI pipe mode (`-p`) and other CLI CI usages where no interactive prompt is available. It does not apply to cloud agent.
 
@@ -823,7 +823,7 @@ Return empty output or `{}` to fall through to the normal permission flow. For c
 ## `notification` hook
 
 > [!NOTE]
-> **{% data variables.copilot.copilot_cli_short %} only.** The `notification` hook does not fire under {% data variables.copilot.copilot_cloud_agent %}.
+> **{% data variables.copilot.copilot_cli_short %} only.** The `notification` hook does not fire under {% data variables.copilot.copilot_in_the_cloud_short %}.
 
 The `notification` hook fires asynchronously when the CLI emits a system notification. These hooks are fire-and-forget: they never block the session, and any errors are logged and skipped.
 
@@ -928,7 +928,7 @@ Set `disableAllHooks` to `true` at the top level to skip every hook in the file 
 
 Behavior depends on where you set the flag:
 
-* **Inside a single `.github/hooks/*.json` file** — only the hooks declared in that file are skipped. Honored by both {% data variables.copilot.copilot_cli_short %} and {% data variables.copilot.copilot_cloud_agent %}.
+* **Inside a single `.github/hooks/*.json` file** — only the hooks declared in that file are skipped. Honored by both {% data variables.copilot.copilot_cli_short %} and {% data variables.copilot.copilot_in_the_cloud_short %}.
 * **At the top level of repository `settings.json`** — **{% data variables.copilot.copilot_cli_short %} only.** Every hook from every source (repository files, user files, plugins, and inline hook blocks) is skipped for sessions in that repository. Policy hooks are not affected and continue to run. Cloud agent does not load `settings.json`.
 
 ## Further reading

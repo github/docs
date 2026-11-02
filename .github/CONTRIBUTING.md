@@ -76,7 +76,7 @@ For complete style guidance, see our [style guide](https://docs.github.com/en/co
 
 #### Repository-specific options:
 
-**Make changes in the UI:** Click **Make a contribution** at the bottom of any docs page for small changes like typos or broken links.
+**Make changes in the UI:** For small changes like typos or broken links, click **Make a contribution** at the bottom of any docs page. The button opens the article's source file in this repository. Click the pencil icon to edit the file. GitHub asks you to fork the repository, then lets you propose your change as a pull request. See "[Editing files in another user's repository](https://docs.github.com/en/repositories/working-with-files/managing-files/editing-files#editing-files-in-another-users-repository)."
 
 <img src="/contributing/images/contribution_cta.png" />
 

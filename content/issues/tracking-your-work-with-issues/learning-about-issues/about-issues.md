@@ -24,6 +24,12 @@ Issues can be created in a variety of ways, so you can choose the most convenien
 
 {% data reusables.issues.about-sub-issues %} See [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/adding-sub-issues) and [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/browsing-sub-issues).
 
+{% ifversion fpt or ghec %}
+## About issue artifacts
+
+Issue artifacts keep plans, research, links, and other supporting content attached to an issue. Artifacts provide a durable place for people and agents to preserve context alongside the work. See [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/using-artifacts-with-issues).
+{% endif %}
+
 ## About issue dependencies
 
 You can define blocking relationships between issues using issue dependencies. Issue dependencies let you identify issues that are blocked by, or blocking, other work. See [AUTOTITLE](/free-pro-team@latest/issues/tracking-your-work-with-issues/using-issues/creating-issue-dependencies).

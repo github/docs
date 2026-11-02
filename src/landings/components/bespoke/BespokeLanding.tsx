@@ -12,6 +12,7 @@ export const BespokeLanding = () => {
     title,
     intro,
     heroImage,
+    heroTheme,
     introLinks,
     tocItems,
     carousels,
@@ -27,7 +28,13 @@ export const BespokeLanding = () => {
     <DefaultLayout>
       <UtmPreserver />
       <div data-search="article-body">
-        <LandingHero title={title} intro={intro} heroImage={heroImage} introLinks={introLinks} />
+        <LandingHero
+          title={title}
+          intro={intro}
+          heroImage={heroImage}
+          heroTheme={heroTheme}
+          introLinks={introLinks}
+        />
 
         {carousels &&
           Object.entries(carousels).map(([carouselKey, articles]) => (

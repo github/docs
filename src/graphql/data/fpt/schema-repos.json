@@ -761,6 +761,13 @@
       "isDeprecated": false,
       "fields": [
         {
+          "name": "ignoredFilePaths",
+          "description": "<p>Files matching these patterns are allowed even when they also match a restricted path.</p>",
+          "type": "[String!]",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
           "name": "restrictedFilePaths",
           "description": "<p>The file paths that are restricted from being pushed to the commit graph.</p>",
           "type": "[String!]!",
@@ -930,6 +937,13 @@
       "description": "<p>Prevent commits with individual files that exceed the specified limit from being pushed to the commit graph.</p>",
       "isDeprecated": false,
       "fields": [
+        {
+          "name": "ignoredFilePaths",
+          "description": "<p>Files matching these patterns may exceed the maximum size.</p>",
+          "type": "[String!]",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
         {
           "name": "maxFileSize",
           "description": "<p>The maximum file size allowed in megabytes. This limit does not apply to Git Large File Storage (Git LFS).</p>",
@@ -10455,6 +10469,13 @@
       "isDeprecated": false,
       "inputFields": [
         {
+          "name": "ignoredFilePaths",
+          "description": "<p>Files matching these patterns are allowed even when they also match a restricted path.</p>",
+          "type": "[String!]",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
           "name": "restrictedFilePaths",
           "description": "<p>The file paths that are restricted from being pushed to the commit graph.</p>",
           "type": "[String!]!",
@@ -10512,6 +10533,13 @@
       "description": "<p>Prevent commits with individual files that exceed the specified limit from being pushed to the commit graph.</p>",
       "isDeprecated": false,
       "inputFields": [
+        {
+          "name": "ignoredFilePaths",
+          "description": "<p>Files matching these patterns may exceed the maximum size.</p>",
+          "type": "[String!]",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
         {
           "name": "maxFileSize",
           "description": "<p>The maximum file size allowed in megabytes. This limit does not apply to Git Large File Storage (Git LFS).</p>",

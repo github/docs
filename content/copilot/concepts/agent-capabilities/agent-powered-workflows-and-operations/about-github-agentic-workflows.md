@@ -12,8 +12,6 @@ category:
   - Learn about Copilot
 ---
 
-{% data reusables.copilot.agentic-workflows-preview-note %}
-
 ## About {% data variables.copilot.agentic_workflows_short %}
 
 {% data variables.copilot.github_agentic_workflows %} are AI-powered repository automations that you define in markdown and run as {% data variables.product.prodname_actions %} workflows. Unlike traditional automation with fixed if-then rules, {% data variables.copilot.agentic_workflows_short %} use coding agents to understand context, evaluate decisions, and propose meaningful actions—all from natural language instructions.
@@ -105,7 +103,7 @@ For detailed steps on creating and updating {% data variables.copilot.agentic_wo
 
 You specify which agent to use in the workflow frontmatter property `engine`. Each engine requires its own authentication secret configured in your repository. {% data variables.product.prodname_copilot %} is the default engine if none is specified.
 
-For more information, see the [engine reference](https://github.github.com/gh-aw/reference/engines/).
+For more information, see the [engine reference](https://github.github.com/gh-aw/reference/engines/?utm_source=agentic-workflow-docs-gh-aw-engines-reference&utm_medium=docs&utm_campaign=universe-2026).
 
 ## Security guardrails
 
@@ -118,7 +116,7 @@ For more information, see the [engine reference](https://github.github.com/gh-aw
 * **Firewalled execution**: Agents run in isolated {% data variables.product.prodname_actions %} environments.
 * **Role-based access**: You can restrict who can trigger or modify {% data variables.copilot.agentic_workflows_short %} using role-based access controls.
 
-For a full architecture walkthrough, see the [security documentation](https://github.github.com/gh-aw/introduction/architecture/).
+For a full architecture walkthrough, see the [security documentation](https://github.github.com/gh-aw/introduction/architecture/?utm_source=agentic-workflow-docs-gh-aw-architecture&utm_medium=docs&utm_campaign=universe-2026).
 
 ## Usage and billing
 
@@ -138,7 +136,7 @@ You can use the {% data variables.product.prodname_cli %} to review usage and es
 
 You can also set `max-ai-credits` in workflow frontmatter to cap inference usage for a single run. The default cap is 1,000 AIC per run.
 
-For an overview of billing for {% data variables.copilot.github_agentic_workflows %} and cost optimization guidance, see [Cost management](https://github.github.com/gh-aw/reference/cost-management/) on the {% data variables.copilot.github_agentic_workflows %} documentation site.
+For an overview of billing for {% data variables.copilot.github_agentic_workflows %} and cost optimization guidance, see [Cost management](https://github.github.com/gh-aw/reference/cost-management/?utm_source=agentic-workflow-docs-gh-aw-cost-management-reference&utm_medium=docs&utm_campaign=universe-2026) on the {% data variables.copilot.github_agentic_workflows %} documentation site.
 
 ### Enabling organization billing for {% data variables.copilot.github_agentic_workflows %}
 

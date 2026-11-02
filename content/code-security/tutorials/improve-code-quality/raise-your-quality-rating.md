@@ -13,6 +13,7 @@ redirect_from:
   - /code-security/tutorials/improve-code-quality/improve-your-codebase
 category:
   - Improve code quality
+  - Dessert - Operate your sweet tooth
 ---
 
 ## Introduction

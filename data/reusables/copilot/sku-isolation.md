@@ -1,6 +1,6 @@
 ## About {% data variables.copilot.copilot_sku_isolation %}
 
-As an enterprise or organization owner, you can use your network firewall to explicitly allow access to {% data variables.copilot.copilot_business_short %}, {% data variables.copilot.copilot_enterprise_short %}, or both, and/or block access to {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, {% data variables.copilot.copilot_max_short %}, or {% data variables.copilot.copilot_free_short %}. This allows you to control which {% data variables.product.prodname_copilot %} plans your members can use within your network.
+On {% data variables.product.prodname_dotcom_the_website %}, enterprise and organization owners can use their network firewall to control which {% data variables.product.prodname_copilot %} plans members can use. Allow the endpoints for your organization's or enterprise's plan and block the endpoint for personal plans.
 
 Configuring {% data variables.copilot.copilot_sku_isolation %} will affect the following {% data variables.product.prodname_copilot_short %} features:
 
@@ -10,17 +10,20 @@ Configuring {% data variables.copilot.copilot_sku_isolation %} will affect the f
 * {% data variables.product.prodname_mobile %} Apps
 * {% data variables.copilot.copilot_cli_short %}
 
-{% data variables.copilot.copilot_sku_isolation %} is enabled for all users. This ensures that users access {% data variables.product.prodname_copilot_short %} through an endpoint that is specific to their {% data variables.product.prodname_copilot_short %} plan. Only {% data variables.copilot.copilot_business_short %} users will be able to connect to the {% data variables.copilot.copilot_business_short %} endpoint and only {% data variables.copilot.copilot_enterprise_short %} users will be able to connect to the {% data variables.copilot.copilot_enterprise_short %} endpoint.
+{% data variables.copilot.copilot_sku_isolation %} is enabled for all users. Requests use a plan-specific endpoint. The {% data variables.copilot.copilot_enterprise_short %} endpoint also serves the {% data variables.product.prodname_copilot_short %} access billing model, both through {% data variables.product.prodname_ghe_cloud %} and as {% data variables.copilot.copilot_standalone_short %}. Endpoint reuse does not determine which features or models are available.
 
 ## Important steps to ensure continued access to {% data variables.product.prodname_copilot_short %}
 
 You should ensure that your firewall allows access to all of the hostnames listed in [AUTOTITLE](/copilot/reference/copilot-allowlist-reference).
 
+> [!WARNING]
+> Before migrating from {% data variables.copilot.copilot_business_short %} to the {% data variables.product.prodname_copilot_short %} access billing model on {% data variables.product.prodname_dotcom_the_website %}, update your allowlist to permit `*.enterprise.githubcopilot.com`. An allowlist that permits only `*.business.githubcopilot.com` will block traffic for this billing model.
+
+If your enterprise is hosted on {% data variables.enterprise.data_residency_site %}, use the data residency domains in that reference instead. Subscription-based network routing is not supported there.
+
 ## Configuring {% data variables.copilot.copilot_sku_isolation %} for your enterprise or organization
 
-Enterprise or organization owners can add the endpoints for {% data variables.copilot.copilot_business_short %}, {% data variables.copilot.copilot_enterprise_short %}, or both to their allow-list. This will ensure that members can only access {% data variables.product.prodname_copilot_short %} through the allowed endpoint.
-
-> [!NOTE] If your enterprise account includes both {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %} plans, make sure both endpoints are added to your allow-list.
+Add the endpoint required by your enterprise's plan. If your enterprise uses both {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %}, allow both endpoints.
 
 1. Ensure your members have updated to at least the minimum version of their {% data variables.product.prodname_copilot_short %} client listed below.
     * For {% data variables.product.prodname_vscode %}, use {% data variables.copilot.copilot_chat_short %} version 0.17 or later.
@@ -29,7 +32,7 @@ Enterprise or organization owners can add the endpoints for {% data variables.co
 
 1. Update your corporate network firewall to include one, or both, of these paths in your allowlist:
     * For a {% data variables.copilot.copilot_business_short %} plan, add `*.business.githubcopilot.com`
-    * For a {% data variables.copilot.copilot_enterprise_short %} plan, add `*.enterprise.githubcopilot.com`
+    * For a {% data variables.copilot.copilot_enterprise_short %} plan or the {% data variables.product.prodname_copilot_short %} access billing model, add `*.enterprise.githubcopilot.com`
 
     > [!NOTE] The `*` indicates a wildcard character. A wildcard is necessary as there are multiple subdomains required for {% data variables.product.prodname_copilot_short %} to function correctly.
 

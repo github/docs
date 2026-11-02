@@ -1,0 +1,26 @@
+# This file defines per-token pricing for image generation models available in GitHub Copilot.
+# Prices are per 1 million tokens.
+#
+# It is used to generate the "Image generation models" table at
+# /content/copilot/reference/copilot-billing/models-and-pricing#image-generation-models.
+#
+# Please keep this list sorted by provider, then alphabetically by model name.
+#
+# Column keys:
+# - model: The model name.
+# - provider: The model provider.
+# - release_status: "GA" or "Public preview".
+# - text_input: Text input token price per 1M tokens.
+# - cached_text_input: Cached text input token price per 1M tokens.
+# - image_input: Image input token price per 1M tokens.
+# - cached_image_input: Cached image input token price per 1M tokens.
+# - image_output: Image output token price per 1M tokens.
+
+- model: GPT Image 2.5 Flare
+  provider: openai
+  release_status: Public preview
+  text_input: $5.00
+  cached_text_input: $1.25
+  image_input: $8.00
+  cached_image_input: $2.00
+  image_output: $30.00

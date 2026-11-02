@@ -86,6 +86,7 @@ children:
   - contributing
   - github-models
   - nonprofit
+  - mos-diner
 childGroups:
   - name: Get started
     octicon: RocketIcon
@@ -194,4 +195,3 @@ externalProducts:
     href: https://wellarchitected.github.com/
     external: true
 ---
-

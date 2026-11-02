@@ -255,6 +255,15 @@ export const schema: Schema = {
     heroImage: {
       type: 'string',
     },
+    // Event-specific hero styling that replaces the hero image on landing pages
+    heroTheme: {
+      type: 'string',
+      enum: ['mos-diner'],
+    },
+    // Pages with no navigable children, such as event landings, can drop the doc-tree rail.
+    hideSidebar: {
+      type: 'boolean',
+    },
     interactive: {
       type: 'boolean',
     },

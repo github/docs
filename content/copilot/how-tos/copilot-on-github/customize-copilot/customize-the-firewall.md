@@ -41,7 +41,7 @@ If {% data variables.product.prodname_copilot_short %} tries to make a request w
 The agent firewall has important limitations that affect its security coverage.
 
 * **Only applies to processes started by the agent**: The firewall only applies to processes started by the agent via its Bash tool. It does not apply directly to Model Context Protocol (MCP) server processes or processes started in configured {% data variables.product.prodname_copilot_short %} setup steps. Other agent processes can still make network requests while an MCP server is in use, and these requests are subject to the firewall.
-* **Only applies within the {% data variables.product.prodname_actions %} appliance**: The firewall only operates within the {% data variables.product.prodname_actions %} appliance environment. It does not apply to processes running outside of this environment.
+* **Only applies within the agent's environment**: The firewall only operates within the environment where {% data variables.product.prodname_copilot_short %} runs, either a {% data variables.product.prodname_actions %} runner or a cloud sandbox. It does not apply to processes running outside of this environment.
 * **Bypass potential**: Sophisticated attacks may bypass the firewall, potentially allowing unauthorized network access and data exfiltration.
 
 These limitations mean that the firewall provides protection for common scenarios, but should not be considered a comprehensive security solution.
@@ -66,7 +66,7 @@ Organization owners can configure all firewall settings at the organization leve
 {% data reusables.profile.org_settings %}
 {% data reusables.copilot.internet-access-settings %}
 
-The "Internet access" page has separate sections for {% data variables.copilot.copilot_cloud_agent %} and {% data variables.copilot.copilot_code-review_short %}, so you can configure the following settings independently for each.
+The "Internet access" page has separate sections labeled "{% data variables.copilot.copilot_in_the_cloud_short %}" and "{% data variables.copilot.copilot_code-review_short %}". Use the section for the feature you want to configure.
 
 ### Enabling or disabling the firewall
 
@@ -89,12 +89,13 @@ By default, repository administrators can add their own entries to the firewall 
 
 Items added to the organization custom allowlist apply to all repositories in the organization. These items cannot be deleted at the repository level. Organization-level and repository-level rules are combined.
 
-1. Under "Internet access", click **Organization custom allowlist**.
+1. In the "{% data variables.copilot.copilot_in_the_cloud_short %}" or "{% data variables.copilot.copilot_code-review_short %}" section, click **Organization custom allowlist**.
+1. On the "Custom allowlist for {% data variables.copilot.copilot_in_the_cloud_short %}" or "Custom allowlist for {% data variables.copilot.copilot_code-review_short %}" page, confirm that the title matches the feature you want to configure.
 {% data reusables.copilot.cloud-agent.custom-allowlist-add-entries %}
 
 ## Configuring the firewall at the repository level
 
-Repository administrators can configure firewall settings at the repository level, including enabling or disabling the firewall, enabling or disabling the recommended allowlist, and managing a custom allowlist. Depending on the organization-level configuration, some of these settings may be locked. The repository settings page also has separate sections for {% data variables.copilot.copilot_cloud_agent %} and {% data variables.copilot.copilot_code-review_short %}, so you can configure these settings independently for each.
+Repository administrators can configure firewall settings at the repository level, including enabling or disabling the firewall, enabling or disabling the recommended allowlist, and managing a custom allowlist. Depending on the organization-level configuration, some of these settings may be locked. The repository settings page also has separate sections labeled "{% data variables.copilot.copilot_in_the_cloud_short %}" and "{% data variables.copilot.copilot_code-review_short %}". Use the section for the feature you want to configure.
 
 To access the firewall settings:
 
@@ -121,7 +122,8 @@ To access the firewall settings:
 > [!NOTE]
 > You can only add custom allowlist rules at the repository level if the organization-level **Allow repository custom rules** setting is set to **Enabled**. For more information, see [Controlling whether repositories can add custom allowlist rules](#controlling-whether-repositories-can-add-custom-allowlist-rules).
 
-1. Click **Custom allowlist**.
+1. In the "{% data variables.copilot.copilot_in_the_cloud_short %}" or "{% data variables.copilot.copilot_code-review_short %}" section, click **Custom allowlist**.
+1. On the "Custom allowlist for {% data variables.copilot.copilot_in_the_cloud_short %}" or "Custom allowlist for {% data variables.copilot.copilot_code-review_short %}" page, confirm that the title matches the feature you want to configure.
 {% data reusables.copilot.cloud-agent.custom-allowlist-add-entries %}
 
 ## Further reading

@@ -1,7 +1,7 @@
 ---
 title: Metrics data properties for GitHub Copilot
 shortTitle: Metrics data
-intro: See how GitHub calculates properties from APIs and reports.
+intro: See how {% data variables.product.company_short %} calculates properties from APIs and reports.
 versions:
   feature: copilot
 category:
@@ -30,8 +30,8 @@ The following interactions count as activity:
 * Receiving a code suggestion in an IDE
 * Chatting with {% data variables.copilot.copilot_chat_short %} in an IDE
 * Generating a pull request summary
-* Interacting with {% data variables.copilot.copilot_chat_short %} in GitHub
-* Interacting with Copilot on a mobile device
+* Interacting with {% data variables.copilot.copilot_chat_short %} on {% data variables.product.company_short %}
+* Interacting with {% data variables.product.prodname_copilot_short %} on a mobile device
 * Interacting with {% data variables.copilot.copilot_chat_short %} for CLI
 
 The tracked events come from both client- and server-side telemetry, ensuring the timestamp is durable if network conditions affect client-side telemetry.
@@ -43,11 +43,11 @@ Processing new telemetry events and updating a user's `last_activity_at` date ca
 * The retention period for `last_activity_at` data is 90 days. This cannot be modified.
 * After 90 days of no new activity, a user's `last_activity_at` value is set to `nil`.
 
-For more information, see [Updating retention period for `last_activity_at` values on the Copilot user management API to 90 days](https://github.blog/changelog/2025-01-17-updating-retention-period-for-last_activity_at-values-on-the-user-management-api-public-preview-to-90-days/) on {% data variables.product.prodname_blog %}.
+For more information, see [Updating retention period for `last_activity_at` values on the {% data variables.product.prodname_copilot_short %} user management API to 90 days](https://github.blog/changelog/2025-01-17-updating-retention-period-for-last_activity_at-values-on-the-user-management-api-public-preview-to-90-days/) on {% data variables.product.prodname_blog %}.
 
-## Copilot activity report
+## {% data variables.product.prodname_copilot_short %} activity report
 
-The Copilot activity report shows user activity data for an organization or enterprise.
+The {% data variables.product.prodname_copilot_short %} activity report shows user activity data for an organization or enterprise.
 
 Data in the report refreshes automatically every 30 minutes.
 
@@ -56,10 +56,10 @@ Data in the report refreshes automatically every 30 minutes.
 | Field | Description |
 |-------|-------------|
 | `report_time` | UTC timestamp when the report was generated |
-| `login` | GitHub username of the Copilot user |
+| `login` | {% data variables.product.company_short %} username of the {% data variables.product.prodname_copilot_short %} user |
 | `last_authenticated_at` | UTC timestamp of the user's most recent authentication |
-| `last_activity_at` | UTC timestamp of the user's most recent Copilot interaction |
-| `last_surface_used` | The Copilot feature used most recently:<br><ul><li>**IDE**: Editor name and version (e.g. "VS Code 1.89.1")</li><li>**GitHub.com**: Feature name (e.g., "Copilot Chat")</li><li>**Unspecified**: When IDE details are unavailable or no recent activity exists</ul> |
+| `last_activity_at` | UTC timestamp of the user's most recent {% data variables.product.prodname_copilot_short %} interaction |
+| `last_surface_used` | The {% data variables.product.prodname_copilot_short %} feature used most recently:<br><ul><li>**IDE**: Editor name and version (e.g. "{% data variables.product.prodname_vscode_shortname %} 1.89.1")</li><li>**{% data variables.product.prodname_dotcom_the_website %}**: Feature name (e.g., "{% data variables.copilot.copilot_chat_short %}")</li><li>**Unspecified**: When IDE details are unavailable or no recent activity exists</ul> |
 
 ### Retention period
 
@@ -67,7 +67,7 @@ Activity and authentication data are retained for a rolling 90-day period, consi
 
 ### Included features
 
-The activity report provides visibility into usage of all generally available (GA) GitHub Copilot features in the IDE, on GitHub, in GitHub CLI, and on GitHub Mobile.
+The activity report provides visibility into usage of all generally available (GA) {% data variables.product.prodname_copilot %} features in the IDE, on {% data variables.product.company_short %}, in {% data variables.product.prodname_cli %}, and on {% data variables.product.prodname_mobile %}.
 
 #### IDE features
 
@@ -75,21 +75,20 @@ The activity report provides visibility into usage of all generally available (G
 * {% data variables.copilot.next_edit_suggestions_caps %}
 * {% data variables.copilot.copilot_chat_short %}
 * Agent mode
-* {% data variables.copilot.copilot_edits_short %} in VS Code
+* {% data variables.copilot.copilot_edits_short %} in {% data variables.product.prodname_vscode_shortname %}
 
-#### GitHub features
+#### {% data variables.product.company_short %} features
 
 * {% data variables.copilot.copilot_chat_short %}
 * {% data variables.copilot.copilot_cloud_agent %}
-* Copilot for Docs
+* {% data variables.product.prodname_copilot_short %} for Docs
 * {% data variables.copilot.copilot_for_prs %}
 * {% data variables.copilot.copilot_code-review_short %}
 
 ### Limitations
 
-There is a possibility that {% data variables.product.github %} lacks consistent telemetry from some third party IDEs outside of VS Code (such as JetBrains and Xcode). Users should ensure they're running the latest version of their IDE.
+Telemetry from some third-party IDEs may be incomplete, particularly when users run older versions. For version requirements and troubleshooting guidance, see [AUTOTITLE](/copilot/concepts/billing-and-usage/copilot-usage-metrics/copilot-metrics).
 
-The activity report may exclude usage of {% data variables.product.prodname_copilot %} features that are not yet generally available (GA). Currently, the following features are not fully recorded:
+The activity report may exclude usage of {% data variables.product.prodname_copilot %} features that are not yet generally available (GA). Currently, the following feature is not fully recorded:
 
 * {% data variables.copilot.copilot_spaces %}
-* Copilot Spark

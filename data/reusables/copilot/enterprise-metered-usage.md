@@ -1,0 +1,1 @@
+{% data variables.product.prodname_copilot_short %} access, whether through {% data variables.product.prodname_ghe_cloud %} or as {% data variables.copilot.copilot_standalone_short %}, does not include an allowance of {% data variables.product.prodname_ai_credits %}. Metered usage is billed from the first use.

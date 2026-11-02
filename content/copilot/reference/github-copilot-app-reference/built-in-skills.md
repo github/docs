@@ -20,7 +20,7 @@ Some built-in skills are available as slash commands. When available in your cur
 | Skill ID | When to use |
 | --- | --- |
 | `af` | Find installable MCP servers, tools, skills, and agents by searching ARD Agent Finder. Invoke this skill with `/af`. See [AUTOTITLE](/copilot/concepts/customizations/mcp#agent-finder). |
-| `agent-merge` | Follow up on review comments, failing checks, and merge conflicts after agent merge is enabled for a pull request. The agent merge workflow invokes this skill automatically. See [AUTOTITLE](/copilot/how-tos/github-copilot-app/managing-issues-and-pull-requests#merging-a-pull-request). |
+| `agent-merge` | Follow up on review comments, failing checks, and merge conflicts after {% data variables.copilot.agent_merge %} is enabled for a pull request. The {% data variables.copilot.agent_merge %} workflow invokes this skill automatically. See [AUTOTITLE](/copilot/how-tos/github-copilot-app/managing-issues-and-pull-requests#merging-a-pull-request). |
 | `create-canvas` | Create and troubleshoot canvas extensions in the app side panel, including actions, inputs, rendered content, and setup. Invoke this skill with `/create-canvas`. See [AUTOTITLE](/copilot/how-tos/github-copilot-app/working-with-canvas-extensions). |
 | `orchestrate` | Coordinate work across sessions and repositories by creating and guiding child sessions. Invoke this skill with `/orchestrate`. |
 | `pr-stack` | Create and manage a stack of dependent pull requests, with one child session for each layer. Invoke this skill with `/pr-stack`. See [AUTOTITLE](/pull-requests/get-started/about-stacked-prs). |

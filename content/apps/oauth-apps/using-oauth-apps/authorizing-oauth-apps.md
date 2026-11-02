@@ -20,6 +20,8 @@ When an {% data variables.product.prodname_oauth_app %} wants to identify you by
 > [!TIP]
 > You must [verify your email address](/account-and-profile/how-tos/email-preferences/verifying-your-email-address) before you can authorize an {% data variables.product.prodname_oauth_app %}.
 
+If you see “This account is flagged, and therefore cannot authorize a third party application” while authorizing an {% data variables.product.prodname_oauth_app %} or choosing **Continue with {% data variables.product.github %}**, your account has a restriction or is under review. This message isn't caused by missing email verification, organization approval, or SAML reauthorization. Retrying the authorization flow won't resolve the error while the restriction remains. For next steps, see [AUTOTITLE](/free-pro-team@latest/site-policy/acceptable-use-policies/github-appeal-and-reinstatement).
+
 {% endif %}
 
 ## {% data variables.product.prodname_oauth_app %} access

@@ -13,6 +13,7 @@ children:
   - /quickstart-copilot-app
   - /sdk-quickstart
   - /plans
+  - /whats-changing-with-github-enterprise-and-copilot
   - /best-practices
   - /enterprise-ai-governance
 redirect_from:

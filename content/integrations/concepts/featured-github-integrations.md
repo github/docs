@@ -91,9 +91,9 @@ For more information, see [AUTOTITLE](/integrations/how-tos/teams).
 
 {% ifversion copilot %}
 
-You can also integrate the {% data variables.copilot.copilot_cloud_agent %} with your Microsoft Teams app, enabling you to use AI-powered coding assistance directly within your team's communication platform.
+The same app also integrates the {% data variables.copilot.copilot_cloud_agent %} with Microsoft Teams, enabling you to use AI-powered coding assistance directly within your team's communication platform.
 
-Use {% data variables.copilot.copilot_cloud_agent %} in Microsoft Teams to collaborate with your team on agent-assisted work. You can @mention {% data variables.product.github %} in channels, threads, and direct messages to work alongside teammates and {% data variables.product.prodname_copilot_short %} on research, planning, and coding tasks. Teammates can add context, steer {% data variables.product.prodname_copilot_short %} sessions, monitor progress, and then review the resulting artifacts.
+Use {% data variables.copilot.copilot_cloud_agent %} in Microsoft Teams to collaborate with your team on agent-assisted work. You can reply to a notification and @mention {% data variables.product.github %} in channels, threads, and direct messages to work alongside teammates and {% data variables.product.prodname_copilot_short %} on research, planning, and coding tasks. Teammates can add context, steer {% data variables.product.prodname_copilot_short %} sessions, monitor progress, and then review the resulting artifacts.
 
 See [AUTOTITLE](/copilot/how-tos/copilot-integrations/integrate-cloud-agent-with-teams) for more information.
 

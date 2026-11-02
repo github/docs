@@ -212,6 +212,15 @@
   xcode: true
   jetbrains: true
 
+- name: GPT-6.1 Terra
+  dotcom: true
+  cli: true
+  vscode: true
+  vs: true
+  eclipse: true
+  xcode: true
+  jetbrains: true
+
 - name: Grok 4.5
   dotcom: false
   cli: true

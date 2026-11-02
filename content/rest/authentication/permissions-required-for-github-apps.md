@@ -25,4 +25,14 @@ category:
 
 {% data reusables.rest-api.additional-permissions %}
 
+{% ifversion ghec %}
+
+## Enterprise permission availability
+
+The "Enterprise billing" permission group in the generated tables below is not generally available when registering an enterprise-owned {% data variables.product.prodname_github_app %}, on either {% data variables.product.prodname_dotcom_the_website %} or {% data variables.enterprise.data_residency_site %}. A table entry does not mean that your enterprise can grant the permission. Do not plan an integration using this permission unless it is available in your app's permission settings.
+
+For the supported authentication methods for cost center and budget endpoints, see [AUTOTITLE](/rest/billing/cost-centers) and [AUTOTITLE](/rest/billing/budgets).
+
+{% endif %}
+
 <!-- The content of this page is rendered as a NextJS page component. -->

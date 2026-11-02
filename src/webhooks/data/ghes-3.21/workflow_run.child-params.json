@@ -804,10 +804,122 @@
         "isRequired": true
       },
       {
-        "type": "array of object,nulls",
+        "type": "array of objects",
         "name": "pull_requests",
         "description": "",
-        "isRequired": true
+        "isRequired": true,
+        "childParamsGroups": [
+          {
+            "type": "object",
+            "name": "base",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "string",
+                "name": "ref",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "object",
+                "name": "repo",
+                "description": "",
+                "isRequired": true,
+                "childParamsGroups": [
+                  {
+                    "type": "integer",
+                    "name": "id",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "name",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "url",
+                    "description": "",
+                    "isRequired": true
+                  }
+                ]
+              },
+              {
+                "type": "string",
+                "name": "sha",
+                "description": "",
+                "isRequired": true
+              }
+            ]
+          },
+          {
+            "type": "object",
+            "name": "head",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "string",
+                "name": "ref",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "object",
+                "name": "repo",
+                "description": "",
+                "isRequired": true,
+                "childParamsGroups": [
+                  {
+                    "type": "integer",
+                    "name": "id",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "name",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "url",
+                    "description": "",
+                    "isRequired": true
+                  }
+                ]
+              },
+              {
+                "type": "string",
+                "name": "sha",
+                "description": "",
+                "isRequired": true
+              }
+            ]
+          },
+          {
+            "type": "number",
+            "name": "id",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "number",
+            "name": "number",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "url",
+            "description": "",
+            "isRequired": true
+          }
+        ]
       },
       {
         "type": "array of objects or null",
@@ -2224,10 +2336,122 @@
         "isRequired": true
       },
       {
-        "type": "array of object,nulls",
+        "type": "array of objects",
         "name": "pull_requests",
         "description": "",
-        "isRequired": true
+        "isRequired": true,
+        "childParamsGroups": [
+          {
+            "type": "object",
+            "name": "base",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "string",
+                "name": "ref",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "object",
+                "name": "repo",
+                "description": "",
+                "isRequired": true,
+                "childParamsGroups": [
+                  {
+                    "type": "integer",
+                    "name": "id",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "name",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "url",
+                    "description": "",
+                    "isRequired": true
+                  }
+                ]
+              },
+              {
+                "type": "string",
+                "name": "sha",
+                "description": "",
+                "isRequired": true
+              }
+            ]
+          },
+          {
+            "type": "object",
+            "name": "head",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "string",
+                "name": "ref",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "object",
+                "name": "repo",
+                "description": "",
+                "isRequired": true,
+                "childParamsGroups": [
+                  {
+                    "type": "integer",
+                    "name": "id",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "name",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "url",
+                    "description": "",
+                    "isRequired": true
+                  }
+                ]
+              },
+              {
+                "type": "string",
+                "name": "sha",
+                "description": "",
+                "isRequired": true
+              }
+            ]
+          },
+          {
+            "type": "number",
+            "name": "id",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "number",
+            "name": "number",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "url",
+            "description": "",
+            "isRequired": true
+          }
+        ]
       },
       {
         "type": "array of objects or null",

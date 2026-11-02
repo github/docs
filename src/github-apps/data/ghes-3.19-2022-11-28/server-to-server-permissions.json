@@ -71,6 +71,34 @@
       }
     ]
   },
+  "enterprise_ref_rules": {
+    "title": "Enterprise Ruleset",
+    "displayTitle": "Enterprise permissions for \"Enterprise Ruleset\"",
+    "permissions": [
+      {
+        "category": "enterprise-admin",
+        "slug": "get-enterprise-ruleset-history",
+        "subcategory": "rules",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/rulesets/{ruleset_id}/history",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "get-enterprise-ruleset-version",
+        "subcategory": "rules",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/rulesets/{ruleset_id}/history/{version_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      }
+    ]
+  },
   "enterprise_scim": {
     "title": "Enterprise SCIM",
     "displayTitle": "Enterprise permissions for \"Enterprise SCIM\"",
@@ -203,6 +231,23 @@
         "verb": "delete",
         "requestPath": "/scim/v2/enterprises/{enterprise}/Users/{scim_user_id}",
         "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      }
+    ]
+  },
+  "enterprise_bypass_requests": {
+    "title": "Enterprise bypass requests",
+    "displayTitle": "Enterprise permissions for \"Enterprise bypass requests\"",
+    "permissions": [
+      {
+        "category": "enterprise-admin",
+        "slug": "list-push-rule-bypass-requests-within-an-enterprise",
+        "subcategory": "bypass-requests",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/bypass-requests/push-rules",
+        "access": "read",
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": false

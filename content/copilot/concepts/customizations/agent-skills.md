@@ -40,6 +40,7 @@ You can also use `gh skill` in {% data variables.product.prodname_cli %} to disc
 
 * Project skills, stored in your repository (`.github/skills`, `.claude/skills`, or `.agents/skills`)
 * Personal skills, stored in your home directory and shared across projects (`~/.copilot/skills` or `~/.agents/skills`)
+  * To make personal skills available in cloud sandbox sessions, include them in `.copilot/skills` in your dotfiles repository. This does not apply to {% data variables.product.prodname_actions %}-based sessions. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/personalize-cloud-sessions).
 
 Supported locations depend on the surface. Use its setup guide to choose a location rather than assuming that a personal skill is available to an agent running in the cloud.
 

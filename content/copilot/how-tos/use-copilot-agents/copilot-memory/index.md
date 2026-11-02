@@ -5,8 +5,8 @@ intro: Manage and curate memories for {% data variables.product.prodname_copilot
 versions:
   feature: copilot
 children:
+  - /create-memories
   - /manage-for-yourself
   - /manage-as-administrator
 contentType: how-tos
 ---
-
