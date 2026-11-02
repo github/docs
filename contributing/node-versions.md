@@ -4,9 +4,11 @@ This site will run on the Node.js version specified in `package.json`.
 
 When updating to a new Node.js version, consider the following files:
 
-- [ ] The `engines.node` entry in `package.json`
+- [ ] The `engines.node` entry in `package.json` and `package-lock.json`
 - [ ] The `.github/workflows/*.yml` Actions files that pin a Node version (grep for `node-version`)
-- [ ] The `Dockerfile` that can be used for deployments
+- [ ] The `Dockerfile` that can be used for deployments, including its minimum Node version check
+- [ ] The `.devcontainer/Dockerfile` and `.devcontainer/devcontainer.json` files
+- [ ] The `Dockerfile.openapi_decorator` file
 - [ ] The `contributing/development.md` guide
 - [ ] The `contributing/node-versions.md` file
 
