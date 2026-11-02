@@ -1,4 +1,14 @@
 {
+  "2027-04-01": [
+    {
+      "location": "RepositoryPermission.TRIAGE_PLUS",
+      "description": "<p><code>TRIAGE_PLUS</code> will be removed. Use MODERATE instead.</p>",
+      "reason": "<p>TRIAGE_PLUS has been renamed to MODERATE.</p>",
+      "date": "2027-04-01",
+      "criticality": "breaking",
+      "owner": "corannejuang"
+    }
+  ],
   "2027-01-01": [
     {
       "location": "CheckAnnotation.databaseId",

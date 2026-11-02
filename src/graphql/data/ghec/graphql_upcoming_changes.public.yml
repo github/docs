@@ -8030,3 +8030,9 @@ upcoming_changes:
     date: '2027-01-01T00:00:00+00:00'
     criticality: breaking
     owner: github/actions-persistence
+  - location: RepositoryPermission.TRIAGE_PLUS
+    description: '`TRIAGE_PLUS` will be removed. Use MODERATE instead.'
+    reason: TRIAGE_PLUS has been renamed to MODERATE.
+    date: '2027-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: corannejuang

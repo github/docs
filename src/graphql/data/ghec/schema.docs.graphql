@@ -57895,6 +57895,11 @@ enum RepositoryPermission @docsCategory(name: "repos") {
   MAINTAIN
 
   """
+  Can read and clone this repository. Can also moderate and edit issues and manage pull requests without write access
+  """
+  MODERATE
+
+  """
   Can read and clone this repository. Can also open and comment on issues and pull requests
   """
   READ
@@ -57905,9 +57910,10 @@ enum RepositoryPermission @docsCategory(name: "repos") {
   TRIAGE
 
   """
-  Can read and clone this repository. Can also manage issues and pull requests, plus additional triage abilities
+  Can read and clone this repository. Can also moderate and edit issues and manage pull requests without write access
   """
   TRIAGE_PLUS
+    @deprecated(reason: "TRIAGE_PLUS has been renamed to MODERATE. Use MODERATE instead. Removal on 2027-04-01 UTC.")
 
   """
   Can read, clone, and push to this repository. Can also manage issues and pull requests
