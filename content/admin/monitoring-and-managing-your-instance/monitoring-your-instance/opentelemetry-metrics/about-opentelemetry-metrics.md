@@ -23,7 +23,7 @@ The OpenTelemetry monitoring stack is based on industry-standard observability t
 
 ### Benefits of OpenTelemetry metrics
 
-OpenTelemetry metrics offer several advantages over the legacy collectd system:
+OpenTelemetry metrics offer several advantages{% ifversion ghes-collectd-available %} over the legacy collectd system{% endif %}:
 
 * **Industry standard**: Based on widely adopted OpenTelemetry and Prometheus standards
 * **Scalable storage**: VictoriaMetrics provides efficient time-series data storage

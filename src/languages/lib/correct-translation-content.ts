@@ -1207,6 +1207,8 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{% avertissement %}', '{% warning %}')
     content = content.replaceAll('{%- avertissement %}', '{%- warning %}')
     content = content.replaceAll('{%- avertissement -%}', '{%- warning -%}')
+    // The translator rendered "endwarning" as the words "fin avertissement".
+    content = content.replace(/\{%(-?)\s*fin avertissement\s*(-?)%\}/g, '{%$1 endwarning $2%}')
     content = content.replaceAll('{% conseil %}', '{% tip %}')
     content = content.replaceAll('{%- conseil %}', '{%- tip %}')
     content = content.replaceAll('{%- conseil -%}', '{%- tip -%}')

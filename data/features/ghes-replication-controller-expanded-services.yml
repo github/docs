@@ -1,0 +1,3 @@
+# Replication Controller also manages pre-receive hooks, MySQL, Redis, and Elasticsearch.
+versions:
+  ghes: '>=3.22'

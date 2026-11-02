@@ -25,7 +25,7 @@ category:
 
 ## Enabling OpenTelemetry metrics
 
-{% ifversion ghes < 3.23 %}
+{% ifversion ghes-collectd-available %}
 
 {% ifversion ghes > 3.18 %}
 

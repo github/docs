@@ -2,7 +2,7 @@
 title: About Collectd metrics
 intro: 'Collectd metrics provide a legacy monitoring solution for {% data variables.product.prodname_ghe_server %} instances that is supported alongside a {% data variables.release-phases.public_preview %} of OpenTelemetry metrics.'
 versions:
-  ghes: '*'
+  feature: ghes-collectd-available
 shortTitle: About Collectd metrics
 contentType: concepts
 category:

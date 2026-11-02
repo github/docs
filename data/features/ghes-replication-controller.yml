@@ -1,0 +1,3 @@
+# Replication Controller is enabled by default and controlled by app.replication-controller.enabled.
+versions:
+  ghes: '>=3.21'
