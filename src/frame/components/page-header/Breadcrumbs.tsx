@@ -81,9 +81,10 @@ export const Breadcrumbs = ({ inHeader, variant }: Props) => {
         .filter(Boolean)
         .map((breadcrumb, i, arr) => {
           const title = `${breadcrumb.title}`
+          // Titles can repeat, like REST's Repositories > Repositories, so they can't be keys.
           if (!breadcrumb.href) {
             return (
-              <li key={title}>
+              <li key={`${i}-${title}`}>
                 <span data-testid="breadcrumb-title">{breadcrumb.title}</span>
               </li>
             )
@@ -93,7 +94,7 @@ export const Breadcrumbs = ({ inHeader, variant }: Props) => {
           return (
             <BrandBreadcrumbs.Item
               data-testid={isCurrent ? 'breadcrumb-current' : 'breadcrumb-link'}
-              key={title}
+              key={breadcrumb.href}
               href={breadcrumb.href}
               title={title}
               selected={isCurrent}
