@@ -358,7 +358,7 @@
     "fast-uri": "^3.1.9"
   },
   "engines": {
-    "node": "^24 || ^26"
+    "node": "^26"
   },
   "cacheDirectories": [
     "node_modules",

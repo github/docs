@@ -5,8 +5,8 @@
   "name": "docs.github.com",
   "build": {
     "dockerfile": "Dockerfile",
-    // Update 'VARIANT' to pick a Node version
-    "args": { "VARIANT": "24" }
+    // The pinned FROM image in .devcontainer/Dockerfile picks the Node version. Keep VARIANT in sync.
+    "args": { "VARIANT": "26" }
   },
 
   // Install features. Type 'feature' in the VS Code command palette for a full list.
