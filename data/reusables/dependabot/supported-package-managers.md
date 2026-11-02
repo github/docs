@@ -2,6 +2,9 @@
 
 Package manager | YAML value      | Supported versions | Version updates | Security updates | Private repositories | Private registries | Vendoring |
 ---------------|------------------|------------------|:---:|:---:|:---:|:---:|:---:|
+| {% ifversion dependabot-apm-support %} |
+[APM](#apm) | `apm` | Not applicable | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} (git only) | Not applicable |
+| {% endif %} |
 | {% ifversion dependabot-bazel-support %} |
 Bazel | `bazel`         | v7, v8, v9              | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
 | {% endif %} |
@@ -69,6 +72,37 @@ uv        | `uv`            | v0.11            | {% octicon "check" aria-label="
 > For package managers such as `pipenv` and `poetry`, you need to use the `pip` YAML value. For example, if you use `poetry` to manage your Python dependencies and want {% data variables.product.prodname_dependabot %} to monitor your dependency manifest file for new versions, use `package-ecosystem: "pip"` in your `dependabot.yml` file.
 
 For further information about ecosystem support for {% data variables.product.prodname_dependabot_security_updates %}, see also [AUTOTITLE](/code-security/reference/supply-chain-security/dependency-graph-supported-package-ecosystems).
+
+{% ifversion dependabot-apm-support %}
+
+### APM
+
+{% data variables.product.prodname_dependabot %} can update git dependencies declared in `apm.yml` manifest files for APM (Agent Package Manager). Entries under both `dependencies.apm` and `devDependencies.apm` are updated. For more information about APM, see [`microsoft/apm` repository](https://github.com/microsoft/apm) in the `microsoft/apm` repository.
+
+How {% data variables.product.prodname_dependabot %} updates a dependency depends on how the dependency is pinned.
+
+| Pin type | Example | Behavior |
+|---|---|---|
+| SemVer tag | `octo-org/octo-skills#v1.0.0` | Updated to the latest SemVer tag. Both plain tags (`v1.4.0`) and package-scoped tags are supported. A package-scoped tag must start with the package name, which is the repository name or the last component of a virtual package path. For example, `octo-org/octo-skills/skills/review#review-v1.4.0`. |
+| Commit SHA | `octo-org/octo-skills#<40-character SHA>` | Updated to the commit of the latest annotated, non-prerelease release tag. The tag name is added as a comment, for example `# v1.4.0`. |
+| Branch | `octo-org/octo-skills#main` | Updated to the latest commit on the branch. Only `apm.lock.yaml` changes, because the manifest still names the branch. Requires an existing `apm.lock.yaml` file. |
+
+If your repository contains an `apm.lock.yaml` file, {% data variables.product.prodname_dependabot %} regenerates it by running `apm lock`. {% data variables.product.prodname_dependabot %} doesn't create a lockfile if one doesn't exist.
+
+{% data variables.product.prodname_dependabot %} doesn't update the following entries:
+
+* Object-form entries (`git:`, `registry:`, `id:`, or `path:` maps) and `mcp:` entries
+* Entries without a ref, such as `octo-org/octo-skills`
+* Local path entries, such as `./my-package`
+* Entries hosted on Azure DevOps
+* Entries that use an `http://` or `git://` clone URL
+* Entries written as YAML block scalars (`>` or `|`) or as quoted strings that use escape sequences
+* Abbreviated commit SHAs
+* Shorthand entries, such as `octo-org/octo-skills#v1.2.0`, when the manifest sets `registries.default`. Entries that use an explicit clone URL are still updated.
+
+Private registry support uses git registries. You can configure access for private git repositories by specifying a git registry in your `dependabot.yml` file. See [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-access-to-private-registries#git).
+
+{% endif %}
 
 ### Bun
 

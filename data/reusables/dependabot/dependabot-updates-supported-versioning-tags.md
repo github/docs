@@ -24,6 +24,9 @@ The `dependabot.yml` file doesn't control the versioning tags that you can use, 
 | Docker              | `docker`       | `alpha`, `beta`, `rc`, `dev`, `preview`, `pre`, `nightly`, `snapshot`, `canary`, `unstable` (heuristic detection) | `nginx@1.25.0-rc1`, `node@20.0.0-alpha.1`, `redis@7.0.0-nightly`, `alpine@3.18.0-dev`, `ubuntu@22.04-preview` |
 | git submodule       | `gitsubmodule` | None—pins to commit SHAs or git tags (no versioning scheme) | `my-lib@abc1234`, `shared-utils@v1.2.0` |
 | Go modules          | `gomod`        | `alpha`, `beta`, `rc` (SemVer prerelease after `-`) | `github.com/go-chi/chi@v5.0.0-rc1`, `google.golang.org/grpc@v1.60.0-beta.1`, `github.com/octo-org/octo-module@v0.17.0-alpha.1` |
+| {% ifversion dependabot-apm-support %} |
+| APM                 | `apm`          | Any SemVer prerelease identifier (commonly `alpha`, `beta`, `rc`) | `microsoft/edge-ai#v1.1.0-rc.1`, `octo-org/octo-skills/skills/review#review-v2.0.0-beta.1` |
+| {% endif %} |
 | {% ifversion dependabot-bazel-support %} |
 | Bazel               | `bazel`        | Any SemVer prerelease identifier (commonly `alpha`, `beta`, `rc`) | `rules_go@0.46.0-rc1`, `rules_rust@0.40.0-beta`, `bazel_skylib@1.5.0-alpha` |
 | {% endif %} |
@@ -75,6 +78,9 @@ The following details describe how {% data variables.product.prodname_dependabot
 * **Elm:** Enforces strict SemVer (`MAJOR.MINOR.PATCH` integers only). The Elm package registry does not allow publishing prerelease versions. {% data variables.product.prodname_dependabot %} compares versions numerically.
 * **Go modules:** Follows SemVer with a mandatory `v` prefix. Pseudo-versions (`v0.0.0-YYYYMMDDHHMMSS-commithash`) represent unreleased commits and are always treated as prerelease. The `+incompatible` suffix marks modules at major version 2+ without a `go.mod` file and does not affect version ordering.
 * **git submodule:** {% data variables.product.prodname_dependabot %} tracks the latest commit on the configured branch. There is no version comparison—updates always move the pinned SHA forward. If the submodule tracks a tag, {% data variables.product.prodname_dependabot %} follows the tag's commit.
+{% ifversion dependabot-apm-support %}
+* **APM:** Resolves dependency versions from git tags. Both plain tags (`v1.4.0`) and package-scoped tags (`review-v1.4.0`, `review--v1.4.0`, `review_v1.4.0`) are recognized. The prefix of a package-scoped tag must match the package name, which is the repository name or the last component of a virtual package path. Build metadata (`+...`) is ignored for version precedence. Commit SHA pins only move to annotated, non-prerelease release tags.
+{% endif %}
 {% ifversion dependabot-bazel-support %}
 * **Bazel:** Follows SemVer prerelease conventions. The Bazel Central Registry (BCR) `.bcr.N` suffix is stripped before comparison and does not affect prerelease detection.
 {% endif %}

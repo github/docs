@@ -231,6 +231,9 @@ The table below shows the package managers that support `cooldown`. The `default
 
 | Package manager        | Default days supported | SemVer-bump days supported |
 |-----------------------|:----------------------:|:--------------------------:|
+| {% ifversion dependabot-apm-support %} |
+| APM                   | {% octicon "check" aria-label="Supported" %}              | {% octicon "check" aria-label="Supported" %} |
+| {% endif %} |
 | {% ifversion dependabot-bazel-support %} |
 | Bazel               | {% octicon "check" aria-label="Supported" %}              | {% octicon "x" aria-label="Not supported" %} |
 | {% endif %} |
@@ -559,6 +562,9 @@ When either limit is reached, {% data variables.product.prodname_dependabot %} r
 
 Package manager | YAML value      | Supported versions |
 ---------------|------------------|:------------------:|
+| {% ifversion dependabot-apm-support %} |
+| APM           | `apm`            | Not applicable           |
+| {% endif %} |
 | {% ifversion dependabot-bazel-support %} |
 | Bazel         | `bazel`          | v7, v8, v9               |
 | {% endif %} |
