@@ -67,7 +67,7 @@ Provider credentials are stored in the system credential store and are never dis
 ## Installing a local model from the model picker
 
 > [!NOTE]
-> {% data reusables.public-preview.public-preview %} You can disable this feature by going to the "Experimental" section of the app settings and, under "Agents", turning off the **Windows ML local models** option.
+> {% data reusables.public-preview.public-preview %} You can disable this feature by going to the "Experimental" section of the app settings and, under "Models", turning off the **Windows ML local models** option.
 >
 > To enable {% data variables.copilot.copilot_fusion_short %} to use local models, you must turn on the **Local model auto routing** option in the "Experimental" section of the app settings.
 
