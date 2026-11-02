@@ -54,7 +54,7 @@ Starting with {% data variables.product.prodname_ghe_server %} 3.18, you can cre
 
 For more information about OpenTelemetry metrics, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/opentelemetry-metrics/about-opentelemetry-metrics).
 
-{% ifversion ghes < 3.23 %}
+{% ifversion ghes-collectd-available %}
 
 For more information about collectd metrics, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/collectd-metrics/about-collectd-metrics).
 
