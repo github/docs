@@ -3837,4 +3837,18 @@ Para más información, consulta "[AUTOTITLE](/path)".
       for (const code of ['ru', 'ja', 'fr', 'de']) expect(fix(ok, code)).toBe(ok)
     })
   })
+
+  describe('French translated endwarning', () => {
+    test.each(['{% fin avertissement %}', '{%- fin avertissement -%}'])(
+      'rewrites %s so the alert pair is stripped cleanly',
+      (before) => {
+        expect(fix(`{% avertissement %}x${before}`, 'fr')).toBe('x')
+      },
+    )
+
+    test('leaves already-correct tags unchanged', () => {
+      const ok = 'x {% data variables.product.github %}'
+      expect(fix(ok, 'fr')).toBe(ok)
+    })
+  })
 })
