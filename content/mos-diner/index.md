@@ -10,6 +10,7 @@ versions:
 contentType: landing
 layout: bespoke-landing
 heroTheme: mos-diner
+hideSidebar: true
 children:
   - /content/copilot/how-tos/copilot-on-github/copilot-for-github-tasks/use-copilot-to-create-or-update-issues
   - /content/copilot/tutorials/copilot-cookbook/communicate-effectively/summarize-repository-activity

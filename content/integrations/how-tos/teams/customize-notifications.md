@@ -13,6 +13,20 @@ category:
 
 You can customize your notifications by subscribing to activity that is relevant to your Microsoft Teams channel, and unsubscribing from activity that is less helpful to your project.
 
+{% ifversion copilot %}
+
+## Notifications and {% data variables.product.prodname_copilot_short %} settings
+
+The combined {% data variables.product.github %} app supports both repository notifications and {% data variables.product.prodname_copilot_short %}. Existing subscriptions are preserved when you update from {% data variables.product.github %} Notifications.
+
+Subscriptions control which repository events appear in a channel or the personal app. Use `@{% data variables.product.github %} settings` separately to choose repositories for agent work in a channel or group chat. Selecting repositories for a session doesn't subscribe you to their events, and subscribing to events doesn't select repositories for a session.
+
+Group chats support {% data variables.product.prodname_copilot_short %} conversations, but notification subscriptions are available only in channels and the personal app. In the personal app, omit the `@{% data variables.product.github %}` prefix from subscription commands. See [AUTOTITLE](/integrations/reference/teams-command-reference).
+
+{% endif %}
+
+## Choosing notification events
+
 ### Notifications enabled by default
 
 The following notifications are enabled by default, but you can disable any of them using the `@{% data variables.product.github %}{% ifversion ghes %} Notifications{% endif %} unsubscribe OWNER/REPO [FEATURE]` command.
@@ -31,7 +45,7 @@ The following notifications are enabled by default, but you can disable any of t
 
 ### Notifications disabled by default
 
-The following notifications are disabled by default, but you can enable any of them using the `@{% data variables.product.github %}{% ifversion ghes %} Notifications{% endif %} subscribe owner/repo [FEATURE]` command.
+The following notifications are disabled by default, but you can enable any of them using the `@{% data variables.product.github %}{% ifversion ghes %} Notifications{% endif %} subscribe OWNER/REPO [FEATURE]` command.
 
 |Feature|Description|
 |-------|-----------|
@@ -176,3 +190,17 @@ You can subscribe or unsubscribe to deployment notifications using the following
 ```
 
 >[!NOTE] If you are using {% data variables.product.prodname_actions %} and want to track your deployments to environments, the `workflows` feature is recommended, as it provides a more complete picture and the ability to approve your deployments directly from Teams.
+
+{% ifversion copilot %}
+
+## Acting on a notification with {% data variables.product.prodname_copilot_short %}
+
+Reply to a notification and mention `@{% data variables.product.github %}` with a task:
+
+```text
+@{% data variables.product.github %} Investigate this failed workflow, explain the cause, and propose a fix.
+```
+
+The linked {% data variables.product.github %} resource and the conversation provide context. To include related repositories, name them in your prompt. You need write access to every selected repository to start or steer work. For models, MCP servers, multi-repository sessions, and {% data variables.copilot.copilot_memory %}, see [AUTOTITLE](/copilot/how-tos/copilot-integrations/integrate-cloud-agent-with-teams).
+
+{% endif %}

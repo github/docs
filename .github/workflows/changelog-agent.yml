@@ -393,11 +393,22 @@ jobs:
             fs.writeFileSync('prompt.txt', userPrompt);
             core.setOutput('date_str', dateStr);
 
+      # Use a subdirectory: checkout would clear the workspace and the prompt files above.
+      - name: Check out package.json for the Node version
+        if: steps.check_parent.outputs.has_parent == 'true' && steps.check_existing.outputs.exists == 'false'
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          path: node-version-source
+          sparse-checkout: /package.json
+          sparse-checkout-cone-mode: false
+          persist-credentials: false
+
       - name: Set up Node.js for Copilot CLI
         if: steps.check_parent.outputs.has_parent == 'true' && steps.check_existing.outputs.exists == 'false'
         uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
-          node-version: 24
+          node-version-file: node-version-source/package.json
+          check-latest: true
 
       - name: Install GitHub Copilot CLI
         if: steps.check_parent.outputs.has_parent == 'true' && steps.check_existing.outputs.exists == 'false'

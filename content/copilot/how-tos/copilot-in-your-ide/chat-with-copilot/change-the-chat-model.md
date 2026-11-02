@@ -37,7 +37,8 @@ These instructions are for {% data variables.product.prodname_vscode %}. For ins
 {% data reusables.copilot.open-chat-vs-code %}
 1. At the bottom of the chat view, select the **CURRENT-MODEL** {% octicon "chevron-down" aria-hidden="true" aria-label="chevron-down" %} dropdown menu, then click the AI model of your choice.
 
-{% data reusables.copilot.auto-model-option %}
+> [!NOTE]
+> {% data reusables.copilot.copilot-fusion-model-picker %}
 
 ## Adding more models
 
@@ -80,8 +81,6 @@ The models you selected are now available in the model picker in the chat view.
 
 If you added a model from a provider via the AI Toolkit then the first time you use the model, you will be prompted to download it. You may also be prompted to authenticate with the provider.
 
-> [!TIP] If you're already using chat with {% data variables.copilot.copilot_auto_model_selection_short %}, you'll need to start a new chat session to switch models. To start a new session, in the top right of the chat view, click {% octicon "plus" aria-label="new chat" %} new chat.
-
 {% endvscode %}
 
 {% visualstudio %}
@@ -97,7 +96,8 @@ To use multi-model {% data variables.copilot.copilot_chat_short %}, you must use
 1. In the {% data variables.product.prodname_vs %} menu bar, click **View**, then click **{% data variables.copilot.copilot_chat %}**.
 1. In the bottom right of the chat view, select the **CURRENT-MODEL** {% octicon "triangle-down" aria-hidden="true" aria-label="triangle-down" %} dropdown menu, then click the AI model of your choice.
 
-{% data reusables.copilot.auto-model-option %}
+> [!NOTE]
+> {% data reusables.copilot.auto-model-option %}
 
 {% endvisualstudio %}
 
@@ -117,7 +117,8 @@ For reasoning models that support configurable thinking effort, you can control 
 1. Optionally, hover over a reasoning model that supports configurable thinking effort.
    1. In the **Thinking Effort** submenu, select an effort level. Nonreasoning models do not display the **Thinking Effort** submenu.
 
-{% data reusables.copilot.auto-model-option %}
+> [!NOTE]
+> {% data reusables.copilot.copilot-fusion-model-picker %}
 
 > [!TIP]
 > Model selection is also available when using {% data variables.product.prodname_copilot_short %} through JetBrains AI Assistant. For more information, see [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-in-ides).
@@ -136,7 +137,8 @@ These instructions are for the Eclipse IDE. For instructions on different client
 1. In the popup menu, click **Open Chat**.
 1. In the bottom right of the chat panel, click the currently selected AI model, then select an alternative model from the popup menu.
 
-{% data reusables.copilot.auto-model-option %}
+> [!NOTE]
+> {% data reusables.copilot.auto-model-option %}
 
 {% endeclipse %}
 
@@ -153,7 +155,8 @@ To use multi-model {% data variables.copilot.copilot_chat_short %}, you must ins
 1. To open the chat view, click **Editor** in the menu bar, then click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}** then **Open Chat**. {% data variables.copilot.copilot_chat_short %} opens in a new window.
 1. In the bottom right of the chat view, select the **CURRENT-MODEL** {% octicon "triangle-down" aria-hidden="true" aria-label="triangle-down" %} dropdown menu, then click the AI model of your choice.
 
-{% data reusables.copilot.auto-model-option %}
+> [!NOTE]
+> {% data reusables.copilot.auto-model-option %}
 
 {% endxcode %}
 

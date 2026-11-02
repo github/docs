@@ -35,7 +35,11 @@ Before you create a budget, it’s important to understand how budget types and 
 
 ![Screenshot of budgets for "octo-org": "Actions" budget is $50 and "Actions Linux 96-core" budget is $100. All the "Actions" budget has been used.](/assets/images/help/billing/org-budget-example.png)
 
-In this example, the organization has set a budget of $50 for the "Actions" product and a budget of $100 for one of the SKUs within the "Actions" product. The organization has used all the included quota of actions minutes and an extra $50 of billed minutes. Some of the extra use was for Linux 96-core runners so it is applied to both budgets. Overall, the organization has used the full budget for the "Actions" product of $50. Members are now blocked from using all {% data variables.product.github %}-hosted runners until the next billing cycle or until the "Actions" product budget is increased. The SKU budget for Linux 96-core runners serves no purpose and is confusing, so should be deleted.
+In this example, the organization has consumed all its included compute usage and incurred an additional $50 of billable Actions usage.
+
+The organization has set a budget of $50 for the "Actions" product and a budget of $100 for one of the SKUs within the "Actions" product. Some of the additional usage was for Linux 96-core runners, so it counts toward both budgets. Because the organization has reached the $50 Actions budget, members are now blocked from using all {% data variables.product.github %}-hosted runners until the next billing cycle or until the budget is increased.
+
+The overlapping $100 SKU budget cannot prevent this block and should be deleted.
 
 We recommend that you avoid creating overlapping budgets for the use of a product and a SKU, or an organization and a repository, so that users are not unexpectedly blocked from using a feature that they rely on. Alternatively, you may prefer to monitor use without blocking users by disabling the "Stop usage when budget limit is reached" option.
 

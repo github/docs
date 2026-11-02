@@ -18,28 +18,67 @@ For instructions on creating the file, see [AUTOTITLE](/copilot/how-tos/administ
 
 {% rowheaders %}
 
-| Key | Purpose | {% data variables.copilot.copilot_cli_short %} | {% data variables.product.prodname_vscode_shortname %} | The {% data variables.copilot.github_copilot_app %} | {% data variables.copilot.copilot_cloud_agent %} | {% data variables.product.prodname_jetbrains_ides %} |
+| Key | Purpose |
+| --- | --- |
+| `permissions.disableBypassPermissionsMode` | Disables bypass or YOLO-style allow-all behavior |
+| `permissions.deny` | Blocks specific operations |
+| `permissions.ask` | Requires a fresh human approval before specific operations can proceed |
+| `permissions.allow` | Permits specific operations to proceed without a prompt |
+| `permissions.disableAssistedPermissionsMode` | Prevents users from enabling {% data variables.copilot.assisted_permissions %} |
+| `permissions.defaultMode` | Controls the default permission mode for new sessions |
+| `features.computerUse` | Controls whether users can enable computer use |
+| `model` | Sets your preferred model as the default for new conversations |
+| `fusionTier` | Sets the default effort level for new conversations when the selected model is `fusion` |
+| `autoTier` | Sets the default Auto routing tier for new conversations |
+| `enabledPlugins` | Enables or disables specific plugins by key |
+| `extraKnownMarketplaces` | Adds plugin marketplaces that users can access |
+| `strictKnownMarketplaces` | Restricts plugin installation to explicitly listed marketplaces |
+| `telemetry` | Configures OpenTelemetry export, routing {% data variables.product.prodname_copilot_short %} usage data to a collector of your choice |
+| `remoteControl` | Restricts whether sessions hosted on this device can be remotely controlled, based on the controlling client's SSO authorization status for the listed organizations. Doesn't affect the user's ability to remotely control sessions hosted on other devices |
+| `forceRemoteSettingsRefresh` | Requires a fresh server-managed settings fetch on client startup |
+| `allowedMcpServers` | Defines an allowlist of MCP servers permitted to run. Any server not matched is blocked. Omit to allow all servers, subject to any deny rules |
+| `deniedMcpServers` | Defines MCP servers that are unconditionally blocked, even if they also match an entry in `allowedMcpServers` |
+| `sandbox` | Enforces minimum local sandbox restrictions for command execution, filesystem and network access, credentials, and local MCP and LSP servers. Subject to minimum client version requirements. |
+
+{% endrowheaders %}
+
+## Client support by key
+
+{% rowheaders %}
+
+| Key | {% data variables.copilot.copilot_cli_short %} | {% data variables.product.prodname_vscode_shortname %} | The {% data variables.copilot.github_copilot_app %} | {% data variables.copilot.copilot_in_the_cloud_short %} (sandbox) | {% data variables.copilot.copilot_in_the_cloud_short %} ({% data variables.product.prodname_actions %}) | {% data variables.product.prodname_jetbrains_ides %} |
 | --- | --- | --- | --- | --- | --- | --- |
-| `permissions.disableBypassPermissionsMode` | Disables bypass or YOLO-style allow-all behavior | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} |
-| `permissions.deny` | Blocks specific operations | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
-| `permissions.ask` | Requires a fresh human approval before specific operations can proceed | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
-| `permissions.allow` | Permits specific operations to proceed without a prompt | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
-| `features.computerUse` | Controls whether users can enable computer use | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
-| `model` | Sets your preferred model as the default for new conversations | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
-| `autoTier` | Sets the default Auto routing tier for new conversations | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
-| `enabledPlugins` | Enables or disables specific plugins by key | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
-| `extraKnownMarketplaces` | Adds plugin marketplaces that users can access | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
-| `strictKnownMarketplaces` | Restricts plugin installation to explicitly listed marketplaces | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
-| `telemetry` | Configures OpenTelemetry export, routing {% data variables.product.prodname_copilot_short %} usage data to a collector of your choice | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} |
-| `remoteControl` | Restricts whether sessions hosted on this device can be remotely controlled, based on the controlling client's SSO authorization status for the listed organizations. Doesn't affect the user's ability to remotely control sessions hosted on other devices | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
-| `forceRemoteSettingsRefresh` | Requires a fresh server-managed settings fetch on client startup | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
-| `allowedMcpServers` | Defines an allowlist of MCP servers permitted to run. Any server not matched is blocked. Omit to allow all servers, subject to any deny rules | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} |
-| `deniedMcpServers` | Defines MCP servers that are unconditionally blocked, even if they also match an entry in `allowedMcpServers` | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} |
-| `sandbox` | Enforces minimum local sandbox restrictions for command execution, filesystem and network access, credentials, and local MCP and LSP servers. Subject to minimum client version requirements. | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} (Agent Host, 1.138.0+) | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| `permissions.disableBypassPermissionsMode` | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} |
+| `permissions.deny` | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| `permissions.ask` | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| `permissions.allow` | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| `permissions.disableAssistedPermissionsMode` | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| `permissions.defaultMode` | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| `features.computerUse` | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| `model` | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| `fusionTier` | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| `autoTier` | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| `enabledPlugins` | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| `extraKnownMarketplaces` | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| `strictKnownMarketplaces` | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| `telemetry` | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} |
+| `remoteControl` | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| `forceRemoteSettingsRefresh` | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| `allowedMcpServers` | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} |
+| `deniedMcpServers` | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} |
+| `sandbox` | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
 
 {% endrowheaders %}
 
 Support for `telemetry` varies by sub-property and harness. See [Capture controls](#capture-controls) for the clients that support fine-grained capture.
+
+### More information on {% data variables.copilot.copilot_in_the_cloud_short %}
+
+Cloud sessions can run in sandboxes or on {% data variables.product.prodname_actions %}. {% data reusables.copilot.agent-env-support-caveat %}
+
+The keys defined in the table for **{% data variables.copilot.copilot_in_the_cloud_short %} (sandbox)** are supported from all surfaces that support starting sessions in cloud sandboxes. As an exception, the `model` key is only supported for cloud sessions started from the {% data variables.product.github %} website, {% data variables.copilot.copilot_cli_short %}, and {% data variables.product.prodname_vscode_shortname %}.
+
+{% data reusables.copilot.cloud-agent.mcp-allowlist-caveat %}
 
 ## Example configuration
 
@@ -148,6 +187,8 @@ Controls whether users can enable computer use in {% data variables.copilot.copi
 
 Defines plugins that are automatically installed or blocked for all enterprise users. Each entry uses the format `PLUGIN-NAME@MARKETPLACE-NAME` as the key, with a boolean value: `true` to require the plugin to be enabled, or `false` to require it to be disabled. See [AUTOTITLE](/copilot/concepts/enterprise/plugin-standards).
 
+Managed values always take precedence over repository defaults and member preferences. Repository defaults cannot enable a plugin that managed policy blocks or use a marketplace that policy disallows.
+
 ## extraKnownMarketplaces
 
 Defines additional plugin marketplaces available to users. Each entry is a named marketplace object containing a `source` property and an optional `autoUpdate` boolean.
@@ -181,11 +222,11 @@ For server-managed enterprise team overrides, wrap the complete marketplace map 
 }
 ```
 
-A team file can then provide a regular marketplace map to replace this default. Include any default marketplaces that the team should retain. If the team omits the key, the enterprise default remains.
+An enterprise team file can then provide a regular marketplace map to replace this default. Include any default marketplaces that the enterprise team should retain. If the enterprise team omits the key, the enterprise default remains.
 
 ## strictKnownMarketplaces
 
-Restricts plugin installation to only the marketplaces explicitly defined by the enterprise. An empty array means complete lockdown. Each entry is a marketplace object with a `source` property indicating the source type. The following source types are supported:
+Restricts plugin installation to only the marketplaces explicitly defined by the enterprise. Setting this key disables the built-in marketplaces. An empty array means complete lockdown. Each entry is a marketplace object with a `source` property indicating the source type. The following source types are supported:
 
 * `"github"` — requires `repo` in `OWNER/REPO` format; optional `ref` and `path`
 * `"git"` — requires `url`; optional `ref` and `path`
@@ -208,18 +249,39 @@ This key is overridable for enterprise teams. Wrap the complete allowlist in `ov
 }
 ```
 
-Use a regular array in the team file to replace the default allowlist. Omitting the key retains the enterprise default. An explicit empty array, `[]`, means complete lockdown, not an unmanaged policy.
+Use a regular array in the enterprise team file to replace the default allowlist. Omitting the key retains the enterprise default. An explicit empty array, `[]`, means complete lockdown, not an unmanaged policy.
 
 ## model
 
 Sets your preferred model as the default for new conversations. This lets you choose the default model that best fits your enterprise's workflows. Users can still select a different model on a per-conversation basis.
+* Set `model` to `"fusion"` to use {% data variables.copilot.copilot_fusion_short %} as the default, so new sessions choose a model or execution pattern automatically unless the user specifies a different model on a per-conversation basis. See [AUTOTITLE](/copilot/concepts/models/copilot-fusion).
 * Set `model` to `"auto"` to use {% data variables.copilot.copilot_auto_model_selection_short %} as the default, so new sessions choose a model automatically unless the user specifies a different model on a per-conversation basis. See [AUTOTITLE](/copilot/concepts/models/auto-model-selection).
 * Set `model` to a specific model and version to make that model the default for new conversations, for example `"kimi-k3"`.
 
-This key is overridable by enterprise team mapping. In your `{% data variables.copilot.managed_setting_file %}`, use the `{ "overridable": "auto" }` syntax to specialize the key's configuration on a per-team basis. You can then set `"model": "unmanaged"` in a team settings file, providing a specialization that takes precedence over `{% data variables.copilot.managed_setting_file %}` for members of the subject team.
+This key is overridable by enterprise team mapping. In your `{% data variables.copilot.managed_setting_file %}`, use the `{ "overridable": "auto" }` syntax to specialize the key's configuration for an enterprise team. You can then set `"model": "unmanaged"` in an enterprise team settings file, providing a specialization that takes precedence over `{% data variables.copilot.managed_setting_file %}` for members of that enterprise team.
 
 > [!NOTE]
 > `model` was originally documented as `permissions.model`. Clients still read the nested `permissions.model` value when the top-level `model` key is absent, but you should use the top-level `model` key in new configurations.
+
+## fusionTier
+
+Sets the default effort level for new conversations when the selected model is `"fusion"`. Accepted values, from most restrictive to least restrictive, are `"standard"`, `"high"`, `"max"`, and `"unmanaged"`. This setting does not select the model itself.
+
+This settings requires these versions: 
+* In {% data variables.copilot.copilot_cli_short %}, it requires version 1.0.104-3 or later. 
+* In {% data variables.product.prodname_vscode_shortname %}, it requires version 1.144.0 or later.
+* In {% data variables.copilot.github_copilot_app %}, it requires  1.1.33-4 or later.
+
+Set `fusionTier` to a string other than `"unmanaged"` to lock the effort level against user and repository overrides. To provide a default that enterprise teams can override, use `overridable`:
+
+```json
+{
+  "model": "fusion",
+  "fusionTier": { "overridable": "standard" }
+}
+```
+
+For example, a team settings file can set `"fusionTier": "high"`. If the team does not set `fusionTier`, the enterprise default applies.
 
 ## autoTier
 
@@ -227,7 +289,7 @@ Sets the default routing tier for new conversations when the selected model is `
 
 In {% data variables.copilot.copilot_cli_short %}, this setting requires version 1.0.87-0 or later. In {% data variables.product.prodname_vscode_shortname %}, it requires version 1.140.0 or later.
 
-Set `autoTier` to a string other than `"unmanaged"` to lock the tier against user and repository overrides. To provide a default that users, repositories, and enterprise teams can override, use `overridable`:
+Set `autoTier` to a string other than `"unmanaged"` to lock the tier against user and repository overrides. To provide a default that enterprise teams can override, use `overridable`:
 
 ```json
 {
@@ -236,7 +298,7 @@ Set `autoTier` to a string other than `"unmanaged"` to lock the tier against use
 }
 ```
 
-For example, a team settings file can set `"autoTier": "intelligence"`. If the team does not set `autoTier`, the enterprise default applies.
+For example, an enterprise team settings file can set `"autoTier": "intelligence"`. If the enterprise team does not set `autoTier`, the enterprise default applies.
 
 ## forceRemoteSettingsRefresh
 
@@ -269,7 +331,7 @@ Rules use the following selectors:
 | `Edit(...)` | File write and edit paths, matched the same way as `Read(...)`. `Write(...)` is an alias for `Edit(...)`. |
 | `Domain(...)` | Network origins. A bare host defaults to HTTPS, and host matching is case-insensitive. Use `*.` to include subdomains; for example, `*.example.com` matches both example.com and its subdomains. |
 
-Each subkey is overridable for enterprise teams. Set the enterprise value to `{ "overridable": <VALUE> }`, replacing `<VALUE>` with the rule array. Then use the regular syntax to define replacement rules in each team's file.
+Each subkey is overridable for enterprise teams. Set the enterprise value to `{ "overridable": <VALUE> }`, replacing `<VALUE>` with the rule array. Then use the regular syntax to define replacement rules in each enterprise team's file.
 
 ### disableBypassPermissionsMode
 
@@ -380,7 +442,7 @@ Each entry must contain exactly one matcher property.
 | `serverUrl` | Matches a remote server URL. Supports `*` wildcards for subdomains or path prefixes—for example, `https://mcp.example.com/*` or `https://*.internal.example.com/*`. | Remote servers that connect over HTTP or server-sent events (SSE). This property does not apply to local servers, even if they have a URL. |
 | `serverCommand` | Matches the exact command and each argument for a local server—for example, `["npx", "-y", "my-mcp-server"]`. Wildcards and command-line expansion are not supported. | Local servers that use standard input and output (`stdio`). This property does not apply to remote servers, even if they have a command. |
 
-This key is overridable for enterprise teams. Wrap the matcher objects under `overridable` at the enterprise level, then use the regular syntax to define allowlists and denylists in each team's file.
+This key is overridable for enterprise teams. Wrap the matcher objects under `overridable` at the enterprise level, then use the regular syntax to define allowlists and denylists in each enterprise team's file.
 
 ### URL canonicalization
 
@@ -444,7 +506,7 @@ For server-managed enterprise team overrides, wrap the entire sandbox object in 
 }
 ```
 
-The wrapper must be the only property directly inside `sandbox`. Individual sub-properties, such as `sandbox.enabled`, cannot use their own `overridable` wrappers. A team file's regular sandbox object replaces the entire wrapped default, so include every restriction that should remain. Omitting `sandbox` retains the enterprise default.
+The wrapper must be the only property directly inside `sandbox`. Individual sub-properties, such as `sandbox.enabled`, cannot use their own `overridable` wrappers. An enterprise team file's regular sandbox object replaces the entire wrapped default, so include every restriction that should remain. Omitting `sandbox` retains the enterprise default.
 
 ### `sandbox.learningMode`
 

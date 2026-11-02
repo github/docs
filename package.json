@@ -245,7 +245,7 @@
     "strip-ansi": "7.1.0",
     "swr": "^2.4.0",
     "tcp-port-used": "1.0.2",
-    "tsx": "^4.21.0",
+    "tsx": "^4.23.15",
     "unified": "^11.0.5",
     "unist-util-find": "^3.0.0",
     "unist-util-visit": "^5.1.0",

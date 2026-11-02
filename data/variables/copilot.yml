@@ -12,6 +12,8 @@ copilot_business_short: 'Copilot Business'
 copilot_individuals_short: 'Copilot Individual'
 copilot_enterprise: 'GitHub Copilot Enterprise'
 copilot_enterprise_short: 'Copilot Enterprise'
+copilot_standalone: 'GitHub Copilot Standalone'
+copilot_standalone_short: 'Copilot Standalone'
 copilot_free: 'GitHub Copilot Free'
 copilot_free_short: 'Copilot Free'
 copilot_student: 'GitHub Copilot Student'
@@ -32,6 +34,7 @@ cm_price_per_month: '$100 USD'
 cfb_price_per_month: '$19 USD'
 # Price per month for Copilot Enterprise
 ce_price_per_month: '$39 USD'
+copilot_standalone_price_per_month: '$10 USD'
 
 ## AI credits per plan
 ai_credits_per_user_business: '1,900'
@@ -62,6 +65,19 @@ copilot_code-review_short: 'Copilot code review'
 copilot_code-review-tools-preview_cap: 'New tools (public preview) in GitHub Copilot code review'
 copilot_code-review-tools_short: 'tools in Copilot code review'
 copilot_code-review-tools_cap_short: 'Tools in Copilot code review'
+copilot_code_review_lite_cost_range: '$0.05 USD to $1 USD'
+copilot_code_review_balanced_cost_range: '$0.25 USD to $5 USD'
+copilot_code_review_max_cost_range: '$1.50 USD to $25 USD'
+copilot_code_review_lite_average_cost: '$0.25 USD'
+copilot_code_review_balanced_average_cost: '$1.50 USD'
+copilot_code_review_max_average_cost: '$10 USD'
+
+## Copilot in the cloud (replacement for Copilot Chat and Copilot cloud agent)
+copilot_in_the_cloud: 'GitHub Copilot in the cloud'
+copilot_in_the_cloud_short: 'Copilot in the cloud'
+
+## Agent Merge
+agent_merge: 'Agent Merge'
 
 ## Copilot cloud agent (previously coding agent / Padawan) -> {% data variables.copilot.copilot_cloud_agent %}
 copilot_cloud_agent: 'Copilot cloud agent'
@@ -78,6 +94,9 @@ agentic_workflows_short_cap: 'Agentic workflows'
 copilot_automations_cap: 'Automations'
 copilot_automations: 'automations'
 copilot_automation: 'automation'
+copilot_automation_group: 'automation group'
+copilot_automation_groups: 'automation groups'
+copilot_automation_groups_cap: 'Automation groups'
 
 ## Short for "Copilot Extensions agent" -> {% data variables.copilot.copilot_agent_short %}
 ## Note: this is NOT a short form for the Copilot cloud agent (previously coding agent / Padawan):
@@ -129,6 +148,8 @@ agent_app_caps: 'Agent app'
 ## Copilot SDK
 copilot_sdk: 'GitHub Copilot SDK'
 copilot_sdk_short: 'Copilot SDK'
+msft_copilot_sdk: 'Microsoft Copilot SDK'
+msft_copilot_sdk_short: 'Copilot SDK'
 
 ## Copilot subagents
 subagent_short: 'subagent'
@@ -159,6 +180,12 @@ copilot_autocomplete_pr: 'Copilot text completion'
 copilot_auto_model_selection: 'Copilot auto model selection'
 copilot_auto_model_selection_short: 'auto model selection'
 copilot_auto_model_selection_short_cap_a: 'Auto model selection'
+copilot_fusion: 'GitHub Copilot Fusion'
+copilot_fusion_short: 'Copilot Fusion'
+copilot_fusion_standard: 'Fusion Standard'
+copilot_fusion_high: 'Fusion High'
+copilot_fusion_max: 'Fusion Max'
+copilot_fusion_fast: 'Fusion Fast'
 copilot_customization: 'Copilot Customization'
 copilot_desktop_short: 'Copilot in GitHub Desktop'
 copilot_desktop: 'GitHub Copilot in GitHub Desktop'
@@ -169,6 +196,9 @@ copilot_extensibility_platform: 'GitHub Copilot Extensibility Platform'
 copilot_for_prs: 'Copilot pull request summaries'
 copilot_prs_short: 'pull request summaries'
 copilot_memory: 'Copilot Memory'
+copilot_memory_short: 'Memory'
+copilot_dreaming: 'Copilot Dreaming'
+copilot_dreaming_short: 'Dreaming'
 copilot_in_support: 'Copilot in GitHub Support'
 copilot_preview_features: 'Copilot preview features'
 copilot_sku_isolation: 'Copilot subscription-based network routing'
@@ -180,6 +210,9 @@ copilot_autofix: 'GitHub Copilot Autofix'
 copilot_autofix_short: 'Copilot Autofix'
 agentic_autofix: 'agentic autofix'
 agentic_autofix_caps: 'Agentic Autofix'
+
+# Copilot cloud agent + Copilot Chat old experience releases#9604
+copilot_nonunified_experience_short: 'Copilot cloud agent plus Copilot Chat experience'
 
 ## Copilot Chat in GitHub: maximum number of repos that can be indexed for an org
 max-chat-indexed-repos: '50'
@@ -239,6 +272,7 @@ gpt_6_luna: 'GPT-6 Luna'
 gpt_6_sol: 'GPT-6 Sol'
 gpt_61_sol: 'GPT-6.1 Sol'
 gpt_61_terra: 'GPT-6.1 Terra'
+gpt_image_25_flare: 'GPT Image 2.5 Flare'
 # OpenAI 'o' series:
 o3: 'o3'
 o4_mini: 'o4-mini'
@@ -249,12 +283,15 @@ grok_46: 'Grok 4.6'
 grok_47: 'Grok 4.7'
 # Qwen:
 qwen_25: 'Qwen2.5'
+qwen3.8-flash-next: 'Qwen3.8 Flash Next'
 # Microsoft:
-mai_code_1_1_flash: 'MAI-Code-1.1-Flash'
+mai_code_1_1_flash: 'MAI Code 1.1 Flash'
 # Microsoft fine-tuned:
 raptor_mini: 'Raptor mini'
 # Open-weight models:
 kimi_k3: 'Kimi K3'
+# RecursiveSI:
+flint_nvfp4_gguf: 'Flint NVFP4'
 
 ## Current model used by Copilot cloud agent and Copilot CLI
 cca_current_model: '{% data variables.copilot.claude_opus_46 %}'

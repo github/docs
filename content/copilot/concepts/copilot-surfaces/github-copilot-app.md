@@ -31,6 +31,8 @@ The {% data variables.copilot.github_copilot_app %} supports the following opera
 * Linux
 * Windows
 
+On Windows, you can also run agent sessions inside a Windows Subsystem for Linux (WSL) 2 distribution. See [AUTOTITLE](/copilot/how-tos/github-copilot-app/agent-sessions#running-sessions-in-wsl).
+
 ## Benefits of using the {% data variables.copilot.github_copilot_app %}
 
 * **Work in parallel.** Run multiple agent sessions at the same time, each on its own branch, so you can make progress on several tasks without waiting for one to finish.
@@ -41,7 +43,9 @@ The {% data variables.copilot.github_copilot_app %} supports the following opera
 
 ## What can I do with the {% data variables.copilot.github_copilot_app %}?
 
+* **Projects:** Give {% data variables.product.prodname_copilot_short %} a goal and let it coordinate the work. Projects can span one or more repositories or focus on tasks that don't require a repository. Within a project, you can track progress, share context, review artifacts, and set up recurring tasks. For more information, see [AUTOTITLE](/copilot/how-tos/github-copilot-app/working-with-projects).
 * **Parallel workspaces:** Run multiple isolated agent sessions simultaneously, each with a dedicated git worktree and branch. You can run a session in a cloud sandbox, or configure a local sandbox to restrict the resources available to agent-run tools on your machine. For more information, see [AUTOTITLE](/copilot/how-tos/github-copilot-app/agent-sessions#using-cloud-and-local-sandboxes).
+* **Cloud sessions:** Run a session in a cloud sandbox so it doesn't use your machine. Because the session runs in the cloud, you can follow and steer it from any {% data variables.product.prodname_copilot_short %} client. For example, you can start work in the {% data variables.copilot.github_copilot_app %}, steer it from {% data variables.product.prodname_mobile %} while away, then pick it back up in the {% data variables.copilot.github_copilot_app %} or another client. For more information, see [AUTOTITLE](/copilot/concepts/security-governance-and-network-settings/about-cloud-sandboxes).
 * **Session modes:** Choose how you work with agents: Interactive (collaborative), Plan (agent plans, you approve), or Autopilot (fully autonomous). You can also select from multiple LLMs and adjust reasoning effort for each session.
 * **Model selection:** Select from multiple LLMs, including models from your own provider using bring your own key (BYOK), and adjust reasoning effort for each session.
 * **{% data variables.product.github %} integration:** Browse and find issues, start sessions from them, create and close pull requests, review pull requests, view CI check results, and search across your repositories—all within the app.

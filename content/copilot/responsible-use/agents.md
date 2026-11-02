@@ -39,6 +39,7 @@ GitHub Copilot includes several agentic features that go beyond suggestion and c
 
 * **Copilot code review**: Reviews pull request diffs and metadata on GitHub.com, producing feedback comments and suggested changes.
 * **Copilot cloud agent**: An asynchronous agent on GitHub.com that can create branches, write code, and open pull requests in response to assigned issues. The cloud agent runs in an ephemeral, firewalled environment with automated security scanning.
+* **Copilot Cloud**: Copilot in the Cloud (GitHub Copilot on GitHub.com, GitHub Mobile, or anywhere that "Cloud" is selected as a session environment) can answer questions about your repositories, plan and make changes, review or create pull requests, and automate repository tasks. A single interface built on the Copilot SDK combines chat and agentic work.
 * **Copilot CLI**: A command-line tool that can create and modify files, execute commands, and perform multi-step tasks. By default, filesystem access is scoped to the directory where the CLI was started. Permission prompts depend on the active permission mode. When computer use is enabled, Copilot CLI can also interact with desktop applications outside that directory scope.
 * **Copilot SDK**: A programmatic library that allows developers to build custom AI-powered applications using Copilot. The SDK communicates with Copilot CLI over JSON-RPC and supports custom agents, MCP server integrations, lifecycle hooks, and session management.
 * **The {% data variables.copilot.github_copilot_app %}**: A desktop application for directing agent sessions across local repositories, git worktrees, and cloud sandboxes. The app uses {% data variables.copilot.copilot_cli %} and {% data variables.copilot.copilot_sdk %} as its foundation and adds a user interface for parallel sessions, quick chats, {% data variables.product.github %} issue and pull request workflows, automations, and canvases. When computer use is enabled, the app can also interact with desktop applications.
@@ -70,8 +71,8 @@ The key features and capabilities outlined here describe what GitHub Copilot Age
 
 * **Automated code review feedback**: When a user requests a review from Copilot, it scans the code changes plus additional relevant context and provides feedback on the code. Feedback may include natural language comments and specific code suggestions linked to particular lines and files.
 * **Customizable review guidance**: Copilot code review can be customized with custom instructions—natural language descriptions of coding style and best practices—so that feedback reflects a repository's conventions and standards.
-* **Autonomous pull request creation**: The Copilot cloud agent can pick up a task from an issue, a pull request comment, or Copilot Chat, create a branch, generate tailored code changes, and open a pull request. After the initial pull request is created, the agent can iterate based on your feedback and reviews.
-* **Ephemeral, firewalled execution**: While working on a task, the cloud agent has access to its own ephemeral development environment where it can make changes to code, execute automated tests, and run linters. A firewall is enabled by default to prevent data exfiltration.
+* **Pull request creation**: Copilot can pick up a task from an issue or a pull request comment, create a branch, generate tailored code changes, and open a pull request. After the initial pull request is created, the agent can iterate based on your feedback and reviews.
+* **Ephemeral, firewalled execution**: While working on a task, a cloud session can access to its own ephemeral development environment where it can make changes to code, execute automated tests, and run linters. A firewall is enabled by default to prevent data exfiltration.
 * **Automated security scanning**: During code generation, the cloud agent automatically analyzes newly generated code for security vulnerabilities using CodeQL, secret scanning, and dependency analysis, and attempts to resolve any issues before they are introduced.
 * **External integrations**: The cloud agent can receive information and context from MCP like workIQ and Microsoft 365, and external applications like Microsoft Teams, Linear, Slack, and Jira, enabling teams to assign tasks and track progress directly within their existing workflows.
 * **Local agentic execution (Copilot CLI)**: Copilot CLI provides a chat-like interface in the terminal that can autonomously create and modify files, execute commands, and perform multi-step tasks. By default, filesystem access is scoped to the directory where the CLI was started. The active permission mode determines whether the CLI prompts before modifying files or running commands.
@@ -79,7 +80,7 @@ The key features and capabilities outlined here describe what GitHub Copilot Age
 
 ## 4. Intended uses
 
-GitHub Copilot Agents can be used in multiple scenarios across a variety of industries. Some examples of use cases include:
+GitHub Copilot can be used in multiple scenarios across a variety of industries. Some examples of use cases include:
 
 * **Supplementing human code review**: Copilot code review is intended to quickly provide feedback on a developer's code, enabling developers to get code ready to merge more quickly and increasing overall code quality.
 * **Codebase maintenance**: The cloud agent can tackle security-related fixes, dependency upgrades, and targeted refactoring.
@@ -94,11 +95,11 @@ GitHub Copilot Agents can be used in multiple scenarios across a variety of indu
 
 ## 5. Models and training data
 
-GitHub Copilot Agents leverage a variety of AI models to power the experience that users see. For a comparison of the models available for Copilot, see [AUTOTITLE](/copilot/reference/ai-models/model-comparison). For the full list of supported models, see [AUTOTITLE](/copilot/reference/ai-models/supported-models). For information on where models are hosted, see [AUTOTITLE](/copilot/reference/ai-models/model-hosting). To learn more about the data used to train the foundation models behind GitHub Copilot Agents, refer to the linked AI model comparison above and [What data has GitHub Copilot been trained on?](https://github.com/features/copilot#faq) in the GitHub Copilot FAQ.
+GitHub Copilot leverages a variety of AI models to power the experience that users see. For a comparison of the models available for Copilot, see [AUTOTITLE](/copilot/reference/ai-models/model-comparison). For the full list of supported models, see [AUTOTITLE](/copilot/reference/ai-models/supported-models). For information on where models are hosted, see [AUTOTITLE](/copilot/reference/ai-models/model-hosting). To learn more about the data used to train the foundation models behind GitHub Copilot Agents, refer to the linked AI model comparison above and [What data has GitHub Copilot been trained on?](https://github.com/features/copilot#faq) in the GitHub Copilot FAQ.
 
 Copilot code review is a purpose-built product that uses a carefully tuned mix of models, prompts, and system behaviors to deliver consistent, high-quality feedback across a wide range of codebases. Model switching is not supported, as changing the model is likely to compromise reliability, user experience, and the quality of review comments. Copilot code review may use models that are not enabled on your organization's "Models" settings page.
 
-The Copilot cloud agent uses a large language model to reason about tasks, generate code, and leverage tools within its ephemeral development environment. The agent has been evaluated across a variety of programming languages. English is the primary supported language for prompts and responses.
+Copilot in the cloud uses a large language model to reason about tasks, generate code, and leverage tools within its ephemeral development environment. The agent has been evaluated across a variety of programming languages. English is the primary supported language for prompts and responses.
 
 Copilot CLI uses a large language model to reason about tasks, generate code, modify files, and execute commands in your local terminal environment. The agent has been evaluated across a variety of programming languages. English is the primary supported language for prompts and responses.
 
@@ -107,17 +108,6 @@ The Copilot SDK communicates with Copilot CLI over JSON-RPC, using the same unde
 ## 6. Performance
 
 ### Differences by experience
-
-#### Copilot cloud agent
-
-The Copilot cloud agent works by using a combination of natural language processing and machine learning to understand your task and make changes in a codebase. This process can be broken down into a number of steps:
-
-1. **Prompt processing**: The task provided through an issue, pull request comment, or Copilot Chat message is combined with other relevant, contextual information to form a prompt. That prompt is sent to a large language model for processing. Inputs can take the form of plain natural language, code snippets, or images.
-1. **Language model analysis**: The prompt is passed through a large language model, which is a neural network that has been trained on a large body of data. The language model analyzes the input prompt to help the agent reason about the task and leverage necessary tools.
-1. **Response generation**: The language model generates a response based on its analysis of the prompt. This response can take the form of natural language suggestions and code suggestions.
-1. **Output formatting**: Once the agent completes its first run, it updates the pull request description with the changes it made. The agent may include supplemental information about resources it could not access and provide suggestions on steps to resolve. You may provide feedback by commenting within the pull request or explicitly mentioning the agent (`@copilot`). The agent will then resubmit that feedback for further analysis and respond with updated changes.
-
-Copilot cloud agent is intended to provide the most relevant solution for task resolution. However, it may not always provide the answer you are looking for. You are responsible for reviewing and validating responses generated by Copilot cloud agent to ensure they are accurate and appropriate.
 
 #### Copilot code review
 
@@ -181,11 +171,11 @@ Understanding GitHub Copilot agentic features' limitations is crucial to determi
 
 ### Performance and quality evaluations
 
-GitHub Copilot Agents are evaluated across its supported surfaces using a combination of industry-standard benchmarks (e.g., SWE-Bench) and internally developed evaluation suites. Benchmark tasks are sourced from public open-source repositories and synthetic scenarios; no real user queries or customer code are used. Each evaluation includes multiple independent runs to account for nondeterminism in model outputs. Key metrics include resolution rate (percentage of tasks successfully completed), token efficiency, latency, and tool call reliability. Models are re-evaluated when updates are made and monitored continuously in production via error rates, response latency, and aggregate usage patterns.
+GitHub Copilot is evaluated across its supported surfaces using a combination of industry standard benchmarks (e.g., SWE-Bench) and internally developed evaluation suites. Benchmark tasks are sourced from public open-source repositories and synthetic scenarios; no real user queries or customer code are used. Each evaluation includes multiple independent runs to account for nondeterminism in model outputs. Key metrics include resolution rate (percentage of tasks successfully completed), token efficiency, latency, and tool call reliability. Models are re-evaluated when updates are made and monitored continuously in production via error rates, response latency, and aggregate usage patterns.
 
 ### Performance and quality evaluation methods
 
-New models for GitHub Copilot Agents undergo a staged evaluation process before deployment. Integrator teams run benchmark suites specific to their surface, testing the model on representative coding tasks such as bug fixes, code generation, and multi-file refactoring. Results are reviewed against established baselines and existing production models. Models must meet or exceed baseline performance across key metrics like resolution rate, token efficiency, and latency, before advancing to the next stage. A cross-functional review board makes a formal go/no-go decision before any model is approved for user-facing deployment.
+New models for GitHub Copilot undergo a staged evaluation process before deployment. Integrator teams run benchmark suites specific to their surface, testing the model on representative coding tasks such as bug fixes, code generation, and multi-file refactoring. Results are reviewed against established baselines and existing production models. Models must meet or exceed baseline performance across key metrics like resolution rate, token efficiency, and latency, before advancing to the next stage. A cross-functional review board makes a formal go/no-go decision before any model is approved for user-facing deployment.
 
 ### Risk and safety evaluations
 
@@ -201,10 +191,10 @@ Copilot agentic features have been subject to RAI red teaming to identify and ad
 
 ## 9. Safety components and mitigations
 
-### Copilot cloud agent
+### Copilot in the cloud
 
-* **Privilege escalation controls**: The cloud agent only responds to interactions from users with repository write access. Actions workflows triggered by pull requests raised by the agent require approval from a user with write access before they will run. The agent filters hidden characters that might allow users to hide harmful instructions in comments or issue contents.
-* **Constrained permissions**: The cloud agent only has access to the repository where it is creating a pull request and cannot access other repositories. It can only push to a single branch: the existing pull request branch when triggered via `@copilot`, or otherwise to a new `copilot/` branch. This means that Copilot cannot push directly to your default branch (for example, `main`). The agent does not have access to Actions organization or repository secrets—only secrets and variables specifically added to the `copilot` environment are passed to the agent.
+* **Privilege escalation controls**: In the cloud, Copilot is read-only when a user has read access, but not write access, to a repository. Actions workflows triggered by pull requests raised by the agent require approval from a user with write access before they will run. The agent filters hidden characters that might allow users to hide harmful instructions in comments or issue contents.
+* **Constrained permissions**: The cloud agent is constrained to data across a single organization in “Chat” mode, and can also make changes to a targeted repository when prompted to. It can only push to a single branch: the existing pull request branch when triggered via `@copilot`, or otherwise to a new `copilot/` branch. The agent does not have access to Actions organization or repository secrets—only secrets and variables specifically added to the `copilot` environment are passed to the agent.
 * **Ensuring traceability**: The cloud agent's commits are authored by Copilot, with the human who started the task marked as the co-author. This makes it easier to identify code generated by the agent and who initiated the task. The cloud agent's commits are signed, so they appear as "Verified" on GitHub. This provides confidence that the commits were made by GitHub Copilot cloud agent and have not been altered. Each commit message includes a link to the agent session logs. This gives you a permanent link from any agent-authored commit to the full session logs, so you can understand why Copilot made a change during code review or trace it later for auditing purposes.
 * **Firewall for data exfiltration prevention**: By default, the cloud agent has a firewall enabled to prevent exfiltration of code or other sensitive data, either accidentally or due to malicious user input.
 * **Automated security vulnerability detection**: During code generation, the cloud agent automatically analyzes newly generated code for security vulnerabilities and attempts to resolve them. Analysis is performed using CodeQL (to identify potential vulnerabilities and errors), secret scanning (to ensure secrets aren't introduced), and dependency analysis (to check for known vulnerabilities in referenced dependencies).
@@ -242,7 +232,7 @@ The {% data variables.copilot.github_copilot_app %} is a desktop application for
 
 * **Workspace isolation**: App sessions can run in separate git worktrees or cloud sandboxes, helping isolate concurrent tasks from each other and from the default branch.
 * **Inherited CLI and SDK safety controls**: App sessions use {% data variables.copilot.copilot_cli %} and {% data variables.copilot.copilot_sdk %}, so they inherit the same model limitations and safety controls for file access, file modification, command execution, session scoping, and connected tools.
-* **Human review before merge**: The app surfaces generated changes, pull request status, CI results, review activity, and session history so users can inspect work before submitting reviews, enabling agent merge, or merging pull requests.
+* **Human review before merge**: The app surfaces generated changes, pull request status, CI results, review activity, and session history so users can inspect work before submitting reviews, enabling {% data variables.copilot.agent_merge %}, or merging pull requests.
 * **Configurable integrations and automations**: Users control which MCP servers, skills, canvas extensions, and automations are available in the app. These configurations should be reviewed before use because they can affect the tools, data, and background actions available to sessions.
 
 ### Data handling when using your own model provider (CLI)
@@ -269,7 +259,7 @@ In offline mode, web-based tools such as `web_fetch` and GitHub Code Search are 
 
 If your model provider configuration is invalid, Copilot CLI exits with an error. It does not fall back to GitHub-hosted models. Common failures, such as connection refused, authentication errors, model not found, and timeouts, produce user-friendly messages with actionable guidance.
 
-## 10. Best practices for deploying and adopting GitHub Copilot agentic features
+## 10. Best practices for deploying and adopting GitHub Copilot
 
 Responsible AI is a shared commitment between GitHub and its customers. While GitHub builds AI applications with safety, fairness, and transparency at the core, customers play a critical role in deploying and using these technologies responsibly within their own contexts. To support this partnership, we offer the following best practices for deployers and end users to help customers implement responsible AI effectively.
 
@@ -281,7 +271,7 @@ Responsible AI is a shared commitment between GitHub and its customers. While Gi
 * **Use Copilot code review to supplement human reviews, not to replace them**: While Copilot code review can be a powerful tool for improving code quality, it is important to use it as a tool, rather than to replace human reviews. You should always review and verify the feedback generated by Copilot code review, and supplement Copilot's feedback with careful human review to ensure your code meets your requirements.
 * **Provide feedback**: If you encounter any issues or limitations with Copilot code review, we recommend that you provide feedback by using the thumbs up and thumbs down buttons on Copilot's comments. This can help GitHub improve the tool and address any concerns or limitations.
 * **Configure custom instructions**: You can configure custom instructions to help Copilot understand your coding style and best practices, improving the relevance and quality of review feedback.
-* **Ensure cloud agent tasks are well-scoped**: The more clear and well-scoped the prompt you assign to the cloud agent, the better the results. An ideal issue includes a clear description of the problem, complete acceptance criteria, and hints on what files need to be changed.
+* **Ensure tasks are well-scoped**: The more clear and well-scoped the prompt you assign to the cloud agent, the better the results. An ideal issue includes a clear description of the problem, complete acceptance criteria, and hints on what files need to be changed.
 * **Customize the cloud agent with additional context**: The cloud agent has access to semantic code search, which helps it find relevant code based on meaning rather than just exact text matches, allowing it to complete tasks faster. To further enhance performance, implement custom Copilot instructions to help the agent better understand your project and how to build, test, and validate its changes.
 * **Use the cloud agent as a tool, not a replacement**: You should always review and test the content generated by the cloud agent to ensure that it meets your requirements and is free of errors or security concerns prior to merging.
 * **Use secure coding and code review practices with the cloud agent**: Although the cloud agent can generate syntactically correct code, it may not always be secure. Follow best practices for secure coding and code review. Take the same precautions as you would with any code that uses material you did not independently originate, including rigorous testing, IP scanning, and checking for security vulnerabilities.

@@ -99,7 +99,7 @@ You can ask {% data variables.product.prodname_copilot_short %} to explain why a
 
 ## Ask about a pull request created by {% data variables.product.prodname_copilot_short %}
 
-When you view a pull request created by {% data variables.copilot.copilot_cloud_agent %}, you can ask {% data variables.product.prodname_copilot_short %} about the work it did. {% data variables.product.prodname_copilot_short %} retrieves the agent's session logs to explain what changed, what was validated, and why.
+When you view a pull request created by {% data variables.product.prodname_copilot_short %}, you can ask {% data variables.product.prodname_copilot_short %} about the work it did. {% data variables.product.prodname_copilot_short %} retrieves the agent's session logs to explain what changed, what was validated, and why.
 
 ### Example prompts
 

@@ -25,6 +25,12 @@ You can configure {% data variables.product.prodname_code_scanning %} to check t
 
 By default, {% data variables.product.prodname_code_scanning %} analyzes your code periodically on the default branch and during pull requests. For information about managing alerts on a pull request, see [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-code-scanning-alerts/triage-alerts-in-pull-requests).
 
+{% ifversion ai-scan-for-repositories %}
+
+AI Scan for repositories adds alerts from on-demand scans of your default branch to the same alert list as {% data variables.product.prodname_codeql %}. You can use existing alert assignment, remediation, security campaign, and issue-linking workflows with these alerts. See [AUTOTITLE](/code-security/concepts/code-scanning/ai-scan-for-repositories).
+
+{% endif %}
+
 {% ifversion code-scanning-autofix %}
 
 You can use {% data variables.copilot.copilot_autofix %} to generate fixes automatically for {% data variables.product.prodname_code_scanning %} alerts, including {% data variables.product.prodname_codeql %} alerts. For more information, see [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-code-scanning-alerts/resolve-alerts#generating-a-suggested-fix).

@@ -170,3 +170,27 @@ You can also configure separate deployment notifications. These deployments can 
 You can subscribe or unsubscribe to deployment notifications using the command: `/github subscribe/unsubscribe OWNER/REPO deployments`.
 
 >[!NOTE] If you are using {% data variables.product.prodname_actions %} and want to track your deployments to environments, the `workflows` feature is recommended, as it provides a more complete picture and the ability to approve your deployments directly from Slack.
+
+{% ifversion copilot %}
+
+## Notifications and {% data variables.product.prodname_copilot_short %} settings
+
+Notification subscriptions control which repository events appear in the channel. {% data variables.product.prodname_copilot_short %} repository defaults control where agent sessions work. Configuring one does not configure the other, even when you work across multiple repositories.
+
+Use `/github subscribe` and `/github unsubscribe` for event subscriptions, and `/github settings` for channel repository and model defaults. Ask {% data variables.product.prodname_copilot_short %} to choose a model when you want to change only the current conversation. See [AUTOTITLE](/copilot/how-tos/copilot-integrations/integrate-cloud-agent-with-slack).
+
+{% endif %}
+
+{% ifversion copilot %}
+
+## Acting on a notification with {% data variables.product.prodname_copilot_short %}
+
+Reply to a notification and mention `@{% data variables.product.github %}` with the work you want to delegate. For example:
+
+```text
+@{% data variables.product.github %} Investigate this failed workflow, explain the cause, and propose a fix.
+```
+
+The notification and thread provide context but do not bypass repository permissions. To include related repositories, name them in your prompt. You need write access to every selected repository.
+
+{% endif %}

@@ -44,6 +44,9 @@ When {% data variables.product.github %} detects a vulnerable dependency, a {% d
 
 {% ifversion ghec %}Alerts generated from an innersource advisory carry a distinct "Innersource" label, distinguishing them from alerts based on public advisories.
 
+{% endif %}{% ifversion dependabot-reachability %}
+You can optionally enable {% data variables.product.prodname_dependabot_reachability %} to help prioritize alerts by identifying whether your application can reach vulnerable dependency code. During the {% data variables.release-phases.public_preview %}, analysis supports JavaScript repositories that use npm, pnpm, or Yarn, and TypeScript repositories. Use reachability alongside severity, Exploit Prediction Scoring System (EPSS) scores, dependency scope, and dependency relationship. See [AUTOTITLE](/code-security/concepts/supply-chain-security/about-reachability-analysis-for-dependabot-alerts).
+
 {% endif %}For information about viewing and managing alerts, see [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-dependabot-alerts/view-dependabot-alerts).
 
 ## Who can enable alerts?

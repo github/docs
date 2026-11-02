@@ -16,6 +16,9 @@ You can sort and filter {% data variables.product.prodname_dependabot_alerts %} 
 | `is` | Displays alerts based on their state | Use `is:open` to show open alerts |
 | `manifest` | Displays alerts for the selected manifest | Use `manifest:webwolf/pom.xml` to show alerts on the pom.xml file of the webwolf application |
 | `package` | Displays alerts for the selected package | Use `package:django` to show alerts for django |
+| {% ifversion dependabot-reachability %} |
+| `reachability` | Displays alerts with the selected reachability verdict when {% data variables.product.prodname_dependabot_reachability %} is enabled. | Use `reachability:reachable,potentially-reachable` to show reachable and potentially reachable alerts. Use `reachability:unreachable` for "Unreachable" results or `reachability:unavailable` for results where the analysis could not provide a verdict. |
+| {% endif %} |
 | {% ifversion transitive-dependency-labeling-npm %} |
 | `relationship` |  Displays alerts of the selected relationship status<br>Note that this filter is only available for ecosystems with transitive support.  | Use `relationship:direct` to show alerts for direct dependencies (marked with the `Direct` label), or `relationship:transitive` to show alerts for transitive dependencies (marked with the `Transitive` label). |
 | {% endif %} |
@@ -24,7 +27,7 @@ You can sort and filter {% data variables.product.prodname_dependabot_alerts %} 
 | `scope` | Displays alerts based on the scope of the dependency they relate to | Use `scope:development` to show alerts for dependencies that are only used during development |
 | `severity` | Displays alerts based on their level of severity | Use `severity:high` to show alerts with a severity of High |
 | `epss_percentage` | Displays alerts based on their EPSS-predicted probability of exploitation | Use `epss_percentage:>0.01` to see alerts with an EPSS percentage greater than 1% |
-| `sort` | Displays alerts according to the selected sort order | The default sorting option for alerts is `sort:most-important`, which ranks alerts by importance</br>Use `sort:newest` to show the latest alerts reported by {% data variables.product.prodname_dependabot %}</br>Use `sort:epss-percentage` to show alerts ordered by descending EPSS score. |
+| `sort` | Displays alerts according to the selected sort order | The default sorting option for alerts is `sort:most-important`, which ranks alerts by importance{% ifversion dependabot-reachability %} and ranks reachable and potentially reachable alerts higher when {% data variables.product.prodname_dependabot_reachability %} is enabled{% endif %}</br>Use `sort:newest` to show the latest alerts reported by {% data variables.product.prodname_dependabot %}</br>Use `sort:epss-percentage` to show alerts ordered by descending EPSS score. |
 | `team` | Display data for all repositories that the specified team has write access or admin access to. For more information on repository roles, see [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization). | Use `team:octo-team` to show alerts for repositories that the `octo-team` team has write access to. |
 | `topic` | Display data for all repositories that are classified with a specific topic. For more information on repository topics, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics). | Use `topic:nextjs` to show alerts for repositories that are classified with the `nextjs` topic. |
 

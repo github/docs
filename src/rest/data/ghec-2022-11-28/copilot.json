@@ -5948,7 +5948,7 @@
         "fineGrainedPat": false,
         "permissions": [
           {
-            "\"Copilot settings\" enterprise permissions": "write"
+            "\"Enterprise Copilot license management\" enterprise permissions": "write"
           },
           {
             "\"Enterprise administration\" enterprise permissions": "write"
@@ -6092,7 +6092,7 @@
         "fineGrainedPat": false,
         "permissions": [
           {
-            "\"Copilot settings\" enterprise permissions": "write"
+            "\"Enterprise Copilot license management\" enterprise permissions": "write"
           },
           {
             "\"Enterprise administration\" enterprise permissions": "write"

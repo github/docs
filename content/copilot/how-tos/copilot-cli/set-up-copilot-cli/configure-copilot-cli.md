@@ -278,7 +278,7 @@ During an interactive session, you can also enable all permissions with the `/pe
 
 The various `--allow-all...` options save you from having to decide whether to allow {% data variables.product.prodname_copilot_short %} to access individual tools, files, and URLs. However, using them widens the scope for {% data variables.product.prodname_copilot_short %} to perform actions that you might not want it to—for example, altering files outside of the repository you are working in.
 
-To mitigate this risk, you can instruct the CLI to sandbox its commands (local sandboxing), or you can run the entire {% data variables.copilot.copilot_cli_short %} session within a remote, sandboxed environment (cloud sandboxing). For more information, see [AUTOTITLE](/copilot/concepts/about-cloud-and-local-sandboxes).
+To mitigate this risk, you can instruct the CLI to sandbox its commands (local sandboxing), or you can run the entire {% data variables.copilot.copilot_cli_short %} session in a cloud sandbox. For more information, see [AUTOTITLE](/copilot/concepts/security-governance-and-network-settings/about-cloud-and-local-sandboxes) and [AUTOTITLE](/copilot/concepts/security-governance-and-network-settings/about-cloud-sandboxes).
 
 ## Disabling client-side telemetry
 
@@ -293,7 +293,7 @@ This option disables first-party telemetry sent by the CLI, including unrestrict
 The option does not disable {% data variables.product.github %}'s server-side collection of session data or telemetry. It also does not affect:
 
 * OpenTelemetry exports configured by you or your enterprise.
-* Telemetry sent to an application that uses the {% data variables.copilot.copilot_sdk %}, when that application explicitly enables telemetry forwarding as it connects to the CLI.
+* Telemetry sent to an application that uses the {% data variables.copilot.copilot_sdk_short %}, when that application explicitly enables telemetry forwarding as it connects to the CLI.
 
 ## Further reading
 

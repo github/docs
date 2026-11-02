@@ -1,8 +1,8 @@
 ---
-title: Enabling or disabling cloud sandboxes for your organization or enterprise
-shortTitle: Enable or disable cloud sandboxes
+title: Managing cloud sandboxes for your organization or enterprise
+shortTitle: Manage cloud sandboxes
 allowTitleToDifferFromFilename: true
-intro: 'You can control whether members of your organization or enterprise can use cloud sandboxes by managing the cloud sandbox access policy in your organization or enterprise settings.'
+intro: 'Decide which members can use {% data variables.product.prodname_copilot_short %} features that run in cloud sandboxes, and keep cloud sandbox spending under control.'
 permissions: Enterprise owners and organization owners
 redirect_from:
   - /copilot/how-tos/cloud-and-local-sandboxes/enabling-or-disabling-cloud-and-local-sandboxes-for-your-organization
@@ -13,40 +13,19 @@ category:
   - Manage cloud and local sandboxes for your organization
 ---
 
-> [!NOTE]
-> {% data reusables.cli.public-preview-cloud-sandbox %}
+## About managing cloud sandboxes
 
-## About enabling and disabling cloud sandboxes
+Cloud sandboxes don't have their own access setting, and you can't opt out of them separately from {% data variables.product.prodname_copilot_short %} policies. {% data variables.product.prodname_copilot_short %} uses a cloud sandbox when a member starts a cloud session from any {% data variables.product.prodname_copilot_short %} client. To manage cloud sandboxes, you control access to those features with {% data variables.product.prodname_copilot_short %} policies, and you control spending with budgets.
 
-Organization owners can control whether members of their organization have access to cloud sandboxes by configuring the cloud sandbox access policy. Enterprise owners can control cloud sandbox access for all organizations in the enterprise. By default, cloud sandbox access is disabled.
+For more information about cloud sandboxes, see [AUTOTITLE](/copilot/concepts/security-governance-and-network-settings/about-cloud-sandboxes).
 
-For more information about cloud sandboxes, see [AUTOTITLE](/copilot/concepts/about-cloud-and-local-sandboxes).
+## Controlling who can use cloud sandboxes
 
-## Enabling or disabling cloud sandboxes for your organization
+If members get {% data variables.product.prodname_copilot_short %} through your organization or enterprise, the **{% data variables.copilot.copilot_in_the_cloud_short %}** policy controls whether they can run {% data variables.product.prodname_copilot_short %} agents in a cloud environment that {% data variables.product.github %} manages, from any {% data variables.product.prodname_copilot_short %} client. The policy is enabled by default. When the policy is disabled, {% data variables.product.prodname_copilot_short %} can't create cloud sandboxes for those members.
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-1. {% data reusables.user-settings.code-planning-automation %} click **Sandboxes**.
-1. Under "Cloud sandbox access", select your preferred setting:
-   * **Disabled**: Cloud sandbox access is not available for organization members.
-   * **Enabled**: Members of this organization can use cloud sandboxes.
-1. Click **Save**.
+* To set the policy for an organization, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/manage-copilot-in-the-cloud).
+* To set the policy for an enterprise, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/manage-copilot-in-the-cloud).
 
-## Enabling or disabling cloud sandboxes for your enterprise
+## Controlling spending on cloud sandboxes
 
-Enterprise owners can control cloud sandbox access for all organizations in the enterprise from the **Policies** tab of the enterprise settings. By default, cloud sandbox access is disabled for all organizations in the enterprise.
-
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.policies-tab %}
-1. Click **Sandboxes**.
-1. Under "Cloud sandbox access", select your preferred setting:
-   * **Disabled**: Cloud sandbox access is not available for any organizations in this enterprise.
-   * **Let organizations enable (opt-in)**: Organization owners can choose to enable cloud sandbox access for their members. New organizations default to disabled.
-   * **Enabled by default for all organizations (opt-out)**: Cloud sandbox access is enabled for all organizations. Organization owners can still disable access for their organization if needed.
-1. Click **Save**.
-
-## Further reading
-
-* [AUTOTITLE](/copilot/concepts/about-cloud-and-local-sandboxes)
-* [AUTOTITLE](/billing/concepts/product-billing/cloud-and-local-sandboxes)
-* [AUTOTITLE](/copilot/reference/enterprise-administrators/enterprise-managed-settings#sandbox)
+To monitor and limit cloud sandbox spending, set a budget for cloud sandbox usage. You can create a budget for all cloud sandbox usage or for a specific cloud sandbox SKU. See [AUTOTITLE](/billing/concepts/product-billing/cloud-and-local-sandboxes#managing-your-budget-for-cloud-sandboxes).

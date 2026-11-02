@@ -260,6 +260,10 @@ export const schema: Schema = {
       type: 'string',
       enum: ['mos-diner'],
     },
+    // Pages with no navigable children, such as event landings, can drop the doc-tree rail.
+    hideSidebar: {
+      type: 'boolean',
+    },
     interactive: {
       type: 'boolean',
     },

@@ -24,6 +24,12 @@ On a branch that requires a merge queue, the repository setting doesn't apply. *
 
 Auto-merge is disabled if someone without write permissions pushes new changes to the head branch or switches the base branch.
 
+{% ifversion copilot %}
+
+To have {% data variables.product.prodname_copilot_short %} fix failed {% data variables.product.prodname_actions %} workflows and merge conflicts before auto-merge completes, you can also enable {% data variables.copilot.agent_merge %}. {% data variables.copilot.agent_merge %} fixes the blockers you select, while auto-merge waits for all merge requirements to be met. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/use-copilot-agents/get-pull-requests-ready-to-merge).
+
+{% endif %}
+
 ## Enabling auto-merge
 
 {% data reusables.pull_requests.auto-merge-requires-branch-protection %}

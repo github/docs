@@ -49,7 +49,7 @@ import features from '@/versions/middleware/features'
 import productGroups from './context/product-groups'
 import featuredLinks from '@/landings/middleware/featured-links'
 import journeyTrack from '@/journeys/middleware/journey-track'
-import next from './next'
+import next, { renderNextDevEndpoints } from './next'
 import renderPage from './render-page'
 import assetPreprocessing from '@/assets/middleware/asset-preprocessing'
 import archivedAssetRedirects from '@/archives/middleware/archived-asset-redirects'
@@ -158,6 +158,10 @@ export default function index(app: Express) {
         fallthrough: false,
       }),
     )
+  }
+
+  if (process.env.NODE_ENV === 'development') {
+    app.use(renderNextDevEndpoints)
   }
 
   app.use(shielding)

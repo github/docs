@@ -11,6 +11,7 @@ redirect_from:
   - /code-security/code-scanning/managing-code-scanning-alerts
 children:
   - assess-alerts
+  - viewing-and-managing-ai-scan-alerts
   - triage-alerts-in-pull-requests
   - track-alerts-in-issues
   - resolve-alerts

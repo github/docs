@@ -90,7 +90,7 @@ The [{% data variables.product.prodname_AS %} plugin](https://github.com/github/
 The plugin uses the MCP tools under the hood, so you'll still need to enable the `secret_protection` toolset.
 
 Instructions for installing the plugin:
-* For **{% data variables.copilot.copilot_cli %}**, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/plugins-finding-installing#installing-plugins).
+* For **{% data variables.copilot.copilot_cli %}**, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/plugins-finding-installing).
 * For **{% data variables.product.prodname_vscode %}**, see [Discover and install plugins](https://code.visualstudio.com/docs/copilot/customization/agent-plugins#_discover-and-install-plugins) in the {% data variables.product.prodname_vscode %} documentation.
 
 ## Step 2: Scan your code

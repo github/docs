@@ -40,13 +40,11 @@ Feature, model, and privacy settings for users are set according to the **least 
 | Suggestions matching public code (privacy policy) | Most restrictive organization | [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-in-ides#code-suggestions) |
 | Allow members without a {% data variables.product.prodname_copilot_short %} license to use {% data variables.copilot.copilot_code-review_short %} in {% data variables.product.prodname_dotcom_the_website %} | Most restrictive organization | [AUTOTITLE](/copilot/responsible-use/agents) |
 | {% data variables.product.prodname_copilot_short %} can search the web | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/chat) |
-| {% data variables.copilot.copilot_mobile_short %} | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/chat) |
+| {% data variables.copilot.copilot_in_the_cloud_short %} | Least restrictive organization | [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-on-github) |
 | {% data variables.copilot.copilot_chat_short %} in the IDE | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/chat) |
 | {% data variables.product.prodname_copilot_short %} Agent Mode in IDE Chat | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/chat) |
 | {% data variables.copilot.copilot_code-review_short %} | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/agents) |
-| {% data variables.copilot.copilot_cloud_agent %} | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/agents) |
 | {% data variables.product.prodname_spark_short %} | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/agents) |
-| {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %} | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/chat) |
 | {% data variables.copilot.copilot_desktop_short %} | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/chat) |
 | {% data variables.copilot.copilot_cli_short %} | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/agents) |
 | The {% data variables.copilot.github_copilot_app %} | Least restrictive organization | [AUTOTITLE](/copilot/concepts/copilot-surfaces/github-copilot-app) |

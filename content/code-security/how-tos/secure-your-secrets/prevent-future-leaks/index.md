@@ -9,6 +9,7 @@ versions:
 contentType: how-tos
 children:
   - /enable-push-protection
+  - /enable-ai-push-protection
   - /manage-user-push-protection
   - /block-merges-with-secrets
 ---

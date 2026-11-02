@@ -45,6 +45,8 @@ Organization members must also have an active SAML session to authorize an {% da
 
 {% data reusables.saml.saml-supported-idps %}
 
+{% data reusables.enterprise-accounts.gov-cloud-idp-not-supported %}
+
 Some IdPs support provisioning access to a {% data variables.product.prodname_dotcom %} organization via SCIM. For more information, see [AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations).
 
 {% data reusables.scim.enterprise-account-scim %}

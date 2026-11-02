@@ -41,13 +41,15 @@ Session storage for sessions started in an IDE is IDE-specific. For information 
 
 ### Sessions run on {% data variables.product.github %}
 
-{% data variables.copilot.copilot_cloud_agent %} sessions run in an ephemeral environment hosted by {% data variables.product.github %}. The environment is destroyed when the session ends, but the session log remains available on {% data variables.product.prodname_dotcom_the_website %}. These sessions are shared by default and visible to people with access to the repository.
+Cloud sessions using {% data variables.product.prodname_actions %} run in an ephemeral environment hosted by {% data variables.product.github %}. The environment is destroyed when the session ends, but the session log remains available on {% data variables.product.prodname_dotcom_the_website %}. These sessions are shared by default and visible to people with access to the repository.
+
+Cloud sessions using sandbox run in an isolated environment hosted by {% data variables.product.github %}. While a session is stopped, the sandbox keeps a snapshot of its state so you can resume with your files and in-progress work intact. These sessions are unshared by default.
 
 ## Session syncing
 
 By default, locally-run sessions created with {% data variables.copilot.copilot_cli_short %} or the {% data variables.copilot.github_copilot_app %} are synced to your {% data variables.product.github %} account.
 
-You can control syncing for {% data variables.copilot.copilot_cli_short %} and the {% data variables.copilot.github_copilot_app %}.  See `remote` and `remoteExport` in [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-config-dir-reference).
+You can control syncing for {% data variables.copilot.copilot_cli_short %} and the {% data variables.copilot.github_copilot_app %}.  See `remoteExport` in [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-config-dir-reference).
 
 ### Policy governing session syncing
 
@@ -59,7 +61,7 @@ Local sessions are unshared by default. You can share an individual local sessio
 
 Synced session data is tied to your personal account and is accessible only to you by default. Administrators can control whether syncing is available, but enabling syncing does not give them access to your session data.
 
-{% data variables.copilot.copilot_cloud_agent %} sessions are shared by default. They appear in the "All sessions" view on the "Agents" tab of your repository, visible to anyone with access to the repository.
+Cloud sessions using {% data variables.product.prodname_actions %} are shared by default. They appear in the "All sessions" view on the "Agents" tab of your repository, visible to anyone with access to the repository. Cloud sessions using sandbox are unshared by default.
 
 When you query previous interactions or use `/chronicle`,
 {% data variables.product.prodname_copilot_short %} may send relevant session data, such as prompts, context, and responses, to the AI model.
@@ -88,20 +90,21 @@ For {% data variables.copilot.copilot_cli_short %}, deleting a local session tha
 The following controls are available:
 
 * **Share**: Make the session visible to people with access to the repository.
-* **Delete**: Permanently remove the synced session record from {% data variables.product.prodname_dotcom_the_website %}.
+* **Delete**: Permanently remove the session record from {% data variables.product.prodname_dotcom_the_website %}.
 * **Archive**: Move the session out of the active list on {% data variables.product.prodname_dotcom_the_website %} without deleting it.
 
 | Session source | Share | Delete | Archive |
 | --- | --- | --- | --- |
 | Synced {% data variables.copilot.copilot_cli_short %} session | {% octicon "check" aria-label="Supported" %} (Unshared by default) | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | Synced session from the {% data variables.copilot.github_copilot_app %} | {% octicon "check" aria-label="Supported" %} (Unshared by default) | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
-| {% data variables.copilot.copilot_cloud_agent %} session | {% octicon "check" aria-label="Supported" %} (Shared by default) | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} |
+| Cloud session using {% data variables.product.prodname_actions %} | {% octicon "check" aria-label="Supported" %} (Shared by default) | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} |
+| Cloud session using sandbox | {% octicon "check" aria-label="Supported" %} (Unshared by default) | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 
 For more information, see:
 
 * **{% data variables.copilot.copilot_cli_short %}**: [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/chronicle)
 * **The {% data variables.copilot.github_copilot_app %}**: [AUTOTITLE](/copilot/how-tos/github-copilot-app/agent-sessions)
-* **{% data variables.copilot.copilot_cloud_agent %}**: [AUTOTITLE](/copilot/how-tos/copilot-on-github/use-copilot-agents/manage-and-track-agents)
+* **Cloud sessions using {% data variables.product.prodname_actions %}**: [AUTOTITLE](/copilot/how-tos/copilot-on-github/use-copilot-agents/manage-and-track-agents)
 
 For information about the session data controls available for {% data variables.product.prodname_copilot_short %} in an IDE, see the documentation for that IDE.
 

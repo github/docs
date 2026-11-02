@@ -10,12 +10,21 @@ category:
 
 ## Metrics
 
-OpenTelemetry metrics were introduced in {% data variables.product.prodname_ghe_server %} 3.18 and are the future foundation for monitoring your {% data variables.product.prodname_ghe_server %} instance.
-Collectd metrics will continue to be gathered by default, but we expect collectd metrics to be discontinued in a future release.
+OpenTelemetry metrics were introduced in {% data variables.product.prodname_ghe_server %} 3.18 and are the foundation for monitoring {% data variables.product.prodname_ghe_server %} instances.
+
+{% ifversion ghes < 3.23 %}
+
+New installations of version 3.19 and later use OpenTelemetry metrics by default. On version 3.18, and on instances upgraded from earlier releases, collectd metrics are still gathered by default. Collectd is retired in version 3.23, and upgrading to 3.23 disables it. For migration guidance for instances that still use collectd, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/opentelemetry-metrics/migration-guidance).
+
+{% else %}
+
+Collectd is retired in version 3.23 and can no longer be run. Upgrading to 3.23 disables collectd, and OpenTelemetry metrics are the only metrics stack.
+
+{% endif %}
 
 For more information about OpenTelemetry metrics, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/opentelemetry-metrics/about-opentelemetry-metrics).
 
-For more information about Collectd metrics, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/collectd-metrics/about-collectd-metrics).
+For more information about collectd metrics, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/collectd-metrics/about-collectd-metrics).
 
 ## Dashboards
 

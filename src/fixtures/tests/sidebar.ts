@@ -14,6 +14,14 @@ describe('sidebar', () => {
     expect($('[data-testid="sidebar-mobile-toggle"]').length).toBe(1)
   })
 
+  test('hideSidebar frontmatter drops the sidebar and its toggles', async () => {
+    const $: CheerioAPI = await getDOM('/get-started/sidebar-test/hidden-sidebar')
+    expect($('[data-container="nav"]').length).toBe(0)
+    expect($('[data-testid="sidebar-collapse-toggle"]').length).toBe(0)
+    expect($('[data-testid="sidebar-mobile-toggle"]').length).toBe(0)
+    expect($('[data-testid="docs-secondary-bar"]').length).toBe(1)
+  })
+
   test('REST pages get the REST sidebar', async () => {
     const $: CheerioAPI = await getDOM('/rest')
     expect($('[data-testid=rest-sidebar-reference]').length).toBe(1)

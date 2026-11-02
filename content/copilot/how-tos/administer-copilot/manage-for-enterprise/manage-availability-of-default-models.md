@@ -43,6 +43,15 @@ These models are labeled as "Delegate to Default Policy" in your model settings.
 
 If you are not happy with any of these settings, you can disable specific models, make them available only for specific organizations or teams, or disable the "Default availability" policy so unconfigured models default to disabled.
 
+## Configuring models available for {% data variables.copilot.copilot_fusion_short %}
+
+Configure which models you want available for {% data variables.copilot.copilot_fusion_short %}. See [AUTOTITLE](/copilot/concepts/models/copilot-fusion). Models enabled here will be available to a user through {% data variables.copilot.copilot_fusion_short %}, but only if your other model policies allow that user to use the model. 
+
+{% data reusables.enterprise-accounts.ai-controls-tab %}
+{% data reusables.enterprise-accounts.copilot-sidebar %}
+1. Under **Models**, click **Configure {% data variables.copilot.copilot_fusion_short %} models**.
+1. Select a status for each model in the list. 
+
 ## Granting access to specific organizations (default)
 
 This section applies if you are **not** opted in to the enterprise teams model access preview.

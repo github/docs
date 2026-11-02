@@ -27,7 +27,7 @@ Application Security (AppSec) managers often face a flood of {% data variables.p
 * **Severity**: Indicates the potential impact of a vulnerability (e.g., low, medium, high, critical).
 * **Exploitability**: Assesses how easily a vulnerability can be exploited.
 * **Dependency relationship**: Differentiates between direct and transitive dependencies.
-* **Dependency scope**: Differentiates between runtime and development dependencies. Determines if the vulnerable code is actually used in your application.
+* **Dependency scope**: Differentiates between runtime and development dependencies.
 * **Alerts closed in the last 30 days, including the number of alerts fixed by {% data variables.product.prodname_dependabot %}, manually dismissed, and auto dismissed**: Tracks alert resolution progress. Illustrates how {% data variables.product.prodname_GH_code_security %} can help you detect vulnerabilities early.
 * **Table showing the total number of open alerts for each repository, as well as severity and expoitability data**: Allows you to dig deeper at the repository level.
 
@@ -47,9 +47,25 @@ You can customize the default funnel order on the "Alert prioritization" graph t
 
 Start by identifying alerts with the highest severity by using the `severity-critical` or `severity-high` filters. These vulnerabilities pose the greatest risk and are often prioritized by compliance standards.
 
-### 3. Assess exploitability and reachability
+### 3. Assess exploitability{% ifversion dependabot-reachability %} and reachability{% endif %}
 
 Prioritize vulnerabilities that are the most likely to be exploited in your codebase. To identify alerts that are most likely to be exploited, you can use the `epss-percentage` filter associated to a value (for example `epss-percentage:>=0.10`).
+
+{% ifversion dependabot-reachability %}
+
+> [!NOTE]
+> {% data reusables.dependabot.reachability-public-preview %}
+
+For JavaScript repositories that use npm, pnpm, or Yarn, and TypeScript repositories, use {% data variables.product.prodname_dependabot_reachability %} to assess whether your application can call vulnerable functions in its dependencies. This is a separate signal from exploitability: a call path does not prove that an attacker can exploit a vulnerability.
+
+1. Open a repository's {% data variables.product.prodname_dependabot_alerts %} and filter for `reachability:reachable,potentially-reachable`.
+1. Prioritize these alerts alongside severity and EPSS. For reachable alerts, review the call-path evidence to understand how your code calls the vulnerable function. See [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-dependabot-alerts/view-dependabot-alerts#reviewing-reachability-evidence).
+
+For "Reachability unavailable" results, use severity, EPSS, dependency scope, and dependency relationship to prioritize alerts. An unavailable result does not mean the vulnerable function cannot be called.
+
+Give "Unreachable" alerts a lower priority, but do not close or dismiss an alert solely because of its verdict. Verdicts are point-in-time assessments and can change as your code or an advisory changes.
+
+{% endif %}
 
 ### 4. Review dependency scope and relationship
 

@@ -7,6 +7,7 @@ versions:
 contentType: concepts
 children:
   - /overview
+  - /copilot-fusion
   - /auto-model-selection
   - /bring-your-own-key
   - /utility-models

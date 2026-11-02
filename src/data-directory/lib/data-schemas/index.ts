@@ -52,6 +52,9 @@ const manualSchemas: DataSchemas = {
   // The matrix directory schema validates every per-IDE file.
   'data/tables/copilot/matrix': resolveSchemaPath('tables/copilot/matrix-ide.ts'),
   'data/tables/copilot/matrix-meta.yml': resolveSchemaPath('tables/copilot/matrix-meta.ts'),
+  'data/tables/copilot/image-models-and-pricing.yml': resolveSchemaPath(
+    'tables/copilot/image-models-and-pricing.ts',
+  ),
   'data/tables/copilot/model-supported-plans.yml': resolveSchemaPath(
     'tables/copilot/model-supported-plans.ts',
   ),

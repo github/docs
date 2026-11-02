@@ -58,9 +58,9 @@ Usage of premium requests is tracked monthly and is based on the following facto
 
 ### Usage by {% data variables.copilot.copilot_cloud_agent %}
 
-When you use {% data variables.copilot.copilot_cloud_agent %}, including any {% data variables.copilot.copilot_custom_agents %}, both **{% data variables.product.prodname_actions %} minutes** and **premium requests** are consumed:
+When you use {% data variables.copilot.copilot_cloud_agent %}, including any {% data variables.copilot.copilot_custom_agents %}, you use both **{% data variables.product.prodname_actions %} compute** and **premium requests**:
 
-* **{% data variables.product.prodname_actions %} minutes** come from your account’s monthly allowance of free minutes for {% data variables.product.github %}-hosted runners. This allowance is shared with all {% data variables.product.prodname_actions %} workflows. See [AUTOTITLE](/billing/concepts/product-billing/github-actions#free-use-of-github-actions).
+* For **{% data variables.product.prodname_actions %} compute**, the calculated runner cost draws from your account's monthly included compute usage. This included value is shared with other eligible {% data variables.product.prodname_actions %} and cloud sandbox usage. See [AUTOTITLE](/billing/concepts/product-billing/github-actions#included-compute-usage-and-storage).
 * **Premium requests** come from the monthly allowance associated with your {% data variables.product.prodname_copilot_short %} license. This allowance is shared with other features, such as {% data variables.copilot.copilot_chat_short %}.
 
 Each cloud agent **session** consumes one premium request. A session begins when you:
@@ -68,7 +68,7 @@ Each cloud agent **session** consumes one premium request. A session begins when
 * Prompt {% data variables.product.prodname_copilot_short %} to undertake a task.
 * Assign {% data variables.product.prodname_copilot_short %} to an issue
 
-If you run out of free minutes or premium requests, and you have _not_ set up billing, a message is displayed explaining why {% data variables.product.prodname_copilot_short %} cannot work on the task.
+If you use all your included compute usage or all your premium requests, and you have _not_ set up billing, a message is displayed explaining why {% data variables.product.prodname_copilot_short %} cannot work on the task.
 
 {% data variables.copilot.copilot_cloud_agent %} uses a dedicated {% data variables.copilot.copilot_cloud_agent %} premium request SKU. This SKU still pulls from your monthly allowance of premium requests, but allows for more granular budget control and monitoring.
 

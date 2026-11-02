@@ -134,6 +134,52 @@ Each {% data variables.copilot.copilot_custom_agent_short %} is defined by a Mar
 
   In this example, `security-auditor` is the ID of the {% data variables.copilot.copilot_custom_agent_short %}. The ID is derived from the file name, without the `.md` or `.agent.md` extension. In this case, the path to the file is either `agents/security-auditor.md` or `agents/security-auditor.agent.md`. If the file is in a subdirectory of `agents`, the subdirectory name is included in the ID, with the directory separator replaced with `--`. So an agent file at `agents/security/security-auditor.agent.md` would have the ID `security--security-auditor`. Alternatively, you can use the value of the `name` field instead of the ID, enclosing it in quotes. For example, `--agent "Security Auditor"`.
 
+## Delegating focused tasks to a specific model
+
+You can configure a {% data variables.copilot.copilot_custom_agent_short %} to use a specific model.
+
+This can be particularly useful when you want to delegate small, well-defined tasks to a {% data variables.copilot.copilot_custom_agent_short %} that uses a locally hosted model, while using a cloud-based model for your main session. This approach allows you, for example, to delegate a single-file change or a focused test fix to a {% data variables.copilot.copilot_custom_agent_short %} that uses a local model, then have the main agent review the result.
+
+First, add a locally hosted model to the CLI. See [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/add-llm-models).
+
+1. Create `~/.copilot/agents/local-coder.agent.md` with the following content:
+
+   ```markdown
+   ---
+   name: local-coder
+   description: >
+     Use for small, well-defined coding tasks, such as a
+     single-file change or a focused test fix.
+   model: LOCAL-PROVIDER/LOCAL-MODEL
+   model-policy: required
+   tools: ["read", "grep", "glob", "edit", "execute"]
+   strict-tools-list: true
+   include-custom-instructions: true
+   ---
+
+   Complete only the requested task. Inspect the relevant
+   code, make the smallest correct change, and run focused
+   checks. Report what changed and any remaining issues.
+   ```
+
+1. Replace `LOCAL-PROVIDER/LOCAL-MODEL` with your local model's provider-qualified ID, not its display name. For a model in `providers.json`, combine the model entry's `provider` and `id` values, separated by a forward slash. For example, `"provider": "local"` and `"id": "qwen3:8b"` gives you `local/qwen3:8b`.
+
+   `model-policy: required` requires the configured model rather than treating it as a preference.
+
+   `strict-tools-list: true` limits the agent to the listed tool groups without adding the usual default tools.
+
+   `include-custom-instructions: true` keeps your repository's instructions in effect for the subagent.
+
+1. Restart the CLI to load the agent. In a session using a cloud model, explicitly delegate a bounded task:
+
+   ```copilot
+   Use the local-coder agent to add an empty-input test for
+   parseConfig in src/config.test.ts. Do not change other
+   files. Then review the result in the main session.
+   ```
+
+   The local model runs the delegated task, but the main agent still receives the result. This does not make the whole session local or offline.
+
 ## Applying your repository's custom instructions to a {% data variables.copilot.copilot_custom_agent_short %}
 
 Custom instruction files—such as `.github/copilot-instructions.md`, `AGENTS.md`, and `CLAUDE.md`—tell {% data variables.product.prodname_copilot_short %} how to work in your repository. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions).

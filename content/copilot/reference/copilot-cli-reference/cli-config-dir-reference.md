@@ -102,6 +102,274 @@ Defines a registry of bring-your-own-key (BYOK) providers and models, as a JSON 
 
 By default, this file is located at `~/.copilot/providers.json`. Override its location with the `COPILOT_PROVIDERS_CONFIG` environment variable.
 
+Models in this file are available alongside the models provided by your {% data variables.product.prodname_copilot_short %} subscription. After editing the file manually, restart {% data variables.copilot.copilot_cli_short %} to load your changes. For setup instructions, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/add-llm-models).
+
+> [!WARNING]
+> API keys, bearer tokens, and header values in this file are stored as plain text. Do not commit the file to a repository or share it without removing credentials. Values such as `$MY_API_KEY` are literal strings, not references to environment variables.
+
+#### Provider configuration structure
+
+Use a JSON object, without comments or trailing commas. The file contains two arrays. Each provider defines a connection, and each model refers to one of those providers by name. In the tables below, `[]` means an entry in an array. For example, `models[].capabilities.supports.vision` is the `vision` setting inside `supports`, inside `capabilities`, inside a model entry.
+
+| Field | Type | Required | Default | Description |
+|-------|------|----------|---------|-------------|
+| `providers` | Array of objects | No | `[]` | Provider connections. See [Provider settings](#provider-settings). |
+| `models` | Array of objects | No | `[]` | Models available through those connections. See [Model settings](#model-settings). |
+
+An absent or empty file, or a file with no provider or model entries, allows the CLI to fall back to `COPILOT_PROVIDER_*` environment variables. A `null` value for either array is treated as an empty array. A file with invalid JSON or invalid provider or model entries produces a configuration error instead.
+
+To use a configured model when starting the CLI, pass `PROVIDER-NAME/MODEL-ID` to the `--model` option. `PROVIDER-NAME` is the provider's `name` value, and `MODEL-ID` is the model's `id` value. For example, run `copilot --model local/qwen3:8b`. Alternatively, during an interactive session, you can enter `/model` and choose the model from the picker.
+
+This file configures connections, model capabilities, and model instructions for use in {% data variables.copilot.copilot_cli_short %}. The JSON in this file is not a provider API request body. Settings are not passed through to the provider when you add them to this file.
+
+#### Provider settings
+
+Each entry in `providers` accepts the following fields. Only `name` and `baseUrl` are always required. Authentication requirements depend on the provider.
+
+| Field | Type | Required | Default | Description |
+|-------|------|----------|---------|-------------|
+| `providers[].name` | String | Yes | None | A unique name for this connection, such as `"local"` or `"my-anthropic"`. Must not contain `/`. Models refer to this name using their `provider` field. |
+| `providers[].type` | String | No | `"openai"` | The connection type: `"openai"` for OpenAI-compatible APIs, `"azure"` for Azure OpenAI, `"anthropic"` for Anthropic's Messages API, or `"local_model"` for a local model served by `llama-server`. |
+| `providers[].baseUrl` | String containing a URL or file path | Yes | None | The provider's API base URL. For OpenAI-compatible APIs, include the required API prefix, such as `https://api.openai.com/v1` or `http://127.0.0.1:11434/v1` for Ollama. For direct Anthropic access, use `https://api.anthropic.com`. For Azure, use your resource endpoint. With `"type": "local_model"`, this can instead be a path to a `.gguf` model file. |
+| `providers[].wireApi` | String | No | `"completions"` | The API format for OpenAI and Azure connections: `"completions"` for Chat Completions or `"responses"` for the Responses API. Ignored for Anthropic. |
+| `providers[].transport` | String | No | `"http"` | Accepts `"http"` or `"websockets"`. WebSockets require `"type": "openai"` and `"wireApi": "responses"`, and the provider must support that transport. |
+| `providers[].apiKey` | String | Provider-dependent | Unset | The provider's API key. Can be omitted for an unauthenticated local server. |
+| `providers[].bearerToken` | String | Provider-dependent | Unset | A bearer token, without the `Bearer ` prefix. Takes precedence over `apiKey` when both are set. This is a static token, not a token-refresh command. |
+| `providers[].headers` | Object | No | Unset | Additional HTTP headers, with header names as keys and strings as values. |
+| `providers[].headers.<header-name>` | String | No | Unset | The value of a header, for example `"X-Project": "my-project"`. Use `apiKey` or `bearerToken` for standard provider authentication. |
+| `providers[].azure` | Object | No | Unset | Azure-specific options. Contains the `apiVersion` field described below. |
+| `providers[].azure.apiVersion` | String | No | Unset | The Azure API version to request. When set to a non-empty version string supported by your endpoint, the CLI uses the versioned deployment API. When omitted, the CLI uses the versionless `/openai/v1` API. |
+| `providers[].localModel` | Object | No | Unset | Server options for a CLI-managed `.gguf` model. See [Local model server settings](#local-model-server-settings). |
+| `providers[].modelProvider` | String | No | Inferred from the connection | A provider label used only for telemetry. Recognized values are `"openai"`, `"anthropic"`, `"azure_openai"`, `"ollama"`, `"lm_studio"`, `"foundry_local"`, and `"llama_cpp"`. Does not change the connection protocol or model behavior. |
+| `providers[].hasBearerTokenProvider` | Boolean | No | `false` | Indicates that an application using the SDK supplies tokens through a callback. Omit this when configuring the CLI manually. Setting it to `true` in this file does not register a token provider. |
+
+The named-provider file does not support `apiKeyCommand`. Do not put credentials or token-refresh commands in `metadata` or `localModel.args`.
+
+#### Local model server settings
+
+These settings apply only when `providers[].type` is `"local_model"` and `baseUrl` is a path to a `.gguf` file. The CLI starts `llama-server` when the model is first used. The executable must be installed and available on `PATH`. Use an absolute model path to avoid depending on the directory from which you start the CLI.
+
+If `baseUrl` is an HTTP or HTTPS URL, the CLI connects to that existing server and does not use these startup settings. They also do not configure Ollama or other OpenAI-compatible servers.
+
+All fields inside `providers[].localModel` are optional.
+
+| Field | Type | Default | Description |
+|-------|------|---------|-------------|
+| `providers[].localModel.ctxSize` | Non-negative integer | `llama-server` default | Requested context size in tokens, passed as `--ctx-size`. The actual allocation can be smaller than requested. |
+| `providers[].localModel.nGpuLayers` | Non-negative integer | `llama-server` default | Number of model layers to offload to the GPU, passed as `--n-gpu-layers`. |
+| `providers[].localModel.parallel` | Non-negative integer | `1` | Number of server slots, passed as `--parallel`. Multiple slots can divide the available context between requests. |
+| `providers[].localModel.args` | Array of strings | `[]` | Additional `llama-server` arguments. Each argument is a separate string, such as `["--threads", "8"]`. These follow the arguments generated from the fields above. |
+| `providers[].localModel.persist` | Boolean | `false` | Requests that the managed server remain running after a clean CLI exit so a later CLI process can reuse it. Otherwise, the CLI cleans up the server on exit. |
+| `providers[].localModel.logs` | String containing a file path or `"inherit"` | Output discarded | Appends the server's standard output and error output to the specified file. Use an absolute path. `"inherit"` sends output to the terminal and can interfere with the CLI display. |
+
+The CLI manages the server's model path, host, and port. You cannot pass `--model`, `-m`, `--host`, or `--port` through `args`, including forms such as `--port=8080`.
+
+#### Model settings
+
+Each entry in `models` accepts the following fields. Only `id` and `provider` are required.
+
+| Field | Type | Required | Default | Description |
+|-------|------|----------|---------|-------------|
+| `models[].id` | String | Yes | None | The model identifier used in the CLI. Must be unique within its provider. Also used as the provider's model name unless `wireModel` is set. |
+| `models[].provider` | String | Yes | None | Must match the `name` of an entry in `providers`. |
+| `models[].wireModel` | String | No | Value of `id` | The model or deployment name sent to the provider. Use this when the provider expects a different name from the ID you want to select in the CLI. |
+| `models[].modelId` | String | No | Value of `id` | The model identity used to look up the CLI's model-specific behavior and defaults. For an alias or deployment name, set this to the underlying model's recognized ID. This does not change the model name sent to the provider. |
+| `models[].name` | String | No | `PROVIDER-NAME/MODEL-ID` | A display name for the model. Does not change its selection ID. |
+| `models[].maxPromptTokens` | Integer | No | Model-dependent, otherwise `128000` | The input token budget. Use a positive whole number that matches your model and deployment. |
+| `models[].maxContextWindowTokens` | Integer | No | Known model limit, otherwise unset | The total context-window limit, including input and output tokens. Set this for models whose limit the CLI does not know. |
+| `models[].maxOutputTokens` | Integer | No | Model- and provider-dependent | The output token budget. The provider and the model's reasoning requirements can further constrain the output. |
+| `models[].capabilities` | Object | No | Model defaults | Describes supported features and limits. See [Model capabilities](#model-capabilities). |
+| `models[].systemMessage` | Object | No | Standard CLI instructions | Adds to, replaces, or customizes the system instructions for this model. See [Model system messages](#model-system-messages). |
+| `models[].metadata` | Object | No | Unset | Additional descriptive data, including information saved when a model is discovered. See [Model metadata](#model-metadata). |
+
+The three token-limit fields accept whole numbers from `0` to `4294967295`. Use positive values appropriate for your deployment rather than relying on `0` as a way to disable a limit. These settings tell the CLI what limits to use, but do not increase the model's actual capacity.
+
+#### Model capabilities
+
+The `models[].capabilities` object describes the model. Setting a feature to `true` does not add that feature to a model that does not support it.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `models[].capabilities.family` | String | Descriptive model-family identifier. Use `modelId`, not this field, to choose the CLI's model-specific behavior. |
+| `models[].capabilities.supports` | Object | Supported features. See [Supported model features](#supported-model-features). |
+| `models[].capabilities.limits` | Object | Token and image limits. See [Model capability limits](#model-capability-limits). |
+
+All capability fields are optional. Objects are merged with the model's defaults, and arrays replace the corresponding default arrays.
+
+#### Supported model features
+
+The following fields belong inside `models[].capabilities.supports`.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `models[].capabilities.supports.vision` | Boolean | Whether the model accepts images. Defaults to `false` when no other capability information is available. |
+| `models[].capabilities.supports.toolCalls` | Boolean | Whether the model supports tool calls. The spelling `tool_calls` is also accepted and takes precedence if both are present. This describes support, not permission to run tools. |
+| `models[].capabilities.supports.streaming` | Boolean | Whether the model supports streamed responses. This is capability information, not a setting to turn response streaming on or off. |
+| `models[].capabilities.supports.adaptive_thinking` | String or boolean | The model's support for Anthropic adaptive thinking. Prefer one of the string values described below. For compatibility, `true` means `"optional"` and `false` means `"unsupported"`. |
+| `models[].capabilities.supports.reasoning_effort` | Array of strings | Reasoning-effort levels the model supports. This advertises available levels, not the level to use for a request. The CLI also applies model-specific restrictions. |
+| `models[].capabilities.supports.thinking` | Boolean | Descriptive support information that model discovery can save. Does not by itself configure thinking or enable reasoning-effort controls. |
+| `models[].capabilities.supports.reasoningEffort` | Boolean or array of strings | Compatibility field. A boolean does not enable reasoning-effort controls, and an array is not used consistently across CLI features. Use `reasoning_effort` for a supported-level list. |
+
+The `adaptive_thinking` values have the following meanings.
+
+| Value | Meaning |
+|-------|---------|
+| `"unsupported"` | The model does not support adaptive thinking. This does not rule out other forms of reasoning. |
+| `"optional"` | The model supports adaptive thinking, but does not require it. |
+| `"required"` | When thinking is enabled, the model requires adaptive thinking instead of a manual thinking budget. Thinking can still be disabled. |
+| `"adaptive_only"` | The model requires adaptive thinking and does not allow thinking to be disabled. |
+
+For `reasoning_effort`, the CLI recognizes `"none"`, `"minimal"`, `"low"`, `"medium"`, `"high"`, `"xhigh"`, and `"max"`. List only the levels your model supports, for example `["low", "medium", "high"]`. An omitted or empty list leaves the CLI to use its model-specific defaults. Select a level with `--reasoning-effort` or the model picker where available.
+
+#### Model capability limits
+
+The following fields belong inside `models[].capabilities.limits`. All are optional.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `models[].capabilities.limits.max_prompt_tokens` | Integer | Input token budget. Corresponds to `maxPromptTokens`. |
+| `models[].capabilities.limits.max_context_window_tokens` | Integer | Total context-window limit. Corresponds to `maxContextWindowTokens`. |
+| `models[].capabilities.limits.max_output_tokens` | Integer | Output token budget. Corresponds to `maxOutputTokens`. |
+| `models[].capabilities.limits.vision` | Object | Image limits, containing the fields below. |
+| `models[].capabilities.limits.vision.supported_media_types` | Array of strings | Accepted image MIME types, such as `"image/jpeg"`, `"image/png"`, and `"image/webp"`. These three types are the default. |
+| `models[].capabilities.limits.vision.max_prompt_images` | Integer | Maximum number of images per prompt. The default is `1`. |
+| `models[].capabilities.limits.vision.max_prompt_image_size` | Integer | Maximum size of each image in bytes. The default is `3145728` (3 MiB). |
+
+Prefer the model's `maxPromptTokens`, `maxContextWindowTokens`, and `maxOutputTokens` fields when setting token budgets manually. Discovery can save limits in both places. Keep duplicate values consistent, because different CLI operations read the two representations. For CLI-managed local servers, a measured context limit can take precedence over a configured value.
+
+Use non-negative whole numbers for token counts and image sizes, and a positive whole number for the image count. Token counts and image counts must fit within `0` to `4294967295`. Image sizes are measured in bytes, not tokens.
+
+#### Model system messages
+
+`models[].systemMessage` controls the system instructions used when the CLI builds a standard prompt for this model, including for general-purpose subagents. It takes precedence over session-wide system-message configuration on those paths. It does not replace the instructions of a selected custom agent or a specialized subagent.
+
+Prefer `"mode": "append"` when you only need additional instructions. Replacing or removing built-in instructions can change the CLI's tool use and other expected behavior. Omit `systemMessage` to keep the standard instructions, rather than setting it to `null`.
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `models[].systemMessage.mode` | String | No | `"append"` (the default), `"replace"`, or `"customize"`. See the mode table below. |
+| `models[].systemMessage.content` | String | In `replace` mode | Text to append or use as replacement instructions. In `customize` mode, this is appended after the section changes. |
+| `models[].systemMessage.sections` | Object | No | Section changes, available only in `customize` mode. See [System-message sections](#system-message-sections). |
+| `models[].systemMessage.contentBlocks` | Array of objects | No | Replacement instructions split into blocks, available only in `replace` mode. See [System-message content blocks](#system-message-content-blocks). |
+
+Only the fields listed for a mode are accepted. For example, adding `sections` without setting `"mode": "customize"` causes a configuration error.
+
+| Mode | Accepted fields | Effect |
+|------|-----------------|--------|
+| `"append"` | `mode`, `content` | Keeps the standard prompt and appends `content`. Omitting `mode` selects this mode. |
+| `"replace"` | `mode`, `content`, `contentBlocks` | Replaces the standard instructions. `content` must be present as a string, even when you supply `contentBlocks`. The CLI can still add applicable environment and agent context. |
+| `"customize"` | `mode`, `sections`, `content` | Changes named sections of the standard prompt and optionally appends `content`. Sections you do not change retain their defaults. |
+
+In replacement content, `{% raw %}{{copilot:memories}}{% endraw %}` inserts the CLI's memory instructions and context when available.
+
+#### System-message sections
+
+In `customize` mode, `models[].systemMessage.sections` maps section names to objects. Each object specifies an `action` and, where needed, `content`. For example, `models[].systemMessage.sections.tone` changes the tone section.
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `models[].systemMessage.sections.<section-name>` | Object | No | A change to one of the sections or groups listed below. |
+| `models[].systemMessage.sections.<section-name>.action` | String | Yes, for each entry | `"replace"`, `"remove"`, `"append"`, `"prepend"`, or `"preserve"`. |
+| `models[].systemMessage.sections.<section-name>.content` | String | No | Text used by `replace`, `append`, or `prepend`. Omitted content is treated as empty. Not needed for `remove` or `preserve`. |
+
+The available actions are:
+
+| Action | Effect |
+|--------|--------|
+| `"replace"` | Replaces the section or group with `content`. |
+| `"remove"` | Removes the section or group. A group removal keeps sections that have their own entries in `sections`. |
+| `"append"` | Adds `content` after the section or group. Include any required spaces or newlines in `content`. |
+| `"prepend"` | Adds `content` before the section or group. Include any required spaces or newlines in `content`. |
+| `"preserve"` | Leaves the section unchanged and protects it from removal through a group. Does not protect it from group replacement. |
+
+The `transform` action is not supported in `providers.json` because it requires an application callback, not saved JSON configuration.
+
+Use the following section or group names as keys in `sections`.
+
+| Name | Kind | Content covered |
+|------|------|-----------------|
+| `preamble` | Section | The assistant's introductory identity instructions. |
+| `tone` | Section | Tone and response style. |
+| `tool_efficiency` | Section | Guidance on efficient tool use. |
+| `environment_context` | Section | Information about the working environment. |
+| `code_change_rules` | Section | Guidance for making code changes. |
+| `guidelines` | Section | Additional agent behavior guidelines. |
+| `safety` | Section | Safety guidance and environment limitations. |
+| `custom_instructions` | Section | Loaded custom instructions. |
+| `runtime_instructions` | Section | Additional instructions assembled for the session. |
+| `last_instructions` | Section | Instructions placed at the end of the prompt. |
+| `identity` | Group | Identity, interaction, tone, delegation, tool-efficiency, version, model, and task instructions. Does not include `environment_context`. |
+| `tool_instructions` | Group | The tool introduction and tool-use instructions. |
+
+Individual section changes are applied before group changes. A group replacement replaces all its member sections, including sections you have customized separately.
+
+#### System-message content blocks
+
+In `replace` mode, `models[].systemMessage.contentBlocks` provides the replacement instructions instead of the plain `content` string. Keep `content` present because it is required by the configuration format. All blocks must have a `content` string.
+
+| Field | Type | Required | Default | Description |
+|-------|------|----------|---------|-------------|
+| `models[].systemMessage.contentBlocks[].content` | String | Yes | None | The text for this block, in array order. |
+| `models[].systemMessage.contentBlocks[].isStatic` | Boolean | No | Not marked static | Marks content that can be cached independently of changing prompt content. |
+| `models[].systemMessage.contentBlocks[].cacheBreakpoint` | Boolean | No | No explicit breakpoint | Requests a cache boundary after this block for providers that support explicit prompt caching. Does not guarantee provider caching. |
+
+#### Model metadata
+
+`models[].metadata` is an object whose values can be any valid JSON value. It is descriptive data, not a way to supply API request parameters or credentials. You do not need to add metadata manually.
+
+Model discovery can save the following string fields. Leave existing discovery values intact.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `models[].metadata.adapterId` | String | Identifies the discovery integration, such as `"ollama"`. |
+| `models[].metadata.providerKind` | String | The discovered provider's kind, such as `"ollama"`. |
+| `models[].metadata.providerInstanceId` | String | Identifies the provider instance, such as `"ollama:http://127.0.0.1:11434"`. |
+| `models[].metadata.providerDigest` | String | A model digest supplied by the provider, when available. |
+
+#### Provider configuration example
+
+This example connects to an existing Ollama server and shows how model capabilities and system instructions are nested. It assumes that `qwen3:8b` is installed. The token limits are example budgets, not a statement of the model's maximum capacity. Adjust them to match the context configured on your server.
+
+```json copy
+{
+  "providers": [
+    {
+      "name": "local",
+      "type": "openai",
+      "baseUrl": "http://127.0.0.1:11434/v1",
+      "modelProvider": "ollama"
+    }
+  ],
+  "models": [
+    {
+      "id": "qwen3:8b",
+      "provider": "local",
+      "name": "Qwen 3 8B",
+      "maxPromptTokens": 6144,
+      "maxContextWindowTokens": 8192,
+      "maxOutputTokens": 2048,
+      "capabilities": {
+        "supports": {
+          "vision": false,
+          "toolCalls": true
+        }
+      },
+      "systemMessage": {
+        "mode": "customize",
+        "sections": {
+          "tone": {
+            "action": "append",
+            "content": "\nUse concise explanations."
+          }
+        }
+      }
+    }
+  ]
+}
+```
+
+After restarting the CLI, select this model with `copilot --model local/qwen3:8b` or the `/model` picker. Add more objects to either array to configure additional providers and models.
+
 ### `agents/`
 
 Store personal custom agent definitions here as `.agent.md` files. Agents placed in this directory are available in all your sessions. If a personal agent and a project-level agent have the same ID—for example, if both top-level files are named `reviewer.agent.md`—the personal agent takes precedence. The optional `name` frontmatter field does not control deduplication, so agents with the same `name` but different IDs both load.
@@ -440,6 +708,8 @@ MDM managed settings load at startup and merge with user settings as a policy ba
 
 The CLI also reads `.claude/settings.json` and `.claude/settings.local.json` for the shared cross-tool subset of repository settings (such as `companyAnnouncements`, `disableAllHooks`, `enabledPlugins`, `extraKnownMarketplaces`, and `hooks`).
 
+Repository defaults are optional: set `enabledPlugins` entries to `false` in repository-local settings to override repository defaults. Managed required or blocked plugin entries always win. See [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/plugins-finding-installing#turn-off-a-repository-default).
+
 ### User settings (`~/.copilot/settings.json`)
 
 These settings apply across all your sessions and repositories. You can use the `/settings` slash command to run an interactive dialog, or use specific slash commands to update individual values, or edit this file directly.
@@ -555,14 +825,14 @@ On macOS and Linux, the sandbox restricts direct connections so programs cannot 
 
 Sandbox settings are user-level or enterprise-managed. They are not repository-overridable. For configuration steps and network limitations, see [AUTOTITLE](/copilot/how-tos/cloud-and-local-sandboxes/configuring-local-sandbox-settings).
 
-Sandboxing is powered by [Microsoft eXecution Container (MXC)](https://github.com/microsoft/mxc), which provides platform-specific containment backends. {% data variables.copilot.copilot_cli_short %} uses Seatbelt on macOS, Bubblewrap on Linux, and ProcessContainer on Windows.
+Sandboxing is powered by [Microsoft eXecution Container (MXC)](https://github.com/microsoft/mxc?utm_source=cli-config-directory-reference-article-microsoft-mxc&utm_medium=docs&utm_campaign=universe-2026), which provides platform-specific containment backends. {% data variables.copilot.copilot_cli_short %} uses Seatbelt on macOS, Bubblewrap on Linux, and ProcessContainer on Windows.
 
 ### Repository settings (`.github/copilot/settings.json`)
 
 Repository settings apply to everyone who works in the repository. They are committed to the repository and shared with collaborators.
 
 > [!NOTE]
-> The plugin-related keys in the repository configuration file (`enabledPlugins` and `extraKnownMarketplaces`) are also read by {% data variables.copilot.copilot_cloud_agent %}, not only {% data variables.copilot.copilot_cli_short %}. This lets you enable the same plugins for both clients from a single file. For more information about plugins, see [AUTOTITLE](/copilot/concepts/agents/about-plugins).
+> The plugin-related keys in the repository configuration file (`enabledPlugins` and `extraKnownMarketplaces`) are also read by {% data variables.copilot.copilot_in_the_cloud_short %}, not only {% data variables.copilot.copilot_cli_short %}. This lets you enable the same plugins for both clients from a single file. For more information about plugins, see [AUTOTITLE](/copilot/concepts/customizations/plugins).
 
 Only the keys listed in the following table are supported at the repository level. Any other keys—including keys that are valid in the user configuration file—are silently ignored. Each supported key has a directional merge policy that keeps the override fail-closed and safe.
 

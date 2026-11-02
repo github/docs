@@ -33,7 +33,7 @@ You can ask {% data variables.copilot.copilot_cloud_agent %} to investigate a re
 
 In the same session, you can review the findings, steer the investigation with follow-up prompts, and ask the agent to create a plan. You can then continue into code changes. This makes {% data variables.copilot.copilot_cloud_agent_short %} useful when research is the first phase of a larger development task.
 
-This workflow is available through {% data variables.product.prodname_dotcom_the_website %}, including the Agents tab, agents panel, dashboard, and {% data variables.copilot.copilot_chat_short %}. It is also available in {% data variables.release-phases.public_preview %} through the Microsoft Teams and Slack integrations. Other integrations, such as Azure Boards, Jira, and Linear, only support asking the agent to create a pull request directly.
+This workflow is available through {% data variables.product.prodname_dotcom_the_website %}, including the Agents tab, agents panel, dashboard, and {% data variables.copilot.copilot_chat_short %}. It is also available through the Microsoft Teams and Slack integrations. Other integrations, such as Azure Boards, Jira, and Linear, only support asking the agent to create a pull request directly.
 
 For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/use-copilot-agents/research-plan-iterate).
 

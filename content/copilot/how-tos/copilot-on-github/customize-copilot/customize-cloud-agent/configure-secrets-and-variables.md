@@ -11,7 +11,7 @@ category:
 
 ## About secrets and variables for {% data variables.copilot.copilot_cloud_agent %}
 
-When you delegate a task to {% data variables.copilot.copilot_cloud_agent %}, it works in its own ephemeral development environment, powered by {% data variables.product.prodname_actions %}. You may want to pass secrets and variables to the agent to:
+When you use {% data variables.copilot.copilot_cloud_agent %}, it works in its own ephemeral development environment. You may want to pass secrets and variables to the agent to:
 
 * Give {% data variables.product.prodname_copilot_short %} access to private resources, such as internal package registries, when it builds, tests, or validates your code in the agent's environment.
 * Configure MCP servers, by passing API keys, tokens, or other configuration to the servers. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/configure-mcp-servers).
@@ -22,7 +22,7 @@ When you delegate a task to {% data variables.copilot.copilot_cloud_agent %}, it
 * The **organization level**, so a single secret or variable can be shared across any or all repositories in your organization.
 * The **repository level**, for configuration that only applies to a single repository.
 
-Variables and secrets that you configure are exposed to {% data variables.product.prodname_copilot_short %} as environment variables, except secrets and variables prefixed with `COPILOT_MCP_`, which are only available to MCP servers.
+Variables and secrets that you configure are exposed to {% data variables.product.prodname_copilot_short %} as environment variables, except secrets and variables prefixed with `COPILOT_MCP_`, which are only available to MCP servers. In a cloud sandbox, only secrets are available, not variables. See [Using secrets and variables](#using-secrets-and-variables).
 
 > [!NOTE]
 > If you previously configured secrets or variables in the `copilot` environment in a repository's {% data variables.product.prodname_actions %} settings, those secrets and variables have been automatically migrated to the new repository-level **Agents** type. You don't need to take any action, and you can manage them from the new location going forward.
@@ -56,7 +56,9 @@ You must be an organization owner to configure Agents secrets and variables for 
 
 ## Using secrets and variables
 
-Once configured, Agents secrets and variables are automatically available to {% data variables.copilot.copilot_cloud_agent %} when it works on a task in the repository. They are exposed to the agent as environment variables in its development environment, so they can be used by scripts and tools that {% data variables.product.prodname_copilot_short %} runs, including by your `copilot-setup-steps.yml` workflow.
+When {% data variables.product.prodname_copilot_short %} runs on {% data variables.product.prodname_actions %}, Agents secrets and variables are automatically available to {% data variables.copilot.copilot_cloud_agent %} when it works on a task in the repository. They are exposed to the agent as environment variables in its development environment, so they can be used by scripts and tools that {% data variables.product.prodname_copilot_short %} runs, including by your `copilot-setup-steps.yml` workflow. Secrets and variables prefixed with `COPILOT_MCP_` are the exception: they're only available to MCP servers.
+
+When {% data variables.product.prodname_copilot_short %} runs in a cloud sandbox, Agents secrets are automatically available: secrets whose names start with `COPILOT_MCP_` are only available to MCP servers that reference them in your MCP configuration, while other secrets are exposed as environment variables to the commands and tools that {% data variables.product.prodname_copilot_short %} runs. Agents variables are available only when {% data variables.product.prodname_copilot_short %} runs on {% data variables.product.prodname_actions %}.
 
 Secret values are masked in {% data variables.copilot.copilot_cloud_agent %} session logs.
 

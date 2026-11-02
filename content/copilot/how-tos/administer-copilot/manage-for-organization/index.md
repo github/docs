@@ -14,8 +14,8 @@ children:
   - /manage-plan
   - /manage-access
   - /manage-policies
+  - /manage-copilot-in-the-cloud
   - /manage-app-copilot-access
-  - /add-copilot-cloud-agent
   - /configure-runner-for-coding-agent
   - /prepare-for-custom-agents
   - /manage-default-models

@@ -93,7 +93,7 @@ The following command-line options give {% data variables.copilot.copilot_cli_sh
 
 {% data reusables.copilot.disable-bypass %}
 
-Before you grant {% data variables.product.prodname_copilot_short %} wide-ranging permissions with an allow-all option, consider using local sandboxing, or running the session in a cloud sandbox, to limit what {% data variables.product.prodname_copilot_short %} can access. For more information, see [AUTOTITLE](/copilot/concepts/about-cloud-and-local-sandboxes).
+Before you grant {% data variables.product.prodname_copilot_short %} wide-ranging permissions with an allow-all option, consider using local sandboxing, or running the session in a cloud sandbox, to limit what {% data variables.product.prodname_copilot_short %} can access. For more information, see [AUTOTITLE](/copilot/concepts/security-governance-and-network-settings/about-cloud-and-local-sandboxes) and [AUTOTITLE](/copilot/concepts/security-governance-and-network-settings/about-cloud-sandboxes).
 
 * `--allow-all-tools` — Full access to the available tools.
 

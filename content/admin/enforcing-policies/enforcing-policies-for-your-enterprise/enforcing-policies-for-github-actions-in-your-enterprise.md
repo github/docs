@@ -126,6 +126,25 @@ For information about job concurrency limits for {% data variables.product.githu
 1. Scroll to the "Standard hosted runners" section and click **Disable for all organizations**.
 1. Click **Save**.
 
+{% ifversion ghec %}
+
+## Enabling multi-cloud compute
+
+You can opt in to multi-cloud compute to help improve runner availability for eligible Linux jobs in your enterprise. Existing runner labels and workflow syntax remain unchanged. For eligible runner configurations, see [Cloud hosts used by {% data variables.product.prodname_dotcom %}-hosted runners](/actions/concepts/runners/github-hosted-runners#cloud-hosts-used-by-github-hosted-runners).
+
+Before enabling multi-cloud compute, update any IP allowlists or network-based access policies your workflows rely on to include all published runner IP ranges. See [IP addresses](/actions/reference/runners/github-hosted-runners#ip-addresses). If your applications use Azure SDK credentials, also review [Azure SDK authentication troubleshooting](/actions/how-tos/troubleshoot-workflows#azure-sdk-authentication-failures).
+
+To opt in to multi-cloud compute:
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}
+{% data reusables.enterprise-accounts.actions-tab %}
+1. Click **General**.
+1. Click the **Policies** tab.
+1. Under "Hosted compute cloud providers", select the dropdown menu, then click **Multi-cloud**.
+
+{% endif %}
+
 ## Custom images
 
 In the "Custom images" section, you can control which organizations in your enterprise are allowed to create and manage custom images with the following access policy:

@@ -18,7 +18,9 @@ category:
   - Manage Copilot for a team
 ---
 
-When you disable {% data variables.product.prodname_copilot %} for organizations, organization owners cannot assign {% data variables.product.prodname_copilot %} licenses to members of their organization. Enterprise owners will still be able to assign {% data variables.copilot.copilot_business_short %} licenses to users and teams in the enterprise settings.
+This procedure applies to {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %}. When you disable access for organizations, organization owners cannot assign licenses to their members. Enterprise owners can still assign {% data variables.copilot.copilot_business_short %} seats directly to users and teams in the enterprise settings.
+
+For how seat assignment works with {% data variables.product.prodname_copilot_short %} access, see [AUTOTITLE](/copilot/concepts/billing-and-usage/organizations-and-enterprises/seats-and-billing-cycles#seat-assignment).
 
 {% data reusables.enterprise-accounts.copilot-licensing %}
 1. Next to "Organization access", choose whether to disable {% data variables.product.prodname_copilot_short %} for all organizations or allow for specific organizations.

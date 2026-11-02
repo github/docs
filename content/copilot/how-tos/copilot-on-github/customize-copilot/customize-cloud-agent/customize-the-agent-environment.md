@@ -1,6 +1,6 @@
 ---
-title: Configure the development environment
-shortTitle: Customize the agent environment
+title: Configure the development environment for agents on GitHub Actions
+shortTitle: Customize Actions environment
 intro: 'Pre-install tools and dependencies so {% data variables.copilot.copilot_cloud_agent %} can build, test, and validate changes reliably.'
 versions:
   feature: copilot
@@ -15,11 +15,14 @@ redirect_from:
 contentType: how-tos
 category:
   - Configure Copilot
+allowTitleToDifferFromFilename: true
 ---
 
 ## About customizing {% data variables.copilot.copilot_cloud_agent %}'s development environment
 
-While working on a task, {% data variables.product.prodname_copilot_short %} has access to its own ephemeral development environment, powered by {% data variables.product.prodname_actions %}, where it can explore your code, make changes, execute automated tests and linters and more.
+During an agent session, {% data variables.product.prodname_copilot_short %} has access to a development environment, where it can explore your code, make changes, execute automated tests and linters and more. Sessions can run in a cloud sandbox, on {% data variables.product.prodname_actions %}, or in a custom environment. The setup steps, runner, and Windows options in this article use {% data variables.product.prodname_actions %}, so they apply only to sessions that run on {% data variables.product.prodname_actions %}. For more information, see [AUTOTITLE](/copilot/concepts/security-governance-and-network-settings/about-cloud-sandboxes#choosing-where-copilot-runs).
+
+To use your own tools and dependencies outside {% data variables.product.prodname_actions %}, you can register a Linux machine or codespace as a custom environment. You manage the host and select it in a client that supports custom environments. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/create-a-custom-environment).
 
 You can customize {% data variables.product.prodname_copilot_short %}'s development environment with a [{% data variables.product.prodname_copilot_short %} setup steps file](#customizing-copilots-development-environment-with-copilot-setup-steps). You can use a {% data variables.product.prodname_copilot_short %} setup steps file to:
 
@@ -42,6 +45,8 @@ In addition, you can:
 ## Customizing {% data variables.product.prodname_copilot_short %}'s development environment with {% data variables.product.prodname_copilot_short %} setup steps
 
 You can customize {% data variables.product.prodname_copilot_short %}'s environment by creating a special {% data variables.product.prodname_actions %} workflow file, located at `.github/workflows/copilot-setup-steps.yml` within your repository.
+
+{% data reusables.copilot.cloud-agent.applies-only-on-actions %}
 
 A `copilot-setup-steps.yml` file looks like a normal {% data variables.product.prodname_actions %} workflow file, but must contain a single `copilot-setup-steps` job. The steps in this job will be executed in {% data variables.product.prodname_actions %} before {% data variables.product.prodname_copilot_short %} starts working. For more information on {% data variables.product.prodname_actions %} workflow files, see [AUTOTITLE](/actions/reference/workflows-and-actions/workflow-syntax).
 
@@ -94,7 +99,7 @@ In your `copilot-setup-steps.yml` file, you can only customize the following set
 
 For more information on these options, see [AUTOTITLE](/actions/reference/workflows-and-actions/workflow-syntax#jobs).
 
-Any value that is set for the `fetch-depth` option of the `actions/checkout` action will be overridden to allow the agent to rollback commits upon request, while mitigating security risks. For more information, see [`actions/checkout/README.md`](https://github.com/actions/checkout/blob/main/README.md).
+Any value that is set for the `fetch-depth` option of the `actions/checkout` action will be overridden to allow the agent to rollback commits upon request, while mitigating security risks. For more information, see [`actions/checkout/README.md`](https://github.com/actions/checkout/blob/main/README.md?utm_source=configure-dev-environment-agents-actions-article-actions&utm_medium=docs&utm_campaign=universe-2026).
 
 Your `copilot-setup-steps.yml` file will automatically be run as a normal {% data variables.product.prodname_actions %} workflow when changes are made, so you can see if it runs successfully. This will show alongside other checks in a pull request where you create or modify the file.
 
@@ -110,11 +115,13 @@ In its ephemeral development environment, {% data variables.product.prodname_cop
 
 {% data variables.product.prodname_copilot_short %} can discover and install these dependencies itself via a process of trial and error, but this can be slow and unreliable, given the non-deterministic nature of large language models (LLMs), and in some cases, it may be completely unable to download these dependencies—for example, if they are private.
 
-You can use a Copilot setup steps file to deterministically install tools or dependencies before {% data variables.product.prodname_copilot_short %} starts work. To do this, add `steps` to the `copilot-setup-steps` job:
+When {% data variables.product.prodname_copilot_short %} runs on {% data variables.product.prodname_actions %}, you can use a Copilot setup steps file to deterministically install tools or dependencies before {% data variables.product.prodname_copilot_short %} starts work. To do this, add `steps` to the `copilot-setup-steps` job:
 
 {% data reusables.copilot.cloud-agent.install-dependencies %}
 
 ## Upgrading to larger {% data variables.product.prodname_dotcom %}-hosted {% data variables.product.prodname_actions %} runners
+
+{% data reusables.copilot.cloud-agent.applies-only-on-actions %}
 
 By default, {% data variables.product.prodname_copilot_short %} works in a standard {% data variables.product.prodname_actions %} runner. You can upgrade to larger runners for better performance (CPU and memory), more disk space and advanced features like Azure private networking. For more information, see [AUTOTITLE](/actions/concepts/runners/larger-runners).
 
@@ -138,6 +145,8 @@ By default, {% data variables.product.prodname_copilot_short %} works in a stand
 > * {% data variables.copilot.copilot_cloud_agent %} is only compatible with Ubuntu x64 Linux and Windows 64-bit runners. Runners with macOS or other operating systems are not supported.
 
 ## Using self-hosted {% data variables.product.prodname_actions %} runners
+
+{% data reusables.copilot.cloud-agent.applies-only-on-actions %}
 
 You can run {% data variables.copilot.copilot_cloud_agent %} on self-hosted runners. You may want to do this to match how you run CI/CD workflows on {% data variables.product.prodname_actions %}, or to give {% data variables.product.prodname_copilot_short %} access to internal resources on your network.
 
@@ -173,6 +182,8 @@ We recommend that you only use {% data variables.copilot.copilot_cloud_agent %} 
     You can set these environment variables by creating Agents variables or secrets, or by setting them on the runner directly, for example with a custom runner image. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/configure-secrets-and-variables) and [AUTOTITLE](/actions/concepts/runners/actions-runner-controller#creating-your-own-runner-image).
 
 ## Switching {% data variables.product.prodname_copilot_short %} to a Windows development environment
+
+{% data reusables.copilot.cloud-agent.applies-only-on-actions %}
 
 By default, {% data variables.product.prodname_copilot_short %} uses an Ubuntu Linux-based development environment.
 

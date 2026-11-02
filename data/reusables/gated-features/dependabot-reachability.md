@@ -1,0 +1,1 @@
+{% data variables.product.prodname_dependabot_reachability_caps %} is available for public, private, and internal repositories on {% data variables.product.prodname_ghe_cloud %}, including enterprises with {% data variables.enterprise.data_residency_short %}. A {% data variables.product.prodname_GH_code_security %} license is not required.

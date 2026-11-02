@@ -1,10 +1,13 @@
 import fs from 'fs/promises'
 
-import { describe, expect, test } from 'vitest'
+import { describe, expect, test, vi } from 'vitest'
 
 import createTree from '@/frame/lib/create-tree'
 import { setCategoryApplicableVersions } from '@/frame/lib/page-data'
 import type { Page, UnversionedTree } from '@/types'
+
+const logger = vi.hoisted(() => ({ error: vi.fn(), warn: vi.fn(), info: vi.fn(), debug: vi.fn() }))
+vi.mock('@/observability/logger', () => ({ createLogger: () => logger }))
 
 const contentDir = 'src/fixtures/fixtures/content'
 
@@ -53,6 +56,16 @@ describe('createTree', () => {
     const previousPages = new Set(first.childPages.map((tree) => tree.page))
     const reused = second.childPages.filter((tree) => previousPages.has(tree.page))
     expect(reused.length).toBe(declared.length - 1)
+  })
+
+  test('warns once for missing early-access content across rebuilds', async () => {
+    const missingPath = 'content/early-access/does-not-exist'
+    logger.warn.mockClear()
+
+    expect(await createTree(missingPath)).toBeUndefined()
+    expect(await createTree(missingPath)).toBeUndefined()
+
+    expect(logger.warn).toHaveBeenCalledTimes(1)
   })
 
   test('stores the file mtime on the page', async () => {

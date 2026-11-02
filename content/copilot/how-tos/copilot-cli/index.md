@@ -69,8 +69,7 @@ children:
   - /customize-copilot/overview
   - /customize-copilot/plugins-creating
   - /customize-copilot/plugins-finding-installing
-  - /customize-copilot/plugins-marketplace
-  - /customize-copilot/use-byok-models
+  - /customize-copilot/add-llm-models
   - /customize-copilot/use-hooks
   - /set-up-copilot-cli/add-lsp-servers
   - /set-up-copilot-cli/authenticate-copilot-cli
@@ -94,6 +93,10 @@ children:
   - /use-copilot-cli/steer-agents
   - /use-copilot-cli/steer-remotely
   - /use-copilot-cli/set-session-limit
+  - /use-copilot-cli/ask-a-side-question
+  - /use-copilot-cli/choose-a-model
+  - /use-copilot-cli/computer-use
+  - /use-copilot-cli/work-with-multiple-sessions
 carousels:
   recommended:
     - /copilot/how-tos/copilot-cli/use-copilot-cli/overview

@@ -1,0 +1,1 @@
+{% data variables.product.prodname_ai_applications_scanning %} is available with a {% data variables.product.prodname_GHAS %} license on {% data variables.product.prodname_ghe_cloud %}, including {% data variables.enterprise.data_residency %}.
