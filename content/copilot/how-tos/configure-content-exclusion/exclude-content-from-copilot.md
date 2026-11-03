@@ -30,9 +30,6 @@ category:
 
 You can use your repository settings to specify content in your repository that {% data variables.product.prodname_copilot %} should ignore.
 
-> [!NOTE]
-> {% data variables.copilot.copilot_cli %} and Agent mode in {% data variables.copilot.copilot_chat_short %} in IDEs do not support content exclusion. For more information about these {% data variables.product.prodname_copilot_short %} features, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-copilot-cli) and [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/chat-with-copilot/chat-in-ide).
-
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 
@@ -160,6 +157,10 @@ As an enterprise owner, you can use the enterprise settings to specify files tha
 
 > [!NOTE]
 > The key difference between setting content exclusion at the enterprise level and the organization level is that rules set at the enterprise level apply to all {% data variables.product.prodname_copilot_short %} users in the enterprise, whereas the rules set by organization owners only apply to users who are assigned a {% data variables.product.prodname_copilot_short %} seat by that organization.
+
+## Limitations of content exclusion with {% data variables.copilot.copilot_agents_short %}
+
+{% data reusables.copilot.content-exclusion-agent-limitations %}
 
 ## Testing changes to content exclusions
 
