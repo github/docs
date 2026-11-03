@@ -2,23 +2,22 @@ name: Awaiting Review reminder label message
 
 # docs-internal mirrors workflows to github/docs, so send this reminder only in the public repo.
 on:
-  # pull_request_target lets forked PRs receive the reminder.
-  pull_request_target:
+  issues:
     types: [labeled]
 
 jobs:
-  comment-on-pr:
+  comment-on-issue:
     if: github.repository == 'github/docs' && github.event.label.name == 'awaiting-review-reminder'
     runs-on: ubuntu-latest
     permissions:
-      pull-requests: write
+      issues: write
     steps:
       - name: Comment with contribution guidance
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PR_URL: ${{ github.event.pull_request.html_url }}
+          ISSUE_URL: ${{ github.event.issue.html_url }}
         run: |
-          gh pr comment "$PR_URL" --body-file - <<'EOF'
+          gh issue comment "$ISSUE_URL" --body-file - <<'EOF'
           Please do not open pull requests to address issues opened by other contributors until the issue has been marked with the `help wanted` label. The Docs team needs time to assess the issue and determine the scope of the work.
 
           For more information, see [Working on other contributors' issues](https://docs.github.com/en/contributing/collaborating-on-github-docs/about-contributing-to-github-docs#working-on-other-contributors-issues).
