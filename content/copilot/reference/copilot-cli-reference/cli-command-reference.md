@@ -554,7 +554,7 @@ These are the slash commands you can use from within an interactive CLI session.
 
 | Command                                             | Purpose |
 |-----------------------------------------------------|---------|
-| `/add-dir PATH`                                     | Allow file access to a directory and load its `.github/skills` and `.github/agents` as trusted configurations. When sandboxing is enabled, also grants the sandbox access to the directory for the current session. |
+| `/add-dir PATH`                                     | Allow file access to a directory and load its skills (`.github/`, `.agents/`, `.claude/`) and agents (`.github/`, `.claude/`) as trusted configurations. When sandboxing is enabled, also grants the sandbox access to the directory for the current session. |
 | `/after [DELAY PROMPT]`, `/after`                 | Schedule a non-recurring prompt, skill, or schedulable slash command for the current session (for example, `/after 30m remind me the time` or `/after 1h /chronicle standup`). With no arguments the schedule manager is displayed. {% data reusables.copilot.experimental %} |
 | `/agent`                                            | Browse and select from available agents (if any). See [AUTOTITLE](/copilot/concepts/customizations/custom-agents). |
 | `/app`                                              | Open the current session in the {% data variables.copilot.github_copilot_app %} (requires version 1.1.3 or later), or show the download URL if the app is not installed. |
@@ -614,7 +614,7 @@ These are the slash commands you can use from within an interactive CLI session.
 | `/rename [NAME]`                                    | Rename the current session (auto-generates a name if omitted; alias for `/session rename`). |
 | `/research TOPIC`                                   | Run a deep research investigation using {% data variables.product.github %} search and web sources. See [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/research-with-copilot-cli). |
 | `/reset-allowed-tools`                              | Reset permissions for the current session. This clears session tool approvals, returns the permission mode to manual (turning off allow-all or {% data variables.copilot.assisted_permissions %} if either is on), and clears the approvals saved for the current location. Explicit startup rules, such as `--allow-tool`, `--deny-tool`, `--allow-url`, and `--deny-url`, remain part of the session's baseline. |
-| `/restart`                                          | Restart the CLI, restoring all of the current process's live sessions, not only the foreground one. If the target CLI version can't restore multiple sessions, you're prompted to continue with only the foreground session or cancel. |
+| `/restart`                                          | Restart the CLI, restoring all of the current process's live sessions, not only the foreground one. If the target CLI version can't restore multiple sessions, you're prompted to continue with only the foreground session or cancel. Sessions started in a Git worktree with `-w` or `--worktree` resume in that same worktree. The model selected with `/model` is preserved. |
 | `/resume [SESSION-ID]`, `/continue [SESSION-ID]`    | Switch to a different session by choosing from a list (optionally specify a session ID). |
 | `/review [PROMPT]`                                  | Run the code review agent to analyze changes. See [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/agentic-code-review). |
 | `/rubber-duck [PROMPT]`                             | Consult the rubber duck agent for a second opinion on plans, code, and tests. See [AUTOTITLE](/copilot/concepts/agent-capabilities/choosing-and-delegating-agent-work/getting-a-second-opinion). |
@@ -679,7 +679,7 @@ Use `/collect-debug-logs [file|gist|share] [PATH]` to gather debug logs for trou
 
 | Option                             | Purpose                                  |
 |------------------------------------|------------------------------------------|
-| `--add-dir=PATH`                   | Allow file access to a directory and load its `.github/skills` and `.github/agents` as trusted configurations (can be used multiple times). A relative path resolves against the session working directory (the `--resume`, `--worktree`, or `-C` directory), regardless of option order. The path must be an existing directory—a missing path or a regular file fails startup immediately with a flag-specific error, the same way in every mode. |
+| `--add-dir=PATH`                   | Allow file access to a directory and load its skills (`.github/`, `.agents/`, `.claude/`) and agents (`.github/`, `.claude/`) as trusted configurations (can be used multiple times). A relative path resolves against the session working directory (the `--resume`, `--worktree`, or `-C` directory), regardless of option order. The path must be an existing directory—a missing path or a regular file fails startup immediately with a flag-specific error, the same way in every mode. |
 | `--add-github-mcp-tool=TOOL`       | Add a tool to enable for the {% data variables.product.github %} MCP server, instead of the default CLI subset (can be used multiple times). Use `*` for all tools. |
 | `--add-github-mcp-toolset=TOOLSET` | Add a toolset to enable for the {% data variables.product.github %} MCP server, instead of the default CLI subset (can be used multiple times). Use `all` for all toolsets. |
 | `--additional-mcp-config=JSON`     | Add an MCP server for this session only. The server configuration can be supplied as a JSON string or a file path (prefix with `@`). A relative `@file` path resolves against the session working directory (the `--resume`, `--worktree`, or `-C` directory), regardless of option order. Augments the configuration from `~/.copilot/mcp-config.json`. Overrides any installed MCP server configuration with the same name. See [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/add-mcp-servers). |
@@ -720,7 +720,7 @@ Use `/collect-debug-logs [file|gist|share] [PATH]` to gather debug logs for trou
 | `--fleet`                          | Run the prompt in fleet mode (parallel subagent orchestration). Combine with `-i`, `-p`, or piped standard input. This requires a prompt from one of those sources, and has no effect on its own. This is equivalent to prefixing an interactive prompt with the `/fleet` slash command. With `-p` or piped input it dispatches the same fleet orchestration non-interactively. See [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/speed-up-task-completion). |
 | `-h`, `--help`                     | Display help. |
 | `-i PROMPT`, `--interactive=PROMPT`  | Start an interactive session and automatically execute this prompt. |
-| `--log-dir=DIRECTORY`              | Set the log file directory (default: `~/.copilot/logs/`). |
+| `--log-dir=DIRECTORY`              | Set the log file directory (default: `~/.copilot/logs/`). A leading `~` expands to your home directory. |
 | `--log-level=LEVEL`                | Set the log level (choices: `none`, `error`, `warning`, `info`, `debug`, `all`, `default`). |
 | `--max-ai-credits=CREDITS`         | Set a soft maximum for AI Credits allowed for each response. The limit resets per user message and can be adjusted mid-session with `/limits`. See [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/set-session-limit). |
 | `--max-autopilot-continues=COUNT`  | Maximum number of continuation messages in autopilot mode (default: unlimited). Must be a non-negative integer. Malformed values (`NaN`, negative, fractional, or scientific notation) are rejected. See [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/use-autopilot-mode). |
@@ -738,7 +738,7 @@ Use `/collect-debug-logs [file|gist|share] [PATH]` to gather debug logs for trou
 | `--no-remote`                      | Removed. Use `/remote off` during an interactive session to end its remote connection. |
 | `--no-remote-export`               | Renamed to `--sync-session=off`. |
 | `--output-format=FORMAT`           | FORMAT can be `text` (default) or `json` (outputs JSONL: one JSON object per line). |
-| `-p PROMPT`, `--prompt=PROMPT`     | Execute a prompt programmatically (exits after completion). The exit summary includes a `copilot --resume=SESSION-ID` hint for continuing the session. See [AUTOTITLE](/copilot/how-tos/copilot-cli/automate-copilot-cli/run-cli-programmatically). |
+| `-p PROMPT`, `--prompt=PROMPT`     | Execute a prompt programmatically (exits after completion, or with a nonzero status if the run is interrupted). The exit summary includes a `copilot --resume=SESSION-ID` hint for continuing the session. See [AUTOTITLE](/copilot/how-tos/copilot-cli/automate-copilot-cli/run-cli-programmatically). |
 | `--plan`                           | Start in plan mode. Shorthand for `--mode plan`. Cannot be combined with `--autopilot`. Can be combined with `--mode autopilot` for plan-then-autopilot; any other `--mode` value is rejected. |
 | `--plain-diff`                     | Disable rich diff rendering (syntax highlighting via the diff tool specified by your Git config). |
 | `--plugin-dir=DIRECTORY`           | Load a plugin from a local directory (can be used multiple times). A relative path resolves against the session working directory (the `--resume`, `--worktree`, or `-C` directory), regardless of option order. Agents contributed by a `--plugin-dir` plugin are available in server-mode (`--server`) sessions as well as interactive and `-p` sessions. |
@@ -755,7 +755,7 @@ Use `/collect-debug-logs [file|gist|share] [PATH]` to gather debug logs for trou
 | `--share=PATH`                     | Share a session to a Markdown file after completion of a programmatic session (default path: `./copilot-session-<ID>.md`). |
 | `--share-gist`                     | Share a session to a secret {% data variables.product.github %} gist after completion of a programmatic session. |
 | `--stream=MODE`                    | Enable or disable streaming mode, which displays {% data variables.product.prodname_copilot_short %}'s response progressively as it is generated rather than waiting for the full response to arrive (mode choices: `on` or `off`, default: `on`).
-| `--sync-session[=on\|off]`         | Enable or disable read-only session history syncing for this run. Without a value, enables syncing. Does not enable remote control. If omitted, uses your settings and the default behavior. |
+| `--sync-session[=on\|off]`         | Enable or disable read-only session history syncing for this run. Without a value, enables syncing. Does not enable remote control. If omitted, uses your settings and the default behavior. Syncing is refused when your organization's cloud session storage policy is off or can't be determined. |
 | `-v`, `--version`                  | Show version information. |
 | `-w`, `--worktree[=NAME]`          | Create or reuse an isolated Git worktree under `<repo>.worktrees/` by default and start the session inside it. Use the `worktreePathTemplate` setting to configure the location. `NAME` is optional—omit it to auto-generate a branch name. By default, branches off the current checkout (`HEAD`); set the `worktreeBaseRef` setting to `"defaultBranch"` to branch off the remote default branch instead. Conflicts with `--resume`, `--continue`, and `--connect`. |
 | `--yolo`                           | Enable all permissions (equivalent to `--allow-all`). |
@@ -837,6 +837,7 @@ Use `--model=MODEL` or the `COPILOT_MODEL` environment variable to select the AI
 |-------|----------|
 | `claude-sonnet-5.5` | General-purpose coding (default) |
 | `gpt-6.1-sol` | Recommended, opt-in (not the automatic default) |
+| `gpt-6.1-terra` | Recommended, opt-in (not the automatic default) |
 | `gpt-6-astra` | Recommended, opt-in (not the automatic default) |
 | `gpt-6-luna` | Recommended, opt-in (not the automatic default) |
 | `claude-opus-5.5` | Recommended, high-capability complex tasks |
@@ -1208,6 +1209,7 @@ The CLI includes built-in MCP servers that are available without additional setu
 | `playwright` | Browser automation: navigate, click, type, screenshot, and form handling. |
 | `fetch` | HTTP requests via the `fetch` tool. |
 | `time` | Time utilities: `get_current_time` and `convert_time`. |
+| `computer-use` | Screen capture and mouse and keyboard control. Disabled by default. Enable it for a session with `/mcp enable computer-use`. |
 
 Use `--disable-builtin-mcps` to disable all built-in servers, or `--disable-mcp-server SERVER-NAME` to disable a specific one.
 
@@ -1346,7 +1348,7 @@ Skills are loaded from these locations in priority order (first found wins for d
 | `~/.agents/skills/` | Personal | Agent skills shared across all projects. |
 | Plugin directories | Plugin | Skills from installed plugins. |
 | `COPILOT_SKILLS_DIRS` | Custom | Additional directories (comma-separated). |
-| `--add-dir <path>` | Added root | `.github/skills/` under directories added with `--add-dir`, `/add-dir`, or the SDK's `additionalDirectories`. This is a trust decision: added skills run with the same trust as project skills. |
+| `--add-dir <path>` | Added root | `.github/skills/`, `.agents/skills/`, and `.claude/skills/` under directories added with `--add-dir`, `/add-dir`, or the SDK's `additionalDirectories`. This is a trust decision: added skills run with the same trust as project skills. |
 | (bundled with CLI) | Built-in | Skills shipped with the CLI. Lowest priority—overridable by any other source. |
 | (org/enterprise) | Remote | Skills hosted by your organization or enterprise, projected via the AHP relay. Content is fetched on demand when the skill is invoked. |
 
@@ -1460,7 +1462,7 @@ The CLI loads custom agents in the following priority order. When agents have th
 | 1 (highest) | User | `~/.copilot/agents/` |
 | 2 | Project | `.github/agents/`, from the current working directory upward to the Git root |
 | 3 | Project | `.claude/agents/`, from the current working directory upward to the Git root |
-| 4 | Added root | `.github/agents/` under a directory added with `--add-dir`, `/add-dir`, or the SDK's `additionalDirectories`. Adding the directory is a trust decision: its agents are loaded as trusted configuration. |
+| 4 | Added root | `.github/agents/` and `.claude/agents/` under a directory added with `--add-dir`, `/add-dir`, or the SDK's `additionalDirectories`. Adding the directory is a trust decision: its agents are loaded as trusted configuration. |
 | 5 | Plugin | `<plugin>/agents/` |
 | 6 (lowest) | Remote | Organization or enterprise agents |
 
@@ -1649,6 +1651,8 @@ When the full dialog is shown, you can also choose from these options:
 | Always | Permanent | Config file |
 
 The **This location** option appears when the CLI can determine a location key (Git root or current directory). It persists the approval to disk so the same permission is automatically granted the next time you work in that directory without prompting again.
+
+When a shell command needs tool approval and access to paths outside the allowed directories, the CLI can combine both approvals in one prompt. Approving once grants path access for that run only. Approving for the session or location also grants path access for the rest of the session.
 
 Use `/reset-allowed-tools` to clear session approvals for the current session.
 
