@@ -6031,7 +6031,7 @@
                 "client_id": "Iv1.8a61f9b3a7aba766"
               },
               "note": "optional note",
-              "note_url": "http://optional/note/url",
+              "note_url": "https://example.com/optional/note/url",
               "updated_at": "2011-09-06T20:39:23Z",
               "created_at": "2011-09-06T17:26:27Z",
               "fingerprint": "jklmnop12345678",
@@ -14665,7 +14665,7 @@
                 "client_id": "Iv1.8a61f9b3a7aba766"
               },
               "note": "optional note",
-              "note_url": "http://optional/note/url",
+              "note_url": "https://example.com/optional/note/url",
               "updated_at": "2011-09-06T20:39:23Z",
               "created_at": "2011-09-06T17:26:27Z",
               "fingerprint": "jklmnop12345678",
@@ -15657,7 +15657,7 @@
                 "client_id": "Iv1.8a61f9b3a7aba766"
               },
               "note": "optional note",
-              "note_url": "http://optional/note/url",
+              "note_url": "https://example.com/optional/note/url",
               "updated_at": "2011-09-06T20:39:23Z",
               "created_at": "2011-09-06T17:26:27Z",
               "fingerprint": "jklmnop12345678",
