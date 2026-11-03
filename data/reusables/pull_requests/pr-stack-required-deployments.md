@@ -1,0 +1,1 @@
+For stacked pull requests, deploying a pull request also satisfies this requirement for pull requests below it while the stack has a linear history. See [AUTOTITLE](/pull-requests/reference/stacked-pull-requests#branch-protections-and-required-checks).
