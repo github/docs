@@ -85,5 +85,67 @@
       ],
       "category": "copilot"
     }
+  ],
+  "enums": [
+    {
+      "name": "CopilotCodeReviewEffort",
+      "id": "copilotcoderevieweffort",
+      "href": "/graphql/reference/copilot#enum-copilotcoderevieweffort",
+      "description": "<p>The effort level for a Copilot code review. For more information, see <a href=\"https://docs.github.com/en/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/code-review#review-effort-level\">Review effort level</a>.</p>",
+      "isDeprecated": false,
+      "values": [
+        {
+          "name": "AUTO",
+          "description": "<p>Copilot picks the effort for each pull request.</p>"
+        },
+        {
+          "name": "BALANCED",
+          "description": "<p>Balanced effort and depth.</p>"
+        },
+        {
+          "name": "LITE",
+          "description": "<p>Lower effort, faster review.</p>"
+        },
+        {
+          "name": "MAX",
+          "description": "<p>Highest effort, deepest review.</p>"
+        }
+      ],
+      "category": "copilot"
+    },
+    {
+      "name": "CopilotCodeReviewRequestReason",
+      "id": "copilotcodereviewrequestreason",
+      "href": "/graphql/reference/copilot#enum-copilotcodereviewrequestreason",
+      "description": "<p>The stable reason a Copilot code review request was denied or conflicted with an existing request.</p>",
+      "isDeprecated": false,
+      "values": [
+        {
+          "name": "ACTOR_INELIGIBLE",
+          "description": "<p>The actor is not eligible to request Copilot code reviews.</p>"
+        },
+        {
+          "name": "APP_NOT_INSTALLED",
+          "description": "<p>The Copilot code review reviewer app is not installed.</p>"
+        },
+        {
+          "name": "LICENSED_ORGANIZATION_UNAVAILABLE",
+          "description": "<p>The organization providing the Copilot license is unavailable.</p>"
+        },
+        {
+          "name": "NO_QUOTA_REMAINING",
+          "description": "<p>The actor has no Copilot code review quota remaining.</p>"
+        },
+        {
+          "name": "REPOSITORY_INELIGIBLE",
+          "description": "<p>The repository is not eligible for Copilot code reviews.</p>"
+        },
+        {
+          "name": "REQUEST_CONFLICT",
+          "description": "<p>A Copilot code review request is already pending for this pull request.</p>"
+        }
+      ],
+      "category": "copilot"
+    }
   ]
 }

@@ -4,6 +4,43 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Type <code>CopilotCodeReviewEffort</code> was added</p>",
+          "<p>Enum value <code>AUTO</code> was added to enum <code>CopilotCodeReviewEffort</code></p>",
+          "<p>Enum value <code>BALANCED</code> was added to enum <code>CopilotCodeReviewEffort</code></p>",
+          "<p>Enum value <code>LITE</code> was added to enum <code>CopilotCodeReviewEffort</code></p>",
+          "<p>Enum value <code>MAX</code> was added to enum <code>CopilotCodeReviewEffort</code></p>",
+          "<p>Type <code>CopilotCodeReviewRequestReason</code> was added</p>",
+          "<p>Enum value <code>ACTOR_INELIGIBLE</code> was added to enum <code>CopilotCodeReviewRequestReason</code></p>",
+          "<p>Enum value <code>APP_NOT_INSTALLED</code> was added to enum <code>CopilotCodeReviewRequestReason</code></p>",
+          "<p>Enum value <code>LICENSED_ORGANIZATION_UNAVAILABLE</code> was added to enum <code>CopilotCodeReviewRequestReason</code></p>",
+          "<p>Enum value <code>NO_QUOTA_REMAINING</code> was added to enum <code>CopilotCodeReviewRequestReason</code></p>",
+          "<p>Enum value <code>REPOSITORY_INELIGIBLE</code> was added to enum <code>CopilotCodeReviewRequestReason</code></p>",
+          "<p>Enum value <code>REQUEST_CONFLICT</code> was added to enum <code>CopilotCodeReviewRequestReason</code></p>",
+          "<p>Type <code>RequestCopilotCodeReviewInput</code> was added</p>",
+          "<p>Input field <code>clientMutationId</code> of type <code>String</code> was added to input object type <code>RequestCopilotCodeReviewInput</code></p>",
+          "<p>Input field <code>pullRequestId</code> of type <code>ID!</code> was added to input object type <code>RequestCopilotCodeReviewInput</code></p>",
+          "<p>Input field <code>reviewEffort</code> of type <code>CopilotCodeReviewEffort</code> was added to input object type <code>RequestCopilotCodeReviewInput</code></p>",
+          "<p>Type <code>RequestCopilotCodeReviewPayload</code> was added</p>",
+          "<p>Field <code>actor</code> was added to object type <code>RequestCopilotCodeReviewPayload</code></p>",
+          "<p>Field <code>clientMutationId</code> was added to object type <code>RequestCopilotCodeReviewPayload</code></p>",
+          "<p>Field <code>failureReason</code> was added to object type <code>RequestCopilotCodeReviewPayload</code></p>",
+          "<p>Field <code>pullRequest</code> was added to object type <code>RequestCopilotCodeReviewPayload</code></p>",
+          "<p>Field <code>reviewRequest</code> was added to object type <code>RequestCopilotCodeReviewPayload</code></p>",
+          "<p>Field <code>success</code> was added to object type <code>RequestCopilotCodeReviewPayload</code></p>",
+          "<p>Field <code>requestCopilotCodeReview</code> was added to object type <code>Mutation</code></p>",
+          "<p>Argument <code>input: RequestCopilotCodeReviewInput!</code> added to field <code>Mutation.requestCopilotCodeReview</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-11-03"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Enum value <code>MODERATE</code> was added to enum <code>RepositoryPermission</code></p>"
         ]
       }
