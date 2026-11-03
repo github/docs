@@ -320,6 +320,28 @@
       },
       {
         "category": "enterprise-admin",
+        "slug": "get-copilot-fusion-model-policies-for-an-enterprise",
+        "subcategory": "ai-controls",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/copilot/fusion/model-policies",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "update-copilot-fusion-model-policies-for-an-enterprise",
+        "subcategory": "ai-controls",
+        "verb": "patch",
+        "requestPath": "/enterprises/{enterprise}/copilot/fusion/model-policies",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "enterprise-admin",
         "slug": "get-model-policies-for-an-enterprise",
         "subcategory": "ai-controls",
         "verb": "get",
@@ -840,6 +862,17 @@
         "verb": "post",
         "requestPath": "/enterprises/{enterprise}/settings/billing/cost-centers",
         "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "billing",
+        "slug": "get-cost-center-membership-for-a-resource",
+        "subcategory": "cost-centers",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/settings/billing/cost-centers/memberships",
+        "access": "read",
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": false

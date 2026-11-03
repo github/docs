@@ -30,6 +30,7 @@ For instructions on creating the file, see [AUTOTITLE](/copilot/how-tos/administ
 | `model` | Sets your preferred model as the default for new conversations |
 | `fusionTier` | Sets the default effort level for new conversations when the selected model is `fusion` |
 | `autoTier` | Sets the default Auto routing tier for new conversations |
+| `communication.support.url` | Sets an absolute `http` or `https` URL of an organization help page. Informational only. {% data variables.copilot.copilot_cli_short %} can link to it wherever it would otherwise tell users to contact their administrator |
 | `enabledPlugins` | Enables or disables specific plugins by key |
 | `extraKnownMarketplaces` | Adds plugin marketplaces that users can access |
 | `strictKnownMarketplaces` | Restricts plugin installation to explicitly listed marketplaces |

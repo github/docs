@@ -1673,6 +1673,12 @@
       "requestPath": "/enterprises/{enterprise}/settings/billing/cost-centers"
     },
     {
+      "slug": "get-cost-center-membership-for-a-resource",
+      "subcategory": "cost-centers",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/cost-centers/memberships"
+    },
+    {
       "slug": "get-a-cost-center-by-id",
       "subcategory": "cost-centers",
       "verb": "get",
@@ -3483,6 +3489,18 @@
       "subcategory": "ai-controls",
       "verb": "patch",
       "requestPath": "/enterprises/{enterprise}/copilot/feature-policies"
+    },
+    {
+      "slug": "get-copilot-fusion-model-policies-for-an-enterprise",
+      "subcategory": "ai-controls",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/copilot/fusion/model-policies"
+    },
+    {
+      "slug": "update-copilot-fusion-model-policies-for-an-enterprise",
+      "subcategory": "ai-controls",
+      "verb": "patch",
+      "requestPath": "/enterprises/{enterprise}/copilot/fusion/model-policies"
     },
     {
       "slug": "get-model-policies-for-an-enterprise",
