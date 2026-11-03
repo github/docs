@@ -22,6 +22,12 @@ The extension requires {% data variables.product.prodname_cli %} (`gh`) version 
 > [!NOTE]
 > The `gh stack` extension uses your {% data variables.product.prodname_cli %} authentication. If you have not authenticated yet, run `gh auth login`.
 
+## Updating
+
+```shell
+gh extension upgrade stack
+```
+
 ## Command summary
 
 | Command | Purpose |
@@ -158,7 +164,9 @@ gh stack view --short
 gh stack view --json
 ```
 
-`gh stack view --short` uses OSC 8 hyperlinks for pull request numbers when the terminal supports them. Otherwise, the full URL is shown for copy and paste. Set `GH_STACK_HYPERLINKS=1` or `GH_STACK_HYPERLINKS=0` to override terminal detection.
+In text output, stack references use OSC 8 hyperlinks when the terminal supports them. Otherwise, the full URL is shown for copy and paste. Stack links open the repository's `/stack/NUMBER` page, and stacks that are confirmed missing or removed are left unlinked. Set `GH_STACK_HYPERLINKS=1` or `GH_STACK_HYPERLINKS=0` to override terminal detection.
+
+Interactive screens keep labels compact. In `view` and `submit`, click `#N` to open its page. In the `checkout` picker and the `merge` wizard, use your terminal's hyperlink gesture. These inline views keep plain numbers when terminal hyperlinks are unavailable. The environment variable controls OSC 8 links, not clicks handled by the application in `view` and `submit`. JSON output is unchanged.
 
 ### `gh stack checkout`
 
@@ -285,7 +293,7 @@ With no argument, the command targets the active stack, which is the stack that 
 
 Provide a stack number, the identifier shown in the stack UI on {% data variables.product.github %}, to unstack a specific stack. This works from anywhere in the repository, whether or not the stack is checked out locally, because the stack is unstacked directly through the {% data variables.product.github %} API. When the stack is also available locally, its local tracking is removed as well.
 
-Pull requests that are merged, merging, or queued for merge cannot be removed from a stack on {% data variables.product.github %} and remain part of the stack. When every pull request is removed, the stack is dissolved and any local tracking is removed. When some pull requests remain stacked, the stack is kept and local tracking, if any, is unchanged. Use `--local` to skip the remote operation and only remove local tracking.
+Pull requests that are merged, merging, or queued for merge cannot be removed from a stack on {% data variables.product.github %} and remain part of the stack. After a successful unstack, local tracking is removed even when some pull requests remain on {% data variables.product.github %}. Use `--local` to skip the remote operation and only remove local tracking.
 
 This command is useful when you need to restructure a stack by removing a branch, inserting a branch, reordering branches, renaming branches, or making other large changes. After unstacking, use `gh stack init` to recreate the stack with the structure you want. Existing branches are adopted automatically.
 
@@ -316,7 +324,7 @@ Push all branches, then create or update pull requests and the stack on {% data 
 gh stack submit [flags]
 ```
 
-Creates a pull request for every branch in the stack, pushing branches to the remote. After creating pull requests, `submit` automatically creates a stack on {% data variables.product.github %} to link the pull requests together. If the stack already exists on {% data variables.product.github %}, for example from a previous submit, new pull requests are added to the existing stack.
+Pushes all active branches together atomically before creating pull requests or setting their final bases. For pending reorders, at-risk pull requests temporarily target the trunk while branches are pushed. After creating pull requests, `submit` automatically creates a stack on {% data variables.product.github %} to link the pull requests together. If the stack already exists on {% data variables.product.github %}, for example from a previous submit, new pull requests are added to the existing stack. Atomicity applies to Git branch updates, not to pull request or stack API operations.
 
 If every pull request in the stack has already been merged, that stack is complete and cannot be extended. In that case, `submit` automatically starts a new stack rooted at the trunk for your unmerged branches and creates it on {% data variables.product.github %}, leaving the merged stack untouched.
 
@@ -336,6 +344,7 @@ In the editor, new pull requests default to ready for review. You can flip any p
 | `--auto` | Skip the editor and use automatically generated pull request titles |
 | `--open` | Create new pull requests as ready for review instead of drafts, and mark existing pull requests as ready for review |
 | `--remote <name>` | Remote to push to (defaults to the automatically detected remote) |
+| `--no-atomic` | Allow partial branch updates |
 
 **Examples:**
 
@@ -359,19 +368,25 @@ Synchronizes the entire stack.
 1. **Reconcile the remote stack.** Mirrors the stack on {% data variables.product.github %} locally. When pull requests have been added to the stack on {% data variables.product.github %}, so that the remote is ahead of your local stack, their branches are pulled down and appended to your local stack automatically. When the local and remote stacks have genuinely diverged, for example because you added a branch locally while different pull requests were added to the stack on {% data variables.product.github %}, you are prompted to resolve the difference. See [Diverged stacks](#diverged-stacks). In a non-interactive terminal, a divergence aborts the sync, and nothing is pushed or updated.
 1. **Fast-forward trunk.** Fast-forwards the trunk branch to match the remote. This step is skipped if the branches have diverged.
 1. **Cascade rebase.** Rebases all stack branches onto their updated parents, but only if trunk moved. If a conflict is detected, all branches are restored to their original state, and you are advised to run `gh stack rebase` to resolve conflicts interactively.
-1. **Push.** Pushes all branches, using `--force-with-lease` if a rebase occurred.
+1. **Push.** Pushes all branches atomically by default, using `--force-with-lease` if a rebase occurred.
 1. **Sync pull requests.** Syncs pull request state from {% data variables.product.github %} and reports the status of each pull request.
 1. **Sync the stack.** Links the stack's open pull requests into a stack on {% data variables.product.github %}, creating the remote stack object if it does not exist yet, or updating it if it is partially formed. This only happens when two or more pull requests exist. Sync never opens pull requests. Use `gh stack submit` for that.
 1. **Prune.** In interactive terminals, prompts you to delete local branches for merged pull requests. Use `--prune` to prune automatically.
 
-A clean remote-ahead update, where pull requests are added on top of your local stack, is pulled down automatically without prompting, so `sync` is safe to run in automation. Sync only prompts when the stacks have truly diverged.
+A clean remote-ahead update, where pull requests are added on top of your local stack, is pulled down automatically without prompting, so `sync` is safe to run in automation. Sync only prompts when the stacks have truly diverged, or before it removes the commits of an unmerged base. See [Retargeted stacks](#retargeted-stacks).
+
+#### Retargeted stacks
+
+When a stack's base branch is deleted, {% data variables.product.github %} moves the stack onto a new base but does not rebase its branches. `sync` and `rebase` rebase the stack onto that base, keep its stack and pull request numbers, and drop the old base's commits.
+
+If the old base did not merge into the new base, the commands ask before dropping its commits. In a non-interactive terminal, pass `--accept-base-change`. Until the stack is rebased, `push` and `submit` stop, and `view` reports the new base.
 
 #### Diverged stacks
 
 When neither stack is a clean prefix of the other, for example because you added a branch locally while separate pull requests were added to the same stack on {% data variables.product.github %}, sync cannot merge the two automatically. In an interactive terminal, it offers three choices.
 
 * **Use the remote stack as the source of truth.** Replaces your local stack composition with the remote's, pulling any missing branches. If you were on a branch that the remote stack no longer contains, you are moved to the nearest surviving branch. This requires a clean working state with no uncommitted changes.
-* **Delete the stack on {% data variables.product.github %}.** Deletes the stack object on {% data variables.product.github %} and stops the sync. Your pull requests and local branches are untouched, and only the stack on {% data variables.product.github %} is removed. Recreate the stack with `gh stack submit`, running `gh stack modify` first if you want to change its structure. This is the way to make {% data variables.product.github %} match your local stack, because `submit`, unlike `sync`, also creates pull requests for any branches you have not submitted yet.
+* **Unstack on {% data variables.product.github %} and keep local.** Unstacks eligible pull requests and stops the sync without changing local branches or their order. Merged pull requests may remain in the old stack. Recreate the active stack with `gh stack submit`, running `gh stack modify` first if you want to change its structure. If unmerged pull requests remain stacked, the local association is kept and the command reports a conflict. Unlike `sync`, `submit` also creates pull requests for branches you have not submitted yet.
 * **Cancel.** Aborts the sync without pushing branches or updating any pull requests.
 
 In a non-interactive terminal, a divergence aborts the sync, exiting successfully, without pushing branches or updating pull requests. Resolve it by unstacking and recreating the stack.
@@ -380,6 +395,8 @@ In a non-interactive terminal, a divergence aborts the sync, exiting successfull
 |------|-------------|
 | `--remote <name>` | Remote to fetch from and push to (defaults to the automatically detected remote) |
 | `--prune` | Delete local branches for merged pull requests |
+| `--accept-base-change` | Rebase onto a base that {% data variables.product.github %} retargeted the stack to, even if the old base did not merge |
+| `--no-atomic` | Allow partial branch updates |
 
 **Examples:**
 
@@ -402,6 +419,10 @@ Fetches the latest changes from `origin`, then ensures each branch in the stack 
 
 If a branch's pull request has been merged, the rebase automatically switches to `--onto` mode to correctly replay commits on top of the merge target.
 
+Merged pull request heads are cached separately from local branch tips, so a stale or deleted local merged branch does not determine which commits to replay. Both `rebase` and `sync` validate the cutoff against the child's history, including recorded bases and reflog fork points when the parent was rewritten or the child was already restacked. Older stacks acquire missing pull request head metadata when {% data variables.product.github %} can provide it.
+
+If no safe cutoff can be established, the command stops with guidance to rebase the affected branch manually. This does not automatically reconcile diverged active branches, and `--no-trunk` still skips fetching.
+
 If a rebase conflict occurs, the operation pauses and prints the conflicted files with line numbers. Resolve the conflicts, stage them with `git add`, then continue with `--continue`. To undo the entire rebase, use `--abort` to restore all branches to their state before the rebase.
 
 | Flag | Description |
@@ -409,6 +430,7 @@ If a rebase conflict occurs, the operation pauses and prints the conflicted file
 | `--downstack` | Only rebase branches from the trunk to the current branch |
 | `--upstack` | Only rebase branches from the current branch to the top |
 | `--no-trunk` | Skip the trunk. Only rebase stack branches onto each other, with no fetch and no trunk rebase. |
+| `--accept-base-change` | Rebase onto a base that {% data variables.product.github %} retargeted the stack to, even if the old base did not merge. See [Retargeted stacks](#retargeted-stacks). |
 | `--continue` | Continue the rebase after resolving conflicts |
 | `--abort` | Abort the rebase and restore all branches to their state before the rebase |
 | `--remote <name>` | Remote to fetch from (defaults to the automatically detected remote) |
@@ -453,16 +475,18 @@ Push the active branches in the current stack to the remote.
 gh stack push [flags]
 ```
 
-Pushes every active branch, excluding merged and queued branches, in a single `git push`, using an explicit per-branch `--force-with-lease` check. The update is not atomic. Branches whose leases pass can be updated even if another branch is rejected. Fix the rejected branch and run the command again. Branches that were already updated remain unchanged. This command does not create or update pull requests. Use `gh stack submit` for that.
+Pushes every active branch, excluding merged and queued branches, in a single atomic `git push`, using an explicit per-branch `--force-with-lease` check. All branch updates succeed or fail together. Use `--no-atomic` to allow partial branch updates. A failed atomic push is never retried non-atomically. This command does not create or update pull requests. Use `gh stack submit` for that.
 
 | Flag | Description |
 |------|-------------|
 | `--remote <name>` | Remote to push to (defaults to the automatically detected remote) |
+| `--no-atomic` | Allow partial branch updates |
 
 **Examples:**
 
 ```shell
 gh stack push
+gh stack push --no-atomic
 gh stack push --remote upstream
 ```
 
@@ -476,7 +500,7 @@ gh stack link [flags] <stack-number | branch-or-pr> <branch-or-pr> [...]
 
 Creates or updates a stack on {% data variables.product.github %} from branch names or pull request numbers and URLs. This command does not create or modify any local tracking state. It is designed for people who manage branches with other tools locally, such as Jujutsu, Sapling, or git-town, and want to open a stack of pull requests. See [AUTOTITLE](/pull-requests/reference/use-other-tools-with-stacked-pull-requests).
 
-You provide arguments in stack order, from bottom to top. Branch arguments are pushed to the remote automatically before pull requests are created or looked up. For branches that already have open pull requests, those pull requests are used. For branches without pull requests, new pull requests are created automatically with the correct base branch chaining. Existing pull requests whose base branch does not match the expected chain are corrected automatically.
+You provide arguments in stack order, from bottom to top. Branch arguments are pushed to the remote automatically and atomically before pull requests are created or looked up. For branches that already have open pull requests, those pull requests are used. For branches without pull requests, new pull requests are created automatically with the correct base branch chaining. Existing pull requests whose base branch does not match the expected chain are corrected automatically.
 
 If the pull requests are not yet in a stack, a new stack is created. If some of the pull requests are already in a stack, the existing stack is updated to include the new pull requests. Existing pull requests are never removed from a stack, because the update is additive only.
 
@@ -487,6 +511,7 @@ To grow an existing stack without listing its pull requests again, pass a stack 
 | `--base <branch>` | Base branch for the bottom of the stack (defaults to the repository's default branch). This flag is ignored when you add to an existing stack. |
 | `--open` | Mark new and existing pull requests as ready for review |
 | `--remote <name>` | Remote to push to (defaults to the automatically detected remote) |
+| `--no-atomic` | Allow partial branch updates |
 
 **Examples:**
 
@@ -725,12 +750,18 @@ For repositories created with `git init --separate-git-dir`, `gh stack` supports
 
 | Variable | Values | Description |
 |----------|--------|-------------|
-| `GH_STACK_THEME` | `auto` (default), `light`, `dark` | Controls the color palette of the interactive screens for `submit`, `modify`, and `view`, and all colored command output. Colors adapt to your terminal background automatically. Set this variable to force the light or dark palette when a terminal does not report its background, which can happen in some SSH or `tmux` setups. |
-| `GH_STACK_HYPERLINKS` | `0`, `1` | Disables or enables OSC 8 hyperlinks when terminal detection is incorrect. Unsupported terminals show the full URL by default. |
+| `GH_STACK_NO_ATOMIC` | Any non-empty value | Disables atomic pushes for `push`, `submit`, `sync`, and `link`, which allows partial branch updates. Set to `1` to opt out. An explicit `--no-atomic=false` overrides the environment variable. |
+| `GH_STACK_THEME` | `auto` (default), `light`, `dark` | Controls the color palette of the interactive screens for `submit`, `modify`, and `view`, and all colored command output. Colors adapt to your terminal background automatically. Set this variable to force the light or dark palette, and the matching canvas, when a terminal does not report its background, which can happen in some SSH or `tmux` setups. |
+| `GH_STACK_BACKGROUND` | `github` (default), `terminal` | Controls whether the full-screen screens for `submit`, `modify`, and `view` paint the {% data variables.product.github %} canvas (`#0d1117` on dark terminals, `#ffffff` on light ones) behind themselves. Painting requires a truecolor terminal. Terminal colors are restored when the screen closes and while `$EDITOR` is open. Set to `terminal` to keep your terminal's own background and text colors. |
+| `GH_STACK_HYPERLINKS` | `0`, `1` | Disables or enables OSC 8 hyperlinks for pull request and stack references when terminal detection is incorrect. Text output falls back to full URLs, and compact interactive screens keep plain labels. Does not control clicks handled by the application in `view` and `submit`. |
+| `GH_STACK_NO_UPDATE_NOTIFIER` | Any non-empty value | Disables `gh stack`'s background update checks and upgrade notices. For example, set this variable in automation that requires quiet standard error output. |
 
 ```shell
 # Force the light palette for one command
 GH_STACK_THEME=light gh stack view
+
+# Keep the terminal's own background in full-screen screens
+GH_STACK_BACKGROUND=terminal gh stack submit
 ```
 
 ## Exit codes
