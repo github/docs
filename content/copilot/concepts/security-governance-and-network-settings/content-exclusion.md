@@ -36,7 +36,7 @@ The {% data variables.copilot.copilot_business_short %} and {% data variables.co
 | Tool                                            | Inline suggestions support                    | Chat and agent support                         |
 |-------------------------------------------------|:---------------------------------------------:|:----------------------------------------------:|
 | {% data variables.product.prodname_vs %}        | {% octicon "check" aria-label="Supported" %}  | {% octicon "check" aria-label="Supported" %}   |
-| {% data variables.product.prodname_vscode %}    | {% octicon "check" aria-label="Supported" %}  | Chat: {% octicon "check" aria-label="Supported" %}<br>Edit: {% octicon "x" aria-label="Not supported" %}<br>Agent: {% octicon "x" aria-label="Not supported" %} |
+| {% data variables.product.prodname_vscode %}    | {% octicon "check" aria-label="Supported" %}  | {% octicon "check" aria-label="Supported" %}   |
 | JetBrains IDEs                                  | {% octicon "check" aria-label="Supported" %}  | {% octicon "check" aria-label="Supported" %}   |
 | Vim/Neovim                                      | {% octicon "check" aria-label="Supported" %}  | Not applicable                                 |
 | Xcode                                           | {% octicon "check" aria-label="Supported" %}  | {% octicon "x" aria-label="Not supported" %}   |
@@ -51,11 +51,13 @@ Content exclusions also apply to {% data variables.copilot.copilot_code-review_s
 
 > [!NOTE]
 > * Content exclusion is in {% data variables.release-phases.public_preview %} on the {% data variables.product.github %} website and in {% data variables.product.prodname_mobile %} and is subject to change.
-> * Content exclusion is currently not supported in Edit and Agent modes of {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode %} and other editors.
 
 ### Limitations of content exclusion
 
 {% data reusables.copilot.content-exclusion-limitations %}
+
+> [!NOTE]
+> {% data reusables.copilot.content-exclusion-agent-limitations %}
 
 Currently, content exclusions do not apply to symbolic links (symlinks) and repositories located on remote filesystems.
 
