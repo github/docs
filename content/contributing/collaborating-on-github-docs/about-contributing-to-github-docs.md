@@ -19,8 +19,6 @@ The documentation repository is the place to discuss and collaborate on the docu
 > [!NOTE]
 > For larger updates, we highly recommend that you open an issue to give us the opportunity to review your proposal.
 
-[Issues](/issues/tracking-your-work-with-issues/learning-about-issues/about-issues) are used to track tasks that contributors can help with. If an issue has a `triage` label, we haven't reviewed it yet. Don't begin work on another contributor's issue while it has this label.
-
 If you've found something in the documentation content, or something about the docs.github.com website, that should be updated, search the open issues to see if someone else has reported the same thing. If it's something new, open an issue using a [template](https://github.com/github/docs/issues/new/choose). We'll use the issue to have a conversation about the problem you'd like to be fixed.<!-- markdownlint-disable-line search-replace -->
 
 ### Submitting a fix for your own issue

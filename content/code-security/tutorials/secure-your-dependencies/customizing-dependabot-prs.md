@@ -21,8 +21,6 @@ For example, to integrate {% data variables.product.prodname_dependabot %}'s pul
 
 There are several different customization options which can all be used in combination, and tailored per package ecosystem.
 
-{% ifversion dependabot-reviewers-deprecation %}
-
 ## Automatically adding assignees
 
 By default, {% data variables.product.prodname_dependabot %} raises pull requests without any assignees.
@@ -53,45 +51,6 @@ updates:
 By default, {% data variables.product.prodname_dependabot %} raises pull requests without any reviewers.
 
 To ensure your project's security updates get addressed promptly by the appropriate team, you can automatically add reviewers to {% data variables.product.prodname_dependabot %} pull requests using a CODEOWNERS file. See [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners).
-
-{% else %}
-
-## Automatically adding reviewers and assignees
-
-> [!IMPORTANT]
-> The `reviewers` property is closing down and will be removed in a future release of {% data variables.product.prodname_ghe_server %}.
->
-> You can also automatically add reviewers and assignees using a CODEOWNERS file. See [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners).
-
-By default, {% data variables.product.prodname_dependabot %} raises pull requests without any reviewers or assignees.
-
-However, you may want pull requests to be consistently reviewed or dealt with by a specific individual or team that has expertise in that package ecosystem, or automatically assigned to a designated security team. In which case, you can use `reviewers` and `assignees` to set these values per package ecosystem.
-
-The example `dependabot.yml` file below changes the npm configuration so that all pull requests opened with version and security updates for npm have:
-* A team ("`my-org/team-name`") and an individual ("`octocat`") automatically added as reviewers to the pull requests.
-* An individual ("`user-name`") automatically assigned to the pull requests.
-
-```yaml copy
-# `dependabot.yml` file with
-# reviews and an assignee for all npm pull requests
-
-version: 2
-updates:
-  # Keep npm dependencies up to date
-  - package-ecosystem: "npm"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-    # Raise all npm pull requests with reviewers
-    reviewers:
-      - "my-org/team-name"
-      - "octocat"
-    # Raise all npm pull requests with assignees
-    assignees:
-      - "user-name"
-```
-
-{% endif %}
 
 ## Labeling pull requests with custom labels
 

@@ -9,12 +9,6 @@ category:
   - Monitor and audit your enterprise
 ---
 
-{% ifversion ghes = 3.18 %}
-
-{% data reusables.enterprise.opentelemetry-preview %}
-
-{% endif %}
-
 ## External monitoring approaches
 
 External monitoring with OpenTelemetry allows you to integrate your {% data variables.product.prodname_ghe_server %} instance with existing monitoring infrastructure and tools. {% data variables.product.prodname_ghe_server %} provides two primary approaches for external monitoring:

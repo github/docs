@@ -84,8 +84,6 @@ You can also view active rulesets:
 
 {% endif %}
 
-{% ifversion repo-rules-management %}
-
 ## Importing a ruleset
 
 {% data reusables.repositories.import-a-ruleset-conceptual %}
@@ -139,8 +137,6 @@ To view the dashboard:
 {% ifversion rule-insights-dashboard-org-level %}
 
 At the organization level, you can view the rule insights dashboard to review the evaluation activity of rulesets across your organization. See [AUTOTITLE](/organizations/managing-organization-settings/managing-rulesets-for-repositories-in-your-organization#viewing-the-rule-insights-dashboard).
-
-{% endif %}
 
 {% endif %}
 
