@@ -26,13 +26,11 @@ For more information on rulesets, see [AUTOTITLE](/repositories/configuring-bran
 
 For customers on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %} plans you can also create rulesets for repositories in an organization. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/creating-rulesets-for-repositories-in-your-organization).
 
-{% ifversion repo-rules-management %}
-
 ## Importing prebuilt rulesets
 
 To import one of the prebuilt rulesets by {% data variables.product.prodname_dotcom %}, see [`github/ruleset-recipes`](https://github.com/github/ruleset-recipes).
 
-{% data reusables.repositories.import-a-ruleset-conceptual %} For more information, see [AUTOTITLE](/organizations/managing-organization-settings/managing-rulesets-for-repositories-in-your-organization#importing-a-ruleset).{% endif %}
+{% data reusables.repositories.import-a-ruleset-conceptual %} For more information, see [AUTOTITLE](/organizations/managing-organization-settings/managing-rulesets-for-repositories-in-your-organization#importing-a-ruleset).
 
 ## Using `fnmatch` syntax
 

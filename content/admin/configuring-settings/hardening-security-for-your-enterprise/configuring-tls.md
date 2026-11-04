@@ -119,10 +119,6 @@ To resolve these errors, you must update the Subject Alternative Names (SANs) yo
 
 1. If you configured a user message or maintenance mode, remove the message and disable maintenance mode.
 
-{% ifversion ghes > 3.18 %}
-
 ## Configuring cipher suites and cryptographic algorithms
 
 You can configure the cipher suites and cryptographic algorithms that {% data variables.product.prodname_ghe_server %} uses for TLS and SSH connections. For more information, see [AUTOTITLE](/admin/configuring-settings/hardening-security-for-your-enterprise/configuring-tls-and-ssh-ciphers).
-
-{% endif %}

@@ -33,7 +33,7 @@ Push protection can block the following types of secrets.
 
 ### Generic patterns
 
-{% data variables.product.github %} blocks pushes containing structured secrets that are not tied to a specific provider, such as private keys and database connection strings. Scanning for generic patterns and push protection must be enabled in your repository's security settings or security configuration for this to work.{% ifversion push-protected-pattern-configuration %} The relevant patterns must also be enabled in your organization or enterprise's push protection pattern configuration. See [Specifying patterns to include in push protection](/code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/configure-global-settings#specifying-patterns-to-include-in-push-protection).{% endif %}
+{% data variables.product.github %} blocks pushes containing structured secrets that are not tied to a specific provider, such as private keys and database connection strings. Scanning for generic patterns and push protection must be enabled in your repository's security settings or security configuration for this to work. The relevant patterns must also be enabled in your organization or enterprise's push protection pattern configuration. See [Specifying patterns to include in push protection](/code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/configure-global-settings#specifying-patterns-to-include-in-push-protection).
 
 ### Custom patterns
 
@@ -127,5 +127,5 @@ If you want greater control over which contributors can bypass push protection a
 After you enable push protection for repositories, you can customize it by:
 
 * Defining custom patterns to block pushes containing unique secret patterns
-* Designating contributors who can bypass push protection and approve bypass requests for other contributors{% ifversion push-protection-org-enterprise-exemptions %}, or are exempt from push protection entirely{% endif %}{% ifversion push-protected-pattern-configuration %}
-* Configuring which secret patterns are included in push protection at the enterprise or organization level{% endif %}
+* Designating contributors who can bypass push protection and approve bypass requests for other contributors{% ifversion push-protection-org-enterprise-exemptions %}, or are exempt from push protection entirely{% endif %}
+* Configuring which secret patterns are included in push protection at the enterprise or organization level

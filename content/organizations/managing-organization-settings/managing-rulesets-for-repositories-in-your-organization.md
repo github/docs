@@ -68,8 +68,6 @@ You can use the REST and GraphQL APIs to manage rulesets. For more information, 
 
 {% endif %}
 
-{% ifversion repo-rules-management %}
-
 ## Importing a ruleset
 
 You can import a ruleset from another repository or organization using the exported JSON file from the previous section. This can be useful if you want to apply the same ruleset to multiple repositories or organizations.
@@ -78,8 +76,6 @@ You can import a ruleset from another repository or organization using the expor
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.access-ruleset-settings %}
 {% data reusables.repositories.import-a-ruleset %}
-
-{% endif %}
 
 {% ifversion rule-insights-dashboard-org-level %}
 

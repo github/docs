@@ -3,7 +3,7 @@ title: Configuring Elasticsearch Cross-Cluster Replication for high availability
 shortTitle: Elasticsearch Cross-Cluster Replication
 intro: 'You can make search more resilient during maintenance, failovers, and upgrades on a high availability deployment by enabling Elasticsearch Cross-Cluster Replication (CCR).'
 versions:
-  ghes: '>=3.19'
+  ghes: '*'
 contentType: how-tos
 category:
   - Scale your instance

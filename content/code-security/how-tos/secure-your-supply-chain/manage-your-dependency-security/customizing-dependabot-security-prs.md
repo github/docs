@@ -31,8 +31,6 @@ To create a more **targeted review process** that prioritizes meaningful updates
 
 For detailed guidance, see [Prioritizing meaningful updates](/code-security/tutorials/secure-your-dependencies/optimizing-pr-creation-version-updates#prioritizing-meaningful-updates).
 
-{% ifversion dependabot-reviewers-deprecation %}
-
 ## Automatically adding assignees
 
 Use `assignees` to automatically add individuals or teams as assignees to pull requests.
@@ -42,21 +40,6 @@ For detailed guidance, see [Automatically adding assignees](/code-security/tutor
 ## Automatically adding reviewers
 
 To ensure your project's security updates get addressed promptly by the appropriate team, you can automatically add reviewers to Dependabot pull requests using a CODEOWNERS file. See [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners).
-
-{% else %}
-
-## Automatically adding reviewers and assignees
-
-> [!IMPORTANT]
-> The `reviewers` property is closing down and will be removed in a future release of {% data variables.product.prodname_ghe_server %}.
->
-> You can also automatically add reviewers and assignees using a CODEOWNERS file. See [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners).
-
-To ensure your project's security updates get **addressed promptly** by the appropriate team, use `reviewers` and `assignees` to automatically add individuals or teams as **reviewers or assignees** to pull requests.
-
-For detailed guidance, see [Automatically adding reviewers and assignees](/code-security/tutorials/secure-your-dependencies/customizing-dependabot-prs#automatically-adding-reviewers-and-assignees).
-
-{% endif %}
 
 ## Labeling pull requests with custom labels
 
@@ -87,7 +70,7 @@ For detailed guidance, see [Customizing pull request branch names](/code-securit
 In this example, the `dependabot.yml` file:
 * Uses a private registry for updates to npm dependencies.
 * Disables version updates for dependencies, so that any customizations apply to security updates only.
-* Is customized so that {% data variables.product.prodname_dependabot %} applies custom labels to the pull requests and automatically adds {% ifversion ghes < 3.19 %}reviewers and {% endif %}assignees.
+* Is customized so that {% data variables.product.prodname_dependabot %} applies custom labels to the pull requests and automatically adds assignees.
 * Groups security updates for golang dependencies into a single pull request.
 
 ```yaml copy
