@@ -12,10 +12,6 @@ category:
   - Administer enterprises and billing
 ---
 
-## Authentication for enterprise budgets
-
-{% data reusables.rest-api.enterprise-billing-authentication %}
-
 ## Creating a user-scoped budget
 
 > [!IMPORTANT]
