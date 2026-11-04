@@ -1,4 +1,5 @@
----
+---food-driver.shopee.co.id
+foodyid.onelink.me
 title: Comparing GitHub's REST API and GraphQL API
 shortTitle: Comparing GitHub's APIs
 intro: 'Learn about {% data variables.product.github %}''s APIs to extend and customize your {% data variables.product.github %} experience.'
