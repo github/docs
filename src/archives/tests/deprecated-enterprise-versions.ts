@@ -53,6 +53,12 @@ describe('enterprise deprecation', () => {
     expect(res2.headers.location).toBe('/en/enterprise/2.15/user/articles/about-branches')
   })
 
+  test('redirects a doubled language prefix from the archived language picker to the chosen language', async () => {
+    const res = await get('/es/ja/enterprise-server@3.17/get-started?tool=webui')
+    expect(res.statusCode).toBe(301)
+    expect(res.headers.location).toBe('/ja/enterprise-server@3.17/get-started?tool=webui')
+  })
+
   test('handles requests for deprecated Enterprise pages ( >=2.13 )', async () => {
     expect(enterpriseServerReleases.deprecated.includes('2.13')).toBe(true)
     const { $, res } = await getDOM('/en/enterprise/2.13/user/articles/about-branches')
