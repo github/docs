@@ -65,11 +65,11 @@ Aligning your reporting period with the dashboard’s 28-day window makes most c
 
 ### Delayed telemetry
 
-Because IDE telemetry is processed asynchronously, data for recent days may appear incomplete or missing. Data typically finalizes within three full UTC days. Apparent drops in recent daily metrics often resolve once telemetry is fully processed.
+Because IDE telemetry is processed asynchronously, data for recent days may appear incomplete or missing. Data for a given day is available within two full UTC days after that day closes. Apparent drops in recent daily metrics often resolve once telemetry is processed.
 
 ### Export timing
 
-NDJSON files reflect data available at the time of export. If a file is downloaded before new telemetry is processed, the data may lag behind the dashboard or API. Re-exporting the file after the three-day window provides the most accurate view.
+NDJSON files reflect data available at the time of export. If a file is downloaded before new telemetry is processed, the data may lag behind the dashboard or API. If your export includes days still within the two-full-UTC-day processing window, export the data again after that window closes.
 
 ## `Unknown` values
 
