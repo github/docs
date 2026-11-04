@@ -2127,6 +2127,37 @@
       "category": "pulls"
     },
     {
+      "name": "CopilotCodeReviewSource",
+      "id": "copilotcodereviewsource",
+      "href": "/graphql/reference/pulls#object-copilotcodereviewsource",
+      "description": "<p>A validated source reported as contributing to a Copilot code review comment.</p>",
+      "isDeprecated": false,
+      "fields": [
+        {
+          "name": "kind",
+          "description": "<p>The kind of contributing source.</p>",
+          "type": "CopilotCodeReviewSourceKind!",
+          "id": "copilotcodereviewsourcekind",
+          "href": "/graphql/reference/pulls#enum-copilotcodereviewsourcekind"
+        },
+        {
+          "name": "name",
+          "description": "<p>The reported source name, or \"custom instructions\" for CUSTOM_INSTRUCTIONS.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "path",
+          "description": "<p>The validated repository-relative source path, if available. Commit OIDs are not exposed.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "pulls"
+    },
+    {
       "name": "DismissalRestriction",
       "id": "dismissalrestriction",
       "href": "/graphql/reference/pulls#object-dismissalrestriction",
@@ -5475,6 +5506,13 @@
           "href": "/graphql/reference/commits#object-commit"
         },
         {
+          "name": "copilotCodeReviewEffort",
+          "description": "<p>The persisted effective effort used to produce this Copilot code review, or null if unavailable.</p>",
+          "type": "CopilotCodeReviewEffort",
+          "id": "copilotcoderevieweffort",
+          "href": "/graphql/reference/copilot#enum-copilotcoderevieweffort"
+        },
+        {
           "name": "createdAt",
           "description": "<p>Identifies the date and time when the object was created.</p>",
           "type": "DateTime!",
@@ -5521,6 +5559,13 @@
         {
           "name": "includesCreatedEdit",
           "description": "<p>Check if this comment was edited and includes an edit with the creation data.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "isCopilotCodeReview",
+          "description": "<p>Whether this review was produced by Copilot code review. Bot authorship alone does not establish provenance.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "href": "/graphql/reference/other#scalar-boolean"
@@ -5906,6 +5951,13 @@
           "href": "/graphql/reference/commits#object-commit"
         },
         {
+          "name": "copilotCodeReviewSources",
+          "description": "<p>Sources reported as contributing to this comment; may be incomplete.</p>",
+          "type": "[CopilotCodeReviewSource!]!",
+          "id": "copilotcodereviewsource",
+          "href": "/graphql/reference/pulls#object-copilotcodereviewsource"
+        },
+        {
           "name": "createdAt",
           "description": "<p>Identifies when the comment was created.</p>",
           "type": "DateTime!",
@@ -5966,6 +6018,13 @@
         {
           "name": "includesCreatedEdit",
           "description": "<p>Check if this comment was edited and includes an edit with the creation data.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "isCopilotCodeReview",
+          "description": "<p>Whether this comment was produced by Copilot code review.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "href": "/graphql/reference/other#scalar-boolean"
@@ -8135,6 +8194,28 @@
     }
   ],
   "enums": [
+    {
+      "name": "CopilotCodeReviewSourceKind",
+      "id": "copilotcodereviewsourcekind",
+      "href": "/graphql/reference/pulls#enum-copilotcodereviewsourcekind",
+      "description": "<p>The kind of source reported as contributing to a Copilot code review comment.</p>",
+      "isDeprecated": false,
+      "values": [
+        {
+          "name": "CUSTOM_INSTRUCTIONS",
+          "description": "<p>Custom instructions.</p>"
+        },
+        {
+          "name": "MCP",
+          "description": "<p>An MCP server.</p>"
+        },
+        {
+          "name": "SKILL",
+          "description": "<p>A skill.</p>"
+        }
+      ],
+      "category": "pulls"
+    },
     {
       "name": "DiffSide",
       "id": "diffside",

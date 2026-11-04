@@ -26,9 +26,9 @@ category:
   - Configure Copilot
 ---
 
-## Configuring content exclusion for your repository
+{% data reusables.copilot.content-exclusion-intro %} For more information and a list of supported clients, see [AUTOTITLE](/copilot/concepts/security-governance-and-network-settings/content-exclusion).
 
-You can use your repository settings to specify content in your repository that {% data variables.product.prodname_copilot %} should ignore.
+## Configuring content exclusion for your repository
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}

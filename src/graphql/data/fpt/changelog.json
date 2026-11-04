@@ -4,6 +4,30 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Type <code>CopilotCodeReviewSource</code> was added</p>",
+          "<p>Field <code>kind</code> was added to object type <code>CopilotCodeReviewSource</code></p>",
+          "<p>Field <code>name</code> was added to object type <code>CopilotCodeReviewSource</code></p>",
+          "<p>Field <code>path</code> was added to object type <code>CopilotCodeReviewSource</code></p>",
+          "<p>Type <code>CopilotCodeReviewSourceKind</code> was added</p>",
+          "<p>Enum value <code>CUSTOM_INSTRUCTIONS</code> was added to enum <code>CopilotCodeReviewSourceKind</code></p>",
+          "<p>Enum value <code>MCP</code> was added to enum <code>CopilotCodeReviewSourceKind</code></p>",
+          "<p>Enum value <code>SKILL</code> was added to enum <code>CopilotCodeReviewSourceKind</code></p>",
+          "<p>Field <code>copilotCodeReviewEffort</code> was added to object type <code>PullRequestReview</code></p>",
+          "<p>Field <code>isCopilotCodeReview</code> was added to object type <code>PullRequestReview</code></p>",
+          "<p>Field <code>copilotCodeReviewSources</code> was added to object type <code>PullRequestReviewComment</code></p>",
+          "<p>Field <code>isCopilotCodeReview</code> was added to object type <code>PullRequestReviewComment</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-11-04"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Type <code>CopilotCodeReviewEffort</code> was added</p>",
           "<p>Enum value <code>AUTO</code> was added to enum <code>CopilotCodeReviewEffort</code></p>",
           "<p>Enum value <code>BALANCED</code> was added to enum <code>CopilotCodeReviewEffort</code></p>",

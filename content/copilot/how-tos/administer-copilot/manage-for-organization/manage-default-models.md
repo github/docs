@@ -18,6 +18,9 @@ allowTitleToDifferFromFilename: true
 
 If your organization is part of an enterprise, the enterprise owner controls which {% data variables.product.prodname_copilot_short %} models are available and how they can be configured at the organization level.
 
+> [!TIP]
+> For guidance on coordinating model access with broader governance and rollout decisions, see [AUTOTITLE](/copilot/get-started/enterprise-ai-governance).
+
 When viewing the model settings for your organization, you may see the following statuses:
 
 * **Enabled** or **Disabled** with a {% octicon "shield" aria-label="shield" %} icon: The enterprise owner has enforced this setting. You cannot change the availability of this model.

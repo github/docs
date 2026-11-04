@@ -1,0 +1,1 @@
+You can configure content exclusion to make {% data variables.product.prodname_copilot_short %} ignore certain files.

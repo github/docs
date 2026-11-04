@@ -36,6 +36,21 @@ category:
    ghe-repl-setup PRIMARY_IP
    ```
 
+{% ifversion backup-service-cluster-ha %}
+
+1. If the primary appliance already uses {% data variables.product.prodname_enterprise_backup_service %}, keep its initialized backup disk mounted and do not reinitialize it. Connect to the primary appliance using SSH, set its `backup-server` role, and apply the configuration before starting replication. Only one node can have this role.
+
+   Replace `HOSTNAME` with the primary appliance's hostname as listed in `cluster.conf`.
+
+   ```shell
+   ghe-config cluster.HOSTNAME.backup-server true
+   ghe-config-apply
+   ```
+
+   For more information, see [AUTOTITLE](/admin/backing-up-and-restoring-your-instance/configuring-the-backup-service#reusing-a-previously-initialized-disk). Reconnect to the replica appliance using SSH before continuing.
+
+{% endif %}
+
 {% data reusables.enterprise_installation.replication-command %}
 {% data reusables.enterprise_installation.verify-replication-channel %}
 
