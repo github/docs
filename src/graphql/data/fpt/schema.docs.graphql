@@ -7907,6 +7907,46 @@ enum CopilotCodeReviewRequestReason @docsCategory(name: "copilot") {
 }
 
 """
+A validated source reported as contributing to a Copilot code review comment.
+"""
+type CopilotCodeReviewSource @docsCategory(name: "pulls") {
+  """
+  The kind of contributing source.
+  """
+  kind: CopilotCodeReviewSourceKind!
+
+  """
+  The reported source name, or "custom instructions" for CUSTOM_INSTRUCTIONS.
+  """
+  name: String!
+
+  """
+  The validated repository-relative source path, if available. Commit OIDs are not exposed.
+  """
+  path: String
+}
+
+"""
+The kind of source reported as contributing to a Copilot code review comment.
+"""
+enum CopilotCodeReviewSourceKind @docsCategory(name: "pulls") {
+  """
+  Custom instructions.
+  """
+  CUSTOM_INSTRUCTIONS
+
+  """
+  An MCP server.
+  """
+  MCP
+
+  """
+  A skill.
+  """
+  SKILL
+}
+
+"""
 Copilot endpoint information
 """
 type CopilotEndpoints @docsCategory(name: "copilot") {
@@ -46302,6 +46342,11 @@ type PullRequestReview implements Comment &
   commit: Commit
 
   """
+  The persisted effective effort used to produce this Copilot code review, or null if unavailable.
+  """
+  copilotCodeReviewEffort: CopilotCodeReviewEffort
+
+  """
   Identifies the date and time when the object was created.
   """
   createdAt: DateTime!
@@ -46338,6 +46383,11 @@ type PullRequestReview implements Comment &
   Check if this comment was edited and includes an edit with the creation data
   """
   includesCreatedEdit: Boolean!
+
+  """
+  Whether this review was produced by Copilot code review. Bot authorship alone does not establish provenance.
+  """
+  isCopilotCodeReview: Boolean!
 
   """
   Returns whether or not a comment has been minimized.
@@ -46565,6 +46615,11 @@ type PullRequestReviewComment implements Comment &
   commit: Commit
 
   """
+  Sources reported as contributing to this comment; may be incomplete.
+  """
+  copilotCodeReviewSources: [CopilotCodeReviewSource!]!
+
+  """
   Identifies when the comment was created.
   """
   createdAt: DateTime!
@@ -46611,6 +46666,11 @@ type PullRequestReviewComment implements Comment &
   Check if this comment was edited and includes an edit with the creation data
   """
   includesCreatedEdit: Boolean!
+
+  """
+  Whether this comment was produced by Copilot code review.
+  """
+  isCopilotCodeReview: Boolean!
 
   """
   Returns whether or not a comment has been minimized.
