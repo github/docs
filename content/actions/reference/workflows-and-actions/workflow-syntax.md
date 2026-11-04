@@ -343,11 +343,11 @@ A string description of the input parameter.
 
 ## `on.workflow_dispatch.inputs.<input_id>.default`
 
-The default value is used when an input parameter isn't specified in a workflow file.
+The default value used when the input is not specified when the workflow is triggered manually. For inputs with `type: choice`, the default must be one of the values listed in `options`.
 
 ## `on.workflow_dispatch.inputs.<input_id>.options`
 
-A sequence of strings that sets the options of the dropdown list. This applies only when the input `type` is `choice`.
+A sequence of strings that sets the options of the dropdown list. A dropdown list is only shown for inputs with `type: choice`; `options` is ignored for all other input types.
 
 ## `permissions`
 
