@@ -23,8 +23,7 @@ You can control the use of {% data variables.copilot.copilot_cli_short %} by con
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.ai-controls-tab %}
-1. To manage policies for **{% data variables.product.prodname_copilot_short %}**, in the sidebar, click {% octicon "copilot" aria-hidden="true" aria-label="copilot" %} **{% data variables.product.prodname_copilot_short %}**.
-1. Under "Features & clients," click **Configure features & clients**.
+{% data reusables.enterprise-accounts.copilot-features-and-clients %}
 1. In the "Clients" section, for {% data variables.copilot.copilot_cli_short %}, select your preferred policy.
 
 > [!NOTE]

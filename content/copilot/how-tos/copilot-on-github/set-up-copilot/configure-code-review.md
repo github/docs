@@ -154,11 +154,10 @@ You can configure how {% data variables.copilot.copilot_code-review_short %} com
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.ai-controls-tab %}
-1. Scroll down to "Available Agents", then click **{% data variables.copilot.copilot_code-review_short %}**.
+{% data reusables.enterprise-accounts.copilot-features-and-clients %}
 1. Next to "{% data variables.copilot.copilot_code-review_short %}", select a policy.
 1. To choose the depth of {% data variables.product.prodname_copilot_short %} code reviews, next to "Default review effort level," select the default effort level for your enterprise. Organizations and repositories can override this default.
 1. To limit the review effort available across the enterprise, next to "Maximum review effort," select **No limit**, **Lite**, **Balanced**, or **Max**. Organizations and repositories can choose the selected effort level or a lower level, but cannot exceed the maximum.
-1. Then choose which {% data variables.copilot.copilot_code-review_short %} features to enable for your enterprise.
 1. To choose who is billed for {% data variables.copilot.copilot_code-review_short %} usage by members with a paid {% data variables.product.prodname_copilot_short %} license, next to "Choose how members with a {% data variables.product.prodname_copilot_short %} license are billed," select a policy.
    * **Member**: Use the member's {% data variables.product.prodname_copilot_short %} entitlement for organizations in the enterprise.
    * **Organization**: Bill the organization that owns the repository.
