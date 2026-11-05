@@ -84,7 +84,7 @@ You can configure how {% data variables.copilot.copilot_code-review_short %} com
    * **Allow {% data variables.product.prodname_copilot_short %} approvals to count toward merge requirements**: Toggle on so {% data variables.product.prodname_copilot_short %} approvals can satisfy pull request approval requirements.
    * **File paths**: Optionally, limit which pull requests count toward merge requirements. Enter one file glob per line to count approvals only on pull requests where every changed file matches one of the globs. Leave blank to count approvals for all files. Up to 15 globs are supported.
 
-1. To prevent people from using an external {% data variables.product.prodname_copilot_short %} license to request reviews in this repository, enable **Only allow {% data variables.copilot.copilot_code-review_short %} to be triggered by authorized users**. If this setting is enabled for your organization, you cannot turn it off for the repository. See [AUTOTITLE](/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/code-review#reviews-requested-with-an-external-copilot-license).
+1. To prevent people from using an external {% data variables.product.prodname_copilot_short %} license to request reviews in this repository, enable **Block reviews requested with an external {% data variables.product.prodname_copilot_short %} license**. If this setting is enabled for your organization, you cannot turn it off for the repository. See [AUTOTITLE](/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/code-review#reviews-requested-with-an-external-copilot-license).
 
 ## Configuring automatic code review for repositories in an organization
 
@@ -134,7 +134,7 @@ You can configure how {% data variables.copilot.copilot_code-review_short %} com
    * **Enable for selected repositories**: {% data variables.product.prodname_copilot_short %} approvals can count toward merge requirements only in the repositories you select. If you choose this option, also assign the repositories you want to enable this for.
    * **Disabled everywhere**: {% data variables.product.prodname_copilot_short %} approvals cannot count toward merge requirements in any repository in the organization.
 
-1. To prevent people from using an external {% data variables.product.prodname_copilot_short %} license to request reviews in your organization's repositories, enable **Only allow {% data variables.copilot.copilot_code-review_short %} to be triggered by authorized users**. This setting applies to every repository in the organization, and repository administrators cannot turn it off.
+1. To prevent people from using an external {% data variables.product.prodname_copilot_short %} license to request reviews in your organization's repositories, enable **Block reviews requested with an external {% data variables.product.prodname_copilot_short %} license**. This setting applies to every repository in the organization, and repository administrators cannot turn it off.
 
 ## Configuring automatic code review for an enterprise
 
