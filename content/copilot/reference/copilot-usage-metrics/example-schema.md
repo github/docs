@@ -64,6 +64,7 @@ The following examples show schemas for user-, enterprise-, and repository-level
     "totals_by_model": [{
       "model": "claude-opus-5.5",
       "model_selection_mode": "user_selected",
+      "is_custom_enterprise_model": false,
       "request_count": 2,
       "token_usage": {
         "avg_tokens_per_request": 1200.0,
@@ -73,6 +74,7 @@ The following examples show schemas for user-, enterprise-, and repository-level
     }, {
       "model": "claude-sonnet-5",
       "model_selection_mode": "auto",
+      "is_custom_enterprise_model": false,
       "request_count": 1,
       "token_usage": {
         "avg_tokens_per_request": 900.0,
@@ -82,21 +84,32 @@ The following examples show schemas for user-, enterprise-, and repository-level
     }]
   }, {
     "client": "copilot_cli",
-    "request_count": 1,
+    "request_count": 2,
     "session_count": 1,
     "token_usage": {
-      "avg_tokens_per_request": 600.0,
-      "output_tokens_sum": 100,
-      "prompt_tokens_sum": 500
+      "avg_tokens_per_request": 900.0,
+      "output_tokens_sum": 300,
+      "prompt_tokens_sum": 1500
     },
     "totals_by_model": [{
       "model": "gpt-5.6-sol",
       "model_selection_mode": "user_selected",
+      "is_custom_enterprise_model": false,
       "request_count": 1,
       "token_usage": {
         "avg_tokens_per_request": 600.0,
         "output_tokens_sum": 100,
         "prompt_tokens_sum": 500
+      }
+    }, {
+      "model": "gpt-5.6-sol",
+      "model_selection_mode": "user_selected",
+      "is_custom_enterprise_model": true,
+      "request_count": 1,
+      "token_usage": {
+        "avg_tokens_per_request": 1200.0,
+        "output_tokens_sum": 200,
+        "prompt_tokens_sum": 1000
       }
     }]
   }],
@@ -184,6 +197,18 @@ The following examples show schemas for user-, enterprise-, and repository-level
     "loc_suggested_to_delete_sum": 6
   }],
   "totals_by_language_model": [],
+  "totals_by_local_byok": [{
+    "byok_kind": "local_managed",
+    "prompt_count": 2,
+    "request_count": 2,
+    "session_count": 2,
+    "surface": "copilot_cli",
+    "token_usage": {
+      "avg_tokens_per_request": 4200.0,
+      "output_tokens_sum": 4800,
+      "prompt_tokens_sum": 3600
+    }
+  }],
   "totals_by_mcp": [{
     "interaction_count": 8,
     "mcp": "github-mcp-server"
@@ -225,6 +250,7 @@ The following examples show schemas for user-, enterprise-, and repository-level
   "used_copilot_code_review_active": null,
   "used_copilot_code_review_passive": null,
   "used_copilot_coding_agent": false,
+  "used_local_byok": true,
   "used_vscode_agent": true,
   "user_id": 1,
   "user_login": "login1",
@@ -242,7 +268,7 @@ Customizations with unavailable names or names that look like file paths remain 
 
 For coverage and naming rules, see [AUTOTITLE](/copilot/reference/copilot-usage-metrics/copilot-usage-metrics#customization-fields-api-only).
 
-The `totals_by_client` array appears at the top level of each user record in both 1-day and 28-day per-user reports, for both enterprise and organization scopes. It counts successful model requests server-side, so it can include clients, such as OpenCode, that don't appear in `totals_by_ide`.
+The `totals_by_client` array appears at the top level of each user record in both 1-day and 28-day per-user reports, for both enterprise and organization scopes. It counts successful model requests server-side, so it can include clients, such as OpenCode, that don't appear in `totals_by_ide`. Each `totals_by_model` entry includes `is_custom_enterprise_model`. In this example, `gpt-5.6-sol` appears twice for `copilot_cli` because the user ran it both as a {% data variables.product.prodname_copilot_short %}-hosted model and as an enterprise custom model. Local BYOK requests don't go through {% data variables.product.github %}, so they appear in `totals_by_local_byok` rather than `totals_by_client`.
 
 In this example, `used_copilot_code_review_active` and `used_copilot_code_review_passive` are `null` because there was no {% data variables.copilot.copilot_code-review_short %} signal for the user that day. `used_copilot_cloud_agent` and `used_copilot_coding_agent` always carry the same value.
 
@@ -257,6 +283,7 @@ In this example, `used_copilot_code_review_active` and `used_copilot_code_review
     "daily_active_copilot_app_users" : 1,
     "daily_active_copilot_cloud_agent_users" : 1,
     "daily_active_copilot_code_review_users" : 1,
+    "daily_active_local_byok_users" : 2,
     "daily_active_users" : 2,
     "daily_active_vscode_agent_users" : 2,
     "daily_passive_copilot_code_review_users" : 0,
@@ -275,6 +302,7 @@ In this example, `used_copilot_code_review_active` and `used_copilot_code_review
     "monthly_active_chat_users" : 0,
     "monthly_active_copilot_cloud_agent_users" : 1,
     "monthly_active_copilot_code_review_users" : 1,
+    "monthly_active_local_byok_users" : 2,
     "monthly_active_users" : 2,
     "monthly_active_vscode_agent_users" : 2,
     "monthly_passive_copilot_code_review_users" : 0,
@@ -362,6 +390,7 @@ In this example, `used_copilot_code_review_active` and `used_copilot_code_review
       "totals_by_model" : [ {
         "model" : "claude-opus-5.5",
         "model_selection_mode" : "user_selected",
+        "is_custom_enterprise_model" : false,
         "request_count" : 2,
         "token_usage" : {
           "avg_tokens_per_request" : 1200.0,
@@ -371,6 +400,7 @@ In this example, `used_copilot_code_review_active` and `used_copilot_code_review
       }, {
         "model" : "claude-sonnet-5",
         "model_selection_mode" : "auto",
+        "is_custom_enterprise_model" : false,
         "request_count" : 1,
         "token_usage" : {
           "avg_tokens_per_request" : 900.0,
@@ -390,6 +420,7 @@ In this example, `used_copilot_code_review_active` and `used_copilot_code_review
       "totals_by_model" : [ {
         "model" : "gpt-5.6-sol",
         "model_selection_mode" : "user_selected",
+        "is_custom_enterprise_model" : false,
         "request_count" : 1,
         "token_usage" : {
           "avg_tokens_per_request" : 600.0,
@@ -464,6 +495,29 @@ In this example, `used_copilot_code_review_active` and `used_copilot_code_review
       "loc_suggested_to_delete_sum" : 6
     } ],
     "totals_by_language_model" : [ ],
+    "totals_by_local_byok" : [ {
+      "byok_kind" : "local_managed",
+      "prompt_count" : 2,
+      "request_count" : 2,
+      "session_count" : 2,
+      "surface" : "copilot_cli",
+      "token_usage" : {
+        "avg_tokens_per_request" : 4900.0,
+        "output_tokens_sum" : 5500,
+        "prompt_tokens_sum" : 4300
+      }
+    }, {
+      "byok_kind" : "remote_user",
+      "prompt_count" : 1,
+      "request_count" : 1,
+      "session_count" : 1,
+      "surface" : "copilot_cli",
+      "token_usage" : {
+        "avg_tokens_per_request" : 2500.0,
+        "output_tokens_sum" : 1500,
+        "prompt_tokens_sum" : 1000
+      }
+    } ],
     "totals_by_mcp" : [ {
       "interaction_count" : 12,
       "mcp" : "github-mcp-server"
@@ -494,6 +548,7 @@ In this example, `used_copilot_code_review_active` and `used_copilot_code_review
     "user_initiated_interaction_count" : 1,
     "weekly_active_copilot_cloud_agent_users" : 1,
     "weekly_active_copilot_code_review_users" : 1,
+    "weekly_active_local_byok_users" : 2,
     "weekly_active_users" : 2,
     "weekly_active_vscode_agent_users" : 2,
     "weekly_passive_copilot_code_review_users" : 0
@@ -532,6 +587,7 @@ In this example, `used_copilot_code_review_active` and `used_copilot_code_review
     "code_generation_activity_count" : 3,
     "daily_active_copilot_cloud_agent_users" : 0,
     "daily_active_copilot_code_review_users" : 0,
+    "daily_active_local_byok_users" : 0,
     "daily_active_users" : 2,
     "daily_passive_copilot_code_review_users" : 0,
     "day" : "2025-10-01",
@@ -549,6 +605,7 @@ In this example, `used_copilot_code_review_active` and `used_copilot_code_review
     "monthly_active_chat_users" : 0,
     "monthly_active_copilot_cloud_agent_users" : 0,
     "monthly_active_copilot_code_review_users" : 0,
+    "monthly_active_local_byok_users" : 0,
     "monthly_active_users" : 2,
     "monthly_passive_copilot_code_review_users" : 0,
     "pull_requests" : {
@@ -611,6 +668,7 @@ In this example, `used_copilot_code_review_active` and `used_copilot_code_review
       "totals_by_model" : [ {
         "model" : "gpt-5.6-sol",
         "model_selection_mode" : "user_selected",
+        "is_custom_enterprise_model" : false,
         "request_count" : 2,
         "token_usage" : {
           "avg_tokens_per_request" : 1000.0,
@@ -630,6 +688,7 @@ In this example, `used_copilot_code_review_active` and `used_copilot_code_review
       "totals_by_model" : [ {
         "model" : "unknown",
         "model_selection_mode" : "product_selected",
+        "is_custom_enterprise_model" : false,
         "request_count" : 2,
         "token_usage" : {
           "avg_tokens_per_request" : 800.0,
@@ -688,6 +747,7 @@ In this example, `used_copilot_code_review_active` and `used_copilot_code_review
       "loc_suggested_to_delete_sum" : 3
     } ],
     "totals_by_language_model" : [ ],
+    "totals_by_local_byok" : null,
     "totals_by_mcp" : [ ],
     "totals_by_model_feature" : [ ],
     "totals_by_plugin" : [ ],
@@ -696,6 +756,7 @@ In this example, `used_copilot_code_review_active` and `used_copilot_code_review
     "user_initiated_interaction_count" : 1,
     "weekly_active_copilot_cloud_agent_users" : 0,
     "weekly_active_copilot_code_review_users" : 0,
+    "weekly_active_local_byok_users" : 0,
     "weekly_active_users" : 2,
     "weekly_passive_copilot_code_review_users" : 0
   } ],

@@ -102,7 +102,7 @@ These fields identify the scope and date of each record. The exact set present d
 
 ### Per-user report fields
 
-Per-user reports contain one record per user for the reporting period. The 28-day per-user report also includes `report_start_day` and `report_end_day` to mark the reporting window.
+Per-user reports contain one record per user per day. The 28-day per-user report contains a record for each day in the window, and each record also includes `report_start_day` and `report_end_day` to mark the reporting window.
 
 | Field | Type | Nullable | Description |
 |:--|:--|:--|:--|
@@ -120,6 +120,7 @@ Per-user reports contain one record per user for the reporting period. The 28-da
 | `used_chat` | `boolean` | No | Whether the user used IDE chat that day. |
 | `used_cli` | `boolean` | No | Whether the user used {% data variables.copilot.copilot_cli_short %} that day. |
 | `used_copilot_app` | `boolean` | No | Whether the user used the {% data variables.copilot.github_copilot_app_short %} that day. |
+| `used_local_byok` | `boolean` | Yes | Whether the user made at least one bring your own key (BYOK) request in {% data variables.copilot.copilot_cli_short %} or the {% data variables.copilot.github_copilot_app_short %} that day. `false` when no BYOK request was observed. Null when the signal is unavailable. This is a per-day value, including in each day of 28-day reports. See [BYOK metrics fields](#byok-metrics-fields). |
 | `used_copilot_coding_agent` | `boolean` | No | Whether the user used {% data variables.copilot.copilot_cloud_agent %} (previously Copilot coding agent) that day. |
 | `used_copilot_cloud_agent` | `boolean` | No | Whether the user used {% data variables.copilot.copilot_cloud_agent %} that day. Carries the same value as `used_copilot_coding_agent`; both names are retained for backward compatibility. |
 | `used_copilot_code_review_active` | `boolean` | Yes | Whether the user actively engaged with {% data variables.copilot.copilot_code-review_short %} that day. A user is considered active if they manually requested a {% data variables.product.prodname_copilot_short %} review, or applied a {% data variables.product.prodname_copilot_short %} review suggestion. Null when there is no {% data variables.copilot.copilot_code-review_short %} signal for the user that day. |
@@ -138,6 +139,7 @@ Per-user reports contain one record per user for the reporting period. The 28-da
 | `totals_by_plugin` | `array` | Yes | Top plugins by recorded interaction count across supported clients. See [Customization fields](#customization-fields-api-only). |
 | `totals_by_cli` | `object` | Yes | CLI-specific metrics for the user. Omitted when the user had no {% data variables.copilot.copilot_cli_short %} usage that day. See [{% data variables.copilot.copilot_cli_short %} metrics fields](#copilot-cli-metrics-fields). |
 | `totals_by_copilot_app` | `object` | Yes | The {% data variables.copilot.github_copilot_app_short %} metrics for the user. Omitted when the user did not use the {% data variables.copilot.github_copilot_app_short %} that day. See [Metrics fields for the {% data variables.copilot.github_copilot_app_short %}](#copilot-app-metrics-fields). |
+| `totals_by_local_byok` | `array` | Yes | BYOK usage for the user, with one entry for each BYOK kind and surface that had activity that day. This usage is a subset of `totals_by_cli` and `totals_by_copilot_app`. Omitted or null when the user had no BYOK requests that day. See [BYOK metrics fields](#byok-metrics-fields). |
 | `totals_by_3rd_party_agent` | `array` | Yes | Per-agent usage metrics for recognized {% data variables.copilot.agent_apps %}. Omitted when the user had no recognized {% data variables.copilot.agent_app %} activity during the reporting period. See [{% data variables.copilot.agent_apps_caps %} metrics fields](#agent-apps-metrics-fields). |
 | `totals_by_client` | `array` | No | Per-client breakdown of the user's successful model requests and token usage, counted server-side. The array is always present and is empty when there is no usage to report. See [Client metrics fields](#client-metrics-fields). |
 | `totals_by_vscode_agent` | `object` | Yes | Dedicated {% data variables.product.prodname_vscode_shortname %} Agents-window metrics for the user. Omitted when both required counts are not available. See [{% data variables.product.prodname_vscode_shortname %} Agents-window metrics fields](#vs-code-agents-window-metrics-fields). |
@@ -173,6 +175,9 @@ Active-user counts:
 | `monthly_passive_copilot_code_review_users` | `integer` | No | Number of unique users who had {% data variables.copilot.copilot_code-review_short %} automatically assigned to review their pull request during a trailing 28-day window, with no active engagement. |
 | `daily_active_cli_users` | `integer` | Yes | Number of unique users who used {% data variables.copilot.copilot_cli_short %} on a given day. This count is **independent** of IDE active-user counts and is **not** included in IDE-based active-user definitions. Omitted for enterprises or organizations with no CLI usage that day. |
 | `daily_active_copilot_app_users` | `integer` | Yes | Number of unique users who used the {% data variables.copilot.github_copilot_app_short %} on a given day. Null when the enterprise or organization has no activity in the {% data variables.copilot.github_copilot_app_short %} that day. |
+| `daily_active_local_byok_users` | `integer` | Yes | Number of unique users who made BYOK requests in {% data variables.copilot.copilot_cli_short %} or the {% data variables.copilot.github_copilot_app_short %} on a given day. See [BYOK metrics fields](#byok-metrics-fields). |
+| `weekly_active_local_byok_users` | `integer` | Yes | Number of unique users who made BYOK requests from Sunday through the report day, inclusive. This calendar-to-date count is not a sum of daily counts. |
+| `monthly_active_local_byok_users` | `integer` | Yes | Number of unique users who made BYOK requests from the first day of the calendar month through the report day, inclusive. This calendar-to-date count is not a sum of daily counts. |
 | `daily_active_vscode_agent_users` | `integer` | Yes | Number of unique users who used the dedicated {% data variables.product.prodname_vscode_shortname %} Agents window on a given day. Omitted when no dedicated Agents-window data is available for the enterprise or organization. |
 
 Activity totals and breakdowns:
@@ -203,6 +208,7 @@ Activity totals and breakdowns:
 | `totals_by_model_feature` | `array` | No | Aggregated model-and-feature activity breakdown. See [Activity breakdown objects](#activity-breakdown-objects). |
 | `totals_by_cli` | `object` | Yes | Aggregated {% data variables.copilot.copilot_cli_short %} metrics for the day. Omitted when there is no CLI usage that day. Unlike the per-user form, it does not include `last_known_cli_version`. See [{% data variables.copilot.copilot_cli_short %} metrics fields](#copilot-cli-metrics-fields). |
 | `totals_by_copilot_app` | `object` | Yes | Aggregated daily metrics for the {% data variables.copilot.github_copilot_app_short %}. Null when the enterprise or organization has no activity in the {% data variables.copilot.github_copilot_app_short %} that day. See [Metrics fields for the {% data variables.copilot.github_copilot_app_short %}](#copilot-app-metrics-fields). |
+| `totals_by_local_byok` | `array` | Yes | Aggregated BYOK usage for the day, with one entry for each BYOK kind and surface that had activity. This usage is a subset of `totals_by_cli` and `totals_by_copilot_app`. Omitted or null when the enterprise or organization had no BYOK requests that day. See [BYOK metrics fields](#byok-metrics-fields). |
 | `totals_by_3rd_party_agent` | `array` | Yes | Aggregated per-agent usage metrics for recognized {% data variables.copilot.agent_apps %}. Omitted when the enterprise or organization had no recognized {% data variables.copilot.agent_app %} activity that day. See [{% data variables.copilot.agent_apps_caps %} metrics fields](#agent-apps-metrics-fields). |
 | `totals_by_client` | `array` | No | Aggregated per-client breakdown of successful model requests and token usage for the day, counted server-side. The array is always present and is empty when there is no usage to report. In 28-day reports, this field appears within each `day_totals` entry. See [Client metrics fields](#client-metrics-fields). |
 | `totals_by_vscode_agent` | `object` | Yes | Aggregated dedicated {% data variables.product.prodname_vscode_shortname %} Agents-window metrics for the day. Omitted when both required counts are not available. See [{% data variables.product.prodname_vscode_shortname %} Agents-window metrics fields](#vs-code-agents-window-metrics-fields). |
@@ -387,6 +393,39 @@ The `totals_by_copilot_app` object contains the following nested fields when usa
 | `totals_by_copilot_app.token_usage.prompt_tokens_sum` | `integer` | No | Total prompt tokens sent across all requests in the {% data variables.copilot.github_copilot_app_short %} on this day. |
 | `totals_by_copilot_app.token_usage.avg_tokens_per_request` | `number` | Yes | Average of output and prompt tokens per request in the {% data variables.copilot.github_copilot_app_short %}, computed as `(output_tokens_sum + prompt_tokens_sum) ÷ request_count`. Null when there were no requests that day. |
 
+### BYOK metrics fields
+
+The bring your own key (BYOK) fields break out usage of user-configured provider keys and local models, such as Ollama, Foundry Local, LM Studio, and llama-server, in {% data variables.copilot.copilot_cli_short %} and the {% data variables.copilot.github_copilot_app_short %}. The fields appear in enterprise, organization, enterprise-user, and organization-user 1-day reports, and in each day of the corresponding 28-day reports. The top-level BYOK fields (`used_local_byok`, `totals_by_local_byok`, and the active local BYOK user counts) are nullable.
+
+The `totals_by_local_byok` array is a subset of `totals_by_cli` (surface `copilot_cli`) and `totals_by_copilot_app` (surface `copilot_app`), not additional usage. For each surface, the summed `request_count`, `prompt_count`, and token sums are less than or equal to the values in the parent object. BYOK requests have no {% data variables.product.prodname_copilot_short %} usage charges or premium request cost. Your model provider may still charge for hosted-model usage. Values are a lower bound because client telemetry can be disabled, and token sums can undercount because some local providers don't return token usage.
+
+> [!NOTE]
+> Local BYOK and enterprise custom models are reported separately.
+>
+> * **Local BYOK** is configured by a developer in their client, and requests go directly to the provider. It's reported from client telemetry in the `*_local_byok` fields. {% data variables.copilot.copilot_cli_short %} and the {% data variables.copilot.github_copilot_app_short %} are covered today. IDEs aren't covered yet.
+> * **Enterprise custom models** are configured by an enterprise or organization owner in {% data variables.product.github %} settings, and requests are routed through {% data variables.product.github %}. They're reported server-side for every client through `is_custom_enterprise_model` in `totals_by_client[].totals_by_model[]`. See [Client metrics fields](#client-metrics-fields).
+
+Each entry in the `totals_by_local_byok` array contains the following fields.
+
+| Field | Type | Nullable | Description |
+|:--|:--|:--|:--|
+| `byok_kind` | `string` | No | Kind of BYOK usage: `local_managed` (a {% data variables.product.prodname_copilot_short %}-managed local model), `local_user` (a user-run local model server, such as Ollama or LM Studio), `local_auto` (a local model selected through Auto), or `remote_user` (the user's own key for a hosted provider). |
+| `surface` | `string` | No | Client surface: `copilot_cli` or `copilot_app`. Treat this as an open set, because more values can be added. |
+| `session_count` | `integer` | No | Number of distinct sessions with this BYOK kind on this surface. A session can switch kinds, so don't sum session counts across entries. |
+| `request_count` | `integer` | No | Number of model requests with this BYOK kind on this surface. |
+| `prompt_count` | `integer` | Yes | Number of reported user prompts. A value of `0` can mean that the client did not report prompts. |
+| `token_usage.output_tokens_sum` | `integer` | No | Total output tokens across those requests. |
+| `token_usage.prompt_tokens_sum` | `integer` | No | Total prompt tokens across those requests. |
+| `token_usage.avg_tokens_per_request` | `number` | Yes | Average of output and prompt tokens per request, computed as `(output_tokens_sum + prompt_tokens_sum) ÷ request_count`. When combining entries, recompute this value from the summed totals instead of averaging the averages. |
+
+#### Comparing BYOK and {% data variables.product.prodname_copilot_short %}-hosted usage
+
+Per-user reports put BYOK usage next to the activity fields you already use. You can group users by how much of their usage is local BYOK (`totals_by_local_byok`) or enterprise custom models (`is_custom_enterprise_model` in `totals_by_client`). Then compare those groups on fields such as `loc_added_sum`, `ai_credits_used`, and `ai_adoption_phase`.
+
+Pull request fields are aggregated rather than per user. To compare pull request throughput or merge rate, join on `user_login` with pull request data from [AUTOTITLE](/rest/pulls/pulls).
+
+These comparisons are observational. Users can mix models within a day, and outcomes aren't attributed to a specific model.
+
 ### {% data variables.product.prodname_vscode_shortname %} Agents-window metrics fields
 
 The dedicated {% data variables.product.prodname_vscode_shortname %} Agents-window fields appear in enterprise, organization, enterprise-user, and organization-user 1-day and 28-day reports. In aggregated 28-day reports, they appear within each applicable `day_totals` entry, and weekly and monthly counts are calculated relative to the `day` of each entry. In per-user 28-day reports, they appear at the top level of each user record.
@@ -441,10 +480,11 @@ The `totals_by_client` array appears at the top level of each record in per-user
 | `totals_by_client[].token_usage.prompt_tokens_sum` | `integer` | No | Total number of prompt tokens sent across the client's requests. |
 | `totals_by_client[].token_usage.output_tokens_sum` | `integer` | No | Total number of output tokens generated across the client's requests. |
 | `totals_by_client[].token_usage.avg_tokens_per_request` | `number` | No | Average number of **output** and **prompt** tokens per request, computed as `(output_tokens_sum + prompt_tokens_sum) ÷ request_count`. |
-| `totals_by_client[].totals_by_model` | `array` | No | Per-model breakdown of the client's requests and token usage. Entries are keyed on `model` and `model_selection_mode`, so the same model can appear more than once with different selection modes. |
-| `totals_by_client[].totals_by_model[].model` | `string` | No | Model used for the requests. For `code_review`, the model is always reported as `unknown`. |
+| `totals_by_client[].totals_by_model` | `array` | No | Per-model breakdown of the client's requests and token usage. Entries are keyed on `model`, `model_selection_mode`, and `is_custom_enterprise_model`, so the same model can appear more than once. For example, a model used both as an enterprise custom model and as a {% data variables.product.prodname_copilot_short %}-hosted model has two entries. |
+| `totals_by_client[].totals_by_model[].model` | `string` | No | Model used for the requests. For `code_review`, the model is always reported as `unknown`. Enterprise custom model names that can't be matched to a known model are also reported as `unknown`. |
 | `totals_by_client[].totals_by_model[].model_selection_mode` | `string` | No | How the model was selected. Possible values are `user_selected` (a specific model was requested rather than Auto), `product_selected` (the product chose the model, used for all {% data variables.copilot.copilot_code-review_short %} and {% data variables.copilot.copilot_cloud_agent %} requests), `auto` (Auto chose the model), `other` (selection modes that are grouped together and not yet reported individually), and `unknown` (a selection mode sent by the client that couldn't be normalized). |
-| `totals_by_client[].totals_by_model[].request_count` | `integer` | No | Number of successful model requests from the client that used this model and selection mode. |
+| `totals_by_client[].totals_by_model[].is_custom_enterprise_model` | `boolean` | Yes | Whether the requests used an enterprise custom model. `true` for custom models that an enterprise or organization owner configured in {% data variables.product.github %} settings. `false` for {% data variables.product.prodname_copilot_short %}-hosted models, including when no custom model signal is available. Determined server-side. Omitted for report days before this field was introduced. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/enable-custom-models). |
+| `totals_by_client[].totals_by_model[].request_count` | `integer` | No | Number of successful model requests from the client that used this model, selection mode, and custom model status. |
 | `totals_by_client[].totals_by_model[].token_usage.prompt_tokens_sum` | `integer` | No | Total number of prompt tokens sent across these requests. |
 | `totals_by_client[].totals_by_model[].token_usage.output_tokens_sum` | `integer` | No | Total number of output tokens generated across these requests. |
 | `totals_by_client[].totals_by_model[].token_usage.avg_tokens_per_request` | `number` | No | Average number of **output** and **prompt** tokens per request, computed as `(output_tokens_sum + prompt_tokens_sum) ÷ request_count`. |
