@@ -17891,6 +17891,41 @@
                 "description": "Pull Request Review Comments are comments on a portion of the Pull Request's diff.",
                 "type": "object",
                 "properties": {
+                  "is_copilot_code_review": {
+                    "description": "Whether this comment was produced by Copilot code review. Not returned for issue timeline events.",
+                    "type": "boolean"
+                  },
+                  "copilot_code_review_sources": {
+                    "description": "Sources reported as contributing to this comment; may be incomplete. Not returned for issue timeline events.",
+                    "type": "array",
+                    "maxItems": 16,
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "kind": {
+                          "description": "The kind of contributing source.",
+                          "type": "string",
+                          "enum": [
+                            "SKILL",
+                            "MCP",
+                            "CUSTOM_INSTRUCTIONS"
+                          ]
+                        },
+                        "name": {
+                          "description": "The reported source name, or \"custom instructions\" for CUSTOM_INSTRUCTIONS.",
+                          "type": "string"
+                        },
+                        "path": {
+                          "description": "The validated repository-relative source path, if available. Commit OIDs are not exposed.",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "kind",
+                        "name"
+                      ]
+                    }
+                  },
                   "url": {
                     "description": "URL for the pull request review comment",
                     "type": "string"
@@ -18405,6 +18440,41 @@
               "description": "Pull Request Review Comments are comments on a portion of the Pull Request's diff.",
               "type": "object",
               "properties": {
+                "is_copilot_code_review": {
+                  "description": "Whether this comment was produced by Copilot code review. Not returned for issue timeline events.",
+                  "type": "boolean"
+                },
+                "copilot_code_review_sources": {
+                  "description": "Sources reported as contributing to this comment; may be incomplete. Not returned for issue timeline events.",
+                  "type": "array",
+                  "maxItems": 16,
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "kind": {
+                        "description": "The kind of contributing source.",
+                        "type": "string",
+                        "enum": [
+                          "SKILL",
+                          "MCP",
+                          "CUSTOM_INSTRUCTIONS"
+                        ]
+                      },
+                      "name": {
+                        "description": "The reported source name, or \"custom instructions\" for CUSTOM_INSTRUCTIONS.",
+                        "type": "string"
+                      },
+                      "path": {
+                        "description": "The validated repository-relative source path, if available. Commit OIDs are not exposed.",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "kind",
+                      "name"
+                    ]
+                  }
+                },
                 "url": {
                   "description": "URL for the pull request review comment",
                   "type": "string"
@@ -18937,6 +19007,41 @@
               "description": "Pull Request Review Comments are comments on a portion of the Pull Request's diff.",
               "type": "object",
               "properties": {
+                "is_copilot_code_review": {
+                  "description": "Whether this comment was produced by Copilot code review. Not returned for issue timeline events.",
+                  "type": "boolean"
+                },
+                "copilot_code_review_sources": {
+                  "description": "Sources reported as contributing to this comment; may be incomplete. Not returned for issue timeline events.",
+                  "type": "array",
+                  "maxItems": 16,
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "kind": {
+                        "description": "The kind of contributing source.",
+                        "type": "string",
+                        "enum": [
+                          "SKILL",
+                          "MCP",
+                          "CUSTOM_INSTRUCTIONS"
+                        ]
+                      },
+                      "name": {
+                        "description": "The reported source name, or \"custom instructions\" for CUSTOM_INSTRUCTIONS.",
+                        "type": "string"
+                      },
+                      "path": {
+                        "description": "The validated repository-relative source path, if available. Commit OIDs are not exposed.",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "kind",
+                      "name"
+                    ]
+                  }
+                },
                 "url": {
                   "description": "URL for the pull request review comment",
                   "type": "string"
@@ -19584,6 +19689,41 @@
                 "description": "Pull Request Review Comments are comments on a portion of the Pull Request's diff.",
                 "type": "object",
                 "properties": {
+                  "is_copilot_code_review": {
+                    "description": "Whether this comment was produced by Copilot code review. Not returned for issue timeline events.",
+                    "type": "boolean"
+                  },
+                  "copilot_code_review_sources": {
+                    "description": "Sources reported as contributing to this comment; may be incomplete. Not returned for issue timeline events.",
+                    "type": "array",
+                    "maxItems": 16,
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "kind": {
+                          "description": "The kind of contributing source.",
+                          "type": "string",
+                          "enum": [
+                            "SKILL",
+                            "MCP",
+                            "CUSTOM_INSTRUCTIONS"
+                          ]
+                        },
+                        "name": {
+                          "description": "The reported source name, or \"custom instructions\" for CUSTOM_INSTRUCTIONS.",
+                          "type": "string"
+                        },
+                        "path": {
+                          "description": "The validated repository-relative source path, if available. Commit OIDs are not exposed.",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "kind",
+                        "name"
+                      ]
+                    }
+                  },
                   "url": {
                     "description": "URL for the pull request review comment",
                     "type": "string"
@@ -20175,6 +20315,41 @@
               "description": "Pull Request Review Comments are comments on a portion of the Pull Request's diff.",
               "type": "object",
               "properties": {
+                "is_copilot_code_review": {
+                  "description": "Whether this comment was produced by Copilot code review. Not returned for issue timeline events.",
+                  "type": "boolean"
+                },
+                "copilot_code_review_sources": {
+                  "description": "Sources reported as contributing to this comment; may be incomplete. Not returned for issue timeline events.",
+                  "type": "array",
+                  "maxItems": 16,
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "kind": {
+                        "description": "The kind of contributing source.",
+                        "type": "string",
+                        "enum": [
+                          "SKILL",
+                          "MCP",
+                          "CUSTOM_INSTRUCTIONS"
+                        ]
+                      },
+                      "name": {
+                        "description": "The reported source name, or \"custom instructions\" for CUSTOM_INSTRUCTIONS.",
+                        "type": "string"
+                      },
+                      "path": {
+                        "description": "The validated repository-relative source path, if available. Commit OIDs are not exposed.",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "kind",
+                      "name"
+                    ]
+                  }
+                },
                 "url": {
                   "description": "URL for the pull request review comment",
                   "type": "string"
@@ -20716,6 +20891,41 @@
               "description": "Pull Request Review Comments are comments on a portion of the Pull Request's diff.",
               "type": "object",
               "properties": {
+                "is_copilot_code_review": {
+                  "description": "Whether this comment was produced by Copilot code review. Not returned for issue timeline events.",
+                  "type": "boolean"
+                },
+                "copilot_code_review_sources": {
+                  "description": "Sources reported as contributing to this comment; may be incomplete. Not returned for issue timeline events.",
+                  "type": "array",
+                  "maxItems": 16,
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "kind": {
+                        "description": "The kind of contributing source.",
+                        "type": "string",
+                        "enum": [
+                          "SKILL",
+                          "MCP",
+                          "CUSTOM_INSTRUCTIONS"
+                        ]
+                      },
+                      "name": {
+                        "description": "The reported source name, or \"custom instructions\" for CUSTOM_INSTRUCTIONS.",
+                        "type": "string"
+                      },
+                      "path": {
+                        "description": "The validated repository-relative source path, if available. Commit OIDs are not exposed.",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "kind",
+                      "name"
+                    ]
+                  }
+                },
                 "url": {
                   "description": "URL for the pull request review comment",
                   "type": "string"
@@ -32755,6 +32965,17 @@
                   "state": {
                     "type": "string"
                   },
+                  "is_copilot_code_review": {
+                    "description": "Whether this review was produced by Copilot code review. Bot authorship alone does not establish provenance.",
+                    "type": "boolean"
+                  },
+                  "copilot_code_review_effort": {
+                    "description": "The persisted effective effort used to produce this Copilot code review, or null if unavailable. For more information, see [Review effort level](https://docs.github.com/enterprise-cloud@latest/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/code-review#review-effort-level).",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
                   "html_url": {
                     "type": "string",
                     "format": "uri"
@@ -33171,6 +33392,17 @@
                 "state": {
                   "type": "string"
                 },
+                "is_copilot_code_review": {
+                  "description": "Whether this review was produced by Copilot code review. Bot authorship alone does not establish provenance.",
+                  "type": "boolean"
+                },
+                "copilot_code_review_effort": {
+                  "description": "The persisted effective effort used to produce this Copilot code review, or null if unavailable. For more information, see [Review effort level](https://docs.github.com/enterprise-cloud@latest/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/code-review#review-effort-level).",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
                 "html_url": {
                   "type": "string",
                   "format": "uri"
@@ -33524,6 +33756,17 @@
                 },
                 "state": {
                   "type": "string"
+                },
+                "is_copilot_code_review": {
+                  "description": "Whether this review was produced by Copilot code review. Bot authorship alone does not establish provenance.",
+                  "type": "boolean"
+                },
+                "copilot_code_review_effort": {
+                  "description": "The persisted effective effort used to produce this Copilot code review, or null if unavailable. For more information, see [Review effort level](https://docs.github.com/enterprise-cloud@latest/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/code-review#review-effort-level).",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 },
                 "html_url": {
                   "type": "string",
@@ -33887,6 +34130,17 @@
                 "state": {
                   "type": "string"
                 },
+                "is_copilot_code_review": {
+                  "description": "Whether this review was produced by Copilot code review. Bot authorship alone does not establish provenance.",
+                  "type": "boolean"
+                },
+                "copilot_code_review_effort": {
+                  "description": "The persisted effective effort used to produce this Copilot code review, or null if unavailable. For more information, see [Review effort level](https://docs.github.com/enterprise-cloud@latest/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/code-review#review-effort-level).",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
                 "html_url": {
                   "type": "string",
                   "format": "uri"
@@ -34237,6 +34491,17 @@
                 "state": {
                   "type": "string"
                 },
+                "is_copilot_code_review": {
+                  "description": "Whether this review was produced by Copilot code review. Bot authorship alone does not establish provenance.",
+                  "type": "boolean"
+                },
+                "copilot_code_review_effort": {
+                  "description": "The persisted effective effort used to produce this Copilot code review, or null if unavailable. For more information, see [Review effort level](https://docs.github.com/enterprise-cloud@latest/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/code-review#review-effort-level).",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
                 "html_url": {
                   "type": "string",
                   "format": "uri"
@@ -34491,6 +34756,41 @@
                 "description": "Legacy Review Comment",
                 "type": "object",
                 "properties": {
+                  "is_copilot_code_review": {
+                    "description": "Whether this comment was produced by Copilot code review.",
+                    "type": "boolean"
+                  },
+                  "copilot_code_review_sources": {
+                    "description": "Sources reported as contributing to this comment; may be incomplete.",
+                    "type": "array",
+                    "maxItems": 16,
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "kind": {
+                          "description": "The kind of contributing source.",
+                          "type": "string",
+                          "enum": [
+                            "SKILL",
+                            "MCP",
+                            "CUSTOM_INSTRUCTIONS"
+                          ]
+                        },
+                        "name": {
+                          "description": "The reported source name, or \"custom instructions\" for CUSTOM_INSTRUCTIONS.",
+                          "type": "string"
+                        },
+                        "path": {
+                          "description": "The validated repository-relative source path, if available. Commit OIDs are not exposed.",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "kind",
+                        "name"
+                      ]
+                    }
+                  },
                   "url": {
                     "type": "string",
                     "format": "uri"
@@ -35150,6 +35450,17 @@
                 "state": {
                   "type": "string"
                 },
+                "is_copilot_code_review": {
+                  "description": "Whether this review was produced by Copilot code review. Bot authorship alone does not establish provenance.",
+                  "type": "boolean"
+                },
+                "copilot_code_review_effort": {
+                  "description": "The persisted effective effort used to produce this Copilot code review, or null if unavailable. For more information, see [Review effort level](https://docs.github.com/enterprise-cloud@latest/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/code-review#review-effort-level).",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
                 "html_url": {
                   "type": "string",
                   "format": "uri"
@@ -35525,6 +35836,17 @@
                 },
                 "state": {
                   "type": "string"
+                },
+                "is_copilot_code_review": {
+                  "description": "Whether this review was produced by Copilot code review. Bot authorship alone does not establish provenance.",
+                  "type": "boolean"
+                },
+                "copilot_code_review_effort": {
+                  "description": "The persisted effective effort used to produce this Copilot code review, or null if unavailable. For more information, see [Review effort level](https://docs.github.com/enterprise-cloud@latest/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/code-review#review-effort-level).",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 },
                 "html_url": {
                   "type": "string",
