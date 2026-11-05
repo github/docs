@@ -178340,6 +178340,15 @@
           }
         },
         {
+          "name": "is_done",
+          "description": "<p>Whether to return only done notifications (<code>true</code>) or exclude them (<code>false</code>). When omitted, notifications are not filtered by done status. Use <code>all=true&#x26;is_done=true</code> for done notifications or <code>all=true&#x26;is_done=false</code> for both read and unread inbox notifications. If <code>all</code> is omitted or <code>false</code>, <code>is_done=true</code> returns no notifications.</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "boolean"
+          }
+        },
+        {
           "name": "participating",
           "description": "<p>If <code>true</code>, only shows notifications in which the user is directly participating or mentioned.</p>",
           "in": "query",
@@ -180714,6 +180723,15 @@
           "schema": {
             "type": "boolean",
             "default": false
+          }
+        },
+        {
+          "name": "is_done",
+          "description": "<p>Whether to return only done notifications (<code>true</code>) or exclude them (<code>false</code>). When omitted, notifications are not filtered by done status. Use <code>all=true&#x26;is_done=true</code> for done notifications or <code>all=true&#x26;is_done=false</code> for both read and unread inbox notifications. If <code>all</code> is omitted or <code>false</code>, <code>is_done=true</code> returns no notifications.</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "boolean"
           }
         },
         {
