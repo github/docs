@@ -5713,6 +5713,13 @@
           ]
         },
         {
+          "name": "repositoryCopilotCodeReviewSettings",
+          "description": "<p>The repository's Copilot code review settings. Requires repository administration access.</p>",
+          "type": "RepositoryCopilotCodeReviewSettings",
+          "id": "repositorycopilotcodereviewsettings",
+          "href": "/graphql/reference/copilot#object-repositorycopilotcodereviewsettings"
+        },
+        {
           "name": "repositoryCustomPropertyValue",
           "description": "<p>A custom property value for the repository.</p>",
           "type": "RepositoryCustomPropertyValue",
