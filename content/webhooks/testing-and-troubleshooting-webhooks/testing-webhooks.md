@@ -44,6 +44,8 @@ In order to test your webhook code locally on your computer or codespace, you ca
 
 The following sections demonstrate how to use smee.io to provide a webhook proxy URL and forward webhooks.
 
+Smee is intended for development and testing only. Smee channels are not authenticated or secure, so anyone with your webhook proxy URL can see the payloads sent to it. Alternatively, you can use a tool like [ngrok](https://ngrok.com/docs/getting-started/), [localtunnel](https://localtunnel.github.io/www/), or the [Hookdeck Console](https://console.hookdeck.com?provider=github) that exposes your local machine to the internet to receive the payloads. If you use one of these tools, use the public URL that it provides as your webhook URL, and skip the smee-specific steps in the following sections.
+
 For specific examples of code and testing steps, see [AUTOTITLE](/webhooks/using-webhooks/handling-webhook-deliveries).
 
 ### Get a webhook proxy URL
