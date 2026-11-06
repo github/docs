@@ -309,7 +309,7 @@ In this example, `used_copilot_code_review_active` and `used_copilot_code_review
     "loc_suggested_to_delete_sum" : 6,
     "missing_client_telemetry_user_count" : 0,
     "monthly_active_agent_users" : 0,
-    "monthly_active_chat_users" : 0,
+    "monthly_active_chat_users" : 2,
     "monthly_active_copilot_cloud_agent_users" : 1,
     "monthly_active_copilot_code_review_users" : 1,
     "monthly_active_local_byok_users" : 2,
@@ -567,25 +567,31 @@ In this example, `used_copilot_code_review_active` and `used_copilot_code_review
   "copilot_feature_engagement" : {
     "active_user_count" : 2,
     "totals_by_feature" : [ {
-      "feature" : "code_completion",
-      "engaged_user_count" : 2
-    }, {
       "feature" : "agent_edit",
       "engaged_user_count" : 1
     }, {
-      "feature" : "code_review_passive",
+      "feature" : "chat",
+      "engaged_user_count" : 2
+    }, {
+      "feature" : "cloud_agent",
       "engaged_user_count" : 1
+    }, {
+      "feature" : "code_completion",
+      "engaged_user_count" : 2
     }, {
       "feature" : "code_review_active",
       "engaged_user_count" : 1
     }, {
-      "feature" : "cloud_agent",
+      "feature" : "code_review_passive",
       "engaged_user_count" : 1
     }, {
       "feature" : "copilot_cli",
       "engaged_user_count" : 1
     }, {
       "feature" : "github_app",
+      "engaged_user_count" : 1
+    }, {
+      "feature" : "vscode_agent",
       "engaged_user_count" : 1
     } ]
   },
@@ -614,7 +620,7 @@ In this example, `used_copilot_code_review_active` and `used_copilot_code_review
     "loc_suggested_to_delete_sum" : 3,
     "missing_client_telemetry_user_count" : 1,
     "monthly_active_agent_users" : 0,
-    "monthly_active_chat_users" : 0,
+    "monthly_active_chat_users" : 2,
     "monthly_active_copilot_cloud_agent_users" : 0,
     "monthly_active_copilot_code_review_users" : 0,
     "monthly_active_local_byok_users" : 0,
@@ -776,25 +782,31 @@ In this example, `used_copilot_code_review_active` and `used_copilot_code_review
   "copilot_feature_engagement" : {
     "active_user_count" : 2,
     "totals_by_feature" : [ {
-      "feature" : "code_completion",
-      "engaged_user_count" : 2
-    }, {
       "feature" : "agent_edit",
       "engaged_user_count" : 1
     }, {
-      "feature" : "code_review_passive",
+      "feature" : "chat",
+      "engaged_user_count" : 2
+    }, {
+      "feature" : "cloud_agent",
       "engaged_user_count" : 1
+    }, {
+      "feature" : "code_completion",
+      "engaged_user_count" : 2
     }, {
       "feature" : "code_review_active",
       "engaged_user_count" : 1
     }, {
-      "feature" : "cloud_agent",
+      "feature" : "code_review_passive",
       "engaged_user_count" : 1
     }, {
       "feature" : "copilot_cli",
       "engaged_user_count" : 1
     }, {
       "feature" : "github_app",
+      "engaged_user_count" : 1
+    }, {
+      "feature" : "vscode_agent",
       "engaged_user_count" : 1
     } ]
   },

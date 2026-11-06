@@ -86,7 +86,7 @@ The impact dashboard's adoption cohort distribution shows the share of users in 
 | Signal | What it suggests | Suggested action |
 |:--|:--|:--|
 | Shrinking Phase 1 share, growing Phase 2 or Phase 3 share | Users are progressing from code completions toward agent-driven workflows. | Continue current enablement; consider sharing internal success stories to sustain momentum. |
-| Large or growing passive users share | Many licensed users haven't yet reached the engagement threshold for a phase. | Verify license assignment and IDE setup; offer onboarding to re-engage inactive users. Also check whether affected users rely primarily on a surface that isn't part of any phase's classification criteria, such as {% data variables.copilot.copilot_chat_short %} on {% data variables.product.prodname_dotcom_the_website %}. |
+| Large or growing chat-first users share | These users are active but haven't used a qualifying feature on at least two distinct days in the trailing 28-day window. They may primarily use {% data variables.copilot.copilot_chat_short %} without producing `code_completion` or `agent_edit` activity. | Help these users try code completions, agent edits, or agent surfaces such as {% data variables.copilot.copilot_cloud_agent %} or {% data variables.copilot.copilot_cli_short %}. Also verify license assignment and IDE setup for users who rarely use any surface. |
 | Stalled progression from Phase 1 to Phase 2 | Users are comfortable with completions and chat but haven't adopted agent surfaces. | Follow a recommendation card, such as configuring {% data variables.copilot.copilot_cloud_agent %}, or run a demo of agent workflows. |
 | Stalled progression from Phase 2 to Phase 3 | Users have adopted one agent surface but haven't layered in additional agent surfaces. | Follow a recommendation card, such as enabling {% data variables.copilot.copilot_code-review_short %}, to introduce a second agent surface. |
 | A user's phase changes from one day to the next without a change in their habits | Phase assignment is recalculated daily from the trailing 28-day window, so a user's phase shifts as older days roll out of the window. | This is expected behavior, not a data error; no action needed. |
@@ -95,17 +95,17 @@ When you see a recommendation card in the dashboard, such as configuring {% data
 
 ## Reviewing the adoption multiplier
 
-The adoption multiplier compares engaged users (Phase 1, 2, or 3) against passive users on code shipped (pull requests merged per user per month) and time to merge pull requests. This shows the relative impact of deeper adoption, independent of how many users fall into each phase.
+The adoption multiplier compares engaged users (Phase 1, 2, or 3) against chat-first users on code shipped (pull requests merged per user per month) and time to merge pull requests. This shows the relative impact of deeper adoption, independent of how many users fall into each phase.
 
 | Signal | What it suggests | Suggested action |
 |:--|:--|:--|
-| Engaged users merge more pull requests per user per month than passive users | Deeper {% data variables.product.prodname_copilot_short %} adoption is associated with higher individual output. | Use this comparison to support the case for continued enablement investment. |
-| Engaged users merge fewer pull requests per user per month than passive users | Engaged users may be spending more time on larger or more complex work, or the comparison may reflect differences in team composition rather than adoption depth. | Cross-reference with adoption cohort distribution and team-level data before drawing conclusions; avoid treating the multiplier as a standalone measure of productivity. |
-| Engaged users merge pull requests faster than passive users | Deeper adoption is associated with a shorter pull request lifecycle. | Use this comparison alongside pull request lifecycle metrics to evaluate overall delivery impact. |
-| Multiplier stays flat despite growth in Phase 2 or Phase 3 share | Agent adoption hasn't yet translated into a measurable difference in output between engaged and passive users. | Check whether agent usage is concentrated in a few users or teams, and whether enough time has passed since rollout for the impact to show. |
+| Engaged users merge more pull requests per user per month than chat-first users | Deeper {% data variables.product.prodname_copilot_short %} adoption is associated with higher individual output. | Use this comparison to support the case for continued enablement investment. |
+| Engaged users merge fewer pull requests per user per month than chat-first users | Engaged users may be spending more time on larger or more complex work, or the comparison may reflect differences in team composition rather than adoption depth. | Cross-reference with adoption cohort distribution and team-level data before drawing conclusions; avoid treating the multiplier as a standalone measure of productivity. |
+| Engaged users merge pull requests faster than chat-first users | Deeper adoption is associated with a shorter pull request lifecycle. | Use this comparison alongside pull request lifecycle metrics to evaluate overall delivery impact. |
+| Multiplier stays flat despite growth in Phase 2 or Phase 3 share | Agent adoption hasn't yet translated into a measurable difference in output between engaged and chat-first users. | Check whether agent usage is concentrated in a few users or teams, and whether enough time has passed since rollout for the impact to show. |
 
 > [!NOTE]
-> The adoption multiplier compares two different populations of users, not the same users over time. Differences in team composition, project complexity, or seniority between engaged and passive users can influence the comparison as much as {% data variables.product.prodname_copilot_short %} adoption itself.
+> The adoption multiplier compares two different populations of users, not the same users over time. Differences in team composition, project complexity, or seniority between engaged and chat-first users can influence the comparison as much as {% data variables.product.prodname_copilot_short %} adoption itself.
 
 ## Reviewing industry comparisons
 
@@ -114,7 +114,7 @@ The **Industry comparison** widget compares your enterprise's agentic adoption a
 | Signal | What it suggests | Suggested action |
 |:--|:--|:--|
 | Agentic adoption is above the peer median | A larger share of your users have adopted agent-first or multi-agent workflows than in the comparison cohort. | Continue the enablement practices that support agentic workflows, and review which teams still have lower adoption. |
-| Agentic adoption is below the peer median | Your enterprise has room to expand adoption of agent-first and multi-agent workflows. | Review the adoption cohort distribution, then prioritize onboarding or enablement for teams that remain passive or code-first. |
+| Agentic adoption is below the peer median | Your enterprise has room to expand adoption of agent-first and multi-agent workflows. | Review the adoption cohort distribution, then prioritize onboarding or enablement for teams that remain chat-first or code-first. |
 | Leverage is above the peer median | The ratio of merge rates between agentic and non-agentic users is higher in your enterprise than in the peer cohort. | Review the practices of teams with strong agentic adoption and consider whether those practices can be applied more broadly. |
 | Leverage is below the peer median | The ratio of merge rates between agentic and non-agentic users is lower than for the comparison cohort. | Check team composition, project complexity, and how recently agentic workflows were introduced before changing your rollout plan. |
 | Your ranking improves across reporting periods | Your enterprise's position has improved relative to the participating peer cohort. | Confirm that the improvement appears alongside sustained adoption and pull request trends before expanding enablement investment. |
