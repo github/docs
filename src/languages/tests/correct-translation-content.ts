@@ -3856,6 +3856,17 @@ Para más información, consulta "[AUTOTITLE](/path)".
     })
   })
 
+  describe('Portuguese mangled endwarning', () => {
+    test('rewrites "{% %} { %de aviso de% }" so the alert pair is stripped cleanly', () => {
+      expect(fix('{% aviso %}x\n\n{% %} { %de aviso de% }\n\ny', 'pt')).toBe('x\n\ny')
+    })
+
+    test('leaves already-correct tags unchanged', () => {
+      const ok = 'x {% data variables.product.github %}'
+      expect(fix(ok, 'pt')).toBe(ok)
+    })
+  })
+
   describe('French translated endwarning', () => {
     test.each(['{% fin avertissement %}', '{%- fin avertissement -%}'])(
       'rewrites %s so the alert pair is stripped cleanly',
