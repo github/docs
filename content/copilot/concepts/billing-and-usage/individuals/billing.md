@@ -111,6 +111,10 @@ To set up a budget for {% data variables.product.prodname_ai_credits %}, see [AU
 
 You can cancel your {% data variables.product.prodname_copilot_short %} plan at any time. The cancellation will take effect at the end of your current billing cycle. See [AUTOTITLE](/copilot/how-tos/manage-your-account/view-and-change-your-copilot-plan).
 
+{% data variables.product.prodname_ai_credits_short %} usage beyond your plan’s included amount is billed after it occurs, separately from your subscription renewal. You must pay for usage you incurred before you canceled, downgraded to {% data variables.copilot.copilot_free_short %}, or reduced your additional usage budget to $0. Usage from your final days on the plan might not appear on your last invoice, so you might receive a charge after you cancel.
+
+To investigate a charge, review the payment history section in [AUTOTITLE](/billing/how-tos/set-up-payment/manage-payment-info#viewing-payment-history) and compare the invoice or receipt with the usage dates in the usage reports section of [AUTOTITLE](/billing/how-tos/products/view-productlicense-use#downloading-usage-reports). Your current plan, budget, or payment date alone does not show when the usage occurred.
+
 ## Determining your billing date
 
 Your billing date will depend on whether or not you are already being billed by {% data variables.product.prodname_dotcom %}.
@@ -142,4 +146,3 @@ We recommend keeping your IDE, client, and {% data variables.product.prodname_co
 
 * [AUTOTITLE](/copilot/get-started/plans)
 * [AUTOTITLE](/copilot/how-tos/manage-your-account)
-* [AUTOTITLE](/billing/how-tos/set-up-payment/manage-payment-info)
