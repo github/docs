@@ -872,6 +872,8 @@ The following example shows a repository-level report from an NDJSON file downlo
 
 Both enterprise- and organization-scoped rows include `organization_id`, which identifies the organization that owns the repository. Enterprise-scoped rows also include `enterprise_id`. Organization-scoped rows include `enterprise_id` only when an enterprise owns the organization.
 
+The `copilot_code_review` object is present on every row. Its counts are `0` and its arrays are empty when the repository had no {% data variables.copilot.copilot_code-review_short %} activity that day. For how comments are counted, see [AUTOTITLE](/copilot/reference/copilot-usage-metrics/copilot-usage-metrics#copilot-code-review-outcome-fields).
+
 The `pull_request_review_times` array is empty when the repository merged no qualifying pull requests that day. For which pull requests are counted, see [AUTOTITLE](/copilot/reference/copilot-usage-metrics/copilot-usage-metrics#pull-request-review-time-fields).
 
 For the field reference, see [AUTOTITLE](/copilot/reference/copilot-usage-metrics/copilot-usage-metrics#repository-level-fields-api-only).
@@ -903,7 +905,16 @@ For the field reference, see [AUTOTITLE](/copilot/reference/copilot-usage-metric
       "median_minutes_to_merge_copilot_reviewed": 372.62,
       "copilot_suggestions_by_comment_type": []
     },
-    "pull_request_review_times": []
+    "pull_request_review_times": [],
+    "copilot_code_review": {
+      "total_comments_evaluated": 0,
+      "total_comments_addressed": 0,
+      "review_comments_by_severity": [],
+      "review_comments_by_review_tier": [],
+      "review_comments_by_comment_type": [],
+      "review_comments_by_customization": [],
+      "total_merged_no_human_change_request_after_review": 1
+    }
   },
   {
     "day": "2026-07-14",
@@ -935,7 +946,55 @@ For the field reference, see [AUTOTITLE](/copilot/reference/copilot-usage-metric
         }
       ]
     },
-    "pull_request_review_times": []
+    "pull_request_review_times": [],
+    "copilot_code_review": {
+      "total_comments_evaluated": 3,
+      "total_comments_addressed": 2,
+      "review_comments_by_severity": [
+        {
+          "severity": "high",
+          "total_comments_evaluated": 1,
+          "total_comments_addressed": 1
+        },
+        {
+          "severity": "medium",
+          "total_comments_evaluated": 2,
+          "total_comments_addressed": 1
+        }
+      ],
+      "review_comments_by_review_tier": [
+        {
+          "review_tier": "balanced",
+          "total_comments_evaluated": 3,
+          "total_comments_addressed": 2
+        }
+      ],
+      "review_comments_by_comment_type": [
+        {
+          "comment_type": "bug",
+          "total_comments_evaluated": 2,
+          "total_comments_addressed": 1
+        },
+        {
+          "comment_type": "documentation",
+          "total_comments_evaluated": 1,
+          "total_comments_addressed": 1
+        }
+      ],
+      "review_comments_by_customization": [
+        {
+          "customization": "none",
+          "total_comments_evaluated": 2,
+          "total_comments_addressed": 1
+        },
+        {
+          "customization": "custom_instruction",
+          "total_comments_evaluated": 1,
+          "total_comments_addressed": 1
+        }
+      ],
+      "total_merged_no_human_change_request_after_review": 1
+    }
   },
   {
     "day": "2026-07-14",
@@ -973,7 +1032,65 @@ For the field reference, see [AUTOTITLE](/copilot/reference/copilot-usage-metric
         }
       ]
     },
-    "pull_request_review_times": []
+    "pull_request_review_times": [],
+    "copilot_code_review": {
+      "total_comments_evaluated": 4,
+      "total_comments_addressed": 3,
+      "review_comments_by_severity": [
+        {
+          "severity": "high",
+          "total_comments_evaluated": 1,
+          "total_comments_addressed": 1
+        },
+        {
+          "severity": "medium",
+          "total_comments_evaluated": 2,
+          "total_comments_addressed": 2
+        },
+        {
+          "severity": "low",
+          "total_comments_evaluated": 1,
+          "total_comments_addressed": 0
+        }
+      ],
+      "review_comments_by_review_tier": [
+        {
+          "review_tier": "max",
+          "total_comments_evaluated": 4,
+          "total_comments_addressed": 3
+        }
+      ],
+      "review_comments_by_comment_type": [
+        {
+          "comment_type": "bug",
+          "total_comments_evaluated": 1,
+          "total_comments_addressed": 1
+        },
+        {
+          "comment_type": "custom",
+          "total_comments_evaluated": 2,
+          "total_comments_addressed": 1
+        },
+        {
+          "comment_type": "security",
+          "total_comments_evaluated": 1,
+          "total_comments_addressed": 1
+        }
+      ],
+      "review_comments_by_customization": [
+        {
+          "customization": "custom_instruction",
+          "total_comments_evaluated": 2,
+          "total_comments_addressed": 1
+        },
+        {
+          "customization": "none",
+          "total_comments_evaluated": 2,
+          "total_comments_addressed": 2
+        }
+      ],
+      "total_merged_no_human_change_request_after_review": 1
+    }
   },
   {
     "day": "2026-07-14",
@@ -1010,7 +1127,16 @@ For the field reference, see [AUTOTITLE](/copilot/reference/copilot-usage-metric
         "median_minutes_final_review_to_merge": 674.95,
         "p90_minutes_final_review_to_merge": 1213.66
       }
-    ]
+    ],
+    "copilot_code_review": {
+      "total_comments_evaluated": 0,
+      "total_comments_addressed": 0,
+      "review_comments_by_severity": [],
+      "review_comments_by_review_tier": [],
+      "review_comments_by_comment_type": [],
+      "review_comments_by_customization": [],
+      "total_merged_no_human_change_request_after_review": 0
+    }
   }
 ]
 ```

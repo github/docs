@@ -260,7 +260,9 @@ Teams with fewer than 5 seated {% data variables.product.prodname_copilot_short 
 
 ### Repository-level fields (API only)
 
-Repository-level reports show daily pull request creation, review, merge, and suggestion activity, plus pull request review stage durations, for repositories in an organization or enterprise, including pull requests created by {% data variables.copilot.copilot_cloud_agent %} and reviewed by {% data variables.copilot.copilot_code-review_short %}. Each row represents one repository that had pull request activity on the requested day; repositories with no activity are omitted. These reports focus on pull request lifecycle activity and can contain data even when IDE usage metrics are absent.
+Repository-level reports cover repositories in an organization or enterprise. They show daily pull request creation, review, merge, and suggestion activity. They also show pull request review stage durations and {% data variables.copilot.copilot_code-review_short %} outcomes. Reports include pull requests created by {% data variables.copilot.copilot_cloud_agent %} and reviewed by {% data variables.copilot.copilot_code-review_short %}.
+
+Each row represents one repository that had pull request activity on the requested day; repositories with no activity are omitted. These reports focus on pull request lifecycle activity and can contain data even when IDE usage metrics are absent.
 
 These fields are returned by the daily repository-level report (`repos-1-day`), available via the REST API at the organization and enterprise scopes. For the endpoint URLs, response envelope, permissions, and download workflow, see [AUTOTITLE](/rest/copilot/copilot-usage-metrics). For example rows, see [AUTOTITLE](/copilot/reference/copilot-usage-metrics/example-schema#repository-level-schema-example).
 
@@ -275,6 +277,7 @@ These fields are returned by the daily repository-level report (`repos-1-day`), 
 | `repo_visibility` | `string` | No | Repository visibility. Possible values are `PRIVATE`, `INTERNAL`, and `PUBLIC`. |
 | `pull_requests` | `object` | No | Daily pull request activity for the repository. See [Pull request activity fields](#pull-request-activity-fields). |
 | `pull_request_review_times` | `array` | No | Review stage durations for qualifying pull requests merged in the repository on this day, with one entry per author and reviewer type. Empty when no qualifying pull requests were merged. See [Pull request review time fields](#pull-request-review-time-fields). |
+| `copilot_code_review` | `object` | No | Outcomes of {% data variables.copilot.copilot_code-review_short %} comments on pull requests merged in the repository on this day. Present on every row; counts are `0` and arrays are empty when there was no {% data variables.copilot.copilot_code-review_short %} activity. Not included in reports generated before this field was released. See [{% data variables.copilot.copilot_code-review_short %} outcome fields](#copilot-code-review-outcome-fields). |
 
 ### Activity breakdown objects
 
@@ -552,6 +555,44 @@ Exclusions are not reported for individual pull requests. Because `pull_requests
 | `pull_request_review_times[].p90_minutes_final_review_to_merge` | `number` | No | 90th percentile time, in minutes, from the final qualifying review to merge. |
 
 Medians and 90th percentiles are exact values calculated with linear interpolation and rounded to two decimal places.
+
+### {% data variables.copilot.copilot_code-review_short %} outcome fields
+
+The `copilot_code_review` object appears only in repository-level reports. It shows whether developers acted on {% data variables.copilot.copilot_code-review_short %} comments, and whether people still requested changes after {% data variables.copilot.copilot_code-review_short %} reviewed a pull request.
+
+#### How comments are counted
+
+* Only comments that {% data variables.copilot.copilot_code-review_short %} posts on pull requests count. Comments from people or other review tools, and {% data variables.copilot.copilot_code-review_short %} reviews in the IDE, are not included.
+* Comments are evaluated when their pull request merges. Each comment counts on the day its pull request merged, not the day {% data variables.copilot.copilot_code-review_short %} posted it.
+* {% data variables.copilot.copilot_code-review_short %} usually does not evaluate comments on pull requests opened by bots, such as {% data variables.copilot.copilot_cloud_agent %}.
+* A comment is addressed when the developer takes any of these actions:
+  * Applies the suggested change
+  * Asks {% data variables.copilot.copilot_code-review_short %} to make the fix
+  * Edits the code by hand
+  * Replies that the fix will come in a later pull request
+
+Comments that were ignored, or that {% data variables.copilot.copilot_code-review_short %} later found to be wrong, count as evaluated but not addressed.
+
+These counts differ from the suggestion counts in `pull_requests`. Suggestion counts include only comments with a ready-to-apply code suggestion. A suggestion counts as applied only when someone applies it. The `copilot_code_review` counts include every evaluated comment, regardless of whether or how the developer acted on it.
+
+#### Breakdown arrays
+
+Each `review_comments_by_*` array splits the evaluated and addressed comments by one attribute. A value gets an entry only if at least one comment with that value was evaluated that day.
+
+* Each comment counts once in the severity, review tier, and comment type arrays. A comment whose severity, review tier, or type was not recorded counts only in the totals, so these arrays can add up to less than the totals.
+* A comment that drew on more than one customization counts once for each, so `review_comments_by_customization` can add up to more than the totals.
+
+To calculate the addressed rate, divide `total_comments_addressed` by `total_comments_evaluated`.
+
+| Field | Type | Nullable | Description |
+|:--|:--|:--|:--|
+| `copilot_code_review.total_comments_evaluated` | `integer` | No | Number of {% data variables.copilot.copilot_code-review_short %} comments on pull requests merged on this day that were checked to see whether the developer acted on them. |
+| `copilot_code_review.total_comments_addressed` | `integer` | No | Number of evaluated comments that the developer acted on. |
+| `copilot_code_review.review_comments_by_severity` | `array` | No | Evaluated and addressed comments by severity. Each entry includes `severity` (`high`, `medium`, or `low`), `total_comments_evaluated`, and `total_comments_addressed`. Always present but can be empty. |
+| `copilot_code_review.review_comments_by_review_tier` | `array` | No | Evaluated and addressed comments by the tier of the review that posted them. Each entry includes `review_tier` (`lite`, `balanced`, or `max`), `total_comments_evaluated`, and `total_comments_addressed`. Always present but can be empty. |
+| `copilot_code_review.review_comments_by_comment_type` | `array` | No | Evaluated and addressed comments by the kind of issue raised, for example `bug`, `security`, `performance`, `accessibility`, or `documentation`. `custom` means the comment is about one of the repository's own coding guidelines. `other` means the comment did not fit any of the predefined types. Each entry includes `comment_type`, `total_comments_evaluated`, and `total_comments_addressed`. New types can appear over time. Unlike `pull_requests.copilot_suggestions_by_comment_type`, this array is not limited to the top 10 types and has no `others` entry. Always present but can be empty. |
+| `copilot_code_review.review_comments_by_customization` | `array` | No | Evaluated and addressed comments by what {% data variables.copilot.copilot_code-review_short %} drew on to write them. Each entry includes `customization` (`custom_instruction`, `skill`, `mcp_server`, or `none`), `total_comments_evaluated`, and `total_comments_addressed`. Always present but can be empty. |
+| `copilot_code_review.total_merged_no_human_change_request_after_review` | `integer` | No | Number of pull requests merged on this day that {% data variables.copilot.copilot_code-review_short %} reviewed, where no person requested changes after {% data variables.copilot.copilot_code-review_short %}'s first review. <br/><br/>A change request after the first review excludes the pull request, even if the request was later dismissed or the pull request was approved. A change request made before {% data variables.copilot.copilot_code-review_short %}'s first review does not. Includes pull requests opened by bots, such as {% data variables.copilot.copilot_cloud_agent %}. Never higher than `pull_requests.total_merged_reviewed_by_copilot`. |
 
 ### AI adoption phase fields
 
