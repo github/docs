@@ -85,6 +85,7 @@ export async function loadUnversionedTree(
 }
 
 // Category pages inherit applicable versions from immediate children.
+// Cross-product children are borrowed from another product, so their versions don't count.
 export function setCategoryApplicableVersions(tree: UnversionedTree): void {
   // Translated leaves have no childPages array.
   for (const childPage of tree.childPages || []) {
@@ -94,6 +95,7 @@ export function setCategoryApplicableVersions(tree: UnversionedTree): void {
       const combinedApplicableVersions: string[] = []
       let moreThanOneChild = false
       for (const childChildPage of childPage.childPages || []) {
+        if (childChildPage.crossProductChild) continue
         for (const version of childChildPage.page.applicableVersions) {
           if (!combinedApplicableVersions.includes(version)) {
             combinedApplicableVersions.push(version)
