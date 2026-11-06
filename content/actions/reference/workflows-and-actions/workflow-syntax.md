@@ -347,7 +347,7 @@ The default value used when the input is not specified when the workflow is trig
 
 ## `on.workflow_dispatch.inputs.<input_id>.options`
 
-A sequence of strings that sets the options of the dropdown list. A dropdown list is only shown for inputs with `type: choice`; `options` is ignored for all other input types.
+A sequence of strings that sets the options of the dropdown list for an input with `type: choice`. `options` is valid only for `choice` inputs: a workflow that defines `options` on an input of any other type is invalid and fails to run.
 
 ## `permissions`
 
