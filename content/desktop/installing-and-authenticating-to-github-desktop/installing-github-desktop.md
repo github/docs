@@ -60,6 +60,6 @@ You can install {% data variables.product.prodname_desktop %} on {% data variabl
 
 {% linux %}
 
-Linux is not yet supported
+{% data variables.product.prodname_desktop %} does not currently support Linux. To follow updates, see the [Linux support tracking issue #1525](https://github.com/desktop/desktop/issues/1525).
 
 {% endlinux %}
