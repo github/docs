@@ -10876,6 +10876,279 @@
       }
     }
   ],
+  "runner-settings": [
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/dependabot/runner-settings",
+      "title": "Get repository Dependabot runner settings",
+      "category": "dependabot",
+      "subcategory": "runner-settings",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Gets the runner Dependabot uses for this repository: standard GitHub-hosted\nrunners, or labeled runners with their labels and optional runner group. The\nresponse matches the repository's code security settings page.</p>\n<p>Labeled runners take effect only for private and internal repositories with\nGitHub Actions enabled. Otherwise, the response shows <code>standard</code>.</p>\n<p>Repository administrators and users who can manage security products for the\nrepository can use this endpoint. OAuth app tokens and personal access tokens\n(classic) require the <code>repo</code> scope for both public and private repositories.\nGitHub App tokens and fine-grained personal access tokens require repository\nAdministration read permission. Workflow <code>GITHUB_TOKEN</code> access is not supported.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Labeled runner with a runner group</p>",
+            "example": {
+              "runner_type": "labeled",
+              "runner_labels": [
+                "dependabot"
+              ],
+              "runner_group": "dependabot-runners"
+            },
+            "schema": {
+              "title": "Dependabot runner settings",
+              "description": "The runner Dependabot uses for this repository, as shown in the repository settings.",
+              "type": "object",
+              "required": [
+                "runner_type",
+                "runner_labels",
+                "runner_group"
+              ],
+              "properties": {
+                "runner_type": {
+                  "description": "`labeled` when Dependabot runs on labeled runners. Otherwise `standard`.",
+                  "type": "string",
+                  "enum": [
+                    "standard",
+                    "labeled"
+                  ]
+                },
+                "runner_labels": {
+                  "description": "Runner labels Dependabot uses. Empty for `standard`.",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "runner_group": {
+                  "description": "Runner group Dependabot uses, or `null` for no group.",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "401",
+          "description": "<p>Requires authentication</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Administration\" repository permissions": "read"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "put",
+      "requestPath": "/repos/{owner}/{repo}/dependabot/runner-settings",
+      "title": "Set repository Dependabot runner settings",
+      "category": "dependabot",
+      "subcategory": "runner-settings",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "string",
+          "name": "runner_type",
+          "description": "<p><code>labeled</code> for labeled runners, <code>standard</code> for standard GitHub-hosted runners.</p>",
+          "isRequired": true,
+          "enum": [
+            "standard",
+            "labeled"
+          ]
+        },
+        {
+          "type": "array of strings",
+          "name": "runner_labels",
+          "description": "<p>Required for <code>labeled</code>. Exactly one non-blank runner label. Not allowed for <code>standard</code>.</p>"
+        },
+        {
+          "type": "string or null",
+          "name": "runner_group",
+          "description": "<p>Optional for <code>labeled</code>. Omitted, <code>null</code> or blank means no group. Not allowed for <code>standard</code>.</p>"
+        }
+      ],
+      "descriptionHTML": "<p>Sets the runner Dependabot uses for this repository. This is the same setting\nas on the repository's code security settings page.</p>\n<p><code>labeled</code> turns on labeled runners with exactly one runner label and an optional\nrunner group. <code>standard</code> turns them off and clears the label and group.</p>\n<p>Labeled runners are only available for private and internal repositories with\nGitHub Actions enabled. The response returns the settings after the change.</p>\n<p>Repository administrators and users who can manage security products for the\nrepository can use this endpoint, subject to enterprise policy. OAuth app tokens\nand personal access tokens (classic) require the <code>repo</code> scope. GitHub App tokens\nand fine-grained personal access tokens require repository Administration write\npermission. Workflow <code>GITHUB_TOKEN</code> access is not supported.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Select labeled runners in a runner group",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "runner_type": "labeled",
+              "runner_labels": [
+                "dependabot"
+              ],
+              "runner_group": "dependabot-runners"
+            },
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Labeled runner with a runner group</p>",
+            "example": {
+              "runner_type": "labeled",
+              "runner_labels": [
+                "dependabot"
+              ],
+              "runner_group": "dependabot-runners"
+            },
+            "schema": {
+              "title": "Dependabot runner settings",
+              "description": "The runner Dependabot uses for this repository, as shown in the repository settings.",
+              "type": "object",
+              "required": [
+                "runner_type",
+                "runner_labels",
+                "runner_group"
+              ],
+              "properties": {
+                "runner_type": {
+                  "description": "`labeled` when Dependabot runs on labeled runners. Otherwise `standard`.",
+                  "type": "string",
+                  "enum": [
+                    "standard",
+                    "labeled"
+                  ]
+                },
+                "runner_labels": {
+                  "description": "Runner labels Dependabot uses. Empty for `standard`.",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "runner_group": {
+                  "description": "Runner group Dependabot uses, or `null` for no group.",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "400",
+          "description": "<p>Bad Request</p>"
+        },
+        {
+          "httpStatusCode": "401",
+          "description": "<p>Requires authentication</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Administration\" repository permissions": "write"
+          }
+        ]
+      }
+    }
+  ],
   "secrets": [
     {
       "serverUrl": "https://api.github.com",

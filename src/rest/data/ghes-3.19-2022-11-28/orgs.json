@@ -3765,6 +3765,13 @@
                       null
                     ],
                     "description": "Who can edit the values of the property"
+                  },
+                  "regex": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "A regular expression (RE2 syntax) that values of the property must match.\nOnly present for properties with a `value_type` of `string` that define a regular expression."
                   }
                 },
                 "required": [
@@ -3835,20 +3842,6 @@
             },
             {
               "type": "string",
-              "name": "url",
-              "description": "<p>The URL that can be used to fetch, update, or delete info about this property via the API.</p>"
-            },
-            {
-              "type": "string",
-              "name": "source_type",
-              "description": "<p>The source type of the property</p>",
-              "enum": [
-                "organization",
-                "enterprise"
-              ]
-            },
-            {
-              "type": "string",
               "name": "value_type",
               "description": "<p>The type of the value for the property</p>",
               "isRequired": true,
@@ -3888,6 +3881,11 @@
                 "org_and_repo_actors",
                 null
               ]
+            },
+            {
+              "type": "string or null",
+              "name": "regex",
+              "description": "<p>A regular expression (RE2 syntax) that values of the property must match.\nOnly supported for properties with a <code>value_type</code> of <code>string</code>.</p>"
             }
           ]
         }
@@ -4047,6 +4045,13 @@
                       null
                     ],
                     "description": "Who can edit the values of the property"
+                  },
+                  "regex": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "A regular expression (RE2 syntax) that values of the property must match.\nOnly present for properties with a `value_type` of `string` that define a regular expression."
                   }
                 },
                 "required": [
@@ -4223,6 +4228,13 @@
                     null
                   ],
                   "description": "Who can edit the values of the property"
+                },
+                "regex": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "A regular expression (RE2 syntax) that values of the property must match.\nOnly present for properties with a `value_type` of `string` that define a regular expression."
                 }
               },
               "required": [
@@ -4328,6 +4340,11 @@
             "org_and_repo_actors",
             null
           ]
+        },
+        {
+          "type": "string or null",
+          "name": "regex",
+          "description": "<p>A regular expression (RE2 syntax) that values of the property must match.\nOnly supported for properties with a <code>value_type</code> of <code>string</code>.</p>"
         }
       ],
       "descriptionHTML": "<p>Creates a new or updates an existing custom property that is defined for an organization.</p>\n<p>To use this endpoint, the authenticated user must be one of:</p>\n<ul>\n<li>An administrator for the organization.</li>\n<li>A user, or a user on a team, with the fine-grained permission of <code>custom_properties_org_definitions_manager</code> in the organization.</li>\n</ul>",
@@ -4452,6 +4469,13 @@
                     null
                   ],
                   "description": "Who can edit the values of the property"
+                },
+                "regex": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "A regular expression (RE2 syntax) that values of the property must match.\nOnly present for properties with a `value_type` of `string` that define a regular expression."
                 }
               },
               "required": [

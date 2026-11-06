@@ -62,6 +62,11 @@
           "org_and_repo_actors",
           null
         ]
+      },
+      {
+        "type": "string or null",
+        "name": "regex",
+        "description": "<p>A regular expression (RE2 syntax) that values of the property must match.\nOnly present for properties with a <code>value_type</code> of <code>string</code> that define a regular expression.</p>"
       }
     ]
   },
@@ -138,6 +143,11 @@
           "org_and_repo_actors",
           null
         ]
+      },
+      {
+        "type": "string or null",
+        "name": "regex",
+        "description": "<p>A regular expression (RE2 syntax) that values of the property must match.\nOnly present for properties with a <code>value_type</code> of <code>string</code> that define a regular expression.</p>"
       }
     ]
   },
@@ -204,6 +214,11 @@
           "org_and_repo_actors",
           null
         ]
+      },
+      {
+        "type": "string or null",
+        "name": "regex",
+        "description": "<p>A regular expression (RE2 syntax) that values of the property must match.\nOnly present for properties with a <code>value_type</code> of <code>string</code> that define a regular expression.</p>"
       }
     ]
   }

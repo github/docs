@@ -37,7 +37,7 @@
         },
         {
           "name": "team_type",
-          "description": "<p>Filter team results by their type. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/admin/concepts/enterprise-fundamentals/teams-in-an-enterprise#what-kind-of-team-should-i-use\">What kind of team should I use?</a>\"</p>",
+          "description": "<p>Filter team results by their type. For more information, see \"<a href=\"https://docs.github.com/admin/concepts/enterprise-fundamentals/teams-in-an-enterprise#what-kind-of-team-should-i-use\">What kind of team should I use?</a>\"</p>",
           "in": "query",
           "required": false,
           "schema": {
@@ -4536,7 +4536,7 @@
         },
         {
           "httpStatusCode": "204",
-          "description": "<p>Response if team has permission for the repository. This is the response when the repository media type hasn't been provded in the Accept header.</p>"
+          "description": "<p>Response if team has permission for the repository. This is the response when the repository media type hasn't been provided in the Accept header.</p>"
         },
         {
           "httpStatusCode": "404",
@@ -11296,7 +11296,7 @@
         },
         {
           "httpStatusCode": "404",
-          "description": "<p>Not Found if team synchronization is setup</p>"
+          "description": "<p>Not Found if team synchronization is set up</p>"
         }
       ],
       "previews": [],
