@@ -37,7 +37,7 @@ These limits are subject to change.
 | {% ifversion actions-nga %} |
 | Workflows queuing | Concurrency group queue | 100 workflow runs / concurrency group | When using `queue: max` in the `concurrency` section, up to 100 jobs or workflow runs can be queued per concurrency group. Runs beyond this limit will be rejected. | {% octicon "x" aria-label="No" %} |
 | {% endif %} |
-| Self-hosted | Runner registrations | 1500 runners / 5 minutes / repository/org/enterprise | Runners can be registered per repository/organization/enterprise. | {% octicon "check" aria-label="Yes" %} Support ticket |
+| Self-hosted | Runner registrations | 1500 runners / 5 minutes / repository/org/enterprise | Runners can be registered per repository/organization/enterprise. | {% octicon "x" aria-label="No" %} |
 | Self-hosted | Runners per runner group | 10,000 runners | Runners registered at the same time per runner group. | {% octicon "x" aria-label="No" %} |
 | Self-hosted | Job execution time | 5 days | Each job in a workflow can run for up to 5 days of execution time. If a job reaches this limit, the job is terminated and fails. | {% octicon "x" aria-label="No" %} |
 | Self-hosted | Job queue time | 24 hours | A job can be in the queue for 24 hours before it is automatically cancelled. | {% octicon "x" aria-label="No" %} |
