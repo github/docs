@@ -517,6 +517,9 @@ export function correctTranslatedContentStrings(
 
     content = content.replaceAll('{% aviso %}', '{% warning %}')
 
+    // The translator mangled "{% endwarning %}" into an empty tag plus "{ %de aviso de% }".
+    content = content.replace(/\{%\s*%\}\s*\{\s*%de aviso de%\s*\}/g, '{% endwarning %}')
+
     if (
       content.includes('{% vscode %}') &&
       !content.includes('{% endvscode %}') &&
