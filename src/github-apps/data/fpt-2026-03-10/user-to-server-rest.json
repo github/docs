@@ -3107,6 +3107,18 @@
       "requestPath": "/repos/{owner}/{repo}/dependabot/alerts/{alert_number}"
     },
     {
+      "slug": "get-repository-dependabot-runner-settings",
+      "subcategory": "runner-settings",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/dependabot/runner-settings"
+    },
+    {
+      "slug": "set-repository-dependabot-runner-settings",
+      "subcategory": "runner-settings",
+      "verb": "put",
+      "requestPath": "/repos/{owner}/{repo}/dependabot/runner-settings"
+    },
+    {
       "slug": "list-repository-secrets",
       "subcategory": "secrets",
       "verb": "get",

@@ -4816,6 +4816,24 @@
         "access": "write"
       },
       {
+        "category": "dependabot",
+        "slug": "get-repository-dependabot-runner-settings",
+        "subcategory": "runner-settings",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/dependabot/runner-settings",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "dependabot",
+        "slug": "set-repository-dependabot-runner-settings",
+        "subcategory": "runner-settings",
+        "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/dependabot/runner-settings",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
         "category": "deployments",
         "slug": "create-or-update-an-environment",
         "subcategory": "environments",

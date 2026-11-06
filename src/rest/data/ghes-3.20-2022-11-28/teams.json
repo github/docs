@@ -4431,7 +4431,7 @@
         },
         {
           "httpStatusCode": "204",
-          "description": "<p>Response if team has permission for the repository. This is the response when the repository media type hasn't been provded in the Accept header.</p>"
+          "description": "<p>Response if team has permission for the repository. This is the response when the repository media type hasn't been provided in the Accept header.</p>"
         },
         {
           "httpStatusCode": "404",
@@ -11177,7 +11177,7 @@
         },
         {
           "httpStatusCode": "404",
-          "description": "<p>Not Found if team synchronization is setup</p>"
+          "description": "<p>Not Found if team synchronization is set up</p>"
         }
       ],
       "previews": [],
