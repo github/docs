@@ -25,6 +25,7 @@ The following examples show schemas for user-, enterprise-, and repository-level
     "version": "v1"
   },
   "ai_credits_used": 12.5,
+  "client_telemetry_present": true,
   "code_acceptance_activity_count": 3,
   "code_generation_activity_count": 3,
   "day": "2026-10-19",
@@ -242,6 +243,11 @@ The following examples show schemas for user-, enterprise-, and repository-level
     "interaction_count": 1,
     "slash_cmd": "/release-check"
   }],
+  "usage_metrics_requirements": {
+    "met": [],
+    "unmet": ["vscode"],
+    "unknown": []
+  },
   "used_agent": false,
   "used_chat": false,
   "used_cli": true,
@@ -272,11 +278,14 @@ The `totals_by_client` array appears at the top level of each user record in bot
 
 In this example, `used_copilot_code_review_active` and `used_copilot_code_review_passive` are `null` because there was no {% data variables.copilot.copilot_code-review_short %} signal for the user that day. `used_copilot_cloud_agent` and `used_copilot_coding_agent` always carry the same value.
 
+`client_telemetry_present` and `usage_metrics_requirements` appear at the top level of each user record in 1-day and 28-day per-user reports, for both enterprise and organization scopes. In 28-day reports, they describe the record's `day`. In this example, `usage_metrics_requirements.unmet` lists `vscode` because the user's last-known {% data variables.product.prodname_vscode_shortname %} version is below the supported minimum. `client_telemetry_present` is null or omitted when telemetry status is unknown or wasn't evaluated, such as for users with only {% data variables.copilot.copilot_cloud_agent %} or {% data variables.copilot.copilot_code-review_short %} activity. `usage_metrics_requirements` is null or omitted when no IDE or extension can be identified.
+
 ## Enterprise-level schema example
 
 ```json copy
 [ {
   "day_totals" : [ {
+    "below_usage_metrics_minimum_user_count" : 1,
     "code_acceptance_activity_count" : 4,
     "code_generation_activity_count" : 4,
     "daily_active_cli_users" : 2,
@@ -298,6 +307,7 @@ In this example, `used_copilot_code_review_active` and `used_copilot_code_review
     "loc_deleted_sum" : 6,
     "loc_suggested_to_add_sum" : 59,
     "loc_suggested_to_delete_sum" : 6,
+    "missing_client_telemetry_user_count" : 0,
     "monthly_active_agent_users" : 0,
     "monthly_active_chat_users" : 0,
     "monthly_active_copilot_cloud_agent_users" : 1,
@@ -583,6 +593,7 @@ In this example, `used_copilot_code_review_active` and `used_copilot_code_review
   "report_start_day" : "2025-09-04"
 }, {
   "day_totals" : [ {
+    "below_usage_metrics_minimum_user_count" : 0,
     "code_acceptance_activity_count" : 2,
     "code_generation_activity_count" : 3,
     "daily_active_copilot_cloud_agent_users" : 0,
@@ -601,6 +612,7 @@ In this example, `used_copilot_code_review_active` and `used_copilot_code_review
     "loc_deleted_sum" : 3,
     "loc_suggested_to_add_sum" : 52,
     "loc_suggested_to_delete_sum" : 3,
+    "missing_client_telemetry_user_count" : 1,
     "monthly_active_agent_users" : 0,
     "monthly_active_chat_users" : 0,
     "monthly_active_copilot_cloud_agent_users" : 0,
@@ -798,6 +810,8 @@ Organization aggregated reports use the same top-level `copilot_feature_engageme
 The customization fields shown in `day_totals` apply to enterprise and organization aggregated 28-day reports. They also appear directly in enterprise and organization aggregated 1-day reports. Like per-user reports, these aggregated reports include configured names for customizations created by your organization.
 
 Similarly, `totals_by_client` appears within each `day_totals` entry in enterprise and organization aggregated 28-day reports, and directly on the record in aggregated 1-day reports. In aggregated reports, each `totals_by_client` entry's `session_count` is de-duplicated across all users rather than summed from per-user counts.
+
+`missing_client_telemetry_user_count` and `below_usage_metrics_minimum_user_count` appear within each `day_totals` entry in enterprise and organization aggregated 28-day reports, and directly on the record in aggregated 1-day reports. They are daily distinct-user counts, so don't sum them across days. A value of `0` is a measured zero, while null or omitted means the count is unavailable, for example for days before the fields existed.
 
 The following user-teams report examples are returned by the `user-teams-1-day` endpoints and are intended to be joined with the per-user usage report on `user_id`, `day`, and the relevant entity id (`organization_id` for the organization scope, `enterprise_id` for the enterprise scope) to derive team-level metrics. For more guidance, see [AUTOTITLE](/copilot/reference/copilot-usage-metrics/team-level-metrics).
 
