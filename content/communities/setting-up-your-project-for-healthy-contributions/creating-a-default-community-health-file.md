@@ -92,7 +92,7 @@ You cannot create a default license file. License files must be added to individ
 1. In the repository, create one of the supported community health files. Store the file in the required location:
    * Store discussion category forms in `.github/DISCUSSION_TEMPLATE`.
    * Store issue templates and their configuration file in `.github/ISSUE_TEMPLATE`.
-   {% ifversion fpt or ghec %}* Store `FUNDING.yml`, `VULNERABILITY_REPORT.yml`, and `VULNERABILITY_REPORT.yaml` in the `.github` folder.{% endif %}
+   {% ifversion fpt or ghec %}* Store `VULNERABILITY_REPORT.yml` and `VULNERABILITY_REPORT.yaml` in the `.github` folder.{% endif %}
    * Store all other supported files in the root of the repository, the `.github` folder, or the `docs` folder.
 
    For more information, see [AUTOTITLE](/repositories/working-with-files/managing-files/creating-new-files).
