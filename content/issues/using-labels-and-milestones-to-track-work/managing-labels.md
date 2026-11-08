@@ -75,6 +75,18 @@ Anyone with triage access to a repository can apply and dismiss labels.
 1. Navigate to the {% ifversion fpt or ghec %}issue, pull request, or discussion{% else %}issue or pull request{% endif %}.
 1. In the right sidebar, click **Labels**, then click a label.
 
+{% ifversion fpt or ghec %}
+
+### Applying a label in {% data variables.product.prodname_mobile %}
+
+1. In {% data variables.product.prodname_mobile %}, open the issue.
+1. At the bottom of the screen, next to **Comment**, tap {% octicon "info" aria-label="Details" %}.
+1. Next to "Labels", tap **Edit**.
+1. To add a label, tap {% octicon "plus-circle" aria-label="Add" %} next to it. To remove a label, under "Selected", tap {% octicon "x" aria-label="Remove" %} next to it.
+1. To save your changes, tap {% octicon "check" aria-label="Save" %}.
+
+{% endif %}
+
 ## Editing a label
 
 Anyone with write access to a repository can edit existing labels.
