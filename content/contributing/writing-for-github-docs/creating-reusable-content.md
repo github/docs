@@ -38,12 +38,9 @@ For example, this YAML file, `{% raw %}data/variables/foo/bar.yml{% endraw %}`, 
 
 ```yaml
 # the YAML file can contain multiple short strings in one file
-meaning_of_life: 42
+meaning_of_life: '42'
 
-# the strings can also be nested if needed
-nested:
-  values:
-    too: Yes!
+affirmative: Yes!
 ```
 
-The values would be accessible as `{% raw %}{% data foo.bar.meaning_of_life %}{% endraw %}` and `{% raw %}{% data foo.bar.nested.values.too %}{% endraw %}`.
+The values would be accessible as `{% raw %}{% data variables.foo.bar.meaning_of_life %}{% endraw %}` and `{% raw %}{% data variables.foo.bar.affirmative %}{% endraw %}`.

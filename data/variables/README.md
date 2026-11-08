@@ -10,18 +10,15 @@ For example, given a file `data/variables/foo/bar.yml`:
 
 ```yaml
 # multiple short strings in one file
-meaning_of_life: 42
+meaning_of_life: '42'
 
-# and they can be nested if needed
-nested:
-  values:
-    too: Yes!
+affirmative: Yes!
 ```
 
 Its values would be accessible as:
 
 ```
-{% data foo.bar.meaning_of_life %}
+{% data variables.foo.bar.meaning_of_life %}
 
-{% data foo.bar.nested.values.too %}
+{% data variables.foo.bar.affirmative %}
 ```
