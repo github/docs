@@ -111,6 +111,8 @@ Any falsy value works: `0`, `false`, `disabled`, or an empty string. You can als
 export DO_NOT_TRACK=true
 ```
 
+Unlike `GH_TELEMETRY`, `DO_NOT_TRACK` only disables telemetry when it is set to `1` or `true`.
+
 **CLI configuration:**
 
 ```shell
