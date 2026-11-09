@@ -1,0 +1,3 @@
+# Cluster high availability is supported before GHES 3.22.
+versions:
+  ghes: '<3.22'
