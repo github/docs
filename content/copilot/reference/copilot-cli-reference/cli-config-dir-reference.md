@@ -720,7 +720,7 @@ These settings apply across all your sessions and repositories. You can use the 
 | `askUser` | `boolean` | `true` | Allow the agent to ask clarifying questions. Set to `false` for fully autonomous operation. Can also be set with `--no-ask-user`. |
 | `autoTier` | `"efficiency"` \| `"balance"` \| `"intelligence"` | unset | Default Auto routing tier for new conversations when the selected model is `auto`. See the `/model` slash command. `"fast"` is no longer selectable and falls back to `"balance"` with a warning if set. |
 | `autoUpdate` | `boolean` | `true` | Automatically download CLI updates and update first-party plugins at the start of each session. |
-| `autoUpdatesChannel` | `"stable"` \| `"prerelease"` | `"stable"` | Update channel. Set to `"prerelease"` to receive pre-release updates. |
+| `autoUpdatesChannel` | `"stable"` \| `"prerelease"` | `"stable"` | Update channel. Set to `"prerelease"` to receive pre-release updates. `/update stable` or `/update prerelease` also saves the selected channel for future updates. |
 | `banner` | `"always"` \| `"once"` \| `"never"` | `"once"` | Animated banner display frequency. |
 | `bashEnv` | `boolean` | `false` | Enable `BASH_ENV` support for bash shells. Can also be set with `--bash-env` or `--no-bash-env`. |
 | `beep` | `boolean` | `true` | Play an audible beep when attention is required. |
