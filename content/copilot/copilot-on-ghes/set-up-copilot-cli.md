@@ -14,8 +14,13 @@ category:
   - Manage Copilot for a team
 ---
 
+{% ifversion copilot-cli-ghes-ga %}
 > [!NOTE]
-> This feature is in {% data variables.release-phases.technical_preview %} and subject to change.
+> This feature is generally available.
+{% else %}
+> [!NOTE]
+> This feature is generally available starting with {% data variables.product.prodname_ghe_server %} 3.22.3. In earlier 3.22 patch releases, it is in {% data variables.release-phases.technical_preview %}.
+{% endif %}
 
 You can configure {% data variables.copilot.copilot_cli_short %} to work with {% data variables.product.prodname_ghe_server %} in disconnected or air-gapped environments without connectivity to {% data variables.product.github %} Cloud. An administrator configures a model provider for the instance, and users connect {% data variables.copilot.copilot_cli_short %} with their {% data variables.product.prodname_ghe_server %} credentials.
 
