@@ -146,7 +146,7 @@ npm-${{ hashFiles('package-lock.json') }}
 
 {% endraw %}
 
-{% data variables.product.prodname_dotcom %} evaluates the expression `hash "package-lock.json"` to derive the final `key`.
+{% data variables.product.prodname_dotcom %} evaluates the `hashFiles('package-lock.json')` expression to derive the final `key`. `hashFiles` returns a full SHA-256 hash, so in practice the `key` ends with the complete 64-character hash. The example below shows a shortened version of the hash.
 
 ```yaml
 npm-d5ea0750
