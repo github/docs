@@ -1441,6 +1441,16 @@
   base64Supported: false
   isduplicate: false
 - provider: Cloudflare
+  supportedSecret: Cloudflare Access Service Token
+  secretType: cloudflare_access_service_token
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: Cloudflare
   supportedSecret: Cloudflare Account API Token
   secretType: cloudflare_account_api_token
   isPublic: true
