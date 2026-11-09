@@ -3,7 +3,7 @@ title: Connecting to GitHub with SSH
 intro: 'You can connect to {% data variables.product.github %} using the Secure Shell Protocol (SSH), which provides a secure channel over an unsecured network.'
 redirect_from:
   - /key-setup-redirect
-  - /linux-key-setup
+  - /linux-key-setuphttps://github.com/github/docs/blob/main/content/authentication/connecting-to-github-with-ssh/index.md
   - /mac-key-setup
   - /msysgit-key-setup
   - /articles/ssh-key-setup
