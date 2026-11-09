@@ -705,7 +705,7 @@ Use `/collect-debug-logs [file|gist|share] [PATH]` to gather debug logs for trou
 | `--continue`                       | Resume the most recent session in the current working directory, falling back to the globally most recent session. Conflicts with `--resume`. |
 | `--deny-tool=TOOL ...`             | Tools the CLI does not have permission to use. Will not prompt for permission. For multiple tools, use a quoted, comma-separated list. |
 | `--deny-url=URL ...`               | Deny access to specific URLs or domains, takes precedence over `--allow-url`. For multiple URLs, use a quoted, comma-separated list. |
-| `--disable-builtin-mcps`           | Disable all built-in MCP servers (currently: `github-mcp-server`). |
+| `--disable-builtin-mcps`           | Disable the built-in server set for this run. This does not disable every plugin-provided server. See [Built-in MCP servers](#built-in-mcp-servers) for the affected servers and how to disable computer use. |
 | `--disable-client-telemetry`       | Disable telemetry sent by the CLI. Does not affect server-side telemetry. |
 | `--disable-mcp-server=SERVER-NAME` | Disable a specific MCP server (can be used multiple times). |
 | `--disallow-temp-dir`              | Prevent automatic access to the system temporary directory. |
@@ -1201,19 +1201,20 @@ Control how MCP tool output is processed using the `filterMapping` field in a se
 
 ### Built-in MCP servers
 
-The CLI includes built-in MCP servers that are available without additional setup.
+The CLI automatically configures `github-mcp-server` when authentication is available, unless you disable it or supply your own configuration. Other servers depend on your account, platform, CLI version, and enabled plugins. They are not all available or enabled by default.
 
-| Server | Description |
-|--------|-------------|
-| `github-mcp-server` | {% data variables.product.github %} API integration: issues, pull requests, labels, commits, code search, and {% data variables.product.prodname_actions %}. |
-| `playwright` | Browser automation: navigate, click, type, screenshot, and form handling. |
-| `fetch` | HTTP requests via the `fetch` tool. |
-| `time` | Time utilities: `get_current_time` and `convert_time`. |
-| `computer-use` | Screen capture and mouse and keyboard control. Disabled by default. Enable it for a session with `/mcp enable computer-use`. |
+| Server | Description | Availability and setup |
+|--------|-------------|------------------------|
+| `github-mcp-server` | {% data variables.product.github %} integration, including repository access and code search. | Enabled by default when authentication is available. The exposed tools depend on your configuration. |
+| `WorkIQ` | Hosted MCP server associated with a Microsoft Entra account. | Discovered after you sign in with a Microsoft Entra account. Disabled by default. See [Account-derived WorkIQ](#account-derived-workiq). |
+| `browser-use` | Browser interaction through a bundled plugin. | Available in CLI versions that include the plugin. Disabled by default. Enable it with `/mcp enable browser-use`, install the matching browser extension and {% data variables.copilot.copilot_cli_npm_version %}, then run `/browser-use:activate` or start a new session. The legacy server name is `github-copilot-browser`. |
+| `computer-use` | Desktop application interaction through a bundled plugin. | Available for local sessions on macOS and Windows. Disabled by default. Enable it with `/computer on`. On macOS, Accessibility and Screen Recording permissions are required. See [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/computer-use). |
 
-Use `--disable-builtin-mcps` to disable all built-in servers, or `--disable-mcp-server SERVER-NAME` to disable a specific one.
+Managed settings can prevent you from enabling a server or its plugin.
 
-Built-in servers appear in `copilot mcp list`, `copilot mcp get`, and the interactive `/mcp` view alongside user, workspace, and plugin servers.
+`--disable-builtin-mcps` disables `github-mcp-server`, `WorkIQ`, `browser-use`, and the legacy browser server name `github-copilot-browser` for the current run. It does not disable `computer-use`. Use `--disable-mcp-server computer-use` to disable that server for the current run, or `/computer off` to disable the plugin and save that preference. Use `--disable-mcp-server SERVER-NAME` to disable any other specific server for the current run.
+
+Use `/mcp list` in an interactive session to check which servers are available and their connection status. Use `copilot mcp list` or `copilot mcp get SERVER-NAME` outside a session to inspect server configuration. A server that is absent or disabled is not necessarily a configuration error. Check its availability and setup requirements above.
 
 #### {% data variables.product.github %} MCP server tools
 
