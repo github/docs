@@ -21,7 +21,7 @@ The {% data variables.product.prodname_copilot_short %} usage metrics dashboard 
 * Team-level metrics are not pre-aggregated; you construct them by joining the user-teams report with the per-user usage metrics report. See [AUTOTITLE](/copilot/reference/copilot-usage-metrics/team-level-metrics).
 * Repository-level reports contain one record per repository with pull request activity on the requested day. See [Repository-level fields (API only)](#repository-level-fields-api-only) later in this article.
 
-For guidance on how to read and interpret these metrics, see [AUTOTITLE](/copilot/concepts/billing-and-usage/copilot-usage-metrics/copilot-metrics).
+For guidance on how to read and interpret these metrics, see [AUTOTITLE](/copilot/reference/copilot-usage-metrics/interpret-copilot-metrics).
 
 ## {% data variables.product.prodname_copilot_short %} usage dashboard metrics
 
@@ -47,15 +47,19 @@ These metrics appear directly in the {% data variables.product.prodname_copilot_
 
 ## Impact dashboard metrics
 
-These metrics appear in the impact dashboard, which groups users into adoption cohorts and connects that adoption to pull request output. For guidance on interpreting adoption cohorts, see [AUTOTITLE](/copilot/concepts/billing-and-usage/copilot-usage-metrics/copilot-metrics#understanding-adoption-cohorts).
+These metrics appear in the impact dashboard, which groups users into adoption cohorts and connects that adoption to pull request output. For phase definitions and classification rules, see [AI adoption phase fields](#ai-adoption-phase-fields).
 
 | Metric | Description |
 |:--|:--|
-| Engagement trends | How the organization's adoption cohort mix and pull request throughput (total pull requests merged per month) have changed over the last six months. |
-| Feature engagement | Number of active users who engaged with each included {% data variables.product.prodname_copilot_short %} feature on at least two distinct days during the inclusive 28-day window. |
 | Adoption cohort distribution | Share of licensed users grouped into each adoption phase (Chat-first users, Phase 1, Phase 2, Phase 3) for the period. Chat-first users correspond to the `No Cohort` value in the API. |
-| Adoption multiplier | Compares engaged users (Phase 1, 2, or 3) against chat-first users on code shipped (pull requests merged per user per month) and time to merge pull requests, to show the relative impact of deeper {% data variables.product.prodname_copilot_short %} adoption. |
+| Feature engagement | Number of active users who engaged with each included {% data variables.product.prodname_copilot_short %} feature on at least two distinct days during the inclusive 28-day window. |
+| Adoption multiplier | Compares engaged users (Phase 1, 2, or 3) against chat-first users on code shipped (pull requests merged per user per month) and time to merge pull requests, to show the relative impact of deeper {% data variables.product.prodname_copilot_short %} adoption. The code-shipped multiplier divides the engaged group's merge rate by the chat-first group's merge rate. For example, 20 pull requests per user per month divided by 10 gives a 2x multiplier. |
+| Potential return on investment[^1] | Compares monthly {% data variables.product.prodname_copilot_short %} cost per developer, cost as a percentage of developer compensation, and average pull requests per developer per month between chat-first and code-first users (Phases 0-1) and agent-first users (Phases 2-3). |
+| Engagement trends | How the organization's adoption cohort mix and pull request throughput (total pull requests merged per month) have changed over the last six months. |
+| Industry comparison | Compares agentic adoption and leverage with aggregated results from participating peers. For definitions, eligibility, and privacy protections, see [AUTOTITLE](/copilot/reference/copilot-usage-metrics/industry-comparisons). |
 | Recommendations | Suggested actions, such as configuring {% data variables.copilot.copilot_cloud_agent %} or enabling {% data variables.copilot.copilot_code-review_short %}, based on the organization's current cohort distribution. |
+
+[^1]: Return-on-investment cost estimates are based on actual {% data variables.product.prodname_ai_credits_short %} consumption. Selecting a compensation band updates estimates that depend on developer compensation. Treat these figures as estimates, not exact financial results, and review them alongside the adoption multiplier's code-shipped and time-to-merge comparisons. Return-on-investment estimates are available only in the dashboard, not in the usage metrics API or NDJSON exports.
 
 ## Code generation dashboard metrics
 
@@ -127,7 +131,7 @@ Per-user reports contain one record per user per day. The 28-day per-user report
 | `used_copilot_code_review_passive` | `boolean` | Yes | Whether the user had {% data variables.product.prodname_copilot_short %} automatically assigned to review their pull request that day, without actively engaging with the review. Null when there is no {% data variables.copilot.copilot_code-review_short %} signal for the user that day. |
 | `used_vscode_agent` | `boolean` | Yes | Whether the user used the dedicated {% data variables.product.prodname_vscode_shortname %} Agents window during the reporting period. Omitted when no dedicated Agents-window data is available for the user. |
 | `client_telemetry_present` | `boolean` | Yes | Whether qualifying client usage telemetry was received for the user that day. `false` means {% data variables.product.prodname_copilot_short %} recorded the user's activity server-side, but no qualifying client telemetry arrived. Null or omitted when unknown or not evaluated, including for users with only {% data variables.copilot.copilot_cloud_agent %} or {% data variables.copilot.copilot_code-review_short %} activity. `true` doesn't guarantee complete telemetry, and `false` doesn't indicate why telemetry is missing. In 28-day reports, describes the record's `day`. |
-| `usage_metrics_requirements` | `object` | Yes | Checks the last-known version of each identifiable IDE and {% data variables.product.prodname_copilot_short %} extension against the supported minimum versions. Each component appears in exactly one of `met`, `unmet`, or `unknown`. Null or omitted when no components can be identified or the record predates this field. This field is independent of `client_telemetry_present`, so a user can meet every minimum and still have `client_telemetry_present: false`. In 28-day reports, describes the record's `day`. For minimum versions, see [AUTOTITLE](/copilot/concepts/billing-and-usage/copilot-usage-metrics/copilot-metrics#supported-ides). |
+| `usage_metrics_requirements` | `object` | Yes | Checks the last-known version of each identifiable IDE and {% data variables.product.prodname_copilot_short %} extension against the supported minimum versions. Each component appears in exactly one of `met`, `unmet`, or `unknown`. Null or omitted when no components can be identified or the record predates this field. This field is independent of `client_telemetry_present`, so a user can meet every minimum and still have `client_telemetry_present: false`. In 28-day reports, describes the record's `day`. For minimum versions, see [AUTOTITLE](/copilot/reference/copilot-usage-metrics/usage-metrics-coverage#supported-ides). |
 | `usage_metrics_requirements.met` | `array` | No | Sorted IDE and extension identifiers, such as `vscode` or `vscode/copilot-chat`, whose last-known version meets the minimum. Present, possibly empty, whenever `usage_metrics_requirements` is present. |
 | `usage_metrics_requirements.unmet` | `array` | No | Sorted IDE and extension identifiers whose last-known version is below the minimum. Present, possibly empty, whenever `usage_metrics_requirements` is present. |
 | `usage_metrics_requirements.unknown` | `array` | No | Sorted IDE and extension identifiers whose version is missing or unrecognized. Present, possibly empty, whenever `usage_metrics_requirements` is present. |
@@ -502,7 +506,7 @@ The `totals_by_client` array appears at the top level of each record in per-user
 ### Pull request activity fields
 
 > [!IMPORTANT]
-> Organization- and enterprise-level reports may show different totals due to differences in user deduplication and attribution timing. For guidance on interpreting pull request metrics across scopes, see [AUTOTITLE](/copilot/concepts/billing-and-usage/copilot-usage-metrics/copilot-metrics#interpreting-pull-request-lifecycle-metrics-across-scopes).
+> Organization- and enterprise-level reports may show different totals due to differences in user deduplication and attribution timing. For guidance on interpreting pull request metrics across scopes, see [AUTOTITLE](/copilot/reference/copilot-usage-metrics/reconciling-usage-metrics#interpreting-pull-request-lifecycle-metrics-across-scopes).
 
 The `pull_requests` object appears in aggregated enterprise and organization reports, and in repository-level reports. It captures daily pull request creation, review, merge, and suggestion activity, including activity performed by {% data variables.copilot.copilot_cloud_agent %} and {% data variables.copilot.copilot_code-review_short %}.
 
