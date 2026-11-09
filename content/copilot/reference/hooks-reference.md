@@ -205,9 +205,11 @@ Progress messages are display-only and do not affect hook output or decision log
 > [!NOTE]
 > **{% data variables.copilot.copilot_cli_short %} only.**
 
-When the session sandbox is enabled, command hooks from the repository, your user settings, and plugins run inside it, with the same access as the agent's shell commands. A hook can also read the directory it was loaded from, so a plugin can run the scripts it ships, and a plugin hook can write to its data directory (`$COPILOT_PLUGIN_DATA`).
+When the session sandbox is enabled, command hooks from the repository, your user settings, and plugins run inside it, under the same sandbox policy rules as the agent's shell commands. A hook can also read the directory it was loaded from, so a plugin can run the scripts it ships, and a plugin hook can write to its data directory (`$COPILOT_PLUGIN_DATA`).
 
-A hook's `cwd` and `env` fields don't widen that access: a `cwd` outside the session's grants gives the hook no access there, and variables such as `TMPDIR` or `PATH` set in the hook's `env` grant nothing. When a hook fails in the sandbox, {% data variables.product.prodname_copilot_short %} shows a warning once per hook and session. To give a hook more access, add the required paths to `sandbox.userPolicy` in your settings. See [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-config-dir-reference#user-settings-copilotsettingsjson).
+When **Allow dev tool access** is enabled, additional access depends on tools identified in the hook command and your project files. See [AUTOTITLE](/copilot/concepts/security-governance-and-network-settings/understanding-local-sandboxing). {% data variables.copilot.copilot_cli_short %} does not inspect script files or expand a hook's access after it starts. A tool called from a script or through another command may therefore lack access to its configuration or cache, even if running the tool directly works.
+
+A hook's `cwd` and `env` fields don't widen that access: a `cwd` outside the session's grants gives the hook no access there, and variables such as `TMPDIR` or `PATH` set in the hook's `env` grant nothing. When a hook fails in the sandbox, {% data variables.product.prodname_copilot_short %} shows a warning once per hook and session. For help identifying and granting missing access, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/use-hooks#troubleshooting-sandboxed-hooks).
 
 Policy hooks always run on the host, outside the sandbox, even when the session sandbox is enabled. A policy hook should not run scripts from the workspace.
 
