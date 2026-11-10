@@ -26,19 +26,23 @@ copilot-cli:
     - content/copilot/reference/github-copilot-app-reference/slash-commands.md
     - content/copilot/reference/hooks-reference.md
     - content/copilot/reference/enterprise-administrators/enterprise-managed-settings.md
+    - content/copilot/reference/enterprise-administrators/opentelemetry-reference.md
   exclusions:
     - All mentions of, or information directly relating to, feature flags
     - enabledFeatureFlags configuration setting
     - COPILOT_CLI_ENABLED_FEATURE_FLAGS environment variable
+    - OpenTelemetry monitoring details from docs/reference/monitoring.md are excluded from CLI reference articles, except default-off state and activation conditions in cli-command-reference.md. Detailed OpenTelemetry configuration, variable tables, authentication headers, traces, metrics, span events, resource attributes, and content capture belong in content/copilot/reference/enterprise-administrators/opentelemetry-reference.md; CLI-specific configuration-file details belong in content/copilot/reference/copilot-cli-reference/cli-config-dir-reference.md.
   content-mapping: |
     content/copilot/reference/copilot-cli-reference/cli-plugin-reference.md covers only plugin-specific content.
     content/copilot/reference/github-copilot-app-reference/slash-commands.md relates to the Copilot App specifically, not Copilot CLI.
     In content/copilot/reference/enterprise-administrators/enterprise-managed-settings.md: only update information relating to Copilot CLI.
+    Preserve existing client and harness applicability labels. Do not remove the distinction from VS Code's Local agent harness or use CLI source documentation to infer behavior for other clients or harnesses.
     All information relating to files in the ~/.copilot configuration directory, and settings in those files, should go in content/copilot/reference/copilot-cli-reference/cli-config-dir-reference.md.
     All reference details relating to hooks should go in content/copilot/reference/hooks-reference.md.
     All reference details relating to using Copilot CLI programmatically (e.g. command line options and environment variables) should go in content/copilot/reference/copilot-cli-referencecli-programmatic-reference.md. Tabular information (but not discursive explanatory text) about using the CLI programmatically should also go in the main content/copilot/reference/copilot-cli-reference/cli-command-reference.md article.
-    All other CLI topics (MCP, skills, agents, permissions, etc.) belong in content/copilot/reference/copilot-cli-reference/cli-command-reference.md even when they mention plugins.
-    Do not overwrite the paragraph starting "OTel configuration can also be set in..." in cli-command-reference.md
+    In the "OpenTelemetry monitoring" section in cli-command-reference.md, maintain the default off state and activation conditions (COPILOT_OTEL_ENABLED=true, OTEL_EXPORTER_OTLP_ENDPOINT set, or COPILOT_OTEL_FILE_EXPORTER_PATH set). Preserve the link to /copilot/reference/enterprise-administrators/opentelemetry-reference. Do not add the detailed monitoring reference or environment variable tables to any target article.
+    Keep telemetry reference links in enterprise-managed-settings.md and cli-config-dir-reference.md pointing to /copilot/reference/enterprise-administrators/opentelemetry-reference, not to the CLI command reference.
+    All other non-excluded CLI topics (MCP, skills, agents, permissions, etc.) belong in content/copilot/reference/copilot-cli-reference/cli-command-reference.md even when they mention plugins.
 
 gh-stack:
   name: gh stack CLI
