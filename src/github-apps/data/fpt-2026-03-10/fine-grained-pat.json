@@ -2733,6 +2733,18 @@
       "subcategory": "copilot-cloud-agent-management",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/copilot/cloud-agent/configuration"
+    },
+    {
+      "slug": "get-copilot-code-review-settings-for-a-repository",
+      "subcategory": "copilot-code-review",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/copilot/code-review/settings"
+    },
+    {
+      "slug": "update-copilot-code-review-settings-for-a-repository",
+      "subcategory": "copilot-code-review",
+      "verb": "patch",
+      "requestPath": "/repos/{owner}/{repo}/copilot/code-review/settings"
     }
   ],
   "copilot-spaces": [
@@ -5033,6 +5045,12 @@
       "subcategory": "pulls",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/commits"
+    },
+    {
+      "slug": "request-a-copilot-code-review-for-a-pull-request",
+      "subcategory": "copilot-code-review",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/copilot-code-review"
     },
     {
       "slug": "list-pull-requests-files",
