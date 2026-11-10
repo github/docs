@@ -5,6 +5,8 @@
 
 .mainContent {
   scroll-margin-top: 5rem;
+  // Wide annotated examples measure the space remaining beside the navigation.
+  container-type: inline-size;
   // Clip wide content such as tables and code without creating a scroll container.
   // Sticky rails and the secondary bar still resolve against the viewport.
   overflow-x: clip;

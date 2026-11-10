@@ -25,6 +25,9 @@
 }
 
 .contentBox {
+  min-width: 0;
+  max-width: 100%;
+
   @include breakpoint(md) {
     padding-top: 24px;
   }
