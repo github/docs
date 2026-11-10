@@ -42,6 +42,17 @@ If you're specifically having difficulty with {% data variables.copilot.copilot_
 
 If you're unable to connect and the `curl` requests don't help to identify the error, it may help to collect detailed diagnostic logs in your editor. If you're working with your company's IT department or {% data variables.contact.contact_support_page %}, sharing these diagnostics may help to resolve the error. Enabling debug logging in your editor will help you to share more specific information. For more information, see [AUTOTITLE](/copilot/how-tos/troubleshoot-copilot/view-logs).
 
+## Troubleshooting cloud-session WebSocket connections
+
+Cloud sessions in your browser use secure WebSocket connections to Azure Web PubSub. If a session fails to connect or stops showing updates, a firewall, proxy, VPN, or security tool may be blocking or interrupting that connection. A successful HTTPS request to a {% data variables.product.github %} endpoint doesn't test this separate connection.
+
+1. Open your browser's developer tools and use the network panel to inspect WebSocket requests while starting the affected session. Look for a request to a hostname ending in `.webpubsub.azure.com`. Record the hostname, the time of the failure, and any error message. Don't share the full connection URL, which can contain an access token. Before sharing error messages, screenshots, or network logs, remove access tokens, cookies, and URL query strings.
+1. Ask your network administrator to confirm that the required hostname is allowed, and that your proxy or firewall supports secure WebSocket traffic on TCP port 443 and ongoing messages in both directions. See [AUTOTITLE](/copilot/reference/copilot-allowlist-reference#websocket-connections-for-cloud-sessions).
+1. If your network uses TLS inspection, ask your network security team to check whether inspection is interfering with the connection. If they confirm interference, any inspection exception must follow your organization's security policy and be limited to the required hosts. Don't disable certificate validation.
+1. Retry the affected session and confirm that it connects and receives updates, because an HTTP `101 Switching Protocols` response only confirms the WebSocket upgrade.
+
+If the problem continues, contact {% data variables.contact.github_support %} with the session URL, the time of the failure, the WebSocket hostname, and any error messages. A network configuration change won't resolve every session-startup failure.
+
 ## Troubleshooting proxy errors
 
 If there is a problem with your proxy setup, you may see the following error: `{% data variables.product.prodname_copilot %} could not connect to server. Extension activation failed: "read ETIMEDOUT" or "read ECONNRESET"`. This error can be caused by a range of network issues.
