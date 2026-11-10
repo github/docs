@@ -5,6 +5,7 @@
 * {% data variables.copilot.claude_haiku_55 %}
 * {% data variables.copilot.gemini_38_flash %}
 * {% data variables.copilot.gemini_4_argon %}
+* {% data variables.copilot.gemini_4_carbon %}
 * {% data variables.copilot.gpt_56_luna %}
 * {% data variables.copilot.gpt_56_sol %}
 * {% data variables.copilot.gpt_56_terra %}

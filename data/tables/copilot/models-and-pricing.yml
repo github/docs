@@ -374,6 +374,19 @@
   cached_input: $0.10
   output: $10.00
 
+# Promotional pricing expires 2026-12-01. Standard pricing from 2026-12-01 is $4.00 input,
+# $0.20 cached input, and $20.00 output. On that date, update input, cached_input,
+# and output below, then remove the [^gemini-4-carbon-promo] footnote here and in models-and-pricing.md.
+- model: 'Gemini 4 Carbon[^gemini-4-carbon-promo]'
+  provider: google
+  release_status: GA
+  category: Powerful
+  threshold: 'Not applicable'
+  tier: 'Default'
+  input: $2.00
+  cached_input: $0.10
+  output: $10.00
+
 # xAI
 - model: 'Grok 4.5'
   provider: xai

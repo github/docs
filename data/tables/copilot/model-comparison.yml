@@ -67,7 +67,7 @@
 - name: Claude Fable 5.2
   task_area: Long-horizon, autonomous coding and knowledge-work
   excels_at: Substantial, long-running coding tasks, including deep codebase research, feature development, and complex agentic workflows
-  further_reading: 'Coming soon'
+  further_reading: '[Claude Fable 5.2 model card](https://assets.claude.com/27d60918d218125e7504bc7354c4b4626ec56b11.pdf)'
 
 - name: Claude Haiku 4.5
   task_area: Fast help with simple or repetitive tasks
@@ -124,6 +124,11 @@
   task_area: Complex coding, agentic, and reasoning tasks
   excels_at: Thorough work that tests edge cases before finishing
   further_reading: '[Gemini 4 Argon](https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-4-Argon-Model-Card.pdf)'
+
+- name: Gemini 4 Carbon
+  task_area: Complex coding, agentic, and reasoning tasks
+  excels_at: Secure code generation and security-focused work
+  further_reading: 'Coming soon'
 
 # Microsoft
 - name: MAI-Code-1.1-Flash

@@ -140,4 +140,6 @@ You can view your current {% data variables.product.prodname_actions %} usage fo
 
 [^gemini-4-argon-promo]: {% data variables.copilot.gemini_4_argon %} is available at the promotional pricing of $2.00 per 1M input tokens, $0.10 per 1M cached input tokens, and $10.00 per 1M output tokens until December 1, 2026.
 
+[^gemini-4-carbon-promo]: {% data variables.copilot.gemini_4_carbon %} is available at the promotional pricing of $2.00 per 1M input tokens, $0.10 per 1M cached input tokens, and $10.00 per 1M output tokens until December 1, 2026. Starting December 1, 2026, pricing is $4.00 per 1M input tokens, $0.20 per 1M cached input tokens, and $20.00 per 1M output tokens.
+
 <!-- end expires 2026-12-01 -->
