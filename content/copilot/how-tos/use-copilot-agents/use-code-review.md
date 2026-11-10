@@ -147,7 +147,7 @@ To provide feedback on a review comment from {% data variables.product.prodname_
 You can request an initial review of a highlighted selection of code in {% data variables.product.prodname_vscode %}.
 
 1. In {% data variables.product.prodname_vscode %}, select the code you want to review.
-1. Right-click the selected code and choose **Generate Code** > **Review**.
+1. Right-click the selected code and choose **Review**.
 1. {% data variables.product.prodname_vscode_shortname %} creates review comments in the **Comments** panel and also shows them inline in the editor.
 
 ### Reviewing all uncommitted changes
