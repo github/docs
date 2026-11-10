@@ -1,0 +1,46 @@
+date: '2026-11-10'
+sections:
+  security_fixes:
+    - |
+      **CRITICAL**: The Ruby Active Storage component was updated to address the file-read and remote code execution vulnerability CVE-2026-66066.
+    - |
+      **HIGH**: Updated Git to include fixes that address CVE-2026-105437, CVE-2026-111760, CVE-2026-113408, CVE-2026-114466, CVE-2026-114467, and CVE-2026-114469.
+    - |
+      **MODERATE**: The Brotli compression library bundled with the GitHub application was updated to address CVE-2026-111497.
+    - |
+      Security updates have been applied to Go, OpenSSL, and Ubuntu system packages, including SQLite, across targeted main and bundled container images. These updates partially address [CVE-2026-111943](https://www.cve.org/CVERecord?id=CVE-2026-111943), [CVE-2025-15467](https://www.cve.org/CVERecord?id=CVE-2025-15467), and [CVE-2025-6965](https://www.cve.org/CVERecord?id=CVE-2025-6965); remaining components will be updated in a future release.
+    - |
+      Packages have been updated to the latest security versions.
+  known_issues:
+    - |
+      During an upgrade of GitHub Enterprise Server, custom firewall rules are removed. If you use custom firewall rules, you must reapply them after upgrading.
+    - |
+      If the root site administrator is locked out of the Management Console after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-web-ui/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account).
+    - |
+      {% data reusables.release-notes.large-adoc-files-issue %}
+    - |
+      Admin stats REST API endpoints may time out on appliances with many users or repositories. Retrying the request until data is returned is advised.
+    - |
+      When following the steps for [Replacing the primary database node](/admin/monitoring-and-managing-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-the-primary-database-node-mysql-or-mysql-and-mssql), running `ghe-cluster-config-apply` might fail with errors. If this occurs, re-running `ghe-cluster-config-apply` is expected to succeed.
+    - |
+      Running a config apply as part of the steps for [Replacing a node in an emergency](/admin/monitoring-and-managing-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-a-node-in-an-emergency) may fail with errors if the node being replaced is still reachable. If this occurs, shut down the node and repeat the steps.
+    - |
+      {% data reusables.release-notes.2024-06-possible-frontend-5-minute-outage-during-hotpatch-upgrade %}
+    - |
+      When restoring data originally backed up from a 3.13 or greater appliance version, the Elasticsearch indices need to be reindexed before some of the data will show up. This happens via a scheduled job that runs on the first Saturday of each month. It can also be forced by running `/usr/local/share/enterprise/ghe-es-search-repair`.
+    - |
+      When enabling automatic update checks for the first time in the Management Console, the status is not dynamically reflected until the "Updates" page is reloaded.
+    - |
+      When restoring from a backup snapshot, a large number of `mapper_parsing_exception` errors may be displayed.
+    - |
+      When initializing a new GHES cluster, nodes with the `consul-server` role should be added to the cluster before adding additional nodes. Adding all nodes simultaneously creates a race condition between nomad server registration and nomad client registration.
+    - |
+      In a cluster, the host running restore requires access to the storage nodes via their private IPs.
+    - |
+      After a restore, existing outside collaborators cannot be added to repositories in a new organization. This issue can be resolved by running `/usr/local/share/enterprise/ghe-es-search-repair` on the appliance.
+    - |
+      After a geo-replica is promoted to be a primary by running `ghe-repl-promote`, the actions workflow of a repository does not have any suggested workflows.
+    - |
+      The setting to define private registries at the organization level for code scanning is only available if Dependabot is also enabled for the instance.
+    - |
+      After a restart, an instance can remain unavailable with "Starting..." displayed in the web interface. To recover, an administrator can connect using administrative SSH and rerun `ghe-config-apply`. This provides temporary recovery but does not prevent the issue from recurring. This issue is resolved in {% data variables.product.prodname_ghe_server %} 3.21.0 and later.
