@@ -220,8 +220,9 @@ To persist a model selection across shell sessions, you can set the `model` key 
 
 When determining which model to use for a given prompt, the CLI checks for model specifications in the following order of precedence (from highest to lowest):
 
-* Where a custom agent is used: the model specified in the custom agent definition (if any).
+* Where a custom agent is used and sets `model-policy: required`: the model specified in the custom agent definition.
 * The `--model` command line option.
+* Where a custom agent is used: the model specified in the custom agent definition (if any).
 * The `COPILOT_MODEL` environment variable.
 * The `model` key in the configuration file (`~/.copilot/settings.json` or `$COPILOT_HOME/settings.json`).
 * The CLI's default model.

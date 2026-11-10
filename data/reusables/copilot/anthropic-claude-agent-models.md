@@ -4,3 +4,4 @@
 * {% data variables.copilot.claude_opus_48_fast %}
 * {% data variables.copilot.claude_opus_5 %}
 * {% data variables.copilot.claude_fable_51 %}
+* {% data variables.copilot.claude_fable_52 %}
