@@ -4742,7 +4742,7 @@
                 },
                 "author": {
                   "gravatar_id": "",
-                  "avatar_url": "https://secure.gravatar.com/avatar/7ad39074b0584bc555d0417ae3e7d974?d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png",
+                  "avatar_url": "https://example.com/example.png",
                   "url": "https://api.github.com/users/octocat",
                   "id": 583231,
                   "login": "octocat",
@@ -4773,7 +4773,7 @@
                 "url": "https://api.github.com/repos/octocat/Hello-World/commits/7fd1a60b01f91b314f59955a4e4d4e80d8edf11d",
                 "committer": {
                   "gravatar_id": "",
-                  "avatar_url": "https://secure.gravatar.com/avatar/7ad39074b0584bc555d0417ae3e7d974?d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png",
+                  "avatar_url": "https://example.com/example.png",
                   "url": "https://api.github.com/users/octocat",
                   "id": 583231,
                   "login": "octocat",

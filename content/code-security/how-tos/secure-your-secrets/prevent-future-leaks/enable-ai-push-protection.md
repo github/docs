@@ -17,6 +17,8 @@ When you enable push protection for {% data variables.secret-scanning.ai-detecte
 
 Push protection for {% data variables.secret-scanning.ai-detected-secrets %} consumes {% data variables.product.prodname_ai_credits_short %} in addition to your {% data variables.product.prodname_GH_secret_protection %} or {% data variables.product.prodname_GHAS %} license. See [AUTOTITLE](/code-security/concepts/secret-security/push-protection#generic-secrets-found-with-ai) and [AUTOTITLE](/billing/concepts/product-billing/github-advanced-security#secret-protection-ai-credits).
 
+Usage is billed to the organization that owns the repository. For organization-owned repositories in an enterprise, usage counts toward the enterprise's pool of {% data variables.product.prodname_ai_credits_short %}. Only repositories in the personal namespace of a {% data variables.enterprise.prodname_managed_user %} consume the repository owner's individual pool, regardless of who pushes. Otherwise, users' individual pools are not charged.
+
 ## Prerequisites
 
 * Your repository must have {% data variables.product.prodname_GH_secret_protection %} or {% data variables.product.prodname_GHAS %} enabled.

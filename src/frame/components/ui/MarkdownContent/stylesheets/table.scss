@@ -93,4 +93,32 @@
       margin-bottom: 0;
     }
   }
+
+  :global(.table-nowrap-first-column) {
+    overflow-x: auto;
+
+    table {
+      table-layout: auto;
+    }
+
+    // Horizontal scrolling makes this wrapper the sticky containing block.
+    thead {
+      position: static;
+    }
+
+    th:first-child,
+    td:first-child {
+      width: 1%;
+      white-space: nowrap;
+
+      code {
+        white-space: nowrap;
+      }
+
+      // wrap-code-terms inserts explicit breaks even inside nowrap code.
+      wbr {
+        display: none;
+      }
+    }
+  }
 }

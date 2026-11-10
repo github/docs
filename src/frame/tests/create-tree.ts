@@ -1,10 +1,13 @@
 import fs from 'fs/promises'
 
-import { describe, expect, test } from 'vitest'
+import { describe, expect, test, vi } from 'vitest'
 
 import createTree from '@/frame/lib/create-tree'
 import { setCategoryApplicableVersions } from '@/frame/lib/page-data'
 import type { Page, UnversionedTree } from '@/types'
+
+const logger = vi.hoisted(() => ({ error: vi.fn(), warn: vi.fn(), info: vi.fn(), debug: vi.fn() }))
+vi.mock('@/observability/logger', () => ({ createLogger: () => logger }))
 
 const contentDir = 'src/fixtures/fixtures/content'
 
@@ -55,6 +58,16 @@ describe('createTree', () => {
     expect(reused.length).toBe(declared.length - 1)
   })
 
+  test('warns once for missing early-access content across rebuilds', async () => {
+    const missingPath = 'content/early-access/does-not-exist'
+    logger.warn.mockClear()
+
+    expect(await createTree(missingPath)).toBeUndefined()
+    expect(await createTree(missingPath)).toBeUndefined()
+
+    expect(logger.warn).toHaveBeenCalledTimes(1)
+  })
+
   test('stores the file mtime on the page', async () => {
     const tree = (await createTree(contentDir)) as UnversionedTree
     const { mtimeMs } = await fs.stat(tree.page.fullPath)
@@ -102,6 +115,38 @@ describe('setCategoryApplicableVersions', () => {
 
     expect(category.page.applicableVersions).toEqual(allVersions)
     expect(product.page.applicableVersions).toEqual(allVersions)
+  })
+
+  test('ignores the versions of cross-product children', () => {
+    const ownVersions = ['free-pro-team@latest', 'enterprise-cloud@latest']
+    const crossProductChild = stubTree('rest/pulls/pulls.md', [
+      ...ownVersions,
+      'enterprise-server@3.20',
+    ])
+    crossProductChild.crossProductChild = true
+    const landing = stubTree('pull-requests/stacked/index.md', ownVersions, [
+      stubTree('pull-requests/stacked/article.md', ownVersions),
+      crossProductChild,
+    ])
+    const root = stubTree('index.md', ownVersions, [landing])
+
+    setCategoryApplicableVersions(root)
+
+    expect(landing.page.applicableVersions).toEqual(ownVersions)
+  })
+
+  test('keeps original versions when every child is cross-product', () => {
+    const crossProductChild = stubTree('copilot/article.md', [
+      'free-pro-team@latest',
+      'enterprise-server@3.20',
+    ])
+    crossProductChild.crossProductChild = true
+    const landing = stubTree('landing/index.md', ['free-pro-team@latest'], [crossProductChild])
+    const root = stubTree('index.md', ['free-pro-team@latest'], [landing])
+
+    setCategoryApplicableVersions(root)
+
+    expect(landing.page.applicableVersions).toEqual(['free-pro-team@latest'])
   })
 
   test('skips a category without a childPages array, as in translated trees', () => {

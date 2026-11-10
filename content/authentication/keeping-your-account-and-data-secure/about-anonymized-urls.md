@@ -19,6 +19,14 @@ Videos also get anonymized URLs with the same format as image URLs, but are not 
 
 Anyone who receives your anonymized URL, directly or indirectly, may view your image or video. To keep sensitive media files private, restrict them to a private network or a server that requires authentication instead of using Camo.
 
+## Removing {% data variables.product.github %}-hosted attachments
+
+Files and images hosted under `github.com/user-attachments/` are separate from the comments and pull request descriptions that link to them. Removing a link from an issue comment or pull request description does not necessarily delete the uploaded file. An image uploaded while editing a pull request description can remain available even if you remove it before saving the description.
+
+To ask about removing an uploaded attachment, contact {% data variables.contact.contact_support %}. Support may be able to help remove it even if you no longer have its original URL. After an attachment is deleted, its URL should return a 404 error.
+
+Attachment deletion is different from purging an image from Camo's cache. For more information about purging the cache, see [Removing an image from Camo's cache](#removing-an-image-from-camos-cache).
+
 ## Troubleshooting issues with Camo
 
 In rare circumstances, images that are processed through Camo might not appear on {% data variables.product.prodname_dotcom %}. Here are some steps you can take to determine where the problem lies.

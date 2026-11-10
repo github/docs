@@ -164,20 +164,23 @@ describe('getAutomaticRequestLogger', () => {
       }
     })
 
-    it('should filter out _next requests unless debug level', async () => {
-      vi.stubEnv('LOG_LEVEL', 'info') // info level = 2, debug = 3
+    it.each(['/_next/static/file.js', '/__nextjs_font/geist-latin.woff2'])(
+      'should filter out %s unless debug level',
+      async (url) => {
+        vi.stubEnv('LOG_LEVEL', 'info') // info level = 2, debug = 3
 
-      mockReq.url = '/_next/static/file.js'
-      mockReq.originalUrl = '/_next/static/file.js'
+        mockReq.url = url
+        mockReq.originalUrl = url
 
-      const middleware = getAutomaticRequestLogger()
-      middleware(mockReq as Request, mockRes as Response, mockNext)
-      ;(mockRes as MockResponseWithEnd).end()
+        const middleware = getAutomaticRequestLogger()
+        middleware(mockReq as Request, mockRes as Response, mockNext)
+        ;(mockRes as MockResponseWithEnd).end()
 
-      await new Promise((resolve) => setTimeout(resolve, 20))
+        await new Promise((resolve) => setTimeout(resolve, 20))
 
-      expect(consoleLogs).toHaveLength(0)
-    })
+        expect(consoleLogs).toHaveLength(0)
+      },
+    )
 
     it('should log _next requests when debug level is set', async () => {
       vi.stubEnv('LOG_LEVEL', 'debug') // debug level = 3

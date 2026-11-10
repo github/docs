@@ -107,6 +107,8 @@ const alertWorkflows = workflows.filter(({ data }) =>
 const dailyWorkflows = scheduledWorkflows
   // purge-fastly.yml soft-purges daily at 02:20 UTC, outside the standard 16:20 slot.
   .filter(({ filename }) => filename !== 'purge-fastly.yml')
+  // The non-employee digest runs every day, including weekends.
+  .filter(({ filename }) => filename !== 'notify-non-employee-comments.yml')
   .filter(({ data }) =>
     data.on.schedule!.find(({ cron }: { cron: string }) => /^20 \d{1,2} /.test(cron)),
   )

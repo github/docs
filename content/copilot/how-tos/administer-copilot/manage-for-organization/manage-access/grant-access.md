@@ -30,6 +30,9 @@ For these plans, seat billing starts when you grant an organization member acces
 
 Enterprise owners can also assign seats to users directly, without going through an organization. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-access/grant-access).
 
+> [!TIP]
+> If your organization belongs to an enterprise, see [AUTOTITLE](/copilot/get-started/enterprise-ai-governance) to align access, policies, and feature rollout with its governance approach.
+
 ## Granting access to {% data variables.product.prodname_copilot %} for all current and future users in your organization
 
 {% data reusables.profile.access_org %}

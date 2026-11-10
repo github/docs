@@ -28,7 +28,7 @@ You do not need a {% data variables.product.prodname_copilot %} license.
 
 You run AI Scan for repositories on demand, and each scan consumes **{% data variables.product.prodname_code_security %} {% data variables.product.prodname_ai_credits_short %}**. This usage is separate from active-committer licensing.
 
-Usage is billed to the account responsible for the organization's billing. 
+Usage is billed to the account responsible for the organization's billing.
 
 {% data reusables.code-scanning.ai-scan-personal-account-billing %}
 
@@ -57,6 +57,7 @@ The alert will only close automatically if the applied fix changes the exact lin
 ## Limitations
 
 * Scans analyze the default branch only.
+* Self-hosted runners are not supported.
 * Scans are manually triggered. Scheduled scans and automatic scans on push are not supported.
 * The agent selects which code to examine within a time budget. A scan does not exhaustively analyze every file or guarantee that it finds every vulnerability.
 * Matching against existing {% data variables.product.prodname_codeql %} alerts is best effort, so duplicate alerts can occur.

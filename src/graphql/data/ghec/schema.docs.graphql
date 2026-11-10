@@ -7815,6 +7815,56 @@ type ConvertedToDiscussionEvent implements Node @docsCategory(name: "issues") {
 }
 
 """
+The effort level for a Copilot code review. For more information, see [Review effort level](https://docs.github.com/en/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/code-review#review-effort-level).
+"""
+enum CopilotCodeReviewEffort @docsCategory(name: "copilot") {
+  """
+  Copilot picks the effort for each pull request.
+  """
+  AUTO
+
+  """
+  Balanced effort and depth.
+  """
+  BALANCED
+
+  """
+  Lower effort, faster review.
+  """
+  LITE
+
+  """
+  Highest effort, deepest review.
+  """
+  MAX
+}
+
+"""
+A Copilot code review effort level. For more information, see [Review effort level](https://docs.github.com/en/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/code-review#review-effort-level).
+"""
+enum CopilotCodeReviewEffortLevel @docsCategory(name: "copilot") {
+  """
+  Copilot picks the effort for each pull request.
+  """
+  AUTO
+
+  """
+  Balanced effort and depth.
+  """
+  BALANCED
+
+  """
+  Lower effort, faster review.
+  """
+  LITE
+
+  """
+  Highest effort, deepest review.
+  """
+  MAX
+}
+
+"""
 Request Copilot code review for new pull requests automatically if the author
 has access to Copilot code review and AI credits.
 """
@@ -7844,6 +7894,131 @@ input CopilotCodeReviewParametersInput @docsCategory(name: "pulls") {
   Copilot automatically reviews each new push to the pull request.
   """
   reviewOnPush: Boolean
+}
+
+"""
+The stable reason a Copilot code review request was denied or conflicted with an existing request.
+"""
+enum CopilotCodeReviewRequestReason @docsCategory(name: "copilot") {
+  """
+  The actor is not eligible to request Copilot code reviews.
+  """
+  ACTOR_INELIGIBLE
+
+  """
+  The Copilot code review reviewer app is not installed.
+  """
+  APP_NOT_INSTALLED
+
+  """
+  The organization providing the Copilot license is unavailable.
+  """
+  LICENSED_ORGANIZATION_UNAVAILABLE
+
+  """
+  The actor has no Copilot code review quota remaining.
+  """
+  NO_QUOTA_REMAINING
+
+  """
+  The repository is not eligible for Copilot code reviews.
+  """
+  REPOSITORY_INELIGIBLE
+
+  """
+  A Copilot code review request is already pending for this pull request.
+  """
+  REQUEST_CONFLICT
+}
+
+"""
+Which configuration an organization's Copilot code review runner values come from.
+"""
+enum CopilotCodeReviewRunnerConfiguredBy @docsCategory(name: "copilot") {
+  """
+  The organization has saved a Copilot code review runner configuration.
+  """
+  CODE_REVIEW
+
+  """
+  The values are inherited from the organization's Copilot coding agent runner configuration.
+  """
+  CODING_AGENT
+}
+
+"""
+The type of runner Copilot code review uses.
+"""
+enum CopilotCodeReviewRunnerType @docsCategory(name: "copilot") {
+  """
+  Runners that match the configured labels or runner group.
+  """
+  LABELED
+
+  """
+  Standard GitHub-hosted runners.
+  """
+  STANDARD
+}
+
+"""
+Which review comment severities Copilot code review leaves out.
+"""
+enum CopilotCodeReviewSeverityFilter @docsCategory(name: "copilot") {
+  """
+  Leave out low-severity comments.
+  """
+  LOW
+
+  """
+  Leave out low- and medium-severity comments.
+  """
+  LOW_AND_MEDIUM
+
+  """
+  Keep every comment.
+  """
+  NO_FILTER
+}
+
+"""
+A validated source reported as contributing to a Copilot code review comment.
+"""
+type CopilotCodeReviewSource @docsCategory(name: "pulls") {
+  """
+  The kind of contributing source.
+  """
+  kind: CopilotCodeReviewSourceKind!
+
+  """
+  The reported source name, or "custom instructions" for CUSTOM_INSTRUCTIONS.
+  """
+  name: String!
+
+  """
+  The validated repository-relative source path, if available. Commit OIDs are not exposed.
+  """
+  path: String
+}
+
+"""
+The kind of source reported as contributing to a Copilot code review comment.
+"""
+enum CopilotCodeReviewSourceKind @docsCategory(name: "pulls") {
+  """
+  Custom instructions.
+  """
+  CUSTOM_INSTRUCTIONS
+
+  """
+  An MCP server.
+  """
+  MCP
+
+  """
+  A skill.
+  """
+  SKILL
 }
 
 """
@@ -14349,6 +14524,11 @@ type Enterprise implements Node @docsCategory(name: "enterprise-admin") {
   billingInfo: EnterpriseBillingInfo
 
   """
+  The configured Copilot code review policy. Requires enterprise AI controls read permissions.
+  """
+  copilotCodeReviewPolicy: EnterpriseCopilotCodeReviewPolicy
+
+  """
   Identifies the date and time when the object was created.
   """
   createdAt: DateTime!
@@ -15046,6 +15226,36 @@ type EnterpriseConnection {
   Identifies the total count of items in the connection.
   """
   totalCount: Int!
+}
+
+"""
+The enterprise's configured Copilot code review policy, not a user's effective policy.
+"""
+type EnterpriseCopilotCodeReviewPolicy @docsCategory(name: "copilot") {
+  """
+  The configured policy. Null if the enterprise has not configured a policy.
+  """
+  policyState: EnterpriseCopilotCodeReviewPolicyState
+}
+
+"""
+The configured Copilot code review policy for an enterprise.
+"""
+enum EnterpriseCopilotCodeReviewPolicyState @docsCategory(name: "copilot") {
+  """
+  Organization administrators configure Copilot code review. Not supported for standalone enterprises.
+  """
+  CONFIGURED_BY_ORGANIZATION_ADMINS
+
+  """
+  Copilot code review is disabled for all organizations.
+  """
+  DISABLED_FOR_ALL_ORGANIZATIONS
+
+  """
+  Copilot code review is enabled for all organizations.
+  """
+  ENABLED_FOR_ALL_ORGANIZATIONS
 }
 
 """
@@ -29181,6 +29391,22 @@ type Mutation @docsCategory(name: "meta") {
   ): ReprioritizeSubIssuePayload @docsCategory(name: "issues")
 
   """
+  Requests a Copilot code review.
+
+  Every call attempts to advance the Copilot code review lifecycle for the pull
+  request: if no Copilot review has been requested yet, an initial request is created;
+  if the most recent Copilot review has already completed, a new request is created
+  automatically to continue the lifecycle. If a Copilot code review request is already
+  pending, no new request is created and `failureReason` is `REQUEST_CONFLICT`.
+  """
+  requestCopilotCodeReview(
+    """
+    Parameters for RequestCopilotCodeReview
+    """
+    input: RequestCopilotCodeReviewInput!
+  ): RequestCopilotCodeReviewPayload @docsCategory(name: "pulls")
+
+  """
   Set review requests on a pull request.
   """
   requestReviews(
@@ -29627,6 +29853,16 @@ type Mutation @docsCategory(name: "meta") {
   ): UpdateEnterpriseAllowPrivateRepositoryForkingSettingPayload @docsCategory(name: "enterprise-admin")
 
   """
+  Updates an enterprise's Copilot code review policy using the existing policy propagation and notification behavior.
+  """
+  updateEnterpriseCopilotCodeReviewPolicy(
+    """
+    Parameters for UpdateEnterpriseCopilotCodeReviewPolicy
+    """
+    input: UpdateEnterpriseCopilotCodeReviewPolicyInput!
+  ): UpdateEnterpriseCopilotCodeReviewPolicyPayload @docsCategory(name: "copilot")
+
+  """
   Sets the base repository permission for organizations in an enterprise.
   """
   updateEnterpriseDefaultRepositoryPermissionSetting(
@@ -29927,6 +30163,38 @@ type Mutation @docsCategory(name: "meta") {
   ): UpdateOrganizationAllowPrivateRepositoryForkingSettingPayload @docsCategory(name: "orgs")
 
   """
+  Updates an organization's Copilot code review policy when the enterprise delegates control to organization administrators.
+  """
+  updateOrganizationCopilotCodeReviewPolicy(
+    """
+    Parameters for UpdateOrganizationCopilotCodeReviewPolicy
+    """
+    input: UpdateOrganizationCopilotCodeReviewPolicyInput!
+  ): UpdateOrganizationCopilotCodeReviewPolicyPayload @docsCategory(name: "copilot")
+
+  """
+  Sets the runner configuration that Copilot code review uses for an
+  organization. A LABELED runner requires at least one label or a runner group.
+  Invalid input does not change the configuration.
+  """
+  updateOrganizationCopilotCodeReviewRunnerConfiguration(
+    """
+    Parameters for UpdateOrganizationCopilotCodeReviewRunnerConfiguration
+    """
+    input: UpdateOrganizationCopilotCodeReviewRunnerConfigurationInput!
+  ): UpdateOrganizationCopilotCodeReviewRunnerConfigurationPayload @docsCategory(name: "copilot")
+
+  """
+  Updates an organization's Copilot code review settings. Omitted settings are not changed.
+  """
+  updateOrganizationCopilotCodeReviewSettings(
+    """
+    Parameters for UpdateOrganizationCopilotCodeReviewSettings
+    """
+    input: UpdateOrganizationCopilotCodeReviewSettingsInput!
+  ): UpdateOrganizationCopilotCodeReviewSettingsPayload @docsCategory(name: "copilot")
+
+  """
   Sets whether contributors are required to sign off on web-based commits for repositories in an organization.
   """
   updateOrganizationWebCommitSignoffSetting(
@@ -30158,6 +30426,16 @@ type Mutation @docsCategory(name: "meta") {
     """
     input: UpdateRepositoryInput!
   ): UpdateRepositoryPayload @docsCategory(name: "repos")
+
+  """
+  Updates a repository's Copilot code review settings. Omitted settings are not changed.
+  """
+  updateRepositoryCopilotCodeReviewSettings(
+    """
+    Parameters for UpdateRepositoryCopilotCodeReviewSettings
+    """
+    input: UpdateRepositoryCopilotCodeReviewSettingsInput!
+  ): UpdateRepositoryCopilotCodeReviewSettingsPayload @docsCategory(name: "copilot")
 
   """
   Update a repository custom property.
@@ -35655,6 +35933,16 @@ type Organization implements Actor &
   ): URI!
 
   """
+  The effective runner configuration that Copilot code review uses. Requires organization Copilot read permissions.
+  """
+  copilotCodeReviewRunnerConfiguration: OrganizationCopilotCodeReviewRunnerConfiguration
+
+  """
+  The organization's Copilot code review settings. Requires organization Copilot read permissions.
+  """
+  copilotCodeReviewSettings: OrganizationCopilotCodeReviewSettings
+
+  """
   Identifies the date and time when the object was created.
   """
   createdAt: DateTime!
@@ -36115,6 +36403,11 @@ type Organization implements Actor &
   The billing email for the organization.
   """
   organizationBillingEmail: String
+
+  """
+  The configured and effective Copilot code review policy. Requires organization Copilot read permissions.
+  """
+  organizationCopilotCodeReviewPolicy: OrganizationCopilotCodeReviewPolicy
 
   """
   A list of packages under the owner.
@@ -37352,6 +37645,191 @@ type OrganizationConnection {
   Identifies the total count of items in the connection.
   """
   totalCount: Int!
+}
+
+"""
+An organization's default Copilot code review effort.
+"""
+type OrganizationCopilotCodeReviewDefaultEffort @docsCategory(name: "copilot") {
+  """
+  The effort stored for the organization. Null if the organization inherits the
+  default or has stored an effort that is not currently available.
+  """
+  configured: CopilotCodeReviewEffortLevel
+
+  """
+  Whether organization administrators can update the setting.
+  """
+  editable: Boolean!
+
+  """
+  The effort that repositories without their own setting use. When that effort
+  is not currently available, this reports the fallback effort instead.
+  """
+  effective: CopilotCodeReviewEffortLevel!
+
+  """
+  The effort the organization inherits when it does not configure one: the
+  enterprise default when one applies, otherwise GitHub's default.
+  """
+  githubDefault: CopilotCodeReviewEffortLevel!
+
+  """
+  Whether the enterprise or the organization controls the setting.
+  """
+  managedBy: OrganizationCopilotCodeReviewPolicyManager!
+}
+
+"""
+The default Copilot code review effort to set for an organization. For more
+information, see [Review effort level](https://docs.github.com/en/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/code-review#review-effort-level).
+"""
+enum OrganizationCopilotCodeReviewEffortSetting @docsCategory(name: "copilot") {
+  """
+  Copilot picks the effort for each pull request.
+  """
+  AUTO
+
+  """
+  Balanced effort and depth.
+  """
+  BALANCED
+
+  """
+  Clear the organization's value so repositories inherit the default.
+  """
+  INHERIT
+
+  """
+  Lower effort, faster review.
+  """
+  LITE
+
+  """
+  Highest effort, deepest review.
+  """
+  MAX
+}
+
+"""
+The organization's configured and effective Copilot code review policy.
+"""
+type OrganizationCopilotCodeReviewPolicy @docsCategory(name: "copilot") {
+  """
+  The policy stored for the organization. Null if the organization has not configured a policy.
+  """
+  configuredState: OrganizationCopilotCodeReviewPolicyState
+
+  """
+  Whether organization administrators can update the policy.
+  """
+  editable: Boolean!
+
+  """
+  The policy that applies to the organization after enterprise policy is considered.
+  """
+  effectiveState: OrganizationCopilotCodeReviewPolicyState!
+
+  """
+  Whether the enterprise or the organization controls the policy.
+  """
+  managedBy: OrganizationCopilotCodeReviewPolicyManager!
+}
+
+"""
+Why an organization's Copilot code review policy was not updated.
+"""
+enum OrganizationCopilotCodeReviewPolicyConflict @docsCategory(name: "copilot") {
+  """
+  The enterprise policy controls the organization's policy.
+  """
+  POLICY_MANAGED_BY_ENTERPRISE
+}
+
+"""
+The scope that controls an organization's Copilot code review policy.
+"""
+enum OrganizationCopilotCodeReviewPolicyManager @docsCategory(name: "copilot") {
+  """
+  The enterprise policy controls the organization's policy.
+  """
+  ENTERPRISE
+
+  """
+  Organization administrators control the policy.
+  """
+  ORGANIZATION
+}
+
+"""
+The Copilot code review policy state for an organization.
+"""
+enum OrganizationCopilotCodeReviewPolicyState @docsCategory(name: "copilot") {
+  """
+  Copilot code review is disabled.
+  """
+  DISABLED
+
+  """
+  Copilot code review is enabled.
+  """
+  ENABLED
+}
+
+"""
+The effective runner configuration that Copilot code review uses for an organization.
+"""
+type OrganizationCopilotCodeReviewRunnerConfiguration @docsCategory(name: "copilot") {
+  """
+  Whether repositories can use their own runner configuration.
+  """
+  allowRepositoryCustomization: Boolean!
+
+  """
+  Which configuration the values come from. CODING_AGENT means they are
+  inherited from the organization's Copilot coding agent runner configuration.
+  """
+  configuredBy: CopilotCodeReviewRunnerConfiguredBy!
+
+  """
+  The runner group used for a labeled runner, if any.
+  """
+  runnerGroupName: String
+
+  """
+  The runner labels used for a labeled runner.
+  """
+  runnerLabels: [String!]!
+
+  """
+  The type of runner.
+  """
+  runnerType: CopilotCodeReviewRunnerType!
+}
+
+"""
+An organization's Copilot code review settings.
+"""
+type OrganizationCopilotCodeReviewSettings @docsCategory(name: "copilot") {
+  """
+  The review efforts that can currently be set for this organization, in display order.
+  """
+  availableReviewEfforts: [CopilotCodeReviewEffortLevel!]!
+
+  """
+  The default review effort for repositories that do not choose their own.
+  """
+  defaultReviewEffort: OrganizationCopilotCodeReviewDefaultEffort!
+}
+
+"""
+Why an organization's Copilot code review settings were not updated.
+"""
+enum OrganizationCopilotCodeReviewSettingsConflict @docsCategory(name: "copilot") {
+  """
+  The organization cannot change a submitted setting.
+  """
+  SETTING_NOT_EDITABLE
 }
 
 """
@@ -46226,6 +46704,11 @@ type PullRequestReview implements Comment &
   commit: Commit
 
   """
+  The persisted effective effort used to produce this Copilot code review, or null if unavailable.
+  """
+  copilotCodeReviewEffort: CopilotCodeReviewEffort
+
+  """
   Identifies the date and time when the object was created.
   """
   createdAt: DateTime!
@@ -46262,6 +46745,11 @@ type PullRequestReview implements Comment &
   Check if this comment was edited and includes an edit with the creation data
   """
   includesCreatedEdit: Boolean!
+
+  """
+  Whether this review was produced by Copilot code review. Bot authorship alone does not establish provenance.
+  """
+  isCopilotCodeReview: Boolean!
 
   """
   Returns whether or not a comment has been minimized.
@@ -46489,6 +46977,11 @@ type PullRequestReviewComment implements Comment &
   commit: Commit
 
   """
+  Sources reported as contributing to this comment; may be incomplete.
+  """
+  copilotCodeReviewSources: [CopilotCodeReviewSource!]!
+
+  """
   Identifies when the comment was created.
   """
   createdAt: DateTime!
@@ -46535,6 +47028,11 @@ type PullRequestReviewComment implements Comment &
   Check if this comment was edited and includes an edit with the creation data
   """
   includesCreatedEdit: Boolean!
+
+  """
+  Whether this comment was produced by Copilot code review.
+  """
+  isCopilotCodeReview: Boolean!
 
   """
   Returns whether or not a comment has been minimized.
@@ -56138,6 +56636,11 @@ type Repository implements Node &
   ): ReleaseConnection!
 
   """
+  The repository's Copilot code review settings. Requires repository administration access.
+  """
+  repositoryCopilotCodeReviewSettings: RepositoryCopilotCodeReviewSettings
+
+  """
   A custom property value for the repository.
   """
   repositoryCustomPropertyValue(
@@ -56796,6 +57299,85 @@ enum RepositoryContributionType @docsCategory(name: "repos") {
   Created the repository
   """
   REPOSITORY
+}
+
+"""
+A repository's Copilot code review effort.
+"""
+type RepositoryCopilotCodeReviewEffort @docsCategory(name: "copilot") {
+  """
+  The effort stored for the repository. Null if the repository inherits its
+  effort or has stored an effort that is not currently available.
+  """
+  configured: CopilotCodeReviewEffortLevel
+
+  """
+  The effort reviews use when the requester and the pull request do not choose
+  one. When that effort is not currently available, this reports the effort
+  reviews would use without it.
+  """
+  effective: CopilotCodeReviewEffortLevel!
+}
+
+"""
+The Copilot code review effort to set for a repository. For more information,
+see [Review effort level](https://docs.github.com/en/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/code-review#review-effort-level).
+"""
+enum RepositoryCopilotCodeReviewEffortSetting @docsCategory(name: "copilot") {
+  """
+  Copilot picks the effort for each pull request.
+  """
+  AUTO
+
+  """
+  Balanced effort and depth.
+  """
+  BALANCED
+
+  """
+  Clear the repository's value so it inherits the effort from its organization, enterprise, or GitHub's default.
+  """
+  INHERIT
+
+  """
+  Lower effort, faster review.
+  """
+  LITE
+
+  """
+  Highest effort, deepest review.
+  """
+  MAX
+}
+
+"""
+A repository's Copilot code review settings. These settings tune reviews; they do not enable Copilot code review.
+"""
+type RepositoryCopilotCodeReviewSettings @docsCategory(name: "copilot") {
+  """
+  The review efforts that can currently be set for this repository, in display order.
+  """
+  availableReviewEfforts: [CopilotCodeReviewEffortLevel!]!
+
+  """
+  Whether reviews use the repository's custom instructions.
+  """
+  customInstructionsEnabled: Boolean!
+
+  """
+  Whether reviews can use MCP servers.
+  """
+  mcpEnabled: Boolean!
+
+  """
+  The repository's review effort.
+  """
+  reviewEffort: RepositoryCopilotCodeReviewEffort!
+
+  """
+  Which review comment severities Copilot code review leaves out.
+  """
+  severityFilter: CopilotCodeReviewSeverityFilter!
 }
 
 """
@@ -57895,6 +58477,11 @@ enum RepositoryPermission @docsCategory(name: "repos") {
   MAINTAIN
 
   """
+  Can read and clone this repository. Can also moderate and edit issues and manage pull requests without write access
+  """
+  MODERATE
+
+  """
   Can read and clone this repository. Can also open and comment on issues and pull requests
   """
   READ
@@ -57905,9 +58492,10 @@ enum RepositoryPermission @docsCategory(name: "repos") {
   TRIAGE
 
   """
-  Can read and clone this repository. Can also manage issues and pull requests, plus additional triage abilities
+  Can read and clone this repository. Can also moderate and edit issues and manage pull requests without write access
   """
   TRIAGE_PLUS
+    @deprecated(reason: "TRIAGE_PLUS has been renamed to MODERATE. Use MODERATE instead. Removal on 2027-04-01 UTC.")
 
   """
   Can read, clone, and push to this repository. Can also manage issues and pull requests
@@ -59370,6 +59958,62 @@ type ReprioritizeSubIssuePayload {
   The parent issue that the sub-issue was reprioritized in.
   """
   issue: Issue
+}
+
+"""
+Autogenerated input type of RequestCopilotCodeReview
+"""
+input RequestCopilotCodeReviewInput {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  The Node ID of the pull request to modify.
+  """
+  pullRequestId: ID! @possibleTypes(concreteTypes: ["PullRequest"])
+
+  """
+  The effort level to use for the Copilot code review. Omit to use the default effort level.
+  """
+  reviewEffort: CopilotCodeReviewEffort
+}
+
+"""
+Autogenerated return type of RequestCopilotCodeReview.
+"""
+type RequestCopilotCodeReviewPayload {
+  """
+  Identifies the actor who performed the event.
+  """
+  actor: Actor
+
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  The stable reason the request was denied or conflicted with an existing request. Null when the request succeeded.
+  """
+  failureReason: CopilotCodeReviewRequestReason
+
+  """
+  The pull request that is getting requests.
+  """
+  pullRequest: PullRequest
+
+  """
+  The Copilot code review request that was created or is already pending. Null
+  when the request was denied or conflicted with an existing request.
+  """
+  reviewRequest: ReviewRequest
+
+  """
+  Did the operation succeed?
+  """
+  success: Boolean
 }
 
 """
@@ -69444,6 +70088,41 @@ type UpdateEnterpriseAllowPrivateRepositoryForkingSettingPayload {
 }
 
 """
+Autogenerated input type of UpdateEnterpriseCopilotCodeReviewPolicy
+"""
+input UpdateEnterpriseCopilotCodeReviewPolicyInput {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  The ID of the enterprise whose policy to update.
+  """
+  enterpriseId: ID! @possibleTypes(concreteTypes: ["Enterprise"])
+
+  """
+  The policy to set. Standalone enterprises cannot delegate to organization administrators.
+  """
+  policyState: EnterpriseCopilotCodeReviewPolicyState!
+}
+
+"""
+Autogenerated return type of UpdateEnterpriseCopilotCodeReviewPolicy.
+"""
+type UpdateEnterpriseCopilotCodeReviewPolicyPayload {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  The updated enterprise policy.
+  """
+  policy: EnterpriseCopilotCodeReviewPolicy
+}
+
+"""
 Autogenerated input type of UpdateEnterpriseDefaultRepositoryPermissionSetting
 """
 input UpdateEnterpriseDefaultRepositoryPermissionSettingInput {
@@ -70769,6 +71448,136 @@ type UpdateOrganizationAllowPrivateRepositoryForkingSettingPayload {
 }
 
 """
+Autogenerated input type of UpdateOrganizationCopilotCodeReviewPolicy
+"""
+input UpdateOrganizationCopilotCodeReviewPolicyInput {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  The ID of the organization whose policy to update.
+  """
+  organizationId: ID! @possibleTypes(concreteTypes: ["Organization"])
+
+  """
+  The policy to set.
+  """
+  state: OrganizationCopilotCodeReviewPolicyState!
+}
+
+"""
+Autogenerated return type of UpdateOrganizationCopilotCodeReviewPolicy.
+"""
+type UpdateOrganizationCopilotCodeReviewPolicyPayload {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  Why the policy was not updated. Null if the update succeeded.
+  """
+  conflict: OrganizationCopilotCodeReviewPolicyConflict
+
+  """
+  The organization's current policy.
+  """
+  policy: OrganizationCopilotCodeReviewPolicy
+}
+
+"""
+Autogenerated input type of UpdateOrganizationCopilotCodeReviewRunnerConfiguration
+"""
+input UpdateOrganizationCopilotCodeReviewRunnerConfigurationInput {
+  """
+  Whether repositories can use their own runner configuration. When omitted, the current effective value is kept.
+  """
+  allowRepositoryCustomization: Boolean
+
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  The ID of the organization whose runner configuration to set.
+  """
+  organizationId: ID! @possibleTypes(concreteTypes: ["Organization"])
+
+  """
+  The runner group for a labeled runner.
+  """
+  runnerGroupName: String
+
+  """
+  The runner labels for a labeled runner.
+  """
+  runnerLabels: [String!]
+
+  """
+  The type of runner.
+  """
+  runnerType: CopilotCodeReviewRunnerType!
+}
+
+"""
+Autogenerated return type of UpdateOrganizationCopilotCodeReviewRunnerConfiguration.
+"""
+type UpdateOrganizationCopilotCodeReviewRunnerConfigurationPayload {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  The organization's updated runner configuration.
+  """
+  runnerConfiguration: OrganizationCopilotCodeReviewRunnerConfiguration
+}
+
+"""
+Autogenerated input type of UpdateOrganizationCopilotCodeReviewSettings
+"""
+input UpdateOrganizationCopilotCodeReviewSettingsInput {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  The default review effort for repositories that do not choose their own. INHERIT clears the organization's value.
+  """
+  defaultReviewEffort: OrganizationCopilotCodeReviewEffortSetting
+
+  """
+  The ID of the organization whose settings to update.
+  """
+  organizationId: ID! @possibleTypes(concreteTypes: ["Organization"])
+}
+
+"""
+Autogenerated return type of UpdateOrganizationCopilotCodeReviewSettings.
+"""
+type UpdateOrganizationCopilotCodeReviewSettingsPayload {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  Why the settings were not updated. Null if the update succeeded.
+  """
+  conflict: OrganizationCopilotCodeReviewSettingsConflict
+
+  """
+  The organization's current settings.
+  """
+  settings: OrganizationCopilotCodeReviewSettings
+}
+
+"""
 Autogenerated input type of UpdateOrganizationWebCommitSignoffSetting
 """
 input UpdateOrganizationWebCommitSignoffSettingInput {
@@ -71683,6 +72492,56 @@ type UpdateRefsPayload {
   A unique identifier for the client performing the mutation.
   """
   clientMutationId: String
+}
+
+"""
+Autogenerated input type of UpdateRepositoryCopilotCodeReviewSettings
+"""
+input UpdateRepositoryCopilotCodeReviewSettingsInput {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  Whether reviews use the repository's custom instructions.
+  """
+  customInstructionsEnabled: Boolean
+
+  """
+  Whether reviews can use MCP servers.
+  """
+  mcpEnabled: Boolean
+
+  """
+  The ID of the repository whose settings to update.
+  """
+  repositoryId: ID! @possibleTypes(concreteTypes: ["Repository"])
+
+  """
+  The review effort for the repository. INHERIT clears the repository's value.
+  """
+  reviewEffort: RepositoryCopilotCodeReviewEffortSetting
+
+  """
+  Which review comment severities Copilot code review leaves out.
+  """
+  severityFilter: CopilotCodeReviewSeverityFilter
+}
+
+"""
+Autogenerated return type of UpdateRepositoryCopilotCodeReviewSettings.
+"""
+type UpdateRepositoryCopilotCodeReviewSettingsPayload {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  The repository's current settings.
+  """
+  settings: RepositoryCopilotCodeReviewSettings
 }
 
 """

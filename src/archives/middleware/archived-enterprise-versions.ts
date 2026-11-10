@@ -13,6 +13,7 @@ import patterns from '@/frame/lib/patterns'
 import versionSatisfiesRange from '@/versions/lib/version-satisfies-range'
 import { isArchivedVersion } from '@/archives/lib/is-archived-version'
 import { isLanguageInArchivedVersion } from '@/archives/lib/archived-languages'
+import { getDoubledLanguagePrefixRedirect } from '@/archives/lib/doubled-language-prefix'
 import { setFastlySurrogateKey, SURROGATE_ENUMS } from '@/frame/middleware/set-fastly-surrogate-key'
 import { readCompressedJsonFileFallbackLazily } from '@/frame/lib/read-json-file'
 import { archivedCacheControl, languageCacheControl } from '@/frame/middleware/cache-control'
@@ -79,6 +80,14 @@ export default async function archivedEnterpriseVersions(
   if (req.path.includes('//')) return next()
 
   if (patterns.assetPaths.test(req.path)) return next()
+
+  const withoutStaleLanguage = getDoubledLanguagePrefixRedirect(req.path)
+  if (withoutStaleLanguage) {
+    const queryIndex = req.url.indexOf('?')
+    const query = queryIndex === -1 ? '' : req.url.slice(queryIndex)
+    cacheAggressively(res)
+    return res.safeRedirect(301, withoutStaleLanguage + query)
+  }
 
   const redirectCode = pathLanguagePrefixed(req.path) ? 301 : 302
 
@@ -278,8 +287,6 @@ export default async function archivedEnterpriseVersions(
       versionSatisfiesRange(requestedVersion, `>=${firstReleaseStoredInBlobStorage}`) &&
       versionSatisfiesRange(requestedVersion, `<=3.9`)
     ) {
-      // Fastly sets x-host, and GLB removes x-forwarded-host.
-      const host = req.get('x-host') || req.get('x-forwarded-host') || req.get('host')
       const modifiedBody = body
         .replaceAll(
           `${OLD_AZURE_BLOB_ENTERPRISE_DIR}/${requestedVersion}/assets/cb-`,
@@ -287,7 +294,8 @@ export default async function archivedEnterpriseVersions(
         )
         .replaceAll(
           `${OLD_AZURE_BLOB_ENTERPRISE_DIR}/${requestedVersion}/`,
-          `${req.protocol}://${host}/enterprise-server@${requestedVersion}/`,
+          // Root-relative, so request headers never end up in the page.
+          `/enterprise-server@${requestedVersion}/`,
         )
 
       return res.send(modifiedBody)

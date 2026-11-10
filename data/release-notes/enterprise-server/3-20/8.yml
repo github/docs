@@ -46,7 +46,7 @@ sections:
     - |
       The first user created via SAML-JIT during first-run bootstrap on a fresh GHES appliance was not added as an Enterprise owner.
     - |
-      Enterprise Managed Users could remain absent from enterprise membership listings and the `enterprise.members` GraphQL response after being reinstated.
+      After a user account was unsuspended, the user could remain missing from the enterprise member list and the results of GraphQL queries using `enterprise.members`. [Updated: 2026-10-30]
     - |
       On the secret scanning metrics page for a large enough enterprise, the page could time out.
     - |
@@ -91,8 +91,6 @@ sections:
       Running a config apply as part of the steps for [Replacing a node in an emergency](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-a-node-in-an-emergency) may fail with errors if the node being replaced is still reachable. If this occurs, shutdown the node and repeat the steps.
     - |
       When restoring data originally backed up from a 3.13 or greater appliance version, the Elasticsearch indices need to be reindexed before some of the data will show up.  This happens via a scheduled job that runs on the first Saturday of each month.  It can also be forced by running `/usr/local/share/enterprise/ghe-es-search-repair`.
-    - |
-      When initializing a new GHES cluster, nodes with the `consul-server` role should be added to the cluster before adding additional nodes. Adding all nodes simultaneously creates a race condition between nomad server registration and nomad client registration.
     - |
       When initializing a new GHES cluster, nodes with the `consul-server` role should be added to the cluster before adding additional nodes. Adding all nodes simultaneously creates a race condition between nomad server registration and nomad client registration.
     - |

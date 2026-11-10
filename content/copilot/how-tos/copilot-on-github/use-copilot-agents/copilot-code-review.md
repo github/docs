@@ -29,7 +29,7 @@ By default, {% data variables.product.prodname_copilot_short %} leaves a "Commen
 
 {% data variables.product.prodname_copilot_short %}'s review comments work like comments from human reviewers. Add reactions, reply, resolve, or hide them. Any replies you add are visible to other people but not to {% data variables.product.prodname_copilot_short %}.
 
-You can also request a review from {% data variables.product.prodname_copilot_short %} through the {% data variables.product.github %} REST API by requesting `copilot-pull-request-reviewer[bot]` as a reviewer. For more information, see [AUTOTITLE](/rest/pulls/review-requests#request-reviewers-for-a-pull-request).
+You can also use the {% data variables.product.github %} REST API to request reviews from {% data variables.product.prodname_copilot_short %} and to identify reviews and comments from {% data variables.copilot.copilot_code-review_short %}. For more information, see [AUTOTITLE](/rest/pulls/review-requests#request-reviewers-for-a-pull-request), [AUTOTITLE](/rest/pulls/reviews), and [AUTOTITLE](/rest/pulls/comments).
 
 ## Work with suggested changes
 

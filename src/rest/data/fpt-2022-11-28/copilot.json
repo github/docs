@@ -584,7 +584,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Gets information about which repositories in an organization have been enabled\nor disabled for the Copilot cloud agent.</p>\n<p>Organization owners can configure whether Copilot cloud agent is enabled for\nall repositories, selected repositories, or no repositories owned by organization.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Gets information about which repositories in an organization have been enabled\nor disabled for the Copilot cloud agent.</p>\n<p>Organization owners and members with a custom organization role that includes\neither the <code>View organization Copilot cloud agent settings</code> or <code>Manage organization Copilot cloud agent settings</code> permission can use this endpoint to view whether\nCopilot cloud agent is enabled for all repositories, selected repositories, or\nno repositories owned by the organization.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:org</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -862,7 +862,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Lists the selected repositories that are enabled for Copilot cloud agent in an organization.</p>\n<p>Organization owners can use this endpoint when the coding agent repository policy\nis set to <code>selected</code> to see which repositories have been enabled.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Lists the selected repositories that are enabled for Copilot cloud agent in an organization.</p>\n<p>Organization owners and members with a custom organization role that includes\neither the <code>View organization Copilot cloud agent settings</code> or <code>Manage organization Copilot cloud agent settings</code> permission can use this endpoint when the coding agent\nrepository policy is set to <code>selected</code> to see which repositories have been enabled.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:org</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -2331,6 +2331,425 @@
         "permissions": [
           {
             "\"Copilot content exclusion\" organization permissions": "write"
+          }
+        ]
+      }
+    }
+  ],
+  "copilot-team-customizations": [
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/teams/{team_slug}/copilot/customizations",
+      "title": "Get Copilot customizations for a team",
+      "category": "copilot",
+      "subcategory": "copilot-team-customizations",
+      "parameters": [
+        {
+          "name": "org",
+          "description": "<p>The organization name. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "team_slug",
+          "description": "<p>The slug of the team name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Gets the GitHub-managed Copilot customizations of a team.</p>\n<p>The authenticated user must be an organization owner or a team maintainer. Teams that keep their\ncustomizations in a repository return <code>409</code>.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> or <code>read:org</code> scope to use this endpoint.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "org": "ORG",
+              "team_slug": "TEAM_SLUG"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "pluginAssignments": {
+                "code-review@acme-marketplace": {
+                  "state": "defaultEnabled"
+                }
+              },
+              "extraKnownMarketplaces": {
+                "acme-marketplace": {
+                  "source": {
+                    "source": "github",
+                    "repo": "acme/copilot-marketplace"
+                  }
+                }
+              }
+            },
+            "schema": {
+              "type": "object",
+              "description": "The team's customization document. Only the keys `pluginAssignments` and `extraKnownMarketplaces` are supported.",
+              "properties": {
+                "pluginAssignments": {
+                  "type": "object",
+                  "description": "Plugins assigned to the team, keyed by `PLUGIN@MARKETPLACE`.",
+                  "additionalProperties": {
+                    "type": "object",
+                    "properties": {
+                      "state": {
+                        "type": "string",
+                        "description": "The assignment state.",
+                        "enum": [
+                          "defaultEnabled"
+                        ]
+                      }
+                    }
+                  }
+                },
+                "extraKnownMarketplaces": {
+                  "type": "object",
+                  "description": "Additional plugin marketplaces available to the team, keyed by marketplace name.",
+                  "additionalProperties": {
+                    "type": "object"
+                  }
+                }
+              },
+              "additionalProperties": true
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "401",
+          "description": "<p>Requires authentication</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "409",
+          "description": "<p>Conflict</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
+        },
+        {
+          "httpStatusCode": "500",
+          "description": "<p>Internal Error</p>"
+        },
+        {
+          "httpStatusCode": "503",
+          "description": "<p>Service unavailable</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Copilot agent settings\" organization permissions": "read"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "put",
+      "requestPath": "/orgs/{org}/teams/{team_slug}/copilot/customizations",
+      "title": "Set Copilot customizations for a team",
+      "category": "copilot",
+      "subcategory": "copilot-team-customizations",
+      "parameters": [
+        {
+          "name": "org",
+          "description": "<p>The organization name. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "team_slug",
+          "description": "<p>The slug of the team name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "object",
+          "name": "pluginAssignments",
+          "description": "<p>Plugins assigned to the team, keyed by <code>PLUGIN@MARKETPLACE</code>.</p>",
+          "childParamsGroups": [
+            {
+              "type": "object",
+              "name": "key",
+              "description": "<p>A user-defined key to represent an item in <code>pluginAssignments</code>.</p>",
+              "childParamsGroups": [
+                {
+                  "type": "string",
+                  "name": "state",
+                  "description": "<p>The assignment state.</p>",
+                  "enum": [
+                    "defaultEnabled"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "object",
+          "name": "extraKnownMarketplaces",
+          "description": "<p>Additional plugin marketplaces available to the team, keyed by marketplace name.</p>",
+          "childParamsGroups": [
+            {
+              "type": "object",
+              "name": "key",
+              "description": "<p>A user-defined key to represent an item in <code>extraKnownMarketplaces</code>.</p>",
+              "childParamsGroups": []
+            }
+          ]
+        }
+      ],
+      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Replaces the GitHub-managed Copilot customizations of a team, creating them on the first write.</p>\n<p>The authenticated user must be an organization owner or a team maintainer. Teams that keep their\ncustomizations in a repository return <code>409</code>. Documents that fail validation return <code>422</code> with the reason.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "pluginAssignments": {
+                "code-review@acme-marketplace": {
+                  "state": "defaultEnabled"
+                }
+              },
+              "extraKnownMarketplaces": {
+                "acme-marketplace": {
+                  "source": {
+                    "source": "github",
+                    "repo": "acme/copilot-marketplace"
+                  }
+                }
+              }
+            },
+            "parameters": {
+              "org": "ORG",
+              "team_slug": "TEAM_SLUG"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "pluginAssignments": {
+                "code-review@acme-marketplace": {
+                  "state": "defaultEnabled"
+                }
+              },
+              "extraKnownMarketplaces": {
+                "acme-marketplace": {
+                  "source": {
+                    "source": "github",
+                    "repo": "acme/copilot-marketplace"
+                  }
+                }
+              }
+            },
+            "schema": {
+              "type": "object",
+              "description": "The team's customization document. Only the keys `pluginAssignments` and `extraKnownMarketplaces` are supported.",
+              "properties": {
+                "pluginAssignments": {
+                  "type": "object",
+                  "description": "Plugins assigned to the team, keyed by `PLUGIN@MARKETPLACE`.",
+                  "additionalProperties": {
+                    "type": "object",
+                    "properties": {
+                      "state": {
+                        "type": "string",
+                        "description": "The assignment state.",
+                        "enum": [
+                          "defaultEnabled"
+                        ]
+                      }
+                    }
+                  }
+                },
+                "extraKnownMarketplaces": {
+                  "type": "object",
+                  "description": "Additional plugin marketplaces available to the team, keyed by marketplace name.",
+                  "additionalProperties": {
+                    "type": "object"
+                  }
+                }
+              },
+              "additionalProperties": true
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "401",
+          "description": "<p>Requires authentication</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "409",
+          "description": "<p>Conflict</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
+        },
+        {
+          "httpStatusCode": "500",
+          "description": "<p>Internal Error</p>"
+        },
+        {
+          "httpStatusCode": "503",
+          "description": "<p>Service unavailable</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Copilot agent settings\" organization permissions": "write"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/teams/{team_slug}/copilot/customizations",
+      "title": "Delete Copilot customizations for a team",
+      "category": "copilot",
+      "subcategory": "copilot-team-customizations",
+      "parameters": [
+        {
+          "name": "org",
+          "description": "<p>The organization name. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "team_slug",
+          "description": "<p>The slug of the team name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Deletes the GitHub-managed Copilot customizations of a team. Deleting customizations that don't exist succeeds.</p>\n<p>The authenticated user must be an organization owner or a team maintainer. Teams that keep their\ncustomizations in a repository return <code>409</code>.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "org": "ORG",
+              "team_slug": "TEAM_SLUG"
+            }
+          },
+          "response": {
+            "statusCode": "204",
+            "description": "<p>Response</p>"
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "204",
+          "description": "<p>No Content</p>"
+        },
+        {
+          "httpStatusCode": "401",
+          "description": "<p>Requires authentication</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "409",
+          "description": "<p>Conflict</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
+        },
+        {
+          "httpStatusCode": "500",
+          "description": "<p>Internal Error</p>"
+        },
+        {
+          "httpStatusCode": "503",
+          "description": "<p>Service unavailable</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Copilot agent settings\" organization permissions": "write"
           }
         ]
       }

@@ -341,6 +341,15 @@
   output: $50.00
   cache_write: $12.50
 
+- model: Claude Fable 5.2
+  provider: anthropic
+  release_status: GA
+  category: Powerful
+  input: $8.00
+  cached_input: $0.20
+  output: $40.00
+  cache_write: $10.00
+
 # Google
 - model: 'Gemini 3.8 Flash[^gemini-flash-promo]'
   provider: google

@@ -37,7 +37,7 @@
         },
         {
           "name": "team_type",
-          "description": "<p>Filter team results by their type. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.21/enterprise-cloud@latest/admin/concepts/enterprise-fundamentals/teams-in-an-enterprise#what-kind-of-team-should-i-use\">What kind of team should I use?</a>\"</p>",
+          "description": "<p>Filter team results by their type. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.21/admin/concepts/enterprise-fundamentals/teams-in-an-enterprise#what-kind-of-team-should-i-use\">What kind of team should I use?</a>\"</p>",
           "in": "query",
           "required": false,
           "schema": {
@@ -4487,7 +4487,7 @@
         },
         {
           "httpStatusCode": "204",
-          "description": "<p>Response if team has permission for the repository. This is the response when the repository media type hasn't been provded in the Accept header.</p>"
+          "description": "<p>Response if team has permission for the repository. This is the response when the repository media type hasn't been provided in the Accept header.</p>"
         },
         {
           "httpStatusCode": "404",
@@ -4556,7 +4556,7 @@
         {
           "type": "string",
           "name": "permission",
-          "description": "<p>The permission to grant the team on this repository. We accept the following permissions to be set: <code>pull</code>, <code>triage</code>, <code>push</code>, <code>maintain</code>, <code>admin</code> and you can also specify a custom repository role name, if the owning organization has defined any. If no permission is specified, the team's <code>permission</code> attribute will be used to determine what permission to grant the team on this repository.</p>"
+          "description": "<p>The permission to grant the team on this repository. We accept the following permissions to be set: <code>pull</code>, <code>triage</code>, <code>moderate</code>, <code>push</code>, <code>maintain</code>, <code>admin</code> and you can also specify a custom repository role name, if the owning organization has defined any. If no permission is specified, the team's <code>permission</code> attribute will be used to determine what permission to grant the team on this repository.</p>"
         }
       ],
       "descriptionHTML": "<p>To add a repository to a team or update the team's permission on a repository, the authenticated user must have admin access to the repository, and must be able to see the team. The repository must be owned by the organization, or a direct fork of a repository owned by the organization. You will get a <code>422 Unprocessable Entity</code> status if you attempt to add a repository to a team that is not owned by the organization. Note that, if you choose not to pass any parameters, you'll need to set <code>Content-Length</code> to zero when calling out to this endpoint. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.21/rest/guides/getting-started-with-the-rest-api#http-method\">HTTP method</a>.\"</p>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nYou can also specify a team by <code>org_id</code> and <code>team_id</code> using the route <code>PUT /organizations/{org_id}/team/{team_id}/repos/{owner}/{repo}</code>.</p>\n</div>\n<p>For more information about the permission levels, see \"<a href=\"https://docs.github.com/enterprise-server@3.21/github/setting-up-and-managing-organizations-and-teams/repository-permission-levels-for-an-organization#permission-levels-for-repositories-owned-by-an-organization\">Repository permission levels for an organization</a>\".</p>",
@@ -8559,6 +8559,7 @@
           "description": "<p>The permission to grant the team on this repository. If no permission is specified, the team's <code>permission</code> attribute will be used to determine what permission to grant the team on this repository.</p>",
           "enum": [
             "pull",
+            "moderate",
             "push",
             "admin"
           ]
@@ -11291,7 +11292,7 @@
         },
         {
           "httpStatusCode": "404",
-          "description": "<p>Not Found if team synchronization is setup</p>"
+          "description": "<p>Not Found if team synchronization is set up</p>"
         }
       ],
       "previews": [],

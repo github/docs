@@ -211,8 +211,6 @@ For more information about production context, see [AUTOTITLE](/code-security/tu
 |`team`|Display {% data variables.product.prodname_dependabot_alerts %} owned by members of the specified team, for example: `team:octocat-dependabot-team`.|
 |`topic`|Display {% data variables.product.prodname_dependabot_alerts %} with the matching repository topic, for example: `topic:asdf`.|
 
-{% ifversion dependabot-metrics %}
-
 ## {% data variables.product.prodname_dependabot %} dashboard filters
 
 **Available in:** {% data variables.product.prodname_dependabot %} dashboard view
@@ -220,8 +218,6 @@ For more information about production context, see [AUTOTITLE](/code-security/tu
 {% data reusables.security-overview.filter-dependabot-metrics %}
 
 Alternatively, you can use complex filters by clicking **{% octicon "filter" aria-hidden="true" aria-label="filter" %} Filter** and build custom filters to suit your needs.
-
-{% endif %}
 
 ## {% data variables.product.prodname_code_scanning_caps %} view filters
 

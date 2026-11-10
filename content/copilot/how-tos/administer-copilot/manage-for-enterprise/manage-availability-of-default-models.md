@@ -47,6 +47,9 @@ If you are not happy with any of these settings, you can disable specific models
 
 Configure which models you want available for {% data variables.copilot.copilot_fusion_short %}. See [AUTOTITLE](/copilot/concepts/models/copilot-fusion). Models enabled here will be available to a user through {% data variables.copilot.copilot_fusion_short %}, but only if your other model policies allow that user to use the model. 
 
+> [!NOTE]
+> Frontier models are often used by {% data variables.copilot.copilot_fusion_max %}. If you disable any of the models required for {% data variables.copilot.copilot_fusion_max %}, then {% data variables.copilot.copilot_fusion_max %} will not be available for use.
+
 {% data reusables.enterprise-accounts.ai-controls-tab %}
 {% data reusables.enterprise-accounts.copilot-sidebar %}
 1. Under **Models**, click **Configure {% data variables.copilot.copilot_fusion_short %} models**.

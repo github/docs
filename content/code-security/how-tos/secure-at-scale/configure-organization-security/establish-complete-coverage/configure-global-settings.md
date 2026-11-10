@@ -179,8 +179,8 @@ You can expand {% data variables.product.prodname_codeql %} analysis coverage fo
 You can customize several {% data variables.product.prodname_global_settings %} for {% data variables.product.prodname_secret_scanning %}:
 
 * [Adding a resource link for blocked commits](#adding-a-resource-link-for-blocked-commits)
-* [Defining custom patterns](#defining-custom-patterns){% ifversion push-protected-pattern-configuration %}
-* [Specifying patterns to include in push protection](#specifying-patterns-to-include-in-push-protection){% endif %}
+* [Defining custom patterns](#defining-custom-patterns)
+* [Specifying patterns to include in push protection](#specifying-patterns-to-include-in-push-protection)
 
 ### Adding a resource link for blocked commits
 
@@ -189,8 +189,6 @@ To provide context for developers when {% data variables.product.prodname_secret
 ### Defining custom patterns
 
 You can define custom patterns for {% data variables.product.prodname_secret_scanning %} with regular expressions. Custom patterns can identify secrets that are not detected by the default patterns supported by {% data variables.product.prodname_secret_scanning %}. To create a custom pattern, click **New pattern**, then enter the details for your pattern and click **Save and dry run**. For more information on custom patterns, see [AUTOTITLE](/code-security/how-tos/secure-your-secrets/customize-leak-detection/define-custom-patterns).
-
-{% ifversion push-protected-pattern-configuration %}
 
 ### Specifying patterns to include in push protection
 
@@ -204,8 +202,6 @@ You can customize which secret patterns are included in push protection, giving 
 {% data reusables.secret-scanning.pattern-enablement-org-enterprise %}
 
 For more information on how to read data on the {% data variables.product.prodname_secret_scanning %} pattern configuration page, see [AUTOTITLE](/code-security/reference/secret-security/secret-pattern-data).
-
-{% endif %}
 
 ## Creating security managers for your organization
 

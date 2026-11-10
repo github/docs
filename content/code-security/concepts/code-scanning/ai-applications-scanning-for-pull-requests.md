@@ -36,7 +36,7 @@ Scans run when a pull request is created and after each new commit.
 
 Findings from {% data variables.product.prodname_ai_applications_scanning %} appear as pull request comments, the same way other code scanning findings do. Each finding includes:
 
-* The same "AI" label and thumbs up/down feedback control as findings from AI Scan for pull requests
+* "AI app" label and thumbs up/down feedback control
 * A dismiss button
 
 As with AI Scan, these findings are advisory. They don't block a pull request from being merged.

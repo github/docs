@@ -4,46 +4,31 @@ This site will run on the Node.js version specified in `package.json`.
 
 When updating to a new Node.js version, consider the following files:
 
-- [ ] The `engines.node` entry in `package.json`
+- [ ] The `engines.node` entry in `package.json` and `package-lock.json`
 - [ ] The `.github/workflows/*.yml` Actions files that pin a Node version (grep for `node-version`)
-- [ ] The `Dockerfile` that can be used for deployments
+- [ ] The `Dockerfile` that can be used for deployments, including its minimum Node version check
+- [ ] The `.devcontainer/Dockerfile` and `.devcontainer/devcontainer.json` files
+- [ ] The `Dockerfile.openapi_decorator` file
 - [ ] The `contributing/development.md` guide
 - [ ] The `contributing/node-versions.md` file
 
-## `nodenv`
+## Install Node.js locally
 
-[nodenv](https://github.com/nodenv/nodenv) is a tool for managing multiple Node.js versions on your local machine. It is **not required** to run this app, but you may already have it installed if you've worked on other projects that use Node.js.
+You don't need a Node version manager, but it makes switching versions easier. We recommend [fnm](https://github.com/Schniz/fnm).
 
-If you're using macOS, run this command to get the latest:
+1. Install fnm. On macOS, run `brew install fnm`. For other systems, see the [fnm installation docs](https://github.com/Schniz/fnm#installation).
+1. Set up your shell. For Zsh, add this line to `~/.zshrc`. For Bash, add it to `~/.bashrc` and change `zsh` to `bash`. For other shells, see [fnm shell setup](https://github.com/Schniz/fnm#shell-setup).
 
-```shell
-brew upgrade nodenv node-build
-```
+   ```shell
+   eval "$(fnm env --use-on-cd --shell zsh)"
+   ```
 
-If you see a warning like this one, run the suggested command:
+1. Open a new terminal. Install the latest major version listed in `engines.node` in `package.json`, make it your default, and switch to it. For example, for Node.js 26:
 
-```shell
-# You should change the ownership of these directories to your user.
-sudo chown -R $(whoami) /usr/local/sbin
-```
+   ```shell
+   fnm install 26
+   fnm default 26
+   fnm use 26
+   ```
 
-If you're using another operating system, or did not use Homebrew to install nodenv, see these [upgrade instructions](https://github.com/nodenv/nodenv#installation).
-
-To install Node.js and make it your default version, run this command:
-
-```shell
-# Set VERSION= based on package.json#engines
-nodenv install $VERSION && nodenv global $VERSION
-```
-
-You may sometimes see a warning when running npm scripts with nodenv:
-
-```shell
-npm WARN lifecycle The node binary used for scripts is [...] but npm is using [...]
-```
-
-This is due to nodenv's overriding behavior. To silence this harmless warning, the [nodenv docs](https://github.com/nodenv/nodenv/wiki/FAQ#npm-warning-about-mismatched-binaries) recommend running the following command from any directory:
-
-```shell
-npm config set scripts-prepend-node-path auto
-```
+1. Run `node --version` to check. If you see a different version, another version manager may be active in your shell. Check your shell profile.

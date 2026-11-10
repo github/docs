@@ -75,9 +75,7 @@ Precision levels are estimated based on the pattern type's typical false positiv
 
 | Provider | Token | Description | Precision |
 |:---------|:--------------------------------------|:------------|:----------|
-| {% ifversion ghes > 3.18 %} |
 | Generic | ec_private_key | Elliptic Curve (EC) private keys used for cryptographic operations | High |
-| {% endif %} |
 | {% ifversion ghes > 3.19 %} |
 | Generic | generic_private_key | Cryptographic private keys with `-----BEGIN PRIVATE KEY-----` header | High |
 | {% endif %} |

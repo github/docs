@@ -20,4 +20,13 @@ function renderPageWithNext(req: ExtendedRequest, res: Response, nextFn: NextFun
   return nextFn()
 }
 
+// Dev overlay endpoints, like /__nextjs_original-stack-frames, read the raw body, so they run before express.json().
+export function renderNextDevEndpoints(req: ExtendedRequest, res: Response, nextFn: NextFunction) {
+  if (req.path.startsWith('/__nextjs_')) {
+    return nextHandleRequest(req, res)
+  }
+
+  return nextFn()
+}
+
 export default renderPageWithNext

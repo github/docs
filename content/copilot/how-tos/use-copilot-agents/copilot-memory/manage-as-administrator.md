@@ -38,8 +38,7 @@ The procedure below sets the enterprise policy for **user-level preferences**—
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.ai-controls-tab %}
-1. In the sidebar, click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}**.
-1. Under "Features & clients", click **Configure features & clients**.
+{% data reusables.enterprise-accounts.copilot-features-and-clients %}
 1. Scroll down to "Features", find the **{% data variables.copilot.copilot_memory %}** setting and select a policy from the dropdown.
 
    * **Let organizations decide**: User-level preferences are off by default for all organizations in the enterprise. Organization owners can enable them for their organization if they choose.
@@ -75,8 +74,7 @@ Allowing {% data variables.copilot.copilot_dreaming %} through an enterprise or 
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.ai-controls-tab %}
-1. In the sidebar, click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}**.
-1. Under "Features & clients," click **Configure features & clients**.
+{% data reusables.enterprise-accounts.copilot-features-and-clients %}
 1. Find the "{% data variables.copilot.copilot_memory_short %}" section.
 1. Make sure the policy for {% data variables.copilot.copilot_memory %} is set to either **Let organizations decide** or **Enabled everywhere**. Enabling {% data variables.copilot.copilot_memory %} does not, by itself, enable {% data variables.copilot.copilot_dreaming %}.
 1. Set the policy for {% data variables.copilot.copilot_dreaming %}:
@@ -155,8 +153,7 @@ By default, repository-level facts and user-level preferences expire 90 days aft
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.ai-controls-tab %}
-1. In the sidebar, click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}**.
-1. Under "Features & clients", click **Configure features & clients**.
+{% data reusables.enterprise-accounts.copilot-features-and-clients %}
 1. Scroll down to "Features" and find the **{% data variables.copilot.copilot_memory %}** settings.
 1. Edit the number of days in the **{% data variables.copilot.copilot_memory %} retention** setting and click **Save**.
 

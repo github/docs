@@ -116,7 +116,7 @@ If your workflows depend on network allowlists or Azure SDK credentials, running
 
 In addition, if the workflow run has been successfully queued, but has not been processed by a {% data variables.product.prodname_dotcom %}-hosted runner within 45 minutes, then the queued workflow run is discarded.
 
-## The `etc/hosts` file
+## The `/etc/hosts` file
 
 {% data reusables.actions.runners-etc-hosts-file %}
 

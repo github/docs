@@ -715,6 +715,66 @@
       "category": "pulls"
     },
     {
+      "name": "requestCopilotCodeReview",
+      "id": "requestcopilotcodereview",
+      "href": "/graphql/reference/pulls#mutation-requestcopilotcodereview",
+      "description": "<p>Requests a Copilot code review.</p>\n<p>Every call attempts to advance the Copilot code review lifecycle for the pull\nrequest: if no Copilot review has been requested yet, an initial request is created;\nif the most recent Copilot review has already completed, a new request is created\nautomatically to continue the lifecycle. If a Copilot code review request is already\npending, no new request is created and <code>failureReason</code> is <code>REQUEST_CONFLICT</code>.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "RequestCopilotCodeReviewInput!",
+          "id": "requestcopilotcodereviewinput",
+          "href": "/graphql/reference/pulls#input-object-requestcopilotcodereviewinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "actor",
+          "type": "Actor",
+          "id": "actor",
+          "href": "/graphql/reference/users#interface-actor",
+          "description": "<p>Identifies the actor who performed the event.</p>"
+        },
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "failureReason",
+          "type": "CopilotCodeReviewRequestReason",
+          "id": "copilotcodereviewrequestreason",
+          "href": "/graphql/reference/copilot#enum-copilotcodereviewrequestreason",
+          "description": "<p>The stable reason the request was denied or conflicted with an existing request. Null when the request succeeded.</p>"
+        },
+        {
+          "name": "pullRequest",
+          "type": "PullRequest",
+          "id": "pullrequest",
+          "href": "/graphql/reference/pulls#object-pullrequest",
+          "description": "<p>The pull request that is getting requests.</p>"
+        },
+        {
+          "name": "reviewRequest",
+          "type": "ReviewRequest",
+          "id": "reviewrequest",
+          "href": "/graphql/reference/pulls#object-reviewrequest",
+          "description": "<p>The Copilot code review request that was created or is already pending. Null\nwhen the request was denied or conflicted with an existing request.</p>"
+        },
+        {
+          "name": "success",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean",
+          "description": "<p>Did the operation succeed?.</p>"
+        }
+      ],
+      "category": "pulls"
+    },
+    {
       "name": "requestReviews",
       "id": "requestreviews",
       "href": "/graphql/reference/pulls#mutation-requestreviews",
@@ -2062,6 +2122,37 @@
           "type": "Boolean!",
           "id": "boolean",
           "href": "/graphql/reference/other#scalar-boolean"
+        }
+      ],
+      "category": "pulls"
+    },
+    {
+      "name": "CopilotCodeReviewSource",
+      "id": "copilotcodereviewsource",
+      "href": "/graphql/reference/pulls#object-copilotcodereviewsource",
+      "description": "<p>A validated source reported as contributing to a Copilot code review comment.</p>",
+      "isDeprecated": false,
+      "fields": [
+        {
+          "name": "kind",
+          "description": "<p>The kind of contributing source.</p>",
+          "type": "CopilotCodeReviewSourceKind!",
+          "id": "copilotcodereviewsourcekind",
+          "href": "/graphql/reference/pulls#enum-copilotcodereviewsourcekind"
+        },
+        {
+          "name": "name",
+          "description": "<p>The reported source name, or \"custom instructions\" for CUSTOM_INSTRUCTIONS.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "path",
+          "description": "<p>The validated repository-relative source path, if available. Commit OIDs are not exposed.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
         }
       ],
       "category": "pulls"
@@ -5415,6 +5506,13 @@
           "href": "/graphql/reference/commits#object-commit"
         },
         {
+          "name": "copilotCodeReviewEffort",
+          "description": "<p>The persisted effective effort used to produce this Copilot code review, or null if unavailable.</p>",
+          "type": "CopilotCodeReviewEffort",
+          "id": "copilotcoderevieweffort",
+          "href": "/graphql/reference/copilot#enum-copilotcoderevieweffort"
+        },
+        {
           "name": "createdAt",
           "description": "<p>Identifies the date and time when the object was created.</p>",
           "type": "DateTime!",
@@ -5461,6 +5559,13 @@
         {
           "name": "includesCreatedEdit",
           "description": "<p>Check if this comment was edited and includes an edit with the creation data.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "isCopilotCodeReview",
+          "description": "<p>Whether this review was produced by Copilot code review. Bot authorship alone does not establish provenance.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "href": "/graphql/reference/other#scalar-boolean"
@@ -5846,6 +5951,13 @@
           "href": "/graphql/reference/commits#object-commit"
         },
         {
+          "name": "copilotCodeReviewSources",
+          "description": "<p>Sources reported as contributing to this comment; may be incomplete.</p>",
+          "type": "[CopilotCodeReviewSource!]!",
+          "id": "copilotcodereviewsource",
+          "href": "/graphql/reference/pulls#object-copilotcodereviewsource"
+        },
+        {
           "name": "createdAt",
           "description": "<p>Identifies when the comment was created.</p>",
           "type": "DateTime!",
@@ -5906,6 +6018,13 @@
         {
           "name": "includesCreatedEdit",
           "description": "<p>Check if this comment was edited and includes an edit with the creation data.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "isCopilotCodeReview",
+          "description": "<p>Whether this comment was produced by Copilot code review.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "href": "/graphql/reference/other#scalar-boolean"
@@ -8075,6 +8194,28 @@
     }
   ],
   "enums": [
+    {
+      "name": "CopilotCodeReviewSourceKind",
+      "id": "copilotcodereviewsourcekind",
+      "href": "/graphql/reference/pulls#enum-copilotcodereviewsourcekind",
+      "description": "<p>The kind of source reported as contributing to a Copilot code review comment.</p>",
+      "isDeprecated": false,
+      "values": [
+        {
+          "name": "CUSTOM_INSTRUCTIONS",
+          "description": "<p>Custom instructions.</p>"
+        },
+        {
+          "name": "MCP",
+          "description": "<p>An MCP server.</p>"
+        },
+        {
+          "name": "SKILL",
+          "description": "<p>A skill.</p>"
+        }
+      ],
+      "category": "pulls"
+    },
     {
       "name": "DiffSide",
       "id": "diffside",
@@ -10640,6 +10781,37 @@
           "id": "id",
           "href": "/graphql/reference/other#scalar-id",
           "isDeprecated": false
+        }
+      ],
+      "category": "pulls"
+    },
+    {
+      "name": "RequestCopilotCodeReviewInput",
+      "id": "requestcopilotcodereviewinput",
+      "href": "/graphql/reference/pulls#input-object-requestcopilotcodereviewinput",
+      "description": "<p>Autogenerated input type of RequestCopilotCodeReview.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "pullRequestId",
+          "description": "<p>The Node ID of the pull request to modify.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "reviewEffort",
+          "description": "<p>The effort level to use for the Copilot code review. Omit to use the default effort level.</p>",
+          "type": "CopilotCodeReviewEffort",
+          "id": "copilotcoderevieweffort",
+          "href": "/graphql/reference/copilot#enum-copilotcoderevieweffort"
         }
       ],
       "category": "pulls"

@@ -5713,6 +5713,13 @@
           ]
         },
         {
+          "name": "repositoryCopilotCodeReviewSettings",
+          "description": "<p>The repository's Copilot code review settings. Requires repository administration access.</p>",
+          "type": "RepositoryCopilotCodeReviewSettings",
+          "id": "repositorycopilotcodereviewsettings",
+          "href": "/graphql/reference/copilot#object-repositorycopilotcodereviewsettings"
+        },
+        {
           "name": "repositoryCustomPropertyValue",
           "description": "<p>A custom property value for the repository.</p>",
           "type": "RepositoryCustomPropertyValue",
@@ -9344,6 +9351,10 @@
           "description": "<p>Can read, clone, and push to this repository. They can also manage issues, pull requests, and some repository settings.</p>"
         },
         {
+          "name": "MODERATE",
+          "description": "<p>Can read and clone this repository. Can also moderate and edit issues and manage pull requests without write access.</p>"
+        },
+        {
           "name": "READ",
           "description": "<p>Can read and clone this repository. Can also open and comment on issues and pull requests.</p>"
         },
@@ -9353,7 +9364,9 @@
         },
         {
           "name": "TRIAGE_PLUS",
-          "description": "<p>Can read and clone this repository. Can also manage issues and pull requests, plus additional triage abilities.</p>"
+          "description": "<p>Can read and clone this repository. Can also moderate and edit issues and manage pull requests without write access.</p>",
+          "isDeprecated": true,
+          "deprecationReason": "<p>TRIAGE_PLUS has been renamed to MODERATE. Use MODERATE instead. Removal on 2027-04-01 UTC.</p>"
         },
         {
           "name": "WRITE",

@@ -64,7 +64,7 @@ These instructions explain how to use {% data variables.copilot.copilot_code-rev
 
    Any comments you add to {% data variables.product.prodname_copilot_short %}'s review comments will be visible to humans, but they won't be visible to {% data variables.product.prodname_copilot_short %}, and {% data variables.product.prodname_copilot_short %} won't reply.
 
-You can also request a review from {% data variables.product.prodname_copilot_short %} through the {% data variables.product.github %} REST API by requesting `copilot-pull-request-reviewer[bot]` as a reviewer. For more information, see [AUTOTITLE](/rest/pulls/review-requests#request-reviewers-for-a-pull-request).
+You can also use the {% data variables.product.github %} REST API to request reviews from {% data variables.product.prodname_copilot_short %} and to identify reviews and comments from {% data variables.copilot.copilot_code-review_short %}. For more information, see [AUTOTITLE](/rest/pulls/review-requests#request-reviewers-for-a-pull-request), [AUTOTITLE](/rest/pulls/reviews), and [AUTOTITLE](/rest/pulls/comments).
 
 ## Enabling automatic reviews
 
@@ -147,7 +147,7 @@ To provide feedback on a review comment from {% data variables.product.prodname_
 You can request an initial review of a highlighted selection of code in {% data variables.product.prodname_vscode %}.
 
 1. In {% data variables.product.prodname_vscode %}, select the code you want to review.
-1. Right-click the selected code and choose **Generate Code** > **Review**.
+1. Right-click the selected code and choose **Review**.
 1. {% data variables.product.prodname_vscode_shortname %} creates review comments in the **Comments** panel and also shows them inline in the editor.
 
 ### Reviewing all uncommitted changes

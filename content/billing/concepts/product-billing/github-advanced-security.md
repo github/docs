@@ -86,9 +86,21 @@ For information about features that consume {% data variables.product.prodname_c
 
 Push protection for {% data variables.secret-scanning.ai-detected-secrets %} consumes **{% data variables.product.prodname_secret_protection %} {% data variables.product.prodname_ai_credits_short %}**.
 
-{% data variables.product.prodname_ai_credit_singular %} usage applies to your organization. The number of {% data variables.product.prodname_ai_credits_short %} consumed will depend on the amount of file content scanned during a push. Charging by content scanned ensures pricing is fair and predictable for organizations.
+The number of {% data variables.product.prodname_ai_credits_short %} consumed will depend on the amount of file content scanned during a push. Charging by content scanned ensures pricing is fair and predictable for organizations.
 
-Usage is billed to the organization that owns the repository. You can view usage under **{% data variables.product.prodname_ai_credit_singular %} consumption** for the **{% data variables.product.prodname_secret_protection %} {% data variables.product.prodname_ai_credits_short %}** SKU in your AI usage insights.
+Usage is billed to the organization that owns the repository:
+
+* For repositories owned by an organization in an enterprise, usage counts toward the enterprise's pool of {% data variables.product.prodname_ai_credits_short %}, not the individual pool of the user who pushes.
+* For repositories owned by a standalone organization, usage counts toward the organization's pool of {% data variables.product.prodname_ai_credits_short %}.
+* For repositories owned by an enterprise-managed user in their user namespace, usage counts toward the repository owner.
+
+The exception is a repository in the personal namespace of a {% data variables.enterprise.prodname_managed_user %}:
+
+* Usage for that repository counts toward the repository owner's individual pool of {% data variables.product.prodname_ai_credits_short %}, regardless of who pushes.
+* Organization-owned repositories in an enterprise with {% data variables.enterprise.prodname_managed_users %} still use the enterprise's pool.
+* Otherwise, push protection for {% data variables.secret-scanning.ai-detected-secrets %} does not consume users' individual {% data variables.product.prodname_ai_credits_short %}.
+
+You can view usage under **{% data variables.product.prodname_ai_credit_singular %} consumption** for the **{% data variables.product.prodname_secret_protection %} {% data variables.product.prodname_ai_credits_short %}** SKU in your AI usage insights.
 
 Each push that is scanned can consume {% data variables.product.prodname_ai_credits_short %}, even when no potential secret is identified and the push is not blocked, as the model is still providing value by scanning the push.
 

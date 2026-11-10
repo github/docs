@@ -14,6 +14,7 @@ children:
   - /types-of-github-accounts
   - /access-permissions-on-github
   - /about-github-advanced-security
+  - /about-github-code-quality
   - /faq-about-changes-to-githubs-plans
   - /github-glossary
 ---

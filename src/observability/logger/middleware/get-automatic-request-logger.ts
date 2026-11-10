@@ -44,8 +44,8 @@ export function getAutomaticRequestLogger() {
       } else if (shouldEnableAutomaticDevLogging()) {
         const logLevelNum = getLogLevelNumber()
 
-        // Suppress /_next/ requests unless LOG_LEVEL is debug or more verbose.
-        if (url?.startsWith('/_next/') && logLevelNum < 3) {
+        // Suppress /_next/ and /__nextjs_ requests unless LOG_LEVEL is debug or more verbose.
+        if ((url?.startsWith('/_next/') || url?.startsWith('/__nextjs_')) && logLevelNum < 3) {
           return originalEnd.apply(this, args as Parameters<typeof originalEnd>)
         }
 
