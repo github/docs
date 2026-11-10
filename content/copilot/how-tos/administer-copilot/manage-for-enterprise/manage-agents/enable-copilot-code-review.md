@@ -24,9 +24,9 @@ The policy for {% data variables.copilot.copilot_code-review_short %} allows you
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.ai-controls-tab %}
-1. Scroll down to "Available Agents", then click **{% data variables.copilot.copilot_code-review_short %}**.
+{% data reusables.enterprise-accounts.copilot-features-and-clients %}
 1. Next to "{% data variables.copilot.copilot_code-review_short %}", select a policy.
-1. Then choose which {% data variables.copilot.copilot_code-review_short %} features to enable for your enterprise.
+1. Then choose which {% data variables.copilot.copilot_code-review_short %} features to enable for your enterprise. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-code-review#configuring-automatic-code-review-for-an-enterprise).
 
 {% data reusables.enterprise-accounts.policy-enablement-next-steps %}
 

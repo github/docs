@@ -6,7 +6,7 @@ redirect_from:
   - /admin/enterprise-management/configuring-high-availability-replication-for-a-cluster
   - /admin/monitoring-managing-and-updating-your-instance/configuring-clustering/configuring-high-availability-replication-for-a-cluster
 versions:
-  ghes: '*'
+  feature: cluster-ha-replication
 shortTitle: Configure HA replication
 contentType: how-tos
 category:

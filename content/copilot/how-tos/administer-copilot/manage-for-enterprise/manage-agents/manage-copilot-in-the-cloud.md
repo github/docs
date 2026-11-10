@@ -60,8 +60,7 @@ Before enabling {% data variables.copilot.copilot_in_the_cloud_short %}, you may
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.ai-controls-tab %}
-1. In the sidebar, click {% octicon "copilot" aria-hidden="true" aria-label="copilot" %} **{% data variables.product.prodname_copilot_short %}**.
-1. Under "Features & clients", click **Configure features & clients**.
+{% data reusables.enterprise-accounts.copilot-features-and-clients %}
 1. Select a global policy for {% data variables.copilot.copilot_in_the_cloud_short %}, then communicate your decision with your organizations.
 
    > [!TIP] If you select **Enabled for selected organizations**, click **Manage organizations**, then **Select organizations**. In the "{% data variables.copilot.copilot_in_the_cloud_short %}" dialog, select the organizations to enable, then click **Save**. To select organizations based on custom properties instead, use the REST API. See [AUTOTITLE](/rest/copilot/copilot-coding-agent-management#selecting-organizations-with-custom-properties).

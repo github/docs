@@ -64,6 +64,11 @@
   excels_at: Substantial, long-running coding tasks, including deep codebase research, feature development, and complex agentic workflows
   further_reading: '[Claude Fable 5.1 model card](https://www-cdn.anthropic.com/0339e6a7c5c7b87f5c07798616dc32c215d14235/Claude%20Fable%205.1%20&%20Claude%20Mythos%205.1%20System%20Card.pdf)'
 
+- name: Claude Fable 5.2
+  task_area: Long-horizon, autonomous coding and knowledge-work
+  excels_at: Substantial, long-running coding tasks, including deep codebase research, feature development, and complex agentic workflows
+  further_reading: 'Coming soon'
+
 - name: Claude Haiku 4.5
   task_area: Fast help with simple or repetitive tasks
   excels_at: Fast, reliable answers to lightweight coding questions

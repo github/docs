@@ -187,7 +187,7 @@ The {% data variables.product.github %} MCP Registry is a curated list of MCP se
 
 Agent finder is a discovery service that helps {% data variables.product.prodname_copilot %} find the right capabilities—such as MCP servers, tools, agents, and skills—for a task at runtime, instead of requiring every capability to be configured in advance. Like an MCP registry, it searches a catalog of capabilities and returns ranked matches that {% data variables.product.prodname_copilot %} can use on demand. Agent finder implements the open Agentic Resource Discovery (ARD) specification.
 
-For {% data variables.copilot.copilot_cli_short %} setup, see [Using agent finder](/copilot/how-tos/copilot-cli/customize-copilot/add-mcp-servers#using-agent-finder). The {% data variables.copilot.github_copilot_app %} provides an `af` built-in skill. See [AUTOTITLE](/copilot/reference/github-copilot-app-reference/built-in-skills). To browse the catalog, see [GitHub Agent Finder](https://github.com/agentfinder).
+The {% data variables.copilot.github_copilot_app %} provides an `af` built-in skill. See [AUTOTITLE](/copilot/reference/github-copilot-app-reference/built-in-skills). You can search for more AI resources at [github.com/search?type=ai_resources](https://github.com/search?type=ai_resources).
 
 ## Next steps
 

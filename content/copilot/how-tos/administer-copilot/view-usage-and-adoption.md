@@ -24,12 +24,14 @@ After your initial rollout, the {% data variables.product.prodname_copilot_short
 
 {% data reusables.copilot.copilot-metrics-dashboard-prereq %}
 
+To grant visibility into metrics for a single organization without enterprise-level access, create a custom organization role with the "View organization {% data variables.product.prodname_copilot_short %} metrics" permission and assign it to the people who need access. See [AUTOTITLE](/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/permissions-of-custom-organization-roles).
+
 ## Accessing the dashboard
 
 {% data reusables.copilot.access-copilot-metrics-dashboard %}
 1. In the left sidebar, click **{% data variables.product.prodname_copilot_short %} usage**.
 
-Data in the dashboard is primarily based on IDE telemetry and is supplemented by server-side telemetry to capture additional active users. Data for a given day is available within two full UTC days after that day closes. See [AUTOTITLE](/copilot/concepts/billing-and-usage/copilot-usage-metrics/copilot-metrics).
+Data in the dashboard is primarily based on IDE telemetry and is supplemented by server-side telemetry to capture additional active users. Data for a given day is available within two full UTC days after that day closes. See [AUTOTITLE](/copilot/reference/copilot-usage-metrics/reconciling-usage-metrics).
 
 ## Using {% data variables.copilot.copilot_chat_short %} to analyze exported data
 

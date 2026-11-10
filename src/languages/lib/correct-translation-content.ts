@@ -59,6 +59,8 @@ export function correctTranslatedContentStrings(
   }
 
   content = content.replace(/\{%(-?)data (variables|reusables)\./g, '{%$1 data $2.')
+  // Runs before the language blocks, so the French orphan-endif check sees the spaced form.
+  content = content.replace(/\{%(-?)ifversion /g, '{%$1 ifversion ')
 
   if (context.relativePath?.endsWith('/securely-using-pull_request_target.md')) {
     content = content.replace(
@@ -515,6 +517,9 @@ export function correctTranslatedContentStrings(
 
     content = content.replaceAll('{% aviso %}', '{% warning %}')
 
+    // The translator mangled "{% endwarning %}" into an empty tag plus "{ %de aviso de% }".
+    content = content.replace(/\{%\s*%\}\s*\{\s*%de aviso de%\s*\}/g, '{% endwarning %}')
+
     if (
       content.includes('{% vscode %}') &&
       !content.includes('{% endvscode %}') &&
@@ -905,6 +910,7 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{% данных.', '{% data variables.')
     content = content.replaceAll('{% data переменных.', '{% data variables.')
     content = content.replaceAll('{% переменным данных.', '{% data variables.')
+    content = content.replaceAll('{% переменными данных.', '{% data variables.')
     content = content.replaceAll('{% переменных данных.', '{% data variables.')
     content = content.replaceAll('{% .dependency-review.', '{% data variables.dependency-review.')
     content = content.replaceAll('{% .code-scanning.', '{% data variables.code-scanning.')

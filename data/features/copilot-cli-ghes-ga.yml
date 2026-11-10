@@ -1,0 +1,5 @@
+# GitHub Copilot CLI support for GitHub Enterprise Server, GA
+# GA from the initial release. GHES 3.22 requires patch 3.22.3.
+
+versions:
+  ghes: '>=3.23'

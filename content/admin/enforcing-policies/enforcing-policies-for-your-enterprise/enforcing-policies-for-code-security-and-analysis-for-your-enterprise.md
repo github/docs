@@ -109,6 +109,21 @@ Across all of your enterprise's organizations, you can allow or disallow people 
 
 {% endif %}
 
+{% ifversion secret-scanning-actions-logs %}
+
+## Enforcing a policy for secret scanning in {% data variables.product.prodname_actions %} workflow logs
+
+As an enterprise owner, you can choose whether {% data variables.product.github %} scans {% data variables.product.prodname_actions %} workflow logs for secrets. This policy is disabled by default.
+
+When you enable the policy, {% data variables.product.github %} scans the logs of new workflow runs in all repositories in your enterprise where {% data variables.product.prodname_secret_scanning %} is enabled.
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}
+{% data reusables.enterprise-accounts.code-security-and-analysis-policies %}
+1. Under "Secret scanning for Actions workflow logs", select the **All repositories** dropdown menu, then click **Enabled** or **Disabled**.
+
+{% endif %}
+
 {% ifversion code-scanning-autofix %}
 
 ## Enforcing a policy to manage the use of {% data variables.copilot.copilot_autofix_short %} in your enterprise's repositories

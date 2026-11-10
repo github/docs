@@ -14,6 +14,7 @@ children:
   - /alert-dismissal-requests
   - /alerts
   - /repository-access
+  - /runner-settings
   - /secrets
 redirect_from:
   - /rest/reference/dependabot

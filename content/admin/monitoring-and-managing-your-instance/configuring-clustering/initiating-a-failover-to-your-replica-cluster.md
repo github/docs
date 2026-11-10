@@ -6,7 +6,7 @@ redirect_from:
   - /admin/enterprise-management/initiating-a-failover-to-your-replica-cluster
   - /admin/monitoring-managing-and-updating-your-instance/configuring-clustering/initiating-a-failover-to-your-replica-cluster
 versions:
-  ghes: '*'
+  feature: cluster-ha-replication
 shortTitle: Initiate a failover to replica
 contentType: how-tos
 category:

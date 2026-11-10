@@ -3651,6 +3651,39 @@
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": true
+      },
+      {
+        "category": "copilot",
+        "slug": "get-copilot-customizations-for-a-team",
+        "subcategory": "copilot-team-customizations",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/teams/{team_slug}/copilot/customizations",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "copilot",
+        "slug": "set-copilot-customizations-for-a-team",
+        "subcategory": "copilot-team-customizations",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/teams/{team_slug}/copilot/customizations",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "copilot",
+        "slug": "delete-copilot-customizations-for-a-team",
+        "subcategory": "copilot-team-customizations",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/teams/{team_slug}/copilot/customizations",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
       }
     ]
   },
@@ -8355,6 +8388,28 @@
         "subcategory": "collaborators",
         "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/collaborators/{username}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "dependabot",
+        "slug": "get-repository-dependabot-runner-settings",
+        "subcategory": "runner-settings",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/dependabot/runner-settings",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "dependabot",
+        "slug": "set-repository-dependabot-runner-settings",
+        "subcategory": "runner-settings",
+        "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/dependabot/runner-settings",
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,

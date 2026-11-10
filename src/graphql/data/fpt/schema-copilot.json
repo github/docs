@@ -1,4 +1,180 @@
 {
+  "mutations": [
+    {
+      "name": "updateEnterpriseCopilotCodeReviewPolicy",
+      "id": "updateenterprisecopilotcodereviewpolicy",
+      "href": "/graphql/reference/copilot#mutation-updateenterprisecopilotcodereviewpolicy",
+      "description": "<p>Updates an enterprise's Copilot code review policy using the existing policy propagation and notification behavior.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "UpdateEnterpriseCopilotCodeReviewPolicyInput!",
+          "id": "updateenterprisecopilotcodereviewpolicyinput",
+          "href": "/graphql/reference/copilot#input-object-updateenterprisecopilotcodereviewpolicyinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "policy",
+          "type": "EnterpriseCopilotCodeReviewPolicy",
+          "id": "enterprisecopilotcodereviewpolicy",
+          "href": "/graphql/reference/copilot#object-enterprisecopilotcodereviewpolicy",
+          "description": "<p>The updated enterprise policy.</p>"
+        }
+      ],
+      "category": "copilot"
+    },
+    {
+      "name": "updateOrganizationCopilotCodeReviewPolicy",
+      "id": "updateorganizationcopilotcodereviewpolicy",
+      "href": "/graphql/reference/copilot#mutation-updateorganizationcopilotcodereviewpolicy",
+      "description": "<p>Updates an organization's Copilot code review policy when the enterprise delegates control to organization administrators.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "UpdateOrganizationCopilotCodeReviewPolicyInput!",
+          "id": "updateorganizationcopilotcodereviewpolicyinput",
+          "href": "/graphql/reference/copilot#input-object-updateorganizationcopilotcodereviewpolicyinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "conflict",
+          "type": "OrganizationCopilotCodeReviewPolicyConflict",
+          "id": "organizationcopilotcodereviewpolicyconflict",
+          "href": "/graphql/reference/copilot#enum-organizationcopilotcodereviewpolicyconflict",
+          "description": "<p>Why the policy was not updated. Null if the update succeeded.</p>"
+        },
+        {
+          "name": "policy",
+          "type": "OrganizationCopilotCodeReviewPolicy",
+          "id": "organizationcopilotcodereviewpolicy",
+          "href": "/graphql/reference/copilot#object-organizationcopilotcodereviewpolicy",
+          "description": "<p>The organization's current policy.</p>"
+        }
+      ],
+      "category": "copilot"
+    },
+    {
+      "name": "updateOrganizationCopilotCodeReviewRunnerConfiguration",
+      "id": "updateorganizationcopilotcodereviewrunnerconfiguration",
+      "href": "/graphql/reference/copilot#mutation-updateorganizationcopilotcodereviewrunnerconfiguration",
+      "description": "<p>Sets the runner configuration that Copilot code review uses for an\norganization. A LABELED runner requires at least one label or a runner group.\nInvalid input does not change the configuration.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "UpdateOrganizationCopilotCodeReviewRunnerConfigurationInput!",
+          "id": "updateorganizationcopilotcodereviewrunnerconfigurationinput",
+          "href": "/graphql/reference/copilot#input-object-updateorganizationcopilotcodereviewrunnerconfigurationinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "runnerConfiguration",
+          "type": "OrganizationCopilotCodeReviewRunnerConfiguration",
+          "id": "organizationcopilotcodereviewrunnerconfiguration",
+          "href": "/graphql/reference/copilot#object-organizationcopilotcodereviewrunnerconfiguration",
+          "description": "<p>The organization's updated runner configuration.</p>"
+        }
+      ],
+      "category": "copilot"
+    },
+    {
+      "name": "updateOrganizationCopilotCodeReviewSettings",
+      "id": "updateorganizationcopilotcodereviewsettings",
+      "href": "/graphql/reference/copilot#mutation-updateorganizationcopilotcodereviewsettings",
+      "description": "<p>Updates an organization's Copilot code review settings. Omitted settings are not changed.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "UpdateOrganizationCopilotCodeReviewSettingsInput!",
+          "id": "updateorganizationcopilotcodereviewsettingsinput",
+          "href": "/graphql/reference/copilot#input-object-updateorganizationcopilotcodereviewsettingsinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "conflict",
+          "type": "OrganizationCopilotCodeReviewSettingsConflict",
+          "id": "organizationcopilotcodereviewsettingsconflict",
+          "href": "/graphql/reference/copilot#enum-organizationcopilotcodereviewsettingsconflict",
+          "description": "<p>Why the settings were not updated. Null if the update succeeded.</p>"
+        },
+        {
+          "name": "settings",
+          "type": "OrganizationCopilotCodeReviewSettings",
+          "id": "organizationcopilotcodereviewsettings",
+          "href": "/graphql/reference/copilot#object-organizationcopilotcodereviewsettings",
+          "description": "<p>The organization's current settings.</p>"
+        }
+      ],
+      "category": "copilot"
+    },
+    {
+      "name": "updateRepositoryCopilotCodeReviewSettings",
+      "id": "updaterepositorycopilotcodereviewsettings",
+      "href": "/graphql/reference/copilot#mutation-updaterepositorycopilotcodereviewsettings",
+      "description": "<p>Updates a repository's Copilot code review settings. Omitted settings are not changed.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "UpdateRepositoryCopilotCodeReviewSettingsInput!",
+          "id": "updaterepositorycopilotcodereviewsettingsinput",
+          "href": "/graphql/reference/copilot#input-object-updaterepositorycopilotcodereviewsettingsinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "settings",
+          "type": "RepositoryCopilotCodeReviewSettings",
+          "id": "repositorycopilotcodereviewsettings",
+          "href": "/graphql/reference/copilot#object-repositorycopilotcodereviewsettings",
+          "description": "<p>The repository's current settings.</p>"
+        }
+      ],
+      "category": "copilot"
+    }
+  ],
   "objects": [
     {
       "name": "CopilotEndpoints",
@@ -41,6 +217,244 @@
           "type": "String!",
           "id": "string",
           "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "copilot"
+    },
+    {
+      "name": "EnterpriseCopilotCodeReviewPolicy",
+      "id": "enterprisecopilotcodereviewpolicy",
+      "href": "/graphql/reference/copilot#object-enterprisecopilotcodereviewpolicy",
+      "description": "<p>The enterprise's configured Copilot code review policy, not a user's effective policy.</p>",
+      "isDeprecated": false,
+      "fields": [
+        {
+          "name": "policyState",
+          "description": "<p>The configured policy. Null if the enterprise has not configured a policy.</p>",
+          "type": "EnterpriseCopilotCodeReviewPolicyState",
+          "id": "enterprisecopilotcodereviewpolicystate",
+          "href": "/graphql/reference/copilot#enum-enterprisecopilotcodereviewpolicystate"
+        }
+      ],
+      "category": "copilot"
+    },
+    {
+      "name": "OrganizationCopilotCodeReviewDefaultEffort",
+      "id": "organizationcopilotcodereviewdefaulteffort",
+      "href": "/graphql/reference/copilot#object-organizationcopilotcodereviewdefaulteffort",
+      "description": "<p>An organization's default Copilot code review effort.</p>",
+      "isDeprecated": false,
+      "fields": [
+        {
+          "name": "configured",
+          "description": "<p>The effort stored for the organization. Null if the organization inherits the\ndefault or has stored an effort that is not currently available.</p>",
+          "type": "CopilotCodeReviewEffortLevel",
+          "id": "copilotcoderevieweffortlevel",
+          "href": "/graphql/reference/copilot#enum-copilotcoderevieweffortlevel"
+        },
+        {
+          "name": "editable",
+          "description": "<p>Whether organization administrators can update the setting.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "effective",
+          "description": "<p>The effort that repositories without their own setting use. When that effort\nis not currently available, this reports the fallback effort instead.</p>",
+          "type": "CopilotCodeReviewEffortLevel!",
+          "id": "copilotcoderevieweffortlevel",
+          "href": "/graphql/reference/copilot#enum-copilotcoderevieweffortlevel"
+        },
+        {
+          "name": "githubDefault",
+          "description": "<p>The effort the organization inherits when it does not configure one: the\nenterprise default when one applies, otherwise GitHub's default.</p>",
+          "type": "CopilotCodeReviewEffortLevel!",
+          "id": "copilotcoderevieweffortlevel",
+          "href": "/graphql/reference/copilot#enum-copilotcoderevieweffortlevel"
+        },
+        {
+          "name": "managedBy",
+          "description": "<p>Whether the enterprise or the organization controls the setting.</p>",
+          "type": "OrganizationCopilotCodeReviewPolicyManager!",
+          "id": "organizationcopilotcodereviewpolicymanager",
+          "href": "/graphql/reference/copilot#enum-organizationcopilotcodereviewpolicymanager"
+        }
+      ],
+      "category": "copilot"
+    },
+    {
+      "name": "OrganizationCopilotCodeReviewPolicy",
+      "id": "organizationcopilotcodereviewpolicy",
+      "href": "/graphql/reference/copilot#object-organizationcopilotcodereviewpolicy",
+      "description": "<p>The organization's configured and effective Copilot code review policy.</p>",
+      "isDeprecated": false,
+      "fields": [
+        {
+          "name": "configuredState",
+          "description": "<p>The policy stored for the organization. Null if the organization has not configured a policy.</p>",
+          "type": "OrganizationCopilotCodeReviewPolicyState",
+          "id": "organizationcopilotcodereviewpolicystate",
+          "href": "/graphql/reference/copilot#enum-organizationcopilotcodereviewpolicystate"
+        },
+        {
+          "name": "editable",
+          "description": "<p>Whether organization administrators can update the policy.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "effectiveState",
+          "description": "<p>The policy that applies to the organization after enterprise policy is considered.</p>",
+          "type": "OrganizationCopilotCodeReviewPolicyState!",
+          "id": "organizationcopilotcodereviewpolicystate",
+          "href": "/graphql/reference/copilot#enum-organizationcopilotcodereviewpolicystate"
+        },
+        {
+          "name": "managedBy",
+          "description": "<p>Whether the enterprise or the organization controls the policy.</p>",
+          "type": "OrganizationCopilotCodeReviewPolicyManager!",
+          "id": "organizationcopilotcodereviewpolicymanager",
+          "href": "/graphql/reference/copilot#enum-organizationcopilotcodereviewpolicymanager"
+        }
+      ],
+      "category": "copilot"
+    },
+    {
+      "name": "OrganizationCopilotCodeReviewRunnerConfiguration",
+      "id": "organizationcopilotcodereviewrunnerconfiguration",
+      "href": "/graphql/reference/copilot#object-organizationcopilotcodereviewrunnerconfiguration",
+      "description": "<p>The effective runner configuration that Copilot code review uses for an organization.</p>",
+      "isDeprecated": false,
+      "fields": [
+        {
+          "name": "allowRepositoryCustomization",
+          "description": "<p>Whether repositories can use their own runner configuration.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "configuredBy",
+          "description": "<p>Which configuration the values come from. CODING_AGENT means they are\ninherited from the organization's Copilot coding agent runner configuration.</p>",
+          "type": "CopilotCodeReviewRunnerConfiguredBy!",
+          "id": "copilotcodereviewrunnerconfiguredby",
+          "href": "/graphql/reference/copilot#enum-copilotcodereviewrunnerconfiguredby"
+        },
+        {
+          "name": "runnerGroupName",
+          "description": "<p>The runner group used for a labeled runner, if any.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "runnerLabels",
+          "description": "<p>The runner labels used for a labeled runner.</p>",
+          "type": "[String!]!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "runnerType",
+          "description": "<p>The type of runner.</p>",
+          "type": "CopilotCodeReviewRunnerType!",
+          "id": "copilotcodereviewrunnertype",
+          "href": "/graphql/reference/copilot#enum-copilotcodereviewrunnertype"
+        }
+      ],
+      "category": "copilot"
+    },
+    {
+      "name": "OrganizationCopilotCodeReviewSettings",
+      "id": "organizationcopilotcodereviewsettings",
+      "href": "/graphql/reference/copilot#object-organizationcopilotcodereviewsettings",
+      "description": "<p>An organization's Copilot code review settings.</p>",
+      "isDeprecated": false,
+      "fields": [
+        {
+          "name": "availableReviewEfforts",
+          "description": "<p>The review efforts that can currently be set for this organization, in display order.</p>",
+          "type": "[CopilotCodeReviewEffortLevel!]!",
+          "id": "copilotcoderevieweffortlevel",
+          "href": "/graphql/reference/copilot#enum-copilotcoderevieweffortlevel"
+        },
+        {
+          "name": "defaultReviewEffort",
+          "description": "<p>The default review effort for repositories that do not choose their own.</p>",
+          "type": "OrganizationCopilotCodeReviewDefaultEffort!",
+          "id": "organizationcopilotcodereviewdefaulteffort",
+          "href": "/graphql/reference/copilot#object-organizationcopilotcodereviewdefaulteffort"
+        }
+      ],
+      "category": "copilot"
+    },
+    {
+      "name": "RepositoryCopilotCodeReviewEffort",
+      "id": "repositorycopilotcoderevieweffort",
+      "href": "/graphql/reference/copilot#object-repositorycopilotcoderevieweffort",
+      "description": "<p>A repository's Copilot code review effort.</p>",
+      "isDeprecated": false,
+      "fields": [
+        {
+          "name": "configured",
+          "description": "<p>The effort stored for the repository. Null if the repository inherits its\neffort or has stored an effort that is not currently available.</p>",
+          "type": "CopilotCodeReviewEffortLevel",
+          "id": "copilotcoderevieweffortlevel",
+          "href": "/graphql/reference/copilot#enum-copilotcoderevieweffortlevel"
+        },
+        {
+          "name": "effective",
+          "description": "<p>The effort reviews use when the requester and the pull request do not choose\none. When that effort is not currently available, this reports the effort\nreviews would use without it.</p>",
+          "type": "CopilotCodeReviewEffortLevel!",
+          "id": "copilotcoderevieweffortlevel",
+          "href": "/graphql/reference/copilot#enum-copilotcoderevieweffortlevel"
+        }
+      ],
+      "category": "copilot"
+    },
+    {
+      "name": "RepositoryCopilotCodeReviewSettings",
+      "id": "repositorycopilotcodereviewsettings",
+      "href": "/graphql/reference/copilot#object-repositorycopilotcodereviewsettings",
+      "description": "<p>A repository's Copilot code review settings. These settings tune reviews; they do not enable Copilot code review.</p>",
+      "isDeprecated": false,
+      "fields": [
+        {
+          "name": "availableReviewEfforts",
+          "description": "<p>The review efforts that can currently be set for this repository, in display order.</p>",
+          "type": "[CopilotCodeReviewEffortLevel!]!",
+          "id": "copilotcoderevieweffortlevel",
+          "href": "/graphql/reference/copilot#enum-copilotcoderevieweffortlevel"
+        },
+        {
+          "name": "customInstructionsEnabled",
+          "description": "<p>Whether reviews use the repository's custom instructions.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "mcpEnabled",
+          "description": "<p>Whether reviews can use MCP servers.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "reviewEffort",
+          "description": "<p>The repository's review effort.</p>",
+          "type": "RepositoryCopilotCodeReviewEffort!",
+          "id": "repositorycopilotcoderevieweffort",
+          "href": "/graphql/reference/copilot#object-repositorycopilotcoderevieweffort"
+        },
+        {
+          "name": "severityFilter",
+          "description": "<p>Which review comment severities Copilot code review leaves out.</p>",
+          "type": "CopilotCodeReviewSeverityFilter!",
+          "id": "copilotcodereviewseverityfilter",
+          "href": "/graphql/reference/copilot#enum-copilotcodereviewseverityfilter"
         }
       ],
       "category": "copilot"
@@ -114,6 +528,32 @@
       "category": "copilot"
     },
     {
+      "name": "CopilotCodeReviewEffortLevel",
+      "id": "copilotcoderevieweffortlevel",
+      "href": "/graphql/reference/copilot#enum-copilotcoderevieweffortlevel",
+      "description": "<p>A Copilot code review effort level. For more information, see <a href=\"https://docs.github.com/en/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/code-review#review-effort-level\">Review effort level</a>.</p>",
+      "isDeprecated": false,
+      "values": [
+        {
+          "name": "AUTO",
+          "description": "<p>Copilot picks the effort for each pull request.</p>"
+        },
+        {
+          "name": "BALANCED",
+          "description": "<p>Balanced effort and depth.</p>"
+        },
+        {
+          "name": "LITE",
+          "description": "<p>Lower effort, faster review.</p>"
+        },
+        {
+          "name": "MAX",
+          "description": "<p>Highest effort, deepest review.</p>"
+        }
+      ],
+      "category": "copilot"
+    },
+    {
       "name": "CopilotCodeReviewRequestReason",
       "id": "copilotcodereviewrequestreason",
       "href": "/graphql/reference/copilot#enum-copilotcodereviewrequestreason",
@@ -143,6 +583,409 @@
         {
           "name": "REQUEST_CONFLICT",
           "description": "<p>A Copilot code review request is already pending for this pull request.</p>"
+        }
+      ],
+      "category": "copilot"
+    },
+    {
+      "name": "CopilotCodeReviewRunnerConfiguredBy",
+      "id": "copilotcodereviewrunnerconfiguredby",
+      "href": "/graphql/reference/copilot#enum-copilotcodereviewrunnerconfiguredby",
+      "description": "<p>Which configuration an organization's Copilot code review runner values come from.</p>",
+      "isDeprecated": false,
+      "values": [
+        {
+          "name": "CODE_REVIEW",
+          "description": "<p>The organization has saved a Copilot code review runner configuration.</p>"
+        },
+        {
+          "name": "CODING_AGENT",
+          "description": "<p>The values are inherited from the organization's Copilot coding agent runner configuration.</p>"
+        }
+      ],
+      "category": "copilot"
+    },
+    {
+      "name": "CopilotCodeReviewRunnerType",
+      "id": "copilotcodereviewrunnertype",
+      "href": "/graphql/reference/copilot#enum-copilotcodereviewrunnertype",
+      "description": "<p>The type of runner Copilot code review uses.</p>",
+      "isDeprecated": false,
+      "values": [
+        {
+          "name": "LABELED",
+          "description": "<p>Runners that match the configured labels or runner group.</p>"
+        },
+        {
+          "name": "STANDARD",
+          "description": "<p>Standard GitHub-hosted runners.</p>"
+        }
+      ],
+      "category": "copilot"
+    },
+    {
+      "name": "CopilotCodeReviewSeverityFilter",
+      "id": "copilotcodereviewseverityfilter",
+      "href": "/graphql/reference/copilot#enum-copilotcodereviewseverityfilter",
+      "description": "<p>Which review comment severities Copilot code review leaves out.</p>",
+      "isDeprecated": false,
+      "values": [
+        {
+          "name": "LOW",
+          "description": "<p>Leave out low-severity comments.</p>"
+        },
+        {
+          "name": "LOW_AND_MEDIUM",
+          "description": "<p>Leave out low- and medium-severity comments.</p>"
+        },
+        {
+          "name": "NO_FILTER",
+          "description": "<p>Keep every comment.</p>"
+        }
+      ],
+      "category": "copilot"
+    },
+    {
+      "name": "EnterpriseCopilotCodeReviewPolicyState",
+      "id": "enterprisecopilotcodereviewpolicystate",
+      "href": "/graphql/reference/copilot#enum-enterprisecopilotcodereviewpolicystate",
+      "description": "<p>The configured Copilot code review policy for an enterprise.</p>",
+      "isDeprecated": false,
+      "values": [
+        {
+          "name": "CONFIGURED_BY_ORGANIZATION_ADMINS",
+          "description": "<p>Organization administrators configure Copilot code review. Not supported for standalone enterprises.</p>"
+        },
+        {
+          "name": "DISABLED_FOR_ALL_ORGANIZATIONS",
+          "description": "<p>Copilot code review is disabled for all organizations.</p>"
+        },
+        {
+          "name": "ENABLED_FOR_ALL_ORGANIZATIONS",
+          "description": "<p>Copilot code review is enabled for all organizations.</p>"
+        }
+      ],
+      "category": "copilot"
+    },
+    {
+      "name": "OrganizationCopilotCodeReviewEffortSetting",
+      "id": "organizationcopilotcoderevieweffortsetting",
+      "href": "/graphql/reference/copilot#enum-organizationcopilotcoderevieweffortsetting",
+      "description": "<p>The default Copilot code review effort to set for an organization. For more\ninformation, see <a href=\"https://docs.github.com/en/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/code-review#review-effort-level\">Review effort level</a>.</p>",
+      "isDeprecated": false,
+      "values": [
+        {
+          "name": "AUTO",
+          "description": "<p>Copilot picks the effort for each pull request.</p>"
+        },
+        {
+          "name": "BALANCED",
+          "description": "<p>Balanced effort and depth.</p>"
+        },
+        {
+          "name": "INHERIT",
+          "description": "<p>Clear the organization's value so repositories inherit the default.</p>"
+        },
+        {
+          "name": "LITE",
+          "description": "<p>Lower effort, faster review.</p>"
+        },
+        {
+          "name": "MAX",
+          "description": "<p>Highest effort, deepest review.</p>"
+        }
+      ],
+      "category": "copilot"
+    },
+    {
+      "name": "OrganizationCopilotCodeReviewPolicyConflict",
+      "id": "organizationcopilotcodereviewpolicyconflict",
+      "href": "/graphql/reference/copilot#enum-organizationcopilotcodereviewpolicyconflict",
+      "description": "<p>Why an organization's Copilot code review policy was not updated.</p>",
+      "isDeprecated": false,
+      "values": [
+        {
+          "name": "POLICY_MANAGED_BY_ENTERPRISE",
+          "description": "<p>The enterprise policy controls the organization's policy.</p>"
+        }
+      ],
+      "category": "copilot"
+    },
+    {
+      "name": "OrganizationCopilotCodeReviewPolicyManager",
+      "id": "organizationcopilotcodereviewpolicymanager",
+      "href": "/graphql/reference/copilot#enum-organizationcopilotcodereviewpolicymanager",
+      "description": "<p>The scope that controls an organization's Copilot code review policy.</p>",
+      "isDeprecated": false,
+      "values": [
+        {
+          "name": "ENTERPRISE",
+          "description": "<p>The enterprise policy controls the organization's policy.</p>"
+        },
+        {
+          "name": "ORGANIZATION",
+          "description": "<p>Organization administrators control the policy.</p>"
+        }
+      ],
+      "category": "copilot"
+    },
+    {
+      "name": "OrganizationCopilotCodeReviewPolicyState",
+      "id": "organizationcopilotcodereviewpolicystate",
+      "href": "/graphql/reference/copilot#enum-organizationcopilotcodereviewpolicystate",
+      "description": "<p>The Copilot code review policy state for an organization.</p>",
+      "isDeprecated": false,
+      "values": [
+        {
+          "name": "DISABLED",
+          "description": "<p>Copilot code review is disabled.</p>"
+        },
+        {
+          "name": "ENABLED",
+          "description": "<p>Copilot code review is enabled.</p>"
+        }
+      ],
+      "category": "copilot"
+    },
+    {
+      "name": "OrganizationCopilotCodeReviewSettingsConflict",
+      "id": "organizationcopilotcodereviewsettingsconflict",
+      "href": "/graphql/reference/copilot#enum-organizationcopilotcodereviewsettingsconflict",
+      "description": "<p>Why an organization's Copilot code review settings were not updated.</p>",
+      "isDeprecated": false,
+      "values": [
+        {
+          "name": "SETTING_NOT_EDITABLE",
+          "description": "<p>The organization cannot change a submitted setting.</p>"
+        }
+      ],
+      "category": "copilot"
+    },
+    {
+      "name": "RepositoryCopilotCodeReviewEffortSetting",
+      "id": "repositorycopilotcoderevieweffortsetting",
+      "href": "/graphql/reference/copilot#enum-repositorycopilotcoderevieweffortsetting",
+      "description": "<p>The Copilot code review effort to set for a repository. For more information,\nsee <a href=\"https://docs.github.com/en/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/code-review#review-effort-level\">Review effort level</a>.</p>",
+      "isDeprecated": false,
+      "values": [
+        {
+          "name": "AUTO",
+          "description": "<p>Copilot picks the effort for each pull request.</p>"
+        },
+        {
+          "name": "BALANCED",
+          "description": "<p>Balanced effort and depth.</p>"
+        },
+        {
+          "name": "INHERIT",
+          "description": "<p>Clear the repository's value so it inherits the effort from its organization, enterprise, or GitHub's default.</p>"
+        },
+        {
+          "name": "LITE",
+          "description": "<p>Lower effort, faster review.</p>"
+        },
+        {
+          "name": "MAX",
+          "description": "<p>Highest effort, deepest review.</p>"
+        }
+      ],
+      "category": "copilot"
+    }
+  ],
+  "inputObjects": [
+    {
+      "name": "UpdateEnterpriseCopilotCodeReviewPolicyInput",
+      "id": "updateenterprisecopilotcodereviewpolicyinput",
+      "href": "/graphql/reference/copilot#input-object-updateenterprisecopilotcodereviewpolicyinput",
+      "description": "<p>Autogenerated input type of UpdateEnterpriseCopilotCodeReviewPolicy.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "enterpriseId",
+          "description": "<p>The ID of the enterprise whose policy to update.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "policyState",
+          "description": "<p>The policy to set. Standalone enterprises cannot delegate to organization administrators.</p>",
+          "type": "EnterpriseCopilotCodeReviewPolicyState!",
+          "id": "enterprisecopilotcodereviewpolicystate",
+          "href": "/graphql/reference/copilot#enum-enterprisecopilotcodereviewpolicystate"
+        }
+      ],
+      "category": "copilot"
+    },
+    {
+      "name": "UpdateOrganizationCopilotCodeReviewPolicyInput",
+      "id": "updateorganizationcopilotcodereviewpolicyinput",
+      "href": "/graphql/reference/copilot#input-object-updateorganizationcopilotcodereviewpolicyinput",
+      "description": "<p>Autogenerated input type of UpdateOrganizationCopilotCodeReviewPolicy.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "organizationId",
+          "description": "<p>The ID of the organization whose policy to update.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "state",
+          "description": "<p>The policy to set.</p>",
+          "type": "OrganizationCopilotCodeReviewPolicyState!",
+          "id": "organizationcopilotcodereviewpolicystate",
+          "href": "/graphql/reference/copilot#enum-organizationcopilotcodereviewpolicystate"
+        }
+      ],
+      "category": "copilot"
+    },
+    {
+      "name": "UpdateOrganizationCopilotCodeReviewRunnerConfigurationInput",
+      "id": "updateorganizationcopilotcodereviewrunnerconfigurationinput",
+      "href": "/graphql/reference/copilot#input-object-updateorganizationcopilotcodereviewrunnerconfigurationinput",
+      "description": "<p>Autogenerated input type of UpdateOrganizationCopilotCodeReviewRunnerConfiguration.</p>",
+      "inputFields": [
+        {
+          "name": "allowRepositoryCustomization",
+          "description": "<p>Whether repositories can use their own runner configuration. When omitted, the current effective value is kept.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "organizationId",
+          "description": "<p>The ID of the organization whose runner configuration to set.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "runnerGroupName",
+          "description": "<p>The runner group for a labeled runner.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "runnerLabels",
+          "description": "<p>The runner labels for a labeled runner.</p>",
+          "type": "[String!]",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "runnerType",
+          "description": "<p>The type of runner.</p>",
+          "type": "CopilotCodeReviewRunnerType!",
+          "id": "copilotcodereviewrunnertype",
+          "href": "/graphql/reference/copilot#enum-copilotcodereviewrunnertype"
+        }
+      ],
+      "category": "copilot"
+    },
+    {
+      "name": "UpdateOrganizationCopilotCodeReviewSettingsInput",
+      "id": "updateorganizationcopilotcodereviewsettingsinput",
+      "href": "/graphql/reference/copilot#input-object-updateorganizationcopilotcodereviewsettingsinput",
+      "description": "<p>Autogenerated input type of UpdateOrganizationCopilotCodeReviewSettings.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "defaultReviewEffort",
+          "description": "<p>The default review effort for repositories that do not choose their own. INHERIT clears the organization's value.</p>",
+          "type": "OrganizationCopilotCodeReviewEffortSetting",
+          "id": "organizationcopilotcoderevieweffortsetting",
+          "href": "/graphql/reference/copilot#enum-organizationcopilotcoderevieweffortsetting"
+        },
+        {
+          "name": "organizationId",
+          "description": "<p>The ID of the organization whose settings to update.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        }
+      ],
+      "category": "copilot"
+    },
+    {
+      "name": "UpdateRepositoryCopilotCodeReviewSettingsInput",
+      "id": "updaterepositorycopilotcodereviewsettingsinput",
+      "href": "/graphql/reference/copilot#input-object-updaterepositorycopilotcodereviewsettingsinput",
+      "description": "<p>Autogenerated input type of UpdateRepositoryCopilotCodeReviewSettings.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "customInstructionsEnabled",
+          "description": "<p>Whether reviews use the repository's custom instructions.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "mcpEnabled",
+          "description": "<p>Whether reviews can use MCP servers.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "repositoryId",
+          "description": "<p>The ID of the repository whose settings to update.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "reviewEffort",
+          "description": "<p>The review effort for the repository. INHERIT clears the repository's value.</p>",
+          "type": "RepositoryCopilotCodeReviewEffortSetting",
+          "id": "repositorycopilotcoderevieweffortsetting",
+          "href": "/graphql/reference/copilot#enum-repositorycopilotcoderevieweffortsetting"
+        },
+        {
+          "name": "severityFilter",
+          "description": "<p>Which review comment severities Copilot code review leaves out.</p>",
+          "type": "CopilotCodeReviewSeverityFilter",
+          "id": "copilotcodereviewseverityfilter",
+          "href": "/graphql/reference/copilot#enum-copilotcodereviewseverityfilter"
         }
       ],
       "category": "copilot"

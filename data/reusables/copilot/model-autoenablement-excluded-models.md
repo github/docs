@@ -4,5 +4,5 @@ The following models are **not** in scope. They are disabled by default, regardl
 
 * Pre-GA models
 * Open weight models (DeepSeek, {% data variables.copilot.kimi_k3 %})
-* Models that are not covered by {% data variables.product.company_short %}'s data retention agreement ({% data variables.copilot.claude_fable_5 %}, {% data variables.copilot.claude_fable_51 %})
+* Models that are not covered by {% data variables.product.company_short %}'s data retention agreement ({% data variables.copilot.claude_fable_5 %}, {% data variables.copilot.claude_fable_51 %}, {% data variables.copilot.claude_fable_52 %})
 * For enterprises that have restricted models to data-resident or FedRAMP-compliant models, any models that do not respect these policies

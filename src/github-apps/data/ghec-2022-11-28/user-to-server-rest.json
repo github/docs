@@ -3099,6 +3099,24 @@
       "requestPath": "/orgs/{org}/members/{username}/copilot"
     },
     {
+      "slug": "get-copilot-customizations-for-a-team",
+      "subcategory": "copilot-team-customizations",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/teams/{team_slug}/copilot/customizations"
+    },
+    {
+      "slug": "set-copilot-customizations-for-a-team",
+      "subcategory": "copilot-team-customizations",
+      "verb": "put",
+      "requestPath": "/orgs/{org}/teams/{team_slug}/copilot/customizations"
+    },
+    {
+      "slug": "delete-copilot-customizations-for-a-team",
+      "subcategory": "copilot-team-customizations",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/teams/{team_slug}/copilot/customizations"
+    },
+    {
       "slug": "get-copilot-cloud-agent-configuration-for-a-repository",
       "subcategory": "copilot-cloud-agent-management",
       "verb": "get",
@@ -3311,6 +3329,18 @@
       "subcategory": "alerts",
       "verb": "patch",
       "requestPath": "/repos/{owner}/{repo}/dependabot/alerts/{alert_number}"
+    },
+    {
+      "slug": "get-repository-dependabot-runner-settings",
+      "subcategory": "runner-settings",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/dependabot/runner-settings"
+    },
+    {
+      "slug": "set-repository-dependabot-runner-settings",
+      "subcategory": "runner-settings",
+      "verb": "put",
+      "requestPath": "/repos/{owner}/{repo}/dependabot/runner-settings"
     },
     {
       "slug": "list-repository-secrets",

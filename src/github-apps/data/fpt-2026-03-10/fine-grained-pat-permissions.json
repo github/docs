@@ -1520,6 +1520,33 @@
         "requestPath": "/orgs/{org}/copilot/coding-agent/permissions/repositories/{repository_id}",
         "additional-permissions": true,
         "access": "write"
+      },
+      {
+        "category": "copilot",
+        "slug": "get-copilot-customizations-for-a-team",
+        "subcategory": "copilot-team-customizations",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/teams/{team_slug}/copilot/customizations",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "copilot",
+        "slug": "set-copilot-customizations-for-a-team",
+        "subcategory": "copilot-team-customizations",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/teams/{team_slug}/copilot/customizations",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "copilot",
+        "slug": "delete-copilot-customizations-for-a-team",
+        "subcategory": "copilot-team-customizations",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/teams/{team_slug}/copilot/customizations",
+        "additional-permissions": false,
+        "access": "write"
       }
     ]
   },
@@ -4785,6 +4812,24 @@
         "subcategory": "collaborators",
         "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/collaborators/{username}",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "dependabot",
+        "slug": "get-repository-dependabot-runner-settings",
+        "subcategory": "runner-settings",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/dependabot/runner-settings",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "dependabot",
+        "slug": "set-repository-dependabot-runner-settings",
+        "subcategory": "runner-settings",
+        "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/dependabot/runner-settings",
         "additional-permissions": false,
         "access": "write"
       },

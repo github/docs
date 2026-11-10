@@ -15,7 +15,7 @@ category:
 
 Instead of a flat active-user count, the impact dashboard groups users into adoption cohorts based on how they engage with {% data variables.product.prodname_copilot_short %}, and connects that engagement to pull request throughput. This gives you a more meaningful signal of adoption depth than daily or weekly active user counts alone.
 
-For a detailed explanation of what the dashboard shows, including adoption cohorts, engagement trends, potential return on investment, and recommendations, see [AUTOTITLE](/copilot/concepts/billing-and-usage/copilot-usage-metrics/copilot-metrics).
+For definitions of the dashboard's metrics, including adoption cohorts, engagement trends, potential return on investment, and recommendations, see [AUTOTITLE](/copilot/reference/copilot-usage-metrics/copilot-usage-metrics#impact-dashboard-metrics).
 
 ## Prerequisite
 
@@ -52,7 +52,7 @@ Rankings appear only after enough enterprises and organizations have opted in to
 
 A ranking also isn't shown when your own score can't be calculated for the reporting period. For example, there might be no active users, or all active users might already be agent-first or multi-agent users, leaving no non-agentic users to compare leverage with.
 
-For details about what data is shared and how it's protected, see [AUTOTITLE](/copilot/concepts/copilot-usage-metrics/copilot-metrics#how-industry-comparisons-protect-your-data).
+For details about what data is shared and how it's protected, see [AUTOTITLE](/copilot/reference/copilot-usage-metrics/industry-comparisons#how-industry-comparisons-protect-your-data).
 
 ### Changing your peer cohort or opting out
 
@@ -65,6 +65,6 @@ To stop participating, click {% octicon "gear" aria-label="Industry comparison s
 The "Potential return on investment" section provides a directional comparison of cost and pull request output across adoption phases.
 
 1. Under "Average developer cost in your organization", select a compensation band.
-1. In the "Transition your developers to be agent-first" card, compare the cost, payroll, and pull request estimates for "Phase 0-1 Passive and Code First Users" and "Phase 2-3 Agent First Users".
+1. In the "Transition your developers to be agent-first" card, compare the cost, payroll, and pull request estimates for chat-first and code-first users (Phases 0-1) with those for agent-first users (Phases 2-3).
 
 Treat the figures as directional estimates rather than exact financial results. Use them with the adoption multiplier metrics for code shipped and time to merge pull requests.

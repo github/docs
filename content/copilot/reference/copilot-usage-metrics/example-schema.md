@@ -25,6 +25,7 @@ The following examples show schemas for user-, enterprise-, and repository-level
     "version": "v1"
   },
   "ai_credits_used": 12.5,
+  "client_telemetry_present": true,
   "code_acceptance_activity_count": 3,
   "code_generation_activity_count": 3,
   "day": "2026-10-19",
@@ -64,6 +65,7 @@ The following examples show schemas for user-, enterprise-, and repository-level
     "totals_by_model": [{
       "model": "claude-opus-5.5",
       "model_selection_mode": "user_selected",
+      "is_custom_enterprise_model": false,
       "request_count": 2,
       "token_usage": {
         "avg_tokens_per_request": 1200.0,
@@ -73,6 +75,7 @@ The following examples show schemas for user-, enterprise-, and repository-level
     }, {
       "model": "claude-sonnet-5",
       "model_selection_mode": "auto",
+      "is_custom_enterprise_model": false,
       "request_count": 1,
       "token_usage": {
         "avg_tokens_per_request": 900.0,
@@ -82,21 +85,32 @@ The following examples show schemas for user-, enterprise-, and repository-level
     }]
   }, {
     "client": "copilot_cli",
-    "request_count": 1,
+    "request_count": 2,
     "session_count": 1,
     "token_usage": {
-      "avg_tokens_per_request": 600.0,
-      "output_tokens_sum": 100,
-      "prompt_tokens_sum": 500
+      "avg_tokens_per_request": 900.0,
+      "output_tokens_sum": 300,
+      "prompt_tokens_sum": 1500
     },
     "totals_by_model": [{
       "model": "gpt-5.6-sol",
       "model_selection_mode": "user_selected",
+      "is_custom_enterprise_model": false,
       "request_count": 1,
       "token_usage": {
         "avg_tokens_per_request": 600.0,
         "output_tokens_sum": 100,
         "prompt_tokens_sum": 500
+      }
+    }, {
+      "model": "gpt-5.6-sol",
+      "model_selection_mode": "user_selected",
+      "is_custom_enterprise_model": true,
+      "request_count": 1,
+      "token_usage": {
+        "avg_tokens_per_request": 1200.0,
+        "output_tokens_sum": 200,
+        "prompt_tokens_sum": 1000
       }
     }]
   }],
@@ -184,6 +198,18 @@ The following examples show schemas for user-, enterprise-, and repository-level
     "loc_suggested_to_delete_sum": 6
   }],
   "totals_by_language_model": [],
+  "totals_by_local_byok": [{
+    "byok_kind": "local_managed",
+    "prompt_count": 2,
+    "request_count": 2,
+    "session_count": 2,
+    "surface": "copilot_cli",
+    "token_usage": {
+      "avg_tokens_per_request": 4200.0,
+      "output_tokens_sum": 4800,
+      "prompt_tokens_sum": 3600
+    }
+  }],
   "totals_by_mcp": [{
     "interaction_count": 8,
     "mcp": "github-mcp-server"
@@ -217,6 +243,11 @@ The following examples show schemas for user-, enterprise-, and repository-level
     "interaction_count": 1,
     "slash_cmd": "/release-check"
   }],
+  "usage_metrics_requirements": {
+    "met": [],
+    "unmet": ["vscode"],
+    "unknown": []
+  },
   "used_agent": false,
   "used_chat": false,
   "used_cli": true,
@@ -225,6 +256,7 @@ The following examples show schemas for user-, enterprise-, and repository-level
   "used_copilot_code_review_active": null,
   "used_copilot_code_review_passive": null,
   "used_copilot_coding_agent": false,
+  "used_local_byok": true,
   "used_vscode_agent": true,
   "user_id": 1,
   "user_login": "login1",
@@ -242,21 +274,25 @@ Customizations with unavailable names or names that look like file paths remain 
 
 For coverage and naming rules, see [AUTOTITLE](/copilot/reference/copilot-usage-metrics/copilot-usage-metrics#customization-fields-api-only).
 
-The `totals_by_client` array appears at the top level of each user record in both 1-day and 28-day per-user reports, for both enterprise and organization scopes. It counts successful model requests server-side, so it can include clients, such as OpenCode, that don't appear in `totals_by_ide`.
+The `totals_by_client` array appears at the top level of each user record in both 1-day and 28-day per-user reports, for both enterprise and organization scopes. It counts successful model requests server-side, so it can include clients, such as OpenCode, that don't appear in `totals_by_ide`. Each `totals_by_model` entry includes `is_custom_enterprise_model`. In this example, `gpt-5.6-sol` appears twice for `copilot_cli` because the user ran it both as a {% data variables.product.prodname_copilot_short %}-hosted model and as an enterprise custom model. Local BYOK requests don't go through {% data variables.product.github %}, so they appear in `totals_by_local_byok` rather than `totals_by_client`.
 
 In this example, `used_copilot_code_review_active` and `used_copilot_code_review_passive` are `null` because there was no {% data variables.copilot.copilot_code-review_short %} signal for the user that day. `used_copilot_cloud_agent` and `used_copilot_coding_agent` always carry the same value.
+
+`client_telemetry_present` and `usage_metrics_requirements` appear at the top level of each user record in 1-day and 28-day per-user reports, for both enterprise and organization scopes. In 28-day reports, they describe the record's `day`. In this example, `usage_metrics_requirements.unmet` lists `vscode` because the user's last-known {% data variables.product.prodname_vscode_shortname %} version is below the supported minimum. `client_telemetry_present` is null or omitted when telemetry status is unknown or wasn't evaluated, such as for users with only {% data variables.copilot.copilot_cloud_agent %} or {% data variables.copilot.copilot_code-review_short %} activity. `usage_metrics_requirements` is null or omitted when no IDE or extension can be identified.
 
 ## Enterprise-level schema example
 
 ```json copy
 [ {
   "day_totals" : [ {
+    "below_usage_metrics_minimum_user_count" : 1,
     "code_acceptance_activity_count" : 4,
     "code_generation_activity_count" : 4,
     "daily_active_cli_users" : 2,
     "daily_active_copilot_app_users" : 1,
     "daily_active_copilot_cloud_agent_users" : 1,
     "daily_active_copilot_code_review_users" : 1,
+    "daily_active_local_byok_users" : 2,
     "daily_active_users" : 2,
     "daily_active_vscode_agent_users" : 2,
     "daily_passive_copilot_code_review_users" : 0,
@@ -271,10 +307,12 @@ In this example, `used_copilot_code_review_active` and `used_copilot_code_review
     "loc_deleted_sum" : 6,
     "loc_suggested_to_add_sum" : 59,
     "loc_suggested_to_delete_sum" : 6,
+    "missing_client_telemetry_user_count" : 0,
     "monthly_active_agent_users" : 0,
-    "monthly_active_chat_users" : 0,
+    "monthly_active_chat_users" : 2,
     "monthly_active_copilot_cloud_agent_users" : 1,
     "monthly_active_copilot_code_review_users" : 1,
+    "monthly_active_local_byok_users" : 2,
     "monthly_active_users" : 2,
     "monthly_active_vscode_agent_users" : 2,
     "monthly_passive_copilot_code_review_users" : 0,
@@ -362,6 +400,7 @@ In this example, `used_copilot_code_review_active` and `used_copilot_code_review
       "totals_by_model" : [ {
         "model" : "claude-opus-5.5",
         "model_selection_mode" : "user_selected",
+        "is_custom_enterprise_model" : false,
         "request_count" : 2,
         "token_usage" : {
           "avg_tokens_per_request" : 1200.0,
@@ -371,6 +410,7 @@ In this example, `used_copilot_code_review_active` and `used_copilot_code_review
       }, {
         "model" : "claude-sonnet-5",
         "model_selection_mode" : "auto",
+        "is_custom_enterprise_model" : false,
         "request_count" : 1,
         "token_usage" : {
           "avg_tokens_per_request" : 900.0,
@@ -390,6 +430,7 @@ In this example, `used_copilot_code_review_active` and `used_copilot_code_review
       "totals_by_model" : [ {
         "model" : "gpt-5.6-sol",
         "model_selection_mode" : "user_selected",
+        "is_custom_enterprise_model" : false,
         "request_count" : 1,
         "token_usage" : {
           "avg_tokens_per_request" : 600.0,
@@ -464,6 +505,29 @@ In this example, `used_copilot_code_review_active` and `used_copilot_code_review
       "loc_suggested_to_delete_sum" : 6
     } ],
     "totals_by_language_model" : [ ],
+    "totals_by_local_byok" : [ {
+      "byok_kind" : "local_managed",
+      "prompt_count" : 2,
+      "request_count" : 2,
+      "session_count" : 2,
+      "surface" : "copilot_cli",
+      "token_usage" : {
+        "avg_tokens_per_request" : 4900.0,
+        "output_tokens_sum" : 5500,
+        "prompt_tokens_sum" : 4300
+      }
+    }, {
+      "byok_kind" : "remote_user",
+      "prompt_count" : 1,
+      "request_count" : 1,
+      "session_count" : 1,
+      "surface" : "copilot_cli",
+      "token_usage" : {
+        "avg_tokens_per_request" : 2500.0,
+        "output_tokens_sum" : 1500,
+        "prompt_tokens_sum" : 1000
+      }
+    } ],
     "totals_by_mcp" : [ {
       "interaction_count" : 12,
       "mcp" : "github-mcp-server"
@@ -494,6 +558,7 @@ In this example, `used_copilot_code_review_active` and `used_copilot_code_review
     "user_initiated_interaction_count" : 1,
     "weekly_active_copilot_cloud_agent_users" : 1,
     "weekly_active_copilot_code_review_users" : 1,
+    "weekly_active_local_byok_users" : 2,
     "weekly_active_users" : 2,
     "weekly_active_vscode_agent_users" : 2,
     "weekly_passive_copilot_code_review_users" : 0
@@ -502,19 +567,22 @@ In this example, `used_copilot_code_review_active` and `used_copilot_code_review
   "copilot_feature_engagement" : {
     "active_user_count" : 2,
     "totals_by_feature" : [ {
-      "feature" : "code_completion",
-      "engaged_user_count" : 2
-    }, {
       "feature" : "agent_edit",
       "engaged_user_count" : 1
     }, {
-      "feature" : "code_review_passive",
+      "feature" : "chat",
+      "engaged_user_count" : 2
+    }, {
+      "feature" : "cloud_agent",
       "engaged_user_count" : 1
+    }, {
+      "feature" : "code_completion",
+      "engaged_user_count" : 2
     }, {
       "feature" : "code_review_active",
       "engaged_user_count" : 1
     }, {
-      "feature" : "cloud_agent",
+      "feature" : "code_review_passive",
       "engaged_user_count" : 1
     }, {
       "feature" : "copilot_cli",
@@ -522,16 +590,21 @@ In this example, `used_copilot_code_review_active` and `used_copilot_code_review
     }, {
       "feature" : "github_app",
       "engaged_user_count" : 1
+    }, {
+      "feature" : "vscode_agent",
+      "engaged_user_count" : 1
     } ]
   },
   "report_end_day" : "2025-10-01",
   "report_start_day" : "2025-09-04"
 }, {
   "day_totals" : [ {
+    "below_usage_metrics_minimum_user_count" : 0,
     "code_acceptance_activity_count" : 2,
     "code_generation_activity_count" : 3,
     "daily_active_copilot_cloud_agent_users" : 0,
     "daily_active_copilot_code_review_users" : 0,
+    "daily_active_local_byok_users" : 0,
     "daily_active_users" : 2,
     "daily_passive_copilot_code_review_users" : 0,
     "day" : "2025-10-01",
@@ -545,10 +618,12 @@ In this example, `used_copilot_code_review_active` and `used_copilot_code_review
     "loc_deleted_sum" : 3,
     "loc_suggested_to_add_sum" : 52,
     "loc_suggested_to_delete_sum" : 3,
+    "missing_client_telemetry_user_count" : 1,
     "monthly_active_agent_users" : 0,
-    "monthly_active_chat_users" : 0,
+    "monthly_active_chat_users" : 2,
     "monthly_active_copilot_cloud_agent_users" : 0,
     "monthly_active_copilot_code_review_users" : 0,
+    "monthly_active_local_byok_users" : 0,
     "monthly_active_users" : 2,
     "monthly_passive_copilot_code_review_users" : 0,
     "pull_requests" : {
@@ -611,6 +686,7 @@ In this example, `used_copilot_code_review_active` and `used_copilot_code_review
       "totals_by_model" : [ {
         "model" : "gpt-5.6-sol",
         "model_selection_mode" : "user_selected",
+        "is_custom_enterprise_model" : false,
         "request_count" : 2,
         "token_usage" : {
           "avg_tokens_per_request" : 1000.0,
@@ -630,6 +706,7 @@ In this example, `used_copilot_code_review_active` and `used_copilot_code_review
       "totals_by_model" : [ {
         "model" : "unknown",
         "model_selection_mode" : "product_selected",
+        "is_custom_enterprise_model" : false,
         "request_count" : 2,
         "token_usage" : {
           "avg_tokens_per_request" : 800.0,
@@ -688,6 +765,7 @@ In this example, `used_copilot_code_review_active` and `used_copilot_code_review
       "loc_suggested_to_delete_sum" : 3
     } ],
     "totals_by_language_model" : [ ],
+    "totals_by_local_byok" : null,
     "totals_by_mcp" : [ ],
     "totals_by_model_feature" : [ ],
     "totals_by_plugin" : [ ],
@@ -696,6 +774,7 @@ In this example, `used_copilot_code_review_active` and `used_copilot_code_review
     "user_initiated_interaction_count" : 1,
     "weekly_active_copilot_cloud_agent_users" : 0,
     "weekly_active_copilot_code_review_users" : 0,
+    "weekly_active_local_byok_users" : 0,
     "weekly_active_users" : 2,
     "weekly_passive_copilot_code_review_users" : 0
   } ],
@@ -703,25 +782,31 @@ In this example, `used_copilot_code_review_active` and `used_copilot_code_review
   "copilot_feature_engagement" : {
     "active_user_count" : 2,
     "totals_by_feature" : [ {
-      "feature" : "code_completion",
-      "engaged_user_count" : 2
-    }, {
       "feature" : "agent_edit",
       "engaged_user_count" : 1
     }, {
-      "feature" : "code_review_passive",
+      "feature" : "chat",
+      "engaged_user_count" : 2
+    }, {
+      "feature" : "cloud_agent",
       "engaged_user_count" : 1
+    }, {
+      "feature" : "code_completion",
+      "engaged_user_count" : 2
     }, {
       "feature" : "code_review_active",
       "engaged_user_count" : 1
     }, {
-      "feature" : "cloud_agent",
+      "feature" : "code_review_passive",
       "engaged_user_count" : 1
     }, {
       "feature" : "copilot_cli",
       "engaged_user_count" : 1
     }, {
       "feature" : "github_app",
+      "engaged_user_count" : 1
+    }, {
+      "feature" : "vscode_agent",
       "engaged_user_count" : 1
     } ]
   },
@@ -737,6 +822,8 @@ Organization aggregated reports use the same top-level `copilot_feature_engageme
 The customization fields shown in `day_totals` apply to enterprise and organization aggregated 28-day reports. They also appear directly in enterprise and organization aggregated 1-day reports. Like per-user reports, these aggregated reports include configured names for customizations created by your organization.
 
 Similarly, `totals_by_client` appears within each `day_totals` entry in enterprise and organization aggregated 28-day reports, and directly on the record in aggregated 1-day reports. In aggregated reports, each `totals_by_client` entry's `session_count` is de-duplicated across all users rather than summed from per-user counts.
+
+`missing_client_telemetry_user_count` and `below_usage_metrics_minimum_user_count` appear within each `day_totals` entry in enterprise and organization aggregated 28-day reports, and directly on the record in aggregated 1-day reports. They are daily distinct-user counts, so don't sum them across days. A value of `0` is a measured zero, while null or omitted means the count is unavailable, for example for days before the fields existed.
 
 The following user-teams report examples are returned by the `user-teams-1-day` endpoints and are intended to be joined with the per-user usage report on `user_id`, `day`, and the relevant entity id (`organization_id` for the organization scope, `enterprise_id` for the enterprise scope) to derive team-level metrics. For more guidance, see [AUTOTITLE](/copilot/reference/copilot-usage-metrics/team-level-metrics).
 
@@ -811,6 +898,8 @@ The following example shows a repository-level report from an NDJSON file downlo
 
 Both enterprise- and organization-scoped rows include `organization_id`, which identifies the organization that owns the repository. Enterprise-scoped rows also include `enterprise_id`. Organization-scoped rows include `enterprise_id` only when an enterprise owns the organization.
 
+The `copilot_code_review` object is present on every row. Its counts are `0` and its arrays are empty when the repository had no {% data variables.copilot.copilot_code-review_short %} activity that day. For how comments are counted, see [AUTOTITLE](/copilot/reference/copilot-usage-metrics/copilot-usage-metrics#copilot-code-review-outcome-fields).
+
 The `pull_request_review_times` array is empty when the repository merged no qualifying pull requests that day. For which pull requests are counted, see [AUTOTITLE](/copilot/reference/copilot-usage-metrics/copilot-usage-metrics#pull-request-review-time-fields).
 
 For the field reference, see [AUTOTITLE](/copilot/reference/copilot-usage-metrics/copilot-usage-metrics#repository-level-fields-api-only).
@@ -842,7 +931,16 @@ For the field reference, see [AUTOTITLE](/copilot/reference/copilot-usage-metric
       "median_minutes_to_merge_copilot_reviewed": 372.62,
       "copilot_suggestions_by_comment_type": []
     },
-    "pull_request_review_times": []
+    "pull_request_review_times": [],
+    "copilot_code_review": {
+      "total_comments_evaluated": 0,
+      "total_comments_addressed": 0,
+      "review_comments_by_severity": [],
+      "review_comments_by_review_tier": [],
+      "review_comments_by_comment_type": [],
+      "review_comments_by_customization": [],
+      "total_merged_no_human_change_request_after_review": 1
+    }
   },
   {
     "day": "2026-07-14",
@@ -874,7 +972,55 @@ For the field reference, see [AUTOTITLE](/copilot/reference/copilot-usage-metric
         }
       ]
     },
-    "pull_request_review_times": []
+    "pull_request_review_times": [],
+    "copilot_code_review": {
+      "total_comments_evaluated": 3,
+      "total_comments_addressed": 2,
+      "review_comments_by_severity": [
+        {
+          "severity": "high",
+          "total_comments_evaluated": 1,
+          "total_comments_addressed": 1
+        },
+        {
+          "severity": "medium",
+          "total_comments_evaluated": 2,
+          "total_comments_addressed": 1
+        }
+      ],
+      "review_comments_by_review_tier": [
+        {
+          "review_tier": "balanced",
+          "total_comments_evaluated": 3,
+          "total_comments_addressed": 2
+        }
+      ],
+      "review_comments_by_comment_type": [
+        {
+          "comment_type": "bug",
+          "total_comments_evaluated": 2,
+          "total_comments_addressed": 1
+        },
+        {
+          "comment_type": "documentation",
+          "total_comments_evaluated": 1,
+          "total_comments_addressed": 1
+        }
+      ],
+      "review_comments_by_customization": [
+        {
+          "customization": "none",
+          "total_comments_evaluated": 2,
+          "total_comments_addressed": 1
+        },
+        {
+          "customization": "custom_instruction",
+          "total_comments_evaluated": 1,
+          "total_comments_addressed": 1
+        }
+      ],
+      "total_merged_no_human_change_request_after_review": 1
+    }
   },
   {
     "day": "2026-07-14",
@@ -912,7 +1058,65 @@ For the field reference, see [AUTOTITLE](/copilot/reference/copilot-usage-metric
         }
       ]
     },
-    "pull_request_review_times": []
+    "pull_request_review_times": [],
+    "copilot_code_review": {
+      "total_comments_evaluated": 4,
+      "total_comments_addressed": 3,
+      "review_comments_by_severity": [
+        {
+          "severity": "high",
+          "total_comments_evaluated": 1,
+          "total_comments_addressed": 1
+        },
+        {
+          "severity": "medium",
+          "total_comments_evaluated": 2,
+          "total_comments_addressed": 2
+        },
+        {
+          "severity": "low",
+          "total_comments_evaluated": 1,
+          "total_comments_addressed": 0
+        }
+      ],
+      "review_comments_by_review_tier": [
+        {
+          "review_tier": "max",
+          "total_comments_evaluated": 4,
+          "total_comments_addressed": 3
+        }
+      ],
+      "review_comments_by_comment_type": [
+        {
+          "comment_type": "bug",
+          "total_comments_evaluated": 1,
+          "total_comments_addressed": 1
+        },
+        {
+          "comment_type": "custom",
+          "total_comments_evaluated": 2,
+          "total_comments_addressed": 1
+        },
+        {
+          "comment_type": "security",
+          "total_comments_evaluated": 1,
+          "total_comments_addressed": 1
+        }
+      ],
+      "review_comments_by_customization": [
+        {
+          "customization": "custom_instruction",
+          "total_comments_evaluated": 2,
+          "total_comments_addressed": 1
+        },
+        {
+          "customization": "none",
+          "total_comments_evaluated": 2,
+          "total_comments_addressed": 2
+        }
+      ],
+      "total_merged_no_human_change_request_after_review": 1
+    }
   },
   {
     "day": "2026-07-14",
@@ -949,7 +1153,16 @@ For the field reference, see [AUTOTITLE](/copilot/reference/copilot-usage-metric
         "median_minutes_final_review_to_merge": 674.95,
         "p90_minutes_final_review_to_merge": 1213.66
       }
-    ]
+    ],
+    "copilot_code_review": {
+      "total_comments_evaluated": 0,
+      "total_comments_addressed": 0,
+      "review_comments_by_severity": [],
+      "review_comments_by_review_tier": [],
+      "review_comments_by_comment_type": [],
+      "review_comments_by_customization": [],
+      "total_merged_no_human_change_request_after_review": 0
+    }
   }
 ]
 ```

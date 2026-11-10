@@ -42,11 +42,16 @@ An administrator configures a model provider for the instance, and users connect
 
 For more information, see [AUTOTITLE](/copilot/copilot-on-ghes/set-up-copilot-cli).
 
+{% ifversion copilot-cli-ghes-ga %}
 > [!NOTE]
-> This feature is in {% data variables.release-phases.technical_preview %} and subject to change.
+> This feature is generally available.
+{% else %}
+> [!NOTE]
+> This feature is generally available starting with {% data variables.product.prodname_ghe_server %} 3.22.3. In earlier 3.22 patch releases, it is in {% data variables.release-phases.technical_preview %}.
+{% endif %}
 
 {% else %}
 
-To use this feature, upgrade your instance to **version 3.22 or later**, where this feature is available in {% data variables.release-phases.technical_preview %}.
+To use this feature as generally available, upgrade your instance to **version 3.22.3 or later**.
 
 {% endif %}

@@ -13,6 +13,7 @@ children:
   - /copilot-custom-agents
   - /copilot-feature-policy-management
   - /copilot-model-policy-management
+  - /copilot-team-customizations
   - /copilot-usage-metrics
   - /copilot-user-management
 versions:

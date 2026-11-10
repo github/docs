@@ -6,6 +6,8 @@ versions:
   feature: copilot
 children:
   - /copilot-usage-metrics
+  - /usage-metrics-coverage
+  - /industry-comparisons
   - /interpret-copilot-metrics
   - /reconciling-usage-metrics
   - /lines-of-code-metrics

@@ -6779,6 +6779,20 @@
           ]
         },
         {
+          "name": "copilotCodeReviewRunnerConfiguration",
+          "description": "<p>The effective runner configuration that Copilot code review uses. Requires organization Copilot read permissions.</p>",
+          "type": "OrganizationCopilotCodeReviewRunnerConfiguration",
+          "id": "organizationcopilotcodereviewrunnerconfiguration",
+          "href": "/graphql/reference/copilot#object-organizationcopilotcodereviewrunnerconfiguration"
+        },
+        {
+          "name": "copilotCodeReviewSettings",
+          "description": "<p>The organization's Copilot code review settings. Requires organization Copilot read permissions.</p>",
+          "type": "OrganizationCopilotCodeReviewSettings",
+          "id": "organizationcopilotcodereviewsettings",
+          "href": "/graphql/reference/copilot#object-organizationcopilotcodereviewsettings"
+        },
+        {
           "name": "createdAt",
           "description": "<p>Identifies the date and time when the object was created.</p>",
           "type": "DateTime!",
@@ -7568,6 +7582,13 @@
           "type": "String",
           "id": "string",
           "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "organizationCopilotCodeReviewPolicy",
+          "description": "<p>The configured and effective Copilot code review policy. Requires organization Copilot read permissions.</p>",
+          "type": "OrganizationCopilotCodeReviewPolicy",
+          "id": "organizationcopilotcodereviewpolicy",
+          "href": "/graphql/reference/copilot#object-organizationcopilotcodereviewpolicy"
         },
         {
           "name": "packages",
