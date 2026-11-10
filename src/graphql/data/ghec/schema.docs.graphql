@@ -36532,6 +36532,11 @@ type Organization implements Actor &
     Returns the last _n_ elements from the list.
     """
     last: Int
+
+    """
+    The order in which to return pinned issue fields.
+    """
+    orderBy: PinnedIssueFieldOrder = {field: POSITION, direction: ASC}
   ): IssueFieldsConnection
 
   """
@@ -40102,6 +40107,31 @@ type PinnedIssueEdge {
   The item at the end of the edge.
   """
   node: PinnedIssue
+}
+
+"""
+Ordering options for pinned issue field connections.
+"""
+input PinnedIssueFieldOrder @docsCategory(name: "issues") {
+  """
+  The ordering direction.
+  """
+  direction: OrderDirection!
+
+  """
+  The field to order pinned issue fields by.
+  """
+  field: PinnedIssueFieldOrderField!
+}
+
+"""
+Properties by which pinned issue fields can be ordered.
+"""
+enum PinnedIssueFieldOrderField @docsCategory(name: "issues") {
+  """
+  Order pinned issue fields by their configured pinned position.
+  """
+  POSITION
 }
 
 """

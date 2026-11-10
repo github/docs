@@ -55,6 +55,13 @@ The following table lists specific domains required for {% data variables.produc
 | `https://copilot-reports.github.com`                        | {% data variables.product.prodname_copilot_short %} usage metrics report downloads | `*.github.com` |
 | `https://copilot-reports-*.b01.azurefd.net`                 | {% data variables.product.prodname_copilot_short %} usage metrics report downloads (fallback). Required for fallback scenarios where downloads bypass the custom domain and are served from an Azure Front Door CDN. | Not included |
 | `https://usagereports*.blob.core.windows.net`               | {% data variables.product.prodname_copilot_short %} usage metrics report downloads (fallback). Required for fallback scenarios where downloads bypass the Azure Front Door CDN and are served directly from Azure Blob Storage. | Not included |
+| `wss://production-copilot-host-centralus.webpubsub.azure.com` | Real-time WebSocket connection used by {% data variables.product.prodname_copilot_short %} on {% data variables.product.github %} to stream events and updates. Allow secure WebSocket traffic over TCP port 443. | Not included |
+| `wss://production-copilot-host-centralus-02.webpubsub.azure.com` | Real-time WebSocket connection used by {% data variables.product.prodname_copilot_short %} on {% data variables.product.github %} to stream events and updates. Allow secure WebSocket traffic over TCP port 443. | Not included |
+| `wss://production-copilot-host-eastasia.webpubsub.azure.com`  | Real-time WebSocket connection used by {% data variables.product.prodname_copilot_short %} on {% data variables.product.github %} to stream events and updates. Allow secure WebSocket traffic over TCP port 443. | Not included |
+| `wss://production-copilot-host-austriaeast.webpubsub.azure.com` | Real-time WebSocket connection used by {% data variables.product.prodname_copilot_short %} on {% data variables.product.github %} to stream events and updates. Allow secure WebSocket traffic over TCP port 443. | Not included |
+| `wss://production-copilot-host-westus.webpubsub.azure.com`    | Real-time WebSocket connection used by {% data variables.product.prodname_copilot_short %} on {% data variables.product.github %} to stream events and updates. Allow secure WebSocket traffic over TCP port 443. | Not included |
+| `wss://production-copilot-host-westus3.webpubsub.azure.com`   | Real-time WebSocket connection used by {% data variables.product.prodname_copilot_short %} on {% data variables.product.github %} to stream events and updates. Allow secure WebSocket traffic over TCP port 443. | Not included |
+| `wss://production-copilot-host.webpubsub.azure.com`         | Real-time WebSocket connection used by {% data variables.product.prodname_copilot_short %} on {% data variables.product.github %} to stream events and updates. Allow secure WebSocket traffic over TCP port 443. | Not included |
 
 ## {% data variables.product.prodname_copilot_short %} on {% data variables.enterprise.data_residency_site %}
 
@@ -69,11 +76,21 @@ If you use {% data variables.enterprise.data_residency %}, your enterprise and {
 
 1. If you plan to use public code detection, allow access to `https://origin-tracker.githubusercontent.com`. This is required to check generated code against public code hosted on {% data variables.product.prodname_dotcom_the_website %}. For more information, see [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-in-ides#references-to-matching-public-code).
 
+1. For cloud sessions in your browser, also allow the Azure Web PubSub hostname used by your enterprise. Find the exact hostname ending in `.webpubsub.azure.com` in the WebSocket request in your browser's developer tools while starting a session, or contact {% data variables.contact.github_support %} to confirm it. Allow secure WebSocket traffic over TCP port 443 to that hostname.
+
 All other domains that are required on {% data variables.product.prodname_dotcom_the_website %} are **not** required on {% data variables.enterprise.data_residency_site %}. For example:
 
 * Individual services have a dedicated endpoint on your subdomain (such as `https://copilot-proxy.SUBDOMAIN.ghe.com/`)
 * Client experimentation is disabled on {% data variables.enterprise.data_residency_site %}, so `https://default.exp-tas.com` is not required
 * Individual {% data variables.product.prodname_copilot_short %} plans are not available on {% data variables.enterprise.data_residency_site %}, so subscription-based network routing (such as `https://*.individual.githubcopilot.com`) is not supported
+
+## WebSocket connections for cloud sessions
+
+Cloud sessions in your browser use secure WebSocket connections to Azure Web PubSub to send and receive session events. In addition to allowing the applicable hostnames above, your proxy or firewall must support the WebSocket connection and ongoing messages in both directions. Allowing ordinary HTTPS requests alone doesn't confirm that WebSocket connections will work.
+
+Apply these rules to the network path between your browser and the service, including any proxy, VPN, or security software. These rules are separate from the firewall inside a {% data variables.product.prodname_copilot_short %} cloud environment.
+
+Use the required hostnames rather than allowing every Azure Web PubSub service with `*.webpubsub.azure.com`. For help diagnosing failed connections or interference from TLS inspection, see [AUTOTITLE](/copilot/how-tos/troubleshoot-copilot/troubleshoot-network-errors#troubleshooting-cloud-session-websocket-connections).
 
 ## Editor-specific requirements
 

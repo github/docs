@@ -4,6 +4,24 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Type <code>PinnedIssueFieldOrder</code> was added</p>",
+          "<p>Input field <code>direction</code> of type <code>OrderDirection!</code> was added to input object type <code>PinnedIssueFieldOrder</code></p>",
+          "<p>Input field <code>field</code> of type <code>PinnedIssueFieldOrderField!</code> was added to input object type <code>PinnedIssueFieldOrder</code></p>",
+          "<p>Type <code>PinnedIssueFieldOrderField</code> was added</p>",
+          "<p>Enum value <code>POSITION</code> was added to enum <code>PinnedIssueFieldOrderField</code></p>",
+          "<p>Argument <code>orderBy: PinnedIssueFieldOrder</code> (with default value) added to field <code>Organization.pinnedIssueFields</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-11-10"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Type <code>CopilotCodeReviewEffortLevel</code> was added</p>",
           "<p>Enum value <code>AUTO</code> was added to enum <code>CopilotCodeReviewEffortLevel</code></p>",
           "<p>Enum value <code>BALANCED</code> was added to enum <code>CopilotCodeReviewEffortLevel</code></p>",
