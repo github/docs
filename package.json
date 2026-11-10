@@ -267,7 +267,7 @@
     "@octokit/rest": "22.0.0",
     "@playwright/test": "^1.64.1",
     "@types/accept-language-parser": "1.5.7",
-    "@types/cookie": "0.6.0",
+    "@types/cookie": "1.0.0",
     "@types/cookie-parser": "1.4.8",
     "@types/eslint-plugin-jsx-a11y": "^6.10.1",
     "@types/express": "^5.0.6",
