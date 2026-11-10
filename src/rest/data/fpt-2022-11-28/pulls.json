@@ -22024,6 +22024,146 @@
       }
     }
   ],
+  "copilot-code-review": [
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/copilot-code-review",
+      "title": "Request a Copilot code review for a pull request",
+      "category": "pulls",
+      "subcategory": "copilot-code-review",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "pull_number",
+          "description": "<p>The number that identifies the pull request.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "string",
+          "name": "review_effort",
+          "description": "<p>The effort level to use for the Copilot code review. Omit to use the default effort level. Only effort levels available for the repository and actor are accepted. For more information, see <a href=\"https://docs.github.com/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/code-review#review-effort-level\">Review effort level</a>.</p>"
+        }
+      ],
+      "descriptionHTML": "<p>Requests a Copilot code review for a pull request. Every call expresses intent to start a\nnew review: if no Copilot review has been requested yet, an initial request is created; if\nthe most recent Copilot review has already completed (including if it was later dismissed or\nsuperseded), a new request is created automatically to continue the review lifecycle. If a\nCopilot code review request is already pending for the pull request, no new request is\ncreated and the response is <code>409</code>.</p>\n<p>If the actor or repository is not eligible for Copilot code review, the actor has no quota\nremaining, or the licensing organization is unavailable, no request is created and the\nresponse is <code>422</code> with a stable <code>failure_reason</code>. A <code>review_effort</code> is accepted only when that\neffort level is available for the repository and actor; an unrecognized or unavailable\n<code>review_effort</code> returns <code>422</code> with <code>failure_reason</code> <code>INVALID_REVIEW_EFFORT</code>. If\nthe actor, repository owner, or requesting application owner has been flagged, the response\nis <code>403</code> with <code>failure_reason</code> <code>ACTOR_FLAGGED</code>. If the per-actor or per-owner request rate\nlimit is exceeded, the response is <code>429</code> with <code>failure_reason</code> <code>RATE_LIMITED</code>. If Copilot\ncode review cannot be serviced right now, the response is <code>503</code>.</p>\n<p>Existing human and team review requests on the pull request are left unchanged.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Request a review with a specific effort level",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "review_effort": "balanced"
+            },
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO",
+              "pull_number": "PULL_NUMBER"
+            }
+          },
+          "response": {
+            "statusCode": "201",
+            "contentType": "application/json",
+            "description": "<p>A Copilot code review request was created</p>",
+            "example": {
+              "node_id": "RRR_kwDOAA",
+              "state": "PENDING"
+            },
+            "schema": {
+              "title": "Copilot Code Review Request",
+              "description": "A request for Copilot to review a pull request.",
+              "type": "object",
+              "properties": {
+                "node_id": {
+                  "type": "string",
+                  "description": "The global node ID of the review request."
+                },
+                "state": {
+                  "type": "string",
+                  "description": "The current state of the review request.",
+                  "enum": [
+                    "PENDING"
+                  ]
+                }
+              },
+              "required": [
+                "node_id",
+                "state"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "201",
+          "description": "<p>Created</p>"
+        },
+        {
+          "httpStatusCode": "401",
+          "description": "<p>Requires authentication</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden. <code>failure_reason</code> is <code>ACTOR_FLAGGED</code> when the actor, repository owner, or requesting application owner has been flagged; it is absent for other authorization failures.</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "409",
+          "description": "<p>Conflict, a Copilot code review request is already pending for this pull request</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed. <code>failure_reason</code> is present for a stable business denial (the actor or repository is not eligible, the actor has no quota remaining, or the licensing organization is unavailable) and absent when the request body fails generic request validation. <code>failure_reason</code> is <code>INVALID_REVIEW_EFFORT</code> when the requested <code>review_effort</code> is unrecognized or not available for the repository and actor, and <code>message</code> lists the available effort levels.</p>"
+        },
+        {
+          "httpStatusCode": "429",
+          "description": "<p>Too many requests. The per-actor or per-owner Copilot code review request rate limit has been exceeded. <code>failure_reason</code> is <code>RATE_LIMITED</code>.</p>"
+        },
+        {
+          "httpStatusCode": "503",
+          "description": "<p>Service unavailable, Copilot code review cannot be serviced right now</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Pull requests\" repository permissions": "write"
+          }
+        ]
+      }
+    }
+  ],
   "review-requests": [
     {
       "serverUrl": "https://api.github.com",

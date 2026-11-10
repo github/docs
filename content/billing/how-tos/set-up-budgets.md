@@ -129,18 +129,16 @@ As the owner of an enterprise or organization account, or as a billing manager, 
 1. Under "Budget Type" select **Product-level budget**, **SKU-level budget**, or **Bundled {% data variables.product.prodname_ai_credits_short %} budget**.
 
    * **Product-level budget**: Limits spending on a single product (for example, {% data variables.product.prodname_codespaces %}).
-   * **SKU-level budget**: Limits spending on a specific SKU within a product (for example, {% data variables.product.prodname_GH_secret_protection %} within {% data variables.product.prodname_GHAS %}).
-   * **Bundled {% data variables.product.prodname_ai_credits_short %} budget**: Limits spending across all SKUs that consume {% data variables.product.prodname_ai_credits_short %}, including {% data variables.product.prodname_copilot_short %}, {% data variables.copilot.copilot_cloud_agent %}, {% data variables.product.prodname_spark_short %}, and {% data variables.product.prodname_AS %} AI features. Available where overage spend is enabled.
-
-   To limit spending on AI Scan and agentic autofix, select **SKU-level budget**. In the product dropdown, select **{% data variables.product.prodname_AS %}**, then in the SKU dropdown, select **Code Security AI Credits**.
+   * **SKU-level budget**: Limits spending on a specific SKU within a product, such as {% data variables.copilot.copilot_code-review_short %}, {% data variables.product.prodname_secret_protection %} {% data variables.product.prodname_ai_credits_short %}, or {% data variables.product.prodname_GH_secret_protection %} within {% data variables.product.prodname_GHAS %}. For AI Scan and agentic autofix, select {% data variables.product.prodname_AS %} and the **Code Security AI Credits** SKU.
+   * **Bundled {% data variables.product.prodname_ai_credits_short %} budget**: Limits total overage spending across all SKUs that consume {% data variables.product.prodname_ai_credits_short %}, including {% data variables.product.prodname_copilot_short %}, {% data variables.copilot.copilot_cloud_agent %}, {% data variables.product.prodname_spark_short %}, and {% data variables.product.prodname_AS %} AI features. Each SKU uses the shared {% data variables.product.prodname_ai_credits_short %} allowance before generating overage. After the allowance is exhausted, overage from every SKU counts toward the applicable **All {% data variables.product.prodname_ai_credits_short %}** budget. To also limit overage for a specific SKU, create a SKU-level budget for that SKU. Available where overage spend is enabled.
 
 1. Under "Budget scope", set the scope of spending for this budget.
 
    * **Enterprise**: Tracks spending across all organizations, repositories, and cost centers in the enterprise.
    * **Organization**: Tracks spending for all repositories in the organization.
    * **Cost center**: Tracks spending for a single cost center.
-   * **Users**: Sets a per-user budget. Available when you select **Bundled {% data variables.product.prodname_ai_credits_short %} budget** as the budget type. 
-     * Leave the user field empty to create a universal budget that applies to all {% data variables.product.prodname_copilot_short %}-licensed users. 
+   * **Users**: Sets a per-user budget. Available when you select **Bundled {% data variables.product.prodname_ai_credits_short %} budget** as the budget type.
+     * Leave the user field empty to create a universal budget that applies to all {% data variables.product.prodname_copilot_short %}-licensed users.
      * Select a cost center to create a user-level budget that applies to every user in that cost center. This sets one per-user amount for all current and future members, and overrides the universal budget for them.
      * Select a specific user to create an individual budget that overrides both the universal budget and any cost center user-level budget for that user.
 

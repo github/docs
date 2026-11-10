@@ -229,7 +229,7 @@ If you are running, or have run, a dynamic workflow in the current session, a **
 
 If you have enabled OpenTelemetry (OTel), you can inspect workflow activity in your traces. A workflow creates an `invoke_workflow` span each time it runs or resumes, with its agents' activity linked to it.
 
-For configuration in {% data variables.copilot.copilot_cli_short %}, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference#opentelemetry-monitoring).
+For configuration options and exported telemetry data, see [AUTOTITLE](/copilot/reference/enterprise-administrators/opentelemetry-reference).
 
 ### Resuming a run
 

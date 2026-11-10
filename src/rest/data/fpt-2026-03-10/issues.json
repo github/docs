@@ -36816,6 +36816,24 @@
           "schema": {
             "type": "integer"
           }
+        },
+        {
+          "name": "per_page",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "default": 30
+          }
+        },
+        {
+          "name": "page",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "default": 1
+          }
         }
       ],
       "bodyParameters": [],
@@ -36856,6 +36874,8 @@
                 "created_at": "2026-09-21T15:00:00Z",
                 "updated_at": "2026-09-21T15:30:00Z"
               },
+              "has_next_page": false,
+              "total_count": 2,
               "versions": [
                 {
                   "version": 2,
@@ -37000,7 +37020,9 @@
                   "type": "object",
                   "required": [
                     "artifact",
-                    "versions"
+                    "versions",
+                    "has_next_page",
+                    "total_count"
                   ],
                   "properties": {
                     "artifact": {
@@ -37115,6 +37137,15 @@
                           "description": "The time the artifact was last updated."
                         }
                       }
+                    },
+                    "has_next_page": {
+                      "type": "boolean",
+                      "description": "Whether another page of retained versions is available."
+                    },
+                    "total_count": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "description": "The number of retained artifact versions."
                     },
                     "versions": {
                       "type": "array",

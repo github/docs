@@ -6099,6 +6099,28 @@
         "additional-permissions": false
       },
       {
+        "category": "copilot",
+        "slug": "get-copilot-code-review-settings-for-a-repository",
+        "subcategory": "copilot-code-review",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/copilot/code-review/settings",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "copilot",
+        "slug": "update-copilot-code-review-settings-for-a-repository",
+        "subcategory": "copilot-code-review",
+        "verb": "patch",
+        "requestPath": "/repos/{owner}/{repo}/copilot/code-review/settings",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
         "category": "dependabot",
         "slug": "get-repository-dependabot-runner-settings",
         "subcategory": "runner-settings",
@@ -11100,6 +11122,17 @@
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/commits",
         "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "pulls",
+        "slug": "request-a-copilot-code-review-for-a-pull-request",
+        "subcategory": "copilot-code-review",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/copilot-code-review",
+        "access": "write",
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": false

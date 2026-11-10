@@ -68,6 +68,7 @@ You can use the thumbs up or thumbs down control to provide feedback and help im
 
 * AI Scan findings cannot yet be used in rulesets to enforce merge requirements.
 * AI Scan does not run on pull requests from forks or pull requests created by {% data variables.product.prodname_dependabot %}.
+* Self-hosted runners are not supported.
 * Detection categories and supported languages may change as the feature evolves.
 * As with any AI-based tool, AI Scan findings may include false positives. Use the feedback mechanism to report inaccurate results.
 

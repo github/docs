@@ -19,6 +19,70 @@ test('view home page', async ({ page }) => {
   await expect(page).toHaveTitle(/GitHub Docs/)
 })
 
+test.describe('annotated code layout', () => {
+  for (const width of [375, 768, 1012, 1280, 1400, 1920]) {
+    test(`fits the available content at ${width}px`, async ({ page }) => {
+      await page.setViewportSize({ width, height: 900 })
+      await page.goto('/get-started/markdown/code-annotations')
+      const annotation = page.locator('.annotate').first()
+      const beside = annotation.locator('.annotate-beside')
+      const inline = annotation.locator('.annotate-inline')
+
+      // Exercise intrinsic sizing with an unbroken code line.
+      await beside
+        .locator('pre code')
+        .first()
+        .evaluate((element) => {
+          element.textContent = 'long_code_line_'.repeat(100)
+        })
+
+      for (const collapsed of width >= 1012 ? [false, true] : [false]) {
+        if (collapsed) {
+          await page.getByTestId('sidebar-collapse-toggle').click()
+          await expect(page.getByTestId('sidebar')).toHaveCount(0)
+        }
+
+        await annotation.getByRole('button', { name: 'Beside', exact: true }).click()
+        await expect(beside).toBeVisible()
+        await expect(inline).toBeHidden()
+        const main = await page.locator('#main-content').boundingBox()
+        const article = await annotation.boundingBox()
+        const example = await beside.boundingBox()
+        const header = await annotation.locator('header').boundingBox()
+        const code = await beside.locator('.annotate-code').first().boundingBox()
+        expect(main).not.toBeNull()
+        expect(article).not.toBeNull()
+        expect(example).not.toBeNull()
+        expect(header).not.toBeNull()
+        expect(code).not.toBeNull()
+        if (!main || !article || !example || !header || !code) {
+          throw new Error('Annotated example layout boxes are missing')
+        }
+
+        expect(example.x).toBeGreaterThanOrEqual(main.x)
+        expect(example.x + example.width).toBeLessThanOrEqual(main.x + main.width)
+        const expectedWidth =
+          width >= 768
+            ? Math.max(article.width, Math.min(article.width + 384, main.width - 64))
+            : article.width
+        expect(example.width).toBeCloseTo(expectedWidth, 0)
+        expect(header.x).toBeCloseTo(code.x, 0)
+        expect(header.width).toBeCloseTo(code.width, 0)
+
+        expect(code.x).toBeGreaterThanOrEqual(example.x)
+        expect(code.x + code.width).toBeLessThanOrEqual(example.x + example.width)
+
+        await annotation.getByRole('button', { name: 'Inline', exact: true }).click()
+        await expect(beside).toBeHidden()
+        await expect(inline).toBeVisible()
+        const inlineBox = await inline.boundingBox()
+        expect(inlineBox?.x).toBeCloseTo(article.x, 0)
+        expect(inlineBox?.width).toBeCloseTo(article.width, 0)
+      }
+    })
+  }
+})
+
 test.describe('Brand document canvas', () => {
   test('follows system color scheme changes in auto mode without a cookie', async ({ page }) => {
     await page.emulateMedia({ colorScheme: 'dark' })
