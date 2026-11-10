@@ -7813,6 +7813,16 @@
                 "id": "int",
                 "href": "/graphql/reference/other#scalar-int"
               }
+            },
+            {
+              "name": "orderBy",
+              "defaultValue": "{field: POSITION, direction: ASC}",
+              "description": "<p>The order in which to return pinned issue fields.</p>",
+              "type": {
+                "name": "PinnedIssueFieldOrder",
+                "id": "pinnedissuefieldorder",
+                "href": "/graphql/reference/issues#input-object-pinnedissuefieldorder"
+              }
             }
           ]
         },

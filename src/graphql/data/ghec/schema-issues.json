@@ -10652,6 +10652,20 @@
       "category": "issues"
     },
     {
+      "name": "PinnedIssueFieldOrderField",
+      "id": "pinnedissuefieldorderfield",
+      "href": "/graphql/reference/issues#enum-pinnedissuefieldorderfield",
+      "description": "<p>Properties by which pinned issue fields can be ordered.</p>",
+      "isDeprecated": false,
+      "values": [
+        {
+          "name": "POSITION",
+          "description": "<p>Order pinned issue fields by their configured pinned position.</p>"
+        }
+      ],
+      "category": "issues"
+    },
+    {
       "name": "TrackedIssueStates",
       "id": "trackedissuestates",
       "href": "/graphql/reference/issues#enum-trackedissuestates",
@@ -13004,6 +13018,30 @@
           "id": "id",
           "href": "/graphql/reference/other#scalar-id",
           "isDeprecated": false
+        }
+      ],
+      "category": "issues"
+    },
+    {
+      "name": "PinnedIssueFieldOrder",
+      "id": "pinnedissuefieldorder",
+      "href": "/graphql/reference/issues#input-object-pinnedissuefieldorder",
+      "description": "<p>Ordering options for pinned issue field connections.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The ordering direction.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "href": "/graphql/reference/meta#enum-orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field to order pinned issue fields by.</p>",
+          "type": "PinnedIssueFieldOrderField!",
+          "id": "pinnedissuefieldorderfield",
+          "href": "/graphql/reference/issues#enum-pinnedissuefieldorderfield"
         }
       ],
       "category": "issues"
