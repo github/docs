@@ -2491,7 +2491,7 @@
                     "login": "Nick3C",
                     "id": 90254,
                     "node_id": "MDQ6VXNlcjkwMjU0",
-                    "avatar_url": "https://secure.gravatar.com/avatar/934442aadfe3b2f4630510de416c5718?d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png",
+                    "avatar_url": "https://avatars.githubusercontent.com/u/90254?v=4",
                     "gravatar_id": "",
                     "url": "https://api.github.com/users/Nick3C",
                     "html_url": "https://github.com/Nick3C",
@@ -2559,7 +2559,7 @@
                   "updated_at": "2009-07-19T09:23:43Z",
                   "closed_at": null,
                   "pull_request": {
-                    "url": "https://api/github.com/repos/octocat/Hello-World/pull/1347",
+                    "url": "https://api.github.com/repos/octocat/Hello-World/pull/1347",
                     "html_url": "https://github.com/octocat/Hello-World/pull/1347",
                     "diff_url": "https://github.com/octocat/Hello-World/pull/1347.diff",
                     "patch_url": "https://api.github.com/repos/octocat/Hello-World/pulls/1347"
