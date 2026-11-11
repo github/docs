@@ -503,7 +503,7 @@ The following sub-properties are supported:
 * `allowBypass`: `false` prevents individual commands from running outside the sandbox and prevents users from disabling sandboxing for the rest of the current session from an active sandbox-bypass permission prompt. In {% data variables.copilot.copilot_cli_short %}, it also prevents users from disabling sandboxing with `/sandbox disable`.
 * `addCurrentWorkingDirectory`: `false` prevents the runtime from automatically adding the current working directory to the sandbox's read/write paths.
 * `sandboxMcpServers`: `true` requires local MCP servers started in the session to run in the sandbox. Remote MCP servers do not run in the local sandbox.
-* `sandboxLspServers`: `true` requires language servers started in the session to run in the sandbox.
+* `sandboxLspServers`: `true` requires language servers started in the session to run in the sandbox. In {% data variables.copilot.copilot_cli_short %}, this Boolean defaults to `true` and applies when sandboxing is enabled.
 * `auth.git`: `false` prevents the runtime from injecting a {% data variables.product.github %} token for authenticated Git HTTPS operations in the sandbox.
 * `auth.gh`: `false` prevents the runtime from injecting a {% data variables.product.github %} token for {% data variables.product.prodname_cli %} in the sandbox.
 * `allowDevToolAccess`: `false` prevents automatic access to development-tool configuration, caches, registries, and toolchains. These locations can contain package registry credentials or tokens. Disabling access can cause package restoration, authenticated registry operations, or builds that use shared caches to fail unless you explicitly grant the required paths.

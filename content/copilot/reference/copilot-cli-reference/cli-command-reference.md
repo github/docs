@@ -32,7 +32,7 @@ docsTeamMetrics:
 | `copilot lsp`          | Non-interactively list configured language servers. See [Using `copilot lsp`](#using-copilot-lsp). |
 | `copilot sandbox ca`   | Manage the sandbox's proxy certificate authority from outside an interactive session. See [Using `copilot sandbox ca`](#using-copilot-sandbox-ca). |
 | `copilot skill`        | Manage agent skills from the command line (list, add, remove, enable, and disable skills). See [Managing skills non-interactively](#managing-skills-non-interactively). |
-| `copilot update`       | Download and install the latest version.           |
+| `copilot update`       | Download and install the latest version. To use a specific version, see "Pinning the CLI version" in [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-programmatic-reference#pinning-the-cli-version). |
 | `copilot version`      | Display version information and check for updates. |
 | `copilot workflow run WORKFLOW-NAME` | Run an existing dynamic workflow directly, without sending a chat prompt. Waits for the run to finish or stop. See [Using `copilot workflow run`](#using-copilot-workflow-run). |
 
@@ -583,7 +583,7 @@ These are the slash commands you can use from within an interactive CLI session.
 | `/fleet [PROMPT]`                                   | Enable parallel subagent execution of parts of a task. See [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/speed-up-task-completion). |
 | `/help`                                             | Show the help for interactive commands. |
 | `/ide`                                              | Connect to an IDE workspace. See [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/connecting-vs-code#managing-the-connection-with-the-ide-slash-command). |
-| `/init`                 | Initialize {% data variables.product.prodname_copilot_short %} custom instructions and agentic features for this repository. See [Project initialization for {% data variables.product.prodname_copilot_short %}](#project-initialization-for-copilot). |
+| `/init [suppress\|INSTRUCTIONS]`                 | Initialize {% data variables.product.prodname_copilot_short %} custom instructions and agentic features for this repository. Text after the command guides what is written. `suppress` hides the startup reminder for this repository. See [Project initialization for {% data variables.product.prodname_copilot_short %}](#project-initialization-for-copilot). |
 | `/instructions`                                     | View and toggle custom instruction files. |
 | `/keep-alive [on\|off\|busy\|DURATION]`, `/caffeinate [on\|off\|busy\|DURATION]` | Prevent the machine from going to sleep: while a CLI session is active, while the agent is busy, or for a defined length of time. Accepts durations like `30`, `30m`, `2h`, `1d` (bare numbers default to minutes). |
 | `/limits`                                           | Open the interactive response limits dialog. |
@@ -637,7 +637,7 @@ These are the slash commands you can use from within an interactive CLI session.
 | `/terminal-setup`      | Configure the terminal for multiline input support (<kbd>Shift</kbd>+<kbd>Enter</kbd> and <kbd>Ctrl</kbd>+<kbd>Enter</kbd>). |
 | `/theme [default\|github\|dim\|high-contrast\|colorblind]`   | View or set the color mode. |
 | `/tuikit [colors\|icons\|select\|tabbar]`           | Preview TUIkit design-system components and color tokens. |
-| `/undo`, `/rewind`                                  | Open the rewind picker to roll the session back to an earlier user turn. Choose between: **Conversation only** (roll back the conversation, leaving files as they are) or **Conversation + files** (also restore the files {% data variables.product.prodname_copilot_short %} changed in that turn, and later discarded turns, to their pre-change contents, skipping any you have since edited yourself). File changes are tracked per turn across editing tools, shell commands, and sub-agents, so Git is not required. |
+| `/undo`, `/rewind`                                  | Open the rewind picker to roll the session back to an earlier user turn. Choose between: **Conversation only** (roll back the conversation, leaving files as they are) or **Conversation + files** (also restore the files {% data variables.product.prodname_copilot_short %} changed in that turn, and later discarded turns, to their pre-change contents, skipping any you have since edited yourself). File changes are tracked per turn across editing tools, shell commands, and sub-agents, so Git is not required. A rewind cannot be undone: later turns are removed from the session. Use `/fork` first to keep a copy. |
 | `/update`, `/upgrade`                               | Update the CLI to the latest version. `/update stable` or `/update prerelease` also saves the selected channel for future updates. |
 | `/usage`                                            | Display session usage metrics and statistics, including per-model token totals. For token-based-billing accounts, each model's row also shows its own {% data variables.product.prodname_ai_credit_singular %} consumption (for example, `1 AIC`). Billed models with no token counts show credits only. |
 | `/user [show\|list\|switch]`                        | Manage signed-in accounts. |
@@ -729,7 +729,7 @@ Use `/collect-debug-logs [file|gist|share] [PATH]` to gather debug logs for trou
 | `--mouse[=VALUE]`                  | Enable or disable mouse support in the interactive interface. VALUE can be `on` (default) or `off`. When enabled, the CLI captures mouse events—scroll wheel, clicks, and so on—to navigate its own interface, such as scrolling the timeline or clicking tabs. When disabled, the terminal's native mouse behavior, such as text selection and scrollback, is preserved. When you set this option explicitly, the value is persisted to your configuration file. |
 | `-n NAME`, `--name=NAME`           | Set a name for the new session. Used by `--resume` and `/resume` to find sessions by name. |
 | `--no-ask-user`                    | Disable the `ask_user` tool (the agent works autonomously without asking questions). |
-| `--no-auto-update`                 | Disable downloading CLI updates automatically. |
+| `--no-auto-update`                 | Disable automatic CLI updates and prevent a newer cached version from running instead of the installed version. |
 | `--no-bash-env`                    | Disable `BASH_ENV` support for bash shells. |
 | `--no-color`                       | Disable all color output. |
 | `--no-custom-instructions`         | Disable loading of custom instructions from `AGENTS.md` and related files. |
@@ -746,7 +746,7 @@ Use `/collect-debug-logs [file|gist|share] [PATH]` to gather debug logs for trou
 | `--remote-export`                  | Renamed to `--sync-session=on`. |
 | `-r`, `--resume[=VALUE]`           | Resume a previous interactive session by choosing from a list. Optionally specify a session ID, ID prefix, or session name. Name matching is exact and case-insensitive; falls back to the auto-generated summary when no explicit name matches. Conflicts with `--continue`. Bare `--resume` (no value) shows an interactive session picker, which requires a TTY. If multiple sessions exist and the picker can't be shown (for example under `-p`, a non-TTY `-i`, or piped stdin), the CLI exits with an error instead of silently starting a new session—pass an explicit `--resume=SESSION-ID` or use `--continue`. |
 | `-s`, `--silent`                   | Output only the agent response (without usage statistics), useful for scripting with `-p`. |
-| `--screen-reader`                  | Enable screen reader optimizations. |
+| `--screen-reader`                  | Enable screen reader optimizations for this session only and offer to save the preference to your settings. |
 | `--secret-env-vars=VAR ...`        | Redact an environment variable from shell and MCP server environments (can be used multiple times). For multiple variables, use a quoted, comma-separated list. The values in the `GITHUB_TOKEN` and `COPILOT_GITHUB_TOKEN` environment variables are redacted from output by default. |
 | `--session-id ID`                  | Use an exact session or task ID when you do not want `--resume`'s broader matching by ID prefix or session name. If the ID matches an existing session or task, that session or task is resumed. If nothing matches, a new session is created only when the value is a valid UUID. Names and ID prefixes do not create new sessions. Do not combine this option with other session-selection or session-starting options such as `--resume`, `--continue`, or `--connect`, because they compete to decide which session to open or create. |
 | `--trust-folder`                   | Trust the working directory's hooks, workspace MCP servers, and repository plugin settings for one new non-interactive session (`-p` or piped standard input). The trust is not saved to `trustedFolders` and is not a tool or path permission grant. Cannot be combined with `--resume`, `--continue`, or `--session-id`. |
@@ -929,7 +929,7 @@ copilot --deny-tool='write(secret.txt)'
 |----------|-------------|
 | `COPILOT_ALLOW_ALL` | Allow all permissions automatically (equivalent to `--allow-all`). Accepts `true`, `1`, `yes`, `on`, or `y` (case-insensitive, surrounding whitespace ignored) to turn it on; `false`, `0`, `no`, `off`, `n`, or an empty value to turn it off. Setting it to exactly `true` also trusts the working directory without prompting, loading that directory's skills, plugins, MCP servers, and hooks (including hooks that run shell commands). The other truthy spellings only auto-approve tools. |
 | `COPILOT_ASSISTED_APPROVAL` | Set to `true` to turn on {% data variables.copilot.assisted_permissions %} for a non-interactive run (equivalent to `--assisted-approval`). |
-| `COPILOT_AUTO_UPDATE` | Set to `false` to disable automatic updates of the CLI and first-party plugins. |
+| `COPILOT_AUTO_UPDATE` | Set to `false` to disable automatic updates of the CLI and first-party plugins, and prevent a newer cached CLI version from running instead of the installed version. |
 | `COPILOT_CACHE_HOME` | Override the cache directory (used for marketplace caches, auto-update packages, and other ephemeral data). See [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-config-dir-reference#changing-the-location-of-the-configuration-directory) for platform defaults. |
 | `COPILOT_CHILD_OOM_SCORE_ADJ` | Linux only. Overrides the `oom_score_adj` bias applied to shell command process trees spawned by the CLI, so the kernel's out-of-memory (OOM) killer reclaims a runaway child process tree (for example, a build) before the CLI itself. Default: `300`. Range: `-1000`–`1000`. Set to `off` to disable the bias. |
 | `COPILOT_CUSTOM_INSTRUCTIONS_DIRS` | Comma-separated list of additional directories for custom instructions. |
@@ -1046,7 +1046,7 @@ Use `copilot mcp` to manage MCP server configurations from the command line with
 
 | Subcommand | Description |
 |------------|-------------|
-| `list [--json]` | List all configured MCP servers grouped by source, including plugin-provided servers. |
+| `list [--json]` | List all configured MCP servers grouped by source, including plugin-provided servers and servers supplied through `--additional-mcp-config` or `--plugin-dir`. |
 | `get <name> [--json]` | Show configuration and tools for a specific server. For plugin-provided servers, also shows the source plugin name and version. |
 | `add [options] <name> [url]` | Add a server to the user configuration. Writes to `~/.copilot/mcp-config.json`. |
 | `enable <name>` / `disable <name>` | Enable or disable a server by name. The change persists to the user configuration and applies to future sessions. |
@@ -1656,6 +1656,17 @@ The **This location** option appears when the CLI can determine a location key (
 When a shell command needs tool approval and access to paths outside the allowed directories, the CLI can combine both approvals in one prompt. Approving once grants path access for that run only. Approving for the session or location also grants path access for the rest of the session.
 
 Use `/reset-allowed-tools` to clear session approvals for the current session.
+
+### Parent-domain URL approvals
+
+URL approval prompts can offer a parent-domain scope, such as `https://*.example.com`, in addition to the exact origin. This approves every subdomain of the registrable domain, such as `api.example.com` and `flow.example.com`, for the rest of the session.
+
+The scope has these restrictions:
+
+* Approval applies only to the current session and is never saved to settings.
+* The scheme and any non-default port must match.
+* Hosts under a separately owned suffix, such as `s3.amazonaws.com`, are not covered by approving `*.amazonaws.com`. This keeps an approval for *.amazonaws.com from extending to buckets under s3.amazonaws.com, which may belong to other tenants.
+* IP addresses, single-label hosts such as `localhost`, and public suffixes such as `github.io` do not get this option.
 
 ## Security
 
