@@ -1,0 +1,254 @@
+// House underline nav, painted with Primer Brand tokens. It replaces @primer/react's
+// UnderlineNav for the in-article tool and platform pickers and the code-language tabs.
+//
+// Contrast notes (measured against --brand-color-canvas-default):
+// * Selected bar: --brand-NavList-activeIndicator-color is 4.65:1 light and 13.93:1
+//   dark. With no colour-mode cookie, `auto` dark only works because index.scss
+//   patches the token. WCAG 1.4.11 needs 3:1, so the bar holds in every mode.
+// * Label: --brand-color-text-default, 21:1 in both modes, rest and selected.
+//   The selected tab only gets the bar and a heavier weight, as in @primer/react.
+// * Focus ring: --brand-color-focus, 4.13:1 light and 6.81:1 dark. It stays blue
+//   so "focused" reads differently from "selected" green.
+// * Closing rule: --brand-color-border-muted. It's a decorative separator, so 3:1
+//   doesn't apply. On the picker it's also the article header's closing rule (see
+//   ArticleGridLayout.module.scss).
+//
+// Rules sit under .nav so they beat .markdown-body link rules without !important.
+// The list resets are the exception (see .list). article-link-overrides.scss
+// skips [data-underline-nav-item].
+
+$nav-height: var(--base-size-48, 3rem);
+
+.nav {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: $nav-height;
+  padding-inline: var(--brand-stack-padding-condensed, 1rem);
+  box-shadow: inset 0 -1px var(--brand-color-border-muted, #e4ebe6);
+
+  &[data-variant="flush"] {
+    padding-inline: 0;
+  }
+
+  // Before the first measurement every item is in the list. Clip them so a
+  // narrow nav doesn't overflow the page while it measures.
+  &[data-overflow-measured="false"] {
+    overflow: hidden;
+  }
+
+  .list {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    // Nested-list rules in MarkdownContent's lists.scss outrank this class and add
+    // an indent and bullets when code tabs sit inside a list item.
+    padding-left: 0 !important;
+    list-style: none !important;
+    white-space: nowrap;
+
+    // Flex, not list-item, so the inline-flex link isn't pushed down onto the text
+    // baseline. The selected bar is placed from the link's centre.
+    > li {
+      display: flex;
+      align-items: center;
+      margin: 0;
+    }
+  }
+
+  .item {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    padding: var(--base-size-6, 0.375rem) var(--base-size-8, 0.5rem);
+    border-radius: var(--brand-borderRadius-small, 0.25rem);
+    color: var(--brand-color-text-default, #1f2328);
+    font-size: var(--brand-text-size-100, 0.875rem);
+    line-height: var(--brand-text-lineHeight-100, 1.5);
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+
+    // The selected bar sits on the nav's bottom edge. Both sides read the same
+    // root-relative height, so the bar stays on the rule when text is enlarged.
+    &::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: calc(50% - #{$nav-height} / 2);
+      left: 0;
+      height: 2px;
+      background-color: transparent;
+      pointer-events: none;
+    }
+
+    &[aria-current="page"] {
+      .text {
+        font-weight: var(--brand-text-weight-semibold, 600);
+      }
+
+      &::after {
+        background-color: var(--brand-NavList-activeIndicator-color, #08872b);
+
+        @media (forced-colors: active) {
+          background-color: LinkText;
+        }
+      }
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        background-color: var(--brand-color-canvas-subtle, #f6f8f7);
+        text-decoration: none;
+        transition: background-color 0.12s ease-out;
+      }
+    }
+  }
+
+  .item,
+  .moreButton,
+  .menuLink {
+    outline: 2px solid transparent;
+
+    &:focus-visible {
+      box-shadow: inset 0 0 0 2px var(--brand-color-focus, #0969da);
+    }
+  }
+
+  .text::before {
+    content: attr(data-text);
+    display: block;
+    height: 0;
+    overflow: hidden;
+    font-weight: var(--brand-text-weight-semibold, 600);
+    visibility: hidden;
+    white-space: nowrap;
+  }
+
+  // Not positioned, so the menu anchors to .list and can align to either end of it.
+  .moreItem {
+    display: flex;
+    align-items: center;
+  }
+
+  .divider {
+    display: inline-block;
+    width: 1px;
+    height: 24px;
+    margin-right: var(--base-size-4, 0.25rem);
+    background-color: var(--brand-color-border-muted, #e4ebe6);
+  }
+
+  .moreButton {
+    display: inline-flex;
+    gap: var(--base-size-4, 0.25rem);
+    align-items: center;
+    padding: var(--base-size-6, 0.375rem) var(--base-size-8, 0.5rem);
+    border: 0;
+    border-radius: var(--brand-borderRadius-small, 0.25rem);
+    background: transparent;
+    color: var(--brand-color-text-default, #1f2328);
+    font: inherit;
+    font-size: var(--brand-text-size-100, 0.875rem);
+    line-height: var(--brand-text-lineHeight-100, 1.5);
+    cursor: pointer;
+
+    @media (hover: hover) {
+      &:hover {
+        background-color: var(--brand-color-canvas-subtle, #f6f8f7);
+      }
+    }
+  }
+
+  // Shape and shadow follow Brand's ActionMenu. The fill keeps today's overlay
+  // surface, which lifts off the true-black dark canvas.
+  .menu {
+    position: absolute;
+    top: calc(100% + var(--base-size-4, 0.25rem));
+    right: 0;
+    z-index: 100;
+    min-width: 192px;
+    max-width: 640px;
+    margin: 0;
+    padding: var(--base-size-8, 0.5rem);
+    // Same lists.scss guard as .list.
+    padding-left: var(--base-size-8, 0.5rem) !important;
+    border: var(--brand-borderWidth-thin, 1px) solid
+      var(--brand-color-border-muted, #e4ebe6);
+    border-radius: var(--brand-borderRadius-large, 0.75rem);
+    background-color: var(--brand-color-canvas-overlay, #ffffff);
+    box-shadow:
+      0 22px 17px #00000005,
+      0 12px 10px #00000008,
+      0 6px 5px #0000000a,
+      0 2px 2px #00000012;
+    list-style: none !important;
+    white-space: normal;
+
+    &[hidden] {
+      display: none;
+    }
+
+    &[data-align="start"] {
+      right: auto;
+      left: 0;
+    }
+
+    > li {
+      margin: 0;
+    }
+  }
+
+  .menuLink {
+    display: block;
+    padding: var(--base-size-6, 0.375rem) var(--base-size-8, 0.5rem);
+    border-radius: var(--brand-borderRadius-medium, 0.375rem);
+    color: var(--brand-color-text-default, #1f2328);
+    font-size: var(--brand-text-size-100, 0.875rem);
+    line-height: var(--brand-text-lineHeight-100, 1.5);
+    text-decoration: none;
+
+    &[aria-current="page"] .text {
+      font-weight: var(--brand-text-weight-semibold, 600);
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        background-color: var(--brand-color-canvas-subtle, #f6f8f7);
+        text-decoration: none;
+      }
+    }
+  }
+
+  // A zero-size, clipped box, so the hidden measuring copy never widens the page.
+  .measureClip {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .measureList {
+    position: absolute;
+    width: max-content;
+  }
+
+  .visuallyHidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    border: 0;
+    white-space: nowrap;
+  }
+}

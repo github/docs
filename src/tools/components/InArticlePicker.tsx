@@ -1,11 +1,10 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import Cookies from '@/frame/components/lib/cookies'
-import { UnderlineNav } from '@primer/react'
 import { sendEvent } from '@/events/components/events'
 import { EventType } from '@/events/types'
 import { useRouter } from 'next/router'
-
-import styles from './InArticlePicker.module.scss'
+import { UnderlineNav } from '@/frame/components/ui/UnderlineNav'
+import type { UnderlineNavSelectEvent } from '@/frame/components/ui/UnderlineNav'
 
 const useIsomorphicLayoutEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect
 
@@ -122,7 +121,8 @@ export const InArticlePicker = ({
     Cookies.set(cookieKey, value)
   }
 
-  // WCAG 2.4.3 requires focus to remain on the triggered tab, and the nav remounts on every URL change.
+  // WCAG 2.4.3 requires focus to remain on the triggered tab. A tab chosen from the More menu
+  // moves into the visible list, so focus follows it there.
   useEffect(() => {
     if (!currentValue || focusAfterNavRef.current !== currentValue) return
     focusAfterNavRef.current = null
@@ -141,9 +141,8 @@ export const InArticlePicker = ({
   const params = new URLSearchParams(asPathQuery)
 
   return (
-    <div data-testid={`${queryStringKey}-picker`} className={styles.container}>
-      {/* UnderlineNav can miss item changes without a changing key. */}
-      <UnderlineNav key={router.asPath} {...sharedContainerProps}>
+    <div data-testid={`${queryStringKey}-picker`}>
+      <UnderlineNav {...sharedContainerProps}>
         {options.map((option) => {
           params.set(queryStringKey, option.value)
           const linkProps = {
@@ -154,7 +153,7 @@ export const InArticlePicker = ({
               href={`?${params}`}
               key={option.value}
               aria-current={option.value === currentValue ? 'page' : undefined}
-              onSelect={(event: React.MouseEvent | React.KeyboardEvent) => {
+              onSelect={(event: UnderlineNavSelectEvent) => {
                 // Leave new-tab and new-window gestures to the browser and the href.
                 if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return
                 event.preventDefault()

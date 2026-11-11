@@ -253,6 +253,7 @@ export default [
       'src/landings/components/ProductSelectionCard.tsx',
       'src/release-notes/components/GHESReleaseNotes.tsx',
       'src/landings/components/journey/JourneyLearningTracks.tsx',
+      'src/frame/components/ui/UnderlineNav/UnderlineNav.tsx',
     ],
     rules: {
       'jsx-a11y/no-redundant-roles': [

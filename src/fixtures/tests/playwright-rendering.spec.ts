@@ -1496,20 +1496,27 @@ test.describe('tool picker', () => {
     await turnOffExperimentsInPage(page)
 
     const webui = page.getByTestId('tool-picker').getByRole('link', { name: 'Web browser' })
-    const oldWebui = await webui.elementHandle()
     await webui.focus()
     await page.keyboard.press('Enter')
     await expect(page).toHaveURL(/\?tool=webui/)
-    // The nav remounts on each URL change, so wait for the old anchor to detach first.
-    await page.waitForFunction((el) => !el?.isConnected, oldWebui)
     await expect(webui).toBeFocused()
 
     const cli = page.getByTestId('tool-picker').getByRole('link', { name: 'GitHub CLI' })
-    const oldCli = await cli.elementHandle()
     await cli.focus()
     await page.keyboard.press('Enter')
     await expect(page).toHaveURL(/\?tool=cli/)
-    await page.waitForFunction((el) => !el?.isConnected, oldCli)
+    await expect(cli).toBeFocused()
+  })
+
+  test('selects a tool with Space', async ({ page }) => {
+    await page.goto('/get-started/liquid/tool-specific')
+    await turnOffExperimentsInPage(page)
+
+    const cli = page.getByTestId('tool-picker').getByRole('link', { name: 'GitHub CLI' })
+    await cli.focus()
+    await page.keyboard.press(' ')
+    await expect(page).toHaveURL(/\?tool=cli/)
+    await expect(page.getByText('This is cli content')).toBeVisible()
     await expect(cli).toBeFocused()
   })
 
@@ -1579,6 +1586,95 @@ test.describe('tool picker', () => {
   })
 })
 
+test.describe('underline nav overflow', () => {
+  // The three fixture tools don't fit beside the More button at this width.
+  test.use({ viewport: { width: 320, height: 800 } })
+
+  const picker = (page: Page) => page.getByTestId('tool-picker')
+  const moreButton = (page: Page) => picker(page).getByRole('button', { name: /more/i })
+
+  test('moves tools that do not fit into a More menu', async ({ page }) => {
+    await page.goto('/get-started/liquid/tool-specific')
+    await turnOffExperimentsInPage(page)
+
+    await expect(moreButton(page)).toHaveAttribute('aria-expanded', 'false')
+    // The selected tool stays in the visible list.
+    await expect(picker(page).getByRole('link', { name: 'Web browser' })).toBeVisible()
+    await expect(picker(page).getByRole('link', { name: 'GitHub CLI' })).toBeHidden()
+
+    await moreButton(page).click()
+    await expect(moreButton(page)).toHaveAttribute('aria-expanded', 'true')
+    const menu = picker(page).locator(`#${await moreButton(page).getAttribute('aria-controls')}`)
+    // The menu never holds a single item.
+    await expect(menu.getByRole('link')).toHaveCount(2)
+    await expect(menu.getByRole('link', { name: 'GitHub CLI' })).toBeVisible()
+  })
+
+  test('selecting from the menu shows that tool in the list', async ({ page }) => {
+    await page.goto('/get-started/liquid/tool-specific')
+    await turnOffExperimentsInPage(page)
+
+    await moreButton(page).click()
+    await picker(page).getByRole('link', { name: 'GitHub CLI' }).click()
+    await expect(page).toHaveURL(/\?tool=cli/)
+    await expect(page.getByText('This is cli content')).toBeVisible()
+    await expect(moreButton(page)).toHaveAttribute('aria-expanded', 'false')
+
+    const cli = picker(page).getByRole('link', { name: 'GitHub CLI' })
+    await expect(cli).toBeVisible()
+    await expect(cli).toHaveAttribute('aria-current', 'page')
+    await expect(cli).toBeFocused()
+  })
+
+  test('Escape closes the menu and returns focus to the button', async ({ page }) => {
+    await page.goto('/get-started/liquid/tool-specific')
+    await turnOffExperimentsInPage(page)
+
+    await moreButton(page).focus()
+    await page.keyboard.press('Enter')
+    await expect(moreButton(page)).toHaveAttribute('aria-expanded', 'true')
+    await page.keyboard.press('Tab')
+    await page.keyboard.press('Escape')
+    await expect(moreButton(page)).toHaveAttribute('aria-expanded', 'false')
+    await expect(moreButton(page)).toBeFocused()
+  })
+
+  test('Escape that another handler already handled leaves the menu open', async ({ page }) => {
+    await page.goto('/get-started/liquid/tool-specific')
+    await turnOffExperimentsInPage(page)
+
+    await moreButton(page).click()
+    await page.evaluate(() => {
+      document.addEventListener('keydown', (event) => event.preventDefault(), { capture: true })
+    })
+    await page.keyboard.press('Escape')
+    await expect(moreButton(page)).toHaveAttribute('aria-expanded', 'true')
+  })
+
+  test('keeps the menu from hanging past the start of a short tab list', async ({ page }) => {
+    await page.goto('/get-started/liquid/tool-specific?tool=cli')
+    await turnOffExperimentsInPage(page)
+
+    await moreButton(page).click()
+    const menu = picker(page).locator(`#${await moreButton(page).getAttribute('aria-controls')}`)
+    await expect(menu).toBeVisible()
+    // An end-aligned menu here starts left of the list, and off screen with shorter labels.
+    const list = (await picker(page).locator('nav > ul').boundingBox())!
+    const box = (await menu.boundingBox())!
+    expect(box.x).toBeGreaterThanOrEqual(list.x)
+    expect(box.x + box.width).toBeLessThanOrEqual(page.viewportSize()!.width)
+  })
+
+  test('shows every tool without a More button on a wide screen', async ({ page }) => {
+    await page.setViewportSize({ width: 1280, height: 800 })
+    await page.goto('/get-started/liquid/tool-specific')
+    await turnOffExperimentsInPage(page)
+
+    await expect(picker(page).getByRole('link')).toHaveCount(3)
+    await expect(moreButton(page)).toHaveCount(0)
+  })
+})
+
 test.describe('code tabs', () => {
   test('switch languages across groups', async ({ page }) => {
     await page.goto('/get-started/liquid/code-tabs-test')
@@ -1603,6 +1699,31 @@ test.describe('code tabs', () => {
     )
     await expect(firstGroup.getByText('from copilot import CopilotClient')).toBeVisible()
     await expect(firstGroup.getByText('@github/copilot-sdk')).not.toBeVisible()
+  })
+
+  test('tab labels use the text colour, not the article link colour', async ({ page }) => {
+    await page.goto('/get-started/liquid/code-tabs-test')
+    await turnOffExperimentsInPage(page)
+
+    const tabColor = await page
+      .locator('.ghd-codetabs')
+      .nth(0)
+      .getByRole('link', { name: 'Python' })
+      .evaluate((el) => getComputedStyle(el).color)
+    // A probe link shows the colour article-link-overrides.scss gives prose links.
+    const linkColor = await page
+      .locator('.ghd-codetabs')
+      .nth(0)
+      .evaluate((group) => {
+        const probe = document.createElement('a')
+        probe.href = '#probe'
+        probe.textContent = 'probe'
+        group.parentElement!.appendChild(probe)
+        const color = getComputedStyle(probe).color
+        probe.remove()
+        return color
+      })
+    expect(tabColor).not.toBe(linkColor)
   })
 
   test('remembers the last selected language', async ({ page }) => {
