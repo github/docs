@@ -3977,6 +3977,116 @@
           ]
         },
         {
+          "name": "issueFields",
+          "description": "<p>A list of the user's issue fields.</p>",
+          "type": "IssueFieldsConnection",
+          "id": "issuefieldsconnection",
+          "href": "/graphql/reference/issues#object-issuefieldsconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "defaultValue": "{field: CREATED_AT, direction: ASC}",
+              "description": "<p>Ordering options for issue fields returned from the connection.</p>",
+              "type": {
+                "name": "IssueFieldOrder",
+                "id": "issuefieldorder",
+                "href": "/graphql/reference/issues#input-object-issuefieldorder"
+              }
+            }
+          ]
+        },
+        {
+          "name": "issueTypes",
+          "description": "<p>A list of the user's issue types.</p>",
+          "type": "IssueTypeConnection",
+          "id": "issuetypeconnection",
+          "href": "/graphql/reference/issues#object-issuetypeconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "defaultValue": "{field: CREATED_AT, direction: ASC}",
+              "description": "<p>Ordering options for issue types returned from the connection.</p>",
+              "type": {
+                "name": "IssueTypeOrder",
+                "id": "issuetypeorder",
+                "href": "/graphql/reference/issues#input-object-issuetypeorder"
+              }
+            }
+          ]
+        },
+        {
           "name": "issues",
           "description": "<p>A list of issues associated with this user.</p>",
           "type": "IssueConnection!",
@@ -4414,6 +4524,61 @@
                 "name": "[PinnableItemType!]",
                 "id": "pinnableitemtype",
                 "href": "/graphql/reference/users#enum-pinnableitemtype"
+              }
+            }
+          ]
+        },
+        {
+          "name": "pinnedIssueFields",
+          "description": "<p>An ordered list of issue fields pinned to issues when no type is selected.</p>",
+          "type": "IssueFieldsConnection",
+          "id": "issuefieldsconnection",
+          "href": "/graphql/reference/issues#object-issuefieldsconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "defaultValue": "{field: POSITION, direction: ASC}",
+              "description": "<p>The order in which to return pinned issue fields.</p>",
+              "type": {
+                "name": "PinnedIssueFieldOrder",
+                "id": "pinnedissuefieldorder",
+                "href": "/graphql/reference/issues#input-object-pinnedissuefieldorder"
               }
             }
           ]

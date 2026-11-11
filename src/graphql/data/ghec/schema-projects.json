@@ -2102,14 +2102,14 @@
         },
         {
           "name": "isIssueField",
-          "description": "<p>Returns true if this field is associated with an organization issue field.</p>",
+          "description": "<p>Returns true if this field is associated with an issue field.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "href": "/graphql/reference/other#scalar-boolean"
         },
         {
           "name": "issueField",
-          "description": "<p>The organization issue field associated with this project field, if any.</p>",
+          "description": "<p>The issue field associated with this project field, if any.</p>",
           "type": "IssueFields",
           "id": "issuefields",
           "href": "/graphql/reference/issues#union-issuefields"
@@ -3535,7 +3535,7 @@
         },
         {
           "name": "isIssueField",
-          "description": "<p>Returns true if this field is associated with an organization issue field.</p>",
+          "description": "<p>Returns true if this field is associated with an issue field.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "href": "/graphql/reference/other#scalar-boolean"
@@ -3696,14 +3696,14 @@
         },
         {
           "name": "isIssueField",
-          "description": "<p>Returns true if this field is associated with an organization issue field.</p>",
+          "description": "<p>Returns true if this field is associated with an issue field.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "href": "/graphql/reference/other#scalar-boolean"
         },
         {
           "name": "issueField",
-          "description": "<p>The organization issue field associated with this project field, if any.</p>",
+          "description": "<p>The issue field associated with this project field, if any.</p>",
           "type": "IssueFields",
           "id": "issuefields",
           "href": "/graphql/reference/issues#union-issuefields"
@@ -3851,14 +3851,14 @@
         },
         {
           "name": "isIssueField",
-          "description": "<p>Returns true if this field is associated with an organization issue field.</p>",
+          "description": "<p>Returns true if this field is associated with an issue field.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "href": "/graphql/reference/other#scalar-boolean"
         },
         {
           "name": "issueField",
-          "description": "<p>The organization issue field associated with this project field, if any.</p>",
+          "description": "<p>The issue field associated with this project field, if any.</p>",
           "type": "IssueFields",
           "id": "issuefields",
           "href": "/graphql/reference/issues#union-issuefields"
@@ -5189,7 +5189,7 @@
         },
         {
           "name": "isIssueField",
-          "description": "<p>Returns true if this field is associated with an organization issue field.</p>",
+          "description": "<p>Returns true if this field is associated with an issue field.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "href": "/graphql/reference/other#scalar-boolean"
@@ -5919,7 +5919,7 @@
       "name": "OrganizationOrUser",
       "id": "organizationoruser",
       "href": "/graphql/reference/projects#union-organizationoruser",
-      "description": "<p>Used for argument of CreateProjectV2 mutation.</p>",
+      "description": "<p>An organization or user that can own resources.</p>",
       "isDeprecated": false,
       "possibleTypes": [
         {
