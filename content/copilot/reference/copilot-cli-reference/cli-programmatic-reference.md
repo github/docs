@@ -47,6 +47,7 @@ There are a number of command-line options that are particularly useful when run
 | `--fleet`                     | Run the prompt in fleet mode, so {% data variables.product.prodname_copilot_short %} uses parallel subagents to work on separate parts of the task. Combine with `-p` for non-interactive automation, `-i` for an interactive session, or a piped prompt. Not supported in ACP server mode. See [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/speed-up-task-completion). |
 | `--model=MODEL`               | Choose the AI model (for example, `gpt-6-astra` or `claude-haiku-4.5`). Useful for pinning a model in reproducible workflows. See [Choosing a model](#choosing-a-model) below. |
 | `--no-ask-user`               | Prevent the agent from pausing to seek additional user input. |
+| `--no-auto-update`            | Disable automatic CLI updates and prevent a newer cached version from running instead of the installed version. |
 | `--output-format=FORMAT`      | Set the output format: `text` (the default) or `json`. With `json`, the CLI emits JSONL (one JSON object per line), which is convenient for parsing the agent's output in scripts. |
 | `--secret-env-vars=VAR ...`   | An environment variable whose value you want redacted in output. For multiple variables, use a quoted, comma-separated list. Essential for preventing secrets being exposed in logs. The values in the `GITHUB_TOKEN` and `COPILOT_GITHUB_TOKEN` environment variables are redacted by default. |
 | `--trust-folder`              | Trust the working directory's hooks, workspace MCP servers, and repository plugin settings for a single new non-interactive session (`-p` or piped standard input). The trust is not saved to `trustedFolders`, does not extend to parent or sibling directories, and does not grant tool, path, or URL permissions. Managed policy still applies. Cannot be combined with `--resume`, `--continue`, or `--session-id`. Only use this for configuration you have reviewed. |
@@ -144,13 +145,19 @@ You can use environment variables to configure various aspects of the CLI's beha
 | `COPILOT_ASSISTED_APPROVAL` | Set to `true` to turn on {% data variables.copilot.assisted_permissions %} for a non-interactive run |
 | `COPILOT_MODEL`       | Set the model (for example, `gpt-6-astra`, `claude-haiku-4.5`) |
 | `COPILOT_HOME`        | Set the directory for the CLI configuration file (`~/.copilot` by default) |
-| `COPILOT_AUTO_UPDATE` | Set to `false` to disable automatic updates. Useful in CI and other automated environments where you want to pin the CLI version. |
+| `COPILOT_AUTO_UPDATE` | Set to `false` to disable automatic updates and prevent a newer cached CLI version from running instead of the installed version. Useful in CI and other automated environments where you want to pin the CLI version. |
 | `COPILOT_GITHUB_TOKEN`| Authentication token (highest precedence) |
 | `GH_TOKEN`            | Authentication token (second precedence) |
 | `GITHUB_TOKEN`        | Authentication token (third precedence) |
 | `GITHUB_COPILOT_PROMPT_MODE_EXTENSIONS` | Set to `true` to allow project extensions to load for a prompt or direct workflow run. Only use this for repository code you trust. This does not grant tool permissions. |
 
 For full details of environment variables for {% data variables.copilot.copilot_cli_short %}, use the command `copilot help environment` in your terminal.
+
+## Pinning the CLI version
+
+To downgrade or install a specific version, use `npm install -g @github/copilot@VERSION`, replacing `VERSION` with the release version, or download the release directly. See [`github/copilot-cli` releases](https://github.com/github/copilot-cli/releases).
+
+Start the CLI with `--no-auto-update` or `COPILOT_AUTO_UPDATE=false` to keep using that version. Otherwise, a newer version in the package cache can run instead, and automatic updates can download the latest version again.
 
 ## Using {% data variables.copilot.assisted_permissions %}
 

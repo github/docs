@@ -2142,7 +2142,7 @@
         },
         {
           "name": "name",
-          "description": "<p>The reported source name, or \"custom instructions\" for CUSTOM_INSTRUCTIONS.</p>",
+          "description": "<p>The reported source name, or \"custom instructions\" for CUSTOM_INSTRUCTIONS.\nCopilot Dreaming's reviewer agent and checks skill are reported as one SKILL\nsource named \"Copilot dreaming\".</p>",
           "type": "String!",
           "id": "string",
           "href": "/graphql/reference/other#scalar-string"
