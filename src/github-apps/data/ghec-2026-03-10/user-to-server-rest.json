@@ -7895,6 +7895,54 @@
       "requestPath": "/user/gpg_keys/{gpg_key_id}"
     },
     {
+      "slug": "list-issue-fields",
+      "subcategory": "issue-fields",
+      "verb": "get",
+      "requestPath": "/user/issue-fields"
+    },
+    {
+      "slug": "create-an-issue-field",
+      "subcategory": "issue-fields",
+      "verb": "post",
+      "requestPath": "/user/issue-fields"
+    },
+    {
+      "slug": "update-an-issue-field",
+      "subcategory": "issue-fields",
+      "verb": "patch",
+      "requestPath": "/user/issue-fields/{issue_field_id}"
+    },
+    {
+      "slug": "delete-an-issue-field",
+      "subcategory": "issue-fields",
+      "verb": "delete",
+      "requestPath": "/user/issue-fields/{issue_field_id}"
+    },
+    {
+      "slug": "list-issue-types",
+      "subcategory": "issue-types",
+      "verb": "get",
+      "requestPath": "/user/issue-types"
+    },
+    {
+      "slug": "create-an-issue-type",
+      "subcategory": "issue-types",
+      "verb": "post",
+      "requestPath": "/user/issue-types"
+    },
+    {
+      "slug": "update-an-issue-type",
+      "subcategory": "issue-types",
+      "verb": "put",
+      "requestPath": "/user/issue-types/{issue_type_id}"
+    },
+    {
+      "slug": "delete-an-issue-type",
+      "subcategory": "issue-types",
+      "verb": "delete",
+      "requestPath": "/user/issue-types/{issue_type_id}"
+    },
+    {
       "slug": "list-public-ssh-keys-for-the-authenticated-user",
       "subcategory": "keys",
       "verb": "get",

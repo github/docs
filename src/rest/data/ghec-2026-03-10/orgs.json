@@ -14196,7 +14196,7 @@
               "type": "array",
               "items": {
                 "title": "Issue Field",
-                "description": "A custom attribute defined at the organization level for attaching structured data to issues.",
+                "description": "A custom attribute defined by a repository owner for attaching structured data to issues.",
                 "type": [
                   "object",
                   "null"
@@ -14234,10 +14234,11 @@
                   },
                   "visibility": {
                     "type": "string",
-                    "description": "The visibility of the issue field. Can be `organization_members_only` (visible only within the organization) or `all` (visible to all users who can see issues).",
+                    "description": "The visibility of the issue field. Organization-owned fields return `organization_members_only` for restricted visibility (visible to organization members and to collaborators on the repository the field is read through), or `all` (visible to all users who can see issues). For create and update requests, use `restricted` instead of the deprecated `organization_members_only` input. Existing REST API versions continue to return `organization_members_only` for restricted organization-owned fields, even when a request uses `restricted`. Any change to this response spelling will be introduced in a future REST API version.",
                     "enum": [
                       "organization_members_only",
-                      "all"
+                      "all",
+                      "restricted"
                     ]
                   },
                   "options": {
@@ -14396,10 +14397,11 @@
         {
           "type": "string",
           "name": "visibility",
-          "description": "<p>The visibility of the issue field. Can be <code>organization_members_only</code> (visible only within the organization) or <code>all</code> (visible to all users who can see issues). Only used when the visibility settings feature is enabled. Defaults to <code>organization_members_only</code>.</p>",
+          "description": "<p>The visibility of the issue field. Can be <code>restricted</code> (visible to organization members and to collaborators on the repository the field is read through) or <code>all</code> (visible to all users who can see issues). <code>organization_members_only</code> is deprecated. Use <code>restricted</code> instead. Removal will be announced for a future REST API version; existing REST API versions will continue to support this value. Only used when the visibility settings feature is enabled. Defaults to <code>organization_members_only</code>.</p>",
           "enum": [
             "organization_members_only",
-            "all"
+            "all",
+            "restricted"
           ]
         },
         {
@@ -14520,7 +14522,7 @@
             },
             "schema": {
               "title": "Issue Field",
-              "description": "A custom attribute defined at the organization level for attaching structured data to issues.",
+              "description": "A custom attribute defined by a repository owner for attaching structured data to issues.",
               "type": [
                 "object",
                 "null"
@@ -14558,10 +14560,11 @@
                 },
                 "visibility": {
                   "type": "string",
-                  "description": "The visibility of the issue field. Can be `organization_members_only` (visible only within the organization) or `all` (visible to all users who can see issues).",
+                  "description": "The visibility of the issue field. Organization-owned fields return `organization_members_only` for restricted visibility (visible to organization members and to collaborators on the repository the field is read through), or `all` (visible to all users who can see issues). For create and update requests, use `restricted` instead of the deprecated `organization_members_only` input. Existing REST API versions continue to return `organization_members_only` for restricted organization-owned fields, even when a request uses `restricted`. Any change to this response spelling will be introduced in a future REST API version.",
                   "enum": [
                     "organization_members_only",
-                    "all"
+                    "all",
+                    "restricted"
                   ]
                 },
                 "options": {
@@ -14718,10 +14721,11 @@
         {
           "type": "string",
           "name": "visibility",
-          "description": "<p>The visibility of the issue field. Can be <code>organization_members_only</code> (visible only within the organization) or <code>all</code> (visible to all users who can see issues). Only used when the visibility settings feature is enabled.</p>",
+          "description": "<p>The visibility of the issue field. Can be <code>restricted</code> (visible to organization members and to collaborators on the repository the field is read through) or <code>all</code> (visible to all users who can see issues). <code>organization_members_only</code> is deprecated. Use <code>restricted</code> instead. Removal will be announced for a future REST API version; existing REST API versions will continue to support this value. Only used when the visibility settings feature is enabled.</p>",
           "enum": [
             "organization_members_only",
-            "all"
+            "all",
+            "restricted"
           ]
         },
         {
@@ -14830,7 +14834,7 @@
             },
             "schema": {
               "title": "Issue Field",
-              "description": "A custom attribute defined at the organization level for attaching structured data to issues.",
+              "description": "A custom attribute defined by a repository owner for attaching structured data to issues.",
               "type": [
                 "object",
                 "null"
@@ -14868,10 +14872,11 @@
                 },
                 "visibility": {
                   "type": "string",
-                  "description": "The visibility of the issue field. Can be `organization_members_only` (visible only within the organization) or `all` (visible to all users who can see issues).",
+                  "description": "The visibility of the issue field. Organization-owned fields return `organization_members_only` for restricted visibility (visible to organization members and to collaborators on the repository the field is read through), or `all` (visible to all users who can see issues). For create and update requests, use `restricted` instead of the deprecated `organization_members_only` input. Existing REST API versions continue to return `organization_members_only` for restricted organization-owned fields, even when a request uses `restricted`. Any change to this response spelling will be introduced in a future REST API version.",
                   "enum": [
                     "organization_members_only",
-                    "all"
+                    "all",
+                    "restricted"
                   ]
                 },
                 "options": {
@@ -15234,7 +15239,7 @@
         {
           "type": "boolean",
           "name": "is_enabled",
-          "description": "<p>Whether or not the issue type is enabled at the organization level.</p>",
+          "description": "<p>Whether or not the issue type is enabled.</p>",
           "isRequired": true
         },
         {
@@ -15421,7 +15426,7 @@
         {
           "type": "boolean",
           "name": "is_enabled",
-          "description": "<p>Whether or not the issue type is enabled at the organization level.</p>",
+          "description": "<p>Whether or not the issue type is enabled.</p>",
           "isRequired": true
         },
         {

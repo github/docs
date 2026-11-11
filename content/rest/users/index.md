@@ -18,6 +18,8 @@ children:
   - /emails
   - /followers
   - /gpg-keys
+  - /issue-fields
+  - /issue-types
   - /keys
   - /social-accounts
   - /ssh-signing-keys

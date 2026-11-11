@@ -1067,7 +1067,7 @@
         {
           "type": "boolean",
           "name": "use_squash_pr_title_as_default",
-          "description": "<p>Either <code>true</code> to allow squash-merge commits to use pull request title, or <code>false</code> to use commit message. **This property is closing down. Please use <code>squash_merge_commit_title</code> instead.</p>",
+          "description": "<p>Either <code>true</code> to allow squash-merge commits to use pull request title, or <code>false</code> to use commit message. <strong>This property is closing down. Please use <code>squash_merge_commit_title</code> instead.</strong></p>",
           "default": false
         },
         {
@@ -8347,7 +8347,7 @@
         {
           "type": "boolean",
           "name": "use_squash_pr_title_as_default",
-          "description": "<p>Either <code>true</code> to allow squash-merge commits to use pull request title, or <code>false</code> to use commit message. **This property is closing down. Please use <code>squash_merge_commit_title</code> instead.</p>",
+          "description": "<p>Either <code>true</code> to allow squash-merge commits to use pull request title, or <code>false</code> to use commit message. <strong>This property is closing down. Please use <code>squash_merge_commit_title</code> instead.</strong></p>",
           "default": false
         },
         {
