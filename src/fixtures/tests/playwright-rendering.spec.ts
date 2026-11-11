@@ -2514,6 +2514,30 @@ test.describe('rest API reference pages', () => {
     await page.goto('/rest/actions/cache')
     await expect(page).toHaveURL(/\/en\/rest\/actions\/cache\?apiVersion=2022-11-28/)
   })
+
+  test('selected code sample language matches the shown example after reload', async ({ page }) => {
+    await page.goto('/rest/actions/artifacts')
+    const languageSelector = page
+      .getByRole('list', { name: /^Example language selector for/ })
+      .first()
+    await languageSelector.getByRole('button', { name: 'JavaScript' }).click()
+    await expect(
+      page.getByRole('button', { name: /Copy to clipboard javascript request example/ }).first(),
+    ).toBeVisible()
+
+    await page.reload()
+    await expect(
+      page.getByRole('button', { name: /Copy to clipboard javascript request example/ }).first(),
+    ).toBeVisible()
+    await expect(languageSelector.getByRole('button', { name: 'JavaScript' })).toHaveAttribute(
+      'aria-current',
+      'true',
+    )
+    await expect(languageSelector.getByRole('button', { name: 'cURL' })).toHaveAttribute(
+      'aria-current',
+      'false',
+    )
+  })
 })
 
 test.describe('translations', () => {
@@ -3578,5 +3602,53 @@ test.describe('copy as markdown button', () => {
 
     // The success checkmark clears after the 2s timeout.
     await expect(copyButton.locator('.octicon-check')).toHaveCount(0, { timeout: 5000 })
+  })
+})
+
+test.describe('REST request example copy button', () => {
+  test('copies the example, swaps the icon, and announces it', async ({ page, context }) => {
+    await context.grantPermissions(['clipboard-read', 'clipboard-write'])
+    await page.goto('/rest/actions/artifacts')
+
+    const copyButton = page
+      .getByRole('button', { name: /Copy to clipboard curl request example/ })
+      .first()
+    await expect(copyButton).toBeVisible()
+    await expect(copyButton.locator('.octicon-copy')).toBeVisible()
+
+    await copyButton.click()
+
+    await expect(copyButton.locator('.octicon-check')).toBeVisible()
+    const clipboardText = await page.evaluate(() => navigator.clipboard.readText())
+    expect(clipboardText).toContain('curl')
+
+    // @primer/live-region-element writes announcements into a shadow-DOM container.
+    await expect
+      .poll(() =>
+        page.evaluate(
+          () =>
+            document.querySelector('live-region')?.shadowRoot?.getElementById('polite')
+              ?.textContent,
+        ),
+      )
+      .toContain('Copied!')
+
+    // The success checkmark clears after the 1.4s timeout.
+    await expect(copyButton.locator('.octicon-copy')).toBeVisible({ timeout: 5000 })
+  })
+
+  test('shows a label tooltip that Escape dismisses', async ({ page }) => {
+    await page.goto('/rest/actions/artifacts')
+
+    const copyButton = page
+      .getByRole('button', { name: /Copy to clipboard curl request example/ })
+      .first()
+    await expect(copyButton).not.toHaveAttribute('aria-label')
+    const tooltip = page.locator(`[id="${await copyButton.getAttribute('aria-labelledby')}"]`)
+    await expect(tooltip).toBeHidden()
+    await copyButton.focus()
+    await expect(tooltip).toBeVisible()
+    await page.keyboard.press('Escape')
+    await expect(tooltip).toBeHidden()
   })
 })
