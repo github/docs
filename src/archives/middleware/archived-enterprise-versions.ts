@@ -1,4 +1,4 @@
-import type { Response, NextFunction } from 'express'
+import type { Request, Response, NextFunction } from 'express'
 import { fetchWithRetry, readBodyWithTimeout } from '@/frame/lib/fetch-utils'
 
 import statsd, { adaptForTimer } from '@/observability/lib/statsd'
@@ -16,7 +16,11 @@ import { isLanguageInArchivedVersion } from '@/archives/lib/archived-languages'
 import { getDoubledLanguagePrefixRedirect } from '@/archives/lib/doubled-language-prefix'
 import { setFastlySurrogateKey, SURROGATE_ENUMS } from '@/frame/middleware/set-fastly-surrogate-key'
 import { readCompressedJsonFileFallbackLazily } from '@/frame/lib/read-json-file'
-import { archivedCacheControl, languageCacheControl } from '@/frame/middleware/cache-control'
+import {
+  archivedCacheControl,
+  defaultCacheControl,
+  languageCacheControl,
+} from '@/frame/middleware/cache-control'
 import { pathLanguagePrefixed, languagePrefixPathRegex } from '@/languages/lib/languages-server'
 import { languages as allLanguages } from '@/languages/lib/languages'
 import getRedirect, { splitPathByLanguage } from '@/redirects/lib/get-redirect'
@@ -33,6 +37,37 @@ const OLD_GITHUB_IMAGES_ENTERPRISE_DIR = `${OLD_PUBLIC_AZURE_BLOB_URL}/github-im
 const OLD_DEVELOPER_SITE_CONTAINER = `${OLD_PUBLIC_AZURE_BLOB_URL}/developer-site`
 // Archived enterprise repositories use https://github.github.com/docs-ghes-2.10.
 const ENTERPRISE_GH_PAGES_URL_PREFIX = 'https://github.github.com/docs-ghes-'
+
+// Archived pages never load a real _buildManifest.js, so Next's router.push waits about
+// 4 seconds for a manifest before it falls back to a full page load. An empty manifest
+// makes route lookup fail right away, so client-side navigation becomes an immediate
+// full page load. CSP blocks inline scripts, so the stub is served from this origin.
+export const ARCHIVED_BUILD_MANIFEST_STUB_PATH = '/archived-build-manifest-stub.js'
+const ARCHIVED_BUILD_MANIFEST_STUB = [
+  'self.__BUILD_MANIFEST={__rewrites:{beforeFiles:[],afterFiles:[],fallback:[]},sortedPages:[]};',
+  'self.__BUILD_MANIFEST_CB&&self.__BUILD_MANIFEST_CB();',
+  'self.__SSG_MANIFEST=new Set();',
+  'self.__SSG_MANIFEST_CB&&self.__SSG_MANIFEST_CB();',
+].join('\n')
+
+export function archivedBuildManifestStub(req: Request, res: Response, next: NextFunction) {
+  if (req.path !== ARCHIVED_BUILD_MANIFEST_STUB_PATH) return next()
+  if (req.method !== 'GET' && req.method !== 'HEAD') return next()
+  defaultCacheControl(res)
+  res.type('application/javascript')
+  res.send(ARCHIVED_BUILD_MANIFEST_STUB)
+}
+
+// Only Next.js archives need the stub. Some keep a _buildManifest.js tag, but
+// archived-enterprise-versions-assets answers it with an empty 204, so they need it too.
+// It goes first in <head> so it runs before Next's deferred scripts.
+export function injectArchivedBuildManifestStub(body: string): string {
+  if (!body.includes('id="__NEXT_DATA__"')) return body
+  return body.replace(
+    /<head(\s[^>]*)?>/i,
+    (headTag) => `${headTag}<script src="${ARCHIVED_BUILD_MANIFEST_STUB_PATH}"></script>`,
+  )
+}
 
 type ArchivedRedirects = {
   [url: string]: string | null
@@ -264,7 +299,9 @@ export default async function archivedEnterpriseVersions(
   }
 
   if (r.status === 200) {
-    const body = await readBodyWithTimeout(r, () => r.text(), timeoutConfiguration.response)
+    const body = injectArchivedBuildManifestStub(
+      await readBodyWithTimeout(r, () => r.text(), timeoutConfiguration.response),
+    )
     const [, withoutLanguagePath] = splitByLanguage(req.path)
     const isDeveloperPage = withoutLanguagePath?.startsWith(
       `/enterprise/${requestedVersion}/developer`,
