@@ -1,5 +1,4 @@
 import React, { useState, useMemo, useEffect, useRef, useCallback } from 'react'
-import { DataTable, Table } from '@primer/react/experimental'
 import { TextInput, ActionMenu, Pagination, Button } from '@primer/react-brand'
 import { debounce } from 'lodash-es'
 import { useTranslation } from '@/languages/components/useTranslation'
@@ -8,6 +7,7 @@ import { EventType } from '@/events/types'
 import { sanitizeSecretScanningSearchQuery } from '@/search/lib/sanitize-search-query'
 import { onActionMenuItemKeyDownCapture } from '@/frame/components/lib/action-menu'
 import type { SecretScanningData } from '@/types'
+import { PatternsTable } from '@/secret-scanning/components/PatternsTable'
 import styles from './SecretScanningTable.module.scss'
 
 const PAGE_SIZE = 25
@@ -230,129 +230,116 @@ export function SecretScanningTable({ data }: { data: SecretScanningData[] }) {
           .replace('{total}', String(data.length))}
       </p>
 
-      <div style={{ overflowX: 'auto' }}>
-        <Table.Container>
-          <Table.Title as="h2" id="secret-scanning-table-title">
-            {t('table_title')}
-          </Table.Title>
-          <DataTable
-            aria-labelledby="secret-scanning-table-title"
-            data={pageData}
-            externalSorting
-            initialSortColumn={sortColumn}
-            initialSortDirection={sortDirection}
-            onToggleSort={(columnId, direction) => {
-              setSortColumn(String(columnId))
-              setSortDirection(direction)
-              setCurrentPage(1)
-              trackInteraction(
-                'sort',
-                COLUMN_FIELD_NAMES[String(columnId)] ?? String(columnId),
-                direction,
-              )
-            }}
-            columns={[
-              {
-                header: t('column_provider'),
-                field: 'provider',
-                width: '140px',
-                rowHeader: true,
-                sortBy: 'alphanumeric',
-                renderCell: (row) => <strong>{row.provider}</strong>,
+      <h2 id="secret-scanning-table-title" className={styles.tableTitle}>
+        {t('table_title')}
+      </h2>
+      <div className={styles.tableWrapper}>
+        <PatternsTable
+          titleId="secret-scanning-table-title"
+          rows={pageData}
+          sortColumn={sortColumn}
+          sortDirection={sortDirection}
+          onSort={(field, direction) => {
+            setSortColumn(field)
+            setSortDirection(direction)
+            setCurrentPage(1)
+            trackInteraction('sort', COLUMN_FIELD_NAMES[field] ?? field, direction)
+          }}
+          columns={[
+            {
+              header: t('column_provider'),
+              field: 'provider',
+              width: '140px',
+              rowHeader: true,
+              sortable: true,
+              renderCell: (row) => <strong>{row.provider}</strong>,
+            },
+            {
+              header: t('column_secret'),
+              field: 'supportedSecret',
+              width: '280px',
+              renderCell: (row) => {
+                // Remove duplicate token-versions link; convert raw <br> separators to commas.
+                const cleanSecretType = row.secretType
+                  .replace(/ <br\/><a href="#token-versions">Token versions<\/a>/, '')
+                  .replace(/<\/?br\s*\/?>/gi, ', ')
+                  .replace(/,\s*,/g, ',')
+                return (
+                  <div className={styles.secretCell}>
+                    <span>{row.supportedSecret}</span>
+                    <p className={styles.secretType}>
+                      <code>{cleanSecretType}</code>
+                      {row.isduplicate && (
+                        <>
+                          {', '}
+                          <a href="#token-versions">{t('token_versions')}</a>
+                        </>
+                      )}
+                    </p>
+                  </div>
+                )
               },
-              {
-                header: t('column_secret'),
-                field: 'supportedSecret',
-                width: '280px',
-                renderCell: (row) => {
-                  // Remove duplicate token-versions link; convert raw <br> separators to commas.
-                  const cleanSecretType = row.secretType
-                    .replace(/ <br\/><a href="#token-versions">Token versions<\/a>/, '')
-                    .replace(/<\/?br\s*\/?>/gi, ', ')
-                    .replace(/,\s*,/g, ',')
-                  return (
-                    <div style={{ whiteSpace: 'normal', wordBreak: 'break-word' }}>
-                      <span>{row.supportedSecret}</span>
-                      <p
-                        style={{
-                          color: 'var(--fgColor-muted, #656d76)',
-                          fontSize: '12px',
-                          margin: 0,
-                        }}
-                      >
-                        <code>{cleanSecretType}</code>
-                        {row.isduplicate && (
-                          <>
-                            {', '}
-                            <a href="#token-versions">{t('token_versions')}</a>
-                          </>
-                        )}
-                      </p>
-                    </div>
-                  )
-                },
-              },
-              {
-                header: t('column_partner'),
-                field: 'isPublic',
-                renderCell: (row) => (
-                  <BoolIcon value={Boolean(row.isPublic)} label={t('column_partner')} t={t} />
-                ),
-              },
-              {
-                header: t('column_user_alert'),
-                field: 'isPrivateWithGhas',
-                renderCell: (row) => (
-                  <BoolIcon
-                    value={Boolean(row.isPrivateWithGhas)}
-                    label={t('column_user_alert')}
-                    t={t}
-                  />
-                ),
-              },
-              {
-                header: t('column_push_protection'),
-                field: 'hasPushProtection',
-                renderCell: (row) => (
-                  <BoolIcon
-                    value={Boolean(row.hasPushProtection)}
-                    label={t('column_push_protection')}
-                    t={t}
-                  />
-                ),
-              },
-              {
-                header: t('column_validity_check'),
-                field: 'hasValidityCheck',
-                renderCell: (row) => (
-                  <BoolIcon
-                    value={Boolean(row.hasValidityCheck)}
-                    label={t('column_validity_check')}
-                    t={t}
-                  />
-                ),
-              },
-              {
-                header: t('column_metadata'),
-                field: 'hasExtendedMetadata',
-                renderCell: (row) => (
-                  <BoolIcon
-                    value={Boolean(row.hasExtendedMetadata)}
-                    label={t('column_metadata')}
-                    t={t}
-                  />
-                ),
-              },
-              {
-                header: t('column_base64'),
-                field: 'base64Supported',
-                renderCell: (row) => (
-                  <BoolIcon value={Boolean(row.base64Supported)} label={t('column_base64')} t={t} />
-                ),
-              },
-            ]}
-          />
-        </Table.Container>
+            },
+            {
+              header: t('column_partner'),
+              field: 'isPublic',
+              renderCell: (row) => (
+                <BoolIcon value={Boolean(row.isPublic)} label={t('column_partner')} t={t} />
+              ),
+            },
+            {
+              header: t('column_user_alert'),
+              field: 'isPrivateWithGhas',
+              renderCell: (row) => (
+                <BoolIcon
+                  value={Boolean(row.isPrivateWithGhas)}
+                  label={t('column_user_alert')}
+                  t={t}
+                />
+              ),
+            },
+            {
+              header: t('column_push_protection'),
+              field: 'hasPushProtection',
+              renderCell: (row) => (
+                <BoolIcon
+                  value={Boolean(row.hasPushProtection)}
+                  label={t('column_push_protection')}
+                  t={t}
+                />
+              ),
+            },
+            {
+              header: t('column_validity_check'),
+              field: 'hasValidityCheck',
+              renderCell: (row) => (
+                <BoolIcon
+                  value={Boolean(row.hasValidityCheck)}
+                  label={t('column_validity_check')}
+                  t={t}
+                />
+              ),
+            },
+            {
+              header: t('column_metadata'),
+              field: 'hasExtendedMetadata',
+              renderCell: (row) => (
+                <BoolIcon
+                  value={Boolean(row.hasExtendedMetadata)}
+                  label={t('column_metadata')}
+                  t={t}
+                />
+              ),
+            },
+            {
+              header: t('column_base64'),
+              field: 'base64Supported',
+              renderCell: (row) => (
+                <BoolIcon value={Boolean(row.base64Supported)} label={t('column_base64')} t={t} />
+              ),
+            },
+          ]}
+        />
       </div>
 
       {pageCount > 1 && (

@@ -1,0 +1,98 @@
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid var(--brand-color-border-default);
+  border-radius: var(--brand-borderRadius-medium);
+  background-color: var(--brand-color-canvas-default);
+  color: var(--brand-color-text-default);
+  font-size: var(--brand-text-size-100);
+  line-height: 1.5;
+
+  th,
+  td {
+    padding: 8px 12px;
+    text-align: start;
+    vertical-align: middle;
+    border-bottom: 1px solid var(--brand-color-border-default);
+  }
+
+  th:first-child,
+  td:first-child {
+    padding-inline-start: 16px;
+  }
+
+  th:last-child,
+  td:last-child {
+    padding-inline-end: 16px;
+  }
+
+  tbody tr:last-child > * {
+    border-bottom: 0;
+  }
+
+  thead th {
+    background-color: var(--brand-color-canvas-subtle);
+    color: var(--brand-color-text-muted);
+    font-weight: var(--brand-text-weight-semibold);
+    white-space: nowrap;
+  }
+
+  thead th:first-child {
+    border-start-start-radius: var(--brand-borderRadius-medium);
+  }
+
+  thead th:last-child {
+    border-start-end-radius: var(--brand-borderRadius-medium);
+  }
+
+  thead th[aria-sort] {
+    color: var(--brand-color-text-default);
+  }
+
+  tbody tr:hover > * {
+    background-color: var(--brand-color-canvas-subtle);
+  }
+
+  @media (forced-colors: active) {
+    border-color: CanvasText;
+
+    th,
+    td {
+      border-color: CanvasText;
+    }
+  }
+}
+
+.sortButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: -4px -8px;
+  padding: 4px 8px;
+  border: 0;
+  border-radius: var(--brand-borderRadius-medium);
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--brand-button-subtle-bgColor-hover);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--brand-color-focus);
+    outline-offset: 0;
+  }
+}
+
+// Unsorted columns show the icon only on hover or focus, like Primer DataTable.
+th:not([aria-sort]) .sortIcon {
+  visibility: hidden;
+}
+
+th:not([aria-sort]):hover .sortIcon,
+.sortButton:focus-visible .sortIcon {
+  visibility: visible;
+}
