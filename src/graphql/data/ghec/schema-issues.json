@@ -10141,11 +10141,17 @@
       "values": [
         {
           "name": "ALL",
-          "description": "<p>All.</p>"
+          "description": "<p>Visible to everyone who can see the issue.</p>"
         },
         {
           "name": "ORG_ONLY",
-          "description": "<p>Org Only.</p>"
+          "description": "<p>Visible to members of the owning organization and, where repository context is supplied, collaborators on that repository.</p>",
+          "isDeprecated": true,
+          "deprecationReason": "<p><code>ORG_ONLY</code> will be removed. Use <code>RESTRICTED</code> instead. Removal on 2027-04-01 UTC.</p>"
+        },
+        {
+          "name": "RESTRICTED",
+          "description": "<p>Visible to the owner and to collaborators on the repository the field is read through.</p>"
         }
       ],
       "category": "issues"
@@ -11760,10 +11766,11 @@
         },
         {
           "name": "ownerId",
-          "description": "<p>The ID of the organization where the issue field will be created.</p>",
+          "description": "<p>The ID of the organization or user where the issue field will be created.</p>",
           "type": "ID!",
           "id": "id",
-          "href": "/graphql/reference/other#scalar-id"
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
         },
         {
           "name": "visibility",
@@ -11949,7 +11956,7 @@
         },
         {
           "name": "isEnabled",
-          "description": "<p>Whether or not the issue type is enabled on the org level.</p>",
+          "description": "<p>Whether or not the issue type is enabled.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "href": "/graphql/reference/other#scalar-boolean"
@@ -11963,10 +11970,11 @@
         },
         {
           "name": "ownerId",
-          "description": "<p>The ID for the organization on which the issue type is created.</p>",
+          "description": "<p>The ID of the owner on which the issue type is created.</p>",
           "type": "ID!",
           "id": "id",
-          "href": "/graphql/reference/other#scalar-id"
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
         }
       ],
       "category": "issues"
@@ -13899,7 +13907,7 @@
         },
         {
           "name": "isEnabled",
-          "description": "<p>Whether or not the issue type is enabled for the organization.</p>",
+          "description": "<p>Whether or not the issue type is enabled.</p>",
           "type": "Boolean",
           "id": "boolean",
           "href": "/graphql/reference/other#scalar-boolean"

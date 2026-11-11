@@ -3,24 +3,14 @@ import type { Components } from 'react-markdown'
 import type { JSX } from 'react'
 import remarkGfm from 'remark-gfm'
 import cx from 'clsx'
-import { IconButton } from '@primer/react'
-import { CopyIcon, CheckIcon } from '@primer/octicons-react'
-import { announce } from '@primer/live-region-element'
 
-import { useTranslation } from '@/languages/components/useTranslation'
-import useCopyClipboard from '@/rest/components/useClipboard'
-import { EventType } from '@/events/types'
-import { sendEvent } from '@/events/components/events'
 import { addFeatureParamToHref } from '@/frame/components/lib/add-feature-param-to-href'
-
-import styles from './MarkdownContent.module.scss'
 
 export type MarkdownContentPropsT = {
   children: string
   className?: string
   openLinksInNewTab?: boolean
   includeQueryParams?: boolean
-  codeBlocksCopyable?: boolean
   eventGroupKey?: string
   eventGroupId?: string
   as?: keyof JSX.IntrinsicElements
@@ -32,66 +22,11 @@ export const UnrenderedMarkdownContent = ({
   className,
   openLinksInNewTab = true,
   includeQueryParams = true,
-  codeBlocksCopyable = false,
   eventGroupKey = '',
   eventGroupId = '',
   ...restProps
 }: MarkdownContentPropsT) => {
-  const { t } = useTranslation('search')
-
   const components = {} as Components
-  if (codeBlocksCopyable) {
-    // Multiline code blocks need a custom renderer so the copy button can copy raw text.
-    components.code = ({ ...props }) => {
-      let text = String(props.children)
-      if (!text.includes('\n')) {
-        return <code {...props}>{props.children}</code>
-      } else {
-        text = text.replace(/\n$/, '')
-      }
-
-      // The copy button announces the language when the code fence exposes one.
-      const language = props.className?.startsWith('language-')
-        ? props.className.replace('language-', '')
-        : ''
-
-      const [isCopied, copyToClipboard] = useCopyClipboard(text, {
-        successDuration: 2000,
-      })
-
-      const getAriaLabel = () => {
-        if (isCopied) {
-          return t('search.ai.response.copied_code')
-        }
-        return t('search.ai.response.copy_code_lang').replace(
-          '{language}',
-          language ? `${language} ` : '',
-        )
-      }
-
-      return (
-        <div className={styles.codeBlockContainer}>
-          <IconButton
-            size="small"
-            icon={isCopied ? CheckIcon : CopyIcon}
-            className={cx('btn-octicon', styles.copyButton)}
-            aria-label={getAriaLabel()}
-            onClick={async () => {
-              await copyToClipboard()
-              announce(t('search.ai.response.copied_code'))
-              sendEvent({
-                type: EventType.clipboard,
-                clipboard_operation: 'copy',
-                eventGroupKey,
-                eventGroupId,
-              })
-            }}
-          ></IconButton>
-          <code {...props}>{props.children}</code>
-        </div>
-      )
-    }
-  }
 
   // Custom anchors preserve feature query params and can force links into new tabs.
   components.a = ({ ...props }) => {

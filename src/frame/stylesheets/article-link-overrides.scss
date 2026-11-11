@@ -15,9 +15,11 @@
   // Exclude anchors that this selector would otherwise override:
   // a[href] preserves @primer/css .markdown-body a:not([href]) named anchors at color: inherit.
   // :not(.heading-link) preserves headings.scss, which keeps heading text at color: unset.
+  // :not([data-underline-nav-item]) leaves code-language tabs at the nav's text colour,
+  // because they are controls, not prose links.
   // :not(.btn) preserves CTA button labels. A .btn-primary label would be #005dd5 on #1f883d,
   // 1.31:1 contrast, below the 4.5:1 WCAG AA floor.
-  a[href]:not(.heading-link):not(.btn) {
+  a[href]:not(.heading-link):not(.btn):not([data-underline-nav-item]) {
     // Fallback literals apply only when Brand tokens are undefined.
     color: var(--brand-color-text-link-rest, #005dd5);
 

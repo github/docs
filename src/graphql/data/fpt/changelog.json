@@ -4,6 +4,50 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Enum value <code>RESTRICTED</code> was added to enum <code>IssueFieldVisibility</code></p>",
+          "<p>Field <code>pinnedIssueFields</code> was added to object type <code>Repository</code></p>",
+          "<p>Argument <code>after: String</code> added to field <code>Repository.pinnedIssueFields</code></p>",
+          "<p>Argument <code>before: String</code> added to field <code>Repository.pinnedIssueFields</code></p>",
+          "<p>Argument <code>first: Int</code> added to field <code>Repository.pinnedIssueFields</code></p>",
+          "<p>Argument <code>last: Int</code> added to field <code>Repository.pinnedIssueFields</code></p>",
+          "<p>Argument <code>orderBy: PinnedIssueFieldOrder</code> (with default value) added to field <code>Repository.pinnedIssueFields</code></p>",
+          "<p>Field <code>issueFields</code> was added to object type <code>User</code></p>",
+          "<p>Argument <code>after: String</code> added to field <code>User.issueFields</code></p>",
+          "<p>Argument <code>before: String</code> added to field <code>User.issueFields</code></p>",
+          "<p>Argument <code>first: Int</code> added to field <code>User.issueFields</code></p>",
+          "<p>Argument <code>last: Int</code> added to field <code>User.issueFields</code></p>",
+          "<p>Argument <code>orderBy: IssueFieldOrder</code> (with default value) added to field <code>User.issueFields</code></p>",
+          "<p>Field <code>issueTypes</code> was added to object type <code>User</code></p>",
+          "<p>Argument <code>after: String</code> added to field <code>User.issueTypes</code></p>",
+          "<p>Argument <code>before: String</code> added to field <code>User.issueTypes</code></p>",
+          "<p>Argument <code>first: Int</code> added to field <code>User.issueTypes</code></p>",
+          "<p>Argument <code>last: Int</code> added to field <code>User.issueTypes</code></p>",
+          "<p>Argument <code>orderBy: IssueTypeOrder</code> (with default value) added to field <code>User.issueTypes</code></p>",
+          "<p>Field <code>pinnedIssueFields</code> was added to object type <code>User</code></p>",
+          "<p>Argument <code>after: String</code> added to field <code>User.pinnedIssueFields</code></p>",
+          "<p>Argument <code>before: String</code> added to field <code>User.pinnedIssueFields</code></p>",
+          "<p>Argument <code>first: Int</code> added to field <code>User.pinnedIssueFields</code></p>",
+          "<p>Argument <code>last: Int</code> added to field <code>User.pinnedIssueFields</code></p>",
+          "<p>Argument <code>orderBy: PinnedIssueFieldOrder</code> (with default value) added to field <code>User.pinnedIssueFields</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [
+      {
+        "title": "The following changes will be made to the schema:",
+        "changes": [
+          "<p>On member <code>IssueFieldVisibility.ORG_ONLY</code>:<code>ORG_ONLY</code> will be removed. Use <code>RESTRICTED</code> instead. <strong>Effective 2027-04-01</strong>.</p>"
+        ]
+      }
+    ],
+    "date": "2026-11-11"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Type <code>PinnedIssueFieldOrder</code> was added</p>",
           "<p>Input field <code>direction</code> of type <code>OrderDirection!</code> was added to input object type <code>PinnedIssueFieldOrder</code></p>",
           "<p>Input field <code>field</code> of type <code>PinnedIssueFieldOrderField!</code> was added to input object type <code>PinnedIssueFieldOrder</code></p>",

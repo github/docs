@@ -49,7 +49,7 @@ Issue fields appear in the right-hand sidebar of issues, alongside system fields
 
 ## Pinned fields
 
-If your organization administrator has pinned fields to specific issue types, those fields automatically appear in the sidebar and the issue creation modal when you create or view an issue of that type. You do not need to manually add pinned fields.
+If fields have been pinned to a specific issue type by your organization administrator or by you for your user-owned repositories, those fields automatically appear in the sidebar and the issue creation modal when you create or view an issue of that type. You do not need to manually add pinned fields.
 
 ## Viewing field changes in the timeline
 
@@ -59,16 +59,16 @@ When a field value is changed, the update is recorded in the issue timeline. The
 * Who made the change
 * When the change was made
 
-Timeline events for fields set to "Organization only" visibility are hidden from users who are not organization members or collaborators.
+Timeline events for fields set to "Restricted" visibility are visible only to organization members and repository collaborators in organization-owned repositories, or to the repository owner and collaborators in user-owned repositories.
 
 ## Field visibility
 
-Organization administrators can set each field's visibility to "Organization only" or "Public". This affects what you see:
+Organization administrators and user account owners can set each field's visibility to "Restricted" or "Public". This affects what you see:
 
-* If a field is set to **Organization only**, it is only visible to organization members and repository collaborators with at least read access. If you are not a member or collaborator, the field does not appear in the issue sidebar, timeline, or search suggestions.
+* If a field is set to **Restricted**, it is only visible to organization members and repository collaborators with at least read access in organization-owned repositories, or to the repository owner and collaborators with at least read access in user-owned repositories. If you do not have access to the field, it does not appear in the issue sidebar, timeline, or search suggestions.
 * If a field is set to **Public**, it is visible to anyone viewing the issue.
 
-For more information about configuring visibility, see [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/managing-issue-fields-in-your-organization#setting-field-visibility).
+For more information about configuring visibility, see [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/managing-issue-fields#setting-field-visibility).
 
 ## Using issue fields in projects
 
@@ -88,7 +88,7 @@ For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/usi
 
 Issue fields have full REST and GraphQL API support. You can automate field management, set values programmatically, and integrate with external tools.
 
-* **Managing fields**: Create, update, and delete organization-level fields. See the [Organization issue fields REST API](/rest/orgs/issue-fields).
+* **Managing fields**: Create, update, and delete fields. See the [issue fields REST API](/rest/orgs/issue-fields).
 * **Using fields**: Get, set, and clear field values on individual issues. See the [Issue field values REST API](/rest/issues/issue-field-values).
 * **GraphQL**: Issue field types and mutations are also available via GraphQL. See the [`IssueFields` union](/graphql/reference/issues#union-issuefields), [issue field objects](/graphql/reference/issues#object-issuefieldtext) (such as `IssueFieldText`, `IssueFieldSingleSelect`, `IssueFieldNumber`, and `IssueFieldDate`), and [mutations](/graphql/reference/issues#mutation-createissuefield) (such as `createIssueField`, `updateIssueField`, and `setIssueFieldValue`).
 

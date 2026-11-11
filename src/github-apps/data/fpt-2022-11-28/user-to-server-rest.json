@@ -2755,6 +2755,24 @@
       "requestPath": "/enterprises/{enterprise}/copilot/metrics/reports/users-28-day/latest"
     },
     {
+      "slug": "set-the-coding-agent-policy-for-an-enterprise",
+      "subcategory": "copilot-coding-agent-management",
+      "verb": "put",
+      "requestPath": "/enterprises/{enterprise}/copilot/policies/coding_agent"
+    },
+    {
+      "slug": "add-organizations-to-the-enterprise-coding-agent-policy",
+      "subcategory": "copilot-coding-agent-management",
+      "verb": "post",
+      "requestPath": "/enterprises/{enterprise}/copilot/policies/coding_agent/organizations"
+    },
+    {
+      "slug": "remove-organizations-from-the-enterprise-coding-agent-policy",
+      "subcategory": "copilot-coding-agent-management",
+      "verb": "delete",
+      "requestPath": "/enterprises/{enterprise}/copilot/policies/coding_agent/organizations"
+    },
+    {
       "slug": "get-copilot-seat-information-and-settings-for-an-organization",
       "subcategory": "copilot-user-management",
       "verb": "get",
@@ -6673,6 +6691,54 @@
       "subcategory": "gpg-keys",
       "verb": "delete",
       "requestPath": "/user/gpg_keys/{gpg_key_id}"
+    },
+    {
+      "slug": "list-issue-fields",
+      "subcategory": "issue-fields",
+      "verb": "get",
+      "requestPath": "/user/issue-fields"
+    },
+    {
+      "slug": "create-an-issue-field",
+      "subcategory": "issue-fields",
+      "verb": "post",
+      "requestPath": "/user/issue-fields"
+    },
+    {
+      "slug": "update-an-issue-field",
+      "subcategory": "issue-fields",
+      "verb": "patch",
+      "requestPath": "/user/issue-fields/{issue_field_id}"
+    },
+    {
+      "slug": "delete-an-issue-field",
+      "subcategory": "issue-fields",
+      "verb": "delete",
+      "requestPath": "/user/issue-fields/{issue_field_id}"
+    },
+    {
+      "slug": "list-issue-types",
+      "subcategory": "issue-types",
+      "verb": "get",
+      "requestPath": "/user/issue-types"
+    },
+    {
+      "slug": "create-an-issue-type",
+      "subcategory": "issue-types",
+      "verb": "post",
+      "requestPath": "/user/issue-types"
+    },
+    {
+      "slug": "update-an-issue-type",
+      "subcategory": "issue-types",
+      "verb": "put",
+      "requestPath": "/user/issue-types/{issue_type_id}"
+    },
+    {
+      "slug": "delete-an-issue-type",
+      "subcategory": "issue-types",
+      "verb": "delete",
+      "requestPath": "/user/issue-types/{issue_type_id}"
     },
     {
       "slug": "list-public-ssh-keys-for-the-authenticated-user",

@@ -30,7 +30,9 @@ import healthcheck from './healthcheck'
 import manifestJson from './manifest-json'
 import buildInfo from './build-info'
 import reqHeaders from './req-headers'
-import archivedEnterpriseVersions from '@/archives/middleware/archived-enterprise-versions'
+import archivedEnterpriseVersions, {
+  archivedBuildManifestStub,
+} from '@/archives/middleware/archived-enterprise-versions'
 import robots from './robots'
 import earlyAccessLinks from '@/early-access/middleware/early-access-links'
 import categoriesForSupport from './categories-for-support'
@@ -105,6 +107,7 @@ export default function index(app: Express) {
 
   // archivedEnterpriseVersionsAssets must run before static asset middleware.
   app.use(asyncMiddleware(archivedEnterpriseVersionsAssets))
+  app.use(archivedBuildManifestStub)
 
   app.use(favicons)
 

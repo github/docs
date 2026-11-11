@@ -8829,9 +8829,9 @@ input CreateIssueFieldInput {
   options: [IssueFieldSingleSelectOptionInput!]
 
   """
-  The ID of the organization where the issue field will be created.
+  The ID of the organization or user where the issue field will be created.
   """
-  ownerId: ID!
+  ownerId: ID! @possibleTypes(concreteTypes: ["Organization", "User"])
 
   """
   The visibility of the issue field.
@@ -9008,7 +9008,7 @@ input CreateIssueTypeInput {
   description: String
 
   """
-  Whether or not the issue type is enabled on the org level
+  Whether or not the issue type is enabled
   """
   isEnabled: Boolean!
 
@@ -9018,9 +9018,9 @@ input CreateIssueTypeInput {
   name: String!
 
   """
-  The ID for the organization on which the issue type is created
+  The ID of the owner on which the issue type is created
   """
-  ownerId: ID!
+  ownerId: ID! @possibleTypes(concreteTypes: ["Organization", "User"])
 }
 
 """
@@ -22862,14 +22862,19 @@ The visibility of an issue field.
 """
 enum IssueFieldVisibility @docsCategory(name: "issues") {
   """
-  All
+  Visible to everyone who can see the issue.
   """
   ALL
 
   """
-  Org Only
+  Visible to members of the owning organization and, where repository context is supplied, collaborators on that repository.
   """
-  ORG_ONLY
+  ORG_ONLY @deprecated(reason: "`ORG_ONLY` will be removed. Use `RESTRICTED` instead. Removal on 2027-04-01 UTC.")
+
+  """
+  Visible to the owner and to collaborators on the repository the field is read through.
+  """
+  RESTRICTED
 }
 
 """
@@ -38344,7 +38349,7 @@ enum OrganizationMigrationState @docsCategory(name: "migrations") {
 }
 
 """
-Used for argument of CreateProjectV2 mutation.
+An organization or user that can own resources.
 """
 union OrganizationOrUser @docsCategory(name: "projects") = Organization | User
 
@@ -42081,12 +42086,12 @@ type ProjectV2Field implements Node & ProjectV2FieldCommon @docsCategory(name: "
   id: ID!
 
   """
-  Returns true if this field is associated with an organization issue field
+  Returns true if this field is associated with an issue field
   """
   isIssueField: Boolean!
 
   """
-  The organization issue field associated with this project field, if any
+  The issue field associated with this project field, if any
   """
   issueField: IssueFields
 
@@ -42131,7 +42136,7 @@ interface ProjectV2FieldCommon @docsCategory(name: "projects") {
   id: ID!
 
   """
-  Returns true if this field is associated with an organization issue field
+  Returns true if this field is associated with an issue field
   """
   isIssueField: Boolean!
 
@@ -43378,7 +43383,7 @@ type ProjectV2IterationField implements Node & ProjectV2FieldCommon @docsCategor
   id: ID!
 
   """
-  Returns true if this field is associated with an organization issue field
+  Returns true if this field is associated with an issue field
   """
   isIssueField: Boolean!
 
@@ -43498,12 +43503,12 @@ type ProjectV2MultiSelectField implements Node & ProjectV2FieldCommon @docsCateg
   id: ID!
 
   """
-  Returns true if this field is associated with an organization issue field
+  Returns true if this field is associated with an issue field
   """
   isIssueField: Boolean!
 
   """
-  The organization issue field associated with this project field, if any
+  The issue field associated with this project field, if any
   """
   issueField: IssueFields
 
@@ -43794,12 +43799,12 @@ type ProjectV2SingleSelectField implements Node & ProjectV2FieldCommon @docsCate
   id: ID!
 
   """
-  Returns true if this field is associated with an organization issue field
+  Returns true if this field is associated with an issue field
   """
   isIssueField: Boolean!
 
   """
-  The organization issue field associated with this project field, if any
+  The issue field associated with this project field, if any
   """
   issueField: IssueFields
 
@@ -55838,7 +55843,7 @@ type Repository implements Node &
   issueCreationPolicy: IssueCreationPolicy
 
   """
-  A list of the repository's issue fields, inherited from the organization
+  A list of the repository's issue fields, inherited from the repository's owner
   """
   issueFields(
     """
@@ -56306,6 +56311,36 @@ type Repository implements Node &
     """
     orderBy: PinnedEnvironmentOrder = {field: POSITION, direction: ASC}
   ): PinnedEnvironmentConnection
+
+  """
+  An ordered list of the repository owner's issue fields pinned to issues when no type is selected.
+  """
+  pinnedIssueFields(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    The order in which to return pinned issue fields.
+    """
+    orderBy: PinnedIssueFieldOrder = {field: POSITION, direction: ASC}
+  ): IssueFieldsConnection
 
   """
   A list of pinned issues for this repository.
@@ -71327,7 +71362,7 @@ input UpdateIssueTypeInput {
   description: String
 
   """
-  Whether or not the issue type is enabled for the organization
+  Whether or not the issue type is enabled
   """
   isEnabled: Boolean
 
@@ -73586,6 +73621,66 @@ type User implements Actor &
   ): IssueCommentConnection!
 
   """
+  A list of the user's issue fields
+  """
+  issueFields(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    Ordering options for issue fields returned from the connection.
+    """
+    orderBy: IssueFieldOrder = {field: CREATED_AT, direction: ASC}
+  ): IssueFieldsConnection
+
+  """
+  A list of the user's issue types
+  """
+  issueTypes(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    Ordering options for issue types returned from the connection.
+    """
+    orderBy: IssueTypeOrder = {field: CREATED_AT, direction: ASC}
+  ): IssueTypeConnection
+
+  """
   A list of issues associated with this user.
   """
   issues(
@@ -73836,6 +73931,36 @@ type User implements Actor &
     """
     types: [PinnableItemType!]
   ): PinnableItemConnection!
+
+  """
+  An ordered list of issue fields pinned to issues when no type is selected.
+  """
+  pinnedIssueFields(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    The order in which to return pinned issue fields.
+    """
+    orderBy: PinnedIssueFieldOrder = {field: POSITION, direction: ASC}
+  ): IssueFieldsConnection
 
   """
   A list of repositories and gists this profile owner has pinned to their profile
