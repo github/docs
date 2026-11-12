@@ -15,7 +15,7 @@ redirect_from:
 ---
 
 > [!NOTE]
-> This feature is currently in {% data variables.release-phases.public_preview %} and is subject to change.
+> {% data reusables.code-security.package-firewall-public-preview %}
 
 ## About {% data variables.product.prodname_GH_package_firewall %}
 
@@ -57,6 +57,8 @@ Set the minimum age to a value between 1 and 365 days, or set it to 0 to disable
 ## Configuring endpoints to use the {% data variables.product.prodname_package_firewall %}
 
 Configure your package manager to fetch packages from the firewall's URL instead of the default public registry.
+
+If packages install when you expect the firewall to block them, see [AUTOTITLE](/code-security/reference/supply-chain-security/troubleshooting-github-package-firewall).
 
 ### Authentication token
 
@@ -153,6 +155,8 @@ Approved bypass requests are added to the firewall policy. Enterprise administra
 1. In the sidebar, click **{% data variables.product.prodname_package_firewall %}**.
 1. Under "Overrides", click **Package overrides**.
 1. To remove an exception from the policy, next to the exception, click {% octicon "trash" aria-label="Delete exception" %}.
+
+If a package still installs after you remove an exception, see [AUTOTITLE](/code-security/reference/supply-chain-security/troubleshooting-github-package-firewall#a-package-still-installs-after-a-policy-change).
 
 ## Further reading
 

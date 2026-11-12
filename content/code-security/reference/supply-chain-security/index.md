@@ -19,6 +19,7 @@ children:
   - /dependabot-on-actions
   - /criteria-for-preset-rules
   - /troubleshoot-dependabot
+  - /troubleshooting-github-package-firewall
   - /java-package-metadata-dependabot
 
 redirect_from:

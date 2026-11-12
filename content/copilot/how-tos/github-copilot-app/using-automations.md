@@ -54,6 +54,8 @@ You can work with {% data variables.product.prodname_copilot_short %} to design 
 
 {% data variables.product.prodname_copilot_short %} can even help you create self-improving groups of {% data variables.copilot.copilot_automations %} which learn from outcomes and suggest improvements to themselves.
 
+Group members with the same ownership share persistent artifact storage, while access to other information depends on each {% data variables.copilot.copilot_automation %}'s tools and permissions. See [Proposed improvements](/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/about-automations#proposed-improvements).
+
 1. From the dropdown under the prompt box, choose the repository where you want to create your {% data variables.copilot.copilot_automation %}.
 1. In the prompt box, describe what you want {% data variables.product.prodname_copilot_short %} to help you automate in your repository.
 1. Under **Type**, choose the kind of {% data variables.copilot.copilot_automation %} you want to create:
