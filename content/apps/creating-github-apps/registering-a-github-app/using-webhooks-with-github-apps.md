@@ -33,7 +33,7 @@ When you activate webhooks for your {% data variables.product.prodname_github_ap
 
 ### Choosing a webhook URL for development and testing
 
-While you develop and test your app, you can use a webhook payload delivery service like [Smee](https://smee.io/) to capture and forward webhook payloads to your local development environment. Never use Smee for an application in production, because Smee channels are not authenticated or secure. Alternatively, you can use a tool like [ngrok](https://ngrok.com/docs/getting-started/), [localtunnel](https://localtunnel.github.io/www/), or the [Hookdeck CLI](https://hookdeck.com/docs/cli) that exposes your local machine to the internet to receive the payloads. To view payloads in your browser without running a server, use [Hookdeck Inspect](https://inspect.hookdeck.com/webhooks/github).
+While you develop and test your app, you can use a webhook payload delivery service like [Smee](https://smee.io/) to capture and forward webhook payloads to your local development environment. Never use Smee for an application in production. {% data reusables.webhooks.smee-security-caveat-and-alternatives %}
 
 #### Creating a webhook URL with Smee
 
