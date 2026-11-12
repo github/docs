@@ -42,7 +42,7 @@ When you create an {% data variables.copilot.copilot_automation %}, you define:
 * Optionally, the **model** and **reasoning level** {% data variables.product.prodname_copilot_short %} uses.
 * Optionally, **{% data variables.product.prodname_ai_credits_short %} limits** that control how many {% data variables.product.prodname_ai_credits_short %} the {% data variables.copilot.copilot_automation %} can consume.
 
-You can add {% data variables.copilot.copilot_automations %} to {% data variables.copilot.copilot_automation_groups %} which share context and can suggest improvements to themselves based on outcomes.
+You can add {% data variables.copilot.copilot_automations %} to {% data variables.copilot.copilot_automation_groups %} which share context and can suggest improvements to themselves based on outcomes. {% data variables.copilot.copilot_automations_cap %} in a group with the same ownership share persistent storage for artifacts, such as results, decisions, and feedback. These artifacts let {% data variables.copilot.copilot_automations %} use information recorded by other group members and previous runs to evaluate outcomes and propose improvements.
 
 For instructions on creating and managing {% data variables.copilot.copilot_automations %}, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/create-automations).
 
@@ -153,11 +153,11 @@ You can set limits when you create or update an {% data variables.copilot.copilo
 
 {% data variables.copilot.copilot_automations_cap %} may suggest improvements when they run into issues while working, such as missing tools.
 
-When you create {% data variables.copilot.copilot_automations %} with {% data variables.product.prodname_copilot_short %}, {% data variables.product.prodname_copilot_short %} can help you to create self-improving {% data variables.copilot.copilot_automation_groups %} where some {% data variables.copilot.copilot_automations %} do work and others evaluate outcomes, continuously proposing improvements.
+When you create {% data variables.copilot.copilot_automations %} with {% data variables.product.prodname_copilot_short %}, {% data variables.product.prodname_copilot_short %} can help you to create self-improving {% data variables.copilot.copilot_automation_groups %} where some {% data variables.copilot.copilot_automations %} do work and others evaluate outcomes, continuously proposing improvements. Evaluators can use shared group artifacts, along with automation configuration and outcomes they have permission to inspect, to inform their proposals.
 
 When an {% data variables.copilot.copilot_automation %} has a proposed improvement, you'll receive a notification and will see the proposal when viewing the {% data variables.copilot.copilot_automation %}.
 
-You will see a description of the proposed improvement and the changes to be applied to the {% data variables.copilot.copilot_automation_group %}. You can decide whether to apply the proposed improvement or dismiss it.
+You will see a description of the proposed improvement and the changes to be applied to the relevant {% data variables.copilot.copilot_automation %}. You can decide whether to apply the proposed improvement or dismiss it.
 
 ## Security and safety
 

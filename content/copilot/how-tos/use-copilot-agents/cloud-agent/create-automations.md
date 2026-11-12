@@ -58,6 +58,8 @@ You can work with {% data variables.product.prodname_copilot_short %} to design 
 
 {% data variables.product.prodname_copilot_short %} can even help you create self-improving groups of {% data variables.copilot.copilot_automations %} which learn from outcomes and suggest improvements to themselves.
 
+Group members with the same ownership share persistent artifact storage, while access to other information depends on each {% data variables.copilot.copilot_automation %}'s tools and permissions. See [Proposed improvements](/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/about-automations#proposed-improvements).
+
 ### Creating an {% data variables.copilot.copilot_automation %} manually
 
 1. Enter a **name** for the {% data variables.copilot.copilot_automation %}.
