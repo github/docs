@@ -108,7 +108,6 @@ If your country or region is not on this list, then we aren't currently able to 
 <li>South Africa</li>
 <li>South Korea</li>
 <li>Spain</li>
-<li>Sri Lanka</li>
 <li>St Lucia</li>
 <li>Sudan</li>
 <li>Sweden</li>

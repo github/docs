@@ -321,7 +321,7 @@ The following agents are available:
 {% data variables.copilot.copilot_edits_short %} lets you make changes across multiple files directly from a single {% data variables.copilot.copilot_chat_short %} prompt, using edit mode and agent mode.
 
 > [!TIP]
-> You can also access {% data variables.product.prodname_copilot_short %} from JetBrains AI Assistant without installing the {% data variables.product.prodname_copilot_short %} plugin. For more information, see [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-in-ides).
+> You can also use {% data variables.product.prodname_copilot_short %} in JetBrains Air without installing the {% data variables.product.prodname_copilot_short %} plugin. For more information, see [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-in-ides).
 
 ### Using edit mode
 

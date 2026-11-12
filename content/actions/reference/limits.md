@@ -72,6 +72,8 @@ Each workflow file in the `.github/workflows` directory must be 500 KB or smalle
 
 > [!NOTE]
 > The maximum concurrent macOS jobs is shared across standard {% data variables.product.github %}-hosted runners and {% data variables.product.github %}-hosted larger runners.
+>
+> {% ifversion fpt or ghec %}{% data reusables.actions.macos-runner-capacity %}{% endif %}
 
 ### Storage limits for all {% data variables.product.github %}-hosted runners
 
