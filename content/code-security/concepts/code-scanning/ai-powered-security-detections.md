@@ -28,7 +28,7 @@ You do not need a {% data variables.product.prodname_copilot %} license to use A
 
 ## Billing
 
-AI Scan usage is separate from active-committer licensing and is reported under the **{% data variables.product.prodname_code_security %} {% data variables.product.prodname_ai_credits_short %}s** SKU. Usage begins only when a qualifying pull request is scanned.
+AI Scan usage is separate from active-committer licensing and is reported under the **{% data variables.product.prodname_code_security %} {% data variables.product.prodname_ai_credits_short %}** SKU. Usage begins only when a qualifying pull request is scanned.
 
 For organization-owned repositories, usage is billed to the account responsible for the organization's billing.
 
