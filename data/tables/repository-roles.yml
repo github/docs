@@ -10,31 +10,31 @@ permissions:
     roles: 'admin'
 
   - action: "Pull from the person or team's assigned repositories"
-    roles: 'read, triage, write, maintain, admin'
+    roles: 'read, triage, moderate, write, maintain, admin'
 
   - action: "Fork the person or team's assigned repositories"
-    roles: 'read, triage, write, maintain, admin'
+    roles: 'read, triage, moderate, write, maintain, admin'
 
   - action: 'Edit and delete their own comments'
-    roles: 'read, triage, write, maintain, admin'
+    roles: 'read, triage, moderate, write, maintain, admin'
 
   - action: 'Open issues'
-    roles: 'read, triage, write, maintain, admin'
+    roles: 'read, triage, moderate, write, maintain, admin'
 
   - action: 'Close issues they opened themselves'
-    roles: 'read, triage, write, maintain, admin'
+    roles: 'read, triage, moderate, write, maintain, admin'
 
   - action: 'Reopen issues they closed themselves'
-    roles: 'read, triage, write, maintain, admin'
+    roles: 'read, triage, moderate, write, maintain, admin'
 
   - action: 'Have an issue assigned to them'
-    roles: 'read, triage, write, maintain, admin'
+    roles: 'read, triage, moderate, write, maintain, admin'
 
   - action: "Send pull requests from forks of the team's assigned repositories"
-    roles: 'read, triage, write, maintain, admin'
+    roles: 'read, triage, moderate, write, maintain, admin'
 
   - action: '[Submit reviews on pull requests](/pull-requests/how-tos/review-pull-requests/reviewing-proposed-changes-in-a-pull-request)'
-    roles: 'read, triage, write, maintain, admin'
+    roles: 'read, triage, moderate, write, maintain, admin'
 
   - action: '[Approve or request changes to a pull request with required reviews](/pull-requests/how-tos/review-pull-requests/approving-a-pull-request-with-required-reviews)'
     roles: 'write, maintain, admin'
@@ -43,45 +43,57 @@ permissions:
     roles: 'write, maintain, admin'
 
   - action: 'View published releases'
-    roles: 'read, triage, write, maintain, admin'
+    roles: 'read, triage, moderate, write, maintain, admin'
 
   - action: 'View [{% data variables.product.prodname_actions %} workflow runs](/actions/how-tos/manage-workflow-runs)'
     versions: '{% ifversion fpt or ghec %}show{% endif %}'
-    roles: 'read, triage, write, maintain, admin'
+    roles: 'read, triage, moderate, write, maintain, admin'
 
   - action: 'Edit wikis in public repositories'
-    roles: 'read, triage, write, maintain, admin'
+    roles: 'read, triage, moderate, write, maintain, admin'
 
   - action: 'Edit wikis in private repositories'
     roles: 'write, maintain, admin'
 
   - action: '[Report abusive or spammy content](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)'
     versions: '{% ifversion fpt or ghec %}show{% endif %}'
-    roles: 'read, triage, write, maintain, admin'
+    roles: 'read, triage, moderate, write, maintain, admin'
 
   - action: 'Apply/dismiss labels'
-    roles: 'triage, write, maintain, admin'
+    roles: 'triage, moderate, write, maintain, admin'
 
-  - action: 'Create, edit, delete labels'
+  - action: 'Create and edit issue labels'
+    roles: 'moderate, write, maintain, admin'
+
+  - action: 'Delete issue labels'
+    roles: 'write, maintain, admin'
+
+  - action: 'Create, edit, delete pull request labels'
     roles: 'write, maintain, admin'
 
   - action: 'Close, reopen, and assign all issues and pull requests'
-    roles: 'triage, write, maintain, admin'
+    roles: 'triage, moderate, write, maintain, admin'
 
   - action: '[Enable and disable auto-merge on a pull request](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-auto-merge-for-pull-requests-in-your-repository)'
     roles: 'write, maintain, admin'
 
-  - action: 'Create, edit, delete milestones'
+  - action: 'Create and edit issue milestones'
+    roles: 'moderate, write, maintain, admin'
+
+  - action: 'Delete issue milestones'
+    roles: 'write, maintain, admin'
+
+  - action: 'Create, edit, delete pull request milestones'
     roles: 'write, maintain, admin'
 
   - action: 'Apply milestones'
-    roles: 'triage, write, maintain, admin'
+    roles: 'triage, moderate, write, maintain, admin'
 
   - action: 'Mark [duplicate issues and pull requests](/issues/tracking-your-work-with-issues/administering-issues/marking-issues-or-pull-requests-as-a-duplicate)'
-    roles: 'triage, write, maintain, admin'
+    roles: 'triage, moderate, write, maintain, admin'
 
   - action: 'Request [pull request reviews](/pull-requests/how-tos/create-pull-requests/requesting-a-pull-request-review)'
-    roles: 'triage, write, maintain, admin'
+    roles: 'triage, moderate, write, maintain, admin'
 
   - action: 'Merge a [pull request](/pull-requests/reference/pull-request-merges)'
     roles: 'write, maintain, admin'
@@ -89,20 +101,32 @@ permissions:
   - action: "Push to (write) the person or team's assigned repositories"
     roles: 'write, maintain, admin'
 
+  - action: "Edit anyone's issue titles and bodies"
+    roles: 'moderate, write, maintain, admin'
+
+  - action: "Edit anyone's comments on issues"
+    roles: 'moderate, write, maintain, admin'
+
   - action: "Edit and delete anyone's comments on commits, pull requests, and issues"
     roles: 'write, maintain, admin'
 
   - action: "[Hide anyone's comments on discussions](/communities/moderating-comments-and-conversations/managing-disruptive-comments)"
-    roles: 'triage, write, maintain, admin'
+    roles: 'triage, moderate, write, maintain, admin'
 
-  - action: "[Hide anyone's comments on issues, pull requests, and commits](/communities/moderating-comments-and-conversations/managing-disruptive-comments)"
+  - action: "[Hide anyone's comments on issues](/communities/moderating-comments-and-conversations/managing-disruptive-comments)"
+    roles: 'moderate, write, maintain, admin'
+
+  - action: "[Hide anyone's comments on pull requests and commits](/communities/moderating-comments-and-conversations/managing-disruptive-comments)"
     roles: 'write, maintain, admin'
 
-  - action: '[Lock conversations](/communities/moderating-comments-and-conversations/locking-conversations)'
+  - action: '[Lock conversations on issues](/communities/moderating-comments-and-conversations/locking-conversations)'
+    roles: 'moderate, write, maintain, admin'
+
+  - action: '[Lock conversations on pull requests and discussions](/communities/moderating-comments-and-conversations/locking-conversations)'
     roles: 'write, maintain, admin'
 
   - action: 'Transfer issues (see [AUTOTITLE](/issues/tracking-your-work-with-issues/administering-issues/transferring-an-issue-to-another-repository) for details)'
-    roles: 'write, maintain, admin'
+    roles: 'moderate, write, maintain, admin'
 
   - action: '[Act as a designated code owner for a repository](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners)'
     roles: 'write, maintain, admin'
@@ -257,7 +281,7 @@ permissions:
     roles: 'maintain, admin'
 
   - action: '[Create and edit categories](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions) for {% data variables.product.prodname_discussions %}'
-    roles: 'write, maintain, admin'
+    roles: 'moderate, write, maintain, admin'
 
   - action: '[Move a discussion to a different category](/discussions/managing-discussions-for-your-community/managing-discussions)'
     roles: 'triage, write, maintain, admin'

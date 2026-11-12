@@ -17,7 +17,7 @@ category:
 
 ## Hiding a comment
 
-Organization moderators and anyone with write access to a repository, can hide comments on issues, discussions, pull requests, and commits.
+Organization moderators and anyone with moderate access to a repository can hide comments on issues, and anyone with write access to a repository can hide comments on discussions, pull requests, and commits.
 
 If a comment is off-topic, outdated, or resolved, you may want to hide a comment to keep a discussion focused or make a pull request easier to navigate and review. Hidden comments are minimized but people with read access to the repository can expand them.
 
@@ -32,7 +32,7 @@ If a comment is off-topic, outdated, or resolved, you may want to hide a comment
 
 ## Unhiding a comment
 
-Organization moderators and anyone with write access to a repository, can unhide comments on issues, discussions, pull requests, and commits.
+Organization moderators and anyone with moderate access to a repository can unhide comments on issues, and anyone with write access to a repository can unhide comments on discussions, pull requests, and commits.
 
 1. Navigate to the comment you'd like to unhide.
 1. On the right side of the comment, click **{% octicon "fold" aria-hidden="true" aria-label="fold" %} Show comment**.
@@ -42,7 +42,7 @@ Organization moderators and anyone with write access to a repository, can unhide
 
 ## Editing a comment
 
-Anyone with write access to a repository can edit comments on issues, discussions, pull requests, and commits.
+Anyone with moderate access to a repository can edit comments on issues, and anyone with write access to a repository can edit comments on discussions, pull requests, and commits.
 
 It's appropriate to edit a comment and remove content that doesn't contribute to the conversation and violates your community's code of conduct or {% data variables.product.github %}'s [Community Guidelines](/free-pro-team@latest/site-policy/github-terms/github-community-guidelines).
 
