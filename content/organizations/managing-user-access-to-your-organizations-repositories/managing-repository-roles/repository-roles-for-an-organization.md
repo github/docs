@@ -24,6 +24,7 @@ You can give organization members, outside collaborators, and teams of people di
 From least access to most access, the roles for an organization repository are:
 * **Read:** Recommended for non-code contributors who want to view or discuss your project
 * **Triage:** Recommended for contributors who need to proactively manage issues{% ifversion discussions-moderators-control-who-can-report %}, discussions,{% endif %} and pull requests without write access
+* **Moderate:** Recommended for contributors who need to moderate and edit issues{% ifversion discussions-moderators-control-who-can-report %}, discussions,{% endif %} and manage pull requests without write access
 * **Write:** Recommended for contributors who actively push to your project
 * **Maintain:** Recommended for project managers who need to manage the repository without access to sensitive or destructive actions
 * **Admin:** Recommended for people who need full access to the project, including sensitive and destructive actions like managing security or deleting a repository
@@ -54,9 +55,9 @@ Some of the features listed below are limited to organizations using {% data var
 
 {% rowheaders %}
 
-| Repository action | Read | Triage | Write | Maintain | Admin |
-|:---|:---:|:---:|:---:|:---:|:---:|
-{%- assign roleColumns = "read,triage,write,maintain,admin" | split: "," -%}
+| Repository action | Read | Triage | Moderate | Write | Maintain | Admin |
+|:---|:---:|:---:|:---:|:---:|:---:|:---:|
+{%- assign roleColumns = "read,triage,moderate,write,maintain,admin" | split: "," -%}
 {%- for row in tables.repository-roles.permissions -%}
 {%- assign show = row.versions | default: "show" | render_liquid -%}
 {%- unless show == "" %}
@@ -75,9 +76,9 @@ In this section, you can find the access required for security features, such as
 
 {% rowheaders %}
 
-| Repository action | Read | Triage | Write | Maintain | Admin |
-|:---|:---:|:---:|:---:|:---:|:---:|
-{%- assign roleColumns = "read,triage,write,maintain,admin" | split: "," -%}
+| Repository action | Read | Triage | Moderate | Write | Maintain | Admin |
+|:---|:---:|:---:|:---:|:---:|:---:|:---:|
+{%- assign roleColumns = "read,triage,moderate,write,maintain,admin" | split: "," -%}
 {%- for row in tables.repository-roles.securityFeatures -%}
 {%- assign show = row.versions | default: "show" | render_liquid -%}
 {%- unless show == "" %}

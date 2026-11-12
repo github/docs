@@ -37,6 +37,14 @@ You can only detach forks with the leave network option when:
 * The fork is less than 1GB
 * The fork does not have any child forks attached
 
+{% ifversion fpt or ghec %}
+
+If you own a fork that is private or has child forks and want to avoid deleting and recreating it, {% data variables.contact.github_support %} may be able to help. See [AUTOTITLE](/support/learning-about-github-support/about-github-support).
+
+Support-assisted detachment can retain issues and pull request history, unlike manual recreation, and leaves child forks in the original network. Extraction instead makes your repository the root of a new network and moves its child forks with it.
+
+{% endif %}
+
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 1. On the "General" settings page (which is selected by default), scroll down to the "Danger Zone" section, and click **Leave fork network**.
@@ -74,5 +82,3 @@ To turn your fork into a standalone repository, you can clone the fork and use t
    ```shell
    rm -rf FORK.git
    ```
-
-See [our support page](https://support.github.com/request/fork) on forks.

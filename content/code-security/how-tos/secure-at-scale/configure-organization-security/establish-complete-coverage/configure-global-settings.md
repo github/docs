@@ -148,6 +148,7 @@ You can select **AI Scan for pull requests** to enable the feature for eligible 
 
 You can select **AI Scan for repositories** to enable the feature for eligible repositories in your organization where {% data variables.product.prodname_code_scanning %} is enabled. Repositories inherit the organization setting, but repository administrators can opt out for individual repositories. See [AUTOTITLE](/code-security/concepts/code-scanning/ai-scan-for-repositories).
 
+After enabling the setting, you can start one-off scans of up to 20 repositories. Enabling the setting alone does not start scans. Alternatively, you can start an AI scan for an individual repository from its {% data variables.product.prodname_code_scanning %} repository alerts page.
 {% endif %}
 
 {% ifversion ai-applications-scanning %}
