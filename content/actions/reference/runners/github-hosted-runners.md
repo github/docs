@@ -41,6 +41,9 @@ For lists of available runners, see:
 
 {% data reusables.actions.supported-github-runners %}
 
+> [!NOTE]
+> {% data reusables.actions.macos-runner-capacity %}
+
 Workflow logs list the runner used to run a job. For more information, see [AUTOTITLE](/actions/how-tos/monitor-workflows/view-workflow-run-history).
 
 ### Limitations for arm64 macOS runners
