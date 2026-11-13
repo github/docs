@@ -25,10 +25,10 @@ Any developer starting work on an existing codebase will typically read the repo
 |  | Repository-level facts | User-level preferences |
 | --- | --- | --- |
 | **What they capture** | Facts about a repository, such as coding conventions, architectural decisions, build and test commands, and project-specific rules. | Your clearly stated, non-sensitive preferences, approval requirements, and reusable workflows that apply across your projects. |
-| **Who can see them** | Users with read access to the repository who can use {% data variables.copilot.copilot_memory %}. Viewing memories in the repository's settings requires write access and user-level preferences enabled for your account. | You, and anyone who can view a shared agent session in which the preference appears. On {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %} plans, an organization or enterprise administrator can also view and export them. |
+| **Who can see them** | Users with read access who are eligible to use repository memories. Viewing memories in the repository's settings requires write access, a personal scope choice that allows repository memories, and applicable repository, organization, and enterprise settings that allow them. | You, and anyone who can view a shared agent session in which the preference appears. Your personal **Memory** page requires user-level preferences to be enabled. On {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %} plans, an organization or enterprise administrator can also view and export them. |
 | **Where they apply** | Only in operations on the same repository. | In your {% data variables.product.prodname_copilot_short %} interactions across all your repositories. |
 | **Who can create them** | Users with write access to the repository who have {% data variables.copilot.copilot_memory %} enabled. | Only you, from your own interactions. |
-| **Who can delete them** | Users with write access to the repository who have user-level preferences enabled for their account. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/copilot-memory/manage-as-administrator#viewing-and-deleting-repository-level-facts). | You. On {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %} plans, an organization or enterprise administrator can also delete them. |
+| **Who can delete them** | Users with write access who are eligible to use repository memories, including a personal scope choice and applicable repository, organization, and enterprise settings that allow them. User-level preferences do not need to be enabled. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/copilot-memory/manage-as-administrator#viewing-and-deleting-repository-level-facts). | You, while user-level preferences are enabled. On {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %} plans, an organization or enterprise administrator can also delete them. |
 | **How they are cited** | With citations pointing to the code that supports the fact. | With citations that may include direct quotes of what you said. |
 
 For example, "this repository uses Vitest for unit tests" is a fact about the codebase that is useful to everyone working in it, so it is stored as a repository-level fact. "Explain your changes before you apply them" is a statement about how you personally want {% data variables.product.prodname_copilot_short %} to behave, so it is stored as a user-level preference and applies wherever you work.
@@ -83,7 +83,22 @@ Organization and enterprise owners can export or delete user-level preferences f
 
 {% data variables.product.prodname_copilot_short %} creates memories itself, as a byproduct of working with you. As {% data variables.product.prodname_copilot_short %} works, it notices durable facts about a repository, and details of your own personal preferences, that it determines are worth keeping, and it stores these for later use.
 
-You can review the user-level preferences that {% data variables.product.prodname_copilot_short %} has stored for you, and delete any that you don't want {% data variables.product.prodname_copilot_short %} to use. If you have write access to a repository and user-level preferences enabled for your account, you can also review and delete repository-level facts in the repository's settings. You cannot directly create or edit an individual memory in the settings on {% data variables.product.prodname_dotcom_the_website %}, but you can influence {% data variables.product.prodname_copilot_short %} to create memories. If you clearly state a personal preference, or fact about a repository—or explicitly ask {% data variables.product.prodname_copilot_short %} to remember something—it is likely to be captured as a memory. You can also use {% data variables.copilot.copilot_cli_short %} to import prepared memories in bulk. See [Importing memories with {% data variables.copilot.copilot_cli_short %}](/copilot/how-tos/use-copilot-agents/copilot-memory/create-memories#importing-memories-with-copilot-cli). When {% data variables.product.prodname_copilot_short %} creates a memory as a result of something you said, your words are recorded as the citation for the memory.
+While user-level preferences are enabled, you can review the preferences {% data variables.product.prodname_copilot_short %} has stored for you and delete any you don't want {% data variables.product.prodname_copilot_short %} to use.
+
+To review or delete repository-level memories in the repository's settings, you need:
+
+* Write access to the repository
+* Eligibility to use repository memories, which depends on your personal scope choice and on the repository, organization, and enterprise settings that allow them
+
+User-level preferences do not need to be enabled for this.
+
+You cannot directly create or edit an individual memory in the settings on {% data variables.product.prodname_dotcom_the_website %}, but you can influence {% data variables.product.prodname_copilot_short %} to create memories:
+
+* Clearly state a personal preference or a fact about a repository.
+* Explicitly ask {% data variables.product.prodname_copilot_short %} to remember something.
+* Use {% data variables.copilot.copilot_cli_short %} to import prepared memories in bulk. See [Importing memories with {% data variables.copilot.copilot_cli_short %}](/copilot/how-tos/use-copilot-agents/copilot-memory/create-memories#importing-memories-with-copilot-cli).
+
+When {% data variables.product.prodname_copilot_short %} creates a memory as a result of something you said, your words are recorded as the citation for the memory.
 
 {% data variables.product.prodname_copilot_short %} chooses whether a memory is a repository-level fact or a user-level preference. It bases that choice on who the memory applies to, rather than on who stated it. Something that would be true for anyone working in the repository becomes a repository-level fact, while something that reflects your own way of working becomes a user-level preference. If your intent is ambiguous, {% data variables.product.prodname_copilot_short %} asks you to clarify the scope rather than guessing. You can avoid ambiguity by explicitly stating whether the memory is for you or for everyone working in the repository.
 
@@ -153,13 +168,13 @@ User-level preferences and repository-level facts have separate defaults. The fo
 | Plan | Default for user-level preferences |
 | --- | --- |
 | {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, and {% data variables.copilot.copilot_max_short %} | Enabled. You can opt out in your [personal settings](/copilot/how-tos/use-copilot-agents/copilot-memory/manage-for-yourself#disabling-or-enabling-copilot-memory). |
-| {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %} | Disabled until an [organization owner](/copilot/how-tos/use-copilot-agents/copilot-memory/manage-as-administrator#enabling-copilot-memory-for-an-organization) or [enterprise owner](/copilot/how-tos/use-copilot-agents/copilot-memory/manage-as-administrator#enabling-copilot-memory-for-an-enterprise) enables the policy. You can then opt out in your [personal settings](/copilot/how-tos/use-copilot-agents/copilot-memory/manage-for-yourself#disabling-or-enabling-copilot-memory). |
+| {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %} | Disabled until an [organization owner](/copilot/how-tos/use-copilot-agents/copilot-memory/manage-as-administrator#enabling-copilot-memory-for-an-organization) or [enterprise owner](/copilot/how-tos/use-copilot-agents/copilot-memory/manage-as-administrator#enabling-copilot-memory-for-an-enterprise) enables the policy. You can opt out in your [personal settings](/copilot/how-tos/use-copilot-agents/copilot-memory/manage-for-yourself#disabling-or-enabling-copilot-memory) even before the policy allows use. |
 
-**Repository-level facts have a separate default for all of these plans.** Repository memory access is allowed unless enterprise, organization, or repository settings restrict it. An organization's **Repository access** setting defaults to **All repositories**. Disabling user-level preferences in your personal settings does not disable repository-level facts. See [Managing {% data variables.copilot.copilot_memory %} for repositories](/copilot/how-tos/use-copilot-agents/copilot-memory/manage-as-administrator#managing-copilot-memory-for-repositories).
+**Repository-level facts have a separate default for all of these plans.** Repository memory access is allowed unless enterprise, organization, or repository settings restrict it. An organization's **Repository memories** setting defaults to **All repositories** and is independent of its **User memories** control. Your personal scope choice can further restrict memory use in work you start. Choosing **Repository memories allowed** disables only user-level preferences, not repository-level facts. See [Managing {% data variables.copilot.copilot_memory %} for repositories](/copilot/how-tos/use-copilot-agents/copilot-memory/manage-as-administrator#managing-copilot-memory-for-repositories).
 
 ### Settings for each surface
 
-Some surfaces have an additional local setting. Turning it on allows the surface to use {% data variables.copilot.copilot_memory %} only if the settings described above also allow it.
+Some surfaces have an additional local setting. Turning it on allows the surface to use {% data variables.copilot.copilot_memory %} only if the settings described above also allow it, including your personal scope choice for work you start.
 
 | Surface | Default | More information |
 | --- | --- | --- |
@@ -168,7 +183,7 @@ Some surfaces have an additional local setting. Turning it on allows the surface
 | {% data variables.product.prodname_vscode %} | Off. Enable the local setting. | [AUTOTITLE](/copilot/how-tos/use-copilot-agents/copilot-memory/manage-for-yourself#copilot-memory-in-visual-studio-code) |
 | {% data variables.copilot.github_copilot_app %} | Follows your {% data variables.product.github %} settings, where available for your account. | [AUTOTITLE](/copilot/how-tos/use-copilot-agents/copilot-memory/manage-for-yourself#copilot-memory-in-the-github-copilot-app) |
 | {% data variables.copilot.copilot_cloud_agent %} | Follows your {% data variables.product.github %} settings. | [AUTOTITLE](/copilot/how-tos/use-copilot-agents/copilot-memory/manage-for-yourself#disabling-or-enabling-copilot-memory) and [AUTOTITLE](/copilot/how-tos/use-copilot-agents/copilot-memory/manage-as-administrator#managing-copilot-memory-for-repositories) |
-| {% data variables.copilot.copilot_code-review_short %} | Follows repository settings. | [AUTOTITLE](/copilot/how-tos/use-copilot-agents/copilot-memory/manage-as-administrator#managing-copilot-memory-for-repositories) |
+| {% data variables.copilot.copilot_code-review_short %} | Follows repository settings and applicable policies. User-initiated reviews also follow the initiating user's personal scope choice for repository memories. | [AUTOTITLE](/copilot/how-tos/use-copilot-agents/copilot-memory/manage-as-administrator#managing-copilot-memory-for-repositories) |
 | {% data variables.copilot.agentic_autofix_caps %} | Follows repository settings. | [AUTOTITLE](/copilot/how-tos/use-copilot-agents/copilot-memory/manage-as-administrator#managing-copilot-memory-for-repositories) |
 
 All of these surfaces support repository-level facts. All except {% data variables.copilot.copilot_code-review_short %} and {% data variables.copilot.agentic_autofix %} also support user-level preferences. In {% data variables.copilot.copilot_cli_short %}, user preferences belong to the user who started the session.
@@ -177,7 +192,7 @@ In the {% data variables.copilot.github_copilot_app_short %}, and {% data variab
 
 The {% data variables.copilot.copilot_cloud_agent %} behavior described here also applies to its sessions started from Slack, or Microsoft Teams. See [AUTOTITLE](/copilot/how-tos/copilot-integrations/integrate-cloud-agent-with-slack) and [AUTOTITLE](/copilot/how-tos/copilot-integrations/integrate-cloud-agent-with-teams).
 
-{% data variables.copilot.copilot_code-review_short %} and {% data variables.copilot.agentic_autofix %} never apply user-level preferences, so a personal preference will not change how your pull requests are reviewed or security alerts are fixed.
+{% data variables.copilot.copilot_code-review_short %} and {% data variables.copilot.agentic_autofix %} never apply stored user-level preferences. This is separate from your personal scope choice, which can prevent repository memories from being used in code reviews you initiate. Organization-triggered work does not use a personal scope preference.
 
 In {% data variables.copilot.copilot_cli_short %}, only the root agent can use `store_memory` or `vote_memory`. Subagents can read memories when they have access to `read_memories`, but they cannot change them.
 
@@ -188,17 +203,20 @@ In {% data variables.copilot.copilot_cli_short %}, only the root agent can use `
 
 User-level preferences and repository-level facts have separate controls. Whether {% data variables.copilot.copilot_memory %} is used depends on the settings for the relevant type of memory and the client you are using:
 
-1. **Your personal setting.** The {% data variables.copilot.copilot_memory %} setting in your personal account controls whether user-level preferences can be stored and used in your sessions. It does not control repository-level facts or override administrator restrictions. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/copilot-memory/manage-for-yourself).
+1. **Your personal setting.** Choose **User memories allowed**, **Repository memories allowed**, **User and repository memories allowed**, or **Don't use memories** to control which types of memory can be used in work you start, including agent sessions and user-initiated code reviews. This does not change shared repository settings or other users' choices. Organization-triggered work does not use a personal scope preference. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/copilot-memory/manage-for-yourself).
 
-   On enterprise- and organization-managed plans, user-level preferences are off until an administrator enables them, after which you can opt out.
+   All four options remain selectable even when policies block memory use. Your saved preference does not override applicable enterprise, organization, or repository restrictions. It automatically takes effect if policy later allows the selected memory types. On enterprise- and organization-managed plans, user-level preferences are off until an administrator enables them.
 
-1. **Your enterprise or organization policy.** On managed plans, the {% data variables.copilot.copilot_memory %} policy controls user-level preferences. If you hold licenses from more than one organization, the most restrictive policy applies. Repository access is controlled separately. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/copilot-memory/manage-as-administrator).
+1. **Your enterprise or organization policy.** On managed plans, the policy for user-level preferences is separate from repository memory access. An organization's {% data variables.copilot.copilot_memory %} section has independent **User memories** and **Repository memories** controls. If you have licenses from more than one organization, user memories are allowed if any organization enables them, unless an enterprise policy blocks them. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/copilot-memory/manage-as-administrator).
+
+   If you belong to more than one enterprise, the most restrictive enterprise policy applies. Your personal setting then determines whether you use user memories within those policy limits.
+   
 1. **Repository access and settings.** An organization owner can allow repository-level facts for all, selected, or no repositories, subject to enterprise restrictions. A repository administrator can also turn off repository-level facts for an individual repository.
 
    > [!NOTE]
    > Turning off repository-level facts does not turn off user-level preferences. Similarly, disabling user-level preferences does not by itself disable repository-level facts.
 
-1. **Your client setting.** In an interactive {% data variables.copilot.copilot_cli_short %} session, `/memory off` disables both types of memory, even if the other settings allow them. This preference is independent of your setting on {% data variables.product.prodname_dotcom_the_website %} and is saved for future interactive sessions on that machine. `/memory on` clears this preference, but cannot override applicable enterprise, organization, or repository restrictions. Non-interactive runs require the separate `--enable-memory` option. {% data variables.product.prodname_vscode %} also has its own setting within the application. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/copilot-memory/manage-for-yourself).
+1. **Your client setting.** In an interactive {% data variables.copilot.copilot_cli_short %} session, `/memory off` disables both types of memory, even if the other settings allow them. This preference is independent of your setting on {% data variables.product.prodname_dotcom_the_website %} and is saved for future interactive sessions on that machine. `/memory on` clears this preference, but cannot override your personal scope choice or applicable enterprise, organization, or repository restrictions. Non-interactive runs require the separate `--enable-memory` option. {% data variables.product.prodname_vscode %} also has its own setting within the application, which cannot override your personal scope choice or policies. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/copilot-memory/manage-for-yourself).
 
 ### Summary of when {% data variables.copilot.copilot_memory %} is used
 
@@ -212,10 +230,11 @@ For user-level preferences, your personal {% data variables.copilot.copilot_memo
 
 For repository-level facts:
 
+* For work you start, your personal scope choice must allow repository memories. Organization-triggered work does not use a personal scope preference.
 * You must have access to the repository.
 * You must have push permission to the repository for new repository facts to be created.
 * {% data variables.copilot.copilot_memory %} must **not** be disabled for the repository in the repository's Copilot settings.
-* If the repository is owned by an organization, the organization's {% data variables.copilot.copilot_memory %} repository access must include that repository.
+* If the repository is owned by an organization, the organization's **Repository memories** setting must include that repository.
 * Any applicable enterprise restriction on repository memory access must allow it.
 
 ## Usage and billing
