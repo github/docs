@@ -1443,7 +1443,7 @@
 - provider: Cloudflare
   supportedSecret: Cloudflare Access Service Token
   secretType: cloudflare_access_service_token
-  isPublic: false
+  isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
