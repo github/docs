@@ -1294,6 +1294,38 @@
       "category": "issues"
     },
     {
+      "name": "setIssueStatus",
+      "id": "setissuestatus",
+      "href": "/graphql/reference/issues#mutation-setissuestatus",
+      "description": "<p>Sets the status of an issue, closing or reopening it when the status calls for\nit. Issue statuses are in preview and only available to accounts enrolled in the preview.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "SetIssueStatusInput!",
+          "id": "setissuestatusinput",
+          "href": "/graphql/reference/issues#input-object-setissuestatusinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "issue",
+          "type": "Issue",
+          "id": "issue",
+          "href": "/graphql/reference/issues#object-issue",
+          "description": "<p>The updated issue.</p>"
+        }
+      ],
+      "category": "issues"
+    },
+    {
       "name": "transferIssue",
       "id": "transferissue",
       "href": "/graphql/reference/issues#mutation-transferissue",
@@ -3780,6 +3812,13 @@
           ]
         },
         {
+          "name": "status",
+          "description": "<p>The status of this issue, or null when it has none or issue statuses aren't\navailable in the repository. Issue statuses are in preview and only available\nto accounts enrolled in the preview.</p>",
+          "type": "PlanningStatus",
+          "id": "planningstatus",
+          "href": "/graphql/reference/issues#object-planningstatus"
+        },
+        {
           "name": "subIssues",
           "description": "<p>A list of sub-issues associated with the Issue.</p>",
           "type": "IssueConnection!",
@@ -4246,6 +4285,13 @@
         {
           "name": "viewerCanSetMilestone",
           "description": "<p>Indicates if the viewer can edit the milestone of the issue.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "viewerCanSetStatus",
+          "description": "<p>Whether the viewer can set this issue's status. Issue statuses are in preview\nand only available to accounts enrolled in the preview.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "href": "/graphql/reference/other#scalar-boolean"
@@ -8517,6 +8563,142 @@
       "category": "issues"
     },
     {
+      "name": "PlanningStatus",
+      "id": "planningstatus",
+      "href": "/graphql/reference/issues#object-planningstatus",
+      "description": "<p>A planning status an issue can be in. Issue statuses are in preview and only available to accounts enrolled in the preview.</p>",
+      "isDeprecated": false,
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "category",
+          "description": "<p>The category of the planning status, which decides whether the issue is open or closed.</p>",
+          "type": "PlanningStatusCategory!",
+          "id": "planningstatuscategory",
+          "href": "/graphql/reference/issues#object-planningstatuscategory"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the PlanningStatus object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "name",
+          "description": "<p>The display name of the planning status.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "issues"
+    },
+    {
+      "name": "PlanningStatusCategory",
+      "id": "planningstatuscategory",
+      "href": "/graphql/reference/issues#object-planningstatuscategory",
+      "description": "<p>The category of a planning status, which decides whether the issue is open or\nclosed. Issue statuses are in preview and only available to accounts enrolled in the preview.</p>",
+      "isDeprecated": false,
+      "fields": [
+        {
+          "name": "key",
+          "description": "<p>A stable identifier for the category, such as <code>new</code>, <code>backlog</code>, <code>planned</code>,\n<code>started</code>, <code>completed</code>, <code>not_planned</code> or <code>duplicate</code>. Clients should expect\nnew keys to be added.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "name",
+          "description": "<p>The display name of the category.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "state",
+          "description": "<p>The state an issue in this category has.</p>",
+          "type": "IssueState!",
+          "id": "issuestate",
+          "href": "/graphql/reference/issues#enum-issuestate"
+        },
+        {
+          "name": "stateReason",
+          "description": "<p>The reason a closed issue in this category was closed, or null when the category is open.</p>",
+          "type": "IssueStateReason",
+          "id": "issuestatereason",
+          "href": "/graphql/reference/issues#enum-issuestatereason"
+        }
+      ],
+      "category": "issues"
+    },
+    {
+      "name": "PlanningStatusConnection",
+      "id": "planningstatusconnection",
+      "href": "/graphql/reference/issues#object-planningstatusconnection",
+      "description": "<p>The connection type for PlanningStatus.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[PlanningStatusEdge]",
+          "id": "planningstatusedge",
+          "href": "/graphql/reference/issues#object-planningstatusedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[PlanningStatus]",
+          "id": "planningstatus",
+          "href": "/graphql/reference/issues#object-planningstatus"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "href": "/graphql/reference/other#object-pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "issues"
+    },
+    {
+      "name": "PlanningStatusEdge",
+      "id": "planningstatusedge",
+      "href": "/graphql/reference/issues#object-planningstatusedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "PlanningStatus",
+          "id": "planningstatus",
+          "href": "/graphql/reference/issues#object-planningstatus"
+        }
+      ],
+      "category": "issues"
+    },
+    {
       "name": "ReferencedEvent",
       "id": "referencedevent",
       "href": "/graphql/reference/issues#object-referencedevent",
@@ -11918,6 +12100,14 @@
           "isDeprecated": false
         },
         {
+          "name": "statusId",
+          "description": "<p>The Node ID of the planning status the issue starts in. It must be an open one\nlisted in the owner's planningStatuses. If you don't have permission to set\nthe status, it's ignored and the issue starts in Backlog. Issue statuses are\nin preview and only available to accounts enrolled in the preview.</p>",
+          "type": "ID",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
           "name": "title",
           "description": "<p>The title for the issue.</p>",
           "type": "String!",
@@ -13442,6 +13632,46 @@
       "category": "issues"
     },
     {
+      "name": "SetIssueStatusInput",
+      "id": "setissuestatusinput",
+      "href": "/graphql/reference/issues#input-object-setissuestatusinput",
+      "description": "<p>Autogenerated input type of SetIssueStatus.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "duplicateIssueId",
+          "description": "<p>The ID of the issue this issue duplicates. Required when closing an issue as a duplicate.</p>",
+          "type": "ID",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "issueId",
+          "description": "<p>The ID of the issue to update.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "statusId",
+          "description": "<p>The ID of the planning status to set.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        }
+      ],
+      "category": "issues"
+    },
+    {
       "name": "TransferIssueInput",
       "id": "transferissueinput",
       "href": "/graphql/reference/issues#input-object-transferissueinput",
@@ -13836,6 +14066,14 @@
           "type": "IssueStateUpdateInput",
           "id": "issuestateupdateinput",
           "href": "/graphql/reference/issues#input-object-issuestateupdateinput"
+        },
+        {
+          "name": "statusId",
+          "description": "<p>The Node ID of the planning status to move the issue into. It must be one\nlisted in the owner's planningStatuses. The planning status decides whether\nthe issue is open or closed and why, so the issue is closed or reopened if\nneeded. <code>state</code> or <code>stateInput</code> can also be sent, but only with the same state\nand close reason as the planning status, and without <code>suggest: true</code>. When the\nplanning status closes the issue, <code>stateInput.rationale</code> is used as the close\nrationale, and a Duplicate planning status takes the issue it duplicates from\n<code>stateInput.duplicateIssueId</code>. The issue's status can't be cleared. Issue\nstatuses are in preview and only available to accounts enrolled in the preview.</p>",
+          "type": "ID",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
         },
         {
           "name": "title",
