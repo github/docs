@@ -5202,6 +5202,51 @@
           "href": "/graphql/reference/repos#object-repositoryplanfeatures"
         },
         {
+          "name": "planningStatuses",
+          "description": "<p>The planning statuses issues in this repository can be in, or null when issue\nstatuses aren't available for this repository or viewer. Planning statuses are\nreturned in display order. Issue statuses are in preview and only available to\naccounts enrolled in the preview.</p>",
+          "type": "PlanningStatusConnection",
+          "id": "planningstatusconnection",
+          "href": "/graphql/reference/issues#object-planningstatusconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            }
+          ]
+        },
+        {
           "name": "primaryLanguage",
           "description": "<p>The primary language of the repository's code.</p>",
           "type": "Language",

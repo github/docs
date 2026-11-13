@@ -3016,7 +3016,19 @@
           "description": "<p>Returns the auto-merge request object if one exists for this pull request.</p>",
           "type": "AutoMergeRequest",
           "id": "automergerequest",
-          "href": "/graphql/reference/pulls#object-automergerequest"
+          "href": "/graphql/reference/pulls#object-automergerequest",
+          "arguments": [
+            {
+              "name": "includeStack",
+              "defaultValue": false,
+              "description": "<p>Return the stack auto-merge request covering this pull request.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "href": "/graphql/reference/other#scalar-boolean"
+              }
+            }
+          ]
         },
         {
           "name": "baseRef",
@@ -4632,7 +4644,19 @@
           "description": "<p>Whether or not the viewer can disable auto-merge.</p>",
           "type": "Boolean!",
           "id": "boolean",
-          "href": "/graphql/reference/other#scalar-boolean"
+          "href": "/graphql/reference/other#scalar-boolean",
+          "arguments": [
+            {
+              "name": "includeStack",
+              "defaultValue": false,
+              "description": "<p>Check permission to disable the stack auto-merge request covering this pull request.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "href": "/graphql/reference/other#scalar-boolean"
+              }
+            }
+          ]
         },
         {
           "name": "viewerCanEditFiles",
@@ -4646,7 +4670,19 @@
           "description": "<p>Whether or not the viewer can enable auto-merge.</p>",
           "type": "Boolean!",
           "id": "boolean",
-          "href": "/graphql/reference/other#scalar-boolean"
+          "href": "/graphql/reference/other#scalar-boolean",
+          "arguments": [
+            {
+              "name": "includeStack",
+              "defaultValue": false,
+              "description": "<p>Check permission to request stacked auto-merge from this pull request. The\nclient evaluates stack-wide blockers and readiness.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "href": "/graphql/reference/other#scalar-boolean"
+              }
+            }
+          ]
         },
         {
           "name": "viewerCanLabel",
@@ -10214,6 +10250,13 @@
           "href": "/graphql/reference/other#scalar-string"
         },
         {
+          "name": "includeStack",
+          "description": "<p>Disable the stack auto-merge request covering this pull request. This disables\nauto-merge for all pull requests covered by that request.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
           "name": "pullRequestId",
           "description": "<p>ID of the pull request to disable auto merge on.</p>",
           "type": "ID!",
@@ -10402,6 +10445,13 @@
           "type": "GitObjectID",
           "id": "gitobjectid",
           "href": "/graphql/reference/other#scalar-gitobjectid"
+        },
+        {
+          "name": "includeStack",
+          "description": "<p>Enable auto-merge for this pull request and any eligible pull requests below it in the stack.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
         },
         {
           "name": "mergeMethod",

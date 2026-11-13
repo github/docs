@@ -27,7 +27,7 @@ journeyTracks:
   - id: 'evaluate'
     title: 'Phase 2: Evaluate GitHub Secret Protection'
     description: 'Determine if GHSP meets your needs and build a business case. Review detection capabilities, push protection features, public monitoring, and validity checking. Use the pricing calculator to estimate costs and calculate potential cost savings from preventing manual remediation.'
-    timeCommitment: '2-4 hours'
+    timeCommitment: '2–4 hours'
     guides:
       - href: '/code-security/concepts/secret-security/secret-scanning'
       - href: '/code-security/concepts/secret-security/push-protection'
@@ -39,7 +39,7 @@ journeyTracks:
   - id: 'pilot'
     title: 'Phase 3: Pilot GitHub Secret Protection'
     description: 'Run a pilot to validate GHSP with a small set of repositories before organization-wide enablement. Select 5-10 repositories with active development and known secret exposure. If you estimated pricing in Phase 2, you''ll confirm costs as part of the enablement flow. A successful pilot demonstrates security value quickly, identifies workflow adjustments, and gathers feedback to refine your rollout strategy.'
-    timeCommitment: '2-4 weeks'
+    timeCommitment: '2–4 weeks'
     guides:
       - href: '/code-security/concepts/security-at-scale/select-pilot-repositories'
       - href: '/code-security/how-tos/secure-at-scale/configure-organization-security/configure-specific-tools/protect-your-secrets'
@@ -48,7 +48,7 @@ journeyTracks:
   - id: 'monitor'
     title: 'Phase 4: Monitor and assess value'
     description: 'Track metrics to demonstrate ROI and identify areas for improvement. Monitor how many secrets are being detected, how often developers bypass push protection, and how quickly leaked secrets are remediated. Use these insights to refine your rollout strategy, prove value to stakeholders, and justify organization-wide deployment.'
-    timeCommitment: '1-2 hours per week during pilot'
+    timeCommitment: '1–2 hours per week during pilot'
     guides:
       - href: '/code-security/tutorials/remediate-leaked-secrets/assessing-ghsp-impact'
       - href: '/code-security/concepts/secret-security/push-protection-metrics'
@@ -58,7 +58,7 @@ journeyTracks:
   - id: 'scale'
     title: 'Phase 5: Scale, customize, and automate'
     description: 'Expand GHSP organization-wide and tailor it to your specific workflows. Use validity checks to prioritize remediation, define custom patterns for organization-specific secrets, and apply security configurations at scale. For advanced use cases, enable AI-powered detection, integrate with automated workflows, and extend coverage beyond your owned repositories with public monitoring.'
-    timeCommitment: '1-2 weeks for initial rollout, ongoing for optimization'
+    timeCommitment: '1–2 weeks for initial rollout, ongoing for optimization'
     guides:
       - href: '/code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/apply-custom-configuration'
       - href: '/code-security/how-tos/secure-your-secrets/customize-leak-detection/define-custom-patterns'
