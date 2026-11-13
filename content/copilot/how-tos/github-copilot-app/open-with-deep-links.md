@@ -119,17 +119,74 @@ Encoded in the launcher URL, that becomes:
 https://github.com/copilot/app/launch?open=ghapp%3A%2F%2Fsession%2Fnew%3Frepo%3DOWNER%252FREPO%26mode%3Dinteractive%26prompt%3DInvestigate%2520failing%2520tests
 ```
 
+To prepare a prompt without selecting a repository, omit `repo` and supply `prompt` or `agent`:
+
+```text
+ghapp://session/new?prompt=Investigate%20failing%20tests
+```
+
+Encoded in the launcher URL, that becomes:
+
+```text
+https://github.com/copilot/app/launch?open=ghapp%3A%2F%2Fsession%2Fnew%3Fprompt%3DInvestigate%2520failing%2520tests
+```
+
+After you approve the link, the app opens the new session page with no repository selected. A supplied prompt replaces any unsent prompt on the new session page. Nothing is sent until you review and submit the prompt.
+
 ### Session parameters
 
 The `ghapp://session/new` and `ghapp://session/new/OWNER/REPO` links accept these query parameters.
 
 | Parameter | Required | Notes |
 | --- | --- | --- |
-| `repo` | Required for `ghapp://session/new`; optional for `ghapp://session/new/OWNER/REPO` | Repository in `OWNER/REPO` format. |
+| `repo` | Required unless the repository is in the path or the link supplies `prompt` or `agent` without repository-specific parameters | Repository in `OWNER/REPO` format. Repository-specific parameters, such as `pr` and `branch`, require a repository. |
 | `pr` | No | Positive pull request number. Cannot be combined with `branch`. |
 | `branch` | No | Base branch for the new session. Cannot be combined with `pr`. |
 | `prompt` | No | Kickoff prompt. Do not include secrets or sensitive user content in URLs. |
 | `mode` | No | One of `plan`, `interactive`, or `autopilot`. |
+| `agent` | No | Custom agent ID or name. Only supported without a repository. |
+
+## Create a project
+
+Use `ghapp://project/new` to create a new persistent project after you click **Allow**. This link does not open an existing project.
+
+```text
+ghapp://project/new?name=Release&repo=OWNER%2FREPO
+```
+
+Encoded in the launcher URL, that becomes:
+
+```text
+https://github.com/copilot/app/launch?open=ghapp%3A%2F%2Fproject%2Fnew%3Fname%3DRelease%26repo%3DOWNER%252FREPO
+```
+
+All parameters are optional:
+
+| Parameter | Notes |
+| --- | --- |
+| `name` | Project name, up to 40 characters. |
+| `color` | One of `neutral`, `green`, `blue`, `violet`, `pink`, `red`, `orange`, or `yellow`. |
+| `icon` | Lucide icon name, such as `Rocket` or `BookOpen`. |
+| `repo` | Repository to clone and set up for the project, in `OWNER/REPO` format. Repeat this parameter for multiple repositories. |
+| `prompt` | Kickoff prompt that runs after approval, even without repositories. Do not include secrets or sensitive user content in URLs. |
+
+Without a prompt, the project sets up any supplied repositories. Without a prompt or repositories, it offers repository setup.
+
+## Select a model
+
+Use `ghapp://?select_model=MODEL_ID` to open the new session page in the app and select an enabled model after confirmation. Replace `MODEL_ID` with the model's ID, or use `auto` to select {% data variables.copilot.copilot_fusion_short %} or Auto, depending on your app settings:
+
+```text
+ghapp://?select_model=auto
+```
+
+Encoded in the launcher URL, that becomes:
+
+```text
+https://github.com/copilot/app/launch?open=ghapp%3A%2F%2F%3Fselect_model%3Dauto
+```
+
+This changes only the model selection. It preserves your unsent new session draft and current Auto effort tier, and does not create a session or send a prompt. Model selection links work for local or worktree sessions, not cloud sessions. If the requested model is unavailable or disabled by policy, the app shows an error instead of selecting another model.
 
 ## Open automations
 
@@ -228,6 +285,8 @@ The following app links can be wrapped in the hosted launcher. Query strings and
 | App link shape | Opens | Notes |
 | --- | --- | --- |
 | `ghapp://` | New | Opens the **New** view to start a new session. |
+| `ghapp://?select_model=MODEL_ID` | Model selection on the new session page | Shows a confirmation before selecting the requested model. See [Select a model](#select-a-model). |
+| `ghapp://project/new` | New project | Shows a confirmation before creating a persistent project. See [Create a project](#create-a-project). |
 | `ghapp://chats` | Chats | Opens Chats. |
 | `ghapp://mywork` | My work | Opens issues and pull requests in My work. |
 | `ghapp://github.com/OWNER/REPO` | Repository setup | Opens or clones the repository. |
@@ -242,7 +301,7 @@ The following app links can be wrapped in the hosted launcher. Query strings and
 | `ghapp://sessions/SESSION_ID` | App session | Opens an app-local workspace or session. Do not use this shape to resume {% data variables.product.github %} Copilot agent tasks. |
 | `ghapp://clone/OWNER/REPO` | Repository setup | Shows a confirmation before cloning or opening repository setup. |
 | `ghapp://repo/OWNER/REPO` | Repository setup | Shows a confirmation before cloning or opening repository setup. |
-| `ghapp://session/new` | New session | Shows a confirmation before creating a session. Use query parameters to provide the repository, pull request, branch, prompt, or session mode. See [Session parameters](#session-parameters). |
+| `ghapp://session/new` | New session | Shows a confirmation before creating a repository session or preparing a draft without a repository. See [Session parameters](#session-parameters). |
 | `ghapp://session/new/OWNER/REPO` | New session for a repository | Shows a confirmation before creating a session for the repository. See [Session parameters](#session-parameters). |
 | `ghapp://plugins/install` | Plugin install form | Shows a confirmation, then opens **Customize** with the install form pre-filled. See [Plugin parameters](#plugin-parameters). |
 | `ghapp://plugins/marketplace/add` | Plugin marketplace form | Shows a confirmation, then opens **Customize** with the marketplace form pre-filled. See [Plugin parameters](#plugin-parameters). |
