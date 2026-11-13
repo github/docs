@@ -9,6 +9,8 @@ product: '{% data reusables.copilot.enterprise-billing-availability %}'
 contentType: tutorials
 category:
   - Manage Copilot for a team
+docsTeamMetrics:
+  - enterprise-onboarding
 ---
 
 Set budget controls before rolling out {% data variables.product.prodname_copilot_short %} so that usage stays within your approved spending limits. A heavy user or automated agent session can consume a large amount of {% data variables.product.prodname_ai_credits_short %} in a short time.
