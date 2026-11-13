@@ -252,6 +252,7 @@ gemini_31_pro: 'Gemini 3.1 Pro'
 gemini_38_flash: 'Gemini 3.8 Flash'
 gemini_4_argon: 'Gemini 4 Argon'
 gemini_4_carbon: 'Gemini 4 Carbon'
+gemini_4_hydrogen: 'Gemini 4 Hydrogen'
 # OpenAI GPT series:
 gpt_4o: 'GPT-4o'
 gpt_4o_mini: 'GPT-4o mini'
