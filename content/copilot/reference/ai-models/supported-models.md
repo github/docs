@@ -130,6 +130,7 @@ Some {% data variables.product.prodname_copilot_short %} models require minimum 
 | {% data variables.copilot.gemini_38_flash %}     | TBD | `17.14.22` or `18.1.0`         | TBD | TBD | TBD |
 | {% data variables.copilot.gemini_4_argon %}      | TBD | `17.14.22` or `18.1.0`         | TBD | TBD | TBD |
 | {% data variables.copilot.gemini_4_carbon %}     | TBD | TBD                            | TBD | TBD | TBD |
+| {% data variables.copilot.gemini_4_hydrogen %}   | TBD | TBD                            | TBD | TBD | TBD |
 | {% data variables.copilot.gpt_53_codex %}        | `v1.104.1` | `17.14.19`                     | `1.5.61` | `0.45.0` | `0.13.0` |
 | {% data variables.copilot.gpt_56_luna %}         | `1.128.0` | TBD | TBD | TBD | TBD |
 | {% data variables.copilot.gpt_56_sol %}          | `1.128.0` | TBD | TBD | TBD | TBD |

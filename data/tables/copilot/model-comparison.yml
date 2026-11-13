@@ -123,12 +123,17 @@
 - name: Gemini 4 Argon
   task_area: Complex coding, agentic, and reasoning tasks
   excels_at: Thorough work that tests edge cases before finishing
-  further_reading: '[Gemini 4 Argon](https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-4-Argon-Model-Card.pdf)'
+  further_reading: '[Gemini 4 Argon model card](https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-4-Argon-Model-Card.pdf)'
 
 - name: Gemini 4 Carbon
   task_area: Complex coding, agentic, and reasoning tasks
   excels_at: Secure code generation and security-focused work
-  further_reading: 'Coming soon'
+  further_reading: '[Gemini 4 Carbon model card](https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-4-Carbon-Model-Card.pdf)'
+
+- name: Gemini 4 Hydrogen
+  task_area: Fast, efficient agentic coding and multistep workflows
+  excels_at: Fast tool use with improved instruction following
+  further_reading: '[Gemini 4 Hydrogen model card](https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-4-Hydrogen-Model-Card.pdf)'
 
 # Microsoft
 - name: MAI-Code-1.1-Flash
