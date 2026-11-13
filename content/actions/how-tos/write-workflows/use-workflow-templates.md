@@ -37,7 +37,7 @@ category:
 
 1. Some workflow templates use secrets. For example, {% raw %}`${{ secrets.npm_token }}`{% endraw %}. If the workflow template uses a secret, store the value described in the secret name as a secret in your repository. For more information, see [AUTOTITLE](/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets).
 1. Optionally, make additional changes. For example, you might want to change the value of `on` when the workflow runs.
-1. Click **Start commit**.
+1. Click **Commit changes...**.
 1. Write a commit message and decide whether to commit directly to the default branch or to open a pull request.
 
 ## Further reading
