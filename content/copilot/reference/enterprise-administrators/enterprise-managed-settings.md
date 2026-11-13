@@ -546,15 +546,15 @@ Configures filesystem access for sandboxed processes. Paths should be absolute. 
 
 ### `sandbox.userPolicy.network`
 
-Configures network access for sandboxed processes.
+Configures network access for sandboxed processes. Server-managed settings support the following properties:
 
 * `allowOutbound`: `false` blocks outbound network access.
 * `allowLocalNetwork`: `false` restricts local network access. Its effect on sandboxed commands differs by operating system. Windows proxying and host rules require local network access, so a policy that combines them with `false` prevents those commands from starting.
-* `allowedHosts`: An array of hostnames or IP addresses that sandboxed processes are allowed to reach. A non-empty list blocks hosts that do not match. Entries can be exact hostnames, exact IP addresses, `*.example.com` for subdomains but not the root domain, or `*` for every host. Do not include URLs or ports. User and managed allowlists are combined restrictively. If they have no overlapping hosts, all hosts are denied.
-* `blockedHosts`: An array of hostnames or IP addresses that sandboxed processes cannot reach. Blocked hosts take precedence over allowed hosts, and blocking a domain also blocks its subdomains.
 * `proxy`: An object that routes sandboxed network traffic through an upstream HTTP proxy. Set `proxy.url` to the proxy URL. Platform support and enforcement vary.
 
-In {% data variables.copilot.copilot_cli_short %}, host rules and upstream proxies use a built-in local proxy. On macOS and Linux, the sandbox prevents programs from bypassing it with direct connections. On Windows, the sandbox relies on programs honoring the proxy settings. As a result, on Windows, these controls do not provide the same protection against direct connections. For platform requirements and limitations, see [Configuring network settings](/copilot/how-tos/cloud-and-local-sandboxes/configuring-local-sandbox-settings#configuring-network-settings).
+In {% data variables.copilot.copilot_cli_short %}, `allowedHosts` and `blockedHosts`, including IPv4 and IPv6 CIDR rules, can be configured through user or device-managed settings. These properties are not supported in the server-managed `{% data variables.copilot.managed_setting_file %}` file. For host-rule configuration, validation, and platform limitations, see [Configuring network settings](/copilot/how-tos/cloud-and-local-sandboxes/configuring-local-sandbox-settings#configuring-network-settings).
+
+In {% data variables.copilot.copilot_cli_short %}, host rules and upstream proxies use a built-in local proxy. On macOS and Linux, the sandbox prevents programs from bypassing it with direct connections. On Windows, the sandbox relies on programs honoring the proxy settings. As a result, on Windows, these controls do not provide the same protection against direct connections.
 
 ### `sandbox.userPolicy.seatbelt`
 
