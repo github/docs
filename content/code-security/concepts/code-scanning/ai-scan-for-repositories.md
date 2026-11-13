@@ -77,6 +77,20 @@ Before enabling AI Scan for repositories, confirm repository eligibility, review
 * **Organization**: Organization owners and security managers can enable AI Scan for repositories for eligible repositories. Repositories inherit the organization setting. After enabling the setting, you can start one-off scans of up to 20 repositories. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/configure-global-settings#enabling-ai-scan-for-repositories).
 * **Organization-owned repository**: People with admin access to the repository can opt out when the organization has enabled AI Scan. They cannot opt in when the organization setting is disabled. To disable the feature, go to the repository's "Settings" page, under "{% data variables.product.prodname_AS %}", then under "{% data variables.product.UI_code_security_scanning %}", toggle off **AI Scan for repositories**.
 
+### Managing AI Scan for repositories with the REST API
+
+You can use the REST API to read and update the AI Scan for repositories setting for an organization or a repository. Set the `repository_scan` property to `enabled` or `disabled`. The API follows the same rules as the settings page:
+
+* Enabling the setting for an organization enables AI Scan for repositories for its eligible repositories. Repository administrators can opt out.
+* If the organization setting is disabled, you cannot enable the setting for a repository in that organization.
+* If your enterprise policy does not allow AI Scan, requests to enable the setting fail with a `422` response.
+
+You can update `repository_scan` and `pr_scan` (AI Scan for pull requests) in the same request. If either change cannot be applied, the request fails and neither setting changes.
+
+Enabling the setting does not start a scan. Users with write access still run scans on demand.
+
+For more information, see [AUTOTITLE](/rest/code-scanning/code-scanning#update-the-ai-scan-setting-for-an-organization) and [AUTOTITLE](/rest/code-scanning/code-scanning#update-ai-scan-enablement-for-a-repository).
+
 ## Next steps
 
 To run a scan and manage the resulting alerts, see [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-code-scanning-alerts/viewing-and-managing-ai-scan-alerts).
