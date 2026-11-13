@@ -19,6 +19,7 @@ category:
   - Configure Copilot
 docsTeamMetrics:
   - ai-governance
+  - enterprise-onboarding
 ---
 
 ## Choose a billing model
