@@ -98,7 +98,7 @@ If you chose to start a pull request, you can continue and create the pull reque
    ![Screenshot of the "Actions" page. The name of the example workflow, "GitHub Actions Demo", is highlighted by a dark orange outline.](/assets/images/help/repository/actions-quickstart-workflow-sidebar.png)
 
 1. From the list of workflow runs, click the name of the run you want to see, in this example "USERNAME is testing out GitHub Actions."
-1. In the left sidebar of the workflow run page, under **Jobs**, click the **Explore-GitHub-Actions** job.
+1. In the left sidebar of the workflow run page, under **All jobs**, click the **Explore-GitHub-Actions** job.
 
    ![Screenshot of the "Workflow run" page. In the left sidebar, the "Explore-GitHub-Actions" job is highlighted with a dark orange outline.](/assets/images/help/repository/actions-quickstart-job.png)
 
