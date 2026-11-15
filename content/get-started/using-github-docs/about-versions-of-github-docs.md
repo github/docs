@@ -58,3 +58,4 @@ In a wide browser window, the word "Enterprise" immediately follows the {% data 
 You can view the version of {% data variables.product.prodname_ghe_server %} that you're using in the footer of any page.
 
 ![Screenshot of the footer of {% data variables.product.prodname_ghe_server %}. "{% data variables.product.prodname_ghe_server %} 3.7.5" is highlighted with an orange outline.](/assets/images/help/docs/ghes-version-in-footer.png)
+
