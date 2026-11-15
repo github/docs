@@ -39,7 +39,7 @@ If you publish a package in a registry that only supports repository-scoped perm
 
 If you have admin permissions to a package that's scoped to a personal account, you can assign read, write, or admin roles to other users. For more information about these permission roles, see [About inheritance of access permissions](#about-inheritance-of-access-permissions).
 
-If your package is private or internal and scoped to an organization, then you can only give access to other organization members or teams.
+If your package is private{% ifversion not fpt %} or internal{% endif %} and scoped to an organization, then you can only give access to other organization members or teams.
 
 {% data reusables.package_registry.package-settings-option %}
 {% data reusables.package_registry.package-settings-manage-access-people %} Teams cannot be given access to a package that is scoped to a personal account.
@@ -51,7 +51,7 @@ The selected users will automatically be given access and don't need to accept a
 
 If you have admin permissions to a package that is scoped to an organization, you can assign read, write, or admin roles to other users and teams. For more information about these permission roles, see [About inheritance of access permissions](#about-inheritance-of-access-permissions).
 
-If your package is private or internal and scoped to an organization, then you can only give access to other organization members or teams.
+If your package is private{% ifversion not fpt %} or internal{% endif %} and scoped to an organization, then you can only give access to other organization members or teams.
 
 {% data reusables.package_registry.package-settings-from-org-level %}
 {% data reusables.package_registry.package-settings-option %}
@@ -196,10 +196,10 @@ For registries that support granular permissions, you can choose the visibility 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 1. On the left, click **Packages**.
-1. Under "Package Creation", choose whether you want to enable the creation of public, private, or internal packages.
+1. Under "Package Creation", choose whether you want to enable the creation of public{% ifversion not fpt %}, private, or internal{% else %} or private{% endif %} packages.
     * To enable organization members to create public packages, click **Public**.
-    * To enable organization members to create private packages that are only visible to other organization members, click **Private**. You can further customize the visibility of private packages.
-    * To enable organization members to create internal packages that are visible to all organization members, click **Internal**. If the organization belongs to an enterprise, the packages will be visible to all enterprise members.
+    * To enable organization members to create private packages that are only visible to other organization members, click **Private**. You can further customize the visibility of private packages.{% ifversion not fpt %}
+    * To enable organization members to create internal packages that are visible to all organization members, click **Internal**. If the organization belongs to an enterprise, the packages will be visible to all enterprise members.{% endif %}
 
    {% data reusables.package_registry.maven-package-visibility %}
 
