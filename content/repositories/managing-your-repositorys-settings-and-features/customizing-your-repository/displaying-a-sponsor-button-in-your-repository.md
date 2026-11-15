@@ -34,6 +34,8 @@ Platform | Syntax
 [thanks.dev](https://thanks.dev/) | `thanks_dev: u/gh/USERNAME`
 Custom URL | `custom: LINK1` or `custom: [LINK1, LINK2, LINK3, LINK4]`
 
+Use a complete `http://` or `https://` URL for each custom funding link to prevent it from being interpreted as a relative path.
+
 For Tidelift, use the `platform-name/package-name` syntax with the following platform names.
 
 Language | Platform name
@@ -51,7 +53,7 @@ Here's an example `FUNDING.yml` file:
 github: [octocat, surftocat]
 patreon: octocat
 tidelift: npm/octo-package
-custom: ["https://www.paypal.me/octocat", octocat.com]
+custom: ["https://www.paypal.me/octocat", "https://octocat.com"]
 ```
 
 > [!NOTE]
