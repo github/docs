@@ -315,6 +315,12 @@ export const githubDocsFrontmatterConfig = {
     'partial-markdown-files': false,
     'yml-files': false,
   },
+  'docs-team-metrics-journey': {
+    // GHD068
+    severity: 'error',
+    'partial-markdown-files': false,
+    'yml-files': false,
+  },
 }
 
 // Rules from github/markdownlint-github come from the accessibility team.

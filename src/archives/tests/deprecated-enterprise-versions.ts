@@ -3,6 +3,10 @@ import { describe, expect, test, vi } from 'vitest'
 import enterpriseServerReleases from '@/versions/lib/enterprise-server-releases'
 import { get, getDOM } from '@/tests/helpers/e2etest'
 import { SURROGATE_ENUMS } from '@/frame/middleware/set-fastly-surrogate-key'
+import {
+  ARCHIVED_BUILD_MANIFEST_STUB_PATH,
+  injectArchivedBuildManifestStub,
+} from '@/archives/middleware/archived-enterprise-versions'
 
 describe('enterprise deprecation', () => {
   vi.setConfig({ testTimeout: 60 * 1000 })
@@ -380,5 +384,44 @@ describe('JS and CSS assets', () => {
     expect(result.headers['content-type']).toBe('text/plain; charset=utf-8')
     expect(result.headers['cache-control']).toContain('public')
     expect(result.headers['cache-control']).toMatch(/max-age=[1-9]/)
+  })
+})
+
+describe('archived build manifest stub', () => {
+  vi.setConfig({ testTimeout: 60 * 1000 })
+
+  const stubTag = `<script src="${ARCHIVED_BUILD_MANIFEST_STUB_PATH}"></script>`
+
+  test('injects the stub first in <head> for Next.js archives', () => {
+    const html =
+      '<html><head><meta charset="utf-8"><script src="/a.js" defer></script></head>' +
+      '<body><script id="__NEXT_DATA__" type="application/json">{}</script></body></html>'
+    expect(injectArchivedBuildManifestStub(html)).toBe(html.replace('<head>', `<head>${stubTag}`))
+  })
+
+  test('does not inject the stub into non-Next.js archives', () => {
+    const html = '<html><head><title>x</title></head><body></body></html>'
+    expect(injectArchivedBuildManifestStub(html)).toBe(html)
+  })
+
+  test('serves the stub as same-origin JavaScript even with an archive Referrer', async () => {
+    const res = await get(ARCHIVED_BUILD_MANIFEST_STUB_PATH, {
+      headers: { Referrer: '/en/enterprise-server@3.18/admin' },
+    })
+    expect(res.statusCode).toBe(200)
+    expect(res.headers['content-type']).toMatch(/javascript/)
+    expect(res.body).toContain('self.__BUILD_MANIFEST=')
+  })
+
+  test('adds the stub to Next.js archived pages and not to older archives', async () => {
+    const nextEra = await get(
+      '/en/enterprise-server@3.5/admin/overview/about-github-enterprise-server',
+    )
+    expect(nextEra.statusCode).toBe(200)
+    expect(nextEra.body).toContain(stubTag)
+
+    const legacy = await get('/en/enterprise/2.13/user/articles/about-branches')
+    expect(legacy.statusCode).toBe(200)
+    expect(legacy.body).not.toContain(stubTag)
   })
 })

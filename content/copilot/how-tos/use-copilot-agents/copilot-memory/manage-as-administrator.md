@@ -26,7 +26,7 @@ Repository-level facts are controlled separately through repository access setti
 
 For defaults by plan and surface, see [AUTOTITLE](/copilot/concepts/prompting-and-context/copilot-memory#default-settings).
 
-Users on supported paid plans can opt out of user-level preferences in their personal {% data variables.product.prodname_copilot_short %} settings. This affects only their sessions. It does not disable repository-level facts or change other users' sessions.
+Users on supported paid plans can allow user memories, repository memories, both, or neither in their personal {% data variables.product.prodname_copilot_short %} settings. This choice restricts memory use in work they start, including agent sessions and user-initiated code reviews, without changing shared repository settings or other users' choices. Organization-triggered work does not use a personal scope preference. Disabling only user memories can leave repository memories enabled. {% data variables.copilot.copilot_code-review_short %} never uses user-level preferences.
 
 Local client settings, such as `/memory off` in {% data variables.copilot.copilot_cli_short %}, can disable both types of memory for that client. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/copilot-memory/manage-for-yourself).
 
@@ -49,17 +49,19 @@ The procedure below sets the enterprise policy for **user-level preferences**—
 
 Organization owners can enable or disable {% data variables.copilot.copilot_memory %} for storing and using user-level preferences, for all members of the organization with a {% data variables.product.prodname_copilot_short %} license.
 
+The organization's {% data variables.copilot.copilot_memory %} section has separate **User memories** and **Repository memories** controls. Each controls its own type of memory independently.
+
 If the organization belongs to an enterprise, the ability for organization owners to enable or disable {% data variables.copilot.copilot_memory %} may be controlled by the enterprise-level policy.
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 1. {% data reusables.user-settings.code-planning-automation %} click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}**, then click **Policies**.
 1. Under "Features", scroll down to the setting for **{% data variables.copilot.copilot_memory %}**.
-1. Click the dropdown button and select **Enabled**.
+1. In the **User memories** dropdown, select **Enabled**.
 
-   User-level preferences are enabled for all members of the organization who have a {% data variables.product.prodname_copilot_short %} license.
+   User-level preferences are allowed for members of the organization who have a {% data variables.product.prodname_copilot_short %} license, subject to their personal settings and other applicable restrictions.
 
-   Configure repository-level facts separately with the **Repository access** controls. See [Managing {% data variables.copilot.copilot_memory %} for repositories from an organization's settings](#managing-copilot-memory-for-repositories-from-an-organizations-settings) later in this article.
+   Configure repository-level facts separately with the **Repository memories** control. See [Managing {% data variables.copilot.copilot_memory %} for repositories from an organization's settings](#managing-copilot-memory-for-repositories-from-an-organizations-settings) later in this article.
 
 ## Enabling {% data variables.copilot.copilot_dreaming %}
 
@@ -97,7 +99,7 @@ If your organization belongs to an enterprise, the enterprise must select **Let 
 {% data reusables.profile.org_settings %}
 1. {% data reusables.user-settings.code-planning-automation %} click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}**, then click **Policies**.
 1. Find the "{% data variables.copilot.copilot_memory_short %}" section.
-1. Review the **Repository access** setting before enabling {% data variables.copilot.copilot_dreaming %}. When you enable {% data variables.copilot.copilot_dreaming %}, it will be enabled for all of the repositories covered by the current repository access setting.
+1. Review the **Repository memories** setting before enabling {% data variables.copilot.copilot_dreaming %}. When you enable {% data variables.copilot.copilot_dreaming %}, it will be enabled for all of the repositories covered by that setting.
 1. In the **{% data variables.copilot.copilot_dreaming_short %}** dropdown, select **Enabled**.
 
    The **Enabled** option only applies to repositories in the {% data variables.copilot.copilot_memory %} repository selection. Removing a repository from this selection disables both {% data variables.copilot.copilot_memory %} and {% data variables.copilot.copilot_dreaming %} for that repository.
@@ -254,13 +256,13 @@ Organization owners can allow storage and use of repository-level facts for all,
 1. {% data reusables.user-settings.code-planning-automation %} click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}**, then click **Policies**.
 1. Under "Features", scroll down to the setting for **{% data variables.copilot.copilot_memory %}**.
 
-1. Click the dropdown button for "Repository access" and choose one of the options:
+1. In the **Repository memories** dropdown, choose one of the options:
 
    * **No repositories**: Repository-level facts are not stored or used for any repositories owned by this organization.
    * **All repositories**: Repository-level facts are stored and used for all repositories owned by this organization.
    * **Selected repositories**: Repository-level facts are only stored and used for the repositories you select.
 
-1. If you chose **Selected repositories**, click the button beside "Selected repositories" and choose the repositories for which you want to enable repository-level facts.
+1. If you chose **Selected repositories**, use the repository picker in the **Repository memories** row to choose the repositories for which you want to enable repository-level facts.
 
 ### Managing {% data variables.copilot.copilot_memory %} from a repository's settings
 
@@ -282,7 +284,7 @@ When you disable {% data variables.copilot.copilot_memory %} for a repository, {
 
 #### Viewing and deleting repository-level facts
 
-To view or delete repository-level facts in the repository's settings, you must have write access to the repository and user-level preferences enabled for your account, including permission from any applicable enterprise or organization policy. This requirement applies to the settings page. Whether agents can use repository-level facts is controlled separately by repository access settings and applicable client settings.
+To view or delete repository-level facts in the repository's settings, you must have write access and be eligible to use repository memories. Your personal scope choice must allow repository memories, and applicable repository, organization, and enterprise restrictions must also allow them. User-level preferences do not need to be enabled. See [AUTOTITLE](/copilot/concepts/prompting-and-context/copilot-memory#summary-of-when-copilot-memory-is-used).
 
 You can review the stored facts and delete any that are inappropriate, misleading, or incorrect. Only repository administrators can change the repository's {% data variables.copilot.copilot_memory %} setting.
 

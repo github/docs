@@ -38,7 +38,7 @@ You can define blocking relationships between issues using issue dependencies. I
 
 You can add metadata to your issues, including issue types, labels and milestones to organize your issues.
 
-See [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/managing-issue-types-in-an-organization), [AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels) and [AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/about-milestones).
+See [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/managing-issue-types), [AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels) and [AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/about-milestones).
 
 ## About integration with {% data variables.product.github %}
 

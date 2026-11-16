@@ -15,7 +15,7 @@ redirect_from:
 ---
 
 > [!NOTE]
-> This feature is currently in {% data variables.release-phases.public_preview %} and is subject to change.
+> {% data reusables.code-security.package-firewall-public-preview %}
 
 ## About {% data variables.product.prodname_GH_package_firewall %}
 
@@ -57,6 +57,8 @@ Set the minimum age to a value between 1 and 365 days, or set it to 0 to disable
 ## Configuring endpoints to use the {% data variables.product.prodname_package_firewall %}
 
 Configure your package manager to fetch packages from the firewall's URL instead of the default public registry.
+
+If packages install when you expect the firewall to block them, see [AUTOTITLE](/code-security/reference/supply-chain-security/troubleshooting-github-package-firewall).
 
 ### Authentication token
 
@@ -110,6 +112,10 @@ By default, enterprise administrators and enterprise security managers can modif
 
 If the firewall blocks a package you need, you can request an exception to the policy. For example, a new package version that includes a security fix could be blocked by the minimum package age policy.
 
+For npm overrides, specify an exact version such as `1.2.3` or use `*` as a wildcard. For example, `1.*` matches version text beginning with `1.`, `1.2.*` matches version text beginning with `1.2.`, and `*` matches all versions.
+
+Every character other than `*` is matched literally. Semantic version ranges such as `^1.2.3`, `~1.2.3`, `1.x`, and `>=1.0.0 <2.0.0` are not evaluated as ranges. The same version matching applies to manually added exceptions and approved bypass requests.
+
 ### Requesting an exception
 
 When the firewall blocks a package, the npm output or CI/CD log includes a URL for requesting an exception. For example:
@@ -124,7 +130,7 @@ npm notice testcontainers: 1 version blocked by package-firewall due to security
    * "Repository": The repository where the block occurred
    * "Ecosystem": The package ecosystem (currently, only npm is supported)
    * "Package name": The package name, including the `@scope` prefix if applicable
-   * "Version": The version you attempted to install
+   * "Version": The version you attempted to install. If the field is editable, you can request a version pattern instead.
    * "Reason": Why the package should be unblocked
    * "Add a comment": Additional context for reviewers
 
@@ -139,7 +145,7 @@ Enterprise administrators and enterprise security managers can review exception 
 1. In the sidebar, click **{% data variables.product.prodname_package_firewall %} bypass**.
 1. In the "Package firewall bypass requests" list, use the search bar to find a request, then click the request.
 1. In the "Review package allow override" dialog, review the requested exception.
-1. Optionally, to allow all versions of the package, replace the requested version in the "Version or range to allow" field with `*`. This broadens the exception beyond the requested version.
+1. Optionally, to allow all versions of the package, replace the requested version in the "Version or pattern to allow" field with `*`. This broadens the exception beyond the requested version.
 1. Add a comment explaining your decision, then click **Approve request**.
 
 For example, you might allow all versions of an enterprise-owned package rather than require a separate exception each time the minimum package age policy blocks a new version.
@@ -153,6 +159,8 @@ Approved bypass requests are added to the firewall policy. Enterprise administra
 1. In the sidebar, click **{% data variables.product.prodname_package_firewall %}**.
 1. Under "Overrides", click **Package overrides**.
 1. To remove an exception from the policy, next to the exception, click {% octicon "trash" aria-label="Delete exception" %}.
+
+If a package still installs after you remove an exception, see [AUTOTITLE](/code-security/reference/supply-chain-security/troubleshooting-github-package-firewall#a-package-still-installs-after-a-policy-change).
 
 ## Further reading
 

@@ -1665,10 +1665,14 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": false,
-        "serverToServer": false,
+        "userToServerRest": true,
+        "serverToServer": true,
         "fineGrainedPat": false,
-        "permissions": []
+        "permissions": [
+          {
+            "\"Enterprise AI controls\" enterprise permissions": "write"
+          }
+        ]
       }
     },
     {
@@ -1759,10 +1763,14 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": false,
-        "serverToServer": false,
+        "userToServerRest": true,
+        "serverToServer": true,
         "fineGrainedPat": false,
-        "permissions": []
+        "permissions": [
+          {
+            "\"Enterprise AI controls\" enterprise permissions": "write"
+          }
+        ]
       }
     },
     {
@@ -1853,10 +1861,14 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": false,
-        "serverToServer": false,
+        "userToServerRest": true,
+        "serverToServer": true,
         "fineGrainedPat": false,
-        "permissions": []
+        "permissions": [
+          {
+            "\"Enterprise AI controls\" enterprise permissions": "write"
+          }
+        ]
       }
     },
     {
@@ -7556,10 +7568,17 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": false,
-        "serverToServer": false,
+        "userToServerRest": true,
+        "serverToServer": true,
         "fineGrainedPat": false,
-        "permissions": []
+        "permissions": [
+          {
+            "\"Enterprise Copilot license management\" enterprise permissions": "read"
+          },
+          {
+            "\"Enterprise administration\" enterprise permissions": "read"
+          }
+        ]
       }
     },
     {
@@ -7907,10 +7926,17 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": false,
-        "serverToServer": false,
+        "userToServerRest": true,
+        "serverToServer": true,
         "fineGrainedPat": false,
-        "permissions": []
+        "permissions": [
+          {
+            "\"Enterprise Copilot license management\" enterprise permissions": "write"
+          },
+          {
+            "\"Enterprise administration\" enterprise permissions": "write"
+          }
+        ]
       }
     },
     {
@@ -8007,10 +8033,17 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": false,
-        "serverToServer": false,
+        "userToServerRest": true,
+        "serverToServer": true,
         "fineGrainedPat": false,
-        "permissions": []
+        "permissions": [
+          {
+            "\"Enterprise Copilot license management\" enterprise permissions": "write"
+          },
+          {
+            "\"Enterprise administration\" enterprise permissions": "write"
+          }
+        ]
       }
     },
     {
@@ -8725,10 +8758,17 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": false,
-        "serverToServer": false,
+        "userToServerRest": true,
+        "serverToServer": true,
         "fineGrainedPat": false,
-        "permissions": []
+        "permissions": [
+          {
+            "\"Enterprise Copilot license management\" enterprise permissions": "read"
+          },
+          {
+            "\"Enterprise administration\" enterprise permissions": "read"
+          }
+        ]
       }
     },
     {

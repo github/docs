@@ -252,9 +252,9 @@ The **Network** tab controls whether sandboxed processes can make network connec
 
 | Setting | Description |
 | --- | --- |
-| **Allow outbound connections** | Turned on by default. Allows outbound internet connections, subject to any host rules. Turning it off also makes proxy settings and host rules inactive. |
-| **Allow local network** | Turned off by default. Controls local access, such as connections to a development server on your machine. Its effect depends on your operating system, as described below. |
-| **Host rules** | Allow or deny connections to specific hosts. See [Allowing or blocking specific hosts](#allowing-or-blocking-specific-hosts). |
+| **Allow outbound connections** | Turned on by default. Allows connections to public and private networks, subject to any host rules. Turning it off disables the remote proxy, but host rules still apply to permitted local connections. |
+| **Allow local network** | Turned off by default. Controls host-local access, such as connections to a development server on your machine. Private IP ranges are distinct from localhost and follow outbound and host rules. Platform requirements still apply, as described below. |
+| **Host rules** | Allow or deny connections to hostnames, IP addresses, or CIDR blocks. See [Allowing or blocking specific hosts](#allowing-or-blocking-specific-hosts). |
 | **Remote proxy** | Route the sandbox's outbound traffic through an HTTP proxy. See [Routing traffic through an HTTP proxy](#routing-traffic-through-an-http-proxy). |
 
 Local network access behaves differently on each operating system:
@@ -265,7 +265,7 @@ Local network access behaves differently on each operating system:
 | Linux | Sandboxed commands use their own private network space. They can reach servers started there, but cannot connect directly to servers on your computer's localhost. With local access enabled and no remote proxy configured, requests through the built-in local proxy can reach your computer's localhost, subject to host rules. |
 | Windows | Turning local access on permits private-network access. Connections to the host's localhost also require a Windows version that supports them. Proxying and host rules require this setting to be on. |
 
-The setting also applies to the CLI's built-in web requests on every platform. If **Sandbox MCP servers** is enabled, it applies to remote MCP connections too. Allowing local access lets the built-in `web_fetch` tool reach localhost, but does not remove its separate restrictions on other private-network addresses.
+The setting also applies to the CLI's built-in web requests on every platform. If **Sandbox MCP servers** is enabled, it applies to remote MCP connections too. When sandboxed `web_fetch` requests use the built-in local proxy, they can reach private-network addresses permitted by outbound and host rules. Allowing a private range does not grant access to localhost.
 
 Credential masking uses a local proxy even when you have not configured a remote proxy or host rules. This includes automatic masking for Git and `gh` authentication, which is enabled by default, and masked environment variables.
 
@@ -273,13 +273,13 @@ When a local proxy is active on macOS, turning local access on lets a command li
 
 #### Allowing or blocking specific hosts
 
-Use host rules to restrict which destinations sandboxed commands can reach. Host rules are active only while sandboxing and outbound connections are enabled.
+Use host rules to restrict which destinations sandboxed commands can reach. Host rules apply while sandboxing is enabled, including to permitted local connections when outbound access is off.
 
-You can specify hostnames, wildcard subdomain patterns, or individual IPv4 or IPv6 addresses. IP address ranges in CIDR notation, such as `203.0.113.0/24`, are not supported.
+You can specify hostnames, wildcard subdomain patterns, individual IPv4 or IPv6 addresses, or IP address ranges in Classless Inter-Domain Routing (CIDR) notation. For example, `10.0.0.0/8` covers a private IPv4 range, and `fd00::/8` covers a private IPv6 range. Public IP ranges are also supported.
 
 1. On the **Network** tab, select **Proxy and blocking** and press <kbd>Enter</kbd>. Then select **Host rules** and press <kbd>Enter</kbd>.
 1. Press <kbd>a</kbd> to add a rule.
-1. Type a hostname, wildcard subdomain pattern, or individual IP address. For example, use `example.com`, `*.example.com`, `203.0.113.10`, or `2001:db8::10`. Do not include a URL scheme, path, or port. Press <kbd>Enter</kbd>.
+1. Type a hostname, wildcard subdomain pattern, IP address, or CIDR block. For example, use `example.com`, `*.example.com`, `203.0.113.10`, `2001:db8::10`, or `10.0.0.0/8`. Do not include a URL scheme, path, or port. Press <kbd>Enter</kbd>.
 1. Use the left and right arrow keys to choose **Allow** or **Deny**, then press <kbd>Enter</kbd> to add the rule to the list. New rules default to **Deny**.
 1. Press <kbd>Esc</kbd> to return to **Proxy and blocking**, then press <kbd>Esc</kbd> again to return to the **Network** tab. Press <kbd>Esc</kbd> once more to save your changes and close the configuration.
 
@@ -289,10 +289,16 @@ When choosing rules, keep the following in mind:
 
 * An allowed hostname matches that hostname only. Use `*.example.com` to match its subdomains, but not `example.com` itself. Use `*` to match every host.
 * A denied domain also denies its subdomains. For example, denying `example.com` blocks both `example.com` and `api.example.com`.
-* **Deny** takes precedence over **Allow**.
+* CIDR prefixes range from `/0` to `/32` for IPv4 and `/0` to `/128` for IPv6. Use the first address in the range as the network address, with all host bits set to zero. For example, `10.1.2.3/16` is rejected with a suggestion to use `10.1.0.0/16`. The CLI does not silently expand the range.
+* **Deny** takes precedence over **Allow**, including when a denied CIDR contains an allowed hostname's resolved IP address.
 * Once you add an **Allow** rule, hosts that do not match an allowed entry are blocked, except for the automatic localhost entries described below. With no allow rules, other hosts remain allowed unless a deny rule or another network restriction blocks them.
+* When the local proxy resolves a hostname, an allowed hostname or an allowed IP address or CIDR can permit the connection. Every returned address must pass the rules. A denied address blocks the whole request, rather than being skipped.
 * With at least one **Allow** rule, turning on both **Allow outbound connections** and **Allow local network** also permits `localhost`, `127.0.0.1`, and `::1`. These entries are added to the effective allowlist without changing your saved rules. Explicit **Deny** rules and enterprise allowlists can still block them.
-* Enterprise rules can only narrow your allowlist, never widen it. A host is allowed only when both your rules and the enterprise rules permit it. If none of the hosts you allow are also allowed by the enterprise rules, nothing is left to permit. Every host is then denied. This is the one case where adding an **Allow** rule ends in a fully closed list. {% data variables.product.prodname_copilot_short %} shows this state in the sandbox dialog and in the policy details.
+* Device-managed host rules can only narrow your allowlist, never widen it. Every non-empty user and managed allowlist must permit the destination. For example, a user hostname rule and a managed CIDR rule can both be satisfied when all resolved addresses are in the managed range. The lists do not need to contain identical entries.
+
+For example, add **Allow** rules for `10.0.0.0/8` and `fd00::/8`, then a **Deny** rule for `10.20.0.0/16`, to permit those private ranges except the blocked IPv4 subnet. Keep **Allow outbound connections** on. These rules do not grant localhost access or override platform requirements.
+
+You can also configure these lists as `sandbox.userPolicy.network.allowedHosts` and `sandbox.userPolicy.network.blockedHosts` in your personal `settings.json`. Administrators can supply host rules through device-managed settings. These two settings are not supported in server-managed enterprise settings files.
 
 Host rules use a local proxy, even if you have not configured an HTTP proxy. On macOS and Linux, the sandbox forces every connection through this proxy, so a program cannot avoid your host rules by connecting directly. On Windows, the sandbox relies on programs honoring the proxy settings. As a result, programs that ignore the proxy settings on Windows can connect directly and get around your host rules.
 
@@ -311,7 +317,7 @@ Keep the following in mind:
 * Use an HTTP or HTTPS URL without embedded credentials. Enter credentials in the separate **Username** and **Password** fields. On Linux, use an IPv4 address or a hostname with IPv4 support rather than an IPv6-only address.
 * The CLI stores a literal password in your operating system's credential store when available, with a local file fallback. Your settings file holds a reference to the stored secret, not the password.
 * You can enter `${VAR}` or `$VAR` as the entire **Password** value to use an environment variable instead. The variable must be available to the CLI. If it is unset, no password is supplied, and a proxy that requires authentication can reject the request.
-* The CLI connects through a built-in local proxy, which keeps the upstream proxy credentials out of sandboxed child processes. Host rules also apply when you use an upstream proxy.
+* The CLI connects through a built-in local proxy, which keeps the upstream proxy credentials out of sandboxed child processes. Hostname and literal-IP rules still apply when you use an upstream proxy. The upstream proxy resolves hostnames itself, so CIDR-only allow rules cannot authorize unresolved names, and IP or CIDR deny rules cannot constrain the addresses it chooses. These limitations also apply when no remote proxy is configured in sandbox settings and the CLI inherits one from the host's `HTTPS_PROXY`, `HTTP_PROXY`, or `ALL_PROXY` environment variable. Configure resolved-address restrictions on the upstream proxy.
 * On macOS and Linux, sandboxed programs cannot bypass the proxy by connecting directly. On Windows, the sandbox relies on programs honoring the proxy settings. Windows also requires a supported version and **Allow local network**, which permits private-network access as well.
 * Your organization can enforce the proxy URL through managed settings. When it does, the URL is shown as `(managed)`, but you can still provide your own username and password.
 

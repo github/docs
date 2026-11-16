@@ -31,7 +31,7 @@ These limits are subject to change.
 | Workflow execution limit | Job Matrix | 256 jobs / workflow run | A job matrix can generate a maximum of 256 jobs per workflow run. This limit applies to both {% data variables.product.github %}-hosted and self-hosted runners. | {% octicon "x" aria-label="No" %} |
 | Workflow execution limit | Re-run | 50 re-runs | A workflow run can be re-run a maximum of 50 times. This limit includes both full re-runs and re-runs of a subset of jobs. | {% octicon "check" aria-label="Yes" %} Support ticket |
 | Workflow file | Workflow file size | 500 KB per file | A workflow file larger than 500 KB will not start runs. See [Workflow file size](#workflow-file-size). | {% octicon "x" aria-label="No" %} |
-| Checks | Check runs per check suite | 50,000 check runs / check suite | A check suite can have a maximum of 50,000 check runs. This limit applies to check runs created through the Checks API and by {% data variables.product.prodname_actions %} workflow runs. When a check suite reaches this limit, additional check runs cannot be created for that check suite. | {% octicon "check" aria-label="Yes" %} Support ticket |
+| Checks | Check runs per check suite | 50,000 check runs / check suite | A check suite can have a maximum of 50,000 check runs. This limit applies to check runs created through the Checks API and by {% data variables.product.prodname_actions %} workflow runs. When a check suite reaches this limit, additional check runs cannot be created for that check suite. | {% octicon "x" aria-label="No" %} |
 | Workflows queuing | Workflow trigger event rate limit | 1500 events / 10 seconds / repository | Each repository is limited to events triggering a workflow run. | {% octicon "check" aria-label="Yes" %} Support ticket |
 | Workflows queuing | Workflow run queued | 500 workflow runs / 10 seconds | When the limit is reached, the workflow runs that were supposed to be triggered by the webhook events will be blocked and will not be queued. Reusable workflows are viewed as a single entity. For example, a run with 30 reusable workflows counts as 1 in this instance. | {% octicon "x" aria-label="No" %} |
 | {% ifversion actions-nga %} |
@@ -72,6 +72,8 @@ Each workflow file in the `.github/workflows` directory must be 500 KB or smalle
 
 > [!NOTE]
 > The maximum concurrent macOS jobs is shared across standard {% data variables.product.github %}-hosted runners and {% data variables.product.github %}-hosted larger runners.
+>
+> {% ifversion fpt or ghec %}{% data reusables.actions.macos-runner-capacity %}{% endif %}
 
 ### Storage limits for all {% data variables.product.github %}-hosted runners
 

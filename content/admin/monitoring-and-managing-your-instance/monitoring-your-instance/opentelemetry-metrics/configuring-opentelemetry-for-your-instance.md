@@ -21,7 +21,7 @@ category:
 
 {% ifversion ghes-collectd-available %}
 
-OpenTelemetry metrics are enabled by default for **new installations** of {% data variables.product.prodname_ghe_server %} 3.19 and later. Instances upgraded from earlier releases still have collectd metrics enabled by default. For the complete migration procedure for instances that still use collectd, including how to disable collectd, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/opentelemetry-metrics/migration-guidance).
+OpenTelemetry metrics are enabled by default for **new installations** of {% data variables.product.prodname_ghe_server %} 3.19 and later. Upgrades from versions earlier than 3.21 to 3.21 or 3.22 also enable OpenTelemetry and disable collectd. For the migration timeline and the procedure for instances that still use collectd, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/opentelemetry-metrics/migration-guidance).
 
 ### Using the {% data variables.enterprise.management_console %}
 

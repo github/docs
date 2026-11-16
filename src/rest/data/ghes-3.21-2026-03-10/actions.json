@@ -11455,7 +11455,7 @@
         {
           "type": "string",
           "name": "visibility",
-          "description": "<p>Visibility of a runner group. You can select all organizations or select individual organization.</p>",
+          "description": "<p>Visibility of a runner group. You can select all organizations or select individual organizations.</p>",
           "enum": [
             "selected",
             "all"

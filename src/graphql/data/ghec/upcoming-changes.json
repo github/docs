@@ -7,6 +7,14 @@
       "date": "2027-04-01",
       "criticality": "breaking",
       "owner": "corannejuang"
+    },
+    {
+      "location": "IssueFieldVisibility.ORG_ONLY",
+      "description": "<p><code>ORG_ONLY</code> will be removed. Use <code>RESTRICTED</code> instead.</p>",
+      "reason": "<p><code>ORG_ONLY</code> will be removed.</p>",
+      "date": "2027-04-01",
+      "criticality": "breaking",
+      "owner": "dewski"
     }
   ],
   "2027-01-01": [

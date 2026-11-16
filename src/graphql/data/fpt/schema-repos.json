@@ -4271,7 +4271,7 @@
         },
         {
           "name": "issueFields",
-          "description": "<p>A list of the repository's issue fields, inherited from the organization.</p>",
+          "description": "<p>A list of the repository's issue fields, inherited from the repository's owner.</p>",
           "type": "IssueFieldsConnection",
           "id": "issuefieldsconnection",
           "href": "/graphql/reference/issues#object-issuefieldsconnection",
@@ -5095,6 +5095,61 @@
           ]
         },
         {
+          "name": "pinnedIssueFields",
+          "description": "<p>An ordered list of the repository owner's issue fields pinned to issues when no type is selected.</p>",
+          "type": "IssueFieldsConnection",
+          "id": "issuefieldsconnection",
+          "href": "/graphql/reference/issues#object-issuefieldsconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "defaultValue": "{field: POSITION, direction: ASC}",
+              "description": "<p>The order in which to return pinned issue fields.</p>",
+              "type": {
+                "name": "PinnedIssueFieldOrder",
+                "id": "pinnedissuefieldorder",
+                "href": "/graphql/reference/issues#input-object-pinnedissuefieldorder"
+              }
+            }
+          ]
+        },
+        {
           "name": "pinnedIssues",
           "description": "<p>A list of pinned issues for this repository.</p>",
           "type": "PinnedIssueConnection",
@@ -5145,6 +5200,51 @@
           "type": "RepositoryPlanFeatures!",
           "id": "repositoryplanfeatures",
           "href": "/graphql/reference/repos#object-repositoryplanfeatures"
+        },
+        {
+          "name": "planningStatuses",
+          "description": "<p>The planning statuses issues in this repository can be in, or null when issue\nstatuses aren't available for this repository or viewer. Planning statuses are\nreturned in display order. Issue statuses are in preview and only available to\naccounts enrolled in the preview.</p>",
+          "type": "PlanningStatusConnection",
+          "id": "planningstatusconnection",
+          "href": "/graphql/reference/issues#object-planningstatusconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            }
+          ]
         },
         {
           "name": "primaryLanguage",

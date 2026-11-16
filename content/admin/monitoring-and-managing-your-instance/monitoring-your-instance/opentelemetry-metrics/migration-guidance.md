@@ -13,11 +13,12 @@ category:
 
 ## Migration timeline
 
-| Version | Default for new installations | Default for instances upgraded from earlier releases | Notes |
+| Version | Default for new installations | Behavior when upgrading | Notes |
 | :- | :- | :- | :- |
 | 3.18 | Collectd | Collectd | OpenTelemetry is opt-in. |
-| 3.19 to 3.22 | OpenTelemetry | Collectd | Migration to OpenTelemetry is possible before upgrading to 3.23. |
-| 3.23 and later | OpenTelemetry | OpenTelemetry | Collectd is retired and cannot be used. The upgrade disables it. |
+| 3.19 to 3.20 | OpenTelemetry | Existing metrics settings are preserved. | Instances using collectd can opt in to OpenTelemetry. |
+| 3.21 to 3.22 | OpenTelemetry | Upgrades from versions earlier than 3.21 enable OpenTelemetry and disable collectd. Upgrades from 3.21 or later preserve existing metrics settings. | Collectd can still be re-enabled. |
+| 3.23 and later | OpenTelemetry | OpenTelemetry is enabled and collectd is disabled. | Collectd is retired and cannot be re-enabled. |
 
 ## Preparing to migrate
 
@@ -29,9 +30,9 @@ Before you migrate, complete the following preparations:
 
 ## Migrating to OpenTelemetry
 
-You can migrate to OpenTelemetry on instances running version 3.19 to 3.22. On version 3.18, OpenTelemetry is opt-in, so you can also enable it there. We recommend migrating before you upgrade to 3.23, so that you can verify your monitoring setup while you can still use collectd.
+You can manually migrate to OpenTelemetry on instances running versions 3.18 to 3.22. If your instance still uses collectd, we recommend migrating before upgrading to 3.21 or later so that you can verify your monitoring setup in advance.
 
-If you don't migrate, upgrading to version 3.23 or later does it for you: collectd is disabled and cannot be re-enabled, and OpenTelemetry metrics are enabled and become the only metrics stack.
+Upgrading from a version earlier than 3.21 to 3.21 or 3.22 automatically enables OpenTelemetry and disables collectd, but you can re-enable collectd after the upgrade. Upgrading to 3.23 or later enables OpenTelemetry and disables collectd permanently.
 
 Migration requires enabling OpenTelemetry metrics and disabling collectd. Both settings are available through the {% data variables.enterprise.management_console %} or the command line.
 
@@ -69,7 +70,7 @@ Collectd is retired in version 3.23, so running both stacks is not possible afte
 
 ## Post-upgrade checks
 
-After the configuration run completes, whether you migrated manually or upgraded to version 3.23 or later:
+After the configuration run completes, whether you migrated manually or an upgrade switched your instance to OpenTelemetry:
 
 * Verify that the metrics are visible and collected in the **Monitoring** tab of the {% data variables.enterprise.management_console %}.
 * Update monitoring integrations that depend on collectd metrics. For information about connecting external tools, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/opentelemetry-metrics/setting-up-external-monitoring-with-opentelemetry).

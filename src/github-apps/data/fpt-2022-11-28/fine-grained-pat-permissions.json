@@ -9950,6 +9950,90 @@
       }
     ]
   },
+  "user_issue_fields": {
+    "title": "Issue Fields",
+    "displayTitle": "User permissions for \"Issue Fields\"",
+    "permissions": [
+      {
+        "category": "users",
+        "slug": "list-issue-fields",
+        "subcategory": "issue-fields",
+        "verb": "get",
+        "requestPath": "/user/issue-fields",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "users",
+        "slug": "create-an-issue-field",
+        "subcategory": "issue-fields",
+        "verb": "post",
+        "requestPath": "/user/issue-fields",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "users",
+        "slug": "update-an-issue-field",
+        "subcategory": "issue-fields",
+        "verb": "patch",
+        "requestPath": "/user/issue-fields/{issue_field_id}",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "users",
+        "slug": "delete-an-issue-field",
+        "subcategory": "issue-fields",
+        "verb": "delete",
+        "requestPath": "/user/issue-fields/{issue_field_id}",
+        "additional-permissions": false,
+        "access": "write"
+      }
+    ]
+  },
+  "user_issue_types": {
+    "title": "Issue Types",
+    "displayTitle": "User permissions for \"Issue Types\"",
+    "permissions": [
+      {
+        "category": "users",
+        "slug": "list-issue-types",
+        "subcategory": "issue-types",
+        "verb": "get",
+        "requestPath": "/user/issue-types",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "users",
+        "slug": "create-an-issue-type",
+        "subcategory": "issue-types",
+        "verb": "post",
+        "requestPath": "/user/issue-types",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "users",
+        "slug": "update-an-issue-type",
+        "subcategory": "issue-types",
+        "verb": "put",
+        "requestPath": "/user/issue-types/{issue_type_id}",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "users",
+        "slug": "delete-an-issue-type",
+        "subcategory": "issue-types",
+        "verb": "delete",
+        "requestPath": "/user/issue-types/{issue_type_id}",
+        "additional-permissions": false,
+        "access": "write"
+      }
+    ]
+  },
   "plan": {
     "title": "Plan",
     "displayTitle": "User permissions for \"Plan\"",

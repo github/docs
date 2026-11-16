@@ -1665,10 +1665,14 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": false,
-        "serverToServer": false,
+        "userToServerRest": true,
+        "serverToServer": true,
         "fineGrainedPat": false,
-        "permissions": []
+        "permissions": [
+          {
+            "\"Enterprise AI controls\" enterprise permissions": "write"
+          }
+        ]
       }
     },
     {
@@ -1759,10 +1763,14 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": false,
-        "serverToServer": false,
+        "userToServerRest": true,
+        "serverToServer": true,
         "fineGrainedPat": false,
-        "permissions": []
+        "permissions": [
+          {
+            "\"Enterprise AI controls\" enterprise permissions": "write"
+          }
+        ]
       }
     },
     {
@@ -1853,10 +1861,14 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": false,
-        "serverToServer": false,
+        "userToServerRest": true,
+        "serverToServer": true,
         "fineGrainedPat": false,
-        "permissions": []
+        "permissions": [
+          {
+            "\"Enterprise AI controls\" enterprise permissions": "write"
+          }
+        ]
       }
     },
     {

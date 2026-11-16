@@ -122,7 +122,7 @@
   pointer-events: none;
 }
 
-// ...unless the header box ends in a tool/platform picker. Primer's UnderlineNav
+// ...unless the header box ends in a tool/platform picker. ui/UnderlineNav
 // draws its own closing rule as an inset box-shadow, so drop ours to avoid a
 // double rule; the tab rule must stay under the selected-tab indicator. Match
 // both pickers by name: `$="-picker"` would also match the version picker.

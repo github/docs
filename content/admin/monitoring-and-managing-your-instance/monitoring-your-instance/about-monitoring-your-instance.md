@@ -14,7 +14,7 @@ OpenTelemetry metrics were introduced in {% data variables.product.prodname_ghe_
 
 {% ifversion ghes-collectd-available %}
 
-New installations of version 3.19 and later use OpenTelemetry metrics by default. On version 3.18, and on instances upgraded from earlier releases, collectd metrics are still gathered by default. Collectd is retired in version 3.23, and upgrading to 3.23 disables it. For migration guidance for instances that still use collectd, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/opentelemetry-metrics/migration-guidance).
+New installations of version 3.19 and later use OpenTelemetry metrics by default. Upgrades from versions earlier than 3.21 to 3.21 or 3.22 also enable OpenTelemetry and disable collectd, but you can re-enable collectd after the upgrade. Collectd is retired in version 3.23, and upgrading to 3.23 disables it. For the migration timeline and guidance for instances that still use collectd, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/opentelemetry-metrics/migration-guidance).
 
 {% else %}
 

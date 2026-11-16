@@ -1,4 +1,43 @@
 {
+  "enterprise_ai_controls": {
+    "title": "Enterprise AI controls",
+    "displayTitle": "Enterprise permissions for \"Enterprise AI controls\"",
+    "permissions": [
+      {
+        "category": "copilot",
+        "slug": "set-the-coding-agent-policy-for-an-enterprise",
+        "subcategory": "copilot-coding-agent-management",
+        "verb": "put",
+        "requestPath": "/enterprises/{enterprise}/copilot/policies/coding_agent",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "copilot",
+        "slug": "add-organizations-to-the-enterprise-coding-agent-policy",
+        "subcategory": "copilot-coding-agent-management",
+        "verb": "post",
+        "requestPath": "/enterprises/{enterprise}/copilot/policies/coding_agent/organizations",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "copilot",
+        "slug": "remove-organizations-from-the-enterprise-coding-agent-policy",
+        "subcategory": "copilot-coding-agent-management",
+        "verb": "delete",
+        "requestPath": "/enterprises/{enterprise}/copilot/policies/coding_agent/organizations",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      }
+    ]
+  },
   "enterprise_copilot_metrics": {
     "title": "Enterprise Copilot metrics",
     "displayTitle": "Enterprise permissions for \"Enterprise Copilot metrics\"",
@@ -12498,6 +12537,106 @@
         "subcategory": "user",
         "verb": "delete",
         "requestPath": "/user/interaction-limits",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": false,
+        "additional-permissions": false
+      }
+    ]
+  },
+  "user_issue_fields": {
+    "title": "Issue Fields",
+    "displayTitle": "User permissions for \"Issue Fields\"",
+    "permissions": [
+      {
+        "category": "users",
+        "slug": "list-issue-fields",
+        "subcategory": "issue-fields",
+        "verb": "get",
+        "requestPath": "/user/issue-fields",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": false,
+        "additional-permissions": false
+      },
+      {
+        "category": "users",
+        "slug": "create-an-issue-field",
+        "subcategory": "issue-fields",
+        "verb": "post",
+        "requestPath": "/user/issue-fields",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": false,
+        "additional-permissions": false
+      },
+      {
+        "category": "users",
+        "slug": "update-an-issue-field",
+        "subcategory": "issue-fields",
+        "verb": "patch",
+        "requestPath": "/user/issue-fields/{issue_field_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": false,
+        "additional-permissions": false
+      },
+      {
+        "category": "users",
+        "slug": "delete-an-issue-field",
+        "subcategory": "issue-fields",
+        "verb": "delete",
+        "requestPath": "/user/issue-fields/{issue_field_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": false,
+        "additional-permissions": false
+      }
+    ]
+  },
+  "user_issue_types": {
+    "title": "Issue Types",
+    "displayTitle": "User permissions for \"Issue Types\"",
+    "permissions": [
+      {
+        "category": "users",
+        "slug": "list-issue-types",
+        "subcategory": "issue-types",
+        "verb": "get",
+        "requestPath": "/user/issue-types",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": false,
+        "additional-permissions": false
+      },
+      {
+        "category": "users",
+        "slug": "create-an-issue-type",
+        "subcategory": "issue-types",
+        "verb": "post",
+        "requestPath": "/user/issue-types",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": false,
+        "additional-permissions": false
+      },
+      {
+        "category": "users",
+        "slug": "update-an-issue-type",
+        "subcategory": "issue-types",
+        "verb": "put",
+        "requestPath": "/user/issue-types/{issue_type_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": false,
+        "additional-permissions": false
+      },
+      {
+        "category": "users",
+        "slug": "delete-an-issue-type",
+        "subcategory": "issue-types",
+        "verb": "delete",
+        "requestPath": "/user/issue-types/{issue_type_id}",
         "access": "write",
         "user-to-server": true,
         "server-to-server": false,
