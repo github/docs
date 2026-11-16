@@ -33,23 +33,19 @@ interface WebhookActionData {
 type WebhookCategory = Record<string, WebhookActionData>
 type WebhookData = Record<string, WebhookCategory>
 
-// Two-tier cache: fpt and ghec are pinned in a plain Map (never evicted) because
-// they account for the vast majority of traffic. All other versions (ghes) go
-// into a bounded LRU cache to prevent unbounded memory growth.
+// Pin fpt and ghec because they receive most traffic.
+// Bound all GHES versions with LRU so schema cache memory cannot grow without limit.
 const PINNED_OPEN_API_VERSIONS = new Set(['fpt', 'ghec'])
 const pinnedCache = new Map<string, WebhookCategory>()
 const LRU_MAX_SIZE = Math.max(1, parseInt(process.env.WEBHOOK_SCHEMA_LRU_SIZE ?? '', 10) || 96)
 const lruCache = new QuickLRU<string, WebhookCategory>({ maxSize: LRU_MAX_SIZE })
 
-// In-flight deduplication: concurrent cache misses for the same key share one
-// file read instead of each triggering their own.
+// Concurrent cache misses for the same key share one file read.
 const inflight = new Map<string, Promise<WebhookCategory>>()
 
 const brotliDecompressAsync = promisify(brotliDecompress)
 
-// cache for webhook data for when you first visit the webhooks page where we
-// show all webhooks for the current version but only 1 action type per webhook
-// and also no nested parameters
+// Landing-page data has every webhook for a version, one action type each, and no nested params.
 const initialWebhooksCache = new Map<string, InitialWebhook[]>()
 
 interface InitialWebhook {
@@ -58,8 +54,6 @@ interface InitialWebhook {
   data: WebhookActionData
 }
 
-// return the webhoook data as described for `initialWebhooksCache` for the given
-// version
 export async function getInitialPageWebhooks(version: string): Promise<InitialWebhook[]> {
   if (initialWebhooksCache.has(version)) {
     return initialWebhooksCache.get(version) || []
@@ -67,9 +61,7 @@ export async function getInitialPageWebhooks(version: string): Promise<InitialWe
   const allWebhooks = await getWebhooks(version)
   const initialWebhooks: InitialWebhook[] = []
 
-  // The webhooks page shows all webhooks but for each webhook only a single
-  // webhook action type at a time.  We pick the first webhook type from each
-  // webhook's set of action types to show.
+  // Show one action type per webhook on the landing page; the full payload loads on drill-down.
   for (const [key, webhook] of Object.entries(allWebhooks)) {
     const actionTypes = Object.keys(webhook)
     const defaultAction = actionTypes.length > 0 ? actionTypes[0] : ''
@@ -80,26 +72,19 @@ export async function getInitialPageWebhooks(version: string): Promise<InitialWe
       data: defaultAction ? webhook[defaultAction] : {},
     }
 
-    // The base category files no longer contain childParamsGroups (they are
-    // split into separate .child-params.json files at sync time), so no
-    // stripping is needed here.
-
+    // Sync stores childParamsGroups in sidecar files, so base category files need no stripping.
     initialWebhooks.push(initialWebhook)
   }
   initialWebhooksCache.set(version, initialWebhooks)
   return initialWebhooks
 }
 
-// Allowlist pattern for webhook category names: only lowercase letters, digits,
-// and underscores. This prevents path traversal (e.g. "../secret") when the
-// category comes from user-supplied query parameters.
+// Allow only lowercase letters, digits, and underscores in webhook category names.
+// This blocks path traversal such as ../secret in user-supplied query parameters.
 const SAFE_CATEGORY_RE = /^[a-z0-9_]+$/
 
-// returns the webhook data for the given version and webhook category (e.g.
-// `check_run`) -- this includes all the data per webhook action type and all
-// nested parameters. Loads only the requested category file on demand.
-// When `includeChildParams` is true (default), also loads and merges the
-// separate child-params file so drill-down pages get full nested parameter data.
+// Loads one webhook category, such as check_run, on demand. Drill-down requests
+// also merge the child-params sidecar so nested parameter data stays off the landing page.
 export async function getWebhook(
   version: string,
   webhookCategory: string,
@@ -109,10 +94,7 @@ export async function getWebhook(
 
   const openApiVersion = getOpenApiVersion(version)
 
-  // Resolve the requested category against the on-disk category list so every
-  // file path below is built from a filesystem-derived name rather than the
-  // raw request value. This both 404s unknown categories and severs the
-  // user-input taint chain (defeats path traversal / CodeQL path-injection).
+  // Use a filesystem-derived category name so unknown categories 404 and requests cannot traverse paths.
   const safeCategory = getWebhookCategories(version).find((name) => name === webhookCategory)
   if (!safeCategory) return undefined
 
@@ -133,8 +115,7 @@ export async function getWebhook(
   const slimData = cache.get(cacheKey)
   if (!slimData || !includeChildParams) return slimData
 
-  // Merge childParamsGroups from the separate file for drill-down requests.
-  // This data is not cached — it's large and only needed per-request.
+  // Drill-down childParamsGroups stay uncached because they are large and needed per request.
   const childParamsPath = path.join(
     WEBHOOK_DATA_DIR,
     openApiVersion,
@@ -146,9 +127,7 @@ export async function getWebhook(
   return mergeChildParams(slimData, childParams)
 }
 
-// returns all the webhook data for the given version by loading each category
-// file in parallel. Does NOT include childParamsGroups — this is used for
-// the landing page. Use getWebhook() for drill-down with full nested params.
+// Loads landing-page data for every category in parallel, without childParamsGroups.
 export async function getWebhooks(version: string): Promise<WebhookData> {
   const categories = getWebhookCategories(version)
   const entries = await Promise.all(
@@ -160,11 +139,8 @@ export async function getWebhooks(version: string): Promise<WebhookData> {
   return Object.fromEntries(entries)
 }
 
-// returns the list of webhook category names available for the given version
-// by reading the data directory. Mirrors getRestCategories() in src/rest/lib/index.ts.
-// Memoized per openApiVersion: the data directory is static at runtime, and
-// getWebhook() consults this on every call as a path-injection allowlist, so we
-// must not pay a readdirSync on each lookup.
+// Mirrors getRestCategories in src/rest/lib/index.ts.
+// Cache the static data-directory listing because getWebhook uses it as a path-injection allowlist.
 const categoriesCache = new Map<string, string[]>()
 export function getWebhookCategories(version: string): string[] {
   const openApiVersion = getOpenApiVersion(version)
@@ -181,21 +157,15 @@ export function getWebhookCategories(version: string): string[] {
 
 type ChildParamsData = Record<string, Record<string, unknown[]>>
 
-// Load the child-params file for a webhook category. Returns null if the file
-// does not exist (some webhooks have no childParamsGroups).
-// The filePath is built from a filesystem-derived category name (validated
-// against getWebhookCategories in getWebhook), never directly from request input.
+// Child-params sidecars are optional; categories without nested groups return null.
+// getWebhook passes a filesystem-derived path, never raw request input.
 async function loadChildParamsFile(filePath: string): Promise<ChildParamsData | null> {
   try {
     const compressed = await fsPromises.readFile(`${filePath}.br`)
     const decompressed = await brotliDecompressAsync(compressed)
     return JSON.parse(decompressed.toString()) as ChildParamsData
   } catch {
-    // The brotli variant is optional; fall back to plain JSON. A genuine
-    // missing-file (ENOENT) means this category simply has no childParamsGroups,
-    // so we return null. Any other error (malformed JSON, truncated/corrupt
-    // read, permission denied) is a real failure that would silently drop
-    // nested params on drill-down, so we log it loudly before returning null.
+    // Missing sidecars return null; corrupt or unreadable plain JSON logs before dropping nested params.
     try {
       const raw = await fsPromises.readFile(filePath, 'utf-8')
       return JSON.parse(raw) as ChildParamsData
@@ -208,7 +178,6 @@ async function loadChildParamsFile(filePath: string): Promise<ChildParamsData | 
   }
 }
 
-// Merge childParamsGroups back into slim webhook data for drill-down responses.
 function mergeChildParams(
   slimData: WebhookCategory,
   childParams: ChildParamsData,
@@ -234,17 +203,16 @@ function mergeChildParams(
   return merged
 }
 
-// Read asynchronously to avoid blocking the event loop on a cache miss.
-// Try the brotli-compressed variant first (used in staging), then plain JSON.
-// basePath is built from a filesystem-derived category name (validated against
-// getWebhookCategories in getWebhook), never directly from request input.
+// Read category files asynchronously so cache misses do not block the event loop.
+// Staging can serve Brotli files; plain JSON remains the fallback.
+// getWebhook passes a filesystem-derived basePath, never raw request input.
 async function loadWebhookFile(basePath: string): Promise<WebhookCategory> {
   try {
     const compressed = await fsPromises.readFile(`${basePath}.br`)
     const decompressed = await brotliDecompressAsync(compressed)
     return JSON.parse(decompressed.toString()) as WebhookCategory
   } catch {
-    // .br missing or unreadable — fall back to plain JSON
+    // Missing or unreadable Brotli files fall back to plain JSON.
     const raw = await fsPromises.readFile(basePath, 'utf-8')
     return JSON.parse(raw) as WebhookCategory
   }

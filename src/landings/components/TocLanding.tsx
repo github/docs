@@ -33,8 +33,7 @@ export const TocLanding = () => {
     <DefaultLayout>
       <UtmPreserver />
       {router.route === '/[versionId]/rest/[category]' && <RestRedirect />}
-      {/* Doesn't matter *where* this is included because it will
-      never render anything. It always just return null. */}
+      {/* ClientSideRedirects renders null, so placement does not affect layout. */}
       <ClientSideRedirects />
 
       <div className="container-xl px-3 px-md-6 my-4">
@@ -66,7 +65,7 @@ export const TocLanding = () => {
             )}
 
             {(renderedPage || renderedPageHast) && (
-              <div id="article-contents" className="mb-5">
+              <div id="article-contents" data-article-body className="mb-5">
                 <MarkdownContent hast={renderedPageHast ?? undefined}>
                   {renderedPage}
                 </MarkdownContent>

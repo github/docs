@@ -1,6 +1,6 @@
 ---
 title: Context clearing and terminal tools
-shortTitle: Context management
+shortTitle: Context Management
 intro: >-
   Use `session.history.clearContext` when a host needs to replace the current
   conversation context without replacing the session. Typical uses include

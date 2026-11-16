@@ -6,10 +6,16 @@ import walk from 'walk-sync'
 
 import { engine } from '@/content-render/liquid/engine'
 import { allVersions } from '@/versions/lib/all-versions'
+import { getFeaturesByVersion } from '@/versions/middleware/features'
 import languages from '@/languages/lib/languages-server'
 import warmServer from '@/frame/lib/warm-server'
 import type { Site } from '@/types'
 import { correctTranslatedContentStrings } from '@/languages/lib/correct-translation-content'
+import {
+  captureConsole,
+  parseFrontmatterErrors,
+  type FrontmatterError,
+} from '@/languages/lib/frontmatter-error-capture'
 
 if (import.meta.url === `file://${process.argv[1]}`) {
   program
@@ -45,11 +51,6 @@ interface LanguageResult {
   topIllegalTags: Array<{ tag: string; count: number }>
 }
 
-interface FrontmatterError {
-  file: string
-  message: string
-}
-
 interface CorruptionReport {
   hasFailures: boolean
   totalCount: number
@@ -81,23 +82,11 @@ export function resolveRequestedVersions(optionValue?: string): string[] {
 }
 
 async function main(languageCodes: string[], options: { versions?: string } = {}) {
-  // Resolve and validate the versions to render under before suppressing
-  // console output, so validation errors are visible.
+  // Validate requested versions before suppressing console output, so errors stay visible.
   const versions = resolveRequestedVersions(options.versions)
 
-  // Suppress warmServer noise (frontmatter errors from translations)
-  // and capture them as structured data instead
-  const originalError = console.error
-  const originalWarn = console.warn
-  const originalLog = console.log
-  const suppressedErrors: string[] = []
-  console.error = (...args: unknown[]) => {
-    suppressedErrors.push(args.map(String).join(' '))
-  }
-  console.warn = (...args: unknown[]) => {
-    suppressedErrors.push(args.map(String).join(' '))
-  }
-  console.log = () => {}
+  // Capture warmServer output so YAML frontmatter failures become structured data.
+  const capture = captureConsole()
 
   let langCodes: string[]
   let site: Site
@@ -120,12 +109,10 @@ async function main(languageCodes: string[], options: { versions?: string } = {}
     site = await warmServer(languageCodes.length ? ['en', ...langCodes] : [])
     reusables = getReusables()
   } finally {
-    console.error = originalError
-    console.warn = originalWarn
-    console.log = originalLog
+    capture.restore()
   }
 
-  const frontmatterErrors = parseFrontmatterErrors(suppressedErrors)
+  const frontmatterErrors = parseFrontmatterErrors(capture.output)
   const languageResults: LanguageResult[] = []
 
   for (const languageCode of langCodes) {
@@ -145,19 +132,6 @@ async function main(languageCodes: string[], options: { versions?: string } = {}
   console.log(JSON.stringify(report, null, 2))
 }
 
-function parseFrontmatterErrors(suppressedErrors: string[]): FrontmatterError[] {
-  const errors: FrontmatterError[] = []
-  const seen = new Set<string>()
-  for (const err of suppressedErrors) {
-    const match = err.match(/translations\/[^\s']+/)
-    if (match && !seen.has(match[0])) {
-      seen.add(match[0])
-      errors.push({ file: match[0], message: 'YML parsing error' })
-    }
-  }
-  return errors
-}
-
 function getReusables(): Reusables {
   const reusables = new Map()
   const files = walk('data/reusables', {
@@ -173,14 +147,14 @@ function getReusables(): Reusables {
 }
 
 // Build a minimal Liquid render context for validating translated content.
-// ifversion needs currentVersionObj; data tags call getDataByLanguage() internally.
-function buildRenderContext(languageCode: string, version: string) {
-  // Mirror what the shortVersions middleware adds to the request context so
-  // bare conditionals like {% ifversion ghes %} resolve correctly. Without the
-  // short-name flag, the native Liquid `if` sees an undefined variable and the
-  // branch silently evaluates false, hiding real corruptions.
+// ifversion needs currentVersionObj; data tags call getDataByLanguage internally.
+// Mirror shortVersions and features middleware so bare conditionals such as
+// {% ifversion ghes %} or {% ifversion some-feature %} resolve.
+// Without these flags, Liquid sees an undefined variable and hides real corruptions.
+export function buildRenderContext(languageCode: string, version: string) {
   const currentVersionObj = allVersions[version]
   return {
+    ...getFeaturesByVersion(version),
     currentLanguage: languageCode,
     currentVersion: version,
     currentVersionObj,
@@ -201,13 +175,10 @@ async function run(
   const wheres = new Map<string, number>()
   const illegalTags = new Map<string, number>()
 
-  // Dedupe corruptions by file + location + error so the same broken Liquid
-  // rendered under multiple versions is a single entry annotated with every
-  // version it surfaced under (rather than N near-duplicate entries).
+  // Dedupe by file, location, and error, then annotate the entry with every version.
   const byKey = new Map<string, CorruptionEntry & { versionSet: Set<string> }>()
 
-  // Suppress console.warn during rendering — the {% data %} tag warns
-  // when it can't find translated data, which is expected noise.
+  // Discard direct console.warn calls during rendering.
   const originalWarn = console.warn
   console.warn = () => {}
 
@@ -242,9 +213,7 @@ async function run(
     for (const page of site.pageList) {
       if (page.languageCode !== languageCode) continue
 
-      // Only render under versions the page is actually served in (intersected
-      // with the requested set) — a page is never scraped under a version it
-      // doesn't apply to, so corruptions there can't break indexing.
+      // Render only served versions, because other corruptions cannot break indexing.
       const pageVersions = versions.filter((v) => page.applicableVersions.includes(v))
       if (!pageVersions.length) continue
 
@@ -280,10 +249,7 @@ async function run(
           relativePath,
         })
       } catch (error) {
-        // A missing translated file (ENOENT) just means this language hasn't
-        // translated this reusable yet — skip it silently. Any other error (e.g.
-        // a malformed reusable that breaks correctTranslatedContentStrings) is a
-        // real corruption: record it and keep going rather than crashing the run.
+        // Missing reusables are untranslated; other read or correction errors are corruptions.
         if (error instanceof Error) {
           if (!error.message.startsWith('ENOENT')) {
             countError(error, 'reusable', relativePath, versions[0])

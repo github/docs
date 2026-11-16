@@ -1,16 +1,11 @@
 import type { Context, Page } from '@/types'
 import type { PageTransformer } from './types'
 
-/**
- * Transformer for the search page (/en/search).
- * This is a special UI-only page with no markdown content.
- * Returns minimal markdown with just the title.
- */
+// /en/search has no markdown content, so return the title and a pointer to the Search API.
 export class SearchPageTransformer implements PageTransformer {
   templateName = ''
 
   canTransform(page: Page): boolean {
-    // Only match the search page specifically
     return page.relativePath === 'search/index.md'
   }
 
@@ -21,7 +16,7 @@ export class SearchPageTransformer implements PageTransformer {
 Use the Search API to search programmatically:
 
 \`\`\`
-curl "https://docs.github.com/api/search?query=actions&language=en&version=free-pro-team@latest"
+curl "https://docs.github.com/api/search/v1?query=actions&client_name=docs-api-example&language=en&version=free-pro-team@latest"
 \`\`\`
 `
   }

@@ -14,15 +14,41 @@ import {
 } from '../fixtures/create-rest-examples'
 
 describe('rest example requests and responses', () => {
-  // If there is a request with no request body parameters and all of
-  // the responses have no content, then we can create a docs
-  // example for just status codes below 300. All other status codes will
-  // be listed in the status code table in the docs.
+  // One request with multiple contentless responses yields examples only for statuses below 300.
   test('check that examples with no content are created', async () => {
     const examples = mergeExamples(noContent.request, noContent.response)
     const mergedExamples = JSON.stringify(noContent.merged)
     expect(examples.length).toBe(2)
     expect(mergedExamples).toBe(JSON.stringify(examples))
+  })
+
+  test('redirect-only operation with contentless 302 and 304 responses gets a 302 example', async () => {
+    const redirectOnlyOp = {
+      parameters: [{ name: 'migration_id', in: 'path', required: true }],
+      responses: {
+        302: { description: 'Found' },
+        304: { description: 'Not modified' },
+        401: { description: 'Requires authentication' },
+        403: { description: 'Forbidden' },
+      },
+    }
+    const examples = await getCodeSamples(redirectOnlyOp)
+    expect(examples.length).toBe(1)
+    expect(examples[0].response?.statusCode).toBe('302')
+    expect(examples[0].request.description).toBe('Example')
+  })
+
+  test('redirect-only operation skips a contentless 304 that sorts before another redirect', async () => {
+    const redirectOnlyOp = {
+      parameters: [],
+      responses: {
+        304: { description: 'Not modified' },
+        307: { description: 'Temporary Redirect' },
+      },
+    }
+    const examples = await getCodeSamples(redirectOnlyOp)
+    expect(examples.length).toBe(1)
+    expect(examples[0].response?.statusCode).toBe('307')
   })
 
   test('check that multiple response examples with content are create for a single request example', async () => {
@@ -53,9 +79,131 @@ describe('rest example requests and responses', () => {
     expect(mergedExamples).toBe(JSON.stringify(examples))
   })
 
+  test('multiple request examples pair with a contentless response that has an unmatched key', () => {
+    const requests = [
+      {
+        key: 'by-subject-digests',
+        request: {
+          contentType: 'application/json',
+          description: 'Delete by subject digests',
+          acceptHeader: 'application/vnd.github.v3+json',
+          bodyParameters: { subject_digests: ['sha256:abc123'] },
+        },
+      },
+      {
+        key: 'by-attestation-ids',
+        request: {
+          contentType: 'application/json',
+          description: 'Delete by attestation IDs',
+          acceptHeader: 'application/vnd.github.v3+json',
+          bodyParameters: { attestation_ids: [111, 222] },
+        },
+      },
+    ]
+    const responses = [{ key: '200', response: { statusCode: '200', description: 'Response' } }]
+    const examples = mergeExamples(requests, responses)
+    expect(examples.length).toBe(2)
+    expect(examples.map((ex) => ex.request.description)).toEqual([
+      'Delete by subject digests',
+      'Delete by attestation IDs',
+    ])
+    for (const example of examples) {
+      expect(example.response?.statusCode).toBe('200')
+    }
+  })
+
+  test('multiple request examples pair with the success response when no keys match', () => {
+    const requests = [
+      {
+        key: 'issue',
+        request: {
+          contentType: 'application/json',
+          description: 'Create a draft issue',
+          acceptHeader: 'application/vnd.github.v3+json',
+          bodyParameters: { title: 'Draft' },
+        },
+      },
+      {
+        key: 'issue-with-body',
+        request: {
+          contentType: 'application/json',
+          description: 'Create a draft issue with body',
+          acceptHeader: 'application/vnd.github.v3+json',
+          bodyParameters: { title: 'Draft', body: 'Body' },
+        },
+      },
+    ]
+    const responses = [
+      {
+        key: 'draft-issue',
+        response: {
+          statusCode: '201',
+          contentType: 'application/json',
+          description: 'Response',
+          example: { id: 1 },
+        },
+      },
+      { key: '304', response: { statusCode: '304', description: 'Not modified' } },
+    ]
+    const examples = mergeExamples(requests, responses)
+    expect(examples.length).toBe(2)
+    for (const example of examples) {
+      expect(example.response?.statusCode).toBe('201')
+      expect(example.response?.example).toEqual({ id: 1 })
+    }
+  })
+
+  test('multiple request examples prefer a 201 over a 200 when no keys match', () => {
+    const requests = [
+      {
+        key: 'repository',
+        request: {
+          contentType: 'application/json',
+          description: 'Add a repository',
+          acceptHeader: 'application/vnd.github.v3+json',
+          bodyParameters: { resource_type: 'repository' },
+        },
+      },
+      {
+        key: 'free_text',
+        request: {
+          contentType: 'application/json',
+          description: 'Add free text',
+          acceptHeader: 'application/vnd.github.v3+json',
+          bodyParameters: { resource_type: 'free_text' },
+        },
+      },
+    ]
+    const responses = [
+      {
+        key: '200',
+        response: {
+          statusCode: '200',
+          contentType: 'application/json',
+          description: 'Duplicate github_file resource already exists',
+          example: { id: 1 },
+        },
+      },
+      {
+        key: '201',
+        response: {
+          statusCode: '201',
+          contentType: 'application/json',
+          description: 'Resource created',
+          example: { id: 2 },
+        },
+      },
+    ]
+    const examples = mergeExamples(requests, responses)
+    expect(examples.length).toBe(2)
+    for (const example of examples) {
+      expect(example.response?.statusCode).toBe('201')
+      expect(example.response?.description).toBe('Resource created')
+    }
+  })
+
   test('check example number and status code appear', async () => {
     const mergedExamples = await getCodeSamples(operation)
-    // example has specific structure from getCodeSamples
     for (let index = 0; index < mergedExamples.length; index++) {
       const example = mergedExamples[index] as {
         request: { description: string }

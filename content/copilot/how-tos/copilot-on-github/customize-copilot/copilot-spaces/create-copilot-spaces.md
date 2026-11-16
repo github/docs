@@ -13,7 +13,7 @@ redirect_from:
   - /copilot/how-tos/context/use-copilot-spaces/create-and-use-copilot-spaces
   - /copilot/how-tos/provide-context/use-copilot-spaces/create-copilot-spaces
 contentType: how-tos
-category: 
+category:
   - Author and optimize with Copilot
 ---
 
@@ -64,9 +64,21 @@ You can add files to a space directly from the code view on {% data variables.pr
 
 1. From the dropdown, select the space you want to add the file to, or create a new space.
 
+## Restoring chat use in spaces with incompatible private sources
+
+If a space includes data from multiple organizations or a mix of private and organization data, chat may not work correctly in {% data variables.copilot.copilot_in_the_cloud %}.
+
+To use chat in {% data variables.copilot.copilot_in_the_cloud_short %}, include only public repositories and private repositories owned by the space owner.
+
+To restore chat in an incompatible space:
+
+1. Identify the incompatible sources.
+1. Remove the sources or adjust their access permissions to meet these requirements.
+1. If necessary, add the sources back, ensuring they meet these requirements.
+
 ## Next steps
 
-* For an overview of {% data variables.copilot.copilot_spaces %}, see [AUTOTITLE](/copilot/concepts/context/spaces).
-* To use {% data variables.copilot.copilot_spaces_short %} in {% data variables.product.github %} and your IDE, see [AUTOTITLE](/copilot/how-tos/provide-context/use-copilot-spaces/use-copilot-spaces).
+* For an overview of {% data variables.copilot.copilot_spaces %}, see [AUTOTITLE](/copilot/concepts/prompting-and-context/spaces).
+* To use {% data variables.copilot.copilot_spaces_short %} in your IDE, see [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/customize-copilot/extend-copilot-with-tools-and-context/use-copilot-spaces).
 * To speed up development work with {% data variables.copilot.copilot_spaces_short %}, see [AUTOTITLE](/copilot/tutorials/speed-up-development-work).
 * To share your space with your team, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/copilot-spaces/collaborate-with-others).

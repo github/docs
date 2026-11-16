@@ -1,0 +1,59 @@
+// Variant and size rules sit in :where() so consumer classes override them
+// without !important.
+.iconButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  padding: 0;
+  // Colour lives in the variants. Invisible's transparent border keeps an outline in forced-colors mode.
+  border-width: 1px;
+  border-style: solid;
+  border-radius: var(--brand-borderRadius-medium);
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: 2px solid var(--brand-color-focus);
+    outline-offset: 2px;
+  }
+}
+
+:where(.iconButton[data-size="small"]) {
+  width: 28px;
+  height: 28px;
+}
+
+:where(.iconButton[data-size="medium"]) {
+  width: 32px;
+  height: 32px;
+}
+
+:where(.iconButton[data-variant="default"]) {
+  color: var(--brand-color-text-default);
+  background-color: var(--brand-button-secondary-bgColor-rest);
+  border-color: var(--brand-button-secondary-borderColor-rest);
+
+  &:hover {
+    background-color: var(--brand-button-secondary-bgColor-hover);
+    border-color: var(--brand-button-secondary-borderColor-hover);
+  }
+
+  &:active {
+    background-color: var(--brand-button-secondary-bgColor-active);
+    border-color: var(--brand-button-secondary-borderColor-active);
+  }
+}
+
+:where(.iconButton[data-variant="invisible"]) {
+  color: var(--brand-color-text-muted);
+  background-color: transparent;
+  border-color: transparent;
+
+  &:hover {
+    background-color: var(--brand-button-subtle-bgColor-hover);
+  }
+
+  &:active {
+    background-color: var(--brand-button-subtle-bgColor-active);
+  }
+}

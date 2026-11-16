@@ -15,7 +15,7 @@ contentType: reference
 
 ## About delegating policy decisions to organizations
 
-Policies can be defined for a whole enterprise, or set at the organization level. See [AUTOTITLE](/copilot/concepts/policies).
+Policies can be defined for a whole enterprise, or set at the organization level. See [AUTOTITLE](/copilot/concepts/enterprise/policies).
 
 When an enterprise owner delegates control of a policy to organization owners by setting "No policy," some organizations may enable a feature while others disable it. Users may be granted a {% data variables.product.prodname_copilot_short %} license by organizations with different policies for the same feature.
 
@@ -36,20 +36,18 @@ Feature, model, and privacy settings for users are set according to the **least 
 | Policy | Availability matches | More information |
 | :---- | :---- | :---- |
 | {% data variables.product.prodname_copilot_short %} Metrics API | Most restrictive organization | {% ifversion ghec %}[AUTOTITLE](/rest/copilot/copilot-usage-metrics){% else %}Not applicable{% endif %} |
-| Semantic indexing for non-{% data variables.product.github %} repositories | Most restrictive organization (only available when all organizations explicitly set **Enabled**; **Unconfigured** behaves as disabled) | [AUTOTITLE](/copilot/concepts/context/repository-indexing) |
-| Suggestions matching public code (privacy policy) | Most restrictive organization | [AUTOTITLE](/copilot/concepts/completions/code-suggestions) |
+| Semantic indexing for non-{% data variables.product.github %} repositories | Most restrictive organization (only available when all organizations explicitly set **Enabled**; **Unconfigured** behaves as disabled) | [AUTOTITLE](/copilot/concepts/prompting-and-context/repository-indexing) |
+| Suggestions matching public code (privacy policy) | Most restrictive organization | [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-in-ides#code-suggestions) |
 | Allow members without a {% data variables.product.prodname_copilot_short %} license to use {% data variables.copilot.copilot_code-review_short %} in {% data variables.product.prodname_dotcom_the_website %} | Most restrictive organization | [AUTOTITLE](/copilot/responsible-use/agents) |
 | {% data variables.product.prodname_copilot_short %} can search the web | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/chat) |
-| {% data variables.copilot.copilot_mobile_short %} | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/chat) |
+| {% data variables.copilot.copilot_in_the_cloud_short %} | Least restrictive organization | [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-on-github) |
 | {% data variables.copilot.copilot_chat_short %} in the IDE | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/chat) |
 | {% data variables.product.prodname_copilot_short %} Agent Mode in IDE Chat | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/chat) |
 | {% data variables.copilot.copilot_code-review_short %} | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/agents) |
-| {% data variables.copilot.copilot_cloud_agent %} | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/agents) |
 | {% data variables.product.prodname_spark_short %} | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/agents) |
-| {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %} | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/chat) |
 | {% data variables.copilot.copilot_desktop_short %} | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/chat) |
 | {% data variables.copilot.copilot_cli_short %} | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/agents) |
-| {% data variables.copilot.github_copilot_app %} | Least restrictive organization | [AUTOTITLE](/copilot/concepts/agents/github-copilot-app) |
+| The {% data variables.copilot.github_copilot_app %} | Least restrictive organization | [AUTOTITLE](/copilot/concepts/copilot-surfaces/github-copilot-app) |
 | Editor preview features | Least restrictive organization | [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-pre-release-license-terms) |
 | MCP servers in {% data variables.product.prodname_copilot_short %} | Least restrictive organization | [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/configure-mcp-servers) |
 | {% data variables.product.prodname_copilot_short %}-generated commit messages | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/chat) |

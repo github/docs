@@ -85,7 +85,7 @@ If you’re already using {% data variables.copilot.copilot_free_short %} and re
 
 You can subscribe to {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, or {% data variables.copilot.copilot_max_short %} at any time to unlock advanced AI features, higher usage limits, and access to additional models.
 
-> [!TIP] Not sure which plan to choose? For a side-by-side comparison, see [AUTOTITLE](/copilot/concepts/billing/individual-plans).
+> [!TIP] Not sure which plan to choose? For a side-by-side comparison, see [AUTOTITLE](/copilot/get-started/plans).
 
 1. Go to the [plans page](https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=text&ref_plan=pro).
 1. Click **Get started** under the plan you want to subscribe to.
@@ -111,6 +111,15 @@ If the plan does not appear after following the checkout steps [when subscribing
 1. Confirm that the plan appears in your {% data variables.product.prodname_copilot %} settings or in your personal account settings under **Billing & licensing**. For more information, see [AUTOTITLE](/copilot/how-tos/manage-your-account/view-and-change-your-copilot-plan).
 1. If payment method verification failed or you did not complete the activation step, retry the checkout flow.
 1. If you completed activation and the plan still does not appear, contact {% data variables.contact.contact_support_page %}.
+
+### Plan canceled after a failed renewal
+
+If your personal {% data variables.copilot.copilot_pro_short %} or {% data variables.copilot.copilot_pro_plus_short %} subscription was canceled after failed renewal attempts, **Billing & licensing** may show {% data variables.copilot.copilot_free_short %}. You may not see **Pay now**, **Upgrade**, or **Reactivate**, even after updating your payment method. This is different from an incomplete checkout: updating your payment method alone does not restore a canceled plan.
+
+1. Confirm your current plan in your personal account settings under **Billing & licensing**.
+1. When individual sign-up is available, start a new subscription by following the steps in [Subscribing to a paid plan](#subscribing-to-copilot-pro-copilot-pro-or-copilot-max).
+
+Restoring a canceled plan is treated as a new individual subscription. If individual sign-up is temporarily unavailable, there is no self-service way to restore paid access until sign-up becomes available again.
 
 ### Blocked plan setup on a personal account
 

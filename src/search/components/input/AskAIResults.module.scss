@@ -1,7 +1,7 @@
 @import "@primer/css/support/variables/layout.scss";
 
-$bodyPadding: 0 16px 0px 16px;
-$mutedTextColor: var(--fgColor-muted, var(--color-fg-muted, #656d76));
+$bodyPadding: 0;
+$mutedTextColor: var(--brand-color-text-muted, var(--fgColor-muted, #656d76));
 
 .container {
   max-width: 100%;
@@ -10,8 +10,10 @@ $mutedTextColor: var(--fgColor-muted, var(--color-fg-muted, #656d76));
 
 .disclaimerText {
   display: block;
-  font-size: small !important;
+  font-size: 14px !important;
+  font-style: italic;
   font-weight: var(--base-text-weight-normal, 400) !important;
+  line-height: 1.5;
   color: $mutedTextColor;
   margin: 8px 0px 18px 0px;
   padding: $bodyPadding;
@@ -22,8 +24,27 @@ $mutedTextColor: var(--fgColor-muted, var(--color-fg-muted, #656d76));
   }
 }
 
+.answerRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  width: 100%;
+}
+
+.answerGlyph {
+  flex-shrink: 0;
+  // Align with the first line's optical center.
+  margin-top: 2px;
+  color: var(--brand-color-text-muted);
+}
+
 .markdownBodyOverrides {
-  font-size: small;
+  // Let it shrink so long code spans wrap instead of overflowing.
+  flex: 1 1 auto;
+  min-width: 0;
+  font-family: var(--brand-body-fontFamily);
+  font-size: 14px;
+  line-height: 1.5;
   margin-top: 4px;
   margin-bottom: 16px;
   padding: $bodyPadding;
@@ -39,13 +60,70 @@ $mutedTextColor: var(--fgColor-muted, var(--color-fg-muted, #656d76));
   }
 }
 
-.referencesTitle {
+// Presentational: this sits inside the listbox, which can't own a heading element.
+.answerHeading {
   margin: 0;
-  padding-left: 0 !important;
+  padding: 24px 0;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--brand-color-text-muted);
 }
 
-.referencesList {
-  margin-top: 12px !important;
+// An h3 outside the listbox, directly above the sources group it names. Its top margin is
+// the gap the old wrapper around title and rows used to carry.
+.referencesTitle {
+  margin: 12px 0 0;
+  padding: 24px 0 8px;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--brand-color-text-muted);
+}
+
+// Source rows are options too, so they match the docs rows' size and active state.
+.referenceRow {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 56px;
+  // Same 8px inset as docs rows, since these are docs links too.
+  padding: 16px 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--brand-color-text-default);
+}
+
+.referenceRow:hover {
+  background-color: rgba(129, 139, 152, 0.1);
+  border-radius: 6px;
+}
+
+.referenceRowActive {
+  background-color: rgba(129, 139, 152, 0.15);
+  border-radius: 6px;
+  font-weight: 600;
+  // Blue, not brand's green accent, which reads as "success".
+  box-shadow: inset 0 0 0 2px
+    var(--fgColor-accent, var(--color-accent-fg, #0969da));
+
+  .referenceGlyph {
+    color: var(--fgColor-accent, var(--color-accent-fg, #0969da));
+  }
+
+  // Forced colors drop the fill and the ring, so draw the selection as a system-color outline.
+  @media (forced-colors: active) {
+    outline: 2px solid Highlight;
+    outline-offset: -2px;
+  }
+}
+
+.referenceGlyph {
+  flex-shrink: 0;
+  color: var(--brand-color-text-muted);
 }
 
 .loadingContainer {

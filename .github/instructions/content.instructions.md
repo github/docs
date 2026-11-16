@@ -88,7 +88,13 @@ Articles with `contentType: rai` in their frontmatter are **application or platf
 * **Reusables**: RAI articles must only reference reusables from `data/reusables/rai/`. Place new RAI reusables there too.
 * **Frontmatter**: New application cards use `contentType: rai`. The older `type: rai` is for legacy transparency notes not yet migrated.
 
-## Parenthetical dashes
+## Punctuation
+
+### Semicolons
+
+Avoid semicolons except where necessary. Generally they can be avoided and shorter sentences used instead. As a general rule, try to avoid very long sentences.
+
+### Parenthetical dashes
 
 Where a sentence of normal body text contains a parenthetical dash, the dash should always be an em dash without spaces at either side. This rule does not apply to text within code blocks.
 

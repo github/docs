@@ -5,6 +5,7 @@ versions:
   feature: ghes-opentelemetry
 children:
   - /about-opentelemetry-metrics
+  - /migration-guidance
   - /configuring-opentelemetry-for-your-instance
   - /advanced-dashboards
   - /using-grafana-to-analyze-opentelemetry-metrics
@@ -13,9 +14,3 @@ shortTitle: OpenTelemetry metrics
 ---
 
 {% data reusables.enterprise.opentelemetry-migration %}
-
-{% ifversion ghes = 3.18 %}
-
-{% data reusables.enterprise.opentelemetry-preview %}
-
-{% endif %}

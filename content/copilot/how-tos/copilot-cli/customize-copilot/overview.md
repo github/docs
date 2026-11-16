@@ -57,7 +57,13 @@ The Model Context Protocol (MCP) allows you to add external tools and data sourc
 * Book tickets online
 * Integrate with a calendar application
 
-For more information, see [AUTOTITLE](/copilot/concepts/context/mcp).
+For more information, see [AUTOTITLE](/copilot/concepts/customizations/mcp).
+
+## {% data variables.product.github %}-verified MCP servers
+
+{% data variables.product.github %}-verified MCP servers (connectors) give {% data variables.copilot.copilot_cli_short %} access to tools and context from external services. Connect a service once, then use the connection across supported {% data variables.product.prodname_copilot_short %} surfaces without repeating setup or signing in separately in each one. {% data variables.product.github %} handles MCP server configuration and authentication for you.
+
+For more information, see [AUTOTITLE](/copilot/concepts/customizations/copilot-connectors).
 
 ## Plugins
 

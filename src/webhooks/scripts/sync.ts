@@ -1,7 +1,6 @@
-import { readFile, writeFile, unlink } from 'fs/promises'
+import { mkdir, readdir, readFile, writeFile, unlink } from 'fs/promises'
 import { existsSync } from 'fs'
 import path from 'path'
-import { mkdirp } from 'mkdirp'
 
 import { WEBHOOK_DATA_DIR } from '../lib/index'
 import Webhook, { WebhookSchema } from '@/webhooks/scripts/webhook'
@@ -23,10 +22,7 @@ export async function syncWebhookData(
     webhookSchemas.map(async (schemaName) => {
       const file = path.join(sourceDirectory, schemaName)
       const schema: WebhookFile = JSON.parse(await readFile(file, 'utf-8'))
-      // In OpenAPI version 3.1, the schema data is under the `webhooks`
-      // key, but in 3.0 the schema data was in `x-webhooks`.
-      // We just fallback to `x-webhooks` for now since there's
-      // currently no difference in the schema data between versions.
+      // OpenAPI 3.1 stores webhook data under webhooks and 3.0 under x-webhooks; both use the same shape.
       const webhookSchemaData = schema.webhooks ?? schema['x-webhooks']
       if (!webhookSchemaData) {
         console.log(
@@ -49,15 +45,12 @@ export async function syncWebhookData(
       const targetDirectory = path.join(WEBHOOK_DATA_DIR, versionName)
 
       if (!existsSync(targetDirectory)) {
-        await mkdirp(targetDirectory)
+        await mkdir(targetDirectory, { recursive: true })
       }
 
-      // Write one JSON file per webhook category (e.g. check_run.json) instead
-      // of a single monolithic schema.json. This allows the server to load only
-      // the requested webhook on demand rather than the entire version schema.
-      //
-      // childParamsGroups are split into a separate file ({category}.child-params.json)
-      // so the landing page never loads them — they're only fetched on drill-down.
+      const writtenFiles = new Set<string>()
+
+      // Split categories, such as check_run.json, from childParamsGroups sidecars.
       await Promise.all(
         Object.entries(data).map(async ([category, categoryData]) => {
           const childParams: Record<string, Record<string, unknown[]>> = {}
@@ -75,11 +68,14 @@ export async function syncWebhookData(
             const slimAction = {
               ...actionData,
               bodyParameters: actionData.bodyParameters?.map((param) => {
-                if (param.childParamsGroups && param.childParamsGroups.length > 0 && param.name) {
-                  actionChildParams[param.name] = param.childParamsGroups
+                const { childParamsGroups, ...rest } = param
+                // An empty array tells the page that children can lazy-load from the sidecar.
+                if (childParamsGroups && childParamsGroups.length > 0 && param.name) {
+                  actionChildParams[param.name] = childParamsGroups
                   hasChildParams = true
+                  return { ...rest, childParamsGroups: [] }
                 }
-                return { ...param, childParamsGroups: [] }
+                return rest
               }),
             }
 
@@ -89,30 +85,41 @@ export async function syncWebhookData(
             }
           }
 
+          writtenFiles.add(`${category}.json`)
           const targetPath = path.join(targetDirectory, `${category}.json`)
           await writeFile(targetPath, JSON.stringify(slimCategoryData, null, 2))
           console.log(`✅ Wrote ${targetPath}`)
 
           const childParamsPath = path.join(targetDirectory, `${category}.child-params.json`)
           if (Object.keys(childParams).length > 0) {
+            writtenFiles.add(`${category}.child-params.json`)
             await writeFile(childParamsPath, JSON.stringify(childParams, null, 2))
             console.log(`✅ Wrote ${childParamsPath}`)
-          } else {
-            // Remove any stale sidecar from a previous sync where this category
-            // had child params but no longer does. getWebhook() probes for this
-            // file unconditionally, so leaving it would reintroduce removed
-            // nested params on drill-down.
-            for (const stalePath of [childParamsPath, `${childParamsPath}.br`]) {
-              if (existsSync(stalePath)) {
-                await unlink(stalePath)
-                console.log(`🗑️  Removed stale ${stalePath}`)
-              }
-            }
           }
         }),
       )
+
+      await removeStaleWebhookDataFiles(targetDirectory, writtenFiles)
     }),
   )
+}
+
+// The site lists webhook events from the files on disk, so any category or
+// child-params file this run did not write would keep a removed event on the docs.
+// Brotli copies are removed too because the loader prefers them over plain JSON.
+export async function removeStaleWebhookDataFiles(
+  targetDirectory: string,
+  writtenFiles: Set<string>,
+): Promise<void> {
+  if (!existsSync(targetDirectory)) return
+
+  for (const file of await readdir(targetDirectory)) {
+    if (!(file.endsWith('.json') || file.endsWith('.json.br'))) continue
+    if (writtenFiles.has(file)) continue
+    const filePath = path.join(targetDirectory, file)
+    await unlink(filePath)
+    console.log(`🗑️  Removed stale data file ${filePath}`)
+  }
 }
 
 async function processWebhookSchema(webhooks: Webhook[]): Promise<void> {
@@ -127,10 +134,8 @@ async function processWebhookSchema(webhooks: Webhook[]): Promise<void> {
   }
 }
 
-// Create an object with all webhooks where the key is the webhook name.
-// Webhooks typically have a property called `action` that describes the
-// events that trigger the webhook. Some webhooks (like `ping`) don't have
-// action types -- in that case we set the value of action to 'default'.
+// Groups webhooks by category and action type.
+// Webhooks without action types, such as ping, use default.
 async function formatWebhookData(
   webhooks: Webhook[],
 ): Promise<Record<string, Record<string, Webhook>>> {

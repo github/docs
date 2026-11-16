@@ -30,9 +30,7 @@ The predefined roles for organization access are:
 * **Security manager:** Grants the ability to manage security policies, security alerts, and security configurations for an organization and all its repositories.
 * **CI/CD admin:** Grants admin access to manage Actions policies, runners, runner groups, hosted compute network configurations, secrets, variables, and usage metrics for an organization.
 
-{%- ifversion org-app-manager-teams %}
 * **App Manager:** Grants the ability to create, edit, and delete all GitHub Apps in an organization.
-{%- endif %}
 
 There are also roles that grant access to repositories in the organization:
 

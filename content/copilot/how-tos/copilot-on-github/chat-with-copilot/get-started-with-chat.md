@@ -59,10 +59,12 @@ Navigate to a failed workflow run, a pull request with a failing check, or paste
 
 ## Security alert questions
 
-Navigate to a {% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_secret_scanning %}, or {% data variables.product.prodname_dependabot %} alert to ask about it.
+Navigate to a repository in your organization to ask {% data variables.product.prodname_copilot_short %} about a security alert from {% data variables.product.prodname_GHAS %} features ({% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_secret_scanning %}, and {% data variables.product.prodname_dependabot_alerts %}). For example:
 
 * {% prompt %}How would I fix this alert?{% endprompt %}
 * {% prompt %}Which line of code is this alert referencing?{% endprompt %}
+* {% prompt %}How many alerts do I have on this pull request?{% endprompt %}
+* {% prompt %}What library is affected by this {% data variables.product.prodname_dependabot %} alert?{% endprompt %}
 
 ## Issue, discussion, and commit questions
 

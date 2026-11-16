@@ -20,7 +20,7 @@ The following table lists where MCP private registry features are supported.
 | Surface | Registry display | Allowlist enforcement |
 |---|:---:|:---:|
 | {% data variables.copilot.copilot_cli_short %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} v1.0.11+ |
-| {% data variables.copilot.copilot_cloud_agent %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| {% data variables.copilot.copilot_in_the_cloud_short %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
 | Eclipse | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} v4.38+ |
 | JetBrains | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} v1.5.64+ |
 | {% data variables.product.prodname_vs %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} v18.4.0+ |

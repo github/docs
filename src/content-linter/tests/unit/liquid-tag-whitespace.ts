@@ -58,6 +58,37 @@ describe(liquidTagWhitespace.names.join(' - '), () => {
     })
   })
 
+  test('liquid tags with several multiple-space gaps get one full fix', async () => {
+    const markdown = '{% ifversion  fpt  or  ghec %}x{% endif %}'
+
+    const result = await runRule(liquidTagWhitespace, { strings: { markdown } })
+    const errors = result.markdown
+    expect(errors.length).toBe(1)
+    expect(errors[0].fixInfo).toEqual({
+      deleteCount: 30,
+      editColumn: 1,
+      lineNumber: 1,
+      insertText: '{% ifversion fpt or ghec %}',
+    })
+  })
+
+  test('liquid tag fixes keep whitespace inside quoted strings', async () => {
+    const markdown = [
+      `{% assign  label  =  "two  spaces" | append:  'and  more' %}`,
+      `{% assign label = "two  spaces" | append: 'and  more' %}`,
+    ].join('\n')
+
+    const result = await runRule(liquidTagWhitespace, { strings: { markdown } })
+    const errors = result.markdown
+    expect(errors.length).toBe(1)
+    expect(errors[0].fixInfo).toEqual({
+      deleteCount: 60,
+      editColumn: 1,
+      lineNumber: 1,
+      insertText: `{% assign label = "two  spaces" | append: 'and  more' %}`,
+    })
+  })
+
   test('liquid tags with single spaces between arguments pass', async () => {
     const markdown = [
       '{% assign my_variable = "value" %}',

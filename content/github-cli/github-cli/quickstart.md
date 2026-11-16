@@ -20,6 +20,8 @@ category:
 
 {% data reusables.rest-api.github-cli-install-and-auth %}
 
+For more ways to authenticate, including environment variables, {% data variables.product.prodname_actions %}, and expiring tokens, see [AUTOTITLE](/github-cli/github-cli/authenticating-with-github-cli).
+
 ## Some useful commands
 
 > [!NOTE]
@@ -93,5 +95,6 @@ If you need to use the {% data variables.product.prodname_cli %} across multiple
 
 ## Further reading
 
+* [AUTOTITLE](/github-cli/github-cli/authenticating-with-github-cli)
 * [AUTOTITLE](/github-cli/github-cli/github-cli-reference)
 * [{% data variables.product.prodname_cli %} online manual](https://cli.github.com/manual/gh)

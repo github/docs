@@ -10,6 +10,7 @@ children:
   - /enable-developers
   - /drive-downstream-impact
   - /measure-copilot-impact
+  - /communicate-copilot-impact
   - /measure-success
 redirect_from:
   - /copilot/rolling-out-github-copilot-at-scale
@@ -17,4 +18,3 @@ redirect_from:
   - /copilot/tutorials/rolling-out-github-copilot-at-scale
 contentType: tutorials
 ---
-

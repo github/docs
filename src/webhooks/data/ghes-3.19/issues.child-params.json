@@ -259,10 +259,130 @@
         ]
       },
       {
-        "type": "array of object,nulls",
+        "type": "array of objects",
         "name": "assignees",
         "description": "",
-        "isRequired": true
+        "isRequired": true,
+        "childParamsGroups": [
+          {
+            "type": "string",
+            "name": "avatar_url",
+            "description": ""
+          },
+          {
+            "type": "boolean",
+            "name": "deleted",
+            "description": ""
+          },
+          {
+            "type": "string or null",
+            "name": "email",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "events_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "followers_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "following_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "gists_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "gravatar_id",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "html_url",
+            "description": ""
+          },
+          {
+            "type": "integer",
+            "name": "id",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "login",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "node_id",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "organizations_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "received_events_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "repos_url",
+            "description": ""
+          },
+          {
+            "type": "boolean",
+            "name": "site_admin",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "starred_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "subscriptions_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "type",
+            "description": "",
+            "enum": [
+              "Bot",
+              "User",
+              "Organization",
+              "Mannequin"
+            ]
+          },
+          {
+            "type": "string",
+            "name": "url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "user_view_type",
+            "description": ""
+          }
+        ]
       },
       {
         "type": "string",
@@ -355,6 +475,148 @@
             "name": "description",
             "description": "",
             "isRequired": true
+          },
+          {
+            "type": "string or null",
+            "name": "archived_at",
+            "description": "<p>Timestamp indicating when the label was archived, or <code>null</code> if it has not been archived.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "null or object",
+            "name": "archived_by",
+            "description": "<p>The user who archived the label, or <code>null</code> if it has not been archived.</p>",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "string or null",
+                "name": "name",
+                "description": ""
+              },
+              {
+                "type": "string or null",
+                "name": "email",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "login",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "node_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "avatar_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string or null",
+                "name": "gravatar_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "html_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "followers_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "following_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "gists_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "starred_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "subscriptions_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "organizations_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "repos_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "events_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "received_events_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "type",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "boolean",
+                "name": "site_admin",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "starred_at",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "user_view_type",
+                "description": ""
+              }
+            ]
           },
           {
             "type": "integer",
@@ -1842,6 +2104,31 @@
         ]
       },
       {
+        "type": "object or null",
+        "name": "status",
+        "description": "<p>The status of the issue, or <code>null</code> if it has none. Issue statuses are in preview and only available to accounts enrolled in the preview.</p>",
+        "childParamsGroups": [
+          {
+            "type": "integer",
+            "name": "id",
+            "description": "<p>The stable identifier of the planning status. It does not change when the status is renamed.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "description": "<p>The display name of the planning status, which may change in the future.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "category",
+            "description": "<p>A stable identifier for the category, such as <code>backlog</code>, <code>planned</code>, <code>started</code>, <code>completed</code>, <code>not_planned</code> or <code>duplicate</code>. Clients should expect new keys to be added.</p>",
+            "isRequired": true
+          }
+        ]
+      },
+      {
         "type": "string",
         "name": "state",
         "description": "<p>State of the issue; either 'open' or 'closed'</p>",
@@ -2089,10 +2376,130 @@
         "description": ""
       },
       {
-        "type": "array of object,nulls",
+        "type": "array of objects",
         "name": "assignees",
         "description": "",
-        "isRequired": true
+        "isRequired": true,
+        "childParamsGroups": [
+          {
+            "type": "string",
+            "name": "avatar_url",
+            "description": ""
+          },
+          {
+            "type": "boolean",
+            "name": "deleted",
+            "description": ""
+          },
+          {
+            "type": "string or null",
+            "name": "email",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "events_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "followers_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "following_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "gists_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "gravatar_id",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "html_url",
+            "description": ""
+          },
+          {
+            "type": "integer",
+            "name": "id",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "login",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "node_id",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "organizations_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "received_events_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "repos_url",
+            "description": ""
+          },
+          {
+            "type": "boolean",
+            "name": "site_admin",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "starred_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "subscriptions_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "type",
+            "description": "",
+            "enum": [
+              "Bot",
+              "User",
+              "Organization",
+              "Mannequin"
+            ]
+          },
+          {
+            "type": "string",
+            "name": "url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "user_view_type",
+            "description": ""
+          }
+        ]
       },
       {
         "type": "string",
@@ -2164,7 +2571,7 @@
         "isRequired": true
       },
       {
-        "type": "array of object,nulls",
+        "type": "array of objects",
         "name": "labels",
         "description": ""
       },
@@ -3129,6 +3536,31 @@
         ]
       },
       {
+        "type": "object or null",
+        "name": "status",
+        "description": "<p>The status of the issue, or <code>null</code> if it has none. Issue statuses are in preview and only available to accounts enrolled in the preview.</p>",
+        "childParamsGroups": [
+          {
+            "type": "integer",
+            "name": "id",
+            "description": "<p>The stable identifier of the planning status. It does not change when the status is renamed.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "description": "<p>The display name of the planning status, which may change in the future.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "category",
+            "description": "<p>A stable identifier for the category, such as <code>backlog</code>, <code>planned</code>, <code>started</code>, <code>completed</code>, <code>not_planned</code> or <code>duplicate</code>. Clients should expect new keys to be added.</p>",
+            "isRequired": true
+          }
+        ]
+      },
+      {
         "type": "string",
         "name": "state",
         "description": "",
@@ -3496,10 +3928,129 @@
         ]
       },
       {
-        "type": "array of object,nulls",
+        "type": "array of objects",
         "name": "assignees",
         "description": "",
-        "isRequired": true
+        "isRequired": true,
+        "childParamsGroups": [
+          {
+            "type": "string",
+            "name": "avatar_url",
+            "description": ""
+          },
+          {
+            "type": "boolean",
+            "name": "deleted",
+            "description": ""
+          },
+          {
+            "type": "string or null",
+            "name": "email",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "events_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "followers_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "following_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "gists_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "gravatar_id",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "html_url",
+            "description": ""
+          },
+          {
+            "type": "integer",
+            "name": "id",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "login",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "node_id",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "organizations_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "received_events_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "repos_url",
+            "description": ""
+          },
+          {
+            "type": "boolean",
+            "name": "site_admin",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "starred_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "subscriptions_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "type",
+            "description": "",
+            "enum": [
+              "Bot",
+              "User",
+              "Organization"
+            ]
+          },
+          {
+            "type": "string",
+            "name": "url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "user_view_type",
+            "description": ""
+          }
+        ]
       },
       {
         "type": "string",
@@ -5077,6 +5628,31 @@
         ]
       },
       {
+        "type": "object or null",
+        "name": "status",
+        "description": "<p>The status of the issue, or <code>null</code> if it has none. Issue statuses are in preview and only available to accounts enrolled in the preview.</p>",
+        "childParamsGroups": [
+          {
+            "type": "integer",
+            "name": "id",
+            "description": "<p>The stable identifier of the planning status. It does not change when the status is renamed.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "description": "<p>The display name of the planning status, which may change in the future.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "category",
+            "description": "<p>A stable identifier for the category, such as <code>backlog</code>, <code>planned</code>, <code>started</code>, <code>completed</code>, <code>not_planned</code> or <code>duplicate</code>. Clients should expect new keys to be added.</p>",
+            "isRequired": true
+          }
+        ]
+      },
+      {
         "type": "string",
         "name": "state",
         "description": "<p>State of the issue; either 'open' or 'closed'</p>",
@@ -5438,10 +6014,125 @@
         ]
       },
       {
-        "type": "array of object,nulls",
+        "type": "array of objects",
         "name": "assignees",
         "description": "",
-        "isRequired": true
+        "isRequired": true,
+        "childParamsGroups": [
+          {
+            "type": "string",
+            "name": "avatar_url",
+            "description": ""
+          },
+          {
+            "type": "boolean",
+            "name": "deleted",
+            "description": ""
+          },
+          {
+            "type": "string or null",
+            "name": "email",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "events_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "followers_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "following_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "gists_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "gravatar_id",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "html_url",
+            "description": ""
+          },
+          {
+            "type": "integer",
+            "name": "id",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "login",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "node_id",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "organizations_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "received_events_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "repos_url",
+            "description": ""
+          },
+          {
+            "type": "boolean",
+            "name": "site_admin",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "starred_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "subscriptions_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "type",
+            "description": "",
+            "enum": [
+              "Bot",
+              "User",
+              "Organization",
+              "Mannequin"
+            ]
+          },
+          {
+            "type": "string",
+            "name": "url",
+            "description": ""
+          }
+        ]
       },
       {
         "type": "string",
@@ -5513,9 +6204,53 @@
         "isRequired": true
       },
       {
-        "type": "array of object,nulls",
+        "type": "array of objects",
         "name": "labels",
-        "description": ""
+        "description": "",
+        "childParamsGroups": [
+          {
+            "type": "string",
+            "name": "color",
+            "description": "<p>6-character hex code, without the leading #, identifying the color</p>",
+            "isRequired": true
+          },
+          {
+            "type": "boolean",
+            "name": "default",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string or null",
+            "name": "description",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "integer",
+            "name": "id",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "description": "<p>The name of the label.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "node_id",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "url",
+            "description": "<p>URL for the label</p>",
+            "isRequired": true
+          }
+        ]
       },
       {
         "type": "string",
@@ -6977,6 +7712,31 @@
         ]
       },
       {
+        "type": "object or null",
+        "name": "status",
+        "description": "<p>The status of the issue, or <code>null</code> if it has none. Issue statuses are in preview and only available to accounts enrolled in the preview.</p>",
+        "childParamsGroups": [
+          {
+            "type": "integer",
+            "name": "id",
+            "description": "<p>The stable identifier of the planning status. It does not change when the status is renamed.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "description": "<p>The display name of the planning status, which may change in the future.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "category",
+            "description": "<p>A stable identifier for the category, such as <code>backlog</code>, <code>planned</code>, <code>started</code>, <code>completed</code>, <code>not_planned</code> or <code>duplicate</code>. Clients should expect new keys to be added.</p>",
+            "isRequired": true
+          }
+        ]
+      },
+      {
         "type": "string",
         "name": "state",
         "description": "<p>State of the issue; either 'open' or 'closed'</p>",
@@ -7594,10 +8354,125 @@
         ]
       },
       {
-        "type": "array of object,nulls",
+        "type": "array of objects",
         "name": "assignees",
         "description": "",
-        "isRequired": true
+        "isRequired": true,
+        "childParamsGroups": [
+          {
+            "type": "string",
+            "name": "avatar_url",
+            "description": ""
+          },
+          {
+            "type": "boolean",
+            "name": "deleted",
+            "description": ""
+          },
+          {
+            "type": "string or null",
+            "name": "email",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "events_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "followers_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "following_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "gists_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "gravatar_id",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "html_url",
+            "description": ""
+          },
+          {
+            "type": "integer",
+            "name": "id",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "login",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "node_id",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "organizations_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "received_events_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "repos_url",
+            "description": ""
+          },
+          {
+            "type": "boolean",
+            "name": "site_admin",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "starred_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "subscriptions_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "type",
+            "description": "",
+            "enum": [
+              "Bot",
+              "User",
+              "Organization",
+              "Mannequin"
+            ]
+          },
+          {
+            "type": "string",
+            "name": "url",
+            "description": ""
+          }
+        ]
       },
       {
         "type": "string",
@@ -7690,6 +8565,148 @@
             "name": "description",
             "description": "",
             "isRequired": true
+          },
+          {
+            "type": "string or null",
+            "name": "archived_at",
+            "description": "<p>Timestamp indicating when the label was archived, or <code>null</code> if it has not been archived.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "null or object",
+            "name": "archived_by",
+            "description": "<p>The user who archived the label, or <code>null</code> if it has not been archived.</p>",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "string or null",
+                "name": "name",
+                "description": ""
+              },
+              {
+                "type": "string or null",
+                "name": "email",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "login",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "node_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "avatar_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string or null",
+                "name": "gravatar_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "html_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "followers_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "following_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "gists_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "starred_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "subscriptions_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "organizations_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "repos_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "events_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "received_events_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "type",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "boolean",
+                "name": "site_admin",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "starred_at",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "user_view_type",
+                "description": ""
+              }
+            ]
           },
           {
             "type": "integer",
@@ -9177,6 +10194,31 @@
         ]
       },
       {
+        "type": "object or null",
+        "name": "status",
+        "description": "<p>The status of the issue, or <code>null</code> if it has none. Issue statuses are in preview and only available to accounts enrolled in the preview.</p>",
+        "childParamsGroups": [
+          {
+            "type": "integer",
+            "name": "id",
+            "description": "<p>The stable identifier of the planning status. It does not change when the status is renamed.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "description": "<p>The display name of the planning status, which may change in the future.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "category",
+            "description": "<p>A stable identifier for the category, such as <code>backlog</code>, <code>planned</code>, <code>started</code>, <code>completed</code>, <code>not_planned</code> or <code>duplicate</code>. Clients should expect new keys to be added.</p>",
+            "isRequired": true
+          }
+        ]
+      },
+      {
         "type": "string",
         "name": "state",
         "description": "<p>State of the issue; either 'open' or 'closed'</p>",
@@ -9422,6 +10464,148 @@
         "isRequired": true
       },
       {
+        "type": "string or null",
+        "name": "archived_at",
+        "description": "<p>Timestamp indicating when the label was archived, or <code>null</code> if it has not been archived.</p>",
+        "isRequired": true
+      },
+      {
+        "type": "null or object",
+        "name": "archived_by",
+        "description": "<p>The user who archived the label, or <code>null</code> if it has not been archived.</p>",
+        "isRequired": true,
+        "childParamsGroups": [
+          {
+            "type": "string or null",
+            "name": "name",
+            "description": ""
+          },
+          {
+            "type": "string or null",
+            "name": "email",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "login",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "integer",
+            "name": "id",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "node_id",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "avatar_url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string or null",
+            "name": "gravatar_id",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "html_url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "followers_url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "following_url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "gists_url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "starred_url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "subscriptions_url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "organizations_url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "repos_url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "events_url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "received_events_url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "type",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "boolean",
+            "name": "site_admin",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "starred_at",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "user_view_type",
+            "description": ""
+          }
+        ]
+      },
+      {
         "type": "integer",
         "name": "id",
         "description": "",
@@ -9588,10 +10772,125 @@
         ]
       },
       {
-        "type": "array of object,nulls",
+        "type": "array of objects",
         "name": "assignees",
         "description": "",
-        "isRequired": true
+        "isRequired": true,
+        "childParamsGroups": [
+          {
+            "type": "string",
+            "name": "avatar_url",
+            "description": ""
+          },
+          {
+            "type": "boolean",
+            "name": "deleted",
+            "description": ""
+          },
+          {
+            "type": "string or null",
+            "name": "email",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "events_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "followers_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "following_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "gists_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "gravatar_id",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "html_url",
+            "description": ""
+          },
+          {
+            "type": "integer",
+            "name": "id",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "login",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "node_id",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "organizations_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "received_events_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "repos_url",
+            "description": ""
+          },
+          {
+            "type": "boolean",
+            "name": "site_admin",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "starred_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "subscriptions_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "type",
+            "description": "",
+            "enum": [
+              "Bot",
+              "User",
+              "Organization",
+              "Mannequin"
+            ]
+          },
+          {
+            "type": "string",
+            "name": "url",
+            "description": ""
+          }
+        ]
       },
       {
         "type": "string",
@@ -9684,6 +10983,148 @@
             "name": "description",
             "description": "",
             "isRequired": true
+          },
+          {
+            "type": "string or null",
+            "name": "archived_at",
+            "description": "<p>Timestamp indicating when the label was archived, or <code>null</code> if it has not been archived.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "null or object",
+            "name": "archived_by",
+            "description": "<p>The user who archived the label, or <code>null</code> if it has not been archived.</p>",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "string or null",
+                "name": "name",
+                "description": ""
+              },
+              {
+                "type": "string or null",
+                "name": "email",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "login",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "node_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "avatar_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string or null",
+                "name": "gravatar_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "html_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "followers_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "following_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "gists_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "starred_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "subscriptions_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "organizations_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "repos_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "events_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "received_events_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "type",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "boolean",
+                "name": "site_admin",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "starred_at",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "user_view_type",
+                "description": ""
+              }
+            ]
           },
           {
             "type": "integer",
@@ -11171,6 +12612,31 @@
         ]
       },
       {
+        "type": "object or null",
+        "name": "status",
+        "description": "<p>The status of the issue, or <code>null</code> if it has none. Issue statuses are in preview and only available to accounts enrolled in the preview.</p>",
+        "childParamsGroups": [
+          {
+            "type": "integer",
+            "name": "id",
+            "description": "<p>The stable identifier of the planning status. It does not change when the status is renamed.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "description": "<p>The display name of the planning status, which may change in the future.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "category",
+            "description": "<p>A stable identifier for the category, such as <code>backlog</code>, <code>planned</code>, <code>started</code>, <code>completed</code>, <code>not_planned</code> or <code>duplicate</code>. Clients should expect new keys to be added.</p>",
+            "isRequired": true
+          }
+        ]
+      },
+      {
         "type": "string",
         "name": "state",
         "description": "<p>State of the issue; either 'open' or 'closed'</p>",
@@ -11416,6 +12882,148 @@
         "isRequired": true
       },
       {
+        "type": "string or null",
+        "name": "archived_at",
+        "description": "<p>Timestamp indicating when the label was archived, or <code>null</code> if it has not been archived.</p>",
+        "isRequired": true
+      },
+      {
+        "type": "null or object",
+        "name": "archived_by",
+        "description": "<p>The user who archived the label, or <code>null</code> if it has not been archived.</p>",
+        "isRequired": true,
+        "childParamsGroups": [
+          {
+            "type": "string or null",
+            "name": "name",
+            "description": ""
+          },
+          {
+            "type": "string or null",
+            "name": "email",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "login",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "integer",
+            "name": "id",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "node_id",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "avatar_url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string or null",
+            "name": "gravatar_id",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "html_url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "followers_url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "following_url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "gists_url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "starred_url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "subscriptions_url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "organizations_url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "repos_url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "events_url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "received_events_url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "type",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "boolean",
+            "name": "site_admin",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "starred_at",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "user_view_type",
+            "description": ""
+          }
+        ]
+      },
+      {
         "type": "integer",
         "name": "id",
         "description": "",
@@ -11581,10 +13189,129 @@
         ]
       },
       {
-        "type": "array of object,nulls",
+        "type": "array of objects",
         "name": "assignees",
         "description": "",
-        "isRequired": true
+        "isRequired": true,
+        "childParamsGroups": [
+          {
+            "type": "string",
+            "name": "avatar_url",
+            "description": ""
+          },
+          {
+            "type": "boolean",
+            "name": "deleted",
+            "description": ""
+          },
+          {
+            "type": "string or null",
+            "name": "email",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "events_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "followers_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "following_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "gists_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "gravatar_id",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "html_url",
+            "description": ""
+          },
+          {
+            "type": "integer",
+            "name": "id",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "login",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "node_id",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "organizations_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "received_events_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "repos_url",
+            "description": ""
+          },
+          {
+            "type": "boolean",
+            "name": "site_admin",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "starred_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "subscriptions_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "type",
+            "description": "",
+            "enum": [
+              "Bot",
+              "User",
+              "Organization"
+            ]
+          },
+          {
+            "type": "string",
+            "name": "url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "user_view_type",
+            "description": ""
+          }
+        ]
       },
       {
         "type": "string",
@@ -11656,9 +13383,53 @@
         "isRequired": true
       },
       {
-        "type": "array of object,nulls",
+        "type": "array of objects",
         "name": "labels",
-        "description": ""
+        "description": "",
+        "childParamsGroups": [
+          {
+            "type": "string",
+            "name": "color",
+            "description": "<p>6-character hex code, without the leading #, identifying the color</p>",
+            "isRequired": true
+          },
+          {
+            "type": "boolean",
+            "name": "default",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string or null",
+            "name": "description",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "integer",
+            "name": "id",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "description": "<p>The name of the label.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "node_id",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "url",
+            "description": "<p>URL for the label</p>",
+            "isRequired": true
+          }
+        ]
       },
       {
         "type": "string",
@@ -13122,6 +14893,31 @@
         ]
       },
       {
+        "type": "object or null",
+        "name": "status",
+        "description": "<p>The status of the issue, or <code>null</code> if it has none. Issue statuses are in preview and only available to accounts enrolled in the preview.</p>",
+        "childParamsGroups": [
+          {
+            "type": "integer",
+            "name": "id",
+            "description": "<p>The stable identifier of the planning status. It does not change when the status is renamed.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "description": "<p>The display name of the planning status, which may change in the future.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "category",
+            "description": "<p>A stable identifier for the category, such as <code>backlog</code>, <code>planned</code>, <code>started</code>, <code>completed</code>, <code>not_planned</code> or <code>duplicate</code>. Clients should expect new keys to be added.</p>",
+            "isRequired": true
+          }
+        ]
+      },
+      {
         "type": "string",
         "name": "state",
         "description": "<p>State of the issue; either 'open' or 'closed'</p>",
@@ -13482,10 +15278,124 @@
         ]
       },
       {
-        "type": "array of object,nulls",
+        "type": "array of objects",
         "name": "assignees",
         "description": "",
-        "isRequired": true
+        "isRequired": true,
+        "childParamsGroups": [
+          {
+            "type": "string",
+            "name": "avatar_url",
+            "description": ""
+          },
+          {
+            "type": "boolean",
+            "name": "deleted",
+            "description": ""
+          },
+          {
+            "type": "string or null",
+            "name": "email",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "events_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "followers_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "following_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "gists_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "gravatar_id",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "html_url",
+            "description": ""
+          },
+          {
+            "type": "integer",
+            "name": "id",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "login",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "node_id",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "organizations_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "received_events_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "repos_url",
+            "description": ""
+          },
+          {
+            "type": "boolean",
+            "name": "site_admin",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "starred_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "subscriptions_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "type",
+            "description": "",
+            "enum": [
+              "Bot",
+              "User",
+              "Organization"
+            ]
+          },
+          {
+            "type": "string",
+            "name": "url",
+            "description": ""
+          }
+        ]
       },
       {
         "type": "string",
@@ -13557,9 +15467,53 @@
         "isRequired": true
       },
       {
-        "type": "array of object,nulls",
+        "type": "array of objects",
         "name": "labels",
-        "description": ""
+        "description": "",
+        "childParamsGroups": [
+          {
+            "type": "string",
+            "name": "color",
+            "description": "<p>6-character hex code, without the leading #, identifying the color</p>",
+            "isRequired": true
+          },
+          {
+            "type": "boolean",
+            "name": "default",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string or null",
+            "name": "description",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "integer",
+            "name": "id",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "description": "<p>The name of the label.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "node_id",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "url",
+            "description": "<p>URL for the label</p>",
+            "isRequired": true
+          }
+        ]
       },
       {
         "type": "string",
@@ -15021,6 +16975,31 @@
         ]
       },
       {
+        "type": "object or null",
+        "name": "status",
+        "description": "<p>The status of the issue, or <code>null</code> if it has none. Issue statuses are in preview and only available to accounts enrolled in the preview.</p>",
+        "childParamsGroups": [
+          {
+            "type": "integer",
+            "name": "id",
+            "description": "<p>The stable identifier of the planning status. It does not change when the status is renamed.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "description": "<p>The display name of the planning status, which may change in the future.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "category",
+            "description": "<p>A stable identifier for the category, such as <code>backlog</code>, <code>planned</code>, <code>started</code>, <code>completed</code>, <code>not_planned</code> or <code>duplicate</code>. Clients should expect new keys to be added.</p>",
+            "isRequired": true
+          }
+        ]
+      },
+      {
         "type": "string",
         "name": "state",
         "description": "<p>State of the issue; either 'open' or 'closed'</p>",
@@ -15613,9 +17592,128 @@
             ]
           },
           {
-            "type": "array of object,nulls",
+            "type": "array of objects",
             "name": "assignees",
-            "description": ""
+            "description": "",
+            "childParamsGroups": [
+              {
+                "type": "string",
+                "name": "avatar_url",
+                "description": ""
+              },
+              {
+                "type": "boolean",
+                "name": "deleted",
+                "description": ""
+              },
+              {
+                "type": "string or null",
+                "name": "email",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "events_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "followers_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "following_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "gists_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "gravatar_id",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "html_url",
+                "description": ""
+              },
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "login",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "name",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "node_id",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "organizations_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "received_events_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "repos_url",
+                "description": ""
+              },
+              {
+                "type": "boolean",
+                "name": "site_admin",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "starred_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "subscriptions_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "type",
+                "description": "",
+                "enum": [
+                  "Bot",
+                  "User",
+                  "Organization"
+                ]
+              },
+              {
+                "type": "string",
+                "name": "url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "user_view_type",
+                "description": ""
+              }
+            ]
           },
           {
             "type": "string",
@@ -16727,6 +18825,31 @@
                     "isRequired": true
                   }
                 ]
+              }
+            ]
+          },
+          {
+            "type": "object or null",
+            "name": "status",
+            "description": "<p>The status of the issue, or <code>null</code> if it has none. Issue statuses are in preview and only available to accounts enrolled in the preview.</p>",
+            "childParamsGroups": [
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "<p>The stable identifier of the planning status. It does not change when the status is renamed.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "name",
+                "description": "<p>The display name of the planning status, which may change in the future.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "category",
+                "description": "<p>A stable identifier for the category, such as <code>backlog</code>, <code>planned</code>, <code>started</code>, <code>completed</code>, <code>not_planned</code> or <code>duplicate</code>. Clients should expect new keys to be added.</p>",
+                "isRequired": true
               }
             ]
           },
@@ -18294,10 +20417,129 @@
         ]
       },
       {
-        "type": "array of object,nulls",
+        "type": "array of objects",
         "name": "assignees",
         "description": "",
-        "isRequired": true
+        "isRequired": true,
+        "childParamsGroups": [
+          {
+            "type": "string",
+            "name": "avatar_url",
+            "description": ""
+          },
+          {
+            "type": "boolean",
+            "name": "deleted",
+            "description": ""
+          },
+          {
+            "type": "string or null",
+            "name": "email",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "events_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "followers_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "following_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "gists_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "gravatar_id",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "html_url",
+            "description": ""
+          },
+          {
+            "type": "integer",
+            "name": "id",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "login",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "node_id",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "organizations_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "received_events_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "repos_url",
+            "description": ""
+          },
+          {
+            "type": "boolean",
+            "name": "site_admin",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "starred_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "subscriptions_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "type",
+            "description": "",
+            "enum": [
+              "Bot",
+              "User",
+              "Organization"
+            ]
+          },
+          {
+            "type": "string",
+            "name": "url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "user_view_type",
+            "description": ""
+          }
+        ]
       },
       {
         "type": "string",
@@ -19428,6 +21670,31 @@
         ]
       },
       {
+        "type": "object or null",
+        "name": "status",
+        "description": "<p>The status of the issue, or <code>null</code> if it has none. Issue statuses are in preview and only available to accounts enrolled in the preview.</p>",
+        "childParamsGroups": [
+          {
+            "type": "integer",
+            "name": "id",
+            "description": "<p>The stable identifier of the planning status. It does not change when the status is renamed.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "description": "<p>The display name of the planning status, which may change in the future.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "category",
+            "description": "<p>A stable identifier for the category, such as <code>backlog</code>, <code>planned</code>, <code>started</code>, <code>completed</code>, <code>not_planned</code> or <code>duplicate</code>. Clients should expect new keys to be added.</p>",
+            "isRequired": true
+          }
+        ]
+      },
+      {
         "type": "string",
         "name": "state",
         "description": "<p>State of the issue; either 'open' or 'closed'</p>",
@@ -20242,10 +22509,129 @@
         ]
       },
       {
-        "type": "array of object,nulls",
+        "type": "array of objects",
         "name": "assignees",
         "description": "",
-        "isRequired": true
+        "isRequired": true,
+        "childParamsGroups": [
+          {
+            "type": "string",
+            "name": "avatar_url",
+            "description": ""
+          },
+          {
+            "type": "boolean",
+            "name": "deleted",
+            "description": ""
+          },
+          {
+            "type": "string or null",
+            "name": "email",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "events_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "followers_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "following_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "gists_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "gravatar_id",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "html_url",
+            "description": ""
+          },
+          {
+            "type": "integer",
+            "name": "id",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "login",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "node_id",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "organizations_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "received_events_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "repos_url",
+            "description": ""
+          },
+          {
+            "type": "boolean",
+            "name": "site_admin",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "starred_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "subscriptions_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "type",
+            "description": "",
+            "enum": [
+              "Bot",
+              "User",
+              "Organization"
+            ]
+          },
+          {
+            "type": "string",
+            "name": "url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "user_view_type",
+            "description": ""
+          }
+        ]
       },
       {
         "type": "string",
@@ -20338,6 +22724,148 @@
             "name": "description",
             "description": "",
             "isRequired": true
+          },
+          {
+            "type": "string or null",
+            "name": "archived_at",
+            "description": "<p>Timestamp indicating when the label was archived, or <code>null</code> if it has not been archived.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "null or object",
+            "name": "archived_by",
+            "description": "<p>The user who archived the label, or <code>null</code> if it has not been archived.</p>",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "string or null",
+                "name": "name",
+                "description": ""
+              },
+              {
+                "type": "string or null",
+                "name": "email",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "login",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "node_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "avatar_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string or null",
+                "name": "gravatar_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "html_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "followers_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "following_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "gists_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "starred_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "subscriptions_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "organizations_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "repos_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "events_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "received_events_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "type",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "boolean",
+                "name": "site_admin",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "starred_at",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "user_view_type",
+                "description": ""
+              }
+            ]
           },
           {
             "type": "integer",
@@ -21823,6 +24351,31 @@
         ]
       },
       {
+        "type": "object or null",
+        "name": "status",
+        "description": "<p>The status of the issue, or <code>null</code> if it has none. Issue statuses are in preview and only available to accounts enrolled in the preview.</p>",
+        "childParamsGroups": [
+          {
+            "type": "integer",
+            "name": "id",
+            "description": "<p>The stable identifier of the planning status. It does not change when the status is renamed.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "description": "<p>The display name of the planning status, which may change in the future.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "category",
+            "description": "<p>A stable identifier for the category, such as <code>backlog</code>, <code>planned</code>, <code>started</code>, <code>completed</code>, <code>not_planned</code> or <code>duplicate</code>. Clients should expect new keys to be added.</p>",
+            "isRequired": true
+          }
+        ]
+      },
+      {
         "type": "string",
         "name": "state",
         "description": "<p>State of the issue; either 'open' or 'closed'</p>",
@@ -22183,10 +24736,125 @@
         ]
       },
       {
-        "type": "array of object,nulls",
+        "type": "array of objects",
         "name": "assignees",
         "description": "",
-        "isRequired": true
+        "isRequired": true,
+        "childParamsGroups": [
+          {
+            "type": "string",
+            "name": "avatar_url",
+            "description": ""
+          },
+          {
+            "type": "boolean",
+            "name": "deleted",
+            "description": ""
+          },
+          {
+            "type": "string or null",
+            "name": "email",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "events_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "followers_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "following_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "gists_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "gravatar_id",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "html_url",
+            "description": ""
+          },
+          {
+            "type": "integer",
+            "name": "id",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "login",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "node_id",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "organizations_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "received_events_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "repos_url",
+            "description": ""
+          },
+          {
+            "type": "boolean",
+            "name": "site_admin",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "starred_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "subscriptions_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "type",
+            "description": "",
+            "enum": [
+              "Bot",
+              "User",
+              "Organization",
+              "Mannequin"
+            ]
+          },
+          {
+            "type": "string",
+            "name": "url",
+            "description": ""
+          }
+        ]
       },
       {
         "type": "string",
@@ -22258,9 +24926,193 @@
         "isRequired": true
       },
       {
-        "type": "array of object,nulls",
+        "type": "array of objects",
         "name": "labels",
-        "description": ""
+        "description": "",
+        "childParamsGroups": [
+          {
+            "type": "string or null",
+            "name": "archived_at",
+            "description": "<p>Timestamp indicating when the label was archived, or <code>null</code> if it has not been archived.</p>"
+          },
+          {
+            "type": "null or object",
+            "name": "archived_by",
+            "description": "<p>The user who archived the label, or <code>null</code> if it has not been archived.</p>",
+            "childParamsGroups": [
+              {
+                "type": "string or null",
+                "name": "name",
+                "description": ""
+              },
+              {
+                "type": "string or null",
+                "name": "email",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "login",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "node_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "avatar_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string or null",
+                "name": "gravatar_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "html_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "followers_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "following_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "gists_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "starred_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "subscriptions_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "organizations_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "repos_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "events_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "received_events_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "type",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "boolean",
+                "name": "site_admin",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "starred_at",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "user_view_type",
+                "description": ""
+              }
+            ]
+          },
+          {
+            "type": "string",
+            "name": "color",
+            "description": "<p>6-character hex code, without the leading #, identifying the color</p>",
+            "isRequired": true
+          },
+          {
+            "type": "boolean",
+            "name": "default",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string or null",
+            "name": "description",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "integer",
+            "name": "id",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "description": "<p>The name of the label.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "node_id",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "url",
+            "description": "<p>URL for the label</p>",
+            "isRequired": true
+          }
+        ]
       },
       {
         "type": "string",
@@ -23723,6 +26575,31 @@
         ]
       },
       {
+        "type": "object or null",
+        "name": "status",
+        "description": "<p>The status of the issue, or <code>null</code> if it has none. Issue statuses are in preview and only available to accounts enrolled in the preview.</p>",
+        "childParamsGroups": [
+          {
+            "type": "integer",
+            "name": "id",
+            "description": "<p>The stable identifier of the planning status. It does not change when the status is renamed.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "description": "<p>The display name of the planning status, which may change in the future.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "category",
+            "description": "<p>A stable identifier for the category, such as <code>backlog</code>, <code>planned</code>, <code>started</code>, <code>completed</code>, <code>not_planned</code> or <code>duplicate</code>. Clients should expect new keys to be added.</p>",
+            "isRequired": true
+          }
+        ]
+      },
+      {
         "type": "string",
         "name": "state",
         "description": "<p>State of the issue; either 'open' or 'closed'</p>",
@@ -24096,10 +26973,129 @@
             ]
           },
           {
-            "type": "array of object,nulls",
+            "type": "array of objects",
             "name": "assignees",
             "description": "",
-            "isRequired": true
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "string",
+                "name": "avatar_url",
+                "description": ""
+              },
+              {
+                "type": "boolean",
+                "name": "deleted",
+                "description": ""
+              },
+              {
+                "type": "string or null",
+                "name": "email",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "events_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "followers_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "following_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "gists_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "gravatar_id",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "html_url",
+                "description": ""
+              },
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "login",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "name",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "node_id",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "organizations_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "received_events_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "repos_url",
+                "description": ""
+              },
+              {
+                "type": "boolean",
+                "name": "site_admin",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "starred_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "subscriptions_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "type",
+                "description": "",
+                "enum": [
+                  "Bot",
+                  "User",
+                  "Organization"
+                ]
+              },
+              {
+                "type": "string",
+                "name": "url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "user_view_type",
+                "description": ""
+              }
+            ]
           },
           {
             "type": "string",
@@ -25677,6 +28673,31 @@
             ]
           },
           {
+            "type": "object or null",
+            "name": "status",
+            "description": "<p>The status of the issue, or <code>null</code> if it has none. Issue statuses are in preview and only available to accounts enrolled in the preview.</p>",
+            "childParamsGroups": [
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "<p>The stable identifier of the planning status. It does not change when the status is renamed.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "name",
+                "description": "<p>The display name of the planning status, which may change in the future.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "category",
+                "description": "<p>A stable identifier for the category, such as <code>backlog</code>, <code>planned</code>, <code>started</code>, <code>completed</code>, <code>not_planned</code> or <code>duplicate</code>. Clients should expect new keys to be added.</p>",
+                "isRequired": true
+              }
+            ]
+          },
+          {
             "type": "string",
             "name": "state",
             "description": "<p>State of the issue; either 'open' or 'closed'</p>",
@@ -26797,10 +29818,129 @@
         ]
       },
       {
-        "type": "array of object,nulls",
+        "type": "array of objects",
         "name": "assignees",
         "description": "",
-        "isRequired": true
+        "isRequired": true,
+        "childParamsGroups": [
+          {
+            "type": "string",
+            "name": "avatar_url",
+            "description": ""
+          },
+          {
+            "type": "boolean",
+            "name": "deleted",
+            "description": ""
+          },
+          {
+            "type": "string or null",
+            "name": "email",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "events_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "followers_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "following_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "gists_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "gravatar_id",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "html_url",
+            "description": ""
+          },
+          {
+            "type": "integer",
+            "name": "id",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "login",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "node_id",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "organizations_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "received_events_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "repos_url",
+            "description": ""
+          },
+          {
+            "type": "boolean",
+            "name": "site_admin",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "starred_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "subscriptions_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "type",
+            "description": "",
+            "enum": [
+              "Bot",
+              "User",
+              "Organization"
+            ]
+          },
+          {
+            "type": "string",
+            "name": "url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "user_view_type",
+            "description": ""
+          }
+        ]
       },
       {
         "type": "string",
@@ -26893,6 +30033,148 @@
             "name": "description",
             "description": "",
             "isRequired": true
+          },
+          {
+            "type": "string or null",
+            "name": "archived_at",
+            "description": "<p>Timestamp indicating when the label was archived, or <code>null</code> if it has not been archived.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "null or object",
+            "name": "archived_by",
+            "description": "<p>The user who archived the label, or <code>null</code> if it has not been archived.</p>",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "string or null",
+                "name": "name",
+                "description": ""
+              },
+              {
+                "type": "string or null",
+                "name": "email",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "login",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "node_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "avatar_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string or null",
+                "name": "gravatar_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "html_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "followers_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "following_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "gists_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "starred_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "subscriptions_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "organizations_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "repos_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "events_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "received_events_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "type",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "boolean",
+                "name": "site_admin",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "starred_at",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "user_view_type",
+                "description": ""
+              }
+            ]
           },
           {
             "type": "integer",
@@ -28378,6 +31660,31 @@
         ]
       },
       {
+        "type": "object or null",
+        "name": "status",
+        "description": "<p>The status of the issue, or <code>null</code> if it has none. Issue statuses are in preview and only available to accounts enrolled in the preview.</p>",
+        "childParamsGroups": [
+          {
+            "type": "integer",
+            "name": "id",
+            "description": "<p>The stable identifier of the planning status. It does not change when the status is renamed.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "description": "<p>The display name of the planning status, which may change in the future.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "category",
+            "description": "<p>A stable identifier for the category, such as <code>backlog</code>, <code>planned</code>, <code>started</code>, <code>completed</code>, <code>not_planned</code> or <code>duplicate</code>. Clients should expect new keys to be added.</p>",
+            "isRequired": true
+          }
+        ]
+      },
+      {
         "type": "string",
         "name": "state",
         "description": "<p>State of the issue; either 'open' or 'closed'</p>",
@@ -28864,10 +32171,130 @@
         ]
       },
       {
-        "type": "array of object,nulls",
+        "type": "array of objects",
         "name": "assignees",
         "description": "",
-        "isRequired": true
+        "isRequired": true,
+        "childParamsGroups": [
+          {
+            "type": "string",
+            "name": "avatar_url",
+            "description": ""
+          },
+          {
+            "type": "boolean",
+            "name": "deleted",
+            "description": ""
+          },
+          {
+            "type": "string or null",
+            "name": "email",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "events_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "followers_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "following_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "gists_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "gravatar_id",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "html_url",
+            "description": ""
+          },
+          {
+            "type": "integer",
+            "name": "id",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "login",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "node_id",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "organizations_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "received_events_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "repos_url",
+            "description": ""
+          },
+          {
+            "type": "boolean",
+            "name": "site_admin",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "starred_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "subscriptions_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "type",
+            "description": "",
+            "enum": [
+              "Bot",
+              "User",
+              "Organization",
+              "Mannequin"
+            ]
+          },
+          {
+            "type": "string",
+            "name": "url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "user_view_type",
+            "description": ""
+          }
+        ]
       },
       {
         "type": "string",
@@ -28960,6 +32387,148 @@
             "name": "description",
             "description": "",
             "isRequired": true
+          },
+          {
+            "type": "string or null",
+            "name": "archived_at",
+            "description": "<p>Timestamp indicating when the label was archived, or <code>null</code> if it has not been archived.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "null or object",
+            "name": "archived_by",
+            "description": "<p>The user who archived the label, or <code>null</code> if it has not been archived.</p>",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "string or null",
+                "name": "name",
+                "description": ""
+              },
+              {
+                "type": "string or null",
+                "name": "email",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "login",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "node_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "avatar_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string or null",
+                "name": "gravatar_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "html_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "followers_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "following_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "gists_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "starred_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "subscriptions_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "organizations_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "repos_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "events_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "received_events_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "type",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "boolean",
+                "name": "site_admin",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "starred_at",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "user_view_type",
+                "description": ""
+              }
+            ]
           },
           {
             "type": "integer",
@@ -30443,6 +34012,31 @@
                 "isRequired": true
               }
             ]
+          }
+        ]
+      },
+      {
+        "type": "object or null",
+        "name": "status",
+        "description": "<p>The status of the issue, or <code>null</code> if it has none. Issue statuses are in preview and only available to accounts enrolled in the preview.</p>",
+        "childParamsGroups": [
+          {
+            "type": "integer",
+            "name": "id",
+            "description": "<p>The stable identifier of the planning status. It does not change when the status is renamed.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "description": "<p>The display name of the planning status, which may change in the future.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "category",
+            "description": "<p>A stable identifier for the category, such as <code>backlog</code>, <code>planned</code>, <code>started</code>, <code>completed</code>, <code>not_planned</code> or <code>duplicate</code>. Clients should expect new keys to be added.</p>",
+            "isRequired": true
           }
         ]
       },
@@ -30814,10 +34408,130 @@
         ]
       },
       {
-        "type": "array of object,nulls",
+        "type": "array of objects",
         "name": "assignees",
         "description": "",
-        "isRequired": true
+        "isRequired": true,
+        "childParamsGroups": [
+          {
+            "type": "string",
+            "name": "avatar_url",
+            "description": ""
+          },
+          {
+            "type": "boolean",
+            "name": "deleted",
+            "description": ""
+          },
+          {
+            "type": "string or null",
+            "name": "email",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "events_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "followers_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "following_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "gists_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "gravatar_id",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "html_url",
+            "description": ""
+          },
+          {
+            "type": "integer",
+            "name": "id",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "login",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "node_id",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "organizations_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "received_events_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "repos_url",
+            "description": ""
+          },
+          {
+            "type": "boolean",
+            "name": "site_admin",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "starred_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "subscriptions_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "type",
+            "description": "",
+            "enum": [
+              "Bot",
+              "User",
+              "Organization",
+              "Mannequin"
+            ]
+          },
+          {
+            "type": "string",
+            "name": "url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "user_view_type",
+            "description": ""
+          }
+        ]
       },
       {
         "type": "string",
@@ -30910,6 +34624,148 @@
             "name": "description",
             "description": "",
             "isRequired": true
+          },
+          {
+            "type": "string or null",
+            "name": "archived_at",
+            "description": "<p>Timestamp indicating when the label was archived, or <code>null</code> if it has not been archived.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "null or object",
+            "name": "archived_by",
+            "description": "<p>The user who archived the label, or <code>null</code> if it has not been archived.</p>",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "string or null",
+                "name": "name",
+                "description": ""
+              },
+              {
+                "type": "string or null",
+                "name": "email",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "login",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "node_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "avatar_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string or null",
+                "name": "gravatar_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "html_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "followers_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "following_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "gists_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "starred_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "subscriptions_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "organizations_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "repos_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "events_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "received_events_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "type",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "boolean",
+                "name": "site_admin",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "starred_at",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "user_view_type",
+                "description": ""
+              }
+            ]
           },
           {
             "type": "integer",
@@ -32397,6 +36253,31 @@
         ]
       },
       {
+        "type": "object or null",
+        "name": "status",
+        "description": "<p>The status of the issue, or <code>null</code> if it has none. Issue statuses are in preview and only available to accounts enrolled in the preview.</p>",
+        "childParamsGroups": [
+          {
+            "type": "integer",
+            "name": "id",
+            "description": "<p>The stable identifier of the planning status. It does not change when the status is renamed.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "description": "<p>The display name of the planning status, which may change in the future.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "category",
+            "description": "<p>A stable identifier for the category, such as <code>backlog</code>, <code>planned</code>, <code>started</code>, <code>completed</code>, <code>not_planned</code> or <code>duplicate</code>. Clients should expect new keys to be added.</p>",
+            "isRequired": true
+          }
+        ]
+      },
+      {
         "type": "string",
         "name": "state",
         "description": "<p>State of the issue; either 'open' or 'closed'</p>",
@@ -32642,6 +36523,148 @@
         "isRequired": true
       },
       {
+        "type": "string or null",
+        "name": "archived_at",
+        "description": "<p>Timestamp indicating when the label was archived, or <code>null</code> if it has not been archived.</p>",
+        "isRequired": true
+      },
+      {
+        "type": "null or object",
+        "name": "archived_by",
+        "description": "<p>The user who archived the label, or <code>null</code> if it has not been archived.</p>",
+        "isRequired": true,
+        "childParamsGroups": [
+          {
+            "type": "string or null",
+            "name": "name",
+            "description": ""
+          },
+          {
+            "type": "string or null",
+            "name": "email",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "login",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "integer",
+            "name": "id",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "node_id",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "avatar_url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string or null",
+            "name": "gravatar_id",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "html_url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "followers_url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "following_url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "gists_url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "starred_url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "subscriptions_url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "organizations_url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "repos_url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "events_url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "received_events_url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "type",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "boolean",
+            "name": "site_admin",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "starred_at",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "user_view_type",
+            "description": ""
+          }
+        ]
+      },
+      {
         "type": "integer",
         "name": "id",
         "description": "",
@@ -32807,10 +36830,129 @@
         ]
       },
       {
-        "type": "array of object,nulls",
+        "type": "array of objects",
         "name": "assignees",
         "description": "",
-        "isRequired": true
+        "isRequired": true,
+        "childParamsGroups": [
+          {
+            "type": "string",
+            "name": "avatar_url",
+            "description": ""
+          },
+          {
+            "type": "boolean",
+            "name": "deleted",
+            "description": ""
+          },
+          {
+            "type": "string or null",
+            "name": "email",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "events_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "followers_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "following_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "gists_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "gravatar_id",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "html_url",
+            "description": ""
+          },
+          {
+            "type": "integer",
+            "name": "id",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "login",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "node_id",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "organizations_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "received_events_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "repos_url",
+            "description": ""
+          },
+          {
+            "type": "boolean",
+            "name": "site_admin",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "starred_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "subscriptions_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "type",
+            "description": "",
+            "enum": [
+              "Bot",
+              "User",
+              "Organization"
+            ]
+          },
+          {
+            "type": "string",
+            "name": "url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "user_view_type",
+            "description": ""
+          }
+        ]
       },
       {
         "type": "string",
@@ -32882,9 +37024,53 @@
         "isRequired": true
       },
       {
-        "type": "array of object,nulls",
+        "type": "array of objects",
         "name": "labels",
-        "description": ""
+        "description": "",
+        "childParamsGroups": [
+          {
+            "type": "string",
+            "name": "color",
+            "description": "<p>6-character hex code, without the leading #, identifying the color</p>",
+            "isRequired": true
+          },
+          {
+            "type": "boolean",
+            "name": "default",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string or null",
+            "name": "description",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "integer",
+            "name": "id",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "description": "<p>The name of the label.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "node_id",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "url",
+            "description": "<p>URL for the label</p>",
+            "isRequired": true
+          }
+        ]
       },
       {
         "type": "string",
@@ -34348,6 +38534,31 @@
         ]
       },
       {
+        "type": "object or null",
+        "name": "status",
+        "description": "<p>The status of the issue, or <code>null</code> if it has none. Issue statuses are in preview and only available to accounts enrolled in the preview.</p>",
+        "childParamsGroups": [
+          {
+            "type": "integer",
+            "name": "id",
+            "description": "<p>The stable identifier of the planning status. It does not change when the status is renamed.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "description": "<p>The display name of the planning status, which may change in the future.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "category",
+            "description": "<p>A stable identifier for the category, such as <code>backlog</code>, <code>planned</code>, <code>started</code>, <code>completed</code>, <code>not_planned</code> or <code>duplicate</code>. Clients should expect new keys to be added.</p>",
+            "isRequired": true
+          }
+        ]
+      },
+      {
         "type": "string",
         "name": "state",
         "description": "<p>State of the issue; either 'open' or 'closed'</p>",
@@ -34713,10 +38924,129 @@
         ]
       },
       {
-        "type": "array of object,nulls",
+        "type": "array of objects",
         "name": "assignees",
         "description": "",
-        "isRequired": true
+        "isRequired": true,
+        "childParamsGroups": [
+          {
+            "type": "string",
+            "name": "avatar_url",
+            "description": ""
+          },
+          {
+            "type": "boolean",
+            "name": "deleted",
+            "description": ""
+          },
+          {
+            "type": "string or null",
+            "name": "email",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "events_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "followers_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "following_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "gists_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "gravatar_id",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "html_url",
+            "description": ""
+          },
+          {
+            "type": "integer",
+            "name": "id",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "login",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "node_id",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "organizations_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "received_events_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "repos_url",
+            "description": ""
+          },
+          {
+            "type": "boolean",
+            "name": "site_admin",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "starred_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "subscriptions_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "type",
+            "description": "",
+            "enum": [
+              "Bot",
+              "User",
+              "Organization"
+            ]
+          },
+          {
+            "type": "string",
+            "name": "url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "user_view_type",
+            "description": ""
+          }
+        ]
       },
       {
         "type": "string",
@@ -34809,6 +39139,148 @@
             "name": "description",
             "description": "",
             "isRequired": true
+          },
+          {
+            "type": "string or null",
+            "name": "archived_at",
+            "description": "<p>Timestamp indicating when the label was archived, or <code>null</code> if it has not been archived.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "null or object",
+            "name": "archived_by",
+            "description": "<p>The user who archived the label, or <code>null</code> if it has not been archived.</p>",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "string or null",
+                "name": "name",
+                "description": ""
+              },
+              {
+                "type": "string or null",
+                "name": "email",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "login",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "node_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "avatar_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string or null",
+                "name": "gravatar_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "html_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "followers_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "following_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "gists_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "starred_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "subscriptions_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "organizations_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "repos_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "events_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "received_events_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "type",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "boolean",
+                "name": "site_admin",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "starred_at",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "user_view_type",
+                "description": ""
+              }
+            ]
           },
           {
             "type": "integer",
@@ -36290,6 +40762,31 @@
                 "isRequired": true
               }
             ]
+          }
+        ]
+      },
+      {
+        "type": "object or null",
+        "name": "status",
+        "description": "<p>The status of the issue, or <code>null</code> if it has none. Issue statuses are in preview and only available to accounts enrolled in the preview.</p>",
+        "childParamsGroups": [
+          {
+            "type": "integer",
+            "name": "id",
+            "description": "<p>The stable identifier of the planning status. It does not change when the status is renamed.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "description": "<p>The display name of the planning status, which may change in the future.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "category",
+            "description": "<p>A stable identifier for the category, such as <code>backlog</code>, <code>planned</code>, <code>started</code>, <code>completed</code>, <code>not_planned</code> or <code>duplicate</code>. Clients should expect new keys to be added.</p>",
+            "isRequired": true
           }
         ]
       },

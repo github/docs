@@ -1,23 +1,72 @@
 name: Check for Spammy PRs
 
-# **What it does**: This action closes low value pull requests in the open-source repository.
-# **Why we have it**: We get lots of spam in the open-source repository.
-# **Who does it impact**: Open-source contributors.
+# Flags low-value public PRs and closes PRs with non-main targets or emoji titles.
+# Maintainers add the skip-spammy-check label to exempt a PR.
 
 on:
   pull_request_target:
-    types: [opened]
+    types: [opened, edited, reopened, synchronize]
 
 permissions:
   contents: read
-  pull-requests: write
+  issues: read
 
 jobs:
+  emoji-title-check:
+    name: Close PRs with emoji titles
+    if: github.repository == 'github/docs'
+    concurrency:
+      group: ${{ github.workflow }}-emoji-title-${{ github.event.pull_request.number }}
+      cancel-in-progress: false
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+        with:
+          github-token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          script: |
+            const item = context.payload.pull_request
+            const params = { ...context.repo, issue_number: item.number }
+
+            // Events can predate title edits or an exemption label, so read the current PR.
+            const { data: current } = await github.rest.issues.get(params)
+            if (current.state !== 'open' || current.user.login === 'docs-bot') {
+              return
+            }
+
+            // Text-default symbols need an emoji selector; plain digits, #, and * need a keycap.
+            const hasEmoji = /\p{Emoji_Presentation}(?!\uFE0E)|\p{Extended_Pictographic}\uFE0F|[#*0-9]\uFE0F?\u20E3/u.test(current.title)
+            if (!hasEmoji) {
+              return
+            }
+
+            if (current.labels.some(label => label.name.toLowerCase() === 'skip-spammy-check')) {
+              core.info('Skipping because the pull request has the skip-spammy-check label.')
+              return
+            }
+
+            // Mark automated closures so the skip label can trigger the existing recovery workflow.
+            await github.rest.issues.addLabels({
+              ...params,
+              labels: ['invalid'],
+            })
+
+            await github.rest.pulls.update({
+              ...context.repo,
+              pull_number: item.number,
+              state: 'closed',
+            })
+
+            await github.rest.issues.createComment({
+              ...params,
+              body: 'Closing because the title contains emoji. Please remove the emoji and open a new PR.',
+            })
+
   spammy-pr-check:
-    name: Label PRs that only delete files or touch a large number of files
+    name: Label spammy PRs and reject non-main targets
     if: >
       github.repository == 'github/docs' && github.event_name == 'pull_request_target' &&
-      github.event.pull_request.user.login != 'docs-bot'
+      github.event.pull_request.user.login != 'docs-bot' &&
+      !contains(github.event.pull_request.labels.*.name, 'skip-spammy-check')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
@@ -27,31 +76,140 @@ jobs:
             const owner = 'github'
             const repo = 'docs'
             const pull_number = context.payload.pull_request.number
+            const targetsNonMain = context.payload.pull_request.base.ref !== 'main'
 
-            const { data: files } = await github.rest.pulls.listFiles({
-              owner: owner,
-              repo: repo,
-              pull_number: pull_number,
-            });
+            const files = await github.paginate(github.rest.pulls.listFiles, {
+              owner,
+              repo,
+              pull_number,
+              per_page: 100,
+            })
 
             const onlyDeletes = files.length > 0 && files.every(f => f.status === 'removed')
-            const emptyCommit = !files.length 
+            const onlyDeletesLines =
+              files.some(file => file.deletions > 0) &&
+              files.every(file => file.additions === 0)
+            const isEmptyCommit = !files.length
             const touchesTooMany = files.length > 10
+            const isBlankLineEdit = files.length > 0 && files.every(file => {
+              const changedLines = (file.patch || '')
+                .split('\n')
+                .filter(line => /^[+-]/.test(line))
+              return changedLines.length > 0 &&
+                changedLines.every(line => line.slice(1).trim() === '')
+            })
+            const onlyBreaksOpeningFrontmatter = files.length > 0 && files.every(file => {
+              if (
+                file.status !== 'modified' ||
+                !file.filename.startsWith('content/') ||
+                !file.filename.endsWith('.md') ||
+                file.additions !== 1 ||
+                file.deletions !== 1
+              ) return false
 
-            // Close the PR and add the invalid label
-            if (onlyDeletes || emptyCommit || touchesTooMany) {
-              await github.rest.issues.update({
-                owner: owner,
-                repo: repo,
+              const lines = (file.patch || '').split('\n')
+              return /^@@ -1(?:,\d+)? \+1(?:,\d+)? @@/.test(lines[0]) &&
+                lines[1] === '----' && // Diff prefix "-" followed by the original "---".
+                lines[2]?.startsWith('+') &&
+                !/^---(?:\s*yaml)?\s*$/i.test(lines[2].slice(1))
+            })
+            const onlyRenames = files.length > 0 && files.every(
+              f => f.status === 'renamed' && f.additions === 0 && f.deletions === 0
+            )
+            const onlyIndexMd = files.length === 1 && files[0].filename.split('/').pop() === 'index.md'
+
+            // Content removals are allowed once the Docs team marks the linked issue `help wanted`.
+            let hasApprovedIssue = false
+            if (onlyDeletesLines || onlyDeletes) {
+              try {
+                const { repository } = await github.graphql(
+                  `query($owner: String!, $repo: String!, $number: Int!) {
+                    repository(owner: $owner, name: $repo) {
+                      pullRequest(number: $number) {
+                        closingIssuesReferences(first: 100) {
+                          nodes {
+                            repository {
+                              nameWithOwner
+                            }
+                            labels(first: 100) {
+                              nodes {
+                                name
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }`,
+                  { owner, repo, number: pull_number },
+                )
+                const closingIssues = repository?.pullRequest?.closingIssuesReferences?.nodes || []
+                // Issues in other repos don't count, since their owners can add the label themselves.
+                hasApprovedIssue = closingIssues.some(issue =>
+                  issue.repository?.nameWithOwner?.toLowerCase() === `${owner}/${repo}` &&
+                  issue.labels.nodes.some(label => label.name.toLowerCase() === 'help wanted'),
+                )
+              } catch (error) {
+                // Without the lookup, treat the removal as unapproved, as before.
+                core.warning(`Could not check linked issues: ${error.message}`)
+              }
+            }
+            const unapprovedLineDeletion = onlyDeletesLines && !hasApprovedIssue
+            const unapprovedFileDeletion = onlyDeletes && !hasApprovedIssue
+
+            if (
+              targetsNonMain ||
+              unapprovedLineDeletion ||
+              unapprovedFileDeletion ||
+              isEmptyCommit ||
+              touchesTooMany ||
+              isBlankLineEdit ||
+              onlyBreaksOpeningFrontmatter ||
+              onlyRenames ||
+              onlyIndexMd
+            ) {
+              // The payload can predate a label added right after the PR opened, so read the labels again.
+              const { data: currentLabels } = await github.rest.issues.listLabelsOnIssue({
+                owner,
+                repo,
+                issue_number: pull_number,
+                per_page: 100,
+              })
+              if (currentLabels.some(label => label.name.toLowerCase() === 'skip-spammy-check')) {
+                core.info('Skipping because the pull request has the skip-spammy-check label.')
+                return
+              }
+
+              await github.rest.issues.addLabels({
+                owner,
+                repo,
                 issue_number: pull_number,
                 labels: ['invalid'],
-              });
+              })
 
-              // Comment on the PR
               await github.rest.issues.createComment({
-                owner: owner,
-                repo: repo,
+                owner,
+                repo,
                 issue_number: pull_number,
-                body: `This pull request may have been opened accidentally. I'm going to close it now, but feel free to check out our [contribution guidelines](https://docs.github.com/en/contributing), or raise an issue.`,
-              });
+                body: targetsNonMain
+                  ? 'Pull requests must target the `main` branch. This pull request has been closed as invalid. If you think this is incorrect, please mention this in a corresponding issue.'
+                  : unapprovedLineDeletion
+                    ? 'This pull request only removes existing content. Before submitting a content-removal pull request, please [open an issue](https://github.com/github/docs/issues/new/choose) explaining the proposed removal and wait for the GitHub Docs team to add the `help wanted` label to it. Once the issue has the `help wanted` label, you can open a new pull request that links the issue with `Closes: #<issue number>` in the description.'
+                    : "This pull request may have been opened accidentally. I'm going to close it now, but feel free to check out our [contribution guidelines](https://docs.github.com/en/contributing), or raise an issue.",
+              })
+
+              if (targetsNonMain) {
+                await github.rest.pulls.update({
+                  owner,
+                  repo,
+                  pull_number,
+                  state: 'closed',
+                })
+              }
+
+              if (unapprovedLineDeletion) {
+                core.setFailed(
+                  'This pull request only deletes lines. An approved issue is required first.',
+                )
+              }
             }

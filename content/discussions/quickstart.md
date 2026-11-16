@@ -51,7 +51,7 @@ You can welcome your community and introduce a new way to communicate in a repos
 
 ## Setting up community guidelines for contributors
 
-For repository discussions, you can set contributing guidelines to encourage collaborators to have meaningful, useful conversations that are relevant to the repository. You can also update the repository's README to communicate expectations on when collaborators should open an issue or discussion. For more information about providing guidelines for your project, see{% ifversion fpt or ghec %} [AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project) and{% endif %} [AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions).
+For repository discussions, you can set contributing guidelines to encourage collaborators to have meaningful, useful conversations that are relevant to the repository. You can also update the repository's README to communicate expectations on when collaborators should open an issue or discussion. For more information about providing guidelines for your project, see [AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project) and [AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions).
 
 For organization discussions, you share information about how to engage with your organization by creating an organization profile README. For more information, see [AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/customizing-your-organizations-profile).
 

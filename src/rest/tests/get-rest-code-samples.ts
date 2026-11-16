@@ -13,7 +13,27 @@ describe('getGHExample - GitHub CLI code generation', () => {
       descriptionHTML: '<p>Creates a repository ruleset.</p>',
       previews: [],
       statusCodes: [],
-      bodyParameters: [],
+      bodyParameters: [
+        {
+          name: 'bypass_actors',
+          description: '',
+          type: 'array of objects',
+          childParamsGroups: [{ name: 'actor_id', description: '', type: 'integer or null' }],
+        },
+        {
+          name: 'conditions',
+          description: '',
+          type: 'object',
+          childParamsGroups: [
+            {
+              name: 'repository_name',
+              description: '',
+              type: 'object',
+              childParamsGroups: [{ name: 'protected', description: '', type: 'boolean' }],
+            },
+          ],
+        },
+      ],
       category: 'orgs',
       subcategory: 'rules',
       parameters: [
@@ -95,16 +115,15 @@ describe('getGHExample - GitHub CLI code generation', () => {
 
     const result = getGHExample(operation, codeSample, currentVersion, allVersions)
 
-    // The result should use --input for complex objects with arrays
     expect(result).toContain("--input - <<< '")
     expect(result).toContain('"bypass_actors": [')
     expect(result).toContain('"actor_id": 234')
+    expect(result).toContain('"protected": true')
     expect(result).toContain('"conditions": {')
     expect(result).toContain('"ref_name": {')
     expect(result).toContain('"rules": [')
     expect(result).toContain('"type": "commit_author_email_pattern"')
 
-    // Verify the JSON structure is properly formatted
     expect(result).toContain('"name": "super cool ruleset"')
     expect(result).toContain('"target": "branch"')
     expect(result).toContain('"enforcement": "active"')
@@ -297,5 +316,202 @@ describe('getGHExample - GitHub CLI code generation', () => {
     expect(result).toContain('--input - <<<')
     expect(result).toContain('"MVS-2026-001"')
     expect(result).toContain('"GHSA-xxxx-xxxx-xxxx"')
+  })
+
+  test('keeps digit-only strings when the schema type is string', () => {
+    const operation: Operation = {
+      serverUrl: 'https://api.github.com',
+      verb: 'post',
+      requestPath: '/repos/{owner}/{repo}/git/trees',
+      title: 'Create a tree',
+      descriptionHTML: '<p>Create a tree</p>',
+      previews: [],
+      statusCodes: [],
+      bodyParameters: [
+        {
+          name: 'tree',
+          description: '',
+          type: 'array of objects',
+          childParamsGroups: [
+            { name: 'path', description: '', type: 'string' },
+            { name: 'mode', description: '', type: 'string' },
+          ],
+        },
+      ],
+      category: 'git',
+      subcategory: 'trees',
+      parameters: [],
+      codeExamples: [],
+      progAccess: {
+        permissions: [],
+        userToServerRest: true,
+        serverToServer: true,
+        fineGrainedPat: true,
+      },
+    }
+
+    const codeSample: CodeSample = {
+      request: {
+        contentType: 'application/json',
+        description: 'Example',
+        acceptHeader: 'application/vnd.github+json',
+        bodyParameters: {
+          tree: [{ path: 'file.rb', mode: '100644' }],
+        },
+        parameters: { owner: 'OWNER', repo: 'REPO' },
+      },
+      response: {
+        statusCode: '201',
+        contentType: 'application/json',
+        description: 'Response',
+        example: {},
+      },
+    }
+
+    const currentVersion = 'fpt'
+    const allVersions: Record<string, VersionItem> = {
+      fpt: {
+        version: 'fpt',
+        versionTitle: 'Free, Pro, & Team',
+        apiVersions: ['2022-11-28'],
+        latestApiVersion: '2022-11-28',
+      },
+    }
+
+    const result = getGHExample(operation, codeSample, currentVersion, allVersions)
+
+    expect(result).toContain('--input - <<<')
+    expect(result).toContain('"mode": "100644"')
+  })
+
+  test('converts digit-only strings to numbers only for integer schema types', () => {
+    const operation: Operation = {
+      serverUrl: 'https://api.github.com',
+      verb: 'put',
+      requestPath: '/orgs/{org}/actions/secrets/{secret_name}',
+      title: 'Create or update an organization secret',
+      descriptionHTML: '<p>Create or update an organization secret</p>',
+      previews: [],
+      statusCodes: [],
+      bodyParameters: [
+        { name: 'key_id', description: '', type: 'string' },
+        { name: 'selected_repository_ids', description: '', type: 'array of integers' },
+      ],
+      category: 'actions',
+      subcategory: 'secrets',
+      parameters: [],
+      codeExamples: [],
+      progAccess: {
+        permissions: [],
+        userToServerRest: true,
+        serverToServer: true,
+        fineGrainedPat: true,
+      },
+    }
+
+    const codeSample: CodeSample = {
+      request: {
+        contentType: 'application/json',
+        description: 'Example',
+        acceptHeader: 'application/vnd.github+json',
+        bodyParameters: {
+          key_id: '012345678912345678',
+          selected_repository_ids: ['1296269', '1296280'],
+        },
+        parameters: { org: 'ORG', secret_name: 'SECRET_NAME' },
+      },
+      response: {
+        statusCode: '201',
+        contentType: 'application/json',
+        description: 'Response',
+        example: {},
+      },
+    }
+
+    const currentVersion = 'fpt'
+    const allVersions: Record<string, VersionItem> = {
+      fpt: {
+        version: 'fpt',
+        versionTitle: 'Free, Pro, & Team',
+        apiVersions: ['2022-11-28'],
+        latestApiVersion: '2022-11-28',
+      },
+    }
+
+    const result = getGHExample(operation, codeSample, currentVersion, allVersions)
+
+    expect(result).toContain('"key_id": "012345678912345678"')
+    expect(result).toMatch(/"selected_repository_ids": \[\s*1296269,\s*1296280\s*\]/)
+  })
+
+  test('leaves values unchanged when a name has different schema types', () => {
+    const operation: Operation = {
+      serverUrl: 'https://api.github.com',
+      verb: 'post',
+      requestPath: '/repos/{owner}/{repo}/dependency-graph/snapshots',
+      title: 'Create a snapshot of dependencies for a repository',
+      descriptionHTML: '<p>Create a snapshot of dependencies for a repository</p>',
+      previews: [],
+      statusCodes: [],
+      bodyParameters: [
+        { name: 'version', description: '', type: 'integer' },
+        {
+          name: 'detector',
+          description: '',
+          type: 'object',
+          childParamsGroups: [
+            { name: 'name', description: '', type: 'string' },
+            { name: 'version', description: '', type: 'string' },
+          ],
+        },
+        { name: 'tags', description: '', type: 'array of strings' },
+      ],
+      category: 'dependency-graph',
+      subcategory: 'dependency-submission',
+      parameters: [],
+      codeExamples: [],
+      progAccess: {
+        permissions: [],
+        userToServerRest: true,
+        serverToServer: true,
+        fineGrainedPat: true,
+      },
+    }
+
+    const codeSample: CodeSample = {
+      request: {
+        contentType: 'application/json',
+        description: 'Example',
+        acceptHeader: 'application/vnd.github+json',
+        bodyParameters: {
+          version: '0',
+          detector: { name: 'octo-detector', version: '1' },
+          tags: ['main'],
+        } as unknown as CodeSample['request']['bodyParameters'],
+        parameters: { owner: 'OWNER', repo: 'REPO' },
+      },
+      response: {
+        statusCode: '201',
+        contentType: 'application/json',
+        description: 'Response',
+        example: {},
+      },
+    }
+
+    const currentVersion = 'fpt'
+    const allVersions: Record<string, VersionItem> = {
+      fpt: {
+        version: 'fpt',
+        versionTitle: 'Free, Pro, & Team',
+        apiVersions: ['2022-11-28'],
+        latestApiVersion: '2022-11-28',
+      },
+    }
+
+    const result = getGHExample(operation, codeSample, currentVersion, allVersions)
+
+    expect(result).toContain('--input - <<<')
+    expect(result).toContain('"version": "1"')
+    expect(result).not.toContain('"version": 1')
   })
 })

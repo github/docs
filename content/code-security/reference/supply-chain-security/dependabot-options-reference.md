@@ -31,7 +31,7 @@ All options marked with a {% octicon "shield-check" aria-label="Security updates
 | `updates` | Top level| Section where you define each `package-ecosystem` to update.|
 | [`package-ecosystem`](#package-ecosystem-) | Under `updates` | Define a package manager to update. |
 | [`directories` or `directory`](#directories-or-directory--) | Under each `package-ecosystem` entry | Define the location of the manifest or other definition files to update. |
-| [`schedule.interval`](#schedule-) | Under each `package-ecosystem` entry | Define whether to look for version updates: `daily`, `weekly`, `monthly`{% ifversion fpt or ghes > 3.18 %}, `quarterly`, `semiannually`, `yearly`, or `cron`{% endif %}. |
+| [`schedule.interval`](#schedule-) | Under each `package-ecosystem` entry | Define whether to look for version updates: `daily`, `weekly`, `monthly`{% ifversion fpt or ghes %}, `quarterly`, `semiannually`, `yearly`, or `cron`{% endif %}. |
 
 Optionally, you can also include a top-level `registries` key to define access details for private registries, see [Top-level `registries` key](#top-level-registries-key).
 
@@ -180,8 +180,6 @@ Supported by: `bundler`, `composer`, `mix`, `maven`, `npm`, `pip`, and `uv`.
 * Supports only the value `scope`
 * When defined any prefix is followed by the type of dependencies updated in the commit: `deps` or `deps-dev`.
 
-{% ifversion dependabot-option-cooldown %}
-
 ## `cooldown` {% octicon "versions" aria-label="Version updates" height="24" %}
 
 Defines a **cooldown period** for dependency updates, allowing updates to be delayed for a configurable number of days. The `cooldown` option is only available for _version_ updates, not _security_ updates.
@@ -231,6 +229,9 @@ The table below shows the package managers that support `cooldown`. The `default
 
 | Package manager        | Default days supported | SemVer-bump days supported |
 |-----------------------|:----------------------:|:--------------------------:|
+| {% ifversion dependabot-apm-support %} |
+| APM                   | {% octicon "check" aria-label="Supported" %}              | {% octicon "check" aria-label="Supported" %} |
+| {% endif %} |
 | {% ifversion dependabot-bazel-support %} |
 | Bazel               | {% octicon "check" aria-label="Supported" %}              | {% octicon "x" aria-label="Not supported" %} |
 | {% endif %} |
@@ -290,8 +291,6 @@ The table below shows the package managers that support `cooldown`. The `default
 > * If `semver-major-days`, `semver-minor-days`, or `semver-patch-days` are not defined, the `default-days` settings will take precedence for cooldown-based updates.
 > * The `exclude` list always take precedence over the `include` list. If a dependency is specified in both lists, it is **excluded from cooldown** and will be updated immediately.
 
-{% endif %}
-
 ## `directories` or `directory` {% octicon "versions" aria-label="Version updates" height="24" %} {% octicon "shield-check" aria-label="Security updates" height="24" %}
 
 **Required option**. Use to define the location of the package manifests for each package manager (for example, the _package.json_ or _Gemfile_). Without this information {% data variables.product.prodname_dependabot %} cannot create pull requests for version updates. For examples, see [Defining multiple locations for manifest files](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/controlling-dependencies-updated#defining-multiple-locations-for-manifest-files).
@@ -301,6 +300,7 @@ The table below shows the package managers that support `cooldown`. The `default
 * Define directories relative to the root of the repository for most package managers.
 
 * For {% data variables.product.prodname_actions %}, use the value `/`. {% data variables.product.prodname_dependabot %} will search the `/.github/workflows` directory, as well as the `action.yml/action.yaml` file from the root directory.
+* For Dev containers, use the value `/`. {% data variables.product.prodname_dependabot %} will search the `.devcontainer.json`, `.devcontainer/devcontainer.json`, and `.devcontainer/<anything>/devcontainer.json` files from the root directory.
 
 If you need to use more than one block in the configuration file to define updates for a single target branch of an ecosystem, you must ensure that all values are unique and there is no overlap in directories defined.
 
@@ -461,7 +461,7 @@ Specify your own labels for all pull requests raised for a package manager.  For
 {% data variables.product.prodname_dependabot %} default behavior:
 
 * All pull requests have a `dependencies` label.
-* If you define more than one package manager, an additional label for the ecosystem or language is added to each pull request. For example: `java` for Gradle updates and `submodules` for git submodule updates.
+* An additional label for the ecosystem or language is added to each pull request, including when you define only one package manager. For example: `java` for Gradle updates and `submodules` for git submodule updates.
 * If semantic version (SemVer) labels are present in the repository, they will be applied automatically to indicate the type of version update (`major`, `minor`, or `patch`).
 * {% data variables.product.prodname_dependabot %} creates these default labels automatically, as necessary in your repository.
 
@@ -490,8 +490,6 @@ Supported value: the numeric identifier of a milestone.
 
 >[!TIP]
 >If you view a milestone, the final part of the page URL, after `milestone`, is the identifier. For example: `https://github.com/<org>/<repo>/milestone/3`, see [AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/viewing-your-milestones-progress).
-
-{% ifversion dependabot-multi-ecosystem-support %}
 
 ## `multi-ecosystem-groups` {% octicon "versions" aria-label="Version updates" height="24" %}
 
@@ -534,8 +532,6 @@ updates:
     multi-ecosystem-group: "infrastructure"
 ```
 
-{% endif %}
-
 ## `open-pull-requests-limit` {% octicon "versions" aria-label="Version updates only" height="24" %}
 
 Change the limit on the maximum number of pull requests for version updates open at any time.
@@ -545,12 +541,14 @@ Change the limit on the maximum number of pull requests for version updates open
 * If five pull requests with version updates are open, no further pull requests are raised until some of those open requests are merged or closed.
 
 > [!NOTE]
-> _Security update_ pull requests are not subject to this limit and do not count toward it. There is no limit on the number of open pull requests for security updates.
+> _Security update_ pull requests are subject to a separate, fixed limit of 10 open pull requests, which cannot be configured using `open-pull-requests-limit`.
 
 When `open-pull-requests-limit` is defined:
 
 * {% data variables.product.prodname_dependabot %} opens pull requests up to the defined integer value. A large value can be set to effectively remove the open pull request limit.
 * You can temporarily disable version updates for a package manager by setting this option to zero, see [Disabling {% data variables.product.prodname_dependabot_version_updates %}](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/configure-version-updates#disabling-dependabot-version-updates).
+
+When either limit is reached, {% data variables.product.prodname_dependabot %} reports an error and stops opening additional pull requests until some of the open pull requests are merged or closed. For more information, see [AUTOTITLE](/code-security/reference/supply-chain-security/troubleshoot-dependabot/dependabot-errors#pull-request-limit-reached).
 
 ## `package-ecosystem` {% octicon "versions" aria-label="Version updates only" height="24" %}
 
@@ -560,6 +558,9 @@ When `open-pull-requests-limit` is defined:
 
 Package manager | YAML value      | Supported versions |
 ---------------|------------------|:------------------:|
+| {% ifversion dependabot-apm-support %} |
+| APM           | `apm`            | Not applicable           |
+| {% endif %} |
 | {% ifversion dependabot-bazel-support %} |
 | Bazel         | `bazel`          | v7, v8, v9               |
 | {% endif %} |
@@ -577,9 +578,7 @@ Package manager | YAML value      | Supported versions |
 | Docker         | `docker`         | v1               |
 | Docker Compose | `docker-compose`         | v2, v3               |
 | .NET SDK       | `dotnet-sdk`         | >=.NET Core 3.1           |
-| {% ifversion dependabot-helm-support %} |
 | Helm Charts            | `helm`            | v3               |
-| {% endif %} |
 | Hex            | `mix`            | v1               |
 | {% ifversion dependabot-julia-support %} |
 | Julia                  | `julia`           | >=v1.10               |
@@ -593,7 +592,7 @@ Package manager | YAML value      | Supported versions |
 | {% ifversion dependabot-nix-support %} |
 | Nix flakes | `nix`            | Not applicable   |
 | {% endif %} |
-| npm            | `npm`            |  v7, v8, v9, v10, v11   |
+| npm            | `npm`            | v7, v8, v9, v10, v11{% ifversion dependabot-npm12-pnpm11-pnpm12-bun14 %}, v12{% endif %} |
 | NuGet          | `nuget`          | <=6.12.0 |
 | {% ifversion dependabot-opentofu-support %} |
 | OpenTofu     | `opentofu`       | Not applicable     |
@@ -601,7 +600,7 @@ Package manager | YAML value      | Supported versions |
 | pip         | `pip`            | 26.1.1             |
 | pip-compile | `pip`            | 7.5.3            |
 | pipenv      | `pip`            | 2024.4.1      |
-| pnpm   | `npm`            | v7, v8, v9, v10   |
+| pnpm        | `npm` | v7, v8, v9, v10{% ifversion dependabot-npm12-pnpm11-pnpm12-bun14 %}, v11, v12{% endif %} |
 | poetry      | `pip`    | v2    |
 | {% ifversion dependabot-pre-commit-support %} |
 | pre-commit | `pre-commit` | Not applicable |
@@ -764,6 +763,8 @@ There are 2 locations in the `dependabot.yml` file where you can use the `regist
 1. At the top level, where you define the private registries you want to use and their access information, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-access-to-private-registries).
 1. Within the `updates` blocks, where you can specify which private registries each package manager should use.
 
+Each `updates` block can reference up to 100 registries from the top-level `registries` section.
+
 {% data variables.product.prodname_dependabot %} default behavior is to raise pull requests only to update dependencies stored in publicly accessible registries.
 
 When the {% data variables.product.prodname_dependabot %} configuration file has a top-level `registries` section, defining access to one or more private registries, you can configure each `package-ecosystem` to use one or more of these private registries.
@@ -775,30 +776,6 @@ When `registries` is defined for a package manager:
 
 Supported values: `REGISTRY_NAME` or `"*"`
 
-{% ifversion dependabot-reviewers-deprecation %}{% else %}
-
-## `reviewers` {% octicon "versions" aria-label="Version updates" height="24" %} {% octicon "shield-check" aria-label="Security updates" height="24" %}
-
-> [!IMPORTANT]
-> The `reviewers` property is closing down and will be removed in a future release of {% data variables.product.prodname_ghe_server %}.
->
-> You can also automatically add reviewers and assignees using a CODEOWNERS file. See [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners).
-
-Specify individual reviewers, or teams of reviewers, for all pull requests raised for a package manager.  For examples, see [AUTOTITLE](/code-security/tutorials/secure-your-dependencies/customizing-dependabot-prs).
-
-{% data variables.product.prodname_dependabot %} default behavior:
-
-* Pull requests are created without any reviewers assigned.
-
-When `reviewers` is defined:
-
-* {% octicon "versions" aria-hidden="true" aria-label="versions" %} All pull requests for version updates are created with the chosen reviewers.
-* {% octicon "shield-check" aria-hidden="true" aria-label="shield-check" %} All pull requests for security updates are created with the chosen reviewers, unless `target-branch` defines updates to a non-default branch.
-
-Reviewers must have at least read access to the repository.
-
-{% endif %}
-
 ## `schedule` {% octicon "versions" aria-label="Version updates only" height="24" %}
 
 **Required option.** Define how often to check for new versions for each package manager you configure using the `interval` parameter. Optionally, for daily and weekly intervals, you can customize when {% data variables.product.prodname_dependabot %} checks for updates. For examples, see [AUTOTITLE](/code-security/tutorials/secure-your-dependencies/optimizing-pr-creation-version-updates).
@@ -808,9 +785,7 @@ Reviewers must have at least read access to the repository.
 | [`interval`](#interval) | **Required.** Defines the frequency for {% data variables.product.prodname_dependabot %}. |
 | [`day`](#day) | Specify the day to run for a **weekly** interval. |
 | [`time`](#time) | Specify the time to run. |
-| {% ifversion dependabot-schedule-updates %} |
 | [`cronjob`](#cronjob) | Defines the cron expression if the interval type is `cron`. |
-| {% endif %} |
 | [`timezone`](#timezone) | Specify the timezone of the `time` value.  |
 
 ### `interval`
@@ -830,7 +805,7 @@ Each package manager **must** define a schedule interval.
 >[!NOTE]
 > The supported values `quarterly`, `semiannually`, and `yearly` are only available on {% data variables.product.prodname_ghe_server %} from version 3.19.
 
-By default, {% data variables.product.prodname_dependabot %} randomly assigns a time to apply all the updates in the configuration file. You can use the `time` and `timezone` parameters to set a specific runtime for all intervals.  {% ifversion dependabot-schedule-updates %}If you use a `cron` interval, you can define the update time with a `cronjob` expression.{% endif %}
+By default, {% data variables.product.prodname_dependabot %} randomly assigns a time to apply all the updates in the configuration file. You can use the `time` and `timezone` parameters to set a specific runtime for all intervals. If you use a `cron` interval, you can define the update time with a `cronjob` expression.
 
 ### `day`
 
@@ -843,8 +818,6 @@ Optionally, run **weekly** updates for a package manager on a specific day of th
 Format: `hh:mm`
 
 Optionally, run all updates for a package manager at a specific time of day. By default, times are interpreted as UTC.
-
-{% ifversion dependabot-schedule-updates %}
 
 ### `cronjob`
 
@@ -876,8 +849,6 @@ updates:
       interval: "cron"
       cronjob: "0 9 * * *"
 ```
-
-{% endif %}
 
 ### `timezone`
 
@@ -1068,7 +1039,9 @@ Specify authentication details that {% data variables.product.prodname_dependabo
 
 {% endif %}
 
-The value of the `registries` key is an associative array, each element of which consists of a key that identifies a particular registry and a value which is an associative array that specifies the settings required to access that registry. The following `dependabot.yml` file configures a registry identified as `dockerhub` in the `registries` section of the file and then references this in the `updates` section of the file.
+The value of the `registries` key is an associative array, each element of which consists of a key that identifies a particular registry and a value which is an associative array that specifies the settings required to access that registry. You can define up to 100 registries in the top-level `registries` section.
+
+The following `dependabot.yml` file configures a registry identified as `dockerhub` in the `registries` section of the file and then references this in the `updates` section of the file.
 
 {% raw %}
 

@@ -87,7 +87,7 @@ value.
 
 (Note: On Windows the path separator is `;`).
 
-#### `--model-packs=<`<name@range>>...
+#### `--model-packs=<name@range>...`
 
 A list of CodeQL pack names, each with an optional version range, to be
 used as model packs to customize the queries that are about to be

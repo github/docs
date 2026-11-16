@@ -6,14 +6,13 @@ import {
   getLocalizedGroupNames,
 } from '@/products/lib/get-product-groups'
 
-// Mock data interface for tests - uses required name to match library expectations
+// name matches the helper's required ProductGroupData shape.
 interface MockProductGroupData {
   name: string
   octicon?: string
   children: string[]
 }
 
-// Mock data for testing edge cases with optional fields
 interface PartialProductGroupData {
   name?: string
   octicon?: string
@@ -40,12 +39,12 @@ describe('get-product-groups helper functions', () => {
     test('handles missing octicon or name gracefully', () => {
       const mockChildGroups: PartialProductGroupData[] = [
         { name: 'Valid Group', octicon: 'RocketIcon', children: [] },
-        { octicon: 'MissingNameIcon', children: [] }, // missing name
-        { name: 'Missing Octicon', children: [] }, // missing octicon
-        { name: '', octicon: 'EmptyNameIcon', children: [] }, // empty name
+        { octicon: 'MissingNameIcon', children: [] },
+        { name: 'Missing Octicon', children: [] },
+        { name: '', octicon: 'EmptyNameIcon', children: [] },
       ]
 
-      // Using unknown cast to test edge cases with partial/missing fields that wouldn't normally pass strict typing
+      // Cast through unknown so the deliberately malformed groups type-check.
       const octiconToName: { [key: string]: string } = createOcticonToNameMap(
         mockChildGroups as unknown as Parameters<typeof createOcticonToNameMap>[0],
       )
@@ -68,7 +67,7 @@ describe('get-product-groups helper functions', () => {
       const localizedByOcticon: { [key: string]: string } = {
         RocketIcon: 'Empezar',
         ShieldLockIcon: 'Seguridad',
-        CopilotIcon: 'GitHub Copilot', // Some names stay the same
+        CopilotIcon: 'GitHub Copilot',
       }
 
       const nameMap: { [key: string]: string } = mapEnglishToLocalizedNames(
@@ -91,7 +90,7 @@ describe('get-product-groups helper functions', () => {
 
       const localizedByOcticon: { [key: string]: string } = {
         RocketIcon: 'Empezar',
-        // MissingIcon is not in the localized map
+        // MissingIcon has no localized entry.
       }
 
       const nameMap: { [key: string]: string } = mapEnglishToLocalizedNames(
@@ -106,16 +105,16 @@ describe('get-product-groups helper functions', () => {
     })
 
     test('handles different ordering between English and localized groups', () => {
-      // English groups in one order
+      // English groups use one order.
       const englishGroups: MockProductGroupData[] = [
         { name: 'Get started', octicon: 'RocketIcon', children: [] },
         { name: 'Security', octicon: 'ShieldLockIcon', children: [] },
       ]
 
-      // Localized groups in different order (but mapped by octicon)
+      // Localized groups use a different order and still map by octicon.
       const localizedByOcticon: { [key: string]: string } = {
-        ShieldLockIcon: 'Seguridad', // Security comes first in localized
-        RocketIcon: 'Empezar', // Get started comes second
+        ShieldLockIcon: 'Seguridad',
+        RocketIcon: 'Empezar',
       }
 
       const nameMap: { [key: string]: string } = mapEnglishToLocalizedNames(
@@ -123,7 +122,6 @@ describe('get-product-groups helper functions', () => {
         localizedByOcticon,
       )
 
-      // Should correctly map regardless of order
       expect(nameMap['Get started']).toBe('Empezar')
       expect(nameMap['Security']).toBe('Seguridad')
     })
@@ -134,66 +132,31 @@ describe('get-product-groups helper functions', () => {
       const result: { [key: string]: string } = await getLocalizedGroupNames('en')
       expect(result).toEqual({})
     })
-
-    test('returns empty object when no translation root available', () => {
-      // Test the fallback when translation root is not found
-      const lang = 'unknown-lang'
-      const languages: { [key: string]: { dir: string } } = {
-        en: { dir: '/en' },
-        es: { dir: '/es' },
-      }
-
-      const translationRoot: string | undefined = languages[lang]?.dir
-      const result: { [key: string]: string } = translationRoot
-        ? {
-            /* would proceed */
-          }
-        : {}
-
-      expect(result).toEqual({})
-    })
-
-    test('handles file read errors gracefully', () => {
-      // Test the try/catch behavior when file read fails
-      let result: { [key: string]: string }
-      try {
-        // Simulate file read error
-        throw new Error('File not found')
-      } catch {
-        result = {}
-      }
-
-      expect(result).toEqual({})
-    })
   })
 
   describe('full translation pipeline', () => {
     test('complete flow from English groups to localized names', () => {
-      // Simulate the complete flow
       const englishChildGroups: MockProductGroupData[] = [
         { name: 'Get started', octicon: 'RocketIcon', children: ['get-started'] },
         { name: 'Security', octicon: 'ShieldLockIcon', children: ['code-security'] },
         { name: 'GitHub Copilot', octicon: 'CopilotIcon', children: ['copilot'] },
       ]
 
-      // Simulate what would come from a Spanish localized file
+      // Spanish localized index data supplies translated names with matching octicons.
       const mockLocalizedChildGroups: MockProductGroupData[] = [
         { name: 'Empezar', octicon: 'RocketIcon', children: ['get-started'] },
         { name: 'Seguridad', octicon: 'ShieldLockIcon', children: ['code-security'] },
         { name: 'GitHub Copilot', octicon: 'CopilotIcon', children: ['copilot'] },
       ]
 
-      // Step 1: Create octicon -> localized name mapping
       const localizedByOcticon: { [key: string]: string } =
         createOcticonToNameMap(mockLocalizedChildGroups)
 
-      // Step 2: Map English names to localized names
       const localizedNames: { [key: string]: string } = mapEnglishToLocalizedNames(
         englishChildGroups,
         localizedByOcticon,
       )
 
-      // Step 3: Use in final mapping
       const finalResult = englishChildGroups.map((group: MockProductGroupData) => {
         const localizedName: string = localizedNames[group.name] || group.name
         return {
@@ -207,7 +170,7 @@ describe('get-product-groups helper functions', () => {
       expect(finalResult[1].name).toBe('Seguridad')
       expect(finalResult[2].name).toBe('GitHub Copilot')
 
-      // Technical data should remain unchanged
+      // Technical data remains unchanged.
       expect(finalResult[0].octicon).toBe('RocketIcon')
       expect(finalResult[0].children).toEqual(['get-started'])
     })

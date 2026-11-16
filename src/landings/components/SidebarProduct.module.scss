@@ -1,15 +1,10 @@
-// The tree's typography now comes from @primer/react-brand NavList's own scale
-// (level-1 section headers at size-200, leaves at size-100). This class is kept
-// as the wrapper hook for `data-testid="sidebar"`.
+// Brand NavList owns the tree typography: level-1 section headers use size-200,
+// and leaves use size-100. This class stays as the data-testid sidebar hook.
 .sidebar {
-  // Brand's NavList draws the active accent bar only on nested leaves — its rule
-  // explicitly excludes level-1 (`.item--leaf:not(.item--level-1) .link[aria-current]`),
-  // so a top-level article like "Quickstart" gets only the subtle background pill
-  // and no green bar. Restore the bar for active top-level leaves to match nested
-  // items. Brand's classes are hashed, so match on the stable substrings.
-  //
-  // This also covers `[data-pending]` — the optimistic marker on a just-clicked item
-  // (see the pending rules below) — so a clicked top-level leaf gets the bar too.
+  // Brand NavList excludes level-1 leaves from its active accent bar rule, so
+  // top-level articles such as Quickstart get only the subtle background pill.
+  // Match stable hashed-class substrings and restore the bar for aria-current.
+  // Cover data-pending too, so clicked top-level leaves get the same visual bar.
   :global([class*="NavList__item--leaf"][class*="NavList__item--level-1"])
     :global([class*="NavList__link"])[aria-current]:not(
       [aria-current="false"]
@@ -18,34 +13,26 @@
     :global([class*="NavList__link"])[data-pending]::before {
     content: "";
     position: absolute;
-    // Level-1 links are shorter (~24px) than nested leaves, so use a small inset
-    // to keep the bar roughly the height of the background pill rather than the
-    // larger inset brand applies to taller nested items.
+    // Level-1 links are about 24px tall, so a small inset matches the background pill height.
     inset-block: var(--base-size-2);
     // Level-1 leaves have no inline padding, so pull the bar into the NavList's
-    // own inline padding gutter to sit left of the label — matching where brand
-    // places the level-1 indicator on expandable section toggles.
+    // inline padding gutter where Brand places level-1 expandable indicators.
     inset-inline-start: calc(-1 * var(--base-size-8));
     width: var(--base-size-4);
     border-radius: var(--base-size-2);
     background-color: var(--brand-NavList-activeIndicator-color);
   }
 
-  // Optimistic "pending" highlight. Article pages are getServerSideProps routes and can
-  // be slow to load, so router.asPath — and thus aria-current — only updates once the
-  // page has loaded. We keep aria-current on the *loaded* page (assistive tech must not
-  // be told a still-loading destination is the current page), and instead mark the
-  // just-clicked link with `data-pending` for a VISUAL-ONLY accent. Brand couples its
-  // active styling to `[aria-current]`, so mirror that treatment here for `[data-pending]`.
-  // data-pending is only set while a *different* page is loading, so it never collides
-  // with the real aria-current item.
+  // Article pages can load slowly through getServerSideProps, so aria-current stays
+  // on the loaded page and data-pending carries a visual-only accent for the clicked
+  // destination. data-pending is only set for a different loading page, so it never
+  // collides with the real aria-current item.
   :global([class*="NavList__link"])[data-pending] {
     color: var(--brand-color-text-default);
     background-color: var(--brand-color-canvas-subtle);
   }
 
-  // Nested leaves: brand moves the background pill onto the label and adds a leading
-  // accent bar (mirrors `.item--leaf:not(.item--level-1) .link[aria-current]`).
+  // Nested leaves need the same background pill and leading bar as Brand's active rule.
   :global([class*="NavList__item--leaf"]:not([class*="NavList__item--level-1"]))
     :global([class*="NavList__link"])[data-pending] {
     background-color: transparent;

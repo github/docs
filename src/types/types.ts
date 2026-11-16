@@ -8,7 +8,7 @@ import type { JourneyContext } from '@/journeys/lib/journey-path-resolver'
 import type { MiniTocItem } from '@/frame/lib/get-mini-toc-items'
 import type { UIStrings } from '@/frame/components/context/MainContext'
 
-// Shared type for resolved article information used across landing pages and carousels
+// Shared by landing pages and carousels.
 export interface ResolvedArticle {
   title: string
   intro: string
@@ -16,10 +16,7 @@ export interface ResolvedArticle {
   category: string[]
 }
 
-// Throughout our codebase we "extend" the Request object by attaching
-// things to it. For example `req.context = { currentCategory: 'foo' }`.
-// This type aims to match all the custom things we do to requests
-// througout the codebase.
+// ExtendedRequest collects properties middleware attaches to Request, including req.context.
 export type ExtendedRequest = Request & {
   pagePath?: string
   context?: Context
@@ -29,12 +26,9 @@ export type ExtendedRequest = Request & {
   FailBot?: Failbot
 }
 
-// This type is manually maintained based on `schema` in frame/lib/frontmatter.ts
-// We're not auto-generating this from the AJV schema because:
-// 1. It would require significant build tooling (json-schema-to-typescript or similar)
-// 2. The schema is dynamically constructed with version-specific properties
-// 3. Manual maintenance provides better type control and documentation
-// 4. The effort/benefit tradeoff doesn't justify the complexity
+// Hand-maintained to match schema in frame/lib/frontmatter.ts.
+// Generating it from the AJV schema would need extra build tooling because
+// the schema is built dynamically with version-specific properties.
 export type PageFrontmatter = {
   title: string
   versions: FrontmatterVersions
@@ -47,6 +41,7 @@ export type PageFrontmatter = {
   subcategory?: boolean
   hidden?: boolean
   noEarlyAccessBanner?: boolean
+  hideSidebar?: boolean
   earlyAccessToc?: string
   layout?: string | boolean
   redirect_from?: string[]
@@ -117,7 +112,7 @@ type Redirects = {
 }
 
 export type Context = {
-  // Allows dynamic properties like features & version shortnames as keys
+  // Context allows dynamic keys for features and version short names.
   [key: string]: unknown
   currentCategory?: string
   currentJourneyTrack?: JourneyContext | null
@@ -177,6 +172,7 @@ export type Context = {
   currentProductName?: string
   productGroups?: ProductGroup[]
   featuredLinks?: FeaturedLinksExpanded
+  carousels?: Record<string, ResolvedArticle[]>
   renderedPage?: string
   renderedPageHast?: import('hast').Root
   miniTocItems?: MiniTocItem[]
@@ -286,7 +282,6 @@ export type SecretScanningData = {
   isduplicate: boolean
 }
 
-// Language and Languages types are imported at the top from languages-server
 export type { Language, Languages }
 
 export type Permalink = {
@@ -346,6 +341,7 @@ export type Page = {
   children?: string[]
   introPlainText?: string
   noEarlyAccessBanner?: boolean
+  hideSidebar?: boolean
   communityRedirect?: {
     name: string
     href: string
@@ -434,10 +430,8 @@ export type AllVersions = {
   [name: string]: Version
 }
 
-// Use this when constructing a URLSearchParams object from a `req.query`.
-// E.g. `const sp = new URLSearchParams(req.query as URLSearchParamsTypes)`
-// It's useful because otherwise you might get a TypeScript error that
-// is not possible to happen at runtime.
+// Cast req.query to this type when building URLSearchParams.
+// TypeScript rejects values that are safe at runtime.
 export type URLSearchParamsTypes = string | string[][] | Record<string, string> | URLSearchParams
 
 export type FeatureData = {
@@ -447,8 +441,7 @@ export type Versions = {
   versions: FrontmatterVersions
 }
 
-// Used for parsing .md pages with YAML frontmatter
-// This is not the full list available in the frontmatter schema
+// Fields parsed from .md frontmatter; the full schema allows more fields.
 export type MarkdownFrontmatter = {
   title: string
   shortTitle?: string

@@ -33,15 +33,7 @@ Your pilot needs repositories that generate timely feedback on how {% data varia
 
 ### Known secret exposure
 
-{% ifversion secret-risk-assessment %}
-
 Choose repositories flagged in your secret risk assessment. These repositories are ideal pilot candidates because they demonstrate immediate value by showing secrets that need remediation.
-
-{% else %}
-
-Choose repositories you suspect contain secrets based on past incidents or security reviews. These repositories are ideal pilot candidates because they allow you to validate the tool's effectiveness quickly.
-
-{% endif %}
 
 Prioritize repositories with production credentials, infrastructure configurations, or integrations with critical services. These high-value targets demonstrate the security value of {% data variables.product.prodname_secret_protection %}.
 
@@ -90,10 +82,6 @@ Take these steps to set your pilot up for success.
 
 * [Identify repositories for secret protection](https://support.github.com/product-guides/github-advanced-security-secret-protection/get-started/identify-repositories-for-secret-protection) in the GitHub Advanced Security product guides
 
-{% ifversion secret-risk-assessment %}
-
 ## Next steps
 
 Now that you've selected your pilot repositories, review pricing and configure {% data variables.product.prodname_GH_secret_protection %}. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/configure-specific-tools/protect-your-secrets).
-
-{% endif %}

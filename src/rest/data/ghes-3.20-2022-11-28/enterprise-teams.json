@@ -1054,7 +1054,7 @@
         {
           "type": "array of strings",
           "name": "usernames",
-          "description": "<p>The GitHub user handles to add to the team.</p>",
+          "description": "<p>Up to 1,000 GitHub user handles to add to the team per request.</p>",
           "isRequired": true
         }
       ],
@@ -1268,7 +1268,7 @@
         {
           "type": "array of strings",
           "name": "usernames",
-          "description": "<p>The GitHub user handles to be removed from the team.</p>",
+          "description": "<p>Up to 1,000 GitHub user handles to remove from the team per request.</p>",
           "isRequired": true
         }
       ],

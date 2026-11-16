@@ -10,7 +10,6 @@ children:
   - /enterprise-team-organizations
   - /enterprise-teams
 versions:
-  fpt: '*'
   ghec: '*'
   ghes: '>=3.20'
 ---

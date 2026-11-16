@@ -9,7 +9,7 @@ featuredLinks:
   popular:
     - /pull-requests/reference/pull-requests
     - /authentication
-    - /copilot/how-tos/get-code-suggestions/get-ide-code-suggestions
+    - /copilot/how-tos/copilot-in-your-ide/copilot-for-common-tasks/get-ide-code-suggestions
     - /get-started/git-basics/managing-remote-repositories
     - /pages
 redirect_from:
@@ -86,6 +86,7 @@ children:
   - contributing
   - github-models
   - nonprofit
+  - mos-diner
 childGroups:
   - name: Get started
     octicon: RocketIcon
@@ -194,4 +195,3 @@ externalProducts:
     href: https://wellarchitected.github.com/
     external: true
 ---
-

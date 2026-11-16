@@ -34,6 +34,58 @@ describe('stripHtmlComments', () => {
     const expected = 'text'
     expect(stripHtmlComments(input)).toBe(expected)
   })
+
+  test('removes comments that span multiple lines', () => {
+    const input = 'Before\n<!-- line one\nline two -->\nAfter'
+    const expected = 'Before\n\nAfter'
+    expect(stripHtmlComments(input)).toBe(expected)
+  })
+
+  test('removes the abrupt-close comment forms', () => {
+    expect(stripHtmlComments('a<!-->b')).toBe('ab')
+    expect(stripHtmlComments('a<!--->b')).toBe('ab')
+  })
+
+  test('does not leave a comment behind when removal splices one together', () => {
+    const input = '<!-<!-- -->- still a comment -->'
+    expect(stripHtmlComments(input)).toBe('')
+  })
+
+  test('ends a comment at the first closing marker', () => {
+    const input = '<!--<!-- x -->-->'
+    expect(stripHtmlComments(input)).toBe('-->')
+  })
+
+  test('keeps the remaining text when a comment is never closed', () => {
+    const input = 'Keep me <!-- oops'
+    expect(stripHtmlComments(input)).toBe('Keep me <!-- oops')
+  })
+
+  test('keeps the remaining text when a removal splices together an unclosed comment', () => {
+    const input = '<!<!-- gone -->--tail'
+    expect(stripHtmlComments(input)).toBe('<!--tail')
+  })
+
+  test('ends a comment at the last dash pair of an overlapping run', () => {
+    expect(stripHtmlComments('a<!--b--->c')).toBe('ac')
+    expect(stripHtmlComments('a<!--b---->c')).toBe('ac')
+    expect(stripHtmlComments(`a<!--b${'-'.repeat(40)}>c`)).toBe('ac')
+  })
+
+  test('treats --!> as a comment terminator', () => {
+    const input = 'before<!-- hidden --!>VISIBLE<!-- hidden2 -->after'
+    expect(stripHtmlComments(input)).toBe('beforeVISIBLEafter')
+  })
+
+  test('strips nesting deep enough to need many passes', () => {
+    // Each layer becomes a fresh comment when the inner one goes, forcing one pass per layer.
+    let input = '<!-- inner -->'
+    for (let i = 1; i < 12; i++) {
+      input = `<!-${input}- layer${i} -->`
+    }
+
+    expect(stripHtmlComments(input)).toBe('')
+  })
 })
 
 describe('stripHtmlCommentsAndNormalizeWhitespace', () => {

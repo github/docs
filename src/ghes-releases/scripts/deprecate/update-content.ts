@@ -17,9 +17,8 @@ const contentFiles = walkFiles('content', {
   ignore: ['**/README.md', '**/index.md'],
 })
 
-// This module updates the versions frontmatter in content files.
-// When a content file contains only deprecated GHES releases, the
-// file is deleted and removed from the parent index.md file.
+// Updates versions frontmatter during GHES deprecation.
+// Deletes GHES-only files with no supported release from their parent index.md.
 export function updateContentFiles() {
   for (const file of contentFiles) {
     const oldContents = fs.readFileSync(file, 'utf8')
@@ -35,16 +34,13 @@ export function updateContentFiles() {
         throw new Error(`Could not load feature versions from ${featureFilePath}`)
     }
 
-    // skip files with no Enterprise Server versions frontmatter
     if (!data.versions.ghes && !featureData?.versions?.ghes) continue
-    // skip files with all ghes releases defined
     if (data.versions.ghes === '*') continue
 
     const deprecatedRelease = deprecated[0]
     const oldestRelease = supported[supported.length - 1]
 
-    // If the frontmatter versions.ghes property is now
-    // applicable to all GHES releases, update the value to '*'.
+    // Feature-backed content becomes all versions when it applies to FPT, GHEC, and every GHES.
     const featureAppliesToAllVersions =
       featureData &&
       featureData.versions.ghec &&
@@ -55,9 +51,7 @@ export function updateContentFiles() {
     if (isInAllGhes(data.versions.ghes)) {
       console.log('Updating GHES version in: ', file)
       data.versions.ghes = '*'
-      // To preserve newlines when stringifying,
-      // you can set the lineWidth option to -1
-      // This prevents updates to the file that aren't actual changes.
+      // lineWidth -1 preserves existing newlines, so only frontmatter changes are written.
       fs.writeFileSync(
         file,
         frontmatter.stringify(content!, data, { lineWidth: -1 } as unknown as Parameters<
@@ -73,9 +67,7 @@ export function updateContentFiles() {
         ghec: '*',
         ghes: '*',
       }
-      // To preserve newlines when stringifying,
-      // you can set the lineWidth option to -1
-      // This prevents updates to the file that aren't actual changes.
+      // lineWidth -1 preserves existing newlines, so only frontmatter changes are written.
       fs.writeFileSync(
         file,
         frontmatter.stringify(content!, data, { lineWidth: -1 } as unknown as Parameters<
@@ -87,9 +79,7 @@ export function updateContentFiles() {
 
     const deprecatedRegex = new RegExp(`(<|<=)\\s?${deprecatedRelease}`, 'g')
     const oldestRegex = new RegExp(`<\\s?${oldestRelease}`, 'g')
-    // If the frontmatter versions.ghes property is now
-    // deprecated, remove it. If the content file is only
-    // versioned for GHES, remove the file and update index.md.
+    // Remove GHES frontmatter or delete GHES-only files when no supported GHES applies.
     const featureGhes = featureData?.versions?.ghes || ''
     const appliesToNoSupportedGhesReleases =
       deprecatedRegex.test(data.versions.ghes) ||
@@ -101,7 +91,6 @@ export function updateContentFiles() {
       if (Object.keys(data.versions).length === 1) {
         removeFileUpdateParent(file)
       } else {
-        // Remove the ghes property from versions Fm and return
         delete data.versions.ghes
         console.log('Removing GHES version from: ', file)
         fs.writeFileSync(
@@ -130,15 +119,14 @@ function removeFileUpdateParent(filePath: string) {
     data: { children: string[] } | undefined
   }
   if (!data) return
-  // Children paths are relative to the index.md file's directory
+  // Children paths are relative to the index.md file's directory.
   const childPath = filePath.endsWith('index.md')
     ? `/${path.basename(path.dirname(filePath))}`
     : `/${path.basename(filePath, '.md')}`
 
-  // Remove the childPath from the parent index.md file's children frontmatter
   data.children = data.children.filter((child) => child !== childPath)
 
-  // If removing the childPath leaves the parent index.md file empty, remove it
+  // Empty parent indexes must disappear with their last child.
   if (data.children.length === 0) {
     removeFileUpdateParent(parentFilePath)
   } else {
@@ -152,15 +140,10 @@ function removeFileUpdateParent(filePath: string) {
   }
 }
 
-// Gets the next parent file path.
-// If the filePath is an article (e.g., doesn't end with index.md),
-// then the parent file is the index.md file in the same directory.
-// If the filePath is a category or subcategory (e.g., ends with index.md),
-// the parent is the index.md file in the next directory up.
+// Articles use the index.md in their directory; index.md files use the parent directory's index.md.
+// content/index.md has no parent.
 function getParentFilePath(filePath: string) {
-  // This is the root index.md file, it has no parent
   if (!filePath || filePath === 'content/index.md') return null
-  // Handle index.md files with index.md parent in directory above
   if (filePath.endsWith('index.md')) {
     const pathParts = filePath.split('/')
     pathParts.pop()
@@ -168,6 +151,5 @@ function getParentFilePath(filePath: string) {
     pathParts.push('index.md')
     return pathParts.join('/')
   }
-  // Handle articles with a parent index.md file
   return filePath.replace(path.basename(filePath), 'index.md')
 }

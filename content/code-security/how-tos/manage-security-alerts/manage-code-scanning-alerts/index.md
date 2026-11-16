@@ -11,10 +11,11 @@ redirect_from:
   - /code-security/code-scanning/managing-code-scanning-alerts
 children:
   - assess-alerts
+  - viewing-and-managing-ai-scan-alerts
   - triage-alerts-in-pull-requests
   - track-alerts-in-issues
   - resolve-alerts
+  - managing-access-to-agentic-autofix-for-code-scanning
   - enable-delegated-alert-dismissal
-  - disabling-autofix-for-code-scanning
+  - disabling-copilot-autofix-for-code-scanning
 ---
-

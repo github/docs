@@ -3,15 +3,13 @@
     border-top: none;
   }
 
-  // Remove any default markdown article padding for property cells
+  // Markdown article styles add padding that crowds nested property cells.
   details tr td {
     padding-bottom: 0.25rem;
   }
 
-  // Set the left border for in the nested property tables.  Also need to override
-  // a default markdown file style that sets a table's font size based on
-  // percentage which would cause the table font size to shrink more and more
-  // as the properties nested more and more.
+  // The muted border distinguishes nested property tables.
+  // Inherit prevents markdown percentage font sizing from shrinking at each nesting level.
   td {
     table {
       border-left: 4px solid var(--color-border-muted);

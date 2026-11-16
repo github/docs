@@ -16,6 +16,9 @@ category:
 
 {% data reusables.codespaces.stopping-a-codespace %}
 
+> [!NOTE]
+> A codespace also has a maximum lifetime of 12 hours, regardless of its idle timeout setting. For more information, see [AUTOTITLE](/codespaces/about-codespaces/understanding-the-codespace-lifecycle#maximum-lifetime-of-a-codespace).
+
 Regardless of where you created or access your codespaces, you can view and manage them in your browser at https://github.com/codespaces.
 
 ## Stopping a codespace
@@ -86,7 +89,3 @@ When you restart a codespace you can choose to open it in {% data variables.prod
 1. In the list of codespaces, select the codespace you want to restart.
 
 {% endvscode %}
-
-## Further reading
-
-* [AUTOTITLE](/codespaces/about-codespaces/understanding-the-codespace-lifecycle)

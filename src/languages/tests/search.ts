@@ -1,15 +1,19 @@
-import { describe, expect, test } from 'vitest'
+import { expect, test, vi } from 'vitest'
 
-import { languageKeys } from '@/languages/lib/languages-server'
-import { get } from '@/tests/helpers/e2etest'
+import { describeIfElasticsearchURL } from '@/tests/helpers/conditional-runs'
+import { getDOM } from '@/tests/helpers/e2etest'
 
-const langs = languageKeys.filter((lang) => lang !== 'en')
+// Fixture indexing creates only English and Japanese indexes, so Japanese
+// stands in for every non-English language.
+describeIfElasticsearchURL('search page in non-English languages', () => {
+  vi.setConfig({ testTimeout: 60 * 1000 })
 
-// Skipping for now, as we would need to download the indexes with LFS
-// in Actions to run these. Explore again after ES switch over.
-describe.skip('search', () => {
-  test.each(langs)('search in %s', async (lang) => {
-    const res = await get(`/search?language=${lang}&version=dotcom&query=pages`)
-    expect(res.statusCode).toBe(200)
+  // src/search/tests/fixtures/search-indexes/tests_github-docs_general-search_fpt_ja-records.json has title "フー".
+  test('renders Japanese search results', async () => {
+    const $ = await getDOM('/ja/search?query=foo')
+    const titles = $('[data-testid="search-result"] h2')
+      .map((i, el) => $(el).text())
+      .get()
+    expect(titles).toContain('フー')
   })
 })

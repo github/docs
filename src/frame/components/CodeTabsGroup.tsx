@@ -11,31 +11,22 @@ import {
   cloneElement,
   type ReactElement,
   type ReactNode,
-  type MouseEvent as ReactMouseEvent,
-  type KeyboardEvent as ReactKeyboardEvent,
 } from 'react'
-import { useRouter } from 'next/router'
-import { UnderlineNav } from '@primer/react'
-import cx from 'classnames'
+import cx from 'clsx'
 
 import Cookies from '@/frame/components/lib/cookies'
 import { CODE_SAMPLE_LANGUAGE_COOKIE_NAME } from '@/frame/lib/constants'
 import { sendEvent } from '@/events/components/events'
 import { EventType } from '@/events/types'
 import { useTranslation } from '@/languages/components/useTranslation'
+import { UnderlineNav } from '@/frame/components/ui/UnderlineNav'
 
-// React-native replacement for the imperative CodeTabs enhancer (#6619). The old
-// component scanned `#article-contents` for `.ghd-codetabs`, inserted a foreign
-// `.ghd-codetabs-nav` mountPoint as the container's first child, portaled a nav
-// into it, and toggled panel attributes — destructive surgery on React-owned
-// nodes that breaks on client-side navigation teardown. Instead, the article body
-// hast maps each `.ghd-codetabs` container to <CodeTabsGroup>, which reads its
-// `.ghd-codetab` panel children straight from props and renders the nav + panels
-// itself. No DOM scanning, no portal, no foreign nodes.
-//
-// The selected language lives in CodeLanguageContext so multiple code-tab groups
-// on one page stay in sync and share the language cookie, matching the previous
-// single-component behavior.
+// CodeTabsGroup avoids DOM scanning, portals, and panel-attribute mutations so
+// React owns the code-tab nodes through client-side navigation.
+// The article body hast maps each .ghd-codetabs container to CodeTabsGroup, which
+// reads .ghd-codetab panel children from props and renders the nav and panels.
+// CodeLanguageContext keeps code-tab groups on a page in sync and shares the
+// language cookie.
 
 type CodeLanguageContextT = {
   language: string
@@ -47,10 +38,9 @@ const CodeLanguageContext = createContext<CodeLanguageContextT>({
   setLanguage: () => {},
 })
 
+// CodeTabsProvider starts empty so SSR and first hydration select each group's first tab.
+// It applies the cookie preference after hydration, avoiding an SSR/client mismatch.
 export function CodeTabsProvider({ children }: { children: ReactNode }) {
-  // Start empty so server + first client render select each group's first tab
-  // (deterministic, hydration-safe). The cookie preference is applied after
-  // hydration, the same moment the old imperative enhancer used to run.
   const [language, setLanguageState] = useState('')
 
   useEffect(() => {
@@ -99,13 +89,11 @@ type CodeTabsGroupProps = {
 }
 
 export function CodeTabsGroup({ className, children, ...rest }: CodeTabsGroupProps) {
-  const router = useRouter()
   const { t } = useTranslation('code_tabs')
   const { language, setLanguage } = useContext(CodeLanguageContext)
   const baseId = useId()
 
-  // Pull the `.ghd-codetab` panel children straight from the converted hast. Fail
-  // open (render the original markup) if the expected metadata isn't present.
+  // Fail open to original markup if converted hast lacks code-tab metadata.
   const tabs: PanelTab[] = Children.toArray(children)
     .filter((child): child is ReactElement<{ className?: string }> => isValidElement(child))
     .filter((child) => hasClass(child.props.className, 'ghd-codetab'))
@@ -131,14 +119,13 @@ export function CodeTabsGroup({ className, children, ...rest }: CodeTabsGroupPro
   return (
     <div className={cx(className, 'ghd-codetabs-enhanced')} {...rest}>
       <div className="ghd-codetabs-nav">
-        {/* key on asPath works around a Primer UnderlineNav re-render bug. */}
-        <UnderlineNav key={router.asPath} aria-label={t('aria_label')} variant="flush">
+        <UnderlineNav aria-label={t('aria_label')} variant="flush">
           {tabs.map((tab) => (
             <UnderlineNav.Item
               key={tab.key}
               href={`#${tab.key}`}
               aria-current={tab.key === activeKey ? 'page' : undefined}
-              onSelect={(event: ReactMouseEvent | ReactKeyboardEvent) => {
+              onSelect={(event) => {
                 event.preventDefault()
                 setLanguage(tab.key)
               }}

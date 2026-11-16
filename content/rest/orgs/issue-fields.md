@@ -2,6 +2,8 @@
 title: REST API endpoints for issue fields
 shortTitle: Issue fields
 intro: Use the REST API to create and manage issue fields for an organization.
+redirect_from:
+  - /early-access/issue-fields/issue-fields-settings-rest-api
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghec: '*'

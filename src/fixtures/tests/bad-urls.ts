@@ -8,7 +8,7 @@ describe('bad URLs', () => {
     for (const url of URLs) {
       const res = await head(url)
       expect(res.statusCode).toBe(302)
-      expect(res.headers.location).toBe(url.replace(/\/index\.md$/, ''))
+      expect(res.headers.location).toBe(url.replace(/\/index\.md$/, '') || '/')
       expect(res.headers['cache-control']).toContain('public')
       expect(res.headers['cache-control']).toMatch(/max-age=[1-9]/)
     }

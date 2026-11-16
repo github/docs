@@ -1,0 +1,73 @@
+.root {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 2.5rem;
+  padding: 8px 12px;
+  background: transparent;
+  border: 0;
+  font-family: var(--brand-fontStack-sansSerif, "Mona Sans", sans-serif);
+  font-size: var(--brand-text-size-100, 0.875rem);
+  font-weight: var(--base-text-weight-bold, 700);
+  // Inherit keeps the control synchronized with surrounding text and color mode.
+  // .upNextLink in Minitocs.module.scss matches this.
+  color: inherit;
+  cursor: pointer;
+}
+
+.label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.chevron {
+  flex-shrink: 0;
+  margin-left: 8px;
+  transition: transform 0.15s ease;
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+.popover {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  margin-top: 4px;
+  max-height: min(60vh, 480px);
+  overflow-y: auto;
+  padding: 8px 0;
+  // Use the same Brand canvas as ArticleGridLayout's drawer panel and the sub-bar.
+  background: var(--brand-color-canvas-default);
+  // Use brand subtle, not default: default is heavier than Primer's #d1d9e0.
+  // Subtle, #d2d9d4 light and #262c28 dark, keeps the panel outline quiet.
+  border: var(--brand-borderWidth-thin, 1px) solid
+    var(--brand-color-border-subtle, #d2d9d4);
+  border-radius: var(--brand-borderRadius-medium, 0.5rem);
+  // Use explicit mode-specific shadows because this floating panel needs a light
+  // elevation in light mode and a stronger shadow on the dark Brand canvas.
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+
+  :global([data-color-mode="dark"]) & {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.6);
+  }
+
+  // No-JS fallback; see the note in src/frame/stylesheets/index.scss.
+  @media (prefers-color-scheme: dark) {
+    :global([data-color-mode="auto"][data-dark-theme*="dark"]) & {
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.6);
+    }
+  }
+}

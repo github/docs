@@ -1,0 +1,2 @@
+> [!NOTE]
+> Starting October 28, 2026, the new {% data variables.copilot.copilot_in_the_cloud_short %} experience on {% data variables.product.prodname_dotcom_the_website %} and {% data variables.product.prodname_mobile %} is available to users with a paid {% data variables.product.prodname_copilot_short %} plan, subject to applicable organization and enterprise policies. Users on {% data variables.copilot.copilot_free_short %} plans will continue to use the old {% data variables.copilot.copilot_chat_short %} experience.

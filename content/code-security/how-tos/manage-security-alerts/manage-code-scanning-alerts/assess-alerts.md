@@ -45,6 +45,12 @@ By default, the {% data variables.product.prodname_code_scanning %} alerts page 
 
 For more information, see [AUTOTITLE](/code-security/concepts/code-scanning/code-scanning-alerts).
 
+{% ifversion copilot %}
+
+To view, understand, and fix {% data variables.product.prodname_code_scanning %} alerts alongside your local code in the {% data variables.copilot.github_copilot_app %}, see [AUTOTITLE](/copilot/how-tos/github-copilot-app/view-and-fix-security-alerts).
+
+{% endif %}
+
 > [!NOTE]
 > You can see information about when {% data variables.product.prodname_code_scanning %} analysis last ran on the tool status page. For more information, see [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/manage-your-configuration/use-the-tools-status-page-for-code-scanning).
 
@@ -52,13 +58,13 @@ For more information, see [AUTOTITLE](/code-security/concepts/code-scanning/code
 
 ## Asking {% data variables.copilot.copilot_chat %} about {% data variables.product.prodname_code_scanning %} alerts
 
-With a {% data variables.copilot.copilot_enterprise %} license, you can ask {% data variables.copilot.copilot_chat_short %} for help to better understand security alerts, including {% data variables.product.prodname_code_scanning %} alerts, in repositories in your organization. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/chat-with-copilot/chat-in-github#asking-questions-about-alerts-from-github-advanced-security-features).
+With a {% data variables.copilot.copilot_enterprise %} license, you can ask {% data variables.copilot.copilot_chat_short %} for help to better understand security alerts, including {% data variables.product.prodname_code_scanning %} alerts, in repositories in your organization. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/chat-with-copilot/get-started-with-chat#security-alert-questions).
 
 {% endif %}
 
 ## Viewing metrics for {% data variables.product.prodname_codeql %} pull request alerts for an organization
 
-For {% data variables.product.prodname_code_scanning %} alerts from {% data variables.product.prodname_codeql %} analysis, you can use security overview to see how {% data variables.product.prodname_codeql %} is performing in pull requests in repositories where you have write access across your organization, and to identify repositories where you may need to take action. For more information, see [AUTOTITLE](/code-security/concepts/code-scanning/pull-request-alert-metrics).
+For {% data variables.product.prodname_code_scanning %} alerts from {% data variables.product.prodname_codeql %} analysis, you can use security overview to see how {% data variables.product.prodname_codeql %} is performing in pull requests in repositories where you have write access across your organization, and to identify repositories where you may need to take action. For more information, see [AUTOTITLE](/code-security/concepts/code-scanning/code-scanning-on-pull-requests).
 
 ## Filtering {% data variables.product.prodname_code_scanning %} alerts
 
@@ -67,6 +73,12 @@ You can filter the alerts shown in the {% data variables.product.prodname_code_s
 When you select a keyword from either a drop-down list, or as you enter a keyword in the search field, only values with results are shown. This makes it easier to avoid setting filters that find no results.
 
 ![Screenshot of search field in alerts view. The field has "branch:dependabot" and all valid branches with a matching name are shown.](/assets/images/help/repository/code-scanning-filter-keywords.png)
+
+{% ifversion ai-scan-for-repositories %}
+
+To focus on findings from AI Scan for repositories, filter the alert list by the **AI Scan** tool. See [AUTOTITLE](/code-security/concepts/code-scanning/ai-scan-for-repositories).
+
+{% endif %}
 
 If you enter multiple filters, the view will show alerts matching _all_ these filters. For example, `is:closed severity:high branch:main` will only display closed high-severity alerts that are present on the `main` branch. The exception is filters relating to refs (`ref`, `branch` and `pr`): `is:open branch:main branch:next` will show you open alerts from both the `main` branch and the `next` branch.
 

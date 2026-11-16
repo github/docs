@@ -7,6 +7,7 @@ versions:
 children:
   - /manage-for-organization
   - /manage-for-enterprise
+  - /manage-budget-requests
   - /manage-mcp-usage
   - /download-activity-report
   - /view-usage-and-adoption

@@ -1,0 +1,25 @@
+# This file was generated with Kustomize. Please do not edit manually.
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    tailscale.com/http-endpoint: enabled
+    tailscale.com/proxy-group: ingress-proxies
+    tailscale.com/tags: tag:proxima-review-lab
+  name: http
+  namespace: '%namespace%'
+spec:
+  ingressClassName: tailscale
+  rules:
+    - http:
+        paths:
+          - backend:
+              service:
+                name: router
+                port:
+                  number: 80
+            path: /
+            pathType: Prefix
+  tls:
+    - hosts:
+        - '%namespace%'

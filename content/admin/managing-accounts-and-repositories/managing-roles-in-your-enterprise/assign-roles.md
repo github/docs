@@ -10,6 +10,8 @@ redirect_from:
 contentType: how-tos
 category:
   - Manage accounts and repositories
+docsTeamMetrics:
+  - enterprise-onboarding
 ---
 
 Enterprise owners can assign custom and predefined **enterprise roles** to users and teams. Some roles can be assigned to enterprise teams, whereas other roles are only available for individual users. Find the section below for the role you want to assign.

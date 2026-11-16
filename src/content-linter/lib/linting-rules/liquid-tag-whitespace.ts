@@ -13,18 +13,7 @@ interface LiquidToken {
   end: number
 }
 
-/*
-Liquid tags should start and end with one whitespace. For example:
-
-  DO use a single whitespace character
-  {% data <args> %}
-
-  DON'T use 0 or more than 1 whitespace
-  {%data <args>  %}
-
-  DON'T use more than 1 whitespace between args
-  {%data  arg1   arg2  %}
-*/
+// Liquid tag delimiters and arguments each need one separating space.
 
 export const liquidTagWhitespace: Rule = {
   names: ['GHD042', 'liquid-tag-whitespace'],
@@ -45,18 +34,22 @@ export const liquidTagWhitespace: Rule = {
       const range = [column, length]
       const tag = params.lines[lineNumber - 1].slice(column - 1, column - 1 + length)
 
-      // Get just the opening and closing tags, which includes any whitespace
-      // added before the tag name or any arguments
+      // openTag and closeTag preserve whitespace around the tag name and arguments.
       const openTag = tag.slice(0, token.contentRange[0] - token.begin)
       const closeTag = tag.slice(-(token.end - token.contentRange[1]))
 
       const isOpenTagOneSpace = openTag !== `${openTag.trim()} `
       const isCloseTagOneSpace = closeTag !== ` ${closeTag.trim()}`
 
-      const moreThanOneSpace = /\s{2,}/
-      const isArgOneSpace = moreThanOneSpace.test(tag)
+      // Quoted strings are literal values, so whitespace inside them stays as written.
+      const extraSpaceOutsideQuotes = /("[^"]*"|'[^']*')|\s{2,}/g
+      const fixedArgs = token.content.replace(
+        extraSpaceOutsideQuotes,
+        (_match: string, quoted?: string) => quoted ?? ' ',
+      )
+      const isArgOneSpace = fixedArgs !== token.content
 
-      const fixedContent = `${openTag.trim()} ${token.content.replace(moreThanOneSpace, ' ')} ${closeTag.trim()}`
+      const fixedContent = `${openTag.trim()} ${fixedArgs} ${closeTag.trim()}`
 
       if (isOpenTagOneSpace || isCloseTagOneSpace || isArgOneSpace) {
         addFixErrorDetail(

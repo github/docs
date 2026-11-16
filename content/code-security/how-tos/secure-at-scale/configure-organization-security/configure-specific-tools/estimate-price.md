@@ -4,7 +4,9 @@ shortTitle: Estimate price
 intro: Learn how to use the {% data variables.secret-scanning.pricing-calculator %} to estimate the monthly cost of {% data variables.product.prodname_GH_secret_protection %} for your repositories.
 product: '{% data reusables.gated-features.secret-risk-assessment-calculators %}'
 versions:
-  feature: secret-risk-assessment
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 permissions: '{% data reusables.permissions.push-protection-roi-calculator %}'
 contentType: how-tos
 redirect_from:
@@ -41,13 +43,13 @@ You need to have generated a secret risk assessment for your organization. See [
       * The **per-committer rate** (for example, $19 per active committer).
 1. To proceed with enabling {% data variables.product.prodname_secret_protection %}, click **Review and enable**.
 
-{% note %}
+<div class="border rounded-2 p-3">
 
 Did you successfully use the {% data variables.secret-scanning.pricing-calculator %} to estimate the cost of using {% data variables.product.prodname_secret_protection %} features on your organization?
 
 <a href="https://docs.github.io/success-test/yes.html" target="_blank" class="btn btn-outline mt-3 mr-3 no-underline"><span>Yes</span></a>  <a href="https://docs.github.io/success-test/no.html" target="_blank" class="btn btn-outline mt-3 mr-3 no-underline"><span>No</span></a>
 
-{% endnote %}
+</div>
 
 ## Understanding your results
 

@@ -15,7 +15,7 @@ redirect_from:
 ## About base models
 
 > [!IMPORTANT]
-> * On March 18, 2026, {% data variables.product.github %} designated {% data variables.copilot.copilot_gpt_53_codex %} as the base model.
+> * On March 18, 2026, {% data variables.product.github %} designated {% data variables.copilot.gpt_53_codex %} as the base model.
 > * Base models apply only to {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %}.
 
  A base model is the default AI model that {% data variables.product.prodname_copilot %} uses when no other models are enabled. The base model is automatically enabled for all {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} accounts within 60 days after the model is designated as a base model.
@@ -31,7 +31,7 @@ When a new model is designated a base model, the following timeline applies:
 ## About long-term support (LTS) models
 
 > [!IMPORTANT]
-> * On March 18, 2026, {% data variables.product.github %} designated {% data variables.copilot.copilot_gpt_53_codex %} as the LTS model.
+> * On March 18, 2026, {% data variables.product.github %} designated {% data variables.copilot.gpt_53_codex %} as the LTS model.
 > * LTS models apply only to {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %}.
 
 An LTS model is an AI model that {% data variables.product.github %} commits to supporting for an extended period of one year from its designation date. During that period, the model remains available, which allows users to build around the model without concern that it will be {% data variables.release-phases.closing_down %} unexpectedly.

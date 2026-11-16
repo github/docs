@@ -24,6 +24,6 @@
 | [Code injection](https://codeql.github.com/codeql-query-help/actions/actions-code-injection-medium/) | 094, 095, 116 | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Environment variable built from user-controlled sources](https://codeql.github.com/codeql-query-help/actions/actions-envvar-injection-medium/) | 077, 020 | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [PATH environment variable built from user-controlled sources](https://codeql.github.com/codeql-query-help/actions/actions-envpath-injection-medium/) | 077, 020 | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
-| [Unpinned tag for a non-immutable Action in workflow or composite action](https://codeql.github.com/codeql-query-help/actions/actions-unpinned-tag/) | 829 | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "x" aria-label="Not included" %} |
+| [Unpinned tag for a non-immutable Action or reusable workflow](https://codeql.github.com/codeql-query-help/actions/actions-unpinned-tag/) | 829 | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "x" aria-label="Not included" %} |
 
 {% endrowheaders %}

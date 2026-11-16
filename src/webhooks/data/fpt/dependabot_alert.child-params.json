@@ -51,6 +51,11 @@
           },
           {
             "type": "string or null",
+            "name": "version_requirement",
+            "description": "<p>The dependency version or version constraint last recorded for the dependency associated with this alert.\nFor dependencies detected from a lockfile, this can be the resolved version.\nFor manifest-only dependencies, it can be the declared version constraint. Returns <code>null</code> when unavailable.</p>\n<p>An empty string can indicate an unconstrained dependency. The stored value is limited to 64 bytes;\nlonger requirements may have been truncated and may no longer form a complete, valid version constraint.</p>\n<p>When multiple vulnerable versions of a dependency correspond to the same alert, this field contains one\nrecorded version or constraint and may not represent all vulnerable versions.</p>"
+          },
+          {
+            "type": "string or null",
             "name": "scope",
             "description": "<p>The execution scope of the vulnerable dependency.</p>",
             "enum": [
@@ -783,6 +788,46 @@
             "type": "string",
             "name": "user_view_type",
             "description": ""
+          }
+        ]
+      },
+      {
+        "type": "object",
+        "name": "reachability",
+        "description": "<p>The reachability result for the vulnerability that triggered the alert, indicating whether a\nvulnerable function is reachable from the repository's own code.</p>",
+        "childParamsGroups": [
+          {
+            "type": "string",
+            "name": "verdict",
+            "description": "<p>The reachability verdict for the alert.</p>\n<ul>\n<li><code>reachable</code>: a path from the repository's code reaches a vulnerable function.</li>\n<li><code>unreachable</code>: no path from the repository's code reaches a vulnerable function.</li>\n<li><code>potentially_reachable</code>: reachability could not be determined with confidence; review manually.</li>\n<li><code>unavailable</code>: no verdict has been computed for the alert yet.</li>\n<li><code>disabled</code>: reachability analysis is not enabled for the repository.</li>\n</ul>",
+            "isRequired": true,
+            "enum": [
+              "reachable",
+              "unreachable",
+              "potentially_reachable",
+              "unavailable",
+              "disabled"
+            ]
+          },
+          {
+            "type": "string",
+            "name": "reason",
+            "description": "<p>The reason for the reachability verdict. This field is omitted when reachability analysis is disabled or no result has been computed.</p>",
+            "enum": [
+              "unknown",
+              "unavailable_unsupported_ecosystem",
+              "unavailable_analysis_timed_out",
+              "potentially_reachable_invalid_manifest_path",
+              "potentially_reachable_missing_vulnerable_function_annotation",
+              "potentially_reachable_dependency_not_found",
+              "potentially_reachable_dependency_analysis_incomplete",
+              "potentially_reachable_repository_analysis_incomplete",
+              "potentially_reachable_call_found_outside_manifest_scope",
+              "potentially_reachable_unclassified_analysis_state",
+              "reachable_vulnerable_function_called",
+              "unreachable_vulnerable_function_not_called",
+              "potentially_reachable_unresolved_dynamic_call"
+            ]
           }
         ]
       }
@@ -840,6 +885,11 @@
           },
           {
             "type": "string or null",
+            "name": "version_requirement",
+            "description": "<p>The dependency version or version constraint last recorded for the dependency associated with this alert.\nFor dependencies detected from a lockfile, this can be the resolved version.\nFor manifest-only dependencies, it can be the declared version constraint. Returns <code>null</code> when unavailable.</p>\n<p>An empty string can indicate an unconstrained dependency. The stored value is limited to 64 bytes;\nlonger requirements may have been truncated and may no longer form a complete, valid version constraint.</p>\n<p>When multiple vulnerable versions of a dependency correspond to the same alert, this field contains one\nrecorded version or constraint and may not represent all vulnerable versions.</p>"
+          },
+          {
+            "type": "string or null",
             "name": "scope",
             "description": "<p>The execution scope of the vulnerable dependency.</p>",
             "enum": [
@@ -1572,6 +1622,46 @@
             "type": "string",
             "name": "user_view_type",
             "description": ""
+          }
+        ]
+      },
+      {
+        "type": "object",
+        "name": "reachability",
+        "description": "<p>The reachability result for the vulnerability that triggered the alert, indicating whether a\nvulnerable function is reachable from the repository's own code.</p>",
+        "childParamsGroups": [
+          {
+            "type": "string",
+            "name": "verdict",
+            "description": "<p>The reachability verdict for the alert.</p>\n<ul>\n<li><code>reachable</code>: a path from the repository's code reaches a vulnerable function.</li>\n<li><code>unreachable</code>: no path from the repository's code reaches a vulnerable function.</li>\n<li><code>potentially_reachable</code>: reachability could not be determined with confidence; review manually.</li>\n<li><code>unavailable</code>: no verdict has been computed for the alert yet.</li>\n<li><code>disabled</code>: reachability analysis is not enabled for the repository.</li>\n</ul>",
+            "isRequired": true,
+            "enum": [
+              "reachable",
+              "unreachable",
+              "potentially_reachable",
+              "unavailable",
+              "disabled"
+            ]
+          },
+          {
+            "type": "string",
+            "name": "reason",
+            "description": "<p>The reason for the reachability verdict. This field is omitted when reachability analysis is disabled or no result has been computed.</p>",
+            "enum": [
+              "unknown",
+              "unavailable_unsupported_ecosystem",
+              "unavailable_analysis_timed_out",
+              "potentially_reachable_invalid_manifest_path",
+              "potentially_reachable_missing_vulnerable_function_annotation",
+              "potentially_reachable_dependency_not_found",
+              "potentially_reachable_dependency_analysis_incomplete",
+              "potentially_reachable_repository_analysis_incomplete",
+              "potentially_reachable_call_found_outside_manifest_scope",
+              "potentially_reachable_unclassified_analysis_state",
+              "reachable_vulnerable_function_called",
+              "unreachable_vulnerable_function_not_called",
+              "potentially_reachable_unresolved_dynamic_call"
+            ]
           }
         ]
       }
@@ -1629,6 +1719,11 @@
           },
           {
             "type": "string or null",
+            "name": "version_requirement",
+            "description": "<p>The dependency version or version constraint last recorded for the dependency associated with this alert.\nFor dependencies detected from a lockfile, this can be the resolved version.\nFor manifest-only dependencies, it can be the declared version constraint. Returns <code>null</code> when unavailable.</p>\n<p>An empty string can indicate an unconstrained dependency. The stored value is limited to 64 bytes;\nlonger requirements may have been truncated and may no longer form a complete, valid version constraint.</p>\n<p>When multiple vulnerable versions of a dependency correspond to the same alert, this field contains one\nrecorded version or constraint and may not represent all vulnerable versions.</p>"
+          },
+          {
+            "type": "string or null",
             "name": "scope",
             "description": "<p>The execution scope of the vulnerable dependency.</p>",
             "enum": [
@@ -2361,6 +2456,46 @@
             "type": "string",
             "name": "user_view_type",
             "description": ""
+          }
+        ]
+      },
+      {
+        "type": "object",
+        "name": "reachability",
+        "description": "<p>The reachability result for the vulnerability that triggered the alert, indicating whether a\nvulnerable function is reachable from the repository's own code.</p>",
+        "childParamsGroups": [
+          {
+            "type": "string",
+            "name": "verdict",
+            "description": "<p>The reachability verdict for the alert.</p>\n<ul>\n<li><code>reachable</code>: a path from the repository's code reaches a vulnerable function.</li>\n<li><code>unreachable</code>: no path from the repository's code reaches a vulnerable function.</li>\n<li><code>potentially_reachable</code>: reachability could not be determined with confidence; review manually.</li>\n<li><code>unavailable</code>: no verdict has been computed for the alert yet.</li>\n<li><code>disabled</code>: reachability analysis is not enabled for the repository.</li>\n</ul>",
+            "isRequired": true,
+            "enum": [
+              "reachable",
+              "unreachable",
+              "potentially_reachable",
+              "unavailable",
+              "disabled"
+            ]
+          },
+          {
+            "type": "string",
+            "name": "reason",
+            "description": "<p>The reason for the reachability verdict. This field is omitted when reachability analysis is disabled or no result has been computed.</p>",
+            "enum": [
+              "unknown",
+              "unavailable_unsupported_ecosystem",
+              "unavailable_analysis_timed_out",
+              "potentially_reachable_invalid_manifest_path",
+              "potentially_reachable_missing_vulnerable_function_annotation",
+              "potentially_reachable_dependency_not_found",
+              "potentially_reachable_dependency_analysis_incomplete",
+              "potentially_reachable_repository_analysis_incomplete",
+              "potentially_reachable_call_found_outside_manifest_scope",
+              "potentially_reachable_unclassified_analysis_state",
+              "reachable_vulnerable_function_called",
+              "unreachable_vulnerable_function_not_called",
+              "potentially_reachable_unresolved_dynamic_call"
+            ]
           }
         ]
       }
@@ -2418,6 +2553,11 @@
           },
           {
             "type": "string or null",
+            "name": "version_requirement",
+            "description": "<p>The dependency version or version constraint last recorded for the dependency associated with this alert.\nFor dependencies detected from a lockfile, this can be the resolved version.\nFor manifest-only dependencies, it can be the declared version constraint. Returns <code>null</code> when unavailable.</p>\n<p>An empty string can indicate an unconstrained dependency. The stored value is limited to 64 bytes;\nlonger requirements may have been truncated and may no longer form a complete, valid version constraint.</p>\n<p>When multiple vulnerable versions of a dependency correspond to the same alert, this field contains one\nrecorded version or constraint and may not represent all vulnerable versions.</p>"
+          },
+          {
+            "type": "string or null",
             "name": "scope",
             "description": "<p>The execution scope of the vulnerable dependency.</p>",
             "enum": [
@@ -3150,6 +3290,46 @@
             "type": "string",
             "name": "user_view_type",
             "description": ""
+          }
+        ]
+      },
+      {
+        "type": "object",
+        "name": "reachability",
+        "description": "<p>The reachability result for the vulnerability that triggered the alert, indicating whether a\nvulnerable function is reachable from the repository's own code.</p>",
+        "childParamsGroups": [
+          {
+            "type": "string",
+            "name": "verdict",
+            "description": "<p>The reachability verdict for the alert.</p>\n<ul>\n<li><code>reachable</code>: a path from the repository's code reaches a vulnerable function.</li>\n<li><code>unreachable</code>: no path from the repository's code reaches a vulnerable function.</li>\n<li><code>potentially_reachable</code>: reachability could not be determined with confidence; review manually.</li>\n<li><code>unavailable</code>: no verdict has been computed for the alert yet.</li>\n<li><code>disabled</code>: reachability analysis is not enabled for the repository.</li>\n</ul>",
+            "isRequired": true,
+            "enum": [
+              "reachable",
+              "unreachable",
+              "potentially_reachable",
+              "unavailable",
+              "disabled"
+            ]
+          },
+          {
+            "type": "string",
+            "name": "reason",
+            "description": "<p>The reason for the reachability verdict. This field is omitted when reachability analysis is disabled or no result has been computed.</p>",
+            "enum": [
+              "unknown",
+              "unavailable_unsupported_ecosystem",
+              "unavailable_analysis_timed_out",
+              "potentially_reachable_invalid_manifest_path",
+              "potentially_reachable_missing_vulnerable_function_annotation",
+              "potentially_reachable_dependency_not_found",
+              "potentially_reachable_dependency_analysis_incomplete",
+              "potentially_reachable_repository_analysis_incomplete",
+              "potentially_reachable_call_found_outside_manifest_scope",
+              "potentially_reachable_unclassified_analysis_state",
+              "reachable_vulnerable_function_called",
+              "unreachable_vulnerable_function_not_called",
+              "potentially_reachable_unresolved_dynamic_call"
+            ]
           }
         ]
       }
@@ -3207,6 +3387,11 @@
           },
           {
             "type": "string or null",
+            "name": "version_requirement",
+            "description": "<p>The dependency version or version constraint last recorded for the dependency associated with this alert.\nFor dependencies detected from a lockfile, this can be the resolved version.\nFor manifest-only dependencies, it can be the declared version constraint. Returns <code>null</code> when unavailable.</p>\n<p>An empty string can indicate an unconstrained dependency. The stored value is limited to 64 bytes;\nlonger requirements may have been truncated and may no longer form a complete, valid version constraint.</p>\n<p>When multiple vulnerable versions of a dependency correspond to the same alert, this field contains one\nrecorded version or constraint and may not represent all vulnerable versions.</p>"
+          },
+          {
+            "type": "string or null",
             "name": "scope",
             "description": "<p>The execution scope of the vulnerable dependency.</p>",
             "enum": [
@@ -3939,6 +4124,46 @@
             "type": "string",
             "name": "user_view_type",
             "description": ""
+          }
+        ]
+      },
+      {
+        "type": "object",
+        "name": "reachability",
+        "description": "<p>The reachability result for the vulnerability that triggered the alert, indicating whether a\nvulnerable function is reachable from the repository's own code.</p>",
+        "childParamsGroups": [
+          {
+            "type": "string",
+            "name": "verdict",
+            "description": "<p>The reachability verdict for the alert.</p>\n<ul>\n<li><code>reachable</code>: a path from the repository's code reaches a vulnerable function.</li>\n<li><code>unreachable</code>: no path from the repository's code reaches a vulnerable function.</li>\n<li><code>potentially_reachable</code>: reachability could not be determined with confidence; review manually.</li>\n<li><code>unavailable</code>: no verdict has been computed for the alert yet.</li>\n<li><code>disabled</code>: reachability analysis is not enabled for the repository.</li>\n</ul>",
+            "isRequired": true,
+            "enum": [
+              "reachable",
+              "unreachable",
+              "potentially_reachable",
+              "unavailable",
+              "disabled"
+            ]
+          },
+          {
+            "type": "string",
+            "name": "reason",
+            "description": "<p>The reason for the reachability verdict. This field is omitted when reachability analysis is disabled or no result has been computed.</p>",
+            "enum": [
+              "unknown",
+              "unavailable_unsupported_ecosystem",
+              "unavailable_analysis_timed_out",
+              "potentially_reachable_invalid_manifest_path",
+              "potentially_reachable_missing_vulnerable_function_annotation",
+              "potentially_reachable_dependency_not_found",
+              "potentially_reachable_dependency_analysis_incomplete",
+              "potentially_reachable_repository_analysis_incomplete",
+              "potentially_reachable_call_found_outside_manifest_scope",
+              "potentially_reachable_unclassified_analysis_state",
+              "reachable_vulnerable_function_called",
+              "unreachable_vulnerable_function_not_called",
+              "potentially_reachable_unresolved_dynamic_call"
+            ]
           }
         ]
       }
@@ -3996,6 +4221,11 @@
           },
           {
             "type": "string or null",
+            "name": "version_requirement",
+            "description": "<p>The dependency version or version constraint last recorded for the dependency associated with this alert.\nFor dependencies detected from a lockfile, this can be the resolved version.\nFor manifest-only dependencies, it can be the declared version constraint. Returns <code>null</code> when unavailable.</p>\n<p>An empty string can indicate an unconstrained dependency. The stored value is limited to 64 bytes;\nlonger requirements may have been truncated and may no longer form a complete, valid version constraint.</p>\n<p>When multiple vulnerable versions of a dependency correspond to the same alert, this field contains one\nrecorded version or constraint and may not represent all vulnerable versions.</p>"
+          },
+          {
+            "type": "string or null",
             "name": "scope",
             "description": "<p>The execution scope of the vulnerable dependency.</p>",
             "enum": [
@@ -4728,6 +4958,46 @@
             "type": "string",
             "name": "user_view_type",
             "description": ""
+          }
+        ]
+      },
+      {
+        "type": "object",
+        "name": "reachability",
+        "description": "<p>The reachability result for the vulnerability that triggered the alert, indicating whether a\nvulnerable function is reachable from the repository's own code.</p>",
+        "childParamsGroups": [
+          {
+            "type": "string",
+            "name": "verdict",
+            "description": "<p>The reachability verdict for the alert.</p>\n<ul>\n<li><code>reachable</code>: a path from the repository's code reaches a vulnerable function.</li>\n<li><code>unreachable</code>: no path from the repository's code reaches a vulnerable function.</li>\n<li><code>potentially_reachable</code>: reachability could not be determined with confidence; review manually.</li>\n<li><code>unavailable</code>: no verdict has been computed for the alert yet.</li>\n<li><code>disabled</code>: reachability analysis is not enabled for the repository.</li>\n</ul>",
+            "isRequired": true,
+            "enum": [
+              "reachable",
+              "unreachable",
+              "potentially_reachable",
+              "unavailable",
+              "disabled"
+            ]
+          },
+          {
+            "type": "string",
+            "name": "reason",
+            "description": "<p>The reason for the reachability verdict. This field is omitted when reachability analysis is disabled or no result has been computed.</p>",
+            "enum": [
+              "unknown",
+              "unavailable_unsupported_ecosystem",
+              "unavailable_analysis_timed_out",
+              "potentially_reachable_invalid_manifest_path",
+              "potentially_reachable_missing_vulnerable_function_annotation",
+              "potentially_reachable_dependency_not_found",
+              "potentially_reachable_dependency_analysis_incomplete",
+              "potentially_reachable_repository_analysis_incomplete",
+              "potentially_reachable_call_found_outside_manifest_scope",
+              "potentially_reachable_unclassified_analysis_state",
+              "reachable_vulnerable_function_called",
+              "unreachable_vulnerable_function_not_called",
+              "potentially_reachable_unresolved_dynamic_call"
+            ]
           }
         ]
       }
@@ -4785,6 +5055,11 @@
           },
           {
             "type": "string or null",
+            "name": "version_requirement",
+            "description": "<p>The dependency version or version constraint last recorded for the dependency associated with this alert.\nFor dependencies detected from a lockfile, this can be the resolved version.\nFor manifest-only dependencies, it can be the declared version constraint. Returns <code>null</code> when unavailable.</p>\n<p>An empty string can indicate an unconstrained dependency. The stored value is limited to 64 bytes;\nlonger requirements may have been truncated and may no longer form a complete, valid version constraint.</p>\n<p>When multiple vulnerable versions of a dependency correspond to the same alert, this field contains one\nrecorded version or constraint and may not represent all vulnerable versions.</p>"
+          },
+          {
+            "type": "string or null",
             "name": "scope",
             "description": "<p>The execution scope of the vulnerable dependency.</p>",
             "enum": [
@@ -5517,6 +5792,46 @@
             "type": "string",
             "name": "user_view_type",
             "description": ""
+          }
+        ]
+      },
+      {
+        "type": "object",
+        "name": "reachability",
+        "description": "<p>The reachability result for the vulnerability that triggered the alert, indicating whether a\nvulnerable function is reachable from the repository's own code.</p>",
+        "childParamsGroups": [
+          {
+            "type": "string",
+            "name": "verdict",
+            "description": "<p>The reachability verdict for the alert.</p>\n<ul>\n<li><code>reachable</code>: a path from the repository's code reaches a vulnerable function.</li>\n<li><code>unreachable</code>: no path from the repository's code reaches a vulnerable function.</li>\n<li><code>potentially_reachable</code>: reachability could not be determined with confidence; review manually.</li>\n<li><code>unavailable</code>: no verdict has been computed for the alert yet.</li>\n<li><code>disabled</code>: reachability analysis is not enabled for the repository.</li>\n</ul>",
+            "isRequired": true,
+            "enum": [
+              "reachable",
+              "unreachable",
+              "potentially_reachable",
+              "unavailable",
+              "disabled"
+            ]
+          },
+          {
+            "type": "string",
+            "name": "reason",
+            "description": "<p>The reason for the reachability verdict. This field is omitted when reachability analysis is disabled or no result has been computed.</p>",
+            "enum": [
+              "unknown",
+              "unavailable_unsupported_ecosystem",
+              "unavailable_analysis_timed_out",
+              "potentially_reachable_invalid_manifest_path",
+              "potentially_reachable_missing_vulnerable_function_annotation",
+              "potentially_reachable_dependency_not_found",
+              "potentially_reachable_dependency_analysis_incomplete",
+              "potentially_reachable_repository_analysis_incomplete",
+              "potentially_reachable_call_found_outside_manifest_scope",
+              "potentially_reachable_unclassified_analysis_state",
+              "reachable_vulnerable_function_called",
+              "unreachable_vulnerable_function_not_called",
+              "potentially_reachable_unresolved_dynamic_call"
+            ]
           }
         ]
       }
@@ -5574,6 +5889,11 @@
           },
           {
             "type": "string or null",
+            "name": "version_requirement",
+            "description": "<p>The dependency version or version constraint last recorded for the dependency associated with this alert.\nFor dependencies detected from a lockfile, this can be the resolved version.\nFor manifest-only dependencies, it can be the declared version constraint. Returns <code>null</code> when unavailable.</p>\n<p>An empty string can indicate an unconstrained dependency. The stored value is limited to 64 bytes;\nlonger requirements may have been truncated and may no longer form a complete, valid version constraint.</p>\n<p>When multiple vulnerable versions of a dependency correspond to the same alert, this field contains one\nrecorded version or constraint and may not represent all vulnerable versions.</p>"
+          },
+          {
+            "type": "string or null",
             "name": "scope",
             "description": "<p>The execution scope of the vulnerable dependency.</p>",
             "enum": [
@@ -6308,6 +6628,183 @@
             "description": ""
           }
         ]
+      },
+      {
+        "type": "object",
+        "name": "reachability",
+        "description": "<p>The reachability result for the vulnerability that triggered the alert, indicating whether a\nvulnerable function is reachable from the repository's own code.</p>",
+        "childParamsGroups": [
+          {
+            "type": "string",
+            "name": "verdict",
+            "description": "<p>The reachability verdict for the alert.</p>\n<ul>\n<li><code>reachable</code>: a path from the repository's code reaches a vulnerable function.</li>\n<li><code>unreachable</code>: no path from the repository's code reaches a vulnerable function.</li>\n<li><code>potentially_reachable</code>: reachability could not be determined with confidence; review manually.</li>\n<li><code>unavailable</code>: no verdict has been computed for the alert yet.</li>\n<li><code>disabled</code>: reachability analysis is not enabled for the repository.</li>\n</ul>",
+            "isRequired": true,
+            "enum": [
+              "reachable",
+              "unreachable",
+              "potentially_reachable",
+              "unavailable",
+              "disabled"
+            ]
+          },
+          {
+            "type": "string",
+            "name": "reason",
+            "description": "<p>The reason for the reachability verdict. This field is omitted when reachability analysis is disabled or no result has been computed.</p>",
+            "enum": [
+              "unknown",
+              "unavailable_unsupported_ecosystem",
+              "unavailable_analysis_timed_out",
+              "potentially_reachable_invalid_manifest_path",
+              "potentially_reachable_missing_vulnerable_function_annotation",
+              "potentially_reachable_dependency_not_found",
+              "potentially_reachable_dependency_analysis_incomplete",
+              "potentially_reachable_repository_analysis_incomplete",
+              "potentially_reachable_call_found_outside_manifest_scope",
+              "potentially_reachable_unclassified_analysis_state",
+              "reachable_vulnerable_function_called",
+              "unreachable_vulnerable_function_not_called",
+              "potentially_reachable_unresolved_dynamic_call"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "withdrawn": {
+    "alert": [
+      {
+        "type": "integer",
+        "name": "id",
+        "description": "<p>The unique identifier of the withdrawn alert.</p>",
+        "isRequired": true
+      },
+      {
+        "type": "string",
+        "name": "node_id",
+        "description": "<p>The GraphQL node ID of the withdrawn alert.</p>",
+        "isRequired": true
+      },
+      {
+        "type": "integer",
+        "name": "number",
+        "description": "<p>The security alert number.</p>",
+        "isRequired": true
+      },
+      {
+        "type": "string",
+        "name": "state",
+        "description": "<p>The state of the Dependabot alert.</p>",
+        "isRequired": true,
+        "enum": [
+          "withdrawn"
+        ]
+      },
+      {
+        "type": "object",
+        "name": "dependency",
+        "description": "<p>Details for the vulnerable dependency.</p>",
+        "isRequired": true,
+        "childParamsGroups": [
+          {
+            "type": "object",
+            "name": "package",
+            "description": "<p>Details for the vulnerable package.</p>",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "string",
+                "name": "ecosystem",
+                "description": "<p>The package's language or package management ecosystem.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "name",
+                "description": "<p>The unique package name within its ecosystem.</p>",
+                "isRequired": true
+              }
+            ]
+          },
+          {
+            "type": "string or null",
+            "name": "manifest_path",
+            "description": "<p>The full path to the dependency manifest file, relative to the root of the repository.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string or null",
+            "name": "version_requirement",
+            "description": "<p>The dependency version or version constraint last recorded for the dependency associated with this alert.\nFor dependencies detected from a lockfile, this can be the resolved version.\nFor manifest-only dependencies, it can be the declared version constraint. Returns <code>null</code> when unavailable.</p>\n<p>An empty string can indicate an unconstrained dependency. The stored value is limited to 64 bytes;\nlonger requirements may have been truncated and may no longer form a complete, valid version constraint.</p>\n<p>When multiple vulnerable versions of a dependency correspond to the same alert, this field contains one\nrecorded version or constraint and may not represent all vulnerable versions.</p>"
+          },
+          {
+            "type": "string or null",
+            "name": "scope",
+            "description": "<p>The execution scope of the vulnerable dependency.</p>",
+            "isRequired": true,
+            "enum": [
+              "development",
+              "runtime",
+              null
+            ]
+          },
+          {
+            "type": "string or null",
+            "name": "relationship",
+            "description": "<p>The vulnerable dependency's relationship to your project.</p>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nWe are rolling out support for dependency relationship across ecosystems. This value will be \"unknown\" for all dependencies in unsupported ecosystems.</p>\n</div>",
+            "enum": [
+              "unknown",
+              "direct",
+              "transitive",
+              "inconclusive",
+              null
+            ]
+          }
+        ]
+      },
+      {
+        "type": "object",
+        "name": "security_advisory",
+        "description": "<p>Identifiers of the advisory that produced the withdrawn alert.</p>",
+        "isRequired": true,
+        "childParamsGroups": [
+          {
+            "type": "string",
+            "name": "ghsa_id",
+            "description": "<p>The unique GitHub identifier assigned to the advisory.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string or null",
+            "name": "cve_id",
+            "description": "<p>The CVE identifier assigned to the advisory, if any.</p>",
+            "isRequired": true
+          }
+        ]
+      },
+      {
+        "type": "string",
+        "name": "url",
+        "description": "<p>The REST API URL of the alert resource.</p>",
+        "isRequired": true
+      },
+      {
+        "type": "string",
+        "name": "html_url",
+        "description": "<p>The GitHub URL of the alert resource.</p>",
+        "isRequired": true
+      },
+      {
+        "type": "string",
+        "name": "created_at",
+        "description": "<p>The time that the alert was created in ISO 8601 format: <code>YYYY-MM-DDTHH:MM:SSZ</code>.</p>",
+        "isRequired": true
+      },
+      {
+        "type": "string",
+        "name": "withdrawn_at",
+        "description": "<p>The time that the alert was withdrawn in ISO 8601 format: <code>YYYY-MM-DDTHH:MM:SSZ</code>. This is not the advisory's withdrawal time.</p>",
+        "isRequired": true
       }
     ]
   }

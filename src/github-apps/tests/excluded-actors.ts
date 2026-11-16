@@ -1,5 +1,11 @@
+import path from 'path'
 import { describe, expect, test } from 'vitest'
-import { isActorExcluded, actorTypeMap } from '../scripts/sync'
+import {
+  isActorExcluded,
+  actorTypeMap,
+  getProgAccessData,
+  isOperationExcludedForFineGrainedPat,
+} from '../scripts/sync'
 
 describe('excluded_actors filtering', () => {
   test('returns false when excludedActors is undefined', () => {
@@ -41,12 +47,9 @@ describe('excluded_actors filtering', () => {
   })
 
   test('handles actor type mapping from generic to YAML values', () => {
-    // Test with actual YAML values that would come from the config files
     expect(isActorExcluded(['UserProgrammaticAccess'], 'fine_grained_pat', actorTypeMap)).toBe(true)
     expect(isActorExcluded(['github_app'], 'server_to_server', actorTypeMap)).toBe(true)
     expect(isActorExcluded(['user_access_token'], 'user_to_server', actorTypeMap)).toBe(true)
-
-    // Test fallback when no mapping exists
     expect(isActorExcluded(['some_unmapped_actor'], 'some_unmapped_actor')).toBe(true)
     expect(isActorExcluded(['some_unmapped_actor'], 'different_actor')).toBe(false)
   })
@@ -54,46 +57,37 @@ describe('excluded_actors filtering', () => {
   test('handles mixed generic and YAML actor type values', () => {
     const mixedExcludedActors = ['UserProgrammaticAccess', 'github_app', 'user_access_token']
 
-    // Should match mapped values
     expect(isActorExcluded(mixedExcludedActors, 'fine_grained_pat', actorTypeMap)).toBe(true)
     expect(isActorExcluded(mixedExcludedActors, 'server_to_server', actorTypeMap)).toBe(true)
     expect(isActorExcluded(mixedExcludedActors, 'user_to_server', actorTypeMap)).toBe(true)
 
-    // Should not match unmapped values
     expect(isActorExcluded(mixedExcludedActors, 'unmapped_actor', actorTypeMap)).toBe(false)
   })
 
   test('verifies independent filtering of server_to_server and user_to_server', () => {
-    // Only server_to_server excluded
     const onlyServerExcluded = ['server_to_server']
     expect(isActorExcluded(onlyServerExcluded, 'server_to_server')).toBe(true)
     expect(isActorExcluded(onlyServerExcluded, 'user_to_server')).toBe(false)
 
-    // Only user_to_server excluded
     const onlyUserExcluded = ['user_to_server']
     expect(isActorExcluded(onlyUserExcluded, 'server_to_server')).toBe(false)
     expect(isActorExcluded(onlyUserExcluded, 'user_to_server')).toBe(true)
 
-    // Both excluded
     const bothExcluded = ['server_to_server', 'user_to_server']
     expect(isActorExcluded(bothExcluded, 'server_to_server')).toBe(true)
     expect(isActorExcluded(bothExcluded, 'user_to_server')).toBe(true)
 
-    // Neither excluded
     const neitherExcluded = ['fine_grained_pat']
     expect(isActorExcluded(neitherExcluded, 'server_to_server')).toBe(false)
     expect(isActorExcluded(neitherExcluded, 'user_to_server')).toBe(false)
   })
 
   test('handles actor type mapping from generic to YAML values', () => {
-    // Test with actual YAML values that would come from the config files
     expect(
       isActorExcluded(['fine_grained_personal_access_token'], 'fine_grained_pat', actorTypeMap),
     ).toBe(true)
     expect(isActorExcluded(['github_app'], 'server_to_server', actorTypeMap)).toBe(true)
     expect(isActorExcluded(['user_access_token'], 'user_to_server', actorTypeMap)).toBe(true)
-
-    // Test fallback when no mapping exists
     expect(isActorExcluded(['some_unmapped_actor'], 'some_unmapped_actor')).toBe(true)
     expect(isActorExcluded(['some_unmapped_actor'], 'different_actor')).toBe(false)
   })
@@ -105,29 +99,105 @@ describe('excluded_actors filtering', () => {
       'user_access_token',
     ]
 
-    // Should match mapped values
     expect(isActorExcluded(mixedExcludedActors, 'fine_grained_pat', actorTypeMap)).toBe(true)
     expect(isActorExcluded(mixedExcludedActors, 'server_to_server', actorTypeMap)).toBe(true)
 
-    // Should match mapped values
     expect(isActorExcluded(mixedExcludedActors, 'user_to_server', actorTypeMap)).toBe(true)
 
-    // Should not match unmapped values
     expect(isActorExcluded(mixedExcludedActors, 'unmapped_actor', actorTypeMap)).toBe(false)
   })
 
   test('handles UserProgrammaticAccess alias for fine_grained_pat', () => {
-    // Test that UserProgrammaticAccess (actual source data value) is recognized as fine_grained_pat
     expect(isActorExcluded(['UserProgrammaticAccess'], 'fine_grained_pat')).toBe(true)
 
-    // Test mixed scenarios with UserProgrammaticAccess
     const mixedWithUserProgrammatic = ['UserProgrammaticAccess', 'github_app']
     expect(isActorExcluded(mixedWithUserProgrammatic, 'fine_grained_pat')).toBe(true)
     expect(isActorExcluded(mixedWithUserProgrammatic, 'server_to_server', actorTypeMap)).toBe(true)
     expect(isActorExcluded(mixedWithUserProgrammatic, 'user_to_server')).toBe(false)
 
-    // Test that both mapped value and alias work
     const bothValues = ['fine_grained_personal_access_token', 'UserProgrammaticAccess']
     expect(isActorExcluded(bothValues, 'fine_grained_pat', actorTypeMap)).toBe(true)
+  })
+})
+
+describe('isOperationExcludedForFineGrainedPat', () => {
+  const progActorResources = {
+    checks: { excluded_actors: ['fine_grained_personal_access_token'] },
+    legacy: { excluded_actors: ['UserProgrammaticAccess'] },
+    contents: {},
+  }
+
+  test('keeps operations that have no permission sets', () => {
+    expect(isOperationExcludedForFineGrainedPat([], progActorResources)).toBe(false)
+  })
+
+  test('excludes operations when every permission set excludes fine-grained PATs', () => {
+    expect(isOperationExcludedForFineGrainedPat([{ checks: 'read' }], progActorResources)).toBe(
+      true,
+    )
+  })
+
+  test('keeps operations when any permission set allows fine-grained PATs', () => {
+    expect(
+      isOperationExcludedForFineGrainedPat(
+        [{ checks: 'read' }, { contents: 'read' }],
+        progActorResources,
+      ),
+    ).toBe(false)
+  })
+
+  test('keeps operations whose permissions have no excluded actors', () => {
+    expect(isOperationExcludedForFineGrainedPat([{ contents: 'read' }], progActorResources)).toBe(
+      false,
+    )
+  })
+
+  test('returns true for the UserProgrammaticAccess alias', () => {
+    expect(isOperationExcludedForFineGrainedPat([{ legacy: 'read' }], progActorResources)).toBe(
+      true,
+    )
+  })
+
+  test('returns true when a set requires an excluded permission alongside an allowed one', () => {
+    expect(
+      isOperationExcludedForFineGrainedPat(
+        [{ checks: 'read', contents: 'read' }],
+        progActorResources,
+      ),
+    ).toBe(true)
+  })
+
+  test('returns false when another set has only allowed permissions', () => {
+    expect(
+      isOperationExcludedForFineGrainedPat(
+        [{ checks: 'read', contents: 'read' }, { contents: 'read' }],
+        progActorResources,
+      ),
+    ).toBe(false)
+  })
+
+  test('returns false when a permission has no resource definition', () => {
+    expect(isOperationExcludedForFineGrainedPat([{ unknown: 'read' }], progActorResources)).toBe(
+      false,
+    )
+  })
+})
+
+describe('getProgAccessData fine-grained PAT support', () => {
+  const fixtureSource = path.join(__dirname, 'fixtures/prog-access')
+
+  test('marks operations whose permissions all exclude fine-grained PATs as unsupported', async () => {
+    const { progAccessData } = await getProgAccessData(fixtureSource, true)
+    expect(progAccessData['checks/create'].fineGrainedPat).toBe(false)
+    expect(progAccessData['checks/create'].userToServerRest).toBe(true)
+    expect(progAccessData['checks/create'].permissions).toEqual([
+      { '"Checks" repository permissions': 'write' },
+    ])
+  })
+
+  test('keeps fine-grained PAT support for allowed and permissionless operations', async () => {
+    const { progAccessData } = await getProgAccessData(fixtureSource, true)
+    expect(progAccessData['repos/get-content'].fineGrainedPat).toBe(true)
+    expect(progAccessData['meta/get'].fineGrainedPat).toBe(true)
   })
 })

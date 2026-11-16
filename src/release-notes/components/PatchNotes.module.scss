@@ -5,13 +5,13 @@
 .aside {
   @include breakpoint(md) {
     width: 8rem;
-    height: calc(100vh - 105px);
-    top: 105px;
+    height: calc(100vh - var(--docs-header-height) - 40px);
+    top: calc(var(--docs-header-height) + 40px);
   }
 
   @include breakpoint-xxl {
-    height: calc(100vh - 65px);
-    top: 65px;
+    height: calc(100vh - var(--docs-header-height));
+    top: var(--docs-header-height);
   }
 }
 

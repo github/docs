@@ -1,14 +1,5 @@
-/**
- * This script can be used to debug and test our signals.
- * Example use:
- *
- *    npm run analyze-comment -- "I love this site\!" --verbose
- *
- * or, using stdin:
- *
- *    cat naught-comment.txt | npm run analyze-comment
- *
- */
+// Debug comment signals with npm run analyze-comment -- "I love this site\!" --verbose.
+// Pipe a file to npm run analyze-comment to read the comment from stdin.
 
 import fs from 'node:fs'
 import util from 'node:util'
@@ -33,7 +24,7 @@ program.parse(process.argv)
 
 async function main(comment?: string, options?: Options) {
   if (!comment) {
-    const stdinBuffer = fs.readFileSync(0) // STDIN_FILENO = 0
+    const stdinBuffer = fs.readFileSync(0) // File descriptor 0 reads stdin.
     comment = stdinBuffer.toString()
   }
   if (!comment.trim()) {
@@ -42,14 +33,14 @@ async function main(comment?: string, options?: Options) {
   }
 
   console.log(chalk.grey('Comment:'), chalk.bold(util.inspect(comment)))
-  console.log('') // whitespace
+  console.log()
 
   const language = options?.language || 'en'
 
   let rating = 1.0
   let broke = false
   for (const { reduction, name, validator } of SIGNAL_RATINGS) {
-    const hit = validator(comment, language)
+    const hit = await validator(comment, language)
     if (hit) {
       console.log(
         chalk.yellow(
@@ -68,7 +59,8 @@ async function main(comment?: string, options?: Options) {
       console.log(chalk.green(`Not triggered on ${chalk.bold(name)}`))
     }
   }
-  console.log('') // whitespace
+
+  console.log()
   if (!broke) {
     console.log(chalk.whiteBright(`Final rating: ${chalk.bold(rating.toFixed(1))}`))
   }

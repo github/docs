@@ -1,10 +1,9 @@
 name: OS Ready for review
 
-# **What it does**: Adds pull requests and issues in the docs repository to the docs-content review board when the "waiting for review" label is added
-# **Why we have it**: So that contributors in the OS repo can easily get reviews from the docs-content team, and so that writers can see when a PR is ready for review
-# **Who does it impact**: Writers working in the docs repository
+# Public issues and PRs labeled waiting for review go to the docs-content review board
+# when a docs team member labels them.
 on:
-  # Needed in lieu of `pull_request` so that PRs from a fork can be triaged to the proper project board.
+  # pull_request_target lets forked PRs reach project-board triage.
   pull_request_target:
     types: [labeled]
   issues:
@@ -30,8 +29,8 @@ jobs:
           result-encoding: string
           script: |
             const triggerer_login = context.payload.sender.login
-            // Team is addressed by numeric ID (org github = 9919, team docs = 325922)
-            // because IDs survive team renames and slugs do not.
+            // Numeric org and team IDs survive team renames; org github is 9919.
+            // Team technical-content is 325922.
             const teamMembers = await github.request(
               `/organizations/9919/team/325922/members?per_page=100`
             )

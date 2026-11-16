@@ -8,8 +8,7 @@ export default function fastHead(req: ExtendedRequest, res: Response, next: Next
   const { context } = req
   const { page } = context
   if (page) {
-    // Since the *presence* is not affected by the request, we can cache
-    // this and allow the CDN to hold on to it.
+    // Cache by URL because request headers do not change this empty HEAD response.
     defaultCacheControl(res)
 
     res.status(200).send('')

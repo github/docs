@@ -8,7 +8,6 @@ describe('audit log category notes', () => {
     expect(config.categoryNotes).toBeDefined()
     expect(typeof config.categoryNotes).toBe('object')
 
-    // Check that we have the specific category notes mentioned in the issue
     expect(config.categoryNotes).toHaveProperty('members_can_create_pages')
     expect(config.categoryNotes).toHaveProperty('git')
     expect(config.categoryNotes).toHaveProperty('sso_redirect')
@@ -42,15 +41,12 @@ describe('audit log category notes', () => {
   })
 
   test('category notes do not interfere with event categorization', () => {
-    // Test that adding category notes doesn't break existing functionality
     const organizationEvents = getCategorizedAuditLogEvents('organization', 'free-pro-team@latest')
     const enterpriseEvents = getCategorizedAuditLogEvents('enterprise', 'enterprise-cloud@latest')
 
-    // Should still have categorized events
     expect(Object.keys(organizationEvents).length).toBeGreaterThan(0)
     expect(Object.keys(enterpriseEvents).length).toBeGreaterThan(0)
 
-    // Each category should still contain arrays of events
     for (const events of Object.values(organizationEvents)) {
       expect(Array.isArray(events)).toBe(true)
       if (events.length > 0) {
@@ -61,7 +57,6 @@ describe('audit log category notes', () => {
   })
 
   test('category notes are properly typed', () => {
-    // This test will pass once we update the types
     const notes = config.categoryNotes
     if (notes) {
       expect(notes).toEqual(

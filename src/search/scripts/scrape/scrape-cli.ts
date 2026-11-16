@@ -1,5 +1,5 @@
-// This script is run automatically via GitHub Actions on every push to `main` to generate searchable data.
-// It can also be run manually.
+// Indexing workflows scrape search data on schedules, dispatches, purge runs, and pull requests.
+// You can also run this CLI manually.
 
 import { existsSync, statSync, readdirSync } from 'fs'
 import { program, Option } from 'commander'
@@ -96,7 +96,6 @@ async function main(opts: ProgramOptions, args: string[]) {
   const { docsInternalData } = opts
   const { DOCS_INTERNAL_DATA } = process.env
 
-  // Taking care of legacy
   if (process.env.POPULAR_PAGES_JSON) {
     throw new Error('POPULAR_PAGES_JSON is deprecated. Use DOCS_INTERNAL_DATA instead.')
   }

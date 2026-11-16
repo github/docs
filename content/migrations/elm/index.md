@@ -2,6 +2,7 @@
 title: Live migrations from GitHub Enterprise Server to GHE.com
 shortTitle: Live migrations (GHES to GHE.com)
 intro: 'Use the Enterprise Live Migrations tool to migrate repositories with minimal downtime for developers.'
+allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
   ghec: '*'

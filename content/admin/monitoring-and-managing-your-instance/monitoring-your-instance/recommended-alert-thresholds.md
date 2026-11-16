@@ -22,11 +22,13 @@ category:
 
 You can configure external monitoring systems to alert you to storage, CPU, and memory usage that may cause problems with {% data variables.location.product_location %}.
 
-{% ifversion ghes-opentelemetry %}
 For more information about OpenTelemetry metrics, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/opentelemetry-metrics/about-opentelemetry-metrics).
-{% endif %}
+
+{% ifversion ghes-collectd-available %}
 
 For more information about collectd metrics, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/collectd-metrics/about-collectd-metrics).
+
+{% endif %}
 
 For more information about the monitor dashboards, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/about-the-monitor-dashboards).
 

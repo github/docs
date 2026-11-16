@@ -1,0 +1,1 @@
+This customization applies only when {% data variables.product.prodname_copilot_short %} runs on {% data variables.product.prodname_actions %}. It doesn't apply to sessions that run in a cloud sandbox.

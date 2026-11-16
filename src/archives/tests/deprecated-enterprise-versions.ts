@@ -3,6 +3,10 @@ import { describe, expect, test, vi } from 'vitest'
 import enterpriseServerReleases from '@/versions/lib/enterprise-server-releases'
 import { get, getDOM } from '@/tests/helpers/e2etest'
 import { SURROGATE_ENUMS } from '@/frame/middleware/set-fastly-surrogate-key'
+import {
+  ARCHIVED_BUILD_MANIFEST_STUB_PATH,
+  injectArchivedBuildManifestStub,
+} from '@/archives/middleware/archived-enterprise-versions'
 
 describe('enterprise deprecation', () => {
   vi.setConfig({ testTimeout: 60 * 1000 })
@@ -43,6 +47,22 @@ describe('enterprise deprecation', () => {
     )
   })
 
+  test('redirects double-slash paths in deprecated enterprise content to the collapsed path', async () => {
+    const res = await get('/en/enterprise-server@3.5//admin/overview')
+    expect(res.statusCode).toBe(301)
+    expect(res.headers.location).toBe('/en/enterprise-server@3.5/admin/overview')
+
+    const res2 = await get('/en/enterprise/2.15/user//articles/about-branches')
+    expect(res2.statusCode).toBe(301)
+    expect(res2.headers.location).toBe('/en/enterprise/2.15/user/articles/about-branches')
+  })
+
+  test('redirects a doubled language prefix from the archived language picker to the chosen language', async () => {
+    const res = await get('/es/ja/enterprise-server@3.17/get-started?tool=webui')
+    expect(res.statusCode).toBe(301)
+    expect(res.headers.location).toBe('/ja/enterprise-server@3.17/get-started?tool=webui')
+  })
+
   test('handles requests for deprecated Enterprise pages ( >=2.13 )', async () => {
     expect(enterpriseServerReleases.deprecated.includes('2.13')).toBe(true)
     const { $, res } = await getDOM('/en/enterprise/2.13/user/articles/about-branches')
@@ -56,6 +76,23 @@ describe('enterprise deprecation', () => {
     expect(res.headers['x-robots-tag']).toBe('noindex')
     expect(res.headers['surrogate-key']).toBe(SURROGATE_ENUMS.MANUAL)
     expect(res.headers['set-cookie']).toBeUndefined()
+  })
+
+  test('does not put request host headers into deprecated Enterprise pages ( 3.2-3.9 )', async () => {
+    const res = await get(
+      '/en/enterprise-server@3.5/admin/overview/about-github-enterprise-server',
+      {
+        headers: {
+          'x-host': 'evil.example"><script>alert(1)</script>',
+          'x-forwarded-host': 'evil.example',
+          'x-forwarded-proto': 'javascript',
+        },
+      },
+    )
+    expect(res.statusCode).toBe(200)
+    expect(res.body).not.toContain('evil.example')
+    expect(res.body).not.toContain('javascript://')
+    expect(res.body).toContain('src="/enterprise-server@3.5/_next/')
   })
 
   test('handles requests for deprecated Enterprise pages ( <2.13 )', async () => {
@@ -79,21 +116,19 @@ describe('enterprise deprecation', () => {
 
     const { $: $2, res } = await getDOM(`${guidesPath}/${firstLink}`)
     expect(res.statusCode).toBe(200)
-    // this test assumes the Installation guide is the first link on the guides page
+    // The test follows the first link, which is the Installation guide.
     expect($2('h2').text()).toBe('Installing and configuring GitHub Enterprise')
   })
 })
 
-// Starting with the deprecation of 3.0, it's the first time we deprecate
-// enterprise versions since redirects is a *function* rather than a
-// lookup in a big object.
+// Enterprise 3.0 redirects use getRedirect plus redirects.json instead of a static object.
 describe('recently deprecated redirects', () => {
   test('basic enterprise 3.0 redirects', async () => {
     const res = await get('/enterprise/3.0')
     expect(res.statusCode).toBe(302)
     expect(res.headers.location).toBe('/en/enterprise-server@3.0')
     expect(res.headers['set-cookie']).toBeUndefined()
-    // language specific caching
+    // Language-specific redirects vary by language headers.
     expect(res.headers['cache-control']).toContain('public')
     expect(res.headers['cache-control']).toMatch(/max-age=[1-9]/)
     expect(res.headers.vary).toContain('accept-language')
@@ -104,7 +139,7 @@ describe('recently deprecated redirects', () => {
     const res = await get('/en/enterprise/3.0')
     expect(res.statusCode).toBe(301)
     expect(res.headers.location).toBe('/en/enterprise-server@3.0')
-    // 301 redirects are safe to cache aggressively
+    // 301 redirects can cache aggressively.
     expect(res.headers['set-cookie']).toBeUndefined()
     expect(res.headers['cache-control']).toContain('public')
     expect(res.headers['cache-control']).toMatch(/max-age=[1-9]/)
@@ -116,13 +151,12 @@ describe('recently deprecated redirects', () => {
     )
     expect(res.statusCode).toBe(302)
     expect(res.headers['set-cookie']).toBeUndefined()
-    // language specific caching
+    // Language-specific redirects vary by language headers.
     expect(res.headers['cache-control']).toContain('public')
     expect(res.headers['cache-control']).toMatch(/max-age=[1-9]/)
     expect(res.headers.vary).toContain('accept-language')
     expect(res.headers.vary).toContain('x-user-language')
-    // This is based on
-    // https://github.com/github/docs-ghes-3.0/blob/main/redirects.json
+    // Matches https://github.com/github/docs-ghes-3.0/blob/main/redirects.json.
     expect(res.headers.location).toBe(
       '/en/enterprise-server@3.0/get-started/learning-about-github/githubs-products',
     )
@@ -350,5 +384,44 @@ describe('JS and CSS assets', () => {
     expect(result.headers['content-type']).toBe('text/plain; charset=utf-8')
     expect(result.headers['cache-control']).toContain('public')
     expect(result.headers['cache-control']).toMatch(/max-age=[1-9]/)
+  })
+})
+
+describe('archived build manifest stub', () => {
+  vi.setConfig({ testTimeout: 60 * 1000 })
+
+  const stubTag = `<script src="${ARCHIVED_BUILD_MANIFEST_STUB_PATH}"></script>`
+
+  test('injects the stub first in <head> for Next.js archives', () => {
+    const html =
+      '<html><head><meta charset="utf-8"><script src="/a.js" defer></script></head>' +
+      '<body><script id="__NEXT_DATA__" type="application/json">{}</script></body></html>'
+    expect(injectArchivedBuildManifestStub(html)).toBe(html.replace('<head>', `<head>${stubTag}`))
+  })
+
+  test('does not inject the stub into non-Next.js archives', () => {
+    const html = '<html><head><title>x</title></head><body></body></html>'
+    expect(injectArchivedBuildManifestStub(html)).toBe(html)
+  })
+
+  test('serves the stub as same-origin JavaScript even with an archive Referrer', async () => {
+    const res = await get(ARCHIVED_BUILD_MANIFEST_STUB_PATH, {
+      headers: { Referrer: '/en/enterprise-server@3.18/admin' },
+    })
+    expect(res.statusCode).toBe(200)
+    expect(res.headers['content-type']).toMatch(/javascript/)
+    expect(res.body).toContain('self.__BUILD_MANIFEST=')
+  })
+
+  test('adds the stub to Next.js archived pages and not to older archives', async () => {
+    const nextEra = await get(
+      '/en/enterprise-server@3.5/admin/overview/about-github-enterprise-server',
+    )
+    expect(nextEra.statusCode).toBe(200)
+    expect(nextEra.body).toContain(stubTag)
+
+    const legacy = await get('/en/enterprise/2.13/user/articles/about-branches')
+    expect(legacy.statusCode).toBe(200)
+    expect(legacy.body).not.toContain(stubTag)
   })
 })

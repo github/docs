@@ -1,13 +1,17 @@
 name: Index autocomplete search in Elasticsearch
 
-# **What it does**: Indexes AI search autocomplete data into Elasticsearch.
-# **Why we have it**: So we can power the APIs for AI search autocomplete.
-# **Who does it impact**: docs-engineering
+# Keep Elasticsearch autocomplete data current for AI search APIs.
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: '20 16 * * 1-5' # Run Mon-Fri at 16:20 UTC / 8:20 PST
+    - cron: '20 16 * * 1-5'
+  # The GHES autocomplete index name uses the latest GHES release, so build the new index when releases change.
+  push:
+    branches:
+      - main
+    paths:
+      - 'src/versions/lib/enterprise-server-releases.ts'
   pull_request:
     paths:
       - .github/workflows/index-autocomplete-search.yml
@@ -16,6 +20,11 @@ on:
 
 permissions:
   contents: read
+
+# Production runs share indexes, and updateAlias deletes other runs' in-progress indexes, so run them one at a time.
+concurrency:
+  group: "${{ github.workflow }} @ ${{ github.event_name == 'pull_request' && github.head_ref || 'production' }}"
+  cancel-in-progress: false
 
 jobs:
   index-autocomplete-elasticsearch:
@@ -47,12 +56,12 @@ jobs:
 
       - uses: ./.github/actions/create-workflow-failure-issue
         id: create-failure-issue
-        if: ${{ failure() && github.event_name == 'schedule' }}
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' && github.event_name != 'pull_request' }}
         with:
           token: ${{ secrets.DOCS_BOT_PAT_BASE }}
 
       - uses: ./.github/actions/slack-alert
-        if: ${{ failure() && github.event_name == 'schedule' }}
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' && github.event_name != 'pull_request' }}
         with:
           slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
           issue_url: ${{ steps.create-failure-issue.outputs.issue_url }}

@@ -18,9 +18,9 @@ type ForceParams = {
   [K in keyof ComputedSearchQueryParams]?: ComputedSearchQueryParams[K]
 }
 
-// Fetches the Search Params Object based on the type of request and uses that object to validate the passed in request parameters
-// For example, if the request is a general search request, the general search params object expects a `page` key, e.g. ?page=1 on the request
-// If that key is not present, it will be added to the validation errors array which will result in a 400 to the user.
+// Each search type owns its query-parameter schema. API callers turn validation
+// errors into 400s; /search middleware renders them.
+// General search defaults missing page values to 1.
 export function getSearchFromRequestParams<Type extends SearchTypes>(
   req: Request,
   type: Type,

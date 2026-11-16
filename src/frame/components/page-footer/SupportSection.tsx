@@ -1,4 +1,4 @@
-import cx from 'classnames'
+import cx from 'clsx'
 
 import { Survey } from '@/events/components/Survey'
 import { Contribution } from '@/frame/components/page-footer/Contribution'
@@ -10,6 +10,12 @@ import { useTranslation } from '@/languages/components/useTranslation'
 
 import styles from './SupportSection.module.scss'
 
+// MinimalFooter's centerComponent slot supplies no page container or visible heading,
+// so this region owns its column chrome.
+//
+// Columns carry their own class rather than relying on nth-child, because any of the
+// three can be hidden (site-policy pages drop the survey, non-English drops the
+// contribution CTA) and the layout rules must not shift when they are.
 export const SupportSection = () => {
   const { currentVersion } = useVersion()
   const { relativePath, enterpriseServerReleases } = useMainContext()
@@ -28,20 +34,26 @@ export const SupportSection = () => {
   const showSupport = true
 
   return (
-    <section className="container-xl mt-lg-8 mt-6 px-3 px-md-6 no-print mx-auto">
-      <h2 className="f3">{t('support_heading')}</h2>
-
-      {/* CSS Grid container */}
-      <div
-        className={cx(
-          'border-top border-color-secondary pt-6',
-          styles.supportGrid /* ← adds the grid rules */,
+    <>
+      {/* Keep this hidden h2 so heading navigation has a parent for the column headings. */}
+      <h2 className="visually-hidden">{t('support_heading')}</h2>
+      <div className={cx('no-print', styles.supportGrid)}>
+        {showSurvey && (
+          <div className={cx(styles.column, styles.surveyColumn)}>
+            <Survey />
+          </div>
         )}
-      >
-        {showSurvey && <Survey />}
-        {showContribution && <Contribution />}
-        {showSupport && <Support />}
+        {showContribution && (
+          <div className={cx(styles.column, styles.contributionColumn)}>
+            <Contribution />
+          </div>
+        )}
+        {showSupport && (
+          <div className={cx(styles.column, styles.supportColumn)}>
+            <Support />
+          </div>
+        )}
       </div>
-    </section>
+    </>
   )
 }

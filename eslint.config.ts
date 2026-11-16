@@ -46,6 +46,8 @@ export default [
         typescript: true,
         node: true,
       },
+      // Maps Primer components to DOM elements for the github and jsx-a11y rules
+      ...primerReact.configs.recommended.settings,
     },
     plugins: {
       github,
@@ -72,6 +74,10 @@ export default [
 
       // TypeScript ESLint recommended rules
       ...tseslint.configs.recommended.rules,
+
+      // Primer React recommended extends plugin:github/react, which flat config does not apply.
+      // Keep before jsx-a11y recommended so its jsx-a11y rule settings win, as in the eslintrc extends order.
+      ...github.getFlatConfigs().react.rules,
 
       // Primer React recommended rules
       ...primerReact.configs.recommended.rules,
@@ -188,7 +194,6 @@ export default [
   // Remove directories from this list as they are migrated
   {
     files: [
-      'src/ai-tools/**/*.{ts,js}',
       'src/article-api/**/*.{ts,js}',
       'src/audit-logs/**/*.{ts,js}',
       'src/color-schemes/**/*.{ts,js}',
@@ -196,7 +201,6 @@ export default [
       'src/events/components/**/*.{ts,js}',
       'src/fixtures/**/*.{ts,js}',
       'src/journeys/**/*.{ts,js}',
-      'src/metrics/**/*.{ts,js}',
       'src/observability/lib/handle-package-not-found.ts',
     ],
     rules: {
@@ -249,6 +253,7 @@ export default [
       'src/landings/components/ProductSelectionCard.tsx',
       'src/release-notes/components/GHESReleaseNotes.tsx',
       'src/landings/components/journey/JourneyLearningTracks.tsx',
+      'src/frame/components/ui/UnderlineNav/UnderlineNav.tsx',
     ],
     rules: {
       'jsx-a11y/no-redundant-roles': [

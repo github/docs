@@ -36,7 +36,6 @@ If your country or region is not on this list, then we aren't currently able to 
 <li>Brunei</li>
 <li>Bulgaria</li>
 <li>Burundi</li>
-<li>Cambodia</li>
 <li>Canada</li>
 <li>Cape Verde</li>
 <li>Cayman Islands</li>
@@ -57,7 +56,6 @@ If your country or region is not on this list, then we aren't currently able to 
 <li>Gambia</li>
 <li>Georgia</li>
 <li>Germany</li>
-<li>Ghana</li>
 <li>Gibraltar</li>
 <li>Greece</li>
 <li>Guatemala</li>
@@ -94,7 +92,6 @@ If your country or region is not on this list, then we aren't currently able to 
 <li>Netherlands</li>
 <li>Netherlands Antilles</li>
 <li>New Zealand</li>
-<li>Nigeria</li>
 <li>Norway</li>
 <li>Poland</li>
 <li>Portugal</li>
@@ -110,7 +107,6 @@ If your country or region is not on this list, then we aren't currently able to 
 <li>South Africa</li>
 <li>South Korea</li>
 <li>Spain</li>
-<li>Sri Lanka</li>
 <li>St Lucia</li>
 <li>Sudan</li>
 <li>Sweden</li>

@@ -8,7 +8,7 @@ children:
   - /agentic-audit-log-events
   - /enterprise-managed-settings
   - /mcp-private-registry-enforcement
+  - /opentelemetry-reference
   - /policy-conflicts
 contentType: reference
 ---
-

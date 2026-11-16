@@ -3,7 +3,7 @@ title: Managing the automatic closing of issues in your repository
 intro: You can select whether merged linked pull requests will auto-close your issues.
 versions:
   fpt: '*'
-  ghes: '>=3.18'
+  ghes: '*'
   ghec: '*'
 permissions: Repository administrators and maintainers can configure the automating closing of issues in the repository, once related pull requests are merged.
 shortTitle: Manage auto-closing issues

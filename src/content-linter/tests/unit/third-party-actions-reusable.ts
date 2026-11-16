@@ -3,7 +3,7 @@ import { describe, expect, test } from 'vitest'
 import { runRule } from '../../lib/init-test'
 import { thirdPartyActionsReusable } from '../../lib/linting-rules/third-party-actions-reusable'
 
-// Configure the test figure to not split frontmatter and content
+// Keep frontmatter in params.lines so disclaimer lookback uses source line offsets.
 const fmOptions = { markdownlintOptions: { frontMatter: null } }
 
 describe(thirdPartyActionsReusable.names.join(' - '), () => {

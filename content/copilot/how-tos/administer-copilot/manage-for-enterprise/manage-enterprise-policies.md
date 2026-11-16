@@ -23,7 +23,7 @@ If you're setting up {% data variables.product.prodname_copilot_short %} for the
 
 ## Defining policies for your enterprise
 
-Enterprise owners can define a policy for the whole enterprise, or delegate the decision to individual organization owners. See [AUTOTITLE](/copilot/concepts/policies).
+Enterprise owners can define a policy for the whole enterprise, or delegate the decision to individual organization owners. See [AUTOTITLE](/copilot/concepts/enterprise/policies).
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.ai-controls-tab %}
@@ -39,12 +39,6 @@ Enterprise owners can define a policy for the whole enterprise, or delegate the 
    * For policies with **no visible dropdown menu or toggle**, click the name of the policy for configuration options.
 
 {% data reusables.copilot.mcp-servers-policy-note %}
-
-{% data reusables.copilot.policy.suggestions-code-enterprise-default %}
-
-## Opting in to feedback collection
-
-If you enable "{% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}" from the "Features & clients" page, you can also opt in to user feedback collection to help {% data variables.product.github %} improve {% data variables.product.prodname_copilot_short %} features.
 
 ## Further reading
 

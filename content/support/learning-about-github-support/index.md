@@ -15,6 +15,6 @@ children:
   - about-github-special-events-support
   - about-copilot-in-github-support
   - about-ticket-priority
+  - understanding-how-github-support-can-help-during-a-security-incident
   - github-marketplace-support
 ---
-

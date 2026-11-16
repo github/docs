@@ -1,17 +1,11 @@
-/**
- * Interface for processed code examples as used by the RestCodeSamples component.
- * This represents the structure AFTER the component processes the original API data,
- * where sample.request.description is moved to the top level as description.
- *
- * Original API structure: { request: { description: string, contentType: string }, response: {...} }
- * Processed structure: { description: string, request: { contentType: string }, response: {...} }
- */
+// RestCodeSamples copies sample.request.description to description and keeps the original request.
+// These helpers only require that subset of each code example.
 export interface CodeExample {
   request?: {
     contentType?: string
   }
   response: {
-    contentType: string
+    contentType?: string
   }
   description: string
 }
@@ -21,9 +15,6 @@ export interface ExampleOption {
   languageIndex: number
 }
 
-/**
- * Determines if request content types differ between examples
- */
 export function shouldShowRequestContentType(examples: CodeExample[]): boolean {
   return (
     examples.length > 1 &&
@@ -31,9 +22,6 @@ export function shouldShowRequestContentType(examples: CodeExample[]): boolean {
   )
 }
 
-/**
- * Determines if response content types differ between examples
- */
 export function shouldShowResponseContentType(examples: CodeExample[]): boolean {
   return (
     examples.length > 1 &&
@@ -41,33 +29,23 @@ export function shouldShowResponseContentType(examples: CodeExample[]): boolean 
   )
 }
 
-/**
- * Generates example option objects with appropriate content type labels
- * This matches the exact logic from RestCodeSamples.tsx
- */
+// Label each example option with whichever content types vary across the set.
 export function generateExampleOptions(examples: CodeExample[]): ExampleOption[] {
   const responseContentTypesDiffer = shouldShowResponseContentType(examples)
   const requestContentTypesDiffer = shouldShowRequestContentType(examples)
-  const showExampleOptionMediaType = responseContentTypesDiffer || requestContentTypesDiffer
 
   return examples.map((example, index) => {
     const requestContentType = example.request?.contentType
     const responseContentType = example.response.contentType
 
-    let text = example.description
+    // Examples without a body, such as 204 responses, have no content type to show.
+    const contentTypes: string[] = []
+    if (requestContentTypesDiffer && requestContentType) contentTypes.push(requestContentType)
+    if (responseContentTypesDiffer && responseContentType) contentTypes.push(responseContentType)
 
-    if (showExampleOptionMediaType) {
-      if (requestContentTypesDiffer && responseContentTypesDiffer) {
-        // Show both request and response content types
-        text = `${example.description} (${requestContentType} → ${responseContentType})`
-      } else if (requestContentTypesDiffer) {
-        // Show only request content type
-        text = `${example.description} (${requestContentType})`
-      } else if (responseContentTypesDiffer) {
-        // Show only response content type
-        text = `${example.description} (${responseContentType})`
-      }
-    }
+    const text = contentTypes.length
+      ? `${example.description} (${contentTypes.join(' → ')})`
+      : example.description
 
     return {
       text,
@@ -76,9 +54,11 @@ export function generateExampleOptions(examples: CodeExample[]): ExampleOption[]
   })
 }
 
-/**
- * Generates just the text labels for example options (useful for testing)
- */
 export function generateExampleOptionTexts(examples: CodeExample[]): string[] {
   return generateExampleOptions(examples).map((option) => option.text)
+}
+
+// GHES serves the REST API under /api/v3, matching the serverUrl in its request examples.
+export function toGhesApiUrls(json: string): string {
+  return json.replaceAll('api.github.com', 'HOSTNAME/api/v3')
 }

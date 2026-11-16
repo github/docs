@@ -10,6 +10,20 @@ describe('page titles', () => {
     expect($('title').text()).toBe('GitHub Docs')
   })
 
+  test('ghec homepage', async () => {
+    const $: CheerioAPI = await getDOM('/en/enterprise-cloud@latest')
+    expect($('title').text()).toBe(
+      'HubGit Enterprise Cloud.com Fixture Documentation - GitHub Enterprise Cloud Docs',
+    )
+  })
+
+  test('ghes homepage', async () => {
+    const $: CheerioAPI = await getDOM('/en/enterprise-server@latest')
+    expect($('title').text()).toBe(
+      `HubGit Enterprise Server Fixture Documentation - GitHub Enterprise Server ${enterpriseServerReleases.latestStable} Docs`,
+    )
+  })
+
   test('fpt article', async () => {
     const $: CheerioAPI = await getDOM('/get-started/start-your-journey/hello-world')
     expect($('title').text()).toBe('Hello World - GitHub Docs')

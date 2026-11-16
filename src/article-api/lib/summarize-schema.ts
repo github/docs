@@ -28,6 +28,7 @@ type JsonSchema = {
 
 const MAX_DEPTH = 4
 
+// Type arrays render as prose, so ["object","null"] becomes "object or null".
 function renderTypeConstraints(schema: JsonSchema): string {
   const parts: string[] = []
 
@@ -60,21 +61,29 @@ function renderTypeConstraints(schema: JsonSchema): string {
   return parts.join(', ') || 'object'
 }
 
-// When a titled object type has already been fully expanded once in a schema,
-// later occurrences are rendered as a short "(see above)" reference instead of
-// being re-expanded. Large REST response schemas reuse shared types (e.g.
-// `Simple User` recurs dozens of times), so this keeps output compact and fast
-// to render. Returns true if the caller should emit a reference; marks the
-// title as seen when it is about to be expanded for the first time.
-function shouldReference(
-  title: string | undefined,
-  canExpand: boolean,
-  seen: Set<string>,
-): boolean {
-  if (!canExpand || !title) return false
-  if (seen.has(title)) return true
-  seen.add(title)
-  return false
+// The OpenAPI description reuses some titles for different shapes, so the key includes the fields.
+function schemaKey(schema: JsonSchema): string {
+  const keys = Object.keys(schema.properties || {}).sort()
+  const required = [...(schema.required || [])].sort()
+  return `${schema.title}|${keys.join(',')}|${required.join(',')}`
+}
+
+type SeenShapes = Map<string, Set<string>>
+
+function recordShape(title: string, schema: JsonSchema, seen: SeenShapes): Set<string> {
+  const shapes = seen.get(title) || new Set<string>()
+  shapes.add(schemaKey(schema))
+  seen.set(title, shapes)
+  return shapes
+}
+
+// Large REST response schemas can reuse titled objects such as Simple User dozens of times.
+function shouldReference(schema: JsonSchema, canExpand: boolean, seen: SeenShapes): boolean {
+  if (!canExpand || !schema.title) return false
+  const known = seen.get(schema.title)?.has(schemaKey(schema)) || false
+  const shapes = recordShape(schema.title, schema, seen)
+  // "(see above)" names only the title, so a title with several shapes expands every time.
+  return known && shapes.size === 1
 }
 
 function renderCompositionVariants(
@@ -82,7 +91,7 @@ function renderCompositionVariants(
   variants: JsonSchema[],
   indent: number,
   depth: number,
-  seen: Set<string>,
+  seen: SeenShapes,
 ): string {
   const prefix = '  '.repeat(indent)
   const label = keyword.replace('Of', ' of')
@@ -91,7 +100,7 @@ function renderCompositionVariants(
   for (const variant of variants) {
     const name = variant.title || renderTypeConstraints(variant)
     const canExpand = depth < MAX_DEPTH && Boolean(variant.properties)
-    if (shouldReference(variant.title, canExpand, seen)) {
+    if (shouldReference(variant, canExpand, seen)) {
       lines.push(`${prefix}  * **${name}** (see above)`)
       continue
     }
@@ -109,7 +118,7 @@ function renderProperties(
   schema: JsonSchema,
   indent: number,
   depth: number,
-  seen: Set<string>,
+  seen: SeenShapes,
   requiredFields?: string[],
 ): string {
   const props = schema.properties || {}
@@ -120,7 +129,6 @@ function renderProperties(
   for (const [name, prop] of Object.entries(props)) {
     const reqStr = req.has(name) ? 'required, ' : ''
 
-    // Check for composition keywords at property level
     const compositionKey = (['oneOf', 'anyOf', 'allOf'] as const).find((k) => prop[k])
     if (compositionKey) {
       const label = compositionKey.replace('Of', ' of')
@@ -128,7 +136,7 @@ function renderProperties(
       for (const variant of prop[compositionKey]!) {
         const vName = variant.title || renderTypeConstraints(variant)
         const canExpand = depth < MAX_DEPTH && Boolean(variant.properties)
-        if (shouldReference(variant.title, canExpand, seen)) {
+        if (shouldReference(variant, canExpand, seen)) {
           lines.push(`${prefix}  * **${vName}** (see above)`)
           continue
         }
@@ -147,8 +155,24 @@ function renderProperties(
 
     if (propType === 'array' && prop.items) {
       const itemTitle = prop.items.title
+      const itemKey = (['oneOf', 'anyOf', 'allOf'] as const).find((k) => prop.items![k])
+      if (itemKey) {
+        const label = `${itemTitle ? `array of \`${itemTitle}\`` : 'array of items'}${isNullable ? ' or null' : ''}`
+        if (shouldReference(prop.items, depth < MAX_DEPTH, seen)) {
+          lines.push(`${prefix}* \`${name}\`: ${reqStr}${label} (see above)`)
+        } else {
+          lines.push(`${prefix}* \`${name}\`: ${reqStr}${label}:`)
+          if (prop.items.properties && depth < MAX_DEPTH) {
+            lines.push(renderProperties(prop.items, indent + 1, depth + 1, seen))
+          }
+          lines.push(
+            renderCompositionVariants(itemKey, prop.items[itemKey]!, indent + 1, depth, seen),
+          )
+        }
+        continue
+      }
       const canExpand = Boolean(prop.items.properties) && depth < MAX_DEPTH
-      if (shouldReference(itemTitle, canExpand, seen)) {
+      if (shouldReference(prop.items, canExpand, seen)) {
         lines.push(
           `${prefix}* \`${name}\`: ${reqStr}array of \`${itemTitle}\`${isNullable ? ' or null' : ''} (see above)`,
         )
@@ -164,16 +188,14 @@ function renderProperties(
         )
       }
     } else if (prop.properties && depth < MAX_DEPTH) {
-      // renderTypeConstraints handles string[] types (e.g. ["object","null"] → "object or null")
       const label = prop.title ? `\`${prop.title}\`` : renderTypeConstraints(prop)
-      if (shouldReference(prop.title, true, seen)) {
+      if (shouldReference(prop, true, seen)) {
         lines.push(`${prefix}* \`${name}\`: ${reqStr}${label} (see above)`)
       } else {
         lines.push(`${prefix}* \`${name}\`: ${reqStr}${label}:`)
         lines.push(renderProperties(prop, indent + 1, depth + 1, seen))
       }
     } else {
-      // renderTypeConstraints handles string[] types (e.g. ["string","null"] → "string or null")
       lines.push(`${prefix}* \`${name}\`: ${reqStr}${renderTypeConstraints(prop)}`)
     }
   }
@@ -181,27 +203,18 @@ function renderProperties(
   return lines.filter(Boolean).join('\n')
 }
 
-/**
- * Converts a JSON Schema response object into a readable markdown bullet list.
- * Includes type, required, format, enum, default, constraints — but omits
- * examples and descriptions to keep the output compact.
- */
+// Omits examples and descriptions to keep response-schema output compact.
 export function summarizeSchema(schema: JsonSchema): string {
   if (!schema || typeof schema !== 'object') return ''
 
-  // Tracks titled object types already expanded once in this schema. Later
-  // occurrences are rendered as a "(see above)" reference to keep output
-  // compact and fast to render (shared types can recur dozens of times).
-  const seen = new Set<string>()
+  const seen: SeenShapes = new Map()
 
-  // Handle top-level composition
   for (const keyword of ['oneOf', 'anyOf', 'allOf'] as const) {
     if (schema[keyword]) {
       return renderCompositionVariants(keyword, schema[keyword]!, 0, 0, seen)
     }
   }
 
-  // Handle top-level array
   const schemaTypes = Array.isArray(schema.type) ? schema.type : schema.type ? [schema.type] : []
   const isNullable = schemaTypes.includes('null')
   const primaryType = schemaTypes.find((t) => t !== 'null')
@@ -215,7 +228,6 @@ export function summarizeSchema(schema: JsonSchema): string {
     const constraintStr = constraints.length ? ` (${constraints.join(', ')})` : ''
     const itemTitle = items.title
 
-    // Composition inside items
     const compositionKey = (['oneOf', 'anyOf', 'allOf'] as const).find((k) => items[k])
     if (compositionKey) {
       const label = compositionKey.replace('Of', ' of')
@@ -225,7 +237,7 @@ export function summarizeSchema(schema: JsonSchema): string {
       for (const variant of items[compositionKey]!) {
         const name = variant.title || renderTypeConstraints(variant)
         const canExpand = Boolean(variant.properties)
-        if (shouldReference(variant.title, canExpand, seen)) {
+        if (shouldReference(variant, canExpand, seen)) {
           lines.push(`  * **${name}** (see above)`)
           continue
         }
@@ -241,20 +253,15 @@ export function summarizeSchema(schema: JsonSchema): string {
     if (items.properties) {
       const label = itemTitle ? `\`${itemTitle}\`` : 'objects'
       const nullSuffix = isNullable ? ' or null' : ''
-      if (itemTitle) seen.add(itemTitle)
+      if (itemTitle) recordShape(itemTitle, items, seen)
       return `Array${constraintStr} of ${label}${nullSuffix}:\n${renderProperties(items, 1, 1, seen)}`
     }
 
     return `Array${constraintStr} of ${renderTypeConstraints(items)}${isNullable ? ' or null' : ''}`
   }
 
-  // Handle top-level object
   if (schema.properties) {
-    // Note: we deliberately do NOT pre-mark schema.title here. Unlike the
-    // array-items case above, a top-level object emits no visible titled
-    // header, so pre-marking would make a self-referential property render a
-    // dangling "(see above)" pointing at nothing. Letting it expand one
-    // depth-bounded level is correct and clearer.
+    // A top-level object emits no visible titled header, so recursive properties expand first.
     return renderProperties(schema, 0, 0, seen)
   }
 

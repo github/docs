@@ -1,0 +1,38 @@
+---
+title: GitHub Copilot usage metrics
+shortTitle: Copilot usage metrics
+intro: Track how your teams are using and adopting {% data variables.product.prodname_copilot %} with detailed usage metrics.
+versions:
+  feature: copilot
+heroImage: /assets/images/banner-images/hero-4
+layout: bespoke-landing
+sidebarLink:
+  text: All articles
+  href: /copilot/concepts/billing-and-usage/copilot-usage-metrics
+children:
+  - /copilot-metrics
+  - /content/copilot/how-tos/administer-copilot/view-usage-and-adoption
+  - /content/copilot/how-tos/administer-copilot/view-code-generation
+  - /content/copilot/how-tos/administer-copilot/view-impact-dashboard
+  - /content/copilot/reference/copilot-usage-metrics/copilot-usage-metrics
+  - /content/copilot/reference/copilot-usage-metrics/usage-metrics-coverage
+  - /content/copilot/reference/copilot-usage-metrics/industry-comparisons
+  - /content/copilot/reference/copilot-usage-metrics/interpret-copilot-metrics
+  - /content/copilot/reference/copilot-usage-metrics/reconciling-usage-metrics
+  - /content/copilot/reference/copilot-usage-metrics/lines-of-code-metrics
+  - /content/copilot/reference/copilot-usage-metrics/team-level-metrics
+  - /content/copilot/tutorials/roll-out-at-scale/measure-success
+  - /content/copilot/tutorials/roll-out-at-scale/communicate-copilot-impact
+  - /content/copilot/tutorials/roll-out-at-scale/assign-licenses/track-usage-and-adoption
+  - /content/copilot/reference/copilot-usage-metrics/example-schema
+includedCategories:
+  - Get started with metrics
+  - Understand metrics
+  - Reconcile and validate metrics
+  - Measure success
+  - View metrics
+  - Understand available data
+contentType: concepts
+redirect_from:
+  - /copilot/concepts/copilot-usage-metrics
+---

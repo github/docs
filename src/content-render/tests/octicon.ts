@@ -65,6 +65,35 @@ describe('octicon tag', () => {
     expect(actual).not.toContain('aria-label="check icon"')
   })
 
+  test('keeps punctuation in aria-label', async () => {
+    const parens = await renderContent(
+      '{% octicon "bell" aria-label="You have (no) unread notifications" %}',
+    )
+    expect(parens).toContain('aria-label="You have (no) unread notifications"')
+
+    const commas = await renderContent(
+      '{% octicon "zoom-in" aria-label="The zoom icon next to Month, Quarter, or Year" %}',
+    )
+    expect(commas).toContain('aria-label="The zoom icon next to Month, Quarter, or Year"')
+
+    const apostrophe = await renderContent(
+      `{% octicon "x" aria-label="The icon to remove someone's credit" %}`,
+    )
+    expect(apostrophe).toContain('aria-label="The icon to remove someone&#x27;s credit"')
+  })
+
+  test('allows spaces around = in options', async () => {
+    const actual = await renderContent('{% octicon "check" aria-label= "Supported" %}')
+    expect(actual).toContain('aria-label="Supported"')
+    expect(actual).not.toContain('aria-label="check icon"')
+  })
+
+  test('keeps options that follow an aria-label with punctuation', async () => {
+    const actual = await renderContent('{% octicon "check" aria-label="A, b" width="64" %}')
+    expect(actual).toContain('aria-label="A, b"')
+    expect(actual).toContain('width="64"')
+  })
+
   test('auto-generates aria-label even when other attributes are provided', async () => {
     const actual = await renderContent('{% octicon "filter" width="32" %}')
     expect(actual).toContain('<svg ')

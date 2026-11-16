@@ -3,7 +3,6 @@ import { describe, expect, test } from 'vitest'
 import { countArticles } from '@/landings/lib/count-articles'
 import type { ProductTreeNode } from '@/frame/components/context/MainContext'
 
-// Helper to create a minimal ProductTreeNode for testing
 const createNode = (childPages: ProductTreeNode[] = []): ProductTreeNode => ({
   title: 'Test',
   href: '/test',
@@ -22,7 +21,7 @@ describe('countArticles', () => {
   })
 
   test('counts all nested leaf articles recursively', () => {
-    // Structure: parent -> 2 sections -> each with 3 articles = 6 total
+    // Two sections with three articles each produce six leaf articles.
     const section1 = createNode([createNode(), createNode(), createNode()])
     const section2 = createNode([createNode(), createNode(), createNode()])
     const parent = createNode([section1, section2])
@@ -31,7 +30,7 @@ describe('countArticles', () => {
   })
 
   test('handles deeply nested structure', () => {
-    // 3 levels deep: parent -> section -> subsection -> 2 articles
+    // Three nested levels end in two leaf articles.
     const subsection = createNode([createNode(), createNode()])
     const section = createNode([subsection])
     const parent = createNode([section])
@@ -40,7 +39,7 @@ describe('countArticles', () => {
   })
 
   test('handles mixed depth structure', () => {
-    // parent -> section with 2 articles + section with subsection with 3 articles = 5 total
+    // Two direct leaves plus three nested leaves produce five articles.
     const section1 = createNode([createNode(), createNode()])
     const subsection = createNode([createNode(), createNode(), createNode()])
     const section2 = createNode([subsection])

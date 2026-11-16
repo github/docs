@@ -10,6 +10,7 @@ import { useCategoryLandingContext } from '@/frame/components/context/CategoryLa
 import { ClientSideRedirects } from '@/rest/components/ClientSideRedirects'
 import { RestRedirect } from '@/rest/components/RestRedirect'
 import { ArticleCardItems } from '@/landings/types'
+import { filterCategoryItems } from '@/landings/lib/filter-category-items'
 import { UtmPreserver } from '@/frame/components/UtmPreserver'
 
 export const CategoryLanding = () => {
@@ -17,12 +18,11 @@ export const CategoryLanding = () => {
   const router = useRouter()
   const { title, intro, tocItems, spotlight, filters } = useCategoryLandingContext()
 
-  // The category filter is always shown. Surface and complexity are opt-in via
-  // the `filters` frontmatter array on the landing page.
+  // Always show the category filter; filters frontmatter controls surface and complexity.
   const showSurface = filters ? filters.includes('surface') : true
   const showComplexity = filters ? filters.includes('complexity') : false
 
-  // tocItems contains directories and its children, we only want the child articles
+  // Category landing cards use only child articles, not directory nodes.
   const onlyFlatItems: ArticleCardItems = tocItems.flatMap((item) => item.childTocItems || [])
 
   const [searchQuery, setSearchQuery] = useState('')
@@ -30,41 +30,12 @@ export const CategoryLanding = () => {
   const [selectedComplexity, setSelectedComplexity] = useState('All')
   const [selectedSurface, setSelectedSurface] = useState('All')
 
-  const applyFilters = () => {
-    let results = onlyFlatItems
-
-    if (searchQuery) {
-      results = results.filter((token) => {
-        return Object.values(token).some((value) => {
-          if (typeof value === 'string') {
-            return value.toLowerCase().includes(searchQuery.toLowerCase())
-          } else if (Array.isArray(value)) {
-            return value.some(
-              (item) =>
-                typeof item === 'string' && item.toLowerCase().includes(searchQuery.toLowerCase()),
-            )
-          }
-          return false
-        })
-      })
-    }
-
-    if (selectedCategory !== 'All') {
-      results = results.filter((item) => item.category?.includes(selectedCategory))
-    }
-
-    if (selectedComplexity !== 'All') {
-      results = results.filter((item) => item.complexity?.includes(selectedComplexity))
-    }
-
-    if (selectedSurface !== 'All') {
-      results = results.filter((item) => item.surface?.includes(selectedSurface))
-    }
-
-    return results
-  }
-
-  const searchResults = applyFilters()
+  const searchResults = filterCategoryItems(onlyFlatItems, {
+    query: searchQuery,
+    category: selectedCategory,
+    complexity: selectedComplexity,
+    surface: selectedSurface,
+  })
 
   const handleSearch = (query: string) => {
     setSearchQuery(query)
@@ -87,7 +58,6 @@ export const CategoryLanding = () => {
     setSelectedComplexity('All')
   }
 
-  // Helper function to find article data from tocItems
   const findArticleData = (articlePath: string) => {
     const cleanPath = articlePath.startsWith('/') ? articlePath.slice(1) : articlePath
     return onlyFlatItems.find(
@@ -97,7 +67,6 @@ export const CategoryLanding = () => {
     )
   }
 
-  // Process spotlight items to get complete data
   const processedSpotlight =
     spotlight?.map((spotlightItem) => {
       const articleData = findArticleData(spotlightItem.article)
@@ -114,8 +83,7 @@ export const CategoryLanding = () => {
     <DefaultLayout>
       <UtmPreserver />
       {router.route === '/[versionId]/rest/[category]' && <RestRedirect />}
-      {/* Doesn't matter *where* this is included because it will
-      never render anything. It always just return null. */}
+      {/* ClientSideRedirects renders null, so placement does not affect layout. */}
       <ClientSideRedirects />
 
       <div className="container-xl px-3 px-md-6 my-4" data-search="article-body">

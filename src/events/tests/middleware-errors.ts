@@ -6,7 +6,6 @@ import { schemas } from '../lib/schema'
 
 describe('formatErrors', () => {
   test('should produce objects that match the validation spec', () => {
-    // Produce an error
     const { errors } = validateJson({ type: 'string' }, 0)
     const formattedErrors = formatErrors(errors || [], '')
     for (const formatted of formattedErrors) {

@@ -85,7 +85,9 @@ If a network level firewall is in place between nodes, these ports will need to 
 | 8125/UDP  | Statsd |
 | 8301/UDP | Consul |
 | 8302/UDP | Consul |
+| {% ifversion ghes-collectd-available %} |
 | 25827/UDP | Collectd |
+| {% endif %} |
 
 ## Configuring a load balancer
 

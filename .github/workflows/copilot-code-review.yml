@@ -1,9 +1,7 @@
-# Copilot Code Review setup steps
-#
-# Code Review cannot access the private early-access repository, so it uses
-# this secret-free setup instead of the cloud agent setup workflow.
-
 name: 'Copilot Code Review Setup Steps'
+
+# Code Review lacks early-access repo access, so this uses a secret-free setup
+# instead of copilot-setup-steps.yml.
 
 on:
   workflow_dispatch:

@@ -129,7 +129,7 @@ LSP servers greatly improve Copilot CLI's ability to work with your code. For ex
 
 We've added documentation to explain LSP servers in greater detail and show how to install these for Copilot CLI:
 
-* [Using LSP servers with GitHub Copilot CLI](https://docs.github.com/copilot/concepts/agents/copilot-cli/lsp-servers)
+* [Using LSP servers with GitHub Copilot CLI](https://docs.github.com/copilot/concepts/customizations/lsp-servers)
 * [Adding LSP servers for GitHub Copilot CLI](https://docs.github.com/copilot/how-tos/copilot-cli/set-up-copilot-cli/add-lsp-servers)
 
 <hr>

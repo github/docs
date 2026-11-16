@@ -633,6 +633,7 @@
                     "type": "string"
                   },
                   "temp_clone_token": {
+                    "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                     "type": "string"
                   },
                   "delete_branch_on_merge": {
@@ -1101,7 +1102,7 @@
         {
           "type": "boolean",
           "name": "use_squash_pr_title_as_default",
-          "description": "<p>Either <code>true</code> to allow squash-merge commits to use pull request title, or <code>false</code> to use commit message. **This property is closing down. Please use <code>squash_merge_commit_title</code> instead.</p>",
+          "description": "<p>Either <code>true</code> to allow squash-merge commits to use pull request title, or <code>false</code> to use commit message. <strong>This property is closing down. Please use <code>squash_merge_commit_title</code> instead.</strong></p>",
           "default": false
         },
         {
@@ -2594,6 +2595,7 @@
                           "type": "boolean"
                         },
                         "temp_clone_token": {
+                          "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                           "type": "string"
                         },
                         "allow_squash_merge": {
@@ -2778,6 +2780,7 @@
                   ]
                 },
                 "temp_clone_token": {
+                  "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                   "type": [
                     "string",
                     "null"
@@ -3508,6 +3511,7 @@
                       "type": "boolean"
                     },
                     "temp_clone_token": {
+                      "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                       "type": "string"
                     },
                     "allow_squash_merge": {
@@ -4185,6 +4189,7 @@
                       "type": "boolean"
                     },
                     "temp_clone_token": {
+                      "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                       "type": "string"
                     },
                     "allow_squash_merge": {
@@ -4692,6 +4697,9 @@
         "permissions": [
           {
             "\"Administration\" repository permissions": "write"
+          },
+          {
+            "\"Repository creation\" repository permissions": "write"
           }
         ]
       }
@@ -4724,7 +4732,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>The <code>parent</code> and <code>source</code> objects are present when the repository is a fork. <code>parent</code> is the repository this repository was forked from, <code>source</code> is the ultimate source for the network.</p>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p></p>\n<ul>\n<li>In order to see the <code>security_and_analysis</code> block for a repository you must have admin permissions for the repository or be an owner or security manager for the organization that owns the repository. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization\">Managing security managers in your organization</a>.\"</li>\n<li>To view merge-related settings, you must have the <code>contents:read</code> and <code>contents:write</code> permissions.</li>\n</ul>\n</div>",
+      "descriptionHTML": "<p>The <code>parent</code> and <code>source</code> objects are present when the repository is a fork. <code>parent</code> is the repository this repository was forked from, <code>source</code> is the ultimate source for the network.</p>\n<p>When present and non-empty, <code>temp_clone_token</code> is a temporary credential for read-only Git access to this repository. It expires five minutes after generation and cannot be used to push changes. Treat this value as sensitive and avoid recording it in logs.</p>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p></p>\n<ul>\n<li>In order to see the <code>security_and_analysis</code> block for a repository you must have admin permissions for the repository or be an owner or security manager for the organization that owns the repository. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization\">Managing security managers in your organization</a>.\"</li>\n<li>To view merge-related settings, you must have the <code>contents:read</code> and <code>contents:write</code> permissions.</li>\n</ul>\n</div>",
       "codeExamples": [
         {
           "request": {
@@ -6183,6 +6191,7 @@
                           "type": "boolean"
                         },
                         "temp_clone_token": {
+                          "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                           "type": "string"
                         },
                         "allow_squash_merge": {
@@ -6367,6 +6376,7 @@
                   ]
                 },
                 "temp_clone_token": {
+                  "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                   "type": [
                     "string",
                     "null"
@@ -7097,6 +7107,7 @@
                       "type": "boolean"
                     },
                     "temp_clone_token": {
+                      "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                       "type": "string"
                     },
                     "allow_squash_merge": {
@@ -7774,6 +7785,7 @@
                       "type": "boolean"
                     },
                     "temp_clone_token": {
+                      "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                       "type": "string"
                     },
                     "allow_squash_merge": {
@@ -8587,7 +8599,7 @@
         {
           "type": "boolean",
           "name": "use_squash_pr_title_as_default",
-          "description": "<p>Either <code>true</code> to allow squash-merge commits to use pull request title, or <code>false</code> to use commit message. **This property is closing down. Please use <code>squash_merge_commit_title</code> instead.</p>",
+          "description": "<p>Either <code>true</code> to allow squash-merge commits to use pull request title, or <code>false</code> to use commit message. <strong>This property is closing down. Please use <code>squash_merge_commit_title</code> instead.</strong></p>",
           "default": false
         },
         {
@@ -10094,6 +10106,7 @@
                           "type": "boolean"
                         },
                         "temp_clone_token": {
+                          "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                           "type": "string"
                         },
                         "allow_squash_merge": {
@@ -10278,6 +10291,7 @@
                   ]
                 },
                 "temp_clone_token": {
+                  "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                   "type": [
                     "string",
                     "null"
@@ -11008,6 +11022,7 @@
                       "type": "boolean"
                     },
                     "temp_clone_token": {
+                      "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                       "type": "string"
                     },
                     "allow_squash_merge": {
@@ -11685,6 +11700,7 @@
                       "type": "boolean"
                     },
                     "temp_clone_token": {
+                      "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                       "type": "string"
                     },
                     "allow_squash_merge": {
@@ -15332,6 +15348,7 @@
                   "type": "string"
                 },
                 "temp_clone_token": {
+                  "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                   "type": "string"
                 },
                 "delete_branch_on_merge": {
@@ -17358,6 +17375,7 @@
                           "type": "boolean"
                         },
                         "temp_clone_token": {
+                          "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                           "type": "string"
                         },
                         "allow_squash_merge": {
@@ -17542,6 +17560,7 @@
                   ]
                 },
                 "temp_clone_token": {
+                  "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                   "type": [
                     "string",
                     "null"
@@ -18272,6 +18291,7 @@
                       "type": "boolean"
                     },
                     "temp_clone_token": {
+                      "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                       "type": "string"
                     },
                     "allow_squash_merge": {
@@ -18949,6 +18969,7 @@
                       "type": "boolean"
                     },
                     "temp_clone_token": {
+                      "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                       "type": "string"
                     },
                     "allow_squash_merge": {
@@ -19449,6 +19470,10 @@
           {
             "\"Administration\" repository permissions": "write",
             "\"Contents\" repository permissions": "read"
+          },
+          {
+            "\"Contents\" repository permissions": "read",
+            "\"Repository creation\" repository permissions": "write"
           }
         ]
       }
@@ -19967,6 +19992,7 @@
                     "type": "string"
                   },
                   "temp_clone_token": {
+                    "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                     "type": "string"
                   },
                   "delete_branch_on_merge": {
@@ -21059,6 +21085,7 @@
                     "type": "boolean"
                   },
                   "temp_clone_token": {
+                    "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                     "type": "string"
                   },
                   "allow_squash_merge": {
@@ -22877,6 +22904,7 @@
                           "type": "boolean"
                         },
                         "temp_clone_token": {
+                          "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                           "type": "string"
                         },
                         "allow_squash_merge": {
@@ -23061,6 +23089,7 @@
                   ]
                 },
                 "temp_clone_token": {
+                  "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                   "type": [
                     "string",
                     "null"
@@ -23791,6 +23820,7 @@
                       "type": "boolean"
                     },
                     "temp_clone_token": {
+                      "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                       "type": "string"
                     },
                     "allow_squash_merge": {
@@ -24468,6 +24498,7 @@
                       "type": "boolean"
                     },
                     "temp_clone_token": {
+                      "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                       "type": "string"
                     },
                     "allow_squash_merge": {
@@ -24986,11 +25017,14 @@
       "previews": [],
       "progAccess": {
         "userToServerRest": true,
-        "serverToServer": false,
+        "serverToServer": true,
         "fineGrainedPat": true,
         "permissions": [
           {
             "\"Administration\" repository permissions": "write"
+          },
+          {
+            "\"Repository creation\" repository permissions": "write"
           }
         ]
       }
@@ -25626,6 +25660,7 @@
                     "type": "string"
                   },
                   "temp_clone_token": {
+                    "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                     "type": "string"
                   },
                   "delete_branch_on_merge": {
@@ -31424,7 +31459,10 @@
                   "value": {
                     "oneOf": [
                       {
-                        "type": "string"
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       {
                         "type": "array",
@@ -32198,6 +32236,7 @@
                     "type": "string"
                   },
                   "temp_clone_token": {
+                    "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                     "type": "string"
                   },
                   "delete_branch_on_merge": {
@@ -34022,6 +34061,7 @@
                           "type": "boolean"
                         },
                         "temp_clone_token": {
+                          "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                           "type": "string"
                         },
                         "allow_squash_merge": {
@@ -34206,6 +34246,7 @@
                   ]
                 },
                 "temp_clone_token": {
+                  "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                   "type": [
                     "string",
                     "null"
@@ -34936,6 +34977,7 @@
                       "type": "boolean"
                     },
                     "temp_clone_token": {
+                      "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                       "type": "string"
                     },
                     "allow_squash_merge": {
@@ -35613,6 +35655,7 @@
                       "type": "boolean"
                     },
                     "temp_clone_token": {
+                      "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                       "type": "string"
                     },
                     "allow_squash_merge": {
@@ -36129,6 +36172,10 @@
           {
             "\"Administration\" repository permissions": "write",
             "\"Contents\" repository permissions": "read"
+          },
+          {
+            "\"Contents\" repository permissions": "read",
+            "\"Repository creation\" repository permissions": "write"
           }
         ]
       }
@@ -36163,7 +36210,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Lists issue types available for a repository (inherited from its organization owner, with any per-repository overrides applied).\nOAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint.\nFine-grained access tokens require the \"Metadata\" repository permission (read).</p>",
+      "descriptionHTML": "<p>Lists enabled issue types inherited from the repository owner.\nOAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint.\nFine-grained access tokens require the \"Metadata\" repository permission (read).</p>",
       "codeExamples": [
         {
           "request": {
@@ -36700,6 +36747,16 @@
           "schema": {
             "type": "integer"
           }
+        },
+        {
+          "name": "include_metadata",
+          "description": "<p>When set to <code>true</code>, the response will include additional metadata for pull request and required status check rule evaluation.\nResults are capped at 50 entries.</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "boolean",
+            "default": false
+          }
         }
       ],
       "bodyParameters": [],
@@ -36881,6 +36938,200 @@
                       "rule_type": {
                         "type": "string",
                         "description": "The type of rule."
+                      },
+                      "metadata": {
+                        "type": [
+                          "object",
+                          "null"
+                        ],
+                        "oneOf": [
+                          {
+                            "title": "Pull request rule suite metadata",
+                            "description": "Metadata for a pull request rule evaluation result.",
+                            "type": "object",
+                            "properties": {
+                              "pull_request": {
+                                "type": "object",
+                                "description": "The pull request associated with the rule evaluation.",
+                                "properties": {
+                                  "id": {
+                                    "type": "integer",
+                                    "description": "The unique identifier of the pull request."
+                                  },
+                                  "number": {
+                                    "type": "integer",
+                                    "description": "The number of the pull request."
+                                  },
+                                  "user": {
+                                    "type": "object",
+                                    "description": "The user who created the pull request.",
+                                    "properties": {
+                                      "id": {
+                                        "type": "integer",
+                                        "description": "The unique identifier of the user."
+                                      },
+                                      "login": {
+                                        "type": "string",
+                                        "description": "The handle for the GitHub user account."
+                                      },
+                                      "type": {
+                                        "type": "string",
+                                        "description": "The type of the user."
+                                      }
+                                    }
+                                  },
+                                  "reviews": {
+                                    "type": "array",
+                                    "description": "The reviews associated with the pull request.",
+                                    "items": {
+                                      "type": "object",
+                                      "properties": {
+                                        "id": {
+                                          "type": "integer",
+                                          "description": "The unique identifier of the review."
+                                        },
+                                        "user": {
+                                          "type": "object",
+                                          "description": "The user who submitted the review.",
+                                          "properties": {
+                                            "id": {
+                                              "type": "integer",
+                                              "description": "The unique identifier of the user."
+                                            },
+                                            "login": {
+                                              "type": "string",
+                                              "description": "The handle for the GitHub user account."
+                                            },
+                                            "type": {
+                                              "type": "string",
+                                              "description": "The type of the user."
+                                            }
+                                          }
+                                        },
+                                        "state": {
+                                          "type": "string",
+                                          "description": "The state of the review."
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "proof_of_presence": {
+                                    "type": [
+                                      "object",
+                                      "null"
+                                    ],
+                                    "description": "The proof of presence evaluation for the pull request. Null if proof of presence was not evaluated.",
+                                    "properties": {
+                                      "state": {
+                                        "type": "string",
+                                        "description": "The state of the proof of presence evaluation."
+                                      },
+                                      "code": {
+                                        "type": "string",
+                                        "description": "A code describing the reason for the proof of presence state."
+                                      },
+                                      "base_sha": {
+                                        "type": "string",
+                                        "description": "The base commit SHA the proof of presence evaluation applies to. Empty if unavailable."
+                                      },
+                                      "head_sha": {
+                                        "type": "string",
+                                        "description": "The head commit SHA the proof of presence evaluation applies to. Empty if unavailable."
+                                      },
+                                      "required_level": {
+                                        "type": "string",
+                                        "description": "The authentication level required by the rule. Empty if unavailable."
+                                      },
+                                      "verified_level": {
+                                        "type": "string",
+                                        "description": "The authentication level that was verified. Empty if proof of presence has not been completed."
+                                      },
+                                      "verified_at": {
+                                        "type": "string",
+                                        "description": "The time proof of presence was verified, in ISO 8601 format. Empty if proof of presence has not been completed."
+                                      },
+                                      "verifier": {
+                                        "type": [
+                                          "object",
+                                          "null"
+                                        ],
+                                        "description": "The user who provided proof of presence. Null if no proof of presence was recorded.",
+                                        "properties": {
+                                          "id": {
+                                            "type": "integer",
+                                            "description": "The unique identifier of the user."
+                                          },
+                                          "login": {
+                                            "type": "string",
+                                            "description": "The handle for the GitHub user account."
+                                          },
+                                          "type": {
+                                            "type": "string",
+                                            "description": "The type of the user."
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          {
+                            "title": "Required status checks rule suite metadata",
+                            "description": "Metadata for a required status checks rule evaluation result.",
+                            "type": "object",
+                            "properties": {
+                              "checks": {
+                                "type": "array",
+                                "description": "The status checks associated with the rule evaluation.",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "id": {
+                                      "type": "integer",
+                                      "description": "The unique identifier of the status check."
+                                    },
+                                    "context": {
+                                      "type": "string",
+                                      "description": "The context name of the status check."
+                                    },
+                                    "state": {
+                                      "type": "string",
+                                      "description": "The state of the status check."
+                                    },
+                                    "type": {
+                                      "type": "string",
+                                      "description": "The type of the status check."
+                                    },
+                                    "app": {
+                                      "type": [
+                                        "object",
+                                        "null"
+                                      ],
+                                      "description": "The GitHub App associated with the status check.",
+                                      "properties": {
+                                        "id": {
+                                          "type": "integer",
+                                          "description": "The unique identifier of the GitHub App."
+                                        },
+                                        "slug": {
+                                          "type": "string",
+                                          "description": "The slug of the GitHub App."
+                                        },
+                                        "name": {
+                                          "type": "string",
+                                          "description": "The name of the GitHub App."
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        ],
+                        "description": "Additional metadata about the rule evaluation."
                       },
                       "details": {
                         "type": [
@@ -37489,6 +37740,10 @@
                                 "type": "boolean",
                                 "description": "Require an approving review in pull requests that modify files that have a designated code owner."
                               },
+                              "require_extra_approval_for_unattributed_changes": {
+                                "type": "boolean",
+                                "description": "When Copilot opens a pull request without a human collaborator, require one more approving review if a non-zero approval count is required."
+                              },
                               "require_last_push_approval": {
                                 "type": "boolean",
                                 "description": "Whether the most recent reviewable push must be approved by someone other than the person who pushed it."
@@ -37505,7 +37760,7 @@
                               },
                               "required_reviewers": {
                                 "type": "array",
-                                "description": "> [!NOTE]\n> `required_reviewers` is in beta and subject to change.\n\nA collection of reviewers and associated file patterns. Each reviewer has a list of file patterns which determine the files that reviewer is required to review.",
+                                "description": "A collection of reviewers and associated file patterns. Each reviewer has a list of file patterns which determine the files that reviewer is required to review.",
                                 "items": {
                                   "title": "RequiredReviewerConfiguration",
                                   "description": "A reviewing team, and file patterns describing which files they must approve changes to.",
@@ -38254,8 +38509,129 @@
                   {
                     "allOf": [
                       {
+                        "title": "code_quality",
+                        "description": "Choose which severity levels of code quality results should block pull request merges. When configured, a code quality analysis must be done on the pull request before the changes can be merged.",
+                        "type": "object",
+                        "required": [
+                          "type"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "code_quality"
+                            ]
+                          },
+                          "parameters": {
+                            "type": "object",
+                            "properties": {
+                              "severity": {
+                                "type": "string",
+                                "description": "The lowest severity level at which code quality reviews need to be resolved before commits can be merged.",
+                                "enum": [
+                                  "errors",
+                                  "warnings",
+                                  "notes",
+                                  "all"
+                                ]
+                              }
+                            },
+                            "required": [
+                              "severity"
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "title": "repository ruleset data for rule",
+                        "description": "User-defined metadata to store domain-specific information limited to 8 keys with scalar values.",
+                        "properties": {
+                          "ruleset_source_type": {
+                            "type": "string",
+                            "description": "The type of source for the ruleset that includes this rule.",
+                            "enum": [
+                              "Repository",
+                              "Organization"
+                            ]
+                          },
+                          "ruleset_source": {
+                            "type": "string",
+                            "description": "The name of the source of the ruleset that includes this rule."
+                          },
+                          "ruleset_id": {
+                            "type": "integer",
+                            "description": "The ID of the ruleset that includes this rule."
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "allOf": [
+                      {
+                        "title": "code_coverage",
+                        "description": "Enforce minimum line coverage thresholds on pull requests. This rule evaluates uploaded coverage data but does not wait for coverage uploads. To ensure coverage is evaluated before merging, make each status check associated with a coverage upload a required status check.",
+                        "type": "object",
+                        "required": [
+                          "type"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "code_coverage"
+                            ]
+                          },
+                          "parameters": {
+                            "type": "object",
+                            "properties": {
+                              "max_coverage_drop": {
+                                "type": "number",
+                                "format": "float",
+                                "description": "The maximum percentage points that line coverage may drop relative to the default branch. Pull requests that reduce line coverage by more than this amount will be blocked.",
+                                "minimum": 0,
+                                "maximum": 100
+                              },
+                              "minimum_coverage": {
+                                "type": "number",
+                                "format": "float",
+                                "description": "The absolute minimum line coverage percentage required. Pull requests with line coverage below this threshold will be blocked.",
+                                "minimum": 0,
+                                "maximum": 100
+                              }
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "title": "repository ruleset data for rule",
+                        "description": "User-defined metadata to store domain-specific information limited to 8 keys with scalar values.",
+                        "properties": {
+                          "ruleset_source_type": {
+                            "type": "string",
+                            "description": "The type of source for the ruleset that includes this rule.",
+                            "enum": [
+                              "Repository",
+                              "Organization"
+                            ]
+                          },
+                          "ruleset_source": {
+                            "type": "string",
+                            "description": "The name of the source of the ruleset that includes this rule."
+                          },
+                          "ruleset_id": {
+                            "type": "integer",
+                            "description": "The ID of the ruleset that includes this rule."
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "allOf": [
+                      {
                         "title": "copilot_code_review",
-                        "description": "Request Copilot code review for new pull requests automatically if the author has access to Copilot code review and their premium requests quota has not reached the limit.",
+                        "description": "Request Copilot code review for new pull requests automatically if the author has access to Copilot code review and AI credits.",
                         "type": "object",
                         "required": [
                           "type"
@@ -38367,6 +38743,13 @@
                           "parameters": {
                             "type": "object",
                             "properties": {
+                              "ignored_file_paths": {
+                                "type": "array",
+                                "description": "Files matching these patterns are allowed even when they also match a restricted path.",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
                               "restricted_file_paths": {
                                 "type": "array",
                                 "description": "The file paths that are restricted from being pushed to the commit graph.",
@@ -38537,6 +38920,13 @@
                           "parameters": {
                             "type": "object",
                             "properties": {
+                              "ignored_file_paths": {
+                                "type": "array",
+                                "description": "Files matching these patterns may exceed the maximum size.",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
                               "max_file_size": {
                                 "type": "integer",
                                 "description": "The maximum file size allowed in megabytes. This limit does not apply to Git Large File Storage (Git LFS).",
@@ -39419,6 +39809,10 @@
                                   "type": "boolean",
                                   "description": "Require an approving review in pull requests that modify files that have a designated code owner."
                                 },
+                                "require_extra_approval_for_unattributed_changes": {
+                                  "type": "boolean",
+                                  "description": "When Copilot opens a pull request without a human collaborator, require one more approving review if a non-zero approval count is required."
+                                },
                                 "require_last_push_approval": {
                                   "type": "boolean",
                                   "description": "Whether the most recent reviewable push must be approved by someone other than the person who pushed it."
@@ -39435,7 +39829,7 @@
                                 },
                                 "required_reviewers": {
                                   "type": "array",
-                                  "description": "> [!NOTE]\n> `required_reviewers` is in beta and subject to change.\n\nA collection of reviewers and associated file patterns. Each reviewer has a list of file patterns which determine the files that reviewer is required to review.",
+                                  "description": "A collection of reviewers and associated file patterns. Each reviewer has a list of file patterns which determine the files that reviewer is required to review.",
                                   "items": {
                                     "title": "RequiredReviewerConfiguration",
                                     "description": "A reviewing team, and file patterns describing which files they must approve changes to.",
@@ -39924,8 +40318,77 @@
                           }
                         },
                         {
+                          "title": "code_quality",
+                          "description": "Choose which severity levels of code quality results should block pull request merges. When configured, a code quality analysis must be done on the pull request before the changes can be merged.",
+                          "type": "object",
+                          "required": [
+                            "type"
+                          ],
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "enum": [
+                                "code_quality"
+                              ]
+                            },
+                            "parameters": {
+                              "type": "object",
+                              "properties": {
+                                "severity": {
+                                  "type": "string",
+                                  "description": "The lowest severity level at which code quality reviews need to be resolved before commits can be merged.",
+                                  "enum": [
+                                    "errors",
+                                    "warnings",
+                                    "notes",
+                                    "all"
+                                  ]
+                                }
+                              },
+                              "required": [
+                                "severity"
+                              ]
+                            }
+                          }
+                        },
+                        {
+                          "title": "code_coverage",
+                          "description": "Enforce minimum line coverage thresholds on pull requests. This rule evaluates uploaded coverage data but does not wait for coverage uploads. To ensure coverage is evaluated before merging, make each status check associated with a coverage upload a required status check.",
+                          "type": "object",
+                          "required": [
+                            "type"
+                          ],
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "enum": [
+                                "code_coverage"
+                              ]
+                            },
+                            "parameters": {
+                              "type": "object",
+                              "properties": {
+                                "max_coverage_drop": {
+                                  "type": "number",
+                                  "format": "float",
+                                  "description": "The maximum percentage points that line coverage may drop relative to the default branch. Pull requests that reduce line coverage by more than this amount will be blocked.",
+                                  "minimum": 0,
+                                  "maximum": 100
+                                },
+                                "minimum_coverage": {
+                                  "type": "number",
+                                  "format": "float",
+                                  "description": "The absolute minimum line coverage percentage required. Pull requests with line coverage below this threshold will be blocked.",
+                                  "minimum": 0,
+                                  "maximum": 100
+                                }
+                              }
+                            }
+                          }
+                        },
+                        {
                           "title": "copilot_code_review",
-                          "description": "Request Copilot code review for new pull requests automatically if the author has access to Copilot code review and their premium requests quota has not reached the limit.",
+                          "description": "Request Copilot code review for new pull requests automatically if the author has access to Copilot code review and AI credits.",
                           "type": "object",
                           "required": [
                             "type"
@@ -39985,6 +40448,13 @@
                             "parameters": {
                               "type": "object",
                               "properties": {
+                                "ignored_file_paths": {
+                                  "type": "array",
+                                  "description": "Files matching these patterns are allowed even when they also match a restricted path.",
+                                  "items": {
+                                    "type": "string"
+                                  }
+                                },
                                 "restricted_file_paths": {
                                   "type": "array",
                                   "description": "The file paths that are restricted from being pushed to the commit graph.",
@@ -40077,6 +40547,13 @@
                             "parameters": {
                               "type": "object",
                               "properties": {
+                                "ignored_file_paths": {
+                                  "type": "array",
+                                  "description": "Files matching these patterns may exceed the maximum size.",
+                                  "items": {
+                                    "type": "string"
+                                  }
+                                },
                                 "max_file_size": {
                                   "type": "integer",
                                   "description": "The maximum file size allowed in megabytes. This limit does not apply to Git Large File Storage (Git LFS).",
@@ -40530,6 +41007,11 @@
                     },
                     {
                       "type": "boolean",
+                      "name": "require_extra_approval_for_unattributed_changes",
+                      "description": "<p>When Copilot opens a pull request without a human collaborator, require one more approving review if a non-zero approval count is required.</p>"
+                    },
+                    {
+                      "type": "boolean",
                       "name": "require_last_push_approval",
                       "description": "<p>Whether the most recent reviewable push must be approved by someone other than the person who pushed it.</p>",
                       "isRequired": true
@@ -40549,7 +41031,7 @@
                     {
                       "type": "array of objects",
                       "name": "required_reviewers",
-                      "description": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\n<code>required_reviewers</code> is in beta and subject to change.</p>\n</div>\n<p>A collection of reviewers and associated file patterns. Each reviewer has a list of file patterns which determine the files that reviewer is required to review.</p>",
+                      "description": "<p>A collection of reviewers and associated file patterns. Each reviewer has a list of file patterns which determine the files that reviewer is required to review.</p>",
                       "childParamsGroups": [
                         {
                           "type": "array of strings",
@@ -41038,8 +41520,76 @@
             },
             {
               "type": "object",
+              "name": "code_quality",
+              "description": "<p>Choose which severity levels of code quality results should block pull request merges. When configured, a code quality analysis must be done on the pull request before the changes can be merged.</p>",
+              "childParamsGroups": [
+                {
+                  "type": "string",
+                  "name": "type",
+                  "description": "",
+                  "isRequired": true,
+                  "enum": [
+                    "code_quality"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "name": "parameters",
+                  "description": "",
+                  "childParamsGroups": [
+                    {
+                      "type": "string",
+                      "name": "severity",
+                      "description": "<p>The lowest severity level at which code quality reviews need to be resolved before commits can be merged.</p>",
+                      "isRequired": true,
+                      "enum": [
+                        "errors",
+                        "warnings",
+                        "notes",
+                        "all"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "object",
+              "name": "code_coverage",
+              "description": "<p>Enforce minimum line coverage thresholds on pull requests. This rule evaluates uploaded coverage data but does not wait for coverage uploads. To ensure coverage is evaluated before merging, make each status check associated with a coverage upload a required status check.</p>",
+              "childParamsGroups": [
+                {
+                  "type": "string",
+                  "name": "type",
+                  "description": "",
+                  "isRequired": true,
+                  "enum": [
+                    "code_coverage"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "name": "parameters",
+                  "description": "",
+                  "childParamsGroups": [
+                    {
+                      "type": "number",
+                      "name": "max_coverage_drop",
+                      "description": "<p>The maximum percentage points that line coverage may drop relative to the default branch. Pull requests that reduce line coverage by more than this amount will be blocked.</p>"
+                    },
+                    {
+                      "type": "number",
+                      "name": "minimum_coverage",
+                      "description": "<p>The absolute minimum line coverage percentage required. Pull requests with line coverage below this threshold will be blocked.</p>"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "object",
               "name": "copilot_code_review",
-              "description": "<p>Request Copilot code review for new pull requests automatically if the author has access to Copilot code review and their premium requests quota has not reached the limit.</p>",
+              "description": "<p>Request Copilot code review for new pull requests automatically if the author has access to Copilot code review and AI credits.</p>",
               "childParamsGroups": [
                 {
                   "type": "string",
@@ -41104,6 +41654,11 @@
                   "name": "parameters",
                   "description": "",
                   "childParamsGroups": [
+                    {
+                      "type": "array of strings",
+                      "name": "ignored_file_paths",
+                      "description": "<p>Files matching these patterns are allowed even when they also match a restricted path.</p>"
+                    },
                     {
                       "type": "array of strings",
                       "name": "restricted_file_paths",
@@ -41191,6 +41746,11 @@
                   "name": "parameters",
                   "description": "",
                   "childParamsGroups": [
+                    {
+                      "type": "array of strings",
+                      "name": "ignored_file_paths",
+                      "description": "<p>Files matching these patterns may exceed the maximum size.</p>"
+                    },
                     {
                       "type": "integer",
                       "name": "max_file_size",
@@ -41999,6 +42559,10 @@
                                 "type": "boolean",
                                 "description": "Require an approving review in pull requests that modify files that have a designated code owner."
                               },
+                              "require_extra_approval_for_unattributed_changes": {
+                                "type": "boolean",
+                                "description": "When Copilot opens a pull request without a human collaborator, require one more approving review if a non-zero approval count is required."
+                              },
                               "require_last_push_approval": {
                                 "type": "boolean",
                                 "description": "Whether the most recent reviewable push must be approved by someone other than the person who pushed it."
@@ -42015,7 +42579,7 @@
                               },
                               "required_reviewers": {
                                 "type": "array",
-                                "description": "> [!NOTE]\n> `required_reviewers` is in beta and subject to change.\n\nA collection of reviewers and associated file patterns. Each reviewer has a list of file patterns which determine the files that reviewer is required to review.",
+                                "description": "A collection of reviewers and associated file patterns. Each reviewer has a list of file patterns which determine the files that reviewer is required to review.",
                                 "items": {
                                   "title": "RequiredReviewerConfiguration",
                                   "description": "A reviewing team, and file patterns describing which files they must approve changes to.",
@@ -42504,8 +43068,77 @@
                         }
                       },
                       {
+                        "title": "code_quality",
+                        "description": "Choose which severity levels of code quality results should block pull request merges. When configured, a code quality analysis must be done on the pull request before the changes can be merged.",
+                        "type": "object",
+                        "required": [
+                          "type"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "code_quality"
+                            ]
+                          },
+                          "parameters": {
+                            "type": "object",
+                            "properties": {
+                              "severity": {
+                                "type": "string",
+                                "description": "The lowest severity level at which code quality reviews need to be resolved before commits can be merged.",
+                                "enum": [
+                                  "errors",
+                                  "warnings",
+                                  "notes",
+                                  "all"
+                                ]
+                              }
+                            },
+                            "required": [
+                              "severity"
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "title": "code_coverage",
+                        "description": "Enforce minimum line coverage thresholds on pull requests. This rule evaluates uploaded coverage data but does not wait for coverage uploads. To ensure coverage is evaluated before merging, make each status check associated with a coverage upload a required status check.",
+                        "type": "object",
+                        "required": [
+                          "type"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "code_coverage"
+                            ]
+                          },
+                          "parameters": {
+                            "type": "object",
+                            "properties": {
+                              "max_coverage_drop": {
+                                "type": "number",
+                                "format": "float",
+                                "description": "The maximum percentage points that line coverage may drop relative to the default branch. Pull requests that reduce line coverage by more than this amount will be blocked.",
+                                "minimum": 0,
+                                "maximum": 100
+                              },
+                              "minimum_coverage": {
+                                "type": "number",
+                                "format": "float",
+                                "description": "The absolute minimum line coverage percentage required. Pull requests with line coverage below this threshold will be blocked.",
+                                "minimum": 0,
+                                "maximum": 100
+                              }
+                            }
+                          }
+                        }
+                      },
+                      {
                         "title": "copilot_code_review",
-                        "description": "Request Copilot code review for new pull requests automatically if the author has access to Copilot code review and their premium requests quota has not reached the limit.",
+                        "description": "Request Copilot code review for new pull requests automatically if the author has access to Copilot code review and AI credits.",
                         "type": "object",
                         "required": [
                           "type"
@@ -42565,6 +43198,13 @@
                           "parameters": {
                             "type": "object",
                             "properties": {
+                              "ignored_file_paths": {
+                                "type": "array",
+                                "description": "Files matching these patterns are allowed even when they also match a restricted path.",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
                               "restricted_file_paths": {
                                 "type": "array",
                                 "description": "The file paths that are restricted from being pushed to the commit graph.",
@@ -42657,6 +43297,13 @@
                           "parameters": {
                             "type": "object",
                             "properties": {
+                              "ignored_file_paths": {
+                                "type": "array",
+                                "description": "Files matching these patterns may exceed the maximum size.",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
                               "max_file_size": {
                                 "type": "integer",
                                 "description": "The maximum file size allowed in megabytes. This limit does not apply to Git Large File Storage (Git LFS).",
@@ -43525,6 +44172,10 @@
                                 "type": "boolean",
                                 "description": "Require an approving review in pull requests that modify files that have a designated code owner."
                               },
+                              "require_extra_approval_for_unattributed_changes": {
+                                "type": "boolean",
+                                "description": "When Copilot opens a pull request without a human collaborator, require one more approving review if a non-zero approval count is required."
+                              },
                               "require_last_push_approval": {
                                 "type": "boolean",
                                 "description": "Whether the most recent reviewable push must be approved by someone other than the person who pushed it."
@@ -43541,7 +44192,7 @@
                               },
                               "required_reviewers": {
                                 "type": "array",
-                                "description": "> [!NOTE]\n> `required_reviewers` is in beta and subject to change.\n\nA collection of reviewers and associated file patterns. Each reviewer has a list of file patterns which determine the files that reviewer is required to review.",
+                                "description": "A collection of reviewers and associated file patterns. Each reviewer has a list of file patterns which determine the files that reviewer is required to review.",
                                 "items": {
                                   "title": "RequiredReviewerConfiguration",
                                   "description": "A reviewing team, and file patterns describing which files they must approve changes to.",
@@ -44030,8 +44681,77 @@
                         }
                       },
                       {
+                        "title": "code_quality",
+                        "description": "Choose which severity levels of code quality results should block pull request merges. When configured, a code quality analysis must be done on the pull request before the changes can be merged.",
+                        "type": "object",
+                        "required": [
+                          "type"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "code_quality"
+                            ]
+                          },
+                          "parameters": {
+                            "type": "object",
+                            "properties": {
+                              "severity": {
+                                "type": "string",
+                                "description": "The lowest severity level at which code quality reviews need to be resolved before commits can be merged.",
+                                "enum": [
+                                  "errors",
+                                  "warnings",
+                                  "notes",
+                                  "all"
+                                ]
+                              }
+                            },
+                            "required": [
+                              "severity"
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "title": "code_coverage",
+                        "description": "Enforce minimum line coverage thresholds on pull requests. This rule evaluates uploaded coverage data but does not wait for coverage uploads. To ensure coverage is evaluated before merging, make each status check associated with a coverage upload a required status check.",
+                        "type": "object",
+                        "required": [
+                          "type"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "code_coverage"
+                            ]
+                          },
+                          "parameters": {
+                            "type": "object",
+                            "properties": {
+                              "max_coverage_drop": {
+                                "type": "number",
+                                "format": "float",
+                                "description": "The maximum percentage points that line coverage may drop relative to the default branch. Pull requests that reduce line coverage by more than this amount will be blocked.",
+                                "minimum": 0,
+                                "maximum": 100
+                              },
+                              "minimum_coverage": {
+                                "type": "number",
+                                "format": "float",
+                                "description": "The absolute minimum line coverage percentage required. Pull requests with line coverage below this threshold will be blocked.",
+                                "minimum": 0,
+                                "maximum": 100
+                              }
+                            }
+                          }
+                        }
+                      },
+                      {
                         "title": "copilot_code_review",
-                        "description": "Request Copilot code review for new pull requests automatically if the author has access to Copilot code review and their premium requests quota has not reached the limit.",
+                        "description": "Request Copilot code review for new pull requests automatically if the author has access to Copilot code review and AI credits.",
                         "type": "object",
                         "required": [
                           "type"
@@ -44091,6 +44811,13 @@
                           "parameters": {
                             "type": "object",
                             "properties": {
+                              "ignored_file_paths": {
+                                "type": "array",
+                                "description": "Files matching these patterns are allowed even when they also match a restricted path.",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
                               "restricted_file_paths": {
                                 "type": "array",
                                 "description": "The file paths that are restricted from being pushed to the commit graph.",
@@ -44183,6 +44910,13 @@
                           "parameters": {
                             "type": "object",
                             "properties": {
+                              "ignored_file_paths": {
+                                "type": "array",
+                                "description": "Files matching these patterns may exceed the maximum size.",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
                               "max_file_size": {
                                 "type": "integer",
                                 "description": "The maximum file size allowed in megabytes. This limit does not apply to Git Large File Storage (Git LFS).",
@@ -44641,6 +45375,11 @@
                     },
                     {
                       "type": "boolean",
+                      "name": "require_extra_approval_for_unattributed_changes",
+                      "description": "<p>When Copilot opens a pull request without a human collaborator, require one more approving review if a non-zero approval count is required.</p>"
+                    },
+                    {
+                      "type": "boolean",
                       "name": "require_last_push_approval",
                       "description": "<p>Whether the most recent reviewable push must be approved by someone other than the person who pushed it.</p>",
                       "isRequired": true
@@ -44660,7 +45399,7 @@
                     {
                       "type": "array of objects",
                       "name": "required_reviewers",
-                      "description": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\n<code>required_reviewers</code> is in beta and subject to change.</p>\n</div>\n<p>A collection of reviewers and associated file patterns. Each reviewer has a list of file patterns which determine the files that reviewer is required to review.</p>",
+                      "description": "<p>A collection of reviewers and associated file patterns. Each reviewer has a list of file patterns which determine the files that reviewer is required to review.</p>",
                       "childParamsGroups": [
                         {
                           "type": "array of strings",
@@ -45149,8 +45888,76 @@
             },
             {
               "type": "object",
+              "name": "code_quality",
+              "description": "<p>Choose which severity levels of code quality results should block pull request merges. When configured, a code quality analysis must be done on the pull request before the changes can be merged.</p>",
+              "childParamsGroups": [
+                {
+                  "type": "string",
+                  "name": "type",
+                  "description": "",
+                  "isRequired": true,
+                  "enum": [
+                    "code_quality"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "name": "parameters",
+                  "description": "",
+                  "childParamsGroups": [
+                    {
+                      "type": "string",
+                      "name": "severity",
+                      "description": "<p>The lowest severity level at which code quality reviews need to be resolved before commits can be merged.</p>",
+                      "isRequired": true,
+                      "enum": [
+                        "errors",
+                        "warnings",
+                        "notes",
+                        "all"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "object",
+              "name": "code_coverage",
+              "description": "<p>Enforce minimum line coverage thresholds on pull requests. This rule evaluates uploaded coverage data but does not wait for coverage uploads. To ensure coverage is evaluated before merging, make each status check associated with a coverage upload a required status check.</p>",
+              "childParamsGroups": [
+                {
+                  "type": "string",
+                  "name": "type",
+                  "description": "",
+                  "isRequired": true,
+                  "enum": [
+                    "code_coverage"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "name": "parameters",
+                  "description": "",
+                  "childParamsGroups": [
+                    {
+                      "type": "number",
+                      "name": "max_coverage_drop",
+                      "description": "<p>The maximum percentage points that line coverage may drop relative to the default branch. Pull requests that reduce line coverage by more than this amount will be blocked.</p>"
+                    },
+                    {
+                      "type": "number",
+                      "name": "minimum_coverage",
+                      "description": "<p>The absolute minimum line coverage percentage required. Pull requests with line coverage below this threshold will be blocked.</p>"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "object",
               "name": "copilot_code_review",
-              "description": "<p>Request Copilot code review for new pull requests automatically if the author has access to Copilot code review and their premium requests quota has not reached the limit.</p>",
+              "description": "<p>Request Copilot code review for new pull requests automatically if the author has access to Copilot code review and AI credits.</p>",
               "childParamsGroups": [
                 {
                   "type": "string",
@@ -45215,6 +46022,11 @@
                   "name": "parameters",
                   "description": "",
                   "childParamsGroups": [
+                    {
+                      "type": "array of strings",
+                      "name": "ignored_file_paths",
+                      "description": "<p>Files matching these patterns are allowed even when they also match a restricted path.</p>"
+                    },
                     {
                       "type": "array of strings",
                       "name": "restricted_file_paths",
@@ -45302,6 +46114,11 @@
                   "name": "parameters",
                   "description": "",
                   "childParamsGroups": [
+                    {
+                      "type": "array of strings",
+                      "name": "ignored_file_paths",
+                      "description": "<p>Files matching these patterns may exceed the maximum size.</p>"
+                    },
                     {
                       "type": "integer",
                       "name": "max_file_size",
@@ -46111,6 +46928,10 @@
                                 "type": "boolean",
                                 "description": "Require an approving review in pull requests that modify files that have a designated code owner."
                               },
+                              "require_extra_approval_for_unattributed_changes": {
+                                "type": "boolean",
+                                "description": "When Copilot opens a pull request without a human collaborator, require one more approving review if a non-zero approval count is required."
+                              },
                               "require_last_push_approval": {
                                 "type": "boolean",
                                 "description": "Whether the most recent reviewable push must be approved by someone other than the person who pushed it."
@@ -46127,7 +46948,7 @@
                               },
                               "required_reviewers": {
                                 "type": "array",
-                                "description": "> [!NOTE]\n> `required_reviewers` is in beta and subject to change.\n\nA collection of reviewers and associated file patterns. Each reviewer has a list of file patterns which determine the files that reviewer is required to review.",
+                                "description": "A collection of reviewers and associated file patterns. Each reviewer has a list of file patterns which determine the files that reviewer is required to review.",
                                 "items": {
                                   "title": "RequiredReviewerConfiguration",
                                   "description": "A reviewing team, and file patterns describing which files they must approve changes to.",
@@ -46616,8 +47437,77 @@
                         }
                       },
                       {
+                        "title": "code_quality",
+                        "description": "Choose which severity levels of code quality results should block pull request merges. When configured, a code quality analysis must be done on the pull request before the changes can be merged.",
+                        "type": "object",
+                        "required": [
+                          "type"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "code_quality"
+                            ]
+                          },
+                          "parameters": {
+                            "type": "object",
+                            "properties": {
+                              "severity": {
+                                "type": "string",
+                                "description": "The lowest severity level at which code quality reviews need to be resolved before commits can be merged.",
+                                "enum": [
+                                  "errors",
+                                  "warnings",
+                                  "notes",
+                                  "all"
+                                ]
+                              }
+                            },
+                            "required": [
+                              "severity"
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "title": "code_coverage",
+                        "description": "Enforce minimum line coverage thresholds on pull requests. This rule evaluates uploaded coverage data but does not wait for coverage uploads. To ensure coverage is evaluated before merging, make each status check associated with a coverage upload a required status check.",
+                        "type": "object",
+                        "required": [
+                          "type"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "code_coverage"
+                            ]
+                          },
+                          "parameters": {
+                            "type": "object",
+                            "properties": {
+                              "max_coverage_drop": {
+                                "type": "number",
+                                "format": "float",
+                                "description": "The maximum percentage points that line coverage may drop relative to the default branch. Pull requests that reduce line coverage by more than this amount will be blocked.",
+                                "minimum": 0,
+                                "maximum": 100
+                              },
+                              "minimum_coverage": {
+                                "type": "number",
+                                "format": "float",
+                                "description": "The absolute minimum line coverage percentage required. Pull requests with line coverage below this threshold will be blocked.",
+                                "minimum": 0,
+                                "maximum": 100
+                              }
+                            }
+                          }
+                        }
+                      },
+                      {
                         "title": "copilot_code_review",
-                        "description": "Request Copilot code review for new pull requests automatically if the author has access to Copilot code review and their premium requests quota has not reached the limit.",
+                        "description": "Request Copilot code review for new pull requests automatically if the author has access to Copilot code review and AI credits.",
                         "type": "object",
                         "required": [
                           "type"
@@ -46677,6 +47567,13 @@
                           "parameters": {
                             "type": "object",
                             "properties": {
+                              "ignored_file_paths": {
+                                "type": "array",
+                                "description": "Files matching these patterns are allowed even when they also match a restricted path.",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
                               "restricted_file_paths": {
                                 "type": "array",
                                 "description": "The file paths that are restricted from being pushed to the commit graph.",
@@ -46769,6 +47666,13 @@
                           "parameters": {
                             "type": "object",
                             "properties": {
+                              "ignored_file_paths": {
+                                "type": "array",
+                                "description": "Files matching these patterns may exceed the maximum size.",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
                               "max_file_size": {
                                 "type": "integer",
                                 "description": "The maximum file size allowed in megabytes. This limit does not apply to Git Large File Storage (Git LFS).",

@@ -20,7 +20,7 @@ export async function getCommitSha(owner: string, repo: string, ref: string) {
   }
 }
 
-// based on https://docs.github.com/rest/reference/git#get-a-reference
+// https://docs.github.com/rest/reference/git#get-a-reference
 export async function hasMatchingRef(owner: string, repo: string, ref: string) {
   try {
     await github.git.getRef({
@@ -64,8 +64,6 @@ export async function getTree(owner: string, repo: string, ref: string) {
       tree_sha: treeSha,
       recursive: 'true',
     })
-    // only return files that match the patterns in allowedPaths
-    // skip actions/changes files
     return data.tree
   } catch (err) {
     console.log('error getting tree', owner, repo, ref)
@@ -80,7 +78,6 @@ export async function getContentsForBlob(owner: string, repo: string, sha: strin
     repo,
     file_sha: sha,
   })
-  // decode blob contents
   return Buffer.from(data.content, 'base64').toString()
 }
 
@@ -91,7 +88,6 @@ export async function getContents(owner: string, repo: string, ref: string, path
   if (!('content' in data) || !data.content) {
     return await getContentsForBlob(owner, repo, data.sha)
   }
-  // decode Base64 encoded contents
   return Buffer.from(data.content, 'base64').toString()
 }
 
@@ -103,7 +99,6 @@ export async function getContentAndData(owner: string, repo: string, ref: string
     'content' in data && data.content
       ? Buffer.from(data.content, 'base64').toString()
       : await getContentsForBlob(owner, repo, data.sha)
-  // decode Base64 encoded contents
   return { content, blobSha: data.sha }
 }
 
@@ -156,7 +151,6 @@ export async function createIssueComment(
   }
 }
 
-// Search for a string in a file in code and return the array of paths to files that contain string
 export async function getPathsWithMatchingStrings(
   strArr: string[],
   org: string,
@@ -164,22 +158,32 @@ export async function getPathsWithMatchingStrings(
   { cache = true, forceDownload = false } = {},
 ) {
   const perPage = 100
+  // The search API returns at most 1000 results and fails on later pages.
+  const maxResults = 1000
+  const maxPage = Math.ceil(maxResults / perPage)
   const paths = new Set()
 
   for (const str of strArr) {
     try {
-      const q = `q=${str}+in:file+repo:${org}/${repo}`
+      // Octokit adds the q= parameter name itself.
+      const q = `${str}+in:file+repo:${org}/${repo}`
       let currentPage = 1
       let totalCount = 0
       let currentCount = 0
+      let pageCount = 0
 
       do {
         const data = await searchCode(q, perPage, currentPage, cache, forceDownload)
         data.items.map((el: { path: string }) => paths.add(el.path))
         totalCount = data.total_count
-        currentCount += data.items.length
+        pageCount = data.items.length
+        currentCount += pageCount
         currentPage++
-      } while (currentCount < totalCount)
+      } while (
+        pageCount > 0 &&
+        currentPage <= maxPage &&
+        currentCount < Math.min(totalCount, maxResults)
+      )
     } catch (err) {
       console.log(`error searching for ${str} in ${org}/${repo}`)
       throw err
@@ -238,10 +242,6 @@ async function searchCode(
   }
 }
 
-// Recursively gets the contents of a directory within a repo. Returns an
-// array of file contents. This function could be modified to return an array
-// of objects that include the path and the content of the file if needed
-// in the future.
 export async function getDirectoryContents(
   owner: string,
   repo: string,
@@ -260,7 +260,6 @@ export async function getDirectoryContents(
         const blobContents = await getContentsForBlob(owner, repo, blob.sha)
         files.push({ path: blob.path, content: blobContents })
       } else {
-        // decode Base64 encoded contents
         const decodedContent = Buffer.from(blob.content, 'base64').toString()
         files.push({ path: blob.path, content: decodedContent })
       }

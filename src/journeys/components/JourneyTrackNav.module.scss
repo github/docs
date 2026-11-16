@@ -7,12 +7,12 @@
   align-items: flex-start;
   gap: 16px;
   padding: 24px;
-  border-top: 1px solid var(--color-border-muted);
-  border-bottom: 1px solid var(--color-border-muted);
+  border-top: 1px solid var(--brand-color-border-muted);
+  border-bottom: 1px solid var(--brand-color-border-muted);
   background: linear-gradient(
     to bottom,
-    var(--color-canvas-subtle),
-    var(--color-canvas-default)
+    var(--brand-color-canvas-subtle),
+    var(--brand-color-canvas-default)
   );
 
   @include breakpoint(md) {
@@ -43,7 +43,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: var(--color-fg-default);
+  color: var(--brand-color-text-default);
 
   &:hover {
     text-decoration: none;

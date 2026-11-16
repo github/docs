@@ -49,3 +49,16 @@ If your card is still valid, you have no restrictions on it, or the restrictions
 * **The transaction ID number.** Your account's transaction ID appears on your receipts.
 * **The merchant name.** The merchant name is {% data variables.product.prodname_dotcom %}.
 * **The error message your bank sent with the declined charge.** You can find your bank's error message on the email we send you when a charge is declined.
+
+## Troubleshooting PayPal payment failures
+
+PayPal error `10417` means PayPal couldn't complete the transaction with the funding source you selected. The error doesn't tell you why.
+
+To resolve the error, try the following:
+
+* Select a different funding source in your PayPal wallet.
+* Edit and save your payment details on {% data variables.product.github %}, even if you don't change anything. This triggers a new payment attempt. See [Managing payment information](/billing/how-tos/set-up-payment/manage-payment-info#managing-payment-information).
+
+If payments still fail, contact PayPal or the issuer of the card linked to your PayPal account for more details.
+
+If you see "Invalid payment method - authorization hold failed", see [Unlocking an account's features due to a failed authorization hold](/billing/how-tos/troubleshooting/locked-account#unlocking-an-accounts-features-due-to-a-failed-authorization-hold).

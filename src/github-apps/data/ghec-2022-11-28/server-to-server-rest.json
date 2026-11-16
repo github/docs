@@ -55,6 +55,36 @@
       "requestPath": "/enterprises/{enterprise}/actions/oidc/customization/properties/repo/{custom_property_name}"
     },
     {
+      "slug": "list-enterprise-actions-policies",
+      "subcategory": "policies",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/actions/policies"
+    },
+    {
+      "slug": "create-an-enterprise-actions-policy",
+      "subcategory": "policies",
+      "verb": "post",
+      "requestPath": "/enterprises/{enterprise}/actions/policies"
+    },
+    {
+      "slug": "get-an-enterprise-actions-policy",
+      "subcategory": "policies",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/actions/policies/{policy_id}"
+    },
+    {
+      "slug": "update-an-enterprise-actions-policy",
+      "subcategory": "policies",
+      "verb": "put",
+      "requestPath": "/enterprises/{enterprise}/actions/policies/{policy_id}"
+    },
+    {
+      "slug": "delete-an-enterprise-actions-policy",
+      "subcategory": "policies",
+      "verb": "delete",
+      "requestPath": "/enterprises/{enterprise}/actions/policies/{policy_id}"
+    },
+    {
       "slug": "get-github-actions-cache-retention-limit-for-an-organization",
       "subcategory": "cache",
       "verb": "get",
@@ -347,6 +377,36 @@
       "subcategory": "permissions",
       "verb": "put",
       "requestPath": "/orgs/{org}/actions/permissions/workflow"
+    },
+    {
+      "slug": "list-organization-actions-policies",
+      "subcategory": "policies",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/actions/policies"
+    },
+    {
+      "slug": "create-an-organization-actions-policy",
+      "subcategory": "policies",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/actions/policies"
+    },
+    {
+      "slug": "get-an-organization-actions-policy",
+      "subcategory": "policies",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/actions/policies/{policy_id}"
+    },
+    {
+      "slug": "update-an-organization-actions-policy",
+      "subcategory": "policies",
+      "verb": "put",
+      "requestPath": "/orgs/{org}/actions/policies/{policy_id}"
+    },
+    {
+      "slug": "delete-an-organization-actions-policy",
+      "subcategory": "policies",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/actions/policies/{policy_id}"
     },
     {
       "slug": "list-self-hosted-runner-groups-for-an-organization",
@@ -721,6 +781,12 @@
       "requestPath": "/repos/{owner}/{repo}/actions/jobs/{job_id}/rerun"
     },
     {
+      "slug": "download-step-logs-for-a-workflow-run-job",
+      "subcategory": "workflow-jobs",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/actions/jobs/{job_id}/steps/{step_number}/logs"
+    },
+    {
       "slug": "get-the-customization-template-for-an-oidc-subject-claim-for-a-repository",
       "subcategory": "oidc",
       "verb": "get",
@@ -827,6 +893,36 @@
       "subcategory": "permissions",
       "verb": "put",
       "requestPath": "/repos/{owner}/{repo}/actions/permissions/workflow"
+    },
+    {
+      "slug": "list-repository-actions-policies",
+      "subcategory": "policies",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/actions/policies"
+    },
+    {
+      "slug": "create-a-repository-actions-policy",
+      "subcategory": "policies",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/actions/policies"
+    },
+    {
+      "slug": "get-a-repository-actions-policy",
+      "subcategory": "policies",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/actions/policies/{policy_id}"
+    },
+    {
+      "slug": "update-a-repository-actions-policy",
+      "subcategory": "policies",
+      "verb": "put",
+      "requestPath": "/repos/{owner}/{repo}/actions/policies/{policy_id}"
+    },
+    {
+      "slug": "delete-a-repository-actions-policy",
+      "subcategory": "policies",
+      "verb": "delete",
+      "requestPath": "/repos/{owner}/{repo}/actions/policies/{policy_id}"
     },
     {
       "slug": "list-self-hosted-runners-for-a-repository",
@@ -1239,6 +1335,12 @@
       "requestPath": "/repos/{owner}/{repo}/stargazers/count"
     },
     {
+      "slug": "get-repository-star-history",
+      "subcategory": "starring",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/stargazers/history"
+    },
+    {
       "slug": "list-watchers",
       "subcategory": "watching",
       "verb": "get",
@@ -1501,6 +1603,18 @@
       "subcategory": "installations",
       "verb": "delete",
       "requestPath": "/installation/token"
+    },
+    {
+      "slug": "add-a-repository-to-an-app-installation",
+      "subcategory": "installations",
+      "verb": "put",
+      "requestPath": "/user/installations/{installation_id}/repositories/{repository_id}"
+    },
+    {
+      "slug": "remove-a-repository-from-an-app-installation",
+      "subcategory": "installations",
+      "verb": "delete",
+      "requestPath": "/user/installations/{installation_id}/repositories/{repository_id}"
     }
   ],
   "billing": [
@@ -1557,6 +1671,12 @@
       "subcategory": "cost-centers",
       "verb": "post",
       "requestPath": "/enterprises/{enterprise}/settings/billing/cost-centers"
+    },
+    {
+      "slug": "get-cost-center-membership-for-a-resource",
+      "subcategory": "cost-centers",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/cost-centers/memberships"
     },
     {
       "slug": "get-a-cost-center-by-id",
@@ -1995,6 +2115,18 @@
   ],
   "code-scanning": [
     {
+      "slug": "get-the-ai-scan-setting-for-an-organization",
+      "subcategory": "code-scanning",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/code-scanning/ai-scan"
+    },
+    {
+      "slug": "update-the-ai-scan-setting-for-an-organization",
+      "subcategory": "code-scanning",
+      "verb": "patch",
+      "requestPath": "/orgs/{org}/code-scanning/ai-scan"
+    },
+    {
       "slug": "list-code-scanning-alerts-for-an-organization",
       "subcategory": "code-scanning",
       "verb": "get",
@@ -2005,6 +2137,18 @@
       "subcategory": "alert-dismissal-requests",
       "verb": "get",
       "requestPath": "/orgs/{org}/dismissal-requests/code-scanning"
+    },
+    {
+      "slug": "get-ai-scan-enablement-for-a-repository",
+      "subcategory": "code-scanning",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/code-scanning/ai-scan"
+    },
+    {
+      "slug": "update-ai-scan-enablement-for-a-repository",
+      "subcategory": "code-scanning",
+      "verb": "patch",
+      "requestPath": "/repos/{owner}/{repo}/code-scanning/ai-scan"
     },
     {
       "slug": "list-code-scanning-alerts-for-a-repository",
@@ -2505,6 +2649,36 @@
   ],
   "copilot": [
     {
+      "slug": "list-all-copilot-seat-assignments-for-an-enterprise",
+      "subcategory": "copilot-user-management",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/copilot/billing/seats"
+    },
+    {
+      "slug": "add-enterprise-teams-to-the-copilot-subscription-for-an-enterprise",
+      "subcategory": "copilot-user-management",
+      "verb": "post",
+      "requestPath": "/enterprises/{enterprise}/copilot/billing/selected_enterprise_teams"
+    },
+    {
+      "slug": "remove-enterprise-teams-from-the-copilot-subscription-for-an-enterprise",
+      "subcategory": "copilot-user-management",
+      "verb": "delete",
+      "requestPath": "/enterprises/{enterprise}/copilot/billing/selected_enterprise_teams"
+    },
+    {
+      "slug": "add-users-to-the-copilot-subscription-for-an-enterprise",
+      "subcategory": "copilot-user-management",
+      "verb": "post",
+      "requestPath": "/enterprises/{enterprise}/copilot/billing/selected_users"
+    },
+    {
+      "slug": "remove-users-from-the-copilot-subscription-for-an-enterprise",
+      "subcategory": "copilot-user-management",
+      "verb": "delete",
+      "requestPath": "/enterprises/{enterprise}/copilot/billing/selected_users"
+    },
+    {
       "slug": "get-copilot-content-exclusion-rules-for-an-enterprise",
       "subcategory": "copilot-content-exclusion-management",
       "verb": "get",
@@ -2577,10 +2751,34 @@
       "requestPath": "/enterprises/{enterprise}/copilot/metrics/reports/users-28-day/latest"
     },
     {
+      "slug": "set-the-coding-agent-policy-for-an-enterprise",
+      "subcategory": "copilot-coding-agent-management",
+      "verb": "put",
+      "requestPath": "/enterprises/{enterprise}/copilot/policies/coding_agent"
+    },
+    {
+      "slug": "add-organizations-to-the-enterprise-coding-agent-policy",
+      "subcategory": "copilot-coding-agent-management",
+      "verb": "post",
+      "requestPath": "/enterprises/{enterprise}/copilot/policies/coding_agent/organizations"
+    },
+    {
+      "slug": "remove-organizations-from-the-enterprise-coding-agent-policy",
+      "subcategory": "copilot-coding-agent-management",
+      "verb": "delete",
+      "requestPath": "/enterprises/{enterprise}/copilot/policies/coding_agent/organizations"
+    },
+    {
       "slug": "get-copilot-usage-records-for-an-enterprise",
       "subcategory": "copilot-usage-metrics",
       "verb": "get",
       "requestPath": "/enterprises/{enterprise}/copilot/usage-records"
+    },
+    {
+      "slug": "get-copilot-seat-assignment-details-for-an-enterprise-user",
+      "subcategory": "copilot-user-management",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/members/{username}/copilot"
     },
     {
       "slug": "get-copilot-seat-information-and-settings-for-an-organization",
@@ -2667,6 +2865,18 @@
       "requestPath": "/orgs/{org}/copilot/content_exclusion"
     },
     {
+      "slug": "get-feature-policies-for-an-organization",
+      "subcategory": "copilot-feature-policy-management",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/copilot/feature-policies"
+    },
+    {
+      "slug": "update-feature-policies-for-an-organization",
+      "subcategory": "copilot-feature-policy-management",
+      "verb": "patch",
+      "requestPath": "/orgs/{org}/copilot/feature-policies"
+    },
+    {
       "slug": "get-copilot-organization-usage-metrics-for-a-specific-day",
       "subcategory": "copilot-usage-metrics",
       "verb": "get",
@@ -2703,16 +2913,58 @@
       "requestPath": "/orgs/{org}/copilot/metrics/reports/users-28-day/latest"
     },
     {
+      "slug": "get-model-policies-for-an-organization",
+      "subcategory": "copilot-model-policy-management",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/copilot/model-policies"
+    },
+    {
+      "slug": "update-model-policies-for-an-organization",
+      "subcategory": "copilot-model-policy-management",
+      "verb": "patch",
+      "requestPath": "/orgs/{org}/copilot/model-policies"
+    },
+    {
       "slug": "get-copilot-seat-assignment-details-for-a-user",
       "subcategory": "copilot-user-management",
       "verb": "get",
       "requestPath": "/orgs/{org}/members/{username}/copilot"
     },
     {
+      "slug": "get-copilot-customizations-for-a-team",
+      "subcategory": "copilot-team-customizations",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/teams/{team_slug}/copilot/customizations"
+    },
+    {
+      "slug": "set-copilot-customizations-for-a-team",
+      "subcategory": "copilot-team-customizations",
+      "verb": "put",
+      "requestPath": "/orgs/{org}/teams/{team_slug}/copilot/customizations"
+    },
+    {
+      "slug": "delete-copilot-customizations-for-a-team",
+      "subcategory": "copilot-team-customizations",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/teams/{team_slug}/copilot/customizations"
+    },
+    {
       "slug": "get-copilot-cloud-agent-configuration-for-a-repository",
       "subcategory": "copilot-cloud-agent-management",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/copilot/cloud-agent/configuration"
+    },
+    {
+      "slug": "get-copilot-code-review-settings-for-a-repository",
+      "subcategory": "copilot-code-review",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/copilot/code-review/settings"
+    },
+    {
+      "slug": "update-copilot-code-review-settings-for-a-repository",
+      "subcategory": "copilot-code-review",
+      "verb": "patch",
+      "requestPath": "/repos/{owner}/{repo}/copilot/code-review/settings"
     }
   ],
   "copilot-spaces": [
@@ -2923,6 +3175,18 @@
       "requestPath": "/repos/{owner}/{repo}/dependabot/alerts/{alert_number}"
     },
     {
+      "slug": "get-repository-dependabot-runner-settings",
+      "subcategory": "runner-settings",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/dependabot/runner-settings"
+    },
+    {
+      "slug": "set-repository-dependabot-runner-settings",
+      "subcategory": "runner-settings",
+      "verb": "put",
+      "requestPath": "/repos/{owner}/{repo}/dependabot/runner-settings"
+    },
+    {
       "slug": "list-repository-secrets",
       "subcategory": "secrets",
       "verb": "get",
@@ -2985,6 +3249,18 @@
   ],
   "dependency-graph": [
     {
+      "slug": "get-the-license-compliance-policy-for-an-enterprise",
+      "subcategory": "license-compliance",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/license-compliance/policies/{policy_id}"
+    },
+    {
+      "slug": "set-the-license-compliance-policy-for-an-enterprise",
+      "subcategory": "license-compliance",
+      "verb": "put",
+      "requestPath": "/enterprises/{enterprise}/license-compliance/policies/{policy_id}"
+    },
+    {
       "slug": "get-a-diff-of-the-dependencies-between-commits",
       "subcategory": "dependency-review",
       "verb": "get",
@@ -3013,6 +3289,12 @@
       "subcategory": "dependency-submission",
       "verb": "post",
       "requestPath": "/repos/{owner}/{repo}/dependency-graph/snapshots"
+    },
+    {
+      "slug": "check-license-compliance-for-packages",
+      "subcategory": "license-compliance",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/license-compliance/package-checks"
     }
   ],
   "deploy-keys": [
@@ -3185,6 +3467,18 @@
       "requestPath": "/enterprise-installation/{enterprise_or_org}/server-statistics"
     },
     {
+      "slug": "disable-access-restrictions-for-an-enterprise",
+      "subcategory": "enterprises",
+      "verb": "post",
+      "requestPath": "/enterprises/{enterprise}/access-restrictions/disable"
+    },
+    {
+      "slug": "enable-access-restrictions-for-an-enterprise",
+      "subcategory": "enterprises",
+      "verb": "post",
+      "requestPath": "/enterprises/{enterprise}/access-restrictions/enable"
+    },
+    {
       "slug": "get-enterprise-owned-organizations-that-can-have-github-apps-installed",
       "subcategory": "organization-installations",
       "verb": "get",
@@ -3245,10 +3539,76 @@
       "requestPath": "/enterprises/{enterprise}/audit-log"
     },
     {
+      "slug": "list-push-rule-bypass-requests-within-an-enterprise",
+      "subcategory": "bypass-requests",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/bypass-requests/push-rules"
+    },
+    {
       "slug": "list-enterprise-consumed-licenses",
       "subcategory": "licensing",
       "verb": "get",
       "requestPath": "/enterprises/{enterprise}/consumed-licenses"
+    },
+    {
+      "slug": "get-model-policies-for-agent-apps",
+      "subcategory": "ai-controls",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/copilot/apps/model-policies"
+    },
+    {
+      "slug": "update-model-policies-for-enterprise-apps",
+      "subcategory": "ai-controls",
+      "verb": "patch",
+      "requestPath": "/enterprises/{enterprise}/copilot/apps/model-policies"
+    },
+    {
+      "slug": "get-feature-policies-for-an-enterprise",
+      "subcategory": "ai-controls",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/copilot/feature-policies"
+    },
+    {
+      "slug": "update-feature-policies-for-an-enterprise",
+      "subcategory": "ai-controls",
+      "verb": "patch",
+      "requestPath": "/enterprises/{enterprise}/copilot/feature-policies"
+    },
+    {
+      "slug": "get-copilot-fusion-model-policies-for-an-enterprise",
+      "subcategory": "ai-controls",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/copilot/fusion/model-policies"
+    },
+    {
+      "slug": "update-copilot-fusion-model-policies-for-an-enterprise",
+      "subcategory": "ai-controls",
+      "verb": "patch",
+      "requestPath": "/enterprises/{enterprise}/copilot/fusion/model-policies"
+    },
+    {
+      "slug": "get-model-policies-for-an-enterprise",
+      "subcategory": "ai-controls",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/copilot/model-policies"
+    },
+    {
+      "slug": "update-model-policies-for-an-enterprise",
+      "subcategory": "ai-controls",
+      "verb": "patch",
+      "requestPath": "/enterprises/{enterprise}/copilot/model-policies"
+    },
+    {
+      "slug": "grant-credential-authorizations-for-enterprise-organizations",
+      "subcategory": "credential-authorizations",
+      "verb": "post",
+      "requestPath": "/enterprises/{enterprise}/credential-authorizations"
+    },
+    {
+      "slug": "revoke-enterprise-delegated-credential-authorizations",
+      "subcategory": "credential-authorizations",
+      "verb": "delete",
+      "requestPath": "/enterprises/{enterprise}/credential-authorizations"
     },
     {
       "slug": "revoke-all-credential-authorizations-for-an-enterprise",
@@ -3273,6 +3633,30 @@
       "subcategory": "credential-authorizations",
       "verb": "post",
       "requestPath": "/enterprises/{enterprise}/credential-authorizations/{username}/revoke-credential-type"
+    },
+    {
+      "slug": "list-enterprise-token-inventory",
+      "subcategory": "token-inventory",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/credentials"
+    },
+    {
+      "slug": "create-an-enterprise-token-inventory-export",
+      "subcategory": "token-inventory",
+      "verb": "post",
+      "requestPath": "/enterprises/{enterprise}/credentials/exports"
+    },
+    {
+      "slug": "get-an-enterprise-token-inventory-export",
+      "subcategory": "token-inventory",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/credentials/exports/{export_id}"
+    },
+    {
+      "slug": "get-an-enterprise-token-inventory-item",
+      "subcategory": "token-inventory",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/credentials/{inventory_id}"
     },
     {
       "slug": "get-all-enterprise-roles-for-an-enterprise",
@@ -3455,10 +3839,34 @@
       "requestPath": "/enterprises/{enterprise}/rulesets/{ruleset_id}"
     },
     {
+      "slug": "get-enterprise-ruleset-history",
+      "subcategory": "rules",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/rulesets/{ruleset_id}/history"
+    },
+    {
+      "slug": "get-enterprise-ruleset-version",
+      "subcategory": "rules",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/rulesets/{ruleset_id}/history/{version_id}"
+    },
+    {
       "slug": "get-github-advanced-security-active-committers-for-an-enterprise",
       "subcategory": "licensing",
       "verb": "get",
       "requestPath": "/enterprises/{enterprise}/settings/billing/advanced-security"
+    },
+    {
+      "slug": "get-model-policies-for-an-enterprise-team",
+      "subcategory": "ai-controls",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/teams/{team_id}/copilot/model-policies"
+    },
+    {
+      "slug": "update-model-policies-for-an-enterprise-team",
+      "subcategory": "ai-controls",
+      "verb": "patch",
+      "requestPath": "/enterprises/{enterprise}/teams/{team_id}/copilot/model-policies"
     },
     {
       "slug": "get-a-list-of-visual-studio-subscriptions-for-the-enterprise",
@@ -3552,6 +3960,12 @@
     }
   ],
   "enterprise-teams": [
+    {
+      "slug": "list-enterprise-teams-for-a-user",
+      "subcategory": "enterprise-team-members",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/members/{username}/teams"
+    },
     {
       "slug": "list-enterprise-teams",
       "subcategory": "enterprise-teams",
@@ -3915,6 +4329,36 @@
       "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}"
     },
     {
+      "slug": "list-issue-artifacts",
+      "subcategory": "artifacts",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/artifacts"
+    },
+    {
+      "slug": "create-an-issue-artifact",
+      "subcategory": "artifacts",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/artifacts"
+    },
+    {
+      "slug": "get-an-issue-artifact",
+      "subcategory": "artifacts",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/artifacts/{artifact_number}"
+    },
+    {
+      "slug": "update-an-issue-artifact",
+      "subcategory": "artifacts",
+      "verb": "patch",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/artifacts/{artifact_number}"
+    },
+    {
+      "slug": "delete-an-issue-artifact",
+      "subcategory": "artifacts",
+      "verb": "delete",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/artifacts/{artifact_number}"
+    },
+    {
       "slug": "add-assignees-to-an-issue",
       "subcategory": "assignees",
       "verb": "post",
@@ -4045,6 +4489,24 @@
       "subcategory": "sub-issues",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/parent"
+    },
+    {
+      "slug": "list-issues-related-to-an-issue",
+      "subcategory": "issues",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/relates_to"
+    },
+    {
+      "slug": "add-a-related-issue",
+      "subcategory": "issues",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/relates_to"
+    },
+    {
+      "slug": "remove-a-related-issue",
+      "subcategory": "issues",
+      "verb": "delete",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/relates_to/{issue_id}"
     },
     {
       "slug": "remove-sub-issue",
@@ -4933,6 +5395,42 @@
       "requestPath": "/orgs/{org}/personal-access-tokens/{pat_id}/repositories"
     },
     {
+      "slug": "get-registered-app-installations-for-external-custom-properties",
+      "subcategory": "custom-properties",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/properties/installations"
+    },
+    {
+      "slug": "register-an-app-installation-for-external-custom-properties",
+      "subcategory": "custom-properties",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/properties/installations"
+    },
+    {
+      "slug": "get-all-external-custom-properties-for-a-github-app-installation-in-an-organization",
+      "subcategory": "custom-properties",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/properties/installations/schema"
+    },
+    {
+      "slug": "create-or-update-external-custom-property-values-for-organization-repositories",
+      "subcategory": "custom-properties",
+      "verb": "patch",
+      "requestPath": "/orgs/{org}/properties/installations/values"
+    },
+    {
+      "slug": "create-or-update-external-custom-property-values-for-a-property-across-organization-repositories",
+      "subcategory": "custom-properties",
+      "verb": "patch",
+      "requestPath": "/orgs/{org}/properties/installations/values/{property_name}"
+    },
+    {
+      "slug": "remove-all-external-custom-property-values-for-a-property-across-all-organization-repositories",
+      "subcategory": "custom-properties",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/properties/installations/values/{property_name}"
+    },
+    {
       "slug": "get-all-custom-properties-for-an-organization",
       "subcategory": "custom-properties",
       "verb": "get",
@@ -5573,6 +6071,12 @@
       "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/commits"
     },
     {
+      "slug": "request-a-copilot-code-review-for-a-pull-request",
+      "subcategory": "copilot-code-review",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/copilot-code-review"
+    },
+    {
       "slug": "list-pull-requests-files",
       "subcategory": "pulls",
       "verb": "get",
@@ -5619,6 +6123,12 @@
       "subcategory": "review-requests",
       "verb": "delete",
       "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/requested_reviewers"
+    },
+    {
+      "slug": "rerequest-reviewers-for-a-pull-request",
+      "subcategory": "review-requests",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/requested_reviewers/rerequest"
     },
     {
       "slug": "list-reviews-for-a-pull-request",
@@ -6307,6 +6817,12 @@
       "requestPath": "/repositories"
     },
     {
+      "slug": "create-a-repository-for-the-authenticated-user",
+      "subcategory": "repos",
+      "verb": "post",
+      "requestPath": "/user/repos"
+    },
+    {
       "slug": "list-repositories-for-a-user",
       "subcategory": "repos",
       "verb": "get",
@@ -6589,6 +7105,30 @@
       "subcategory": "repository-advisories",
       "verb": "patch",
       "requestPath": "/repos/{owner}/{repo}/security-advisories/{ghsa_id}"
+    },
+    {
+      "slug": "list-repository-security-advisory-comments",
+      "subcategory": "repository-advisories",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/security-advisories/{ghsa_id}/comments"
+    },
+    {
+      "slug": "create-a-repository-advisory-comment",
+      "subcategory": "repository-advisories",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/security-advisories/{ghsa_id}/comments"
+    },
+    {
+      "slug": "get-a-repository-advisory-comment",
+      "subcategory": "repository-advisories",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/security-advisories/{ghsa_id}/comments/{comment_id}"
+    },
+    {
+      "slug": "update-a-repository-advisory-comment",
+      "subcategory": "repository-advisories",
+      "verb": "patch",
+      "requestPath": "/repos/{owner}/{repo}/security-advisories/{ghsa_id}/comments/{comment_id}"
     },
     {
       "slug": "request-a-cve-for-a-repository-security-advisory",

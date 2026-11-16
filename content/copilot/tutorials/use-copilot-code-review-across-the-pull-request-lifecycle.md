@@ -33,7 +33,7 @@ Choose a review model and set up early feedback for draft and active pull reques
 | Automatic review on draft pull requests | Teams that want earlier feedback loops | Authors can fix issues before human review starts. |
 | Automatic review on new pushes | Fast-moving pull requests with multiple revisions | {% data variables.product.prodname_copilot_short %} reevaluates substantial updates as the pull request evolves. |
 
-For setup steps, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/request-a-code-review/use-code-review) and [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-automatic-review).
+For setup steps, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/request-a-code-review/use-code-review) and [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-code-review).
 
 ### Use {% data variables.copilot.copilot_code-review_short %} early on draft pull requests
 
@@ -119,6 +119,6 @@ For planning and setup details, see [AUTOTITLE](/copilot/how-tos/copilot-on-gith
 
 ## Next steps
 
-* For broader concepts, including review effort and agentic capabilities, see [AUTOTITLE](/copilot/concepts/agents/code-review).
+* For broader concepts, including review effort and agentic capabilities, see [AUTOTITLE](/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/code-review).
 * To tune automated review quality for specific repositories, see [AUTOTITLE](/copilot/tutorials/optimize-code-reviews).
 * For excluded file types and other limits, see [AUTOTITLE](/copilot/reference/review-excluded-files).

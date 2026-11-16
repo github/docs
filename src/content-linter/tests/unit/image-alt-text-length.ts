@@ -31,14 +31,28 @@ describe(incorrectAltTextLength.names.join(' - '), () => {
     const markdown = [
       '# Heading',
       '',
-      // Completely empty
+      // Empty alt text has no valid range.
       '![](/images/this-is-ok.png)',
     ].join('\n')
     const result = await runRule(incorrectAltTextLength as Rule, { strings: { markdown } })
     const errors = result.markdown
     expect(errors.length).toBe(1)
     expect(errors[0].lineNumber).toBe(3)
-    // Because you can't get a valid range when it's entirely empty
     expect(errors[0].errorRange).toEqual(null)
+  })
+  test('image alt text with Liquid is checked after rendering', async () => {
+    const markdown = '![{% data variables.product.prodname_copilot_short %} icon.](./image.png)'
+    const result = await runRule(incorrectAltTextLength as Rule, { strings: { markdown } })
+    const errors = result.markdown
+    expect(errors.length).toBe(1)
+    expect(errors[0].lineNumber).toBe(1)
+    expect(errors[0].errorDetail).toBe('Image alternate text is 13 characters long.')
+  })
+  test('image alt text with a Liquid render error does not throw', async () => {
+    const markdown =
+      '![Screenshot of {% data variables.product.prodname_doesnotexist %} in the editor sidebar panel.](./image.png)'
+    const result = await runRule(incorrectAltTextLength as Rule, { strings: { markdown } })
+    const errors = result.markdown
+    expect(errors.length).toBe(0)
   })
 })

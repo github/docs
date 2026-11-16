@@ -11,6 +11,8 @@ category:
 contentType: tutorials
 redirect_from:
   - /copilot/tutorials/roll-out-at-scale/maintain-codebase-standards
+docsTeamMetrics:
+  - ai-governance
 ---
 
 Most enterprises are aware of the productivity benefits that AI coding tools can bring. However, many worry that improper usage in their company, such as malicious prompts or developers accepting AI suggestions without review, will lead to their codebase's standards being compromised.

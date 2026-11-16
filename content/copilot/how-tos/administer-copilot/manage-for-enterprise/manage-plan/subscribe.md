@@ -1,7 +1,7 @@
 ---
 title: Subscribing to GitHub Copilot for your enterprise
 shortTitle: Subscribe
-intro: 'Enterprise owners can set up a {% data variables.copilot.copilot_enterprise_short %} or {% data variables.copilot.copilot_business_short %} plan for their enterprise.'
+intro: 'Activate a {% data variables.product.prodname_copilot_short %} plan to manage access and usage across your enterprise.'
 permissions: Enterprise owners
 product: 'Enterprises on {% data variables.product.prodname_ghe_cloud %}'
 versions:
@@ -20,13 +20,9 @@ category:
   - Manage Copilot for a team
 ---
 
->[!NOTE]
-> {% data reusables.copilot.signup-procedure-enterprise-msft-ea %}
+{% data reusables.copilot.plans.subscribe-for-enterprise %}
 
-
-1. Ensure you are signed in as an enterprise admin on {% data variables.product.github %}.
-1. To purchase {% data variables.product.prodname_copilot %} for your enterprise, [contact {% data variables.product.github %}'s Sales team](https://github.com/enterprise/contact?ref_product=copilot&ref_type=engagement&ref_style=text).
-1. A member of the Sales team will work with you to set up {% data variables.product.prodname_copilot_short %} for your enterprise.
+>[!NOTE] {% data reusables.copilot.signup-procedure-enterprise-msft-ea %}
 
 ## Next steps
 

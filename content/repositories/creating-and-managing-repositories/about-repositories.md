@@ -113,7 +113,7 @@ Organization members have read permissions to all internal repositories in an en
 
 {% data reusables.repositories.internal-repo-default %}
 
-By default, enterprise members can fork an internal repository into any organization where the user can create repositories. Organization owners can also allow users to create a fork owned by a user account, and can manage the forking policy for an organization. Enterprise owners can manage the forking policy for some or all organizations within an enterprise. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization) and [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-forking-private-or-internal-repositories).
+Repository, organization, and enterprise policies determine whether internal repositories can be forked and where forks can be created. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization) and [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-forking-private-or-internal-repositories).
 
 {% endif %}
 

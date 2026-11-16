@@ -1,5 +1,7 @@
 .permissionsBox {
   border-radius: 6px;
-  border: 1px solid var(--borderColor-default, var(--color-border-default));
+  // Use Brand border-default so this box matches the Brand palette around it.
+  border: var(--brand-borderWidth-thin, 1px) solid
+    var(--brand-color-border-default, #b6bfb8);
   padding: 1rem;
 }

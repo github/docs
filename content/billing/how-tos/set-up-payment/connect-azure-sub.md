@@ -32,6 +32,8 @@ You can pay for metered usage of {% data variables.product.github %} features th
 
 * You must be logged into Azure as a user who is able to provide tenant-wide admin consent or arrange to work with a Microsoft Entra Global Administrator to configure an admin consent workflow. See [AUTOTITLE](/billing/concepts/azure-subscriptions).
 
+>[!NOTE] If your organization or enterprise has recently signed up for {% data variables.product.prodname_copilot %} with a credit card or PayPal, you may not be able to change your payment method to an Azure subscription. Please [contact {% data variables.product.github %}'s Sales team](https://github.com/enterprise/contact?ref_product=copilot&ref_type=engagement&ref_style=text).
+
 ## Connecting your Azure subscription to an organization or enterprise account
 
 {% data reusables.billing.nav-to-org-or-ent %}

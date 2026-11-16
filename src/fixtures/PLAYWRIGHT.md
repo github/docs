@@ -28,6 +28,14 @@ That command will automatically start a server (on `localhost:4000`) for
 the duration of test suite. It then finds all `tests/**/*.spec.ts`
 files and run them by using `Google Chrome` as the underlying browser.
 
+The suites are `playwright-rendering`, `playwright-header`, `playwright-a11y`,
+and `playwright-secret-scanning`. CI runs each one as a separate check. For
+example, to run the site header tests:
+
+```shell
+npm run playwright-test -- playwright-header
+```
+
 If you have [set up a local Elasticsearch server](../search/elasticsearch-locally.md) (`localhost:9200`) the
 headless tests will test doing site-searches if you've set up
 an `ELASTICSEARCH_URL` environment variable.

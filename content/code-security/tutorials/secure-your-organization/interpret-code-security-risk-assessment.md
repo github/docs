@@ -32,6 +32,8 @@ Once your assessment completes, review the key metrics at the top of the dashboa
 * **Total vulnerabilities found**: The total number of vulnerabilities found across all scanned repositories.
 * **Copilot Autofix**: The number of vulnerabilities that are eligible for {% data variables.copilot.copilot_autofix_short %}. Enabling {% data variables.product.prodname_GH_code_security %} gives you access to {% data variables.copilot.copilot_autofix_short %}, which can automatically suggest fixes for these alerts.
 
+The metrics also show how many vulnerabilities were found in **protected** repositories, where {% data variables.product.prodname_GH_code_security %} is enabled, and **unprotected** repositories, where it is not. Use this breakdown to understand risk outside your existing coverage.
+
 ## Step 2: Review vulnerabilities by language
 
 Look at the **Vulnerabilities by language** chart to understand which languages in your codebase are contributing most to your overall vulnerability count.
@@ -43,9 +45,9 @@ If vulnerabilities are concentrated in a particular language, this may indicate:
 
 ## Step 3: Identify the most affected repositories
 
-In the **Repositories scanned** table, you can see each scanned repository alongside the ratio of vulnerabilities eligible for {% data variables.copilot.copilot_autofix_short %} out of the total vulnerabilities found.
+In the **Repositories scanned** table, you can see each scanned repository, its protection status, and the ratio of vulnerabilities eligible for {% data variables.copilot.copilot_autofix_short %} out of the total vulnerabilities found.
 
-The **Most vulnerable repository** metric at the top of the page highlights the repository with the highest vulnerability count. This is a good place to start when prioritizing remediation.
+The **Most vulnerable repository** metric at the top of the page highlights the repository with the highest vulnerability count and its protection status. This is a good place to start when prioritizing remediation.
 
 If a **high percentage** of repositories contain vulnerabilities, this may indicate:
 
@@ -88,5 +90,5 @@ Also look for the following indicators, which may require broader intervention b
 
 To start remediating vulnerabilities with {% data variables.copilot.copilot_autofix_short %}, enable {% data variables.product.prodname_GH_code_security_always %} for your organization. You have two options:
 
-* To enable {% data variables.product.prodname_GH_code_security_always %} for an individual repository, click **Enable** next to a repository in the "Repositories scanned" table.
-* To enable {% data variables.product.prodname_GH_code_security_always %} across your organization, click **Enable {% data variables.product.UI_code_security_scanning %}** at the top of the page. Here, you can choose whether to enable it for all repositories or selected repositories, then review the estimated cost before confirming.
+* To enable {% data variables.product.prodname_GH_code_security_always %} for an individual repository, click **Enable** next to an unprotected repository in the "Repositories scanned" table.
+* To enable {% data variables.product.prodname_GH_code_security_always %} across your organization, click **Enable** at the top of the page. Here, you can choose whether to enable it for all repositories or selected repositories, then review the estimated cost before confirming. If you choose selected repositories, the unprotected repositories scanned in your assessment are automatically selected.

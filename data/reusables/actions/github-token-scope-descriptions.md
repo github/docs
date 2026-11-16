@@ -16,6 +16,9 @@ Available permissions and details of what each allows an action to do:
 |  `code-quality` | Work with code quality. For example, `code-quality: write` permits an action to upload code coverage reports. For more information, see [AUTOTITLE](/code-security/concepts/code-quality/code-quality). |
 | {% endif %} |
 |  `contents` | Work with the contents of the repository. For example, `contents: read` permits an action to list the commits, and `contents: write` allows the action to create a release. For more information, see [AUTOTITLE](/rest/authentication/permissions-required-for-github-apps?apiVersion=2022-11-28#repository-permissions-for-contents). |
+| {% ifversion copilot %} |
+|  `copilot-requests` | Make {% data variables.product.prodname_copilot_short %} requests. For example, `copilot-requests: write` permits a workflow in an organization-owned repository to use {% data variables.copilot.copilot_cli_short %} with `GITHUB_TOKEN` when the organization's billing policy allows it. Only `write` and `none` are supported. See [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli-in-actions). |
+| {% endif %} |
 |  `deployments` | Work with deployments. For example, `deployments: write` permits an action to create a new deployment. For more information, see [AUTOTITLE](/rest/authentication/permissions-required-for-github-apps?apiVersion=2022-11-28#repository-permissions-for-deployments). |
 |  `discussions` | Work with GitHub Discussions. For example, `discussions: write` permits an action to close or delete a discussion. For more information, see [AUTOTITLE](/graphql/guides/using-the-graphql-api-for-discussions). |
 | {% ifversion fpt or ghec %} |

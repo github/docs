@@ -337,6 +337,36 @@
       "requestPath": "/orgs/{org}/actions/permissions/workflow"
     },
     {
+      "slug": "list-organization-actions-policies",
+      "subcategory": "policies",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/actions/policies"
+    },
+    {
+      "slug": "create-an-organization-actions-policy",
+      "subcategory": "policies",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/actions/policies"
+    },
+    {
+      "slug": "get-an-organization-actions-policy",
+      "subcategory": "policies",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/actions/policies/{policy_id}"
+    },
+    {
+      "slug": "update-an-organization-actions-policy",
+      "subcategory": "policies",
+      "verb": "put",
+      "requestPath": "/orgs/{org}/actions/policies/{policy_id}"
+    },
+    {
+      "slug": "delete-an-organization-actions-policy",
+      "subcategory": "policies",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/actions/policies/{policy_id}"
+    },
+    {
       "slug": "list-self-hosted-runner-groups-for-an-organization",
       "subcategory": "self-hosted-runner-groups",
       "verb": "get",
@@ -425,6 +455,12 @@
       "subcategory": "self-hosted-runners",
       "verb": "get",
       "requestPath": "/orgs/{org}/actions/runners"
+    },
+    {
+      "slug": "get-runner-version-end-of-life-schedule-for-an-organization",
+      "subcategory": "self-hosted-runners",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/actions/runners/deprecations/{version}"
     },
     {
       "slug": "list-runner-applications-for-an-organization",
@@ -703,6 +739,12 @@
       "requestPath": "/repos/{owner}/{repo}/actions/jobs/{job_id}/rerun"
     },
     {
+      "slug": "download-step-logs-for-a-workflow-run-job",
+      "subcategory": "workflow-jobs",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/actions/jobs/{job_id}/steps/{step_number}/logs"
+    },
+    {
       "slug": "get-the-customization-template-for-an-oidc-subject-claim-for-a-repository",
       "subcategory": "oidc",
       "verb": "get",
@@ -811,10 +853,46 @@
       "requestPath": "/repos/{owner}/{repo}/actions/permissions/workflow"
     },
     {
+      "slug": "list-repository-actions-policies",
+      "subcategory": "policies",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/actions/policies"
+    },
+    {
+      "slug": "create-a-repository-actions-policy",
+      "subcategory": "policies",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/actions/policies"
+    },
+    {
+      "slug": "get-a-repository-actions-policy",
+      "subcategory": "policies",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/actions/policies/{policy_id}"
+    },
+    {
+      "slug": "update-a-repository-actions-policy",
+      "subcategory": "policies",
+      "verb": "put",
+      "requestPath": "/repos/{owner}/{repo}/actions/policies/{policy_id}"
+    },
+    {
+      "slug": "delete-a-repository-actions-policy",
+      "subcategory": "policies",
+      "verb": "delete",
+      "requestPath": "/repos/{owner}/{repo}/actions/policies/{policy_id}"
+    },
+    {
       "slug": "list-self-hosted-runners-for-a-repository",
       "subcategory": "self-hosted-runners",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/actions/runners"
+    },
+    {
+      "slug": "get-runner-version-end-of-life-schedule-for-a-repository",
+      "subcategory": "self-hosted-runners",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/actions/runners/deprecations/{version}"
     },
     {
       "slug": "list-runner-applications-for-a-repository",
@@ -1209,6 +1287,12 @@
       "requestPath": "/repos/{owner}/{repo}/stargazers/count"
     },
     {
+      "slug": "get-repository-star-history",
+      "subcategory": "starring",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/stargazers/history"
+    },
+    {
       "slug": "list-watchers",
       "subcategory": "watching",
       "verb": "get",
@@ -1487,6 +1571,18 @@
       "subcategory": "installations",
       "verb": "get",
       "requestPath": "/user/installations/{installation_id}/repositories"
+    },
+    {
+      "slug": "add-a-repository-to-an-app-installation",
+      "subcategory": "installations",
+      "verb": "put",
+      "requestPath": "/user/installations/{installation_id}/repositories/{repository_id}"
+    },
+    {
+      "slug": "remove-a-repository-from-an-app-installation",
+      "subcategory": "installations",
+      "verb": "delete",
+      "requestPath": "/user/installations/{installation_id}/repositories/{repository_id}"
     },
     {
       "slug": "list-subscriptions-for-the-authenticated-user",
@@ -1917,44 +2013,6 @@
       "requestPath": "/repos/{owner}/{repo}/commits/{ref}/check-suites"
     }
   ],
-  "classroom": [
-    {
-      "slug": "closing-down---get-an-assignment",
-      "subcategory": "classroom",
-      "verb": "get",
-      "requestPath": "/assignments/{assignment_id}"
-    },
-    {
-      "slug": "closing-down---list-accepted-assignments-for-an-assignment",
-      "subcategory": "classroom",
-      "verb": "get",
-      "requestPath": "/assignments/{assignment_id}/accepted_assignments"
-    },
-    {
-      "slug": "closing-down---get-assignment-grades",
-      "subcategory": "classroom",
-      "verb": "get",
-      "requestPath": "/assignments/{assignment_id}/grades"
-    },
-    {
-      "slug": "closing-down---list-classrooms",
-      "subcategory": "classroom",
-      "verb": "get",
-      "requestPath": "/classrooms"
-    },
-    {
-      "slug": "closing-down---get-a-classroom",
-      "subcategory": "classroom",
-      "verb": "get",
-      "requestPath": "/classrooms/{classroom_id}"
-    },
-    {
-      "slug": "closing-down---list-assignments-for-a-classroom",
-      "subcategory": "classroom",
-      "verb": "get",
-      "requestPath": "/classrooms/{classroom_id}/assignments"
-    }
-  ],
   "code-quality": [
     {
       "slug": "list-code-quality-findings-for-a-repository",
@@ -1983,10 +2041,34 @@
   ],
   "code-scanning": [
     {
+      "slug": "get-the-ai-scan-setting-for-an-organization",
+      "subcategory": "code-scanning",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/code-scanning/ai-scan"
+    },
+    {
+      "slug": "update-the-ai-scan-setting-for-an-organization",
+      "subcategory": "code-scanning",
+      "verb": "patch",
+      "requestPath": "/orgs/{org}/code-scanning/ai-scan"
+    },
+    {
       "slug": "list-code-scanning-alerts-for-an-organization",
       "subcategory": "code-scanning",
       "verb": "get",
       "requestPath": "/orgs/{org}/code-scanning/alerts"
+    },
+    {
+      "slug": "get-ai-scan-enablement-for-a-repository",
+      "subcategory": "code-scanning",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/code-scanning/ai-scan"
+    },
+    {
+      "slug": "update-ai-scan-enablement-for-a-repository",
+      "subcategory": "code-scanning",
+      "verb": "patch",
+      "requestPath": "/repos/{owner}/{repo}/code-scanning/ai-scan"
     },
     {
       "slug": "list-code-scanning-alerts-for-a-repository",
@@ -2673,6 +2755,24 @@
       "requestPath": "/enterprises/{enterprise}/copilot/metrics/reports/users-28-day/latest"
     },
     {
+      "slug": "set-the-coding-agent-policy-for-an-enterprise",
+      "subcategory": "copilot-coding-agent-management",
+      "verb": "put",
+      "requestPath": "/enterprises/{enterprise}/copilot/policies/coding_agent"
+    },
+    {
+      "slug": "add-organizations-to-the-enterprise-coding-agent-policy",
+      "subcategory": "copilot-coding-agent-management",
+      "verb": "post",
+      "requestPath": "/enterprises/{enterprise}/copilot/policies/coding_agent/organizations"
+    },
+    {
+      "slug": "remove-organizations-from-the-enterprise-coding-agent-policy",
+      "subcategory": "copilot-coding-agent-management",
+      "verb": "delete",
+      "requestPath": "/enterprises/{enterprise}/copilot/policies/coding_agent/organizations"
+    },
+    {
       "slug": "get-copilot-seat-information-and-settings-for-an-organization",
       "subcategory": "copilot-user-management",
       "verb": "get",
@@ -2799,10 +2899,40 @@
       "requestPath": "/orgs/{org}/members/{username}/copilot"
     },
     {
+      "slug": "get-copilot-customizations-for-a-team",
+      "subcategory": "copilot-team-customizations",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/teams/{team_slug}/copilot/customizations"
+    },
+    {
+      "slug": "set-copilot-customizations-for-a-team",
+      "subcategory": "copilot-team-customizations",
+      "verb": "put",
+      "requestPath": "/orgs/{org}/teams/{team_slug}/copilot/customizations"
+    },
+    {
+      "slug": "delete-copilot-customizations-for-a-team",
+      "subcategory": "copilot-team-customizations",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/teams/{team_slug}/copilot/customizations"
+    },
+    {
       "slug": "get-copilot-cloud-agent-configuration-for-a-repository",
       "subcategory": "copilot-cloud-agent-management",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/copilot/cloud-agent/configuration"
+    },
+    {
+      "slug": "get-copilot-code-review-settings-for-a-repository",
+      "subcategory": "copilot-code-review",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/copilot/code-review/settings"
+    },
+    {
+      "slug": "update-copilot-code-review-settings-for-a-repository",
+      "subcategory": "copilot-code-review",
+      "verb": "patch",
+      "requestPath": "/repos/{owner}/{repo}/copilot/code-review/settings"
     }
   ],
   "copilot-spaces": [
@@ -3005,6 +3135,18 @@
       "subcategory": "alerts",
       "verb": "patch",
       "requestPath": "/repos/{owner}/{repo}/dependabot/alerts/{alert_number}"
+    },
+    {
+      "slug": "get-repository-dependabot-runner-settings",
+      "subcategory": "runner-settings",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/dependabot/runner-settings"
+    },
+    {
+      "slug": "set-repository-dependabot-runner-settings",
+      "subcategory": "runner-settings",
+      "verb": "put",
+      "requestPath": "/repos/{owner}/{repo}/dependabot/runner-settings"
     },
     {
       "slug": "list-repository-secrets",
@@ -3229,110 +3371,6 @@
       "subcategory": "emojis",
       "verb": "get",
       "requestPath": "/emojis"
-    }
-  ],
-  "enterprise-teams": [
-    {
-      "slug": "list-enterprise-teams",
-      "subcategory": "enterprise-teams",
-      "verb": "get",
-      "requestPath": "/enterprises/{enterprise}/teams"
-    },
-    {
-      "slug": "create-an-enterprise-team",
-      "subcategory": "enterprise-teams",
-      "verb": "post",
-      "requestPath": "/enterprises/{enterprise}/teams"
-    },
-    {
-      "slug": "list-members-in-an-enterprise-team",
-      "subcategory": "enterprise-team-members",
-      "verb": "get",
-      "requestPath": "/enterprises/{enterprise}/teams/{enterprise-team}/memberships"
-    },
-    {
-      "slug": "bulk-add-team-members",
-      "subcategory": "enterprise-team-members",
-      "verb": "post",
-      "requestPath": "/enterprises/{enterprise}/teams/{enterprise-team}/memberships/add"
-    },
-    {
-      "slug": "bulk-remove-team-members",
-      "subcategory": "enterprise-team-members",
-      "verb": "post",
-      "requestPath": "/enterprises/{enterprise}/teams/{enterprise-team}/memberships/remove"
-    },
-    {
-      "slug": "get-enterprise-team-membership",
-      "subcategory": "enterprise-team-members",
-      "verb": "get",
-      "requestPath": "/enterprises/{enterprise}/teams/{enterprise-team}/memberships/{username}"
-    },
-    {
-      "slug": "add-team-member",
-      "subcategory": "enterprise-team-members",
-      "verb": "put",
-      "requestPath": "/enterprises/{enterprise}/teams/{enterprise-team}/memberships/{username}"
-    },
-    {
-      "slug": "remove-team-membership",
-      "subcategory": "enterprise-team-members",
-      "verb": "delete",
-      "requestPath": "/enterprises/{enterprise}/teams/{enterprise-team}/memberships/{username}"
-    },
-    {
-      "slug": "get-organization-assignments",
-      "subcategory": "enterprise-team-organizations",
-      "verb": "get",
-      "requestPath": "/enterprises/{enterprise}/teams/{enterprise-team}/organizations"
-    },
-    {
-      "slug": "add-organization-assignments",
-      "subcategory": "enterprise-team-organizations",
-      "verb": "post",
-      "requestPath": "/enterprises/{enterprise}/teams/{enterprise-team}/organizations/add"
-    },
-    {
-      "slug": "remove-organization-assignments",
-      "subcategory": "enterprise-team-organizations",
-      "verb": "post",
-      "requestPath": "/enterprises/{enterprise}/teams/{enterprise-team}/organizations/remove"
-    },
-    {
-      "slug": "get-organization-assignment",
-      "subcategory": "enterprise-team-organizations",
-      "verb": "get",
-      "requestPath": "/enterprises/{enterprise}/teams/{enterprise-team}/organizations/{org}"
-    },
-    {
-      "slug": "add-an-organization-assignment",
-      "subcategory": "enterprise-team-organizations",
-      "verb": "put",
-      "requestPath": "/enterprises/{enterprise}/teams/{enterprise-team}/organizations/{org}"
-    },
-    {
-      "slug": "delete-an-organization-assignment",
-      "subcategory": "enterprise-team-organizations",
-      "verb": "delete",
-      "requestPath": "/enterprises/{enterprise}/teams/{enterprise-team}/organizations/{org}"
-    },
-    {
-      "slug": "get-an-enterprise-team",
-      "subcategory": "enterprise-teams",
-      "verb": "get",
-      "requestPath": "/enterprises/{enterprise}/teams/{team_slug}"
-    },
-    {
-      "slug": "update-an-enterprise-team",
-      "subcategory": "enterprise-teams",
-      "verb": "patch",
-      "requestPath": "/enterprises/{enterprise}/teams/{team_slug}"
-    },
-    {
-      "slug": "delete-an-enterprise-team",
-      "subcategory": "enterprise-teams",
-      "verb": "delete",
-      "requestPath": "/enterprises/{enterprise}/teams/{team_slug}"
     }
   ],
   "gists": [
@@ -3747,6 +3785,36 @@
       "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}"
     },
     {
+      "slug": "list-issue-artifacts",
+      "subcategory": "artifacts",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/artifacts"
+    },
+    {
+      "slug": "create-an-issue-artifact",
+      "subcategory": "artifacts",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/artifacts"
+    },
+    {
+      "slug": "get-an-issue-artifact",
+      "subcategory": "artifacts",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/artifacts/{artifact_number}"
+    },
+    {
+      "slug": "update-an-issue-artifact",
+      "subcategory": "artifacts",
+      "verb": "patch",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/artifacts/{artifact_number}"
+    },
+    {
+      "slug": "delete-an-issue-artifact",
+      "subcategory": "artifacts",
+      "verb": "delete",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/artifacts/{artifact_number}"
+    },
+    {
       "slug": "add-assignees-to-an-issue",
       "subcategory": "assignees",
       "verb": "post",
@@ -3877,6 +3945,24 @@
       "subcategory": "sub-issues",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/parent"
+    },
+    {
+      "slug": "list-issues-related-to-an-issue",
+      "subcategory": "issues",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/relates_to"
+    },
+    {
+      "slug": "add-a-related-issue",
+      "subcategory": "issues",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/relates_to"
+    },
+    {
+      "slug": "remove-a-related-issue",
+      "subcategory": "issues",
+      "verb": "delete",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/relates_to/{issue_id}"
     },
     {
       "slug": "remove-sub-issue",
@@ -4671,6 +4757,18 @@
       "requestPath": "/orgs/{org}/personal-access-tokens/{pat_id}/repositories"
     },
     {
+      "slug": "get-registered-app-installations-for-external-custom-properties",
+      "subcategory": "custom-properties",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/properties/installations"
+    },
+    {
+      "slug": "register-an-app-installation-for-external-custom-properties",
+      "subcategory": "custom-properties",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/properties/installations"
+    },
+    {
       "slug": "get-all-custom-properties-for-an-organization",
       "subcategory": "custom-properties",
       "verb": "get",
@@ -5293,6 +5391,12 @@
       "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/commits"
     },
     {
+      "slug": "request-a-copilot-code-review-for-a-pull-request",
+      "subcategory": "copilot-code-review",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/copilot-code-review"
+    },
+    {
       "slug": "list-pull-requests-files",
       "subcategory": "pulls",
       "verb": "get",
@@ -5339,6 +5443,12 @@
       "subcategory": "review-requests",
       "verb": "delete",
       "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/requested_reviewers"
+    },
+    {
+      "slug": "rerequest-reviewers-for-a-pull-request",
+      "subcategory": "review-requests",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/requested_reviewers/rerequest"
     },
     {
       "slug": "list-reviews-for-a-pull-request",
@@ -6237,6 +6347,30 @@
       "requestPath": "/repos/{owner}/{repo}/security-advisories/{ghsa_id}"
     },
     {
+      "slug": "list-repository-security-advisory-comments",
+      "subcategory": "repository-advisories",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/security-advisories/{ghsa_id}/comments"
+    },
+    {
+      "slug": "create-a-repository-advisory-comment",
+      "subcategory": "repository-advisories",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/security-advisories/{ghsa_id}/comments"
+    },
+    {
+      "slug": "get-a-repository-advisory-comment",
+      "subcategory": "repository-advisories",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/security-advisories/{ghsa_id}/comments/{comment_id}"
+    },
+    {
+      "slug": "update-a-repository-advisory-comment",
+      "subcategory": "repository-advisories",
+      "verb": "patch",
+      "requestPath": "/repos/{owner}/{repo}/security-advisories/{ghsa_id}/comments/{comment_id}"
+    },
+    {
       "slug": "request-a-cve-for-a-repository-security-advisory",
       "subcategory": "repository-advisories",
       "verb": "post",
@@ -6557,6 +6691,54 @@
       "subcategory": "gpg-keys",
       "verb": "delete",
       "requestPath": "/user/gpg_keys/{gpg_key_id}"
+    },
+    {
+      "slug": "list-issue-fields",
+      "subcategory": "issue-fields",
+      "verb": "get",
+      "requestPath": "/user/issue-fields"
+    },
+    {
+      "slug": "create-an-issue-field",
+      "subcategory": "issue-fields",
+      "verb": "post",
+      "requestPath": "/user/issue-fields"
+    },
+    {
+      "slug": "update-an-issue-field",
+      "subcategory": "issue-fields",
+      "verb": "patch",
+      "requestPath": "/user/issue-fields/{issue_field_id}"
+    },
+    {
+      "slug": "delete-an-issue-field",
+      "subcategory": "issue-fields",
+      "verb": "delete",
+      "requestPath": "/user/issue-fields/{issue_field_id}"
+    },
+    {
+      "slug": "list-issue-types",
+      "subcategory": "issue-types",
+      "verb": "get",
+      "requestPath": "/user/issue-types"
+    },
+    {
+      "slug": "create-an-issue-type",
+      "subcategory": "issue-types",
+      "verb": "post",
+      "requestPath": "/user/issue-types"
+    },
+    {
+      "slug": "update-an-issue-type",
+      "subcategory": "issue-types",
+      "verb": "put",
+      "requestPath": "/user/issue-types/{issue_type_id}"
+    },
+    {
+      "slug": "delete-an-issue-type",
+      "subcategory": "issue-types",
+      "verb": "delete",
+      "requestPath": "/user/issue-types/{issue_type_id}"
     },
     {
       "slug": "list-public-ssh-keys-for-the-authenticated-user",

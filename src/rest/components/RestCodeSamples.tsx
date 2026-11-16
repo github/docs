@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useRef, FormEvent } from 'react'
-import { FormControl, IconButton, Select, SegmentedControl } from '@primer/react'
+import { SegmentedControl } from '@primer/react'
+import { FormControl, Select } from '@primer/react-brand'
 import { CheckIcon, CopyIcon, InfoIcon } from '@primer/octicons-react'
 import { announce } from '@primer/live-region-element'
 import Cookies from '@/frame/components/lib/cookies'
-import cx from 'classnames'
+import cx from 'clsx'
 
-import { generateExampleOptions } from '@/rest/lib/code-example-utils'
+import { generateExampleOptions, toGhesApiUrls } from '@/rest/lib/code-example-utils'
 
 import { useTranslation } from '@/languages/components/useTranslation'
 import useClipboard from '@/rest/components/useClipboard'
@@ -16,6 +17,7 @@ import {
   getJSExample,
 } from '@/rest/components/get-rest-code-samples'
 import { HighlightedCode } from '@/frame/components/HighlightedCode'
+import { IconButton } from '@/frame/components/ui/IconButton'
 import styles from './RestCodeSamples.module.scss'
 import { RestMethod } from './RestMethod'
 import type { Operation, ExampleT } from './types'
@@ -32,8 +34,7 @@ type Props = {
 
 const responseSelectOptions = Object.values(ResponseKeys)
 
-// Map a REST code-sample language to the highlight language name passed to
-// <HighlightedCode>. Add cases as needed.
+// Map REST code-sample languages to syntax highlighter language names.
 function getLanguageHighlight(selectedLanguage: string) {
   return selectedLanguage === CodeSampleKeys.javascript ? 'javascript' : 'curl'
 }
@@ -42,13 +43,11 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
   const { t } = useTranslation(['rest_reference'])
   const { isEnterpriseServer, isEnterpriseCloud } = useVersion()
 
-  // Ref for resetting scroll position when switching response views.
   const scrollRef = useRef<HTMLDivElement>(null)
 
   const { currentVersion } = useVersion()
   const { allVersions } = useMainContext()
 
-  // Get format examples for each language
   const languageExamples = operation.codeExamples.map((sample) => ({
     description: sample.request.description,
     curl: getShellExample(operation, sample, currentVersion, allVersions),
@@ -58,22 +57,18 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
     request: sample.request,
   }))
 
-  // Menu options for the language selector
   const languageSelectOptions: CodeSampleKeys[] = [CodeSampleKeys.curl]
 
-  // Management Console and GHES Manage API operations are not supported
-  // by Octokit
+  // Management Console and GHES Manage API operations have no Octokit support.
   if (operation.subcategory !== 'management-console' && operation.subcategory !== 'manage-ghes') {
     languageSelectOptions.push(CodeSampleKeys.javascript)
 
-    // Not all examples support the GH CLI language option. If any of
-    // the examples don't support it, we don't show GH CLI as an option.
+    // Hide GitHub CLI when any example lacks GitHub CLI support.
     if (!languageExamples.some((example) => example.ghcli === undefined)) {
       languageSelectOptions.push(CodeSampleKeys.ghcli)
     }
   }
 
-  // Menu options for the example selector
   const exampleSelectOptions = generateExampleOptions(languageExamples)
 
   const [selectedLanguage, setSelectedLanguage] = useState(languageSelectOptions[0])
@@ -96,10 +91,8 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
     Cookies.set(CODE_SAMPLE_LANGUAGE_COOKIE_NAME, languageKey)
   }
 
-  // Change the language based on cookies
   useEffect(() => {
-    // If the user previously selected a language preference and the language
-    // is available in this component set it as the selected language
+    // Honor the saved language preference only when this operation supports that language.
     const cookieValue = Cookies.get(CODE_SAMPLE_LANGUAGE_COOKIE_NAME)
     const preferredCodeLanguage = languageSelectOptions.find((item) => item === cookieValue)
     if (cookieValue && preferredCodeLanguage) {
@@ -107,8 +100,7 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
     }
   }, [])
 
-  // Reset scroll position to the top when switching between example response and
-  // response schema. Highlighting is handled React-natively by <HighlightedCode>.
+  // Reset scroll position when switching between the example response and response schema.
   useEffect(() => {
     const scrollElem = scrollRef.current
     if (scrollElem) {
@@ -124,10 +116,8 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
   let displayedExampleSchema = JSON.stringify(displayedExample.response.schema, null, 2)
 
   if (isEnterpriseServer) {
-    displayedExampleResponse =
-      displayedExampleResponse && displayedExampleResponse.replaceAll('api.github.com', 'HOSTNAME')
-    displayedExampleSchema =
-      displayedExampleSchema && displayedExampleSchema.replaceAll('api.github.com', 'HOSTNAME')
+    displayedExampleResponse = displayedExampleResponse && toGhesApiUrls(displayedExampleResponse)
+    displayedExampleSchema = displayedExampleSchema && toGhesApiUrls(displayedExampleSchema)
   }
 
   return (
@@ -145,10 +135,9 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
       <h4 className="mt-3 mb-3 h5">
         {isSingleExample ? t('request_example') : t('request_examples')}
       </h4>
-      {/* Display an example selector if more than one example */}
       {!isSingleExample && (
         <div className="pb-5 pt-2">
-          <FormControl id="example-type-picker">
+          <FormControl>
             <FormControl.Label visuallyHidden>Select the example type</FormControl.Label>
             <Select onChange={handleExampleSelection}>
               {exampleSelectOptions.map((option) => (
@@ -161,7 +150,6 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
         </div>
       )}
 
-      {/* Request example section */}
       <div className="rounded-1 border">
         <div className="my-0 p-3">
           <RestMethod verb={operation.verb} requestPath={operation.requestPath} />
@@ -171,21 +159,11 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
             <SegmentedControl
               className={styles.segmentedControl}
               aria-label={`Example language selector for ${operation.title}`}
+              // Pass onChange so Primer follows `selected` after the cookie restores the language.
+              onChange={(index: number) => handleLanguageSelection(languageSelectOptions[index])}
             >
               {languageSelectOptions.map((optionKey) => (
-                <SegmentedControl.Button
-                  key={optionKey}
-                  selected={optionKey === selectedLanguage}
-                  onClick={(e: React.MouseEvent) => {
-                    e.preventDefault()
-                    handleLanguageSelection(optionKey)
-                  }}
-                  onKeyDown={(event: React.KeyboardEvent) => {
-                    if (event.key === 'Enter') {
-                      handleLanguageSelection(optionKey)
-                    }
-                  }}
-                >
+                <SegmentedControl.Button key={optionKey} selected={optionKey === selectedLanguage}>
                   {t(`code_sample_options.${optionKey}`)}
                 </SegmentedControl.Button>
               ))}
@@ -194,17 +172,17 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
           <div className="mr-2">
             <IconButton
               icon={isCopied ? CheckIcon : CopyIcon}
-              className="js-btn-copy btn-octicon"
+              // events.ts records clipboard analytics through a delegated .js-btn-copy listener.
+              className="js-btn-copy"
               aria-label={`${t('button_text.copy_to_clipboard')} ${selectedLanguage} request example`}
               onClick={() => {
                 setCopied()
                 announce('Copied!')
               }}
-            ></IconButton>
+            />
           </div>
         </div>
 
-        {/* Example requests */}
         <div
           className={cx(
             styles.codeBlock,
@@ -221,7 +199,6 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
         </div>
       </div>
 
-      {/* Response section */}
       <RenderedHTML
         as="h4"
         className="mt-5 mb-2 h5"
@@ -232,34 +209,21 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
           <SegmentedControl
             className={cx(styles.segmentedControl, 'mx-2')}
             aria-label={`Example response format selector for ${operation.title}`}
+            onChange={(index: number) => handleResponseSelection(responseSelectOptions[index])}
           >
             {responseSelectOptions.map((optionKey) => (
-              <SegmentedControl.Button
-                key={optionKey}
-                selected={optionKey === selectedResponse}
-                onClick={(e: React.MouseEvent) => {
-                  e.preventDefault()
-                  handleResponseSelection(optionKey)
-                }}
-                onKeyDown={(event: React.KeyboardEvent) => {
-                  if (event.key === 'Enter') {
-                    handleResponseSelection(optionKey)
-                  }
-                }}
-              >
+              <SegmentedControl.Button key={optionKey} selected={optionKey === selectedResponse}>
                 {t(`response_options.${optionKey}`)}
               </SegmentedControl.Button>
             ))}
           </SegmentedControl>
         ) : null}
         <div className="">
-          {/* Status code */}
           {displayedExample.response.statusCode && (
             <div className={cx(styles.codeBlock, 'rounded-1 p-3 my-0 color-bg-default')}>
               <code>{`Status: ${displayedExample.response.statusCode}`}</code>
             </div>
           )}
-          {/* Example response */}
           {displayedExample.response.example && (
             <div
               ref={scrollRef}

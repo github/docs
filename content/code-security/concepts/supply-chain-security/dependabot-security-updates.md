@@ -49,7 +49,13 @@ You can add a `dependabot.yml` configuration file to your repository to customiz
 The {% data variables.product.prodname_dependabot_security_updates %} feature is available for repositories where you have enabled the dependency graph and {% data variables.product.prodname_dependabot_alerts %}. You will see a {% data variables.product.prodname_dependabot %} alert for every vulnerable dependency identified in your full dependency graph. However, security updates are triggered only for dependencies that are specified in a manifest or lock file. For more information, see [AUTOTITLE](/code-security/concepts/supply-chain-security/dependency-graph).
 
 > [!NOTE]
-> For npm, {% data variables.product.prodname_dependabot %} will raise a pull request to update an explicitly defined dependency to a secure version, even if it means updating the parent dependency or dependencies, or even removing a sub-dependency that is no longer needed by the parent. For other ecosystems, {% data variables.product.prodname_dependabot %} is unable to update an indirect or transitive dependency if it would also require an update to the parent dependency. For more information, see [AUTOTITLE](/code-security/reference/supply-chain-security/troubleshoot-dependabot/dependabot-errors#updates-dependencies-without-an-alert).
+> {% data variables.product.prodname_dependabot %} can update an indirect (transitive) dependency to a secure version, but how it does so depends on your ecosystem:
+>
+> * **npm:** {% data variables.product.prodname_dependabot %} raises a pull request to update an explicitly defined dependency to a secure version. This may mean updating the parent dependency or dependencies, or removing a sub-dependency that the parent no longer needs.
+> * **NuGet projects that use `PackageReference`:** {% data variables.product.prodname_dependabot %} tries to update the parent dependency to a version that resolves to a secure version of the transitive dependency. If no compatible parent update is available, it adds a direct reference that pins the transitive dependency to the secure version.
+> * **Other ecosystems, and NuGet projects that use `packages.config`:** {% data variables.product.prodname_dependabot %} can't update an indirect or transitive dependency if doing so would also require updating the parent dependency.
+>
+> For more information, see [AUTOTITLE](/code-security/reference/supply-chain-security/troubleshoot-dependabot/dependabot-errors#updates-dependencies-without-an-alert).
 
 You can enable a related feature, {% data variables.product.prodname_dependabot_version_updates %}, so that {% data variables.product.prodname_dependabot %} raises pull requests to update the manifest to the latest version of the dependency, whenever it detects an outdated dependency. For more information, see [AUTOTITLE](/code-security/concepts/supply-chain-security/dependabot-version-updates).
 

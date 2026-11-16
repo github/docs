@@ -975,7 +975,7 @@
       "name": "AddedToMergeQueueEvent",
       "id": "addedtomergequeueevent",
       "href": "/graphql/reference/pulls#object-addedtomergequeueevent",
-      "description": "<p>Represents an<code>added_to_merge_queue</code>event on a given pull request.</p>",
+      "description": "<p>Represents an <code>added_to_merge_queue</code> event on a given pull request.</p>",
       "implements": [
         {
           "name": "Node",
@@ -1033,7 +1033,7 @@
       "name": "AutoMergeDisabledEvent",
       "id": "automergedisabledevent",
       "href": "/graphql/reference/pulls#object-automergedisabledevent",
-      "description": "<p>Represents a<code>auto_merge_disabled</code>event on a given pull request.</p>",
+      "description": "<p>Represents a <code>auto_merge_disabled</code> event on a given pull request.</p>",
       "implements": [
         {
           "name": "Node",
@@ -1098,7 +1098,7 @@
       "name": "AutoMergeEnabledEvent",
       "id": "automergeenabledevent",
       "href": "/graphql/reference/pulls#object-automergeenabledevent",
-      "description": "<p>Represents a<code>auto_merge_enabled</code>event on a given pull request.</p>",
+      "description": "<p>Represents a <code>auto_merge_enabled</code> event on a given pull request.</p>",
       "implements": [
         {
           "name": "Node",
@@ -1207,7 +1207,7 @@
       "name": "AutoRebaseEnabledEvent",
       "id": "autorebaseenabledevent",
       "href": "/graphql/reference/pulls#object-autorebaseenabledevent",
-      "description": "<p>Represents a<code>auto_rebase_enabled</code>event on a given pull request.</p>",
+      "description": "<p>Represents a <code>auto_rebase_enabled</code> event on a given pull request.</p>",
       "implements": [
         {
           "name": "Node",
@@ -1258,7 +1258,7 @@
       "name": "AutoSquashEnabledEvent",
       "id": "autosquashenabledevent",
       "href": "/graphql/reference/pulls#object-autosquashenabledevent",
-      "description": "<p>Represents a<code>auto_squash_enabled</code>event on a given pull request.</p>",
+      "description": "<p>Represents a <code>auto_squash_enabled</code> event on a given pull request.</p>",
       "implements": [
         {
           "name": "Node",
@@ -1309,7 +1309,7 @@
       "name": "AutomaticBaseChangeFailedEvent",
       "id": "automaticbasechangefailedevent",
       "href": "/graphql/reference/pulls#object-automaticbasechangefailedevent",
-      "description": "<p>Represents a<code>automatic_base_change_failed</code>event on a given pull request.</p>",
+      "description": "<p>Represents a <code>automatic_base_change_failed</code> event on a given pull request.</p>",
       "implements": [
         {
           "name": "Node",
@@ -1367,7 +1367,7 @@
       "name": "AutomaticBaseChangeSucceededEvent",
       "id": "automaticbasechangesucceededevent",
       "href": "/graphql/reference/pulls#object-automaticbasechangesucceededevent",
-      "description": "<p>Represents a<code>automatic_base_change_succeeded</code>event on a given pull request.</p>",
+      "description": "<p>Represents a <code>automatic_base_change_succeeded</code> event on a given pull request.</p>",
       "implements": [
         {
           "name": "Node",
@@ -1425,7 +1425,7 @@
       "name": "BaseRefChangedEvent",
       "id": "baserefchangedevent",
       "href": "/graphql/reference/pulls#object-baserefchangedevent",
-      "description": "<p>Represents a<code>base_ref_changed</code>event on a given issue or pull request.</p>",
+      "description": "<p>Represents a <code>base_ref_changed</code> event on a given issue or pull request.</p>",
       "implements": [
         {
           "name": "Node",
@@ -1490,7 +1490,7 @@
       "name": "BaseRefDeletedEvent",
       "id": "baserefdeletedevent",
       "href": "/graphql/reference/pulls#object-baserefdeletedevent",
-      "description": "<p>Represents a<code>base_ref_deleted</code>event on a given pull request.</p>",
+      "description": "<p>Represents a <code>base_ref_deleted</code> event on a given pull request.</p>",
       "implements": [
         {
           "name": "Node",
@@ -1541,7 +1541,7 @@
       "name": "BaseRefForcePushedEvent",
       "id": "baserefforcepushedevent",
       "href": "/graphql/reference/pulls#object-baserefforcepushedevent",
-      "description": "<p>Represents a<code>base_ref_force_pushed</code>event on a given pull request.</p>",
+      "description": "<p>Represents a <code>base_ref_force_pushed</code> event on a given pull request.</p>",
       "implements": [
         {
           "name": "Node",
@@ -1559,14 +1559,14 @@
         },
         {
           "name": "afterCommit",
-          "description": "<p>Identifies the after commit SHA for the<code>base_ref_force_pushed</code>event.</p>",
+          "description": "<p>Identifies the after commit SHA for the <code>base_ref_force_pushed</code> event.</p>",
           "type": "Commit",
           "id": "commit",
           "href": "/graphql/reference/commits#object-commit"
         },
         {
           "name": "beforeCommit",
-          "description": "<p>Identifies the before commit SHA for the<code>base_ref_force_pushed</code>event.</p>",
+          "description": "<p>Identifies the before commit SHA for the <code>base_ref_force_pushed</code> event.</p>",
           "type": "Commit",
           "id": "commit",
           "href": "/graphql/reference/commits#object-commit"
@@ -1594,7 +1594,7 @@
         },
         {
           "name": "ref",
-          "description": "<p>Identifies the fully qualified ref name for the<code>base_ref_force_pushed</code>event.</p>",
+          "description": "<p>Identifies the fully qualified ref name for the <code>base_ref_force_pushed</code> event.</p>",
           "type": "Ref",
           "id": "ref",
           "href": "/graphql/reference/git#object-ref"
@@ -1606,7 +1606,7 @@
       "name": "ConvertToDraftEvent",
       "id": "converttodraftevent",
       "href": "/graphql/reference/pulls#object-converttodraftevent",
-      "description": "<p>Represents a<code>convert_to_draft</code>event on a given pull request.</p>",
+      "description": "<p>Represents a <code>convert_to_draft</code> event on a given pull request.</p>",
       "implements": [
         {
           "name": "Node",
@@ -1692,7 +1692,7 @@
       "name": "HeadRefDeletedEvent",
       "id": "headrefdeletedevent",
       "href": "/graphql/reference/pulls#object-headrefdeletedevent",
-      "description": "<p>Represents a<code>head_ref_deleted</code>event on a given pull request.</p>",
+      "description": "<p>Represents a <code>head_ref_deleted</code> event on a given pull request.</p>",
       "implements": [
         {
           "name": "Node",
@@ -1750,7 +1750,7 @@
       "name": "HeadRefForcePushedEvent",
       "id": "headrefforcepushedevent",
       "href": "/graphql/reference/pulls#object-headrefforcepushedevent",
-      "description": "<p>Represents a<code>head_ref_force_pushed</code>event on a given pull request.</p>",
+      "description": "<p>Represents a <code>head_ref_force_pushed</code> event on a given pull request.</p>",
       "implements": [
         {
           "name": "Node",
@@ -1768,14 +1768,14 @@
         },
         {
           "name": "afterCommit",
-          "description": "<p>Identifies the after commit SHA for the<code>head_ref_force_pushed</code>event.</p>",
+          "description": "<p>Identifies the after commit SHA for the <code>head_ref_force_pushed</code> event.</p>",
           "type": "Commit",
           "id": "commit",
           "href": "/graphql/reference/commits#object-commit"
         },
         {
           "name": "beforeCommit",
-          "description": "<p>Identifies the before commit SHA for the<code>head_ref_force_pushed</code>event.</p>",
+          "description": "<p>Identifies the before commit SHA for the <code>head_ref_force_pushed</code> event.</p>",
           "type": "Commit",
           "id": "commit",
           "href": "/graphql/reference/commits#object-commit"
@@ -1803,7 +1803,7 @@
         },
         {
           "name": "ref",
-          "description": "<p>Identifies the fully qualified ref name for the<code>head_ref_force_pushed</code>event.</p>",
+          "description": "<p>Identifies the fully qualified ref name for the <code>head_ref_force_pushed</code> event.</p>",
           "type": "Ref",
           "id": "ref",
           "href": "/graphql/reference/git#object-ref"
@@ -1815,7 +1815,7 @@
       "name": "HeadRefRestoredEvent",
       "id": "headrefrestoredevent",
       "href": "/graphql/reference/pulls#object-headrefrestoredevent",
-      "description": "<p>Represents a<code>head_ref_restored</code>event on a given pull request.</p>",
+      "description": "<p>Represents a <code>head_ref_restored</code> event on a given pull request.</p>",
       "implements": [
         {
           "name": "Node",
@@ -2238,7 +2238,7 @@
       "name": "MergedEvent",
       "id": "mergedevent",
       "href": "/graphql/reference/pulls#object-mergedevent",
-      "description": "<p>Represents a<code>merged</code>event on a given pull request.</p>",
+      "description": "<p>Represents a <code>merged</code> event on a given pull request.</p>",
       "implements": [
         {
           "name": "Node",
@@ -3007,6 +3007,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: CREATED_AT, direction: ASC}",
               "description": "<p>Ordering options for labels returned from the connection.</p>",
               "type": {
                 "name": "LabelOrder",
@@ -3284,6 +3285,7 @@
             },
             {
               "name": "archivedStates",
+              "defaultValue": "[ARCHIVED, NOT_ARCHIVED]",
               "description": "<p>A list of archived states to filter the cards by.</p>",
               "type": {
                 "name": "[ProjectCardArchivedState]",
@@ -3450,6 +3452,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: NUMBER, direction: DESC}",
               "description": "<p>How to order the returned projects.</p>",
               "type": {
                 "name": "ProjectV2Order",
@@ -4597,6 +4600,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{direction: DESC}",
               "description": "<p>Ordering options for contributions returned from the connection.</p>",
               "type": {
                 "name": "ContributionOrder",
@@ -5807,6 +5811,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{direction: DESC}",
               "description": "<p>Ordering options for contributions returned from the connection.</p>",
               "type": {
                 "name": "ContributionOrder",
@@ -6492,7 +6497,7 @@
       "name": "ReadyForReviewEvent",
       "id": "readyforreviewevent",
       "href": "/graphql/reference/pulls#object-readyforreviewevent",
-      "description": "<p>Represents a<code>ready_for_review</code>event on a given pull request.</p>",
+      "description": "<p>Represents a <code>ready_for_review</code> event on a given pull request.</p>",
       "implements": [
         {
           "name": "Node",
@@ -6555,7 +6560,7 @@
       "name": "RemovedFromMergeQueueEvent",
       "id": "removedfrommergequeueevent",
       "href": "/graphql/reference/pulls#object-removedfrommergequeueevent",
-      "description": "<p>Represents a<code>removed_from_merge_queue</code>event on a given pull request.</p>",
+      "description": "<p>Represents a <code>removed_from_merge_queue</code> event on a given pull request.</p>",
       "implements": [
         {
           "name": "Node",
@@ -6573,7 +6578,7 @@
         },
         {
           "name": "beforeCommit",
-          "description": "<p>Identifies the before commit SHA for the<code>removed_from_merge_queue</code>event.</p>",
+          "description": "<p>Identifies the before commit SHA for the <code>removed_from_merge_queue</code> event.</p>",
           "type": "Commit",
           "id": "commit",
           "href": "/graphql/reference/commits#object-commit"
@@ -6687,7 +6692,7 @@
       "name": "ReviewDismissedEvent",
       "id": "reviewdismissedevent",
       "href": "/graphql/reference/pulls#object-reviewdismissedevent",
-      "description": "<p>Represents a<code>review_dismissed</code>event on a given issue or pull request.</p>",
+      "description": "<p>Represents a <code>review_dismissed</code> event on a given issue or pull request.</p>",
       "implements": [
         {
           "name": "Node",
@@ -6724,7 +6729,7 @@
         },
         {
           "name": "dismissalMessage",
-          "description": "<p>Identifies the optional message associated with the<code>review_dismissed</code>event.</p>",
+          "description": "<p>Identifies the optional message associated with the <code>review_dismissed</code> event.</p>",
           "type": "String",
           "id": "string",
           "href": "/graphql/reference/other#scalar-string"
@@ -6745,7 +6750,7 @@
         },
         {
           "name": "previousReviewState",
-          "description": "<p>Identifies the previous state of the review with the<code>review_dismissed</code>event.</p>",
+          "description": "<p>Identifies the previous state of the review with the <code>review_dismissed</code> event.</p>",
           "type": "PullRequestReviewState!",
           "id": "pullrequestreviewstate",
           "href": "/graphql/reference/pulls#enum-pullrequestreviewstate"
@@ -6773,7 +6778,7 @@
         },
         {
           "name": "review",
-          "description": "<p>Identifies the review associated with the<code>review_dismissed</code>event.</p>",
+          "description": "<p>Identifies the review associated with the <code>review_dismissed</code> event.</p>",
           "type": "PullRequestReview",
           "id": "pullrequestreview",
           "href": "/graphql/reference/pulls#object-pullrequestreview"
@@ -6903,7 +6908,7 @@
       "name": "ReviewRequestRemovedEvent",
       "id": "reviewrequestremovedevent",
       "href": "/graphql/reference/pulls#object-reviewrequestremovedevent",
-      "description": "<p>Represents an<code>review_request_removed</code>event on a given pull request.</p>",
+      "description": "<p>Represents an <code>review_request_removed</code> event on a given pull request.</p>",
       "implements": [
         {
           "name": "Node",
@@ -6954,7 +6959,7 @@
       "name": "ReviewRequestedEvent",
       "id": "reviewrequestedevent",
       "href": "/graphql/reference/pulls#object-reviewrequestedevent",
-      "description": "<p>Represents an<code>review_requested</code>event on a given pull request.</p>",
+      "description": "<p>Represents an <code>review_requested</code> event on a given pull request.</p>",
       "implements": [
         {
           "name": "Node",
@@ -7254,7 +7259,9 @@
         },
         {
           "name": "DRAFT",
-          "description": "<p>The merge is blocked due to the pull request being a draft.</p>"
+          "description": "<p>The merge is blocked due to the pull request being a draft.</p>",
+          "isDeprecated": true,
+          "deprecationReason": "<p>DRAFT state will be removed from this enum and <code>isDraft</code> should be used instead Use PullRequest.isDraft instead. Removal on 2021-01-01 UTC.</p>"
         },
         {
           "name": "HAS_HOOKS",
@@ -7539,91 +7546,91 @@
       "values": [
         {
           "name": "ADDED_TO_MERGE_QUEUE_EVENT",
-          "description": "<p>Represents an<code>added_to_merge_queue</code>event on a given pull request.</p>"
+          "description": "<p>Represents an <code>added_to_merge_queue</code> event on a given pull request.</p>"
         },
         {
           "name": "ADDED_TO_PROJECT_EVENT",
-          "description": "<p>Represents a<code>added_to_project</code>event on a given issue or pull request.</p>"
+          "description": "<p>Represents a <code>added_to_project</code> event on a given issue or pull request.</p>"
         },
         {
           "name": "ASSIGNED_EVENT",
-          "description": "<p>Represents an<code>assigned</code>event on any assignable object.</p>"
+          "description": "<p>Represents an <code>assigned</code> event on any assignable object.</p>"
         },
         {
           "name": "AUTOMATIC_BASE_CHANGE_FAILED_EVENT",
-          "description": "<p>Represents a<code>automatic_base_change_failed</code>event on a given pull request.</p>"
+          "description": "<p>Represents a <code>automatic_base_change_failed</code> event on a given pull request.</p>"
         },
         {
           "name": "AUTOMATIC_BASE_CHANGE_SUCCEEDED_EVENT",
-          "description": "<p>Represents a<code>automatic_base_change_succeeded</code>event on a given pull request.</p>"
+          "description": "<p>Represents a <code>automatic_base_change_succeeded</code> event on a given pull request.</p>"
         },
         {
           "name": "AUTO_MERGE_DISABLED_EVENT",
-          "description": "<p>Represents a<code>auto_merge_disabled</code>event on a given pull request.</p>"
+          "description": "<p>Represents a <code>auto_merge_disabled</code> event on a given pull request.</p>"
         },
         {
           "name": "AUTO_MERGE_ENABLED_EVENT",
-          "description": "<p>Represents a<code>auto_merge_enabled</code>event on a given pull request.</p>"
+          "description": "<p>Represents a <code>auto_merge_enabled</code> event on a given pull request.</p>"
         },
         {
           "name": "AUTO_REBASE_ENABLED_EVENT",
-          "description": "<p>Represents a<code>auto_rebase_enabled</code>event on a given pull request.</p>"
+          "description": "<p>Represents a <code>auto_rebase_enabled</code> event on a given pull request.</p>"
         },
         {
           "name": "AUTO_SQUASH_ENABLED_EVENT",
-          "description": "<p>Represents a<code>auto_squash_enabled</code>event on a given pull request.</p>"
+          "description": "<p>Represents a <code>auto_squash_enabled</code> event on a given pull request.</p>"
         },
         {
           "name": "BASE_REF_CHANGED_EVENT",
-          "description": "<p>Represents a<code>base_ref_changed</code>event on a given issue or pull request.</p>"
+          "description": "<p>Represents a <code>base_ref_changed</code> event on a given issue or pull request.</p>"
         },
         {
           "name": "BASE_REF_DELETED_EVENT",
-          "description": "<p>Represents a<code>base_ref_deleted</code>event on a given pull request.</p>"
+          "description": "<p>Represents a <code>base_ref_deleted</code> event on a given pull request.</p>"
         },
         {
           "name": "BASE_REF_FORCE_PUSHED_EVENT",
-          "description": "<p>Represents a<code>base_ref_force_pushed</code>event on a given pull request.</p>"
+          "description": "<p>Represents a <code>base_ref_force_pushed</code> event on a given pull request.</p>"
         },
         {
           "name": "BLOCKED_BY_ADDED_EVENT",
-          "description": "<p>Represents a<code>blocked_by_added</code>event on a given issue.</p>"
+          "description": "<p>Represents a <code>blocked_by_added</code> event on a given issue.</p>"
         },
         {
           "name": "BLOCKED_BY_REMOVED_EVENT",
-          "description": "<p>Represents a<code>blocked_by_removed</code>event on a given issue.</p>"
+          "description": "<p>Represents a <code>blocked_by_removed</code> event on a given issue.</p>"
         },
         {
           "name": "BLOCKING_ADDED_EVENT",
-          "description": "<p>Represents a<code>blocking_added</code>event on a given issue.</p>"
+          "description": "<p>Represents a <code>blocking_added</code> event on a given issue.</p>"
         },
         {
           "name": "BLOCKING_REMOVED_EVENT",
-          "description": "<p>Represents a<code>blocking_removed</code>event on a given issue.</p>"
+          "description": "<p>Represents a <code>blocking_removed</code> event on a given issue.</p>"
         },
         {
           "name": "CLOSED_EVENT",
-          "description": "<p>Represents a<code>closed</code>event on any <code>Closable</code>.</p>"
+          "description": "<p>Represents a <code>closed</code> event on any <code>Closable</code>.</p>"
         },
         {
           "name": "COMMENT_DELETED_EVENT",
-          "description": "<p>Represents a<code>comment_deleted</code>event on a given issue or pull request.</p>"
+          "description": "<p>Represents a <code>comment_deleted</code> event on a given issue or pull request.</p>"
         },
         {
           "name": "CONNECTED_EVENT",
-          "description": "<p>Represents a<code>connected</code>event on a given issue or pull request.</p>"
+          "description": "<p>Represents a <code>connected</code> event on a given issue or pull request.</p>"
         },
         {
           "name": "CONVERTED_NOTE_TO_ISSUE_EVENT",
-          "description": "<p>Represents a<code>converted_note_to_issue</code>event on a given issue or pull request.</p>"
+          "description": "<p>Represents a <code>converted_note_to_issue</code> event on a given issue or pull request.</p>"
         },
         {
           "name": "CONVERTED_TO_DISCUSSION_EVENT",
-          "description": "<p>Represents a<code>converted_to_discussion</code>event on a given issue.</p>"
+          "description": "<p>Represents a <code>converted_to_discussion</code> event on a given issue.</p>"
         },
         {
           "name": "CONVERT_TO_DRAFT_EVENT",
-          "description": "<p>Represents a<code>convert_to_draft</code>event on a given pull request.</p>"
+          "description": "<p>Represents a <code>convert_to_draft</code> event on a given pull request.</p>"
         },
         {
           "name": "CROSS_REFERENCED_EVENT",
@@ -7631,31 +7638,31 @@
         },
         {
           "name": "DEMILESTONED_EVENT",
-          "description": "<p>Represents a<code>demilestoned</code>event on a given issue or pull request.</p>"
+          "description": "<p>Represents a <code>demilestoned</code> event on a given issue or pull request.</p>"
         },
         {
           "name": "DEPLOYED_EVENT",
-          "description": "<p>Represents a<code>deployed</code>event on a given pull request.</p>"
+          "description": "<p>Represents a <code>deployed</code> event on a given pull request.</p>"
         },
         {
           "name": "DEPLOYMENT_ENVIRONMENT_CHANGED_EVENT",
-          "description": "<p>Represents a<code>deployment_environment_changed</code>event on a given pull request.</p>"
+          "description": "<p>Represents a <code>deployment_environment_changed</code> event on a given pull request.</p>"
         },
         {
           "name": "DISCONNECTED_EVENT",
-          "description": "<p>Represents a<code>disconnected</code>event on a given issue or pull request.</p>"
+          "description": "<p>Represents a <code>disconnected</code> event on a given issue or pull request.</p>"
         },
         {
           "name": "HEAD_REF_DELETED_EVENT",
-          "description": "<p>Represents a<code>head_ref_deleted</code>event on a given pull request.</p>"
+          "description": "<p>Represents a <code>head_ref_deleted</code> event on a given pull request.</p>"
         },
         {
           "name": "HEAD_REF_FORCE_PUSHED_EVENT",
-          "description": "<p>Represents a<code>head_ref_force_pushed</code>event on a given pull request.</p>"
+          "description": "<p>Represents a <code>head_ref_force_pushed</code> event on a given pull request.</p>"
         },
         {
           "name": "HEAD_REF_RESTORED_EVENT",
-          "description": "<p>Represents a<code>head_ref_restored</code>event on a given pull request.</p>"
+          "description": "<p>Represents a <code>head_ref_restored</code> event on a given pull request.</p>"
         },
         {
           "name": "ISSUE_COMMENT",
@@ -7663,55 +7670,55 @@
         },
         {
           "name": "ISSUE_TYPE_ADDED_EVENT",
-          "description": "<p>Represents a<code>issue_type_added</code>event on a given issue.</p>"
+          "description": "<p>Represents a <code>issue_type_added</code> event on a given issue.</p>"
         },
         {
           "name": "ISSUE_TYPE_CHANGED_EVENT",
-          "description": "<p>Represents a<code>issue_type_changed</code>event on a given issue.</p>"
+          "description": "<p>Represents a <code>issue_type_changed</code> event on a given issue.</p>"
         },
         {
           "name": "ISSUE_TYPE_REMOVED_EVENT",
-          "description": "<p>Represents a<code>issue_type_removed</code>event on a given issue.</p>"
+          "description": "<p>Represents a <code>issue_type_removed</code> event on a given issue.</p>"
         },
         {
           "name": "LABELED_EVENT",
-          "description": "<p>Represents a<code>labeled</code>event on a given issue or pull request.</p>"
+          "description": "<p>Represents a <code>labeled</code> event on a given issue or pull request.</p>"
         },
         {
           "name": "LOCKED_EVENT",
-          "description": "<p>Represents a<code>locked</code>event on a given issue or pull request.</p>"
+          "description": "<p>Represents a <code>locked</code> event on a given issue or pull request.</p>"
         },
         {
           "name": "MARKED_AS_DUPLICATE_EVENT",
-          "description": "<p>Represents a<code>marked_as_duplicate</code>event on a given issue or pull request.</p>"
+          "description": "<p>Represents a <code>marked_as_duplicate</code> event on a given issue or pull request.</p>"
         },
         {
           "name": "MENTIONED_EVENT",
-          "description": "<p>Represents a<code>mentioned</code>event on a given issue or pull request.</p>"
+          "description": "<p>Represents a <code>mentioned</code> event on a given issue or pull request.</p>"
         },
         {
           "name": "MERGED_EVENT",
-          "description": "<p>Represents a<code>merged</code>event on a given pull request.</p>"
+          "description": "<p>Represents a <code>merged</code> event on a given pull request.</p>"
         },
         {
           "name": "MILESTONED_EVENT",
-          "description": "<p>Represents a<code>milestoned</code>event on a given issue or pull request.</p>"
+          "description": "<p>Represents a <code>milestoned</code> event on a given issue or pull request.</p>"
         },
         {
           "name": "MOVED_COLUMNS_IN_PROJECT_EVENT",
-          "description": "<p>Represents a<code>moved_columns_in_project</code>event on a given issue or pull request.</p>"
+          "description": "<p>Represents a <code>moved_columns_in_project</code> event on a given issue or pull request.</p>"
         },
         {
           "name": "PARENT_ISSUE_ADDED_EVENT",
-          "description": "<p>Represents a<code>parent_issue_added</code>event on a given issue.</p>"
+          "description": "<p>Represents a <code>parent_issue_added</code> event on a given issue.</p>"
         },
         {
           "name": "PARENT_ISSUE_REMOVED_EVENT",
-          "description": "<p>Represents a<code>parent_issue_removed</code>event on a given issue.</p>"
+          "description": "<p>Represents a <code>parent_issue_removed</code> event on a given issue.</p>"
         },
         {
           "name": "PINNED_EVENT",
-          "description": "<p>Represents a<code>pinned</code>event on a given issue or pull request.</p>"
+          "description": "<p>Represents a <code>pinned</code> event on a given issue or pull request.</p>"
         },
         {
           "name": "PULL_REQUEST_COMMIT",
@@ -7735,83 +7742,83 @@
         },
         {
           "name": "READY_FOR_REVIEW_EVENT",
-          "description": "<p>Represents a<code>ready_for_review</code>event on a given pull request.</p>"
+          "description": "<p>Represents a <code>ready_for_review</code> event on a given pull request.</p>"
         },
         {
           "name": "REFERENCED_EVENT",
-          "description": "<p>Represents a<code>referenced</code>event on a given <code>ReferencedSubject</code>.</p>"
+          "description": "<p>Represents a <code>referenced</code> event on a given <code>ReferencedSubject</code>.</p>"
         },
         {
           "name": "REMOVED_FROM_MERGE_QUEUE_EVENT",
-          "description": "<p>Represents a<code>removed_from_merge_queue</code>event on a given pull request.</p>"
+          "description": "<p>Represents a <code>removed_from_merge_queue</code> event on a given pull request.</p>"
         },
         {
           "name": "REMOVED_FROM_PROJECT_EVENT",
-          "description": "<p>Represents a<code>removed_from_project</code>event on a given issue or pull request.</p>"
+          "description": "<p>Represents a <code>removed_from_project</code> event on a given issue or pull request.</p>"
         },
         {
           "name": "RENAMED_TITLE_EVENT",
-          "description": "<p>Represents a<code>renamed</code>event on a given issue or pull request.</p>"
+          "description": "<p>Represents a <code>renamed</code> event on a given issue or pull request.</p>"
         },
         {
           "name": "REOPENED_EVENT",
-          "description": "<p>Represents a<code>reopened</code>event on any <code>Closable</code>.</p>"
+          "description": "<p>Represents a <code>reopened</code> event on any <code>Closable</code>.</p>"
         },
         {
           "name": "REVIEW_DISMISSED_EVENT",
-          "description": "<p>Represents a<code>review_dismissed</code>event on a given issue or pull request.</p>"
+          "description": "<p>Represents a <code>review_dismissed</code> event on a given issue or pull request.</p>"
         },
         {
           "name": "REVIEW_REQUESTED_EVENT",
-          "description": "<p>Represents an<code>review_requested</code>event on a given pull request.</p>"
+          "description": "<p>Represents an <code>review_requested</code> event on a given pull request.</p>"
         },
         {
           "name": "REVIEW_REQUEST_REMOVED_EVENT",
-          "description": "<p>Represents an<code>review_request_removed</code>event on a given pull request.</p>"
+          "description": "<p>Represents an <code>review_request_removed</code> event on a given pull request.</p>"
         },
         {
           "name": "SUBSCRIBED_EVENT",
-          "description": "<p>Represents a<code>subscribed</code>event on a given <code>Subscribable</code>.</p>"
+          "description": "<p>Represents a <code>subscribed</code> event on a given <code>Subscribable</code>.</p>"
         },
         {
           "name": "SUB_ISSUE_ADDED_EVENT",
-          "description": "<p>Represents a<code>sub_issue_added</code>event on a given issue.</p>"
+          "description": "<p>Represents a <code>sub_issue_added</code> event on a given issue.</p>"
         },
         {
           "name": "SUB_ISSUE_REMOVED_EVENT",
-          "description": "<p>Represents a<code>sub_issue_removed</code>event on a given issue.</p>"
+          "description": "<p>Represents a <code>sub_issue_removed</code> event on a given issue.</p>"
         },
         {
           "name": "TRANSFERRED_EVENT",
-          "description": "<p>Represents a<code>transferred</code>event on a given issue or pull request.</p>"
+          "description": "<p>Represents a <code>transferred</code> event on a given issue or pull request.</p>"
         },
         {
           "name": "UNASSIGNED_EVENT",
-          "description": "<p>Represents an<code>unassigned</code>event on any assignable object.</p>"
+          "description": "<p>Represents an <code>unassigned</code> event on any assignable object.</p>"
         },
         {
           "name": "UNLABELED_EVENT",
-          "description": "<p>Represents an<code>unlabeled</code>event on a given issue or pull request.</p>"
+          "description": "<p>Represents an <code>unlabeled</code> event on a given issue or pull request.</p>"
         },
         {
           "name": "UNLOCKED_EVENT",
-          "description": "<p>Represents an<code>unlocked</code>event on a given issue or pull request.</p>"
+          "description": "<p>Represents an <code>unlocked</code> event on a given issue or pull request.</p>"
         },
         {
           "name": "UNMARKED_AS_DUPLICATE_EVENT",
-          "description": "<p>Represents an<code>unmarked_as_duplicate</code>event on a given issue or pull request.</p>"
+          "description": "<p>Represents an <code>unmarked_as_duplicate</code> event on a given issue or pull request.</p>"
         },
         {
           "name": "UNPINNED_EVENT",
-          "description": "<p>Represents an<code>unpinned</code>event on a given issue or pull request.</p>"
+          "description": "<p>Represents an <code>unpinned</code> event on a given issue or pull request.</p>"
         },
         {
           "name": "UNSUBSCRIBED_EVENT",
-          "description": "<p>Represents an<code>unsubscribed</code>event on a given <code>Subscribable</code>.</p>"
+          "description": "<p>Represents an <code>unsubscribed</code> event on a given <code>Subscribable</code>.</p>"
         },
         {
           "name": "USER_BLOCKED_EVENT",
-          "description": "<p>Represents a<code>user_blocked</code>event on a given user.</p>"
+          "description": "<p>Represents a <code>user_blocked</code> event on a given user.</p>"
         }
       ],
       "category": "pulls"

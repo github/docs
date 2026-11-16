@@ -13,9 +13,9 @@ describe(tableLiquidVersioning.names.join(' - '), () => {
       ruleConfig: true,
     })
     const errors = result[FIXTURE_FILEPATH]
-    expect(errors.length).toBe(11)
+    expect(errors.length).toBe(13)
     const lineNumbers: number[] = errors.map((error) => error.lineNumber)
-    const expectedErrorLines: number[] = [38, 40, 43, 44, 51, 53, 54, 55, 57, 58, 59]
+    const expectedErrorLines: number[] = [38, 40, 43, 44, 51, 53, 54, 55, 57, 58, 59, 64, 66]
     expect(JSON.stringify(lineNumbers)).toEqual(JSON.stringify(expectedErrorLines))
   })
 })

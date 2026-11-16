@@ -11,28 +11,13 @@ const logger = createLogger(import.meta.url)
 
 const STATSD_KEY = 'middleware.handle_invalid_querystring_values'
 
-// Hi future reader!
-// If there are query strings whose values are static and predictable,
-// type them in here.
-// It can't be something like `?query=...` because its value is highly
-// dynamic.
-// At the time of writing, these will match independent of location. A
-// possible extension, in the future, is to make the value match
-// dependent on the location. For example, you might want to express
-// that the values of `?platform=...` should be none when the path is
-// something like `/en/search`.
+// Recognized values must be static across pages; dynamic values such as query stay out.
+// Add path-aware matching if a key needs different values on pages such as /en/search.
 const RECOGNIZED_VALUES = {
   platform: allPlatforms as string[],
   tool: Object.keys(allTools),
 }
-// So we can look up if a key in the object is actually present
-// and not a built in.
-// Otherwise...
-//
-//    > const myObj = {foo: 'bar'}
-//    > 'constructor' in myObj
-//    true
-//
+// Use a Set so built-in object properties such as constructor do not count as recognized keys.
 const RECOGNIZED_VALUES_KEYS = new Set(Object.keys(RECOGNIZED_VALUES))
 
 export default function handleInvalidQuerystringValues(
@@ -55,8 +40,7 @@ export default function handleInvalidQuerystringValues(
               validValues,
             })
           }
-          // Some value is not recognized. Redirect to the current URL
-          // but with that query string key removed.
+          // Redirect after removing the query key that contains an unrecognized value.
           const sp = new URLSearchParams(query as Record<string, string>)
           sp.delete(key)
 
@@ -72,7 +56,7 @@ export default function handleInvalidQuerystringValues(
         }
       }
 
-      // For example ?foo[bar]=baz (but not ?foo=bar&foo=baz)
+      // Reject ?foo[bar]=baz, but not ?foo=bar&foo=baz.
       if (value instanceof Object && !Array.isArray(value)) {
         const message = 'Invalid query string'
         defaultCacheControl(res)

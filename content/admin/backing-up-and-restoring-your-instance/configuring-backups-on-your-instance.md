@@ -116,6 +116,14 @@ Backup snapshots created by {% data variables.product.prodname_enterprise_backup
 
 For more information on advanced usage, see the [{% data variables.product.prodname_enterprise_backup_utilities %} README](https://github.com/github/backup-utils#readme) in the {% data variables.product.prodname_enterprise_backup_utilities %} project documentation.
 
+{% ifversion ghes > 3.19 %}
+
+<!-- The linked article is versioned `ghes: '>=3.20'`, so this paragraph must stay gated to matching versions. Without the gate, the link is unresolvable in 3.19 and earlier and rendering fails. -->
+
+By default, {% data variables.product.prodname_enterprise_backup_utilities %} backs up search index data by copying files directly from disk. You can optionally configure {% data variables.location.product_location %} to use Elasticsearch's native, incremental snapshot functionality with a customer-managed cloud storage provider instead. For more information, see [AUTOTITLE](/admin/backing-up-and-restoring-your-instance/configuring-elasticsearch-snapshots).
+
+{% endif %}
+
 ## Upgrading {% data variables.product.prodname_enterprise_backup_utilities %}
 
 When upgrading {% data variables.product.prodname_enterprise_backup_utilities %}, you must choose a version that will work with your current version of {% data variables.product.prodname_ghe_server %}. Your installation of {% data variables.product.prodname_enterprise_backup_utilities %} must be at least the same version as {% data variables.location.product_location %}, and cannot be more than two versions ahead. For more information, see [{% data variables.product.prodname_ghe_server %} version requirements](https://github.com/github/backup-utils/blob/master/docs/requirements.md#github-enterprise-server-version-requirements) in the {% data variables.product.prodname_enterprise_backup_utilities %} project documentation.
@@ -151,7 +159,7 @@ Network settings are excluded from the backup snapshot. After restoration, you m
 ### Prerequisites
 
 1. Ensure maintenance mode is enabled on the primary instance and all active processes have completed. For more information, see [AUTOTITLE](/admin/administering-your-instance/configuring-maintenance-mode/enabling-and-scheduling-maintenance-mode).
-1. Stop replication on all replica nodes in a high-availability configuration. For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/configuring-high-availability/about-high-availability-configuration#ghe-repl-stop).
+1. Tear down replication on all replica nodes in a high-availability configuration. For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/configuring-high-availability/removing-a-high-availability-replica).
 1. Provision a new {% data variables.product.prodname_ghe_server %} instance to use as a target for the restoration of your backup. For more information, see [AUTOTITLE](/admin/installing-your-enterprise-server/setting-up-a-github-enterprise-server-instance).
 1. If {% data variables.location.product_location %} has {% data variables.product.prodname_actions %} enabled, you must configure the external storage provider for {% data variables.product.prodname_actions %} on the replacement instance. For more information, see [AUTOTITLE](/admin/managing-github-actions-for-your-enterprise/advanced-configuration-and-troubleshooting/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled).
 

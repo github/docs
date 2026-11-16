@@ -51,6 +51,7 @@
             "enum": [
               "pull",
               "triage",
+              "moderate",
               "push",
               "maintain",
               "admin"
@@ -404,7 +405,7 @@
         {
           "type": "string",
           "name": "permission",
-          "description": "<p>The permission to grant the collaborator. <strong>Only valid on organization-owned repositories.</strong> We accept the following permissions to be set: <code>pull</code>, <code>triage</code>, <code>push</code>, <code>maintain</code>, <code>admin</code> and you can also specify a custom repository role name, if the owning organization has defined any.</p>",
+          "description": "<p>The permission to grant the collaborator. <strong>Only valid on organization-owned repositories.</strong> We accept the following permissions to be set: <code>pull</code>, <code>triage</code>, <code>moderate</code>, <code>push</code>, <code>maintain</code>, <code>admin</code> and you can also specify a custom repository role name, if the owning organization has defined any.</p>",
           "default": "push"
         }
       ],
@@ -966,6 +967,7 @@
                       "type": "string"
                     },
                     "temp_clone_token": {
+                      "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                       "type": "string"
                     },
                     "delete_branch_on_merge": {
@@ -1520,6 +1522,7 @@
                     "write",
                     "admin",
                     "triage",
+                    "moderate",
                     "maintain"
                   ]
                 },
@@ -2537,6 +2540,7 @@
                         "type": "string"
                       },
                       "temp_clone_token": {
+                        "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                         "type": "string"
                       },
                       "delete_branch_on_merge": {
@@ -3091,6 +3095,7 @@
                       "write",
                       "admin",
                       "triage",
+                      "moderate",
                       "maintain"
                     ]
                   },
@@ -3190,12 +3195,13 @@
         {
           "type": "string",
           "name": "permissions",
-          "description": "<p>The permissions that the associated user will have on the repository. Valid values are <code>read</code>, <code>write</code>, <code>maintain</code>, <code>triage</code>, and <code>admin</code>.</p>",
+          "description": "<p>The permissions that the associated user will have on the repository. Valid values are <code>read</code>, <code>write</code>, <code>maintain</code>, <code>triage</code>, <code>moderate</code>, and <code>admin</code>.</p>",
           "enum": [
             "read",
             "write",
             "maintain",
             "triage",
+            "moderate",
             "admin"
           ]
         }
@@ -3759,6 +3765,7 @@
                       "type": "string"
                     },
                     "temp_clone_token": {
+                      "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                       "type": "string"
                     },
                     "delete_branch_on_merge": {
@@ -4313,6 +4320,7 @@
                     "write",
                     "admin",
                     "triage",
+                    "moderate",
                     "maintain"
                   ]
                 },
@@ -5022,6 +5030,7 @@
                         "type": "string"
                       },
                       "temp_clone_token": {
+                        "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                         "type": "string"
                       },
                       "delete_branch_on_merge": {
@@ -5576,6 +5585,7 @@
                       "write",
                       "admin",
                       "triage",
+                      "moderate",
                       "maintain"
                     ]
                   },

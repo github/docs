@@ -105,13 +105,9 @@ See [AUTOTITLE](/code-security/concepts/secret-security/push-protection).
 
 Push protection can be enabled at the organization, repository, and user account level. See [AUTOTITLE](/code-security/how-tos/secure-your-secrets/prevent-future-leaks/enable-push-protection).
 
-{% ifversion push-protected-pattern-configuration %}
-
 {% data reusables.secret-scanning.push-protected-pattern-configuration-org-enterprise-preview %}
 
 To align secret detection with internal security policies and more effectively prevent unauthorized exposure of sensitive information in your repositories, you can customize which secret patterns are included in push protection at the enterprise or organization level. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-enterprise-security/establish-complete-coverage/configure-additional-settings#specifying-patterns-to-include-in-push-protection-for-your-enterprise) and [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/configure-global-settings#specifying-patterns-to-include-in-push-protection).
-
-{% endif %}
 
 ## Setting up an approval process for sensitive actions
 

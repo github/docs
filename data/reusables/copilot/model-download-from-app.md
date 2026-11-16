@@ -1,0 +1,1 @@
+See [AUTOTITLE](/copilot/how-tos/github-copilot-app/add-llm-models#installing-a-local-model-from-the-model-picker), [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/add-llm-models#installing-a-local-model-from-the-model-picker), and [AI language models in VS Code](https://code.visualstudio.com/docs/agent-customization/language-models#_use-on-device-models).

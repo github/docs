@@ -1,99 +1,56 @@
-import { Heading, NavList } from '@primer/react'
-import { useEffect, useState } from 'react'
-import cx from 'classnames'
+import { Heading, NavList } from '@primer/react-brand'
+import cx from 'clsx'
 
 import type { MiniTocItem } from '@/frame/components/context/ArticleContext'
 import { useTranslation } from '@/languages/components/useTranslation'
-import {
-  classifyToggleClass,
-  isContentVisible,
-  useSelection,
-} from '@/tools/components/SelectionContext'
 
+import { useActiveSection } from './useActiveSection'
+import { RenderTocItem } from './MiniTocShared'
+import { useSidebarCollapsed } from '@/frame/components/sidebar/SidebarCollapseContext'
 import styles from './Minitocs.module.scss'
 
 export type MiniTocsPropsT = {
   miniTocItems: MiniTocItem[]
 }
 
-function RenderTocItem(item: MiniTocItem) {
-  const [currentAnchor, setCurrentAnchor] = useState('')
-  const { platform, tool } = useSelection()
-
-  useEffect(() => {
-    const onHashChanged = () => {
-      setCurrentAnchor(window.location.hash)
-    }
-
-    window.addEventListener('hashchange', onHashChanged)
-
-    return () => {
-      window.removeEventListener('hashchange', onHashChanged)
-    }
-  }, [])
-
-  // `item.platform` holds the class string of the heading's `.ghd-tool` ancestor
-  // (platform OR tool value). Hide the TOC entry when its platform/tool isn't the
-  // selected one, replacing the old imperative parent-<li> `style.display` hack.
-  const classification = classifyToggleClass(item.platform)
-  if (classification && !isContentVisible(classification, { platform, tool })) {
-    return null
-  }
-
-  return (
-    <>
-      <NavList.Item
-        aria-current={item.contents.href === currentAnchor && 'location'}
-        href={item.contents.href}
-        className={cx(styles.nested, item.platform)}
-      >
-        {item.contents.title}
-      </NavList.Item>
-      {item.items && item.items.length > 0 && (
-        <ul role="list" className={cx(styles.indentNested)}>
-          {item.items.map((toc) => (
-            <RenderTocItem
-              key={toc.contents.href}
-              contents={toc.contents}
-              items={toc.items}
-              platform={toc.platform}
-            />
-          ))}
-        </ul>
-      )}
-    </>
-  )
-}
-
+// The full In this article drawer appears on the right rail at xxl (1400px) and
+// up, or around ArticleGridLayout's 1074px when the collapsed left rail frees
+// about 326px. Below that, the OverviewMenu control lives in the secondary bar.
+// SidebarCollapseContext provides collapse state.
 export function MiniTocs({ miniTocItems }: MiniTocsPropsT) {
   const { t } = useTranslation('pages')
+  const activeHref = useActiveSection()
+  const { collapsed } = useSidebarCollapsed()
+
+  const drawerVisibility = collapsed ? styles.drawerCollapsed : styles.drawerDefault
 
   return (
     <>
       <Heading
         as="h2"
+        // Set Brand's smallest size because without size an h2 uses 2rem marketing type.
+        size="subhead-medium"
         id="in-this-article"
-        className={cx('mb-1 ml-3', styles.heading)}
-        aria-label={t('miniToc')}
+        className={cx('mb-1', styles.eyebrow, styles.heading, drawerVisibility)}
       >
         {t('miniToc')}
       </Heading>
 
       <NavList
         data-testid="minitoc"
-        className={cx(styles.miniToc, 'my-2')}
+        className={cx(styles.miniToc, drawerVisibility)}
+        // Brand requires aria-label, but aria-labelledby points the landmark to the heading.
+        aria-label={t('miniToc')}
         aria-labelledby="in-this-article"
       >
-        {miniTocItems.map((items, i) => {
-          return (
-            <RenderTocItem
-              key={items.contents.href + i}
-              contents={items.contents}
-              items={items.items}
-              platform={items.platform}
-            />
-          )
-        })}
+        {miniTocItems.map((item, i) => (
+          <RenderTocItem
+            key={item.contents.href + i}
+            item={item}
+            activeHref={activeHref}
+            depth={0}
+          />
+        ))}
       </NavList>
     </>
   )

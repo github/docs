@@ -1,0 +1,21 @@
+@import "@primer/react-brand/lib/design-tokens/scss/tokens/functional/size/breakpoints.scss";
+
+// The hero band and result rows run edge-to-edge in the content column with per-band insets.
+// No background-color: hero and transparent result rows share the Brand page canvas.
+// Heading size 3 resolves to 28, 34, and 40px across Brand breakpoints, matching the design.
+.hero {
+  padding: 24px;
+
+  @media (min-width: $brand-breakpoint-medium) {
+    padding: 32px;
+  }
+
+  @media (min-width: $brand-breakpoint-xxlarge) {
+    padding: 32px 48px;
+  }
+}
+
+.heroTitle {
+  margin: 0;
+  line-height: 1.2;
+}

@@ -23,7 +23,7 @@ contentType: how-tos
 
 ## About your personal account on {% data variables.product.github %}
 
-To get started with {% data variables.product.prodname_dotcom_the_website %}, you need to a personal account and a verified email address.
+To get started with {% data variables.product.prodname_dotcom_the_website %}, you need to have a personal account and a verified email address.
 
 When creating a free account on {% data variables.product.prodname_dotcom_the_website %}, you can also authenticate with Google or Apple - which are the supported social login providers.
 For iOS users, even if you have enabled the setting "Hide My Email addresses" for your Apple account, using social login will result in creating a new {% data variables.product.github %} account.
@@ -41,11 +41,24 @@ Later, you can explore the different types of accounts that {% data variables.pr
 1. Alternatively, click on **Continue with Google** to sign up using social login.
 1. Follow the prompts to create your personal account.
 
-During sign up, you'll be asked to verify your email address. Without a verified email address, you won't be able to complete some basic {% data variables.product.github %} tasks, such as creating a repository.
+During sign up, you'll be asked to verify your email address.
 
 Some enterprises create {% data variables.enterprise.prodname_managed_users %} for their users. You can't sign up for a personal account with an email address that's already verified for a {% data variables.enterprise.prodname_managed_user %}.
 
 {% ifversion fpt or ghec %}If you're having problems verifying your email address, there are some troubleshooting steps you can take. For more information, see [AUTOTITLE](/account-and-profile/how-tos/email-preferences/troubleshooting-email-verification).{% endif %}
+
+### Troubleshooting signup errors
+
+If you see `This email can't be used` or `We couldn't create your account` try the following:
+
+1. Use a different browser, or clear your browser's cookies and cache.
+1. Disable your browser extensions.
+1. Sign up on a different device and network.
+1. Wait a while, then try again.
+
+If you see `This email can't be used`, try a different email address or email domain. After you create your account, you can add or change email addresses. See [AUTOTITLE](/account-and-profile/how-tos/email-preferences/changing-your-primary-email-address).
+
+These suggestions may not resolve the issue. {% data variables.contact.github_support %} can't investigate individual account verification failures during signup.
 
 ## Next steps
 

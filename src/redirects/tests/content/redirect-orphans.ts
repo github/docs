@@ -5,12 +5,11 @@ import { describe, expect, test, vi } from 'vitest'
 import { loadPages } from '@/frame/lib/page-data'
 
 describe('redirect orphans', () => {
-  // Because calling `loadPages` will trigger a warmup, this can potentially
-  // be very slow in CI. So we need a timeout.
+  // loadPages warms up the page cache, which can be slow in CI, so this test needs a timeout.
   vi.setConfig({ testTimeout: 60 * 1000 })
 
   test('no redirect_from entry has a trailing slash', async () => {
-    // Only doing English because they're the only files we do PRs for.
+    // Only English files receive pull requests, so test English redirect_from entries.
     const pageList = await loadPages(undefined, ['en'])
 
     const errors = []

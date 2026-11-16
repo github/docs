@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: router
+  labels:
+    service: router
+spec:
+  ports:
+    - name: http
+      port: 80
+      protocol: TCP
+      targetPort: http
+  selector:
+    app: webapp
+  type: ClusterIP

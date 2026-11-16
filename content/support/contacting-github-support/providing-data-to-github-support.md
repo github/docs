@@ -92,7 +92,9 @@ After you submit your support request, we may ask you to share a support bundle 
 * `elasticsearch-logs/github-enterprise.log`: Elasticsearch logs
 * `configuration-logs/`: {% data variables.product.prodname_ghe_server %} configuration logs
 
+{% ifversion ghes-collectd-available %}
 * `collectd/logs/collectd.log`: Collectd logs
+{% endif %}
 * `mail-logs/mail.log`: SMTP email delivery logs
 
 For more information, see [AUTOTITLE](/admin/concepts/security-and-compliance/audit-log-for-an-enterprise).

@@ -10,12 +10,25 @@ category:
 
 ## Metrics
 
-{% ifversion ghes-opentelemetry %}OpenTelemetry metrics were introduced in {% data variables.product.prodname_ghe_server %} 3.18 and are the future foundation for monitoring your {% data variables.product.prodname_ghe_server %} instance. {% endif %}
-Collectd metrics {% ifversion ghes-opentelemetry %}will continue to be gathered by default, but we expect collectd metrics to be discontinued in a future release.{% else %}provide monitoring capabilities for your {% data variables.product.prodname_ghe_server %} instance.{% endif %}
+OpenTelemetry metrics were introduced in {% data variables.product.prodname_ghe_server %} 3.18 and are the foundation for monitoring {% data variables.product.prodname_ghe_server %} instances.
 
-{% ifversion ghes-opentelemetry %}For more information about OpenTelemetry metrics, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/opentelemetry-metrics/about-opentelemetry-metrics).{% endif %}
+{% ifversion ghes-collectd-available %}
 
-For more information about Collectd metrics, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/collectd-metrics/about-collectd-metrics).
+New installations of version 3.19 and later use OpenTelemetry metrics by default. Upgrades from versions earlier than 3.21 to 3.21 or 3.22 also enable OpenTelemetry and disable collectd, but you can re-enable collectd after the upgrade. Collectd is retired in version 3.23, and upgrading to 3.23 disables it. For the migration timeline and guidance for instances that still use collectd, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/opentelemetry-metrics/migration-guidance).
+
+{% else %}
+
+Collectd is retired in version 3.23 and can no longer be run. Upgrading to 3.23 disables collectd, and OpenTelemetry metrics are the only metrics stack.
+
+{% endif %}
+
+For more information about OpenTelemetry metrics, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/opentelemetry-metrics/about-opentelemetry-metrics).
+
+{% ifversion ghes-collectd-available %}
+
+For more information about collectd metrics, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/collectd-metrics/about-collectd-metrics).
+
+{% endif %}
 
 ## Dashboards
 

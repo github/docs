@@ -1,6 +1,7 @@
-import { createContext, useContext, RefObject, SetStateAction, MutableRefObject } from 'react'
+import { createContext, useContext, SetStateAction, MutableRefObject } from 'react'
 import type { AIReference } from '../types'
 import type { AutocompleteSearchHit, GeneralSearchHit } from '@/search/types'
+import type { SearchOption, SearchOptionModel } from './search-options'
 
 export type TranslationFunction = (
   strings: TemplateStringsArray | string,
@@ -12,7 +13,6 @@ export interface AutocompleteSearchHitWithUserQuery extends AutocompleteSearchHi
 }
 
 export interface GeneralSearchHitWithOptions extends GeneralSearchHit {
-  isViewAllResults?: boolean
   isNoResultsFound?: boolean
   isSearchDocsOption?: boolean
 }
@@ -25,8 +25,6 @@ export interface AskAIState {
   setAISearchError: (isError?: boolean) => void
   references: AIReference[]
   setReferences: (value: SetStateAction<AIReference[]>) => void
-  referencesIndexOffset: number
-  referenceOnSelect: (url: string) => void
   askAIEventGroupId: MutableRefObject<string>
   aiSearchError: boolean
   aiCouldNotAnswer: boolean
@@ -35,13 +33,13 @@ export interface AskAIState {
 
 export interface SearchContextType {
   t: TranslationFunction
-  generalSearchOptions: GeneralSearchHitWithOptions[]
-  aiOptionsWithUserInput: AutocompleteSearchHitWithUserQuery[]
-  generalSearchResultOnSelect: (selectedOption: GeneralSearchHit) => void
-  aiAutocompleteOnSelect: (selectedOption: AutocompleteSearchHit) => void
-  performGeneralSearch: () => void
-  selectedIndex: number
-  listElementsRef: RefObject<Array<HTMLLIElement | null>>
+  model: SearchOptionModel
+  // null means nothing is selected. Drives aria-activedescendant.
+  activeId: string | null
+  // Shared by mouse and keyboard, so both dispatch the same way.
+  activate: (option: SearchOption) => void
+  // One stable callback for every row, keyed by the element's own id.
+  registerOption: (element: HTMLElement | null) => (() => void) | void
   askAIState: AskAIState
   showSpinner: boolean
   searchLoading: boolean

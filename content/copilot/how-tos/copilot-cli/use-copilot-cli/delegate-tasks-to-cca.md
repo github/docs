@@ -28,11 +28,11 @@ There are two ways to use autopilot mode:
 * **Interactively:** In an interactive session, press <kbd>Shift</kbd>+<kbd>Tab</kbd> until you see "autopilot" in the status bar. If prompted to choose permissions for autopilot mode, allow full permissions, then enter your prompt.
 * **Programmatically:** Pass the CLI a prompt directly in a command, and include the `--autopilot` option. For example, to use autopilot mode with full permissions, restricting it to 10 continuations, enter `{% data reusables.cli.autopilot-programmatic-prompt %}`.
 
-For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/autopilot).
+For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/use-autopilot-mode).
 
 ## Delegate tasks to {% data variables.copilot.copilot_cloud_agent %}
 
-You can delegate a task to {% data variables.copilot.copilot_cloud_agent %} on {% data variables.product.github %} by using the `/delegate`slash command, followed by a prompt:
+You can delegate a task to {% data variables.copilot.copilot_cloud_agent %} on {% data variables.product.github %} by using the `/delegate` slash command, followed by a prompt:
 
 ```shell
 /delegate complete the API integration tests and fix any failing edge cases
@@ -45,6 +45,12 @@ Alternatively, prefix a prompt with `&` to delegate it:
 ```
 
 {% data variables.product.prodname_copilot_short %} will ask to commit any of your unstaged changes as a checkpoint in a new branch it creates. {% data variables.copilot.copilot_cloud_agent %} will open a draft pull request, make changes in the background, and request a review from you.
+
+By default, the pull request targets your current branch. To target a different branch, add `--base BRANCH-NAME` after `/delegate`. For example:
+
+```shell
+/delegate --base main complete the API integration tests and fix any failing edge cases
+```
 
 {% data variables.product.prodname_copilot_short %} will provide a link to the pull request and agent session on {% data variables.product.github %} once the session begins.
 

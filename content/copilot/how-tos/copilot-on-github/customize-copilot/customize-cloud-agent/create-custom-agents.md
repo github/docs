@@ -14,7 +14,7 @@ redirect_from:
   - /copilot/how-tos/use-copilot-agents/cloud-agent/create-custom-agents
 ---
 
-{% data variables.copilot.custom_agents_caps_short %} allow you to tailor {% data variables.product.prodname_copilot_short %}'s expertise for specific tasks. For a conceptual overview of {% data variables.copilot.custom_agents_short %}, see [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-custom-agents).
+{% data variables.copilot.custom_agents_caps_short %} allow you to tailor {% data variables.product.prodname_copilot_short %}'s expertise for specific tasks. For a conceptual overview of {% data variables.copilot.custom_agents_short %}, see [AUTOTITLE](/copilot/concepts/customizations/custom-agents).
 
 {% data reusables.copilot.custom-agents-ide-preview %}
 

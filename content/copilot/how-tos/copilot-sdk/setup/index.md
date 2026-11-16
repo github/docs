@@ -13,6 +13,7 @@ children:
   - /bundled-cli
   - /choosing-a-setup-path
   - /github-oauth
+  - /in-process-runtime
   - /local-cli
   - /multi-tenancy
   - /scaling

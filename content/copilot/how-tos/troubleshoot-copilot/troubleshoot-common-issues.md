@@ -24,13 +24,13 @@ If {% data variables.product.prodname_copilot %} stops working, check {% data va
 
 ## Unable to use the {% data variables.product.prodname_copilot %} extension in the IDE
 
-We recommend you follow the quickstart guide for {% data variables.product.prodname_copilot %} while setting up {% data variables.product.prodname_copilot %} on your machine. For more information, see [AUTOTITLE](/copilot/get-started/quickstart).
+We recommend you follow the quickstart guide for {% data variables.product.prodname_copilot %} while setting up {% data variables.product.prodname_copilot %} on your machine. For more information, see [AUTOTITLE](/copilot/get-started/quickstart-for-using-github-copilot-in-your-ide).
 
 The {% data variables.product.prodname_copilot %} extension is frequently updated to fix bugs and add new features. It's important to keep your extension up to date because older clients cannot communicate with the {% data variables.product.prodname_copilot %} servers. Update your {% data variables.product.prodname_copilot %} extension on all the machines you have it installed.
 
-{% data reusables.copilot.sign-in-ghecom %} See [AUTOTITLE](/copilot/how-tos/configure-personal-settings/authenticate-to-ghecom).
+{% data reusables.copilot.sign-in-ghecom %} See [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/set-up-copilot/authenticate-to-ghecom).
 
-For more information about configuring {% data variables.product.prodname_copilot %} in a supported IDE, see [AUTOTITLE](/copilot/how-tos/configure-personal-settings/configure-in-ide).
+For more information about configuring {% data variables.product.prodname_copilot %} in a supported IDE, see [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/set-up-copilot/configure-in-ide).
 
 ## {% data variables.product.prodname_copilot %} not working in some files
 
@@ -71,13 +71,13 @@ Most people see rate limiting for select models, due to limited capacity.
 
 Service-level request rate limits ensure high service quality for all {% data variables.product.prodname_copilot_short %}  users and should not affect typical or even deeply engaged {% data variables.product.prodname_copilot_short %} usage. We are aware of some use cases that are affected by it. {% data variables.product.github %} is iterating on {% data variables.product.prodname_copilot_short %}’s rate-limiting heuristics to ensure it doesn’t block legitimate use cases.
 
-If you are rate limited, the error message may tell you to wait for your limit to reset, suggest a retry time, or prompt you to upgrade your plan for additional usage. For more information about what to do while your limit resets, see [AUTOTITLE](/copilot/concepts/usage-limits#what-to-do-if-you-hit-a-limit).
+If you are rate limited, the error message may tell you to wait for your limit to reset, suggest a retry time, or prompt you to upgrade your plan for additional usage. For more information about what to do while your limit resets, see [AUTOTITLE](/copilot/concepts/billing-and-usage/individuals/usage-limits#what-to-do-if-you-hit-a-limit).
 
 In case you experience repeated rate limiting in {% data variables.product.prodname_copilot_short %} contact {% data variables.contact.contact_support_page %}.
 
 ## Can't find {% data variables.copilot.copilot_chat_short %} in my IDE
 
-If you can't find {% data variables.copilot.copilot_chat_short %} in your editor, make sure you have checked the "Prerequisites" section of [AUTOTITLE](/copilot/how-tos/chat-with-copilot/chat-in-ide).
+If you can't find {% data variables.copilot.copilot_chat_short %} in your editor, make sure you have checked the "Prerequisites" section of [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/chat-with-copilot/chat-in-ide).
 
 > [!NOTE]
 > The linked article has tabs for various IDEs.
@@ -90,7 +90,7 @@ To use {% data variables.copilot.copilot_chat_short %}, make sure you are using 
 
 ## Authentication problems with {% data variables.enterprise.prodname_managed_user %} accounts
 
-{% data reusables.copilot.sign-in-ghecom %} See [AUTOTITLE](/copilot/how-tos/configure-personal-settings/authenticate-to-ghecom).
+{% data reusables.copilot.sign-in-ghecom %} See [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/set-up-copilot/authenticate-to-ghecom).
 
 ## Authentication problems in {% data variables.product.prodname_vscode %}
 
@@ -116,6 +116,23 @@ If you experience authentication issues when you try to use {% data variables.co
 If a chat response terminates unexpectedly, before the response is complete, try resubmitting the question.
 
 In {% data variables.copilot.copilot_chat_short %} ([github.com/copilot](https://github.com/copilot?ref_product=copilot&ref_type=engagement&ref_style=text)), you can resubmit your question by clicking the {% octicon "sync" aria-label="Retry" %} button under the chat response.
+
+
+## {% data variables.product.prodname_copilot_short %} returns non-sensical or irrelevant text
+
+In rare cases, a response may contain a block of text that has nothing to do with your prompt. This can include unintelligible wording or fragments in another language or writing system, and it may appear in a chat response, a suggested code edit, or a tool call made by an agent.
+
+This is generated by the underlying AI model. Models produce responses probabilistically, so they can occasionally return off-topic output. It does not mean your account, code, or data has been compromised, and it does not mean another user's content has been exposed to you.
+
+To resolve the issue:
+
+1. If an agent is running, stop it before retrying and review any unexpected tool calls and their effects. Discard or undo unexpected file changes. As a general practice, always review AI-generated suggestions before you accept or commit them.
+1. Resubmit your prompt. Retrying usually returns the expected result.
+1. Try a different model. See [AUTOTITLE](/copilot/how-tos/use-ai-models/change-the-chat-model).
+1. Add explicit instructions to your prompt telling {% data variables.product.prodname_copilot_short %} to stay focused on the requested task.
+
+If this happens repeatedly, contact {% data variables.contact.contact_support_page %} and include the model you were using, the request ID if available, a screenshot of the issue, and the date and time of each occurrence.
+
 
 ## Further reading
 

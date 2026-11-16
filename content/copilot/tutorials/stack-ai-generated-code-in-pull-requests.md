@@ -8,10 +8,8 @@ contentType: tutorials
 category:
   - Accelerate PR velocity
   - Team collaboration
+  - All day breakfast - Review your way to a sunny day
 ---
-
-> [!NOTE]
-> Stacked pull requests are in {% data variables.release-phases.public_preview %} and subject to change.
 
 Large pull requests are difficult to review and create bottlenecks, especially when AI helps you generate a high volume of code in a short time. Review quality also degrades as pull request size increases. Reviewers may skim the result, miss issues, or procrastinate and leave the pull request until it grows stale and develops merge conflicts.
 

@@ -5,7 +5,9 @@ permissions: '{% data reusables.permissions.dependabot-yml-configure %}'
 allowTitleToDifferFromFilename: true
 contentType: how-tos
 versions:
-  feature: dependabot-multi-ecosystem-support
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 shortTitle: Configure multi-ecosystem updates
 redirect_from:
   - /code-security/dependabot/working-with-dependabot/configuring-multi-ecosystem-updates

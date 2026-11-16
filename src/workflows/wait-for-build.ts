@@ -3,6 +3,8 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 import { fetchWithRetry } from '@/frame/lib/fetch-utils'
+import github from './github'
+import { getActionContext } from './action-context'
 
 // Polls production until it serves the current commit, then exits. The post-deploy
 // content purge waits on this so it doesn't evict pages before the new build is live.
@@ -14,6 +16,24 @@ const INTERVAL = 15 * 1000
 const TIMEOUT = 1200 * 1000
 
 const sleep = (ms: number): Promise<void> => new Promise((resolve) => setTimeout(resolve, ms))
+
+// Back-to-back merge queue deploys can replace this build before the wait finishes.
+// A newer build that contains this commit serves its changes, so it counts as a match.
+// Returns undefined when the comparison fails so the caller can retry on a later poll.
+async function containsCommit(needs: string, current: string): Promise<boolean | undefined> {
+  try {
+    const { owner, repo } = getActionContext()
+    const { data } = await github().rest.repos.compareCommitsWithBasehead({
+      owner,
+      repo,
+      basehead: `${needs}...${current}`,
+    })
+    return data.status === 'ahead'
+  } catch (error) {
+    console.log(`Could not compare ${current} with the build commit: ${error}`)
+    return undefined
+  }
+}
 
 type WaitForBuildOptions = {
   requiredMatches?: number
@@ -29,6 +49,7 @@ export async function waitForBuild({
   const needs = execFileSync('git', ['rev-parse', 'HEAD']).toString().trim()
   const startTime = Date.now()
   let consecutive = 0
+  const containsByCommit = new Map<string, boolean>()
 
   console.log(`Waiting for production to serve build ${needs}...`)
 
@@ -54,9 +75,23 @@ export async function waitForBuild({
       current = ''
     }
 
+    let newer = false
+    if (current && current !== needs) {
+      if (!containsByCommit.has(current)) {
+        const contains = await containsCommit(needs, current)
+        if (contains !== undefined) containsByCommit.set(current, contains)
+      }
+      newer = containsByCommit.get(current) === true
+    }
+
     if (current && current === needs) {
       consecutive += 1
       console.log(`Production matches the build commit (${consecutive}/${requiredMatches})...`)
+    } else if (newer) {
+      consecutive += 1
+      console.log(
+        `Production serves newer commit ${current}, which includes the build commit (${consecutive}/${requiredMatches})...`,
+      )
     } else {
       if (consecutive > 0) {
         console.log('Production stopped matching the build commit; resetting consecutive count...')

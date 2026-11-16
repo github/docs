@@ -6,12 +6,15 @@ redirect_from:
   - /copilot/example-prompts-for-github-copilot-chat/testing-code/generate-unit-tests
   - /copilot/copilot-chat-cookbook/testing-code/generate-unit-tests
   - /copilot/tutorials/copilot-chat-cookbook/testing-code/generate-unit-tests
+  - /copilot/tutorials/copilot-cookbook/testing-code/update-unit-tests
+  - /copilot/tutorials/copilot-chat-cookbook/testing-code/update-unit-tests
 versions:
   feature: copilot
 category:
   - Testing code
   - Author and optimize with Copilot
   - Improve quality and maintainability
+  - Soup - Test your tasks, to taste
 surface:
   - Chat
 octicon: beaker

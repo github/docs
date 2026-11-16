@@ -1,0 +1,5 @@
+checks:
+  title: Checks
+  resource_group: repository
+  excluded_actors:
+    - fine_grained_personal_access_token

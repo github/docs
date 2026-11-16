@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'vitest'
 import { getAllRuleNames } from '../../lib/helpers/rule-utils'
 
-// Use static config objects for testing to avoid Commander.js conflicts
+// Static config objects avoid Commander.js conflicts in tests.
 const globalConfig = {
   excludePaths: ['content/contributing/'],
 }
@@ -26,37 +26,32 @@ describe('content linter configuration', () => {
     })
 
     test('simulates path exclusion logic', () => {
-      // Simulate the cleanPaths function logic from lint-content.ts
+      // Mirror cleanPaths excludePaths prefix checks from lint-content.ts.
       function isPathExcluded(filePath: string): boolean {
         return globalConfig.excludePaths.some((excludePath) => filePath.startsWith(excludePath))
       }
 
-      // Files in contributing directory should be excluded
       expect(isPathExcluded('content/contributing/README.md')).toBe(true)
       expect(isPathExcluded('content/contributing/how-to-contribute.md')).toBe(true)
       expect(isPathExcluded('content/contributing/collaborating-on-github-docs/file.md')).toBe(true)
 
-      // Files outside contributing directory should not be excluded
       expect(isPathExcluded('content/actions/README.md')).toBe(false)
       expect(isPathExcluded('content/copilot/getting-started.md')).toBe(false)
       expect(isPathExcluded('data/variables/example.yml')).toBe(false)
 
-      // Edge case: partial matches should not be excluded
       expect(isPathExcluded('content/contributing-guide.md')).toBe(false)
     })
   })
 
   describe('report filtering (lint-report.ts)', () => {
-    // Helper function that matches the actual logic in lint-report.ts
+    // Mirror lint-report.ts so config tests use the same rule-name extraction.
     function shouldIncludeInReport(flaw: LintFlaw): boolean {
       const allRuleNames = getAllRuleNames(flaw)
 
-      // Check if severity should be included
       if (reportingConfig.includeSeverities.includes(flaw.severity)) {
         return true
       }
 
-      // Check if any rule name is in the include list that overrides severity
       const hasIncludedRule = allRuleNames.some((ruleName: string) =>
         reportingConfig.includeRules.includes(ruleName),
       )
@@ -98,7 +93,6 @@ describe('content linter configuration', () => {
         ruleNames: ['expired-content'],
       }
 
-      // Should be included because expired-content is in includeRules
       expect(shouldIncludeInReport(expiredContentWarning)).toBe(true)
     })
 
@@ -109,8 +103,6 @@ describe('content linter configuration', () => {
         errorDetail: 'todocs-placeholder: Catch occurrences of TODOCS placeholder.',
       }
 
-      // Should extract 'todocs-placeholder' as a rule name and check against includeRules
-      // This will depend on your actual includeRules configuration
       const result = shouldIncludeInReport(searchReplaceFlaw)
       expect(typeof result).toBe('boolean')
     })
@@ -119,10 +111,9 @@ describe('content linter configuration', () => {
       const searchReplaceFlawNoDetail = {
         severity: 'warning',
         ruleNames: ['search-replace'],
-        // no errorDetail
+        // errorDetail deliberately absent.
       }
 
-      // Should not throw an error and return false (warning not in includeSeverities)
       expect(shouldIncludeInReport(searchReplaceFlawNoDetail)).toBe(false)
     })
 
@@ -154,29 +145,20 @@ describe('content linter configuration', () => {
   })
 
   describe('integration between systems', () => {
+    // Path-excluded files never reach report filtering, so keep the two filters independent.
     test('path exclusions happen before report filtering', () => {
-      // This is a conceptual test - in practice, files excluded by globalConfig.excludePaths
-      // never reach the reporting stage, so they never get filtered by reportingConfig
-
-      // Files in excluded paths should never be linted at all
       const isExcluded = (path: string) =>
         globalConfig.excludePaths.some((excludePath) => path.startsWith(excludePath))
 
       expect(isExcluded('content/contributing/some-file.md')).toBe(true)
-
-      // If a file is excluded at the path level, it doesn't matter what the reportingConfig says
-      // because the file will never be processed for linting in the first place
     })
 
     test('configurations are independent', () => {
-      // globalConfig handles what gets linted
       expect(globalConfig.excludePaths).toBeDefined()
 
-      // reportingConfig handles what gets reported
       expect(reportingConfig.includeSeverities).toBeDefined()
       expect(reportingConfig.includeRules).toBeDefined()
 
-      // They should not overlap or depend on each other
       expect(globalConfig).not.toHaveProperty('includeSeverities')
       expect(reportingConfig).not.toHaveProperty('excludePaths')
     })

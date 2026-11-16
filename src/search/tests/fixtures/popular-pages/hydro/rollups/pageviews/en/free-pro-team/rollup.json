@@ -1,0 +1,12 @@
+{
+  "get-started": 10000,
+  "foo/old": 5000,
+  "old-actions": 3000,
+  "baz/legacy": 2000,
+  "actions": 1000,
+  "bar/old-1": 400,
+  "bar/old-2": 300,
+  "foo/new": 200,
+  "bar/page": 100,
+  "baz/new": 50
+}

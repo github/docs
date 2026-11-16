@@ -4,23 +4,14 @@ import { join } from 'path'
 import { load } from 'js-yaml'
 import { describe, expect, test } from 'vitest'
 
-// Cross-file invariants for the Copilot IDE feature matrix.
-//
-// The JSON schemas validate each file in isolation. These tests cover the
-// relationships *between* matrix-meta.yml and the per-IDE files, which is where
-// a hand edit — or, later, an automated changelog-driven update — is most
-// likely to introduce a silent error.
-//
-// "Silent" is the operative word: a missing or mistyped key does not raise an
-// error, it renders as ✗ (not supported) to customers.
+// JSON schemas validate each file in isolation. These tests cover cross-file matrix relationships.
+// Missing or mistyped keys silently render as ✗ (not supported) in customer-facing tables.
 
 const MATRIX_DIR = join(process.cwd(), 'data/tables/copilot/matrix')
 const META_PATH = join(process.cwd(), 'data/tables/copilot/matrix-meta.yml')
 
-// Stands for "supported since before we tracked versions". Some IDEs list it in
-// `versions` without putting it in a `versionGroup`, so it is the one version
-// allowed to have no detail table. Removing it is a customer-visible content
-// decision; until then it is excluded from the grouping invariant below.
+// Some IDEs use 0.0.0 for supported-before-tracking without a versionGroup.
+// Removing the sentinel is customer-visible, so the grouping invariant excludes it.
 const SENTINEL_VERSION = '0.0.0'
 
 type Ide = {
@@ -70,8 +61,7 @@ describe('copilot matrix meta', () => {
     expect(new Set(meta.featureOrder).size).toBe(meta.featureOrder.length)
   })
 
-  // A stale featureOrder entry that no IDE uses renders as a row of ✗ across
-  // every column of the summary table.
+  // A stale featureOrder entry renders as a row of ✗ across every summary-table column.
   test('every featureOrder entry is used by at least one IDE', () => {
     const used = new Set<string>()
     for (const ide of Object.values(ides)) {
@@ -114,13 +104,9 @@ describe.each(ideFilenames)('copilot matrix: %s', (slug) => {
     ).toEqual([])
   })
 
-  // Only versions listed in a versionGroup are rendered as a detail table. A
-  // version in `versions` that is in no group is data customers cannot see —
-  // and the summary table reads `versions | first`, so if it is the newest one
-  // the page shows support data for a version with no detail table at all.
-  // This is the most likely mistake for an automated updater that appends to
-  // `versions` and forgets `versionGroups`, and checking only the newest
-  // version would miss a backfilled older one.
+  // Only versions listed in versionGroups render detail tables. The test skips the 0.0.0 sentinel.
+  // The summary table reads versions | first, so an ungrouped newest version has no detail table.
+  // Checking every version also catches backfilled older versions that automated updates miss.
   test('every version appears in at least one versionGroup', () => {
     const grouped = new Set(Object.values(ide.versionGroups).flat())
     const ungrouped = ide.versions.filter(

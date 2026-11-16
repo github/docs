@@ -65,8 +65,10 @@ redirect_from:
 * {% data reusables.actions.larger-runner-permissions %}
 * {% data reusables.actions.about-larger-runners-billing %}
 * For {% data variables.actions.hosted_runner %}s, there is no additional cost for configurations that assign public static IP addresses to a {% data variables.actions.hosted_runner %}. For more information on {% data variables.actions.hosted_runner %}s, see [AUTOTITLE](/actions/concepts/runners/larger-runners).
-* Included minutes cannot be used for {% data variables.actions.hosted_runner %}s.
-* The {% data variables.actions.hosted_runner %}s are not free for public repositories.
+{% ifversion fpt or ghec %}
+* The per-minute rates above determine the cost deducted from your included compute usage. Where {% data variables.actions.hosted_runners %} are available, the cost of eligible usage can draw from the included value for billing accounts on {% data variables.product.prodname_team %} and {% data variables.product.prodname_ghe_cloud %}.
+{% endif %}
+* {% data variables.actions.hosted_runner_caps %}s are not free for public repositories.
 {% ifversion fpt or ghec %}
 * Custom images can only be used with {% data variables.actions.hosted_runners %}. Jobs that use custom images are billed at the same per-minute rates as those runners, and storage for custom images is billed separately through {% data variables.product.prodname_actions %} storage based on the amount of stored image data over time. For more information, see [AUTOTITLE](/billing/concepts/product-billing/github-actions#custom-image-storage).
 {% endif %}

@@ -22,7 +22,7 @@ This works with any MCP-compatible agent or IDE, including {% data variables.pro
 ## Prerequisites
 
 * **{% data variables.product.prodname_GH_secret_protection %}** is enabled for the repository.
-* **{% data variables.product.github %} MCP server** is connected in your IDE or agent. See [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp-in-your-ide/set-up-the-github-mcp-server).
+* **{% data variables.product.github %} MCP server** is connected in your IDE or agent. See [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/customize-copilot/extend-copilot-with-tools-and-context/set-up-the-github-mcp-server).
 * Your organization's **security configuration** determines which secret types are detected and whether push protection is enforced. The MCP tools respect your organization's push protection configuration (repository-level push protection settings are not used).
 
 ## Step 1:  Install and configure tools
@@ -90,7 +90,7 @@ The [{% data variables.product.prodname_AS %} plugin](https://github.com/github/
 The plugin uses the MCP tools under the hood, so you'll still need to enable the `secret_protection` toolset.
 
 Instructions for installing the plugin:
-* For **{% data variables.copilot.copilot_cli %}**, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/plugins-finding-installing#installing-plugins).
+* For **{% data variables.copilot.copilot_cli %}**, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/plugins-finding-installing).
 * For **{% data variables.product.prodname_vscode %}**, see [Discover and install plugins](https://code.visualstudio.com/docs/copilot/customization/agent-plugins#_discover-and-install-plugins) in the {% data variables.product.prodname_vscode %} documentation.
 
 ## Step 2: Scan your code
@@ -143,6 +143,6 @@ If push protection is enabled, the MCP server also blocks secrets from being inc
 |---|---|
 | Scanning returns no results | Verify the `secret_protection` toolset is enabled in your MCP configuration. |
 | Repository not eligible |{% data variables.product.prodname_secret_scanning_caps %} via MCP is available to public repositories and requires {% data variables.product.prodname_GH_secret_protection %} to be enabled for private and internal repositories. |
-| Agent doesn't recognize the tool | Confirm your IDE or agent supports MCP. See [AUTOTITLE](/copilot/concepts/context/mcp#availability). |
+| Agent doesn't recognize the tool | Confirm your IDE or agent supports MCP. See [AUTOTITLE](/copilot/concepts/customizations/mcp#where-you-can-use-mcp). |
 | Unexpected detection results | Your organization's security configuration controls which patterns are scanned. Check your repository security settings. |
 | Tool works in one client but not another | The experience varies across MCP-compatible clients. Check your client's MCP documentation for supported features. |

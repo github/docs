@@ -44,6 +44,8 @@ In order to test your webhook code locally on your computer or codespace, you ca
 
 The following sections demonstrate how to use smee.io to provide a webhook proxy URL and forward webhooks.
 
+Smee is intended for development and testing only. {% data reusables.webhooks.smee-security-caveat-and-alternatives %} If you use one of these tools, use the public URL that it provides as your webhook URL, and skip the smee-specific steps in the following sections.
+
 For specific examples of code and testing steps, see [AUTOTITLE](/webhooks/using-webhooks/handling-webhook-deliveries).
 
 ### Get a webhook proxy URL

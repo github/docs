@@ -1,13 +1,12 @@
 ---
 title: Billing cycles
-intro: 'Learn about the billing cycles for self-serve, Azure, and invoiced payment methods.'
+intro: 'Understand when usage is measured, included amounts reset, and charges are billed for self-serve, Azure, and invoiced payment methods.'
 shortTitle: Billing cycles
 versions:
   feature: enhanced-billing-platform
 redirect_from:
   - /billing/using-the-enhanced-billing-platform-for-enterprises/about-the-billing-cycle
   - /billing/using-the-billing-platform/viewing-your-subscriptions-and-billing-date
-  - /billing/using-the-billing-platform/changing-the-duration-of-your-billing-cycle
   - /billing/using-the-new-billing-platform/viewing-your-subscriptions-and-billing-date
   - /billing/using-the-new-billing-platform/about-the-billing-cycle
   - /billing/managing-your-billing/about-the-billing-cycle
@@ -35,6 +34,10 @@ For example, if you started a paid plan or converted from a trial on the 15th of
 > [!NOTE]
 > From **December 1, 2025**, all self-serve, metered {% data variables.product.prodname_ghe_cloud %} accounts that pay by credit card will migrate to a **billing date** of 1st of the month. See [Billing date standardized to the first of the month for self-serve credit card metered Enterprise customers](https://github.blog/changelog/2025-11-17-billing-date-standardized-to-the-first-of-the-month-for-self-serve-credit-card-metered-enterprise-customers-now-generally-available/) in the changelog.
 
+## Included compute usage reset
+
+Your plan's included compute usage is available for eligible {% data variables.product.prodname_actions %} runner usage and cloud sandbox compute and memory. This value resets to the full amount at the start of each billing cycle. Additional usage is billed on your normal billing date. For more information, see [AUTOTITLE](/billing/concepts/product-billing/github-actions).
+
 ## Billing cycles for volume-based products
 
 Volume-based licenses may follow a different billing cycle. These products are often billed based on the anniversary date of your subscription rather than by calendar month.
@@ -57,6 +60,10 @@ Changes you make mid-cycle, such as adding or removing users, seats, or resource
 
 * **Within the same billing account**: No double-billing. Moving users or resources between organizations under the same account is handled automatically.
 * **Between different billing accounts**: Each account is billed according to its own cycle. You may see charges in both accounts if the move overlaps billing periods.
+
+## Changing your billing cycle
+
+In some cases, you can change your billing cycle from monthly to annual, or vice versa. For information about when you can change your billing cycle and how to make the change, see [AUTOTITLE](/billing/how-tos/manage-plan-and-licenses/change-billing-cycle).
 
 ## Where to find usage details for specific products
 

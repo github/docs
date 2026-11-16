@@ -1,0 +1,5 @@
+# Reference: github/releases#10746
+# Import a repository's eligible branch protection rules as rulesets
+versions:
+  ghec: '*'
+  ghes: '>=3.24'

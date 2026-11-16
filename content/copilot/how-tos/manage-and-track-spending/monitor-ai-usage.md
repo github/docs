@@ -21,6 +21,9 @@ If you access {% data variables.product.prodname_copilot_short %} through a {% d
    * If a user-level budget has been set, the card shows credits consumed out of your budget total (for example, "450 / 1,000 {% data variables.product.prodname_ai_credits_short %} used").
    * If no user-level budget applies to you, the card shows the total number of {% data variables.product.prodname_ai_credits_short %} you have consumed this cycle (for example, "100 {% data variables.product.prodname_ai_credits_short %} used").
 
+> [!NOTE]
+> {% data reusables.copilot.request-ai-credit-allocation-increase %}
+
 ## For {% data variables.copilot.copilot_individuals_short %} users
 
 If you're on a {% data variables.copilot.copilot_individuals_short %} plan, you can see your individual {% data variables.product.prodname_ai_credits_short %} consumption on the **AI usage** page, under "Billing and licensing" settings.
@@ -45,6 +48,8 @@ Alternatively, you can view your usage under the {% data variables.product.prodn
 ### Downloading a usage report
 
 For details on how to request a usage report, see [AUTOTITLE](/billing/how-tos/products/view-productlicense-use#downloading-usage-reports).
+
+The **AI usage** page shows credits consumed and costs by model. However, you generally cannot trace consumed credits to specific prompts, sessions, or exact features at a per-request level.
 
 ## Viewing usage in your IDE
 

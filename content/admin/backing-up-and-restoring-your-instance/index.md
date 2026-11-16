@@ -8,6 +8,7 @@ children:
   - /about-the-backup-service-for-github-enterprise-server
   - /understanding-the-backup-service
   - /configuring-the-backup-service
+  - /configuring-elasticsearch-snapshots
   - /creating-and-monitoring-backups
   - /restoring-from-a-backup
   - /configuring-remote-archives-for-backups

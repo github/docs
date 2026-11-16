@@ -10,7 +10,6 @@ export default function breadcrumbs(req: ExtendedRequest, res: Response, next: N
 
   req.context.breadcrumbs = []
 
-  // Return an empty array on the landing page.
   if (req.context.page.documentType === 'homepage') {
     return next()
   }
@@ -22,21 +21,15 @@ export default function breadcrumbs(req: ExtendedRequest, res: Response, next: N
 
 const earlyAccessExceptions = ['insights', 'enterprise-importer']
 
+// For Early Access pages, getBreadcrumbs omits /early-access and the product segment.
+// For example, /en/early-access/github/migrating starts at /migrating.
 function getBreadcrumbs(req: ExtendedRequest, isEarlyAccess: boolean) {
   if (!req.context || !req.context.currentPath || !req.context.currentProductTreeTitles)
     throw new Error('request is not contextualized')
   let cutoff = 0
-  // When in Early access docs consider the "root" be much higher.
-  // E.g. /en/early-access/github/migrating/understanding/about
-  // we only want it start at /migrating/understanding/about
-  // Essentially, we're skipping "/early-access" and its first
-  // top-level like "/github"
   if (isEarlyAccess) {
     const split = req.context.currentPath!.split('/')
-    // There are a few exceptions to this rule for the
-    // /{version}/early-access/<product-name>/... URLs because they're a
-    // bit different.
-    // If there are more known exceptions, add them to the array above.
+    // insights and enterprise-importer Early Access URLs keep their product segment.
     if (earlyAccessExceptions.some((product) => split.includes(product))) {
       cutoff = 1
     } else {
@@ -55,22 +48,7 @@ function getBreadcrumbs(req: ExtendedRequest, isEarlyAccess: boolean) {
   return breadcrumbsResult
 }
 
-// Return an array as if you'd traverse down a tree. Imagine a tree like
-//
-//            (root /)
-//           /       \
-//        (/foo)     (/bar)
-//       /      \
-//    (/foo/bar)  (/foo/buzz)
-//
-// If the "currentPath" is `/foo/buzz` what you want to return is:
-//
-//  [
-//    {href: /, title: TITLE},
-//    {href: /foo, title: TITLE}
-//    {href: /foo/buzz, title: TITLE}
-//  ]
-//
+// Example: /en/actions/learn-github-actions returns each matching ancestor and that page.
 function traverseTreeTitles(currentPath: string | string[], tree: TitlesTree) {
   const { href, title, shortTitle } = tree
   const crumbs = [
@@ -85,17 +63,13 @@ function traverseTreeTitles(currentPath: string | string[], tree: TitlesTree) {
   for (const child of tree.childPages) {
     if (isParentOrEqualArray(child.href.split('/'), currentPathSplit)) {
       crumbs.push(...traverseTreeTitles(currentPathSplit, child))
-      // Only ever going down 1 of the children
       break
     }
   }
   return crumbs
 }
 
-// Return true if an array is part of another array or equal.
-// Like `/foo/bar` is part of `/foo/bar/buzz`.
-// But also include `/foo/bar/buzz`.
-// Don't include `/foo/ba` if the final path is `/foo/baring`.
+// Compare split paths so /foo/ba does not match /foo/baring.
 function isParentOrEqualArray(base: string[], final: string[]) {
   return base.every((part, i) => part === final[i])
 }

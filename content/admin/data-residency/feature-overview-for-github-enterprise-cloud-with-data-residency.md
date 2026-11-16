@@ -23,7 +23,6 @@ The following features are currently unavailable on {% data variables.enterprise
 | Feature | Details | More information |
 | :- | :- | :- |
 | Dependency insights | Organization-level and enterprise-level dependency insights are unavailable and display no data. | [AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-dependencies-in-your-organization) |
-| License and package metadata in the dependency graph | License and package details are not currently populated in the dependency graph. This can result in empty license fields in software bill of materials (SBOM) exports and missing license information from the {% data variables.dependency-review.action_name %}. | [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/establish-provenance-and-integrity/export-dependencies-as-sbom)<br>[AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-dependency-review-action) |
 | macOS runners for {% data variables.product.prodname_actions %} | Currently unavailable. | [AUTOTITLE](/actions/concepts/runners/github-hosted-runners) |
 | Maven and Gradle support for {% data variables.product.prodname_registry %} | Currently unavailable. | [AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-apache-maven-registry) |
 | {% data variables.product.prodname_marketplace %} | {% data variables.product.prodname_marketplace %}, as a means of searching for, purchasing, and directly installing apps and actions, is unavailable. Ecosystem apps and actions can still be discovered and installed from their source, but they may require modification to work on {% data variables.enterprise.data_residency_site %}. | [{% data variables.product.prodname_actions %} workflows from {% data variables.product.prodname_marketplace %}](#github-actions-workflows-from-github-marketplace) |
@@ -50,6 +49,7 @@ The following features are either specific to {% data variables.enterprise.data_
 * [Retirement of namespaces for actions accessed on {% data variables.product.prodname_dotcom_the_website %}](#retirement-of-namespaces-for-actions-accessed-on-githubcom)
 * [GitHub Connect](#github-connect)
 * [{% data variables.product.prodname_github_codespaces %}](#github-codespaces)
+* [Commit signature verification](#commit-signature-verification)
 
 ### API access
 
@@ -104,3 +104,9 @@ To enable {% data variables.product.prodname_github_connect %}, you must configu
 {% data variables.product.prodname_github_codespaces %} on {% data variables.enterprise.data_residency_site %} is available in all {% data variables.enterprise.data_residency %} regions.
 
 To use {% data variables.product.prodname_github_codespaces %} from {% data variables.product.prodname_vscode_shortname %} desktop with an enterprise on {% data variables.enterprise.data_residency_site %}, you must configure the `Github-enterprise: Uri` and `Github > Codespaces: Auth Provider` settings. For more information, see [AUTOTITLE](/codespaces/developing-in-a-codespace/using-github-codespaces-in-visual-studio-code#connecting-to-an-enterprise-on-ghecom).
+
+### Commit signature verification
+
+Commits created through the web interface are signed with a web commit signing key for {% data variables.enterprise.data_residency_site %}. It is not the key used by {% data variables.product.prodname_dotcom_the_website %}, so web commits migrated from {% data variables.product.prodname_dotcom_the_website %} may show as "Unverified".
+
+Users must add their GPG or SSH signing keys to their account on {% data variables.enterprise.data_residency_site %}. They must also verify the committer email address on their commits with that account. After users complete both steps, their signed commits show as "Verified". See [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/about-migrations-between-github-products#commit-signature-verification).

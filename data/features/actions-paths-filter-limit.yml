@@ -1,0 +1,6 @@
+# Workflow path filters evaluate up to 3,000 changed files
+
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.22'

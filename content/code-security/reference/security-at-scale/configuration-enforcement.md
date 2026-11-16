@@ -13,7 +13,17 @@ redirect_from:
   - /code-security/reference/security-at-scale/security-configuration-enforcement
 ---
 
+{% ifversion security-configuration-enterprise-organization-enforcement %}
+
+{% data variables.product.prodname_security_configurations_caps %} can be enforced at the organization{% ifversion security-configuration-enterprise-level %} or enterprise{% endif %} level to prevent owners from changing the enablement status of configured security features.
+{% data reusables.permissions.security-configuration-enterprise-enable %}
+* At the **organization** level, enforcement means repository owners cannot change the enablement status of features that are enabled or disabled by the configuration.
+* At the **enterprise** level,  you can enforce for repository owners only, or for both repository and organization owners. When enforcement applies to both, neither repository owners nor organization owners can change the enablement status of features that are enabled or disabled by the configuration.
+{% else %}
+
 {% data variables.product.prodname_security_configurations_caps %} can be enforced, meaning repository owners cannot change the enablement status of features that are enabled or disabled by the configuration.
+
+{% endif %}
 
 ## Situations that break enforcement
 

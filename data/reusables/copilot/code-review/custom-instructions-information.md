@@ -6,6 +6,8 @@ Use an `AGENTS.md` file in the root of your repository to provide additional rep
 
 Use `.github/instructions/**/*.instructions.md` files for path-specific instructions that only apply when reviewing matching files. This is useful when different parts of the repository follow different conventions, require specialized checks, or need review guidance tailored to a particular language, framework, or subsystem.
 
+{% data variables.copilot.copilot_code-review_short %} also reads custom instructions from `CLAUDE.md`, `GEMINI.md`, and `REVIEW.md` files in your repository, if they exist.
+
 For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions).
 
 {% data reusables.copilot.code-review.custom-instructions-limit %}

@@ -1,50 +1,24 @@
-// [start-readme]
-//
-// Makes sure that all the image assets in `assets/` are safe.
-//
-// Generally writers don't check in bogus/corrupt images but mistakes
-// can happen and it's ideally spotted in other processes such as
-// reviewing PR review environment.
-// This script also makes sure that all images really are what they're
-// called. For example, an image might be named `screenshot.png` but
-// it might actually be something mischievous.
-//
-// [end-readme]
+// Validates asset files for corrupt images, unsafe SVG content, and mismatched file types.
+// For example, screenshot.png must contain image/png data.
 
-import fs from 'fs/promises'
 import path from 'path'
 
 import { program } from 'commander'
 import chalk from 'chalk'
-import { load } from 'cheerio'
-import { fileTypeFromFile } from 'file-type'
 import walk from 'walk-sync'
-import isSVG from 'is-svg'
+
+import { CRITICAL, WARNING, checkFile } from '@/assets/lib/validate-asset'
 
 const ASSETS_ROOT = path.resolve('assets')
 const ROOT = path.dirname(ASSETS_ROOT)
 
-// We put images that are used by the React components in with the assets
-// directory. These aren't really content-contibuted.
+// React component images live under assets but are not content-contributed.
 const EXCLUDE_DIR = path.join(ASSETS_ROOT, 'images', 'site')
 
 const IGNORE_EXTENSIONS = new Set([
-  // Currently has no known test for these
+  // CSV assets have no validator.
   '.csv',
 ])
-
-const EXPECT = {
-  '.png': 'image/png',
-  '.gif': 'image/gif',
-  '.jpg': 'image/jpeg',
-  '.jpeg': 'image/jpeg',
-  '.ico': 'image/x-icon',
-  '.pdf': 'application/pdf',
-  '.webp': 'image/webp',
-} as Record<string, string>
-
-const CRITICAL = 'critical'
-const WARNING = 'warning'
 
 program
   .description('Make sure all asset images are valid')
@@ -60,7 +34,7 @@ async function main(opts: { dryRun: boolean; verbose: boolean }) {
   const files = walk(ASSETS_ROOT, { includeBasePath: true, directories: false }).filter(
     (filePath) => {
       const basename = path.basename(filePath)
-      const extension = path.extname(filePath)
+      const extension = path.extname(filePath).toLowerCase()
       return (
         !IGNORE_EXTENSIONS.has(extension) &&
         basename !== '.DS_Store' &&
@@ -94,67 +68,4 @@ async function main(opts: { dryRun: boolean; verbose: boolean }) {
   }
 
   process.exitCode = errors
-}
-
-async function checkFile(filePath: string) {
-  const ext = path.extname(filePath)
-
-  const { size } = await fs.stat(filePath)
-  if (!size) {
-    return [CRITICAL, filePath, 'file is 0 bytes']
-  }
-
-  if (ext === '.svg') {
-    // Can't use `fileTypeFromFile` so have to check "manually"
-    const content = await fs.readFile(filePath, 'utf-8')
-    if (!content.trim()) {
-      return [CRITICAL, filePath, 'file is empty']
-    }
-    if (!isSVG(content)) {
-      return [CRITICAL, filePath, 'not a valid SVG file']
-    }
-    try {
-      checkSVGContent(content)
-    } catch (error: unknown) {
-      return [CRITICAL, filePath, error instanceof Error ? error.message : String(error)]
-    }
-  } else if (EXPECT[ext]) {
-    const fileType = await fileTypeFromFile(filePath)
-    if (!fileType) {
-      return [CRITICAL, filePath, "can't extract file type"]
-    }
-    const { mime } = fileType
-    const expect = EXPECT[ext]
-    if (expect !== mime) {
-      return [CRITICAL, filePath, `Expected mime type '${expect}' but was '${mime}'`]
-    }
-  } else if (!ext) {
-    return [WARNING, filePath, 'Has no file extension']
-  } else {
-    return [WARNING, filePath, `Don't know how to validate '${ext}'`]
-  }
-
-  // All is well. Nothing to complain about.
-}
-
-function checkSVGContent(content: string) {
-  const $ = load(content)
-  const disallowedTagNames = new Set(['script', 'object', 'iframe', 'embed'])
-  $('*').each((i, element) => {
-    const el = $(element).get(0)
-    if (!el || !('tagName' in el)) return
-    const { tagName } = el
-    if (disallowedTagNames.has(tagName)) {
-      throw new Error(`contains a <${tagName}> tag`)
-    }
-    for (const key in 'attribs' in el ? el.attribs : {}) {
-      // Looks for suspicious event handlers on tags.
-      // For example `<path oNload="alert(1)"" d="M28 0l4.59 4.59-9.76`
-      // We don't need to do a case-sensitive regex here because cheerio
-      // will have normalized all the element attribute keys to lowercase.
-      if (/(\\x[a-f0-9]{2}|\b)on\w+/.test(key)) {
-        throw new Error(`<${tagName}> contains an unsafe attribute: '${key}'`)
-      }
-    }
-  })
 }

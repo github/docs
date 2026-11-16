@@ -1,21 +1,11 @@
-/**
- * @purpose Writer tool
- * @description Look for mentions of variables in Liquid syntax across all pages
- *
- * For example,
- *
- *    ---
- *    title: '{% data variables.product.prodname_mobile %} is cool'
- *    shortTitle: '{% data variables.product.prodname_mobile %}'
- *    ---
- *
- *    This also mentions {% data variables.product.prodname_ios %}
- *
- * So in this case, we *know* that `prodname_mobile` and
- * `prodname_ios` inside `data/variables/product.yml` is definitely used.
- * So that variable won't be mentioned as unused.
- *
- */
+// @purpose Writer tool
+// @description Look for mentions of variables in Liquid syntax across all pages
+//
+// Liquid references in content, reusables, and title, shortTitle, or intro frontmatter mark
+// data variables as used; other frontmatter fields are not scanned.
+// For example, {% data variables.product.prodname_mobile %} in title or
+// {% data variables.product.prodname_ios %} in content keeps data/variables/product.yml keys
+// out of the unused report.
 import fs from 'fs'
 import { load } from 'js-yaml'
 

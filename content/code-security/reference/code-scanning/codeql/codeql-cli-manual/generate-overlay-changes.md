@@ -1,7 +1,9 @@
 ---
 title: generate overlay-changes
-intro: |
+intro: |-
   [Plumbing] Generate a file that can be used for the
+  --overlay-changes option to
+  codeql database create when extracting an overlay database.
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghec: '*'

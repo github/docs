@@ -107,7 +107,7 @@ You can assign issues to {% data variables.product.prodname_copilot_short %} usi
 ### Using the GraphQL API
 
 > [!NOTE]
-> You must include the `GraphQL-Features` header with the values `issues_copilot_assignment_api_support` and `coding_agent_model_selection`.
+> You must include the `GraphQL-Features` header with the value `coding_agent_model_selection`.
 
 You can use the following GraphQL mutations to assign issues to {% data variables.product.prodname_copilot_short %}:
 
@@ -191,7 +191,7 @@ You can use the following GraphQL mutations to assign issues to {% data variable
           }
         }
       }
-    }' -H 'GraphQL-Features: issues_copilot_assignment_api_support,coding_agent_model_selection'
+    }' -H 'GraphQL-Features: coding_agent_model_selection'
     ```
 
 #### Assigning an existing issue
@@ -262,7 +262,7 @@ You can use the following GraphQL mutations to assign issues to {% data variable
           }
         }
       }
-    }' -H 'GraphQL-Features: issues_copilot_assignment_api_support,coding_agent_model_selection'
+    }' -H 'GraphQL-Features: coding_agent_model_selection'
     ```
 
 1. Alternatively, you can use the `updateIssue` mutation to update an existing issue and assign it to {% data variables.product.prodname_copilot_short %}. Replace `ISSUE_ID` with the issue ID and `BOT_ID` with the bot ID.
@@ -290,7 +290,7 @@ You can use the following GraphQL mutations to assign issues to {% data variable
           }
         }
       }
-    }' -H 'GraphQL-Features: issues_copilot_assignment_api_support,coding_agent_model_selection'
+    }' -H 'GraphQL-Features: coding_agent_model_selection'
     ```
 
 1. You can also use the `addAssigneesToAssignable` mutation to add {% data variables.product.prodname_copilot_short %} to an existing issue while keeping other assignees. Replace `ISSUE_ID` with the issue ID and `BOT_ID` with the bot ID.
@@ -320,7 +320,7 @@ You can use the following GraphQL mutations to assign issues to {% data variable
           }
         }
       }
-    }' -H 'GraphQL-Features: issues_copilot_assignment_api_support,coding_agent_model_selection'
+    }' -H 'GraphQL-Features: coding_agent_model_selection'
     ```
 
 ### Using the REST API
@@ -397,5 +397,5 @@ gh api \
 ## Further reading
 
 * [AUTOTITLE](/rest/agent-tasks/agent-tasks)
-* [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-cloud-agent)
+* [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-on-github)
 * [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/start-copilot-sessions)

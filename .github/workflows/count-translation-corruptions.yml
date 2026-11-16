@@ -1,8 +1,6 @@
 name: Count translation corruptions
 
-# **What it does**: Generates a summary of Liquid corruptions per language.
-# **Why we have it**: For insights into the state of translations and things we can do to fix them
-# **Who does it impact**: Engineering
+# Counts Liquid corruptions across translations before correction logic changes ship.
 
 on:
   workflow_dispatch:
@@ -26,13 +24,9 @@ jobs:
       - name: Checkout English repo
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
-          # Using a PAT is necessary so that the new commit will trigger the
-          # CI in the PR. (Events from GITHUB_TOKEN don't trigger new workflows.)
           token: ${{ secrets.DOCS_BOT_PAT_BASE }}
 
-      # It's important because translations are often a bit behind.
-      # So if a translation is a bit behind, it might still be referencing
-      # an asset even though none of the English content does.
+      # Clone translations so the count script can render localized pages for corruption scans.
       - name: Clone all translations
         uses: ./.github/actions/clone-translations
         with:

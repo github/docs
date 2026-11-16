@@ -20,13 +20,11 @@ const upcomingChangesValidate = getJsonValidator(upcomingChangesValidator)
 describe('graphql json files', () => {
   vi.setConfig({ testTimeout: 3 * 60 * 1000 })
 
-  // The typeObj is repeated thousands of times across the per-category files
-  // so cache validated objects to speed this test up significantly.
+  // typeObj repeats thousands of times across category files.
+  // Cache validated objects to keep this test fast.
   const typeObjsTested = new Set<string>()
   for (const version of graphqlVersions) {
-    // Merge every per-category schema-*.json into one in-memory shape
-    // mirroring the legacy monolithic schema.json so the rest of the test
-    // logic stays unchanged.
+    // Merge category schema files into the monolithic shape that schemaValidator expects.
     const schemaJsonPerVersion: Record<string, Array<{ name: string }>> = {}
     for (const type of graphqlTypes) schemaJsonPerVersion[type] = []
     for (const category of CATEGORIES) {
@@ -83,7 +81,6 @@ describe('graphql json files', () => {
         `${GRAPHQL_DATA_DIR}/${version}/upcoming-changes.json`,
       ) as Record<string, unknown[]>
       for (const changes of Object.values(upcomingChanges)) {
-        // each object value is an array of changes
         for (const changeObj of changes) {
           const isValid = upcomingChangesValidate(changeObj)
           let errors: string | undefined

@@ -36,7 +36,7 @@ You can also enable or disable {% data variables.product.prodname_dependabot_sec
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
-1. To the right of "{% data variables.product.prodname_dependabot %} security updates," click **Enable** to enable the feature or **Disable** to disable it. {% ifversion fpt or ghec %}For public repositories, the button is disabled if the feature is always enabled.{% endif %}
+1. To the right of "{% data variables.product.prodname_dependabot %} security updates," click **Enable** to enable the feature or **Disable** to disable it.
 
 ## Grouping {% data variables.product.prodname_dependabot_security_updates %} into a single pull request
 

@@ -1,14 +1,87 @@
 import { describe, expect, test } from 'vitest'
+import { load } from 'js-yaml'
 
 import {
   extractYaml,
   extractSkipReason,
   parseNoteEntries,
   loadExistingEntriesFromString,
+  extractPreservedBlocks,
   buildReleaseNotesYaml,
+  replaceEntriesForSource,
 } from '@/ghes-releases/lib/parse-release-notes'
 
-// ─── extractYaml ─────────────────────────────────────────────────────────────
+const handWrittenNotesFile = `date: '2025-01-15'
+release_candidate: true
+deprecated: false
+intro: |
+
+sections:
+
+  features:
+
+    - heading: GitHub Actions
+      notes:
+        # Required Actions Runner version: 2.331.0
+        - |
+          Runner note.
+
+    - heading: APIs
+      notes:
+        # https://github.com/github/releases/issues/100
+        - |
+          New endpoint added.
+        #
+        - |
+          Hand-written API note.
+
+  changes:
+    # https://github.com/github/ghes/issues/18667
+    - |
+      The \`/repos\` path is reserved.
+
+  known_issues:
+    - |
+      ...
+
+  closing_down:
+    - |
+      LDAP over CAS is closing down.
+    # https://github.com/github/releases/issues/200
+    - |
+      Legacy API deprecated.
+`
+
+const handEditedFile = `date: '2026-05-12'
+release_candidate: true
+deprecated: true
+intro: |
+  Custom intro written by hand.
+sections:
+
+  features:
+
+    - heading: APIs
+      notes:
+        # https://github.com/github/releases/issues/100
+        - |
+          New endpoint added.
+
+  known_issues:
+    - |
+      First known issue.
+    - |
+      Second known issue.
+
+  closing_down:
+    # https://github.com/github/releases/issues/300
+    - |
+      Legacy API deprecated.
+
+  errata:
+    - |
+      An erratum about a removed note.
+`
 
 describe('extractYaml', () => {
   test('extracts YAML from a fenced code block', () => {
@@ -46,8 +119,6 @@ Some trailing text that is not YAML`
   })
 })
 
-// ─── extractSkipReason ───────────────────────────────────────────────────────
-
 describe('extractSkipReason', () => {
   test('extracts reason from "# SKIP: <reason>"', () => {
     expect(extractSkipReason('# SKIP: Not applicable to GHES')).toBe('Not applicable to GHES')
@@ -57,8 +128,6 @@ describe('extractSkipReason', () => {
     expect(extractSkipReason('- heading: Foo\n  notes:\n    - bar')).toBeNull()
   })
 })
-
-// ─── parseNoteEntries ────────────────────────────────────────────────────────
 
 describe('parseNoteEntries', () => {
   const sourceUrl = 'https://github.com/github/releases/issues/1234'
@@ -107,8 +176,6 @@ describe('parseNoteEntries', () => {
     expect(entries[0].notes).toEqual(['Valid note.'])
   })
 })
-
-// ─── loadExistingEntriesFromString ───────────────────────────────────────────
 
 describe('loadExistingEntriesFromString', () => {
   test('parses feature entries with source URL comments', () => {
@@ -262,9 +329,211 @@ sections:
     expect(result.entries).toHaveLength(1)
     expect(result.entries[0].notes).toEqual(['First note.', 'Second note from same issue.'])
   })
+
+  test('does not attribute hand-written notes to the previous releases issue', () => {
+    const result = loadExistingEntriesFromString(handWrittenNotesFile)
+    expect(result.entries).toEqual([
+      {
+        heading: 'GitHub Actions',
+        notes: ['Runner note.'],
+        sourceUrl: '',
+      },
+      {
+        heading: 'APIs',
+        notes: ['New endpoint added.'],
+        sourceUrl: 'https://github.com/github/releases/issues/100',
+      },
+      {
+        heading: 'APIs',
+        notes: ['Hand-written API note.'],
+        sourceUrl: '',
+      },
+      {
+        heading: 'Changes',
+        notes: ['The `/repos` path is reserved.'],
+        sourceUrl: 'https://github.com/github/ghes/issues/18667',
+      },
+      {
+        heading: 'Closing down',
+        notes: ['LDAP over CAS is closing down.'],
+        sourceUrl: '',
+      },
+      {
+        heading: 'Closing down',
+        notes: ['Legacy API deprecated.'],
+        sourceUrl: 'https://github.com/github/releases/issues/200',
+      },
+    ])
+    expect([...result.coveredUrls]).toEqual([
+      'https://github.com/github/releases/issues/100',
+      'https://github.com/github/ghes/issues/18667',
+      'https://github.com/github/releases/issues/200',
+    ])
+  })
+
+  test('keeps # lines inside a note as note content', () => {
+    const content = `sections:
+  changes:
+    # https://github.com/github/releases/issues/100
+    - |
+      Run this command:
+
+      \`\`\`shell
+      # Enable the feature
+      ghe-config app.example.enabled true
+      \`\`\`
+    - |
+      Second note.
+`
+    const result = loadExistingEntriesFromString(content)
+    expect(result.entries).toEqual([
+      {
+        heading: 'Changes',
+        notes: [
+          'Run this command:\n\n```shell\n# Enable the feature\nghe-config app.example.enabled true\n```',
+          'Second note.',
+        ],
+        sourceUrl: 'https://github.com/github/releases/issues/100',
+      },
+    ])
+  })
+
+  test('treats a comment less indented than the note text as a source comment', () => {
+    const content = `sections:
+  changes:
+    # https://github.com/github/releases/issues/100
+    - |
+      First note.
+     # https://github.com/github/releases/issues/200
+    - |
+      Second note.
+`
+    const result = loadExistingEntriesFromString(content)
+    expect(result.entries).toEqual([
+      {
+        heading: 'Changes',
+        notes: ['First note.'],
+        sourceUrl: 'https://github.com/github/releases/issues/100',
+      },
+      {
+        heading: 'Changes',
+        notes: ['Second note.'],
+        sourceUrl: 'https://github.com/github/releases/issues/200',
+      },
+    ])
+  })
+
+  test('keeps hand-written notes when one releases issue is filtered out', () => {
+    const { entries } = loadExistingEntriesFromString(handWrittenNotesFile)
+    const kept = entries.filter(
+      (e) =>
+        e.sourceUrl !== 'https://github.com/github/releases/issues/100' &&
+        e.sourceUrl !== 'https://github.com/github/releases/issues/200',
+    )
+    expect(kept.flatMap((e) => e.notes)).toEqual([
+      'Runner note.',
+      'Hand-written API note.',
+      'The `/repos` path is reserved.',
+      'LDAP over CAS is closing down.',
+    ])
+  })
+
+  test('keeps nested indentation when reloading generated notes', () => {
+    const note = [
+      'You can now configure the feature:',
+      '',
+      '1. Enable the setting.',
+      '',
+      '   This paragraph continues the first step.',
+      '',
+      '   ```shell',
+      '   ghe-config app.example.enabled true',
+      '   ```',
+      '',
+      '1. Apply the configuration.',
+      '',
+      '* Parent item',
+      '  * Child item',
+    ].join('\n')
+    const yaml = buildReleaseNotesYaml(
+      [
+        {
+          heading: 'GitHub Actions',
+          notes: [note],
+          sourceUrl: 'https://github.com/github/releases/issues/100',
+        },
+        {
+          heading: 'Some Other Heading',
+          notes: [note],
+          sourceUrl: 'https://github.com/github/releases/issues/101',
+        },
+      ],
+      false,
+      ['GitHub Actions'],
+    )
+    const result = loadExistingEntriesFromString(yaml)
+    expect(result.entries.map((e) => e.notes)).toEqual([[note], [note]])
+  })
+
+  test('uses the first content line as the base indent of a note', () => {
+    const content = `sections:
+  changes:
+    # https://github.com/github/releases/issues/100
+    - |
+       Parent paragraph.
+
+       * Item
+         * Nested item
+`
+    const result = loadExistingEntriesFromString(content)
+    expect(result.entries[0].notes).toEqual(['Parent paragraph.\n\n* Item\n  * Nested item'])
+  })
+
+  test('ends a note at a less indented comment that is not a release issue URL', () => {
+    const content = `sections:
+  closing_down:
+    # https://github.com/github/releases/issues/100
+    - |
+      First note.
+    # https://github.com/github/ghes/issues/200
+    - |
+      Second note.
+`
+    const result = loadExistingEntriesFromString(content)
+    expect(result.entries[0].notes[0]).toBe('First note.')
+  })
+
+  test('does not attribute errata or known issues to the previous source URL', () => {
+    const result = loadExistingEntriesFromString(handEditedFile)
+    const closing = result.entries.filter((e) => e.heading === 'Closing down')
+    expect(closing).toEqual([
+      {
+        heading: 'Closing down',
+        notes: ['Legacy API deprecated.'],
+        sourceUrl: 'https://github.com/github/releases/issues/300',
+      },
+    ])
+    const allNotes = result.entries.flatMap((e) => e.notes)
+    expect(allNotes).not.toContain('An erratum about a removed note.')
+  })
 })
 
-// ─── buildReleaseNotesYaml ───────────────────────────────────────────────────
+describe('extractPreservedBlocks', () => {
+  test('returns the header and the sections the generator does not write', () => {
+    const preserved = extractPreservedBlocks(handEditedFile)
+    expect(preserved).not.toBeNull()
+    expect(preserved!.header).toContain("date: '2026-05-12'")
+    expect(preserved!.header).toContain('deprecated: true')
+    expect(preserved!.header).toContain('Custom intro written by hand.')
+    expect(preserved!.knownIssues).toContain('Second known issue.')
+    expect(preserved!.otherSections).toHaveLength(1)
+    expect(preserved!.otherSections[0]).toMatch(/^ {2}errata:/)
+  })
+
+  test('returns null when there is no sections key', () => {
+    expect(extractPreservedBlocks("date: '2026-05-12'\n")).toBeNull()
+  })
+})
 
 describe('buildReleaseNotesYaml', () => {
   const featureHeadings = ['GitHub Actions', 'Repositories', 'APIs']
@@ -280,24 +549,62 @@ describe('buildReleaseNotesYaml', () => {
     const reposIdx = yaml.indexOf('- heading: Repositories')
     expect(actionsIdx).toBeGreaterThan(-1)
     expect(reposIdx).toBeGreaterThan(-1)
-    // GitHub Actions comes before Repositories in featureHeadings
     expect(actionsIdx).toBeLessThan(reposIdx)
 
     expect(yaml).toContain('Actions note.')
     expect(yaml).toContain('Repo note.')
   })
 
-  test('places non-feature entries in changes section', () => {
+  test('places Changes entries in changes section', () => {
     const entries = [
-      { heading: 'Some Other Heading', notes: ['A change.'], sourceUrl: 'https://example.com/1' },
+      { heading: 'Changes', notes: ['A change.'], sourceUrl: 'https://example.com/1' },
     ]
     const yaml = buildReleaseNotesYaml(entries, false, featureHeadings)
 
-    // Should appear under changes, not features
     expect(yaml).toContain('  features:\n    # TODO: Add feature notes')
     expect(yaml).toContain('  changes:')
     expect(yaml).toContain('# https://example.com/1')
     expect(yaml).toContain('A change.')
+  })
+
+  test('keeps feature headings that are not in the template after template headings', () => {
+    const entries = [
+      { heading: 'Copilot', notes: ['Copilot note.'], sourceUrl: 'https://example.com/1' },
+      { heading: 'APIs', notes: ['API note.'], sourceUrl: 'https://example.com/2' },
+    ]
+    const yaml = buildReleaseNotesYaml(entries, false, featureHeadings)
+
+    const apisIdx = yaml.indexOf('    - heading: APIs')
+    const copilotIdx = yaml.indexOf('    - heading: Copilot')
+    expect(apisIdx).toBeGreaterThan(-1)
+    expect(copilotIdx).toBeGreaterThan(apisIdx)
+    expect(copilotIdx).toBeLessThan(yaml.indexOf('  known_issues:'))
+    expect(yaml).toContain('Copilot note.')
+    expect(yaml).not.toContain('  changes:')
+  })
+
+  test('preserves feature headings that are not in the template on reload', () => {
+    const entries = [
+      {
+        heading: 'Code scanning',
+        notes: ['Code scanning note.'],
+        sourceUrl: 'https://github.com/github/releases/issues/1',
+      },
+      {
+        heading: 'Secret scanning',
+        notes: ['Secret scanning note.'],
+        sourceUrl: 'https://github.com/github/releases/issues/2',
+      },
+      {
+        heading: 'Changes',
+        notes: ['A change.'],
+        sourceUrl: 'https://github.com/github/releases/issues/3',
+      },
+    ]
+    const yaml = buildReleaseNotesYaml(entries, false, featureHeadings)
+    const reloaded = loadExistingEntriesFromString(yaml)
+
+    expect(reloaded.entries).toEqual(entries)
   })
 
   test('places Closing down and Retired entries in their own sections', () => {
@@ -315,7 +622,6 @@ describe('buildReleaseNotesYaml', () => {
     expect(yaml).toContain('Deprecating X.')
     expect(yaml).toContain('  retired:\n    # https://example.com/2')
     expect(yaml).toContain('Removed Y.')
-    // Changes should be omitted since Closing down/Retired are excluded and no other entries exist
     expect(yaml).not.toContain('  changes:')
   })
 
@@ -324,8 +630,7 @@ describe('buildReleaseNotesYaml', () => {
 
     expect(yaml).toContain('# TODO: Add feature notes')
     expect(yaml).toContain('# TODO: Add known issues')
-    // Empty changes, closing_down, and retired are omitted entirely
-    // to avoid YAML parsing as null (which fails schema validation)
+    // Omit empty changes, closing_down, and retired so schema validation does not see null sections.
     expect(yaml).not.toContain('  changes:')
     expect(yaml).not.toContain('  closing_down:')
     expect(yaml).not.toContain('  retired:')
@@ -359,5 +664,165 @@ describe('buildReleaseNotesYaml', () => {
     expect(yaml).toContain('# https://github.com/github/releases/issues/999')
     expect(yaml).toContain('- |')
     expect(yaml).toContain('Line one of the note.')
+  })
+
+  test('keeps other source comments and marks notes without a source with a bare comment', () => {
+    const { entries } = loadExistingEntriesFromString(handWrittenNotesFile)
+    const yaml = buildReleaseNotesYaml(entries, false, featureHeadings)
+
+    expect(yaml).toContain(
+      '  changes:\n    # https://github.com/github/ghes/issues/18667\n    - |\n      The `/repos` path is reserved.',
+    )
+    expect(yaml).toContain(
+      '- heading: GitHub Actions\n      notes:\n        #\n        - |\n          Runner note.\n',
+    )
+    expect(yaml).toContain(
+      '  closing_down:\n    #\n    - |\n      LDAP over CAS is closing down.\n    # https://github.com/github/releases/issues/200',
+    )
+    expect(loadExistingEntriesFromString(yaml).entries).toEqual(entries)
+  })
+
+  test('keeps hand-edited header, known issues, and errata on a rerun', () => {
+    const { entries } = loadExistingEntriesFromString(handEditedFile)
+    const preserved = extractPreservedBlocks(handEditedFile)!
+    const yaml = buildReleaseNotesYaml(entries, true, featureHeadings, preserved)
+    const parsed = load(yaml) as {
+      date: string
+      deprecated: boolean
+      intro: string
+      sections: Record<string, string[]>
+    }
+
+    expect(parsed.date).toBe('2026-05-12')
+    expect(parsed.deprecated).toBe(true)
+    expect(parsed.intro).toBe('Custom intro written by hand.\n')
+    expect(parsed.sections.known_issues).toEqual(['First known issue.\n', 'Second known issue.\n'])
+    expect(parsed.sections.errata).toEqual(['An erratum about a removed note.\n'])
+    expect(parsed.sections.closing_down).toEqual(['Legacy API deprecated.\n'])
+    expect(parsed.sections.features).toEqual([
+      { heading: 'APIs', notes: ['New endpoint added.\n'] },
+    ])
+  })
+
+  test('keeps grouped known issues and errata out of generated entries across reruns', () => {
+    const groupedFile = `date: '2026-05-12'
+release_candidate: false
+deprecated: false
+intro: |
+sections:
+
+  features:
+
+    - heading: APIs
+      notes:
+        # https://github.com/github/releases/issues/100
+        - |
+          New endpoint added.
+
+  known_issues:
+    - heading: APIs
+      notes:
+        - |
+          A grouped API known issue.
+
+  errata:
+    - heading: Repositories
+      notes:
+        - |
+          A grouped erratum.
+`
+    const { entries } = loadExistingEntriesFromString(groupedFile)
+    expect(entries).toEqual([
+      {
+        heading: 'APIs',
+        notes: ['New endpoint added.'],
+        sourceUrl: 'https://github.com/github/releases/issues/100',
+      },
+    ])
+
+    const firstRun = buildReleaseNotesYaml(
+      entries,
+      false,
+      featureHeadings,
+      extractPreservedBlocks(groupedFile)!,
+    )
+    const secondRun = buildReleaseNotesYaml(
+      loadExistingEntriesFromString(firstRun).entries,
+      false,
+      featureHeadings,
+      extractPreservedBlocks(firstRun)!,
+    )
+    expect(secondRun).toBe(firstRun)
+    const parsed = load(secondRun) as { sections: Record<string, unknown> }
+    expect(parsed.sections.features).toEqual([
+      { heading: 'APIs', notes: ['New endpoint added.\n'] },
+    ])
+    expect(parsed.sections.known_issues).toEqual([
+      { heading: 'APIs', notes: ['A grouped API known issue.\n'] },
+    ])
+    expect(parsed.sections.errata).toEqual([
+      { heading: 'Repositories', notes: ['A grouped erratum.\n'] },
+    ])
+  })
+})
+
+describe('replaceEntriesForSource', () => {
+  const urlA = 'https://github.com/github/releases/issues/1'
+  const urlB = 'https://github.com/github/releases/issues/2'
+
+  test('replaces entries for the source URL and keeps other entries and array identity', () => {
+    const entries = [
+      { heading: 'Repositories', notes: ['Old A note.'], sourceUrl: urlA },
+      { heading: 'APIs', notes: ['B note.'], sourceUrl: urlB },
+      { heading: 'Changes', notes: ['Old A change.'], sourceUrl: urlA },
+    ]
+    const original = entries
+    const added = replaceEntriesForSource(entries, urlA, [
+      { heading: 'Repositories', notes: ['New A note.'], sourceUrl: urlA },
+    ])
+
+    expect(added).toBe(1)
+    expect(entries).toBe(original)
+    expect(entries).toEqual([
+      { heading: 'APIs', notes: ['B note.'], sourceUrl: urlB },
+      { heading: 'Repositories', notes: ['New A note.'], sourceUrl: urlA },
+    ])
+  })
+
+  test('appends new entries when no existing entry matches the source URL', () => {
+    const entries = [{ heading: 'APIs', notes: ['B note.'], sourceUrl: urlB }]
+    replaceEntriesForSource(entries, urlA, [
+      { heading: 'Repositories', notes: ['A note.'], sourceUrl: urlA },
+    ])
+
+    expect(entries).toEqual([
+      { heading: 'APIs', notes: ['B note.'], sourceUrl: urlB },
+      { heading: 'Repositories', notes: ['A note.'], sourceUrl: urlA },
+    ])
+  })
+
+  test('keeps existing entries when there are no new entries', () => {
+    const entries = [
+      { heading: 'Repositories', notes: ['Old A note.'], sourceUrl: urlA },
+      { heading: 'APIs', notes: ['B note.'], sourceUrl: urlB },
+    ]
+    expect(replaceEntriesForSource(entries, urlA, [])).toBe(0)
+
+    expect(entries).toEqual([
+      { heading: 'Repositories', notes: ['Old A note.'], sourceUrl: urlA },
+      { heading: 'APIs', notes: ['B note.'], sourceUrl: urlB },
+    ])
+    const yaml = buildReleaseNotesYaml(entries, false, ['Repositories', 'APIs'])
+    expect(yaml).toContain(`# ${urlA}`)
+    expect(yaml).toContain('Old A note.')
+  })
+
+  test('adds identical new entries only once', () => {
+    const entries = [{ heading: 'Repositories', notes: ['Old A note.'], sourceUrl: urlA }]
+    const repeated = { heading: 'Repositories', notes: ['New A note.'], sourceUrl: urlA }
+    const added = replaceEntriesForSource(entries, urlA, [repeated, { ...repeated }])
+
+    expect(added).toBe(1)
+    expect(entries).toEqual([repeated])
   })
 })

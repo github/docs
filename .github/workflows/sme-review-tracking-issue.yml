@@ -1,14 +1,12 @@
 name: Create SME review tracking issue
 
-# **What it does**: Creates an SME review tracking issue when the `needs SME` label is applied to a PR or issue
-# **Why we have it**: We do not want to manually create an SME review tracking issue when an SME review is needed
-# **Who does it impact**: Hubbers
+# Creates a technical-content tracking issue when a github/docs PR or issue gets the needs SME label.
 
 on:
   issues:
     types:
       - labeled
-  # Required in lieu of `pull_request` so that this workflow can query users in org to determine membership.
+  # pull_request_target gives fork PRs the DOCS_BOT_PAT_BASE secret to create the issue.
   pull_request_target:
     types:
       - labeled
@@ -31,7 +29,6 @@ jobs:
 
             const issueNo = context.number || context.issue.number
 
-            // Create an issue in technical-content repo
             await github.rest.issues.create({
               owner: 'github',
               repo: 'technical-content',

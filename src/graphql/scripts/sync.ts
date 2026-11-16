@@ -1,7 +1,6 @@
 import fs from 'fs/promises'
 import { appendFileSync } from 'fs'
 import path from 'path'
-import { mkdirp } from 'mkdirp'
 import { load } from 'js-yaml'
 import { execSync } from 'child_process'
 import { getContents, hasMatchingRef } from '@/workflows/git-utils'
@@ -18,7 +17,6 @@ import {
   getIgnoredChangesSummary,
 } from './build-changelog'
 
-// Type definitions
 interface GitHubRepoOptions {
   owner: string
   repo: string
@@ -60,17 +58,13 @@ const dataFilenames = JSON.parse(
   await fs.readFile('src/graphql/scripts/utils/data-filenames.json', 'utf8'),
 )
 
-// check for required PAT
 if (!process.env.GITHUB_TOKEN) {
   throw new Error('Error! You must have a GITHUB_TOKEN set in an .env file to run this script.')
 }
 
 const versionsToBuild = Object.keys(allVersions)
 
-// Tracks, per category, the set of docs versions in which the category has at
-// least one type. Populated inside the per-version loop and consumed after it
-// to manage the per-category content pages. Declared before `main()` runs so
-// the loop never reads it in the temporal dead zone.
+// Declare categoryPresence before the main() call so the loop never reads it in the temporal dead zone.
 const categoryPresence: CategoryPresence = new Map()
 
 main()
@@ -79,12 +73,9 @@ const allIgnoredChanges: IgnoredChange[] = []
 
 async function main() {
   for (const version of versionsToBuild) {
-    // Get the relevant GraphQL name  for the current version
-    // For example, free-pro-team@latest corresponds to dotcom,
-    // enterprise-server@2.22 corresponds to ghes-2.22.
+    // Examples: free-pro-team@latest maps to dotcom; enterprise-server@2.22 maps to ghes-2.22.
     const graphqlVersion = allVersions[version].openApiVersionName
 
-    // 1. UPDATE PREVIEWS
     const previewsPath = getDataFilepath('previews', graphqlVersion)
     const rawPreviews = load(
       await getRemoteRawContent(previewsPath, graphqlVersion),
@@ -96,7 +87,6 @@ async function main() {
       path.join(graphqlStaticDir, graphqlVersion, 'previews.json'),
     )
 
-    // 2. UPDATE UPCOMING CHANGES
     const upcomingChangesPath = getDataFilepath('upcomingChanges', graphqlVersion)
     const previousUpcomingChanges = load(
       await fs.readFile(upcomingChangesPath, 'utf8'),
@@ -109,8 +99,6 @@ async function main() {
       path.join(graphqlStaticDir, graphqlVersion, 'upcoming-changes.json'),
     )
 
-    // 3. UPDATE SCHEMAS
-    // note: schemas live in separate files per version
     const previewFilePath = getDataFilepath('schemas', graphqlVersion)
     const previousSchemaString = await fs.readFile(previewFilePath, 'utf8')
     const latestSchema = await getRemoteRawContent(previewFilePath, graphqlVersion)
@@ -119,11 +107,7 @@ async function main() {
       ...preview,
       toggled_by: [preview.toggled_by].flat(),
     }))
-    // Fallback category source for GHES versions that pre-date the upstream
-    // `@docsCategory` DSL (DSL landed on master 2026-05-07; GHES 3.16-3.21
-    // were cut at the 3.21 freeze 2026-03-19). Without this, every type on
-    // those versions gets bucketed as "other". GHES 3.22+ is expected to
-    // include the DSL natively so it's excluded from the fallback.
+    // GHES schemas before 3.22 lack @docsCategory, so fall back to the fpt category map.
     let fallbackCategoryMap: Record<string, Record<string, string>> | undefined
     const ghesMatch = /^ghes-(\d+)\.(\d+)$/.exec(graphqlVersion)
     if (ghesMatch) {
@@ -136,8 +120,7 @@ async function main() {
           )
           console.log(`Using fpt/category-map.json as @docsCategory fallback for ${graphqlVersion}`)
         } catch {
-          // fpt hasn't been processed yet (shouldn't happen given iteration
-          // order, but stay defensive). Without it, ghes types fall to "other".
+          // fpt runs first; if category-map.json is unavailable, GHES types fall back to other.
         }
       }
     }
@@ -145,18 +128,14 @@ async function main() {
       latestSchema,
       previewsForSchema,
       fallbackCategoryMap,
-    ) // This is slow!
+      { currentLanguage: 'en', currentVersion: version },
+    )
 
-    // Split the schema by category so the runtime can lazily load only the
-    // bucket it needs for a given page request. The monolithic `schema.json`
-    // is no longer written; per-category files are the only on-disk format.
+    // processSchemas is slow; per-category files are the only on-disk format for scoped loads.
     const perCategoryFiles = bucketSchemaByCategory(schemaJsonPerVersion)
     await writeCategoryFiles(path.join(graphqlStaticDir, graphqlVersion), perCategoryFiles)
 
-    // Record which categories have at least one type in this version so the
-    // content pages and their `versions` frontmatter can be managed after the
-    // loop. `version` is the docs version key (e.g. `enterprise-server@3.22`),
-    // which is the format `convertVersionsToFrontmatter` expects.
+    // Store docs version keys so convertVersionsToFrontmatter can update pages after the loop.
     for (const [cat, bucket] of perCategoryFiles.entries()) {
       const hasTypes = ALL_KIND_KEYS.some((kind) => (bucket[kind]?.length ?? 0) > 0)
       if (!hasTypes) continue
@@ -164,9 +143,8 @@ async function main() {
       categoryPresence.get(cat)!.add(version)
     }
 
-    // 4. UPDATE CHANGELOG
     if (allVersions[version].nonEnterpriseDefault) {
-      // The changelog is only built for free-pro-team@latest
+      // Build the changelog only for free-pro-team@latest.
       const changelogEntry = await createChangelogEntry(
         previousSchemaString,
         latestSchema,
@@ -181,7 +159,6 @@ async function main() {
         )
       }
 
-      // Capture ignored changes for potential workflow notifications
       const ignoredSummary = getIgnoredChangesSummary()
       if (ignoredSummary) {
         allIgnoredChanges.push({
@@ -192,15 +169,11 @@ async function main() {
     }
   }
 
-  // Manage the per-category content pages (create new categories, delete
-  // emptied ones, narrow `versions` frontmatter) plus the reference index
-  // children and disappearance redirects, based on the presence collected above.
+  // Sync category pages, index children, and disappearance redirects after all versions run.
   await syncCategoryContentFiles(categoryPresence)
 
-  // Ensure the YAML linter runs before checkinging in files
   execSync('npx prettier -w "**/*.{yml,yaml}"')
 
-  // Output ignored changes for GitHub Actions
   if (allIgnoredChanges.length > 0) {
     const totalIgnored = allIgnoredChanges.reduce((sum, item) => sum + item.totalCount, 0)
     const uniqueTypes = [
@@ -211,7 +184,6 @@ async function main() {
       '::notice title=GraphQL Ignored Changes::Found ignored change types that may need review',
     )
 
-    // Write outputs to GitHub Actions output file
     if (process.env.GITHUB_OUTPUT) {
       appendFileSync(
         process.env.GITHUB_OUTPUT,
@@ -223,20 +195,17 @@ async function main() {
   }
 }
 
-// get latest from github/github
 async function getRemoteRawContent(filepath: string, graphqlVersion: string) {
   const options: GitHubRepoOptions = {
     owner: 'github',
     repo: 'github',
   }
 
-  // find the relevant branch in github/github and set it as options.ref
   let t0 = new Date().getTime()
   options.ref = await getBranchAsRef(options, graphqlVersion)
   let took = new Date().getTime() - t0
   console.log(`Got ref (${options.ref}) for '${graphqlVersion}'. Took ${formatTime(took)}`)
 
-  // add the filepath to the options so we can get the contents of the file
   options.path = `config/${path.basename(filepath)}`
 
   t0 = new Date().getTime()
@@ -247,11 +216,10 @@ async function getRemoteRawContent(filepath: string, graphqlVersion: string) {
   return contents
 }
 
-// find the relevant filepath in src/graphql/scripts/util/data-filenames.json
 function getDataFilepath(id: string, graphqlVersion: string) {
   const versionType = getVersionName(graphqlVersion)
 
-  // for example, dataFilenames['schema']['ghes'] = schema.docs-enterprise.graphql
+  // Example: dataFilenames.schema.ghes maps to schema.docs-enterprise.graphql.
   const filename = dataFilenames[id][versionType]
 
   return path.join(graphqlStaticDir, graphqlVersion, filename)
@@ -271,16 +239,12 @@ async function getBranchAsRef(
     ghes: `enterprise-${graphqlVersion.replace('ghes-', '')}-release`,
   }
 
-  // the first time this runs, it uses the branch found for the version above
   if (!branch) branch = branches[versionType]
 
-  // set the branch as the ref
   const ref = `heads/${branch}`
 
-  // check whether the branch can be found in github/github
   const exists = await hasMatchingRef(options.owner, options.repo, ref)
 
-  // if ref is not found, the branch cannot be found, so try a fallback
   if (!exists) {
     const fallbackBranch = defaultBranch
     return await getBranchAsRef(options, graphqlVersion, fallbackBranch)
@@ -288,20 +252,18 @@ async function getBranchAsRef(
   return ref
 }
 
-// given a GraphQL version like `ghes-2.22`, return `ghes`;
-// given a GraphQL version like `dotcom`, return as is
+// Examples: ghes-2.22 returns ghes; dotcom returns dotcom.
 function getVersionName(graphqlVersion: string) {
   return graphqlVersion.split('-')[0]
 }
 
 async function updateFile(filepath: string, content: string) {
   console.log(`Updating file ${filepath}`)
-  await mkdirp(path.dirname(filepath))
+  await fs.mkdir(path.dirname(filepath), { recursive: true })
   return fs.writeFile(filepath, content, 'utf8')
 }
 
-// JSON data from GraphQL schema processing - complex nested structures
-// Serialize unknown shapes because the structure varies (arrays, objects, nested schemas, etc.)
+// Serialize unknown GraphQL shapes because schema processing returns nested arrays and objects.
 async function updateStaticFile(json: unknown, filepath: string) {
   console.log(`Updating static file ${filepath}`)
   const jsonString = JSON.stringify(json, null, 2)

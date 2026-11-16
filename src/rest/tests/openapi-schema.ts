@@ -36,11 +36,10 @@ async function getFlatListOfOperations(version: string): Promise<Operation[]> {
 }
 
 describe('markdown for each rest version', () => {
-  // Unique set of all categories across all versions of the OpenAPI schema
   const allCategories = new Set<string>()
-  // Entire schema including categories and subcategories, keyed by version then category
+  // Keyed by version, then category.
   const openApiSchema: Record<string, Record<string, RestOperationCategory>> = {}
-  // All applicable version of categories based on frontmatter in the categories index.md file
+  // Read from the frontmatter of each category's index.md.
   const categoryApplicableVersions: Record<string, string[]> = {}
 
   function getApplicableVersionFromFile(file: string) {
@@ -76,8 +75,7 @@ describe('markdown for each rest version', () => {
       }
     }
 
-    // Read the versions from each index.md file to build a list of
-    // applicable versions for each category
+    // Each category's applicable versions come from its index.md frontmatter.
     for (const file of walk('content/rest', { includeBasePath: true, directories: false }).filter(
       (filename) => filename.includes('index.md'),
     )) {
@@ -88,10 +86,9 @@ describe('markdown for each rest version', () => {
   })
 
   test('markdown file exists for every operationId prefix in all versions of the OpenAPI schema', async () => {
-    // List of categories derived from disk
     const filenames = new Set(
       getAutomatedMarkdownFiles('content/rest')
-        // Gets just category level files (paths directly under /rest)
+        // Extract the category segment from category and subcategory paths.
         .map((filename) => filename.split('/')[2])
         .sort(),
     )
@@ -144,10 +141,8 @@ describe('rest file structure', () => {
 })
 
 describe('OpenAPI schema validation', () => {
-  // ensure every version defined in allVersions has a correlating static
-  // decorated file, while allowing decorated files to exist when a version
-  // is not yet defined in allVersions (e.g., a GHEC static file can exist
-  // even though the version is not yet supported in the docs)
+  // Every allVersions entry needs a matching decorated data directory.
+  // Extra directories, such as GHEC static data, can exist before allVersions exposes them.
   test('every OpenAPI version must have a schema file in the docs', async () => {
     const versionDirs = fs
       .readdirSync(schemasPath, { withFileTypes: true })

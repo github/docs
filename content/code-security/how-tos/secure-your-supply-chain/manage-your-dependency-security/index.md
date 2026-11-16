@@ -23,6 +23,7 @@ children:
   - /re-run-dependabot-jobs
   - /list-configured-dependencies
   - /configure-private-registries
+  - /resolve-a-blocked-host
 redirect_from:
   - /code-security/dependabot/maintain-dependencies
   - /code-security/dependabot/dependabot-security-updates

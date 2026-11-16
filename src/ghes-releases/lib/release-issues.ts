@@ -7,9 +7,6 @@ interface IssueLike {
   labels: { name: string }[]
 }
 
-/**
- * Parse and validate the issue state filter. Defaults to "all".
- */
 export function parseIssueState(value?: string): IssueState {
   if (!value) return 'all'
 
@@ -23,9 +20,6 @@ export function parseIssueState(value?: string): IssueState {
   )
 }
 
-/**
- * Build gh CLI args for listing release issues.
- */
 export function buildReleaseIssueListArgs(version: string, issueState: IssueState): string[] {
   const label = `GHES ${version}`
   return [
@@ -44,9 +38,27 @@ export function buildReleaseIssueListArgs(version: string, issueState: IssueStat
   ]
 }
 
-/**
- * Excludes release issues that should not produce GHES release notes.
- */
+// gh paginates up to this many results, and 1000 is the GitHub search API maximum.
+export const CHANGELOG_PR_LIMIT = 1000
+
+export function buildChangelogPrListArgs(since: string): string[] {
+  return [
+    'pr',
+    'list',
+    '--repo',
+    'github/blog',
+    '--state',
+    'merged',
+    '--search',
+    `Changelog in:title merged:>=${since}`,
+    '--limit',
+    String(CHANGELOG_PR_LIMIT),
+    '--json',
+    'number,body,url',
+  ]
+}
+
+// "public roadmap" and "not planned" issues never produce GHES release notes.
 export function isExcludedReleaseIssue(issue: IssueLike): boolean {
   return issue.labels.some((l) => EXCLUDED_RELEASE_LABELS.has(l.name.toLowerCase()))
 }

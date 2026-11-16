@@ -59,6 +59,7 @@ prodname_ghos: GitHub-owned blob storage
 ## Enterprise Live Migrations
 prodname_elm: Enterprise Live Migrations
 prodname_elm_short: ELM
+prodname_elm_cli: ELM CLI
 
 # GitHub Education
 prodname_education: 'GitHub Education'
@@ -103,7 +104,7 @@ prodname_codeql_cli: 'CodeQL CLI'
 # CodeQL usually bumps its minor version for each minor version of GHES.
 # Update this whenever a new enterprise version of CodeQL is being prepared.
 codeql_cli_ghes_recommended_version: >-
-  {% ifversion ghes < 3.18 %}2.20.7{% elsif ghes < 3.19 %}2.21.4{% elsif ghes < 3.20 %}2.22.4{% elsif ghes < 3.21 %}2.23.9{% elsif ghes < 3.22 %}2.24.3{% elsif ghes < 3.23 %}2.25.6{% endif %}
+  {% ifversion ghes < 3.20 %}2.22.4{% elsif ghes < 3.21 %}2.23.9{% elsif ghes < 3.22 %}2.24.3{% elsif ghes < 3.23 %}2.25.6{% endif %}
 codeql_cli_version_min_version_create_bundle: '2.17.6'
 # Projects v2
 prodname_projects_v2: 'Projects'
@@ -155,7 +156,7 @@ prodname_unfurls: 'Content Attachments'
 prodname_actions: 'GitHub Actions'
 prodname_actions_runner_controller: 'Actions Runner Controller'
 runner_required_version: >-
-  {% ifversion ghes < 3.18 %}2.322.0{% elsif ghes < 3.19 %}2.324.0{% elsif ghes < 3.20 %}2.328.0{% elsif ghes < 3.21 %}2.330.0{% elsif ghes < 3.22 %}2.331.0{% elsif ghes < 3.23 %}2.334.0{% endif %}
+  {% ifversion ghes < 3.20 %}2.328.0{% elsif ghes < 3.21 %}2.330.0{% elsif ghes < 3.22 %}2.331.0{% elsif ghes < 3.23 %}2.334.0{% endif %}
 
 # GitHub Debug
 prodname_debug: 'GitHub Debug'
@@ -215,7 +216,7 @@ prodname_secret_protection: 'Secret Protection'
 prodname_cs_or_sp: 'Secret Protection or Code Security'
 prodname_cs_and_sp: 'Secret Protection and Code Security'
 UI_advanced_security: '{% data variables.product.prodname_AS %}'
-UI_advanced_security_ent: '{% data variables.product.prodname_AS %} Code security'
+UI_advanced_security_ent: '{% data variables.product.prodname_AS %}'
 UI_code_security_scanning: 'Code Security'
 UI_secret_protection_scanning: 'Secret Protection'
 
@@ -295,6 +296,7 @@ prodname_secret_scanning_caps: 'Secret scanning'
 # Code scanning
 prodname_code_scanning: 'code scanning'
 prodname_code_scanning_caps: 'Code scanning'
+prodname_ai_applications_scanning: 'AI applications scanning'
 
 # Visual Studio
 prodname_vs: 'Visual Studio'
@@ -302,6 +304,7 @@ prodname_vs: 'Visual Studio'
 # Visual Studio Code
 prodname_vscode_shortname: 'VS Code'
 prodname_vscode: 'Visual Studio Code'
+prodname_vscode_web: 'VS Code for the Web'
 prodname_vscode_command_palette_shortname: 'VS Code Command Palette'
 prodname_vscode_command_palette: 'Visual Studio Code Command Palette'
 prodname_vscode_marketplace: 'Visual Studio Code Marketplace'
@@ -317,10 +320,16 @@ prodname_dependabot_alerts: 'Dependabot alerts'
 prodname_dependabot_malware_alerts: 'Dependabot malware alerts'
 prodname_dependabot_malware_alerts_short: 'malware alerts'
 prodname_dependabot_malware_alert_short: 'malware alert'
+prodname_dependabot_reachability: 'reachability analysis'
+prodname_dependabot_reachability_caps: 'Reachability analysis'
 prodname_dependabot_malware_alerts_short_caps: 'Malware alerts'
 prodname_dependabot_security_updates: 'Dependabot security updates'
 prodname_dependabot_version_updates: 'Dependabot version updates'
 prodname_dependabot_updates: 'Dependabot updates'
+
+# GitHub package firewall
+prodname_GH_package_firewall: 'GitHub package firewall'
+prodname_package_firewall: 'Package firewall'
 
 # GitHub Archive Program
 prodname_archive: 'GitHub Archive Program'

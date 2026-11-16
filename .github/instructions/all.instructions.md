@@ -6,6 +6,12 @@ applyTo: "**"
 
 This repository powers the GitHub Docs site (docs.github.com). It contains both the Next.js application code (TypeScript) and the documentation content (Markdown).
 
+## Choosing the pull request repository
+
+- For work by GitHub employees, create pull requests in `github/docs-internal` by default, even if the current clone or `origin` remote points to `github/docs`. Use `github/docs` only when the contribution is intentionally public, such as when collaborating with an external contributor or customer.
+- Treat work originating from an internal repository, issue, pull request, or discussion as internal.
+- Before pushing a branch or creating a pull request, verify the destination repository explicitly instead of inferring it from the current Git remote. If the intended destination is unclear, ask the user.
+
 ## Creating a pull request
 
 When you create a pull request:

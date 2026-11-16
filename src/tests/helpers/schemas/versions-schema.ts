@@ -1,5 +1,4 @@
-// match plan@release
-// e.g., free-pro-team@latest, enterprise-server@3.0
+// Version strings match plan@release, for example free-pro-team@latest or enterprise-server@3.XX.
 const planPattern = '^[a-z-]+'
 const releasePattern = '[a-z0-9-.]+'
 const delimiter = '@'
@@ -63,7 +62,7 @@ const schema: VersionSchema = {
       pattern: planPattern,
     },
     planTitle: {
-      description: 'the plan title', // this is the same as the version title, sans numbered release
+      description: 'the plan title', // planTitle matches versionTitle without the numbered release.
       type: 'string',
     },
     shortName: {
@@ -90,7 +89,8 @@ const schema: VersionSchema = {
       type: 'boolean',
     },
     nonEnterpriseDefault: {
-      description: 'boolean indicating whether the plan is the default non-Enterprise version', // helper if the plan name changes
+      // Identifies the default non-Enterprise version without hard-coding a plan name.
+      description: 'boolean indicating whether the plan is the default non-Enterprise version',
       type: 'boolean',
     },
     openApiBaseName: {

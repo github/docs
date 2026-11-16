@@ -1,0 +1,7 @@
+# https://github.com/github/releases/issues/10559
+# GitHub Apps can use the Get an app API to access details of private and
+# internal apps in the same organization or enterprise.
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.24'

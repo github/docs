@@ -1,11 +1,10 @@
 name: Notify When Maintainers Cannot Edit
 
-# **What it does**: Notifies the author of a PR when their PR does not allow maintainers to edit it.
-# **Why we have it**: To prevent having to do this manually.
-# **Who does it impact**: Open-source.
+# Public PR authors get a maintainer-edit notice without maintainers checking
+# the fork setting manually.
 
 on:
-  # Needed in lieu of `pull_request` so that PRs from a fork can be notified.
+  # pull_request_target lets forked PRs receive the maintainer-edit notice.
   pull_request_target:
     types:
       - opened

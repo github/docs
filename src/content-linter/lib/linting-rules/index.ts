@@ -58,6 +58,7 @@ import { raiAppCardStructure } from '@/content-linter/lib/linting-rules/rai-app-
 import { frontmatterContentType } from '@/content-linter/lib/linting-rules/frontmatter-content-type'
 import { frontmatterDocsTeamMetrics } from '@/content-linter/lib/linting-rules/frontmatter-docs-team-metrics'
 import { frontmatterRestApiCategory } from '@/content-linter/lib/linting-rules/frontmatter-rest-api-category'
+import { docsTeamMetricsJourney } from '@/content-linter/lib/linting-rules/docs-team-metrics-journey'
 
 const noDefaultAltText = markdownlintGitHub.find((elem: { names: string[] }) =>
   elem.names.includes('no-default-alt-text'),
@@ -68,11 +69,11 @@ const noGenericLinkText = markdownlintGitHub.find((elem: { names: string[] }) =>
 
 export const gitHubDocsMarkdownlint = {
   rules: [
-    // GH rules (markdownlint-github)
+    // markdownlint-github supplies the GH rule IDs.
     noDefaultAltText, // GH001
     noGenericLinkText, // GH002
 
-    // GHD rules (GitHub Docs custom rules, in numerical order)
+    // Keep custom GitHub Docs rules in numerical order by GHD ID.
     linkPunctuation, // GHD001
     internalLinksNoLang, // GHD002
     internalLinksSlash, // GHD003
@@ -106,7 +107,7 @@ export const gitHubDocsMarkdownlint = {
     thirdPartyActionPinning, // GHD041
     liquidTagWhitespace, // GHD042
     linkQuotation, // GHD043
-    // GHD044 removed - octicon aria-labels are now auto-generated
+    // GHD044 is absent because octicon aria-labels are auto-generated.
     codeAnnotationCommentSpacing, // GHD045
     outdatedReleasePhaseTerminology, // GHD046
     tableColumnIntegrity, // GHD047
@@ -124,8 +125,9 @@ export const gitHubDocsMarkdownlint = {
     frontmatterContentType, // GHD065
     frontmatterDocsTeamMetrics, // GHD066
     frontmatterRestApiCategory, // GHD067
+    docsTeamMetricsJourney, // GHD068
 
-    // Search-replace rules
+    // markdownlint-rule-search-replace supplies this rule.
     searchReplace, // Open-source plugin
   ],
 }

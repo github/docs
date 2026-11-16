@@ -43,7 +43,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   addUINamespaces(req, mainContext.data.ui, ['secret_scanning'])
   const automatedPageContext = getAutomatedPageContextFromRequest(req)
 
-  // The middleware already loads secretScanningData into req.context
+  // secretScanning middleware loads secretScanningData into req.context.
   const patterns = req.context?.secretScanningData ?? []
   return {
     props: {

@@ -24,7 +24,7 @@ category:
 
 > [!NOTE]
 > * If you have admin or security permissions for a public repository, you don’t need to submit a vulnerability report. Instead, create a draft security advisory directly. See [AUTOTITLE](/code-security/how-tos/report-and-fix-vulnerabilities/fix-reported-vulnerabilities/create-repository-advisory).
-> * Private vulnerability reporting is separate from a repository’s `SECURITY.md` file. You can only report vulnerabilities privately for repositories where this feature is enabled, and you don’t need to follow the instructions in `SECURITY.md`.
+> * Private vulnerability reporting is separate from a repository’s `SECURITY.md` file. You can only report vulnerabilities privately for repositories where this feature is enabled. If the repository has a security policy, the policy is displayed above the reporting form so you can review the maintainer's guidance before submitting.
 
 If a public repository has private vulnerability reporting enabled, anyone can submit a private vulnerability report to the repository maintainers.
 
@@ -33,3 +33,15 @@ If the repository doesn't have private vulnerability reporting enabled, you need
 {% data reusables.security-advisory.reporting-a-vulnerability-non-admin %}
 
 The next steps depend on the action taken by the repository maintainer. See [AUTOTITLE](/code-security/how-tos/report-and-fix-vulnerabilities/fix-reported-vulnerabilities/manage-vulnerability-reports).
+
+## Rate limits for private vulnerability reports
+
+To protect maintainers from spam and abuse, {% data variables.product.github %} limits the number of private vulnerability reports that you can submit:
+
+* You can submit a maximum of 25 reports per 24-hour period across repositories where you are not a trusted reporter.
+* You can submit a maximum of 5 reports to a single repository per 24-hour period.
+* By default, a repository accepts a maximum of 10 reports per 24-hour period from all reporters combined.
+
+Repository maintainers can set a lower or higher total limit for their repository and exempt trusted reporters. Reports to a repository where you are a trusted reporter are exempt from that repository's limits and do not count toward your global 25-report limit. Reports to other repositories still count toward both the global limit and each repository's limits.
+
+If you reach a rate limit, you will see a message when you try to submit a new report on {% data variables.product.github %}. Each 24-hour period starts with the first report that counts toward that limit, and the limit resets in full when the period ends.

@@ -25,6 +25,9 @@ You can set up code coverage for your repository in two ways:
   * You have complex CI requirements (such as private registries or custom build steps).
   * You want to understand exactly how coverage is configured.
 
+> [!IMPORTANT]
+> If you use the **Restrict code coverage** rule, make each status check associated with an expected coverage upload a required status check. For more information, see [How the code coverage rule works](/code-security/how-tos/maintain-quality-code/restrict-code-coverage#how-the-code-coverage-rule-works).
+
 ## Automatic setup
 
 You can use the automatic setup option to generate a working code coverage workflow without manually authoring CI configuration. An agent analyzes your repository, identifies your test framework, and opens a pull request with a coverage workflow ready for review.

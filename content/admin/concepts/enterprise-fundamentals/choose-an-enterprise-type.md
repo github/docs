@@ -61,7 +61,7 @@ Consider whether you already use, or can adopt, a supported identity management 
 
 If you cannot use a paved-path integration, you can use another identity management system that **meets our guidelines**.
 
-For full details, see [AUTOTITLE](/enterprise-cloud@latest/admin/concepts/identity-and-access-management/enterprise-managed-users#identity-management-systems).
+For full details, see [AUTOTITLE](/enterprise-cloud@latest/admin/concepts/identity-and-access-management/enterprise-managed-users#how-does-emus-integrate-with-identity-management-systems).
 
 ### Personal accounts
 

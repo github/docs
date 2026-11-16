@@ -32,23 +32,34 @@ Future releases of {% data variables.product.github %} will remove the ability t
 
 To run {% data variables.product.prodname_dependabot %} jobs on {% data variables.product.prodname_actions %}, {% data variables.product.github %} creates a dynamic workflow for each job. Unlike standard {% data variables.product.prodname_actions %} workflows, dynamic workflows are generated for a specific run and are not stored in your repository's `.github/workflows` directory.
 
-You may see workflow runs named `dynamic/dependabot/dependabot-updates` or check runs with `(dynamic)` appended to their names. You can use the workflow run logs to troubleshoot errors or configuration problems.
-
 You may see workflow runs named `dynamic/dependabot/dependabot-updates` or check runs with `(dynamic)` appended to their names. To troubleshoot errors or configuration problems, on the repository's **Actions** tab, filter the workflow runs to show only {% data variables.product.prodname_dependabot %} update jobs, then open a workflow run to view the logs.
 
-## Runner options
 ## Runner options
 
 You can run {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} using:
 * **Standard {% data variables.product.prodname_dotcom %}-hosted runners.** These are the default runners used by {% data variables.product.github %} to execute {% data variables.product.prodname_actions %} jobs.
 * **{% data variables.actions.hosted_runners_caps %}.** These are {% data variables.product.prodname_dotcom %}-hosted runners with advanced features like more RAM, CPU, and disk space. For more information, see [AUTOTITLE](/actions/how-tos/manage-runners/larger-runners).
-* **Self-hosted runners.** These runners grant you greater control over {% data variables.product.prodname_dependabot %} access to your private registries and internal network resources. Be aware that for security reasons, {% data variables.product.prodname_dependabot_updates %} on self-hosted runners will not run on public repositories. For more information on assigning a `dependabot` label on self-hosted runners, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-on-self-hosted-runners).
+* **Self-hosted runners.** These runners grant you greater control over {% data variables.product.prodname_dependabot %} access to your private registries and internal network resources. Be aware that for security reasons, {% data variables.product.prodname_dependabot_updates %} on self-hosted runners will not run on public repositories. For more information on assigning labels to self-hosted runners, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-on-self-hosted-runners).
 
 Running {% data variables.product.prodname_dependabot %} on standard {% data variables.product.prodname_dotcom %}-hosted or self-hosted runners **does not** count towards your included {% data variables.product.prodname_actions %} minutes. For {% data variables.product.prodname_dependabot %} on {% data variables.actions.hosted_runners %}, {% data variables.product.prodname_dotcom %} will bill your organization at the regular rate. See [AUTOTITLE](/billing/reference/actions-runner-pricing).
 
 {% data reusables.dependabot.vnet-arc-note %}
 
 ## How runner settings interact
+
+{% ifversion dependabot-repository-runner-settings %}
+
+You can select a runner type for {% data variables.product.prodname_dependabot %} at the organization or repository level:
+
+* **Standard {% data variables.product.company_short %} runner** uses the default {% data variables.product.company_short %}-hosted environment.
+* **Labeled runner** sends jobs to self-hosted or {% data variables.actions.hosted_runners %} that match the configured label. If you do not specify a label, {% data variables.product.prodname_dependabot %} uses the `dependabot` label. You can also specify a runner group to limit jobs to matching runners in that group.
+
+> [!WARNING]
+> If the specified runner group does not exist, {% data variables.product.prodname_dependabot %} reports an error immediately. If the group exists but no online runner in the group matches the configured label, the job remains queued until a matching runner is available. Make sure the repository can access the specified runner group.
+
+Labeled runners are not available for public repositories. These repositories use standard {% data variables.product.company_short %}-hosted runners.
+
+{% else %}
 
 The {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} runners and {% data variables.product.prodname_dependabot %} on self-hosted runners settings are interdependent:
 
@@ -57,6 +68,8 @@ The {% data variables.product.prodname_dependabot %} on {% data variables.produc
 
 > [!WARNING]
 > If both settings are enabled but no self-hosted runners or {% data variables.actions.hosted_runners %} with a `dependabot` label are available, {% data variables.product.prodname_dependabot %} jobs will remain queued indefinitely. Ensure runners with this label are configured before enabling "{% data variables.product.prodname_dependabot %} on self-hosted runners".
+
+{% endif %}
 
 ## Access and permissions
 

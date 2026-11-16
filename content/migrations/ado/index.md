@@ -2,6 +2,7 @@
 title: Migrating from Azure DevOps
 shortTitle: Migrate from Azure DevOps
 intro: Plan and execute a migration from Azure DevOps to {% data variables.product.prodname_ghe_cloud %}. This six-part guide explains how to configure access, migrate, and the follow-up tasks needed to get your repositories ready for work.
+allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
   ghec: '*'

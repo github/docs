@@ -49,6 +49,7 @@ npm run generate-release-notes -- --release <version> [options]
 
 * The script is **incremental by default**. If a release notes file already exists, it loads those entries and only processes new issues. Use `--force` to start fresh.
 * If you run `--issue 6768`, it replaces just that issue's entry in the existing file.
+* Reruns keep the existing `date`, `release_candidate`, `deprecated`, and `intro` fields, plus hand-written sections such as `known_issues` and `errata`. `--force` replaces them with the default template.
 * The file is updated after each issue, so if you cancel with Ctrl+C, you won't lose changes.
 * The Copilot agent follows the style rules defined in `.github/agents/ghes-release-notes.md`: present tense, `[AUTOTITLE]` links, proper Liquid variable usage, etc.
 

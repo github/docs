@@ -378,7 +378,7 @@
       "name": "createEnterpriseOrganization",
       "id": "createenterpriseorganization",
       "href": "/graphql/reference/enterprise-admin#mutation-createenterpriseorganization",
-      "description": "<p>Creates an organization as part of an enterprise account. A personal access\ntoken used to create an organization is implicitly permitted to update the\norganization it created, if the organization is part of an enterprise that has\nSAML enabled or uses Enterprise Managed Users. If the organization is not part\nof such an enterprise, and instead has SAML enabled for it individually, the\ntoken will then require SAML authorization to continue working against that organization.</p>",
+      "description": "<p>Creates an organization as part of an enterprise account. User-authenticated\nrequests make the viewer an owner. Users listed in <code>adminLogins</code> are invited\nas owners unless owner invitations are disabled, in which case they are added\ndirectly. Installation requests also add existing enterprise members directly.\nInvitation failures do not roll back organization creation. A personal access\ntoken used to create an organization is implicitly permitted to update the\norganization it created, if the organization is part of an enterprise that has\nSAML enabled or uses Enterprise Managed Users. If the organization is not part\nof such an enterprise, and instead has SAML enabled for it individually, the\ntoken will then require SAML authorization to continue working against that organization.</p>",
       "isDeprecated": false,
       "inputFields": [
         {
@@ -1475,45 +1475,6 @@
       "category": "enterprise-admin"
     },
     {
-      "name": "updateEnterpriseProofOfPresenceRequiredSetting",
-      "id": "updateenterpriseproofofpresencerequiredsetting",
-      "href": "/graphql/reference/enterprise-admin#mutation-updateenterpriseproofofpresencerequiredsetting",
-      "description": "<p>Sets the proof of presence (PoP) re-authentication requirement for sudo actions in an enterprise.</p>",
-      "isDeprecated": false,
-      "inputFields": [
-        {
-          "name": "input",
-          "type": "UpdateEnterpriseProofOfPresenceRequiredSettingInput!",
-          "id": "updateenterpriseproofofpresencerequiredsettinginput",
-          "href": "/graphql/reference/enterprise-admin#input-object-updateenterpriseproofofpresencerequiredsettinginput"
-        }
-      ],
-      "returnFields": [
-        {
-          "name": "clientMutationId",
-          "type": "String",
-          "id": "string",
-          "href": "/graphql/reference/other#scalar-string",
-          "description": "<p>A unique identifier for the client performing the mutation.</p>"
-        },
-        {
-          "name": "enterprise",
-          "type": "Enterprise",
-          "id": "enterprise",
-          "href": "/graphql/reference/enterprise-admin#object-enterprise",
-          "description": "<p>The enterprise with the updated proof of presence required setting.</p>"
-        },
-        {
-          "name": "message",
-          "type": "String",
-          "id": "string",
-          "href": "/graphql/reference/other#scalar-string",
-          "description": "<p>A message confirming the result of updating the proof of presence required setting.</p>"
-        }
-      ],
-      "category": "enterprise-admin"
-    },
-    {
       "name": "updateEnterpriseRepositoryProjectsSetting",
       "id": "updateenterpriserepositoryprojectssetting",
       "href": "/graphql/reference/enterprise-admin#mutation-updateenterpriserepositoryprojectssetting",
@@ -1852,6 +1813,13 @@
           "href": "/graphql/reference/enterprise-admin#object-enterprisebillinginfo"
         },
         {
+          "name": "copilotCodeReviewPolicy",
+          "description": "<p>The configured Copilot code review policy. Requires enterprise AI controls read permissions.</p>",
+          "type": "EnterpriseCopilotCodeReviewPolicy",
+          "id": "enterprisecopilotcodereviewpolicy",
+          "href": "/graphql/reference/copilot#object-enterprisecopilotcodereviewpolicy"
+        },
+        {
           "name": "createdAt",
           "description": "<p>Identifies the date and time when the object was created.</p>",
           "type": "DateTime!",
@@ -1942,6 +1910,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: ID, direction: ASC}",
               "description": "<p>Ordering options for enterprise teams returned from the connection.</p>",
               "type": {
                 "name": "EnterpriseTeamOrder",
@@ -2030,6 +1999,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: UPDATED_AT, direction: DESC}",
               "description": "<p>Ordering options for the returned vulnerabilities.</p>",
               "type": {
                 "name": "SecurityVulnerabilityOrder",
@@ -2127,6 +2097,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: LOGIN, direction: ASC}",
               "description": "<p>Ordering options for members returned from the connection.</p>",
               "type": {
                 "name": "EnterpriseMemberOrder",
@@ -2224,6 +2195,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: LOGIN, direction: ASC}",
               "description": "<p>Ordering options for organizations returned from the connection.</p>",
               "type": {
                 "name": "OrganizationOrder",
@@ -2478,6 +2450,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: NAME, direction: ASC}",
               "description": "<p>Ordering options for repositories returned from the connection.</p>",
               "type": {
                 "name": "RepositoryOrder",
@@ -3166,6 +3139,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: LOGIN, direction: ASC}",
               "description": "<p>Ordering options for administrators returned from the connection.</p>",
               "type": {
                 "name": "EnterpriseMemberOrder",
@@ -3315,6 +3289,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: LOGIN, direction: ASC}",
               "description": "<p>Ordering options for organizations with this setting.</p>",
               "type": {
                 "name": "OrganizationOrder",
@@ -3392,6 +3367,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: LOGIN, direction: ASC}",
               "description": "<p>Ordering options for organizations with this setting.</p>",
               "type": {
                 "name": "OrganizationOrder",
@@ -3473,6 +3449,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: DOMAIN, direction: ASC}",
               "description": "<p>Ordering options for verifiable domains returned.</p>",
               "type": {
                 "name": "VerifiableDomainOrder",
@@ -3537,6 +3514,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: HOST_NAME, direction: ASC}",
               "description": "<p>Ordering options for Enterprise Server installations returned.</p>",
               "type": {
                 "name": "EnterpriseServerInstallationOrder",
@@ -3652,6 +3630,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: ALLOW_LIST_VALUE, direction: ASC}",
               "description": "<p>Ordering options for IP allow list entries returned.</p>",
               "type": {
                 "name": "IpAllowListEntryOrder",
@@ -3741,6 +3720,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: LOGIN, direction: ASC}",
               "description": "<p>Ordering options for organizations with this setting.</p>",
               "type": {
                 "name": "OrganizationOrder",
@@ -3832,6 +3812,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: LOGIN, direction: ASC}",
               "description": "<p>Ordering options for organizations with this setting.</p>",
               "type": {
                 "name": "OrganizationOrder",
@@ -3902,6 +3883,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: LOGIN, direction: ASC}",
               "description": "<p>Ordering options for organizations with this setting.</p>",
               "type": {
                 "name": "OrganizationOrder",
@@ -3972,6 +3954,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: LOGIN, direction: ASC}",
               "description": "<p>Ordering options for organizations with this setting.</p>",
               "type": {
                 "name": "OrganizationOrder",
@@ -4042,6 +4025,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: LOGIN, direction: ASC}",
               "description": "<p>Ordering options for organizations with this setting.</p>",
               "type": {
                 "name": "OrganizationOrder",
@@ -4119,6 +4103,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: LOGIN, direction: ASC}",
               "description": "<p>Ordering options for organizations with this setting.</p>",
               "type": {
                 "name": "OrganizationOrder",
@@ -4189,6 +4174,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: LOGIN, direction: ASC}",
               "description": "<p>Ordering options for organizations with this setting.</p>",
               "type": {
                 "name": "OrganizationOrder",
@@ -4273,6 +4259,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: LOGIN, direction: ASC}",
               "description": "<p>Ordering options for organizations with this setting.</p>",
               "type": {
                 "name": "OrganizationOrder",
@@ -4354,6 +4341,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: LOGIN, direction: ASC}",
               "description": "<p>Ordering options for outside collaborators returned from the connection.</p>",
               "type": {
                 "name": "EnterpriseMemberOrder",
@@ -4444,6 +4432,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: CREATED_AT, direction: DESC}",
               "description": "<p>Ordering options for pending enterprise administrator invitations returned from the connection.</p>",
               "type": {
                 "name": "EnterpriseAdministratorInvitationOrder",
@@ -4516,6 +4505,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: CREATED_AT, direction: DESC}",
               "description": "<p>Ordering options for pending repository collaborator invitations returned from the connection.</p>",
               "type": {
                 "name": "RepositoryInvitationOrder",
@@ -4651,6 +4641,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: CREATED_AT, direction: DESC}",
               "description": "<p>Ordering options for pending enterprise member invitations returned from the connection.</p>",
               "type": {
                 "name": "EnterpriseMemberInvitationOrder",
@@ -4721,6 +4712,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: LOGIN, direction: ASC}",
               "description": "<p>Ordering options for organizations with this setting.</p>",
               "type": {
                 "name": "OrganizationOrder",
@@ -4791,6 +4783,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: LOGIN, direction: ASC}",
               "description": "<p>Ordering options for organizations with this setting.</p>",
               "type": {
                 "name": "OrganizationOrder",
@@ -4861,6 +4854,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: LOGIN, direction: ASC}",
               "description": "<p>Ordering options for organizations with this setting.</p>",
               "type": {
                 "name": "OrganizationOrder",
@@ -4924,6 +4918,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: LOGIN, direction: ASC}",
               "description": "<p>Ordering options for support entitlement users returned from the connection.</p>",
               "type": {
                 "name": "EnterpriseMemberOrder",
@@ -5001,6 +4996,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: LOGIN, direction: ASC}",
               "description": "<p>Ordering options for organizations with this setting.</p>",
               "type": {
                 "name": "OrganizationOrder",
@@ -5228,6 +5224,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: LOGIN, direction: ASC}",
               "description": "<p>Ordering options for Enterprise Server user accounts returned from the connection.</p>",
               "type": {
                 "name": "EnterpriseServerUserAccountOrder",
@@ -5282,6 +5279,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: CREATED_AT, direction: DESC}",
               "description": "<p>Ordering options for Enterprise Server user accounts uploads returned from the connection.</p>",
               "type": {
                 "name": "EnterpriseServerUserAccountsUploadOrder",
@@ -5487,6 +5485,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: EMAIL, direction: ASC}",
               "description": "<p>Ordering options for Enterprise Server user account emails returned from the connection.</p>",
               "type": {
                 "name": "EnterpriseServerUserAccountEmailOrder",
@@ -5924,6 +5923,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: ID, direction: ASC}",
               "description": "<p>Ordering options for organizations returned from the connection.</p>",
               "type": {
                 "name": "EnterpriseTeamOrganizationOrder",
@@ -6006,6 +6006,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: ID, direction: ASC}",
               "description": "<p>Order for the connection.</p>",
               "type": {
                 "name": "EnterpriseTeamMemberOrder",
@@ -6253,6 +6254,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: HOST_NAME, direction: ASC}",
               "description": "<p>Ordering options for installations returned from the connection.</p>",
               "type": {
                 "name": "EnterpriseServerInstallationOrder",
@@ -6346,6 +6348,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: LOGIN, direction: ASC}",
               "description": "<p>Ordering options for organizations returned from the connection.</p>",
               "type": {
                 "name": "OrganizationOrder",
@@ -11817,28 +11820,6 @@
       "category": "enterprise-admin"
     },
     {
-      "name": "ProofOfPresenceRequirement",
-      "id": "proofofpresencerequirement",
-      "href": "/graphql/reference/enterprise-admin#enum-proofofpresencerequirement",
-      "description": "<p>The proof of presence (PoP) re-authentication requirement for sudo actions in an enterprise.</p>",
-      "isDeprecated": false,
-      "values": [
-        {
-          "name": "MFA",
-          "description": "<p>Members must satisfy an MFA re-authentication.</p>"
-        },
-        {
-          "name": "NO_POLICY",
-          "description": "<p>Proof of presence is not required.</p>"
-        },
-        {
-          "name": "REAUTH",
-          "description": "<p>Members must complete a fresh re-authentication against the enterprise identity provider.</p>"
-        }
-      ],
-      "category": "enterprise-admin"
-    },
-    {
       "name": "SamlDigestAlgorithm",
       "id": "samldigestalgorithm",
       "href": "/graphql/reference/enterprise-admin#enum-samldigestalgorithm",
@@ -12222,7 +12203,7 @@
       "inputFields": [
         {
           "name": "adminLogins",
-          "description": "<p>The logins for the administrators of the new organization.</p>",
+          "description": "<p>The logins of additional organization owners. Listed users are invited unless\nowner invitations are disabled, in which case they are added directly.\nInstallation requests also add existing enterprise members directly.</p>",
           "type": "[String!]!",
           "id": "string",
           "href": "/graphql/reference/other#scalar-string"
@@ -12274,7 +12255,7 @@
       "inputFields": [
         {
           "name": "allowListValue",
-          "description": "<p>An IP address or range of addresses in CIDR notation.</p>",
+          "description": "<p>An IP address or range of addresses in CIDR notation. Ranges that cover the\nentire address space, such as <code>0.0.0.0/0</code> or <code>::/0</code>, are not accepted for\norganizations or enterprises.</p>",
           "type": "String!",
           "id": "string",
           "href": "/graphql/reference/other#scalar-string"
@@ -13577,37 +13558,6 @@
       "category": "enterprise-admin"
     },
     {
-      "name": "UpdateEnterpriseProofOfPresenceRequiredSettingInput",
-      "id": "updateenterpriseproofofpresencerequiredsettinginput",
-      "href": "/graphql/reference/enterprise-admin#input-object-updateenterpriseproofofpresencerequiredsettinginput",
-      "description": "<p>Autogenerated input type of UpdateEnterpriseProofOfPresenceRequiredSetting.</p>",
-      "inputFields": [
-        {
-          "name": "clientMutationId",
-          "description": "<p>A unique identifier for the client performing the mutation.</p>",
-          "type": "String",
-          "id": "string",
-          "href": "/graphql/reference/other#scalar-string"
-        },
-        {
-          "name": "enterpriseId",
-          "description": "<p>The ID of the enterprise on which to set the proof of presence required setting.</p>",
-          "type": "ID!",
-          "id": "id",
-          "href": "/graphql/reference/other#scalar-id",
-          "isDeprecated": false
-        },
-        {
-          "name": "settingValue",
-          "description": "<p>The proof of presence requirement to set on the enterprise.</p>",
-          "type": "ProofOfPresenceRequirement!",
-          "id": "proofofpresencerequirement",
-          "href": "/graphql/reference/enterprise-admin#enum-proofofpresencerequirement"
-        }
-      ],
-      "category": "enterprise-admin"
-    },
-    {
       "name": "UpdateEnterpriseRepositoryProjectsSettingInput",
       "id": "updateenterpriserepositoryprojectssettinginput",
       "href": "/graphql/reference/enterprise-admin#input-object-updateenterpriserepositoryprojectssettinginput",
@@ -13739,7 +13689,7 @@
       "inputFields": [
         {
           "name": "allowListValue",
-          "description": "<p>An IP address or range of addresses in CIDR notation.</p>",
+          "description": "<p>An IP address or range of addresses in CIDR notation. Ranges that cover the\nentire address space, such as <code>0.0.0.0/0</code> or <code>::/0</code>, are not accepted for\norganizations or enterprises.</p>",
           "type": "String!",
           "id": "string",
           "href": "/graphql/reference/other#scalar-string"

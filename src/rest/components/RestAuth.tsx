@@ -6,7 +6,7 @@ import { Link } from '@/frame/components/Link'
 import { ProgAccessT } from './types'
 import { RenderedHTML } from '@/frame/components/ui/RenderedHTML/RenderedHTML'
 
-// Documentation paths may be moved around by content team in the future
+// Keep these paths centralized because content can move docs pages.
 const USER_TOKEN_PATH =
   '/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app'
 const INSTALLATION_TOKEN_PATH =
@@ -21,16 +21,9 @@ type Props = {
 }
 
 export function RestAuth({ progAccess, slug, operationTitle }: Props) {
-  const { currentVersion } = useVersion()
   const { t } = useTranslation('rest_reference')
 
-  // This early return can be removed once GHES 3.9 is deprecated
-  // The GHES 3.8 and 3.9 releases don't support fine-grained access tokens
-  if (currentVersion === 'enterprise-server@3.9' || currentVersion === 'enterprise-server@3.8')
-    return null
-
-  // There are some operations that have no progAccess access defined
-  // For those operations, we shouldn't display this component
+  // Some operations omit progAccess.
   if (!progAccess) return null
   const {
     userToServerRest,
@@ -41,10 +34,7 @@ export function RestAuth({ progAccess, slug, operationTitle }: Props) {
   } = progAccess
   const noFineGrainedAccess = !(userToServerRest || serverToServer || fineGrainedPat)
 
-  // For endpoints on dotcom that do not support any fine-grained token types
-  // and allow permissionless (unauthenticated) access, do not render a
-  // fine-grained access section. Note: allowPermissionlessAccess is dotcom-only;
-  // GHES versions may still require authentication for these endpoints.
+  // Hide fine-grained access for dotcom permissionless endpoints; GHES may still require auth.
   if (!basicAuth && noFineGrainedAccess && allowPermissionlessAccess) return null
 
   const heading = basicAuth ? t('basic_auth_heading') : t('fine_grained_access')
@@ -78,20 +68,14 @@ type FineGrainedProps = {
   progAccess: ProgAccessT
 }
 
+// Each progAccess.permissions object is one acceptable permission set.
+// Every key-value pair inside a set is required.
 function FineGrainedAccess({ progAccess }: FineGrainedProps) {
   const router = useRouter()
   const { currentVersion } = useVersion()
   const { t } = useTranslation('rest_reference')
 
-  // progAccess.permissions is an array of objects
-  // For example: [ {'"Actions" repository permissions': 'read', '"Administration" organization permissions': 'write'}, {'"Secrets" organization permissions"': 'write'} ]
-  // Each object represents a set of permissions containing one
-  // or more key-value pairs. All permissions in a set are required.
-  // If there is more than one set of permissions, any set can be used.
   const formattedPermissions = progAccess.permissions.map((permissionSet: object, index) => {
-    // Given the example above, the first object is now an array of tuples
-    // [['"Actions" repository permissions', 'read'], ['"Administration" organization permissions', 'read']]
-    // that can be formatted as a string like `"Administration" organization permissions (write)'
     const permissionSetPairs = Object.entries(permissionSet)
     const numPermissionSetPairs = permissionSetPairs.length
 
@@ -112,8 +96,6 @@ function FineGrainedAccess({ progAccess }: FineGrainedProps) {
     basePath += `/${currentVersion}`
   }
 
-  // Pluralize the message if needed or customize it
-  // when no permissions are defined
   const numPermissionSets = progAccess.permissions.length
   const permissionMsg =
     numPermissionSets === 0

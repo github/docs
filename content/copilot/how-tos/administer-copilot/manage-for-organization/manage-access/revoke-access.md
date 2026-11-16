@@ -20,9 +20,9 @@ category:
 
 ## About organization-level revocation
 
-Revoking access at the organization level only removes access for people who receive {% data variables.product.prodname_copilot_short %} through the organization. If a person also has access through an enterprise team or as an individual, they will retain it.
+On {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %}, organization owners can revoke seats assigned through their organization using the procedures below. This only removes access for people who receive {% data variables.product.prodname_copilot_short %} through that organization.
 
-To remove access for those users, an enterprise owner must remove them from the enterprise team or unassign their license in the enterprise settings, which revokes access immediately. For more information, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-access/grant-access#assigning-licenses-to-users-or-teams).
+If a person also has access through an enterprise team or as an individual, they will retain it. To remove access for those users, an enterprise owner must remove them from the enterprise team or unassign their license in the enterprise settings, which revokes access immediately.
 
 For people whose access is revoked through organization-level revocation, the removal takes effect from the start of the next billing cycle. If you remove a seat during a cycle, the user will have access to {% data variables.product.prodname_copilot_short %} for the remainder of the billing cycle. For more information, see [AUTOTITLE](/billing/concepts/product-billing/github-copilot-licenses).
 

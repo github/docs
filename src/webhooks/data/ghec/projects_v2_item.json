@@ -10,8 +10,7 @@
         "isRequired": true,
         "enum": [
           "archived"
-        ],
-        "childParamsGroups": []
+        ]
       },
       {
         "type": "object",
@@ -23,15 +22,13 @@
       {
         "type": "object",
         "name": "installation",
-        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-cloud@latest/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
-        "childParamsGroups": []
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-cloud@latest/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>"
       },
       {
         "type": "object",
         "name": "organization",
         "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
-        "isRequired": true,
-        "childParamsGroups": []
+        "isRequired": true
       },
       {
         "type": "object",
@@ -44,8 +41,7 @@
         "type": "object",
         "name": "sender",
         "description": "<p>A GitHub user.</p>",
-        "isRequired": true,
-        "childParamsGroups": []
+        "isRequired": true
       }
     ],
     "availability": [
@@ -65,8 +61,7 @@
         "isRequired": true,
         "enum": [
           "converted"
-        ],
-        "childParamsGroups": []
+        ]
       },
       {
         "type": "object",
@@ -78,15 +73,13 @@
       {
         "type": "object",
         "name": "installation",
-        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-cloud@latest/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
-        "childParamsGroups": []
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-cloud@latest/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>"
       },
       {
         "type": "object",
         "name": "organization",
         "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
-        "isRequired": true,
-        "childParamsGroups": []
+        "isRequired": true
       },
       {
         "type": "object",
@@ -99,8 +92,7 @@
         "type": "object",
         "name": "sender",
         "description": "<p>A GitHub user.</p>",
-        "isRequired": true,
-        "childParamsGroups": []
+        "isRequired": true
       }
     ],
     "availability": [
@@ -120,21 +112,18 @@
         "isRequired": true,
         "enum": [
           "created"
-        ],
-        "childParamsGroups": []
+        ]
       },
       {
         "type": "object",
         "name": "installation",
-        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-cloud@latest/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
-        "childParamsGroups": []
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-cloud@latest/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>"
       },
       {
         "type": "object",
         "name": "organization",
         "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
-        "isRequired": true,
-        "childParamsGroups": []
+        "isRequired": true
       },
       {
         "type": "object",
@@ -147,8 +136,7 @@
         "type": "object",
         "name": "sender",
         "description": "<p>A GitHub user.</p>",
-        "isRequired": true,
-        "childParamsGroups": []
+        "isRequired": true
       }
     ],
     "availability": [
@@ -168,21 +156,18 @@
         "isRequired": true,
         "enum": [
           "deleted"
-        ],
-        "childParamsGroups": []
+        ]
       },
       {
         "type": "object",
         "name": "installation",
-        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-cloud@latest/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
-        "childParamsGroups": []
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-cloud@latest/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>"
       },
       {
         "type": "object",
         "name": "organization",
         "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
-        "isRequired": true,
-        "childParamsGroups": []
+        "isRequired": true
       },
       {
         "type": "object",
@@ -195,8 +180,7 @@
         "type": "object",
         "name": "sender",
         "description": "<p>A GitHub user.</p>",
-        "isRequired": true,
-        "childParamsGroups": []
+        "isRequired": true
       }
     ],
     "availability": [
@@ -216,28 +200,25 @@
         "isRequired": true,
         "enum": [
           "edited"
-        ],
-        "childParamsGroups": []
+        ]
       },
       {
         "type": "object",
         "name": "changes",
         "description": "<p>The changes made to the item may involve modifications in the item's fields and draft issue body.\nIt includes altered values for text, number, date, single select, and iteration fields, along with the GraphQL node ID of the changed field.</p>",
-        "childParamsGroups": [],
-        "oneOfObject": true
+        "oneOfObject": true,
+        "childParamsGroups": []
       },
       {
         "type": "object",
         "name": "installation",
-        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-cloud@latest/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
-        "childParamsGroups": []
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-cloud@latest/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>"
       },
       {
         "type": "object",
         "name": "organization",
         "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
-        "isRequired": true,
-        "childParamsGroups": []
+        "isRequired": true
       },
       {
         "type": "object",
@@ -250,8 +231,7 @@
         "type": "object",
         "name": "sender",
         "description": "<p>A GitHub user.</p>",
-        "isRequired": true,
-        "childParamsGroups": []
+        "isRequired": true
       }
     ],
     "availability": [
@@ -271,8 +251,7 @@
         "isRequired": true,
         "enum": [
           "reordered"
-        ],
-        "childParamsGroups": []
+        ]
       },
       {
         "type": "object",
@@ -284,15 +263,13 @@
       {
         "type": "object",
         "name": "installation",
-        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-cloud@latest/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
-        "childParamsGroups": []
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-cloud@latest/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>"
       },
       {
         "type": "object",
         "name": "organization",
         "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
-        "isRequired": true,
-        "childParamsGroups": []
+        "isRequired": true
       },
       {
         "type": "object",
@@ -305,8 +282,7 @@
         "type": "object",
         "name": "sender",
         "description": "<p>A GitHub user.</p>",
-        "isRequired": true,
-        "childParamsGroups": []
+        "isRequired": true
       }
     ],
     "availability": [
@@ -326,8 +302,7 @@
         "isRequired": true,
         "enum": [
           "restored"
-        ],
-        "childParamsGroups": []
+        ]
       },
       {
         "type": "object",
@@ -339,15 +314,13 @@
       {
         "type": "object",
         "name": "installation",
-        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-cloud@latest/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
-        "childParamsGroups": []
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-cloud@latest/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>"
       },
       {
         "type": "object",
         "name": "organization",
         "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
-        "isRequired": true,
-        "childParamsGroups": []
+        "isRequired": true
       },
       {
         "type": "object",
@@ -360,8 +333,7 @@
         "type": "object",
         "name": "sender",
         "description": "<p>A GitHub user.</p>",
-        "isRequired": true,
-        "childParamsGroups": []
+        "isRequired": true
       }
     ],
     "availability": [

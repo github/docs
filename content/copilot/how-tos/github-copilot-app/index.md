@@ -11,16 +11,20 @@ sidebarLink:
   text: All articles
   href: /copilot/how-tos/github-copilot-app
 introLinks:
-  overview: /copilot/concepts/agents/github-copilot-app
+  overview: /copilot/concepts/copilot-surfaces/github-copilot-app
   quickstart: /copilot/get-started/quickstart-copilot-app
 redirect_from:
   - /copilot/how-tos/github-app
 children:
   - /customize-github-copilot-app
   - /agent-sessions
+  - /choose-a-model
+  - /working-with-projects
+  - /computer-use
   - /working-with-canvas-extensions
+  - /view-and-fix-security-alerts
   - /managing-issues-and-pull-requests
   - /using-automations
-  - /use-byok-models
+  - /add-llm-models
   - /open-with-deep-links
 ---

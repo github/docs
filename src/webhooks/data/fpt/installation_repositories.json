@@ -10,27 +10,23 @@
         "isRequired": true,
         "enum": [
           "added"
-        ],
-        "childParamsGroups": []
+        ]
       },
       {
         "type": "object",
         "name": "enterprise",
-        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
-        "childParamsGroups": []
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>"
       },
       {
         "type": "object",
         "name": "installation",
         "description": "<p>Installation</p>",
-        "isRequired": true,
-        "childParamsGroups": []
+        "isRequired": true
       },
       {
         "type": "object",
         "name": "organization",
-        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
-        "childParamsGroups": []
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>"
       },
       {
         "type": "array of objects",
@@ -49,8 +45,7 @@
       {
         "type": "object",
         "name": "repository",
-        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
-        "childParamsGroups": []
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>"
       },
       {
         "type": "string",
@@ -60,8 +55,7 @@
         "enum": [
           "all",
           "selected"
-        ],
-        "childParamsGroups": []
+        ]
       },
       {
         "type": "object or null",
@@ -74,8 +68,7 @@
         "type": "object",
         "name": "sender",
         "description": "<p>A GitHub user.</p>",
-        "isRequired": true,
-        "childParamsGroups": []
+        "isRequired": true
       }
     ],
     "availability": [
@@ -95,27 +88,23 @@
         "isRequired": true,
         "enum": [
           "removed"
-        ],
-        "childParamsGroups": []
+        ]
       },
       {
         "type": "object",
         "name": "enterprise",
-        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
-        "childParamsGroups": []
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>"
       },
       {
         "type": "object",
         "name": "installation",
         "description": "<p>Installation</p>",
-        "isRequired": true,
-        "childParamsGroups": []
+        "isRequired": true
       },
       {
         "type": "object",
         "name": "organization",
-        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
-        "childParamsGroups": []
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>"
       },
       {
         "type": "array of objects",
@@ -134,8 +123,7 @@
       {
         "type": "object",
         "name": "repository",
-        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
-        "childParamsGroups": []
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>"
       },
       {
         "type": "string",
@@ -145,8 +133,7 @@
         "enum": [
           "all",
           "selected"
-        ],
-        "childParamsGroups": []
+        ]
       },
       {
         "type": "object or null",
@@ -159,8 +146,7 @@
         "type": "object",
         "name": "sender",
         "description": "<p>A GitHub user.</p>",
-        "isRequired": true,
-        "childParamsGroups": []
+        "isRequired": true
       }
     ],
     "availability": [

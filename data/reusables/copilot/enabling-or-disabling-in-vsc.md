@@ -2,7 +2,7 @@
 
 You can enable or disable {% data variables.product.prodname_copilot %} from within {% data variables.product.prodname_vscode %}.
 
-1. To configure inline suggestions, click the arrow next to the **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %}** icon in the title bar of {% data variables.product.prodname_vscode %}, then select **Configure Inline Suggestions**.
+1. To configure inline suggestions, click the arrow next to the chat icon in the title bar of {% data variables.product.prodname_vscode %}, then select **Configure Inline Suggestions**.
 
     ![Screenshot of the option in the {% data variables.product.prodname_copilot %} dropdown. "Configure inline suggestions" is highlighted in orange.](/assets/images/help/copilot/configure-code-completions-option-vscode.png)
 

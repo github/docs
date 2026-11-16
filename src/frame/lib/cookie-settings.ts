@@ -1,11 +1,9 @@
 import { type CookieSerializeOptions } from 'cookie'
 
 export const cookieSettings: CookieSerializeOptions = {
-  httpOnly: true, // can't access these cookies through browser JavaScript
+  httpOnly: true, // Browser JavaScript cannot access HTTP-only cookies.
   secure: !['test', 'development'].includes(process.env.NODE_ENV),
-  // requires https protocol
-  // http://localhost fails on chrome with secure
+  // Chrome rejects secure cookies on http://localhost.
   sameSite: 'lax',
-  // most browsers are "lax" these days,
-  // but older browsers used to default to "none"
+  // Explicit lax behavior protects older browsers with weaker defaults.
 }

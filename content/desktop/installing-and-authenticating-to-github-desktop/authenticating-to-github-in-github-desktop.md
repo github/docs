@@ -19,6 +19,8 @@ category:
 
 To keep your account secure, you must authenticate before you can use {% data variables.product.prodname_desktop %} to access resources on {% data variables.product.github %}.
 
+{% data variables.product.prodname_desktop %} uses short-lived tokens when you authenticate to {% data variables.product.prodname_dotcom_the_website %}. This improves security by limiting how long a compromised token can be used.
+
 Before you authenticate, {% data reusables.desktop.get-an-account %}
 
 {% mac %}

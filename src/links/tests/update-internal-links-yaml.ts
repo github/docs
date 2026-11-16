@@ -76,8 +76,7 @@ describe('serializeYaml', () => {
     expect(result).toContain('/new/path')
   })
 
-  // The text lives in `newContent` and the structured links live in `newData`, and there
-  // is no format-preserving way to merge them. Silently picking one loses the other.
+  // Text and structured link changes cannot merge format-preservingly, so picking one loses data.
   test('throws rather than silently dropping fixes when both changed', () => {
     expect(() =>
       serializeYaml(RELEASE_NOTE, { featuredLinks: { guide: '/new/path' } }, true, true),
@@ -102,19 +101,19 @@ describe('rewriting links in YAML', () => {
     keepStaleFragments: false,
   }
 
-  async function run(yaml: string) {
+  async function run(yaml: string, overrides: Partial<typeof opts> = {}) {
     const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'codemod-yaml-'))
     const file = path.join(dir, 'notes.yml')
     fs.writeFileSync(file, yaml)
     try {
-      return await updateFile(file, context, opts)
+      return await updateFile(file, context, { ...opts, ...overrides })
     } finally {
       fs.rmSync(dir, { recursive: true, force: true })
     }
   }
 
   test('rewrites a link hidden by indentation, which reads as a code block', async () => {
-    // Ten spaces of indent makes mdast see a code block, not a paragraph with a link.
+    // Ten spaces of indent makes mdast read a code block, not a paragraph with a link.
     const yaml = `sections:
   bugs:
     - |
@@ -129,10 +128,9 @@ describe('rewriting links in YAML', () => {
     expect(result.replacements).toHaveLength(2)
   })
 
-  // A `#` comment reads as a Markdown heading, so a link inside one is a real link node
-  // and does get rewritten. That is a documented limit, not corruption: telling the two
-  // apart needs a YAML parse, and a stale link in a comment is worth fixing anyway. The
-  // cases that would be corruption, code examples, are covered below.
+  // YAML comments read as Markdown headings, so links inside them are real link nodes.
+  // Distinguishing them needs a YAML parse, and stale links in comments are worth fixing.
+  // Code-example corruption is tested below.
   test('rewrites a link in a comment, but only there', async () => {
     const yaml = `# TODO: drop [x](/admin/old-path) from the copy below
 sections:
@@ -169,6 +167,44 @@ sections:
     const result = await run(yaml)
     expect(result.newContent).toContain('Real link: [x](/admin/new-path)')
     expect(result.newContent!.match(/\/admin\/old-path/g)).toHaveLength(1)
+  })
+
+  test('sets AUTOTITLE only on links inside prose quotes, not YAML string quotes', async () => {
+    const yaml = `rows:
+  - action: "[Custom text](/admin/new-path)"
+  - note: |
+      See "[Other](/admin/new-path)" here, or [Other](/admin/new-path) inline.
+`
+    const result = await run(yaml, { setAutotitle: true })
+    expect(result.newContent).toBe(`rows:
+  - action: "[Custom text](/admin/new-path)"
+  - note: |
+      See "[AUTOTITLE](/admin/new-path)" here, or [Other](/admin/new-path) inline.
+`)
+  })
+
+  test('sets AUTOTITLE on prose quotes that start a line inside YAML block scalars', async () => {
+    const yaml = `rows:
+  - note: |
+      "[Other](/admin/new-path)" has details.
+      - "[Other](/admin/new-path)" in a list.
+      See: "[Other](/admin/new-path)" for more.
+    action: "[Custom text](/admin/new-path)"
+  - >-
+    "[Other](/admin/new-path)" folded.
+  - "[Custom text](/admin/new-path)"
+`
+    const result = await run(yaml, { setAutotitle: true })
+    expect(result.newContent).toBe(`rows:
+  - note: |
+      "[AUTOTITLE](/admin/new-path)" has details.
+      - "[AUTOTITLE](/admin/new-path)" in a list.
+      See: "[AUTOTITLE](/admin/new-path)" for more.
+    action: "[Custom text](/admin/new-path)"
+  - >-
+    "[AUTOTITLE](/admin/new-path)" folded.
+  - "[Custom text](/admin/new-path)"
+`)
   })
 
   test('preserves every byte that is not a rewritten link', async () => {

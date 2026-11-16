@@ -17,7 +17,6 @@ Journey tracks are defined in article frontmatter using the `journeyTracks` fiel
 ```
 src/journeys/
 ├── components/
-│   ├── JourneyTrackCard.tsx    # Card showing journey progress with next/prev links
 │   ├── JourneyTrackNav.tsx     # Navigation bar for prev/next articles in a track
 │   └── index.ts                # Component exports
 ├── lib/

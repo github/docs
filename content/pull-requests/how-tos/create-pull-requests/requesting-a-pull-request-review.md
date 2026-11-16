@@ -24,6 +24,9 @@ To request a review, you need write access to the repository. You can request a 
 
 Suggested reviewers are based on [git blame data](/repositories/working-with-files/using-files/viewing-and-understanding-files). After someone reviews your pull request and you make changes, you can request another review from the same reviewer.
 
+> [!WARNING]
+> {% data reusables.pull_requests.large-team-review-request-warning %}
+
 {% data reusables.repositories.sidebar-pr %}
 1. In the list of pull requests, click the pull request that you want a specific person or team to review.
 1. To request a review from a suggested person under **Reviewers**, next to their username, click **Request**.

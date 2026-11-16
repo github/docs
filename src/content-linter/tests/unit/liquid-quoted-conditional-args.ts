@@ -1,4 +1,5 @@
 import { describe, expect, test } from 'vitest'
+import { applyFixes } from 'markdownlint-rule-helpers'
 
 import { runRule } from '../../lib/init-test'
 import { liquidQuotedConditionalArg } from '../../lib/linting-rules/liquid-quoted-conditional-arg'
@@ -12,8 +13,8 @@ describe(liquidQuotedConditionalArg.names.join(' - '), () => {
       '',
       ' - One',
       '{% if product.title == "Awesome Shoes" %}',
-      "{% elseif 'ghes' %}",
-      '{% elseif "ghec" %}',
+      "{% elsif 'ghes' %}",
+      '{% elsif "ghec" %}',
       '{% endif %}',
       '{% data variables.stuff.foo%}',
     ].join('\n')
@@ -21,8 +22,20 @@ describe(liquidQuotedConditionalArg.names.join(' - '), () => {
     const errors = result.markdown
     expect(errors.length).toBe(2)
     expect(errors.map((error) => error.lineNumber)).toEqual([7, 8])
-    expect(errors[0].errorRange).toEqual([1, 19])
-    expect(errors[1].errorRange).toEqual([1, 19])
+    expect(errors[0].errorRange).toEqual([1, 18])
+    expect(errors[1].errorRange).toEqual([1, 18])
+  })
+  test('inline elsif fix replaces only the tag', async () => {
+    const markdown = '{% if product.title == "x" %}A{% elsif "ghec" %}B{% endif %}'
+    const result = await runRule(liquidQuotedConditionalArg, { strings: { markdown } })
+    const errors = result.markdown
+    expect(errors.length).toBe(1)
+    expect(errors[0].fixInfo).toEqual({
+      lineNumber: 1,
+      editColumn: 31,
+      deleteCount: 18,
+      insertText: '{% elsif ghec %}',
+    })
   })
   test('ifversion conditional with quote args fails', async () => {
     const markdown = [
@@ -96,7 +109,7 @@ describe(liquidQuotedConditionalArg.names.join(' - '), () => {
       "{% when 'Health' %}",
       '{% unless this %}',
       '{% ifversion ghec %}',
-      '{% elseif ghes %}',
+      '{% elsif ghes %}',
       '{% if ghec %}',
       '- Three',
       '{% data variables.stuff.foo%}',
@@ -119,8 +132,26 @@ describe(liquidQuotedConditionalArg.names.join(' - '), () => {
     ].join('\n')
     const result = await runRule(liquidQuotedConditionalArg, { strings: { markdown } })
     const errors = result.markdown
-    // Only the standalone quoted arg (line 9) should be flagged
     expect(errors.length).toBe(1)
     expect(errors[0].lineNumber).toBe(9)
+  })
+  test('autofix removes only the offending quotes', async () => {
+    const cases = [
+      ['{% ifversion "ghec" %}', '{% ifversion ghec %}'],
+      ['{% ifversion "fpt" or ghec %}', '{% ifversion fpt or ghec %}'],
+      ['{% ifversion fpt and "ghec" %}', '{% ifversion fpt and ghec %}'],
+      ['{% if page.x == "y" or "z" %}', '{% if page.x == "y" or z %}'],
+      ['{% unless "this" %}x', '{% unless this %}x'],
+      [
+        'Intro {% ifversion "ghes" %}Text{% endif %} more',
+        'Intro {% ifversion ghes %}Text{% endif %} more',
+      ],
+      ['Use {% if "x" %}bar{% endif %}.', 'Use {% if x %}bar{% endif %}.'],
+    ]
+    for (const [markdown, expected] of cases) {
+      const result = await runRule(liquidQuotedConditionalArg, { strings: { markdown } })
+      expect(result.markdown.length).toBe(1)
+      expect(applyFixes(markdown, result.markdown)).toBe(expected)
+    }
   })
 })

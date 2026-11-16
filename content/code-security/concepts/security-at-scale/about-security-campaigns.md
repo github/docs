@@ -36,7 +36,7 @@ A security campaign has many benefits over other ways of encouraging developers 
 * Each campaign has a named point of contact for questions, reviews, and collaboration.  {% ifversion security-campaigns-autofix %}
 * For {% data variables.product.prodname_code_scanning %} alerts, {% data variables.copilot.copilot_autofix %} is automatically triggered to suggest a resolution. {% endif %}
 {%- ifversion code-secret-alert-assignees %}
-* For both {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_secret_scanning %}, you can assign alerts in a campaign to users with write access{% ifversion copilot %} or to {% data variables.copilot.copilot_cloud_agent %} to automatically generate pull requests with fixes{% endif %}.
+* You can assign both {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_secret_scanning %} alerts in a campaign to users with write access.{% ifversion copilot %} If {% data variables.copilot.agentic_autofix %} is enabled, you can also assign {% data variables.product.prodname_code_scanning %} alerts to {% data variables.product.prodname_copilot_short %} to automatically generate a pull request with fixes.{% endif %}
 {%- endif %}
 
 You can use one of the templates to select a group of closely related alerts for a campaign. This allows developers to build on the knowledge gained by resolving one alert and use it to fix several more, providing them with an incentive to fix multiple alerts.
@@ -69,7 +69,7 @@ The creation workflow is the same for all campaigns, but you will notice a few d
 
 {% ifversion code-secret-alert-assignees %}
 
-## About assigning alerts{% ifversion security-campaigns-assign-to-cca %} to users and {% data variables.copilot.copilot_cloud_agent %}{% endif %}
+## About assigning alerts
 
 {% ifversion code-secret-alert-assignees-ga %}{% elsif ghes = 3.20 %}
 
@@ -95,7 +95,7 @@ For {% data variables.product.prodname_code_scanning %}, you can also perform so
 
 {% ifversion security-campaigns-assign-to-cca %}
 
-If an autofix has been generated for alerts in a security campaign, you can select those alerts and assign them to {% data variables.copilot.copilot_cloud_agent %}. {% data variables.product.prodname_copilot_short %} will create a pull request and add you as a requested reviewer. See [AUTOTITLE](/code-security/how-tos/manage-security-alerts/remediate-alerts-at-scale/fixing-alerts-in-security-campaign#assigning-alerts-to-copilot-cloud-agent).
+If {% data variables.copilot.agentic_autofix %} is enabled for a repository, you can select up to 25 code scanning alerts in a security campaign and assign them to {% data variables.product.prodname_copilot_short %}. One assignment starts one agent session and creates one pull request for the selected alerts. See [AUTOTITLE](/code-security/how-tos/manage-security-alerts/remediate-alerts-at-scale/fixing-alerts-in-security-campaign#assigning-alerts-to-copilot).
 
 {% endif %}
 

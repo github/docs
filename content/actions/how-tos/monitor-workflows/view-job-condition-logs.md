@@ -15,7 +15,7 @@ When a job's `if` condition is evaluated, {% data variables.product.prodname_act
 ## Accessing expression logs
 
 1. Navigate to the workflow run summary.
-1. Click on the job.
+1. Click the job.
 1. Click **{% octicon "gear" aria-label="The Gear icon" %}**.
 1. Select **Download log archive**.
 1. Extract the ZIP file and open the `JOB-NAME/system.txt` file.

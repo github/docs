@@ -10,15 +10,13 @@
         "isRequired": true,
         "enum": [
           "revoked"
-        ],
-        "childParamsGroups": []
+        ]
       },
       {
         "type": "object",
         "name": "sender",
         "description": "<p>A GitHub user.</p>",
-        "isRequired": true,
-        "childParamsGroups": []
+        "isRequired": true
       }
     ],
     "availability": [

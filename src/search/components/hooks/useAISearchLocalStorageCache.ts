@@ -10,12 +10,10 @@ interface CacheIndexEntry {
   timestamp: number
 }
 
-/**
- * We cache AI Search response as individual entries in localStorage, with a separate index to track the keys.
- * This allows the cache to be updated without having to read a single large entry into memory and parse it each time a key is accessed
- *
- * Cached items are cached under a prefix, for a fixed number of days
- */
+// AI Search responses are individual localStorage entries with a separate key index.
+// Cache updates avoid reading and parsing one large entry on every access.
+//
+// Entries live under a prefix and expire after a fixed number of days.
 export function useAISearchLocalStorageCache<T = unknown>(
   cacheKeyPrefix: string = 'ai-query-cache',
   maxEntries: number = 1000,
@@ -23,15 +21,15 @@ export function useAISearchLocalStorageCache<T = unknown>(
 ) {
   const cacheIndexKey = `${cacheKeyPrefix}-index`
 
-  // Generates a unique key based on the query string, version, and language
   const generateCacheKey = (query: string, version: string, language: string): string => {
     query = query.trim().toLowerCase()
-    // Simple hash function to generate a unique key from the query
+    // Hashing keeps cache keys short while version and language separate entries.
     let hash = 0
     for (let i = 0; i < query.length; i++) {
       const char = query.charCodeAt(i)
       hash = (hash << 5) - hash + char
-      hash |= 0 // Convert to 32bit integer
+      // Keep the hash in signed 32-bit range.
+      hash |= 0
     }
     return `${cacheKeyPrefix}-${Math.abs(hash)}-${version}-${language}`
   }
@@ -39,26 +37,31 @@ export function useAISearchLocalStorageCache<T = unknown>(
   const getItem = useCallback(
     (query: string, version: string, language: string): T | null => {
       const key = generateCacheKey(query, version, language)
-      const itemStr = localStorage.getItem(key)
-      if (!itemStr) return null
-
-      let cachedItem: CachedItem<T>
       try {
-        cachedItem = JSON.parse(itemStr)
-      } catch (e) {
-        console.error('Failed to parse cached item from localStorage', e)
-        localStorage.removeItem(key)
-        return null
-      }
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return null
 
-      const now = Date.now()
-      const expirationTime = cachedItem.timestamp + expirationDays * 24 * 60 * 60 * 1000
-      if (now < expirationTime) {
-        return cachedItem.data
-      } else {
-        // Item expired, remove it
-        localStorage.removeItem(key)
-        updateCacheIndex((index) => index.filter((entry) => entry.key !== key))
+        let cachedItem: CachedItem<T>
+        try {
+          cachedItem = JSON.parse(itemStr)
+        } catch (e) {
+          console.error('Failed to parse cached item from localStorage', e)
+          localStorage.removeItem(key)
+          return null
+        }
+
+        const now = Date.now()
+        const expirationTime = cachedItem.timestamp + expirationDays * 24 * 60 * 60 * 1000
+        if (now < expirationTime) {
+          return cachedItem.data
+        } else {
+          localStorage.removeItem(key)
+          updateCacheIndex((index) => index.filter((entry) => entry.key !== key))
+          return null
+        }
+      } catch (e) {
+        // Storage can be blocked by browser settings, so treat failures as a cache miss.
+        console.warn('Failed to read AI search cache from localStorage', e)
         return null
       }
     },
@@ -71,36 +74,38 @@ export function useAISearchLocalStorageCache<T = unknown>(
       const now = Date.now()
       const cachedItem: CachedItem<T> = { data, timestamp: now }
 
-      localStorage.setItem(key, JSON.stringify(cachedItem))
+      try {
+        localStorage.setItem(key, JSON.stringify(cachedItem))
 
-      const indexStr = localStorage.getItem(cacheIndexKey)
-      let index: CacheIndexEntry[] = []
-      if (indexStr) {
-        try {
-          index = JSON.parse(indexStr)
-        } catch (e) {
-          console.error('Failed to parse cache index from localStorage', e)
+        const indexStr = localStorage.getItem(cacheIndexKey)
+        let index: CacheIndexEntry[] = []
+        if (indexStr) {
+          try {
+            index = JSON.parse(indexStr)
+          } catch (e) {
+            console.error('Failed to parse cache index from localStorage', e)
+          }
         }
-      }
 
-      // Remove existing entry for this key if any
-      index = index.filter((entry) => entry.key !== key)
-      index.push({ key, timestamp: now })
+        index = index.filter((entry) => entry.key !== key)
+        index.push({ key, timestamp: now })
 
-      // If cache exceeds max entries, remove oldest entries
-      if (index.length > maxEntries) {
-        // Sort entries by timestamp
-        index.sort((a, b) => a.timestamp - b.timestamp)
-        const excess = index.length - maxEntries
-        const entriesToRemove = index.slice(0, excess)
-        for (const entry of entriesToRemove) {
-          localStorage.removeItem(entry.key)
+        // Keep the newest entries when the cache exceeds maxEntries.
+        if (index.length > maxEntries) {
+          index.sort((a, b) => a.timestamp - b.timestamp)
+          const excess = index.length - maxEntries
+          const entriesToRemove = index.slice(0, excess)
+          for (const entry of entriesToRemove) {
+            localStorage.removeItem(entry.key)
+          }
+          index = index.slice(excess)
         }
-        index = index.slice(excess)
-      }
 
-      // Store updated index
-      localStorage.setItem(cacheIndexKey, JSON.stringify(index))
+        localStorage.setItem(cacheIndexKey, JSON.stringify(index))
+      } catch (e) {
+        // Caching is optional, so quota or blocked storage errors must not break the answer UI.
+        console.warn('Failed to write AI search cache to localStorage', e)
+      }
     },
     [cacheKeyPrefix, maxEntries],
   )

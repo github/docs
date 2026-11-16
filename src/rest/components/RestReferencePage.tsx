@@ -18,10 +18,7 @@ export const RestReferencePage = ({ restOperations }: StructuredContentT) => {
   const { title, intro, renderedPage, renderedPageHast, permissions, product } =
     useAutomatedPageContext()
 
-  // Scrollable code blocks in our REST API docs and elsewhere aren't accessible
-  // via keyboard navigation without setting tabindex="0".  But we don't want to set
-  // this attribute on every `<pre>` code block, only the ones where there are scroll
-  // bars because the content isn't all visible.
+  // Add tabindex=0 only when pre content overflows, because scrollable code needs keyboard access.
   useEffect(() => {
     const codeBlocks = document.querySelectorAll<HTMLPreElement>('pre')
 
@@ -37,8 +34,6 @@ export const RestReferencePage = ({ restOperations }: StructuredContentT) => {
 
   return (
     <DefaultLayout>
-      {/* Doesn't matter *where* this is included because it will
-      never render anything. It always just return null. */}
       <ClientSideRedirects />
       <RestRedirect />
       <div className="px-3 px-md-6 my-4 container-xl" data-search="article-body">

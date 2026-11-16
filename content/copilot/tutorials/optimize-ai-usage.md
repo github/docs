@@ -29,7 +29,7 @@ Choose the model based on the work involved:
 
 Use as much capability as the task requires, and as little as necessary. Matching capability to task improves outcomes and directly controls costs at scale.
 
-For a breakdown by model and task type, see [AUTOTITLE](/copilot/tutorials/compare-ai-models).
+For a breakdown by model and task type, see [AUTOTITLE](/copilot/reference/ai-models/model-comparison#recommended-models-by-task).
 
 ### Configure the reasoning level of the model
 
@@ -37,19 +37,23 @@ Some models also support configurable reasoning levels, which control how much t
 
 See [AUTOTITLE](/copilot/reference/ai-models/supported-models#models-with-extended-capabilities).
 
-### Use {% data variables.copilot.copilot_auto_model_selection %} as your default
+### Use {% data variables.copilot.copilot_fusion_short %} as your default
 
-{% data variables.copilot.copilot_auto_model_selection_short_cap_a %} chooses a capable model for you, based on the intent of your task.
+{% data variables.copilot.copilot_fusion_short %} evaluates each task and uses capability signals for reasoning, code generation, debugging, and tool use, to select the most efficient execution pattern that meets the quality bar for your chosen effort level. Execution patterns either choose a single best model for the task or use multiple models to do review passes for the best result for your task.
 
-A small router looks at your prompt and sends it to the model that can **handle it most efficiently**, reserving expensive reasoning models for complex problems. It also avoids models that burn through a token budget quickly.
+Selecting an effort level lets you prioritize the quality, cost, and capability tradeoffs that the system prioritizes for each prompt. There are three effort levels you can choose from: 
 
-{% data variables.copilot.copilot_auto_model_selection_short_cap_a %} also **protects your cache**. It only changes models at natural cache boundaries, when a new session starts or after you run `/compact`, never mid-task. To understand more about why this matters, see [4. Preserve the cache](#4-preserve-the-cache).
+* **{% data variables.copilot.copilot_fusion_standard %}**: Balances cost, quality, and latency.
+* **{% data variables.copilot.copilot_fusion_high %}**: Balanced orchestration with moderate token savings.
+* **{% data variables.copilot.copilot_fusion_max %}**: Frontier capability while still considering token efficiency. 
 
-{% data variables.copilot.copilot_auto_model_selection_short_cap_a %} also routes around degraded or busy models, so you hit fewer rate limits and errors.
+{% data variables.copilot.copilot_fusion_short %} keeps your main conversation on the same model whenever possible, so the conversation continues to benefit from cached tokens. Models that assist, such as a reviewer, receive only the context they need. To understand more about why this matters, see [4. Preserve the cache](#4-preserve-the-cache).
 
-{% data reusables.copilot.auto-model-discount %}
+<!-- expires 2026-11-30 -->
+{% data reusables.copilot.fusion-promotional-discount %}
+<!-- end expires 2026-11-30 -->
 
-For information on the feature and its availability, see [AUTOTITLE](/copilot/concepts/models/auto-model-selection#copilot-chat-in-ides).
+For more information, see [AUTOTITLE](/copilot/concepts/models/copilot-fusion).
 
 ### Use cheaper models for {% data variables.copilot.subagents_short %}
 
@@ -67,7 +71,7 @@ Well-structured prompts have three qualities:
 
 This added guidance doesn't meaningfully increase token usage, but it can significantly reduce the number of agent runs needed to reach the right outcome.
 
-For prompt engineering best practices, see [AUTOTITLE](/copilot/concepts/prompting/prompt-engineering).
+For prompt engineering best practices, see [AUTOTITLE](/copilot/concepts/prompting-and-context/prompt-engineering).
 
 ## 3. Keep your context lean
 
@@ -88,7 +92,7 @@ When you need the thread to keep going but it has grown large, run `/compact` in
 
 In addition, you can use `/context` to check current usage at any time.
 
-See [AUTOTITLE](/copilot/concepts/agents/copilot-cli/context-management).
+See [AUTOTITLE](/copilot/concepts/prompting-and-context/context-management).
 
 ### Give {% data variables.product.prodname_copilot_short %} a map of your project
 
@@ -98,7 +102,7 @@ A well-maintained custom instructions file, such as an `AGENTS.md` or `.github/c
 
 Large tool sets (for example, a full MCP server's worth of tools) add to the context on every request. Where it fits your workflow, enable only the toolsets relevant to the task.
 
-See [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp-in-your-ide/configure-toolsets).
+See [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/customize-copilot/extend-copilot-with-tools-and-context/configure-toolsets).
 
 ## 4. Preserve the cache
 
@@ -121,7 +125,7 @@ In {% data variables.copilot.copilot_cli_short %} and {% data variables.copilot.
 * You want to cap {% data variables.product.prodname_ai_credits_short %} usage on a single session to avoid unexpected costs.
 * You're tuning agent efficiency and want to find the minimum {% data variables.product.prodname_ai_credits_short %} that still produces a good result.
 
-Session limits are soft limits that help you control how many {% data variables.product.prodname_ai_credits_short %} any single task consumes, but they don't replace user-level budgets or spending limits, which govern your overall monthly consumption. For those controls, see [AUTOTITLE](/copilot/concepts/billing/budgets-for-usage-based-billing).
+Session limits are soft limits that help you control how many {% data variables.product.prodname_ai_credits_short %} any single task consumes, but they don't replace user-level budgets or spending limits, which govern your overall monthly consumption. For those controls, see [AUTOTITLE](/copilot/concepts/billing-and-usage/organizations-and-enterprises/budgets).
 
 For information on how to set a session limit in {% data variables.copilot.copilot_cli_short %}, see [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/set-session-limit).
 
@@ -148,7 +152,7 @@ In {% data variables.copilot.copilot_cli_short %}, `/chronicle` can generate use
 * Use `/chronicle tips` to analyze your recent session history and surface opportunities to use {% data variables.product.prodname_copilot_short %} more efficiently.
 * Use `/chronicle cost-tips` to understand your token usage patterns and get insights into how to reduce cost.
 
-See [AUTOTITLE](/copilot/concepts/agents/copilot-cli/chronicle#the-chronicle-slash-command).
+See [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/chronicle#using-the-chronicle-slash-command).
 
 ### Feed insights into a `copilot-instructions.md` file
 
@@ -198,4 +202,4 @@ Teams that invest in these guardrails see fewer retries, faster task completion,
 Monitor and manage your spending to get the most out of your {% data variables.product.prodname_ai_credits_short %}:
 
 * **Use your dashboard and budget controls**. The "AI usage" page, under https://github.com/settings/billing, breaks down consumption across every feature and model, so you can see where your credits are actually going and adjust accordingly. See [AUTOTITLE](/copilot/how-tos/manage-and-track-spending/monitor-ai-usage).
-* **Upgrade for a larger allowance**. If you regularly approach your monthly limit, a higher plan may be more economical than paying for additional usage, as higher plans have more {% data variables.product.prodname_ai_credit_singular %} allowance. See [AUTOTITLE](/copilot/concepts/billing/individual-plans#github-ai-credits-allowance-by-plan) and [AUTOTITLE](/copilot/how-tos/manage-your-account/view-and-change-your-copilot-plan).
+* **Upgrade for a larger allowance**. If you regularly approach your monthly limit, a higher plan may be more economical than paying for additional usage, as higher plans have more {% data variables.product.prodname_ai_credit_singular %} allowance. See [AUTOTITLE](/copilot/get-started/plans#github-ai-credits-allowance-by-plan) and [AUTOTITLE](/copilot/how-tos/manage-your-account/view-and-change-your-copilot-plan).

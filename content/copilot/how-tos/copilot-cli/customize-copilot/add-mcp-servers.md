@@ -13,7 +13,21 @@ docsTeamMetrics:
   - copilot-cli
 ---
 
-The Model Context Protocol (MCP) is an open standard that defines how applications share context with large language models (LLMs). You can connect MCP servers to {% data variables.copilot.copilot_cli %} to give {% data variables.product.prodname_copilot_short %} access to external tools, data sources, and services. For an overview of MCP, see [AUTOTITLE](/copilot/concepts/context/mcp).
+The Model Context Protocol (MCP) is an open standard that defines how applications share context with large language models (LLMs). You can connect MCP servers to {% data variables.copilot.copilot_cli %} to give {% data variables.product.prodname_copilot_short %} access to external tools, data sources, and services. For an overview of MCP, see [AUTOTITLE](/copilot/concepts/customizations/mcp).
+
+## Connecting services
+
+> [!NOTE]
+> {% data reusables.copilot.connectors-public-preview %}
+
+Connect an external service once to give {% data variables.product.prodname_copilot_short %} access to its tools and context. You can then use the connection across supported {% data variables.product.prodname_copilot_short %} surfaces without repeating setup or signing in separately in each one. {% data variables.product.github %} handles MCP server configuration and authentication for you.
+
+If your organization or enterprise provides your {% data variables.product.prodname_copilot_short %} subscription, an administrator may need to update its policies to allow connectors. See [AUTOTITLE](/copilot/concepts/customizations/copilot-connectors).
+
+1. In an interactive CLI session, enter `/mcp` to open the MCP server dashboard.
+1. Use the <kbd>←</kbd> and <kbd>→</kbd> keys to switch to the **Connectors** view.
+1. Select a connector, press <kbd>Enter</kbd>, then select **Connect**.
+1. Follow the prompts to sign in to the service and approve access.
 
 ## Adding an MCP server
 
@@ -27,7 +41,7 @@ You can add MCP servers in the following ways:
 * [Using the `copilot mcp add` subcommand](#using-the-copilot-mcp-add-subcommand)
 * [Editing the configuration file](#editing-the-configuration-file)
 * [Adding per-repository MCP servers](#adding-per-repository-mcp-servers)
-* [Searching and installing from the registry (experimental)](#searching-and-installing-from-the-registry)
+* [Searching and installing from the registry](#searching-and-installing-from-the-registry)
 
 For installation instructions, available tools, and URLs for specific MCP servers, see the [{% data variables.product.github %} MCP Registry](https://github.com/mcp).
 
@@ -38,12 +52,12 @@ For installation instructions, available tools, and URLs for specific MCP server
 1. Next to **Server Name**, enter a unique name for the MCP server. This is the name you will use to refer to the server.
 1. Next to **Server Type**, select a type by pressing the corresponding number. The following types are available:
 
-   * **Local** or **STDIO**: starts a local process and communicates over standard input/output (`stdin`/`stdout`). Both options work the same way. **STDIO** is the standard MCP protocol type name, so choose this if you want your configuration to be compatible with {% data variables.product.prodname_vscode_shortname %}, the {% data variables.copilot.copilot_cloud_agent %}, and other MCP clients.
+   * **STDIO**: starts a local process and communicates over standard input/output (`stdin`/`stdout`). This is the standard MCP protocol type name, so it's compatible with {% data variables.product.prodname_vscode_shortname %}, the {% data variables.copilot.copilot_cloud_agent %}, and other MCP clients.
    * **HTTP** or **SSE**: connects to a remote MCP server. **HTTP** uses the Streamable HTTP transport. **SSE** uses the legacy HTTP with Server-Sent Events transport, which is deprecated in the MCP specification but still supported for backwards compatibility. <!-- markdownlint-disable-line GHD046 -->
 
 1. The remaining fields depend on the server type you selected:
 
-   * If you chose **Local** or **STDIO**:
+   * If you chose **STDIO**:
 
      * Next to **Command**, enter the command to start the server, including any arguments. For example, `npx @playwright/mcp@latest`. This corresponds to both the `command` and `args` properties in the JSON configuration file.
      * Next to **Environment Variables**, optionally specify environment variables the server needs, such as API keys or tokens, as JSON key-value pairs. For example, `{"API_KEY": "YOUR-API-KEY"}`. The `PATH` variable is automatically inherited from your environment. All other environment variables must be configured here.
@@ -91,7 +105,7 @@ copilot mcp add context7 -- npx -y @upstash/context7-mcp
 Add a local server with environment variables:
 
 ```shell copy
-copilot mcp add github -e GITHUB_PERSONAL_ACCESS_TOKEN=YOUR_GITHUB_PAT -- docker run -i --rm -e GITHUB_PERSONAL_ACCESS_TOKEN ghcr.io/github/github-mcp-server
+copilot mcp add github --env GITHUB_PERSONAL_ACCESS_TOKEN=YOUR_GITHUB_PAT -- docker run -i --rm -e GITHUB_PERSONAL_ACCESS_TOKEN ghcr.io/github/github-mcp-server
 ```
 
 Add a remote HTTP server:
@@ -179,16 +193,13 @@ The same server can also be configured with the bare top-level format:
 ```
 
 > [!NOTE]
-> Project-level MCP servers are loaded only after you confirm folder trust on first launch. They are silently skipped in untrusted directories. For more information on folder trust, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-copilot-cli#trusted-directories).
+> Project-level MCP servers are loaded only after you confirm folder trust on first launch. They are silently skipped in untrusted directories. For more information on folder trust, see [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-cli#trusted-directories).
 
 In prompt mode (`copilot -p`), project-level MCP servers are loaded automatically if the current directory is already trusted. If the directory is not trusted, project-level MCP servers are skipped by default. To load them anyway, set the `GITHUB_COPILOT_PROMPT_MODE_WORKSPACE_MCP` environment variable to `true`, since prompt mode cannot show an interactive trust prompt. For more information, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference#environment-variables).
 
 The `.vscode/mcp.json` file for {% data variables.product.prodname_vscode_shortname %} is not read by {% data variables.copilot.copilot_cli_short %}. It uses the unsupported top-level key `servers`. To migrate an existing `.vscode/mcp.json` to a format the CLI accepts, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference#migrating-from-vscodemcpjson).
 
 ### Searching and installing from the registry
-
-> [!NOTE]
-> The `/mcp search` command is currently an experimental feature. To use it, start {% data variables.copilot.copilot_cli_short %} with the `‑‑experimental` command line option, or enter `/experimental on` during a session.
 
 You can discover and install MCP servers directly from the [{% data variables.product.github %} MCP Registry](https://github.com/mcp) using the `/mcp search` command in interactive mode. This lets you browse available servers, view their details, and install them without manually filling out the configuration form.
 
@@ -211,7 +222,7 @@ You can manage your configured MCP servers using the `/mcp` commands in interact
 
 ### Using `/mcp` commands in interactive mode
 
-* **List configured MCP servers:** Use the command `/mcp show`. This displays all configured MCP servers and their current status.
+* **List configured MCP servers:** Use the command `/mcp`. This opens the plugins dashboard showing all configured MCP servers and their current status. Use `/mcp list` to print the same information as plain text.
 
 * **View details about a specific server:** Use the command `/mcp show SERVER-NAME`. This displays the status of the specified server and the list of tools it provides.
 
@@ -219,7 +230,7 @@ You can manage your configured MCP servers using the `/mcp` commands in interact
 
 * **Delete a server:** Use the command `/mcp delete SERVER-NAME`.
 
-* **Disable a server:** Use the command `/mcp disable SERVER-NAME`. A disabled server remains configured but is not used by {% data variables.product.prodname_copilot_short %} for the current session.
+* **Disable a server:** Use the command `/mcp disable SERVER-NAME`. A disabled server remains configured but is not used by {% data variables.product.prodname_copilot_short %}. This setting persists across sessions.
 
 * **Enable a previously disabled server:** Use the command `/mcp enable SERVER-NAME`.
 
@@ -251,12 +262,26 @@ You can also manage MCP servers from the terminal without entering interactive m
 
   Removes the server from the user configuration.
 
+* **Disable a server:**
+
+  ```shell copy
+  copilot mcp disable SERVER-NAME
+  ```
+
+  A disabled server remains configured but is not used by {% data variables.product.prodname_copilot_short %}. This setting persists across sessions.
+
+* **Enable a previously disabled server:**
+
+  ```shell copy
+  copilot mcp enable SERVER-NAME
+  ```
+
 ## Using MCP servers
 
 Once you have added an MCP server, {% data variables.product.prodname_copilot_short %} can automatically use the tools it provides when relevant to your prompt. You can also directly reference an MCP server and specific tools in a prompt to ensure they are used.
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/concepts/context/mcp)
-* [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp-in-your-ide/extend-copilot-chat-with-mcp)
+* [AUTOTITLE](/copilot/concepts/customizations/mcp)
+* [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/customize-copilot/extend-copilot-with-tools-and-context/extend-copilot-chat-with-mcp)
 * [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/configure-mcp-servers)

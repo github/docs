@@ -52,4 +52,8 @@ If the email address you used to author the commits is not connected to your {% 
 
 After force-pushing, rewriting history, or deleting commits, repository contributor displays and statistics can take about 24 hours to refresh.
 
-If you're a repository owner and contributor data is still incorrect after waiting about 24 hours, contact {% data variables.contact.github_support %}. For more information about creating a support ticket, see [AUTOTITLE](/support/contacting-github-support/creating-a-support-ticket).
+{% ifversion ghes %}
+If you're a repository owner and contributor data is still incorrect after waiting about 24 hours, contact {% data variables.contact.contact_support %}.
+{% else %}
+If you're a repository owner and contributor data is still incorrect after waiting approximately 24 hours, you can contact {% data variables.contact.github_support %} depending on the support options available to your account. For more information, see [AUTOTITLE](/support/learning-about-github-support/about-github-support). 
+{% endif %}

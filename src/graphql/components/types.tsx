@@ -35,7 +35,7 @@ export type GraphqlT = {
   isDeprecated?: boolean
   deprecationReason?: string
   preview?: PreviewT
-  defaultValue?: boolean
+  defaultValue?: string | boolean
 }
 
 export type ImplementsT = {
@@ -77,9 +77,15 @@ export type InterfaceT = GraphqlT & {
   fields: FieldT[]
 }
 
+export type InterfaceImplementerT = Pick<ObjectT, 'name' | 'href'> & {
+  implements?: Pick<ImplementsT, 'name'>[]
+}
+
 export type EnumValuesT = {
   name: string
   description: string
+  isDeprecated?: boolean
+  deprecationReason?: string
 }
 
 export type EnumT = GraphqlT & {

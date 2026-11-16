@@ -3,7 +3,7 @@ title: collectd metrics for GitHub Enterprise Server
 shortTitle: collectd metrics
 intro: You can review the metrics that `collectd` gathers for {% data variables.location.product_location %}.
 versions:
-  ghes: '*'
+  feature: ghes-collectd-available
 redirect_from:
   - /admin/monitoring-managing-and-updating-your-instance/monitoring-your-instance/collectd-metrics-for-github-enterprise-server
 contentType: reference

@@ -10,4 +10,5 @@ children:
   - /images-in-lists
   - /link-to-image
   - /retina-image
+  - /emoji-and-decorative-images
 ---

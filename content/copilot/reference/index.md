@@ -11,10 +11,12 @@ children:
   - /copilot-feature-matrix
   - /keyboard-shortcuts
   - /copilot-cli-reference
+  - /plugin-and-marketplace-reference
   - /github-copilot-app-reference
   - /custom-agents-configuration
   - /custom-instructions-support
   - /hooks-reference
+  - /supported-connectors
   - /supported-surfaces-for-policies
   - /copilot-allowlist-reference
   - /metrics-data
@@ -24,4 +26,3 @@ children:
   - /enterprise-administrators
 contentType: reference
 ---
-

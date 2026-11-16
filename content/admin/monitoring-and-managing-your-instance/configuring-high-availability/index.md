@@ -17,6 +17,7 @@ children:
   - /answers-to-common-questions-about-high-availability-replicas
   - /creating-a-high-availability-replica
   - /monitoring-a-high-availability-configuration
+  - /managing-the-replication-controller
   - /initiating-a-failover-to-your-replica-appliance
   - /recovering-a-high-availability-configuration
   - /removing-a-high-availability-replica

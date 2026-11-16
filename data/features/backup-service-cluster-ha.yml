@@ -1,0 +1,3 @@
+# Backup service support for cluster and high availability configurations
+versions:
+  ghes: '>=3.20'

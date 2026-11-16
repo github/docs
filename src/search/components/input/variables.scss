@@ -1,11 +1,11 @@
-// Widths of the search bar button at different breakpoints
 $smHeaderSearchInputWidth: 100%; // Technically we don't show the search bar at this breakpoint
 $mdHeaderSearchInputWidth: 100%; // Technically we don't show the search bar at this breakpoint
 $lgHeaderSearchInputWidth: 25rem;
 $xlHeaderSearchInputWidth: 40rem;
 
-// Widths of the search overlay popup at different breakpoints
-$smSearchOverlayWidth: 100vw;
-$mdSearchOverlayWidth: 100vw;
-$lgSearchOverlayWidth: 40rem;
-$xlSearchOverlayWidth: 50rem;
+// Figma nodes 446-109611 and 446-105514: a card up to 880px wide, centered in a 72px gutter.
+// Full-bleed below `md`.
+$searchDialogMaxWidth: 55rem; // 880px
+$searchDialogGutter: 72px;
+// Repeated at higher specificity in .scrim to survive the nested theme wrapper reset.
+$searchScrimColor: rgba(0, 0, 0, 0.2);

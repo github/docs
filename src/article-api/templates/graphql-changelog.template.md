@@ -4,7 +4,7 @@
 
 {{ manualContent }}
 
-{% for navItem in yearNavItems %}{% if navItem.isCurrent %}**{{ navItem.year }}**{% else %}[{{ navItem.year }}]({{ navItem.year }}){% endif %}{% unless forloop.last %} · {% endunless %}{% endfor %}
+{% for navItem in yearNavItems %}{% if navItem.isCurrent %}**{{ navItem.year }}**{% else %}[{{ navItem.year }}](/graphql/overview/changelog/{{ navItem.year }}){% endif %}{% unless forloop.last %} · {% endunless %}{% endfor %}
 
 {% for item in changelogItems %}
 

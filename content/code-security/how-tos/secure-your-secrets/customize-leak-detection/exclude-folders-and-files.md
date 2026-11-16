@@ -17,7 +17,7 @@ category:
 
 You may have a reason to commit a secret to a repository, such as when you want to provide a fake secret in documentation, or in an example application. In these scenarios, you can quickly dismiss the alert and document the reasons. However, there may be cases where you want to ignore a directory entirely to avoid creating false positive alerts at scale. For example, you might have a monolithic application with several integrations containing a file of dummy keys that could set off numerous false alerts to triage.
 
-You can configure a `secret_scanning.yml` file to automatically close alerts found in specific directories from {% data variables.product.prodname_secret_scanning %}, and exclude these directories included in push protection. These alerts are closed as "ignored by configuration".
+You can configure a `secret_scanning.yml` file to automatically close alerts found in specific directories from {% data variables.product.prodname_secret_scanning %}, and exclude these directories included in push protection. These alerts are closed as "ignored by configuration". They do not trigger `secret_scanning_alert` or `secret_scanning_alert_location` webhook events.
 
 ## Excluding directories from {% data variables.secret-scanning.user_alerts %}
 

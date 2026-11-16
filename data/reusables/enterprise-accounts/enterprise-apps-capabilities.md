@@ -7,6 +7,12 @@ Enterprise-installed {% data variables.product.prodname_github_apps %} cannot ca
 {%- ifversion enterprise-billing-github-app %}
 * Manage enterprise billing, including budgets, cost centers, and usage reports. For more information, see [AUTOTITLE](/rest/billing).
 {%- endif %}
+{%- ifversion enterprise-copilot-settings-github-app %}
+* Manage {% data variables.product.prodname_copilot_short %} seat assignments for your enterprise
+{%- endif %}
+{%- ifversion ghec %}
+* Authorize {% data variables.product.pat_v1_plural %} and verified, user-owned SSH authentication keys for SSO in selected organizations. See [AUTOTITLE](/authentication/authenticating-with-single-sign-on/authorizing-credentials-for-single-sign-on-with-a-github-app).
+{%- endif %}
 * Call the enterprise SCIM APIs
 
 Check the [changelog](https://github.blog/changelog/) for updates on new APIs and permissions for {% data variables.product.prodname_github_apps %}.

@@ -3,20 +3,16 @@ import type { ReactNode } from 'react'
 import { useRouter } from 'next/router'
 
 import Cookies from '@/frame/components/lib/cookies'
+import { useIsHydrating } from '@/frame/components/hooks/useIsHydrating'
 import { SIDEBAR_COLLAPSED_COOKIE_NAME } from '@/frame/lib/constants'
 
-// Persists whether the desktop doc-tree rail is collapsed, and holds the
-// (non-persisted) open state of the inline mobile nav. Mirrors the per-branch
-// expand persistence in src/landings/components/useSidebarExpandState.tsx:
-// collapsed state is kept in a cookie and shared through context so the
-// secondary bar's toggle, the layout that renders the rail, and the mobile nav
-// trigger all stay in sync.
-//
-// SSR-safety: the cookie is read server-side in getMainContext and passed to the
-// provider as `initialCollapsed`, so the first render (server + client hydration)
-// already reflects the persisted state and markup matches — no flash of the open
-// rail before it collapses. When no initial is supplied, it falls back to reading
-// the cookie client-side via the SSR-safe cookie lib.
+// Keep two sidebar state channels separate. collapsed persists in a cookie and
+// syncs the desktop toggle with the rail layout, mirroring
+// src/landings/components/useSidebarExpandState.tsx. mobileNavOpen never persists;
+// the mobile trigger reads it for inline nav expansion. Page HTML is publicly cached
+// and does not vary on Cookie, so the server and hydration render the rail open. The
+// cookie applies in the re-render right after hydration, and client-side mounts read it
+// on their first render.
 
 function readCollapsed(): boolean {
   try {
@@ -30,18 +26,16 @@ function persistCollapsed(collapsed: boolean) {
   try {
     Cookies.set(SIDEBAR_COLLAPSED_COOKIE_NAME, String(collapsed))
   } catch {
-    // Cookie writes may fail (disabled cookies, etc.) — degrade to non-persisted
-    // state rather than throwing.
+    // Disabled cookies must degrade to non-persisted state instead of throwing.
   }
 }
 
 type SidebarCollapseContextValue = {
-  // Desktop: whether the left rail is collapsed (persisted).
+  // Desktop rail collapse persists in a cookie.
   collapsed: boolean
   toggleCollapsed: () => void
   setCollapsed: (collapsed: boolean) => void
-  // Mobile: whether the doc-tree nav is expanded inline (not persisted). The
-  // nav renders in the page flow, same as desktop — not in a dialog overlay.
+  // Mobile inline nav state never persists, and it stays in page flow rather than a dialog.
   mobileNavOpen: boolean
   toggleMobileNav: () => void
   closeMobileNav: () => void
@@ -49,52 +43,38 @@ type SidebarCollapseContextValue = {
 
 const SidebarCollapseContext = createContext<SidebarCollapseContextValue | null>(null)
 
-export function SidebarCollapseProvider({
-  children,
-  initialCollapsed,
-}: {
-  children: ReactNode
-  initialCollapsed?: boolean
-}) {
+export function SidebarCollapseProvider({ children }: { children: ReactNode }) {
   const { asPath } = useRouter()
-  // Seed from the SSR-read cookie value so server and first client render agree.
-  // When no initial is supplied, fall back to reading the cookie client-side.
-  const [collapsed, setCollapsedState] = useState(() => initialCollapsed ?? readCollapsed())
+  const hydrating = useIsHydrating()
+  const saved = useMemo(() => !hydrating && readCollapsed(), [hydrating])
+  // Stays null until the reader toggles, so the saved state shows after hydration.
+  const [chosen, setChosen] = useState<boolean | null>(null)
+  const collapsed = chosen ?? saved
   const [mobileNavOpen, setMobileNavOpen] = useState(false)
 
   const setCollapsed = useCallback((next: boolean) => {
-    setCollapsedState(next)
+    setChosen(next)
     persistCollapsed(next)
   }, [])
 
-  const toggleCollapsed = useCallback(() => {
-    setCollapsedState((prev) => {
-      const next = !prev
-      persistCollapsed(next)
-      return next
-    })
-  }, [])
+  const toggleCollapsed = useCallback(() => setCollapsed(!collapsed), [collapsed, setCollapsed])
 
   const toggleMobileNav = useCallback(() => setMobileNavOpen((prev) => !prev), [])
   const closeMobileNav = useCallback(() => setMobileNavOpen(false), [])
 
-  // Client-side navigation doesn't unmount the inline mobile nav, so close it
-  // when the route (or REST in-page hash) changes.
+  // Close the mounted inline mobile nav across client-side route and REST hash changes.
   useEffect(() => {
     setMobileNavOpen(false)
   }, [asPath])
 
-  // Growing the viewport to the desktop (xxl) layout takes over from the inline
-  // mobile nav and hides its toggle, so close the mobile nav when we cross the
-  // breakpoint — otherwise its open state stays stuck and keeps the content
-  // column hidden. 1400px mirrors breakpoint-xxl.scss.
+  // Keep 1012px aligned with SidebarNav's lg breakpoint and DefaultLayout's content visibility.
   useEffect(() => {
     if (typeof window === 'undefined' || !window.matchMedia) return
-    const mql = window.matchMedia('(min-width: 1400px)')
+    const mql = window.matchMedia('(min-width: 1012px)')
     const handle = (e: MediaQueryListEvent | MediaQueryList) => {
       if (e.matches) setMobileNavOpen(false)
     }
-    handle(mql) // close immediately if already at/above xxl on mount
+    handle(mql)
     mql.addEventListener('change', handle)
     return () => mql.removeEventListener('change', handle)
   }, [])
@@ -114,11 +94,7 @@ export function SidebarCollapseProvider({
   return <SidebarCollapseContext.Provider value={value}>{children}</SidebarCollapseContext.Provider>
 }
 
-/**
- * Read/toggle the desktop rail's collapsed state and the inline mobile nav's
- * open state. Falls back to a no-op expanded/closed state if used outside the
- * provider.
- */
+// Read and toggle sidebar state. Outside the provider, return no-op expanded and closed state.
 export function useSidebarCollapsed(): SidebarCollapseContextValue {
   const ctx = useContext(SidebarCollapseContext)
   if (!ctx) {

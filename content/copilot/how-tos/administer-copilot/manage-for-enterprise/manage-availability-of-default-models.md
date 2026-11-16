@@ -29,9 +29,11 @@ This sets a baseline that you can add to with more granular controls. For models
 {% data reusables.enterprise-accounts.configure-allowed-models %}
 1. Select a status for each model in the list:
 
-   * **Enabled** for everyone.
-   * **Disabled** for everyone.
+   * **Enabled** for every user and {% data variables.copilot.agent_app %}.
+   * **Disabled** for every user and {% data variables.copilot.agent_app %}.
    * **Delegate** the decision to organizations or enterprise teams and apps.
+
+{% data reusables.copilot.model-access-agent-apps %}
 
 ### Checking for unconfigured models
 
@@ -40,6 +42,18 @@ This sets a baseline that you can add to with more granular controls. For models
 These models are labeled as "Delegate to Default Policy" in your model settings. If the "Default availability" policy is enabled, these models will be available for everyone.
 
 If you are not happy with any of these settings, you can disable specific models, make them available only for specific organizations or teams, or disable the "Default availability" policy so unconfigured models default to disabled.
+
+## Configuring models available for {% data variables.copilot.copilot_fusion_short %}
+
+Configure which models you want available for {% data variables.copilot.copilot_fusion_short %}. See [AUTOTITLE](/copilot/concepts/models/copilot-fusion). Models enabled here will be available to a user through {% data variables.copilot.copilot_fusion_short %}, but only if your other model policies allow that user to use the model. 
+
+> [!NOTE]
+> Frontier models are often used by {% data variables.copilot.copilot_fusion_max %}. If you disable any of the models required for {% data variables.copilot.copilot_fusion_max %}, then {% data variables.copilot.copilot_fusion_max %} will not be available for use.
+
+{% data reusables.enterprise-accounts.ai-controls-tab %}
+{% data reusables.enterprise-accounts.copilot-sidebar %}
+1. Under **Models**, click **Configure {% data variables.copilot.copilot_fusion_short %} models**.
+1. Select a status for each model in the list. 
 
 ## Granting access to specific organizations (default)
 
@@ -95,6 +109,17 @@ To grant access to an enterprise team:
 1. Access the settings for the team. See [AUTOTITLE](/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/create-enterprise-teams).
 1. Click the **Default models** tab.
 1. For each model that the team should receive access to beyond the enterprise baseline, set the dropdown to **Enabled**.
+
+### Granting access to {% data variables.copilot.agent_apps %}
+
+{% data reusables.copilot.agent-apps-intro %} See [AUTOTITLE](/copilot/concepts/agent-capabilities/about-agents/agent-apps).
+
+Ensure models you want to enable specifically for apps are set to **Delegate to Enterprise Teams/Apps** in your enterprise's model policies.
+
+{% data reusables.enterprise-accounts.ai-controls-tab %}
+{% data reusables.enterprise-accounts.copilot-sidebar %}
+1. Under **Models**, click **Configure app models**.
+1. For each available model you want to enable, change the dropdown from **Optional** to **Enabled**.
 
 ## Further reading
 

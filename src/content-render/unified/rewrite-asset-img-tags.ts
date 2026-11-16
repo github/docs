@@ -2,14 +2,11 @@ import type { Element, Node } from 'hast'
 import { visit, SKIP } from 'unist-util-visit'
 import { IMAGE_DENSITY } from '../../assets/lib/image-density'
 
-// This number must match a width we're willing to accept in a dynamic
-// asset URL.
-// (note this is exported for the sake of end-to-end tests' assertions)
+// Dynamic asset URLs accept this width, and end-to-end tests assert it by import.
 export const MAX_WIDTH = 1440
 
 const DEFAULT_IMAGE_DENSITY = '2x'
 
-// Matches any <img> tags with an href that starts with `/assets/`
 function isAssetImg(node: Node): node is Element {
   return (
     node.type === 'element' &&
@@ -21,19 +18,10 @@ function isAssetImg(node: Node): node is Element {
   )
 }
 
-/**
- * Where it can mutate the AST to swap from:
- *
- *   <img src="/assets/help.png" alt="Alternative text">
- *
- * To:
- *
- *   <picture>
- *     <source srcset="/assets/help.web" format="image/webp">
- *     <img src="/assets/help.png" alt="Alternative text">
- *   </picture>
- *
- * */
+// PNG assets get a picture wrapper so browsers can prefer the generated WebP source.
+// <img src="/assets/cb-1234/images/help.png" alt="Help"> becomes a picture with:
+// <source srcset="/assets/cb-1234/mw-1440/images/help.webp 2x" type="image/webp">
+// <img src="/assets/cb-1234/images/help.png" alt="Help">
 export default function rewriteAssetImgTags() {
   return (tree: Node) => {
     visit(tree, 'element', (node: Node) => {
@@ -66,22 +54,17 @@ export default function rewriteAssetImgTags() {
         delete node.properties.alt
         delete node.properties.src
 
-        // Don't go further or else you end up in an infinite recursion
+        // Stop before visiting the cloned PNG child and recursing forever.
         return SKIP
       }
     })
   }
 }
 
-/**
- * Given a pathname, insert the `/_mw-DDDD/`.
- *
- * For example, if the pathname is `/assets/cb-1234/images/foo.png`
- * return `/assets/cb-1234/_mw-1440/images/foo.png`
- */
+// dynamic-assets.ts reads the mw- segment between the cache-buster and image path.
+// /assets/cb-1234/images/help.png becomes /assets/cb-1234/mw-1440/images/help.png.
 function injectMaxWidth(pathname: string, maxWidth: number): string {
   const split = pathname.split('/')
-  // This prefix needs to match what's possibly expected in dynamic-assets.ts
   const inject = `mw-${maxWidth}`
   if (split.includes(inject)) {
     throw new Error(`pathname already includes '${inject}'`)

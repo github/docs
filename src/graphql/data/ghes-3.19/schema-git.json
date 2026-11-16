@@ -716,6 +716,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: UPDATED_AT, direction: DESC}",
               "description": "<p>Ordering options for repository rules.</p>",
               "type": {
                 "name": "RepositoryRuleOrder",

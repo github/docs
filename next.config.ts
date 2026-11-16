@@ -12,6 +12,7 @@ const { data } = frontmatter(fs.readFileSync(homepage, 'utf8'))
 const productIds = data.children as string[]
 
 const config: NextConfig = {
+  allowedDevOrigins: ['127.0.0.1'],
   // Transpile @primer/react and @primer/react-brand so Next's webpack can process their
   // CSS and other assets. This ensures CSS from these node_modules packages is handled by
   // the app's loaders.
@@ -39,9 +40,10 @@ const config: NextConfig = {
     quietDeps: true,
     silenceDeprecations: ['legacy-js-api', 'import', 'global-builtin', 'color-4-api'],
   },
-  // Don't use automatic Next.js logging in dev unless the log level is `debug` or higher
+  // Don't use automatic Next.js request logging unless the log level is `debug` or higher.
+  // Our own request logger already covers it. `false` would also stop `[browser]` console forwarding.
   // See `src/observability/logger/README.md` for log levels
-  logging: getLogLevelNumber() < 3 ? undefined : {},
+  logging: getLogLevelNumber() < 3 ? { incomingRequests: false } : {},
   async rewrites() {
     const DEFAULT_VERSION = 'free-pro-team@latest'
     return productIds.map((productId) => {
@@ -53,7 +55,7 @@ const config: NextConfig = {
   },
 
   webpack: (webpackConfig, { isServer }) => {
-    webpackConfig.resolve.fallback = { fs: false, async_hooks: false }
+    webpackConfig.resolve.fallback = { fs: false, async_hooks: false, child_process: false }
     // OTel is server-only. Alias to empty stub in browser bundles.
     if (!isServer) {
       webpackConfig.resolve.alias = {
@@ -76,6 +78,9 @@ const config: NextConfig = {
       async_hooks: {
         browser: './stub.ts',
       },
+      child_process: {
+        browser: './stub.ts',
+      },
       '@/observability/logger': {
         browser: './stub.ts',
       },
@@ -96,6 +101,12 @@ const config: NextConfig = {
   // This causes problems with serving stale content, since upon revalidating
   // the CDN marks the cached content as "fresh".
   generateEtags: false,
+
+  experimental: {
+    // getServerSideProps returns rendered Markdown, so many pages exceed the 128 kB default.
+    // https://nextjs.org/docs/messages/large-page-data
+    largePageDataBytes: 1024 * 1024, // 1 MB
+  },
 
   // Disable Next.js's in-memory data cache. We don't use ISR or cached
   // fetch — all pages render via Express middleware with getServerSideProps.

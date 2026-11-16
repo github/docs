@@ -1,0 +1,7 @@
+# Reference: github/releases#11091
+# Accessibility pages in repository overview and Community Standards
+
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.24'

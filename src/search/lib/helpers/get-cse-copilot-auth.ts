@@ -3,7 +3,7 @@ import crypto from 'crypto'
 // github/cse-copilot's API requires an HMAC-SHA256 signature with each request
 export function getHmacWithEpoch() {
   const epochTime = getEpochTime().toString()
-  // CSE_COPILOT_SECRET needs to be set for the api-ai-search tests to work
+  // Test runs get a mock secret so api-ai-search tests can sign requests.
   if (process.env.NODE_ENV === 'test') {
     process.env.CSE_COPILOT_SECRET = 'mock-secret'
   }
@@ -14,7 +14,7 @@ export function getHmacWithEpoch() {
   return `${epochTime}.${hmac}`
 }
 
-// In seconds
+// cse-copilot signatures require Unix seconds.
 function getEpochTime(): number {
   return Math.floor(Date.now() / 1000)
 }

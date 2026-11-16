@@ -98,6 +98,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: CREATED_AT, direction: DESC}",
               "description": "<p>Ordering options for the connection.</p>",
               "type": {
                 "name": "WorkflowRunOrder",

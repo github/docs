@@ -1,8 +1,6 @@
 name: Add maintenance PRs to the docs-content FR project v2
 
-# **What it does**: Adds docs-internal pull requests authored by docs-bot to the docs-content FR project v2
-# **Why we have it**: So we don't lose track of maintenance pull requests for docs-content to review
-# **Who does it impact**: Docs content
+# The docs-content FR project is the review queue for docs-bot maintenance pull requests.
 
 on:
   pull_request:
@@ -25,10 +23,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
-
-      # Add to the FR project
-      # and set type to "Maintenance"
-      # and set date to now
       - name: Triage to docs-content FR project
         env:
           GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}

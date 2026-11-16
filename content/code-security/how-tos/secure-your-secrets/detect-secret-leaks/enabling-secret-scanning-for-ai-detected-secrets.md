@@ -1,7 +1,7 @@
 ---
-title: Enabling generic secret detection for AI-detected secrets
-shortTitle: Enable generic secret detection
-intro: You can enable {% data variables.secret-scanning.generic-secret-detection %} for your repository or organization. Alerts for generic secrets, such as passwords, are displayed in a separate list on the {% data variables.product.prodname_secret_scanning %} alerts page.
+title: Enabling scanning for AI-detected secrets
+shortTitle: Enable AI-detected secrets
+intro: You can enable {% data variables.secret-scanning.generic-secret-detection %} for your repository or organization. Alerts for generic secrets found using AI, such as passwords, are displayed in a separate list on the {% data variables.product.prodname_secret_scanning %} alerts page.
 allowTitleToDifferFromFilename: true
 permissions: '{% data reusables.permissions.security-repo-enable %}'
 versions:
@@ -41,6 +41,10 @@ You must configure {% data variables.secret-scanning.generic-secret-detection %}
 
 For information on how to view alerts for generic secrets that have been detected with AI, see [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-secret-scanning-alerts/viewing-alerts).
 
+{% ifversion fpt or ghec %}
+
 ## Further reading
 
 * [AUTOTITLE](/code-security/responsible-use/security-and-quality-ai-features)
+
+{% endif %}

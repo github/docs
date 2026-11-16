@@ -10,6 +10,7 @@ const {
   oldestSupported,
   nextDeprecationDate,
   releasesWithOldestDeprecationDate,
+  dates,
 } = EnterpriseServerReleases
 
 describe('enterpriseServerReleases module', () => {
@@ -49,5 +50,13 @@ describe('enterpriseServerReleases module', () => {
     expect(Array.isArray(releasesWithOldestDeprecationDate)).toBe(true)
     expect(releasesWithOldestDeprecationDate.length).toBeGreaterThan(0)
     expect(releasesWithOldestDeprecationDate).toContain(oldestSupported)
+  })
+
+  test('has `dates` for every supported and deprecated version', async () => {
+    for (const version of all) {
+      expect(dates[version], version).toBeDefined()
+      expect(dates[version].releaseDate, version).toMatch(patterns.ymd)
+      expect(dates[version].deprecationDate, version).toMatch(patterns.ymd)
+    }
   })
 })

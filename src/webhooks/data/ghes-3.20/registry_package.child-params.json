@@ -1323,9 +1323,16 @@
             "isRequired": true
           },
           {
-            "type": "array of object,nulls",
+            "type": "array of objects",
             "name": "docker_metadata",
-            "description": ""
+            "description": "",
+            "childParamsGroups": [
+              {
+                "type": "array of strings",
+                "name": "tags",
+                "description": ""
+              }
+            ]
           },
           {
             "type": "boolean",

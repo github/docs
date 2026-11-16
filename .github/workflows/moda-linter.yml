@@ -1,0 +1,29 @@
+name: moda-linter
+
+on:
+  pull_request:
+    branches-ignore: [main, master]
+
+jobs:
+  run-moda-linter:
+    if: github.repository == 'github/docs-internal'
+    permissions:
+      contents: write
+      pull-requests: write
+      id-token: write
+    uses: github/internal-actions/.github/workflows/moda-linter.yml@main
+    secrets: inherit
+
+  # Reusable workflow checks are prefixed with the caller job name, but Heaven
+  # requires an exact "moda-linter" check context for branch deployments.
+  moda-linter:
+    permissions: {}
+    name: moda-linter
+    needs: run-moda-linter
+    if: ${{ always() && github.repository == 'github/docs-internal' }}
+    runs-on: ubuntu-slim
+    steps:
+      - name: Check moda-linter result
+        env:
+          RESULT: ${{ needs.run-moda-linter.result }}
+        run: test "$RESULT" = success

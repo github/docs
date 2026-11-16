@@ -41,6 +41,12 @@ journeyTracks:
       - href: /admin/concepts/enterprise-fundamentals/automations-in-your-enterprise
       - href: /admin/managing-github-apps-for-your-enterprise/creating-github-apps-for-your-enterprise
       - href: /apps/using-github-apps/installing-a-github-app-on-your-enterprise
+  - id: paid_enterprise_copilot
+    title: 'Setting up Copilot in a paid enterprise'
+    description: "Prepare policies, access, and spending controls for your paid enterprise's {% data variables.product.prodname_copilot_short %} rollout."
+    guides:
+      - href: /copilot/how-tos/copilot-on-github/set-up-copilot/enable-copilot/set-up-for-enterprise
+      - href: /copilot/tutorials/budgets/getting-started-with-budget-controls
 versions:
   ghec: '*'
 redirect_from:
@@ -52,4 +58,3 @@ docsTeamMetrics:
   - enterprise-onboarding
 contentType: other
 ---
-

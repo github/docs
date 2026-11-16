@@ -1,8 +1,4 @@
-/*
- This file and the routes included are for the /search endpoint of our API
-
- For general search (client searches on docs.github.com) we use the middleware in ./general-search-middleware to get the search results
-*/
+// API /search routes. The /search page uses general-search-middleware.ts instead.
 import express, { Request, Response } from 'express'
 
 import FailBot from '@/observability/lib/failbot'
@@ -23,8 +19,7 @@ router.get('/v1', catchMiddlewareError(generalSearchRoute))
 
 router.get('/ai-search-autocomplete/v1', catchMiddlewareError(aiSearchAutocompleteRoute))
 
-// Route used by our frontend to fetch ai autocomplete search suggestions + general search results in a single request
-// Combining this into a single request results in less overall requests to the server
+// Combined search avoids a second frontend request for autocomplete suggestions.
 router.get('/combined-search/v1', catchMiddlewareError(combinedSearchRoute))
 
 export async function handleGetSearchResultsError(
@@ -51,8 +46,7 @@ export async function handleGetSearchResultsError(
     const reports = FailBot.report(errorForReport, extra)
     if (reports) await Promise.all(reports)
   }
-  // Avoid "Cannot set headers after they are sent to the client" error
-  // if response was already partially sent before the error occurred
+  // Skip writing a JSON 500 after any response has already started.
   if (!res.headersSent) {
     res.status(500).json({ error: errorMessage })
   } else {
@@ -63,7 +57,6 @@ export async function handleGetSearchResultsError(
   }
 }
 
-// Redirects search routes to their latest versions
 router.get('/', (req: Request, res: Response) => {
   res.safeRedirect(307, req.originalUrl.replace('/search', '/search/v1'))
 })

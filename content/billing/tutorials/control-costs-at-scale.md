@@ -21,7 +21,7 @@ This tutorial guides you through planning, creating, and managing cost centers u
 As your enterprise grows, you can layer increasingly granular controls on top of cost centers to keep {% data variables.product.prodname_copilot_short %} spending predictable:
 
 * **Group at scale.** Assign whole enterprise teams to a cost center so membership stays current automatically as people join and leave.
-* **Cap per-user spending.** Set a cost center user-level budget so every member of a cost center inherits the same per-person limit. See [AUTOTITLE](/copilot/concepts/billing/budgets-for-usage-based-billing).
+* **Cap per-user spending.** Set a cost center user-level budget so every member of a cost center inherits the same per-person limit. See [AUTOTITLE](/copilot/concepts/billing-and-usage/organizations-and-enterprises/budgets).
 
 ## 1. Plan your cost center strategy
 
@@ -108,24 +108,21 @@ Create one budget for each product, SKU, or group of SKUs that you want to contr
 
 After creating your cost center budgets, check existing enterprise-wide budgets to ensure they don't conflict with or override your new cost center budgets. When budgets overlap, the most restrictive one applies, so a low budget at a higher scope can block a cost center before its own budget is reached.
 
-Navigate to the "Budgets and alerts" page. You'll see two lists of budgets:
-
-* **Enterprise budgets**: Limits that apply to the whole enterprise account
-* **Other budgets**: Limits for specific repositories, organizations, or cost centers
+Navigate to the "Budgets and alerts" page. All budgets appear in one list. Use the search bar or the scope dropdown to narrow it by scope.
 
 #### Check enterprise budgets
 
-Review whether any enterprise budgets apply to the same products or SKUs as your new cost center budgets. If an enterprise budget is very low, it might block usage for your cost center before the cost center's own budget is reached. Consider deleting or adjusting conflicting enterprise budgets.
+Filter the list to enterprise-level budgets. Review whether any enterprise budgets apply to the same products or SKUs as your new cost center budgets. If an enterprise budget is very low, it might block usage for your cost center before the cost center's own budget is reached. Consider deleting or adjusting conflicting enterprise budgets.
 
 #### View your cost center budgets
 
-Filter the other budgets list to show a scope of **Cost Centers**. You should see your new cost center with a row for each budget you created. Initially, usage will be near zero, but within a few days you'll see costs accumulating as users and repositories consume products beyond the allowance in their plan.
+Filter the list to cost center budgets. You should see your new cost center with a row for each budget you created. Initially, usage will be near zero, but within a few days you'll see costs accumulating as users and repositories consume products beyond the allowance in their plan.
 
 ### Troubleshooting budget conflicts
 
 Keep these limits in mind as you combine budgets across scopes:
 
-* **Budgets overlap, and the most restrictive one applies.** A user can be covered by an individual, cost center, organization, and enterprise budget at the same time. Whichever has the least headroom remaining blocks them first. If someone is blocked unexpectedly, review every scope that applies to them. For the full evaluation order, see [AUTOTITLE](/copilot/concepts/billing/budgets-for-usage-based-billing).
+* **Budgets overlap, and the most restrictive one applies.** A user can be covered by an individual, cost center, organization, and enterprise budget at the same time. Whichever has the least headroom remaining blocks them first. If someone is blocked unexpectedly, review every scope that applies to them. For the full evaluation order, see [AUTOTITLE](/copilot/concepts/billing-and-usage/organizations-and-enterprises/budgets).
 * **You can't set different budgets for teams in the same cost center.** A budget applies to the whole cost center, not to teams within it. If two teams need separate budgets, create a separate cost center for each. Separate cost centers can still share the same Azure billing identity.
 * **Budgets don't add up across levels.** An enterprise budget isn't the sum of your cost center budgets, and raising one doesn't raise another. When you change a budget at one level, reconcile the totals at the others yourself.
 
@@ -245,6 +242,47 @@ The response confirms the successful addition of resources. If any resources wer
 
 If the endpoint responds with `Problems parsing JSON`, use a JSON validator to check that the data specified in the `--input` option is valid.
 
+### Verify a resource's cost center assignment
+
+After adding resources, you can look up a resource directly to check which cost center it belongs to. You don't need to list and search through all cost centers.
+
+In your terminal, run the following command, replacing `ENTERPRISE` with your enterprise slug and `USERNAME` with the login of a user you added.
+
+```shell copy
+gh api \
+  --method GET \
+  -H "Accept: application/vnd.github+json" \
+  -H "X-GitHub-Api-Version: {{ defaultRestApiVersion }}" \
+  /enterprises/ENTERPRISE/settings/billing/cost-centers/memberships \
+  -f resource_type=user \
+  -f name=USERNAME
+```
+
+The response includes the cost center's ID and name. For example, a lookup for `monalisa` assigned to the cost center created earlier returns:
+
+```json
+{
+  "resource": {
+    "type": "user",
+    "identifier": {
+      "login": "monalisa"
+    }
+  },
+  "memberships": [
+    {
+      "cost_center": {
+        "id": "3312fdf2-5950-4f64-913d-e734124059c9",
+        "name": "NAME"
+      }
+    }
+  ]
+}
+```
+
+If the resource is not assigned to a cost center, the `memberships` array is empty.
+
+You can also look up an organization, repository, or enterprise team. Set `resource_type` to `organization`, `repository`, or `team`, and set `name` to the organization slug, `owner/repo`, or enterprise team slug, respectively. See [AUTOTITLE](/rest/billing/cost-centers).
+
 ## 5. Set budgets with the REST API
 
 You can create budgets programmatically to apply spending controls to the cost centers you've created. This is particularly useful for managing usage-based costs like {% data variables.product.prodname_ai_credits_short %} at scale.
@@ -262,7 +300,7 @@ gh api \
   -H "X-GitHub-Api-Version: {{ defaultRestApiVersion }}" \
   /enterprises/ENTERPRISE/settings/billing/budgets \
   -f budget_type='SkuPricing' \
-  -f budget_product_sku='copilot_ai_credits' \
+  -f budget_product_sku='copilot_ai_credit' \
   -f budget_scope='cost_center' \
   -f budget_entity_name='COST_CENTER_ID' \
   -F budget_amount=1000.0 \
@@ -276,7 +314,7 @@ The response confirms the budget was created and returns its configuration. Noti
 {
   "id": "budget-uuid-here",
   "budget_type": "SkuPricing",
-  "budget_product_sku": "copilot_ai_credits",
+  "budget_product_sku": "copilot_ai_credit",
   "budget_scope": "cost_center",
   "budget_entity_name": "3312fdf2-5950-4f64-913d-e734124059c9",
   "budget_amount": 1000.0,
@@ -325,5 +363,5 @@ If there are any paid products that you want to block all access to, you can dis
 
 To go deeper on the controls in this tutorial:
 
-* For how cost center budgets and user-level budgets interact across the pool and metered phases, see [AUTOTITLE](/copilot/concepts/billing/budgets-for-usage-based-billing).
+* For how cost center budgets and user-level budgets interact across the pool and metered phases, see [AUTOTITLE](/copilot/concepts/billing-and-usage/organizations-and-enterprises/budgets).
 * For how resources are allocated to cost centers, including enterprise team membership, see [AUTOTITLE](/billing/reference/cost-center-allocation).

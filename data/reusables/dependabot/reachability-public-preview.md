@@ -1,0 +1,1 @@
+{% data variables.product.prodname_dependabot_reachability_caps %} for {% data variables.product.prodname_dependabot_alerts %} is in {% data variables.release-phases.public_preview %} and subject to change.

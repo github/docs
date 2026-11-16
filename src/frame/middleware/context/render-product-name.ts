@@ -12,13 +12,12 @@ export default async function renderProductName(
   const { productMap, currentProduct } = req.context
   if (!productMap) throw new Error('request is not contextualized')
 
-  // `currentProduct` might be an empty string, which is a valid value.
+  // Empty currentProduct is valid.
   if (currentProduct === undefined) throw new Error('currentProduct is not contextualized')
 
   const productObject = productMap[currentProduct]
   if (!productObject) {
-    // If the "currentProduct" isn't recognized, there's no point trying
-    // to render its name. Skip this middleware.
+    // Skip unrecognized currentProduct values because renderContent needs a product object.
     return next()
   }
   req.context.currentProductName = await renderContent(productObject.name, req.context, {

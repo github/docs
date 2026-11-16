@@ -1,0 +1,5 @@
+# Reference: github/docs-content#23494
+# Reachability analysis for Dependabot alerts [public preview]. Feature is only available to GHEC and GHEC with data residency. FPT versioning added to align with open versioning strategy. Not available on GHES.
+versions:
+  fpt: '*'
+  ghec: '*'

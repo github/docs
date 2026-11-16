@@ -5,84 +5,276 @@
 
 $mutedTextColor: var(--fgColor-muted, var(--color-fg-muted, #656d76));
 
-.overlayBackdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: var(
-    --overlay-backdrop-bgColor,
-    var(--color-primer-fg-canvas-backdrop, rgba(31, 35, 40, 0.5))
-  );
-  z-index: 1000; /* Ensure it's above other content other than overlay */
+// Figma's dashed rule: 3px dashes, 3px gaps. A gradient fixes the dash length, which
+// `border-style: dashed` leaves to the browser, and adds no height to rows.
+@mixin dashedRuleGeometry($inset: 0px) {
+  background-size: calc(100% - #{$inset * 2}) 1px;
+  background-position: $inset 0;
 }
 
-.overlayContainer {
-  z-index: 1001; /* Above the backdrop */
-  top: 0;
-  left: 0;
-  width: searchVariables.$smSearchOverlayWidth !important;
-  max-width: 100%;
-  height: auto;
-  max-height: 95vh;
-  overflow-y: auto;
+@mixin dashedRule($inset: 0px) {
+  background-image: repeating-linear-gradient(
+    to right,
+    var(--brand-color-border-subtle) 0 3px,
+    transparent 3px 6px
+  );
+  background-repeat: no-repeat;
+  @include dashedRuleGeometry($inset);
+}
+
+// The dialog is a child, not a sibling, so a mousedown in the gutter counts as click-outside.
+.scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 
-  @include breakpoint(sm) {
-    top: 0 !important;
-    left: 0 !important;
-    width: searchVariables.$smSearchOverlayWidth !important;
+  background-color: searchVariables.$searchScrimColor;
+  backdrop-filter: blur(25px);
+
+  // `[data-color-mode]:not(html)` in frame/stylesheets/index.scss clears nested theme
+  // backgrounds at specificity (0,1,1), so a bare `.scrim` loses and the dim disappears.
+  &[data-color-mode] {
+    background-color: searchVariables.$searchScrimColor;
   }
+
+  overflow-y: auto;
+  overscroll-behavior: contain;
 
   @include breakpoint(md) {
-    top: 0 !important;
-    left: 0 !important;
-    width: searchVariables.$mdSearchOverlayWidth !important;
+    justify-content: center;
+    padding: searchVariables.$searchDialogGutter;
+  }
+}
+
+// Full-bleed below `md`. From `md` up, the Figma's floating card.
+.dialog {
+  width: 100%;
+  min-height: 100%;
+  // Without a cap, the scrim scrolls the overflow and pushes the pinned footer off-screen.
+  max-height: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  // Mona Sans, loaded by @primer/react-brand/fonts/fonts.css.
+  font-family: var(--brand-body-fontFamily);
+  background-color: var(--brand-color-canvas-default);
+
+  // Match brand's antialiased type. Primer's subpixel default renders the same weight heavier.
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @include breakpoint(md) {
+    max-width: searchVariables.$searchDialogMaxWidth;
+    min-height: 0;
+    max-height: calc(100vh - #{searchVariables.$searchDialogGutter} * 2);
+    // Unlike `justify-content: center` on the scrim, this scrolls an over-tall card from its top.
+    margin: auto;
+    padding: 16px 16px 32px;
+    gap: 24px;
+
+    border: 1px solid var(--brand-color-border-default);
+    border-radius: 16px;
+    box-shadow: 0 0 34px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
   }
 
-  @include breakpoint(lg) {
-    // Using header padding: 8px (p-2 padding) x2
-    top: 16px !important;
-    left: calc(50vw - searchVariables.$lgSearchOverlayWidth / 2) !important;
-    width: searchVariables.$lgSearchOverlayWidth !important;
+  // Type from Figma node 446-105514. The field is @primer/react's TextInput, since brand's
+  // has no interactive trailing action for the clear button. The rules below restyle it.
+
+  input {
+    font-family: inherit;
+    font-size: 18px;
+    font-weight: 480;
+    line-height: 1.5;
+    letter-spacing: 0.18px;
   }
 
-  @include breakpoint(xl) {
-    top: 16px !important;
-    left: calc(50vw - searchVariables.$xlSearchOverlayWidth / 2) !important;
-    width: searchVariables.$xlSearchOverlayWidth !important;
+  // Figma draws the field as a bare icon and text on the canvas, so strip Primer's input box.
+  [class*="TextInput-wrapper"] {
+    height: 40px;
+    padding-left: 0;
+    background-color: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+
+    // Focus stays in the input while arrow keys move through results, so a :focus-within
+    // ring would always show and convey nothing. The caret marks focus.
+    outline: none;
+
+    &::after {
+      display: none;
+    }
   }
+
+  // Figma puts an 18px glyph 24px from the query text. Primer ships 16px and 8px.
+  :global(.TextInput-icon) {
+    margin-right: 24px;
+
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  .dividerTopMargin {
+    margin: 0;
+  }
+}
+
+// Wraps the scroller and the pinned view-all link, so both are valid aria-activedescendant targets.
+.listbox {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  flex: 1 1 auto;
+}
+
+// Presentational only: aria-label names each group, and a listbox can't own a heading element.
+.groupHeading {
+  padding: 24px 0;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--brand-color-text-muted);
+}
+
+// The first heading already has the dialog's 24px flex gap above it.
+[role="group"]:first-child > .groupHeading {
+  padding-top: 0;
+}
+
+.option {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-height: 56px;
+  // Figma insets AI rows 4px, but that puts text 2px off the active ring, so all rows use 8px.
+  padding: 16px 8px;
+  cursor: pointer;
+
+  font-family: inherit;
+  font-size: 16px;
+  // Figma says 550, but in "Mona Sans WT3 VF". Brand's "Mona Sans" is heavier at the same
+  // weight, so 500 matches the design visually.
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.16px;
+  color: var(--brand-color-text-default);
+
+  & + & {
+    @include dashedRule;
+  }
+}
+
+// Figma insets docs-row rules 4px at each end. Set geometry only, never `background-image`,
+// so the active row's `background-image: none` still wins.
+.optionDocs + .optionDocs {
+  @include dashedRuleGeometry(4px);
+}
+
+$activeIndicatorColor: var(--fgColor-accent, var(--color-accent-fg, #0969da));
+// Translucent, so they work in both color modes. Same values as the rest of docs.github.com.
+$optionHoverFill: rgba(129, 139, 152, 0.1);
+$optionActiveFill: rgba(129, 139, 152, 0.15);
+
+// Figma has no selected state. The ring carries the contrast because the fill alone is too
+// faint to track. Hover gets a lighter fill and no ring, so it never looks selected.
+.option:hover {
+  background-color: $optionHoverFill;
+  border-radius: 6px;
+}
+
+.optionActive {
+  background-color: $optionActiveFill;
+  border-radius: 6px;
+  font-weight: 600;
+  // Inset, so the scroller can't clip it. Not brand's accent: that green reads as "success".
+  box-shadow: inset 0 0 0 2px $activeIndicatorColor;
+
+  .optionTrailing {
+    color: $activeIndicatorColor;
+  }
+
+  // Forced colors drop the fill and the ring, so draw the selection as a system-color outline.
+  @media (forced-colors: active) {
+    outline: 2px solid Highlight;
+    outline-offset: -2px;
+  }
+}
+
+// Drop the rules around the active row, since a rounded fill against a rule looks clipped.
+// Two classes, to beat the specificity of `.option + .option`.
+.option.optionActive,
+.optionActive + .option {
+  background-image: none;
+}
+
+.optionLabel {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.optionTrailing {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  // Center the 16px octicon in Figma's 20px glyph box.
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  color: var(--brand-color-text-muted);
 }
 
 .header {
   display: flex;
-  padding: 12px 14px 0px 14px !important;
+  align-items: center;
   width: 100%;
-  background-color: var(--overlay-bgColor) !important;
+  min-height: 40px;
+  // Below `md` the dialog is full-bleed, so the header keeps its own inset.
+  padding: 12px 14px 0 14px;
+
+  @include breakpoint(md) {
+    padding: 0;
+  }
 }
 
-.footer {
-  padding: 5px 16px 13px 16px;
-  width: 100%;
-  background-color: var(--overlay-bgColor);
-  overflow-y: auto;
-  min-height: 15vh;
-  border-top: 1px solid
-    var(--borderColor-default, var(--color-border-default, #d0d7de));
+// Figma spaces this 12px from the field's clear button.
+.closeButton {
+  flex-shrink: 0;
+  margin-left: 12px;
+}
 
-  @include breakpoint(sm) {
-    min-height: fit-content !important;
+// Outside the listbox, so the disclaimer stays put while results scroll.
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  flex-shrink: 0;
+
+  width: 100%;
+  // Below `md` the dialog has no flex `gap`, so this adds 12px under the view-all link.
+  padding: 12px 16px 13px 16px;
+  // No border-top: Figma closes the card with space, not a rule.
+
+  @include breakpoint(md) {
+    padding: 0;
   }
 }
 
 .betaToken {
   color: var(--fgColor-success, var(--fgColor-open, green)) !important;
-  background-color: var(--overlay-bgColor);
   margin-right: 1em;
   height: 22px !important;
   font-weight: 700 !important;
@@ -99,11 +291,56 @@ $mutedTextColor: var(--fgColor-muted, var(--color-fg-muted, #656d76));
 .suggestionsList {
   width: 100%;
   max-width: 100%;
-  // In the rare viewport case where the results are taller than the viewport, scroll
+  // This list takes the overflow, so the view-all link and footer below it stay put.
   max-height: 95vh;
-  overflow-y: auto;
   overflow-x: hidden;
-  padding: 4px 0 4px 0 !important;
+  padding: 0 !important;
+
+  // Force a visible scrollbar, since macOS overlay scrollbars hide when idle.
+  // Safari ignores `scrollbar-gutter: stable` when content fits, so rows would shift while typing.
+  overflow-y: scroll;
+
+  // Put the 12px scrollbar lane in the card's right padding, so rows line up with the header
+  // and footer. Only WebKit/Blink reserve the lane, and only `md` and up has padding for it.
+  @supports selector(::-webkit-scrollbar) {
+    @include breakpoint(md) {
+      // Widen instead of a negative margin, which can't grow a box with an explicit width.
+      width: calc(100% + 12px);
+      max-width: calc(100% + 12px);
+    }
+  }
+
+  &::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    // Text-muted, not border-default: border-default is about 1.9:1 on the dark canvas,
+    // under the WCAG 1.4.11 3:1 minimum. The transparent border insets the pill.
+    background-color: color-mix(
+      in srgb,
+      var(--brand-color-text-muted) 75%,
+      transparent
+    );
+    background-clip: padding-box;
+    border: 3px solid transparent;
+    border-radius: 6px;
+  }
+
+  // Firefox only: Chrome drops all ::-webkit-scrollbar rules if scrollbar-width/color is set.
+  @supports not selector(::-webkit-scrollbar) {
+    scrollbar-width: thin;
+    scrollbar-color: color-mix(
+        in srgb,
+        var(--brand-color-text-muted) 75%,
+        transparent
+      )
+      transparent;
+  }
 }
 
 .errorBanner {
@@ -112,11 +349,42 @@ $mutedTextColor: var(--fgColor-muted, var(--color-fg-muted, #656d76));
   margin-bottom: 16px;
 }
 
-.viewAllSearchResults {
-  button {
-    span {
-      color: var(--color-accent-emphasis) !important;
-      font-weight: 500 !important;
+.viewAllResults {
+  // Brand's Link centers its label, so a stretched one renders as a centered bar.
+  // Set here, not on the parent, because the sibling scroller needs full width.
+  align-self: flex-start;
+  flex-shrink: 0;
+
+  // 14px plus the 10px padding puts the label 24px below the last row, per Figma.
+  margin-top: 14px;
+  // Pad the 24px target to 44px and frame the selected fill. Negative margins cancel the
+  // padding so layout holds. 10px, not 12px, keeps the overhang inside the 12px above the footer.
+  padding: 10px 8px;
+  margin-bottom: -10px;
+  margin-inline: -8px;
+  border-radius: 6px;
+
+  // Brand positions its underline against the link box, which the padding enlarged, so move
+  // it back under the text. Keep brand's trailing-visual terms so `arrowDirection` still works.
+  &::after {
+    bottom: calc(10px - 0.15em);
+    left: 8px;
+    width: calc(100% - 16px - var(--gap) - var(--visual-width));
+  }
+
+  // Arrow-key selection: the fill hugs the label and the underline shows as on hover, so it
+  // still reads as a link, not a result row.
+  &[aria-selected="true"] {
+    background-color: $optionActiveFill;
+
+    &::after {
+      transform: scaleX(1);
+    }
+
+    // Forced colors drop the fill, so draw the selection as a system-color outline.
+    @media (forced-colors: active) {
+      outline: 2px solid Highlight;
+      outline-offset: -2px;
     }
   }
 }
@@ -161,23 +429,34 @@ $mutedTextColor: var(--fgColor-muted, var(--color-fg-muted, #656d76));
   display: block;
   margin-top: 16px;
   width: 100%;
+  // Replace the global `hr` solid border with the rows' dashed rule.
+  height: 1px;
+  border-bottom: 0;
+  @include dashedRule;
 }
 
-.dividerTopMarginHidden {
-  display: none;
-  margin-top: 16px;
-  width: 100%;
-}
+// The input's focus indicator. Primer's ring is stripped because the input holds focus
+// nearly all the time; instead this rule turns solid accent while the input is focused,
+// and drops back to dashed when Tab moves to the close button or into an answer. The
+// second pixel is a shadow, so the layout doesn't move.
+.header:has(input:focus) + .dividerTopMargin {
+  background-image: none;
+  background-color: $activeIndicatorColor;
+  box-shadow: 0 1px 0 $activeIndicatorColor;
 
-.dividerFullWidth {
-  width: 100%;
+  // Forced colors drop backgrounds and shadows; a border survives as a system color.
+  @media (forced-colors: active) {
+    border-bottom: 2px solid Highlight;
+  }
 }
 
 .privacyDisclaimer {
-  color: var(--color-fg-muted);
-  margin-top: 0.5rem;
+  color: var(--brand-color-text-muted);
+  // The footer's `gap` handles spacing, so clear the default paragraph margins.
+  margin-top: 0;
   margin-bottom: 0;
-  font-size: small;
+  font-size: 14px;
+  line-height: 1.5;
 }
 
 .trailingVisualActive {
@@ -188,12 +467,4 @@ $mutedTextColor: var(--fgColor-muted, var(--color-fg-muted, #656d76));
 .trailingVisualHidden {
   visibility: hidden;
   width: 1rem;
-}
-
-.leadingVisualHidden {
-  visibility: hidden;
-}
-
-.leadingVisualVisible {
-  visibility: visible;
 }

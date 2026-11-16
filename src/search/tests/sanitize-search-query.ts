@@ -1,5 +1,8 @@
 import { describe, expect, test } from 'vitest'
-import { sanitizeSearchQuery } from '@/search/lib/sanitize-search-query'
+import {
+  sanitizeSearchQuery,
+  sanitizeSecretScanningSearchQuery,
+} from '@/search/lib/sanitize-search-query'
 
 describe('sanitizeSearchQuery', () => {
   test('returns empty string for empty input', () => {
@@ -130,19 +133,45 @@ describe('sanitizeSearchQuery', () => {
   })
 
   describe('SSH private key redaction', () => {
+    // Fake, non-functional key body with base64 + and / characters.
+    const keyBody = 'b3BlbnNzaC1rZXktdjEAAAAA+fakeKeyBody/for+Tests/only0123456789=='
+
     test('redacts RSA private key headers', () => {
-      expect(sanitizeSearchQuery('-----BEGIN RSA PRIVATE KEY----- content')).toBe(
-        '[SSH_KEY] content',
-      )
+      expect(sanitizeSearchQuery('-----BEGIN RSA PRIVATE KEY----- content')).toBe('[SSH_KEY]')
     })
 
     test('redacts generic private key headers', () => {
-      expect(sanitizeSearchQuery('-----BEGIN PRIVATE KEY----- content')).toBe('[SSH_KEY] content')
+      expect(sanitizeSearchQuery('-----BEGIN PRIVATE KEY----- content')).toBe('[SSH_KEY]')
     })
 
     test('redacts EC private key headers', () => {
-      expect(sanitizeSearchQuery('-----BEGIN EC PRIVATE KEY----- content')).toBe(
-        '[SSH_KEY] content',
+      expect(sanitizeSearchQuery('-----BEGIN EC PRIVATE KEY----- content')).toBe('[SSH_KEY]')
+    })
+
+    test('redacts the key body of a single-line OpenSSH key', () => {
+      const key = `-----BEGIN OPENSSH PRIVATE KEY-----${keyBody}-----END OPENSSH PRIVATE KEY-----`
+      expect(sanitizeSearchQuery(`before ${key} after`)).toBe('before [SSH_KEY] after')
+    })
+
+    test('redacts the key body of a multi-line PEM key', () => {
+      const key = `-----BEGIN PRIVATE KEY-----\n${keyBody}\n${keyBody}\n-----END PRIVATE KEY-----`
+      expect(sanitizeSearchQuery(`before\n${key}\nafter`)).toBe('before\n[SSH_KEY]\nafter')
+    })
+
+    test('redacts a truncated key with no END line', () => {
+      expect(sanitizeSearchQuery(`before -----BEGIN OPENSSH PRIVATE KEY----- ${keyBody}`)).toBe(
+        'before [SSH_KEY]',
+      )
+    })
+
+    test('redacts a PGP private key block', () => {
+      const key = `-----BEGIN PGP PRIVATE KEY BLOCK-----\n${keyBody}\n-----END PGP PRIVATE KEY BLOCK-----`
+      expect(sanitizeSearchQuery(`before\n${key}\nafter`)).toBe('before\n[SSH_KEY]\nafter')
+    })
+
+    test('redacts a truncated PGP private key block', () => {
+      expect(sanitizeSearchQuery(`before -----BEGIN PGP PRIVATE KEY BLOCK----- ${keyBody}`)).toBe(
+        'before [SSH_KEY]',
       )
     })
   })
@@ -214,5 +243,50 @@ describe('sanitizeSearchQuery', () => {
     test('preserves version numbers', () => {
       expect(sanitizeSearchQuery('node v18.0.0')).toBe('node v18.0.0')
     })
+  })
+})
+
+describe('sanitizeSecretScanningSearchQuery', () => {
+  // Split literals so secret scanning does not flag these fake fixtures.
+  const secrets = [
+    ['wJalrXUtnFEMI/K7MDENG/', 'bPxRfiCYEXAMPLEKEY'],
+    ['AKIA', 'IOSFODNN7EXAMPLE'],
+    ['AIza', 'SyA1b2C3d4E5f6G7h8I9j0KlMnOpQrStUvW'],
+    ['sk_', 'live_4eC39HqLyjWDarjtT1zdp7dc'],
+    ['glpat', '-Ab1Cd2Ef3Gh4Ij5Kl6Mn'],
+    ['0123456789abcdef', '0123456789abcdef'],
+    ['shpat_', '0123456789abcdef0123456789abcdef'],
+    ['0123456789abcdef0123456789abcdef', '-us15'],
+    ['abc8Q~', 'xyz.abcdEFGH_1234-ijklmnopqrstuvwx'],
+    ['sT3u+', 'AbCd12Ef'.repeat(10), '/sT3uQ=='],
+  ].map((parts) => parts.join(''))
+
+  test.each(secrets)('redacts secret %#', (secret) => {
+    expect(sanitizeSecretScanningSearchQuery(secret)).toBe('[SECRET]')
+    expect(sanitizeSecretScanningSearchQuery(`does "${secret}" match`)).toBe(
+      'does "[SECRET]" match',
+    )
+  })
+
+  test('applies the shared sanitizer rules', () => {
+    expect(sanitizeSecretScanningSearchQuery('user@example.com')).toBe('[EMAIL]')
+    expect(
+      sanitizeSecretScanningSearchQuery('token ghp_1234567890123456789012345678901234567890'),
+    ).toBe('token [TOKEN]')
+  })
+
+  test.each([
+    'aws_secret_access_key',
+    '1password_service_account_token',
+    'salesforce_oauth2_consumer_secret',
+    'Amazon AWS Access Key ID',
+    'Azure Storage',
+    'push protection',
+  ])('does not redact pattern search %s', (query) => {
+    expect(sanitizeSecretScanningSearchQuery(query)).toBe(query)
+  })
+
+  test('returns empty string for empty input', () => {
+    expect(sanitizeSecretScanningSearchQuery('')).toBe('')
   })
 })

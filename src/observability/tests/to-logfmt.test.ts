@@ -185,6 +185,38 @@ describe('toLogfmt', () => {
       expect(result).toContain('message="User said: \\"Hello world!\\" with \\\\backslash"')
       expect(result).toContain('path="/search?q=hello world&sort=date"')
     })
+
+    it('should escape newlines, carriage returns, and tabs so a record stays on one line', () => {
+      const data = { query: { q: '\r\nlevel=error\tfoo' }, status: 200 }
+      const result = toLogfmt(data)
+      expect(result).not.toMatch(/[\r\n\t]/)
+      expect(result).toBe('query.q="\\r\\nlevel=error\\tfoo" status=200')
+    })
+
+    it('should quote values with newlines even without spaces or equals', () => {
+      expect(toLogfmt({ foo: 'a\nb' })).toBe('foo="a\\nb"')
+    })
+
+    it('should escape backslashes before newlines', () => {
+      expect(toLogfmt({ foo: '\\\n' })).toBe('foo="\\\\\\n"')
+    })
+
+    it('should keep error stacks on one line', () => {
+      const error = new Error('boom')
+      const result = toLogfmt({ level: 'error', included: { error_stack: error.stack } })
+      expect(result).not.toContain('\n')
+      expect(result).toMatch(/^level=error included\.error_stack="Error: boom\\n {4}at /)
+    })
+
+    it('should replace whitespace, equals, and quotes in keys', () => {
+      const data = { query: { 'x level': '1', 'a=b': '2', 'c"d': '3', 'e\nf': '4' } }
+      expect(toLogfmt(data)).toBe('query.x_level=1 query.a_b=2 query.c_d=3 query.e_f=4')
+    })
+
+    it('should replace control characters in keys', () => {
+      const data = { query: { 'x\u0001level': 'error', 'a\u007fb': '1', 'c\u0085d': '2' } }
+      expect(toLogfmt(data)).toBe('query.x_level=error query.a_b=1 query.c_d=2')
+    })
   })
 
   describe('edge cases', () => {
@@ -199,7 +231,6 @@ describe('toLogfmt', () => {
 
     it('should handle nested object with empty nested object', () => {
       const data = { config: {} }
-      // Empty nested objects should not produce any keys
       expect(toLogfmt(data)).toBe('')
     })
 
@@ -207,10 +238,9 @@ describe('toLogfmt', () => {
       const obj: Record<string, unknown> = { name: 'test' }
       obj.self = obj
 
-      // The circular reference should be converted to a string representation
       const result = toLogfmt(obj)
       expect(result).toContain('name=test')
-      expect(result).toContain('self=[Circular]') // Our implementation marks circular refs
+      expect(result).toContain('self=[Circular]')
     })
 
     it('should handle Date objects', () => {

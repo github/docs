@@ -1,43 +1,14 @@
-/**
- * You specify one or more languages and versions, and this script
- * will output a JSON file with the metadata needed.
- * You run it with:
- *
- *    npm run all-documents -- -o /tmp/all-documents.json
- *
- * By default, it will do free-pro-team, enterprise-cloud, and whatever
- * the latest enterprise-server is. You can specify versions with: --version
- * For example:
- *
- *    npm run all-documents -- -v free-pro-team@latest -v ghes-3.12
- *
- * By default it will include all languages, but you can specify
- * with --language
- *
- *    npm run all-documents -- -l en -l de
- *
- * For debugging purposes, because there are so *many* documents you can
- * apply a filter by URL matching, for example:
- *
- *    npm run all-documents -- -f get-started/using-github
- *
- * This will only include documents whose URL contains the string
- * 'get-started/using-github'.
- *
- * If you don't specify an output file (the --output flag or -o for short),
- * it will print all the JSON to stdout.
- *
- * By default the fields set to include are: title, shortTitle, intro, url.
- * You can instead specify the fields you only want. For example
- *
- *    npm run all-documents -- --field url --field title
- *
- * Now the JSON will look like this:
- *
- *    ...
- *    {"title": "Some title", "url": "/some-url"}
- *    ...
- */
+// Generates JSON metadata for documents.
+// Run npm run all-documents -- -o /tmp/all-documents.json.
+// Defaults to all languages, free-pro-team, enterprise-cloud, latest enterprise-server,
+// fields title, shortTitle, intro, and url, and output file all-documents.json.
+// Use --version for versions such as free-pro-team@latest and ghes-3.12.
+// Use --language for languages such as en and de.
+// Use --filter to include only documents whose URL contains the given string.
+// Use --field to choose output fields, such as url and title.
+// Filter example: npm run all-documents -- -f get-started/using-github.
+// Field example: npm run all-documents -- --field url --field title.
+// Example field output: {"title":"Some title","url":"/some-url"}.
 
 import { writeFileSync, statSync } from 'fs'
 
@@ -47,7 +18,7 @@ import { languageKeys } from '@/languages/lib/languages-server'
 import { allVersions } from '@/versions/lib/all-versions'
 import { allDocuments, POSSIBLE_FIELDS, type AllDocument } from './lib'
 
-// E.g. enteprise-server@3.12, free-pro-team@latest, etc
+// Version flags accept enterprise-server@3.12 and free-pro-team@latest.
 const fullVersions = Object.keys(allVersions)
 const defaultVersions: string[] = []
 const shortAlias = new Map<string, string>()

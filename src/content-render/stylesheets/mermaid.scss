@@ -1,0 +1,27 @@
+// Maps Pele diagram colors and font to Brand and Primer tokens, so diagrams match the page.
+.mermaid-diagram {
+  margin-bottom: 1rem;
+  overflow-x: auto;
+
+  .pele {
+    --pele-bg: var(--brand-color-canvas-default);
+    --pele-fg: var(--brand-color-text-default);
+    --pele-muted: var(--brand-color-text-muted);
+    --pele-line: var(--brand-color-text-default);
+    --pele-surface: var(--brand-color-canvas-subtle);
+    --pele-surface-alt: var(--bgColor-neutral-muted);
+    --pele-border: var(--brand-color-border-default);
+    --pele-accent: var(--fgColor-accent);
+    --pele-critical: var(--fgColor-danger);
+    --pele-series-1: var(--data-blue-color-emphasis);
+    --pele-series-2: var(--data-orange-color-emphasis);
+    --pele-series-3: var(--data-green-color-emphasis);
+    --pele-series-4: var(--data-red-color-emphasis);
+    --pele-series-5: var(--data-teal-color-emphasis);
+    --pele-series-6: var(--data-yellow-color-emphasis);
+    --pele-series-7: var(--data-purple-color-emphasis);
+    --pele-series-8: var(--data-brown-color-emphasis);
+    // Pele sizes nodes from Helvetica-like metrics on the server. Mona Sans fits inside that size.
+    --pele-font: var(--brand-body-fontFamily);
+  }
+}

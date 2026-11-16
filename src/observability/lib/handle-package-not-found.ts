@@ -1,14 +1,9 @@
-/*
-This file adds a custom error message if a package is missing
-to prompt the contributor to run `npm ci`.
-This handler must be separate from handle-exceptions.ts in order to function.
-It's imported in package.json in nodemonConfig,
-whereas that is imported in start-server.ts.
-This file should not import any packages.
-We are suggesting `npm ci` to contributors
-to avoid unexpected changes to the package-lock.json file.
-All other errors should fall through to the error handler in handle-exceptions.ts.
-*/
+// Shows a custom npm ci prompt for missing-package errors.
+// Recommend npm ci instead of npm install to avoid unexpected package-lock.json changes.
+// package.json loads this file through nodemonConfig before start-server.ts loads handle-exceptions.ts.
+// Keep it dependency-free so missing packages can reach this handler.
+// Until handle-exceptions.ts registers its listener, other uncaught exceptions print and exit 1.
+// Once it registers, they fall through to handle-exceptions.ts.
 
 type ErrorWithCode = {
   code: string
@@ -42,6 +37,10 @@ process.on('uncaughtException', async (err: Error | unknown) => {
     console.error('Some dependencies are missing. Please run:')
     console.error('   npm ci')
     console.error('==========================================\n')
+    process.exit(1)
+  } else if (process.listenerCount('uncaughtException') === 1) {
+    // A lone listener marks the error as handled, so print and exit like Node does without one.
+    console.error(err)
     process.exit(1)
   }
 })

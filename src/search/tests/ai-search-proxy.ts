@@ -146,3 +146,44 @@ describe('aiSearchProxy upstream 400 handling', () => {
     expect(res.statusCode).toBe(400)
   })
 })
+
+describe('aiSearchProxy mid-stream errors', () => {
+  beforeEach(() => {
+    vi.clearAllMocks()
+  })
+
+  test('error record starts on its own line after a partial upstream record', async () => {
+    const encoder = new TextEncoder()
+    let pulls = 0
+    const body = new ReadableStream<Uint8Array>({
+      pull(controller) {
+        pulls += 1
+        if (pulls === 1) {
+          controller.enqueue(encoder.encode('{"chunkType":"MESSAGE_CHUNK","text":"To clo'))
+        } else {
+          throw new TypeError('terminated')
+        }
+      },
+    })
+    ;(fetchStream as ReturnType<typeof vi.fn>).mockResolvedValue({
+      ok: true,
+      status: 200,
+      headers: { get: () => 'application/x-ndjson' },
+      body,
+    })
+    const res = buildResponse()
+    res.flushHeaders.mockImplementation(() => {
+      res.headersSent = true
+    })
+
+    await aiSearchProxy(buildRequest(), res as never)
+
+    const written = res.write.mock.calls.map((call) => call[0] as string).join('')
+    const lines = written.split('\n').filter((line) => line.trim())
+    expect(JSON.parse(lines[lines.length - 1])).toEqual({
+      errors: [{ message: 'Internal server error' }],
+    })
+    expect(incrementedMetrics()).toContain('ai-search.stream_error')
+    expect(res.end).toHaveBeenCalled()
+  })
+})

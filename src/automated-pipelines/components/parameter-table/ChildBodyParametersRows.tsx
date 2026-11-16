@@ -1,4 +1,4 @@
-import cx from 'classnames'
+import cx from 'clsx'
 
 import { useTranslation } from '@/languages/components/useTranslation'
 import { ParameterRow } from './ParameterRow'

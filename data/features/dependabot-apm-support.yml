@@ -1,0 +1,6 @@
+# Reference: https://github.com/github/releases/issues/11469
+# APM (Agent Package Manager) support for Dependabot
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>= 3.24'

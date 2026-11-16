@@ -18,7 +18,7 @@ redirect_from:
   - /admin/monitoring-managing-and-updating-your-instance/monitoring-your-instance/configuring-collectd
   - /admin/monitoring-managing-and-updating-your-instance/monitoring-your-instance/configuring-collectd-for-your-instance
 versions:
-  ghes: '*'
+  feature: ghes-collectd-available
 shortTitle: External monitoring with collectd
 contentType: how-tos
 category:

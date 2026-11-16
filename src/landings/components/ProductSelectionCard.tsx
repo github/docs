@@ -10,7 +10,7 @@ type ProductSelectionCardProps = {
 }
 
 export const ProductSelectionCard = ({ group }: ProductSelectionCardProps) => {
-  // Don't display the group if it has no children due to versioning
+  // Versioning can remove every child, so hide empty groups.
   if (!group.children || group.children.length === 0) {
     return null
   }

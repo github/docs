@@ -4,7 +4,27 @@ import fs from 'fs/promises'
 
 import { getPlanVersionFromIndexVersion } from '@/search/lib/elasticsearch-versions'
 
-import type { Redirects, PopularPages } from '@/search/scripts/scrape/types'
+import type { Page, Redirects, PopularPages } from '@/search/scripts/scrape/types'
+
+export function buildRedirects(pages: Pick<Page, 'relativePath' | 'redirect_from'>[]): Redirects {
+  // Match the popularity lookup key in build-records-from-api, so actions/index.md becomes actions.
+  const toKey = (page: Pick<Page, 'relativePath'>) =>
+    page.relativePath.replace('/index.md', '').replace('.md', '')
+  const pageKeys = new Set(pages.map(toKey))
+  const redirects: Redirects = {}
+  for (const page of pages) {
+    const href = toKey(page)
+    for (let redirectFrom of page.redirect_from || []) {
+      // redirect_from values start with / and often end with /.
+      if (redirectFrom.startsWith('/')) redirectFrom = redirectFrom.slice(1)
+      if (redirectFrom.endsWith('/')) redirectFrom = redirectFrom.slice(0, -1)
+      // Some live pages appear in another page's redirect_from for other versions, so keep their counts separate.
+      if (pageKeys.has(redirectFrom)) continue
+      redirects[redirectFrom] = href
+    }
+  }
+  return redirects
+}
 
 export default async function getPopularPages(
   dirPath: string,
@@ -24,41 +44,31 @@ export default async function getPopularPages(
   }
   const rollupRaw = await fs.readFile(filePath, 'utf-8')
 
-  // First iterate through the array of objects, not making an assumption
-  // that the first one is the biggest one.
+  // Find the biggest count after filtering because rollups are not guaranteed to be sorted.
   const all: { [key: string]: number } = {}
   for (const [path, count] of Object.entries(JSON.parse(rollupRaw))) {
     if (!path) {
-      // Can happen if the SQL query is, for some unknown reason, finding
-      // a path that is either `null` or an empty string. Treat it as a
-      // junk entry and skip it.
+      // Skip null or empty SQL rollup paths as junk entries.
       continue
     }
     if (path === 'index') {
-      // That's the home page which doesn't count. It doesn't count because
-      // people don't arrive on that for the information they seek. It's
-      // merely a navigation tool.
+      // Skip the homepage because it serves navigation rather than specific search intent.
       continue
     }
     if (path.startsWith('early-access/')) {
       // We never index these anyway so their popularity is never relevant.
       continue
     }
-    all[path] = count as number
+    // Combine old and new paths because rollups can lag behind content changes.
+    const key = redirects[path] || path
+    all[key] = (all[key] || 0) + (count as number)
   }
 
   const biggestCount = Math.max(...Object.values(all))
   const popularPages: PopularPages = {}
   for (const [path, count] of Object.entries(all)) {
-    // Don't bother writing massively long floating point numbers
-    // because reducing it makes the JSON records smaller and we don't
-    // need any more precision than 7 significant figures.
-    const ratio = Number((count / biggestCount).toFixed(7))
-
-    // The reason we're heeding redirects is because it's possible
-    // that the JSON file is older/"staler" than the
-    // content itself.
-    popularPages[redirects[path] || path] = ratio
+    // Seven decimal places keep records smaller without useful popularity precision loss.
+    popularPages[path] = Number((count / biggestCount).toFixed(7))
   }
 
   return popularPages

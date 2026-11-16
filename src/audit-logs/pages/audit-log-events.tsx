@@ -61,6 +61,7 @@ export default function AuditLogEvents({
 export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
   const { getAutomatedPageMiniTocItems } = await import('@/frame/lib/get-mini-toc-items')
   const { getCategorizedAuditLogEvents, getCategoryNotes } = await import('../lib')
+  const { createHasPage, versionReferenceLinks } = await import('../lib/version-reference-links')
 
   const req = context.req as unknown as ExtendedRequest
   const res = context.res as unknown as Response
@@ -81,6 +82,27 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   } else if (url?.includes('/audit-log-events-for-your-organization')) {
     auditLogEvents = getCategorizedAuditLogEvents('organization', currentVersion)
   }
+
+  const language = req.context!.currentLanguage!
+  const hasPage = createHasPage(req.context!, language, currentVersion)
+  // Copy events because every request and language shares the cached categorized events.
+  auditLogEvents = Object.fromEntries(
+    Object.entries(auditLogEvents).map(([category, events]) => [
+      category,
+      events.map((event) =>
+        event.docs_reference_links
+          ? {
+              ...event,
+              docs_reference_links: versionReferenceLinks(event.docs_reference_links, {
+                language,
+                currentVersion,
+                hasPage,
+              }),
+            }
+          : event,
+      ),
+    ]),
+  )
 
   const categoryNotes = getCategoryNotes()
 

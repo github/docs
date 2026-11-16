@@ -22,10 +22,12 @@ The system acts as a reverse proxy for specific URL paths.
     - Fetches the content from the external host.
     - Rewrites HTML (e.g., fixing image paths, injecting new headers).
     - Handles redirects defined in the archived version's `redirects.json`.
+    - Adds `/archived-build-manifest-stub.js` to archived Next.js pages. Archives never load a real `_buildManifest.js`, so without the stub, client-side navigation (for example, the language and version pickers) waits about 4 seconds before falling back to a full page load.
   - `archived-enterprise-versions-assets.ts`: Proxies static assets (CSS, JS, fonts) from the archive host.
   - `archived-asset-redirects.ts`: Maps legacy asset paths to modern equivalents where possible.
 - **`lib/`**
   - `is-archived-version.ts`: Utilities to parse URLs and check against the list of deprecated versions defined in `src/versions`.
+  - `archived-languages.ts`: Checks whether an archived version includes a given language.
 - **`scripts/`**
   - `warmup-remotejson.ts`: Utility to prime caches for remote JSON files.
 

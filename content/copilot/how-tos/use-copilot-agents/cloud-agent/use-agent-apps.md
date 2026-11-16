@@ -14,9 +14,14 @@ category:
 
 ## Introduction
 
-{% data variables.copilot.agent_apps_caps %} let you delegate work to partner-built agents from within {% data variables.product.github %}. For an overview, see [AUTOTITLE](/copilot/concepts/agents/agent-apps).
+{% data variables.copilot.agent_apps_caps %} let you delegate work to partner-built agents from within {% data variables.product.github %}. For an overview, see [AUTOTITLE](/copilot/concepts/agent-capabilities/about-agents/agent-apps).
 
 Before you can use an {% data variables.copilot.agent_app %}, the {% data variables.product.prodname_github_app %} must be installed on the account or organization that owns the repository, and agent features must be enabled for the app. If the repository is owned by an organization that belongs to an enterprise, the "{% data variables.copilot.agent_apps_caps %}" {% data variables.product.prodname_copilot_short %} policy must also be enabled in your enterprise settings.
+
+## Installing an agent app
+
+1. View available apps on [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=apps&category=agent-apps).
+1. On the app page, click **Add**, then install the app on your personal account or organization.
 
 ## Authorizing an agent app
 

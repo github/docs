@@ -9,6 +9,7 @@ category:
   - Back up and upgrade your instance
 redirect_from:
   - /admin/backing-up-and-restoring-your-instance/backup-service-for-github-enterprise-server/about-the-backup-service-for-github-enterprise-server
+  - /admin/backing-up-and-restoring-your-instance/configuring-backups-on-your-instance
 ---
 
 {% ifversion ghes < 3.20 %}

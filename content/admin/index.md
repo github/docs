@@ -75,6 +75,7 @@ includedCategories:
   - Monitor and audit your enterprise
   - Back up and upgrade your instance
   - Scale your instance
+  - Troubleshoot your instance
   - Enable GitHub features for your enterprise
 carousels:
   recommended:
@@ -106,10 +107,10 @@ children:
   - /enforcing-policies
   - /monitoring-activity-in-your-enterprise
   - /monitoring-and-managing-your-instance
+  - /troubleshooting-your-instance
   - /managing-github-apps-for-your-enterprise
   - /managing-github-actions-for-your-enterprise
   - /configuring-packages
   - /release-notes
   - /all-releases
 ---
-

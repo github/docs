@@ -30,6 +30,9 @@ category:
 
 {% data reusables.organizations.copilot-policy-ent-overrides-org %}
 
+> [!TIP]
+> If your organization belongs to an enterprise, see [AUTOTITLE](/copilot/get-started/enterprise-ai-governance) for guidance on coordinating policies with broader governance and rollout decisions.
+
 ## Enabling {% data variables.product.prodname_copilot_short %} features and models in your organization
 
 {% data reusables.profile.access_org %}
@@ -40,28 +43,6 @@ category:
 1. For each policy you want to configure, click the dropdown menu and select an enforcement option.
 
 {% data reusables.copilot.mcp-servers-policy-note %}
-
-## Enabling or disabling third-party coding agents in your repositories
-
-> [!NOTE]
-> * {% data reusables.copilot.plans.permission-paid-plans-no-purchase-link %}
-> * If your organization is owned by an enterprise, these settings are only visible if an enterprise admin has enabled third-party coding agents at the enterprise level. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-enterprise-policies).
->   * {% data variables.copilot.agent_apps_caps %} are not enabled here. They are controlled separately by a single "{% data variables.copilot.agent_apps %}" policy. For more information, see [AUTOTITLE](/copilot/concepts/agents/agent-apps).
-
-You can choose whether to allow the following coding agents to be enabled in your organization:
-
-* {% data variables.product.prodname_anthropic_claude %}
-* {% data variables.product.prodname_openai_codex %}
-
-Coding agents have access to the same repositories that {% data variables.copilot.copilot_cloud_agent %} has been enabled in.
-
-To enable coding agents:
-
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.copilot.cloud-agent-settings %}
-1. In the sidebar, under **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}**, click **Cloud agent**.
-1. On the {% data variables.copilot.copilot_cloud_agent %} page, under "Partner agents", click the toggle to enable the third-party agent you want to use.
 
 ## Opting in to previews or feedback
 

@@ -12,6 +12,8 @@ category:
   - Administer enterprises and billing
 ---
 
+## Creating a user-scoped budget
+
 > [!IMPORTANT]
 > The request body schema below is missing a required field. When `budget_scope` is `user`, you must also include a `user` field set to the {% data variables.product.company_short %} username the budget applies to. If you omit this field, the API returns `HTTP 400: Missing required fields: budget_entity_name`. For user-scoped budgets, `budget_entity_name` can be an empty string.
 

@@ -5,7 +5,9 @@ intro: Understand the results from your {% data variables.product.prodname_secre
 permissions: Organization owners, security managers, and users with the **admin** role
 allowTitleToDifferFromFilename: true
 versions:
-  feature: secret-risk-assessment
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 contentType: tutorials
 redirect_from:
   - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/interpreting-secret-risk-assessment-results
@@ -33,6 +35,8 @@ Once your assessment completes, review the key metrics at the top of the dashboa
 * **Total secrets**: Total number of secret leaks found across your organization
 * **Public leaks**: Distinct secrets found in **public** repositories
 * **Preventable leaks**: Leaks that push protection could have prevented
+
+The metrics also show how many secrets were found in **protected** repositories, where {% data variables.product.prodname_GH_secret_protection %} is enabled, and **unprotected** repositories, where it is not. Use this breakdown to understand risk outside your existing coverage.
 
 You can also determine the number of secrets found in your **private repositories** by subtracting the number of public leaks from your total secrets. While remediating these secrets is less immediately important, they still pose risk if someone gains unauthorized access to your repositories, or if a repository is made public.
 

@@ -56,8 +56,6 @@ updates:
 
 See also [schedule](/code-security/reference/supply-chain-security/dependabot-options-reference#schedule-).
 
-{% ifversion dependabot-option-cooldown %}
-
 ### Setting up a cooldown period for dependency updates
 
 You can use `cooldown` with a combination of options to control when {% data variables.product.prodname_dependabot %} creates pull requests for **version updates**, but not **security updates**.
@@ -107,8 +105,6 @@ SemVer is supported for most package managers. Updates to new versions for depen
 * Patch updates: Delayed by 3 days (`semver-patch-days: 3`).
 
 See also [`cooldown`](/code-security/reference/supply-chain-security/dependabot-options-reference#cooldown-).
-
-{% endif %}
 
 ## Prioritizing meaningful updates
 

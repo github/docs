@@ -69,7 +69,12 @@
           "name": "has",
           "in": "query",
           "description": "<p>Filters the list of alerts based on whether the alert has the given value. If specified, only alerts meeting this criterion will be returned.\nMultiple <code>has</code> filters can be passed to filter for alerts that have all of the values. Currently, only <code>patch</code> is supported.</p>",
-          "schema": {}
+          "schema": {
+            "type": [
+              "string",
+              "array of strings"
+            ]
+          }
         },
         {
           "name": "assignee",
@@ -180,6 +185,7 @@
                     "name": "django"
                   },
                   "manifest_path": "path/to/requirements.txt",
+                  "version_requirement": ">= 2.0.0, < 2.0.2",
                   "scope": "runtime",
                   "relationship": "direct"
                 },
@@ -406,6 +412,7 @@
                     "name": "ansible"
                   },
                   "manifest_path": "path/to/requirements.txt",
+                  "version_requirement": "= 2.8.18",
                   "scope": "runtime",
                   "relationship": "direct"
                 },
@@ -637,6 +644,14 @@
                       "manifest_path": {
                         "type": "string",
                         "description": "The full path to the dependency manifest file, relative to the root of the repository.",
+                        "readOnly": true
+                      },
+                      "version_requirement": {
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "description": "The dependency version or version constraint last recorded for the dependency associated with this alert.\nFor dependencies detected from a lockfile, this can be the resolved version.\nFor manifest-only dependencies, it can be the declared version constraint. Returns `null` when unavailable.\n\nAn empty string can indicate an unconstrained dependency. The stored value is limited to 64 bytes;\nlonger requirements may have been truncated and may no longer form a complete, valid version constraint.\n\nWhen multiple vulnerable versions of a dependency correspond to the same alert, this field contains one\nrecorded version or constraint and may not represent all vulnerable versions.\n",
                         "readOnly": true
                       },
                       "scope": {
@@ -1452,6 +1467,50 @@
                         "url"
                       ]
                     }
+                  },
+                  "reachability": {
+                    "type": "object",
+                    "description": "The reachability result for the vulnerability that triggered the alert, indicating whether a\nvulnerable function is reachable from the repository's own code.\n",
+                    "readOnly": true,
+                    "properties": {
+                      "verdict": {
+                        "type": "string",
+                        "description": "The reachability verdict for the alert.\n\n- `reachable`: a path from the repository's code reaches a vulnerable function.\n- `unreachable`: no path from the repository's code reaches a vulnerable function.\n- `potentially_reachable`: reachability could not be determined with confidence; review manually.\n- `unavailable`: no verdict has been computed for the alert yet.\n- `disabled`: reachability analysis is not enabled for the repository.\n",
+                        "readOnly": true,
+                        "enum": [
+                          "reachable",
+                          "unreachable",
+                          "potentially_reachable",
+                          "unavailable",
+                          "disabled"
+                        ]
+                      },
+                      "reason": {
+                        "type": "string",
+                        "description": "The reason for the reachability verdict. This field is omitted when reachability analysis is disabled or no result has been computed.",
+                        "readOnly": true,
+                        "nullable": false,
+                        "enum": [
+                          "unknown",
+                          "unavailable_unsupported_ecosystem",
+                          "unavailable_analysis_timed_out",
+                          "potentially_reachable_invalid_manifest_path",
+                          "potentially_reachable_missing_vulnerable_function_annotation",
+                          "potentially_reachable_dependency_not_found",
+                          "potentially_reachable_dependency_analysis_incomplete",
+                          "potentially_reachable_repository_analysis_incomplete",
+                          "potentially_reachable_call_found_outside_manifest_scope",
+                          "potentially_reachable_unclassified_analysis_state",
+                          "reachable_vulnerable_function_called",
+                          "unreachable_vulnerable_function_not_called",
+                          "potentially_reachable_unresolved_dynamic_call"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "verdict"
+                    ],
+                    "additionalProperties": false
                   },
                   "repository": {
                     "title": "Simple Repository",
@@ -1957,7 +2016,12 @@
           "name": "has",
           "in": "query",
           "description": "<p>Filters the list of alerts based on whether the alert has the given value. If specified, only alerts meeting this criterion will be returned.\nMultiple <code>has</code> filters can be passed to filter for alerts that have all of the values.</p>",
-          "schema": {}
+          "schema": {
+            "type": [
+              "string",
+              "array of strings"
+            ]
+          }
         },
         {
           "name": "assignee",
@@ -2076,6 +2140,7 @@
                     "name": "django"
                   },
                   "manifest_path": "path/to/requirements.txt",
+                  "version_requirement": ">= 2.0.0, < 2.0.2",
                   "scope": "runtime",
                   "relationship": "direct"
                 },
@@ -2302,6 +2367,7 @@
                     "name": "ansible"
                   },
                   "manifest_path": "path/to/requirements.txt",
+                  "version_requirement": "= 2.8.18",
                   "scope": "runtime",
                   "relationship": "direct"
                 },
@@ -2533,6 +2599,14 @@
                       "manifest_path": {
                         "type": "string",
                         "description": "The full path to the dependency manifest file, relative to the root of the repository.",
+                        "readOnly": true
+                      },
+                      "version_requirement": {
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "description": "The dependency version or version constraint last recorded for the dependency associated with this alert.\nFor dependencies detected from a lockfile, this can be the resolved version.\nFor manifest-only dependencies, it can be the declared version constraint. Returns `null` when unavailable.\n\nAn empty string can indicate an unconstrained dependency. The stored value is limited to 64 bytes;\nlonger requirements may have been truncated and may no longer form a complete, valid version constraint.\n\nWhen multiple vulnerable versions of a dependency correspond to the same alert, this field contains one\nrecorded version or constraint and may not represent all vulnerable versions.\n",
                         "readOnly": true
                       },
                       "scope": {
@@ -3348,6 +3422,50 @@
                         "url"
                       ]
                     }
+                  },
+                  "reachability": {
+                    "type": "object",
+                    "description": "The reachability result for the vulnerability that triggered the alert, indicating whether a\nvulnerable function is reachable from the repository's own code.\n",
+                    "readOnly": true,
+                    "properties": {
+                      "verdict": {
+                        "type": "string",
+                        "description": "The reachability verdict for the alert.\n\n- `reachable`: a path from the repository's code reaches a vulnerable function.\n- `unreachable`: no path from the repository's code reaches a vulnerable function.\n- `potentially_reachable`: reachability could not be determined with confidence; review manually.\n- `unavailable`: no verdict has been computed for the alert yet.\n- `disabled`: reachability analysis is not enabled for the repository.\n",
+                        "readOnly": true,
+                        "enum": [
+                          "reachable",
+                          "unreachable",
+                          "potentially_reachable",
+                          "unavailable",
+                          "disabled"
+                        ]
+                      },
+                      "reason": {
+                        "type": "string",
+                        "description": "The reason for the reachability verdict. This field is omitted when reachability analysis is disabled or no result has been computed.",
+                        "readOnly": true,
+                        "nullable": false,
+                        "enum": [
+                          "unknown",
+                          "unavailable_unsupported_ecosystem",
+                          "unavailable_analysis_timed_out",
+                          "potentially_reachable_invalid_manifest_path",
+                          "potentially_reachable_missing_vulnerable_function_annotation",
+                          "potentially_reachable_dependency_not_found",
+                          "potentially_reachable_dependency_analysis_incomplete",
+                          "potentially_reachable_repository_analysis_incomplete",
+                          "potentially_reachable_call_found_outside_manifest_scope",
+                          "potentially_reachable_unclassified_analysis_state",
+                          "reachable_vulnerable_function_called",
+                          "unreachable_vulnerable_function_not_called",
+                          "potentially_reachable_unresolved_dynamic_call"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "verdict"
+                    ],
+                    "additionalProperties": false
                   },
                   "repository": {
                     "title": "Simple Repository",
@@ -3862,7 +3980,12 @@
           "name": "has",
           "in": "query",
           "description": "<p>Filters the list of alerts based on whether the alert has the given value. If specified, only alerts meeting this criterion will be returned.\nMultiple <code>has</code> filters can be passed to filter for alerts that have all of the values. Currently, only <code>patch</code> is supported.</p>",
-          "schema": {}
+          "schema": {
+            "type": [
+              "string",
+              "array of strings"
+            ]
+          }
         },
         {
           "name": "assignee",
@@ -3974,6 +4097,7 @@
                     "name": "django"
                   },
                   "manifest_path": "path/to/requirements.txt",
+                  "version_requirement": ">= 2.0.0, < 2.0.2",
                   "scope": "runtime",
                   "relationship": "direct"
                 },
@@ -4133,6 +4257,7 @@
                     "name": "ansible"
                   },
                   "manifest_path": "path/to/requirements.txt",
+                  "version_requirement": "= 2.8.18",
                   "scope": "runtime",
                   "relationship": "direct"
                 },
@@ -4297,6 +4422,14 @@
                       "manifest_path": {
                         "type": "string",
                         "description": "The full path to the dependency manifest file, relative to the root of the repository.",
+                        "readOnly": true
+                      },
+                      "version_requirement": {
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "description": "The dependency version or version constraint last recorded for the dependency associated with this alert.\nFor dependencies detected from a lockfile, this can be the resolved version.\nFor manifest-only dependencies, it can be the declared version constraint. Returns `null` when unavailable.\n\nAn empty string can indicate an unconstrained dependency. The stored value is limited to 64 bytes;\nlonger requirements may have been truncated and may no longer form a complete, valid version constraint.\n\nWhen multiple vulnerable versions of a dependency correspond to the same alert, this field contains one\nrecorded version or constraint and may not represent all vulnerable versions.\n",
                         "readOnly": true
                       },
                       "scope": {
@@ -5112,6 +5245,50 @@
                         "url"
                       ]
                     }
+                  },
+                  "reachability": {
+                    "type": "object",
+                    "description": "The reachability result for the vulnerability that triggered the alert, indicating whether a\nvulnerable function is reachable from the repository's own code.\n",
+                    "readOnly": true,
+                    "properties": {
+                      "verdict": {
+                        "type": "string",
+                        "description": "The reachability verdict for the alert.\n\n- `reachable`: a path from the repository's code reaches a vulnerable function.\n- `unreachable`: no path from the repository's code reaches a vulnerable function.\n- `potentially_reachable`: reachability could not be determined with confidence; review manually.\n- `unavailable`: no verdict has been computed for the alert yet.\n- `disabled`: reachability analysis is not enabled for the repository.\n",
+                        "readOnly": true,
+                        "enum": [
+                          "reachable",
+                          "unreachable",
+                          "potentially_reachable",
+                          "unavailable",
+                          "disabled"
+                        ]
+                      },
+                      "reason": {
+                        "type": "string",
+                        "description": "The reason for the reachability verdict. This field is omitted when reachability analysis is disabled or no result has been computed.",
+                        "readOnly": true,
+                        "nullable": false,
+                        "enum": [
+                          "unknown",
+                          "unavailable_unsupported_ecosystem",
+                          "unavailable_analysis_timed_out",
+                          "potentially_reachable_invalid_manifest_path",
+                          "potentially_reachable_missing_vulnerable_function_annotation",
+                          "potentially_reachable_dependency_not_found",
+                          "potentially_reachable_dependency_analysis_incomplete",
+                          "potentially_reachable_repository_analysis_incomplete",
+                          "potentially_reachable_call_found_outside_manifest_scope",
+                          "potentially_reachable_unclassified_analysis_state",
+                          "reachable_vulnerable_function_called",
+                          "unreachable_vulnerable_function_not_called",
+                          "potentially_reachable_unresolved_dynamic_call"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "verdict"
+                    ],
+                    "additionalProperties": false
                   }
                 },
                 "required": [
@@ -5236,6 +5413,7 @@
                   "name": "ansible"
                 },
                 "manifest_path": "path/to/requirements.txt",
+                "version_requirement": "= 2.8.18",
                 "scope": "runtime",
                 "relationship": "direct"
               },
@@ -5424,6 +5602,14 @@
                       "description": "The full path to the dependency manifest file, relative to the root of the repository.",
                       "readOnly": true
                     },
+                    "version_requirement": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "description": "The dependency version or version constraint last recorded for the dependency associated with this alert.\nFor dependencies detected from a lockfile, this can be the resolved version.\nFor manifest-only dependencies, it can be the declared version constraint. Returns `null` when unavailable.\n\nAn empty string can indicate an unconstrained dependency. The stored value is limited to 64 bytes;\nlonger requirements may have been truncated and may no longer form a complete, valid version constraint.\n\nWhen multiple vulnerable versions of a dependency correspond to the same alert, this field contains one\nrecorded version or constraint and may not represent all vulnerable versions.\n",
+                      "readOnly": true
+                    },
                     "scope": {
                       "type": [
                         "string",
@@ -6237,6 +6423,50 @@
                       "url"
                     ]
                   }
+                },
+                "reachability": {
+                  "type": "object",
+                  "description": "The reachability result for the vulnerability that triggered the alert, indicating whether a\nvulnerable function is reachable from the repository's own code.\n",
+                  "readOnly": true,
+                  "properties": {
+                    "verdict": {
+                      "type": "string",
+                      "description": "The reachability verdict for the alert.\n\n- `reachable`: a path from the repository's code reaches a vulnerable function.\n- `unreachable`: no path from the repository's code reaches a vulnerable function.\n- `potentially_reachable`: reachability could not be determined with confidence; review manually.\n- `unavailable`: no verdict has been computed for the alert yet.\n- `disabled`: reachability analysis is not enabled for the repository.\n",
+                      "readOnly": true,
+                      "enum": [
+                        "reachable",
+                        "unreachable",
+                        "potentially_reachable",
+                        "unavailable",
+                        "disabled"
+                      ]
+                    },
+                    "reason": {
+                      "type": "string",
+                      "description": "The reason for the reachability verdict. This field is omitted when reachability analysis is disabled or no result has been computed.",
+                      "readOnly": true,
+                      "nullable": false,
+                      "enum": [
+                        "unknown",
+                        "unavailable_unsupported_ecosystem",
+                        "unavailable_analysis_timed_out",
+                        "potentially_reachable_invalid_manifest_path",
+                        "potentially_reachable_missing_vulnerable_function_annotation",
+                        "potentially_reachable_dependency_not_found",
+                        "potentially_reachable_dependency_analysis_incomplete",
+                        "potentially_reachable_repository_analysis_incomplete",
+                        "potentially_reachable_call_found_outside_manifest_scope",
+                        "potentially_reachable_unclassified_analysis_state",
+                        "reachable_vulnerable_function_called",
+                        "unreachable_vulnerable_function_not_called",
+                        "potentially_reachable_unresolved_dynamic_call"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "verdict"
+                  ],
+                  "additionalProperties": false
                 }
               },
               "required": [
@@ -6276,6 +6506,10 @@
         {
           "httpStatusCode": "404",
           "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "410",
+          "description": "<p>Gone</p>"
         }
       ],
       "previews": [],
@@ -6412,6 +6646,7 @@
                   "name": "django"
                 },
                 "manifest_path": "path/to/requirements.txt",
+                "version_requirement": ">= 2.0.0, < 2.0.2",
                 "scope": "runtime",
                 "relationship": "direct"
               },
@@ -6589,6 +6824,14 @@
                       "description": "The full path to the dependency manifest file, relative to the root of the repository.",
                       "readOnly": true
                     },
+                    "version_requirement": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "description": "The dependency version or version constraint last recorded for the dependency associated with this alert.\nFor dependencies detected from a lockfile, this can be the resolved version.\nFor manifest-only dependencies, it can be the declared version constraint. Returns `null` when unavailable.\n\nAn empty string can indicate an unconstrained dependency. The stored value is limited to 64 bytes;\nlonger requirements may have been truncated and may no longer form a complete, valid version constraint.\n\nWhen multiple vulnerable versions of a dependency correspond to the same alert, this field contains one\nrecorded version or constraint and may not represent all vulnerable versions.\n",
+                      "readOnly": true
+                    },
                     "scope": {
                       "type": [
                         "string",
@@ -7402,6 +7645,50 @@
                       "url"
                     ]
                   }
+                },
+                "reachability": {
+                  "type": "object",
+                  "description": "The reachability result for the vulnerability that triggered the alert, indicating whether a\nvulnerable function is reachable from the repository's own code.\n",
+                  "readOnly": true,
+                  "properties": {
+                    "verdict": {
+                      "type": "string",
+                      "description": "The reachability verdict for the alert.\n\n- `reachable`: a path from the repository's code reaches a vulnerable function.\n- `unreachable`: no path from the repository's code reaches a vulnerable function.\n- `potentially_reachable`: reachability could not be determined with confidence; review manually.\n- `unavailable`: no verdict has been computed for the alert yet.\n- `disabled`: reachability analysis is not enabled for the repository.\n",
+                      "readOnly": true,
+                      "enum": [
+                        "reachable",
+                        "unreachable",
+                        "potentially_reachable",
+                        "unavailable",
+                        "disabled"
+                      ]
+                    },
+                    "reason": {
+                      "type": "string",
+                      "description": "The reason for the reachability verdict. This field is omitted when reachability analysis is disabled or no result has been computed.",
+                      "readOnly": true,
+                      "nullable": false,
+                      "enum": [
+                        "unknown",
+                        "unavailable_unsupported_ecosystem",
+                        "unavailable_analysis_timed_out",
+                        "potentially_reachable_invalid_manifest_path",
+                        "potentially_reachable_missing_vulnerable_function_annotation",
+                        "potentially_reachable_dependency_not_found",
+                        "potentially_reachable_dependency_analysis_incomplete",
+                        "potentially_reachable_repository_analysis_incomplete",
+                        "potentially_reachable_call_found_outside_manifest_scope",
+                        "potentially_reachable_unclassified_analysis_state",
+                        "reachable_vulnerable_function_called",
+                        "unreachable_vulnerable_function_not_called",
+                        "potentially_reachable_unresolved_dynamic_call"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "verdict"
+                  ],
+                  "additionalProperties": false
                 }
               },
               "required": [
@@ -7445,6 +7732,10 @@
         {
           "httpStatusCode": "409",
           "description": "<p>Conflict</p>"
+        },
+        {
+          "httpStatusCode": "410",
+          "description": "<p>Gone</p>"
         },
         {
           "httpStatusCode": "422",
@@ -7504,7 +7795,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Lists repositories that enterprise admins have allowed Dependabot to access when updating dependencies across organizations in the enterprise.</p>\n<p>The authenticated user must be an enterprise owner to use this endpoint.</p>",
+      "descriptionHTML": "<p>Lists repositories that enterprise admins have allowed Dependabot to access when updating dependencies across organizations in the enterprise.</p>\n<p>The authenticated user must be an enterprise owner to use this endpoint.</p>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThe \"Enterprise administration\" fine-grained permission is not available to callers. To use this API, you must use an OAuth app token or a personal access token (classic).</p>\n</div>",
       "codeExamples": [
         {
           "request": {
@@ -8010,10 +8301,13 @@
       "progAccess": {
         "userToServerRest": true,
         "serverToServer": true,
-        "fineGrainedPat": true,
+        "fineGrainedPat": false,
         "permissions": [
           {
             "\"Enterprise administration\" enterprise permissions": "read"
+          },
+          {
+            "\"Enterprise security products\" enterprise permissions": "read"
           }
         ]
       }
@@ -8048,7 +8342,7 @@
           "description": "<p>List of repository IDs to remove.</p>"
         }
       ],
-      "descriptionHTML": "<p>Updates repositories according to the list of repositories that enterprise admins have given Dependabot access to when they've updated dependencies across organizations in the enterprise.</p>\n<p>The authenticated user must be an enterprise owner to use this endpoint.</p>\n<p><strong>Example request body:</strong></p>\n<pre><code class=\"hljs language-json\"><span class=\"hljs-punctuation\">{</span>\n  <span class=\"hljs-attr\">\"repository_ids_to_add\"</span><span class=\"hljs-punctuation\">:</span> <span class=\"hljs-punctuation\">[</span><span class=\"hljs-number\">123</span><span class=\"hljs-punctuation\">,</span> <span class=\"hljs-number\">456</span><span class=\"hljs-punctuation\">]</span><span class=\"hljs-punctuation\">,</span>\n  <span class=\"hljs-attr\">\"repository_ids_to_remove\"</span><span class=\"hljs-punctuation\">:</span> <span class=\"hljs-punctuation\">[</span><span class=\"hljs-number\">789</span><span class=\"hljs-punctuation\">]</span>\n<span class=\"hljs-punctuation\">}</span>\n</code></pre>",
+      "descriptionHTML": "<p>Updates repositories according to the list of repositories that enterprise admins have given Dependabot access to when they've updated dependencies across organizations in the enterprise.</p>\n<p>The authenticated user must be an enterprise owner to use this endpoint.</p>\n<p><strong>Example request body:</strong></p>\n<pre><code class=\"hljs language-json\"><span class=\"hljs-punctuation\">{</span>\n  <span class=\"hljs-attr\">\"repository_ids_to_add\"</span><span class=\"hljs-punctuation\">:</span> <span class=\"hljs-punctuation\">[</span><span class=\"hljs-number\">123</span><span class=\"hljs-punctuation\">,</span> <span class=\"hljs-number\">456</span><span class=\"hljs-punctuation\">]</span><span class=\"hljs-punctuation\">,</span>\n  <span class=\"hljs-attr\">\"repository_ids_to_remove\"</span><span class=\"hljs-punctuation\">:</span> <span class=\"hljs-punctuation\">[</span><span class=\"hljs-number\">789</span><span class=\"hljs-punctuation\">]</span>\n<span class=\"hljs-punctuation\">}</span>\n</code></pre>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThe \"Enterprise administration\" fine-grained permission is not available to callers. To use this API, you must use an OAuth app token or a personal access token (classic).</p>\n</div>",
       "codeExamples": [
         {
           "request": {
@@ -8083,10 +8377,13 @@
       "progAccess": {
         "userToServerRest": true,
         "serverToServer": true,
-        "fineGrainedPat": true,
+        "fineGrainedPat": false,
         "permissions": [
           {
             "\"Enterprise administration\" enterprise permissions": "write"
+          },
+          {
+            "\"Enterprise security products\" enterprise permissions": "write"
           }
         ]
       }
@@ -8121,7 +8418,7 @@
           ]
         }
       ],
-      "descriptionHTML": "<p>Sets the default level of repository access Dependabot will have while performing an update across organizations in the enterprise. Available values are:</p>\n<ul>\n<li>'public' - Dependabot will only have access to public repositories, unless access is explicitly granted to non-public repositories.</li>\n<li>'internal' - Dependabot will only have access to public and internal repositories, unless access is explicitly granted to private repositories.</li>\n</ul>\n<p>The authenticated user must be an enterprise owner to use this endpoint.</p>",
+      "descriptionHTML": "<p>Sets the default level of repository access Dependabot will have while performing an update across organizations in the enterprise. Available values are:</p>\n<ul>\n<li>'public' - Dependabot will only have access to public repositories, unless access is explicitly granted to non-public repositories.</li>\n<li>'internal' - Dependabot will only have access to public and internal repositories, unless access is explicitly granted to private repositories.</li>\n</ul>\n<p>The authenticated user must be an enterprise owner to use this endpoint.</p>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThe \"Enterprise administration\" fine-grained permission is not available to callers. To use this API, you must use an OAuth app token or a personal access token (classic).</p>\n</div>",
       "codeExamples": [
         {
           "request": {
@@ -8159,10 +8456,13 @@
       "progAccess": {
         "userToServerRest": true,
         "serverToServer": true,
-        "fineGrainedPat": true,
+        "fineGrainedPat": false,
         "permissions": [
           {
             "\"Enterprise administration\" enterprise permissions": "write"
+          },
+          {
+            "\"Enterprise security products\" enterprise permissions": "write"
           }
         ]
       }
@@ -8750,7 +9050,7 @@
           "description": "<p>List of repository IDs to remove.</p>"
         }
       ],
-      "descriptionHTML": "<p>Updates repositories according to the list of repositories that organization admins have given Dependabot access to when they've updated dependencies.</p>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis operation supports both server-to-server and user-to-server access.\nUnauthorized users will not see the existence of this endpoint.</p>\n</div>\n<p><strong>Example request body:</strong></p>\n<pre><code class=\"hljs language-json\"><span class=\"hljs-punctuation\">{</span>\n  <span class=\"hljs-attr\">\"repository_ids_to_add\"</span><span class=\"hljs-punctuation\">:</span> <span class=\"hljs-punctuation\">[</span><span class=\"hljs-number\">123</span><span class=\"hljs-punctuation\">,</span> <span class=\"hljs-number\">456</span><span class=\"hljs-punctuation\">]</span><span class=\"hljs-punctuation\">,</span>\n  <span class=\"hljs-attr\">\"repository_ids_to_remove\"</span><span class=\"hljs-punctuation\">:</span> <span class=\"hljs-punctuation\">[</span><span class=\"hljs-number\">789</span><span class=\"hljs-punctuation\">]</span>\n<span class=\"hljs-punctuation\">}</span>\n</code></pre>",
+      "descriptionHTML": "<p>Updates repositories according to the list of repositories that organization admins have given Dependabot access to when they've updated dependencies.</p>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis operation supports both server-to-server and user-to-server access.\nUnauthorized users will not see the existence of this endpoint.</p>\n</div>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>write:org</code> scope to use this endpoint.</p>\n<p><strong>Example request body:</strong></p>\n<pre><code class=\"hljs language-json\"><span class=\"hljs-punctuation\">{</span>\n  <span class=\"hljs-attr\">\"repository_ids_to_add\"</span><span class=\"hljs-punctuation\">:</span> <span class=\"hljs-punctuation\">[</span><span class=\"hljs-number\">123</span><span class=\"hljs-punctuation\">,</span> <span class=\"hljs-number\">456</span><span class=\"hljs-punctuation\">]</span><span class=\"hljs-punctuation\">,</span>\n  <span class=\"hljs-attr\">\"repository_ids_to_remove\"</span><span class=\"hljs-punctuation\">:</span> <span class=\"hljs-punctuation\">[</span><span class=\"hljs-number\">789</span><span class=\"hljs-punctuation\">]</span>\n<span class=\"hljs-punctuation\">}</span>\n</code></pre>",
       "codeExamples": [
         {
           "request": {
@@ -8823,7 +9123,7 @@
           ]
         }
       ],
-      "descriptionHTML": "<p>Sets the default level of repository access Dependabot will have while performing an update.  Available values are:</p>\n<ul>\n<li>'public' - Dependabot will only have access to public repositories, unless access is explicitly granted to non-public repositories.</li>\n<li>'internal' - Dependabot will only have access to public and internal repositories, unless access is explicitly granted to private repositories.</li>\n</ul>\n<p>Unauthorized users will not see the existence of this endpoint.</p>\n<p>This operation supports both server-to-server and user-to-server access.</p>",
+      "descriptionHTML": "<p>Sets the default level of repository access Dependabot will have while performing an update.  Available values are:</p>\n<ul>\n<li>'public' - Dependabot will only have access to public repositories, unless access is explicitly granted to non-public repositories.</li>\n<li>'internal' - Dependabot will only have access to public and internal repositories, unless access is explicitly granted to private repositories.</li>\n</ul>\n<p>Unauthorized users will not see the existence of this endpoint.</p>\n<p>This operation supports both server-to-server and user-to-server access.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>write:org</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -8865,6 +9165,279 @@
         "permissions": [
           {
             "\"Administration\" organization permissions": "write"
+          }
+        ]
+      }
+    }
+  ],
+  "runner-settings": [
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/dependabot/runner-settings",
+      "title": "Get repository Dependabot runner settings",
+      "category": "dependabot",
+      "subcategory": "runner-settings",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Gets the runner Dependabot uses for this repository: standard GitHub-hosted\nrunners, or labeled runners with their labels and optional runner group. The\nresponse matches the repository's code security settings page.</p>\n<p>Labeled runners take effect only for private and internal repositories with\nGitHub Actions enabled. Otherwise, the response shows <code>standard</code>.</p>\n<p>Repository administrators and users who can manage security products for the\nrepository can use this endpoint. OAuth app tokens and personal access tokens\n(classic) require the <code>repo</code> scope for both public and private repositories.\nGitHub App tokens and fine-grained personal access tokens require repository\nAdministration read permission. Workflow <code>GITHUB_TOKEN</code> access is not supported.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Labeled runner with a runner group</p>",
+            "example": {
+              "runner_type": "labeled",
+              "runner_labels": [
+                "dependabot"
+              ],
+              "runner_group": "dependabot-runners"
+            },
+            "schema": {
+              "title": "Dependabot runner settings",
+              "description": "The runner Dependabot uses for this repository, as shown in the repository settings.",
+              "type": "object",
+              "required": [
+                "runner_type",
+                "runner_labels",
+                "runner_group"
+              ],
+              "properties": {
+                "runner_type": {
+                  "description": "`labeled` when Dependabot runs on labeled runners. Otherwise `standard`.",
+                  "type": "string",
+                  "enum": [
+                    "standard",
+                    "labeled"
+                  ]
+                },
+                "runner_labels": {
+                  "description": "Runner labels Dependabot uses. Empty for `standard`.",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "runner_group": {
+                  "description": "Runner group Dependabot uses, or `null` for no group.",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "401",
+          "description": "<p>Requires authentication</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Administration\" repository permissions": "read"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "put",
+      "requestPath": "/repos/{owner}/{repo}/dependabot/runner-settings",
+      "title": "Set repository Dependabot runner settings",
+      "category": "dependabot",
+      "subcategory": "runner-settings",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "string",
+          "name": "runner_type",
+          "description": "<p><code>labeled</code> for labeled runners, <code>standard</code> for standard GitHub-hosted runners.</p>",
+          "isRequired": true,
+          "enum": [
+            "standard",
+            "labeled"
+          ]
+        },
+        {
+          "type": "array of strings",
+          "name": "runner_labels",
+          "description": "<p>Required for <code>labeled</code>. Exactly one non-blank runner label. Not allowed for <code>standard</code>.</p>"
+        },
+        {
+          "type": "string or null",
+          "name": "runner_group",
+          "description": "<p>Optional for <code>labeled</code>. Omitted, <code>null</code> or blank means no group. Not allowed for <code>standard</code>.</p>"
+        }
+      ],
+      "descriptionHTML": "<p>Sets the runner Dependabot uses for this repository. This is the same setting\nas on the repository's code security settings page.</p>\n<p><code>labeled</code> turns on labeled runners with exactly one runner label and an optional\nrunner group. <code>standard</code> turns them off and clears the label and group.</p>\n<p>Labeled runners are only available for private and internal repositories with\nGitHub Actions enabled. The response returns the settings after the change.</p>\n<p>Repository administrators and users who can manage security products for the\nrepository can use this endpoint, subject to enterprise policy. OAuth app tokens\nand personal access tokens (classic) require the <code>repo</code> scope. GitHub App tokens\nand fine-grained personal access tokens require repository Administration write\npermission. Workflow <code>GITHUB_TOKEN</code> access is not supported.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Select labeled runners in a runner group",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "runner_type": "labeled",
+              "runner_labels": [
+                "dependabot"
+              ],
+              "runner_group": "dependabot-runners"
+            },
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Labeled runner with a runner group</p>",
+            "example": {
+              "runner_type": "labeled",
+              "runner_labels": [
+                "dependabot"
+              ],
+              "runner_group": "dependabot-runners"
+            },
+            "schema": {
+              "title": "Dependabot runner settings",
+              "description": "The runner Dependabot uses for this repository, as shown in the repository settings.",
+              "type": "object",
+              "required": [
+                "runner_type",
+                "runner_labels",
+                "runner_group"
+              ],
+              "properties": {
+                "runner_type": {
+                  "description": "`labeled` when Dependabot runs on labeled runners. Otherwise `standard`.",
+                  "type": "string",
+                  "enum": [
+                    "standard",
+                    "labeled"
+                  ]
+                },
+                "runner_labels": {
+                  "description": "Runner labels Dependabot uses. Empty for `standard`.",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "runner_group": {
+                  "description": "Runner group Dependabot uses, or `null` for no group.",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "400",
+          "description": "<p>Bad Request</p>"
+        },
+        {
+          "httpStatusCode": "401",
+          "description": "<p>Requires authentication</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Administration\" repository permissions": "write"
           }
         ]
       }
@@ -9964,6 +10537,7 @@
                         "type": "string"
                       },
                       "temp_clone_token": {
+                        "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                         "type": "string"
                       },
                       "delete_branch_on_merge": {

@@ -232,7 +232,7 @@ The number of available IP addresses in the assigned ranges does not restrict th
 
 ### Virtual machines and storage accounts in the same region
 
-If you use Azure Storage accounts protected by network rules, be aware that traffic from {% data variables.actions.hosted_runner %}s' VMs to storage accounts in the same Azure region uses private Azure IP addresses rather than the {% data variables.actions.hosted_runner %}s' public IP range.
+If you use Azure Storage accounts protected by network rules, traffic from Azure-hosted {% data variables.actions.hosted_runner %} virtual machines to storage accounts in the same Azure region uses private Azure IP addresses. It does not use the runners' public IP range.
 
 As a result, Azure Storage firewall rules that rely only on runner public IP allowlists might not work as expected. This can cause connectivity failures that appear as 403 (AuthorizationFailure) responses, with an error message similar to:
 

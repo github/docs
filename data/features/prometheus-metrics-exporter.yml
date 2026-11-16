@@ -1,3 +1,4 @@
-# In GHES 3.16, ability to scrape prometheus-compatible metrics is introduced
+# In GHES 3.16, ability to scrape prometheus-compatible metrics is introduced.
+# The exporter transforms collectd data, so it is retired together with collectd in GHES 3.23.
 versions:
-  ghes: '>=3.16'
+  ghes: '>=3.16 <3.23'

@@ -70,7 +70,17 @@ Use `git fetch upstream` for a fork's upstream repository, or `git fetch origin`
 
 ### The branch that contained the commit was deleted
 
-If the branch was deleted or force pushed, ask a collaborator who still has the commit locally to push it to a new branch.
+If a force push overwrote branch history, you may be able to recover it on {% data variables.product.github %}, including in a private repository. You need write access to create a recovery branch. This workflow only works if the previous commit still opens on {% data variables.product.github %}.
+
+1. Open the repository's activity view. See [AUTOTITLE](/repositories/viewing-activity-and-data-for-your-repository/using-the-activity-view-to-see-changes-to-a-repository).
+1. Use the branch dropdown to select the affected branch. In the **All activity** dropdown, select **Force pushes**.
+1. Find the force-push event that overwrote the history. If available, you can select **Compare changes** from the event's {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} menu to view the comparison.
+1. If you choose to view the comparison, copy the base commit SHA, the first SHA in the comparison URL. Otherwise, use the event's **before** commit SHA, which was the branch tip before the force push, not its **after** SHA.
+1. Open `https://{% data variables.product.product_url %}/OWNER/REPO/tree/BEFORE_SHA`, replacing `OWNER` and `REPO` with the repository owner and name, and `BEFORE_SHA` with the previous commit SHA.{% ifversion ghes %} Replace `HOSTNAME` with your instance's hostname.{% endif %}
+1. If the commit opens, select the branch dropdown above the file list. Type a new recovery-branch name, such as `recover-history`, then select **Create branch**.
+1. On the new branch, check the files and commit history to verify that the expected history is present.
+
+If you cannot find or open the SHA, or if the branch was deleted, ask a collaborator who still has the commit in a local clone to push it to a new branch.
 
 ```shell
 git branch recover-B B

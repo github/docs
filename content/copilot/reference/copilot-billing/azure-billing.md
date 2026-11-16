@@ -22,3 +22,9 @@ You can connect an Azure subscription to your organization or enterprise account
 * Charges for the calendar month appear on your Azure invoice at the start of the next month.
 
 To connect your Azure subscription, see [AUTOTITLE](/billing/how-tos/set-up-payment/connect-azure-sub).
+
+## Troubleshooting Copilot activation
+
+If your enterprise is connected to an Azure subscription, but the **Enable** button is disabled or you see "GitHub Copilot is currently unavailable for accounts billed through Azure," self-service activation may be unavailable for your enterprise. This warning does not always mean that Azure billing is unsupported for {% data variables.product.prodname_copilot_short %}.
+
+Do not disconnect Azure or move to direct {% data variables.product.github %} billing based on this warning alone. Contact {% data variables.contact.contact_support_page %} so they can review your account and help with activation while you keep Azure billing.

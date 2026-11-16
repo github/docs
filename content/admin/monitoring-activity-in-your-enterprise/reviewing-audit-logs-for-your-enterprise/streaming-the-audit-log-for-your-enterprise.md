@@ -30,7 +30,7 @@ You can also stream agent session activity from {% data variables.product.prodna
 
 You can set up{% ifversion pause-audit-log-stream %}, pause,{% endif %} or delete a stream at any time. The stream exports audit and Git events data for all of the organizations in your enterprise, for activity from the time the stream is enabled onwards.
 
-All streamed audit logs are sent as compressed JSON files. The filename format is in`YYYY/MM/HH/MM/<uuid>.json.gz`.
+All streamed audit logs are sent as compressed JSON files. The filename format is `YYYY/MM/DD/HH/MM/<uuid>.json.log.gz`.
 
 >[!NOTE] {% data variables.product.prodname_dotcom %} uses an at-least-once delivery method. Due to certain network or system issues, some events may be duplicated.
 

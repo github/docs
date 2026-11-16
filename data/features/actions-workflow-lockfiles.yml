@@ -1,0 +1,6 @@
+# Issue 21194
+# Versioning for GitHub Actions workflow dependency lockfiles
+# Not currently scheduled for GHES
+versions:
+  fpt: '*'
+  ghec: '*'

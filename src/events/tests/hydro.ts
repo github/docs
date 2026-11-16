@@ -67,11 +67,8 @@ describe('Hydro', () => {
     expect(scope.isDone()).toBeTruthy()
   })
 
+  // Hydro 422 bodies skip Failbot when the serialized error has a disconnect or timeout marker.
   test('422 with JSON error', async () => {
-    // Hydro will return 422 errors with the body being a string of
-    // JSON serialized information. Some of the errors are operational
-    // and something we don't need to send to Failbot.
-    // This is one of those examples from real Failbot submissions we've seen.
     const hydroError = {
       status: 'ERROR',
       count: 1,

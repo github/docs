@@ -70,7 +70,7 @@
         "isRequired": true,
         "childParamsGroups": [
           {
-            "type": "array of string,nulls",
+            "type": "array of strings",
             "name": "bullets",
             "description": "",
             "isRequired": true
@@ -345,7 +345,7 @@
         "isRequired": true,
         "childParamsGroups": [
           {
-            "type": "array of string,nulls",
+            "type": "array of strings",
             "name": "bullets",
             "description": "",
             "isRequired": true
@@ -620,7 +620,7 @@
         "isRequired": true,
         "childParamsGroups": [
           {
-            "type": "array of string,nulls",
+            "type": "array of strings",
             "name": "bullets",
             "description": "",
             "isRequired": true
@@ -1170,7 +1170,7 @@
         "isRequired": true,
         "childParamsGroups": [
           {
-            "type": "array of string,nulls",
+            "type": "array of strings",
             "name": "bullets",
             "description": "",
             "isRequired": true

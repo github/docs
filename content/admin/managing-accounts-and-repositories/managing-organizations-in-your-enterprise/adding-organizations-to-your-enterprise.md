@@ -16,6 +16,8 @@ permissions: Enterprise owners
 contentType: how-tos
 category:
   - Manage accounts and repositories
+docsTeamMetrics:
+  - enterprise-onboarding
 ---
 
 There are three ways to add organizations to your enterprise.

@@ -1,10 +1,11 @@
 import walk from 'walk-sync'
 import path from 'path'
+import { fileURLToPath } from 'url'
 import { TokenizationError, TokenKind } from 'liquidjs'
 import type { TagToken } from 'liquidjs'
 import { getLiquidTokens } from '@/content-linter/lib/helpers/liquid-utils'
 
-const __dirname = path.dirname(new URL(import.meta.url).pathname)
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 const repoRoot = path.resolve(__dirname, '../../../../')
 const contentDirectory = path.resolve(__dirname, repoRoot, 'content/')
@@ -48,7 +49,6 @@ export function getAllContentFilePaths() {
   return [...allContentFiles, ...allDataFiles]
 }
 
-// Get the string that represents the reusable in the content files
 export function getReusableLiquidString(reusablePath: string): string {
   const relativePath = path.relative(reusablesDirectory, reusablePath)
   return `reusables.${relativePath.slice(0, -3).split('/').join('.')}`
@@ -61,7 +61,10 @@ export function getIndicesOfLiquidVariable(liquidVariable: string, fileContents:
       (token): token is TagToken => token.kind === TokenKind.Tag,
     )
     for (const token of tokens) {
-      if (token.name === 'data' && token.args.trim() === liquidVariable) {
+      if (
+        (token.name === 'data' || token.name === 'indented_data_reference') &&
+        token.args.trim().split(/\s+/)[0] === liquidVariable
+      ) {
         indices.push(token.begin)
       }
     }
@@ -73,14 +76,13 @@ export function getIndicesOfLiquidVariable(liquidVariable: string, fileContents:
   return indices
 }
 
-// Find the path to a reusable file.
 export function resolveReusablePath(reusablePath: string): string {
-  // Try .md if extension is not provided
+  // Append .md when the reusable path has no extension.
   if (!reusablePath.endsWith('.md') && !reusablePath.endsWith('.yml')) {
     reusablePath += '.md'
   }
 
-  // Allow user to just pass the name of the file. If it's not ambiguous, we'll find it.
+  // Resolve a path fragment only when it matches exactly one reusable file.
   const allReusableFiles = getAllReusablesFilePaths()
   const foundPaths = []
   for (const possiblePath of allReusableFiles) {
@@ -119,6 +121,7 @@ export function getAllReusablesFilePaths(): string[] {
 
 export function findIndicesOfSubstringInString(substr: string, str: string): number[] {
   str = str.toLowerCase()
+  substr = substr.toLowerCase()
 
   const result: number[] = []
 
@@ -132,13 +135,12 @@ export function findIndicesOfSubstringInString(substr: string, str: string): num
 }
 
 export function findSimilarSubStringInString(substr: string, str: string) {
-  // Take every sentence in the substr, lower case it, and compare it to every sentence in the str to get a similarity score
+  // Score each substring sentence against each corpus sentence by shared words.
   const substrSentences = substr.split('.').map((sentence) => sentence.toLowerCase())
   const corpus = str.split('.').map((sentence) => sentence.toLowerCase())
 
   let similarityScore = 0
 
-  // Find how similar every two strings are based on the words they share
   for (const substrSentence of substrSentences) {
     for (const sentence of corpus) {
       const substrTokens = substrSentence.split(' ')
@@ -150,7 +152,6 @@ export function findSimilarSubStringInString(substr: string, str: string) {
     }
   }
 
-  // Normalize the similarity score
   return Math.round((similarityScore / substrSentences.length) * corpus.length)
 }
 

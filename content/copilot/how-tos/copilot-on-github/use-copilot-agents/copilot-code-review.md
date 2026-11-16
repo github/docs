@@ -10,7 +10,7 @@ category:
   - Author and optimize with Copilot
 ---
 
-{% data variables.copilot.copilot_code-review_short %} is also available for organization members without a {% data variables.product.prodname_copilot_short %} license, when enabled by an enterprise administrator or organization owner. See [{% data variables.copilot.copilot_code-review_short %} for organization members without a {% data variables.product.prodname_copilot_short %} license](/copilot/concepts/agents/code-review#copilot-code-review-without-a-copilot-license).
+{% data variables.copilot.copilot_code-review_short %} is also available for organization members without a {% data variables.product.prodname_copilot_short %} license, when enabled by an enterprise administrator or organization owner. See [{% data variables.copilot.copilot_code-review_short %} for organization members without a {% data variables.product.prodname_copilot_short %} license](/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/code-review#copilot-code-review-without-a-copilot-license).
 
 ## Request a review from {% data variables.product.prodname_copilot_short %}
 
@@ -25,11 +25,11 @@ category:
 
    ![Screenshot of a code review left by {% data variables.product.prodname_copilot_short %}.](/assets/images/help/copilot/code-review/review-comment@2x.png)
 
-{% data variables.product.prodname_copilot_short %} always leaves a "Comment" review, not an "Approve" or "Request changes" review. Its reviews do not count toward required approvals and will not block merging.
+By default, {% data variables.product.prodname_copilot_short %} leaves a "Comment" review, not an "Approve" review or a "Request changes" review. This means that, by default, {% data variables.product.prodname_copilot_short %}'s reviews do not count toward required approvals for the pull request. However, if configured to do so, {% data variables.product.prodname_copilot_short %} can leave "Approve" reviews. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/request-a-code-review/use-code-review#pull-request-approvals-from-copilot).
 
 {% data variables.product.prodname_copilot_short %}'s review comments work like comments from human reviewers. Add reactions, reply, resolve, or hide them. Any replies you add are visible to other people but not to {% data variables.product.prodname_copilot_short %}.
 
-You can also request a review from {% data variables.product.prodname_copilot_short %} through the {% data variables.product.github %} REST API by requesting `copilot-pull-request-reviewer[bot]` as a reviewer. For more information, see [AUTOTITLE](/rest/pulls/review-requests#request-reviewers-for-a-pull-request).
+You can also use the {% data variables.product.github %} REST API to request reviews from {% data variables.product.prodname_copilot_short %} and to identify reviews and comments from {% data variables.copilot.copilot_code-review_short %}. For more information, see [AUTOTITLE](/rest/pulls/copilot-code-review#request-a-copilot-code-review-for-a-pull-request), [AUTOTITLE](/rest/pulls/reviews), and [AUTOTITLE](/rest/pulls/comments).
 
 ## Work with suggested changes
 
@@ -58,13 +58,13 @@ When you push new changes to a pull request that {% data variables.product.prodn
 
 To manually request a re-review, click the {% octicon "sync" aria-label="Re-request review" %} button next to {% data variables.product.prodname_copilot_short %}'s name in the **Reviewers** menu. For more information, see [AUTOTITLE](/pull-requests/how-tos/create-pull-requests/requesting-a-pull-request-review).
 
-To automatically request re-reviews on every push, enable automatic code review and select **Review new pushes** in the ruleset settings. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-automatic-review#configuring-automatic-code-review-for-repositories-in-an-organization).
+To automatically request re-reviews on every push, enable automatic code review and select **Review new pushes** in the ruleset settings. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-code-review#configuring-automatic-code-review-for-repositories-in-an-organization).
 
 When re-reviewing, {% data variables.product.prodname_copilot_short %} may repeat previous comments, even if you resolved or downvoted them.
 
 ## Enable automatic reviews
 
-By default, you request reviews from {% data variables.product.prodname_copilot_short %} manually on each pull request. To enable automatic reviews for all pull requests, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-automatic-review).
+By default, you request reviews from {% data variables.product.prodname_copilot_short %} manually on each pull request. To enable automatic reviews for all pull requests, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-code-review).
 
 ## Customize reviews with custom instructions
 
@@ -85,5 +85,5 @@ To make these available for {% data variables.copilot.copilot_code-review_short 
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/concepts/agents/code-review)
+* [AUTOTITLE](/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/code-review)
 * [AUTOTITLE](/copilot/how-tos/copilot-on-github/use-copilot-agents/review-copilot-output)

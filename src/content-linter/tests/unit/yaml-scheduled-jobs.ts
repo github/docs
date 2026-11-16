@@ -81,6 +81,78 @@ describe(yamlScheduledJobs.names.join(' - '), () => {
     expect(errors.length).toBe(0)
   })
 
+  test('yaml scheduled jobs on the hour with liquid report an error', async () => {
+    const markdown = [
+      '```yaml',
+      'on:',
+      '  schedule:',
+      "    - cron: '0 5 * * *'",
+      'jobs:',
+      '  build:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - uses: {% data reusables.actions.action-checkout %}',
+      '      - run: echo {% raw %}${{ github.ref }}{% endraw %}',
+      '```',
+    ].join('\n')
+    const result = await runRule(yamlScheduledJobs, { strings: { markdown } })
+    const errors = result.markdown
+    expect(errors.length).toBe(1)
+    expect(errors[0].lineNumber).toBe(4)
+    expect(errors[0].errorContext).toEqual('0 5 * * *')
+  })
+
+  test('yaml scheduled jobs that cannot be parsed are skipped', async () => {
+    const markdown = [
+      '```yaml',
+      'on:',
+      '  schedule:',
+      "    - cron: '30 5 * * 1'",
+      '  ...',
+      '```',
+    ].join('\n')
+    const result = await runRule(yamlScheduledJobs, { strings: { markdown } })
+    const errors = result.markdown
+    expect(errors.length).toBe(0)
+  })
+
+  test('yaml scheduled jobs that are not an array are skipped', async () => {
+    const markdown = [
+      '```yaml',
+      'on:',
+      '  schedule:',
+      "    cron: '0 8 * * *'",
+      "  # - cron: '0 8 * * *'",
+      '```',
+      '```yaml',
+      'on:',
+      '  schedule:',
+      "    - cron: '0 9 * * *'",
+      '```',
+    ].join('\n')
+    const result = await runRule(yamlScheduledJobs, { strings: { markdown } })
+    const errors = result.markdown
+    expect(errors.length).toBe(1)
+    expect(errors[0].lineNumber).toBe(10)
+    expect(errors[0].errorContext).toEqual('0 9 * * *')
+  })
+
+  test('yaml scheduled jobs with an empty cron are skipped', async () => {
+    const markdown = [
+      '```yaml',
+      'on:',
+      '  schedule:',
+      '    - cron:',
+      "    - cron: '0 7 * * *'",
+      '```',
+    ].join('\n')
+    const result = await runRule(yamlScheduledJobs, { strings: { markdown } })
+    const errors = result.markdown
+    expect(errors.length).toBe(1)
+    expect(errors[0].lineNumber).toBe(5)
+    expect(errors[0].errorContext).toEqual('0 7 * * *')
+  })
+
   test('yaml scheduled jobs without on:', async () => {
     const markdown = [
       '```yaml',

@@ -1,7 +1,6 @@
-// This schema is used to validate
-// src/github-apps/data/server-to-server-rest.json
-// src/github-apps/data/user-to-server-rest.json
-// and src/github-apps/data/fine-grained-pat.json
+// This schema validates src/github-apps/data/server-to-server-rest.json,
+// src/github-apps/data/user-to-server-rest.json,
+// and src/github-apps/data/fine-grained-pat.json.
 
 interface SchemaProperty {
   description: string

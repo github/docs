@@ -1,8 +1,6 @@
 name: Hubber contribution help
 
-# **What it does**: When a PR is opened by a non-Docs team Hubber, adds a bot comment with helpful links
-# **Why we have it**: To help non–Docs Hubbers navigate how to get a PR reviewed by the Docs team
-# **Who does it impact**: docs-internal contributors
+# Help non-Docs Hubbers route content pull requests to the Docs Content review board.
 
 on:
   pull_request:
@@ -31,8 +29,7 @@ jobs:
           github-token: ${{ secrets.DOCS_BOT_PAT_BASE }}
           script: |
             try {
-              // Team is addressed by numeric ID (org github = 9919, team docs = 325922)
-              // because IDs survive team renames and slugs do not.
+              // Numeric IDs survive team renames; slugs do not. GitHub org 9919, docs team 325922.
               await github.request('GET /organizations/{org_id}/team/{team_id}/memberships/{username}', {
                 org_id: 9919,
                 team_id: 325922,

@@ -5,11 +5,8 @@ import { liquid } from '@/content-render/index'
 import { allVersions } from '@/versions/lib/all-versions'
 import type { RuleParams, RuleErrorCallback, MarkdownToken, Rule } from '@/content-linter/types'
 
-// Detects third-party actions in the format `owner/repo@ref`
 const actionRegex = /[\w-]+\/[\w-]+@[\w-]+/
-// Detects a full-length commit SHA (40 hexadecimal characters)
 const shaRegex = /[\w-]+\/[\w-]+@[0-9a-fA-F]{40}/
-// Detects first-party actions
 const firstPartyPrefixes = ['actions/', './.github/actions/', 'github/', 'octo-org/', 'OWNER/']
 
 interface WorkflowStep {
@@ -35,24 +32,33 @@ export const thirdPartyActionPinning: Rule = {
   tags: ['feature', 'actions'],
   parser: 'markdownit',
   asynchronous: true,
-  function: (params: RuleParams, onError: RuleErrorCallback) => {
-    filterTokens(params, 'fence', async (token: MarkdownToken) => {
-      if (!token.info || !token.content) return
+  function: async (params: RuleParams, onError: RuleErrorCallback) => {
+    const fences: MarkdownToken[] = []
+    filterTokens(params, 'fence', (token: MarkdownToken) => {
+      fences.push(token)
+    })
+    for (const token of fences) {
+      if (!token.info || !token.content) continue
       const lang = token.info.trim().split(/\s+/u).shift()?.toLowerCase()
-      if (lang !== 'yaml' && lang !== 'yml') return
-      if (!token.content.includes('steps:')) return
-      if (!token.content.includes('uses:')) return
+      if (lang !== 'yaml' && lang !== 'yml') continue
+      if (!token.content.includes('uses:')) continue
 
       const context = {
         currentLanguage: 'en',
         currentVersionObj: allVersions['free-pro-team@latest'],
       }
-      // If we don't parse the Liquid first, yaml loading chokes on {% raw %} tags
-      const renderedYaml = await liquid.parseAndRender(token.content, context)
+      let renderedYaml: string
       try {
-        const yamlObj = load(renderedYaml) as WorkflowYaml
+        // Parse Liquid first because yaml loading chokes on {% raw %} tags.
+        renderedYaml = await liquid.parseAndRender(token.content, context)
+      } catch {
+        // Other rules report Liquid errors, and a fence inside an outer {% raw %} can fail to render alone.
+        continue
+      }
+      try {
+        const yamlObj = load(renderedYaml) as WorkflowYaml | WorkflowStep[]
         const steps = getWorkflowSteps(yamlObj)
-        if (!steps.some((step) => step.uses)) return
+        if (!steps.some((step) => step.uses)) continue
 
         for (const step of steps) {
           if (step.uses) {
@@ -80,12 +86,14 @@ export const thirdPartyActionPinning: Rule = {
           console.error('Error parsing YAML:', e)
         }
       }
-    })
+    }
   },
 }
 
-function getWorkflowSteps(yamlObj: WorkflowYaml): WorkflowStep[] {
-  if (yamlObj?.jobs) {
+function getWorkflowSteps(yamlObj: WorkflowYaml | WorkflowStep[]): WorkflowStep[] {
+  if (Array.isArray(yamlObj)) {
+    return yamlObj.filter((step) => step && typeof step === 'object')
+  } else if (yamlObj?.jobs) {
     const jobs = Object.values(yamlObj.jobs)
     return jobs.flatMap((job) => job.steps || [])
   } else if (yamlObj?.steps) {

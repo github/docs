@@ -54,7 +54,7 @@ Path-specific instructions are included only when their `applyTo` value matches 
 
    Whitespace between instructions is ignored, so the instructions can be written as a single paragraph, each on a new line, or separated by blank lines for legibility.
 
-   For help on writing effective custom instructions, see [AUTOTITLE](/copilot/concepts/prompting/response-customization#writing-effective-custom-instructions).
+   For help on writing effective custom instructions, see [AUTOTITLE](/copilot/concepts/prompting-and-context/custom-instructions#writing-effective-custom-instructions).
 
 ### Referencing other files
 

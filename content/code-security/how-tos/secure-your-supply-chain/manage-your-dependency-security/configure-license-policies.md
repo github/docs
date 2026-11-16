@@ -12,15 +12,13 @@ redirect_from:
   - /early-access/code-security/supply-chain-security/enforcing-license-policy-across-an-enterprise
 ---
 
-{% data reusables.code-security.open-source-license-compliance-public-preview-note %}
-
 ## Prerequisites
 
 Before you configure license policies, ensure that:
 
-* Your organization has {% data variables.product.prodname_GH_code_security %}
-* You have access to manage enterprise policy and rulesets
-* Dependency graph is enabled for repositories you want to evaluate
+* You are using GitHub Enterprise Cloud (including data-resident GHEC), and your organization has {% data variables.product.prodname_GH_code_security %} enabled on the repositories you want to use license compliance.
+* You have access to manage enterprise policy and rulesets.
+* Dependency graph is enabled for repositories you want to evaluate.
 
 ## About license compliance
 
@@ -34,7 +32,9 @@ Violations are typically resolved by:
 * Approving an exception for a package
 * Updating policy to allow a license where appropriate
 
-## Create a license policy
+## Configuring license compliance
+
+### Create a license policy
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
@@ -51,20 +51,20 @@ Alternately, if you have an existing license policy from another tool, you can i
 
 The licenses you add form your baseline policy. You can later add package-level exceptions when handling alerts.
 
-## Configure access for Enterprise Open Source License Managers
+### Configure access for Enterprise Open-Source License Managers
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
 1. In the left sidebar, click **{% octicon "globe" aria-hidden="true" aria-label="globe" %} Enterprise roles**.
 1. Click **Role assignments**.
 1. Click **Assign role**.
-1. Select the **Enterprise Open Source License Manager** role.
+1. Select the **Enterprise Open-Source License Manager** role.
 1. Choose a user or team to assign the role to.
 1. Click **Assign role**.
 
 Assigning this role also subscribes reviewers to request notifications so they can respond to dismissal requests quickly.
 
-## Optionally use custom properties to control rollout per repository
+### Optionally use custom properties to control rollout per repository
 
 If you want a gradual rollout, use a repository custom property to control whether each repository is in inactive, evaluate, or active enforcement mode.
 
@@ -77,7 +77,7 @@ If you want a gradual rollout, use a repository custom property to control wheth
 1. Decide who can change the property value.
 1. Assign property values to repositories based on their rollout stage.
 
-## Enforce policy in pull requests with rulesets
+### Enforce policy in pull requests with rulesets
 
 We suggest making two rulesets, one for **Evaluate** mode and one for **Active** mode. If you created custom properties to control the rollout, you can target those properties here.
 
@@ -104,9 +104,19 @@ For more information about rulesets, see [AUTOTITLE](/repositories/configuring-b
 1. Confirm that pull request annotations show license compliance results.
 1. If a dependency violates policy, review the generated alert and request dismissal if an exception is needed.
 
-When violations are unresolved, the pull request remains blocked.
+If the ruleset is in **Active** mode, the pull request remains blocked until all license policy violations are resolved.
 
-## Review and handle exception requests
+## Troubleshooting checks waiting for dependency snapshots
+
+If a license compliance check reports `Waiting for dependency snapshots on head`, the pull request's head commit is missing one or more snapshots that were submitted for the base commit. This can happen when a workflow submits snapshots for the base branch but does not submit them for the pull request's head commit.
+
+The message can list detectors that submitted a snapshot for the base commit but not yet for the head commit. Review those detectors and the workflows or external systems that submit their snapshots. If you submit snapshots through your own workflow or the {% data variables.dependency-submission-api.name %}, configure it to also submit snapshots for the pull request's head commit. If automatic dependency submission is enabled and already submits the snapshots your repository needs, you do not need to add another detector. Adding another detector can increase the number of snapshots the check expects on the head commit.
+
+For more information about snapshot submission, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/use-dependency-submission-api).
+
+## Managing license compliance requests and policy
+
+### Review and handle exception requests
 
 1. As an Enterprise Open Source License Manager, open the list of pending license alert requests in your enterprise security views.
 1. Review each request and decide whether to deny or approve it.
@@ -116,13 +126,25 @@ When violations are unresolved, the pull request remains blocked.
 
 After a request is approved, the alert is closed and the pull request is unblocked, as long as no other required checks are failing.
 
-## Review effective policy for a repository
+### Review effective policy for a repository
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 1. In the sidebar, under "Security", click **License policy**.
 1. Review the combined policy and exception set in effect for that repository.
 1. Update enterprise-level or repository-level policy as needed.
+
+Package and license entries that are set at the enterprise level will not be editable in the repository policy. Items marked with a {% octicon "trash" aria-label="The trash can icon" %} indicate repository-level entries which can be deleted.
+
+### Audit events
+
+Changes to the license policy emit events to the audit log. These events are useful to review the history of changes or to feed external systems for compliance purposes. The log events are categorized as **Policy Management**, with a prefix of `license_compliance_policy`. They will have an action type `create` or `modify`. For details about the contents of the audit log events, see [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization).
+
+### License compliance API
+
+There are several REST API endpoints for managing license compliance policy. You can use the API to programatically back up and restore your enterprise policy and to query whether a list of packages would create any policy violations if they were included in a repository's dependencies. In addition, operations on license compliance closure requests can generate webhook events when a request is created, receives a response, or is cancelled.
+
+For details about the enterprise policy management API, see [AUTOTITLE](/rest/dependency-graph/). For more about the package check API, see [AUTOTITLE](/rest/repos#package-checks). For more about webhooks, see [AUTOTITLE](/webhooks/webhook-events-and-payloads).
 
 ## Further reading
 

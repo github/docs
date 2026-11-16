@@ -65,3 +65,7 @@ After you enable OIDC SSO, enable provisioning. See [AUTOTITLE](/admin/managing-
 You can use the role of guest collaborator to grant limited access to vendors and contractors in your enterprise. Unlike enterprise members, guest collaborators only have access to internal repositories within organizations where they are a member.
 
 To use guest collaborators with OIDC authentication, you may need to update your settings in Entra ID. See [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/enabling-guest-collaborators).
+
+## Enabling Proof of Presence
+
+After you configure OIDC SSO, your enterprise can use Proof of Presence to require reauthentication through your IdP before high-impact actions. {% data reusables.enterprise-accounts.proof-of-presence-supported-idps %} For more information, see [AUTOTITLE](/admin/configuring-settings/hardening-security-for-your-enterprise/configuring-proof-of-presence).

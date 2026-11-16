@@ -95,37 +95,23 @@ Ensure the appliance is in maintenance mode and no background jobs are running:
    df -h /data/user
    ```
 
-## Increasing the root partition size using a new appliance
-
-1. Set up a new {% data variables.product.prodname_ghe_server %} instance with a larger root disk using the same version as your current appliance. For more information, see [AUTOTITLE](/admin/installing-your-enterprise-server/setting-up-a-github-enterprise-server-instance).
-1. Shut down the current appliance:
-
-   ```shell
-   sudo poweroff
-   ```
-
-1. Detach the data disk from the current appliance using your virtualization platform's tools.
-1. Attach the data disk to the new appliance with the larger root disk.
-
 ## Increasing the root partition size using an existing appliance
 
 > [!WARNING]
 > Before increasing the root partition size, you must put your instance in maintenance mode. For more information, see [AUTOTITLE](/admin/administering-your-instance/configuring-maintenance-mode/enabling-and-scheduling-maintenance-mode).
 
-Before resizing the root partition, determine whether the appliance has a GUID partition table.
+1. Attach a new disk with the desired size to your {% data variables.product.prodname_ghe_server %} appliance.
+1. Run the `lsblk` command to identify the new disk's device name.
+1. Before proceeding, determine whether the appliance has a globally unique identifier (GUID) partition table (`gpt`) or a master boot record (MBR) partition table (`dos`). The partition table type depends on how the appliance's root disk was originally provisioned, not on the release version of {% data variables.product.prodname_ghe_server %}, so always verify it directly rather than assuming based on the version.
 
-On instances created from GHES releases 3.14 and later, follow the instructions for [Increasing the root partition size on a GUID partition table](#increasing-the-root-partition-size-on-a-guid-partition-table).
-
-On instances created from GHES releases prior to 3.14, follow the instructions for [Increasing the root partition size on a legacy partition table](#increasing-the-root-partition-size-on-a-legacy-partition-table).
-
-To verify the partition table type, run the following command. The result should be either `gpt` or `msdos`.
-
+   To check the partition table type, run the following command. The result will be either `gpt` or `dos`.
+   
    ```shell
    sudo lsblk -no pttype $(findmnt -no source /)
    ```
 
-1. Attach a new disk to your {% data variables.product.prodname_ghe_server %} appliance.
-1. Run the `lsblk` command to identify the new disk's device name.
+   * If the result is `gpt`, follow the instructions for [Increasing the root partition size on a GUID partition table](#increasing-the-root-partition-size-on-a-guid-partition-table).
+   * If the result is `dos`, follow the instructions for [Increasing the root partition size on an MBR partition table](#increasing-the-root-partition-size-on-an-mbr-partition-table).
 
 ### Increasing the root partition size on a GUID partition table
 
@@ -180,7 +166,7 @@ To verify the partition table type, run the following command. The result should
 
 If your appliance is configured for high-availability or geo-replication, remember to start replication on each replica node using `ghe-repl-start` after the storage on all nodes has been upgraded.
 
-### Increasing the root partition size on a legacy partition table
+### Increasing the root partition size on an MBR partition table
 
 1. Run the `parted` command to format the disk, substituting your device name for `/dev/xvdg`:
 
@@ -219,3 +205,7 @@ If your appliance is configured for high-availability or geo-replication, rememb
 1. Ensure system services are functioning correctly, then release maintenance mode. For more information, see [AUTOTITLE](/admin/administering-your-instance/configuring-maintenance-mode/enabling-and-scheduling-maintenance-mode).
 
 If your appliance is configured for high-availability or geo-replication, remember to start replication on each replica node using `ghe-repl-start` after the storage on all nodes has been upgraded.
+
+## Increasing the root partition size using a new appliance
+
+To move your existing data disk to a new appliance with a larger root disk, contact GitHub Support before proceeding. Cluster and replication configuration, SSH and network configuration, and node identity stored on the root disk require additional handling, particularly for high availability, geo-replication, and clustered deployments.

@@ -14,7 +14,10 @@ children:
   - /code-scanning-alerts
   - /risk-assessment
   - /autofix-for-code-scanning
+  - /ai-scan
   - /ai-powered-security-detections
+  - /ai-scan-for-repositories
+  - /ai-applications-scanning-for-pull-requests
   - /setup-types
   - /integration-with-code-scanning
   - /sarif-files
@@ -23,7 +26,6 @@ children:
   - /multi-repository-variant-analysis
   - /codeql
   - /tool-status-page
-  - /pull-request-alert-metrics
+  - /code-scanning-on-pull-requests
   - /repository-properties
 ---
-

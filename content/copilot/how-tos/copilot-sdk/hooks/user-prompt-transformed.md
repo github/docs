@@ -1,6 +1,6 @@
 ---
 title: User prompt transformed hook
-shortTitle: User prompt transformed
+shortTitle: User Prompt Transformed
 intro: >-
   The `userPromptTransformed` hook runs after the runtime adds generated context
   to a submitted prompt, but before the resulting content is persisted to

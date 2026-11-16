@@ -1,7 +1,6 @@
 import { describe, expect, test } from 'vitest'
 
-// Re-export the private function for testing by extracting it via module internals.
-// We test the filtering behavior directly using a helper that mirrors shouldLogException.
+// shouldLogException isn't exported, so this mirrors its filtering behavior.
 type ErrorWithCode = Error & {
   code: string
   statusCode?: number

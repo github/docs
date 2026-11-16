@@ -70,7 +70,6 @@ describe('REST references docs', () => {
         apiVersion,
       )
 
-      // using the static file, generate the expected slug for each operation
       for (const [key, value] of Object.entries(enabledForApps)) {
         schemaSlugs.push(
           ...value.map(
@@ -81,7 +80,6 @@ describe('REST references docs', () => {
           ),
         )
       }
-      // get all of the href attributes in the anchor tags
       const contentPath = configContent.pages[page].targetFilename
         .replace('content/', '')
         .replace('.md', '')
@@ -94,7 +92,6 @@ describe('REST references docs', () => {
   })
 
   test('loads permission list pages', async () => {
-    // permissions pages
     for (const page of permissionPages) {
       const schemaSlugs: string[] = []
 
@@ -104,7 +101,6 @@ describe('REST references docs', () => {
         apiVersion,
       )
 
-      // using the static file, generate the expected slug for each operation
       for (const value of Object.values(permissionsData)) {
         schemaSlugs.push(
           ...value.permissions.map(
@@ -116,7 +112,6 @@ describe('REST references docs', () => {
         )
       }
 
-      // get all of the href attributes in the anchor tags
       const contentPath = configContent.pages[page].targetFilename
         .replace('content/', '')
         .replace('.md', '')

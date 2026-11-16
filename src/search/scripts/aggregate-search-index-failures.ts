@@ -1,14 +1,9 @@
 #!/usr/bin/env tsx
-/**
- * Aggregates search index failures from multiple language runs into a single
- * consolidated report. Groups failures by page path to show which versions
- * and languages failed for each page.
- *
- * Usage: tsx aggregate-search-index-failures.ts <artifacts-dir> [--workflow-url <url>]
- *
- * Reads failures-summary.json files from subdirectories and outputs a formatted
- * message suitable for Slack notifications.
- */
+// Reads failures-summary.json files from language index jobs and prints an AggregationResult.
+// The message groups failures by page path for index-general-search.yml to post to a
+// GitHub issue and Slack.
+//
+// Usage: tsx aggregate-search-index-failures.ts <artifacts-dir> [--workflow-url <url>]
 
 import fs from 'fs'
 import path from 'path'
@@ -35,24 +30,18 @@ export interface FailuresSummary {
 interface PageFailure {
   versions: Set<string>
   languages: Set<string>
-  // Full error text to the number of failures reporting it, so the report can
-  // lead with the dominant error rather than an alphabetically lucky one.
+  // Maps full error text to failure count, so the report leads with the dominant error.
   errors: Map<string, number>
 }
 
-// A page usually fails identically across every version and language it appears
-// in, so the same error repeats many times. Show a few distinct ones per page,
-// keep each short, and keep the whole report inside the limits of the places it
-// gets posted. A GitHub issue body is rejected outright over 65536 characters,
-// which would lose the entire alert during the largest incidents.
+// Pages usually fail the same way across versions and languages. Keep a few short
+// errors per page and the report below post limits. GitHub rejects issue bodies over
+// 65536 characters, which would lose the alert during the largest incidents.
 const MAX_ERRORS_PER_PAGE = 3
 const MAX_ERROR_LENGTH = 200
 const MAX_MESSAGE_LENGTH = 30000
 
-/**
- * Renders a failure as a single line of `errorType: error`, collapsing any
- * whitespace so one failure can never span multiple lines of the report.
- */
+// Renders a failure as one errorType: error line, so one failure cannot span report lines.
 function formatError(failure: Failure): string {
   const normalize = (value: unknown) =>
     typeof value === 'string' ? value.replace(/\s+/g, ' ').trim() : ''
@@ -63,23 +52,17 @@ function formatError(failure: Failure): string {
   return errorType && detail ? `${errorType}: ${detail}` : errorType || detail
 }
 
-/**
- * Escapes the characters Slack treats as control syntax, so error text lifted
- * from an API response cannot inject a mention such as `<!channel>` into the
- * notification. The slack-alert action escapes its own interpolated fields for
- * this reason, but passes a caller-supplied message through verbatim.
- *
- * The same string is also posted as a GitHub issue body, where these entities
- * render back to the original characters.
- */
+// Escapes Slack control syntax, so API error text cannot inject a mention such as <!channel>.
+// The slack-alert action escapes its interpolated fields, but passes caller messages verbatim.
+//
+// The same string is also posted as a GitHub issue body, where these entities
+// render back to the original characters.
 function escapeSlackControlCharacters(text: string): string {
   return text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
 }
 
-/**
- * Truncates on code points so a multi-byte character is never split in half.
- * Docs content is translated, so error text routinely carries non-ASCII.
- */
+// Truncates on code points so a multi-byte character is never split in half.
+// Docs content is translated, so error text routinely carries non-ASCII.
 function truncate(text: string, maxLength: number): string {
   const characters = Array.from(text)
   if (characters.length <= maxLength) return text
@@ -92,10 +75,6 @@ export interface AggregationResult {
   totalCount?: number
 }
 
-/**
- * Aggregates failures from multiple summaries into a single report.
- * Groups failures by page path to show which versions and languages failed for each.
- */
 export function aggregateFailures(
   allFailures: FailuresSummary[],
   workflowUrl?: string,
@@ -104,7 +83,6 @@ export function aggregateFailures(
     return { hasFailures: false, message: '' }
   }
 
-  // Group failures by page path
   const pageFailures = new Map<string, PageFailure>()
 
   for (const summary of allFailures) {
@@ -130,10 +108,9 @@ export function aggregateFailures(
     }
   }
 
-  // Use unique page count, not total failure instances
+  // Count pages, not failure instances, because one page can fail per version and language.
   const uniquePageCount = pageFailures.size
 
-  // Format the message
   const lines: string[] = [
     `:warning: ${uniquePageCount} page(s) failed to scrape for general search indexing`,
     '',
@@ -141,7 +118,6 @@ export function aggregateFailures(
     '',
   ]
 
-  // Sort pages alphabetically and format each
   const sortedPages = Array.from(pageFailures.entries()).sort((a, b) => a[0].localeCompare(b[0]))
 
   const renderedPages = sortedPages.map(([pagePath, data]) => {
@@ -149,18 +125,14 @@ export function aggregateFailures(
     const languages = Array.from(data.languages).sort().join(', ')
     const bullet = `• \`${escapeSlackControlCharacters(pagePath)}\` (versions: ${versions}, languages: ${languages})`
 
-    // Truncate before escaping so an entity is never cut in half, and so the
-    // limit stays a limit on the error itself rather than on its encoding.
-    // Merge counts after rendering: two errors that differ only past the
-    // truncation point would otherwise print as two identical lines.
+    // Truncate before escaping so entities stay whole and limits apply; merge identical lines.
     const renderedErrors = new Map<string, number>()
     for (const [error, count] of data.errors) {
       const rendered = escapeSlackControlCharacters(truncate(error, MAX_ERROR_LENGTH))
       renderedErrors.set(rendered, (renderedErrors.get(rendered) || 0) + count)
     }
 
-    // Most frequent error first, breaking ties alphabetically so the report is
-    // stable across runs on the same input.
+    // Sort frequent errors first and break ties alphabetically for stable output.
     const errors = Array.from(renderedErrors.entries()).sort(
       (a, b) => b[1] - a[1] || a[0].localeCompare(b[0]),
     )
@@ -179,9 +151,7 @@ export function aggregateFailures(
     `...and ${count} more page(s) not listed. See the workflow run for the full set.`
   const footerLines = workflowUrl ? ['', `Workflow: ${workflowUrl}`] : []
 
-  // Reserve room for the footer up front, using the longest the truncation
-  // notice could get, so MAX_MESSAGE_LENGTH bounds the whole message rather
-  // than just the part written inside the loop.
+  // Reserve longest notice and footer so the cap covers the full message; a forced page can exceed it.
   const footerReserve =
     truncatedPagesLine(sortedPages.length).length +
     1 +
@@ -190,9 +160,7 @@ export function aggregateFailures(
 
   let usedLength = lines.join('\n').length
 
-  // Which pages get listed is decided before any error text is added, since the
-  // page list is the report and the errors are the hint. Otherwise a handful of
-  // long errors would crowd out most of the pages.
+  // Choose pages before adding error text, so long errors cannot crowd pages out of the report.
   const shownPages: { bullet: string; errorLines: string[]; shownErrorLines: string[] }[] = []
   for (const page of renderedPages) {
     const bulletLength = page.bullet.length + 1
@@ -226,9 +194,6 @@ export function aggregateFailures(
   return { hasFailures: true, message, totalCount: uniquePageCount }
 }
 
-/**
- * Reads failure summaries from artifact directories.
- */
 export function readFailureSummaries(artifactsDir: string): FailuresSummary[] {
   const allFailures: FailuresSummary[] = []
   const subdirs = fs.readdirSync(artifactsDir, { withFileTypes: true })
@@ -269,7 +234,6 @@ function main() {
   console.log(JSON.stringify(result))
 }
 
-// Only run main when executed directly (not imported)
 if (import.meta.url === `file://${process.argv[1]}`) {
   main()
 }

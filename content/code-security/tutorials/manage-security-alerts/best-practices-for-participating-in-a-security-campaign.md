@@ -27,7 +27,7 @@ In addition to reducing risk in your organization’s codebase, alerts in a secu
 * You have a campaign manager on the security team to collaborate with and a specific contact link for discussing campaign activities.
 * You know that you are fixing a security alert that is important to the company.
 * Potentially, you may have access to targeted training materials.{% ifversion copilot %}
-* If {% data variables.copilot.copilot_cloud_agent %} is available, you can assign alerts to {% data variables.product.prodname_copilot_short %} and it resolves them for you in a pull request. Otherwise, a {% data variables.copilot.copilot_autofix %} suggestion is already available as a starting point.
+* If {% data variables.copilot.agentic_autofix %} is enabled, you can assign alerts to {% data variables.product.prodname_copilot_short %}, which can resolve them in a pull request. Otherwise, you can use a {% data variables.copilot.copilot_autofix %} suggestion as a starting point where supported.
 * If you have access to {% data variables.copilot.copilot_chat %}, you can ask questions about the alert and the suggested fix.{% endif %}
 * You are improving and demonstrating your knowledge of secure coding.
 
@@ -96,9 +96,9 @@ You can leverage {% data variables.product.prodname_copilot_short %} to help res
 
 ### Autofix for {% data variables.product.prodname_code_scanning %} alerts
 
-If {% data variables.copilot.copilot_cloud_agent %} is enabled in the repository, you can select one or more alerts in the campaign view and assign them to {% data variables.product.prodname_copilot_short %}. {% data variables.copilot.copilot_cloud_agent %} explores the codebase, generates fixes, validates the changes, and opens a single pull request for the selected alerts. See [AUTOTITLE](/code-security/how-tos/manage-security-alerts/remediate-alerts-at-scale/fixing-alerts-in-security-campaign#assigning-alerts-to-copilot-cloud-agent).
+If {% data variables.copilot.agentic_autofix %} is enabled, you can assign up to 25 alerts from the campaign view to {% data variables.product.prodname_copilot_short %}. One assignment starts one agent session and opens one pull request for the selected alerts. See [AUTOTITLE](/code-security/how-tos/manage-security-alerts/remediate-alerts-at-scale/fixing-alerts-in-security-campaign#assigning-alerts-to-copilot).
 
-If {% data variables.copilot.copilot_cloud_agent %} isn't enabled in the repository, {% data variables.copilot.copilot_autofix_short %} is automatically triggered for alerts included in a campaign, so a fix is generated for you where possible. Commit the suggested fix to resolve the alert, then verify that CI is still passing. See [AUTOTITLE](/code-security/how-tos/manage-security-alerts/remediate-alerts-at-scale/fixing-alerts-in-security-campaign).{% endif %}
+If {% data variables.copilot.agentic_autofix %} isn't enabled, use a {% data variables.copilot.copilot_autofix_short %} suggestion where available, or fix the alert manually. After you commit the fix, verify that continuous integration checks still pass. See [AUTOTITLE](/code-security/how-tos/manage-security-alerts/remediate-alerts-at-scale/fixing-alerts-in-security-campaign).{% endif %}
 
 ### {% data variables.copilot.copilot_chat_short %}
 

@@ -50,6 +50,25 @@ Use the pull request status checks box to identify which commit must pass.
 
 See [AUTOTITLE](/rest/pulls/pulls#get-a-pull-request).
 
+## Checks from some workflow jobs are not evaluated
+
+A {% data variables.product.prodname_actions %} workflow run can report checks that do not appear in a pull request's checks section or satisfy required status checks in a branch ruleset. For checks created by workflow jobs to be evaluated for a pull request, the workflow run must be triggered by one of these events:
+
+* `push`
+* `pull_request`
+* `pull_request_review`
+* `pull_request_target`
+* `deployment`
+* `deployment_status`
+
+For example, if a workflow is triggered by `workflow_dispatch` on a pull request's head branch, checks reported by its jobs do not appear in the pull request's checks section. Even if the checks pass for the head commit, they do not satisfy a required status check in a branch ruleset.
+
+Check the event that triggered the workflow run. If the workflow uses another event, update its `on` configuration to use an eligible event appropriate for your workflow, such as `pull_request`. See [AUTOTITLE](/actions/reference/workflows-and-actions/events-that-trigger-workflows).
+
+This restriction applies only to checks created by workflow jobs, not to checks created by an external {% data variables.product.prodname_github_app %}.
+
+Merge queues require the separate `merge_group` event. See [Status checks with {% data variables.product.prodname_actions %} and a Merge queue](#status-checks-with-github-actions-and-a-merge-queue).
+
 ## Handling skipped but required checks
 
 | Cause | Result | How to fix or check |

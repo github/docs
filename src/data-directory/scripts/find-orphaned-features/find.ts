@@ -1,31 +1,10 @@
-/**
- * This script will loop over all pages, in all languages, and look at
- * the following:
- *
- *    1. `title` in frontmatter
- *    2. `intro` in frontmatter
- *    3. `shortTitle` in frontmatter (if present)
- *    4. the markdown body itself
- *    5. The `versions:` frontmatter key (if the page is in English)
- *
- * Then it will search out the features mentioned based on `data/features/*.yml`
- * It will make a Set of these (e.g. `dependabot-grouped-dependencies` and
- * `ghas-enablement-webhook`) and one by one pluck them away.
- *
- * After the pages, it will loop over the reusables in English, and do the
- * same search there. Once it's done the English, it loops over the
- * reusables in the translations (if they exist) and does the same search.
- *
- * Lastly, it will output the remaining features, as relative file paths.
- * For example, `data/features/havent-been-used-in-years.yml` so now you
- * know that file can be deleted.
- *
- * NOTE: A lot of translations have corrupted Liquid. So if we can't parse
- * the Liquid we fall back to string search. A regex will try to find
- * all `{% ifversion ... %}` (and `elsif`) and search for any features
- * mentioned inside that as a string.
- *
- */
+// Finds data/features/*.yml entries that no page, reusable, or variable references.
+// It scans title, intro, shortTitle, permissions, product, introLinks, body, and English versions
+// frontmatter across all pages, including early access pages when they are merged in.
+// It also scans English reusables, variables, tables, and early access data, then matching
+// translated reusables.
+// Outputs remaining features as paths such as data/features/havent-been-used-in-years.yml.
+// If translated Liquid cannot parse, regex searches feature names in ifversion and elsif tags.
 
 import { strictEqual } from 'node:assert'
 import fs from 'fs'
@@ -36,7 +15,6 @@ import { TokenizationError, TokenKind } from 'liquidjs'
 import type { TagToken } from 'liquidjs'
 
 import type { Page } from '@/types'
-import warmServer from '@/frame/lib/warm-server'
 import { getDeepDataByLanguage } from '@/data-directory/lib/get-data'
 import { getLiquidTokens } from '@/content-linter/lib/helpers/liquid-utils'
 import languages from '@/languages/lib/languages-server'
@@ -64,6 +42,8 @@ export async function find(options: Options) {
       ),
     )
   }
+  // A lazy import keeps warm-server and its dependencies out of tests that load the helpers.
+  const { default: warmServer } = await import('@/frame/lib/warm-server')
   const site = await warmServer([])
 
   const features = new Set(
@@ -118,12 +98,11 @@ function formatDelta(t0: Date, t1: Date) {
   return `${(ms / 1000).toFixed(1)} seconds`
 }
 
+// searchAndRemove scans translated reusables only when English has the same relative path.
+// English content lets correctTranslatedContentStrings repair Liquid before feature matching.
 function searchAndRemove(features: Set<string>, pages: Page[], verbose = false) {
   for (const page of pages) {
-    const content = page.markdown
-    // We actually never bother looking at the `versions:` frontmatter
-    // key in translations, so it doesn't matter if the translated
-    // frontmatter might have `versions: some-old-feature`.
+    // Only English versions frontmatter can mark a feature used.
     if (page.languageCode === 'en') {
       for (const [key, value] of Object.entries(page.versions)) {
         if (key === 'feature') {
@@ -134,30 +113,14 @@ function searchAndRemove(features: Set<string>, pages: Page[], verbose = false) 
       }
     }
 
-    const combined = `
-      ${content}
-      ${page.title || ''}
-      ${page.shortTitle || ''}
-      ${page.intro || ''}
-    `
-
-    checkString(combined, features, { page, verbose, languageCode: page.languageCode })
+    checkString(getPageSearchText(page), features, {
+      page,
+      verbose,
+      languageCode: page.languageCode,
+    })
   }
 
-  // Reusables are a bit special, as they are shared between languages.
-  // There'll always be a slight mismatch between files present on disk
-  // in English vs. translations.
-  // The translations never delete files, so there's often excess reusables
-  // on disk in translations. And the English might be ahead, meaning a file
-  // has been introduced in English but not yet translated.
-  // The code below loops over the English reusables, and takes note of the
-  // their relative paths and content. Then, we re-use the keys of that map
-  // to know which files, in the translations, to check. And when we read
-  // them in, we'll need the English equivalent content to be able to
-  // use the correctTranslatedContentStrings function.
-
-  // Check variables files
-  for (const filePath of getVariableFiles(path.join(languages.en.dir, 'data', 'variables'))) {
+  for (const filePath of getEnglishDataFiles(path.join(languages.en.dir, 'data'))) {
     const fileContent = fs.readFileSync(filePath, 'utf-8')
     checkString(fileContent, features, { filePath, verbose, languageCode: 'en' })
   }
@@ -170,7 +133,7 @@ function searchAndRemove(features: Set<string>, pages: Page[], verbose = false) 
     englishReusables.set(relativePath, fileContent)
   }
   for (const language of Object.values(languages)) {
-    if (language.code === 'en') continue // Already did that in the loop above
+    if (language.code === 'en') continue
 
     for (const [relativePath, englishFileContent] of Array.from(englishReusables.entries())) {
       const filePath = path.join(language.dir, relativePath)
@@ -192,16 +155,45 @@ function searchAndRemove(features: Set<string>, pages: Page[], verbose = false) 
         })
       } catch (error) {
         if (error instanceof Error && 'code' in error && error.code === 'ENOENT') {
-          // That a reusable does *not* exist in a translation is
-          // perfectly expected. It means that English reusable was
-          // most likely added recently and the translation hasn't been
-          // translated yet.
+          // Missing translated reusables are expected when English has newer files.
           continue
         }
         throw error
       }
     }
   }
+}
+
+type PageSearchFields = Pick<
+  Page,
+  'markdown' | 'title' | 'shortTitle' | 'intro' | 'rawPermissions'
+> & {
+  rawProduct?: string
+  rawIntroLinks?: Record<string, string>
+}
+
+// Page.render runs Liquid on permissions, product, and introLinks, so their ifversion tags count too.
+export function getPageSearchText(page: PageSearchFields) {
+  return `
+      ${page.markdown}
+      ${page.title || ''}
+      ${page.shortTitle || ''}
+      ${page.intro || ''}
+      ${page.rawPermissions || ''}
+      ${page.rawProduct || ''}
+      ${Object.values(page.rawIntroLinks || {}).join('\n')}
+    `
+}
+
+// Pages render table rows with render_liquid. Early access data exists only after a merge.
+export function getEnglishDataFiles(dataRoot: string): string[] {
+  const sources: [string, (root: string) => string[]][] = [
+    [path.join(dataRoot, 'variables'), getVariableFiles],
+    [path.join(dataRoot, 'tables'), getVariableFiles],
+    [path.join(dataRoot, 'early-access', 'variables'), getVariableFiles],
+    [path.join(dataRoot, 'early-access', 'reusables'), getReusableFiles],
+  ]
+  return sources.flatMap(([dir, getFiles]) => (fs.existsSync(dir) ? getFiles(dir) : []))
 }
 
 export function getReusableFiles(root: string): string[] {
@@ -232,7 +224,7 @@ export function getVariableFiles(root: string): string[] {
 
 const IGNORE_ARGS = new Set(['or', 'and', 'not', '<', '>', 'ghes', 'fpt', 'ghec', '!=', '='])
 
-function checkString(
+export function checkString(
   string: string,
   features: Set<string>,
   {
@@ -243,10 +235,7 @@ function checkString(
   }: { page?: Page; filePath?: string; languageCode?: string; verbose?: boolean } = {},
 ) {
   try {
-    // The reason for the `noCache: true` is that we're going to be sending
-    // a LOT of different strings in and the cache will fill up rapidly
-    // when testing every possible string in every possible language for
-    // every page.
+    // Disable the Liquid token cache because scanning many different strings would fill it quickly.
     const tokens = getLiquidTokens(string, { noCache: true }).filter(
       (token): token is TagToken => token.kind === TokenKind.Tag,
     )
@@ -264,11 +253,10 @@ function checkString(
     }
   } catch (error) {
     if (error instanceof TokenizationError) {
-      // If it happens in English, it's a serious error
+      // English Liquid parse failures are source errors.
       if (languageCode === 'en') throw error
 
-      // The translation might, currently, have corrupted liquid
-      // So treat it as a string
+      // Translated Liquid can be corrupt, so regex search still catches feature references.
       if (verbose)
         console.log(
           `TokenizationError in ${page ? page.fullPath : filePath}. Treating ${page ? page.fullPath : filePath} as a string and using regex`,

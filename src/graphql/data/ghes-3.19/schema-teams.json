@@ -530,6 +530,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: UPDATED_AT, direction: DESC}",
               "description": "<p>Ordering options for user statuses returned from the connection.</p>",
               "type": {
                 "name": "UserStatusOrder",
@@ -729,6 +730,7 @@
             },
             {
               "name": "filterBy",
+              "defaultValue": "{}",
               "description": "<p>Filtering options for projects returned from this connection.</p>",
               "type": {
                 "name": "ProjectV2Filters",
@@ -766,6 +768,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: NUMBER, direction: DESC}",
               "description": "<p>How to order the returned projects.</p>",
               "type": {
                 "name": "ProjectV2Order",
@@ -2369,7 +2372,7 @@
       "name": "TeamMemberRole",
       "id": "teammemberrole",
       "href": "/graphql/reference/teams#enum-teammemberrole",
-      "description": "<p>The possible team member roles; either<code>maintainer</code>or 'member'.</p>",
+      "description": "<p>The possible team member roles; either <code>maintainer</code> or 'member'.</p>",
       "values": [
         {
           "name": "MAINTAINER",

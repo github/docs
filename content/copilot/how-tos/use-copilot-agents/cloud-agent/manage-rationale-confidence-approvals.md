@@ -2,7 +2,7 @@
 title: Managing rationale, confidence, and approvals for issues
 shortTitle: Manage rationale, confidence, and approvals
 allowTitleToDifferFromFilename: true
-intro: 'Set up and manage rationale, confidence, and approvals for issues handled by {% data variables.copilot.copilot_automation %}.'
+intro: 'Set up and manage rationale, confidence, and approvals for issues handled by {% data variables.copilot.copilot_automations %}.'
 product: '{% data reusables.gated-features.copilot-automations %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=button&utm_source=docs-create-cca-automations&utm_medium=docs&utm_campaign=msbuild-2026" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
@@ -11,7 +11,9 @@ category:
   - Author and optimize with Copilot
 ---
 
-Rationale and confidence need no extra configuration. When an {% data variables.copilot.copilot_automation %}'s agent changes a supported issue attribute, it attaches a rationale and a confidence level automatically. Whether that change applies directly or waits for review depends on your repository's automation level, or on an explicit request to suggest rather than apply the change.
+When an {% data variables.copilot.copilot_automation %}'s agent changes a supported issue attribute, it attaches a rationale and a confidence level automatically.
+
+Whether that change applies directly or waits for review depends on your repository's automation level, or on an explicit request to suggest rather than apply the change.
 
 ## Setting your repository's automation level
 

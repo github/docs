@@ -2,6 +2,9 @@
 
 Package manager | YAML value      | Supported versions | Version updates | Security updates | Private repositories | Private registries | Vendoring |
 ---------------|------------------|------------------|:---:|:---:|:---:|:---:|:---:|
+| {% ifversion dependabot-apm-support %} |
+[APM](#apm) | `apm` | Not applicable | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} (git only) | Not applicable |
+| {% endif %} |
 | {% ifversion dependabot-bazel-support %} |
 Bazel | `bazel`         | v7, v8, v9              | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
 | {% endif %} |
@@ -19,7 +22,7 @@ Composer       | `composer`       | v2         | {% octicon "check" aria-label="
 [Docker](#docker)    | `docker`         | v1               | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | Not applicable |
 [Docker Compose](#docker-compose)    | `docker-compose`         | v2, v3              | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | Not applicable |
 .NET SDK       | `dotnet-sdk`         | >=.NET Core 3.1           | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | Not applicable | Not applicable | Not applicable |
-[Helm Charts](#helm-charts)    | `helm`         | {% ifversion dependabot-helm-support %}v3{% else %}Not supported{% endif %} | {% ifversion dependabot-helm-support %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Not supported" %}{% endif %} | {% octicon "x" aria-label="Not supported" %} | {% ifversion dependabot-helm-support %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Not supported" %}{% endif %} | {% ifversion dependabot-helm-support %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Not supported" %}{% endif %} | Not applicable |
+[Helm Charts](#helm-charts)    | `helm`         | v3 | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | Not applicable |
 Hex            | `mix`            | v1               | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 | {% ifversion dependabot-julia-support %} |
 [Julia](#julia) | `julia`         | >=v1.10              | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
@@ -33,7 +36,7 @@ Go modules     | `gomod`          | v1               | {% octicon "check" aria-l
 | {% ifversion dependabot-nix-support %} |
 [Nix](#nix)    | `nix`         | Not applicable               | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | Not applicable | Not applicable |
 | {% endif %} |
-npm            | `npm`            | v7, v8, v9, v10, v11   | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+npm            | `npm`            | v7, v8, v9, v10, v11{% ifversion dependabot-npm12-pnpm11-pnpm12-bun14 %}, v12{% endif %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 [NuGet](#nuget-cli)          | `nuget`          | <=6.12.0 | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 | {% ifversion dependabot-opentofu-support %} |
 [OpenTofu](#opentofu)    | `opentofu`      | Not applicable  | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | Not applicable |
@@ -41,7 +44,7 @@ npm            | `npm`            | v7, v8, v9, v10, v11   | {% octicon "check" 
 [pip](#pip-and-pip-compile) | `pip` | 26.1.1        | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 pipenv                      | `pip` | 2024.4.1 | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 [pip-compile](#pip-and-pip-compile) | `pip`            | 7.5.3            | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
-| pnpm   | `npm`            | v7, v8, v9, v10      | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| {% ifversion dependabot-npm12-pnpm11-pnpm12-bun14 %}[pnpm](#pnpm){% else %}pnpm{% endif %} | `npm` | v7, v8, v9, v10{% ifversion dependabot-npm12-pnpm11-pnpm12-bun14 %}, v11, v12{% endif %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 [poetry](#poetry)           | `pip` | v2       | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 | {% ifversion dependabot-pre-commit-support %} |
 [pre-commit](#pre-commit) | `pre-commit` | Not applicable | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
@@ -69,6 +72,37 @@ uv        | `uv`            | v0.11            | {% octicon "check" aria-label="
 > For package managers such as `pipenv` and `poetry`, you need to use the `pip` YAML value. For example, if you use `poetry` to manage your Python dependencies and want {% data variables.product.prodname_dependabot %} to monitor your dependency manifest file for new versions, use `package-ecosystem: "pip"` in your `dependabot.yml` file.
 
 For further information about ecosystem support for {% data variables.product.prodname_dependabot_security_updates %}, see also [AUTOTITLE](/code-security/reference/supply-chain-security/dependency-graph-supported-package-ecosystems).
+
+{% ifversion dependabot-apm-support %}
+
+### APM
+
+{% data variables.product.prodname_dependabot %} can update git dependencies declared in `apm.yml` manifest files for APM (Agent Package Manager). Entries under both `dependencies.apm` and `devDependencies.apm` are updated. For more information about APM, see [`microsoft/apm` repository](https://github.com/microsoft/apm) in the `microsoft/apm` repository.
+
+How {% data variables.product.prodname_dependabot %} updates a dependency depends on how the dependency is pinned.
+
+| Pin type | Example | Behavior |
+|---|---|---|
+| SemVer tag | `octo-org/octo-skills#v1.0.0` | Updated to the latest SemVer tag. Both plain tags (`v1.4.0`) and package-scoped tags are supported. A package-scoped tag must start with the package name, which is the repository name or the last component of a virtual package path. For example, `octo-org/octo-skills/skills/review#review-v1.4.0`. |
+| Commit SHA | `octo-org/octo-skills#<40-character SHA>` | Updated to the commit of the latest annotated, non-prerelease release tag. The tag name is added as a comment, for example `# v1.4.0`. |
+| Branch | `octo-org/octo-skills#main` | Updated to the latest commit on the branch. Only `apm.lock.yaml` changes, because the manifest still names the branch. Requires an existing `apm.lock.yaml` file. |
+
+If your repository contains an `apm.lock.yaml` file, {% data variables.product.prodname_dependabot %} regenerates it by running `apm lock`. {% data variables.product.prodname_dependabot %} doesn't create a lockfile if one doesn't exist.
+
+{% data variables.product.prodname_dependabot %} doesn't update the following entries:
+
+* Object-form entries (`git:`, `registry:`, `id:`, or `path:` maps) and `mcp:` entries
+* Entries without a ref, such as `octo-org/octo-skills`
+* Local path entries, such as `./my-package`
+* Entries hosted on Azure DevOps
+* Entries that use an `http://` or `git://` clone URL
+* Entries written as YAML block scalars (`>` or `|`) or as quoted strings that use escape sequences
+* Abbreviated commit SHAs
+* Shorthand entries, such as `octo-org/octo-skills#v1.2.0`, when the manifest sets `registries.default`. Entries that use an explicit clone URL are still updated.
+
+Private registry support uses git registries. You can configure access for private git repositories by specifying a git registry in your `dependabot.yml` file. See [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-access-to-private-registries#git).
+
+{% endif %}
 
 ### Bun
 
@@ -188,6 +222,14 @@ When configuring {% data variables.product.prodname_dependabot %} for Helm chart
 {% data variables.product.prodname_dependabot %} supports updates to any `.txt` file.
 
 In addition, {% data variables.product.prodname_dependabot %} supports updates to `pyproject.toml` files if they follow the PEP 621 standard.
+
+{% ifversion dependabot-npm12-pnpm11-pnpm12-bun14 %}
+
+### pnpm
+
+When pnpm writes `pnpm-lock.yaml` as two YAML documents, the dependency graph does not detect the dependencies in that file. This is the default format for pnpm 12 projects that pin a pnpm version. {% data variables.product.prodname_dependabot_version_updates %} still work, but {% data variables.product.prodname_dependabot_alerts %} and {% data variables.product.prodname_dependabot_security_updates %} are not created for those dependencies, and existing alerts for them may close.
+
+{% endif %}
 
 ### poetry
 

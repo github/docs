@@ -1,9 +1,9 @@
 ---
-title: Enabling security features in your trial enterprise
+title: Enabling security features in your trial
 shortTitle: Enable security features in trial
 allowTitleToDifferFromFilename: true
-intro: Quickly create an enterprise-level configuration and apply {% data variables.product.prodname_cs_and_sp %} features across all repositories in your trial enterprise.
-permissions: '{% data reusables.permissions.security-configuration-enterprise-enable %}'
+intro: Apply {% data variables.product.prodname_cs_and_sp %} to a sample of repositories so your team can evaluate the features during your trial.
+permissions: '{% ifversion fpt %}{% data reusables.permissions.security-org-enable %}{% else %}{% data reusables.permissions.security-configuration-enterprise-enable %}{% endif %}'
 versions:
   fpt: '*'
   ghec: '*'
@@ -15,33 +15,44 @@ category:
   - Plan your security strategy
 ---
 
-This article assumes that you have planned and then started a trial of {% data variables.product.prodname_GHAS %}. For more information, see [AUTOTITLE](/code-security/tutorials/trialing-github-advanced-security/planning-a-trial-of-ghas).
+This article assumes that you have planned and started a trial of {% data variables.product.prodname_GHAS %}. For more information, see [AUTOTITLE](/code-security/tutorials/trialing-github-advanced-security/planning-a-trial-of-ghas).
 
-The aim is to enable all the security features you want to trial quickly, as a starting point for deeper exploration. You should start getting results soon on the repositories in your trial enterprise and you can fine-tune the configuration later.
+Use this article to quickly enable the security features you want to trial as a starting point for deeper exploration. Results should appear soon for your trial repositories, and you can fine-tune the configuration later.
+
+{% ifversion fpt %}
+
+## Enable security features with quick setup
+
+Use quick setup to enable security features for a sample of repositories that your team understands well. This makes it easier to judge whether the results and developer experience meet the goals you defined for the trial.
+
+1. In the upper-right corner of {% data variables.product.prodname_dotcom %}, click your profile picture, then click **Your organizations**.
+1. Next to the organization, click **Settings**.
+1. In the "Security" section of the sidebar, select **{% data variables.product.UI_advanced_security %}**, then click **Configurations**.
+1. Click **New configuration**.
+1. In the setup dialog, review the default settings and the repositories selected for the trial, and make any necessary adjustments.
+1. Click **Review** to see a summary of your configuration, then click **Save and enable** to apply it.
+
+{% else %}
 
 ## Step 1: Create an enterprise security configuration for your trial goals
 
-When you planned your trial, you identified the features that you want to test and any enforcement needs. You should create one or more security configurations for your enterprise that enable these features and set any enforcement levels you require.
+When you planned your trial, you identified the features you want to test and any enforcement needs. Create one or more enterprise security configurations that enable these features and set the required enforcement levels.
 
 1. In the top-right corner of {% data variables.product.prodname_dotcom %}, click your profile picture.
 1. Depending on your environment, click **Your enterprise**, or click **Your enterprises** then click your trial enterprise.
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.advanced-security-tab %}
-1. Click **New configuration** to create a new configuration.
-1. Give the configuration a meaningful name and description.
-1. You will see that most features are already enabled. Review the features that are **Not set** and enable any that you want to trial, for example: "Automatic dependency submission."
-1. In the "Policy" area, set the "Use as default for newly created repositories" option as needed to define whether or not to apply the configuration to new repositories created in the enterprise.
-1. In the "Policy" area, notice that the "Enforce configuration" option is set to **Enforce** so that applying the configuration to a repository enforces all settings apart from any left as "Not set".
-   > [!TIP] While you are testing {% data variables.product.prodname_AS %}, you may want to change this to **Don't enforce** to allow you to optimize repository settings as needed without modifying security configurations.
-1. When you have finished defining the configuration, click **Save configuration**.
+1. Click **New configuration**.
+1. In the setup dialog, review the default settings and the repositories selected for the trial, and make any necessary adjustments.
+1. Click **Review** to see a summary of your configuration, then click **Save and enable** to apply it.
 
 The new enterprise security configuration is now available for use at the enterprise level and also within every organization in the enterprise.
 
 ## Step 2: Apply your enterprise security configuration to repositories
 
-You can apply an enterprise security configuration either at the enterprise level or at the organization level. The best option for you will depend on whether or not you want to apply the configuration to all repositories in the enterprise, or to a subset of repositories.
+You can apply an enterprise security configuration either at the enterprise level or at the organization level. Choose a level based on whether you want to apply the configuration to all enterprise repositories or to a subset.
 
-> [!NOTE] {% data variables.product.prodname_cs_and_sp %} are free of charge during trials. However, you will be charged for Actions minutes used by the default {% data variables.product.prodname_code_scanning %} setup if you have exhausted your allocation of Actions minutes.
+> [!NOTE] {% data variables.product.prodname_cs_and_sp %} are free of charge during trials. However, you will be charged for {% data variables.product.prodname_actions %} minutes used by the default {% data variables.product.prodname_code_scanning %} setup if you have exhausted your allocation of {% data variables.product.prodname_actions %} minutes.
 
 * Enterprise-level application:
    * Add an enterprise configuration to all repositories in the enterprise, or all repositories without an existing configuration in the enterprise.
@@ -49,7 +60,7 @@ You can apply an enterprise security configuration either at the enterprise leve
    * Add an enterprise or an organization configuration to all repositories in the organization, or all repositories without an existing configuration in the organization.
    * Add an enterprise or an organization configuration to a subset of repositories in the organization.
 
-You may find it helpful to apply an enterprise security configuration to all repositories in your enterprise, and then work at the organization-level to select a subset of repositories and apply an alternative security configuration.
+You may find it helpful to apply an enterprise security configuration to all enterprise repositories. Then, at the organization level, select a subset of repositories and apply an alternative configuration.
 
 ### Enterprise-level application
 
@@ -62,16 +73,28 @@ You may find it helpful to apply an enterprise security configuration to all rep
 1. Open an organization in your trial enterprise.
 1. Click the **Settings** tab to display the organization settings.
 1. In the sidebar, click **{% data variables.product.UI_advanced_security %}** and then **Configurations** to display the security configurations page.
-1. Optionally, select the **Apply to** dropdown menu and click either **All repositories**, to apply any configuration to all repositories in the organization, or **All repositories without configurations**, to configure just the repositories in the organization without an existing security configuration.
-1. Optionally, click the **Repositories** tab, then in the "Apply configurations" section, use the "Search repositories" field or **Filter** button to filter repositories. Then select one or more repositories and use the **Apply configuration** button to choose a configuration to apply to those repositories.
+1. Choose how to apply the configuration:
+   * To apply a configuration across the organization, select the **Apply to** dropdown menu. Click **All repositories** or **All repositories without configurations**.
+   * To apply a configuration to a subset of repositories, click the **Repositories** tab. In the "Apply configurations" section, find and select the repositories, then click **Apply configuration** and choose a configuration.
 
 For more information, see [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/apply-custom-configuration).
 
 After you apply a configuration, each repository's configuration status reflects the result. For example, a repository may show as `attached`, `attaching`, or `failed`. For a full list of statuses and recommended actions, see [AUTOTITLE](/code-security/reference/security-at-scale/configuration-statuses).
 
+{% endif %}
+
 ## Next steps
 
 Now that you have enabled the security features you want to test, you are ready to look more deeply into how {% data variables.product.prodname_GH_secret_protection %} and {% data variables.product.prodname_GH_code_security %} protect your code.
 
+{% ifversion fpt %}
+
+1. Review and assess secret scanning alerts. See [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-secret-scanning-alerts/viewing-alerts).
+1. Review and assess code scanning alerts. See [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-code-scanning-alerts/assess-alerts).
+
+{% else %}
+
 1. [AUTOTITLE](/code-security/tutorials/trialing-github-advanced-security/explore-trial-secret-scanning)
 1. [AUTOTITLE](/code-security/tutorials/trialing-github-advanced-security/explore-trial-code-scanning)
+
+{% endif %}

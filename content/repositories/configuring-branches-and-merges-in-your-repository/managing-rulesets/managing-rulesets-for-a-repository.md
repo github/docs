@@ -31,14 +31,14 @@ For push rulesets for forked repositories, the "Rulesets" page will indicate tha
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.navigate-to-branches %}
-1. To the left of the branch name, click {% octicon "shield-lock" aria-label="view rules" %}.
+1. To the right of the branch name, click {% octicon "shield-lock" aria-label="view rules" %}.
 
    > [!TIP] Only branches that have a ruleset have a {% octicon "shield" aria-label="The shield icon" %} icon adjacent to their name.
 
 1. Optionally, to filter the results click the tabs or use the "Search branches" search bar.
 1. Click the name of the ruleset you want to view.
 
-You can also view active ruselets:
+You can also view active rulesets:
 
 * By adding the `/rules` slug to the repository's URL. For example, to view the rules of the open source documentation repository at {% data variables.product.github %},  you would go to https://github.com/github/docs/rules.
 
@@ -84,8 +84,6 @@ You can also view active ruselets:
 
 {% endif %}
 
-{% ifversion repo-rules-management %}
-
 ## Importing a ruleset
 
 {% data reusables.repositories.import-a-ruleset-conceptual %}
@@ -115,8 +113,12 @@ You can view insights for rulesets to see how rulesets are affecting a repositor
 
 ### Viewing the rule insights dashboard
 
+{% ifversion fpt or ghec %}
+
 > [!NOTE]
 > The rule insights dashboard is available for {% data variables.product.prodname_team %} and {% data variables.product.prodname_ghe_cloud %} plans.
+
+{% endif %}
 
 The rule insights dashboard gives you a visual, high-level summary of rule evaluation activity for your repository, including:
 
@@ -131,6 +133,8 @@ To view the dashboard:
 {% data reusables.repositories.sidebar-settings %}
 1. In the left sidebar, under "Code and automation," click **Rules**, then click **Insights**.
 1. At the top of the "Rule Insights" page, view the dashboard charts for an overview of rule evaluation activity.
+
+{% ifversion rule-insights-dashboard-org-level %}
 
 At the organization level, you can view the rule insights dashboard to review the evaluation activity of rulesets across your organization. See [AUTOTITLE](/organizations/managing-organization-settings/managing-rulesets-for-repositories-in-your-organization#viewing-the-rule-insights-dashboard).
 

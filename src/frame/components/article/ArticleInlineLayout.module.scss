@@ -11,7 +11,6 @@
   row-gap: 0;
   grid-template-areas:
     "topper"
-    "sidebar"
     "intro"
     "content";
   grid-template-rows: auto 1fr;
@@ -26,6 +25,9 @@
 }
 
 .contentBox {
+  min-width: 0;
+  max-width: 100%;
+
   @include breakpoint(md) {
     padding-top: 24px;
   }
@@ -33,12 +35,4 @@
 
 .articleContainer {
   max-width: 720px;
-}
-
-.sidebarBox {
-  border-bottom: 1px solid var(--color-border-default) !important;
-
-  @include breakpoint-xxl {
-    border-bottom: none !important;
-  }
 }

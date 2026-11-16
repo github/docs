@@ -26,7 +26,6 @@ export function findPotentialUses({
   const filesThatCouldUseReusable: FilesWithLineNumbers = []
   const filesThatCouldUseReusableSimilar: FilesWithSimilarity = []
 
-  // Read all content & data files into memory
   const allFileContents = allFilePaths.map((filePath) => {
     return {
       filePath,
@@ -64,12 +63,11 @@ export function findPotentialUses({
     reusableCount += 1
 
     for (const { filePath, fileContents } of allFileContents) {
-      // Skip the reusable file itself
+      // Do not report a reusable as a use of itself.
       if (filePath === reusableFilePath) continue
 
       const indices = findIndicesOfSubstringInString(reusableContents.trim(), fileContents)
       if (indices.length > 0) {
-        // Find line numbers of each index in fileContents
         const lineNumbers = indices.map((index) => fileContents.slice(0, index).split('\n').length)
 
         filesThatCouldUseReusable.push({
@@ -95,5 +93,5 @@ export function findPotentialUses({
   console.log(`${reusableCount}/${reusableFiles.length} reusables checked...`)
 
   console.log(`\nFound ${filesThatCouldUseReusable.length} files that could use reusables.`)
-  printFindsWithLineNumbers(absolute, filesThatCouldUseReusable)
+  printFindsWithLineNumbers(absolute, filesThatCouldUseReusable, filesThatCouldUseReusableSimilar)
 }

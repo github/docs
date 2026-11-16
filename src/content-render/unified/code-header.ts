@@ -1,8 +1,3 @@
-/**
- * Adds a bar above code blocks that shows the language and a copy button.
- * Optionally, adds a prompt button to Copilot Chat blocks.
- */
-
 import { load } from 'js-yaml'
 import fs from 'fs'
 import { visit } from 'unist-util-visit'
@@ -51,7 +46,7 @@ function wrapCodeExample(node: Element, tree: Root): Element {
   const subnav = null // getSubnav() lives in annotate.ts, not needed for normal code blocks
   const hasPrompt: boolean = Boolean(getPreMeta(node).prompt)
   const promptResult = hasPrompt ? getPrompt(node, tree, code) : null
-  const hasCopy: boolean = Boolean(getPreMeta(node).copy) // defaults to true
+  const hasCopy: boolean = Boolean(getPreMeta(node).copy)
 
   const headerHast = header(
     lang,
@@ -120,10 +115,9 @@ function btnIcon(): Element {
   return btnIconElement as Element
 }
 
-// node can be various hast element types, return value contains meta properties from code blocks
+// mdast-util-to-hast stores code-fence metadata on the first child.
 export function getPreMeta(node: Element): Record<string, unknown> {
-  // Here's why this monstrosity works:
-  // https://github.com/syntax-tree/mdast-util-to-hast/blob/c87cd606731c88a27dbce4bfeaab913a9589bf83/lib/handlers/code.js#L40-L42
+  // Code block callers pass pre elements whose code child owns the metadata.
   const firstChild = node.children[0] as Element | undefined
   return (firstChild?.data as Record<string, Record<string, unknown>> | undefined)?.meta || {}
 }

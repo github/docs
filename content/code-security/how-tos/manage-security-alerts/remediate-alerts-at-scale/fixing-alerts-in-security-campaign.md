@@ -30,9 +30,9 @@ This view shows the alerts in the current repository for a campaign called "SQL 
 
 If you want to see the code that triggered the security alert and the suggested fix, click on the alert name to show the alert view.
 
-{% ifversion copilot %}If {% data variables.copilot.copilot_cloud_agent %} is available in the repository, the fastest way to resolve alerts is to assign them to {% data variables.product.prodname_copilot_short %}, which explores the codebase, generates a fix, validates it, and opens a pull request for you. See [Assigning alerts to {% data variables.copilot.copilot_cloud_agent %}](#assigning-alerts-to-copilot-cloud-agent) below. The following steps describe how to fix alerts yourself instead.{% endif %}
+{% ifversion copilot %}If {% data variables.copilot.agentic_autofix %} is enabled, the fastest way to resolve alerts is to assign them to {% data variables.product.prodname_copilot_short %}. {% data variables.copilot.agentic_autofix_caps %} explores the codebase, generates and validates a fix, and opens a pull request. See [Assigning alerts to {% data variables.product.prodname_copilot_short %}](#assigning-alerts-to-copilot) below. The following steps describe how to fix alerts yourself instead.{% endif %}
 
-1. When you are ready to work on one or more security alerts, check that no one else is working on those alerts already. In the campaign view, git icons are displayed on alerts where a fix may already be in progress. Click an icon to display the linked work:
+1. When you are ready to work on one or more security alerts, check whether they are already assigned to {% data variables.product.prodname_copilot_short %} or whether someone else is working on them. Open any linked work to check whether a fix is already in progress:
    * {% octicon "git-pull-request-draft" aria-hidden="Draft pull request" aria-label="git-pull-request-draft" %} an open draft pull request may fix this alert.
    * {% octicon "git-pull-request" aria-label="Pull request" %} an open pull request may fix this alert.
    * {% octicon "git-branch" aria-label="Branch" %} a branch may contain changes to fix this alert.
@@ -48,16 +48,20 @@ If you want to see the code that triggered the security alert and the suggested 
 
 {% ifversion copilot %}
 
-## Assigning alerts to {% data variables.copilot.copilot_cloud_agent %}
+## Assigning alerts to {% data variables.product.prodname_copilot_short %}
 
->[!NOTE] This option is currently in public preview and is subject to change. {% data variables.copilot.copilot_cloud_agent %} must be available in the repository.
+Before you assign alerts, {% data variables.copilot.agentic_autofix %} must be enabled for the repository. See [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-code-scanning-alerts/managing-access-to-agentic-autofix-for-code-scanning).
 
-Instead of fixing alerts yourself, you can select one or more alerts (up to 25) in the campaign view and assign them to {% data variables.product.prodname_copilot_short %}, which resolves the selected alerts in a single pull request and adds you as a requested reviewer. This is the same assignment flow used to fix an individual alert. See [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-code-scanning-alerts/resolve-alerts#fixing-alerts-with-copilot).
+{% data variables.copilot.agentic_autofix_caps %} consumes {% data variables.product.prodname_ai_credits_short %} and {% data variables.product.prodname_actions %} minutes.
 
-1. In the campaign view for the repository, select the alerts that you want to assign.
+You can assign between 1 and 25 alerts from the campaign view. One assignment creates one agent session and one pull request for the selected alerts. It also adds you as a requested reviewer.
+
+1. In the repository's campaign view, select the alerts that you want to assign.
 1. Above the list of alerts, click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} Assign to {% data variables.product.prodname_copilot_short %}**.
 
-Typically within a few minutes, {% data variables.product.prodname_copilot_short %} opens a pull request addressing the assigned alerts, with a summary of the fixes and the changes made. Once created, the pull request is shown next to the alert.
+Typically within a few minutes, {% data variables.product.prodname_copilot_short %} opens a pull request that addresses the assigned alerts. The pull request summarizes the fixes and changes, and appears next to each assigned alert.
+
+For more information about reviewing the session and pull request, see [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-code-scanning-alerts/resolve-alerts#fixing-alerts-with-copilot).
 
 {% endif %}
 

@@ -1,7 +1,6 @@
 import { isHeadless } from './is-headless'
 
-// We cannot use Cookies.get() on the frontend for httpOnly cookies
-// so we need to make a request to the server to get the cookies
+// httpOnly cookies require a server request because frontend code cannot read them.
 
 type DotcomCookies = {
   isStaff?: boolean
@@ -13,21 +12,17 @@ let inFlightPromise: Promise<DotcomCookies> | null = null
 const GET_COOKIES_ENDPOINT = '/api/cookies'
 const LOCAL_STORAGE_KEY = 'dotcomCookies'
 
-// Fetches httpOnly cookies from the server and caches the result.
-// We don't want to do this every time because of the load it would place on our servers
-// So on success, the data is stored in local storage and reused on subsequent loads
-// On failure, returns default empty values
-// If a user is staff and they didn't happen to be logged in when these cookies were saved,
-// we can instruct them as needed to update the cookies and correctly set the isStaff flag.
+// Cache cookie values to avoid repeated load on the cookies endpoint.
+// Successful responses stay in localStorage with no expiry, so a stored isStaff=false persists after sign-in.
+// Staff must clear the dotcomCookies entry before reloading to refresh experiment targeting.
+// Failed requests cache isStaff=false in memory until the next page load.
 async function fetchCookies(): Promise<DotcomCookies> {
   if (isHeadless()) return { isStaff: false }
 
-  // Return the cached object if we have it in memory.
   if (cachedCookies) {
     return cachedCookies
   }
 
-  // Try to load from local storage.
   const storedCookies = localStorage.getItem(LOCAL_STORAGE_KEY)
   if (storedCookies) {
     try {
@@ -39,12 +34,10 @@ async function fetchCookies(): Promise<DotcomCookies> {
     }
   }
 
-  // If a request is already in progress, reuse it.
   if (inFlightPromise) {
     return inFlightPromise
   }
 
-  // Make a single fetch request to the backend.
   inFlightPromise = (async () => {
     try {
       const response = await fetch(GET_COOKIES_ENDPOINT)
@@ -53,7 +46,6 @@ async function fetchCookies(): Promise<DotcomCookies> {
       }
       const data = (await response.json()) as DotcomCookies
       cachedCookies = data
-      // Store the fetched cookies in local storage for future use.
       try {
         localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(data))
       } catch (e) {
@@ -62,14 +54,12 @@ async function fetchCookies(): Promise<DotcomCookies> {
       return data
     } catch (err) {
       console.error('Error fetching cookies:', err)
-      // On failure, return default values.
       const defaultCookies: DotcomCookies = {
         isStaff: false,
       }
       cachedCookies = defaultCookies
       return defaultCookies
     } finally {
-      // Clear the in-flight promise regardless of success or failure.
       inFlightPromise = null
     }
   })()

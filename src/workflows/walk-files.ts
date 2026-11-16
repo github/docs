@@ -1,9 +1,3 @@
-// [start-readme]
-//
-// A helper that returns an array of files for a given path and file extension.
-//
-// [end-readme]
-
 import walk from 'walk-sync'
 import fs from 'fs'
 

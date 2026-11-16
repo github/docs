@@ -24,26 +24,41 @@ export const yamlScheduledJobs: Rule = {
   tags: ['feature', 'actions'],
   parser: 'markdownit',
   asynchronous: true,
-  function: (params: RuleParams, onError: RuleErrorCallback) => {
-    filterTokens(params, 'fence', async (token: MarkdownToken) => {
-      if (!token.info) return
-      if (!token.content) return
+  function: async (params: RuleParams, onError: RuleErrorCallback) => {
+    const fences: MarkdownToken[] = []
+    filterTokens(params, 'fence', (token: MarkdownToken) => {
+      fences.push(token)
+    })
+    // Check fences in order so the module-level duplicate check is deterministic within a file.
+    for (const token of fences) {
+      if (!token.info) continue
+      if (!token.content) continue
       const lang = token.info.trim().split(/\s+/u).shift()?.toLowerCase()
-      if (lang !== 'yaml' && lang !== 'yml') return
-      if (!token.content.includes('schedule:')) return
-      if (!token.content.includes('- cron:')) return
+      if (lang !== 'yaml' && lang !== 'yml') continue
+      if (!token.content.includes('schedule:')) continue
+      if (!token.content.includes('- cron:')) continue
 
       const context = {
         currentLanguage: 'en',
         currentVersionObj: allVersions['free-pro-team@latest'],
       }
-      // If we don't parse the Liquid first, yaml loading chokes on {% raw %} tags
-      const renderedYaml = await liquid.parseAndRender(token.content, context)
-      const yamlObj = load(renderedYaml) as YamlWorkflow
-      if (!yamlObj.on) return
-      if (!yamlObj.on.schedule) return
+      let yamlObj: YamlWorkflow | null | undefined
+      try {
+        // Parse Liquid first because yaml loading chokes on {% raw %} tags.
+        const renderedYaml = await liquid.parseAndRender(token.content, context)
+        yamlObj = load(renderedYaml) as YamlWorkflow | null | undefined
+      } catch (error) {
+        console.error(
+          `Skipping YAML fence that could not be parsed in ${params.name}:`,
+          error instanceof Error ? error.message : error,
+        )
+        continue
+      }
+      const schedules = yamlObj?.on?.schedule
+      if (!Array.isArray(schedules)) continue
 
-      for (const schedule of yamlObj.on.schedule) {
+      for (const schedule of schedules) {
+        if (typeof schedule?.cron !== 'string') continue
         if (schedule.cron.split(' ')[0] === '0') {
           addError(
             onError,
@@ -64,7 +79,7 @@ export const yamlScheduledJobs: Rule = {
 
         scheduledYamlJobs.push(schedule.cron)
       }
-    })
+    }
   },
 }
 

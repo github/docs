@@ -60,7 +60,7 @@ The OIDC token includes the following claims.
 | `enterprise_id`| The ID of the enterprise that contains the repository from where the workflow is running.                  |
 | {% endif %} |
 | `environment`| The name of the environment used by the job. If the `environment` claim is included (also via `include_claim_keys`), an environment is required and must be provided.                   |
-| `event_name`| The name of the event that triggered the workflow run.                    |
+| `event_name`| The name of the event that triggered the workflow run.{% ifversion dependabot-oidc-support %} OIDC tokens requested for {% data variables.product.prodname_dependabot %} update jobs use `dynamic` as the value.{% endif %}                    |
 | `head_ref`| The source branch of the pull request in a workflow run.                   |
 | `job_workflow_ref`| For jobs using a reusable workflow, the ref path to the reusable workflow. For more information, see [AUTOTITLE](/actions/how-tos/secure-your-work/security-harden-deployments/oidc-with-reusable-workflows).                  |
 | `job_workflow_sha`| For jobs using a reusable workflow, the commit SHA for the reusable workflow file.                   |
@@ -107,6 +107,12 @@ If you need more granular trust conditions, you can customize the {% ifversion g
 
 There are also many additional claims supported in the OIDC token that can be used for setting these conditions. In addition, your cloud provider could allow you to assign a role to the access tokens, letting you specify even more granular permissions.
 
+{% ifversion dependabot-oidc-support %}
+
+OIDC tokens requested for {% data variables.product.prodname_dependabot %} update jobs have an `event_name` claim of `dynamic`. If your trust policy is intended to authorize only {% data variables.product.prodname_actions %} workflows and your cloud provider supports conditions on `event_name`, allow only the event names expected by your workflows.
+
+{% endif %}
+
 > [!NOTE]
 > To control how your cloud provider issues access tokens, you **must** define at least one condition, so that untrusted repositories can’t request access tokens for your cloud resources.
 
@@ -150,8 +156,6 @@ You can create a subject that filters for specific tag. In this example, the wor
 * Syntax: `repo:ORG-NAME/REPO-NAME:ref:refs/tags/TAG-NAME`
 * Example: `repo:octo-org/octo-repo:ref:refs/tags/demo-tag`
 
-{% ifversion fpt or ghec or ghes > 3.18 %}
-
 ### Filtering for metadata containing `:`
 
 Any `:` within the metadata values will be replaced with `%3A` in the subject claim.
@@ -160,8 +164,6 @@ You can configure a subject that includes metadata containing colons. In this ex
 
 * Syntax: `repo:ORG-NAME/REPO-NAME:environment:ENVIRONMENT-NAME`
 * Example: `repo:octo-org/octo-repo:environment:Production%3AV1`
-
-{% endif %}
 
 ## Immutable subject claims
 

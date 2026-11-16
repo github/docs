@@ -22,9 +22,8 @@
 <h2 id="first">First heading</h2>
 
 <!--
-  Note that these two <p> tags have nothing between them.
-  But since <p> is a block-level tag, the browser would display them
-  on separate lines so there's a natural space between them.
+  These adjacent <p> tags render on separate lines because <p> is block-level,
+  so scraping must treat the tag boundary as whitespace.
   -->
 <p>Here's a paragraph.</p><p>And another.</p>
 

@@ -6,21 +6,22 @@ import {
   findBatchPrNumbers,
   ensureProductionComment,
   commentOnDeployBatch,
+  resolveDeploySha,
   GONE_TO_PRODUCTION_MARKER,
 } from '../find-past-built-pr'
 
 type FakeComment = { body?: string; user?: { login: string } }
+type FakeCommit = { message: string; parents: string[] }
 
 interface FakeOptions {
-  commitMessages?: string[]
+  commits?: Record<string, FakeCommit>
   comments?: Record<number, FakeComment[]>
   locked?: Record<number, boolean>
   failCreateOn?: number[]
 }
 
-// Builds a minimal Octokit stand-in exposing only the methods the script uses.
 function makeFakeOctokit(options: FakeOptions = {}) {
-  const { commitMessages = [], comments = {}, locked = {}, failCreateOn = [] } = options
+  const { commits = {}, comments = {}, locked = {}, failCreateOn = [] } = options
 
   const createComment = vi.fn(async ({ issue_number }: { issue_number: number; body?: string }) => {
     if (failCreateOn.includes(issue_number)) {
@@ -31,9 +32,25 @@ function makeFakeOctokit(options: FakeOptions = {}) {
 
   const listComments = vi.fn()
 
-  const listCommits = vi.fn(async () => ({
-    data: commitMessages.map((message) => ({ commit: { message } })),
-  }))
+  // Like the real API, this lists every reachable commit, following all parents.
+  const listCommits = vi.fn(async ({ sha, per_page = 30 }: { sha: string; per_page?: number }) => {
+    const queue = [sha]
+    const seen = new Set<string>()
+    const data = []
+    while (queue.length > 0 && data.length < per_page) {
+      const current = queue.shift()!
+      const commit = commits[current]
+      if (seen.has(current) || !commit) continue
+      seen.add(current)
+      data.push({
+        sha: current,
+        commit: { message: commit.message },
+        parents: commit.parents.map((parent) => ({ sha: parent })),
+      })
+      queue.push(...commit.parents)
+    }
+    return { data }
+  })
 
   const fake = {
     rest: {
@@ -46,8 +63,7 @@ function makeFakeOctokit(options: FakeOptions = {}) {
         createComment,
       },
     },
-    // The real octokit.paginate pulls every page; our fakes are single-page, so
-    // resolve straight to the configured comment list.
+    // The real Octokit paginate reads every page, but these fakes return one configured page.
     paginate: vi.fn(async (_method: unknown, params: { issue_number: number }) => {
       return comments[params.issue_number] || []
     }),
@@ -79,21 +95,58 @@ describe('extractPrNumber', () => {
   })
 })
 
+function linearHistory(headSha: string, messages: string[]): Record<string, FakeCommit> {
+  const commits: Record<string, FakeCommit> = {}
+  for (const [index, message] of messages.entries()) {
+    const sha = index === 0 ? headSha : `parent${index}`
+    const parents = index < messages.length - 1 ? [`parent${index + 1}`] : []
+    commits[sha] = { message, parents }
+  }
+  return commits
+}
+
 describe('findBatchPrNumbers', () => {
   test('returns deduped PR numbers from the deployed SHA ancestry', async () => {
     const { octokit } = makeFakeOctokit({
-      commitMessages: ['Head PR (#5)', 'Middle PR (#4)', 'First PR (#3)', 'No PR here'],
+      commits: linearHistory('abc123', [
+        'Head PR (#5)',
+        'Middle PR (#4)',
+        'Revert "Middle PR (#4)"',
+        'First PR (#3)',
+        'No PR here',
+      ]),
     })
     const numbers = await findBatchPrNumbers(octokit, 'github', 'docs-internal', 'abc123')
     expect(numbers).toEqual([5, 4, 3])
   })
 
   test('caps the lookback at the configured batch size', async () => {
-    const { octokit, listCommits } = makeFakeOctokit({ commitMessages: ['Head PR (#9)'] })
-    await findBatchPrNumbers(octokit, 'github', 'docs-internal', 'abc123', 5)
+    const { octokit, listCommits } = makeFakeOctokit({
+      commits: linearHistory('abc123', ['A (#9)', 'B (#8)', 'C (#7)', 'D (#6)', 'E (#5)']),
+    })
+    const numbers = await findBatchPrNumbers(octokit, 'github', 'docs-internal', 'abc123', 3)
+    expect(numbers).toEqual([9, 8, 7])
+    expect(listCommits).toHaveBeenCalledTimes(3)
     expect(listCommits).toHaveBeenCalledWith(
-      expect.objectContaining({ sha: 'abc123', per_page: 5 }),
+      expect.objectContaining({ sha: 'abc123', per_page: 1 }),
     )
+  })
+
+  test('follows first parents only, skipping repo-sync side history', async () => {
+    const { octokit, listCommits } = makeFakeOctokit({
+      commits: {
+        head: {
+          message: 'Merge pull request #63880 from github/repo-sync',
+          parents: ['a', 'side'],
+        },
+        a: { message: 'Internal PR (#63761)', parents: ['b'] },
+        b: { message: 'Another internal PR (#63842)', parents: [] },
+        side: { message: 'Public repo PR (#46333)', parents: ['b'] },
+      },
+    })
+    const numbers = await findBatchPrNumbers(octokit, 'github', 'docs-internal', 'head')
+    expect(numbers).toEqual([63761, 63842])
+    expect(listCommits).not.toHaveBeenCalledWith(expect.objectContaining({ sha: 'side' }))
   })
 })
 
@@ -152,7 +205,32 @@ describe('commentOnDeployBatch', () => {
     await expect(
       commentOnDeployBatch(octokit, 'github', 'docs-internal', [5, 4, 3]),
     ).rejects.toThrow(/Failed to comment on 1 PR/)
-    // #5 and #3 still get their comments despite #4 failing.
+    // Successful PRs still get comments even when another PR comment fails.
     expect(createComment).toHaveBeenCalledTimes(3)
+  })
+})
+
+describe('resolveDeploySha', () => {
+  const deploySha = 'a'.repeat(40)
+  const liveSha = 'b'.repeat(40)
+
+  test('uses the deploy SHA from the environment without reading /_build', async () => {
+    const fallback = vi.fn(async () => liveSha)
+    expect(await resolveDeploySha(deploySha, fallback)).toBe(deploySha)
+    expect(fallback).not.toHaveBeenCalled()
+  })
+
+  test('reads /_build when no deploy SHA is set', async () => {
+    const fallback = vi.fn(async () => liveSha)
+    expect(await resolveDeploySha(undefined, fallback)).toBe(liveSha)
+    expect(await resolveDeploySha('', fallback)).toBe(liveSha)
+    expect(fallback).toHaveBeenCalledTimes(2)
+  })
+
+  test('reads /_build when the deploy SHA is malformed', async () => {
+    const fallback = vi.fn(async () => liveSha)
+    expect(await resolveDeploySha('not-a-sha', fallback)).toBe(liveSha)
+    expect(await resolveDeploySha(`${deploySha}x`, fallback)).toBe(liveSha)
+    expect(fallback).toHaveBeenCalledTimes(2)
   })
 })

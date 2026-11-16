@@ -14,11 +14,40 @@ category:
 
 Rulesets give you clearer visibility and control over how protections apply to a repository. Unlike branch protection rules, multiple rulesets can apply to the same branch at the same time, and people with read access can view the active rulesets. This helps developers understand the rules that affect them and lets auditors review repository protections without administrator access.
 
-To move your existing protections to this model, convert one branch protection rule at a time in a guided flow. {% data variables.product.github %} generates one or more rulesets that preserve the original rule's behavior. You can preview the rulesets{% ifversion repo-rules-enterprise %}, choose how each one is enforced,{% endif %} and verify the result before you remove the original branch protection rule.
+{% ifversion branch-protection-ruleset-bulk-conversion %}You can import eligible branch protection rules together from the repository's ruleset settings, or convert one rule at a time.{% endif %}
+
+{% data variables.product.github %} proposes one or more rulesets for each branch protection rule. Before creating the rulesets, you can review their names and any warnings about changes in behavior. One branch protection rule can produce multiple rulesets when its protections cannot be represented in a single ruleset.
 
 For more information about rulesets, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets).
 
-## Converting a branch protection rule to a ruleset
+{% ifversion branch-protection-ruleset-bulk-conversion %}
+
+## Converting branch protection rules for a repository
+
+You can convert multiple eligible branch protection rules. Before creating the rulesets, you can review and configure which protections will be imported and how the new rulesets will be enforced.
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.repo-rulesets-settings %}
+1. At the top of the "Rulesets" page, click **Import branch protection rules**.
+1. In the "Review import" dialog, review the proposed rulesets:
+   * If a protection is labeled **Already covered by an existing ruleset**, the import will not create another ruleset for it.
+   * Review any warnings about new behavior. A branch protection rule can result in multiple proposed rulesets.
+1. From the **Enforcement status** dropdown, choose a status for the new rulesets.
+   * **Active**: Enforces the rulesets as soon as they are created.
+   * **Evaluate**: Records how the rulesets would behave without enforcing them.
+   * **Disabled**: Creates the rulesets without evaluating or enforcing them.
+1. Select the checkbox for each proposed ruleset that you want to create.
+1. Click **Create rulesets**.
+1. In the "Creating ruleset" dialog that follows, choose what to do with the original branch protection rules.
+   * To retain the original protections, click **Keep rule**. The original rules continue to protect matching branches. An **Active** ruleset is enforced alongside them, so changes must satisfy both.
+   * To remove the original protections, click **Delete branch protection rule**. Only delete the original rules if the new rulesets are **Active** and you have confirmed that they cover the intended branches and behave as expected. **Evaluate** and **Disabled** rulesets do not provide active protection.
+
+{% endif %}
+
+## Converting a single branch protection rule to a ruleset
+
+{% ifversion branch-protection-ruleset-bulk-conversion %}Use the single-rule flow when you want to review and configure the conversion for one branch protection rule at a time.{% endif %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
@@ -31,9 +60,6 @@ For more information about rulesets, see [AUTOTITLE](/repositories/configuring-b
 1. Click **Create ruleset**. If the conversion produces more than one ruleset, the button includes the number of rulesets, for example, **Create 2 rulesets**.
 
 If you keep the original branch protection rule, it continues to protect matching branches. An **Active** ruleset is enforced alongside it, so changes must satisfy both.{% ifversion repo-rules-enterprise %} An **Evaluate** ruleset records how it would behave without enforcing its rules.{% endif %}
-
-> [!NOTE]
-> The conversion covers all branch protection types with the exception of the "Require conversation resolution before merging" setting. In branch protections, this setting exists on its own. In rulesets, conversation resolution is part of the pull request rule and only applies when that rule is enabled. As a result, this setting does not map one to one during conversion. See [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets).
 
 {% ifversion repo-rules-enterprise %}
 

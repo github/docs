@@ -1,4 +1,4 @@
-// Type declarations for ESLint plugins without official TypeScript definitions
+// These ESLint plugins do not ship TypeScript definitions.
 
 declare module 'eslint-plugin-github' {
   import type { ESLint, Linter } from 'eslint'
@@ -6,6 +6,9 @@ declare module 'eslint-plugin-github' {
   const plugin: ESLint.Plugin & {
     configs: {
       recommended: Linter.FlatConfig
+    }
+    getFlatConfigs: () => {
+      react: Linter.FlatConfig
     }
   }
 

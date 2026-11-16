@@ -1,4 +1,5 @@
 import { describe, expect, test, vi, beforeEach } from 'vitest'
+import octicons from '@primer/octicons'
 
 import { SecretScanningTransformer } from '@/article-api/transformers/secret-scanning-transformer'
 import shortVersionsMiddleware from '@/versions/middleware/short-versions'
@@ -74,5 +75,33 @@ describe('SecretScanningTransformer Liquid evaluation', () => {
     expect(context.secretScanningData).toBeDefined()
     expect(context.secretScanningData![0].hasValidityCheck).toBe(true)
     expect(context.secretScanningData![0].hasExtendedMetadata).toBe(true)
+  })
+})
+
+describe('SecretScanningTransformer icon replacement', () => {
+  const transformer = new SecretScanningTransformer()
+
+  beforeEach(() => {
+    vi.clearAllMocks()
+  })
+
+  test('replaces octicon SVGs with check and cross marks', async () => {
+    vi.mocked(getSecretScanningData).mockResolvedValue([])
+    const supported = octicons.check.toSVG({ 'aria-label': 'Supported' })
+    const notSupported = octicons.x.toSVG({ 'aria-label': 'Not supported' })
+    const page = {
+      ...stubPage,
+      render: vi
+        .fn()
+        .mockResolvedValue(
+          `| User alerts | ${supported} | ${notSupported} | ${supported} (if partner) |`,
+        ),
+    } as unknown as Page
+    const context = await buildContext('free-pro-team@latest')
+
+    const result = await transformer.transform(page, '/test', context)
+
+    expect(result).toContain('| User alerts | ✓ | ✗ | ✓ (if partner) |')
+    expect(result).not.toContain('<svg')
   })
 })

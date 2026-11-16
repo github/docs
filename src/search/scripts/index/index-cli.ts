@@ -7,12 +7,13 @@ import { languageKeys } from '@/languages/lib/languages-server'
 import { indexGeneralSearch } from './lib/index-general-search'
 import {
   allIndexVersionKeys,
+  allIndexVersionOptions,
   supportedAutocompletePlanVersions,
   versionToIndexVersionMap,
 } from '@/search/lib/elasticsearch-versions'
 import { indexAISearchAutocomplete } from './lib/index-ai-search-autocomplete'
 
-// If you optionally have ELASTICSEARCH_URL set in your .env file.
+// Reads ELASTICSEARCH_URL from .env when the shell environment lacks it.
 dotenv.config()
 
 program.name('index').description('CLI scripts for indexing Docs data into Elasticsearch')
@@ -25,7 +26,10 @@ const generalSearchCommand = new Command('general-search')
   )
   .option('-v, --verbose', 'Verbose outputs')
   .addOption(
-    new Option('-V, --version [VERSION...]', 'Specific versions').choices(allVersionKeysWithAll),
+    new Option('-V, --version [VERSION...]', 'Specific versions').choices([
+      ...allIndexVersionOptions,
+      'all',
+    ]),
   )
   .addOption(
     new Option('-l, --language <LANGUAGE...>', 'Which languages to focus on').choices(languageKeys),
@@ -104,8 +108,7 @@ const aiSearchAutocompleteCommand = new Command('ai-search-autocomplete')
   .option('--index-prefix <prefix>', 'Prefix for the index names', '')
   .argument('<data-root>', 'path to the docs-internal-data repo')
   .action(async (dataRepoRoot: string, options) => {
-    // In the future, we may want to support multiple languages
-    // Currently (since this is an experiment), we only support english
+    // AI search autocomplete indexes English only while the experiment runs.
     const languages = ['en']
     const indexPrefix = options.indexPrefix || ''
     if (!Array.isArray(options.version)) {

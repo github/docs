@@ -36,7 +36,7 @@ Anyone can install {% data variables.product.prodname_github_apps %} on their pe
 
 Organization owners can install {% data variables.product.prodname_github_apps %} on their organization.{% ifversion enterprise-installed-apps %}
 
-Enterprise owners can install {% data variables.product.prodname_github_apps %} on their enterprise accounts, if the application requests enterprise permissions. The app can be owned by the enterprise, an organization within the enterprise, or a third-party developer. Third-party apps must be public and cannot request the "Enterprise organization installations" or "Enterprise organization installation repositories" permissions.
+Enterprise owners can install {% data variables.product.prodname_github_apps %} on their enterprise accounts, if the application requests enterprise permissions. The app can be owned by the enterprise{% ifversion ghes %} or organization{% else %}, an organization within the enterprise, or a third-party developer. Third-party apps must be public and cannot request the "Enterprise organization installations" or "Enterprise organization installation repositories" permissions{% endif %}.
 {% endif %}
 
 {% data reusables.apps.repo-admin-install-restriction %}
@@ -66,4 +66,3 @@ During the installation process, the app owner will direct you to a {% data vari
    If the app creates any repositories, the app will automatically be granted access to those repositories as well.
 1. Review the permissions that the app is requesting. For more information about the REST API requests the {% data variables.product.prodname_github_app %} can make with those permissions, see [AUTOTITLE](/rest/authentication/permissions-required-for-github-apps).
 1. Click **Install**, **Install and request**, or **Request**. The button that is presented depends on whether your organization owner must approve none, some, or all of the requested access for the app.{% ifversion enterprise-installed-apps %} Enterprise installations cannot be requested—the enterprise owner must install the app directly.{% endif %} For more information, see [Requirements to install a {% data variables.product.prodname_github_app %}](#requirements-to-install-a-github-app).
-

@@ -30,7 +30,7 @@ flowchart TD
     style End fill:#F7C325
 ```
 
-A [workflow](.github/workflows/sync-audit-logs.yml) is used to trigger the automation of the audit log events documentation. The workflow runs automatically on a daily schedule.
+A [workflow](../../.github/workflows/sync-audit-logs.yml) is used to trigger the automation of the audit log events documentation. The workflow runs automatically on a daily schedule.
 
 The workflow creates a pull request with audit log event updates and the label `audit-log-pipeline`.  If there is no updated audit log data, a pull request is not created.
 

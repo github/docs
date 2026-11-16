@@ -32,25 +32,24 @@ describe('malformed URLs', () => {
   })
 
   test('allows URLs with control characters (valid UTF-8)', async () => {
+    // %01 decodes fine, so the middleware lets it through.
     const res = await get('/en/test-%01-page')
-    expect(res.statusCode).toBe(404) // Should be 404 since page doesn't exist, not 400
-    // Control characters like %01 are valid UTF-8 and don't cause decoding errors
+    // The page does not exist, so a valid URL returns 404 instead of 400.
+    expect(res.statusCode).toBe(404)
   })
 
   test('allows valid URLs with proper encoding', async () => {
     const res = await get('/en/get-started')
     expect(res.statusCode).not.toBe(400)
-    // Should not be blocked by malformed URL middleware
   })
 
   test('allows valid URLs with proper percent encoding', async () => {
     const res = await get('/en/search?q=test%20query')
     expect(res.statusCode).not.toBe(400)
-    // Should not be blocked by malformed URL middleware
   })
 
   test('blocks malformed query parameters', async () => {
-    // This is caught by checking originalUrl which contains the raw, unparsed URL
+    // originalUrl keeps the raw, unparsed query string.
     const res = await get('/en/search?q=test%FF')
     expect(res.statusCode).toBe(400)
     expect(res.headers['content-type']).toMatch('text/plain')

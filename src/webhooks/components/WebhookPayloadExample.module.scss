@@ -16,3 +16,14 @@
 .errorCode {
   background: none;
 }
+
+.actionTypeMenu {
+  // Brand caps the button's label span at 200px and hides overflow, which wraps
+  // longer action-type labels (e.g. "Action type: requested_action") onto
+  // multiple lines instead of keeping them on one. Matches the precedent in
+  // CookBookFilter.module.scss.
+  :global([class*="ActionMenu__button"]) > span:first-of-type {
+    max-width: none;
+    white-space: nowrap;
+  }
+}

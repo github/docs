@@ -1,8 +1,7 @@
 name: Reviewers - Dependabot
 
-# **What it does**: Automatically add reviewers based on paths, for docs-internal and docs repos.
-# **Why we have it**: So dependabot maintainers can be notified about relevant pull requests.
-# **Who does it impact**: dependabot-updates-reviewers.
+# Dependabot docs paths request dependabot-updates-reviewers
+# so maintainers see relevant PRs.
 
 on:
   pull_request:
@@ -13,8 +12,32 @@ on:
       - reopened
       - synchronize
     paths:
-      - 'data/reusable/dependabot/**'
-      - 'content/code-security/dependabot/**'
+      - 'data/reusables/dependabot/**'
+      - 'data/reusables/**/*dependabot*'
+      - 'content/code-security/**/*dependabot*'
+      - 'content/code-security/**/*dependabot*/**'
+      # Dependabot articles whose paths do not contain "dependabot"
+      - 'content/code-security/concepts/supply-chain-security/malware-alerts.md'
+      - 'content/code-security/concepts/supply-chain-security/multi-ecosystem-updates.md'
+      - 'content/code-security/how-tos/secure-at-scale/configure-enterprise-security/configure-specific-tools/configure-limited-internet-access.md'
+      - 'content/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-access-to-private-registries.md'
+      - 'content/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-on-github-hosted-runners.md'
+      - 'content/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-on-self-hosted-runners.md'
+      - 'content/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-private-registries.md'
+      - 'content/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/controlling-dependencies-updated.md'
+      - 'content/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/list-configured-dependencies.md'
+      - 'content/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/prioritize-with-preset-rules.md'
+      - 'content/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/remove-access-to-public-registries.md'
+      - 'content/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/resolve-a-blocked-host.md'
+      - 'content/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/auto-update-actions.md'
+      - 'content/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/configure-malware-alerts.md'
+      - 'content/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/configure-security-updates.md'
+      - 'content/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/configure-version-updates.md'
+      - 'content/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/configuring-multi-ecosystem-updates.md'
+      - 'content/code-security/reference/supply-chain-security/criteria-for-preset-rules.md'
+      - 'content/code-security/reference/supply-chain-security/supported-ecosystems-and-manifests-for-dependency-scope.md'
+      - 'content/code-security/reference/supply-chain-security/supported-ecosystems-and-repositories.md'
+      - 'content/code-security/tutorials/secure-your-dependencies/optimizing-pr-creation-version-updates.md'
       - 'content/rest/dependabot/**'
       - '.github/workflows/reviewers-dependabot.yml'
 

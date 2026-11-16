@@ -1,6 +1,6 @@
 ---
 title: Downloading license use for your enterprise or organization
-intro: Get data on consumption of {% data variables.product.github %}, {% data variables.product.prodname_copilot_short %}, and {% data variables.product.prodname_AS %} licenses.
+intro: Get data on consumption of {% data variables.product.github %}, {% data variables.product.prodname_copilot_short %}{% ifversion code-quality %}, {% data variables.product.prodname_code_quality_short %}{% endif %}, and {% data variables.product.prodname_AS %} licenses.
 permissions: '{% data reusables.permissions.enhanced-billing-enterprise %}'
 versions:
   fpt: '*'
@@ -15,7 +15,7 @@ category:
   - Manage your plan and licenses
 ---
 
-You can download CSV files with details of paid license use through the {% data variables.product.github %} user interface or the REST API.
+You can download CSV files with details of paid license use through the {% data variables.product.github %} user interface. For supported products, you can also retrieve license usage information through the REST API.
 
 For more detailed reports on usage of all paid products, see [AUTOTITLE](/billing/how-tos/products/view-productlicense-use).
 
@@ -26,7 +26,7 @@ For more detailed reports on usage of all paid products, see [AUTOTITLE](/billin
 
 1. In the license area of interest, click **Download CSV report**. If offered a choice, choose your preferred report.
 
-The report will be emailed to the default email address associated with your {% data variables.product.github %} account. For information about the fields, see [AUTOTITLE](/billing/reference/license-reports).
+The report will be emailed to the default email address associated with your {% data variables.product.github %} account.{% ifversion code-quality %} The exception is {% data variables.product.prodname_code_quality_short %} reports, which download directly to your browser instead.{% endif %} For information about the fields, see [AUTOTITLE](/billing/reference/license-reports).
 
 ## On {% data variables.product.prodname_ghe_server %}
 

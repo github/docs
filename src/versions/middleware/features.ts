@@ -30,16 +30,13 @@ const cache = new Map<string, Record<string, boolean>>()
 export function getFeaturesByVersion(currentVersion: string): Record<string, boolean> {
   if (!cache.has(currentVersion)) {
     if (!allFeatures) {
-      // As of Oct 2022, the `data/features/**` reading is *not* JIT.
-      // The `data/features` is deliberately not ignored in nodemon.json.
-      // See internal issue #2389
+      // data/features loads outside JIT, so nodemon watches it instead of ignoring it.
       allFeatures = getDeepDataByLanguage('features', 'en') as Record<string, FeatureVersions>
     }
 
     const featureFlags: {
       [feature: string]: boolean
     } = {}
-    // Determine whether the currentVersion belongs to the list of versions the feature is available in.
     for (const [featureName, feature] of Object.entries(allFeatures)) {
       const { versions } = feature
       const applicableVersions = getApplicableVersions(
@@ -47,8 +44,7 @@ export function getFeaturesByVersion(currentVersion: string): Record<string, boo
         path.join(ROOT, `data/features/${featureName}.yml`),
       )
 
-      // Adding the resulting boolean to the context object gives us the ability to use
-      // `{% if featureName ... %}` conditionals in content files.
+      // Context booleans let content use Liquid conditionals such as {% if featureName ... %}.
       const isFeatureAvailableInCurrentVersion = applicableVersions.includes(currentVersion)
       featureFlags[featureName] = isFeatureAvailableInCurrentVersion
     }

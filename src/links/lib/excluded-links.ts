@@ -1,10 +1,6 @@
-/**
- * The external and internal link checkers rely on this
- * (`src/links/scripts/check-links-external.ts` and `check-links-internal.ts`) when we encounter
- * links that we *specifically ignore*. That means, that URLs or patterns
- * mentioned in the corresponding YAML file might appear within our content but we don't
- * bother checking that they actually work.
- */
+// The external and internal link checkers read excluded-links.yml through this module.
+// Patterns in that file can appear in content, but check-links-external.ts and
+// check-links-internal.ts do not verify them.
 
 import { load } from 'js-yaml'
 import fs from 'fs'

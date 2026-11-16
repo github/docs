@@ -70,7 +70,7 @@ Be vigilant with new packages and libraries.
 * Review licensing. Avoid introducing code or dependencies that are incompatible with your project’s license (for example, AGPL-3.0 in a MIT licensed project, or dependencies with no declared license).
 * Watch out for hallucinated or suspicious packages (such as packages that don't actually exist), or slopsquatting (a theoretical attack on LLMs using fake or malicious packages).
 * [AUTOTITLE](/copilot/tutorials/copilot-cookbook/communicate-effectively/creating-templates) demonstrates how {% data variables.product.prodname_copilot_short %} can assist with dependency setup, however it is good practice to always verify suggested packages yourself.
-* Use [AUTOTITLE](/copilot/concepts/completions/code-referencing) to review matches with publicly available code.
+* Use [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-in-ides#references-to-matching-public-code) to review matches with publicly available code.
 
 ### Example prompts
 
@@ -108,7 +108,7 @@ Let tools handle the repetitive work.
 * Set up CI checks for style, linting, security, code quality and code coverage.
 * Use {% data variables.product.prodname_dependabot %} for dependency updates and alerts.
 * Apply {% data variables.product.prodname_codeql %} or similar scanners for static analysis.
-* [AUTOTITLE](/copilot/how-tos/get-code-suggestions/find-matching-code) shows how {% data variables.product.prodname_copilot_short %} can help track down code patterns and automate search tasks.
+* [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/copilot-for-common-tasks/find-matching-code) shows how {% data variables.product.prodname_copilot_short %} can help track down code patterns and automate search tasks.
 * Consider if AI agents with reasoning capabilities can assist in automating parts of your review process. For example, build a self-reviewing agent that evaluates draft pull requests against your standards, checking for accuracy, appropriate tone, and business logic _before_ requesting human review.
 
 ## 8. Keep improving your workflow

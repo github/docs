@@ -12,6 +12,7 @@ category:
   - Administer Copilot CLI # Copilot CLI bespoke landing page
 docsTeamMetrics:
   - copilot-cli
+  - ai-governance
 ---
 
 {% data variables.copilot.copilot_cli_short %} brings agentic capabilities to developers' command line. When {% data variables.copilot.copilot_cli_short %} is enabled, developers can use it to ask {% data variables.product.prodname_copilot_short %} to work on tasks locally or delegate work to {% data variables.copilot.copilot_cloud_agent %}.
@@ -22,12 +23,11 @@ You can control the use of {% data variables.copilot.copilot_cli_short %} by con
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.ai-controls-tab %}
-1. To manage policies for **{% data variables.product.prodname_copilot_short %}**, in the sidebar, click {% octicon "copilot" aria-hidden="true" aria-label="copilot" %} **{% data variables.product.prodname_copilot_short %}**.
-1. Under "Features & clients," click **Configure features & clients**.
+{% data reusables.enterprise-accounts.copilot-features-and-clients %}
 1. In the "Clients" section, for {% data variables.copilot.copilot_cli_short %}, select your preferred policy.
 
 > [!NOTE]
-> Disabling {% data variables.copilot.copilot_cli_short %} does not disable the {% data variables.copilot.github_copilot_app %}. The app is governed by its own policy. For more information, see [AUTOTITLE](/copilot/concepts/agents/github-copilot-app).
+> Disabling {% data variables.copilot.copilot_cli_short %} does not disable the {% data variables.copilot.github_copilot_app %}. The app is governed by its own policy. For more information, see [AUTOTITLE](/copilot/concepts/copilot-surfaces/github-copilot-app).
 
 ## How do other AI controls affect {% data variables.copilot.copilot_cli_short %}?
 
@@ -43,11 +43,15 @@ Users can only access AI models that are enabled at the enterprise level. When y
 
 Enterprise and organization owners can provide keys for custom models. Users can select these like any other model: with the {% data variables.copilot.copilot_cli_short %} model selector, the `--model` flag, or environment variables. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/enable-custom-models).
 
-Separately, users can also provide their own LLM keys locally. This is not controlled by enterprise policies. See [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/use-byok-models).
+Separately, users can also provide their own LLM keys locally. This is not controlled by enterprise policies. See [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/add-llm-models).
 
 ### Custom agents
 
 Enterprise-configured custom agents are available to use with {% data variables.copilot.copilot_cli_short %}.
+
+### Content exclusion
+
+Content exclusion policies configured at the enterprise, organization, and repository levels apply to {% data variables.copilot.copilot_cli_short %}. Excluded files are not used as context. For more information, see [AUTOTITLE](/copilot/concepts/context/content-exclusion).
 
 ### MCP server policies
 
@@ -70,7 +74,10 @@ Users must have an assigned {% data variables.product.prodname_copilot %} seat t
 All other controls do **not** affect {% data variables.copilot.copilot_cli_short %}, notably:
 
 * **IDE-specific policies**: Policies configured for specific IDEs or editor extensions
-* **Content exclusions**: File path-based content exclusions
+
+## Applying guardrails so teams follow organizational policies
+
+You can apply guardrails to keep developer's use within organizational policies. First, work with platform and security teams to decide which {% data variables.copilot.copilot_cli_short %} actions need review, ultimately agreeing on what usage information to log. Prefer collecting only the minimum data needed (for example, metadata rather than full prompt contents), and redact or mask secrets and personal data before writing any logs. If teams configure repository-scoped hooks to log prompts and tool use, ensure log access is restricted to authorized personnel and follow your organization's retention and deletion requirements so sensitive data is not stored longer than necessary. These hooks can also block selected command patterns. See [AUTOTITLE](/copilot/tutorials/copilot-cli-hooks).
 
 ## Why can't my developers access {% data variables.copilot.copilot_cli_short %}?
 

@@ -5,10 +5,100 @@ import { fastTextOnly } from '@/content-render/unified/text-only'
 import { loadTemplate } from '@/article-api/lib/load-template'
 import matter from '@gr2m/gray-matter'
 
-/**
- * Transformer for Webhooks pages.
- * Converts webhook events and payloads into markdown format using a Liquid template.
- */
+type PreparedWebhooks = Awaited<ReturnType<typeof prepareWebhooks>>
+
+// Each version scans every webhook category, so reuse the prepared result across requests.
+const preparedWebhooksCache = new Map<string, Promise<PreparedWebhooks>>()
+
+async function getPreparedWebhooks(currentVersion: string): Promise<PreparedWebhooks> {
+  let prepared = preparedWebhooksCache.get(currentVersion)
+  if (!prepared) {
+    prepared = prepareWebhooks(currentVersion)
+    preparedWebhooksCache.set(currentVersion, prepared)
+  }
+  try {
+    return await prepared
+  } catch (error) {
+    // Drop failed loads so a later request can retry.
+    if (preparedWebhooksCache.get(currentVersion) === prepared) {
+      preparedWebhooksCache.delete(currentVersion)
+    }
+    throw error
+  }
+}
+
+async function prepareWebhooks(currentVersion: string) {
+  // Dynamic import avoids circular dependencies.
+  const { getWebhooks } = await import('@/webhooks/lib/index')
+  const webhooksData = await getWebhooks(currentVersion)
+
+  // Omit payload examples so the generated webhook page stays compact.
+  const preparedWebhooks = Object.entries(webhooksData).map(([name, webhook]) => {
+    const actionTypes = Object.keys(webhook)
+    const firstAction = webhook[actionTypes[0]] || {}
+    return {
+      name,
+      actionTypes,
+      summary: firstAction.summaryHtml ? fastTextOnly(firstAction.summaryHtml) : '',
+      availability: firstAction.availability || [],
+      actions: actionTypes.map((actionType) => {
+        const data = webhook[actionType]
+        return {
+          name: actionType,
+          description: data.descriptionHtml ? fastTextOnly(data.descriptionHtml) : '',
+          bodyParameters: (data.bodyParameters || []).map((param) => ({
+            name: param.name || '',
+            type: param.type || '',
+            description: param.description
+              ? fastTextOnly(param.description).replace(/\n/g, ' ').trim()
+              : '',
+            isRequired: param.isRequired || false,
+          })),
+        }
+      }),
+    }
+  })
+
+  // Common body parameters appear in at least 60 percent of webhooks, in any action.
+  const paramCounts = new Map<string, number>()
+  for (const webhook of preparedWebhooks) {
+    const names = new Set(
+      webhook.actions.flatMap((action) => action.bodyParameters.map((param) => param.name)),
+    )
+    for (const name of names) {
+      paramCounts.set(name, (paramCounts.get(name) || 0) + 1)
+    }
+  }
+  const threshold = preparedWebhooks.length * 0.6
+  const commonParamNames = new Set(
+    [...paramCounts.entries()].filter(([, count]) => count >= threshold).map(([name]) => name),
+  )
+
+  // Omit high-frequency body parameters from rows; summarize matches from the first webhook.
+  const commonParams = (
+    preparedWebhooks[0]?.actions[0]?.bodyParameters.filter((p: { name: string }) =>
+      commonParamNames.has(p.name),
+    ) || []
+  ).map((param) => ({
+    ...param,
+    // The shared row replaces every event's own row, so it is required only if every event requires it.
+    isRequired: preparedWebhooks.every((webhook) =>
+      webhook.actions.every((action) =>
+        action.bodyParameters.some((p) => p.name === param.name && p.isRequired),
+      ),
+    ),
+  }))
+  for (const webhook of preparedWebhooks) {
+    for (const action of webhook.actions) {
+      action.bodyParameters = action.bodyParameters.filter(
+        (p: { name: string }) => !commonParamNames.has(p.name),
+      )
+    }
+  }
+
+  return { preparedWebhooks, commonParams }
+}
+
 export class WebhooksTransformer implements PageTransformer {
   templateName = 'webhooks-page.template.md'
 
@@ -17,19 +107,10 @@ export class WebhooksTransformer implements PageTransformer {
   }
 
   async transform(page: Page, pathname: string, context: Context): Promise<string> {
-    // Import getInitialPageWebhooks dynamically to avoid circular dependencies
-    const { getInitialPageWebhooks } = await import('@/webhooks/lib/index')
+    const { preparedWebhooks, commonParams } = await getPreparedWebhooks(context.currentVersion!)
 
-    // Extract version from context
-    const currentVersion = context.currentVersion!
-
-    // Get the webhook data
-    const webhooksData = await getInitialPageWebhooks(currentVersion)
-
-    // Prepare page intro
     const intro = page.intro ? await page.renderProp('intro', context, { textOnly: true }) : ''
 
-    // Prepare manual content
     let manualContent = ''
     if (page.markdown) {
       const { content } = matter(page.markdown)
@@ -48,47 +129,6 @@ export class WebhooksTransformer implements PageTransformer {
       }
     }
 
-    // Prepare webhooks data for template (payload examples are omitted to save space)
-    const preparedWebhooks = webhooksData.map((webhook) => ({
-      name: webhook.name,
-      actionTypes: webhook.actionTypes,
-      summary: webhook.data.summaryHtml ? fastTextOnly(webhook.data.summaryHtml) : '',
-      description: webhook.data.descriptionHtml ? fastTextOnly(webhook.data.descriptionHtml) : '',
-      availability: webhook.data.availability || [],
-      bodyParameters: (webhook.data.bodyParameters || []).map((param) => ({
-        name: param.name || '',
-        type: param.type || '',
-        description: param.description
-          ? fastTextOnly(param.description).replace(/\n/g, ' ').trim()
-          : '',
-        isRequired: param.isRequired || false,
-      })),
-    }))
-
-    // Identify common body parameters that appear in most webhooks
-    const paramCounts = new Map<string, number>()
-    for (const webhook of preparedWebhooks) {
-      for (const param of webhook.bodyParameters) {
-        paramCounts.set(param.name, (paramCounts.get(param.name) || 0) + 1)
-      }
-    }
-    const threshold = preparedWebhooks.length * 0.6
-    const commonParamNames = new Set(
-      [...paramCounts.entries()].filter(([, count]) => count >= threshold).map(([name]) => name),
-    )
-
-    // Remove common params from each webhook and collect them for summary
-    const commonParams =
-      preparedWebhooks[0]?.bodyParameters.filter((p: { name: string }) =>
-        commonParamNames.has(p.name),
-      ) || []
-    for (const webhook of preparedWebhooks) {
-      webhook.bodyParameters = webhook.bodyParameters.filter(
-        (p: { name: string }) => !commonParamNames.has(p.name),
-      )
-    }
-
-    // Prepare template data
     const templateData: Record<string, unknown> = {
       page: {
         title: page.title,
@@ -99,7 +139,6 @@ export class WebhooksTransformer implements PageTransformer {
       commonParams,
     }
 
-    // Load and render template
     const templateContent = loadTemplate(this.templateName)
 
     return await renderContent(templateContent, {

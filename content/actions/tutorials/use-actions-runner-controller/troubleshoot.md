@@ -159,7 +159,8 @@ A `401 Unauthorized` error when attempting to obtain an access token for a {% da
 
 ## Runner updates
 
-{% data reusables.actions.self-hosted-runner-update-warning %}
+> [!WARNING]
+> {% data reusables.actions.self-hosted-runner-update-warning %}
 
 Validate that your runner software version and/or custom runner image(s) in use are running the latest version.
 

@@ -4,6 +4,613 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Type <code>PlanningStatus</code> was added</p>",
+          "<p><code>PlanningStatus</code> object implements <code>Node</code> interface</p>",
+          "<p>Field <code>category</code> was added to object type <code>PlanningStatus</code></p>",
+          "<p>Field <code>id</code> was added to object type <code>PlanningStatus</code></p>",
+          "<p>Field <code>name</code> was added to object type <code>PlanningStatus</code></p>",
+          "<p>Type <code>PlanningStatusCategory</code> was added</p>",
+          "<p>Field <code>key</code> was added to object type <code>PlanningStatusCategory</code></p>",
+          "<p>Field <code>name</code> was added to object type <code>PlanningStatusCategory</code></p>",
+          "<p>Field <code>state</code> was added to object type <code>PlanningStatusCategory</code></p>",
+          "<p>Field <code>stateReason</code> was added to object type <code>PlanningStatusCategory</code></p>",
+          "<p>Type <code>PlanningStatusConnection</code> was added</p>",
+          "<p>Field <code>edges</code> was added to object type <code>PlanningStatusConnection</code></p>",
+          "<p>Field <code>nodes</code> was added to object type <code>PlanningStatusConnection</code></p>",
+          "<p>Field <code>pageInfo</code> was added to object type <code>PlanningStatusConnection</code></p>",
+          "<p>Field <code>totalCount</code> was added to object type <code>PlanningStatusConnection</code></p>",
+          "<p>Type <code>PlanningStatusEdge</code> was added</p>",
+          "<p>Field <code>cursor</code> was added to object type <code>PlanningStatusEdge</code></p>",
+          "<p>Field <code>node</code> was added to object type <code>PlanningStatusEdge</code></p>",
+          "<p>Type <code>SetIssueStatusInput</code> was added</p>",
+          "<p>Input field <code>clientMutationId</code> of type <code>String</code> was added to input object type <code>SetIssueStatusInput</code></p>",
+          "<p>Input field <code>duplicateIssueId</code> of type <code>ID</code> was added to input object type <code>SetIssueStatusInput</code></p>",
+          "<p>Input field <code>issueId</code> of type <code>ID!</code> was added to input object type <code>SetIssueStatusInput</code></p>",
+          "<p>Input field <code>statusId</code> of type <code>ID!</code> was added to input object type <code>SetIssueStatusInput</code></p>",
+          "<p>Type <code>SetIssueStatusPayload</code> was added</p>",
+          "<p>Field <code>clientMutationId</code> was added to object type <code>SetIssueStatusPayload</code></p>",
+          "<p>Field <code>issue</code> was added to object type <code>SetIssueStatusPayload</code></p>",
+          "<p>Enum value <code>AUTO</code> was removed from enum <code>CopilotCodeReviewEffort</code></p>",
+          "<p>Enum value <code>DYNAMIC</code> was added to enum <code>CopilotCodeReviewEffort</code></p>",
+          "<p>Enum value <code>AUTO</code> was removed from enum <code>CopilotCodeReviewEffortLevel</code></p>",
+          "<p>Enum value <code>DYNAMIC</code> was added to enum <code>CopilotCodeReviewEffortLevel</code></p>",
+          "<p>Input field <code>statusId</code> of type <code>ID</code> was added to input object type <code>CreateIssueInput</code></p>",
+          "<p>Input field <code>includeStack</code> of type <code>Boolean</code> with default value <code>false</code> was added to input object type <code>DisablePullRequestAutoMergeInput</code></p>",
+          "<p>Input field <code>includeStack</code> of type <code>Boolean</code> with default value <code>false</code> was added to input object type <code>EnablePullRequestAutoMergeInput</code></p>",
+          "<p>Field <code>status</code> was added to object type <code>Issue</code></p>",
+          "<p>Field <code>viewerCanSetStatus</code> was added to object type <code>Issue</code></p>",
+          "<p>Field <code>setIssueStatus</code> was added to object type <code>Mutation</code></p>",
+          "<p>Argument <code>input: SetIssueStatusInput!</code> added to field <code>Mutation.setIssueStatus</code></p>",
+          "<p>Field <code>planningStatuses</code> was added to object type <code>Organization</code></p>",
+          "<p>Argument <code>after: String</code> added to field <code>Organization.planningStatuses</code></p>",
+          "<p>Argument <code>before: String</code> added to field <code>Organization.planningStatuses</code></p>",
+          "<p>Argument <code>first: Int</code> added to field <code>Organization.planningStatuses</code></p>",
+          "<p>Argument <code>last: Int</code> added to field <code>Organization.planningStatuses</code></p>",
+          "<p>Enum value <code>AUTO</code> was removed from enum <code>OrganizationCopilotCodeReviewEffortSetting</code></p>",
+          "<p>Enum value <code>DYNAMIC</code> was added to enum <code>OrganizationCopilotCodeReviewEffortSetting</code></p>",
+          "<p>Argument <code>includeStack: Boolean</code> (with default value) added to field <code>PullRequest.autoMergeRequest</code></p>",
+          "<p>Argument <code>includeStack: Boolean</code> (with default value) added to field <code>PullRequest.viewerCanDisableAutoMerge</code></p>",
+          "<p>Argument <code>includeStack: Boolean</code> (with default value) added to field <code>PullRequest.viewerCanEnableAutoMerge</code></p>",
+          "<p>Field <code>planningStatuses</code> was added to object type <code>Repository</code></p>",
+          "<p>Argument <code>after: String</code> added to field <code>Repository.planningStatuses</code></p>",
+          "<p>Argument <code>before: String</code> added to field <code>Repository.planningStatuses</code></p>",
+          "<p>Argument <code>first: Int</code> added to field <code>Repository.planningStatuses</code></p>",
+          "<p>Argument <code>last: Int</code> added to field <code>Repository.planningStatuses</code></p>",
+          "<p>Enum value <code>AUTO</code> was removed from enum <code>RepositoryCopilotCodeReviewEffortSetting</code></p>",
+          "<p>Enum value <code>DYNAMIC</code> was added to enum <code>RepositoryCopilotCodeReviewEffortSetting</code></p>",
+          "<p>Input field <code>statusId</code> of type <code>ID</code> was added to input object type <code>UpdateIssueInput</code></p>",
+          "<p>Field <code>planningStatuses</code> was added to object type <code>User</code></p>",
+          "<p>Argument <code>after: String</code> added to field <code>User.planningStatuses</code></p>",
+          "<p>Argument <code>before: String</code> added to field <code>User.planningStatuses</code></p>",
+          "<p>Argument <code>first: Int</code> added to field <code>User.planningStatuses</code></p>",
+          "<p>Argument <code>last: Int</code> added to field <code>User.planningStatuses</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-11-13"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Enum value <code>RESTRICTED</code> was added to enum <code>IssueFieldVisibility</code></p>",
+          "<p>Field <code>pinnedIssueFields</code> was added to object type <code>Repository</code></p>",
+          "<p>Argument <code>after: String</code> added to field <code>Repository.pinnedIssueFields</code></p>",
+          "<p>Argument <code>before: String</code> added to field <code>Repository.pinnedIssueFields</code></p>",
+          "<p>Argument <code>first: Int</code> added to field <code>Repository.pinnedIssueFields</code></p>",
+          "<p>Argument <code>last: Int</code> added to field <code>Repository.pinnedIssueFields</code></p>",
+          "<p>Argument <code>orderBy: PinnedIssueFieldOrder</code> (with default value) added to field <code>Repository.pinnedIssueFields</code></p>",
+          "<p>Field <code>issueFields</code> was added to object type <code>User</code></p>",
+          "<p>Argument <code>after: String</code> added to field <code>User.issueFields</code></p>",
+          "<p>Argument <code>before: String</code> added to field <code>User.issueFields</code></p>",
+          "<p>Argument <code>first: Int</code> added to field <code>User.issueFields</code></p>",
+          "<p>Argument <code>last: Int</code> added to field <code>User.issueFields</code></p>",
+          "<p>Argument <code>orderBy: IssueFieldOrder</code> (with default value) added to field <code>User.issueFields</code></p>",
+          "<p>Field <code>issueTypes</code> was added to object type <code>User</code></p>",
+          "<p>Argument <code>after: String</code> added to field <code>User.issueTypes</code></p>",
+          "<p>Argument <code>before: String</code> added to field <code>User.issueTypes</code></p>",
+          "<p>Argument <code>first: Int</code> added to field <code>User.issueTypes</code></p>",
+          "<p>Argument <code>last: Int</code> added to field <code>User.issueTypes</code></p>",
+          "<p>Argument <code>orderBy: IssueTypeOrder</code> (with default value) added to field <code>User.issueTypes</code></p>",
+          "<p>Field <code>pinnedIssueFields</code> was added to object type <code>User</code></p>",
+          "<p>Argument <code>after: String</code> added to field <code>User.pinnedIssueFields</code></p>",
+          "<p>Argument <code>before: String</code> added to field <code>User.pinnedIssueFields</code></p>",
+          "<p>Argument <code>first: Int</code> added to field <code>User.pinnedIssueFields</code></p>",
+          "<p>Argument <code>last: Int</code> added to field <code>User.pinnedIssueFields</code></p>",
+          "<p>Argument <code>orderBy: PinnedIssueFieldOrder</code> (with default value) added to field <code>User.pinnedIssueFields</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [
+      {
+        "title": "The following changes will be made to the schema:",
+        "changes": [
+          "<p>On member <code>IssueFieldVisibility.ORG_ONLY</code>:<code>ORG_ONLY</code> will be removed. Use <code>RESTRICTED</code> instead. <strong>Effective 2027-04-01</strong>.</p>"
+        ]
+      }
+    ],
+    "date": "2026-11-11"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>PinnedIssueFieldOrder</code> was added</p>",
+          "<p>Input field <code>direction</code> of type <code>OrderDirection!</code> was added to input object type <code>PinnedIssueFieldOrder</code></p>",
+          "<p>Input field <code>field</code> of type <code>PinnedIssueFieldOrderField!</code> was added to input object type <code>PinnedIssueFieldOrder</code></p>",
+          "<p>Type <code>PinnedIssueFieldOrderField</code> was added</p>",
+          "<p>Enum value <code>POSITION</code> was added to enum <code>PinnedIssueFieldOrderField</code></p>",
+          "<p>Argument <code>orderBy: PinnedIssueFieldOrder</code> (with default value) added to field <code>Organization.pinnedIssueFields</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-11-10"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>CopilotCodeReviewEffortLevel</code> was added</p>",
+          "<p>Enum value <code>AUTO</code> was added to enum <code>CopilotCodeReviewEffortLevel</code></p>",
+          "<p>Enum value <code>BALANCED</code> was added to enum <code>CopilotCodeReviewEffortLevel</code></p>",
+          "<p>Enum value <code>LITE</code> was added to enum <code>CopilotCodeReviewEffortLevel</code></p>",
+          "<p>Enum value <code>MAX</code> was added to enum <code>CopilotCodeReviewEffortLevel</code></p>",
+          "<p>Type <code>CopilotCodeReviewRunnerConfiguredBy</code> was added</p>",
+          "<p>Enum value <code>CODE_REVIEW</code> was added to enum <code>CopilotCodeReviewRunnerConfiguredBy</code></p>",
+          "<p>Enum value <code>CODING_AGENT</code> was added to enum <code>CopilotCodeReviewRunnerConfiguredBy</code></p>",
+          "<p>Type <code>CopilotCodeReviewRunnerType</code> was added</p>",
+          "<p>Enum value <code>LABELED</code> was added to enum <code>CopilotCodeReviewRunnerType</code></p>",
+          "<p>Enum value <code>STANDARD</code> was added to enum <code>CopilotCodeReviewRunnerType</code></p>",
+          "<p>Type <code>CopilotCodeReviewSeverityFilter</code> was added</p>",
+          "<p>Enum value <code>LOW</code> was added to enum <code>CopilotCodeReviewSeverityFilter</code></p>",
+          "<p>Enum value <code>LOW_AND_MEDIUM</code> was added to enum <code>CopilotCodeReviewSeverityFilter</code></p>",
+          "<p>Enum value <code>NO_FILTER</code> was added to enum <code>CopilotCodeReviewSeverityFilter</code></p>",
+          "<p>Type <code>EnterpriseCopilotCodeReviewPolicy</code> was added</p>",
+          "<p>Field <code>policyState</code> was added to object type <code>EnterpriseCopilotCodeReviewPolicy</code></p>",
+          "<p>Type <code>EnterpriseCopilotCodeReviewPolicyState</code> was added</p>",
+          "<p>Enum value <code>CONFIGURED_BY_ORGANIZATION_ADMINS</code> was added to enum <code>EnterpriseCopilotCodeReviewPolicyState</code></p>",
+          "<p>Enum value <code>DISABLED_FOR_ALL_ORGANIZATIONS</code> was added to enum <code>EnterpriseCopilotCodeReviewPolicyState</code></p>",
+          "<p>Enum value <code>ENABLED_FOR_ALL_ORGANIZATIONS</code> was added to enum <code>EnterpriseCopilotCodeReviewPolicyState</code></p>",
+          "<p>Type <code>OrganizationCopilotCodeReviewDefaultEffort</code> was added</p>",
+          "<p>Field <code>configured</code> was added to object type <code>OrganizationCopilotCodeReviewDefaultEffort</code></p>",
+          "<p>Field <code>editable</code> was added to object type <code>OrganizationCopilotCodeReviewDefaultEffort</code></p>",
+          "<p>Field <code>effective</code> was added to object type <code>OrganizationCopilotCodeReviewDefaultEffort</code></p>",
+          "<p>Field <code>githubDefault</code> was added to object type <code>OrganizationCopilotCodeReviewDefaultEffort</code></p>",
+          "<p>Field <code>managedBy</code> was added to object type <code>OrganizationCopilotCodeReviewDefaultEffort</code></p>",
+          "<p>Type <code>OrganizationCopilotCodeReviewEffortSetting</code> was added</p>",
+          "<p>Enum value <code>AUTO</code> was added to enum <code>OrganizationCopilotCodeReviewEffortSetting</code></p>",
+          "<p>Enum value <code>BALANCED</code> was added to enum <code>OrganizationCopilotCodeReviewEffortSetting</code></p>",
+          "<p>Enum value <code>INHERIT</code> was added to enum <code>OrganizationCopilotCodeReviewEffortSetting</code></p>",
+          "<p>Enum value <code>LITE</code> was added to enum <code>OrganizationCopilotCodeReviewEffortSetting</code></p>",
+          "<p>Enum value <code>MAX</code> was added to enum <code>OrganizationCopilotCodeReviewEffortSetting</code></p>",
+          "<p>Type <code>OrganizationCopilotCodeReviewPolicy</code> was added</p>",
+          "<p>Field <code>configuredState</code> was added to object type <code>OrganizationCopilotCodeReviewPolicy</code></p>",
+          "<p>Field <code>editable</code> was added to object type <code>OrganizationCopilotCodeReviewPolicy</code></p>",
+          "<p>Field <code>effectiveState</code> was added to object type <code>OrganizationCopilotCodeReviewPolicy</code></p>",
+          "<p>Field <code>managedBy</code> was added to object type <code>OrganizationCopilotCodeReviewPolicy</code></p>",
+          "<p>Type <code>OrganizationCopilotCodeReviewPolicyConflict</code> was added</p>",
+          "<p>Enum value <code>POLICY_MANAGED_BY_ENTERPRISE</code> was added to enum <code>OrganizationCopilotCodeReviewPolicyConflict</code></p>",
+          "<p>Type <code>OrganizationCopilotCodeReviewPolicyManager</code> was added</p>",
+          "<p>Enum value <code>ENTERPRISE</code> was added to enum <code>OrganizationCopilotCodeReviewPolicyManager</code></p>",
+          "<p>Enum value <code>ORGANIZATION</code> was added to enum <code>OrganizationCopilotCodeReviewPolicyManager</code></p>",
+          "<p>Type <code>OrganizationCopilotCodeReviewPolicyState</code> was added</p>",
+          "<p>Enum value <code>DISABLED</code> was added to enum <code>OrganizationCopilotCodeReviewPolicyState</code></p>",
+          "<p>Enum value <code>ENABLED</code> was added to enum <code>OrganizationCopilotCodeReviewPolicyState</code></p>",
+          "<p>Type <code>OrganizationCopilotCodeReviewRunnerConfiguration</code> was added</p>",
+          "<p>Field <code>allowRepositoryCustomization</code> was added to object type <code>OrganizationCopilotCodeReviewRunnerConfiguration</code></p>",
+          "<p>Field <code>configuredBy</code> was added to object type <code>OrganizationCopilotCodeReviewRunnerConfiguration</code></p>",
+          "<p>Field <code>runnerGroupName</code> was added to object type <code>OrganizationCopilotCodeReviewRunnerConfiguration</code></p>",
+          "<p>Field <code>runnerLabels</code> was added to object type <code>OrganizationCopilotCodeReviewRunnerConfiguration</code></p>",
+          "<p>Field <code>runnerType</code> was added to object type <code>OrganizationCopilotCodeReviewRunnerConfiguration</code></p>",
+          "<p>Type <code>OrganizationCopilotCodeReviewSettings</code> was added</p>",
+          "<p>Field <code>availableReviewEfforts</code> was added to object type <code>OrganizationCopilotCodeReviewSettings</code></p>",
+          "<p>Field <code>defaultReviewEffort</code> was added to object type <code>OrganizationCopilotCodeReviewSettings</code></p>",
+          "<p>Type <code>OrganizationCopilotCodeReviewSettingsConflict</code> was added</p>",
+          "<p>Enum value <code>SETTING_NOT_EDITABLE</code> was added to enum <code>OrganizationCopilotCodeReviewSettingsConflict</code></p>",
+          "<p>Type <code>RepositoryCopilotCodeReviewEffort</code> was added</p>",
+          "<p>Field <code>configured</code> was added to object type <code>RepositoryCopilotCodeReviewEffort</code></p>",
+          "<p>Field <code>effective</code> was added to object type <code>RepositoryCopilotCodeReviewEffort</code></p>",
+          "<p>Type <code>RepositoryCopilotCodeReviewEffortSetting</code> was added</p>",
+          "<p>Enum value <code>AUTO</code> was added to enum <code>RepositoryCopilotCodeReviewEffortSetting</code></p>",
+          "<p>Enum value <code>BALANCED</code> was added to enum <code>RepositoryCopilotCodeReviewEffortSetting</code></p>",
+          "<p>Enum value <code>INHERIT</code> was added to enum <code>RepositoryCopilotCodeReviewEffortSetting</code></p>",
+          "<p>Enum value <code>LITE</code> was added to enum <code>RepositoryCopilotCodeReviewEffortSetting</code></p>",
+          "<p>Enum value <code>MAX</code> was added to enum <code>RepositoryCopilotCodeReviewEffortSetting</code></p>",
+          "<p>Type <code>RepositoryCopilotCodeReviewSettings</code> was added</p>",
+          "<p>Field <code>availableReviewEfforts</code> was added to object type <code>RepositoryCopilotCodeReviewSettings</code></p>",
+          "<p>Field <code>customInstructionsEnabled</code> was added to object type <code>RepositoryCopilotCodeReviewSettings</code></p>",
+          "<p>Field <code>mcpEnabled</code> was added to object type <code>RepositoryCopilotCodeReviewSettings</code></p>",
+          "<p>Field <code>reviewEffort</code> was added to object type <code>RepositoryCopilotCodeReviewSettings</code></p>",
+          "<p>Field <code>severityFilter</code> was added to object type <code>RepositoryCopilotCodeReviewSettings</code></p>",
+          "<p>Type <code>UpdateEnterpriseCopilotCodeReviewPolicyInput</code> was added</p>",
+          "<p>Input field <code>clientMutationId</code> of type <code>String</code> was added to input object type <code>UpdateEnterpriseCopilotCodeReviewPolicyInput</code></p>",
+          "<p>Input field <code>enterpriseId</code> of type <code>ID!</code> was added to input object type <code>UpdateEnterpriseCopilotCodeReviewPolicyInput</code></p>",
+          "<p>Input field <code>policyState</code> of type <code>EnterpriseCopilotCodeReviewPolicyState!</code> was added to input object type <code>UpdateEnterpriseCopilotCodeReviewPolicyInput</code></p>",
+          "<p>Type <code>UpdateEnterpriseCopilotCodeReviewPolicyPayload</code> was added</p>",
+          "<p>Field <code>clientMutationId</code> was added to object type <code>UpdateEnterpriseCopilotCodeReviewPolicyPayload</code></p>",
+          "<p>Field <code>policy</code> was added to object type <code>UpdateEnterpriseCopilotCodeReviewPolicyPayload</code></p>",
+          "<p>Type <code>UpdateOrganizationCopilotCodeReviewPolicyInput</code> was added</p>",
+          "<p>Input field <code>clientMutationId</code> of type <code>String</code> was added to input object type <code>UpdateOrganizationCopilotCodeReviewPolicyInput</code></p>",
+          "<p>Input field <code>organizationId</code> of type <code>ID!</code> was added to input object type <code>UpdateOrganizationCopilotCodeReviewPolicyInput</code></p>",
+          "<p>Input field <code>state</code> of type <code>OrganizationCopilotCodeReviewPolicyState!</code> was added to input object type <code>UpdateOrganizationCopilotCodeReviewPolicyInput</code></p>",
+          "<p>Type <code>UpdateOrganizationCopilotCodeReviewPolicyPayload</code> was added</p>",
+          "<p>Field <code>clientMutationId</code> was added to object type <code>UpdateOrganizationCopilotCodeReviewPolicyPayload</code></p>",
+          "<p>Field <code>conflict</code> was added to object type <code>UpdateOrganizationCopilotCodeReviewPolicyPayload</code></p>",
+          "<p>Field <code>policy</code> was added to object type <code>UpdateOrganizationCopilotCodeReviewPolicyPayload</code></p>",
+          "<p>Type <code>UpdateOrganizationCopilotCodeReviewRunnerConfigurationInput</code> was added</p>",
+          "<p>Input field <code>allowRepositoryCustomization</code> of type <code>Boolean</code> was added to input object type <code>UpdateOrganizationCopilotCodeReviewRunnerConfigurationInput</code></p>",
+          "<p>Input field <code>clientMutationId</code> of type <code>String</code> was added to input object type <code>UpdateOrganizationCopilotCodeReviewRunnerConfigurationInput</code></p>",
+          "<p>Input field <code>organizationId</code> of type <code>ID!</code> was added to input object type <code>UpdateOrganizationCopilotCodeReviewRunnerConfigurationInput</code></p>",
+          "<p>Input field <code>runnerGroupName</code> of type <code>String</code> was added to input object type <code>UpdateOrganizationCopilotCodeReviewRunnerConfigurationInput</code></p>",
+          "<p>Input field <code>runnerLabels</code> of type <code>[String!]</code> was added to input object type <code>UpdateOrganizationCopilotCodeReviewRunnerConfigurationInput</code></p>",
+          "<p>Input field <code>runnerType</code> of type <code>CopilotCodeReviewRunnerType!</code> was added to input object type <code>UpdateOrganizationCopilotCodeReviewRunnerConfigurationInput</code></p>",
+          "<p>Type <code>UpdateOrganizationCopilotCodeReviewRunnerConfigurationPayload</code> was added</p>",
+          "<p>Field <code>clientMutationId</code> was added to object type <code>UpdateOrganizationCopilotCodeReviewRunnerConfigurationPayload</code></p>",
+          "<p>Field <code>runnerConfiguration</code> was added to object type <code>UpdateOrganizationCopilotCodeReviewRunnerConfigurationPayload</code></p>",
+          "<p>Type <code>UpdateOrganizationCopilotCodeReviewSettingsInput</code> was added</p>",
+          "<p>Input field <code>clientMutationId</code> of type <code>String</code> was added to input object type <code>UpdateOrganizationCopilotCodeReviewSettingsInput</code></p>",
+          "<p>Input field <code>defaultReviewEffort</code> of type <code>OrganizationCopilotCodeReviewEffortSetting</code> was added to input object type <code>UpdateOrganizationCopilotCodeReviewSettingsInput</code></p>",
+          "<p>Input field <code>organizationId</code> of type <code>ID!</code> was added to input object type <code>UpdateOrganizationCopilotCodeReviewSettingsInput</code></p>",
+          "<p>Type <code>UpdateOrganizationCopilotCodeReviewSettingsPayload</code> was added</p>",
+          "<p>Field <code>clientMutationId</code> was added to object type <code>UpdateOrganizationCopilotCodeReviewSettingsPayload</code></p>",
+          "<p>Field <code>conflict</code> was added to object type <code>UpdateOrganizationCopilotCodeReviewSettingsPayload</code></p>",
+          "<p>Field <code>settings</code> was added to object type <code>UpdateOrganizationCopilotCodeReviewSettingsPayload</code></p>",
+          "<p>Type <code>UpdateRepositoryCopilotCodeReviewSettingsInput</code> was added</p>",
+          "<p>Input field <code>clientMutationId</code> of type <code>String</code> was added to input object type <code>UpdateRepositoryCopilotCodeReviewSettingsInput</code></p>",
+          "<p>Input field <code>customInstructionsEnabled</code> of type <code>Boolean</code> was added to input object type <code>UpdateRepositoryCopilotCodeReviewSettingsInput</code></p>",
+          "<p>Input field <code>mcpEnabled</code> of type <code>Boolean</code> was added to input object type <code>UpdateRepositoryCopilotCodeReviewSettingsInput</code></p>",
+          "<p>Input field <code>repositoryId</code> of type <code>ID!</code> was added to input object type <code>UpdateRepositoryCopilotCodeReviewSettingsInput</code></p>",
+          "<p>Input field <code>reviewEffort</code> of type <code>RepositoryCopilotCodeReviewEffortSetting</code> was added to input object type <code>UpdateRepositoryCopilotCodeReviewSettingsInput</code></p>",
+          "<p>Input field <code>severityFilter</code> of type <code>CopilotCodeReviewSeverityFilter</code> was added to input object type <code>UpdateRepositoryCopilotCodeReviewSettingsInput</code></p>",
+          "<p>Type <code>UpdateRepositoryCopilotCodeReviewSettingsPayload</code> was added</p>",
+          "<p>Field <code>clientMutationId</code> was added to object type <code>UpdateRepositoryCopilotCodeReviewSettingsPayload</code></p>",
+          "<p>Field <code>settings</code> was added to object type <code>UpdateRepositoryCopilotCodeReviewSettingsPayload</code></p>",
+          "<p>Field <code>copilotCodeReviewPolicy</code> was added to object type <code>Enterprise</code></p>",
+          "<p>Field <code>updateEnterpriseCopilotCodeReviewPolicy</code> was added to object type <code>Mutation</code></p>",
+          "<p>Argument <code>input: UpdateEnterpriseCopilotCodeReviewPolicyInput!</code> added to field <code>Mutation.updateEnterpriseCopilotCodeReviewPolicy</code></p>",
+          "<p>Field <code>updateOrganizationCopilotCodeReviewPolicy</code> was added to object type <code>Mutation</code></p>",
+          "<p>Argument <code>input: UpdateOrganizationCopilotCodeReviewPolicyInput!</code> added to field <code>Mutation.updateOrganizationCopilotCodeReviewPolicy</code></p>",
+          "<p>Field <code>updateOrganizationCopilotCodeReviewRunnerConfiguration</code> was added to object type <code>Mutation</code></p>",
+          "<p>Argument <code>input: UpdateOrganizationCopilotCodeReviewRunnerConfigurationInput!</code> added to field <code>Mutation.updateOrganizationCopilotCodeReviewRunnerConfiguration</code></p>",
+          "<p>Field <code>updateOrganizationCopilotCodeReviewSettings</code> was added to object type <code>Mutation</code></p>",
+          "<p>Argument <code>input: UpdateOrganizationCopilotCodeReviewSettingsInput!</code> added to field <code>Mutation.updateOrganizationCopilotCodeReviewSettings</code></p>",
+          "<p>Field <code>updateRepositoryCopilotCodeReviewSettings</code> was added to object type <code>Mutation</code></p>",
+          "<p>Argument <code>input: UpdateRepositoryCopilotCodeReviewSettingsInput!</code> added to field <code>Mutation.updateRepositoryCopilotCodeReviewSettings</code></p>",
+          "<p>Field <code>copilotCodeReviewRunnerConfiguration</code> was added to object type <code>Organization</code></p>",
+          "<p>Field <code>copilotCodeReviewSettings</code> was added to object type <code>Organization</code></p>",
+          "<p>Field <code>organizationCopilotCodeReviewPolicy</code> was added to object type <code>Organization</code></p>",
+          "<p>Field <code>repositoryCopilotCodeReviewSettings</code> was added to object type <code>Repository</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-11-05"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>CopilotCodeReviewSource</code> was added</p>",
+          "<p>Field <code>kind</code> was added to object type <code>CopilotCodeReviewSource</code></p>",
+          "<p>Field <code>name</code> was added to object type <code>CopilotCodeReviewSource</code></p>",
+          "<p>Field <code>path</code> was added to object type <code>CopilotCodeReviewSource</code></p>",
+          "<p>Type <code>CopilotCodeReviewSourceKind</code> was added</p>",
+          "<p>Enum value <code>CUSTOM_INSTRUCTIONS</code> was added to enum <code>CopilotCodeReviewSourceKind</code></p>",
+          "<p>Enum value <code>MCP</code> was added to enum <code>CopilotCodeReviewSourceKind</code></p>",
+          "<p>Enum value <code>SKILL</code> was added to enum <code>CopilotCodeReviewSourceKind</code></p>",
+          "<p>Field <code>copilotCodeReviewEffort</code> was added to object type <code>PullRequestReview</code></p>",
+          "<p>Field <code>isCopilotCodeReview</code> was added to object type <code>PullRequestReview</code></p>",
+          "<p>Field <code>copilotCodeReviewSources</code> was added to object type <code>PullRequestReviewComment</code></p>",
+          "<p>Field <code>isCopilotCodeReview</code> was added to object type <code>PullRequestReviewComment</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-11-04"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>CopilotCodeReviewEffort</code> was added</p>",
+          "<p>Enum value <code>AUTO</code> was added to enum <code>CopilotCodeReviewEffort</code></p>",
+          "<p>Enum value <code>BALANCED</code> was added to enum <code>CopilotCodeReviewEffort</code></p>",
+          "<p>Enum value <code>LITE</code> was added to enum <code>CopilotCodeReviewEffort</code></p>",
+          "<p>Enum value <code>MAX</code> was added to enum <code>CopilotCodeReviewEffort</code></p>",
+          "<p>Type <code>CopilotCodeReviewRequestReason</code> was added</p>",
+          "<p>Enum value <code>ACTOR_INELIGIBLE</code> was added to enum <code>CopilotCodeReviewRequestReason</code></p>",
+          "<p>Enum value <code>APP_NOT_INSTALLED</code> was added to enum <code>CopilotCodeReviewRequestReason</code></p>",
+          "<p>Enum value <code>LICENSED_ORGANIZATION_UNAVAILABLE</code> was added to enum <code>CopilotCodeReviewRequestReason</code></p>",
+          "<p>Enum value <code>NO_QUOTA_REMAINING</code> was added to enum <code>CopilotCodeReviewRequestReason</code></p>",
+          "<p>Enum value <code>REPOSITORY_INELIGIBLE</code> was added to enum <code>CopilotCodeReviewRequestReason</code></p>",
+          "<p>Enum value <code>REQUEST_CONFLICT</code> was added to enum <code>CopilotCodeReviewRequestReason</code></p>",
+          "<p>Type <code>RequestCopilotCodeReviewInput</code> was added</p>",
+          "<p>Input field <code>clientMutationId</code> of type <code>String</code> was added to input object type <code>RequestCopilotCodeReviewInput</code></p>",
+          "<p>Input field <code>pullRequestId</code> of type <code>ID!</code> was added to input object type <code>RequestCopilotCodeReviewInput</code></p>",
+          "<p>Input field <code>reviewEffort</code> of type <code>CopilotCodeReviewEffort</code> was added to input object type <code>RequestCopilotCodeReviewInput</code></p>",
+          "<p>Type <code>RequestCopilotCodeReviewPayload</code> was added</p>",
+          "<p>Field <code>actor</code> was added to object type <code>RequestCopilotCodeReviewPayload</code></p>",
+          "<p>Field <code>clientMutationId</code> was added to object type <code>RequestCopilotCodeReviewPayload</code></p>",
+          "<p>Field <code>failureReason</code> was added to object type <code>RequestCopilotCodeReviewPayload</code></p>",
+          "<p>Field <code>pullRequest</code> was added to object type <code>RequestCopilotCodeReviewPayload</code></p>",
+          "<p>Field <code>reviewRequest</code> was added to object type <code>RequestCopilotCodeReviewPayload</code></p>",
+          "<p>Field <code>success</code> was added to object type <code>RequestCopilotCodeReviewPayload</code></p>",
+          "<p>Field <code>requestCopilotCodeReview</code> was added to object type <code>Mutation</code></p>",
+          "<p>Argument <code>input: RequestCopilotCodeReviewInput!</code> added to field <code>Mutation.requestCopilotCodeReview</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-11-03"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Enum value <code>MODERATE</code> was added to enum <code>RepositoryPermission</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [
+      {
+        "title": "The following changes will be made to the schema:",
+        "changes": [
+          "<p>On member <code>RepositoryPermission.TRIAGE_PLUS</code>:<code>TRIAGE_PLUS</code> will be removed. Use MODERATE instead. <strong>Effective 2027-04-01</strong>.</p>"
+        ]
+      }
+    ],
+    "date": "2026-11-02"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Field <code>requireExtraApprovalForUnattributedChanges</code> was added to object type <code>PullRequestParameters</code></p>",
+          "<p>Input field <code>requireExtraApprovalForUnattributedChanges</code> of type <code>Boolean</code> was added to input object type <code>PullRequestParametersInput</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-10-27"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Field <code>ignoredFilePaths</code> was added to object type <code>FilePathRestrictionParameters</code></p>",
+          "<p>Input field <code>ignoredFilePaths</code> of type <code>[String!]</code> was added to input object type <code>FilePathRestrictionParametersInput</code></p>",
+          "<p>Field <code>ignoredFilePaths</code> was added to object type <code>MaxFileSizeParameters</code></p>",
+          "<p>Input field <code>ignoredFilePaths</code> of type <code>[String!]</code> was added to input object type <code>MaxFileSizeParametersInput</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-10-26"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Field <code>fullDatabaseId</code> was added to object type <code>Repository</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-10-08"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>AddedToStackEvent</code> was added</p>",
+          "<p><code>AddedToStackEvent</code> object implements <code>Node</code> interface</p>",
+          "<p>Field <code>actor</code> was added to object type <code>AddedToStackEvent</code></p>",
+          "<p>Field <code>createdAt</code> was added to object type <code>AddedToStackEvent</code></p>",
+          "<p>Field <code>id</code> was added to object type <code>AddedToStackEvent</code></p>",
+          "<p>Field <code>pullRequest</code> was added to object type <code>AddedToStackEvent</code></p>",
+          "<p>Field <code>stackId</code> was added to object type <code>AddedToStackEvent</code></p>",
+          "<p>Field <code>stackNumber</code> was added to object type <code>AddedToStackEvent</code></p>",
+          "<p>Type <code>RemovedFromStackEvent</code> was added</p>",
+          "<p><code>RemovedFromStackEvent</code> object implements <code>Node</code> interface</p>",
+          "<p>Field <code>actor</code> was added to object type <code>RemovedFromStackEvent</code></p>",
+          "<p>Field <code>createdAt</code> was added to object type <code>RemovedFromStackEvent</code></p>",
+          "<p>Field <code>id</code> was added to object type <code>RemovedFromStackEvent</code></p>",
+          "<p>Field <code>pullRequest</code> was added to object type <code>RemovedFromStackEvent</code></p>",
+          "<p>Field <code>stackId</code> was added to object type <code>RemovedFromStackEvent</code></p>",
+          "<p>Field <code>stackNumber</code> was added to object type <code>RemovedFromStackEvent</code></p>",
+          "<p>Type <code>RerequestReviewsInput</code> was added</p>",
+          "<p>Input field <code>botIds</code> of type '[ID!]<code>was added to input object type</code>RerequestReviewsInput'</p>",
+          "<p>Input field <code>clientMutationId</code> of type <code>String</code> was added to input object type <code>RerequestReviewsInput</code></p>",
+          "<p>Input field <code>pullRequestId</code> of type <code>ID!</code> was added to input object type <code>RerequestReviewsInput</code></p>",
+          "<p>Input field <code>teamIds</code> of type '[ID!]<code>was added to input object type</code>RerequestReviewsInput'</p>",
+          "<p>Input field <code>userIds</code> of type '[ID!]<code>was added to input object type</code>RerequestReviewsInput'</p>",
+          "<p>Type <code>RerequestReviewsPayload</code> was added</p>",
+          "<p>Field <code>actor</code> was added to object type <code>RerequestReviewsPayload</code></p>",
+          "<p>Field <code>clientMutationId</code> was added to object type <code>RerequestReviewsPayload</code></p>",
+          "<p>Field <code>pullRequest</code> was added to object type <code>RerequestReviewsPayload</code></p>",
+          "<p>Field <code>requestedReviewersEdge</code> was added to object type <code>RerequestReviewsPayload</code></p>",
+          "<p>Field <code>rerequestReviews</code> was added to object type <code>Mutation</code></p>",
+          "<p>Argument <code>input: RerequestReviewsInput!</code> added to field <code>Mutation.rerequestReviews</code></p>",
+          "<p>Member <code>AddedToStackEvent</code> was added to Union type <code>PullRequestTimelineItems</code></p>",
+          "<p>Member <code>RemovedFromStackEvent</code> was added to Union type <code>PullRequestTimelineItems</code></p>",
+          "<p>Argument <code>isWithdrawn: Boolean</code> added to field <code>Query.securityAdvisories</code></p>",
+          "<p>Argument 'severities: [SecurityAdvisorySeverity!]<code>added to field</code>Query.securityAdvisories'</p>",
+          "<p>Field <code>cveId</code> was added to object type <code>SecurityAdvisory</code></p>",
+          "<p>Field <code>githubReviewedAt</code> was added to object type <code>SecurityAdvisory</code></p>",
+          "<p>Field <code>nvdPublishedAt</code> was added to object type <code>SecurityAdvisory</code></p>",
+          "<p>Field <code>repositoryAdvisoryUrl</code> was added to object type <code>SecurityAdvisory</code></p>",
+          "<p>Field <code>sourceCodeLocation</code> was added to object type <code>SecurityAdvisory</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-10-05"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Input field <code>id</code> of type <code>String</code> was added to input object type 'ProjectV2Iteration'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-10-01"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>AddRelatesToInput</code> was added</p>",
+          "<p>Input field <code>clientMutationId</code> of type <code>String</code> was added to input object type <code>AddRelatesToInput</code></p>",
+          "<p>Input field <code>issueId</code> of type <code>ID!</code> was added to input object type <code>AddRelatesToInput</code></p>",
+          "<p>Input field <code>relatedIssueId</code> of type <code>ID!</code> was added to input object type <code>AddRelatesToInput</code></p>",
+          "<p>Type <code>AddRelatesToPayload</code> was added</p>",
+          "<p>Field <code>clientMutationId</code> was added to object type <code>AddRelatesToPayload</code></p>",
+          "<p>Field <code>issue</code> was added to object type <code>AddRelatesToPayload</code></p>",
+          "<p>Field <code>relatedIssue</code> was added to object type <code>AddRelatesToPayload</code></p>",
+          "<p>Type <code>IssueRelatesToOrder</code> was added</p>",
+          "<p>Input field <code>direction</code> of type <code>OrderDirection!</code> was added to input object type <code>IssueRelatesToOrder</code></p>",
+          "<p>Input field <code>field</code> of type <code>IssueRelatesToOrderField!</code> was added to input object type <code>IssueRelatesToOrder</code></p>",
+          "<p>Type <code>IssueRelatesToOrderField</code> was added</p>",
+          "<p>Enum value 'CREATED_AT<code>was added to enum</code>IssueRelatesToOrderField'</p>",
+          "<p>Enum value 'RELATES_TO_ADDED_AT<code>was added to enum</code>IssueRelatesToOrderField'</p>",
+          "<p>Type <code>RemoveRelatesToInput</code> was added</p>",
+          "<p>Input field <code>clientMutationId</code> of type <code>String</code> was added to input object type <code>RemoveRelatesToInput</code></p>",
+          "<p>Input field <code>issueId</code> of type <code>ID!</code> was added to input object type <code>RemoveRelatesToInput</code></p>",
+          "<p>Input field <code>relatedIssueId</code> of type <code>ID!</code> was added to input object type <code>RemoveRelatesToInput</code></p>",
+          "<p>Type <code>RemoveRelatesToPayload</code> was added</p>",
+          "<p>Field <code>clientMutationId</code> was added to object type <code>RemoveRelatesToPayload</code></p>",
+          "<p>Field <code>issue</code> was added to object type <code>RemoveRelatesToPayload</code></p>",
+          "<p>Field <code>relatedIssue</code> was added to object type <code>RemoveRelatesToPayload</code></p>",
+          "<p>Field <code>relatesTo</code> was added to object type <code>Issue</code></p>",
+          "<p>Argument <code>after: String</code> added to field <code>Issue.relatesTo</code></p>",
+          "<p>Argument <code>before: String</code> added to field <code>Issue.relatesTo</code></p>",
+          "<p>Argument <code>first: Int</code> added to field <code>Issue.relatesTo</code></p>",
+          "<p>Argument <code>last: Int</code> added to field <code>Issue.relatesTo</code></p>",
+          "<p>Argument <code>orderBy: IssueRelatesToOrder</code> (with default value) added to field <code>Issue.relatesTo</code></p>",
+          "<p>Field <code>addRelatesTo</code> was added to object type <code>Mutation</code></p>",
+          "<p>Argument <code>input: AddRelatesToInput!</code> added to field <code>Mutation.addRelatesTo</code></p>",
+          "<p>Field <code>removeRelatesTo</code> was added to object type <code>Mutation</code></p>",
+          "<p>Argument <code>input: RemoveRelatesToInput!</code> added to field <code>Mutation.removeRelatesTo</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-09-28"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>IssueEventRationale</code> was removed</p>",
+          "<p>Type <code>IssueEventWithRationale</code> was removed</p>",
+          "<p>Type <code>CodeCoverageParameters</code> was added</p>",
+          "<p>Field <code>maxCoverageDrop</code> was added to object type <code>CodeCoverageParameters</code></p>",
+          "<p>Field <code>minimumCoverage</code> was added to object type <code>CodeCoverageParameters</code></p>",
+          "<p>Type <code>CodeCoverageParametersInput</code> was added</p>",
+          "<p>Input field <code>maxCoverageDrop</code> of type <code>Float</code> was added to input object type <code>CodeCoverageParametersInput</code></p>",
+          "<p>Input field <code>minimumCoverage</code> of type <code>Float</code> was added to input object type <code>CodeCoverageParametersInput</code></p>",
+          "<p>Type <code>CodeQualityParameters</code> was added</p>",
+          "<p>Field <code>severity</code> was added to object type <code>CodeQualityParameters</code></p>",
+          "<p>Type <code>CodeQualityParametersInput</code> was added</p>",
+          "<p>Input field <code>severity</code> of type <code>CodeQualitySeverity!</code> was added to input object type <code>CodeQualityParametersInput</code></p>",
+          "<p>Type <code>CodeQualitySeverity</code> was added</p>",
+          "<p>Enum value <code>ALL</code> was added to enum <code>CodeQualitySeverity</code></p>",
+          "<p>Enum value <code>ERRORS</code> was added to enum <code>CodeQualitySeverity</code></p>",
+          "<p>Enum value <code>NOTES</code> was added to enum <code>CodeQualitySeverity</code></p>",
+          "<p>Enum value <code>WARNINGS</code> was added to enum <code>CodeQualitySeverity</code></p>",
+          "<p>Field <code>eventRationales</code> (deprecated) was removed from object type <code>Issue</code></p>",
+          "<p>Field <code>rationale</code> (deprecated) was removed from object type <code>IssueFieldAddedEvent</code></p>",
+          "<p>Field <code>rationale</code> (deprecated) was removed from object type <code>IssueFieldChangedEvent</code></p>",
+          "<p>Field <code>rationale</code> (deprecated) was removed from object type <code>IssueFieldRemovedEvent</code></p>",
+          "<p>Field <code>rationale</code> (deprecated) was removed from object type <code>IssueTypeAddedEvent</code></p>",
+          "<p>Field <code>rationale</code> (deprecated) was removed from object type <code>IssueTypeChangedEvent</code></p>",
+          "<p>Field <code>rationale</code> (deprecated) was removed from object type <code>IssueTypeRemovedEvent</code></p>",
+          "<p>Field <code>rationale</code> (deprecated) was removed from object type <code>LabeledEvent</code></p>",
+          "<p><code>PendingAssigneeSuggestion</code> object implements <code>Node</code> interface</p>",
+          "<p>Field <code>id</code> was added to object type <code>PendingAssigneeSuggestion</code></p>",
+          "<p><code>PendingCloseSuggestion</code> object implements <code>Node</code> interface</p>",
+          "<p>Field <code>id</code> was added to object type <code>PendingCloseSuggestion</code></p>",
+          "<p><code>PendingFieldSuggestion</code> object implements <code>Node</code> interface</p>",
+          "<p>Field <code>id</code> was added to object type <code>PendingFieldSuggestion</code></p>",
+          "<p><code>PendingLabelSuggestion</code> object implements <code>Node</code> interface</p>",
+          "<p>Field <code>id</code> was added to object type <code>PendingLabelSuggestion</code></p>",
+          "<p><code>PendingTypeSuggestion</code> object implements <code>Node</code> interface</p>",
+          "<p>Field <code>id</code> was added to object type <code>PendingTypeSuggestion</code></p>",
+          "<p>Enum value 'TRIAGE_PLUS<code>was added to enum</code>RepositoryPermission'</p>",
+          "<p>Enum value 'CODE_COVERAGE<code>was added to enum</code>RepositoryRuleType'</p>",
+          "<p>Enum value 'CODE_QUALITY<code>was added to enum</code>RepositoryRuleType'</p>",
+          "<p>Member <code>CodeCoverageParameters</code> was added to Union type <code>RuleParameters</code></p>",
+          "<p>Member <code>CodeQualityParameters</code> was added to Union type <code>RuleParameters</code></p>",
+          "<p>Input field <code>codeCoverage</code> of type <code>CodeCoverageParametersInput</code> was added to input object type <code>RuleParametersInput</code></p>",
+          "<p>Input field <code>codeQuality</code> of type <code>CodeQualityParametersInput</code> was added to input object type <code>RuleParametersInput</code></p>",
+          "<p>Field <code>rationale</code> (deprecated) was removed from object type <code>UnlabeledEvent</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-09-21"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>ProofOfPresenceRequirement</code> was removed</p>",
+          "<p>Type <code>UpdateEnterpriseProofOfPresenceRequiredSettingInput</code> was removed</p>",
+          "<p>Type <code>UpdateEnterpriseProofOfPresenceRequiredSettingPayload</code> was removed</p>",
+          "<p>Field <code>updateEnterpriseProofOfPresenceRequiredSetting</code> was removed from object type <code>Mutation</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-09-10"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Field <code>enterpriseRoleDatabaseId</code> was added to object type <code>RepositoryRulesetBypassActor</code></p>",
+          "<p>Input field <code>enterpriseRoleDatabaseId</code> of type <code>BigInt</code> was added to input object type <code>RepositoryRulesetBypassActorInput</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-09-04"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Enum value 'ENTERPRISE_ORGANIZATION_CREATION<code>was added to enum</code>OrganizationInvitationSource'</p>",
+          "<p>Enum value 'ADDED_TO_STACK_EVENT<code>was added to enum</code>PullRequestTimelineItemsItemType'</p>",
+          "<p>Enum value 'REMOVED_FROM_STACK_EVENT<code>was added to enum</code>PullRequestTimelineItemsItemType'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-09-02"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Type <code>AddCloseIssueReferencesInput</code> was added</p>",
           "<p>Input field <code>clientMutationId</code> of type <code>String</code> was added to input object type <code>AddCloseIssueReferencesInput</code></p>",
           "<p>Input field <code>issueId</code> of type <code>ID!</code> was added to input object type <code>AddCloseIssueReferencesInput</code></p>",

@@ -1,8 +1,7 @@
 name: Site Policy Reminder
 
-# **What it does**: Automated comment reminder on a PR to change the title for public consumption before merging and to run the Site Policy repo sync action
-# **Why we have it**: Titles of merged PRs to Site Policies are sent to the public site-policy repo when the repos are synced
-# **Who does it impact**: Everyone merging changes to Site Policies
+# Site Policy PR titles appear in github/site-policy after sync, so they need public wording.
+# The reminder tells admins when to run the sync action.
 
 on:
   pull_request:

@@ -1,0 +1,36 @@
+{
+  "name": "frozen archive branches",
+  "target": "branch",
+  "enforcement": "active",
+  "bypass_actors": [
+    {
+      "actor_id": 5,
+      "actor_type": "RepositoryRole",
+      "bypass_mode": "always"
+    }
+  ],
+  "conditions": {
+    "ref_name": {
+      "exclude": [],
+      "include": [
+        "refs/heads/old-nanoc-site-archive",
+        "refs/heads/gh-pages-archive",
+        "refs/heads/old-main"
+      ]
+    }
+  },
+  "rules": [
+    {
+      "type": "deletion"
+    },
+    {
+      "type": "non_fast_forward"
+    },
+    {
+      "type": "update"
+    },
+    {
+      "type": "creation"
+    }
+  ]
+}

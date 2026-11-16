@@ -5,7 +5,7 @@ intro: You can monitor when nodes in a {% data variables.product.prodname_ghe_se
 permissions: People with administrative SSH access to a {% data variables.product.prodname_ghe_server %} instance can monitor cluster nodes.
 product: '{% data reusables.gated-features.cluster %}'
 versions:
-  ghes: '*'
+  feature: ghes-node-eligibility-service-available
 redirect_from:
   - /admin/enterprise-management/configuring-clustering/monitoring-the-health-of-your-cluster-nodes-with-node-eligibility-service
   - /admin/monitoring-managing-and-updating-your-instance/configuring-clustering/monitoring-the-health-of-your-cluster-nodes-with-node-eligibility-service

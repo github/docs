@@ -33,7 +33,7 @@ export function findUnused({ absolute }: { absolute: boolean }) {
         args.startsWith('reusables.')
       ) {
         const reusableName = `${path.join('data', ...args.split(' ')[0].split('.'))}.md`
-        // Special cases where we don't want them to count as reusables. It's an example in a how-to doc
+        // Ignore how-to examples that use fake reusable names.
         if (
           reusableName.includes('foo/bar.md') ||
           reusableName.includes('foo/par.md') ||

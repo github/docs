@@ -1,0 +1,6 @@
+# Issue 23277
+# API endpoints and GitHub App permission for the external custom properties public preview
+# Note: If this ships to GHES, there may be some follow-up work in the docs
+versions:
+  fpt: '*'
+  ghec: '*'

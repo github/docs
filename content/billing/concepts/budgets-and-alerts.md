@@ -19,6 +19,18 @@ For most license-based products such as {% data variables.product.prodname_copil
 
 For metered products such as {% data variables.product.prodname_actions %}, {% data variables.product.prodname_copilot_short %} {% data variables.product.prodname_ai_credits_short %}, or cloud sandboxes, you can set budgets to prevent usage once the budget threshold is reached.
 
+{% ifversion fpt or ghec %}
+
+The bundled {% data variables.product.prodname_ai_credits_short %} budget controls metered spending across all AI-credit SKUs. You can also create a SKU-level budget for **Code Security AI Credits** to control spending on AI Scan and agentic autofix.
+
+When no Code Security AI Credits quota remains because of a hard budget, AI Scan cannot produce findings and agentic autofix cannot start a session. Usage resumes when the limiting budget is increased or a new billing cycle begins.
+
+Hard budgets for Code Security AI Credits limit AI feature usage, not enablement. Reaching a budget limit does not prevent administrators from enabling AI Scan or agentic autofix.
+
+By contrast, a hard budget for active-committer licenses prevents enabling {% data variables.product.prodname_code_security %} or {% data variables.product.prodname_secret_protection %} on additional repositories. It does not disable these products in repositories where they are already enabled.
+
+{% endif %}
+
 ## Types and scopes
 
 Each budget has a type and a scope that define which paid use contributes to spending against the budget.
@@ -28,9 +40,9 @@ Each budget has a type and a scope that define which paid use contributes to spe
 
   * **Universal**: applies to all licensed users by default
   * **Cost center user-level**: applies to every user in a cost center
-  * **Individual**: overrides the above for specific users
+  * **Individual**: overrides the above for specific users, and can be given an optional expiration date so a temporary override is removed automatically
 
-For {% data variables.product.prodname_copilot_short %}, cost centers can also have included usage controls, which cap how much of the shared {% data variables.product.prodname_ai_credits_short %} pool a cost center can use before metered usage begins. This is a separate control from the budgets and the included usage alerts described below. See [AUTOTITLE](/copilot/concepts/billing/budgets-for-usage-based-billing#included-usage-controls-for-cost-centers).
+For {% data variables.product.prodname_copilot_short %}, cost centers can also have included usage controls, which cap how much of the shared {% data variables.product.prodname_ai_credits_short %} pool a cost center can use before metered usage begins. This is a separate control from the budgets and the included usage alerts described below. See [AUTOTITLE](/copilot/concepts/billing-and-usage/organizations-and-enterprises/budgets#included-usage-controls-for-cost-centers).
 
 ## Roles and access for budgets
 

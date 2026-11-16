@@ -1,2 +1,2 @@
 > [!NOTE]
-> **Support:** Organization custom instructions are currently only supported for {% data variables.copilot.copilot_chat_short %} on {% data variables.product.prodname_dotcom_the_website %}, {% data variables.copilot.copilot_code-review_short %} on {% data variables.product.prodname_dotcom_the_website %} and {% data variables.copilot.copilot_cloud_agent %} on {% data variables.product.prodname_dotcom_the_website %}.
+> **Support:** Organization custom instructions are currently supported for sessions running on the {% data variables.product.github %} website (in cloud sandboxes or on {% data variables.product.prodname_actions %}) and for {% data variables.copilot.copilot_code-review_short %}. They are not supported in local client sessions.

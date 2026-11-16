@@ -19,7 +19,6 @@ interface ProcessedSpotlightItem {
   image: string
 }
 
-// Mock data to simulate tocItems and spotlight configurations
 const mockTocItems: TocItem[] = [
   {
     title: 'Test Debug Article',
@@ -38,7 +37,6 @@ const mockTocItems: TocItem[] = [
   },
 ]
 
-// Helper function to simulate the spotlight processing logic from CategoryLanding
 function processSpotlight(
   spotlight: SpotlightItem[] | undefined,
   tocItems: TocItem[],

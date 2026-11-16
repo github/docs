@@ -1,0 +1,4 @@
+# GitHub Copilot CLI support for GitHub Enterprise Server
+
+versions:
+  ghes: '>=3.22'

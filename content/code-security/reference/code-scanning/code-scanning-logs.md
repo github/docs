@@ -30,8 +30,6 @@ You can see analysis and diagnostic information for {% data variables.product.pr
 
 You can see more detailed information about {% data variables.product.prodname_codeql %} extractor errors and warnings that occurred during database creation by enabling debug logging. See [AUTOTITLE](/code-security/reference/code-scanning/troubleshoot-analysis-errors/logs-not-detailed-enough#re-running-jobs-with-debug-logging-enabled).
 
-{% ifversion org-private-registry %}
-
 ### Diagnostic information for private package registries
 
 {% data variables.product.prodname_code_scanning_caps %} default setup workflows include a `Setup proxy for registries` step. When you are looking at a workflow run for default setup, you can expand this step to view the corresponding log. This contains information about which private package registry configurations were available to the analysis. Additionally, the log contains some diagnostic information which may help with troubleshooting if the private package registries are not successfully used by {% data variables.product.prodname_code_scanning %} default setup. Look for the following messages:
@@ -50,8 +48,6 @@ You can see more detailed information about {% data variables.product.prodname_c
 If the output from the `Setup proxy for registries` step is as expected, but {% data variables.product.prodname_code_scanning %} default setup is unable to successfully access dependencies in the private registries, you can obtain additional troubleshooting information. See [AUTOTITLE](/code-security/reference/code-scanning/troubleshoot-analysis-errors/logs-not-detailed-enough#creating-codeql-debugging-artifacts-for-codeql-default-setup).
 
 For more information about giving {% data variables.product.prodname_code_scanning %} default setup access to private registries, see [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/manage-usage-and-access/giving-org-access-private-registries).
-
-{% endif %}
 
 ## Logs for the {% data variables.product.prodname_codeql_cli %}
 

@@ -13,11 +13,10 @@ export async function generalSearchRoute(req: Request, res: Response) {
     'generalSearch',
   )
   if (validationErrors.length) {
-    // We only send the first validation error to the user
+    // Return only the first validation error.
     return res.status(400).json(validationErrors[0])
   }
 
-  // Handle search analytics and client_name validation
   const analyticsError = await handleExternalSearchAnalytics(req, 'general-search')
   if (analyticsError) {
     return res.status(analyticsError.status).json({
@@ -34,9 +33,7 @@ export async function generalSearchRoute(req: Request, res: Response) {
 
     if (process.env.NODE_ENV !== 'development') {
       searchCacheControl(res)
-      // We can cache this without purging it after every deploy
-      // because the API search is only used as a proxy for local
-      // and review environments.
+      // Manual surrogate keys keep API search cache entries out of deploy purges.
       setFastlySurrogateKey(res, SURROGATE_ENUMS.MANUAL)
     }
 

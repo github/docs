@@ -120,6 +120,53 @@ let client = Client::start(ClientOptions::new()
 
 The OTLP protocol field configures the CLI's `"otlp-http"` exporter for all signals. Leave it unset to use the CLI default, or set it to `"http/protobuf"` to export protobuf over HTTP.
 
+### Skill and command telemetry
+
+The runtime follows the [GenAI skill semantic conventions](https://github.com/open-telemetry/semantic-conventions-genai/commit/771e3210f7518694666834f7243573b8018c7a4f)
+by refining existing `execute_tool` spans, not adding a separate skill
+operation. A loader is named `execute_tool skill {skill}`. An unambiguously
+identified resource or script is named
+`execute_tool {tool} {skill} {resource}`, with a skill-relative resource name.
+Other command spans append the actual known launcher name.
+
+* `gen_ai.skill.name` and `gen_ai.skill.resource.name`: Available independently of content capture
+* `gen_ai.skill.description` and `gen_ai.skill.source.uri`: Require content capture through `TelemetryConfig`
+* `process.executable.name`: The directly launched executable, such as the shell launcher, not a guessed command token
+* `process.executable.path`: An absolute known path; requires content capture
+* `process.exit.code`: An integer, including zero, when a command-executing tool reports an exit; unavailable exits and pre-spawn failures are omitted
+
+Poll tools do not inherit process attributes from the command they read.
+Sandboxed executable identities are omitted when the sandbox backend does
+not expose them. A nonzero exit does not imply that the tool itself failed.
+Skill definitions and directory listings are not named skill resources.
+Preloaded skills produce invocation events without a fabricated tool span.
+Repeated preparation of the same selected-agent skill context emits one receipt;
+changed content or provenance emits another. Child sessions report their own
+preloads independently. Detached command spans identify the directly spawned
+Unix `sh` supervisor or selected Windows PowerShell executable.
+
+Custom tools that override built-in names do not inherit native skill or process
+attributes. Visible, enabled skills still own resources when model invocation
+is disabled. Script attribution uses the post-hook command and the selected
+shell's directory; it is omitted when startup scripts or profiles make the
+execution context uncertain.
+
+While managed telemetry settings are unresolved, pending tracking buffers only
+capture-independent tool facts. Descriptions, source URIs, and executable paths
+observed before the policy resolves are omitted, even if capture is later enabled.
+The final policy governs replay; disabled or cancelled tracking discards the buffer.
+
+These are breaking telemetry-name changes: use `gen_ai.skill.name` instead
+of `github.copilot.tool.parameters.skill_name` or
+`github.copilot.skill.name`, and use `gen_ai.skill.source.uri` instead of
+`github.copilot.skill.path`. Local source values are file URIs, not bare paths.
+The `github.copilot.skill.invoked` event and its content, source-category,
+trigger, and plugin fields remain Copilot-specific. Skill content retains its
+existing capture gate.
+
+The skill attributes and span refinements have Development stability; the
+process attributes have Release Candidate stability.
+
 ### Trace context propagation
 
 > **Most users don't need this.** The `TelemetryConfig` above is all you need to collect traces from the CLI. The trace context propagation described in this section is an **advanced feature** for applications that create their own OpenTelemetry spans and want them to appear in the **same distributed trace** as the CLI's spans.

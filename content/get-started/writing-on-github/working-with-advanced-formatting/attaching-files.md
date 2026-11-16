@@ -19,7 +19,9 @@ category:
 > [!NOTE]
 > For public repositories, uploaded files can be accessed without authentication. In the case of private and internal repositories, only people with access to the repository can view the uploaded files.
 
-To attach a file to an issue or pull request conversation, drag and drop it into the comment box.
+You can attach files to issues, pull requests, and comments in your browser.{% ifversion fpt or ghec %} You can also attach local images and videos from the command line with {% data variables.product.prodname_cli %}. For more information, see [AUTOTITLE](/github-cli/github-cli/attaching-files-with-github-cli).{% endif %}
+
+To attach a file in your browser, drag and drop it into the comment box.
 Alternatively, you can click {% octicon "paperclip" aria-label="Attach files" %} below the issue comment box to browse, select, and add a file from your computer.
 
 ![Screenshot of the issue comment box. The "Attach files" icon is outlined in orange.](/assets/images/help/issues/attach-file.png)
@@ -68,39 +70,30 @@ The following file types are supported for uploads in issue comments, pull reque
 ### Documents
 
 * PDFs (`.pdf`)
-* Microsoft Office documents (`.docx`, `.pptx`, `.xlsx`, `.xls`{% ifversion fpt or ghec or ghes > 3.18 %}, `.xlsm`{% endif %})
-{%- ifversion fpt or ghec or ghes > 3.18 %}
+* Microsoft Office documents (`.docx`, `.pptx`, `.xlsx`, `.xls`, `.xlsm`)
 * OpenDocument formats (`.odt`, `.fodt`, `.ods`, `.fods`, `.odp`, `.fodp`, `.odg`, `.fodg`, `.odf`)
 * Rich text and word processing files (`.rtf`, `.doc`)
-{%- endif %}
 
 ### Text and data files
 
-* Plain text and markup (`.txt`{% ifversion fpt or ghec or ghes > 3.18 %}, `.md`, `.copilotmd`{% endif %})
-* Data and tabular files (`.csv`,{% ifversion fpt or ghec or ghes > 3.18 %} `.tsv`,{% endif %} `.log`, `.json`, `.jsonc`)
+* Plain text and markup (`.txt`, `.md`, `.copilotmd`)
+* Data and tabular files (`.csv`, `.tsv`, `.log`, `.json`, `.jsonc`)
 
 ### Development and code files
 
-{%- ifversion fpt or ghec or ghes > 3.18 %}
 * C files (`.c`)
 * C# files (`.cs`)
 * C++ files (`.cpp`)
 * CSS files (`.css`)
 * Diagrams (`.drawio`)
-{%- endif %}
 * Dump files (`.dmp`)
-{%- ifversion fpt or ghec or ghes > 3.18 %}
 * HTML files (`.html`, `.htm`)
 * Java files (`.java`)
 * JavaScript files (`.js`)
 * Jupyter notebooks (`.ipynb`)
-{%- endif %}
 * Patch files (`.patch`)
-{%- ifversion fpt or ghec or ghes > 3.18 %}
 * PHP files (`.php`)
-{%- endif %}
 * Profiling files (`.cpuprofile`)
-{%- ifversion fpt or ghec or ghes > 3.18 %}
 * Program database files (`.pdb`)
 * Python files (`.py`)
 * Shell scripts (`.sh`)
@@ -108,7 +101,6 @@ The following file types are supported for uploads in issue comments, pull reque
 * TypeScript files (`.ts`, `.tsx`)
 * XML files (`.xml`)
 * YAML files (`.yaml`, `.yml`)
-{%- endif %}
 
 > [!NOTE]
 > If you use Linux and try to upload a `.patch` file, you will receive an error message. This is a known issue.
@@ -116,8 +108,6 @@ The following file types are supported for uploads in issue comments, pull reque
 ### Archive and compressed files
 
 * Archives and packages (`.zip`, `.gz`, `.tgz`)
-
-{% ifversion fpt or ghec or ghes > 3.18 %}
 
 ### Communication and logs
 
@@ -130,4 +120,3 @@ The following file types are supported for uploads in issue comments, pull reque
 ### Audio
 
 * Audio files (`.mp3`, `.wav`)
-{% endif %}

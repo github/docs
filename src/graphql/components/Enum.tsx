@@ -1,5 +1,6 @@
 import { useTranslation } from '@/languages/components/useTranslation'
 import { GraphqlItem } from './GraphqlItem'
+import { Notice } from '@/graphql/components/Notice'
 import type { EnumT } from './types'
 import { RenderedHTML } from '@/frame/components/ui/RenderedHTML/RenderedHTML'
 
@@ -27,7 +28,10 @@ export function Enum({ item, headingLevel = 2 }: Props) {
               <td>
                 <code>{value.name}</code>
               </td>
-              <RenderedHTML as="td" html={value.description} />
+              <td>
+                <RenderedHTML html={value.description} />
+                {value.isDeprecated && <Notice item={value} variant="deprecation" />}
+              </td>
             </tr>
           ))}
         </tbody>

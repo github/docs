@@ -6,6 +6,9 @@ versions:
   ghes: "*"
   ghec: "*"
 layout: bespoke-landing
+introLinks:
+  overview: "{% ifversion fpt or ghec %}/get-started/article-grid-bespoke/grid-category-one/grid-article-one{% elsif ghes %}/get-started/article-grid-bespoke/grid-category-one/grid-article-two{% endif %}"
+  quickstart: /get-started/article-grid-bespoke/grid-category-two/grid-article-three
 carousels:
   recommended:
     - /grid-category-one/grid-article-one

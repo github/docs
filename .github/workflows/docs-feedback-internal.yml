@@ -1,0 +1,132 @@
+name: Route docs feedback internally
+
+on:
+  issues:
+    types: [labeled]
+  # Use the trusted base workflow for fork PRs without checking out contributor code.
+  pull_request_target:
+    types: [labeled]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: docs-feedback-internal-${{ github.repository }}-${{ github.event.issue.number || github.event.pull_request.number }}-${{ github.event.label.name }}
+  cancel-in-progress: false
+
+jobs:
+  route-feedback:
+    if: github.repository == 'github/docs' && github.event.label.name == 'docs-feedback-internal'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+      pull-requests: write
+
+    steps:
+      - name: Record feedback in the private tracker
+        id: record
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        with:
+          # GITHUB_TOKEN cannot write to another repository.
+          github-token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          script: |
+            const sourceParams = { ...context.repo, issue_number: context.issue.number }
+            const { data: source } = await github.rest.issues.get(sourceParams)
+            if (!source.labels.some(label => label.name === 'docs-feedback-internal')) {
+              core.info('The routing label was removed, so no feedback will be recorded.')
+              return
+            }
+
+            const target = { owner: 'github', repo: 'technical-content', issue_number: 8227 }
+            const { data: tracker } = await github.rest.issues.get(target)
+            if (tracker.state !== 'open' || tracker.pull_request) {
+              throw new Error('The feedback tracker must be an open issue. The source will not be closed.')
+            }
+
+            const marker = `<!-- docs-feedback-internal:${context.repo.owner}/${context.repo.repo}#${source.number} -->`
+            let recorded = false
+            for await (const { data: comments } of github.paginate.iterator(
+              github.rest.issues.listComments,
+              { ...target, per_page: 100 },
+            )) {
+              if (comments.some(comment => comment.body?.startsWith(`${marker}\n`))) {
+                recorded = true
+                break
+              }
+            }
+
+            if (!recorded) {
+              const description = source.body || '_No description provided._'
+              // Leave room for metadata within GitHub's comment size limit.
+              const excerpt = description.length > 60000
+                ? `${description.slice(0, 60000)}\n\n_Description truncated. See the source for the full text._`
+                : description
+              const kind = context.payload.pull_request ? 'Pull request' : 'Issue'
+              await github.rest.issues.createComment({
+                ...target,
+                body: [
+                  marker,
+                  `## ${source.title}`,
+                  '',
+                  `${kind}: ${source.html_url}`,
+                  `Author: @${source.user.login}`,
+                  `Routed by: @${context.actor}`,
+                  '',
+                  excerpt,
+                ].join('\n'),
+              })
+            }
+
+            core.setOutput('recorded', 'true')
+
+      - name: Explain the handoff and close the source
+        if: steps.record.outputs.recorded == 'true'
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        with:
+          script: |
+            const sourceParams = { ...context.repo, issue_number: context.issue.number }
+            const { data: source } = await github.rest.issues.get(sourceParams)
+            if (!source.labels.some(label => label.name === 'docs-feedback-internal')) {
+              core.info('The routing label was removed, so the source will not be closed.')
+              return
+            }
+
+            // Do not expose the private tracker URL in this public comment.
+            const marker = '<!-- docs-feedback-internal:handoff -->'
+            let explained = false
+            for await (const { data: comments } of github.paginate.iterator(
+              github.rest.issues.listComments,
+              { ...sourceParams, per_page: 100 },
+            )) {
+              if (comments.some(comment =>
+                comment.user?.login === 'github-actions[bot]' &&
+                comment.body?.startsWith(`${marker}\n`)
+              )) {
+                explained = true
+                break
+              }
+            }
+
+            if (!explained) {
+              await github.rest.issues.createComment({
+                ...sourceParams,
+                body: `${marker}\nThank you for the feedback! We've recorded it for internal review by the documentation team, so we're closing this here. This does not mean the underlying feedback has been resolved.`,
+              })
+            }
+
+            if (source.state === 'open') {
+              if (context.payload.pull_request) {
+                await github.rest.pulls.update({
+                  ...context.repo,
+                  pull_number: source.number,
+                  state: 'closed',
+                })
+              } else {
+                await github.rest.issues.update({
+                  ...sourceParams,
+                  state: 'closed',
+                  state_reason: 'not_planned',
+                })
+              }
+            }

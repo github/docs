@@ -1,0 +1,3 @@
+# Collectd is retired in GHES 3.23.
+versions:
+  ghes: '<3.23'

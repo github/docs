@@ -23,9 +23,7 @@ describe('journey-tracks-liquid', () => {
   })
 
   test('invalid liquid syntax fails', async () => {
-    // Using inline content instead of a fixture file to avoid CI conflicts.
-    // Malformed Liquid syntax in fixture files causes other rules (like liquid-versioning)
-    // to crash when they try to parse the same file during content linting.
+    // Keep malformed Liquid inline because fixture-wide runs let other rules parse it and crash.
     const invalidLiquidContent = `---
 title: Journey with Liquid Syntax
 layout: journey-landing
@@ -49,7 +47,7 @@ This journey landing page has invalid liquid syntax in journeyTracks.
       strings: { 'test-invalid-liquid.md': invalidLiquidContent },
       ...fmOptions,
     })
-    expect(result['test-invalid-liquid.md']).toHaveLength(2) // title and description both have invalid liquid
+    expect(result['test-invalid-liquid.md']).toHaveLength(2)
     expect(result['test-invalid-liquid.md'][0].ruleDescription).toMatch(/liquid syntax/i)
     expect(result['test-invalid-liquid.md'][1].ruleDescription).toMatch(/liquid syntax/i)
   })
@@ -82,6 +80,34 @@ journeyTracks:
       /alternativeNextStep/,
     )
     expect(result['test-invalid-alternative-next-step.md'][0].errorDetail).toMatch(/liquid syntax/i)
+  })
+
+  test('invalid liquid syntax in timeCommitment fails', async () => {
+    const invalidTimeCommitmentContent = `---
+title: Journey with Invalid Time Commitment
+layout: journey-landing
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+journeyTracks:
+  - id: track-1
+    title: "Test Track"
+    timeCommitment: "{% ifversion ghec %}2-4 weeks"
+    guides:
+      - href: /article-one
+---
+
+# Journey with Invalid Time Commitment
+`
+    const result = await runRule(journeyTracksLiquid, {
+      strings: { 'test-invalid-time-commitment.md': invalidTimeCommitmentContent },
+      ...fmOptions,
+    })
+
+    expect(result['test-invalid-time-commitment.md']).toHaveLength(1)
+    expect(result['test-invalid-time-commitment.md'][0].errorDetail).toMatch(/timeCommitment/)
+    expect(result['test-invalid-time-commitment.md'][0].errorDetail).toMatch(/liquid syntax/i)
   })
 })
 
@@ -119,6 +145,31 @@ describe('journey-tracks-guide-path-exists', () => {
     })
     expect(result[INVALID_PATHS].length).toBeGreaterThan(0)
     expect(result[INVALID_PATHS][0].errorDetail).toContain('does not exist')
+  })
+
+  test('guide paths that resolve only relative to the landing page fail', async () => {
+    const landingPath = 'src/fixtures/fixtures/content/subdir/index.md'
+    const content = `---
+title: Journey in a subdirectory
+layout: journey-landing
+versions:
+  fpt: '*'
+journeyTracks:
+  - id: track-1
+    title: "Track"
+    guides:
+      - href: /subdir/article-three
+      - href: /article-three
+      - href: article-three
+---
+`
+    const result = await runRule(journeyTracksGuidePathExists, {
+      strings: { [landingPath]: content },
+      ...fmOptions,
+    })
+    expect(result[landingPath]).toHaveLength(2)
+    expect(result[landingPath][0].errorDetail).toContain('/article-three (track 1, guide 2)')
+    expect(result[landingPath][1].errorDetail).toContain('article-three (track 1, guide 3)')
   })
 
   test('pages without journey tracks pass', async () => {

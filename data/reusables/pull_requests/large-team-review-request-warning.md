@@ -1,0 +1,1 @@
+Requesting a review from a large team can notify every team member. You can reduce notifications by enabling auto assignment, or by enabling **Only notify requested team members** and also requesting a specific team member. See [AUTOTITLE](/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team).

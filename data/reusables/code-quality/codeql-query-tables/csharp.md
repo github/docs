@@ -15,6 +15,7 @@
 | [Missed 'using' opportunity](https://codeql.github.com/codeql-query-help/csharp/cs-missed-using-statement/) | Maintainability | Recommendation |
 | [Missed opportunity to use All](https://codeql.github.com/codeql-query-help/csharp/cs-linq-missed-all/) | Maintainability | Recommendation |
 | [Missed opportunity to use Cast](https://codeql.github.com/codeql-query-help/csharp/cs-linq-missed-cast/) | Maintainability | Recommendation |
+| [Missed opportunity to use FirstOrDefault](https://codeql.github.com/codeql-query-help/csharp/cs-linq-missed-firstordefault/) | Maintainability | Recommendation |
 | [Missed opportunity to use OfType](https://codeql.github.com/codeql-query-help/csharp/cs-linq-missed-oftype/) | Maintainability | Recommendation |
 | [Missed opportunity to use Select](https://codeql.github.com/codeql-query-help/csharp/cs-linq-missed-select/) | Maintainability | Recommendation |
 | [Missed opportunity to use Where](https://codeql.github.com/codeql-query-help/csharp/cs-linq-missed-where/) | Maintainability | Recommendation |

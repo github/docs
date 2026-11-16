@@ -45,16 +45,12 @@ To learn more about security configurations, see [AUTOTITLE](/code-security/conc
 > You can use {% data variables.product.prodname_github_apps %} with fine-grained permissions to programmatically review and approve delegated dismissal requests. This enables your organization to streamline security request reviews and enforce policies, or integrate with external security tools, ensuring that all reviews meet established standards. _For {% data variables.product.prodname_ghe_server %}, the use of {% data variables.product.prodname_github_apps %} to review requests for delegated dismissals is available from version 3.19._
 > For more information about permissions, see [Organization permissions for "Organization bypass requests for secret scanning"](/enterprise-cloud@latest/rest/authentication/permissions-required-for-github-apps?apiVersion=2022-11-28#organization-permissions-for-organization-bypass-requests-for-secret-scanning).
 
-{% ifversion secret-scanning-alert-dismiss-custom-role %}
-
 ## Configuring delegated dismissal for an enterprise
 
 {% data reusables.security-configurations.custom-security-configurations-enterprise %}
 1. When defining the custom security configuration, under "{% data variables.product.prodname_secret_protection %}", ensure that the dropdown menu for "Prevent direct alert dismissals" is set to **Enabled**.
 1. Click **Save configuration**.
 1. Apply the security configuration to all (or selected) repositories in your enterprise. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-enterprise-security/establish-complete-coverage/apply-custom-configuration).
-
-{% endif %}
 
 ## Next steps
 

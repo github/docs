@@ -153,6 +153,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: CREATED_AT, direction: DESC}",
               "description": "<p>Ordering of the returned packages.</p>",
               "type": {
                 "name": "PackageVersionOrder",
@@ -479,6 +480,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: CREATED_AT, direction: ASC}",
               "description": "<p>Ordering of the returned package files.</p>",
               "type": {
                 "name": "PackageFileOrder",
@@ -701,6 +703,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: CREATED_AT, direction: DESC}",
               "description": "<p>Ordering of the returned packages.</p>",
               "type": {
                 "name": "PackageOrder",
@@ -774,19 +777,27 @@
         },
         {
           "name": "DOCKER",
-          "description": "<p>A docker image.</p>"
+          "description": "<p>A docker image.</p>",
+          "isDeprecated": true,
+          "deprecationReason": "<p>DOCKER will be removed from this enum as this type will be migrated to only be used by the Packages REST API. Removal on 2021-06-21 UTC.</p>"
         },
         {
           "name": "MAVEN",
-          "description": "<p>A maven package.</p>"
+          "description": "<p>A maven package.</p>",
+          "isDeprecated": true,
+          "deprecationReason": "<p>MAVEN will be removed from this enum as this type will be migrated to only be used by the Packages REST API. Removal on 2023-02-10 UTC.</p>"
         },
         {
           "name": "NPM",
-          "description": "<p>An npm package.</p>"
+          "description": "<p>An npm package.</p>",
+          "isDeprecated": true,
+          "deprecationReason": "<p>NPM will be removed from this enum as this type will be migrated to only be used by the Packages REST API. Removal on 2022-11-21 UTC.</p>"
         },
         {
           "name": "NUGET",
-          "description": "<p>A nuget package.</p>"
+          "description": "<p>A nuget package.</p>",
+          "isDeprecated": true,
+          "deprecationReason": "<p>NUGET will be removed from this enum as this type will be migrated to only be used by the Packages REST API. Removal on 2022-11-21 UTC.</p>"
         },
         {
           "name": "PYPI",
@@ -794,7 +805,9 @@
         },
         {
           "name": "RUBYGEMS",
-          "description": "<p>A rubygems package.</p>"
+          "description": "<p>A rubygems package.</p>",
+          "isDeprecated": true,
+          "deprecationReason": "<p>RUBYGEMS will be removed from this enum as this type will be migrated to only be used by the Packages REST API. Removal on 2022-12-28 UTC.</p>"
         }
       ],
       "category": "packages"

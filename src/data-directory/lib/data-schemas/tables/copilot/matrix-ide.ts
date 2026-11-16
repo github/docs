@@ -1,28 +1,15 @@
-// Schema for the per-IDE files in data/tables/copilot/matrix/
-//
-// Registered as a directory schema in src/data-directory/lib/data-schemas/index.ts,
-// so every file added to that directory is validated against this shape.
+// The directory schema registration validates every data/tables/copilot/matrix/<ide>.yml file.
 
-// Deliberately not an enum. The vocabulary is defined once, as data, in
-// matrix-meta.yml, and is enforced against every IDE file by the
-// 'every support level used is defined in matrix-meta' invariant in
-// src/data-directory/tests/copilot-matrix.ts. Repeating the values here would
-// be a fourth copy that can drift from the data — which is exactly what the
-// schema this file replaces did: it was missing 'closing-down'.
+// supportLevel stays open because matrix-meta.yml owns the vocabulary and tests enforce it.
+// Repeating values here would create a fourth copy that can drift from data.
 const supportLevel = {
   type: 'string',
 }
 
-// Every version tracked here is 3-part, and that follows from what is tracked
-// rather than from convention: four of the six files track the Copilot
-// extension (marketplace versions are required to be x.y.z) and the two that
-// track the IDE itself, VS Code and Visual Studio, version that way natively.
-// Kept strict on purpose. It catches a dropped or added segment — the mistake
-// an updater reading release notes is most likely to make, and one the
-// cross-file invariants cannot see, since they only check that a version is
-// used consistently, not that it is real. If an IDE genuinely changes
-// versioning scheme, that is a deliberate decision: change this pattern and say
-// why in the PR.
+// All six matrix files use three-part versions: four track Copilot extension marketplace versions,
+// and VS Code and Visual Studio use three-part IDE versions natively.
+// Keep the pattern strict because cross-file tests catch consistency, not malformed versions.
+// Update this pattern if an IDE adopts a different version format.
 const VERSION_PATTERN = '^\\d+\\.\\d+\\.\\d+$'
 
 const copilotMatrixIdeSchema = {

@@ -1,10 +1,7 @@
-/*
-This file adds the following properties to languages in ./languages.ts:
-- dir: string
-
-This file will also remove languages for local development and tests
-that have not be specified by ENABLED_LANGUAGES
-*/
+// Server-side language definitions add resolved translation directories to
+// client-safe metadata. Fixture mode keeps English on ROOT, then keeps
+// non-English languages with a directory under TRANSLATIONS_FIXTURE_ROOT. Otherwise,
+// ENABLED_LANGUAGES narrows the set when set, else NODE_ENV=test falls back to English alone.
 
 import path from 'path'
 import fs from 'fs'
@@ -15,7 +12,11 @@ import { languages as baseLanguages, type Language as BaseLanguage } from './lan
 
 dotenv.config({ quiet: true })
 
-// Server-side language extends base language with required dir property
+// Read this after dotenv.config(). The TRANSLATIONS_ROOT constant is set when
+// constants.ts loads, which happens before this file calls dotenv.config(), so
+// the constant misses a value from .env.
+const translationsRoot = process.env.TRANSLATIONS_ROOT || TRANSLATIONS_ROOT
+
 export interface Language extends BaseLanguage {
   dir: string
 }
@@ -27,25 +28,21 @@ export interface Languages {
 function getRoot(languageCode: string): string {
   if (languageCode === 'en') return ROOT
 
-  // This one trumps anything else. This makes it possible, and convenient,
-  // for running tests that depends on testing translations based on
-  // fixtures exclusively.
+  // TRANSLATIONS_FIXTURE_ROOT wins so tests can use fixture translations only.
   if (TRANSLATIONS_FIXTURE_ROOT) {
     return path.join(TRANSLATIONS_FIXTURE_ROOT, languageCode)
   }
 
-  // example: process.env.TRANSLATIONS_ROOT_ES_ES
+  // Example env var: TRANSLATIONS_ROOT_ES_ES
   const possibleEnvVar =
     process.env[`TRANSLATIONS_ROOT_${languageCode.toUpperCase().replace(/-/g, '_')}`]
   if (possibleEnvVar) {
     return possibleEnvVar
   }
 
-  // Default
-  return path.join(TRANSLATIONS_ROOT, languageCode)
+  return path.join(translationsRoot, languageCode)
 }
 
-// Build server languages with directory paths
 const allLanguagesWithDirs: Languages = {}
 for (const [code, lang] of Object.entries(baseLanguages)) {
   allLanguagesWithDirs[code] = {
@@ -59,7 +56,6 @@ Object.freeze(allLanguagesWithDirs)
 const languages: Languages = { ...allLanguagesWithDirs }
 
 if (TRANSLATIONS_FIXTURE_ROOT) {
-  // Keep all languages that have a directory in the fixture root.
   for (const [code, { dir }] of Object.entries(languages)) {
     if (code !== 'en' && !fs.existsSync(dir)) {
       delete languages[code]
@@ -72,8 +68,6 @@ if (TRANSLATIONS_FIXTURE_ROOT) {
         delete languages[code]
       }
     }
-    // This makes the translation health report not valid JSON
-    // console.log(`ENABLED_LANGUAGES: ${process.env.ENABLED_LANGUAGES}`)
   }
 } else if (process.env.NODE_ENV === 'test') {
   // Unless explicitly set, when running tests default to just English
@@ -86,10 +80,9 @@ export const languageKeys: string[] = Object.keys(languages)
 
 export const languagePrefixPathRegex: RegExp = new RegExp(`^/(${languageKeys.join('|')})(/|$)`)
 
-/** Return true if the URL is something like /en/foo or /ja but return false
- * if it's something like /foo or /foo/bar or /fr (because French (fr)
- * is currently not an active language)
- */
+// True for /en/foo or /ja, false for /foo. Active language codes depend on
+// TRANSLATIONS_FIXTURE_ROOT, ENABLED_LANGUAGES, and NODE_ENV, so results vary
+// between production, local dev, and tests.
 export function pathLanguagePrefixed(urlPath: string): boolean {
   return languagePrefixPathRegex.test(urlPath)
 }

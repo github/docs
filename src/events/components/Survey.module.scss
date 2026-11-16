@@ -15,11 +15,10 @@
   }
 }
 
-// Override Primer's form-control border color to meet WCAG 1.4.11 Non-Text Contrast
-// (requires 3:1 contrast ratio against adjacent colors).
-// The default Primer light-theme border (#d0d7de / #dce1e6) has only ~1.3–1.7:1 contrast
-// against a white background. Using --fgColor-muted provides sufficient contrast in all themes.
-// See: https://github.com/github/accessibility-audits/issues/16368
+// WCAG 1.4.11 Non-Text Contrast requires 3:1 contrast against adjacent colors.
+// Primer light-theme form-control borders (#d0d7de and #dce1e6) are about 1.3:1
+// to 1.7:1 against white. --fgColor-muted meets the requirement in every theme.
+// The affected survey inputs measure 6.4:1 with this border.
 .accessibleBorder {
   border-color: var(--fgColor-muted, #57606a) !important;
 }

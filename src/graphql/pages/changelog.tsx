@@ -69,10 +69,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   }
 }
 
-/**
- * Strip wrapping `<p>` tags from HTML change descriptions to allow
- * rendering as `<li>` content without nested block elements.
- */
+// Strip wrapping p tags so list items do not contain nested block elements.
 export function stripParagraphWrappers(schema: ChangelogItemT[]) {
   for (const item of schema) {
     for (const group of [item.schemaChanges, item.previewChanges, item.upcomingChanges]) {

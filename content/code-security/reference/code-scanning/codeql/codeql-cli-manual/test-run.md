@@ -100,6 +100,14 @@ useful for testing extractors.
 \[Advanced] Run
 [codeql dataset check](/code-security/reference/code-scanning/codeql/codeql-cli-manual/dataset-check) over each test database created and report a failure if it detects inconsistencies. This is useful when testing extractors. If the check is (temporarily!) expected to fail for a particular database, place a `DB-CHECK.expected` file in the test directory.
 
+#### `--[no-]reuse-dataset`
+
+\[Advanced] Attempt to reuse an existing test database from a previous
+run. When this option is given, if a `.testproj` directory exists for a
+test directory, its dataset will be used instead of extracting a new
+database. If no existing database is found, extraction proceeds as
+normal. This option implies `--keep-databases`.
+
 #### `--[no-]show-extractor-output`
 
 \[Advanced] Show the output from extractor scripts that create test

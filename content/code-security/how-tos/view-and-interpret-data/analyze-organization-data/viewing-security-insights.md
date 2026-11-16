@@ -19,6 +19,10 @@ category:
 
 The overview page in security overview provides a consolidated dashboard of your organization{% ifversion security-overview-dashboard-enterprise %} or enterprise{% endif %}'s security landscape. You can filter the dashboard by time period, tool, and other criteria to focus on specific areas of interest. For more information about the overview dashboard, available metrics, and access permissions, see [AUTOTITLE](/code-security/concepts/security-at-scale/security-overview).
 
+{% ifversion ai-powered-security-detections %}
+The **Prevention** tab includes AI Scan metrics for your organization or enterprise. You can track AI Scan findings, resolution rates, and accepted {% data variables.copilot.copilot_autofix_short %} suggestions. For more detailed findings, use the "Code scanning on pull requests" report. See [AUTOTITLE](/code-security/how-tos/view-and-interpret-data/analyze-organization-data/viewing-metrics-for-pull-request-alerts).
+{% endif %}
+
 {% ifversion security-overview-export-data %}
 You can download a CSV file of the overview dashboard data for your organization or enterprise. For more information, see [AUTOTITLE](/code-security/how-tos/view-and-interpret-data/analyze-organization-data/export-data).
 {% endif %}

@@ -1,0 +1,30 @@
+name: Add persona-labeled issues and PRs to Docs Content Review Board
+
+# When the builder persona or driver persona label is added to an issue or PR
+# in github/docs, add it to the Docs Content Review Board project.
+
+on:
+  issues:
+    types: [labeled]
+  pull_request_target:
+    types: [labeled]
+
+permissions:
+  contents: read
+
+jobs:
+  add-to-review-board:
+    name: Add to Docs Content Review Board
+    runs-on: ubuntu-latest
+    if: >-
+      github.repository == 'github/docs' &&
+      (github.event.label.name == 'builder persona' || github.event.label.name == 'driver persona')
+    steps:
+      - name: Add item to project
+        env:
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          ITEM_URL: ${{ github.event.issue.html_url || github.event.pull_request.html_url }}
+          PROJECT_NUMBER: 2936
+        run: |
+          echo "Adding $ITEM_URL to project $PROJECT_NUMBER..."
+          gh project item-add "$PROJECT_NUMBER" --owner github --url "$ITEM_URL"

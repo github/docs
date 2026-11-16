@@ -11,6 +11,8 @@ redirect_from:
 contentType: concepts
 category:
   - Get started with GitHub Enterprise
+docsTeamMetrics:
+  - enterprise-onboarding
 ---
 
 ## What are roles?

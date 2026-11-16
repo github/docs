@@ -2,6 +2,7 @@
 
 name: "Driver-writer"
 description: "Use when writing, editing, or reviewing content for the Driver persona: enterprise administrators, platform engineers, billing managers, security leads, and others who enable developers at scale."
+include-custom-instructions: true
 
 ---
 

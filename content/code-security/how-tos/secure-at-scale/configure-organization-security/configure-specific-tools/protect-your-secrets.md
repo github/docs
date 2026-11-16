@@ -6,7 +6,9 @@ product: Organizations on {% data variables.product.prodname_team %} or {% data 
 allowTitleToDifferFromFilename: true
 contentType: how-tos
 versions:
-  feature: secret-risk-assessment
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 redirect_from:
   - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/choosing-github-secret-protection
   - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/protect-your-secrets

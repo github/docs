@@ -1,6 +1,5 @@
 import { readFile } from 'fs/promises'
 import walk from 'walk-sync'
-import path from 'path'
 
 import { beforeAll, describe, expect, test } from 'vitest'
 import { load } from 'js-yaml'
@@ -14,7 +13,6 @@ interface ReleaseNoteContent {
   sections: {
     [key: string]: Array<string | { [prop: string]: string }>
   }
-  currentWeek?: boolean
 }
 
 const ghesReleaseNoteRootPath = 'data/release-notes'
@@ -29,7 +27,6 @@ describe('lint enterprise release notes', () => {
   if (yamlFileList.length < 1) return
   describe.each(yamlFileList)('%s', (yamlAbsPath) => {
     let yamlContent: ReleaseNoteContent
-    const relativePath = path.relative('', yamlAbsPath)
 
     beforeAll(async () => {
       const fileContents = await readFile(yamlAbsPath, 'utf8')
@@ -56,7 +53,6 @@ describe('lint enterprise release notes', () => {
         }
       }
 
-      // Create context with site data for rendering liquid variables
       const context = {
         currentLanguage: 'en',
         currentVersionObj: allVersions['free-pro-team@latest'],
@@ -71,9 +67,7 @@ describe('lint enterprise release notes', () => {
 
       for (const key in toLint) {
         if (!toLint[key]) continue
-        // First check if liquid parses correctly
         expect(() => liquid.parse(toLint[key]), `${key} contains invalid liquid`).not.toThrow()
-        // Then check if liquid renders correctly with context
         await expect(
           liquid.parseAndRender(toLint[key], context),
           `${key} contains liquid that fails to render`,
@@ -81,14 +75,18 @@ describe('lint enterprise release notes', () => {
       }
     })
 
-    const currentWeeksFound: string[] = []
-    test('does not have more than one yaml file with currentWeek set to true', () => {
-      if (!yamlAbsPath.includes('data/release-notes/github-ae')) return
-      if (yamlContent.currentWeek) currentWeeksFound.push(relativePath)
-      const errorMessage = `Found more than one file with currentWeek set to true: ${currentWeeksFound.join(
-        '\n',
-      )}`
-      expect(currentWeeksFound.length, errorMessage).not.toBeGreaterThan(1)
+    // PatchNotes uses each note as its React key.
+    test('has no duplicate notes in a list', () => {
+      for (const [key, section] of Object.entries(yamlContent.sections || {})) {
+        const lists = [section.filter((item) => typeof item === 'string')]
+        for (const item of section) {
+          if (typeof item !== 'string' && Array.isArray(item.notes)) lists.push(item.notes)
+        }
+        for (const notes of lists) {
+          const duplicates = notes.filter((note, i) => notes.indexOf(note) !== i)
+          expect(duplicates, `sections.${key} has duplicate notes`).toEqual([])
+        }
+      }
     })
   })
 })

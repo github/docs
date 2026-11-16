@@ -26,8 +26,7 @@ describe('block robots', () => {
         `/en${href}`,
         `/en${href}/overview`,
         `/en${href}/overview/intro`,
-        `/en/enterprise/${enterpriseServerReleases.latest}/user${href}`,
-        `/en/enterprise/${enterpriseServerReleases.oldestSupported}/user${href}`,
+        `/ja${href}`,
       ]
 
       for (const path of blockedPaths) {
@@ -53,6 +52,33 @@ describe('block robots', () => {
       for (const path of blockedPaths) {
         expect(allowIndex(path)).toBe(false)
       }
+    }
+  })
+
+  test('disallows crawling of the hidden search page', async () => {
+    expect(productMap.search.hidden).toBe(true)
+    expect(allowIndex('/en/search')).toBe(false)
+    expect(allowIndex('/ja/search')).toBe(false)
+    expect(allowIndex('/en/enterprise-cloud@latest/search')).toBe(false)
+    expect(allowIndex('/en/search.md')).toBe(false)
+    expect(allowIndex('/ja/search.md')).toBe(false)
+    expect(allowIndex('/en/enterprise-cloud@latest/search.md')).toBe(false)
+  })
+
+  test('allows crawling of public pages whose path contains "search"', async () => {
+    expect(productMap['search-github'].hidden).toBe(false)
+    const allowedPaths = [
+      '/en/search-github',
+      '/en/search-github.md',
+      '/en/search-github/searching-on-github/searching-code',
+      '/ja/enterprise-cloud@latest/search-github/searching-on-github/searching-code',
+      '/en/rest/search/search',
+      '/en/graphql/reference/search',
+      '/en/repositories/releasing-projects-on-github/searching-a-repositorys-releases',
+    ]
+
+    for (const path of allowedPaths) {
+      expect(allowIndex(path)).toBe(true)
     }
   })
 

@@ -45,11 +45,7 @@ These artifacts will help you debug problems with {% data variables.product.prod
 
 You can create {% data variables.product.prodname_codeql %} debugging artifacts by enabling step debug logging (see [Enabling step debug logging](#enabling-step-debug-logging)) and triggering a new {% data variables.product.prodname_codeql %} analysis, for example, by pushing a new commit to a pull request branch.
 
-{% ifversion org-private-registry %}
-
 If you have given {% data variables.product.prodname_codeql %} access to private registries, additional artifacts whose names start with `proxy-log-file` will be available. These contain logs of the authentication proxy that is used by {% data variables.product.prodname_codeql %} default setup to authenticate requests to private registries and may be used to troubleshoot private registry configurations. To learn more, see [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/manage-usage-and-access/giving-org-access-private-registries).
-
-{% endif %}
 
 ### Creating {% data variables.product.prodname_codeql %} debugging artifacts for {% data variables.product.prodname_codeql %} advanced setup
 

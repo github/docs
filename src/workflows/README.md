@@ -43,6 +43,28 @@ Many scripts are called from GitHub Actions workflows in `.github/workflows/`. T
 3. Require `GITHUB_TOKEN` environment variable
 4. Post results as PR comments or update PR/issue metadata
 
+### Internal documentation feedback
+
+`.github/workflows/docs-feedback-internal.yml` runs only in `github/docs`, even
+though the workflow is maintained in `github/docs-internal` and mirrored publicly.
+Applying `docs-feedback-internal` to an issue or pull request records its title,
+description, author, and source link as a comment in the single internal feedback
+tracker, then posts a public handoff explanation and closes the source. It does
+not copy the conversation or code changes, and never includes the private tracker
+link in the public handoff comment.
+
+The workflow requires `DOCS_BOT_PAT_BASE` in `github/docs` with permission to read
+and comment on issues in `github/technical-content`. The repository's
+`GITHUB_TOKEN` comments on and closes the public source with `issues: write` and
+`pull-requests: write`. Fork pull requests use `pull_request_target` without
+checking out or executing contributor code.
+
+Keep the tracker configured in the workflow open. If recording fails, the source
+is not closed. Rerun a failed workflow to retry the handoff. Per-source concurrency
+and comment markers prevent duplicate entries on reruns or when a label is removed
+and reapplied. Descriptions longer than 60,000 characters are explicitly truncated
+with a link back to the full source.
+
 ## Data & External Dependencies
 
 ### Data inputs
@@ -97,4 +119,3 @@ When adding a new script:
 
 ### Planned work
 - Standardize error handling and logging across scripts
-

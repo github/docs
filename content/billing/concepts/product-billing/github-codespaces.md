@@ -29,7 +29,7 @@ A {% data variables.product.prodname_github_codespaces %} instance (a "codespace
 * **Compute time**: processing time and power, while the codespace is active.
 * **Storage**: amount of disk space the codespace or prebuild occupies, while it exists.
 
-In addition, any prebuilt codespaces are generated using actions minutes, see [AUTOTITLE](/codespaces/prebuilding-your-codespaces/about-github-codespaces-prebuilds).
+In addition, generating prebuilt codespaces uses {% data variables.product.prodname_actions %} runner compute. The calculated runner cost can draw from your included compute usage. See [AUTOTITLE](/codespaces/prebuilding-your-codespaces/about-github-codespaces-prebuilds).
 
 ### Compute time
 

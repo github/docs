@@ -57,6 +57,7 @@ You can configure various settings for your merge queue rule.
 * **Build concurrency:** Limit the number of queued pull requests requesting checks and workflow runs at the same time.
   * This setting controls when merge queue dispatches the `merge_group.checks_requested` webhook event, which triggers {% data variables.product.prodname_actions %} workflows that are configured to run on `merge_group`. For more information, see [AUTOTITLE](/webhooks/webhook-events-and-payloads#merge_group).
   * For example, if there are 5 pull requests added to the queue and the build concurrency setting is 3, merge queue will dispatch the `checks_requested` event for the first 3 pull requests. When it receives a result for one of those pull requests, merge queue will dispatch the event for the 4th pull request, and so on.
+  * If you set build concurrency to `0`, the merge queue does not dispatch new `merge_group.checks_requested` webhook events. Pull requests waiting for a merge queue build do not progress until you increase the setting to at least `1`.
 * **Minimum/maximum group size:** The number of pull requests that will be merged together in a group.
 * **Wait time to meet minimum group size (minutes):** The time the merge queue will wait after the first pull request is added to the queue for the minimum group size to be met. After this time has elapsed, the minimum group size will be ignored and a smaller group will be merged.
 * **Require all queue entries to pass required checks:**
@@ -75,6 +76,12 @@ You can configure various settings for your merge queue rule.
 {% endif %}
 
 You can require that changes are successfully deployed to specific environments before a branch can be merged. For example, you can use this rule to ensure that changes are successfully deployed to a staging environment before the changes merge to your default branch.
+
+{% ifversion pr-stacks %}
+
+{% data reusables.pull_requests.pr-stack-required-deployments %}
+
+{% endif %}
 
 ## Require signed commits
 
@@ -96,9 +103,7 @@ With both methods, we use the `verified_signature?` to confirm if a commit has a
 
 {% endif %}
 
-You can always push local commits to the branch if the commits are signed and verified. {% ifversion fpt or ghec %}You can also merge signed and verified commits into the branch using a pull request. However, you cannot squash and merge a pull request into the branch on {% data variables.product.github %} unless you are the author of the pull request.{% else %} However, you cannot merge pull requests into the branch on {% data variables.product.github %}.{% endif %} You can {% ifversion fpt or ghec %}squash and {% endif %}merge pull requests locally. For more information, see [AUTOTITLE](/pull-requests/how-tos/review-pull-requests/checking-out-pull-requests-locally).
-
-{% ifversion fpt or ghec %} For more information about merge methods, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/about-merge-methods-on-github).{% endif %}
+{% data reusables.repositories.required-signed-commits %}
 
 ## Require a pull request before merging
 
@@ -128,9 +133,7 @@ For complex pull requests that require many reviews, requiring an approval from 
 
 Optionally, you can require all comments on the pull request to be resolved before it can be merged to a branch. This ensures that all comments are addressed or acknowledged before merge.
 
-{% ifversion repo-rules-merge-type %}
 Optionally, you can require a merge type of merge, squash, or rebase. This means the targeted branches may only be merged based on the allowed type. Additionally if the repository has disabled a merge method and the ruleset required a different method, the merge will be blocked. See [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/about-merge-methods-on-github).
-{% endif %}
 
 {% ifversion repo-rules-copilot-extra-approval %}
 
@@ -213,6 +216,24 @@ Enabling force pushes will not override any other rules. For example, if a branc
 
 If a site administrator has blocked force pushes to the default branch only, you can still enable force pushes for any other branch or tag.{% endif %}
 
+{% ifversion secret-scanning-merge-protection %}
+
+## Require {% data variables.product.prodname_secret_scanning %} alerts are resolved
+
+> [!NOTE]
+> {% data reusables.secret-scanning.merge-protection-public-preview %}
+
+If your repositories use {% data variables.product.prodname_secret_scanning %}, you can prevent a pull request from merging when either of these conditions applies:
+
+* A {% data variables.product.prodname_secret_scanning %} scan has not completed for the head commit of the pull request.
+* A commit in the pull request introduced an open {% data variables.product.prodname_secret_scanning %} alert that matches a secret type selected in the ruleset.
+
+You can configure the rule for provider, custom, and generic patterns. AI-detected secrets are not supported.
+
+For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-secrets/prevent-future-leaks/block-merges-with-secrets).
+
+{% endif %}
+
 ## Require {% data variables.product.prodname_code_scanning %} results
 
 If your repositories are configured with {% data variables.product.prodname_code_scanning %}, you can use rulesets to prevent pull requests from being merged when one of the following conditions is met:
@@ -233,12 +254,18 @@ If your repositories are configured with {% data variables.product.prodname_code
 
 For more information, see [AUTOTITLE](/code-security/concepts/code-quality/code-quality) and [AUTOTITLE](/code-security/how-tos/maintain-quality-code/set-pr-thresholds).
 
+## Require license compliance results before merging
+
+This enables the license compliance feature on the targeted repositories. License compliance checks added or changed dependencies against a policy of permitted licenses and will block pull requests which add dependencies whose licenses are not allowed. For more information, see [AUTOTITLE](/code-security/concepts/supply-chain-security/open-source-license-compliance).
+
 ## Restrict code coverage
 
 > [!NOTE]
 > This feature is in {% data variables.release-phases.public_preview %} and subject to change.
 
 If your repository has {% data variables.product.prodname_code_quality %} enabled and code coverage data is being uploaded, you can use rulesets to prevent pull requests from being merged based on code coverage thresholds. For more information about uploading coverage data, see [AUTOTITLE](/code-security/how-tos/maintain-quality-code/set-up-code-coverage).
+
+The rule evaluates only coverage data that has already been uploaded and does not wait for coverage uploads to complete. To ensure that all expected coverage results are evaluated before a pull request can be merged, make each status check associated with an expected coverage upload a required status check.
 
 This rule blocks a pull request from being merged when either of two code coverage thresholds is not met:
 
@@ -265,13 +292,15 @@ If the workflow file is in an internal or private repository and you want to use
 
 When you add this rule to a ruleset, in your organization settings, you specify the source repository and the workflow you want to enforce.
 
+Ruleset workflows can't use most {% data variables.product.prodname_codeql %} actions, such as `github/codeql-action/init` and `github/codeql-action/analyze`; the only exception is `github/codeql-action/upload-sarif`. See [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/troubleshooting-rules#using-codeql-in-a-ruleset-workflow).
+
 ### Using "Evaluate" mode for ruleset workflows
 
 If a ruleset workflow runs in "Evaluate" mode and passes, you can set the ruleset workflow to "Active" mode and merge your pull request without triggering a new workflow run.
 
 If you open a pull request before you create the ruleset in "Evaluate" mode, you can still merge the pull request since the ruleset is not enforced.
 
-For more information about enforcement statuses, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository#about-using-enforcement-statuses).
+For more information about enforcement statuses, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository#using-ruleset-enforcement-statuses).
 
 ### Supported event triggers
 
@@ -315,7 +344,7 @@ When you add metadata restrictions to an existing branch or tag, the rules are e
 
 ## Restrict file paths
 
-Prevent commits that include changes in specified file paths from being pushed to the repository. {% ifversion available-rules-limit %}Limit is 200 entries and up to 200 characters in each entry.{% endif %}
+Prevent commits that include changes in specified file paths from being pushed to the repository. Limit is 200 entries and up to 200 characters in each entry.
 
 {% data reusables.repositories.rulesets-push-rules-path-example %}
 
@@ -333,7 +362,7 @@ Prevent commits that include file paths that exceed a specified character limit 
 
 ## Restrict file extensions
 
-Prevent commits that include files with specified file extensions from being pushed to the repository. {% ifversion available-rules-limit %}Limit is 200 entries and up to 200 characters in each entry.{% endif %}
+Prevent commits that include files with specified file extensions from being pushed to the repository. Limit is 200 entries and up to 200 characters in each entry.
 
 {% ifversion push-rule-allowed-exceptions %}
 

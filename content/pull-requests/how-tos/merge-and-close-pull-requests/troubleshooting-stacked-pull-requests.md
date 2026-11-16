@@ -9,8 +9,6 @@ category:
   - Merge and close pull requests
 ---
 
-{% data reusables.public-preview.public-preview %}
-
 This article covers common issues you may encounter when working with stacked pull requests and how to resolve them. 
 
 ## A rebase reports a conflict
@@ -97,13 +95,6 @@ A large stack may also split across consecutive merge groups: the merge queue al
 Closing a pull request in the middle of a stack blocks all pull requests above it from being mergeable. The stack relationship is preserved, so to open a different pull request or change the stack's structure, you must first dissolve the stack and then re-create it.
 
 You can unstack from the {% data variables.product.github %} website, or restructure the stack with `gh stack modify`. Unstacking removes only the open, draft, and closed pull requests; merged and queued pull requests remain in the stack. See [AUTOTITLE](/pull-requests/how-tos/create-pull-requests/managing-stacked-pull-requests#unstacking-from-the-github-website) and [AUTOTITLE](/pull-requests/how-tos/create-pull-requests/managing-stacked-pull-requests#restructuring-a-stack).
-
-## Commits aren't signed after a rebase
-
-A rebase triggered from the pull request runs on {% data variables.product.github %}'s servers, and those commits are **not** signed. If your repository requires signed commits, rebase from {% data variables.product.prodname_cli %} instead. 
-
-* Running `gh stack rebase` uses your local Git operations, so the generated commits follow your local Git commit signature configuration. 
-* After rebasing, push the updated branches with `gh stack push`.
 
 ## You can't create a stack across forks
 

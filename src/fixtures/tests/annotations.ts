@@ -8,13 +8,9 @@ describe('annotations', () => {
     const $: CheerioAPI = await getDOM('/get-started/foo/code-snippet-with-hashbang')
     const annotations = $('#article-contents .annotate')
 
-    // Check http://localhost:4000/en/get-started/foo/code-snippet-with-hashbang
-    // to understand the confidence in the assertions.
-
-    // This fixture page has 2 bash annotations and 1 yaml
+    // The fixture page intentionally has 2 Bash annotations and 1 YAML annotation.
     expect(annotations.length).toBe(2 + 1)
 
-    // First code snippet block
     {
       const annotation = annotations.eq(0)
       expect(annotation.find('.annotate-header').length).toBe(1)
@@ -25,7 +21,6 @@ describe('annotations', () => {
       const noteTexts = notes.map((_, el) => $(el).text()).get()
       expect(noteTexts).toEqual(["Let's get started", 'This is just a sample', 'End of the script'])
     }
-    // Second code snippet block
     {
       const annotation = annotations.eq(1)
       expect(annotation.find('.annotate-header').length).toBe(1)
@@ -36,7 +31,7 @@ describe('annotations', () => {
       const noteTexts = notes.map((_, el) => $(el).text()).get()
       expect(noteTexts).toEqual(['Has to start with a comment.', 'This is the if statement'])
     }
-    // Yaml code snippet that starts with an empty comment
+    // The YAML snippet starts with an empty comment.
     {
       const annotation = annotations.eq(2)
       expect(annotation.find('.annotate-header').length).toBe(1)

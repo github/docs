@@ -19,13 +19,6 @@ You can export the current state of the dependency graph for your repository as 
 
 SBOMs include an inventory of a project's dependencies and associated information such as {% ifversion ghes %}versions and package identifiers{% else %}versions, package identifiers, licenses, transitive paths, and copyright information{% endif %}. SBOMs do not include dependents (other projects that rely on your project).
 
-{% ifversion ghec %}
-
-> [!NOTE]
-> {% data reusables.data-residency.dependency-graph-data-availability %}
-
-{% endif %}
-
 ## Exporting a software bill of materials for your repository from the UI
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -35,7 +28,14 @@ SBOMs include an inventory of a project's dependencies and associated informatio
 
 ## Exporting a software bill of materials for your repository using the REST API
 
+{% ifversion ghes %}
 If you want to use the REST API to export an SBOM for your repository, see [AUTOTITLE](/rest/dependency-graph/sboms#export-a-software-bill-of-materials-sbom-for-a-repository).
+{% else %}
+To export an SBOM for your repository using the REST API:
+
+1. Request generation of the SBOM. See [AUTOTITLE](/rest/dependency-graph/sboms#request-generation-of-a-software-bill-of-materials-sbom-for-a-repository).
+1. Poll the returned `sbom_url` while the response is `202`. When the response is `302`, follow the redirect to download the completed SBOM. See [AUTOTITLE](/rest/dependency-graph/sboms#fetch-a-software-bill-of-materials-sbom-for-a-repository).
+{% endif %}
 
 ## Generating a software bill of materials from {% data variables.product.prodname_actions %}
 

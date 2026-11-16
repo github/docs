@@ -2,7 +2,9 @@
 title: Metrics for Dependabot alerts
 intro: Use metrics to track and prioritize {% data variables.product.prodname_dependabot_alerts %} across your organization.
 versions:
-  feature: dependabot-metrics
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 product: '{% data reusables.gated-features.security-overview-fpt-cs-only %}'
 permissions: '{% data reusables.permissions.security-overview-dependabot-metrics %}'
 shortTitle: Dependabot alert metrics

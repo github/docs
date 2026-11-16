@@ -28,11 +28,8 @@ describe('collapseBlankLines', () => {
     expect(collapseBlankLines(input)).toBe('one\n\ntwo\n')
   })
 
+  // Markdown preserves blank lines inside fences, but 3+ blank lines add noise there too.
   test('also collapses blank-line runs inside fenced code blocks', () => {
-    // Markdown preserves blank lines inside ``` fences in the rendered
-    // <pre><code>, so this regex does change rendered code-block output.
-    // That is intentional: 3+ blank lines in a code sample is noise we want
-    // to collapse the same way we do everywhere else.
     const input = 'before\n\n```\ncode\n\n\n\nmore code\n```\n\nafter'
     expect(collapseBlankLines(input)).toBe('before\n\n```\ncode\n\nmore code\n```\n\nafter')
   })

@@ -301,17 +301,29 @@
                   "type": "string"
                 },
                 "company": {
-                  "type": "string"
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 },
                 "blog": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "format": "uri"
                 },
                 "location": {
-                  "type": "string"
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 },
                 "email": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "format": "email"
                 },
                 "twitter_username": {
@@ -924,17 +936,29 @@
                   "type": "string"
                 },
                 "company": {
-                  "type": "string"
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 },
                 "blog": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "format": "uri"
                 },
                 "location": {
-                  "type": "string"
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 },
                 "email": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "format": "email"
                 },
                 "twitter_username": {
@@ -1930,6 +1954,22 @@
                             "enum": [
                               "read",
                               "write"
+                            ]
+                          },
+                          "organization_copilot_requests": {
+                            "type": "string",
+                            "description": "The level of permission to grant the access token to make Copilot requests billed to the organization where the app is installed. This property is in public preview and is subject to change.",
+                            "enum": [
+                              "read"
+                            ]
+                          },
+                          "organization_external_properties_for_repos": {
+                            "type": "string",
+                            "description": "The level of permission to grant the access token for managing external custom properties for repositories in an organization.",
+                            "enum": [
+                              "read",
+                              "write",
+                              "admin"
                             ]
                           },
                           "organization_announcement_banners": {
@@ -2992,6 +3032,7 @@
                         "type": "string"
                       },
                       "temp_clone_token": {
+                        "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                         "type": "string"
                       },
                       "delete_branch_on_merge": {
@@ -7048,7 +7089,48 @@
         }
       ],
       "descriptionHTML": "<p>Delete artifact attestations in bulk by either subject digests or unique ID.</p>",
-      "codeExamples": [],
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Delete by subject digests",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "subject_digests": [
+                "sha256:abc123",
+                "sha512:def456"
+              ]
+            },
+            "parameters": {
+              "org": "ORG"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "description": "<p>Response</p>"
+          }
+        },
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Delete by attestation IDs",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "attestation_ids": [
+                111,
+                222
+              ]
+            },
+            "parameters": {
+              "org": "ORG"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "description": "<p>Response</p>"
+          }
+        }
+      ],
       "statusCodes": [
         {
           "httpStatusCode": "200",
@@ -7905,6 +7987,618 @@
     {
       "serverUrl": "https://api.github.com",
       "verb": "get",
+      "requestPath": "/orgs/{org}/properties/installations",
+      "title": "Get registered app installations for external custom properties",
+      "category": "orgs",
+      "subcategory": "custom-properties",
+      "parameters": [
+        {
+          "name": "org",
+          "description": "<p>The organization name. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Gets the registered GitHub App installations used to read and write external custom properties for an organization.</p>\n<p>A GitHub App installation token will only be able to see its own registration info, whereas an authenticated user will be able to see all registrations for the organization.</p>\n<p>To use this endpoint, the authenticated caller must have the <code>organization_external_properties_for_repos:admin</code> permission.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "org": "ORG"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": [
+              {
+                "value": {
+                  "display_name": "Acme",
+                  "installation": {
+                    "id": 1
+                  }
+                }
+              }
+            ],
+            "schema": {
+              "type": "array",
+              "items": {
+                "title": "Organization External Custom Property Installation",
+                "description": "A GitHub App installation that has been registered to read and write an organization's external custom properties, together with the display name assigned to it.",
+                "type": "object",
+                "properties": {
+                  "display_name": {
+                    "type": "string",
+                    "description": "The display name assigned to the app installation's external custom properties in the organization."
+                  },
+                  "installation": {
+                    "type": "object",
+                    "description": "The GitHub App installation that was registered.",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "description": "The unique identifier of the GitHub App installation."
+                      }
+                    },
+                    "required": [
+                      "id"
+                    ]
+                  }
+                },
+                "required": [
+                  "display_name",
+                  "installation"
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"External custom properties for repositories\" organization permissions": "admin"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/properties/installations",
+      "title": "Register an app installation for external custom properties",
+      "category": "orgs",
+      "subcategory": "custom-properties",
+      "parameters": [
+        {
+          "name": "org",
+          "description": "<p>The organization name. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "integer",
+          "name": "installation_id",
+          "description": "<p>The unique identifier of the GitHub App installation to register for managing external custom properties. When authenticating as a GitHub App installation, this defaults to the authenticated installation and can be omitted. It is required for all other callers (users and fine-grained personal access tokens).</p>"
+        },
+        {
+          "type": "string",
+          "name": "display_name",
+          "description": "<p>The display name for this app installation's external custom properties in the organization. Must be 1 to 15 characters and contain only letters and numbers. Capitalization is preserved as entered. This can't be changed after the app installation is registered.</p>",
+          "isRequired": true
+        }
+      ],
+      "descriptionHTML": "<p>Registers a GitHub App installation so it can read and write external custom properties for an organization, and assigns it a display name.</p>\n<p>The display name must be 1 to 15 characters and contain only letters and numbers. Capitalization is preserved as entered.</p>\n<p>An app installation can only be registered once, and its display name can't be changed afterward. Calling with an app installation that has already been registered returns a <code>422</code> response with an <code>already_exists</code> error code for <code>installation_id</code>. If the display name is already in use by another app installation in the organization, the response is <code>422</code> with an <code>already_exists</code> error code for <code>display_name</code>. An invalid display name also returns <code>422</code>.</p>\n<p>The app installation being registered must have write or admin permission for organization external custom properties for repositories. If it doesn't, the response is <code>422</code>. This is the permission of the installation being registered, which isn't necessarily the caller.</p>\n<p>Uninstalling the GitHub App unregisters it, and removes the external custom properties it created.</p>\n<p>To use this endpoint, the authenticated caller must have the <code>organization_external_properties_for_repos:admin</code> permission.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "installation_id": 67890,
+              "display_name": "Acme"
+            },
+            "parameters": {
+              "org": "ORG"
+            }
+          },
+          "response": {
+            "statusCode": "201",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "display_name": "Acme",
+              "installation": {
+                "id": 1
+              }
+            },
+            "schema": {
+              "title": "Organization External Custom Property Installation",
+              "description": "A GitHub App installation that has been registered to read and write an organization's external custom properties, together with the display name assigned to it.",
+              "type": "object",
+              "properties": {
+                "display_name": {
+                  "type": "string",
+                  "description": "The display name assigned to the app installation's external custom properties in the organization."
+                },
+                "installation": {
+                  "type": "object",
+                  "description": "The GitHub App installation that was registered.",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "description": "The unique identifier of the GitHub App installation."
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              },
+              "required": [
+                "display_name",
+                "installation"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "201",
+          "description": "<p>Created</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"External custom properties for repositories\" organization permissions": "admin"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/properties/installations/schema",
+      "title": "Get all external custom properties for a GitHub App installation in an organization",
+      "category": "orgs",
+      "subcategory": "custom-properties",
+      "parameters": [
+        {
+          "name": "org",
+          "description": "<p>The organization name. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Gets all external custom properties defined for the authenticated GitHub App installation on an organization.</p>\n<p>To use this endpoint, the authenticated GitHub App must have the <code>organization_external_properties_for_repos:read</code> permission.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "org": "ORG"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": [
+              {
+                "property_name": "environment"
+              },
+              {
+                "property_name": "business_unit"
+              }
+            ],
+            "schema": {
+              "type": "array",
+              "items": {
+                "title": "External Property",
+                "description": "External custom property defined for a GitHub App installation",
+                "type": "object",
+                "properties": {
+                  "property_name": {
+                    "type": "string",
+                    "description": "The name of the external property"
+                  }
+                },
+                "required": [
+                  "property_name"
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": false,
+        "serverToServer": true,
+        "fineGrainedPat": false,
+        "permissions": [
+          {
+            "\"External custom properties for repositories\" organization permissions": "read"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "patch",
+      "requestPath": "/orgs/{org}/properties/installations/values",
+      "title": "Create or update external custom property values for organization repositories",
+      "category": "orgs",
+      "subcategory": "custom-properties",
+      "parameters": [
+        {
+          "name": "org",
+          "description": "<p>The organization name. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "array of strings",
+          "name": "repository_names",
+          "description": "<p>The names of repositories that the external custom property values will be applied to.</p>",
+          "isRequired": true
+        },
+        {
+          "type": "array of objects",
+          "name": "properties",
+          "description": "<p>List of external custom property names and associated values to apply to the repositories.</p>",
+          "isRequired": true,
+          "childParamsGroups": [
+            {
+              "type": "string",
+              "name": "property_name",
+              "description": "<p>The name of the property</p>",
+              "isRequired": true
+            },
+            {
+              "type": "null or string or array",
+              "name": "value",
+              "description": "<p>The value assigned to the property</p>",
+              "isRequired": true
+            }
+          ]
+        }
+      ],
+      "descriptionHTML": "<p>Create new or update existing external custom property values for repositories in a batch that belong to an organization.\nEach target repository will have its external custom property values updated to match the values provided in the request.</p>\n<p>A maximum of 30 repositories can be updated in a single request.</p>\n<p>Using a value of <code>null</code> for an external custom property will remove or 'unset' the property value from the repository.</p>\n<p>To use this endpoint, the authenticated GitHub App must have the <code>organization_external_properties_for_repos:write</code> permission.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "repository_names": [
+                "Hello-World",
+                "octo-repo"
+              ],
+              "properties": [
+                {
+                  "property_name": "environment",
+                  "value": "production"
+                },
+                {
+                  "property_name": "service",
+                  "value": "web"
+                },
+                {
+                  "property_name": "team",
+                  "value": "octocat"
+                }
+              ]
+            },
+            "parameters": {
+              "org": "ORG"
+            }
+          },
+          "response": {
+            "statusCode": "204",
+            "description": "<p>No Content when external custom property values are successfully created or updated</p>"
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "204",
+          "description": "<p>No Content when external custom property values are successfully created or updated</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": false,
+        "serverToServer": true,
+        "fineGrainedPat": false,
+        "permissions": [
+          {
+            "\"External custom properties for repositories\" organization permissions": "write"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "patch",
+      "requestPath": "/orgs/{org}/properties/installations/values/{property_name}",
+      "title": "Create or update external custom property values for a property across organization repositories",
+      "category": "orgs",
+      "subcategory": "custom-properties",
+      "parameters": [
+        {
+          "name": "org",
+          "description": "<p>The organization name. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "property_name",
+          "description": "<p>The name of the external custom property</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "array of objects",
+          "name": "repository_values",
+          "description": "<p>The names of repositories and the values that the named external custom property will be set to.</p>",
+          "isRequired": true,
+          "childParamsGroups": [
+            {
+              "type": "string",
+              "name": "repository_name",
+              "description": "<p>The name of the repository</p>",
+              "isRequired": true
+            },
+            {
+              "type": "string or null",
+              "name": "value",
+              "description": "<p>The value assigned to the repository. Set to <code>null</code> to unset the value for this repository.</p>",
+              "isRequired": true
+            }
+          ]
+        }
+      ],
+      "descriptionHTML": "<p>Create new or update existing external custom property values for a single named property across repositories that belong to an organization.</p>\n<p>Up to 100 repository values can be updated in a single request. Repositories not included in the request are left unchanged.</p>\n<p>Using a value of <code>null</code> for a repository will remove or 'unset' the property value for that repository. A request that only contains <code>null</code> values for a property that does not yet exist is a no-op.</p>\n<p>To use this endpoint, the authenticated GitHub App must have the <code>organization_external_properties_for_repos:write</code> permission.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "repository_values": [
+                {
+                  "repository_name": "Hello-World",
+                  "value": "production"
+                },
+                {
+                  "repository_name": "octo-repo",
+                  "value": null
+                }
+              ]
+            },
+            "parameters": {
+              "org": "ORG",
+              "property_name": "PROPERTY_NAME"
+            }
+          },
+          "response": {
+            "statusCode": "204",
+            "description": "<p>A header with no content is returned.</p>"
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "204",
+          "description": "<p>A header with no content is returned.</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": false,
+        "serverToServer": true,
+        "fineGrainedPat": false,
+        "permissions": [
+          {
+            "\"External custom properties for repositories\" organization permissions": "write"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/properties/installations/values/{property_name}",
+      "title": "Remove all external custom property values for a property across all organization repositories",
+      "category": "orgs",
+      "subcategory": "custom-properties",
+      "parameters": [
+        {
+          "name": "org",
+          "description": "<p>The organization name. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "property_name",
+          "description": "<p>The name of the external custom property</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Removes all external custom property values for a specified property name across all repositories that belong to an organization.</p>\n<p>To use this endpoint, the authenticated GitHub App must have the <code>organization_external_properties_for_repos:write</code> permission.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "org": "ORG",
+              "property_name": "PROPERTY_NAME"
+            }
+          },
+          "response": {
+            "statusCode": "204",
+            "description": "<p>A header with no content is returned.</p>"
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "204",
+          "description": "<p>A header with no content is returned.</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": false,
+        "serverToServer": true,
+        "fineGrainedPat": false,
+        "permissions": [
+          {
+            "\"External custom properties for repositories\" organization permissions": "write"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
       "requestPath": "/orgs/{org}/properties/schema",
       "title": "Get all custom properties for an organization",
       "category": "orgs",
@@ -8052,6 +8746,13 @@
                     ],
                     "description": "Who can edit the values of the property"
                   },
+                  "regex": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "A regular expression (RE2 syntax) that values of the property must match.\nOnly present for properties with a `value_type` of `string` that define a regular expression."
+                  },
                   "require_explicit_values": {
                     "type": "boolean",
                     "description": "Whether setting properties values is mandatory"
@@ -8125,20 +8826,6 @@
             },
             {
               "type": "string",
-              "name": "url",
-              "description": "<p>The URL that can be used to fetch, update, or delete info about this property via the API.</p>"
-            },
-            {
-              "type": "string",
-              "name": "source_type",
-              "description": "<p>The source type of the property</p>",
-              "enum": [
-                "organization",
-                "enterprise"
-              ]
-            },
-            {
-              "type": "string",
               "name": "value_type",
               "description": "<p>The type of the value for the property</p>",
               "isRequired": true,
@@ -8179,6 +8866,11 @@
                 "org_and_repo_actors",
                 null
               ]
+            },
+            {
+              "type": "string or null",
+              "name": "regex",
+              "description": "<p>A regular expression (RE2 syntax) that values of the property must match.\nOnly supported for properties with a <code>value_type</code> of <code>string</code>.</p>"
             },
             {
               "type": "boolean",
@@ -8344,6 +9036,13 @@
                       null
                     ],
                     "description": "Who can edit the values of the property"
+                  },
+                  "regex": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "A regular expression (RE2 syntax) that values of the property must match.\nOnly present for properties with a `value_type` of `string` that define a regular expression."
                   },
                   "require_explicit_values": {
                     "type": "boolean",
@@ -8526,6 +9225,13 @@
                   ],
                   "description": "Who can edit the values of the property"
                 },
+                "regex": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "A regular expression (RE2 syntax) that values of the property must match.\nOnly present for properties with a `value_type` of `string` that define a regular expression."
+                },
                 "require_explicit_values": {
                   "type": "boolean",
                   "description": "Whether setting properties values is mandatory"
@@ -8635,6 +9341,11 @@
             "org_and_repo_actors",
             null
           ]
+        },
+        {
+          "type": "string or null",
+          "name": "regex",
+          "description": "<p>A regular expression (RE2 syntax) that values of the property must match.\nOnly supported for properties with a <code>value_type</code> of <code>string</code>.</p>"
         },
         {
           "type": "boolean",
@@ -8765,6 +9476,13 @@
                     null
                   ],
                   "description": "Who can edit the values of the property"
+                },
+                "regex": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "A regular expression (RE2 syntax) that values of the property must match.\nOnly present for properties with a `value_type` of `string` that define a regular expression."
                 },
                 "require_explicit_values": {
                   "type": "boolean",
@@ -8987,7 +9705,10 @@
                         "value": {
                           "oneOf": [
                             {
-                              "type": "string"
+                              "type": [
+                                "string",
+                                "null"
+                              ]
                             },
                             {
                               "type": "array",
@@ -9264,7 +9985,7 @@
               "type": "array",
               "items": {
                 "title": "Issue Field",
-                "description": "A custom attribute defined at the organization level for attaching structured data to issues.",
+                "description": "A custom attribute defined by a repository owner for attaching structured data to issues.",
                 "type": [
                   "object",
                   "null"
@@ -9302,10 +10023,11 @@
                   },
                   "visibility": {
                     "type": "string",
-                    "description": "The visibility of the issue field. Can be `organization_members_only` (visible only within the organization) or `all` (visible to all users who can see issues).",
+                    "description": "The visibility of the issue field. Organization-owned fields return `organization_members_only` for restricted visibility (visible to organization members and to collaborators on the repository the field is read through), or `all` (visible to all users who can see issues). For create and update requests, use `restricted` instead of the deprecated `organization_members_only` input. Existing REST API versions continue to return `organization_members_only` for restricted organization-owned fields, even when a request uses `restricted`. Any change to this response spelling will be introduced in a future REST API version.",
                     "enum": [
                       "organization_members_only",
-                      "all"
+                      "all",
+                      "restricted"
                     ]
                   },
                   "options": {
@@ -9464,10 +10186,11 @@
         {
           "type": "string",
           "name": "visibility",
-          "description": "<p>The visibility of the issue field. Can be <code>organization_members_only</code> (visible only within the organization) or <code>all</code> (visible to all users who can see issues). Only used when the visibility settings feature is enabled. Defaults to <code>organization_members_only</code>.</p>",
+          "description": "<p>The visibility of the issue field. Can be <code>restricted</code> (visible to organization members and to collaborators on the repository the field is read through) or <code>all</code> (visible to all users who can see issues). <code>organization_members_only</code> is deprecated. Use <code>restricted</code> instead. Removal will be announced for a future REST API version; existing REST API versions will continue to support this value. Only used when the visibility settings feature is enabled. Defaults to <code>organization_members_only</code>.</p>",
           "enum": [
             "organization_members_only",
-            "all"
+            "all",
+            "restricted"
           ]
         },
         {
@@ -9588,7 +10311,7 @@
             },
             "schema": {
               "title": "Issue Field",
-              "description": "A custom attribute defined at the organization level for attaching structured data to issues.",
+              "description": "A custom attribute defined by a repository owner for attaching structured data to issues.",
               "type": [
                 "object",
                 "null"
@@ -9626,10 +10349,11 @@
                 },
                 "visibility": {
                   "type": "string",
-                  "description": "The visibility of the issue field. Can be `organization_members_only` (visible only within the organization) or `all` (visible to all users who can see issues).",
+                  "description": "The visibility of the issue field. Organization-owned fields return `organization_members_only` for restricted visibility (visible to organization members and to collaborators on the repository the field is read through), or `all` (visible to all users who can see issues). For create and update requests, use `restricted` instead of the deprecated `organization_members_only` input. Existing REST API versions continue to return `organization_members_only` for restricted organization-owned fields, even when a request uses `restricted`. Any change to this response spelling will be introduced in a future REST API version.",
                   "enum": [
                     "organization_members_only",
-                    "all"
+                    "all",
+                    "restricted"
                   ]
                 },
                 "options": {
@@ -9786,10 +10510,11 @@
         {
           "type": "string",
           "name": "visibility",
-          "description": "<p>The visibility of the issue field. Can be <code>organization_members_only</code> (visible only within the organization) or <code>all</code> (visible to all users who can see issues). Only used when the visibility settings feature is enabled.</p>",
+          "description": "<p>The visibility of the issue field. Can be <code>restricted</code> (visible to organization members and to collaborators on the repository the field is read through) or <code>all</code> (visible to all users who can see issues). <code>organization_members_only</code> is deprecated. Use <code>restricted</code> instead. Removal will be announced for a future REST API version; existing REST API versions will continue to support this value. Only used when the visibility settings feature is enabled.</p>",
           "enum": [
             "organization_members_only",
-            "all"
+            "all",
+            "restricted"
           ]
         },
         {
@@ -9898,7 +10623,7 @@
             },
             "schema": {
               "title": "Issue Field",
-              "description": "A custom attribute defined at the organization level for attaching structured data to issues.",
+              "description": "A custom attribute defined by a repository owner for attaching structured data to issues.",
               "type": [
                 "object",
                 "null"
@@ -9936,10 +10661,11 @@
                 },
                 "visibility": {
                   "type": "string",
-                  "description": "The visibility of the issue field. Can be `organization_members_only` (visible only within the organization) or `all` (visible to all users who can see issues).",
+                  "description": "The visibility of the issue field. Organization-owned fields return `organization_members_only` for restricted visibility (visible to organization members and to collaborators on the repository the field is read through), or `all` (visible to all users who can see issues). For create and update requests, use `restricted` instead of the deprecated `organization_members_only` input. Existing REST API versions continue to return `organization_members_only` for restricted organization-owned fields, even when a request uses `restricted`. Any change to this response spelling will be introduced in a future REST API version.",
                   "enum": [
                     "organization_members_only",
-                    "all"
+                    "all",
+                    "restricted"
                   ]
                 },
                 "options": {
@@ -10302,7 +11028,7 @@
         {
           "type": "boolean",
           "name": "is_enabled",
-          "description": "<p>Whether or not the issue type is enabled at the organization level.</p>",
+          "description": "<p>Whether or not the issue type is enabled.</p>",
           "isRequired": true
         },
         {
@@ -10489,7 +11215,7 @@
         {
           "type": "boolean",
           "name": "is_enabled",
-          "description": "<p>Whether or not the issue type is enabled at the organization level.</p>",
+          "description": "<p>Whether or not the issue type is enabled.</p>",
           "isRequired": true
         },
         {
@@ -16008,6 +16734,7 @@
                         "enum": [
                           "read",
                           "triage",
+                          "moderate",
                           "write",
                           "maintain",
                           "admin",
@@ -16738,6 +17465,7 @@
                   "enum": [
                     "read",
                     "triage",
+                    "moderate",
                     "write",
                     "maintain",
                     "admin",
@@ -19206,6 +19934,7 @@
                     "type": "string"
                   },
                   "temp_clone_token": {
+                    "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                     "type": "string"
                   },
                   "delete_branch_on_merge": {
@@ -20738,6 +21467,7 @@
                     "type": "string"
                   },
                   "temp_clone_token": {
+                    "description": "When present and non-empty, a temporary credential for read-only Git access to this repository.\nIt expires five minutes after generation and cannot be used to push changes.\nTreat this value as sensitive and avoid recording it in logs.",
                     "type": "string"
                   },
                   "delete_branch_on_merge": {
@@ -21338,6 +22068,16 @@
           "schema": {
             "type": "integer"
           }
+        },
+        {
+          "name": "include_metadata",
+          "description": "<p>When set to <code>true</code>, the response will include additional metadata for pull request and required status check rule evaluation.\nResults are capped at 50 entries.</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "boolean",
+            "default": false
+          }
         }
       ],
       "bodyParameters": [],
@@ -21518,6 +22258,200 @@
                       "rule_type": {
                         "type": "string",
                         "description": "The type of rule."
+                      },
+                      "metadata": {
+                        "type": [
+                          "object",
+                          "null"
+                        ],
+                        "oneOf": [
+                          {
+                            "title": "Pull request rule suite metadata",
+                            "description": "Metadata for a pull request rule evaluation result.",
+                            "type": "object",
+                            "properties": {
+                              "pull_request": {
+                                "type": "object",
+                                "description": "The pull request associated with the rule evaluation.",
+                                "properties": {
+                                  "id": {
+                                    "type": "integer",
+                                    "description": "The unique identifier of the pull request."
+                                  },
+                                  "number": {
+                                    "type": "integer",
+                                    "description": "The number of the pull request."
+                                  },
+                                  "user": {
+                                    "type": "object",
+                                    "description": "The user who created the pull request.",
+                                    "properties": {
+                                      "id": {
+                                        "type": "integer",
+                                        "description": "The unique identifier of the user."
+                                      },
+                                      "login": {
+                                        "type": "string",
+                                        "description": "The handle for the GitHub user account."
+                                      },
+                                      "type": {
+                                        "type": "string",
+                                        "description": "The type of the user."
+                                      }
+                                    }
+                                  },
+                                  "reviews": {
+                                    "type": "array",
+                                    "description": "The reviews associated with the pull request.",
+                                    "items": {
+                                      "type": "object",
+                                      "properties": {
+                                        "id": {
+                                          "type": "integer",
+                                          "description": "The unique identifier of the review."
+                                        },
+                                        "user": {
+                                          "type": "object",
+                                          "description": "The user who submitted the review.",
+                                          "properties": {
+                                            "id": {
+                                              "type": "integer",
+                                              "description": "The unique identifier of the user."
+                                            },
+                                            "login": {
+                                              "type": "string",
+                                              "description": "The handle for the GitHub user account."
+                                            },
+                                            "type": {
+                                              "type": "string",
+                                              "description": "The type of the user."
+                                            }
+                                          }
+                                        },
+                                        "state": {
+                                          "type": "string",
+                                          "description": "The state of the review."
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "proof_of_presence": {
+                                    "type": [
+                                      "object",
+                                      "null"
+                                    ],
+                                    "description": "The proof of presence evaluation for the pull request. Null if proof of presence was not evaluated.",
+                                    "properties": {
+                                      "state": {
+                                        "type": "string",
+                                        "description": "The state of the proof of presence evaluation."
+                                      },
+                                      "code": {
+                                        "type": "string",
+                                        "description": "A code describing the reason for the proof of presence state."
+                                      },
+                                      "base_sha": {
+                                        "type": "string",
+                                        "description": "The base commit SHA the proof of presence evaluation applies to. Empty if unavailable."
+                                      },
+                                      "head_sha": {
+                                        "type": "string",
+                                        "description": "The head commit SHA the proof of presence evaluation applies to. Empty if unavailable."
+                                      },
+                                      "required_level": {
+                                        "type": "string",
+                                        "description": "The authentication level required by the rule. Empty if unavailable."
+                                      },
+                                      "verified_level": {
+                                        "type": "string",
+                                        "description": "The authentication level that was verified. Empty if proof of presence has not been completed."
+                                      },
+                                      "verified_at": {
+                                        "type": "string",
+                                        "description": "The time proof of presence was verified, in ISO 8601 format. Empty if proof of presence has not been completed."
+                                      },
+                                      "verifier": {
+                                        "type": [
+                                          "object",
+                                          "null"
+                                        ],
+                                        "description": "The user who provided proof of presence. Null if no proof of presence was recorded.",
+                                        "properties": {
+                                          "id": {
+                                            "type": "integer",
+                                            "description": "The unique identifier of the user."
+                                          },
+                                          "login": {
+                                            "type": "string",
+                                            "description": "The handle for the GitHub user account."
+                                          },
+                                          "type": {
+                                            "type": "string",
+                                            "description": "The type of the user."
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          {
+                            "title": "Required status checks rule suite metadata",
+                            "description": "Metadata for a required status checks rule evaluation result.",
+                            "type": "object",
+                            "properties": {
+                              "checks": {
+                                "type": "array",
+                                "description": "The status checks associated with the rule evaluation.",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "id": {
+                                      "type": "integer",
+                                      "description": "The unique identifier of the status check."
+                                    },
+                                    "context": {
+                                      "type": "string",
+                                      "description": "The context name of the status check."
+                                    },
+                                    "state": {
+                                      "type": "string",
+                                      "description": "The state of the status check."
+                                    },
+                                    "type": {
+                                      "type": "string",
+                                      "description": "The type of the status check."
+                                    },
+                                    "app": {
+                                      "type": [
+                                        "object",
+                                        "null"
+                                      ],
+                                      "description": "The GitHub App associated with the status check.",
+                                      "properties": {
+                                        "id": {
+                                          "type": "integer",
+                                          "description": "The unique identifier of the GitHub App."
+                                        },
+                                        "slug": {
+                                          "type": "string",
+                                          "description": "The slug of the GitHub App."
+                                        },
+                                        "name": {
+                                          "type": "string",
+                                          "description": "The name of the GitHub App."
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        ],
+                        "description": "Additional metadata about the rule evaluation."
                       },
                       "details": {
                         "type": [
@@ -22360,6 +23294,10 @@
                                   "type": "boolean",
                                   "description": "Require an approving review in pull requests that modify files that have a designated code owner."
                                 },
+                                "require_extra_approval_for_unattributed_changes": {
+                                  "type": "boolean",
+                                  "description": "When Copilot opens a pull request without a human collaborator, require one more approving review if a non-zero approval count is required."
+                                },
                                 "require_last_push_approval": {
                                   "type": "boolean",
                                   "description": "Whether the most recent reviewable push must be approved by someone other than the person who pushed it."
@@ -22376,7 +23314,7 @@
                                 },
                                 "required_reviewers": {
                                   "type": "array",
-                                  "description": "> [!NOTE]\n> `required_reviewers` is in beta and subject to change.\n\nA collection of reviewers and associated file patterns. Each reviewer has a list of file patterns which determine the files that reviewer is required to review.",
+                                  "description": "A collection of reviewers and associated file patterns. Each reviewer has a list of file patterns which determine the files that reviewer is required to review.",
                                   "items": {
                                     "title": "RequiredReviewerConfiguration",
                                     "description": "A reviewing team, and file patterns describing which files they must approve changes to.",
@@ -22865,8 +23803,77 @@
                           }
                         },
                         {
+                          "title": "code_quality",
+                          "description": "Choose which severity levels of code quality results should block pull request merges. When configured, a code quality analysis must be done on the pull request before the changes can be merged.",
+                          "type": "object",
+                          "required": [
+                            "type"
+                          ],
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "enum": [
+                                "code_quality"
+                              ]
+                            },
+                            "parameters": {
+                              "type": "object",
+                              "properties": {
+                                "severity": {
+                                  "type": "string",
+                                  "description": "The lowest severity level at which code quality reviews need to be resolved before commits can be merged.",
+                                  "enum": [
+                                    "errors",
+                                    "warnings",
+                                    "notes",
+                                    "all"
+                                  ]
+                                }
+                              },
+                              "required": [
+                                "severity"
+                              ]
+                            }
+                          }
+                        },
+                        {
+                          "title": "code_coverage",
+                          "description": "Enforce minimum line coverage thresholds on pull requests. This rule evaluates uploaded coverage data but does not wait for coverage uploads. To ensure coverage is evaluated before merging, make each status check associated with a coverage upload a required status check.",
+                          "type": "object",
+                          "required": [
+                            "type"
+                          ],
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "enum": [
+                                "code_coverage"
+                              ]
+                            },
+                            "parameters": {
+                              "type": "object",
+                              "properties": {
+                                "max_coverage_drop": {
+                                  "type": "number",
+                                  "format": "float",
+                                  "description": "The maximum percentage points that line coverage may drop relative to the default branch. Pull requests that reduce line coverage by more than this amount will be blocked.",
+                                  "minimum": 0,
+                                  "maximum": 100
+                                },
+                                "minimum_coverage": {
+                                  "type": "number",
+                                  "format": "float",
+                                  "description": "The absolute minimum line coverage percentage required. Pull requests with line coverage below this threshold will be blocked.",
+                                  "minimum": 0,
+                                  "maximum": 100
+                                }
+                              }
+                            }
+                          }
+                        },
+                        {
                           "title": "copilot_code_review",
-                          "description": "Request Copilot code review for new pull requests automatically if the author has access to Copilot code review and their premium requests quota has not reached the limit.",
+                          "description": "Request Copilot code review for new pull requests automatically if the author has access to Copilot code review and AI credits.",
                           "type": "object",
                           "required": [
                             "type"
@@ -22926,6 +23933,13 @@
                             "parameters": {
                               "type": "object",
                               "properties": {
+                                "ignored_file_paths": {
+                                  "type": "array",
+                                  "description": "Files matching these patterns are allowed even when they also match a restricted path.",
+                                  "items": {
+                                    "type": "string"
+                                  }
+                                },
                                 "restricted_file_paths": {
                                   "type": "array",
                                   "description": "The file paths that are restricted from being pushed to the commit graph.",
@@ -23018,6 +24032,13 @@
                             "parameters": {
                               "type": "object",
                               "properties": {
+                                "ignored_file_paths": {
+                                  "type": "array",
+                                  "description": "Files matching these patterns may exceed the maximum size.",
+                                  "items": {
+                                    "type": "string"
+                                  }
+                                },
                                 "max_file_size": {
                                   "type": "integer",
                                   "description": "The maximum file size allowed in megabytes. This limit does not apply to Git Large File Storage (Git LFS).",
@@ -23542,6 +24563,11 @@
                     },
                     {
                       "type": "boolean",
+                      "name": "require_extra_approval_for_unattributed_changes",
+                      "description": "<p>When Copilot opens a pull request without a human collaborator, require one more approving review if a non-zero approval count is required.</p>"
+                    },
+                    {
+                      "type": "boolean",
                       "name": "require_last_push_approval",
                       "description": "<p>Whether the most recent reviewable push must be approved by someone other than the person who pushed it.</p>",
                       "isRequired": true
@@ -23561,7 +24587,7 @@
                     {
                       "type": "array of objects",
                       "name": "required_reviewers",
-                      "description": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\n<code>required_reviewers</code> is in beta and subject to change.</p>\n</div>\n<p>A collection of reviewers and associated file patterns. Each reviewer has a list of file patterns which determine the files that reviewer is required to review.</p>",
+                      "description": "<p>A collection of reviewers and associated file patterns. Each reviewer has a list of file patterns which determine the files that reviewer is required to review.</p>",
                       "childParamsGroups": [
                         {
                           "type": "array of strings",
@@ -23949,6 +24975,11 @@
                   "childParamsGroups": [
                     {
                       "type": "array of strings",
+                      "name": "ignored_file_paths",
+                      "description": "<p>Files matching these patterns are allowed even when they also match a restricted path.</p>"
+                    },
+                    {
+                      "type": "array of strings",
                       "name": "restricted_file_paths",
                       "description": "<p>The file paths that are restricted from being pushed to the commit graph.</p>",
                       "isRequired": true
@@ -24034,6 +25065,11 @@
                   "name": "parameters",
                   "description": "",
                   "childParamsGroups": [
+                    {
+                      "type": "array of strings",
+                      "name": "ignored_file_paths",
+                      "description": "<p>Files matching these patterns may exceed the maximum size.</p>"
+                    },
                     {
                       "type": "integer",
                       "name": "max_file_size",
@@ -24167,7 +25203,7 @@
             {
               "type": "object",
               "name": "copilot_code_review",
-              "description": "<p>Request Copilot code review for new pull requests automatically if the author has access to Copilot code review and their premium requests quota has not reached the limit.</p>",
+              "description": "<p>Request Copilot code review for new pull requests automatically if the author has access to Copilot code review and AI credits.</p>",
               "childParamsGroups": [
                 {
                   "type": "string",
@@ -25012,6 +26048,10 @@
                                 "type": "boolean",
                                 "description": "Require an approving review in pull requests that modify files that have a designated code owner."
                               },
+                              "require_extra_approval_for_unattributed_changes": {
+                                "type": "boolean",
+                                "description": "When Copilot opens a pull request without a human collaborator, require one more approving review if a non-zero approval count is required."
+                              },
                               "require_last_push_approval": {
                                 "type": "boolean",
                                 "description": "Whether the most recent reviewable push must be approved by someone other than the person who pushed it."
@@ -25028,7 +26068,7 @@
                               },
                               "required_reviewers": {
                                 "type": "array",
-                                "description": "> [!NOTE]\n> `required_reviewers` is in beta and subject to change.\n\nA collection of reviewers and associated file patterns. Each reviewer has a list of file patterns which determine the files that reviewer is required to review.",
+                                "description": "A collection of reviewers and associated file patterns. Each reviewer has a list of file patterns which determine the files that reviewer is required to review.",
                                 "items": {
                                   "title": "RequiredReviewerConfiguration",
                                   "description": "A reviewing team, and file patterns describing which files they must approve changes to.",
@@ -25517,8 +26557,77 @@
                         }
                       },
                       {
+                        "title": "code_quality",
+                        "description": "Choose which severity levels of code quality results should block pull request merges. When configured, a code quality analysis must be done on the pull request before the changes can be merged.",
+                        "type": "object",
+                        "required": [
+                          "type"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "code_quality"
+                            ]
+                          },
+                          "parameters": {
+                            "type": "object",
+                            "properties": {
+                              "severity": {
+                                "type": "string",
+                                "description": "The lowest severity level at which code quality reviews need to be resolved before commits can be merged.",
+                                "enum": [
+                                  "errors",
+                                  "warnings",
+                                  "notes",
+                                  "all"
+                                ]
+                              }
+                            },
+                            "required": [
+                              "severity"
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "title": "code_coverage",
+                        "description": "Enforce minimum line coverage thresholds on pull requests. This rule evaluates uploaded coverage data but does not wait for coverage uploads. To ensure coverage is evaluated before merging, make each status check associated with a coverage upload a required status check.",
+                        "type": "object",
+                        "required": [
+                          "type"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "code_coverage"
+                            ]
+                          },
+                          "parameters": {
+                            "type": "object",
+                            "properties": {
+                              "max_coverage_drop": {
+                                "type": "number",
+                                "format": "float",
+                                "description": "The maximum percentage points that line coverage may drop relative to the default branch. Pull requests that reduce line coverage by more than this amount will be blocked.",
+                                "minimum": 0,
+                                "maximum": 100
+                              },
+                              "minimum_coverage": {
+                                "type": "number",
+                                "format": "float",
+                                "description": "The absolute minimum line coverage percentage required. Pull requests with line coverage below this threshold will be blocked.",
+                                "minimum": 0,
+                                "maximum": 100
+                              }
+                            }
+                          }
+                        }
+                      },
+                      {
                         "title": "copilot_code_review",
-                        "description": "Request Copilot code review for new pull requests automatically if the author has access to Copilot code review and their premium requests quota has not reached the limit.",
+                        "description": "Request Copilot code review for new pull requests automatically if the author has access to Copilot code review and AI credits.",
                         "type": "object",
                         "required": [
                           "type"
@@ -25578,6 +26687,13 @@
                           "parameters": {
                             "type": "object",
                             "properties": {
+                              "ignored_file_paths": {
+                                "type": "array",
+                                "description": "Files matching these patterns are allowed even when they also match a restricted path.",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
                               "restricted_file_paths": {
                                 "type": "array",
                                 "description": "The file paths that are restricted from being pushed to the commit graph.",
@@ -25670,6 +26786,13 @@
                           "parameters": {
                             "type": "object",
                             "properties": {
+                              "ignored_file_paths": {
+                                "type": "array",
+                                "description": "Files matching these patterns may exceed the maximum size.",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
                               "max_file_size": {
                                 "type": "integer",
                                 "description": "The maximum file size allowed in megabytes. This limit does not apply to Git Large File Storage (Git LFS).",
@@ -26526,6 +27649,10 @@
                                 "type": "boolean",
                                 "description": "Require an approving review in pull requests that modify files that have a designated code owner."
                               },
+                              "require_extra_approval_for_unattributed_changes": {
+                                "type": "boolean",
+                                "description": "When Copilot opens a pull request without a human collaborator, require one more approving review if a non-zero approval count is required."
+                              },
                               "require_last_push_approval": {
                                 "type": "boolean",
                                 "description": "Whether the most recent reviewable push must be approved by someone other than the person who pushed it."
@@ -26542,7 +27669,7 @@
                               },
                               "required_reviewers": {
                                 "type": "array",
-                                "description": "> [!NOTE]\n> `required_reviewers` is in beta and subject to change.\n\nA collection of reviewers and associated file patterns. Each reviewer has a list of file patterns which determine the files that reviewer is required to review.",
+                                "description": "A collection of reviewers and associated file patterns. Each reviewer has a list of file patterns which determine the files that reviewer is required to review.",
                                 "items": {
                                   "title": "RequiredReviewerConfiguration",
                                   "description": "A reviewing team, and file patterns describing which files they must approve changes to.",
@@ -27031,8 +28158,77 @@
                         }
                       },
                       {
+                        "title": "code_quality",
+                        "description": "Choose which severity levels of code quality results should block pull request merges. When configured, a code quality analysis must be done on the pull request before the changes can be merged.",
+                        "type": "object",
+                        "required": [
+                          "type"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "code_quality"
+                            ]
+                          },
+                          "parameters": {
+                            "type": "object",
+                            "properties": {
+                              "severity": {
+                                "type": "string",
+                                "description": "The lowest severity level at which code quality reviews need to be resolved before commits can be merged.",
+                                "enum": [
+                                  "errors",
+                                  "warnings",
+                                  "notes",
+                                  "all"
+                                ]
+                              }
+                            },
+                            "required": [
+                              "severity"
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "title": "code_coverage",
+                        "description": "Enforce minimum line coverage thresholds on pull requests. This rule evaluates uploaded coverage data but does not wait for coverage uploads. To ensure coverage is evaluated before merging, make each status check associated with a coverage upload a required status check.",
+                        "type": "object",
+                        "required": [
+                          "type"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "code_coverage"
+                            ]
+                          },
+                          "parameters": {
+                            "type": "object",
+                            "properties": {
+                              "max_coverage_drop": {
+                                "type": "number",
+                                "format": "float",
+                                "description": "The maximum percentage points that line coverage may drop relative to the default branch. Pull requests that reduce line coverage by more than this amount will be blocked.",
+                                "minimum": 0,
+                                "maximum": 100
+                              },
+                              "minimum_coverage": {
+                                "type": "number",
+                                "format": "float",
+                                "description": "The absolute minimum line coverage percentage required. Pull requests with line coverage below this threshold will be blocked.",
+                                "minimum": 0,
+                                "maximum": 100
+                              }
+                            }
+                          }
+                        }
+                      },
+                      {
                         "title": "copilot_code_review",
-                        "description": "Request Copilot code review for new pull requests automatically if the author has access to Copilot code review and their premium requests quota has not reached the limit.",
+                        "description": "Request Copilot code review for new pull requests automatically if the author has access to Copilot code review and AI credits.",
                         "type": "object",
                         "required": [
                           "type"
@@ -27092,6 +28288,13 @@
                           "parameters": {
                             "type": "object",
                             "properties": {
+                              "ignored_file_paths": {
+                                "type": "array",
+                                "description": "Files matching these patterns are allowed even when they also match a restricted path.",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
                               "restricted_file_paths": {
                                 "type": "array",
                                 "description": "The file paths that are restricted from being pushed to the commit graph.",
@@ -27184,6 +28387,13 @@
                           "parameters": {
                             "type": "object",
                             "properties": {
+                              "ignored_file_paths": {
+                                "type": "array",
+                                "description": "Files matching these patterns may exceed the maximum size.",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
                               "max_file_size": {
                                 "type": "integer",
                                 "description": "The maximum file size allowed in megabytes. This limit does not apply to Git Large File Storage (Git LFS).",
@@ -27713,6 +28923,11 @@
                     },
                     {
                       "type": "boolean",
+                      "name": "require_extra_approval_for_unattributed_changes",
+                      "description": "<p>When Copilot opens a pull request without a human collaborator, require one more approving review if a non-zero approval count is required.</p>"
+                    },
+                    {
+                      "type": "boolean",
                       "name": "require_last_push_approval",
                       "description": "<p>Whether the most recent reviewable push must be approved by someone other than the person who pushed it.</p>",
                       "isRequired": true
@@ -27732,7 +28947,7 @@
                     {
                       "type": "array of objects",
                       "name": "required_reviewers",
-                      "description": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\n<code>required_reviewers</code> is in beta and subject to change.</p>\n</div>\n<p>A collection of reviewers and associated file patterns. Each reviewer has a list of file patterns which determine the files that reviewer is required to review.</p>",
+                      "description": "<p>A collection of reviewers and associated file patterns. Each reviewer has a list of file patterns which determine the files that reviewer is required to review.</p>",
                       "childParamsGroups": [
                         {
                           "type": "array of strings",
@@ -28120,6 +29335,11 @@
                   "childParamsGroups": [
                     {
                       "type": "array of strings",
+                      "name": "ignored_file_paths",
+                      "description": "<p>Files matching these patterns are allowed even when they also match a restricted path.</p>"
+                    },
+                    {
+                      "type": "array of strings",
                       "name": "restricted_file_paths",
                       "description": "<p>The file paths that are restricted from being pushed to the commit graph.</p>",
                       "isRequired": true
@@ -28205,6 +29425,11 @@
                   "name": "parameters",
                   "description": "",
                   "childParamsGroups": [
+                    {
+                      "type": "array of strings",
+                      "name": "ignored_file_paths",
+                      "description": "<p>Files matching these patterns may exceed the maximum size.</p>"
+                    },
                     {
                       "type": "integer",
                       "name": "max_file_size",
@@ -28338,7 +29563,7 @@
             {
               "type": "object",
               "name": "copilot_code_review",
-              "description": "<p>Request Copilot code review for new pull requests automatically if the author has access to Copilot code review and their premium requests quota has not reached the limit.</p>",
+              "description": "<p>Request Copilot code review for new pull requests automatically if the author has access to Copilot code review and AI credits.</p>",
               "childParamsGroups": [
                 {
                   "type": "string",
@@ -29184,6 +30409,10 @@
                                 "type": "boolean",
                                 "description": "Require an approving review in pull requests that modify files that have a designated code owner."
                               },
+                              "require_extra_approval_for_unattributed_changes": {
+                                "type": "boolean",
+                                "description": "When Copilot opens a pull request without a human collaborator, require one more approving review if a non-zero approval count is required."
+                              },
                               "require_last_push_approval": {
                                 "type": "boolean",
                                 "description": "Whether the most recent reviewable push must be approved by someone other than the person who pushed it."
@@ -29200,7 +30429,7 @@
                               },
                               "required_reviewers": {
                                 "type": "array",
-                                "description": "> [!NOTE]\n> `required_reviewers` is in beta and subject to change.\n\nA collection of reviewers and associated file patterns. Each reviewer has a list of file patterns which determine the files that reviewer is required to review.",
+                                "description": "A collection of reviewers and associated file patterns. Each reviewer has a list of file patterns which determine the files that reviewer is required to review.",
                                 "items": {
                                   "title": "RequiredReviewerConfiguration",
                                   "description": "A reviewing team, and file patterns describing which files they must approve changes to.",
@@ -29689,8 +30918,77 @@
                         }
                       },
                       {
+                        "title": "code_quality",
+                        "description": "Choose which severity levels of code quality results should block pull request merges. When configured, a code quality analysis must be done on the pull request before the changes can be merged.",
+                        "type": "object",
+                        "required": [
+                          "type"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "code_quality"
+                            ]
+                          },
+                          "parameters": {
+                            "type": "object",
+                            "properties": {
+                              "severity": {
+                                "type": "string",
+                                "description": "The lowest severity level at which code quality reviews need to be resolved before commits can be merged.",
+                                "enum": [
+                                  "errors",
+                                  "warnings",
+                                  "notes",
+                                  "all"
+                                ]
+                              }
+                            },
+                            "required": [
+                              "severity"
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "title": "code_coverage",
+                        "description": "Enforce minimum line coverage thresholds on pull requests. This rule evaluates uploaded coverage data but does not wait for coverage uploads. To ensure coverage is evaluated before merging, make each status check associated with a coverage upload a required status check.",
+                        "type": "object",
+                        "required": [
+                          "type"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "code_coverage"
+                            ]
+                          },
+                          "parameters": {
+                            "type": "object",
+                            "properties": {
+                              "max_coverage_drop": {
+                                "type": "number",
+                                "format": "float",
+                                "description": "The maximum percentage points that line coverage may drop relative to the default branch. Pull requests that reduce line coverage by more than this amount will be blocked.",
+                                "minimum": 0,
+                                "maximum": 100
+                              },
+                              "minimum_coverage": {
+                                "type": "number",
+                                "format": "float",
+                                "description": "The absolute minimum line coverage percentage required. Pull requests with line coverage below this threshold will be blocked.",
+                                "minimum": 0,
+                                "maximum": 100
+                              }
+                            }
+                          }
+                        }
+                      },
+                      {
                         "title": "copilot_code_review",
-                        "description": "Request Copilot code review for new pull requests automatically if the author has access to Copilot code review and their premium requests quota has not reached the limit.",
+                        "description": "Request Copilot code review for new pull requests automatically if the author has access to Copilot code review and AI credits.",
                         "type": "object",
                         "required": [
                           "type"
@@ -29750,6 +31048,13 @@
                           "parameters": {
                             "type": "object",
                             "properties": {
+                              "ignored_file_paths": {
+                                "type": "array",
+                                "description": "Files matching these patterns are allowed even when they also match a restricted path.",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
                               "restricted_file_paths": {
                                 "type": "array",
                                 "description": "The file paths that are restricted from being pushed to the commit graph.",
@@ -29842,6 +31147,13 @@
                           "parameters": {
                             "type": "object",
                             "properties": {
+                              "ignored_file_paths": {
+                                "type": "array",
+                                "description": "Files matching these patterns may exceed the maximum size.",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
                               "max_file_size": {
                                 "type": "integer",
                                 "description": "The maximum file size allowed in megabytes. This limit does not apply to Git Large File Storage (Git LFS).",

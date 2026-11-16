@@ -11,11 +11,7 @@ describe('permission statements', () => {
   })
 
   test('callout disappears depend on Liquid inside it', async () => {
-    // This page has `product:` property which is a piece of Liquid
-    // which makes it so that the rendered output of that becomes
-    // an empty string.
-    // This test tests that alert is not rendered if its output
-    // "exits" but is empty.
+    // Liquid in the product: frontmatter property renders empty, so the product statement disappears.
     const $: CheerioAPI = await getDOM(
       '/enterprise-server@latest/get-started/foo/page-with-callout',
     )
@@ -32,16 +28,13 @@ describe('permission statements', () => {
   test('page with permission frontmatter', async () => {
     const $: CheerioAPI = await getDOM('/get-started/markdown/permissions')
     const html = $('[data-testid=permissions-statement] div').html()
-    // Markdown
     expect(html).toMatch('<strong>admin</strong>')
-    // Liquid
     expect(html).toMatch('HubGit Pages site')
   })
 
   test('page with permission frontmatter and product statement', async () => {
     const $: CheerioAPI = await getDOM('/get-started/foo/page-with-permissions-and-product-callout')
     const html = $('[data-testid=permissions-callout] div').html()
-    // part of the UI
     expect(html).toMatch('Who can use this feature')
 
     const permission = $('[data-testid=permissions-statement] div')

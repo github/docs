@@ -9,10 +9,9 @@ redirect_from:
 permissions: 'Enterprise owners can install {% data variables.product.prodname_github_apps %} on their enterprise. App managers cannot install apps at the enterprise level.'
 category:
   - Install and authorize apps
+docsTeamMetrics:
+  - enterprise-onboarding
 ---
-
-> [!NOTE]
-> Enterprise-installed {% data variables.product.prodname_github_apps %} are in {% data variables.release-phases.public_preview %} and subject to change.
 
 ## About installing {% data variables.product.prodname_github_apps %} on your enterprise
 
@@ -24,10 +23,10 @@ When an enterprise owner installs a {% data variables.product.prodname_github_ap
 
 The {% data variables.product.prodname_github_app %} must request enterprise-level permissions. It can request other permissions as well, but only the enterprise permissions will be granted during installation.
 
-The app can be owned by your enterprise, by an organization within your enterprise, or by a third-party developer. To install a public app from a third party, use the installation link that the app's developer provides. You cannot install a private app that is owned by an account outside your enterprise.
+The app can be owned by your enterprise{% ifversion ghes %} or organization in your enterprise.{% else %}, by an organization within your enterprise, or by a third-party developer. To install a public app from a third party, use the installation link that the app's developer provides. You cannot install a private app that is owned by an account outside your enterprise.
 
 > [!NOTE]
-> There is one exception to installing a third-party app across enterprises. If an app requests the "Enterprise organization installations" permission, it can only be installed on the enterprise that owns the app. You cannot install this app on your enterprise if it is owned outside your enterprise. In EMU enterprises and GHES, enterprise's users count as being within the enterprise, so their apps can be installed on the enterprise.
+> There is one exception to installing a third-party app across enterprises. If an app requests the "Enterprise organization installations" permission, it can only be installed on the enterprise that owns the app. You cannot install this app on your enterprise if it is owned outside your enterprise. In EMU enterprises and GHES, enterprise's users count as being within the enterprise, so their apps can be installed on the enterprise.{% endif %}.
 
 ## Installing a {% data variables.product.prodname_github_app %} on your enterprise
 
@@ -52,11 +51,11 @@ The installation token for an enterprise-installed {% data variables.product.pro
 
 ## Current limitations
 
-Enterprise-installed {% data variables.product.prodname_github_apps %} are currently in {% data variables.release-phases.public_preview %} with the following limitations.
+Enterprise-installed {% data variables.product.prodname_github_apps %} have some limitations in what they're able to do.
 
 ### API support
 
-Not all APIs support enterprise-installed {% data variables.product.prodname_github_apps %} yet. As more permissions are built and APIs updated, support will become broader. For more information about the APIs and permissions that support enterprise-installed {% data variables.product.prodname_github_apps %}, see [AUTOTITLE](/rest/authentication/permissions-required-for-github-apps).
+Not all APIs support enterprise-installed {% data variables.product.prodname_github_apps %} yet. As more permissions are built and APIs updated, support will become broader. For more information about the APIs and permissions that support enterprise-installed {% data variables.product.prodname_github_apps %}, see [AUTOTITLE](/rest/authentication/permissions-required-for-github-apps) and [AUTOTITLE](/graphql/guides/managing-enterprise-accounts).
 
 ### Webhook support
 

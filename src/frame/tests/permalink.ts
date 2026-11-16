@@ -5,8 +5,7 @@ import enterpriseServerReleases from '@/versions/lib/enterprise-server-releases'
 import nonEnterpriseDefaultVersion from '@/versions/lib/non-enterprise-default-version'
 import getApplicableVersions from '@/versions/lib/get-applicable-versions'
 
-// Permalink constructor requires: languageCode, pageVersion, relativePath, title
-// Permalink.derive requires: languageCode, relativePath, title, versions (<- FM prop)
+// Permalink.derive receives applicableVersions after Page merges feature-derived versions.
 
 describe('Permalink class', () => {
   test('derives info for unversioned homepage', () => {

@@ -1,8 +1,8 @@
 ---
-title: AI-powered security detections in pull requests
-shortTitle: AI-powered security detections
+title: AI Scan for pull requests
+shortTitle: AI Scan for pull requests
 allowTitleToDifferFromFilename: true
-intro: 'AI-powered security detections use an AI-based scanning engine to find security vulnerabilities in pull requests for languages and frameworks not covered by {% data variables.product.prodname_codeql %}.'
+intro: 'AI Scan uses an AI-based scanning engine to find security vulnerabilities in pull requests for languages and frameworks not covered by {% data variables.product.prodname_codeql %}.'
 versions:
   feature: ai-powered-security-detections
 contentType: concepts
@@ -10,51 +10,77 @@ category:
   - Find and fix code vulnerabilities
 ---
 
-> [!NOTE]
-> AI-powered security detections are currently in {% data variables.release-phases.public_preview %} and subject to change.
+AI Scan for pull requests produces additional security findings with an AI-based scanning engine that runs on pull requests and complements {% data variables.product.prodname_codeql %}.
 
-AI-powered security detections are additional security findings produced by an AI-based scanning engine that runs on pull requests and complements {% data variables.product.prodname_codeql %}. Unlike {% data variables.product.prodname_codeql %} alerts, AI-powered findings are only available on pull requests and do not appear as backlog alerts in the repository's security view.
+AI Scan expands {% data variables.product.prodname_code_scanning %} coverage for pull requests without requiring a separate scanning tool or build configuration.
 
-While {% data variables.product.prodname_codeql %} provides high-precision static analysis for a specific set of supported languages and queries, many repositories use languages and frameworks that {% data variables.product.prodname_codeql %} does not cover. AI-powered detections expand {% data variables.product.prodname_code_scanning %} coverage into these areas, helping you find vulnerabilities without adding new tools or configuration.
+AI Scan for pull requests is one of the independently controlled features grouped under **AI Scan** in {% data variables.product.github %} settings. See [AUTOTITLE](/code-security/concepts/code-scanning/ai-scan).
 
-During the {% data variables.release-phases.public_preview %}, AI-powered security detections require a {% data variables.product.prodname_GHAS %} license and a {% data variables.product.prodname_copilot %} license.
+## Availability
 
-Usage consumes {% data variables.product.prodname_ai_credits_short %}. See [AUTOTITLE](/copilot/concepts/billing/usage-based-billing-for-organizations-and-enterprises).
+Availability depends on who owns the repository and its visibility.
 
-## How AI-powered security detections work
+{% data reusables.code-scanning.ai-scan-availability %}
 
-AI-powered security detections run automatically on pull requests in repositories where {% data variables.product.prodname_codeql %} default setup is enabled and AI-powered detections have been opted into. The AI-based scan is triggered on pull request creation and after each new commit, the same as {% data variables.product.prodname_codeql %}.
+AI Scan for pull requests is not available for repositories in a {% data variables.enterprise.prodname_managed_user %}'s personal namespace, even if {% data variables.product.prodname_code_scanning %} is enabled for the repository.
 
-AI-powered findings are advisory and do not block pull request merges. They provide signals about where code security can be improved without interrupting your workflow.
+You do not need a {% data variables.product.prodname_copilot %} license to use AI Scan.
 
-The AI scanning engine works directly with the code in the pull request and does not require a build system. It uses tools such as code search to gather additional context from the repository when deciding whether to flag an issue. It uses its own specialized prompts and does not use custom instruction files such as `/.github/copilot-instructions.md` or `/CLAUDE.md`.
+## Billing
 
-The AI scan runs independently of {% data variables.product.prodname_codeql %}'s status. If {% data variables.product.prodname_codeql %} default setup fails or is in a waiting state, AI-powered detections will still run.
+AI Scan usage is separate from active-committer licensing and is reported under the **{% data variables.product.prodname_code_security %} {% data variables.product.prodname_ai_credits_short %}** SKU. Usage begins only when a qualifying pull request is scanned.
 
-Results are posted to the pull request as they are found. If the {% data variables.product.prodname_codeql %} scan takes longer to complete, you may see AI-powered findings before {% data variables.product.prodname_codeql %} results appear, or vice versa.
+For organization-owned repositories, usage is billed to the account responsible for the organization's billing.
 
-## How findings appear on pull requests
+{% data reusables.code-scanning.ai-scan-personal-account-billing %}
 
-AI-powered findings appear alongside {% data variables.product.prodname_codeql %} alerts on the **Conversation** and **Files changed** tabs of a pull request. Each AI-powered finding is labeled with an "AI" indicator so you can distinguish it from {% data variables.product.prodname_codeql %} alerts.
+{% data reusables.code-scanning.ai-scan-billing-credits %}
 
-Each finding includes a description of the security issue and an explanation of the risk. Most findings also include a suggested remediation, but not every finding has one. Where a suggested remediation is available, {% data variables.copilot.copilot_autofix_short %} is included and provides a recommended code change to fix the issue, the same way it does for {% data variables.product.prodname_codeql %} alerts. Findings also include a thumbs up/down feedback mechanism that helps improve detection quality over time.
+For details about the billing model, see [AUTOTITLE](/billing/concepts/product-billing/github-advanced-security#how-ai-feature-usage-is-billed).
+
+## How AI Scan works
+
+AI Scan runs automatically when all the following conditions are met:
+
+* {% data variables.product.prodname_code_scanning_caps %} is enabled for the repository.
+* The repository's AI Scan on pull requests setting is enabled.
+* A pull request that is not from a fork or created by {% data variables.product.prodname_dependabot %} contains changes in a supported language or framework that {% data variables.product.prodname_codeql %} does not cover.
+
+Scans run when a pull request is created and after each new commit, as they do for {% data variables.product.prodname_codeql %}.
+
+AI Scan does not require {% data variables.product.prodname_codeql %} default setup and does not depend on the state of {% data variables.product.prodname_codeql %} analysis. If {% data variables.product.prodname_codeql %} analysis fails or is in a waiting state, AI Scan will still run.
+
+Results are posted to the pull request as they are found. If the {% data variables.product.prodname_codeql %} scan takes longer to complete, you may see AI Scan findings before {% data variables.product.prodname_codeql %} results appear, or vice versa.
+
+Findings are advisory. They do not fail the **{% data variables.product.prodname_code_scanning_caps %}** check and cannot block pull request merges through ruleset requirements. They provide signals about where code security can be improved without interrupting your workflow.
+
+The scanning engine analyzes pull request code without requiring a build system and may use code search to gather more context from the repository before flagging an issue. It uses specialized prompts, not custom instruction files such as `/.github/copilot-instructions.md` or `/CLAUDE.md`.
+
+## How AI Scan findings appear on pull requests
+
+AI Scan findings appear alongside {% data variables.product.prodname_codeql %} alerts on the **Conversation** and **Files changed** tabs of a pull request. Each finding is labeled with an "AI" indicator so you can distinguish it from {% data variables.product.prodname_codeql %} alerts.
+
+Each finding describes the security issue and explains the risk. Most findings also include a suggested remediation. When available, {% data variables.copilot.copilot_autofix_short %} recommends a code change, as it does for {% data variables.product.prodname_codeql %} alerts.
+
+You can use the thumbs up or thumbs down control to provide feedback and help improve detection quality.
 
 ## Limitations
 
-* AI-powered security detections analyze pull requests only. Full repository scans are not supported.
-* AI-powered findings cannot yet be used in rulesets to enforce merge requirements
+* AI Scan findings cannot yet be used in rulesets to enforce merge requirements.
+* AI Scan does not run on pull requests from forks or pull requests created by {% data variables.product.prodname_dependabot %}.
+* Self-hosted runners are not supported.
 * Detection categories and supported languages may change as the feature evolves.
-* As with any AI-based tool, findings may include false positives. Use the feedback mechanism to report inaccurate results.
+* As with any AI-based tool, AI Scan findings may include false positives. Use the feedback mechanism to report inaccurate results.
 
 ## Supported languages
 
-AI-powered security detections are designed to cover languages and frameworks that are not currently supported by {% data variables.product.prodname_codeql %}. This includes, but is not limited to, languages such as PHP, Shell/Bash, Terraform configuration (HCL), and Dockerfiles, as well as framework coverage gaps such as JSP for Java and Blazor for C#.
+AI Scan on pull requests supports selected languages and frameworks that {% data variables.product.prodname_codeql %} does not currently cover. Examples include PHP, Shell/Bash, Terraform configuration (HCL), Dockerfiles, JSP for Java, and Blazor for C#.
 
-For a full list of languages supported by {% data variables.product.prodname_codeql %}, see [AUTOTITLE](/code-security/concepts/code-scanning/codeql/codeql-code-scanning).
+To check whether {% data variables.product.prodname_codeql %} supports a language, see [AUTOTITLE](/code-security/concepts/code-scanning/codeql/codeql-code-scanning).
 
 ## Detection categories
 
-AI-powered security detections currently cover the following categories. These categories describe how findings are classified. The AI scanner may evolve over time as models improve.
+AI Scan currently classifies findings into the following categories. Coverage may change as the feature evolves.
 
 * **String injection** — Unsafe string-built SQL, HTML, shell, JSON, or YAML with missing or incorrect escaping or sanitization.
 * **Weak cryptography** — Weak algorithms, small keys, insecure randomness, missing encryption, or weak password hashing.
@@ -66,12 +92,32 @@ AI-powered security detections currently cover the following categories. These c
 * **Server-side request forgery (SSRF)** — Server fetches attacker-controlled URLs, hosts, or protocols.
 * **Supply chain risks** — Unpinned third-party actions, packages, or images, or downloads without integrity checks.
 
-## Enabling AI-powered security detections
+## Enabling AI Scan
 
-AI-powered security detections are not allowed at the enterprise level by default and disabled at the organization and repository levels. Enterprise administrators must explicitly allow the feature before organizations can enable it. Organization administrators must explicitly opt in to the feature. Repository administrators can opt-out of the feature. Additionally, you need to have the {% data variables.product.prodname_codeql %} default setup enabled.
+{% ifversion ai-applications-scanning %}
 
-You do not need to select a model to enable AI-powered security detections.
+AI Scan for pull requests and {% data variables.product.prodname_ai_applications_scanning %} are separate features under AI Scan. {% data variables.product.prodname_ai_applications_scanning %} has its own **Scan for AI applications** control and detects risks such as indirect prompt injection in AI applications and agents. Enabling either feature doesn't enable the other. For more information about {% data variables.product.prodname_ai_applications_scanning %}, see [AUTOTITLE](/code-security/concepts/code-scanning/ai-applications-scanning-for-pull-requests).
 
-* **Enterprise**: The **AI Findings** policy under "Code Security" controls whether organizations can enable the feature. See [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise#enforcing-a-policy-to-manage-the-use-of-ai-powered-security-detections-in-your-enterprises-repositories).
-* **Organization**: The **AI findings** setting under "Code scanning" enables AI-powered detections for repositories in the organization. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/configure-global-settings#enabling-ai-powered-security-detections).
-* **Repository**: The **AI findings** toggle under "Code scanning" enables or disables AI-powered detections for the individual repository. Repositories inherit the organization setting but can opt out individually.
+{% endif %}
+
+Before enabling AI Scan on pull requests for an organization, confirm repository eligibility, review the billing account's included {% data variables.product.prodname_ai_credits_short %}, and configure budgets for metered usage.
+
+Enabling the organization setting enables AI Scan immediately for all eligible repositories where {% data variables.product.prodname_code_scanning %} is enabled. Repository administrators can then opt out, but qualifying pull requests can consume Code Security AI Credits before they do.
+
+You do not need to select a model to enable AI Scan.
+
+* **Enterprise**: Enterprise owners can allow or prevent organizations from enabling AI Scan. The policy is set to "Not allowed" by default. This policy controls both AI Scan on pull requests and AI Scan for a repository's backlog. Allowing AI Scan does not enable it automatically. See [AUTOTITLE](/enterprise-cloud@latest/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise#enforcing-a-policy-to-manage-ai-scan-in-your-enterprises-repositories).
+* **Organization**: Organization owners and security managers can enable AI Scan for pull requests for eligible repositories. Repositories inherit the organization setting. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/configure-global-settings#enabling-ai-scan-for-pull-requests).
+* **Organization-owned repository**: People with admin access to the repository can opt out when the organization has enabled AI Scan. They cannot opt in when the organization setting is disabled.
+* **Public repository owned by a personal account**: People with admin access to the repository enable or disable AI Scan directly by using the **AI Scan for pull requests** toggle under "{% data variables.product.prodname_code_scanning_caps %}".
+
+Organization owners and security managers can review the effective enablement status of AI Scan for pull requests in the "Coverage" view of security overview. See [AUTOTITLE](/code-security/how-tos/view-and-interpret-data/analyze-organization-data/assessing-adoption-code-security).
+
+People with access to security overview can also monitor AI Scan findings across an organization or enterprise:
+
+* The **Prevention** tab on the overview dashboard shows trends in AI Scan findings, how many findings were resolved, and how often developers accepted a {% data variables.copilot.copilot_autofix_short %} suggestion.
+* The **AI Scan** tab in the "Code scanning on pull requests" report shows findings over time, the availability of {% data variables.copilot.copilot_autofix_short %} suggestions, and the outcomes of findings with and without suggestions.
+
+For more information, see [AUTOTITLE](/code-security/concepts/code-scanning/code-scanning-on-pull-requests).
+
+You can use the REST API to manage the organization or repository AI Scan setting. Use the `pr_scan` property to enable or disable AI Scan for pull requests.{% ifversion ai-scan-for-repositories %} The same endpoints manage AI Scan for repositories through the `repository_scan` property.{% endif %} See {% ifversion ai-scan-for-repositories %}[AUTOTITLE](/code-security/concepts/code-scanning/ai-scan-for-repositories#managing-ai-scan-for-repositories-with-the-rest-api) and {% endif %} [AUTOTITLE](/rest/code-scanning/code-scanning#get-the-ai-scan-setting-for-an-organization).

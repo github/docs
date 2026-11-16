@@ -1,0 +1,6 @@
+# Reference: https://github.com/dependabot/proxy/pull/230
+# Dependabot update jobs enforce an outbound network egress allowlist.
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.23'

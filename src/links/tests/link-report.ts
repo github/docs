@@ -11,6 +11,7 @@ import {
   generateSampleReports,
   classifyFixStrategy,
   mergeInternalLinkReports,
+  mergeVersionedLinkFlaws,
   describeVersions,
 } from '../lib/link-report'
 
@@ -166,8 +167,7 @@ describe('generateInternalLinkReport', () => {
   })
 
   test('labels the title with version and language when supplied', () => {
-    // The workflow concatenates every version's report into one issue, so an
-    // unlabelled title leaves no way to tell the sections apart.
+    // Concatenated version reports need labelled titles so sections stay identifiable.
     const report = generateInternalLinkReport([{ href: '/broken', file: 'a.md', lines: [1] }], {
       version: 'enterprise-server@3.21',
       language: 'en',
@@ -191,8 +191,7 @@ describe('createRedirectSuggestion', () => {
   ]
 
   test('does not tell authors to hardcode a version', () => {
-    // Following "update to the new path" here bakes 3.21 into content, which breaks
-    // as soon as 3.22 ships.
+    // Updating to the new path would bake 3.21 into content and break on the next release.
     const report = generateInternalLinkReport(
       linkTo('/admin/all-releases', '/enterprise-server@3.21/admin/all-releases'),
     )
@@ -329,6 +328,36 @@ describe('reportToMarkdown', () => {
     expect(markdown).toContain('broken.example')
   })
 
+  test('external domain sections list each broken URL with its own status', () => {
+    const links: BrokenLink[] = [
+      {
+        href: 'https://example.com/a',
+        file: 'content/x.md',
+        lines: [10],
+        statusCode: 404,
+        errorMessage: 'HTTP 404',
+      },
+      {
+        href: 'https://example.com/b',
+        file: 'content/y.md',
+        lines: [20],
+        errorMessage: 'Request timed out or failed',
+      },
+      { href: 'https://example.com/c|d', file: 'content/x.md', lines: [30], statusCode: 500 },
+    ]
+
+    const markdown = reportToMarkdown(generateExternalLinkReport(links), true)
+
+    expect(markdown).toContain('**Found in 2 files:**')
+    expect(markdown).toContain('| File | Line(s) | URL | Status |')
+    expect(markdown).toContain('| `content/x.md` | 10 | `https://example.com/a` | HTTP 404 |')
+    expect(markdown).toContain(
+      '| `content/y.md` | 20 | `https://example.com/b` | Request timed out or failed |',
+    )
+    expect(markdown).toContain('| `content/x.md` | 30 | `https://example.com/c\\|d` | HTTP 500 |')
+    expect(markdown).not.toContain('**Status:**')
+  })
+
   test('includes potential internal links section with no broken links', () => {
     const report = generateExternalLinkReport([], {
       selfReferentialLinks: [{ href: 'https://docs.github.com/en', file: 'a.md', lines: [1] }],
@@ -377,7 +406,7 @@ describe('generatePRComment', () => {
 
     const comment = generatePRComment(links)
 
-    // Redirects now show a compact summary with info icon
+    // Redirects get a compact summary with an info icon.
     expect(comment).toContain('redirect')
     expect(comment).toContain('ℹ️')
   })
@@ -463,8 +492,7 @@ describe('generatePRComment', () => {
   })
 
   test('anchor wording tracks the blocking mode', () => {
-    // The comment must not claim the check is advisory once FAIL_ON_ANCHOR_FLAW flips it
-    // to failing, and vice versa.
+    // FAIL_ON_ANCHOR_FLAW controls whether anchor text says advisory or failing.
     const brokenAnchors = [
       { href: '/a#x', file: 'content/a.md', lines: [1], versions: ['free-pro-team@latest'] },
     ]
@@ -483,17 +511,14 @@ describe('generateSampleReports', () => {
   test('generates valid sample reports', () => {
     const samples = generateSampleReports()
 
-    // Internal report
     expect(samples.internal.report.groups.length).toBeGreaterThan(0)
     expect(samples.internal.markdown).toContain('Internal Link Check')
     expect(samples.internal.markdown).toContain('/old/broken/path')
 
-    // External report
     expect(samples.external.report.groups.length).toBeGreaterThan(0)
     expect(samples.external.markdown).toContain('External Link Check')
     expect(samples.external.markdown).toContain('example.com')
 
-    // PR comment
     expect(samples.prComment).toContain('Link Check Results')
     expect(samples.prComment).toContain('link-checker-pr-comment')
   })
@@ -580,7 +605,7 @@ describe('internal report grouped by fix strategy', () => {
     expect(markdown).toContain(
       'npm run update-internal-links -- content/admin --keep-stale-fragments --dont-set-autotitle',
     )
-    // content/issues only appears in the manual bucket, so it is not a codemod target.
+    // content/issues appears only in the manual bucket, so it is not a codemod target.
     expect(markdown).not.toContain('npm run update-internal-links -- content/issues ')
   })
 
@@ -620,6 +645,32 @@ describe('codemod command scoping', () => {
     )
     expect(markdown).toContain('That covers 12 docsets in one pass.')
     expect(markdown).toContain('`content/docset-0`')
+  })
+
+  test('includes data/reusables when a link has no source line in the page', () => {
+    const markdown = reportToMarkdown(
+      generateInternalLinkReport([{ ...redirectLink('actions'), lines: [0] }]),
+    )
+
+    expect(markdown).toContain('npm run update-internal-links -- content/actions ')
+    expect(markdown).toContain('npm run update-internal-links -- data/reusables ')
+  })
+
+  test('leaves out data/reusables when every link has a source line', () => {
+    const markdown = reportToMarkdown(generateInternalLinkReport([redirectLink('actions')]))
+
+    expect(markdown).not.toContain('data/reusables')
+  })
+
+  test('single pass covers data/reusables when a link has no source line', () => {
+    const docsets = Array.from({ length: 12 }, (_, i) => `docset-${i}`)
+    const links = docsets.map(redirectLink)
+    links[0] = { ...links[0], lines: [0] }
+    const markdown = reportToMarkdown(generateInternalLinkReport(links))
+
+    expect(markdown).toContain(
+      'npm run update-internal-links -- content data/reusables --keep-stale-fragments --dont-set-autotitle',
+    )
   })
 })
 
@@ -696,7 +747,7 @@ describe('mergeInternalLinkReports', () => {
     const markdown = reportToMarkdown(merged)
 
     expect(markdown).toContain('**Only in:** ghes')
-    // The shared link breaks everywhere, so saying so on every group would be noise.
+    // Shared links that break everywhere omit per-group version labels to reduce noise.
     expect(markdown).not.toContain('**Only in:** fpt, ghes')
   })
 })
@@ -722,7 +773,7 @@ describe('describeVersions', () => {
 
 describe('codemod table truncation', () => {
   const links: BrokenLink[] = [
-    // `/old-0` appears in five files, so it should survive truncation.
+    // /old-0 appears in five files, so it must survive truncation.
     ...Array.from({ length: 5 }, (_, f) => ({
       href: '/old-0',
       file: `actions/busy-${f}.md`,
@@ -813,7 +864,7 @@ describe('version-only redirects', () => {
 describe('section caps', () => {
   test('caps stale anchors, keeping the busiest ones and counting the rest', () => {
     const anchors: BrokenLink[] = [
-      // `/page-0#gone` appears in four files, so it must survive the cut.
+      // /page-0#gone appears in four files, so it must survive the cut.
       ...Array.from({ length: 4 }, (_, f) => ({
         href: '/page-0#gone',
         file: `actions/busy-${f}.md`,
@@ -860,8 +911,7 @@ describe('section caps', () => {
 
 describe('version-only classification across versions', () => {
   test('a link that is version-only in one version and renamed in another is codemod work', () => {
-    // Merged reports put every version's occurrences in one group. Classifying on the first
-    // redirect target alone would file this under "no action" and hide the rename.
+    // Classifying only the first merged redirect target would hide the later rename.
     const mixed: BrokenLink[] = [
       {
         href: '/admin/overview',
@@ -909,8 +959,7 @@ describe('version-only classification across versions', () => {
 
 describe('per-link file list cap', () => {
   test('caps the file table under one link and counts the rest', () => {
-    // Nothing bounds how many pages reuse a link, so one popular link could otherwise
-    // fill the whole issue body.
+    // One popular link could otherwise fill the whole issue body.
     const many: BrokenLink[] = Array.from({ length: 30 }, (_, i) => ({
       href: '/page#gone',
       file: `actions/page-${i}.md`,
@@ -938,7 +987,7 @@ describe('versions checked when some come back clean', () => {
     generateInternalLinkReport([{ href, file: 'actions/a.md', lines: [1] }])
 
   test('a caller-supplied version list wins over what was found on disk', () => {
-    // A clean version uploads no report, so counting files undercounts the matrix.
+    // Clean versions upload no report, so counting report files undercounts the matrix.
     const merged = mergeInternalLinkReports(
       [
         { version: 'free-pro-team@latest en', report: report('/a#gone') },
@@ -949,7 +998,7 @@ describe('versions checked when some come back clean', () => {
 
     expect(merged.versionsChecked).toHaveLength(3)
     expect(merged.summary).toContain('Checked 3 versions')
-    // Two of three versions is now worth saying out loud, where two of two was not.
+    // Two of three checked versions merit a version-specific label.
     expect(reportToMarkdown(merged)).toContain('**Only in:**')
   })
 
@@ -1086,5 +1135,163 @@ describe('merging redirect targets across versions', () => {
     ])
     expect(report.groups[0].occurrences[0].requiresVersionContext).toBe(true)
     expect(classifyFixStrategy(report.groups[0])).toBe('decide')
+  })
+})
+
+describe('mergeVersionedLinkFlaws', () => {
+  const file = 'content/admin/page.md'
+
+  test('reports a missing target even when an earlier version redirects', () => {
+    const { brokenLinks, redirectLinks } = mergeVersionedLinkFlaws([
+      {
+        href: '/admin/old',
+        file,
+        lines: [4],
+        isRedirect: true,
+        redirectTarget: '/enterprise-cloud@latest/admin/new',
+      },
+      { href: '/admin/old', file, lines: [9] },
+    ])
+    expect(redirectLinks).toEqual([])
+    expect(brokenLinks).toEqual([{ href: '/admin/old', file, lines: [4, 9] }])
+  })
+
+  test('keeps a missing target when a later version redirects', () => {
+    const { brokenLinks, redirectLinks } = mergeVersionedLinkFlaws([
+      { href: '/admin/old', file, lines: [9] },
+      { href: '/admin/old', file, lines: [9], isRedirect: true, redirectTarget: '/admin/new' },
+    ])
+    expect(redirectLinks).toEqual([])
+    expect(brokenLinks).toEqual([{ href: '/admin/old', file, lines: [9] }])
+  })
+
+  test('merges redirect occurrences and flags conflicting targets', () => {
+    const { brokenLinks, redirectLinks } = mergeVersionedLinkFlaws([
+      { href: '/old', file, lines: [7], isRedirect: true, redirectTarget: '/new' },
+      {
+        href: '/old',
+        file,
+        lines: [3, 7],
+        isRedirect: true,
+        redirectTarget: '/enterprise-server@3.15/other',
+        requiresVersionContext: true,
+      },
+    ])
+    expect(brokenLinks).toEqual([])
+    expect(redirectLinks).toHaveLength(1)
+    expect(redirectLinks[0]).toMatchObject({
+      lines: [3, 7],
+      redirectTarget: '/new',
+      requiresVersionContext: true,
+      hasConflictingRedirectTargets: true,
+    })
+  })
+
+  test('keeps different hrefs and files separate', () => {
+    const { brokenLinks } = mergeVersionedLinkFlaws([
+      { href: '/a', file, lines: [1] },
+      { href: '/b', file, lines: [2] },
+      { href: '/a', file: 'content/other.md', lines: [1] },
+    ])
+    expect(brokenLinks.map((link) => `${link.file}${link.href}`)).toEqual([
+      `${file}/a`,
+      `${file}/b`,
+      'content/other.md/a',
+    ])
+  })
+})
+
+describe('replacement targets in the JSON report', () => {
+  const redirectOccurrence = (
+    href: string,
+    redirectTarget: string,
+    extra: Partial<BrokenLink> = {},
+  ): BrokenLink => ({
+    href,
+    file: 'actions/x.md',
+    lines: [1],
+    isRedirect: true,
+    redirectTarget,
+    ...extra,
+  })
+  const roundTrip = (links: BrokenLink[], redirects?: Record<string, string>) =>
+    JSON.parse(
+      JSON.stringify(
+        generateInternalLinkReport(links, { version: 'enterprise-server@3.19', redirects }),
+      ),
+    ).groups as GroupedBrokenLinks[]
+
+  test('drops the checked version prefix from a versionless rename', () => {
+    const [group] = roundTrip(
+      [redirectOccurrence('/actions/old', '/enterprise-server@3.19/actions/new')],
+      {
+        '/actions/old': '/actions/new',
+        '/enterprise-server@3.19/actions/old': '/enterprise-server@3.19/actions/new',
+      },
+    )
+    expect(group.fixStrategy).toBe('codemod')
+    expect(group.replacementTarget).toBe('/actions/new')
+  })
+
+  test('drops the prefix when no redirects map is passed', () => {
+    const [group] = roundTrip([
+      redirectOccurrence('/actions/old', '/enterprise-server@3.19/actions/new'),
+    ])
+    expect(group.replacementTarget).toBe('/actions/new')
+  })
+
+  test('keeps the prefix when the link already names a version', () => {
+    const [group] = roundTrip([
+      redirectOccurrence(
+        '/enterprise-server@3.19/actions/old',
+        '/enterprise-server@3.19/actions/new',
+      ),
+    ])
+    expect(group.fixStrategy).toBe('codemod')
+    expect(group.replacementTarget).toBe('/enterprise-server@3.19/actions/new')
+  })
+
+  test('gives no replacement for a version-only redirect', () => {
+    const [group] = roundTrip([
+      redirectOccurrence('/admin/overview', '/enterprise-cloud@latest/admin/overview'),
+    ])
+    expect(group.fixStrategy).toBe('versionless')
+    expect(group.replacementTarget).toBeUndefined()
+  })
+
+  test('gives no replacement for a redirect that needs version context', () => {
+    const [group] = roundTrip([
+      redirectOccurrence('/admin/foo', '/enterprise-server@3.19/admin/bar', {
+        requiresVersionContext: true,
+      }),
+    ])
+    expect(group.fixStrategy).toBe('decide')
+    expect(group.replacementTarget).toBeUndefined()
+  })
+
+  test('gives no replacement for a broken link', () => {
+    const [group] = roundTrip([{ href: '/missing', file: 'actions/x.md', lines: [1] }])
+    expect(group.fixStrategy).toBe('decide')
+    expect(group.replacementTarget).toBeUndefined()
+  })
+
+  test.each([
+    ['/en/actions/old', '/actions/new'],
+    ['/en/enterprise-server@3.19/actions/old', '/enterprise-server@3.19/actions/new'],
+    ['/enterprise/3.19/actions/old', '/enterprise-server@3.19/actions/new'],
+    ['/en/enterprise/3.19/actions/old', '/enterprise-server@3.19/actions/new'],
+    ['/enterprise-server/actions/old', '/enterprise-server@latest/actions/new'],
+    ['/enterprise-server@latest/actions/old', '/enterprise-server@latest/actions/new'],
+    ['/en/enterprise-server@latest/actions/old', '/enterprise-server@latest/actions/new'],
+    ['/enterprise/actions/old', '/enterprise-server@latest/actions/new'],
+  ])('keeps the version intent of %s', (href, expected) => {
+    const [group] = roundTrip([redirectOccurrence(href, '/enterprise-server@3.19/actions/new')])
+    expect(group.fixStrategy).toBe('codemod')
+    expect(group.replacementTarget).toBe(expected)
+  })
+
+  test('drops a locale prefix from the redirect target', () => {
+    const [group] = roundTrip([redirectOccurrence('/actions/old', '/en/actions/new')])
+    expect(group.replacementTarget).toBe('/actions/new')
   })
 })

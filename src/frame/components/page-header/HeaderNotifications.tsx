@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
-import cx from 'classnames'
+import cx from 'clsx'
 import { XIcon } from '@primer/octicons-react'
 
 import { useLanguages } from '@/languages/components/LanguagesContext'
@@ -59,11 +59,7 @@ export const HeaderNotifications = () => {
           try {
             setUserLanguageCookie('en')
           } catch (err) {
-            // You can never be too careful because setting a cookie
-            // can fail. For example, some browser
-            // extensions disallow all setting of cookies and attempts
-            // at the `document.cookie` setter could throw. Just swallow
-            // and move on.
+            // Some extensions reject document.cookie writes, so ignore cookie-set failures.
             console.warn('Unable to set cookie', err)
           }
         },
@@ -97,7 +93,7 @@ export const HeaderNotifications = () => {
   const allNotifications: Array<Notif> = [
     ...translationNotices,
     ...releaseNotices,
-    // ONEOFF EARLY ACCESS NOTICE
+    // Early-access pages use this separate banner unless frontmatter opts out.
     (relativePath || '').includes('early-access/') && !page.noEarlyAccessBanner
       ? {
           type: NotificationType.EARLY_ACCESS,

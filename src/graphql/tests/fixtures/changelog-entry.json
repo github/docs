@@ -2,7 +2,7 @@
   "previewChanges": [
     {
       "changes": [
-        "<p>Type for argument <code>changeTypeArgument</code> on field 'PreviewType.field1<code>changed from</code>Int<code>to</code>Float'</p>",
+        "<p>Type for argument <code>changeTypeArgument</code> on field <code>PreviewType.field1</code> changed from <code>Int</code> to <code>Float</code></p>",
         "<p>Field <code>Query.previewField</code> changed type from <code>PreviewType</code> to <code>PreviewType!</code></p>"
       ],
       "title": "The [Test preview](/graphql/overview/schema-previews#test-preview) includes these changes:"

@@ -1,5 +1,0 @@
-# Reference: #17636
-# Spark (No-code app builder, public preview)
-versions:
-  fpt: '*'
-  ghec: '*'

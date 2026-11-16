@@ -1,4 +1,4 @@
-import cx from 'classnames'
+import cx from 'clsx'
 
 import { MarkdownContent } from '@/frame/components/ui/MarkdownContent'
 import { GHESReleaseNotesContextT } from './types'

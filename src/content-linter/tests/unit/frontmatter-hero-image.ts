@@ -118,7 +118,6 @@ describe(frontmatterHeroImage.names.join(' - '), () => {
   })
 
   test('all valid hero images pass', async () => {
-    // Test each valid hero image (extensionless)
     const validImages = [
       "heroImage: '/assets/images/banner-images/hero-1'",
       "heroImage: '/assets/images/banner-images/hero-2'",

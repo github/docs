@@ -10,11 +10,10 @@ type JourneyLearningTracksProps = {
   articlesHeading?: string | null
 }
 
-// `flush` drops the card inset for the single-track path, which has no card.
+// The flush option drops the card inset for the single-track path, which has no card.
 const renderGuides = (track: JourneyTrack, flush = false) => (
   <ol
-    // `list-style: none` strips list semantics in Safari/VoiceOver; the ordinals
-    // are decorative badges, so restore them explicitly.
+    // Safari and VoiceOver lose list semantics when CSS removes list style.
     role="list"
     className={flush ? `${styles.trackGuides} ${styles.trackGuidesFlush}` : styles.trackGuides}
     data-testid="journey-articles"
@@ -39,7 +38,7 @@ export const JourneyLearningTracks = ({ tracks, articlesHeading }: JourneyLearni
     return null
   }
 
-  // Single journey: a plain heading + article list, no numbered cards.
+  // Single journeys use a plain heading and article list without numbered cards.
   if (tracks.length === 1) {
     const track = tracks[0]
     const headingText = articlesHeading || t('articles_heading')
@@ -56,8 +55,7 @@ export const JourneyLearningTracks = ({ tracks, articlesHeading }: JourneyLearni
 
   return (
     <ol
-      // `list-style: none` strips list semantics in Safari/VoiceOver; the rail
-      // numbers are decorative, so the ordering must survive here.
+      // Decorative rail numbers still need ordered-list semantics in Safari and VoiceOver.
       role="list"
       data-testid="journey-tracks"
       className={styles.tracks}

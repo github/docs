@@ -228,13 +228,13 @@ The installation token you just received gives you permission to create a reposi
 
 1. To check the repository was created successfully, go to `https://github.com/orgs/ORG/repositories`, replacing ORG with the name of your organization.
 
-{% note %}
+<div class="border rounded-2 p-3">
 
 Was the repository created successfully?
 
 <a href="https://docs.github.io/success-test/yes.html" target="_blank" class="btn btn-outline mt-3 mr-3 no-underline"><span>Yes</span></a>  <a href="https://docs.github.io/success-test/no.html" target="_blank" class="btn btn-outline mt-3 mr-3 no-underline"><span>No</span></a>
 
-{% endnote %}
+</div>
 
 ## 7. Uninstall the apps
 

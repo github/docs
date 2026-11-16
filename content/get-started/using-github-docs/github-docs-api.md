@@ -107,6 +107,6 @@ If you are building an agent or tool that needs to access {% data variables.prod
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp-in-your-ide/set-up-the-github-mcp-server)
+* [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/customize-copilot/extend-copilot-with-tools-and-context/set-up-the-github-mcp-server)
 
 {% endif %}

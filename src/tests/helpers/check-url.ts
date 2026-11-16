@@ -6,15 +6,9 @@ import type { Context } from '@/types'
 const liquidStartRex = /^{%-?\s*ifversion .+?\s*%}/
 const liquidEndRex = /{%-?\s*endif\s*-?%}$/
 
-// Return
-//
-//    /foo/bar
-//
-// if the text input was
-//
-//   {% ifversion ghes%}/foo/bar{%endif %}
-//
-// And if no liquid, just return as is.
+// Frontmatter link lists sometimes wrap paths in ifversion Liquid; checks need the raw path.
+// Example input: {% ifversion ghes%}/foo/bar{%endif %}
+// Output: /foo/bar
 function stripLiquid(text: string): string {
   if (liquidStartRex.test(text) && liquidEndRex.test(text)) {
     return text.replace(liquidStartRex, '').replace(liquidEndRex, '').trim()
@@ -24,27 +18,20 @@ function stripLiquid(text: string): string {
   return text
 }
 
-// Given a URI that does not start with a specific language,
-// return undefined if it can found as a known page.
-// Otherwise, return an object with information that is used to
-// print a useful test error message in the assertion.
+// Return details for assertion errors when a language-free URI cannot resolve to a known page.
 export function checkURL(uri: string, index: number, redirectsContext: Context) {
   const url = `/en${stripLiquid(uri).split('#')[0]}`
   if (!redirectsContext.pages || !(url in redirectsContext.pages)) {
-    // Some are written without a version, but don't work with the
-    // default version.
+    // Some unversioned links resolve only after redirects add a version.
     let redirects = getRedirect(url, redirectsContext)
-    // If it does indeed redirect to a different version,
-    // strip that and compare again.
     if (redirects) {
       const withoutVersion = getPathWithoutVersion(redirects)
       if (withoutVersion === url) {
-        // That means, it's actually fine
         return null
       }
       redirects = getPathWithoutLanguage(withoutVersion)
     }
     return { uri, index, redirects }
   }
-  return null // Falsy value will be filtered out later
+  return null
 }

@@ -1,0 +1,2 @@
+# Test early access variables file for orphaned features testing
+ea_variable: '{% ifversion used-in-early-access-variables %}Feature enabled{% endif %}'
