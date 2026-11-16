@@ -1733,6 +1733,45 @@ export function correctTranslatedContentStrings(
       `{%${dashOpen} ${tag} ${body.replace(/\s+/g, ' ').trim()} ${dashClose}%}`,
   )
 
+  // Translators sometimes translated parts of the reusable path inside a data tag.
+  // Each key is the exact corrupted path (after the "data" keyword is repaired) and maps
+  // to the real English reusable.
+  const translatedReusablePaths: Record<string, string> = {
+    'reusables.release-notes.2024-06-possible-frontend-5-minute-outage-во время горячего обновления':
+      'reusables.release-notes.2024-06-possible-frontend-5-minute-outage-during-hotpatch-upgrade',
+    'reusables.organizations.navigate-to-спонсирование':
+      'reusables.organizations.navigate-to-sponsoring',
+    'reusables.sponsors.navigate-to-спонс-dashboard':
+      'reusables.sponsors.navigate-to-sponsors-dashboard',
+    'reusables.enterprise_installation.configuration-распознаваемой':
+      'reusables.enterprise_installation.configuration-recognized',
+    'reusables.가능 명령 줄.멀티 OS 터미널을 여세요':
+      'reusables.command_line.open_the_multi_os_terminal',
+    'reusables.코드ql-cli.man-pages-version-note': 'reusables.codeql-cli.man-pages-version-note',
+    'reusables.기업 계정.정책 탭': 'reusables.enterprise-accounts.policies-tab',
+    'reusables.기업 계정.옵션 탭': 'reusables.enterprise-accounts.options-tab',
+    'reusables.기업 계정.기업 액세스': 'reusables.enterprise-accounts.access-enterprise',
+    'reusables.command_line.打开多操作系统终端':
+      'reusables.command_line.open_the_multi_os_terminal',
+  }
+  for (const [bad, good] of Object.entries(translatedReusablePaths)) {
+    content = content.replaceAll(`{% data ${bad} %}`, `{% data ${good} %}`)
+    content = content.replaceAll(`{%- data ${bad} %}`, `{%- data ${good} %}`)
+  }
+  // Korean "data reusable" (without a space-separated "가능") joined to the next path part.
+  content = content.replace(
+    /\{%(-?) 데이터 재사용가(?:능한?)?\.copilot\.프롬프트-파일-미리보기-노트 %\}/g,
+    '{%$1 data reusables.copilot.prompt-files-preview-note %}',
+  )
+  content = content.replace(
+    /\{%(-?) (?:(?:데이터|data) 재사용 ?가능한?|data reusables(?:\.가능한?)?)\.copilot\.프롬프트-파일-추가-읽기 %\}/g,
+    '{%$1 data reusables.copilot.prompt-files-further-reading %}',
+  )
+  content = content.replace(
+    /\{%(-?) (?:(?:데이터|data) 재사용 ?가능한?|data reusables(?:\.가능한?)?)\.copilot\.코드-완성-가능-모델 %\}/g,
+    '{%$1 data reusables.copilot.code-completion-available-models %}',
+  )
+
   if (englishContent && content.includes('{% octicon ')) {
     const englishNames: string[] = []
     for (const m of englishContent.matchAll(/\{%-?\s*octicon\s+"([^"]*)"/g)) {
