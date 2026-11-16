@@ -21,4 +21,5 @@ children:
   - /managing-issue-types
   - /managing-issue-fields
   - /adding-and-managing-issue-fields
+  - /issue-status-webhooks-and-workflows
 ---
