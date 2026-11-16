@@ -6,6 +6,7 @@ children:
   - /github-terms-of-service
   - /github-corporate-terms-of-service
   - /github-terms-for-additional-products-and-features
+  - /github-partner-success-offering-terms
   - /github-community-guidelines
   - /github-community-code-of-conduct
   - /github-pre-release-license-terms
