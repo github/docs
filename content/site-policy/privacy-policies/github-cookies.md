@@ -31,6 +31,7 @@ GitHub | `_gh_sess` | This cookie is used for temporary application and framewor
 GitHub | `gist_oauth_csrf` | This cookie is set by Gist to ensure the user that started the oauth flow is the same user that completes it. | Deleted when oauth state is validated
 GitHub | `gist_user_session` | This cookie is used by Gist when running on a separate host. | Two weeks
 GitHub | `has_recent_activity` | This cookie is used to prevent showing the security interstitial to users that have visited the app recently. | One hour
+GitHub | `__Host-ghlw` | This cookie is used to ensure that after you make a change, your next requests see that change rather than outdated data. | Session
 GitHub | `__Host-gist_user_session_same_site` | This cookie is set to ensure that browsers that support SameSite cookies can check to see if a request originates from GitHub. | Two weeks
 GitHub | `__Host-user_session_same_site` | This cookie is set to ensure that browsers that support SameSite cookies can check to see if a request originates from GitHub. | Two weeks
 GitHub | `logged_in` | This cookie is used to signal to us that the user is already logged in. | One year
