@@ -89,6 +89,9 @@ For more information about configuring self-hosted runners for {% data variables
 
 To update private dependencies of repositories in your organization, {% data variables.product.prodname_dependabot %} needs access to those repositories. To grant {% data variables.product.prodname_dependabot %} access to the desired private {% ifversion ghec or ghes %}or internal {% endif %}repository, scroll down to the "Grant {% data variables.product.prodname_dependabot %} access to private repositories" section, then use the search bar to find and select the desired repository. Be aware that granting {% data variables.product.prodname_dependabot %} access to a repository means all users in your organization will have access to the contents of that repository through {% data variables.product.prodname_dependabot_updates %}. For more information about the supported ecosystems for private repositories, see [AUTOTITLE](/code-security/reference/supply-chain-security/supported-ecosystems-and-repositories).
 
+> [!NOTE]
+> For Swift updates, this setting does not grant access to private dependencies. Configure a `git` registry with credentials in your `dependabot.yml` file instead. See [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-access-to-private-registries#git).
+
 ## Configuring global {% data variables.product.prodname_code_scanning %} settings
 
 {% data reusables.code-scanning.about-code-scanning %}
@@ -148,10 +151,9 @@ You can select **AI Scan for pull requests** to enable the feature for eligible 
 
 You can select **AI Scan for repositories** to enable the feature for eligible repositories in your organization where {% data variables.product.prodname_code_scanning %} is enabled. Repositories inherit the organization setting, but repository administrators can opt out for individual repositories. See [AUTOTITLE](/code-security/concepts/code-scanning/ai-scan-for-repositories).
 
-After enabling the setting, you can start one-off scans of up to 20 repositories. Enabling the setting alone does not start scans. Alternatively, you can start an AI scan for an individual repository from its {% data variables.product.prodname_code_scanning %} repository alerts page.
+After enabling the setting, you can start one-off scans of up to 20 repositories. Enabling the setting alone does not start scans. Alternatively, you can start one-off AI scans in bulk for multiple repositories from the {% data variables.product.prodname_code_scanning %} organization alerts page, or start an AI scan for a single repository from its {% data variables.product.prodname_code_scanning %} repository alerts page.
 
 You can also manage this setting with the REST API by using the `repository_scan` property. See [AUTOTITLE](/rest/code-scanning/code-scanning#update-the-ai-scan-setting-for-an-organization).
-
 {% endif %}
 
 {% ifversion ai-applications-scanning %}

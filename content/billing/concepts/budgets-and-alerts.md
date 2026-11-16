@@ -83,7 +83,7 @@ When you first create a budget, be aware that the budget applies only to metered
 
 ## Budget limitation
 
-The maximum number of budgets per account is 10,000.
+The maximum number of budgets per account is 40,000.
 
 ## Set up a budget
 

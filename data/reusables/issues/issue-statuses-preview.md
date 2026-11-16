@@ -1,0 +1,1 @@
+Issue statuses are in {% data variables.release-phases.preview %} and only available to accounts enrolled in the preview. Webhook payloads and the `status_changed` activity type are subject to change.

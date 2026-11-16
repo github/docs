@@ -54,6 +54,8 @@ You can contact {% data variables.contact.enterprise_support %} through the {% d
 
 For more information, see [AUTOTITLE](/support/learning-about-github-support/about-github-premium-support).
 
+Select partners can purchase {% data variables.contact.partner_support %} to open support tickets on behalf of their customers. For more information, see [AUTOTITLE](/support/learning-about-github-support/github-partner-support).
+
 {% endif %}
 
 {% ifversion fpt or ghec %}

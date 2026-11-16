@@ -1,0 +1,5 @@
+# Reference: github/issues#25103
+# Issue status webhooks and the `status_changed` Actions activity type, in preview.
+versions:
+  fpt: '*'
+  ghec: '*'
