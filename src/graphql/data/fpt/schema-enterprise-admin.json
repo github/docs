@@ -2637,24 +2637,30 @@
         },
         {
           "name": "bandwidthQuota",
-          "description": "<p>The bandwidth quota in GB for all organizations owned by the enterprise.</p>",
+          "description": "<p>The bandwidth quota in GB for all organizations owned by the enterprise. May return 0 while deprecation in progress.</p>",
           "type": "Float!",
           "id": "float",
-          "href": "/graphql/reference/other#scalar-float"
+          "href": "/graphql/reference/other#scalar-float",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Quotas based on LFS data packs have been removed. May return 0.</p>"
         },
         {
           "name": "bandwidthUsage",
-          "description": "<p>The bandwidth usage in GB for all organizations owned by the enterprise.</p>",
+          "description": "<p>The bandwidth usage in GB for all organizations owned by the enterprise. May return 0 while deprecation in progress.</p>",
           "type": "Float!",
           "id": "float",
-          "href": "/graphql/reference/other#scalar-float"
+          "href": "/graphql/reference/other#scalar-float",
+          "isDeprecated": true,
+          "deprecationReason": "<p>LFS bandwidth usage is now reported through the REST API. May return 0.</p>"
         },
         {
           "name": "bandwidthUsagePercentage",
-          "description": "<p>The bandwidth usage as a percentage of the bandwidth quota.</p>",
+          "description": "<p>The bandwidth usage as a percentage of the bandwidth quota. May return 0 while deprecation in progress.</p>",
           "type": "Int!",
           "id": "int",
-          "href": "/graphql/reference/other#scalar-int"
+          "href": "/graphql/reference/other#scalar-int",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Quotas based on LFS data packs have been removed. May return 0.</p>"
         },
         {
           "name": "storageQuota",

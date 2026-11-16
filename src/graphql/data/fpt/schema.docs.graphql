@@ -15184,19 +15184,19 @@ type EnterpriseBillingInfo @docsCategory(name: "enterprise-admin") {
   assetPacks: Int! @deprecated(reason: "LFS data packs have been removed. Always returns 0.")
 
   """
-  The bandwidth quota in GB for all organizations owned by the enterprise.
+  The bandwidth quota in GB for all organizations owned by the enterprise. May return 0 while deprecation in progress.
   """
-  bandwidthQuota: Float!
+  bandwidthQuota: Float! @deprecated(reason: "Quotas based on LFS data packs have been removed. May return 0.")
 
   """
-  The bandwidth usage in GB for all organizations owned by the enterprise.
+  The bandwidth usage in GB for all organizations owned by the enterprise. May return 0 while deprecation in progress.
   """
-  bandwidthUsage: Float!
+  bandwidthUsage: Float! @deprecated(reason: "LFS bandwidth usage is now reported through the REST API. May return 0.")
 
   """
-  The bandwidth usage as a percentage of the bandwidth quota.
+  The bandwidth usage as a percentage of the bandwidth quota. May return 0 while deprecation in progress.
   """
-  bandwidthUsagePercentage: Int!
+  bandwidthUsagePercentage: Int! @deprecated(reason: "Quotas based on LFS data packs have been removed. May return 0.")
 
   """
   The storage quota in GB for all organizations owned by the enterprise.
