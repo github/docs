@@ -89,6 +89,9 @@ For more information about configuring self-hosted runners for {% data variables
 
 To update private dependencies of repositories in your organization, {% data variables.product.prodname_dependabot %} needs access to those repositories. To grant {% data variables.product.prodname_dependabot %} access to the desired private {% ifversion ghec or ghes %}or internal {% endif %}repository, scroll down to the "Grant {% data variables.product.prodname_dependabot %} access to private repositories" section, then use the search bar to find and select the desired repository. Be aware that granting {% data variables.product.prodname_dependabot %} access to a repository means all users in your organization will have access to the contents of that repository through {% data variables.product.prodname_dependabot_updates %}. For more information about the supported ecosystems for private repositories, see [AUTOTITLE](/code-security/reference/supply-chain-security/supported-ecosystems-and-repositories).
 
+> [!NOTE]
+> For Swift updates, this setting does not grant access to private dependencies. Configure a `git` registry with credentials in your `dependabot.yml` file instead. See [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-access-to-private-registries#git).
+
 ## Configuring global {% data variables.product.prodname_code_scanning %} settings
 
 {% data reusables.code-scanning.about-code-scanning %}
