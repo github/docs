@@ -43,7 +43,7 @@ Use these models for common development tasks that require a balance of quality,
 | Model                                             | Why it's a good fit                                                                                                                             |
 |---------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
 | {% data variables.copilot.gpt_53_codex %} | Delivers higher-quality code on complex engineering tasks like features, tests, debugging, refactors, and reviews without lengthy instructions. |
-| {% data variables.copilot.gpt_56_terra %} | Balanced all-round choice for everyday interactive and agentic coding.                                                                          |
+| {% data variables.copilot.gpt_61_terra %} | Balanced all-round choice for everyday agentic coding and terminal work.                                                                        |
 
 ### When to use these models
 
@@ -147,7 +147,7 @@ Some models have behaviors, limitations, or safeguards that are useful to unders
 
 [^kimi-k3]: For important information about {% data variables.copilot.kimi_k3 %} behavior and safeguards, see [Model-specific considerations](#kimi-k3).
 
-Choosing the right model helps you get the most out of {% data variables.product.prodname_copilot_short %}. If you're not sure which model to use, start with a general-purpose option like {% data variables.copilot.gpt_56_terra %}, then adjust based on your needs.
+Choosing the right model helps you get the most out of {% data variables.product.prodname_copilot_short %}. If you're not sure which model to use, start with a general-purpose option like {% data variables.copilot.gpt_61_terra %}, then adjust based on your needs.
 
 * For detailed model specs and pricing, see [AUTOTITLE](/copilot/reference/ai-models/supported-models).
 * To switch between models, refer to [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/chat-with-copilot/change-the-chat-model) or [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/copilot-for-common-tasks/change-the-completion-model).

@@ -1,4 +1,3 @@
-* {% data variables.copilot.claude_opus_5 %}
 * {% data variables.copilot.claude_opus_55 %}
 * {% data variables.copilot.claude_sonnet_55 %}
 * {% data variables.copilot.claude_haiku_45 %}
@@ -9,7 +8,6 @@
 * {% data variables.copilot.gemini_4_hydrogen %}
 * {% data variables.copilot.gpt_56_luna %}
 * {% data variables.copilot.gpt_56_sol %}
-* {% data variables.copilot.gpt_56_terra %}
 * {% data variables.copilot.gpt_6_astra %}
 * {% data variables.copilot.gpt_6_luna %}
 * {% data variables.copilot.gpt_6_sol %}

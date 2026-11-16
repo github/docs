@@ -22,7 +22,6 @@ Used for:
 * {% data variables.copilot.gpt_54_nano %}
 * {% data variables.copilot.gpt_56_luna %}
 * {% data variables.copilot.gpt_56_sol %}
-* {% data variables.copilot.gpt_56_terra %}
 * {% data variables.copilot.gpt_6_astra %}
 * {% data variables.copilot.gpt_6_luna %}
 * {% data variables.copilot.gpt_6_sol %}
@@ -48,7 +47,6 @@ Used for:
 * {% data variables.copilot.claude_sonnet_55 %}
 * {% data variables.copilot.claude_opus_48 %}
 * {% data variables.copilot.claude_opus_48_fast %}
-* {% data variables.copilot.claude_opus_5 %}
 * {% data variables.copilot.claude_opus_55 %}
 * {% data variables.copilot.claude_fable_5 %}
 * {% data variables.copilot.claude_fable_51 %}

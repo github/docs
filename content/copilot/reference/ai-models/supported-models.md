@@ -80,7 +80,6 @@ Choosing a larger context window or higher reasoning will impact {% data variabl
 | --- | --- | --- |
 | {% data variables.copilot.claude_sonnet_46 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | {% data variables.copilot.claude_opus_48 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
-| {% data variables.copilot.claude_opus_5 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | {% data variables.copilot.claude_opus_55 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | {% data variables.copilot.claude_sonnet_5 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | {% data variables.copilot.claude_sonnet_55 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
@@ -92,7 +91,6 @@ Choosing a larger context window or higher reasoning will impact {% data variabl
 | {% data variables.copilot.gpt_53_codex %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | {% data variables.copilot.gpt_56_luna %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | {% data variables.copilot.gpt_56_sol %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
-| {% data variables.copilot.gpt_56_terra %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | {% data variables.copilot.gpt_6_astra %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | {% data variables.copilot.gpt_6_luna %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | {% data variables.copilot.gpt_6_sol %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
@@ -134,14 +132,11 @@ Some {% data variables.product.prodname_copilot_short %} models require minimum 
 | {% data variables.copilot.gpt_53_codex %}        | `v1.104.1` | `17.14.19`                     | `1.5.61` | `0.45.0` | `0.13.0` |
 | {% data variables.copilot.gpt_56_luna %}         | `1.128.0` | TBD | TBD | TBD | TBD |
 | {% data variables.copilot.gpt_56_sol %}          | `1.128.0` | TBD | TBD | TBD | TBD |
-| {% data variables.copilot.gpt_56_terra %}        | `1.128.0` | TBD | TBD | TBD | TBD |
 | {% data variables.copilot.gpt_6_astra %}         | `1.136.1` | `17.14.19` | TBD | TBD | TBD |
 | {% data variables.copilot.gpt_6_luna %}          | TBD | `17.14.19` | TBD | TBD | TBD |
 | {% data variables.copilot.gpt_6_sol %}           | TBD | `17.14.19` | TBD | TBD | TBD |
 | {% data variables.copilot.gpt_61_sol %}          | TBD | `17.14.19` | TBD | TBD | TBD |
 | {% data variables.copilot.gpt_61_terra %}        | TBD | TBD | TBD | TBD | TBD |
-| {% data variables.copilot.claude_opus_48 %}      | `v1.118` | `17.14.6`                     | TBD | TBD | TBD |
-| {% data variables.copilot.claude_opus_5 %}       | `v1.128.0` | `17.14.22` | TBD | TBD | TBD |
 | {% data variables.copilot.claude_opus_55 %}      | TBD | `17.14.6` | TBD | TBD | TBD |
 | {% data variables.copilot.claude_sonnet_5 %}  | `v1.124` | `17.14.6` | TBD | TBD | TBD |
 | {% data variables.copilot.claude_sonnet_55 %} | TBD | `17.14.6` | TBD | TBD | TBD |
@@ -219,12 +214,14 @@ The following table lists AI models that are retired or scheduled for retirement
 | Model name                                                  | Retirement date             | Suggested alternative             |
 |-------------------------------------------------------------|-----------------------------|-----------------------------------|
 | {% for model in tables.copilot.model-deprecation-history %} |
-| {{ model.name }}{% if model.name == 'Claude Sonnet 4.6' %}[^claude-sonnet-46-annual]{% endif %} | {{ model.retirement_date }} | {{ model.suggested_alternative }} |
+| {{ model.name }}{% if model.name == 'Claude Sonnet 4.6' %}[^claude-sonnet-46-annual]{% endif %}{% if model.name == 'Claude Opus 4.8' %}[^claude-opus-48-annual]{% endif %} | {{ model.retirement_date }} | {{ model.suggested_alternative }} |
 | {% endfor %}                                                |
 
 {% endrowheaders %}
 
 [^claude-sonnet-46-annual]: {% data variables.copilot.claude_sonnet_46 %} remains available to individual {% data variables.product.prodname_copilot_short %} subscribers on annual plans. The retirement of {% data variables.copilot.claude_sonnet_46 %} does not apply to these subscribers.
+
+[^claude-opus-48-annual]: {% data variables.copilot.claude_opus_48 %} remains available to individual {% data variables.product.prodname_copilot_short %} subscribers on annual plans. The retirement of {% data variables.copilot.claude_opus_48 %} does not apply to these subscribers.
 
 ## Next steps
 
