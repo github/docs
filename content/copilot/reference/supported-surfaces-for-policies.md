@@ -38,7 +38,7 @@ A dedicated policy exists to enable or disable each supported feature or surface
 
 [^3]: In the {% data variables.copilot.github_copilot_app %}, this policy applies where {% data variables.copilot.copilot_memory %} is available for the user's account. The app's separate project **Memory** setting is not the same feature. See [AUTOTITLE](/copilot/concepts/prompting-and-context/copilot-memory#where-copilot-memory-is-available).
 
-[^4] For a detailed breakdown by IDE, see [AUTOTITLE](/copilot/concepts/security-governance-and-network-settings/content-exclusion#availability-of-content-exclusion).
+[^4]: For a detailed breakdown by IDE, see [AUTOTITLE](/copilot/concepts/security-governance-and-network-settings/content-exclusion#availability-of-content-exclusion).
 
 ## More information on {% data variables.copilot.copilot_in_the_cloud_short %}
 

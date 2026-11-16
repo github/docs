@@ -3880,4 +3880,63 @@ Para más información, consulta "[AUTOTITLE](/path)".
       expect(fix(ok, 'fr')).toBe(ok)
     })
   })
+
+  describe('translated reusable names inside data tags', () => {
+    const cases: Array<[string, string, string]> = [
+      [
+        'ru',
+        '{% данных reusables.organizations.navigate-to-спонсирование %}',
+        '{% data reusables.organizations.navigate-to-sponsoring %}',
+      ],
+      [
+        'ru',
+        '{% данных reusables.release-notes.2024-06-possible-frontend-5-minute-outage-во время горячего обновления %}',
+        '{% data reusables.release-notes.2024-06-possible-frontend-5-minute-outage-during-hotpatch-upgrade %}',
+      ],
+      [
+        'ko',
+        '{% 데이터 재사용 가능 명령 줄.멀티 OS 터미널을 여세요 %}',
+        '{% data reusables.command_line.open_the_multi_os_terminal %}',
+      ],
+      [
+        'ko',
+        '{% 데이터 재사용가능.copilot.프롬프트-파일-미리보기-노트 %}',
+        '{% data reusables.copilot.prompt-files-preview-note %}',
+      ],
+      [
+        'ko',
+        '{% 데이터 재사용 가능.copilot.프롬프트-파일-추가-읽기 %}',
+        '{% data reusables.copilot.prompt-files-further-reading %}',
+      ],
+      [
+        'ko',
+        '{%- 데이터 재사용 가능.copilot.프롬프트-파일-추가-읽기 %}',
+        '{%- data reusables.copilot.prompt-files-further-reading %}',
+      ],
+      [
+        'ko',
+        '{% 데이터 재사용 가능한.copilot.코드-완성-가능-모델 %}',
+        '{% data reusables.copilot.code-completion-available-models %}',
+      ],
+      [
+        'ko',
+        '{% 데이터 재사용 가능.copilot.코드-완성-가능-모델 %}',
+        '{% data reusables.copilot.code-completion-available-models %}',
+      ],
+      [
+        'ko',
+        '{% 데이터 재사용 가능 항목.기업 계정.정책 탭 %}',
+        '{% data reusables.enterprise-accounts.policies-tab %}',
+      ],
+      [
+        'zh',
+        '{% data reusables.command_line.打开多操作系统终端 %}',
+        '{% data reusables.command_line.open_the_multi_os_terminal %}',
+      ],
+    ]
+    test.each(cases)('[%s] %s', (code, bad, good) => {
+      expect(fix(bad, code)).toBe(good)
+      expect(fix(good, code)).toBe(good)
+    })
+  })
 })

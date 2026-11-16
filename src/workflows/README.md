@@ -65,6 +65,23 @@ and comment markers prevent duplicate entries on reruns or when a label is remov
 and reapplied. Descriptions longer than 60,000 characters are explicitly truncated
 with a link back to the full source.
 
+### Cancelling invalid public PR runs
+
+The invalid-label workflow closes rejected public issues and pull requests. For
+PRs, it also requests cancellation of an explicit list of CI and advisory
+workflows on the current head commit. It matches the source repository and branch
+because fork runs can omit PR associations. Rejection, recovery, cleanup, and
+Repo Sync workflows are not cancellation targets. Review guidance and
+maintainer-edit notices also keep running because reopening a PR does not
+retrigger them. Cancellation is skipped if the PR no longer has `invalid` or has
+the `skip-spammy-check` recovery label. Logs report the head commit, runs found,
+per-run skip reasons and cancellation requests, and a final count of requests,
+cancellation conflicts, and skipped runs.
+
+This is best-effort cancellation of existing runs, not an acceptance gate.
+Later runs, duplicate rejection comments, and in-flight issue workflows are not
+prevented. Internal workflows are unchanged.
+
 ## Data & External Dependencies
 
 ### Data inputs

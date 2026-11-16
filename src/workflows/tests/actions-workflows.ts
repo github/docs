@@ -2,7 +2,7 @@ import { fileURLToPath } from 'url'
 import path from 'path'
 import fs from 'fs'
 
-import { describe, expect, test } from 'vitest'
+import { describe, expect, test, vi } from 'vitest'
 import { load } from 'js-yaml'
 import { flatten } from 'flat'
 import { chain, get } from 'lodash-es'
@@ -55,6 +55,123 @@ const workflows: WorkflowMeta[] = fs
     const data = load(fs.readFileSync(fullpath, 'utf8')) as WorkflowMeta['data']
     return { filename, fullpath, data }
   })
+
+describe('invalid PR run cancellation', () => {
+  const repo = { owner: 'github', repo: 'docs' }
+  const source = { full_name: 'contributor/docs' }
+  const pr = { number: 123, head: { sha: 'abc123', ref: 'patch-1', repo: source } }
+  const context = { repo, payload: { pull_request: pr } }
+  const core = { info: vi.fn() }
+  const run = {
+    id: 1,
+    name: 'Test',
+    event: 'pull_request',
+    path: '.github/workflows/test.yml',
+    status: 'in_progress',
+    head_branch: pr.head.ref,
+    head_repository: source,
+    pull_requests: [] as { number: number }[],
+  }
+  const workflow = workflows.find(({ filename }) => filename === 'close-on-invalid-label.yaml')!
+  const script = workflow.data.jobs['close-on-adding-invalid-label'].steps.find(
+    ({ name }) => name === 'Cancel CI for the invalid PR',
+  )!.with!.script
+
+  function cancellationClient(runs = [run], labels = ['invalid']) {
+    return {
+      rest: {
+        pulls: {
+          get: vi
+            .fn()
+            .mockResolvedValue({ data: { ...pr, labels: labels.map((name) => ({ name })) } }),
+        },
+        actions: { listWorkflowRunsForRepo: vi.fn(), cancelWorkflowRun: vi.fn() },
+      },
+      paginate: vi.fn().mockResolvedValue(runs),
+    }
+  }
+
+  async function execute(github: object) {
+    core.info.mockClear()
+    await new Function('github', 'context', 'core', `return (async () => { ${script} })()`)(
+      github,
+      context,
+      core,
+    )
+  }
+
+  test('cancels fork CI without PR metadata, but not unrelated runs or protected workflows', async () => {
+    const github = cancellationClient([
+      run,
+      {
+        ...run,
+        id: 2,
+        event: 'pull_request_target',
+        path: '.github/workflows/triage-pull-requests.yml',
+        status: 'queued',
+      },
+      ...[
+        'test-changed-content.yml',
+        'content-linter-rules-docs.yml',
+        'article-api-docs.yml',
+        'move-content.yml',
+      ].map((file, index) => ({ ...run, id: index + 3, path: `.github/workflows/${file}` })),
+      { ...run, head_branch: 'another-branch' },
+      { ...run, head_repository: { full_name: 'another/docs' } },
+      { ...run, pull_requests: [{ number: 456 }] },
+      { ...run, event: 'push' },
+      { ...run, status: 'completed' },
+      ...[
+        'repo-sync.yml',
+        'check-for-spammy-prs.yml',
+        'close-on-invalid-label.yaml',
+        'triage-unallowed-contributions.yml',
+        'review-comment.yml',
+        'notify-when-maintainers-cannot-edit.yaml',
+      ].map((file) => ({ ...run, path: `.github/workflows/${file}` })),
+    ])
+    await execute(github)
+    expect(github.paginate).toHaveBeenCalledWith(github.rest.actions.listWorkflowRunsForRepo, {
+      ...repo,
+      head_sha: pr.head.sha,
+      per_page: 100,
+    })
+    expect(github.rest.actions.cancelWorkflowRun.mock.calls).toEqual([
+      [{ ...repo, run_id: 1 }],
+      [{ ...repo, run_id: 2 }],
+      ...[3, 4, 5, 6].map((run_id) => [{ ...repo, run_id }]),
+    ])
+    expect(core.info).toHaveBeenCalledWith(
+      'Skipping run 1 (.github/workflows/review-comment.yml): workflow is not a cancellation target.',
+    )
+    expect(core.info).toHaveBeenCalledWith(
+      'Cancellation summary: 6 requested, 0 no longer cancellable, 11 skipped.',
+    )
+  })
+
+  test.each([{ labels: [] }, { labels: ['invalid', 'skip-spammy-check'] }])(
+    'leaves recovered PRs alone ($labels)',
+    async ({ labels }) => {
+      const github = cancellationClient([run], labels)
+      await execute(github)
+      expect(github.paginate).not.toHaveBeenCalled()
+      expect(core.info).toHaveBeenCalledWith(expect.stringContaining('Skipping cancellation:'))
+    },
+  )
+
+  test('continues past a cancellation race but surfaces permission failures', async () => {
+    const github = cancellationClient([run, { ...run, id: 2 }])
+    github.rest.actions.cancelWorkflowRun.mockRejectedValueOnce({ status: 409 })
+    await execute(github)
+    expect(github.rest.actions.cancelWorkflowRun).toHaveBeenCalledTimes(2)
+    expect(core.info).toHaveBeenCalledWith(
+      'Cancellation summary: 1 requested, 1 no longer cancellable, 0 skipped.',
+    )
+    const error = { status: 403 }
+    github.rest.actions.cancelWorkflowRun.mockRejectedValueOnce(error)
+    await expect(execute(github)).rejects.toBe(error)
+  })
+})
 
 function actionsUsedInWorkflow(workflow: WorkflowMeta) {
   return Object.keys(flatten(workflow))

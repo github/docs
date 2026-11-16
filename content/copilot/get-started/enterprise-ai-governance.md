@@ -21,8 +21,8 @@ journeyTracks:
     title: 'Establishing governance controls'
     description: 'Set a governance posture, configure controls, maintain codebase standards, and verify activity across your enterprise.'
     guides:
+      - href: '/copilot/concepts/enterprise/governance-controls'
       - href: '/copilot/tutorials/roll-out-at-scale/govern-at-scale/govern-for-adoption'
-      - href: '/copilot/concepts/enterprise/policies'
       - href: '/copilot/how-tos/administer-copilot/manage-for-enterprise/use-managed-settings/get-started'
       - href: '/copilot/tutorials/roll-out-at-scale/govern-at-scale/maintain-codebase-standards'
       - href: '/copilot/how-tos/administer-copilot/manage-for-enterprise/review-audit-logs'
