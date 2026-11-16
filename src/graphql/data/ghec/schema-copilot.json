@@ -509,12 +509,12 @@
       "isDeprecated": false,
       "values": [
         {
-          "name": "AUTO",
-          "description": "<p>Copilot picks the effort for each pull request.</p>"
-        },
-        {
           "name": "BALANCED",
           "description": "<p>Balanced effort and depth.</p>"
+        },
+        {
+          "name": "DYNAMIC",
+          "description": "<p>Copilot picks the effort for each pull request.</p>"
         },
         {
           "name": "LITE",
@@ -535,12 +535,12 @@
       "isDeprecated": false,
       "values": [
         {
-          "name": "AUTO",
-          "description": "<p>Copilot picks the effort for each pull request.</p>"
-        },
-        {
           "name": "BALANCED",
           "description": "<p>Balanced effort and depth.</p>"
+        },
+        {
+          "name": "DYNAMIC",
+          "description": "<p>Copilot picks the effort for each pull request.</p>"
         },
         {
           "name": "LITE",
@@ -675,12 +675,12 @@
       "isDeprecated": false,
       "values": [
         {
-          "name": "AUTO",
-          "description": "<p>Copilot picks the effort for each pull request.</p>"
-        },
-        {
           "name": "BALANCED",
           "description": "<p>Balanced effort and depth.</p>"
+        },
+        {
+          "name": "DYNAMIC",
+          "description": "<p>Copilot picks the effort for each pull request.</p>"
         },
         {
           "name": "INHERIT",
@@ -769,12 +769,12 @@
       "isDeprecated": false,
       "values": [
         {
-          "name": "AUTO",
-          "description": "<p>Copilot picks the effort for each pull request.</p>"
-        },
-        {
           "name": "BALANCED",
           "description": "<p>Balanced effort and depth.</p>"
+        },
+        {
+          "name": "DYNAMIC",
+          "description": "<p>Copilot picks the effort for each pull request.</p>"
         },
         {
           "name": "INHERIT",

@@ -120,4 +120,4 @@ People with access to security overview can also monitor AI Scan findings across
 
 For more information, see [AUTOTITLE](/code-security/concepts/code-scanning/code-scanning-on-pull-requests).
 
-You can use the REST API to manage the organization or repository `ai-scan` setting. See [AUTOTITLE](/rest/code-scanning/code-scanning#get-the-ai-scan-setting-for-an-organization).
+You can use the REST API to manage the organization or repository AI Scan setting. Use the `pr_scan` property to enable or disable AI Scan for pull requests.{% ifversion ai-scan-for-repositories %} The same endpoints manage AI Scan for repositories through the `repository_scan` property.{% endif %} See {% ifversion ai-scan-for-repositories %}[AUTOTITLE](/code-security/concepts/code-scanning/ai-scan-for-repositories#managing-ai-scan-for-repositories-with-the-rest-api) and {% endif %} [AUTOTITLE](/rest/code-scanning/code-scanning#get-the-ai-scan-setting-for-an-organization).

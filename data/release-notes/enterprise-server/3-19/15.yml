@@ -13,6 +13,8 @@ sections:
       Packages have been updated to the latest security versions.
   known_issues:
     - |
+      When users clone or fetch a repository over SSH with compression enabled, the operation can stall until the connection times out, especially for repositories with many references. To work around this, users can disable SSH compression or use HTTPS. [Updated: 2026-11-13]
+    - |
       During an upgrade of GitHub Enterprise Server, custom firewall rules are removed. If you use custom firewall rules, you must reapply them after upgrading.
     - |
       If the root site administrator is locked out of the Management Console after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-web-ui/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account).
