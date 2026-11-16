@@ -1,6 +1,6 @@
 name: Close issue/PR on adding invalid label
 
-# Closes public issues and PRs when the invalid label is added.
+# Closes public issues and PRs when the invalid label is added and cancels public PR CI.
 # Re-closes invalid PRs that someone without write access reopens.
 # Reopens PRs closed as invalid when maintainers add the skip-spammy-check label.
 
@@ -19,6 +19,7 @@ jobs:
     if: github.repository == 'github/docs' && github.event.label.name == 'invalid'
     runs-on: ubuntu-latest
     permissions:
+      actions: write
       contents: read
       issues: write
       pull-requests: write
@@ -37,6 +38,73 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_URL: ${{ github.event.pull_request.html_url }}
         run: gh pr close "$PR_URL"
+
+      - name: Cancel CI for the invalid PR
+        if: ${{ !cancelled() && github.event_name == 'pull_request_target' }}
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        with:
+          script: |
+            const { data: pr } = await github.rest.pulls.get({
+              ...context.repo,
+              pull_number: context.payload.pull_request.number,
+            })
+            const labels = pr.labels.map(label => label.name.toLowerCase())
+            core.info(`Checking CI cancellation for PR #${pr.number} at ${pr.head.sha}.`)
+            if (!labels.includes('invalid') || labels.includes('skip-spammy-check')) {
+              core.info('Skipping cancellation: the PR is no longer invalid or has skip-spammy-check.')
+              return
+            }
+            if (!pr.head.repo) {
+              core.warning('Cannot safely match workflow runs because the PR source repository is unavailable.')
+              return
+            }
+
+            // Preserve rejection, recovery, cleanup, Repo Sync, and notices that reopening cannot restore.
+            const cancellableWorkflows = new Set([
+              'test.yml', 'headless-tests.yml', 'lint-code.yml', 'content-lint-markdown.yml',
+              'local-dev.yml', 'line-endings.yml', 'link-check-on-pr.yml',
+              'dont-delete-assets.yml', 'dont-delete-features.yml', 'package-lock-lint.yml',
+              'validate-asset-images.yml', 'triage-pull-requests.yml', 'send-to-triage-board.yml',
+              'test-changed-content.yml', 'content-linter-rules-docs.yml',
+              'article-api-docs.yml', 'move-content.yml',
+            ].map(file => `.github/workflows/${file}`))
+
+            const runs = await github.paginate(github.rest.actions.listWorkflowRunsForRepo, {
+              ...context.repo,
+              head_sha: pr.head.sha,
+              per_page: 100,
+            })
+            core.info(`Found ${runs.length} workflow runs for head commit ${pr.head.sha}.`)
+            let requested = 0
+            let conflicts = 0
+            let skipped = 0
+            for (const run of runs) {
+              // Fork runs can omit PR associations, so also match their source repository and branch.
+              const skipReason =
+                run.status === 'completed' ? 'already completed' :
+                !['pull_request', 'pull_request_target'].includes(run.event) ? 'not a PR event' :
+                !cancellableWorkflows.has(run.path) ? 'workflow is not a cancellation target' :
+                run.head_branch !== pr.head.ref ? 'source branch does not match' :
+                run.head_repository?.full_name !== pr.head.repo.full_name ? 'source repository does not match' :
+                run.pull_requests?.length && !run.pull_requests.some(item => item.number === pr.number) ? 'associated with a different PR' :
+                null
+              if (skipReason) {
+                core.info(`Skipping run ${run.id} (${run.path}): ${skipReason}.`)
+                skipped++
+                continue
+              }
+
+              core.info(`Requesting cancellation of run ${run.id} (${run.path}, status: ${run.status}).`)
+              try {
+                await github.rest.actions.cancelWorkflowRun({ ...context.repo, run_id: run.id })
+                requested++
+              } catch (error) {
+                if (error.status !== 409) throw error
+                conflicts++
+                core.info(`Run ${run.id} is no longer cancellable.`)
+              }
+            }
+            core.info(`Cancellation summary: ${requested} requested, ${conflicts} no longer cancellable, ${skipped} skipped.`)
 
       - name: Check out repo
         if: ${{ failure() && github.event_name != 'pull_request_target' }}
