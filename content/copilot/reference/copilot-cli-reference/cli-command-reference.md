@@ -32,7 +32,7 @@ docsTeamMetrics:
 | `copilot lsp`          | Non-interactively list configured language servers. See [Using `copilot lsp`](#using-copilot-lsp). |
 | `copilot sandbox ca`   | Manage the sandbox's proxy certificate authority from outside an interactive session. See [Using `copilot sandbox ca`](#using-copilot-sandbox-ca). |
 | `copilot skill`        | Manage agent skills from the command line (list, add, remove, enable, and disable skills). See [Managing skills non-interactively](#managing-skills-non-interactively). |
-| `copilot update`       | Download and install the latest version.           |
+| `copilot update`       | Download and install the latest version. To use a specific version, see "Pinning the CLI version" in [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-programmatic-reference#pinning-the-cli-version). |
 | `copilot version`      | Display version information and check for updates. |
 | `copilot workflow run WORKFLOW-NAME` | Run an existing dynamic workflow directly, without sending a chat prompt. Waits for the run to finish or stop. See [Using `copilot workflow run`](#using-copilot-workflow-run). |
 
@@ -554,7 +554,7 @@ These are the slash commands you can use from within an interactive CLI session.
 
 | Command                                             | Purpose |
 |-----------------------------------------------------|---------|
-| `/add-dir PATH`                                     | Allow file access to a directory and load its `.github/skills` and `.github/agents` as trusted configurations. When sandboxing is enabled, also grants the sandbox access to the directory for the current session. |
+| `/add-dir PATH`                                     | Allow file access to a directory and load its skills (`.github/`, `.agents/`, `.claude/`) and agents (`.github/`, `.claude/`) as trusted configurations. When sandboxing is enabled, also grants the sandbox access to the directory for the current session. |
 | `/after [DELAY PROMPT]`, `/after`                 | Schedule a non-recurring prompt, skill, or schedulable slash command for the current session (for example, `/after 30m remind me the time` or `/after 1h /chronicle standup`). With no arguments the schedule manager is displayed. {% data reusables.copilot.experimental %} |
 | `/agent`                                            | Browse and select from available agents (if any). See [AUTOTITLE](/copilot/concepts/customizations/custom-agents). |
 | `/app`                                              | Open the current session in the {% data variables.copilot.github_copilot_app %} (requires version 1.1.3 or later), or show the download URL if the app is not installed. |
@@ -583,7 +583,7 @@ These are the slash commands you can use from within an interactive CLI session.
 | `/fleet [PROMPT]`                                   | Enable parallel subagent execution of parts of a task. See [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/speed-up-task-completion). |
 | `/help`                                             | Show the help for interactive commands. |
 | `/ide`                                              | Connect to an IDE workspace. See [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/connecting-vs-code#managing-the-connection-with-the-ide-slash-command). |
-| `/init`                 | Initialize {% data variables.product.prodname_copilot_short %} custom instructions and agentic features for this repository. See [Project initialization for {% data variables.product.prodname_copilot_short %}](#project-initialization-for-copilot). |
+| `/init [suppress\|INSTRUCTIONS]`                 | Initialize {% data variables.product.prodname_copilot_short %} custom instructions and agentic features for this repository. Text after the command guides what is written. `suppress` hides the startup reminder for this repository. See [Project initialization for {% data variables.product.prodname_copilot_short %}](#project-initialization-for-copilot). |
 | `/instructions`                                     | View and toggle custom instruction files. |
 | `/keep-alive [on\|off\|busy\|DURATION]`, `/caffeinate [on\|off\|busy\|DURATION]` | Prevent the machine from going to sleep: while a CLI session is active, while the agent is busy, or for a defined length of time. Accepts durations like `30`, `30m`, `2h`, `1d` (bare numbers default to minutes). |
 | `/limits`                                           | Open the interactive response limits dialog. |
@@ -614,7 +614,7 @@ These are the slash commands you can use from within an interactive CLI session.
 | `/rename [NAME]`                                    | Rename the current session (auto-generates a name if omitted; alias for `/session rename`). |
 | `/research TOPIC`                                   | Run a deep research investigation using {% data variables.product.github %} search and web sources. See [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/research-with-copilot-cli). |
 | `/reset-allowed-tools`                              | Reset permissions for the current session. This clears session tool approvals, returns the permission mode to manual (turning off allow-all or {% data variables.copilot.assisted_permissions %} if either is on), and clears the approvals saved for the current location. Explicit startup rules, such as `--allow-tool`, `--deny-tool`, `--allow-url`, and `--deny-url`, remain part of the session's baseline. |
-| `/restart`                                          | Restart the CLI, restoring all of the current process's live sessions, not only the foreground one. If the target CLI version can't restore multiple sessions, you're prompted to continue with only the foreground session or cancel. |
+| `/restart`                                          | Restart the CLI, restoring all of the current process's live sessions, not only the foreground one. If the target CLI version can't restore multiple sessions, you're prompted to continue with only the foreground session or cancel. Sessions started in a Git worktree with `-w` or `--worktree` resume in that same worktree. The model selected with `/model` is preserved. |
 | `/resume [SESSION-ID]`, `/continue [SESSION-ID]`    | Switch to a different session by choosing from a list (optionally specify a session ID). |
 | `/review [PROMPT]`                                  | Run the code review agent to analyze changes. See [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/agentic-code-review). |
 | `/rubber-duck [PROMPT]`                             | Consult the rubber duck agent for a second opinion on plans, code, and tests. See [AUTOTITLE](/copilot/concepts/agent-capabilities/choosing-and-delegating-agent-work/getting-a-second-opinion). |
@@ -623,7 +623,7 @@ These are the slash commands you can use from within an interactive CLI session.
 | `/search [QUERY]`, `/find [QUERY]`                  | Search the conversation timeline. |
 | `/security-review [PROMPT]`                         | Run a focused security review of active local code changes and return prioritized vulnerability findings with remediation suggestions. This command is not a full repository security audit. |
 | `/session [info\|checkpoints [n]\|files\|plan\|rename [NAME]\|cleanup\|prune\|delete [ID]\|delete-all]`, `/sessions [info\|checkpoints [n]\|files\|plan\|rename [NAME]\|cleanup\|prune\|delete [ID]\|delete-all]`  | Show session information and manage sessions. The `info` subcommand shows session details including the session link (when available). Subcommands: `info`, `checkpoints`, `files`, `plan`, `rename`, `cleanup`, `prune`, `delete`, `delete-all`. |
-| `/settings [--repo\|--local] [show KEY\|KEY\|KEY VALUE]`,<br>`/config [--repo\|--local] [show KEY\|KEY\|KEY VALUE]` | Open the settings dialog, open it focused on a specific setting (`KEY`), set a setting inline (`KEY VALUE`), or display a setting's current value (`show KEY`). `show` masks secret-named values (for example, tokens or API keys nested under a setting) instead of printing them in clear text. The dialog shows **User**, **Repo**, **Repo (local)**, and **Problems** tabs—switch with <kbd>Tab</kbd>/<kbd>Shift</kbd>+<kbd>Tab</kbd>; a setting overridden in another scope shows a badge naming which scope wins. The **Problems** tab is a cross-scope view of settings that need attention (for example, unknown or invalid keys); its label shows a count, such as `Problems (2)`, when any scope has an issue, and otherwise just reads `Problems`. Add `--repo` or `--local` to target `.github/copilot/settings.json` or `.github/copilot/settings.local.json` instead of the user settings file—for example, `/settings --repo model gpt-6-astra`. Only [repo-overridable keys](/copilot/reference/copilot-cli-reference/cli-config-dir-reference#repository-settings-githubcopilotsettingsjson) can be set this way. Rows governed by an active organization or MDM managed policy render read-only with a `(managed)` tag. See [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/change-settings). |
+| `/settings [--repo\|--local] [show KEY\|KEY\|KEY VALUE]`,<br>`/config [--repo\|--local] [show KEY\|KEY\|KEY VALUE]` | Open the settings dialog, open it focused on a specific setting (`KEY`), set a setting inline (`KEY VALUE`), or display a setting's current value (`show KEY`). `show` masks secret-named values (for example, tokens or API keys nested under a setting) instead of printing them in clear text. The dialog shows **User**, **Repo**, **Repo (local)**, and **Problems** tabs—switch with <kbd>Tab</kbd>/<kbd>Shift</kbd>+<kbd>Tab</kbd>; a setting overridden in another scope shows a badge naming which scope wins. The **Problems** tab is a cross-scope view of settings that need attention (for example, unknown or invalid keys); its label shows a count, such as `Problems (2)`, when any scope has an issue, and otherwise just reads `Problems`. The dialog also includes a global search that finds visible settings, areas, and local resources. Add `--repo` or `--local` to target `.github/copilot/settings.json` or `.github/copilot/settings.local.json` instead of the user settings file—for example, `/settings --repo model gpt-6-astra`. Only [repo-overridable keys](/copilot/reference/copilot-cli-reference/cli-config-dir-reference#repository-settings-githubcopilotsettingsjson) can be set this way. Rows governed by an active organization or MDM managed policy render read-only with a `(managed)` tag. See [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/change-settings). |
 | `/share [link\|off\|file\|html\|gist\|research] [...]`, `/export [...]` | Share the current session. With no subcommand, opens a sharing menu without sharing or exporting anything. `link` shares the session and prints a shareable {% data variables.product.github %} link. `off` or `link off` stops link sharing. `file [session\|research] [PATH]` exports to a Markdown file. `html [session\|research] [PATH]` exports to an HTML file. `gist [session\|research]` creates a {% data variables.product.github %} gist. `research [PATH]` exports the research report. |
 | `/skills`                                            | Open the plugins dashboard on the Skills tab. |
 | `/skills list`                                       | List all available skills. |
@@ -637,8 +637,8 @@ These are the slash commands you can use from within an interactive CLI session.
 | `/terminal-setup`      | Configure the terminal for multiline input support (<kbd>Shift</kbd>+<kbd>Enter</kbd> and <kbd>Ctrl</kbd>+<kbd>Enter</kbd>). |
 | `/theme [default\|github\|dim\|high-contrast\|colorblind]`   | View or set the color mode. |
 | `/tuikit [colors\|icons\|select\|tabbar]`           | Preview TUIkit design-system components and color tokens. |
-| `/undo`, `/rewind`                                  | Open the rewind picker to roll the session back to an earlier user turn. Choose between: **Conversation only** (roll back the conversation, leaving files as they are) or **Conversation + files** (also restore the files {% data variables.product.prodname_copilot_short %} changed in that turn, and later discarded turns, to their pre-change contents, skipping any you have since edited yourself). File changes are tracked per turn across editing tools, shell commands, and sub-agents, so Git is not required. |
-| `/update`, `/upgrade`                               | Update the CLI to the latest version. |
+| `/undo`, `/rewind`                                  | Open the rewind picker to roll the session back to an earlier user turn. Choose between: **Conversation only** (roll back the conversation, leaving files as they are) or **Conversation + files** (also restore the files {% data variables.product.prodname_copilot_short %} changed in that turn, and later discarded turns, to their pre-change contents, skipping any you have since edited yourself). File changes are tracked per turn across editing tools, shell commands, and sub-agents, so Git is not required. A rewind cannot be undone: later turns are removed from the session. Use `/fork` first to keep a copy. |
+| `/update`, `/upgrade`                               | Update the CLI to the latest version. `/update stable` or `/update prerelease` also saves the selected channel for future updates. |
 | `/usage`                                            | Display session usage metrics and statistics, including per-model token totals. For token-based-billing accounts, each model's row also shows its own {% data variables.product.prodname_ai_credit_singular %} consumption (for example, `1 AIC`). Billed models with no token counts show credits only. |
 | `/user [show\|list\|switch]`                        | Manage signed-in accounts. |
 | `/version`                                          | Display version information and check for updates. |
@@ -679,7 +679,7 @@ Use `/collect-debug-logs [file|gist|share] [PATH]` to gather debug logs for trou
 
 | Option                             | Purpose                                  |
 |------------------------------------|------------------------------------------|
-| `--add-dir=PATH`                   | Allow file access to a directory and load its `.github/skills` and `.github/agents` as trusted configurations (can be used multiple times). A relative path resolves against the session working directory (the `--resume`, `--worktree`, or `-C` directory), regardless of option order. The path must be an existing directory—a missing path or a regular file fails startup immediately with a flag-specific error, the same way in every mode. |
+| `--add-dir=PATH`                   | Allow file access to a directory and load its skills (`.github/`, `.agents/`, `.claude/`) and agents (`.github/`, `.claude/`) as trusted configurations (can be used multiple times). A relative path resolves against the session working directory (the `--resume`, `--worktree`, or `-C` directory), regardless of option order. The path must be an existing directory—a missing path or a regular file fails startup immediately with a flag-specific error, the same way in every mode. |
 | `--add-github-mcp-tool=TOOL`       | Add a tool to enable for the {% data variables.product.github %} MCP server, instead of the default CLI subset (can be used multiple times). Use `*` for all tools. |
 | `--add-github-mcp-toolset=TOOLSET` | Add a toolset to enable for the {% data variables.product.github %} MCP server, instead of the default CLI subset (can be used multiple times). Use `all` for all toolsets. |
 | `--additional-mcp-config=JSON`     | Add an MCP server for this session only. The server configuration can be supplied as a JSON string or a file path (prefix with `@`). A relative `@file` path resolves against the session working directory (the `--resume`, `--worktree`, or `-C` directory), regardless of option order. Augments the configuration from `~/.copilot/mcp-config.json`. Overrides any installed MCP server configuration with the same name. See [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/add-mcp-servers). |
@@ -705,7 +705,7 @@ Use `/collect-debug-logs [file|gist|share] [PATH]` to gather debug logs for trou
 | `--continue`                       | Resume the most recent session in the current working directory, falling back to the globally most recent session. Conflicts with `--resume`. |
 | `--deny-tool=TOOL ...`             | Tools the CLI does not have permission to use. Will not prompt for permission. For multiple tools, use a quoted, comma-separated list. |
 | `--deny-url=URL ...`               | Deny access to specific URLs or domains, takes precedence over `--allow-url`. For multiple URLs, use a quoted, comma-separated list. |
-| `--disable-builtin-mcps`           | Disable all built-in MCP servers (currently: `github-mcp-server`). |
+| `--disable-builtin-mcps`           | Disable the built-in server set for this run. This does not disable every plugin-provided server. See [Built-in MCP servers](#built-in-mcp-servers) for the affected servers and how to disable computer use. |
 | `--disable-client-telemetry`       | Disable telemetry sent by the CLI. Does not affect server-side telemetry. |
 | `--disable-mcp-server=SERVER-NAME` | Disable a specific MCP server (can be used multiple times). |
 | `--disallow-temp-dir`              | Prevent automatic access to the system temporary directory. |
@@ -720,16 +720,16 @@ Use `/collect-debug-logs [file|gist|share] [PATH]` to gather debug logs for trou
 | `--fleet`                          | Run the prompt in fleet mode (parallel subagent orchestration). Combine with `-i`, `-p`, or piped standard input. This requires a prompt from one of those sources, and has no effect on its own. This is equivalent to prefixing an interactive prompt with the `/fleet` slash command. With `-p` or piped input it dispatches the same fleet orchestration non-interactively. See [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/speed-up-task-completion). |
 | `-h`, `--help`                     | Display help. |
 | `-i PROMPT`, `--interactive=PROMPT`  | Start an interactive session and automatically execute this prompt. |
-| `--log-dir=DIRECTORY`              | Set the log file directory (default: `~/.copilot/logs/`). |
+| `--log-dir=DIRECTORY`              | Set the log file directory (default: `~/.copilot/logs/`). A leading `~` expands to your home directory. |
 | `--log-level=LEVEL`                | Set the log level (choices: `none`, `error`, `warning`, `info`, `debug`, `all`, `default`). |
 | `--max-ai-credits=CREDITS`         | Set a soft maximum for AI Credits allowed for each response. The limit resets per user message and can be adjusted mid-session with `/limits`. See [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/set-session-limit). |
-| `--max-autopilot-continues=COUNT`  | Maximum number of continuation messages in autopilot mode (default: unlimited). Must be a non-negative integer. Malformed values (`NaN`, negative, fractional, or scientific notation) are rejected. See [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/use-autopilot-mode). |
+| `--max-autopilot-continues=COUNT`  | Maximum number of automatic continuations outside an active autopilot objective (default: 5). Must be a non-negative integer. Malformed values (`NaN`, negative, fractional, or scientific notation) are rejected. See [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/use-autopilot-mode). |
 | `--mode=MODE`                      | Set the initial agent mode (choices: `interactive`, `plan`, `autopilot`). Combine with `--plan` (as `--plan --mode autopilot`) for plan-then-autopilot: the session starts in plan mode and automatically progresses to autopilot mode once the plan is ready, instead of waiting for a human to approve it. Any other `--plan --mode MODE` pairing is rejected. |
-| `--model=MODEL`                    | Set the AI model you want to use. Pass `auto` as the value to let {% data variables.product.prodname_copilot_short %} pick the best available model automatically. See [AUTOTITLE](/copilot/concepts/models/auto-model-selection). |
+| `--model=MODEL`                    | Set the AI model you want to use. Pass `auto` as the value to let {% data variables.product.prodname_copilot_short %} pick the best available model automatically. An explicit `--model` takes precedence over a custom agent's `model` unless the agent sets `model-policy: required`. See [AUTOTITLE](/copilot/concepts/models/auto-model-selection). |
 | `--mouse[=VALUE]`                  | Enable or disable mouse support in the interactive interface. VALUE can be `on` (default) or `off`. When enabled, the CLI captures mouse events—scroll wheel, clicks, and so on—to navigate its own interface, such as scrolling the timeline or clicking tabs. When disabled, the terminal's native mouse behavior, such as text selection and scrollback, is preserved. When you set this option explicitly, the value is persisted to your configuration file. |
 | `-n NAME`, `--name=NAME`           | Set a name for the new session. Used by `--resume` and `/resume` to find sessions by name. |
 | `--no-ask-user`                    | Disable the `ask_user` tool (the agent works autonomously without asking questions). |
-| `--no-auto-update`                 | Disable downloading CLI updates automatically. |
+| `--no-auto-update`                 | Disable automatic CLI updates and prevent a newer cached version from running instead of the installed version. |
 | `--no-bash-env`                    | Disable `BASH_ENV` support for bash shells. |
 | `--no-color`                       | Disable all color output. |
 | `--no-custom-instructions`         | Disable loading of custom instructions from `AGENTS.md` and related files. |
@@ -738,7 +738,7 @@ Use `/collect-debug-logs [file|gist|share] [PATH]` to gather debug logs for trou
 | `--no-remote`                      | Removed. Use `/remote off` during an interactive session to end its remote connection. |
 | `--no-remote-export`               | Renamed to `--sync-session=off`. |
 | `--output-format=FORMAT`           | FORMAT can be `text` (default) or `json` (outputs JSONL: one JSON object per line). |
-| `-p PROMPT`, `--prompt=PROMPT`     | Execute a prompt programmatically (exits after completion). The exit summary includes a `copilot --resume=SESSION-ID` hint for continuing the session. See [AUTOTITLE](/copilot/how-tos/copilot-cli/automate-copilot-cli/run-cli-programmatically). |
+| `-p PROMPT`, `--prompt=PROMPT`     | Execute a prompt programmatically (exits after completion, or with a nonzero status if the run is interrupted). The exit summary includes a `copilot --resume=SESSION-ID` hint for continuing the session. Use `@` followed by a file or directory path in the prompt to include it as context, for example `copilot -p "Explain @src/app.js"`. See [AUTOTITLE](/copilot/how-tos/copilot-cli/automate-copilot-cli/run-cli-programmatically). |
 | `--plan`                           | Start in plan mode. Shorthand for `--mode plan`. Cannot be combined with `--autopilot`. Can be combined with `--mode autopilot` for plan-then-autopilot; any other `--mode` value is rejected. |
 | `--plain-diff`                     | Disable rich diff rendering (syntax highlighting via the diff tool specified by your Git config). |
 | `--plugin-dir=DIRECTORY`           | Load a plugin from a local directory (can be used multiple times). A relative path resolves against the session working directory (the `--resume`, `--worktree`, or `-C` directory), regardless of option order. Agents contributed by a `--plugin-dir` plugin are available in server-mode (`--server`) sessions as well as interactive and `-p` sessions. |
@@ -746,7 +746,7 @@ Use `/collect-debug-logs [file|gist|share] [PATH]` to gather debug logs for trou
 | `--remote-export`                  | Renamed to `--sync-session=on`. |
 | `-r`, `--resume[=VALUE]`           | Resume a previous interactive session by choosing from a list. Optionally specify a session ID, ID prefix, or session name. Name matching is exact and case-insensitive; falls back to the auto-generated summary when no explicit name matches. Conflicts with `--continue`. Bare `--resume` (no value) shows an interactive session picker, which requires a TTY. If multiple sessions exist and the picker can't be shown (for example under `-p`, a non-TTY `-i`, or piped stdin), the CLI exits with an error instead of silently starting a new session—pass an explicit `--resume=SESSION-ID` or use `--continue`. |
 | `-s`, `--silent`                   | Output only the agent response (without usage statistics), useful for scripting with `-p`. |
-| `--screen-reader`                  | Enable screen reader optimizations. |
+| `--screen-reader`                  | Enable screen reader optimizations for this session only and offer to save the preference to your settings. |
 | `--secret-env-vars=VAR ...`        | Redact an environment variable from shell and MCP server environments (can be used multiple times). For multiple variables, use a quoted, comma-separated list. The values in the `GITHUB_TOKEN` and `COPILOT_GITHUB_TOKEN` environment variables are redacted from output by default. |
 | `--session-id ID`                  | Use an exact session or task ID when you do not want `--resume`'s broader matching by ID prefix or session name. If the ID matches an existing session or task, that session or task is resumed. If nothing matches, a new session is created only when the value is a valid UUID. Names and ID prefixes do not create new sessions. Do not combine this option with other session-selection or session-starting options such as `--resume`, `--continue`, or `--connect`, because they compete to decide which session to open or create. |
 | `--trust-folder`                   | Trust the working directory's hooks, workspace MCP servers, and repository plugin settings for one new non-interactive session (`-p` or piped standard input). The trust is not saved to `trustedFolders` and is not a tool or path permission grant. Cannot be combined with `--resume`, `--continue`, or `--session-id`. |
@@ -755,7 +755,7 @@ Use `/collect-debug-logs [file|gist|share] [PATH]` to gather debug logs for trou
 | `--share=PATH`                     | Share a session to a Markdown file after completion of a programmatic session (default path: `./copilot-session-<ID>.md`). |
 | `--share-gist`                     | Share a session to a secret {% data variables.product.github %} gist after completion of a programmatic session. |
 | `--stream=MODE`                    | Enable or disable streaming mode, which displays {% data variables.product.prodname_copilot_short %}'s response progressively as it is generated rather than waiting for the full response to arrive (mode choices: `on` or `off`, default: `on`).
-| `--sync-session[=on\|off]`         | Enable or disable read-only session history syncing for this run. Without a value, enables syncing. Does not enable remote control. If omitted, uses your settings and the default behavior. |
+| `--sync-session[=on\|off]`         | Enable or disable read-only session history syncing for this run. Without a value, enables syncing. Does not enable remote control. If omitted, uses your settings and the default behavior. Syncing is refused when your organization's cloud session storage policy is off or can't be determined. |
 | `-v`, `--version`                  | Show version information. |
 | `-w`, `--worktree[=NAME]`          | Create or reuse an isolated Git worktree under `<repo>.worktrees/` by default and start the session inside it. Use the `worktreePathTemplate` setting to configure the location. `NAME` is optional—omit it to auto-generate a branch name. By default, branches off the current checkout (`HEAD`); set the `worktreeBaseRef` setting to `"defaultBranch"` to branch off the remote default branch instead. Conflicts with `--resume`, `--continue`, and `--connect`. |
 | `--yolo`                           | Enable all permissions (equivalent to `--allow-all`). |
@@ -837,6 +837,7 @@ Use `--model=MODEL` or the `COPILOT_MODEL` environment variable to select the AI
 |-------|----------|
 | `claude-sonnet-5.5` | General-purpose coding (default) |
 | `gpt-6.1-sol` | Recommended, opt-in (not the automatic default) |
+| `gpt-6.1-terra` | Recommended, opt-in (not the automatic default) |
 | `gpt-6-astra` | Recommended, opt-in (not the automatic default) |
 | `gpt-6-luna` | Recommended, opt-in (not the automatic default) |
 | `claude-opus-5.5` | Recommended, high-capability complex tasks |
@@ -928,7 +929,7 @@ copilot --deny-tool='write(secret.txt)'
 |----------|-------------|
 | `COPILOT_ALLOW_ALL` | Allow all permissions automatically (equivalent to `--allow-all`). Accepts `true`, `1`, `yes`, `on`, or `y` (case-insensitive, surrounding whitespace ignored) to turn it on; `false`, `0`, `no`, `off`, `n`, or an empty value to turn it off. Setting it to exactly `true` also trusts the working directory without prompting, loading that directory's skills, plugins, MCP servers, and hooks (including hooks that run shell commands). The other truthy spellings only auto-approve tools. |
 | `COPILOT_ASSISTED_APPROVAL` | Set to `true` to turn on {% data variables.copilot.assisted_permissions %} for a non-interactive run (equivalent to `--assisted-approval`). |
-| `COPILOT_AUTO_UPDATE` | Set to `false` to disable automatic updates of the CLI and first-party plugins. |
+| `COPILOT_AUTO_UPDATE` | Set to `false` to disable automatic updates of the CLI and first-party plugins, and prevent a newer cached CLI version from running instead of the installed version. |
 | `COPILOT_CACHE_HOME` | Override the cache directory (used for marketplace caches, auto-update packages, and other ephemeral data). See [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-config-dir-reference#changing-the-location-of-the-configuration-directory) for platform defaults. |
 | `COPILOT_CHILD_OOM_SCORE_ADJ` | Linux only. Overrides the `oom_score_adj` bias applied to shell command process trees spawned by the CLI, so the kernel's out-of-memory (OOM) killer reclaims a runaway child process tree (for example, a build) before the CLI itself. Default: `300`. Range: `-1000`–`1000`. Set to `off` to disable the bias. |
 | `COPILOT_CUSTOM_INSTRUCTIONS_DIRS` | Comma-separated list of additional directories for custom instructions. |
@@ -1045,7 +1046,7 @@ Use `copilot mcp` to manage MCP server configurations from the command line with
 
 | Subcommand | Description |
 |------------|-------------|
-| `list [--json]` | List all configured MCP servers grouped by source, including plugin-provided servers. |
+| `list [--json]` | List all configured MCP servers grouped by source, including plugin-provided servers and servers supplied through `--additional-mcp-config` or `--plugin-dir`. |
 | `get <name> [--json]` | Show configuration and tools for a specific server. For plugin-provided servers, also shows the source plugin name and version. |
 | `add [options] <name> [url]` | Add a server to the user configuration. Writes to `~/.copilot/mcp-config.json`. |
 | `enable <name>` / `disable <name>` | Enable or disable a server by name. The change persists to the user configuration and applies to future sessions. |
@@ -1200,18 +1201,20 @@ Control how MCP tool output is processed using the `filterMapping` field in a se
 
 ### Built-in MCP servers
 
-The CLI includes built-in MCP servers that are available without additional setup.
+The CLI automatically configures `github-mcp-server` when authentication is available, unless you disable it or supply your own configuration. Other servers depend on your account, platform, CLI version, and enabled plugins. They are not all available or enabled by default.
 
-| Server | Description |
-|--------|-------------|
-| `github-mcp-server` | {% data variables.product.github %} API integration: issues, pull requests, labels, commits, code search, and {% data variables.product.prodname_actions %}. |
-| `playwright` | Browser automation: navigate, click, type, screenshot, and form handling. |
-| `fetch` | HTTP requests via the `fetch` tool. |
-| `time` | Time utilities: `get_current_time` and `convert_time`. |
+| Server | Description | Availability and setup |
+|--------|-------------|------------------------|
+| `github-mcp-server` | {% data variables.product.github %} integration, including repository access and code search. | Enabled by default when authentication is available. The exposed tools depend on your configuration. |
+| `WorkIQ` | Hosted MCP server associated with a Microsoft Entra account. | Discovered after you sign in with a Microsoft Entra account. Disabled by default. See [Account-derived WorkIQ](#account-derived-workiq). |
+| `browser-use` | Browser interaction through a bundled plugin. | Available in CLI versions that include the plugin. Disabled by default. Enable it with `/mcp enable browser-use`, install the matching browser extension and {% data variables.copilot.copilot_cli_npm_version %}, then run `/browser-use:activate` or start a new session. The legacy server name is `github-copilot-browser`. |
+| `computer-use` | Desktop application interaction through a bundled plugin. | Available for local sessions on macOS and Windows. Disabled by default. Enable it with `/computer on`. On macOS, Accessibility and Screen Recording permissions are required. See [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/computer-use). |
 
-Use `--disable-builtin-mcps` to disable all built-in servers, or `--disable-mcp-server SERVER-NAME` to disable a specific one.
+Managed settings can prevent you from enabling a server or its plugin.
 
-Built-in servers appear in `copilot mcp list`, `copilot mcp get`, and the interactive `/mcp` view alongside user, workspace, and plugin servers.
+`--disable-builtin-mcps` disables `github-mcp-server`, `WorkIQ`, `browser-use`, and the legacy browser server name `github-copilot-browser` for the current run. It does not disable `computer-use`. Use `--disable-mcp-server computer-use` to disable that server for the current run, or `/computer off` to disable the plugin and save that preference. Use `--disable-mcp-server SERVER-NAME` to disable any other specific server for the current run.
+
+Use `/mcp list` in an interactive session to check which servers are available and their connection status. Use `copilot mcp list` or `copilot mcp get SERVER-NAME` outside a session to inspect server configuration. A server that is absent or disabled is not necessarily a configuration error. Check its availability and setup requirements above.
 
 #### {% data variables.product.github %} MCP server tools
 
@@ -1346,7 +1349,7 @@ Skills are loaded from these locations in priority order (first found wins for d
 | `~/.agents/skills/` | Personal | Agent skills shared across all projects. |
 | Plugin directories | Plugin | Skills from installed plugins. |
 | `COPILOT_SKILLS_DIRS` | Custom | Additional directories (comma-separated). |
-| `--add-dir <path>` | Added root | `.github/skills/` under directories added with `--add-dir`, `/add-dir`, or the SDK's `additionalDirectories`. This is a trust decision: added skills run with the same trust as project skills. |
+| `--add-dir <path>` | Added root | `.github/skills/`, `.agents/skills/`, and `.claude/skills/` under directories added with `--add-dir`, `/add-dir`, or the SDK's `additionalDirectories`. This is a trust decision: added skills run with the same trust as project skills. |
 | (bundled with CLI) | Built-in | Skills shipped with the CLI. Lowest priority—overridable by any other source. |
 | (org/enterprise) | Remote | Skills hosted by your organization or enterprise, projected via the AHP relay. Content is fetched on demand when the skill is invoked. |
 
@@ -1460,7 +1463,7 @@ The CLI loads custom agents in the following priority order. When agents have th
 | 1 (highest) | User | `~/.copilot/agents/` |
 | 2 | Project | `.github/agents/`, from the current working directory upward to the Git root |
 | 3 | Project | `.claude/agents/`, from the current working directory upward to the Git root |
-| 4 | Added root | `.github/agents/` under a directory added with `--add-dir`, `/add-dir`, or the SDK's `additionalDirectories`. Adding the directory is a trust decision: its agents are loaded as trusted configuration. |
+| 4 | Added root | `.github/agents/` and `.claude/agents/` under a directory added with `--add-dir`, `/add-dir`, or the SDK's `additionalDirectories`. Adding the directory is a trust decision: its agents are loaded as trusted configuration. |
 | 5 | Plugin | `<plugin>/agents/` |
 | 6 (lowest) | Remote | Organization or enterprise agents |
 
@@ -1650,7 +1653,20 @@ When the full dialog is shown, you can also choose from these options:
 
 The **This location** option appears when the CLI can determine a location key (Git root or current directory). It persists the approval to disk so the same permission is automatically granted the next time you work in that directory without prompting again.
 
+When a shell command needs tool approval and access to paths outside the allowed directories, the CLI can combine both approvals in one prompt. Approving once grants path access for that run only. Approving for the session or location also grants path access for the rest of the session.
+
 Use `/reset-allowed-tools` to clear session approvals for the current session.
+
+### Parent-domain URL approvals
+
+URL approval prompts can offer a parent-domain scope, such as `https://*.example.com`, in addition to the exact origin. This approves every subdomain of the registrable domain, such as `api.example.com` and `flow.example.com`, for the rest of the session.
+
+The scope has these restrictions:
+
+* Approval applies only to the current session and is never saved to settings.
+* The scheme and any non-default port must match.
+* Hosts under a separately owned suffix, such as `s3.amazonaws.com`, are not covered by approving `*.amazonaws.com`. This keeps an approval for *.amazonaws.com from extending to buckets under s3.amazonaws.com, which may belong to other tenants.
+* IP addresses, single-label hosts such as `localhost`, and public suffixes such as `github.io` do not get this option.
 
 ## Security
 
@@ -1774,221 +1790,13 @@ Run `/sandbox policy` to see the resolved paths grouped by source and access. Th
 
 ## OpenTelemetry monitoring
 
-{% data variables.copilot.copilot_cli_short %} can export traces and metrics via [OpenTelemetry](https://opentelemetry.io/) (OTel), giving you visibility into agent interactions, LLM calls, tool executions, and token usage. All signal names and attributes follow the [OTel GenAI Semantic Conventions](https://github.com/open-telemetry/semantic-conventions-genai/tree/main/docs/gen-ai/).
+{% data variables.copilot.copilot_cli_short %} and other {% data variables.product.prodname_copilot_short %} clients support OpenTelemetry (OTel) monitoring. For configuration options, exported signals, and attributes, see [AUTOTITLE](/copilot/reference/enterprise-administrators/opentelemetry-reference).
 
 OTel is off by default with zero overhead. It activates when any of the following conditions are met:
 
 * `COPILOT_OTEL_ENABLED=true`
 * `OTEL_EXPORTER_OTLP_ENDPOINT` is set
 * `COPILOT_OTEL_FILE_EXPORTER_PATH` is set
-
-OTel configuration can also be set in {% data variables.product.prodname_vscode_shortname %}, or in an enterprise-wide `{% data variables.copilot.managed_setting_file %}` file. See [Enable OTel monitoring](https://code.visualstudio.com/docs/agents/guides/monitoring-agents#_enable-otel-monitoring) in the {% data variables.product.prodname_vscode_shortname %} documentation and [AUTOTITLE](/copilot/reference/enterprise-administrators/enterprise-managed-settings).
-
-### OTel environment variables
-
-| Variable | Default | Description |
-|----------|---------|-------------|
-| `COPILOT_OTEL_ENABLED` | `false` | Explicitly enable OTel. Not required if `OTEL_EXPORTER_OTLP_ENDPOINT` is set. |
-| `OTEL_EXPORTER_OTLP_ENDPOINT` | — | OTLP endpoint URL. Setting this automatically enables OTel. |
-| `COPILOT_OTEL_EXPORTER_TYPE` | `otlp-http` | Exporter type: `otlp-http` or `file`. Auto-selects `file` when `COPILOT_OTEL_FILE_EXPORTER_PATH` is set. |
-| `OTEL_EXPORTER_OTLP_PROTOCOL` | `http/json` | OTLP HTTP wire protocol: `http/json` or `http/protobuf`. Only applies to the `otlp-http` exporter. |
-| `OTEL_EXPORTER_OTLP_TRACES_PROTOCOL` | — | Override `OTEL_EXPORTER_OTLP_PROTOCOL` for traces only. |
-| `OTEL_EXPORTER_OTLP_METRICS_PROTOCOL` | — | Override `OTEL_EXPORTER_OTLP_PROTOCOL` for metrics only. |
-| `OTEL_SERVICE_NAME` | `github-copilot` | Service name in resource attributes. |
-| `OTEL_RESOURCE_ATTRIBUTES` | — | Extra resource attributes as comma-separated `key=value` pairs. Use percent-encoding for special characters. |
-| `OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT` | `false` | Capture full prompt and response content. See [Content capture](#content-capture). |
-| `OTEL_LOG_LEVEL` | — | OTel diagnostic log level: `NONE`, `ERROR`, `WARN`, `INFO`, `DEBUG`, `VERBOSE`, `ALL`. |
-| `COPILOT_OTEL_FILE_EXPORTER_PATH` | — | Write all signals to this file as JSON-lines. Setting this automatically enables OTel. |
-| `COPILOT_OTEL_SOURCE_NAME` | `github.copilot` | Instrumentation scope name for tracer and meter. |
-| `OTEL_EXPORTER_OTLP_HEADERS` | — | Auth headers for the OTLP exporter (for example, `Authorization=Bearer token`). |
-
-### Dynamic authentication headers
-
-Set `telemetry.headersProvider` in your user settings or in an enterprise-managed telemetry policy to run a command that supplies fresh OTLP headers. Repository settings never apply this setting.
-
-```json
-{
-  "telemetry": {
-    "headersProvider": {
-      "path": "node",
-      "args": ["bin/otel-headers.js"],
-      "refreshIntervalMs": 1740000
-    }
-  }
-}
-```
-
-| Field | Description |
-|-------|-------------|
-| `path` | Executable name, absolute path, or home-relative path. This is not a shell command, and workspace-relative paths are rejected. |
-| `args` | Optional arguments, passed literally. Select an interpreter explicitly for scripts (for example, `node`). |
-| `refreshIntervalMs` | Optional refresh interval. Default: 29 minutes. |
-
-Set `headersProvider` to `false` to disable dynamic headers.
-
-* The command runs from your home directory with a 30-second deadline. Its stdout must be a JSON object of string header values. An empty object clears dynamic headers.
-* The provider runs only for active HTTP OTLP exporters. Use HTTPS, because an HTTP endpoint produces a warning and OTLP redirects are rejected.
-* Header precedence, from highest to lowest: managed helper output, managed static headers, user helper output, then `OTEL_EXPORTER_OTLP_HEADERS`. A managed helper overrides a user helper, and a managed `false` disables helpers.
-* If a refresh fails, exports that need dynamic headers are blocked until the next refresh.
-
-### Traces
-
-The runtime emits a hierarchical span tree for each agent interaction. Each tree contains an `invoke_agent` root span, with `chat` and `execute_tool` child spans.
-
-#### `invoke_agent` span attributes
-
-Wraps the entire agent invocation: all LLM calls and tool executions for one user message.
-
-* Both **top-level sessions** and **subagent invocations** (for example, explore, task) use span kind `INTERNAL` (in-process); provider-facing inference is represented by child `CLIENT` `chat` spans.
-* **Top-level sessions** additionally carry `server.address` and `server.port`; subagent invocations do not.
-
-| Attribute | Description | Scope |
-|-----------|-------------|-----------|
-| `gen_ai.operation.name` | `invoke_agent` | Both |
-| `gen_ai.provider.name` | Provider (for example, `github`, `anthropic`) | Both |
-| `gen_ai.agent.id` | Stable agent-definition identifier when known; top-level default uses `github.copilot.default` | Both |
-| `gen_ai.agent.name` | Agent name (when available) | Both |
-| `gen_ai.agent.description` | Agent description (when available) | Both |
-| `gen_ai.agent.version` | Agent definition version when known; otherwise runtime version | Both |
-| `gen_ai.conversation.id` | Session identifier | Both |
-| `enduser.pseudo.id` | Pseudonymous {% data variables.product.prodname_copilot_short %} user identifier from `analytics_tracking_id` when available | Both |
-| `gen_ai.request.model` | Requested model | Both |
-| `gen_ai.response.finish_reasons` | `["stop"]` or `["error"]` | Both |
-| `gen_ai.usage.input_tokens` | Total input tokens (all turns) | Both |
-| `gen_ai.usage.output_tokens` | Total output tokens (all turns) | Both |
-| `gen_ai.usage.cache_read.input_tokens` | Cached input tokens read | Both |
-| `gen_ai.usage.cache_creation.input_tokens` | Cached input tokens created | Both |
-| `github.copilot.turn_count` | Number of LLM round-trips | Both |
-| `github.copilot.cost` | Per-request model multiplier used for billing. **Not a monetary value.** | Both |
-| `github.copilot.nano_aiu` | AI units consumed, in nano AI units (1 AIU = 1,000,000,000 nano AIU) | Both |
-| `server.address` | Server hostname | Top-level only |
-| `server.port` | Server port | Top-level only |
-| `error.type` | Error class name (on error) | Both |
-| `gen_ai.input.messages` | Full input messages as JSON (content capture only) | Both |
-| `gen_ai.output.messages` | Full output messages as JSON (content capture only) | Both |
-| `gen_ai.system_instructions` | System prompt content as JSON (content capture only) | Both |
-| `gen_ai.tool.definitions` | Tool schemas as JSON (content capture only) | Both |
-
-#### `chat` span attributes
-
-One span per LLM request. Span kind: `CLIENT`.
-
-| Attribute | Description |
-|-----------|-------------|
-| `gen_ai.operation.name` | `chat` |
-| `gen_ai.provider.name` | Provider name |
-| `gen_ai.request.model` | Requested model |
-| `gen_ai.request.stream` | Whether streaming mode was used (streaming only) |
-| `gen_ai.conversation.id` | Session identifier |
-| `gen_ai.response.finish_reasons` | Stop reasons |
-| `gen_ai.response.id` | Response ID |
-| `gen_ai.response.model` | Resolved model |
-| `gen_ai.response.time_to_first_chunk` | Time to first streaming chunk, in seconds (streaming only) |
-| `gen_ai.usage.cache_creation.input_tokens` | Cached tokens created |
-| `gen_ai.usage.cache_read.input_tokens` | Cached tokens read |
-| `gen_ai.usage.input_tokens` | Input tokens this turn |
-| `gen_ai.usage.output_tokens` | Output tokens this turn |
-| `github.copilot.cost` | Per-request model multiplier used for billing. **Not a monetary value.** |
-| `github.copilot.nano_aiu` | AI units consumed this turn, in nano AI units (1 AIU = 1,000,000,000 nano AIU) |
-| `github.copilot.server_duration` | Server-side duration |
-| `github.copilot.initiator` | Request initiator |
-| `github.copilot.turn_id` | Turn identifier |
-| `github.copilot.interaction_id` | Interaction identifier |
-| `server.address` | Server hostname |
-| `server.port` | Server port |
-| `error.type` | Error class name (on error) |
-| `gen_ai.input.messages` | Full prompt messages as JSON (content capture only) |
-| `gen_ai.output.messages` | Full response messages as JSON (content capture only) |
-| `gen_ai.system_instructions` | System prompt content as JSON (content capture only) |
-
-#### `execute_tool` span attributes
-
-One span per tool call. Span kind: `INTERNAL`.
-
-| Attribute | Description |
-|-----------|-------------|
-| `gen_ai.operation.name` | `execute_tool` |
-| `gen_ai.provider.name` | Provider name (when available) |
-| `gen_ai.tool.name` | Tool name (for example, `readFile`) |
-| `gen_ai.tool.type` | `function` |
-| `gen_ai.tool.call.id` | Tool call identifier |
-| `gen_ai.tool.description` | Tool description |
-| `error.type` | Error class name (on error) |
-| `gen_ai.tool.call.arguments` | Tool input arguments as JSON (content capture only) |
-| `gen_ai.tool.call.result` | Tool output as JSON (content capture only) |
-
-> [!NOTE]
-> To measure AI unit consumption, read `github.copilot.nano_aiu` from the root `invoke_agent` span only. The attribute is also stamped on the child `chat` spans, so summing it across every span double-counts. `github.copilot.cost` is a per-request model multiplier used for billing calculations—it is not a currency value and must not be interpreted as one.
-
-### Metrics
-
-#### GenAI convention metrics
-
-| Metric | Type | Unit | Description |
-|--------|------|------|-------------|
-| `gen_ai.client.operation.duration` | Histogram | s | LLM API call and agent invocation duration |
-| `gen_ai.client.token.usage` | Histogram | tokens | Token counts by type (`input`/`output`) |
-| `gen_ai.client.operation.time_to_first_chunk` | Histogram | s | Time to receive first streaming chunk |
-| `gen_ai.client.operation.time_per_output_chunk` | Histogram | s | Inter-chunk latency after first chunk |
-| `gen_ai.invoke_agent.duration` | Histogram | s | End-to-end duration of one agent invocation |
-| `gen_ai.invoke_agent.inference_calls` | Histogram | `{inference_call}` | Number of model calls made during one agent invocation, counted at provider dispatch (failed and partial calls included; requests blocked before dispatch excluded). Dimension: `gen_ai.agent.name`. |
-| `gen_ai.invoke_agent.tool_calls` | Histogram | `{tool_call}` | Number of client-side tool calls made during one agent invocation (failed and partial calls included; synthetic CLI tool lifecycles and provider-executed server-side tools excluded). Dimension: `gen_ai.agent.name`. |
-| `gen_ai.invoke_workflow.duration` | Histogram | s | End-to-end duration of a GenAI workflow (for example, a fleet mode run orchestrating parallel subagents). |
-
-#### Vendor-specific metrics
-
-| Metric | Type | Unit | Description |
-|--------|------|------|-------------|
-| `github.copilot.tool.call.count` | Counter | calls | Tool invocations by `gen_ai.tool.name` and `success` |
-| `github.copilot.tool.call.duration` | Histogram | s | Tool execution latency by `gen_ai.tool.name` |
-| `github.copilot.agent.turn.count` | Histogram | turns | LLM round-trips per agent invocation |
-| `github.copilot.mcp.server.connection.count` | Counter | attempts | Completed MCP server connection attempts by transport and outcome |
-| `github.copilot.code.lines_added` | Counter | lines | Lines added by file-editing tools, recorded in real time |
-| `github.copilot.code.lines_removed` | Counter | lines | Lines removed by file-editing tools, recorded in real time |
-
-### Span events
-
-Lifecycle events recorded on the active `chat` or `invoke_agent` span.
-
-| Event | Description | Key attributes |
-|-------|-------------|----------------|
-| `github.copilot.hook.start` | A hook began executing | `github.copilot.hook.type`, `github.copilot.hook.invocation_id` |
-| `github.copilot.hook.end` | A hook completed successfully | `github.copilot.hook.type`, `github.copilot.hook.invocation_id` |
-| `github.copilot.hook.error` | A hook failed | `github.copilot.hook.type`, `github.copilot.hook.invocation_id`, `github.copilot.hook.error_message` |
-| `github.copilot.session.truncation` | Conversation history was truncated | `github.copilot.token_limit`, `github.copilot.pre_tokens`, `github.copilot.post_tokens`, `github.copilot.pre_messages`, `github.copilot.post_messages`, `github.copilot.tokens_removed`, `github.copilot.messages_removed`, `github.copilot.performed_by` |
-| `github.copilot.session.compaction_start` | History compaction began | None |
-| `github.copilot.session.compaction_complete` | History compaction completed | `github.copilot.success`, `github.copilot.pre_tokens`, `github.copilot.post_tokens`, `github.copilot.tokens_removed`, `github.copilot.messages_removed`, `github.copilot.message` (content capture only) |
-| `github.copilot.skill.invoked` | A skill was invoked | `github.copilot.skill.name`, `github.copilot.skill.path`, `github.copilot.skill.plugin_name`, `github.copilot.skill.plugin_version` |
-| `github.copilot.session.shutdown` | Session is shutting down | `github.copilot.shutdown_type`, `github.copilot.total_premium_requests`, `github.copilot.lines_added`, `github.copilot.lines_removed`, `github.copilot.files_modified_count` |
-| `github.copilot.session.abort` | User cancelled the current operation | `github.copilot.abort_reason` |
-| `exception` | Session error | `github.copilot.error_type`, `github.copilot.error_status_code`, `github.copilot.error_provider_call_id` |
-
-### Resource attributes
-
-All signals carry these resource attributes.
-
-| Attribute | Value |
-|-----------|-------|
-| `service.name` | `github-copilot` (configurable via `OTEL_SERVICE_NAME`) |
-| `service.version` | Runtime version |
-
-### Content capture
-
-By default, no prompt content, responses, or tool arguments are captured—only metadata like model names, token counts, and durations. To capture full content, set `OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT=true`.
-
-> [!WARNING]
-> Content capture may include sensitive information such as code, file contents, and user prompts. Only enable this in trusted environments.
-
-When content capture is enabled, the following attributes are populated.
-
-| Attribute | Content |
-|-----------|---------|
-| `gen_ai.input.messages` | Full prompt messages (JSON) |
-| `gen_ai.output.messages` | Full response messages (JSON) |
-| `gen_ai.system_instructions` | System prompt content (JSON) |
-| `gen_ai.tool.definitions` | Tool schemas (JSON) |
-| `gen_ai.tool.call.arguments` | Tool input arguments |
-| `gen_ai.tool.call.result` | Tool output |
 
 ## Further reading
 

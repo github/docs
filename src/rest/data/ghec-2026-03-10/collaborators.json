@@ -51,7 +51,7 @@
             "enum": [
               "pull",
               "triage",
-              "triage_plus",
+              "moderate",
               "push",
               "maintain",
               "admin"
@@ -405,7 +405,7 @@
         {
           "type": "string",
           "name": "permission",
-          "description": "<p>The permission to grant the collaborator. <strong>Only valid on organization-owned repositories.</strong> We accept the following permissions to be set: <code>pull</code>, <code>triage</code>, <code>triage_plus</code>, <code>push</code>, <code>maintain</code>, <code>admin</code> and you can also specify a custom repository role name, if the owning organization has defined any.</p>",
+          "description": "<p>The permission to grant the collaborator. <strong>Only valid on organization-owned repositories.</strong> We accept the following permissions to be set: <code>pull</code>, <code>triage</code>, <code>moderate</code>, <code>push</code>, <code>maintain</code>, <code>admin</code> and you can also specify a custom repository role name, if the owning organization has defined any.</p>",
           "default": "push"
         }
       ],
@@ -1519,7 +1519,7 @@
                     "write",
                     "admin",
                     "triage",
-                    "triage_plus",
+                    "moderate",
                     "maintain"
                   ]
                 },
@@ -3089,7 +3089,7 @@
                       "write",
                       "admin",
                       "triage",
-                      "triage_plus",
+                      "moderate",
                       "maintain"
                     ]
                   },
@@ -3189,12 +3189,13 @@
         {
           "type": "string",
           "name": "permissions",
-          "description": "<p>The permissions that the associated user will have on the repository. Valid values are <code>read</code>, <code>write</code>, <code>maintain</code>, <code>triage</code>, and <code>admin</code>.</p>",
+          "description": "<p>The permissions that the associated user will have on the repository. Valid values are <code>read</code>, <code>write</code>, <code>maintain</code>, <code>triage</code>, <code>moderate</code>, and <code>admin</code>.</p>",
           "enum": [
             "read",
             "write",
             "maintain",
             "triage",
+            "moderate",
             "admin"
           ]
         }
@@ -4310,7 +4311,7 @@
                     "write",
                     "admin",
                     "triage",
-                    "triage_plus",
+                    "moderate",
                     "maintain"
                   ]
                 },
@@ -5572,7 +5573,7 @@
                       "write",
                       "admin",
                       "triage",
-                      "triage_plus",
+                      "moderate",
                       "maintain"
                     ]
                   },

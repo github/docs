@@ -44,9 +44,13 @@ Download and install the {% data variables.copilot.github_copilot_app %} for you
 1. Open the {% data variables.copilot.github_copilot_app %}.
 1. Click **Sign in to {% data variables.product.github %}** and follow the prompts to authenticate.
 
-   If you use {% data variables.product.prodname_ghe_cloud %} with data residency, choose **Use GitHub Enterprise** and enter your `*.ghe.com` hostname when prompted. {% data variables.product.prodname_ghe_server %} is not supported by the {% data variables.copilot.github_copilot_app %}.
+   * If you use {% data variables.enterprise.data_residency %}, choose **{% data variables.product.prodname_ghe_cloud %}** and enter your `*.ghe.com` hostname when prompted.
+   * If you work on {% data variables.product.prodname_ghe_server %}, sign in with a cloud account first. You can add your {% data variables.product.prodname_ghe_server %} account later to access repositories, pull requests, and issues for that account.
+
 1. If you do not have a {% data variables.product.prodname_copilot_short %} plan, choose whether to sign up for a plan or continue with your own model provider.
-    * If you choose to use your own model provider, select a provider, enter any required credentials, then click **Save and continue**.
+ 
+    If you choose to use your own model provider, select a provider, enter any required credentials, then click **Save and continue**.
+
 1. When prompted, select one or more repositories based on your recent {% data variables.product.github %} activity. You can also add a local folder or repository, or skip this step and add repositories later.
 1. Choose a theme, then complete onboarding to open the app.
 
@@ -59,6 +63,8 @@ To work on code, you need at least one repository or local folder connected to t
   * **Open local folder** — Select a folder already on your machine, including one that contains a repository you've already cloned locally.
   * **Add {% data variables.product.github %} repository** — Browse and clone a repository from {% data variables.product.github %}.
   * **Clone repository** — Clone from a Git URL for repositories hosted outside {% data variables.product.github %} (for example, on Azure DevOps) or for private repositories without app access.
+
+To add repositories hosted on {% data variables.product.prodname_ghe_server %}, sign in to your account. See [AUTOTITLE](/enterprise-server@latest/copilot/copilot-on-ghes/sign-in-on-copilot-app).
 
 ## Making your first code changes
 

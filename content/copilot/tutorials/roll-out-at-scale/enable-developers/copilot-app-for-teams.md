@@ -57,8 +57,10 @@ After you configure access and policies, ask each developer to:
 
 1. Visit the [download page for the {% data variables.copilot.github_copilot_app %}](https://github.com/features/ai/github-app).
 1. Download and install the app for their operating system.
-1. Open the app.
-1. Click **Sign in to {% data variables.product.github %}** and follow the prompts to authenticate.
+1. Open the app and sign in to {% data variables.product.github %}.
+
+   * Developers should sign in to the account where they receive their {% data variables.product.prodname_copilot_short %} license.
+   * If your repositories are hosted on {% data variables.product.prodname_ghe_server %}, developers should add their {% data variables.product.prodname_ghe_server %} account once they've set up the app.
 1. Select the pilot repository when prompted. Participants can also add an existing local repository or clone the repository later.
 1. If the pilot task requires an MCP server, in the app sidebar, click **Customize**, then **MCP**. Install an approved server required for the task.
 

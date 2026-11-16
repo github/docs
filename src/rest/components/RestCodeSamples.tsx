@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, FormEvent } from 'react'
-import { IconButton, SegmentedControl } from '@primer/react'
+import { SegmentedControl } from '@primer/react'
 import { FormControl, Select } from '@primer/react-brand'
 import { CheckIcon, CopyIcon, InfoIcon } from '@primer/octicons-react'
 import { announce } from '@primer/live-region-element'
@@ -17,6 +17,7 @@ import {
   getJSExample,
 } from '@/rest/components/get-rest-code-samples'
 import { HighlightedCode } from '@/frame/components/HighlightedCode'
+import { IconButton } from '@/frame/components/ui/IconButton'
 import styles from './RestCodeSamples.module.scss'
 import { RestMethod } from './RestMethod'
 import type { Operation, ExampleT } from './types'
@@ -158,21 +159,11 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
             <SegmentedControl
               className={styles.segmentedControl}
               aria-label={`Example language selector for ${operation.title}`}
+              // Pass onChange so Primer follows `selected` after the cookie restores the language.
+              onChange={(index: number) => handleLanguageSelection(languageSelectOptions[index])}
             >
               {languageSelectOptions.map((optionKey) => (
-                <SegmentedControl.Button
-                  key={optionKey}
-                  selected={optionKey === selectedLanguage}
-                  onClick={(e: React.MouseEvent) => {
-                    e.preventDefault()
-                    handleLanguageSelection(optionKey)
-                  }}
-                  onKeyDown={(event: React.KeyboardEvent) => {
-                    if (event.key === 'Enter') {
-                      handleLanguageSelection(optionKey)
-                    }
-                  }}
-                >
+                <SegmentedControl.Button key={optionKey} selected={optionKey === selectedLanguage}>
                   {t(`code_sample_options.${optionKey}`)}
                 </SegmentedControl.Button>
               ))}
@@ -181,13 +172,14 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
           <div className="mr-2">
             <IconButton
               icon={isCopied ? CheckIcon : CopyIcon}
-              className="js-btn-copy btn-octicon"
+              // events.ts records clipboard analytics through a delegated .js-btn-copy listener.
+              className="js-btn-copy"
               aria-label={`${t('button_text.copy_to_clipboard')} ${selectedLanguage} request example`}
               onClick={() => {
                 setCopied()
                 announce('Copied!')
               }}
-            ></IconButton>
+            />
           </div>
         </div>
 
@@ -217,21 +209,10 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
           <SegmentedControl
             className={cx(styles.segmentedControl, 'mx-2')}
             aria-label={`Example response format selector for ${operation.title}`}
+            onChange={(index: number) => handleResponseSelection(responseSelectOptions[index])}
           >
             {responseSelectOptions.map((optionKey) => (
-              <SegmentedControl.Button
-                key={optionKey}
-                selected={optionKey === selectedResponse}
-                onClick={(e: React.MouseEvent) => {
-                  e.preventDefault()
-                  handleResponseSelection(optionKey)
-                }}
-                onKeyDown={(event: React.KeyboardEvent) => {
-                  if (event.key === 'Enter') {
-                    handleResponseSelection(optionKey)
-                  }
-                }}
-              >
+              <SegmentedControl.Button key={optionKey} selected={optionKey === selectedResponse}>
                 {t(`response_options.${optionKey}`)}
               </SegmentedControl.Button>
             ))}

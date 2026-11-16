@@ -67,11 +67,12 @@ jobs:
           OLD_ISSUE: ${{ github.event.issue.html_url }}
 
       - name: Comment on the new issue
-        run: gh issue comment $NEW_ISSUE --body "This issue was originally opened in the open source repo as $OLD_ISSUE"
+        run: gh issue comment "$NEW_ISSUE" --body "This issue was originally opened in the open source repo as $OLD_ISSUE. @$ISSUE_LABELER marked it for an internal fix."
         env:
           GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
           NEW_ISSUE: ${{ env.NEW_ISSUE }}
           OLD_ISSUE: ${{ github.event.issue.html_url }}
+          ISSUE_LABELER: ${{ github.event.sender.login }}
 
       - name: Check out repo
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}

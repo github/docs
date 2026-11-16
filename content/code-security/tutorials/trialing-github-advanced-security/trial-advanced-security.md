@@ -36,15 +36,11 @@ Your payment method does not affect whether you can start a trial. However, you 
 To set up a trial of {% data variables.product.prodname_GHAS %} using this method, you must meet the following criteria:
 
 * You are an owner of an enterprise account. See [AUTOTITLE](/enterprise-cloud@latest/admin/concepts/enterprise-fundamentals/enterprise-accounts).
-* You pay by credit card or PayPal.
-* You have not previously purchased {% data variables.product.prodname_GHAS %} and do not currently have a paid license.
 * You are not already using metered billing for {% data variables.product.prodname_GHAS %}.
 * If you have had a previous {% data variables.product.prodname_GHAS %} trial, you have had no more than one previous trial. That trial ended at least 180 days ago.
-* Your enterprise has 300 or fewer seats.
 
 > [!TIP]
-> * **No enterprise account?** Start a trial of {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_GHAS %}. See [AUTOTITLE](/enterprise-cloud@latest/admin/overview/setting-up-a-trial-of-github-enterprise-cloud).
-> * **Pay by invoice:** Contact {% data variables.contact.contact_enterprise_sales %} to arrange a trial.
+> **No enterprise account?** Start a trial of {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_GHAS %}. See [AUTOTITLE](/enterprise-cloud@latest/admin/overview/setting-up-a-trial-of-github-enterprise-cloud).
 
 {% endif %}
 

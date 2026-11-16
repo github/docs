@@ -18,8 +18,8 @@ category:
 There are some additional {% data variables.product.prodname_secret_scanning %} settings that cannot be applied to repositories using {% data variables.product.prodname_security_configurations %}, so you must configure these settings separately:
 
 * [Configuring a resource link for push protection](#configuring-a-resource-link-for-push-protection)
-* [Controlling features for new repositories created in a user namespace](#controlling-features-for-new-repositories-created-in-a-user-namespace){% ifversion push-protected-pattern-configuration %}
-* [Specifying patterns to include in push protection for your enterprise](#specifying-patterns-to-include-in-push-protection-for-your-enterprise){% endif %}
+* [Controlling features for new repositories created in a user namespace](#controlling-features-for-new-repositories-created-in-a-user-namespace)
+* [Specifying patterns to include in push protection for your enterprise](#specifying-patterns-to-include-in-push-protection-for-your-enterprise)
 
 These additional settings apply only to repositories with {% data variables.product.prodname_secret_scanning %} and {% data variables.product.prodname_GHAS %} both enabled, or with {% data variables.product.prodname_GH_secret_protection %} enabled.
 
@@ -43,8 +43,6 @@ To ensure that any repositories created by users outside of an organization are 
 
 Under "Additional settings", use the options in the "User namespace repositories" section to enable or disable features for new repositories.
 
-{% ifversion push-protected-pattern-configuration %}
-
 ### Specifying patterns to include in push protection for your enterprise
 
 {% data reusables.secret-scanning.push-protected-pattern-configuration-org-enterprise-preview %}
@@ -57,5 +55,3 @@ You can customize which secret patterns are included in push protection, giving 
 {% data reusables.secret-scanning.pattern-enablement-org-enterprise %}
 
 For more information on how to read data on the {% data variables.product.prodname_secret_scanning %} pattern configuration page, see [AUTOTITLE](/code-security/reference/secret-security/secret-pattern-data).
-
-{% endif %}

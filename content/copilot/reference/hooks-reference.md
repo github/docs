@@ -108,7 +108,7 @@ This section applies to **{% data variables.copilot.copilot_in_the_cloud_short %
 Hook configuration files use JSON format with version `1`.
 
 > [!NOTE]
-> If a hook configuration file loaded from a directory (for example, `.github/hooks/`) contains a malformed hook item, only that item is dropped and logged—valid sibling hooks in the same file still load. Structural errors (invalid JSON, a bad `version`, or a non-array event list) still reject the entire file. Hooks defined inline in `settings.json` remain strict: any item-level validation error rejects the whole `hooks` field. Other configuration files always load independently.
+> If a hook configuration file loaded from a directory (for example, `.github/hooks/`) contains a malformed hook item, only that item is dropped and logged—valid sibling hooks in the same file still load. Structural errors (invalid JSON, a bad `version`, or a non-array event list) still reject the entire file. Hooks defined inline in `settings.json` remain strict: any item-level validation error rejects the whole `hooks` field. Other configuration files always load independently. The CLI prints `! Invalid hook configuration in FILE: REASON` for each skipped file or entry when repository hooks load at startup or after `/cd` into a repository.
 
 ### Command hooks
 
@@ -205,9 +205,11 @@ Progress messages are display-only and do not affect hook output or decision log
 > [!NOTE]
 > **{% data variables.copilot.copilot_cli_short %} only.**
 
-When the session sandbox is enabled, command hooks from the repository, your user settings, and plugins run inside it, with the same access as the agent's shell commands. A hook can also read the directory it was loaded from, so a plugin can run the scripts it ships, and a plugin hook can write to its data directory (`$COPILOT_PLUGIN_DATA`).
+When the session sandbox is enabled, command hooks from the repository, your user settings, and plugins run inside it, under the same sandbox policy rules as the agent's shell commands. A hook can also read the directory it was loaded from, so a plugin can run the scripts it ships, and a plugin hook can write to its data directory (`$COPILOT_PLUGIN_DATA`).
 
-A hook's `cwd` and `env` fields don't widen that access: a `cwd` outside the session's grants gives the hook no access there, and variables such as `TMPDIR` or `PATH` set in the hook's `env` grant nothing. When a hook fails in the sandbox, {% data variables.product.prodname_copilot_short %} shows a warning once per hook and session. To give a hook more access, add the required paths to `sandbox.userPolicy` in your settings. See [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-config-dir-reference#user-settings-copilotsettingsjson).
+When **Allow dev tool access** is enabled, additional access depends on tools identified in the hook command and your project files. See [AUTOTITLE](/copilot/concepts/security-governance-and-network-settings/understanding-local-sandboxing). {% data variables.copilot.copilot_cli_short %} does not inspect script files or expand a hook's access after it starts. A tool called from a script or through another command may therefore lack access to its configuration or cache, even if running the tool directly works.
+
+A hook's `cwd` and `env` fields don't widen that access: a `cwd` outside the session's grants gives the hook no access there, and variables such as `TMPDIR` or `PATH` set in the hook's `env` grant nothing. When a hook fails in the sandbox, {% data variables.product.prodname_copilot_short %} shows a warning once per hook and session. For help identifying and granting missing access, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/use-hooks#troubleshooting-sandboxed-hooks).
 
 Policy hooks always run on the host, outside the sandbox, even when the session sandbox is enabled. A policy hook should not run scripts from the workspace.
 
@@ -497,6 +499,8 @@ Tools with no Claude equivalent keep their runtime names.
 
 > [!IMPORTANT]
 > **Command vs HTTP fail behavior for `preToolUse`:** Command `preToolUse` hooks are **fail-closed** on errors—a crash or non-zero exit (including exit `2`) denies the tool call, even if the hook's stdout JSON reports `permissionDecision: "allow"`. Command hook **timeouts are always fail-open, even for `preToolUse` and admin-deployed policy hooks**—a timed-out hook surfaces a warning and lets the tool call proceed through the normal permission flow instead of denying it. HTTP `preToolUse` hooks are **fail-open**—a network error, timeout, or non-2xx response falls through to the default permission flow. Choose the variant that matches your security requirements.
+
+> **Parallel tool calls:** When the model sends a batch of parallel tool calls, `preToolUse` hooks for different calls run concurrently. Hooks for a single call still run in order, so avoid hooks that depend on cross-call ordering.
 
 ### `postToolUse` / `PostToolUse`
 
@@ -866,7 +870,7 @@ If `additionalContext` is returned, the text is injected into the session as a p
 
 ## Matcher filtering
 
-Several events accept an optional `matcher` regex on each hook entry that filters which invocations the hook fires for. It is compiled as `^(?:PATTERN)$` and must match the full value. Invalid regexes cause the hook entry to be skipped.
+Several events accept an optional `matcher` regex on each hook entry that filters which invocations the hook fires for. It is compiled as `^(?:PATTERN)$` and must match the full value. Invalid regexes cause the hook entry to be skipped, and the CLI prints `! Invalid hook configuration in FILE: REASON`.
 
 | Event | `matcher` is matched against |
 |-------|------------------------------|

@@ -803,6 +803,76 @@
     "action": "reopened",
     "category": "issues"
   },
+  "status_changed": {
+    "descriptionHtml": "<p>The status of an issue was changed. When the change also closes or reopens the issue, the <code>closed</code> or <code>reopened</code> action is sent too.</p>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg></p>\n<p>\nIssue statuses are in preview and subject to change. They're only available to accounts enrolled in the preview.</p>\n</div>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to an issue. For more information about issues, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/issues/tracking-your-work-with-issues/about-issues\">About issues</a>.\" For information about the APIs to manage issues, see <a href=\"https://docs.github.com/enterprise-cloud@latest/graphql/reference/objects#issue\">the GraphQL documentation</a> or \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/issues\">Issues</a>\" in the REST API documentation.</p>\n<p>For activity relating to a comment on an issue, use the <code>issue_comment</code> event.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Issues\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "status_changed"
+        ]
+      },
+      {
+        "type": "object",
+        "name": "changes",
+        "description": "<p>The changes to the issue. <code>state</code> and <code>state_reason</code> are only included when the status change also closed or reopened the issue, or changed the reason it was closed.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-cloud@latest/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>"
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-cloud@latest/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>"
+      },
+      {
+        "type": "object",
+        "name": "issue",
+        "description": "<p>The <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/issues/issues#get-an-issue\">issue</a> itself.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>"
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true
+      },
+      {
+        "type": "object",
+        "name": "status",
+        "description": "<p>The status the issue changed to.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "status_changed",
+    "category": "issues"
+  },
   "transferred": {
     "descriptionHtml": "<p>An issue was transferred to another repository. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/issues/tracking-your-work-with-issues/transferring-an-issue-to-another-repository\">Transferring an issue to another repository</a>.\"</p>",
     "summaryHtml": "<p>This event occurs when there is activity relating to an issue. For more information about issues, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/issues/tracking-your-work-with-issues/about-issues\">About issues</a>.\" For information about the APIs to manage issues, see <a href=\"https://docs.github.com/enterprise-cloud@latest/graphql/reference/objects#issue\">the GraphQL documentation</a> or \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/issues\">Issues</a>\" in the REST API documentation.</p>\n<p>For activity relating to a comment on an issue, use the <code>issue_comment</code> event.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Issues\" repository permission.</p>",

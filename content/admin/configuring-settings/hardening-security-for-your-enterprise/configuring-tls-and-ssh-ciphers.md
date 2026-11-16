@@ -8,7 +8,7 @@ redirect_from:
   - /admin/configuration/configuring-network-settings/configuring-tls#configuring-cipher-suites-and-cryptographic-algorithms
   - /admin/configuration/hardening-security-for-your-enterprise/configuring-tls#configuring-cipher-suites-and-cryptographic-algorithms
 versions:
-  ghes: '>=3.19'
+  ghes: '*'
 contentType: how-tos
 category:
   - Secure and govern your enterprise

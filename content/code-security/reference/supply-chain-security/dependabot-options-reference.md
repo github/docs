@@ -31,7 +31,7 @@ All options marked with a {% octicon "shield-check" aria-label="Security updates
 | `updates` | Top level| Section where you define each `package-ecosystem` to update.|
 | [`package-ecosystem`](#package-ecosystem-) | Under `updates` | Define a package manager to update. |
 | [`directories` or `directory`](#directories-or-directory--) | Under each `package-ecosystem` entry | Define the location of the manifest or other definition files to update. |
-| [`schedule.interval`](#schedule-) | Under each `package-ecosystem` entry | Define whether to look for version updates: `daily`, `weekly`, `monthly`{% ifversion fpt or ghes > 3.18 %}, `quarterly`, `semiannually`, `yearly`, or `cron`{% endif %}. |
+| [`schedule.interval`](#schedule-) | Under each `package-ecosystem` entry | Define whether to look for version updates: `daily`, `weekly`, `monthly`{% ifversion fpt or ghes %}, `quarterly`, `semiannually`, `yearly`, or `cron`{% endif %}. |
 
 Optionally, you can also include a top-level `registries` key to define access details for private registries, see [Top-level `registries` key](#top-level-registries-key).
 
@@ -180,8 +180,6 @@ Supported by: `bundler`, `composer`, `mix`, `maven`, `npm`, `pip`, and `uv`.
 * Supports only the value `scope`
 * When defined any prefix is followed by the type of dependencies updated in the commit: `deps` or `deps-dev`.
 
-{% ifversion dependabot-option-cooldown %}
-
 ## `cooldown` {% octicon "versions" aria-label="Version updates" height="24" %}
 
 Defines a **cooldown period** for dependency updates, allowing updates to be delayed for a configurable number of days. The `cooldown` option is only available for _version_ updates, not _security_ updates.
@@ -292,8 +290,6 @@ The table below shows the package managers that support `cooldown`. The `default
 >
 > * If `semver-major-days`, `semver-minor-days`, or `semver-patch-days` are not defined, the `default-days` settings will take precedence for cooldown-based updates.
 > * The `exclude` list always take precedence over the `include` list. If a dependency is specified in both lists, it is **excluded from cooldown** and will be updated immediately.
-
-{% endif %}
 
 ## `directories` or `directory` {% octicon "versions" aria-label="Version updates" height="24" %} {% octicon "shield-check" aria-label="Security updates" height="24" %}
 
@@ -779,30 +775,6 @@ When `registries` is defined for a package manager:
 * {% data variables.product.prodname_dependabot %} uses the access details defined in the top-level `registries` section.
 
 Supported values: `REGISTRY_NAME` or `"*"`
-
-{% ifversion dependabot-reviewers-deprecation %}{% else %}
-
-## `reviewers` {% octicon "versions" aria-label="Version updates" height="24" %} {% octicon "shield-check" aria-label="Security updates" height="24" %}
-
-> [!IMPORTANT]
-> The `reviewers` property is closing down and will be removed in a future release of {% data variables.product.prodname_ghe_server %}.
->
-> You can also automatically add reviewers and assignees using a CODEOWNERS file. See [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners).
-
-Specify individual reviewers, or teams of reviewers, for all pull requests raised for a package manager.  For examples, see [AUTOTITLE](/code-security/tutorials/secure-your-dependencies/customizing-dependabot-prs).
-
-{% data variables.product.prodname_dependabot %} default behavior:
-
-* Pull requests are created without any reviewers assigned.
-
-When `reviewers` is defined:
-
-* {% octicon "versions" aria-hidden="true" aria-label="versions" %} All pull requests for version updates are created with the chosen reviewers.
-* {% octicon "shield-check" aria-hidden="true" aria-label="shield-check" %} All pull requests for security updates are created with the chosen reviewers, unless `target-branch` defines updates to a non-default branch.
-
-Reviewers must have at least read access to the repository.
-
-{% endif %}
 
 ## `schedule` {% octicon "versions" aria-label="Version updates only" height="24" %}
 

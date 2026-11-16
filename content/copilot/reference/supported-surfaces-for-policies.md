@@ -26,7 +26,7 @@ A dedicated policy exists to enable or disable each supported feature or surface
 | Suggestions matching public code | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %}[^1] | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
 | MCP servers in {% data variables.product.prodname_copilot_short %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | Restrict MCP access to registry servers | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
-| Content exclusion | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| Content exclusion | {% octicon "check" aria-label="Supported" %}[^4] | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | Configure models | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 | {% data variables.copilot.copilot_memory %} | {% octicon "check" aria-label="Supported" %}[^2] | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %}[^3] | {% octicon "check" aria-label="Supported" %} |
 
@@ -37,6 +37,8 @@ A dedicated policy exists to enable or disable each supported feature or surface
 [^2]: Supported in {% data variables.product.prodname_copilot_short %} sessions that run in {% data variables.product.prodname_vscode %}'s **Local Agent Host**. The application also requires its own {% data variables.copilot.copilot_memory %} setting to be enabled. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/copilot-memory/manage-for-yourself#copilot-memory-in-visual-studio-code).
 
 [^3]: In the {% data variables.copilot.github_copilot_app %}, this policy applies where {% data variables.copilot.copilot_memory %} is available for the user's account. The app's separate project **Memory** setting is not the same feature. See [AUTOTITLE](/copilot/concepts/prompting-and-context/copilot-memory#where-copilot-memory-is-available).
+
+[^4] For a detailed breakdown by IDE, see [AUTOTITLE](/copilot/concepts/security-governance-and-network-settings/content-exclusion#availability-of-content-exclusion).
 
 ## More information on {% data variables.copilot.copilot_in_the_cloud_short %}
 

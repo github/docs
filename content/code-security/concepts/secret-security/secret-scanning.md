@@ -35,6 +35,25 @@ When credentials like API keys and passwords are committed to repositories as ha
 
 {% data reusables.secret-scanning.what-is-scanned %}
 
+{% ifversion secret-scanning-actions-logs %}
+
+### Secrets detected in {% data variables.product.prodname_actions %} workflow logs
+
+> [!NOTE] 
+> Detection of secrets in {% data variables.product.prodname_actions %} workflow logs is in {% data variables.release-phases.public_preview %} and is subject to change.
+
+{% data variables.product.prodname_actions %} workflow log scanning is disabled by default. Enterprise owners can enable it for all repositories in their enterprise. For more information, see [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise#enforcing-a-policy-for-secret-scanning-in-github-actions-workflow-logs).
+
+Once enabled, {% data variables.product.github %} scans the logs of each new workflow run after the run completes, for repositories where {% data variables.product.prodname_secret_scanning %} is enabled. Logs from past workflow runs aren't scanned.
+
+For {% data variables.product.prodname_actions %} workflow logs, {% data variables.product.prodname_secret_scanning %} only detects provider patterns. It doesn't detect generic patterns, custom patterns, {% data variables.secret-scanning.ai-detected-secrets %}, or values that {% data variables.product.prodname_actions %} masks in the log.
+
+Alerts for secrets in {% data variables.product.prodname_actions %} workflow logs don't generate notifications during the {% data variables.release-phases.public_preview %}. To review these alerts, check the repository's {% data variables.product.prodname_secret_scanning %} alerts.
+
+A single alert may reference multiple locations if the same secret appeared across several workflow runs or jobs. For each location, the alert links to the workflow file where the secret originated and the log line where the secret was printed. The alert does not include an inline preview of the log content.
+
+{% endif %}
+
 ### {% data variables.product.prodname_secret_scanning_caps %} alerts and remediation
 
 When {% data variables.product.prodname_secret_scanning %} detects a credential leak, {% data variables.product.github %} generates an alert on your repository's **{% data variables.product.prodname_security_and_quality_tab %}** tab with details about the exposed credential.

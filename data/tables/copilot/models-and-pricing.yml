@@ -341,6 +341,15 @@
   output: $50.00
   cache_write: $12.50
 
+- model: Claude Fable 5.2
+  provider: anthropic
+  release_status: GA
+  category: Powerful
+  input: $8.00
+  cached_input: $0.20
+  output: $40.00
+  cache_write: $10.00
+
 # Google
 - model: 'Gemini 3.8 Flash[^gemini-flash-promo]'
   provider: google
@@ -364,6 +373,29 @@
   input: $2.00
   cached_input: $0.10
   output: $10.00
+
+# Promotional pricing expires 2026-12-01. Standard pricing from 2026-12-01 is $4.00 input,
+# $0.20 cached input, and $20.00 output. On that date, update input, cached_input,
+# and output below, then remove the [^gemini-4-carbon-promo] footnote here and in models-and-pricing.md.
+- model: 'Gemini 4 Carbon[^gemini-4-carbon-promo]'
+  provider: google
+  release_status: GA
+  category: Powerful
+  threshold: 'Not applicable'
+  tier: 'Default'
+  input: $2.00
+  cached_input: $0.10
+  output: $10.00
+
+- model: 'Gemini 4 Hydrogen'
+  provider: google
+  release_status: GA
+  category: Versatile
+  threshold: 'Not applicable'
+  tier: 'Default'
+  input: $1.50
+  cached_input: $0.075
+  output: $7.50
 
 # xAI
 - model: 'Grok 4.5'

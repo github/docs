@@ -1520,6 +1520,33 @@
         "requestPath": "/orgs/{org}/copilot/coding-agent/permissions/repositories/{repository_id}",
         "additional-permissions": true,
         "access": "write"
+      },
+      {
+        "category": "copilot",
+        "slug": "get-copilot-customizations-for-a-team",
+        "subcategory": "copilot-team-customizations",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/teams/{team_slug}/copilot/customizations",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "copilot",
+        "slug": "set-copilot-customizations-for-a-team",
+        "subcategory": "copilot-team-customizations",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/teams/{team_slug}/copilot/customizations",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "copilot",
+        "slug": "delete-copilot-customizations-for-a-team",
+        "subcategory": "copilot-team-customizations",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/teams/{team_slug}/copilot/customizations",
+        "additional-permissions": false,
+        "access": "write"
       }
     ]
   },
@@ -4785,6 +4812,42 @@
         "subcategory": "collaborators",
         "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/collaborators/{username}",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "copilot",
+        "slug": "get-copilot-code-review-settings-for-a-repository",
+        "subcategory": "copilot-code-review",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/copilot/code-review/settings",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "copilot",
+        "slug": "update-copilot-code-review-settings-for-a-repository",
+        "subcategory": "copilot-code-review",
+        "verb": "patch",
+        "requestPath": "/repos/{owner}/{repo}/copilot/code-review/settings",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "dependabot",
+        "slug": "get-repository-dependabot-runner-settings",
+        "subcategory": "runner-settings",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/dependabot/runner-settings",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "dependabot",
+        "slug": "set-repository-dependabot-runner-settings",
+        "subcategory": "runner-settings",
+        "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/dependabot/runner-settings",
         "additional-permissions": false,
         "access": "write"
       },
@@ -8744,6 +8807,15 @@
       },
       {
         "category": "pulls",
+        "slug": "request-a-copilot-code-review-for-a-pull-request",
+        "subcategory": "copilot-code-review",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/copilot-code-review",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "pulls",
         "slug": "list-pull-requests-files",
         "subcategory": "pulls",
         "verb": "get",
@@ -9873,6 +9945,90 @@
         "subcategory": "user",
         "verb": "delete",
         "requestPath": "/user/interaction-limits",
+        "additional-permissions": false,
+        "access": "write"
+      }
+    ]
+  },
+  "user_issue_fields": {
+    "title": "Issue Fields",
+    "displayTitle": "User permissions for \"Issue Fields\"",
+    "permissions": [
+      {
+        "category": "users",
+        "slug": "list-issue-fields",
+        "subcategory": "issue-fields",
+        "verb": "get",
+        "requestPath": "/user/issue-fields",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "users",
+        "slug": "create-an-issue-field",
+        "subcategory": "issue-fields",
+        "verb": "post",
+        "requestPath": "/user/issue-fields",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "users",
+        "slug": "update-an-issue-field",
+        "subcategory": "issue-fields",
+        "verb": "patch",
+        "requestPath": "/user/issue-fields/{issue_field_id}",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "users",
+        "slug": "delete-an-issue-field",
+        "subcategory": "issue-fields",
+        "verb": "delete",
+        "requestPath": "/user/issue-fields/{issue_field_id}",
+        "additional-permissions": false,
+        "access": "write"
+      }
+    ]
+  },
+  "user_issue_types": {
+    "title": "Issue Types",
+    "displayTitle": "User permissions for \"Issue Types\"",
+    "permissions": [
+      {
+        "category": "users",
+        "slug": "list-issue-types",
+        "subcategory": "issue-types",
+        "verb": "get",
+        "requestPath": "/user/issue-types",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "users",
+        "slug": "create-an-issue-type",
+        "subcategory": "issue-types",
+        "verb": "post",
+        "requestPath": "/user/issue-types",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "users",
+        "slug": "update-an-issue-type",
+        "subcategory": "issue-types",
+        "verb": "put",
+        "requestPath": "/user/issue-types/{issue_type_id}",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "users",
+        "slug": "delete-an-issue-type",
+        "subcategory": "issue-types",
+        "verb": "delete",
+        "requestPath": "/user/issue-types/{issue_type_id}",
         "additional-permissions": false,
         "access": "write"
       }

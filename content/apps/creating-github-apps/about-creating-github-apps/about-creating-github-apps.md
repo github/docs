@@ -51,7 +51,7 @@ To use your {% data variables.product.prodname_github_app %}, you need to instal
 
 * If your {% data variables.product.prodname_github_app %} is **private**, you can only install it on the account that owns the app.
 * If your {% data variables.product.prodname_github_app %} is **public**, other accounts can also install it.{% ifversion enterprise-apps-public-beta %}
-* If your {% data variables.product.prodname_github_app %} is owned by an **enterprise**, you can install it on {% ifversion enterprise-installed-apps %}the enterprise itself or {% endif %}any organization within that enterprise.{% endif %}{% ifversion restrictive-app-authz %} Only members of the enterprise can sign in to it.{% endif %}
+* If your {% data variables.product.prodname_github_app %} is owned by an **enterprise**, you can install it on {% ifversion enterprise-installed-apps %}the enterprise itself or {% endif %}any organization within that enterprise.{% endif %} Only members of the enterprise can sign in to it.
 
 For more information, see [AUTOTITLE](/apps/using-github-apps/installing-your-own-github-app) and [AUTOTITLE](/apps/sharing-github-apps/sharing-your-github-app).
 

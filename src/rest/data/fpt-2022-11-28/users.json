@@ -7910,6 +7910,1467 @@
       }
     }
   ],
+  "issue-fields": [
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/user/issue-fields",
+      "title": "List issue fields",
+      "category": "users",
+      "subcategory": "issue-fields",
+      "parameters": [],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Lists all issue fields for the authenticated user. OAuth app tokens and personal access tokens (classic) need the <code>read:user</code> scope to use this endpoint.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json"
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": [
+              {
+                "id": 1,
+                "node_id": "IFT_kwDNAd3NAZo",
+                "name": "Text field",
+                "description": "DRI",
+                "data_type": "text",
+                "created_at": "2024-12-11T14:39:09Z",
+                "updated_at": "2024-12-11T14:39:09Z"
+              },
+              {
+                "id": 2,
+                "node_id": "IFSS_kwDNAd3NAZs",
+                "name": "Priority",
+                "description": "Level of importance",
+                "data_type": "single_select",
+                "options": [
+                  {
+                    "id": 1,
+                    "name": "High",
+                    "color": "red"
+                  },
+                  {
+                    "id": 2,
+                    "name": "Medium",
+                    "color": "yellow"
+                  },
+                  {
+                    "id": 3,
+                    "name": "Low",
+                    "color": "green"
+                  }
+                ],
+                "created_at": "2024-12-11T14:39:09Z",
+                "updated_at": "2024-12-11T14:39:09Z"
+              },
+              {
+                "id": 3,
+                "node_id": "IFMS_kwDNAd3NAZt",
+                "name": "Categories",
+                "description": "Issue categories",
+                "data_type": "multi_select",
+                "options": [
+                  {
+                    "id": 4,
+                    "name": "Frontend",
+                    "color": "blue"
+                  },
+                  {
+                    "id": 5,
+                    "name": "Backend",
+                    "color": "green"
+                  },
+                  {
+                    "id": 6,
+                    "name": "Infrastructure",
+                    "color": "purple"
+                  }
+                ],
+                "created_at": "2024-12-11T14:39:09Z",
+                "updated_at": "2024-12-11T14:39:09Z"
+              }
+            ],
+            "schema": {
+              "type": "array",
+              "items": {
+                "title": "User Issue Field",
+                "description": "A custom attribute defined by a personal account for attaching structured data to issues.",
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "integer",
+                    "description": "The unique identifier of the issue field."
+                  },
+                  "node_id": {
+                    "type": "string",
+                    "description": "The node identifier of the issue field."
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "The name of the issue field."
+                  },
+                  "description": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "The description of the issue field."
+                  },
+                  "data_type": {
+                    "type": "string",
+                    "description": "The data type of the issue field.",
+                    "enum": [
+                      "text",
+                      "date",
+                      "single_select",
+                      "multi_select",
+                      "number"
+                    ]
+                  },
+                  "visibility": {
+                    "type": "string",
+                    "description": "The visibility of the issue field. Can be `restricted` (visible only to the owner and to collaborators on the repository the field is read through) or `all` (visible to all users who can see issues).",
+                    "enum": [
+                      "restricted",
+                      "all"
+                    ]
+                  },
+                  "options": {
+                    "description": "Available options for single select and multi select fields.",
+                    "type": [
+                      "array",
+                      "null"
+                    ],
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "description": "The unique identifier of the option."
+                        },
+                        "name": {
+                          "type": "string",
+                          "description": "The name of the option."
+                        },
+                        "description": {
+                          "type": [
+                            "string",
+                            "null"
+                          ],
+                          "description": "The description of the option."
+                        },
+                        "color": {
+                          "type": [
+                            "string",
+                            "null"
+                          ],
+                          "description": "The color of the option.",
+                          "enum": [
+                            "gray",
+                            "blue",
+                            "green",
+                            "yellow",
+                            "orange",
+                            "red",
+                            "pink",
+                            "purple",
+                            null
+                          ]
+                        },
+                        "priority": {
+                          "type": [
+                            "integer",
+                            "null"
+                          ],
+                          "description": "The priority of the option for ordering."
+                        },
+                        "created_at": {
+                          "type": "string",
+                          "description": "The time the option was created.",
+                          "format": "date-time"
+                        },
+                        "updated_at": {
+                          "type": "string",
+                          "description": "The time the option was last updated.",
+                          "format": "date-time"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "name"
+                      ]
+                    }
+                  },
+                  "created_at": {
+                    "type": "string",
+                    "description": "The time the issue field was created.",
+                    "format": "date-time"
+                  },
+                  "updated_at": {
+                    "type": "string",
+                    "description": "The time the issue field was updated.",
+                    "format": "date-time"
+                  }
+                },
+                "required": [
+                  "id",
+                  "node_id",
+                  "name",
+                  "data_type"
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": false,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Issue Fields\" user permissions": "read"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "post",
+      "requestPath": "/user/issue-fields",
+      "title": "Create an issue field",
+      "category": "users",
+      "subcategory": "issue-fields",
+      "parameters": [],
+      "bodyParameters": [
+        {
+          "type": "string",
+          "name": "name",
+          "description": "<p>Name of the issue field.</p>",
+          "isRequired": true
+        },
+        {
+          "type": "string or null",
+          "name": "description",
+          "description": "<p>Description of the issue field.</p>"
+        },
+        {
+          "type": "string",
+          "name": "data_type",
+          "description": "<p>The data type of the issue field.</p>",
+          "isRequired": true,
+          "enum": [
+            "text",
+            "date",
+            "single_select",
+            "multi_select",
+            "number"
+          ]
+        },
+        {
+          "type": "string",
+          "name": "visibility",
+          "description": "<p>The visibility of the issue field. Can be <code>restricted</code> (visible only to the owner and to collaborators on the repository the field is read through) or <code>all</code> (visible to all users who can see issues). Defaults to <code>restricted</code>.</p>",
+          "enum": [
+            "restricted",
+            "all"
+          ]
+        },
+        {
+          "type": "array of objects or null",
+          "name": "options",
+          "description": "<p>Options for select fields. Required when data_type is 'single_select' or 'multi_select'.</p>",
+          "childParamsGroups": [
+            {
+              "type": "string",
+              "name": "name",
+              "description": "<p>Name of the option.</p>",
+              "isRequired": true
+            },
+            {
+              "type": "string or null",
+              "name": "description",
+              "description": "<p>Description of the option.</p>"
+            },
+            {
+              "type": "string",
+              "name": "color",
+              "description": "<p>Color for the option.</p>",
+              "isRequired": true,
+              "enum": [
+                "gray",
+                "blue",
+                "green",
+                "yellow",
+                "orange",
+                "red",
+                "pink",
+                "purple"
+              ]
+            },
+            {
+              "type": "integer",
+              "name": "priority",
+              "description": "<p>Priority of the option for ordering.</p>",
+              "isRequired": true
+            }
+          ]
+        }
+      ],
+      "descriptionHTML": "<p>Creates a new issue field for the authenticated user's personal account.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>user</code> scope to use this endpoint.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "name": "Priority",
+              "description": "Level of importance for the issue",
+              "data_type": "single_select",
+              "visibility": "restricted",
+              "options": [
+                {
+                  "name": "High",
+                  "description": "High priority",
+                  "color": "red",
+                  "priority": 1
+                },
+                {
+                  "name": "Medium",
+                  "description": "Medium priority",
+                  "color": "yellow",
+                  "priority": 2
+                },
+                {
+                  "name": "Low",
+                  "description": "Low priority",
+                  "color": "green",
+                  "priority": 3
+                }
+              ]
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "id": 512,
+              "node_id": "IF_kwDNAd3NAZr",
+              "name": "Priority",
+              "description": "Level of importance for the issue",
+              "data_type": "single_select",
+              "options": [
+                {
+                  "id": 1,
+                  "name": "High",
+                  "description": "High priority",
+                  "color": "red",
+                  "priority": 1,
+                  "created_at": "2025-01-15T10:30:15Z",
+                  "updated_at": "2025-01-15T10:30:15Z"
+                },
+                {
+                  "id": 2,
+                  "name": "Medium",
+                  "description": "Medium priority",
+                  "color": "yellow",
+                  "priority": 2,
+                  "created_at": "2025-01-15T10:30:15Z",
+                  "updated_at": "2025-01-15T10:30:15Z"
+                },
+                {
+                  "id": 3,
+                  "name": "Low",
+                  "description": "Low priority",
+                  "color": "green",
+                  "priority": 3,
+                  "created_at": "2025-01-15T10:30:15Z",
+                  "updated_at": "2025-01-15T10:30:15Z"
+                }
+              ],
+              "created_at": "2025-01-15T10:30:15Z",
+              "updated_at": "2025-01-15T10:30:15Z"
+            },
+            "schema": {
+              "title": "User Issue Field",
+              "description": "A custom attribute defined by a personal account for attaching structured data to issues.",
+              "type": [
+                "object",
+                "null"
+              ],
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "description": "The unique identifier of the issue field."
+                },
+                "node_id": {
+                  "type": "string",
+                  "description": "The node identifier of the issue field."
+                },
+                "name": {
+                  "type": "string",
+                  "description": "The name of the issue field."
+                },
+                "description": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The description of the issue field."
+                },
+                "data_type": {
+                  "type": "string",
+                  "description": "The data type of the issue field.",
+                  "enum": [
+                    "text",
+                    "date",
+                    "single_select",
+                    "multi_select",
+                    "number"
+                  ]
+                },
+                "visibility": {
+                  "type": "string",
+                  "description": "The visibility of the issue field. Can be `restricted` (visible only to the owner and to collaborators on the repository the field is read through) or `all` (visible to all users who can see issues).",
+                  "enum": [
+                    "restricted",
+                    "all"
+                  ]
+                },
+                "options": {
+                  "description": "Available options for single select and multi select fields.",
+                  "type": [
+                    "array",
+                    "null"
+                  ],
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "description": "The unique identifier of the option."
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "The name of the option."
+                      },
+                      "description": {
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "description": "The description of the option."
+                      },
+                      "color": {
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "description": "The color of the option.",
+                        "enum": [
+                          "gray",
+                          "blue",
+                          "green",
+                          "yellow",
+                          "orange",
+                          "red",
+                          "pink",
+                          "purple",
+                          null
+                        ]
+                      },
+                      "priority": {
+                        "type": [
+                          "integer",
+                          "null"
+                        ],
+                        "description": "The priority of the option for ordering."
+                      },
+                      "created_at": {
+                        "type": "string",
+                        "description": "The time the option was created.",
+                        "format": "date-time"
+                      },
+                      "updated_at": {
+                        "type": "string",
+                        "description": "The time the option was last updated.",
+                        "format": "date-time"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "name"
+                    ]
+                  }
+                },
+                "created_at": {
+                  "type": "string",
+                  "description": "The time the issue field was created.",
+                  "format": "date-time"
+                },
+                "updated_at": {
+                  "type": "string",
+                  "description": "The time the issue field was updated.",
+                  "format": "date-time"
+                }
+              },
+              "required": [
+                "id",
+                "node_id",
+                "name",
+                "data_type"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": false,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Issue Fields\" user permissions": "write"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "patch",
+      "requestPath": "/user/issue-fields/{issue_field_id}",
+      "title": "Update an issue field",
+      "category": "users",
+      "subcategory": "issue-fields",
+      "parameters": [
+        {
+          "name": "issue_field_id",
+          "description": "<p>The unique identifier of the issue field.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "string",
+          "name": "name",
+          "description": "<p>Name of the issue field.</p>"
+        },
+        {
+          "type": "string or null",
+          "name": "description",
+          "description": "<p>Description of the issue field.</p>"
+        },
+        {
+          "type": "string",
+          "name": "visibility",
+          "description": "<p>The visibility of the issue field. Can be <code>restricted</code> (visible only to the owner and to collaborators on the repository the field is read through) or <code>all</code> (visible to all users who can see issues).</p>",
+          "enum": [
+            "restricted",
+            "all"
+          ]
+        },
+        {
+          "type": "array of objects",
+          "name": "options",
+          "description": "<p>Options for select fields. Only applicable when updating single_select or multi_select fields. When provided, this array <strong>replaces</strong> the entire existing set of options rather than adding to or updating individual options. To retain or update an existing option, include it in the array with its <code>id</code>. Options sent without an <code>id</code> are treated as new options and may cause existing options to be deleted and recreated.</p>",
+          "childParamsGroups": [
+            {
+              "type": "integer",
+              "name": "id",
+              "description": "<p>The id of an existing option to retain or update. Omit this when creating a new option.</p>"
+            },
+            {
+              "type": "string",
+              "name": "name",
+              "description": "<p>Name of the option.</p>",
+              "isRequired": true
+            },
+            {
+              "type": "string or null",
+              "name": "description",
+              "description": "<p>Description of the option.</p>"
+            },
+            {
+              "type": "string",
+              "name": "color",
+              "description": "<p>Color for the option.</p>",
+              "isRequired": true,
+              "enum": [
+                "gray",
+                "blue",
+                "green",
+                "yellow",
+                "orange",
+                "red",
+                "pink",
+                "purple"
+              ]
+            },
+            {
+              "type": "integer",
+              "name": "priority",
+              "description": "<p>Priority of the option for ordering.</p>",
+              "isRequired": true
+            }
+          ]
+        }
+      ],
+      "descriptionHTML": "<p>Updates an issue field for the authenticated user.</p>\n<p>The authenticated user must own the issue field. OAuth app tokens and personal access tokens (classic)\nneed the <code>user</code> scope to use this endpoint.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Update name and description",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "name": "Priority",
+              "description": "Level of importance for the issue"
+            },
+            "parameters": {
+              "issue_field_id": "ISSUE_FIELD_ID"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "id": 512,
+              "node_id": "IF_kwDNAd3NAZr",
+              "name": "Priority",
+              "description": "Level of importance for the issue",
+              "data_type": "single_select",
+              "options": [
+                {
+                  "id": 1,
+                  "name": "High",
+                  "description": "High priority",
+                  "color": "red",
+                  "priority": 1,
+                  "created_at": "2025-01-15T10:30:15Z",
+                  "updated_at": "2025-01-15T10:30:15Z"
+                },
+                {
+                  "id": 2,
+                  "name": "Medium",
+                  "description": "Medium priority",
+                  "color": "yellow",
+                  "priority": 2,
+                  "created_at": "2025-01-15T10:30:15Z",
+                  "updated_at": "2025-01-15T10:30:15Z"
+                },
+                {
+                  "id": 3,
+                  "name": "Low",
+                  "description": "Low priority",
+                  "color": "green",
+                  "priority": 3,
+                  "created_at": "2025-01-15T10:30:15Z",
+                  "updated_at": "2025-01-15T10:30:15Z"
+                }
+              ],
+              "created_at": "2025-01-15T10:30:15Z",
+              "updated_at": "2025-01-15T10:30:15Z"
+            },
+            "schema": {
+              "title": "User Issue Field",
+              "description": "A custom attribute defined by a personal account for attaching structured data to issues.",
+              "type": [
+                "object",
+                "null"
+              ],
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "description": "The unique identifier of the issue field."
+                },
+                "node_id": {
+                  "type": "string",
+                  "description": "The node identifier of the issue field."
+                },
+                "name": {
+                  "type": "string",
+                  "description": "The name of the issue field."
+                },
+                "description": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The description of the issue field."
+                },
+                "data_type": {
+                  "type": "string",
+                  "description": "The data type of the issue field.",
+                  "enum": [
+                    "text",
+                    "date",
+                    "single_select",
+                    "multi_select",
+                    "number"
+                  ]
+                },
+                "visibility": {
+                  "type": "string",
+                  "description": "The visibility of the issue field. Can be `restricted` (visible only to the owner and to collaborators on the repository the field is read through) or `all` (visible to all users who can see issues).",
+                  "enum": [
+                    "restricted",
+                    "all"
+                  ]
+                },
+                "options": {
+                  "description": "Available options for single select and multi select fields.",
+                  "type": [
+                    "array",
+                    "null"
+                  ],
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "description": "The unique identifier of the option."
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "The name of the option."
+                      },
+                      "description": {
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "description": "The description of the option."
+                      },
+                      "color": {
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "description": "The color of the option.",
+                        "enum": [
+                          "gray",
+                          "blue",
+                          "green",
+                          "yellow",
+                          "orange",
+                          "red",
+                          "pink",
+                          "purple",
+                          null
+                        ]
+                      },
+                      "priority": {
+                        "type": [
+                          "integer",
+                          "null"
+                        ],
+                        "description": "The priority of the option for ordering."
+                      },
+                      "created_at": {
+                        "type": "string",
+                        "description": "The time the option was created.",
+                        "format": "date-time"
+                      },
+                      "updated_at": {
+                        "type": "string",
+                        "description": "The time the option was last updated.",
+                        "format": "date-time"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "name"
+                    ]
+                  }
+                },
+                "created_at": {
+                  "type": "string",
+                  "description": "The time the issue field was created.",
+                  "format": "date-time"
+                },
+                "updated_at": {
+                  "type": "string",
+                  "description": "The time the issue field was updated.",
+                  "format": "date-time"
+                }
+              },
+              "required": [
+                "id",
+                "node_id",
+                "name",
+                "data_type"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": false,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Issue Fields\" user permissions": "write"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "delete",
+      "requestPath": "/user/issue-fields/{issue_field_id}",
+      "title": "Delete an issue field",
+      "category": "users",
+      "subcategory": "issue-fields",
+      "parameters": [
+        {
+          "name": "issue_field_id",
+          "description": "<p>The unique identifier of the issue field.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Deletes an issue field for the authenticated user.</p>\n<p>The authenticated user must own the issue field. OAuth app tokens and personal access tokens (classic)\nneed the <code>user</code> scope to use this endpoint.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "issue_field_id": "ISSUE_FIELD_ID"
+            }
+          },
+          "response": {
+            "statusCode": "204",
+            "description": "<p>A header with no content is returned.</p>"
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "204",
+          "description": "<p>A header with no content is returned.</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": false,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Issue Fields\" user permissions": "write"
+          }
+        ]
+      }
+    }
+  ],
+  "issue-types": [
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/user/issue-types",
+      "title": "List issue types",
+      "category": "users",
+      "subcategory": "issue-types",
+      "parameters": [],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Lists all issue types for the authenticated user. OAuth app tokens and personal access tokens (classic) need the <code>read:user</code> scope to use this endpoint.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json"
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": [
+              {
+                "id": 410,
+                "node_id": "IT_kwDNAd3NAZo",
+                "name": "Task",
+                "description": "A specific piece of work",
+                "created_at": "2024-12-11T14:39:09Z",
+                "updated_at": "2024-12-11T14:39:09Z"
+              },
+              {
+                "id": 411,
+                "node_id": "IT_kwDNAd3NAZs",
+                "name": "Bug",
+                "description": "An unexpected problem or behavior",
+                "created_at": "2024-12-11T14:39:09Z",
+                "updated_at": "2024-12-11T14:39:09Z"
+              }
+            ],
+            "schema": {
+              "type": "array",
+              "items": {
+                "title": "Issue Type",
+                "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "integer",
+                    "description": "The unique identifier of the issue type."
+                  },
+                  "node_id": {
+                    "type": "string",
+                    "description": "The node identifier of the issue type."
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "The name of the issue type."
+                  },
+                  "description": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "The description of the issue type."
+                  },
+                  "color": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "The color of the issue type.",
+                    "enum": [
+                      "gray",
+                      "blue",
+                      "green",
+                      "yellow",
+                      "orange",
+                      "red",
+                      "pink",
+                      "purple",
+                      null
+                    ]
+                  },
+                  "created_at": {
+                    "type": "string",
+                    "description": "The time the issue type created.",
+                    "format": "date-time"
+                  },
+                  "updated_at": {
+                    "type": "string",
+                    "description": "The time the issue type last updated.",
+                    "format": "date-time"
+                  },
+                  "is_enabled": {
+                    "type": "boolean",
+                    "description": "The enabled state of the issue type."
+                  }
+                },
+                "required": [
+                  "id",
+                  "node_id",
+                  "name",
+                  "description"
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": false,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Issue Types\" user permissions": "read"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "post",
+      "requestPath": "/user/issue-types",
+      "title": "Create an issue type",
+      "category": "users",
+      "subcategory": "issue-types",
+      "parameters": [],
+      "bodyParameters": [
+        {
+          "type": "string",
+          "name": "name",
+          "description": "<p>Name of the issue type.</p>",
+          "isRequired": true
+        },
+        {
+          "type": "boolean",
+          "name": "is_enabled",
+          "description": "<p>Whether or not the issue type is enabled.</p>",
+          "isRequired": true
+        },
+        {
+          "type": "string or null",
+          "name": "description",
+          "description": "<p>Description of the issue type.</p>"
+        },
+        {
+          "type": "string or null",
+          "name": "color",
+          "description": "<p>Color for the issue type.</p>",
+          "enum": [
+            "gray",
+            "blue",
+            "green",
+            "yellow",
+            "orange",
+            "red",
+            "pink",
+            "purple",
+            null
+          ]
+        }
+      ],
+      "descriptionHTML": "<p>Creates a new issue type for the authenticated user's personal account.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>user</code> scope to use this endpoint.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "name": "Epic",
+              "description": "An issue type for a multi-week tracking of work",
+              "is_enabled": true,
+              "color": "green"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "id": 410,
+              "node_id": "IT_kwDNAd3NAZo",
+              "name": "Task",
+              "description": "A specific piece of work",
+              "created_at": "2024-12-11T14:39:09Z",
+              "updated_at": "2024-12-11T14:39:09Z"
+            },
+            "schema": {
+              "title": "Issue Type",
+              "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
+              "type": [
+                "object",
+                "null"
+              ],
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "description": "The unique identifier of the issue type."
+                },
+                "node_id": {
+                  "type": "string",
+                  "description": "The node identifier of the issue type."
+                },
+                "name": {
+                  "type": "string",
+                  "description": "The name of the issue type."
+                },
+                "description": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The description of the issue type."
+                },
+                "color": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The color of the issue type.",
+                  "enum": [
+                    "gray",
+                    "blue",
+                    "green",
+                    "yellow",
+                    "orange",
+                    "red",
+                    "pink",
+                    "purple",
+                    null
+                  ]
+                },
+                "created_at": {
+                  "type": "string",
+                  "description": "The time the issue type created.",
+                  "format": "date-time"
+                },
+                "updated_at": {
+                  "type": "string",
+                  "description": "The time the issue type last updated.",
+                  "format": "date-time"
+                },
+                "is_enabled": {
+                  "type": "boolean",
+                  "description": "The enabled state of the issue type."
+                }
+              },
+              "required": [
+                "id",
+                "node_id",
+                "name",
+                "description"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": false,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Issue Types\" user permissions": "write"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "put",
+      "requestPath": "/user/issue-types/{issue_type_id}",
+      "title": "Update an issue type",
+      "category": "users",
+      "subcategory": "issue-types",
+      "parameters": [
+        {
+          "name": "issue_type_id",
+          "description": "<p>The unique identifier of the issue type.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "string",
+          "name": "name",
+          "description": "<p>Name of the issue type.</p>",
+          "isRequired": true
+        },
+        {
+          "type": "boolean",
+          "name": "is_enabled",
+          "description": "<p>Whether or not the issue type is enabled.</p>",
+          "isRequired": true
+        },
+        {
+          "type": "string or null",
+          "name": "description",
+          "description": "<p>Description of the issue type.</p>"
+        },
+        {
+          "type": "string or null",
+          "name": "color",
+          "description": "<p>Color for the issue type.</p>",
+          "enum": [
+            "gray",
+            "blue",
+            "green",
+            "yellow",
+            "orange",
+            "red",
+            "pink",
+            "purple",
+            null
+          ]
+        }
+      ],
+      "descriptionHTML": "<p>Updates an issue type for the authenticated user.</p>\n<p>The authenticated user must own the issue type. OAuth app tokens and personal access tokens (classic)\nneed the <code>user</code> scope to use this endpoint.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "name": "Epic",
+              "description": "An issue type for a multi-week tracking of work",
+              "is_enabled": true,
+              "color": "green"
+            },
+            "parameters": {
+              "issue_type_id": "ISSUE_TYPE_ID"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "id": 410,
+              "node_id": "IT_kwDNAd3NAZo",
+              "name": "Task",
+              "description": "A specific piece of work",
+              "created_at": "2024-12-11T14:39:09Z",
+              "updated_at": "2024-12-11T14:39:09Z"
+            },
+            "schema": {
+              "title": "Issue Type",
+              "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
+              "type": [
+                "object",
+                "null"
+              ],
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "description": "The unique identifier of the issue type."
+                },
+                "node_id": {
+                  "type": "string",
+                  "description": "The node identifier of the issue type."
+                },
+                "name": {
+                  "type": "string",
+                  "description": "The name of the issue type."
+                },
+                "description": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The description of the issue type."
+                },
+                "color": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The color of the issue type.",
+                  "enum": [
+                    "gray",
+                    "blue",
+                    "green",
+                    "yellow",
+                    "orange",
+                    "red",
+                    "pink",
+                    "purple",
+                    null
+                  ]
+                },
+                "created_at": {
+                  "type": "string",
+                  "description": "The time the issue type created.",
+                  "format": "date-time"
+                },
+                "updated_at": {
+                  "type": "string",
+                  "description": "The time the issue type last updated.",
+                  "format": "date-time"
+                },
+                "is_enabled": {
+                  "type": "boolean",
+                  "description": "The enabled state of the issue type."
+                }
+              },
+              "required": [
+                "id",
+                "node_id",
+                "name",
+                "description"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": false,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Issue Types\" user permissions": "write"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "delete",
+      "requestPath": "/user/issue-types/{issue_type_id}",
+      "title": "Delete an issue type",
+      "category": "users",
+      "subcategory": "issue-types",
+      "parameters": [
+        {
+          "name": "issue_type_id",
+          "description": "<p>The unique identifier of the issue type.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Deletes an issue type for the authenticated user.</p>\n<p>The authenticated user must own the issue type. OAuth app tokens and personal access tokens (classic)\nneed the <code>user</code> scope to use this endpoint.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "issue_type_id": "ISSUE_TYPE_ID"
+            }
+          },
+          "response": {
+            "statusCode": "204",
+            "description": "<p>Response</p>"
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "204",
+          "description": "<p>No Content</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": false,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Issue Types\" user permissions": "write"
+          }
+        ]
+      }
+    }
+  ],
   "keys": [
     {
       "serverUrl": "https://api.github.com",

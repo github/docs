@@ -10,5 +10,6 @@ redirect_from:
 children:
   - about-copilot-on-ghes
   - set-up-copilot-cli
+  - sign-in-on-copilot-app
 ---
 

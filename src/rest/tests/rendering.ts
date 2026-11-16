@@ -154,6 +154,23 @@ describe('REST references docs', () => {
     expect($('#example-type-picker').length).toBe(0)
   })
 
+  test('request example copy buttons are house icon buttons labelled by their tooltip', async () => {
+    const $ = await getDOM('/en/rest/actions/artifacts')
+
+    const buttons = $('button.js-btn-copy')
+    expect(buttons.length).toBeGreaterThan(0)
+
+    buttons.each((i, el) => {
+      const button = $(el)
+      expect(button.attr('type')).toBe('button')
+      expect(button.attr('class')).not.toContain('btn-octicon')
+      expect(button.attr('aria-label')).toBeUndefined()
+      const labelId = button.attr('aria-labelledby')
+      expect(labelId).toBeTruthy()
+      expect($(`[id="${labelId}"]`).text()).toMatch(/^Copy to clipboard \S+ request example$/)
+    })
+  })
+
   // All five /rest/meta permissionless operations support every fine-grained token type,
   // so noFineGrainedAccess is false and the RestAuth null guard never fires.
   test('RestAuth component hides auth section for permissionless endpoints', async () => {

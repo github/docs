@@ -51,7 +51,7 @@
             "enum": [
               "pull",
               "triage",
-              "triage_plus",
+              "moderate",
               "push",
               "maintain",
               "admin"
@@ -1933,7 +1933,7 @@
                       "write",
                       "admin",
                       "triage",
-                      "triage_plus",
+                      "moderate",
                       "maintain"
                     ]
                   },
@@ -2033,12 +2033,13 @@
         {
           "type": "string",
           "name": "permissions",
-          "description": "<p>The permissions that the associated user will have on the repository. Valid values are <code>read</code>, <code>write</code>, <code>maintain</code>, <code>triage</code>, and <code>admin</code>.</p>",
+          "description": "<p>The permissions that the associated user will have on the repository. Valid values are <code>read</code>, <code>write</code>, <code>maintain</code>, <code>triage</code>, <code>moderate</code>, and <code>admin</code>.</p>",
           "enum": [
             "read",
             "write",
             "maintain",
             "triage",
+            "moderate",
             "admin"
           ]
         }
@@ -3130,7 +3131,7 @@
                     "write",
                     "admin",
                     "triage",
-                    "triage_plus",
+                    "moderate",
                     "maintain"
                   ]
                 },
@@ -4368,7 +4369,7 @@
                       "write",
                       "admin",
                       "triage",
-                      "triage_plus",
+                      "moderate",
                       "maintain"
                     ]
                   },

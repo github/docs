@@ -21,7 +21,7 @@ The {% data variables.product.prodname_copilot_short %} usage metrics dashboard 
 * Team-level metrics are not pre-aggregated; you construct them by joining the user-teams report with the per-user usage metrics report. See [AUTOTITLE](/copilot/reference/copilot-usage-metrics/team-level-metrics).
 * Repository-level reports contain one record per repository with pull request activity on the requested day. See [Repository-level fields (API only)](#repository-level-fields-api-only) later in this article.
 
-For guidance on how to read and interpret these metrics, see [AUTOTITLE](/copilot/concepts/billing-and-usage/copilot-usage-metrics/copilot-metrics).
+For guidance on how to read and interpret these metrics, see [AUTOTITLE](/copilot/reference/copilot-usage-metrics/interpret-copilot-metrics).
 
 ## {% data variables.product.prodname_copilot_short %} usage dashboard metrics
 
@@ -47,15 +47,19 @@ These metrics appear directly in the {% data variables.product.prodname_copilot_
 
 ## Impact dashboard metrics
 
-These metrics appear in the impact dashboard, which groups users into adoption cohorts and connects that adoption to pull request output. For guidance on interpreting adoption cohorts, see [AUTOTITLE](/copilot/concepts/billing-and-usage/copilot-usage-metrics/copilot-metrics#understanding-adoption-cohorts).
+These metrics appear in the impact dashboard, which groups users into adoption cohorts and connects that adoption to pull request output. For phase definitions and classification rules, see [AI adoption phase fields](#ai-adoption-phase-fields).
 
 | Metric | Description |
 |:--|:--|
-| Engagement trends | How the organization's adoption cohort mix and pull request throughput (total pull requests merged per month) have changed over the last six months. |
+| Adoption cohort distribution | Share of licensed users grouped into each adoption phase (Chat-first users, Phase 1, Phase 2, Phase 3) for the period. Chat-first users correspond to the `No Cohort` value in the API. |
 | Feature engagement | Number of active users who engaged with each included {% data variables.product.prodname_copilot_short %} feature on at least two distinct days during the inclusive 28-day window. |
-| Adoption cohort distribution | Share of licensed users grouped into each adoption phase (Passive users, Phase 1, Phase 2, Phase 3) for the period. Passive users correspond to the `No Cohort` value in the API. |
-| Adoption multiplier | Compares engaged users (Phase 1, 2, or 3) against passive users on code shipped (pull requests merged per user per month) and time to merge pull requests, to show the relative impact of deeper {% data variables.product.prodname_copilot_short %} adoption. |
+| Adoption multiplier | Compares engaged users (Phase 1, 2, or 3) against chat-first users on code shipped (pull requests merged per user per month) and time to merge pull requests, to show the relative impact of deeper {% data variables.product.prodname_copilot_short %} adoption. The code-shipped multiplier divides the engaged group's merge rate by the chat-first group's merge rate. For example, 20 pull requests per user per month divided by 10 gives a 2x multiplier. |
+| Potential return on investment[^1] | Compares monthly {% data variables.product.prodname_copilot_short %} cost per developer, cost as a percentage of developer compensation, and average pull requests per developer per month between chat-first and code-first users (Phases 0-1) and agent-first users (Phases 2-3). |
+| Engagement trends | How the organization's adoption cohort mix and pull request throughput (total pull requests merged per month) have changed over the last six months. |
+| Industry comparison | Compares agentic adoption and leverage with aggregated results from participating peers. For definitions, eligibility, and privacy protections, see [AUTOTITLE](/copilot/reference/copilot-usage-metrics/industry-comparisons). |
 | Recommendations | Suggested actions, such as configuring {% data variables.copilot.copilot_cloud_agent %} or enabling {% data variables.copilot.copilot_code-review_short %}, based on the organization's current cohort distribution. |
+
+[^1]: Return-on-investment cost estimates are based on actual {% data variables.product.prodname_ai_credits_short %} consumption. Selecting a compensation band updates estimates that depend on developer compensation. Treat these figures as estimates, not exact financial results, and review them alongside the adoption multiplier's code-shipped and time-to-merge comparisons. Return-on-investment estimates are available only in the dashboard, not in the usage metrics API or NDJSON exports.
 
 ## Code generation dashboard metrics
 
@@ -102,7 +106,7 @@ These fields identify the scope and date of each record. The exact set present d
 
 ### Per-user report fields
 
-Per-user reports contain one record per user for the reporting period. The 28-day per-user report also includes `report_start_day` and `report_end_day` to mark the reporting window.
+Per-user reports contain one record per user per day. The 28-day per-user report contains a record for each day in the window, and each record also includes `report_start_day` and `report_end_day` to mark the reporting window.
 
 | Field | Type | Nullable | Description |
 |:--|:--|:--|:--|
@@ -120,11 +124,17 @@ Per-user reports contain one record per user for the reporting period. The 28-da
 | `used_chat` | `boolean` | No | Whether the user used IDE chat that day. |
 | `used_cli` | `boolean` | No | Whether the user used {% data variables.copilot.copilot_cli_short %} that day. |
 | `used_copilot_app` | `boolean` | No | Whether the user used the {% data variables.copilot.github_copilot_app_short %} that day. |
+| `used_local_byok` | `boolean` | Yes | Whether the user made at least one bring your own key (BYOK) request in {% data variables.copilot.copilot_cli_short %} or the {% data variables.copilot.github_copilot_app_short %} that day. `false` when no BYOK request was observed. Null when the signal is unavailable. This is a per-day value, including in each day of 28-day reports. See [BYOK metrics fields](#byok-metrics-fields). |
 | `used_copilot_coding_agent` | `boolean` | No | Whether the user used {% data variables.copilot.copilot_cloud_agent %} (previously Copilot coding agent) that day. |
 | `used_copilot_cloud_agent` | `boolean` | No | Whether the user used {% data variables.copilot.copilot_cloud_agent %} that day. Carries the same value as `used_copilot_coding_agent`; both names are retained for backward compatibility. |
 | `used_copilot_code_review_active` | `boolean` | Yes | Whether the user actively engaged with {% data variables.copilot.copilot_code-review_short %} that day. A user is considered active if they manually requested a {% data variables.product.prodname_copilot_short %} review, or applied a {% data variables.product.prodname_copilot_short %} review suggestion. Null when there is no {% data variables.copilot.copilot_code-review_short %} signal for the user that day. |
 | `used_copilot_code_review_passive` | `boolean` | Yes | Whether the user had {% data variables.product.prodname_copilot_short %} automatically assigned to review their pull request that day, without actively engaging with the review. Null when there is no {% data variables.copilot.copilot_code-review_short %} signal for the user that day. |
 | `used_vscode_agent` | `boolean` | Yes | Whether the user used the dedicated {% data variables.product.prodname_vscode_shortname %} Agents window during the reporting period. Omitted when no dedicated Agents-window data is available for the user. |
+| `client_telemetry_present` | `boolean` | Yes | Whether qualifying client usage telemetry was received for the user that day. `false` means {% data variables.product.prodname_copilot_short %} recorded the user's activity server-side, but no qualifying client telemetry arrived. Null or omitted when unknown or not evaluated, including for users with only {% data variables.copilot.copilot_cloud_agent %} or {% data variables.copilot.copilot_code-review_short %} activity. `true` doesn't guarantee complete telemetry, and `false` doesn't indicate why telemetry is missing. In 28-day reports, describes the record's `day`. |
+| `usage_metrics_requirements` | `object` | Yes | Checks the last-known version of each identifiable IDE and {% data variables.product.prodname_copilot_short %} extension against the supported minimum versions. Each component appears in exactly one of `met`, `unmet`, or `unknown`. Null or omitted when no components can be identified or the record predates this field. This field is independent of `client_telemetry_present`, so a user can meet every minimum and still have `client_telemetry_present: false`. In 28-day reports, describes the record's `day`. For minimum versions, see [AUTOTITLE](/copilot/reference/copilot-usage-metrics/usage-metrics-coverage#supported-ides). |
+| `usage_metrics_requirements.met` | `array` | No | Sorted IDE and extension identifiers, such as `vscode` or `vscode/copilot-chat`, whose last-known version meets the minimum. Present, possibly empty, whenever `usage_metrics_requirements` is present. |
+| `usage_metrics_requirements.unmet` | `array` | No | Sorted IDE and extension identifiers whose last-known version is below the minimum. Present, possibly empty, whenever `usage_metrics_requirements` is present. |
+| `usage_metrics_requirements.unknown` | `array` | No | Sorted IDE and extension identifiers whose version is missing or unrecognized. Present, possibly empty, whenever `usage_metrics_requirements` is present. |
 | `ai_adoption_phase` | `object` | No | The user's AI adoption phase for the day. Always present; defaults to the "No Cohort" phase. See [AI adoption phase fields](#ai-adoption-phase-fields). |
 | `distinct_skill_use_count` | `integer` | Yes | Number of different skill identifiers with recorded activity for the user. See [Customization fields](#customization-fields-api-only). |
 | `distinct_custom_agent_use_count` | `integer` | Yes | Number of different custom agent identifiers with recorded activity for the user. See [Customization fields](#customization-fields-api-only). |
@@ -138,6 +148,7 @@ Per-user reports contain one record per user for the reporting period. The 28-da
 | `totals_by_plugin` | `array` | Yes | Top plugins by recorded interaction count across supported clients. See [Customization fields](#customization-fields-api-only). |
 | `totals_by_cli` | `object` | Yes | CLI-specific metrics for the user. Omitted when the user had no {% data variables.copilot.copilot_cli_short %} usage that day. See [{% data variables.copilot.copilot_cli_short %} metrics fields](#copilot-cli-metrics-fields). |
 | `totals_by_copilot_app` | `object` | Yes | The {% data variables.copilot.github_copilot_app_short %} metrics for the user. Omitted when the user did not use the {% data variables.copilot.github_copilot_app_short %} that day. See [Metrics fields for the {% data variables.copilot.github_copilot_app_short %}](#copilot-app-metrics-fields). |
+| `totals_by_local_byok` | `array` | Yes | BYOK usage for the user, with one entry for each BYOK kind and surface that had activity that day. This usage is a subset of `totals_by_cli` and `totals_by_copilot_app`. Omitted or null when the user had no BYOK requests that day. See [BYOK metrics fields](#byok-metrics-fields). |
 | `totals_by_3rd_party_agent` | `array` | Yes | Per-agent usage metrics for recognized {% data variables.copilot.agent_apps %}. Omitted when the user had no recognized {% data variables.copilot.agent_app %} activity during the reporting period. See [{% data variables.copilot.agent_apps_caps %} metrics fields](#agent-apps-metrics-fields). |
 | `totals_by_client` | `array` | No | Per-client breakdown of the user's successful model requests and token usage, counted server-side. The array is always present and is empty when there is no usage to report. See [Client metrics fields](#client-metrics-fields). |
 | `totals_by_vscode_agent` | `object` | Yes | Dedicated {% data variables.product.prodname_vscode_shortname %} Agents-window metrics for the user. Omitted when both required counts are not available. See [{% data variables.product.prodname_vscode_shortname %} Agents-window metrics fields](#vs-code-agents-window-metrics-fields). |
@@ -156,6 +167,8 @@ Active-user counts:
 | Field | Type | Nullable | Description |
 |:--|:--|:--|:--|
 | `daily_active_users` | `integer` | No | Number of unique users who used {% data variables.product.prodname_copilot_short %} on a given day. |
+| `missing_client_telemetry_user_count` | `integer` | Yes | Number of unique users on a given day whose `client_telemetry_present` is `false`. Users with a null value aren't counted. Enterprise counts are computed independently, not summed from organizations. This is a daily count, so don't sum it across days. `0` is a measured zero. Null or omitted when unavailable, for example for days before this field existed. In 28-day reports, this field appears within each `day_totals` entry. |
+| `below_usage_metrics_minimum_user_count` | `integer` | Yes | Number of unique users on a given day with at least one entry in `usage_metrics_requirements.unmet`. Users with only `unknown` entries or no assessment aren't counted. Can overlap with `missing_client_telemetry_user_count`. Enterprise counts are computed independently, not summed from organizations. This is a daily count, so don't sum it across days. `0` is a measured zero. Null or omitted when unavailable, for example for days before this field existed. In 28-day reports, this field appears within each `day_totals` entry. |
 | `weekly_active_users` | `integer` | No | Number of unique users who used {% data variables.product.prodname_copilot_short %} during a trailing seven-day window. |
 | `weekly_active_vscode_agent_users` | `integer` | Yes | Number of unique users who used the dedicated {% data variables.product.prodname_vscode_shortname %} Agents window from Sunday through the report day, inclusive. This calendar-to-date count is not a trailing seven-day window. |
 | `monthly_active_users` | `integer` | No | Number of unique users who used {% data variables.product.prodname_copilot_short %} during a trailing 28-day window. |
@@ -173,6 +186,9 @@ Active-user counts:
 | `monthly_passive_copilot_code_review_users` | `integer` | No | Number of unique users who had {% data variables.copilot.copilot_code-review_short %} automatically assigned to review their pull request during a trailing 28-day window, with no active engagement. |
 | `daily_active_cli_users` | `integer` | Yes | Number of unique users who used {% data variables.copilot.copilot_cli_short %} on a given day. This count is **independent** of IDE active-user counts and is **not** included in IDE-based active-user definitions. Omitted for enterprises or organizations with no CLI usage that day. |
 | `daily_active_copilot_app_users` | `integer` | Yes | Number of unique users who used the {% data variables.copilot.github_copilot_app_short %} on a given day. Null when the enterprise or organization has no activity in the {% data variables.copilot.github_copilot_app_short %} that day. |
+| `daily_active_local_byok_users` | `integer` | Yes | Number of unique users who made BYOK requests in {% data variables.copilot.copilot_cli_short %} or the {% data variables.copilot.github_copilot_app_short %} on a given day. See [BYOK metrics fields](#byok-metrics-fields). |
+| `weekly_active_local_byok_users` | `integer` | Yes | Number of unique users who made BYOK requests from Sunday through the report day, inclusive. This calendar-to-date count is not a sum of daily counts. |
+| `monthly_active_local_byok_users` | `integer` | Yes | Number of unique users who made BYOK requests from the first day of the calendar month through the report day, inclusive. This calendar-to-date count is not a sum of daily counts. |
 | `daily_active_vscode_agent_users` | `integer` | Yes | Number of unique users who used the dedicated {% data variables.product.prodname_vscode_shortname %} Agents window on a given day. Omitted when no dedicated Agents-window data is available for the enterprise or organization. |
 
 Activity totals and breakdowns:
@@ -203,6 +219,7 @@ Activity totals and breakdowns:
 | `totals_by_model_feature` | `array` | No | Aggregated model-and-feature activity breakdown. See [Activity breakdown objects](#activity-breakdown-objects). |
 | `totals_by_cli` | `object` | Yes | Aggregated {% data variables.copilot.copilot_cli_short %} metrics for the day. Omitted when there is no CLI usage that day. Unlike the per-user form, it does not include `last_known_cli_version`. See [{% data variables.copilot.copilot_cli_short %} metrics fields](#copilot-cli-metrics-fields). |
 | `totals_by_copilot_app` | `object` | Yes | Aggregated daily metrics for the {% data variables.copilot.github_copilot_app_short %}. Null when the enterprise or organization has no activity in the {% data variables.copilot.github_copilot_app_short %} that day. See [Metrics fields for the {% data variables.copilot.github_copilot_app_short %}](#copilot-app-metrics-fields). |
+| `totals_by_local_byok` | `array` | Yes | Aggregated BYOK usage for the day, with one entry for each BYOK kind and surface that had activity. This usage is a subset of `totals_by_cli` and `totals_by_copilot_app`. Omitted or null when the enterprise or organization had no BYOK requests that day. See [BYOK metrics fields](#byok-metrics-fields). |
 | `totals_by_3rd_party_agent` | `array` | Yes | Aggregated per-agent usage metrics for recognized {% data variables.copilot.agent_apps %}. Omitted when the enterprise or organization had no recognized {% data variables.copilot.agent_app %} activity that day. See [{% data variables.copilot.agent_apps_caps %} metrics fields](#agent-apps-metrics-fields). |
 | `totals_by_client` | `array` | No | Aggregated per-client breakdown of successful model requests and token usage for the day, counted server-side. The array is always present and is empty when there is no usage to report. In 28-day reports, this field appears within each `day_totals` entry. See [Client metrics fields](#client-metrics-fields). |
 | `totals_by_vscode_agent` | `object` | Yes | Aggregated dedicated {% data variables.product.prodname_vscode_shortname %} Agents-window metrics for the day. Omitted when both required counts are not available. See [{% data variables.product.prodname_vscode_shortname %} Agents-window metrics fields](#vs-code-agents-window-metrics-fields). |
@@ -223,17 +240,17 @@ The 28-day aggregate reports (`enterprise-28-day` and `organization-28-day`) are
 
 #### {% data variables.product.prodname_copilot_short %} feature engagement fields
 
-The optional `copilot_feature_engagement` object summarizes the report's rolling active-user population and engagement with seven features. For the `day_totals` entry whose `day` matches `report_end_day`, `copilot_feature_engagement.active_user_count` equals the sum of the mutually exclusive `totals_by_ai_adoption_phase[].users_in_phase_28d` values.
+The optional `copilot_feature_engagement` object summarizes the report's rolling active-user population and engagement with nine features. For the `day_totals` entry whose `day` matches `report_end_day`, `copilot_feature_engagement.active_user_count` equals the sum of the mutually exclusive `totals_by_ai_adoption_phase[].users_in_phase_28d` values.
 
-Counts for individual features overlap because a user can engage with more than one feature. Do not add the `engaged_user_count` values together. The initial feature set reports active and passive {% data variables.copilot.copilot_code-review_short %} as separate features. It does not include {% data variables.copilot.copilot_chat_short %} or {% data variables.product.prodname_vscode_shortname %} Agent.
+Counts for individual features overlap because a user can engage with more than one feature. Do not add the `engaged_user_count` values together. The feature set reports active and passive {% data variables.copilot.copilot_code-review_short %} as separate features.
 
-{% data variables.copilot.copilot_chat_short %} is planned for a later release after 28 consecutive days of data have been collected and report consumers support the additional entry.
+The array also includes {% data variables.copilot.copilot_chat_short %} (`chat`) and the {% data variables.product.prodname_vscode_shortname %} Agents window (`vscode_agent`). These two features are reported for engagement only and aren't used to classify adoption phases. `chat` covers {% data variables.copilot.copilot_chat_short %} use captured by usage metrics, including agent mode. Users counted under `agent_edit` are also counted under `chat`. Reports for windows before these features were added can contain only the original seven entries.
 
 | Field | Type | Nullable | Description |
 |:--|:--|:--|:--|
 | `copilot_feature_engagement.active_user_count` | `integer` | No | Nonnegative number of distinct active users in the inclusive 28-day report window. A valid zero-user report sets this field to `0`. |
-| `copilot_feature_engagement.totals_by_feature` | `array` | No | Feature engagement counts. The initial array contains exactly one entry for each of these values: `code_completion`, `agent_edit`, `code_review_passive`, `code_review_active`, `cloud_agent`, `copilot_cli`, and `github_app`. A valid zero-user report includes all seven entries with `engaged_user_count` set to `0`. |
-| `copilot_feature_engagement.totals_by_feature[].feature` | `string` | No | Feature identifier. In this object, `github_app` represents the {% data variables.copilot.github_copilot_app_short %}. This differs from the `copilot_app` value used in activity breakdown arrays such as `totals_by_feature`. |
+| `copilot_feature_engagement.totals_by_feature` | `array` | No | Feature engagement counts, sorted alphabetically by `feature`. The array contains exactly one entry for each of these values: `agent_edit`, `chat`, `cloud_agent`, `code_completion`, `code_review_active`, `code_review_passive`, `copilot_cli`, `github_app`, and `vscode_agent`. A valid zero-user report includes all nine entries with `engaged_user_count` set to `0`. |
+| `copilot_feature_engagement.totals_by_feature[].feature` | `string` | No | Feature identifier. In this object, `github_app` represents the {% data variables.copilot.github_copilot_app_short %}. Activity breakdown arrays such as `totals_by_feature` use `copilot_app` instead. The `vscode_agent` value represents the dedicated {% data variables.product.prodname_vscode_shortname %} Agents window, not agent mode in the editor. |
 | `copilot_feature_engagement.totals_by_feature[].engaged_user_count` | `integer` | No | Nonnegative number of distinct active users who engaged with the feature on at least two distinct days during the inclusive 28-day report window. |
 
 ### User-teams fields
@@ -254,7 +271,9 @@ Teams with fewer than 5 seated {% data variables.product.prodname_copilot_short 
 
 ### Repository-level fields (API only)
 
-Repository-level reports show daily pull request creation, review, merge, and suggestion activity, plus pull request review stage durations, for repositories in an organization or enterprise, including pull requests created by {% data variables.copilot.copilot_cloud_agent %} and reviewed by {% data variables.copilot.copilot_code-review_short %}. Each row represents one repository that had pull request activity on the requested day; repositories with no activity are omitted. These reports focus on pull request lifecycle activity and can contain data even when IDE usage metrics are absent.
+Repository-level reports cover repositories in an organization or enterprise. They show daily pull request creation, review, merge, and suggestion activity. They also show pull request review stage durations and {% data variables.copilot.copilot_code-review_short %} outcomes. Reports include pull requests created by {% data variables.copilot.copilot_cloud_agent %} and reviewed by {% data variables.copilot.copilot_code-review_short %}.
+
+Each row represents one repository that had pull request activity on the requested day; repositories with no activity are omitted. These reports focus on pull request lifecycle activity and can contain data even when IDE usage metrics are absent.
 
 These fields are returned by the daily repository-level report (`repos-1-day`), available via the REST API at the organization and enterprise scopes. For the endpoint URLs, response envelope, permissions, and download workflow, see [AUTOTITLE](/rest/copilot/copilot-usage-metrics). For example rows, see [AUTOTITLE](/copilot/reference/copilot-usage-metrics/example-schema#repository-level-schema-example).
 
@@ -269,6 +288,7 @@ These fields are returned by the daily repository-level report (`repos-1-day`), 
 | `repo_visibility` | `string` | No | Repository visibility. Possible values are `PRIVATE`, `INTERNAL`, and `PUBLIC`. |
 | `pull_requests` | `object` | No | Daily pull request activity for the repository. See [Pull request activity fields](#pull-request-activity-fields). |
 | `pull_request_review_times` | `array` | No | Review stage durations for qualifying pull requests merged in the repository on this day, with one entry per author and reviewer type. Empty when no qualifying pull requests were merged. See [Pull request review time fields](#pull-request-review-time-fields). |
+| `copilot_code_review` | `object` | No | Outcomes of {% data variables.copilot.copilot_code-review_short %} comments on pull requests merged in the repository on this day. Present on every row; counts are `0` and arrays are empty when there was no {% data variables.copilot.copilot_code-review_short %} activity. Not included in reports generated before this field was released. See [{% data variables.copilot.copilot_code-review_short %} outcome fields](#copilot-code-review-outcome-fields). |
 
 ### Activity breakdown objects
 
@@ -387,6 +407,39 @@ The `totals_by_copilot_app` object contains the following nested fields when usa
 | `totals_by_copilot_app.token_usage.prompt_tokens_sum` | `integer` | No | Total prompt tokens sent across all requests in the {% data variables.copilot.github_copilot_app_short %} on this day. |
 | `totals_by_copilot_app.token_usage.avg_tokens_per_request` | `number` | Yes | Average of output and prompt tokens per request in the {% data variables.copilot.github_copilot_app_short %}, computed as `(output_tokens_sum + prompt_tokens_sum) ÷ request_count`. Null when there were no requests that day. |
 
+### BYOK metrics fields
+
+The bring your own key (BYOK) fields break out usage of user-configured provider keys and local models, such as Ollama, Foundry Local, LM Studio, and llama-server, in {% data variables.copilot.copilot_cli_short %} and the {% data variables.copilot.github_copilot_app_short %}. The fields appear in enterprise, organization, enterprise-user, and organization-user 1-day reports, and in each day of the corresponding 28-day reports. The top-level BYOK fields (`used_local_byok`, `totals_by_local_byok`, and the active local BYOK user counts) are nullable.
+
+The `totals_by_local_byok` array is a subset of `totals_by_cli` (surface `copilot_cli`) and `totals_by_copilot_app` (surface `copilot_app`), not additional usage. For each surface, the summed `request_count`, `prompt_count`, and token sums are less than or equal to the values in the parent object. BYOK requests have no {% data variables.product.prodname_copilot_short %} usage charges or premium request cost. Your model provider may still charge for hosted-model usage. Values are a lower bound because client telemetry can be disabled, and token sums can undercount because some local providers don't return token usage.
+
+> [!NOTE]
+> Local BYOK and enterprise custom models are reported separately.
+>
+> * **Local BYOK** is configured by a developer in their client, and requests go directly to the provider. It's reported from client telemetry in the `*_local_byok` fields. {% data variables.copilot.copilot_cli_short %} and the {% data variables.copilot.github_copilot_app_short %} are covered today. IDEs aren't covered yet.
+> * **Enterprise custom models** are configured by an enterprise or organization owner in {% data variables.product.github %} settings, and requests are routed through {% data variables.product.github %}. They're reported server-side for every client through `is_custom_enterprise_model` in `totals_by_client[].totals_by_model[]`. See [Client metrics fields](#client-metrics-fields).
+
+Each entry in the `totals_by_local_byok` array contains the following fields.
+
+| Field | Type | Nullable | Description |
+|:--|:--|:--|:--|
+| `byok_kind` | `string` | No | Kind of BYOK usage: `local_managed` (a {% data variables.product.prodname_copilot_short %}-managed local model), `local_user` (a user-run local model server, such as Ollama or LM Studio), `local_auto` (a local model selected through Auto), or `remote_user` (the user's own key for a hosted provider). |
+| `surface` | `string` | No | Client surface: `copilot_cli` or `copilot_app`. Treat this as an open set, because more values can be added. |
+| `session_count` | `integer` | No | Number of distinct sessions with this BYOK kind on this surface. A session can switch kinds, so don't sum session counts across entries. |
+| `request_count` | `integer` | No | Number of model requests with this BYOK kind on this surface. |
+| `prompt_count` | `integer` | Yes | Number of reported user prompts. A value of `0` can mean that the client did not report prompts. |
+| `token_usage.output_tokens_sum` | `integer` | No | Total output tokens across those requests. |
+| `token_usage.prompt_tokens_sum` | `integer` | No | Total prompt tokens across those requests. |
+| `token_usage.avg_tokens_per_request` | `number` | Yes | Average of output and prompt tokens per request, computed as `(output_tokens_sum + prompt_tokens_sum) ÷ request_count`. When combining entries, recompute this value from the summed totals instead of averaging the averages. |
+
+#### Comparing BYOK and {% data variables.product.prodname_copilot_short %}-hosted usage
+
+Per-user reports put BYOK usage next to the activity fields you already use. You can group users by how much of their usage is local BYOK (`totals_by_local_byok`) or enterprise custom models (`is_custom_enterprise_model` in `totals_by_client`). Then compare those groups on fields such as `loc_added_sum`, `ai_credits_used`, and `ai_adoption_phase`.
+
+Pull request fields are aggregated rather than per user. To compare pull request throughput or merge rate, join on `user_login` with pull request data from [AUTOTITLE](/rest/pulls/pulls).
+
+These comparisons are observational. Users can mix models within a day, and outcomes aren't attributed to a specific model.
+
 ### {% data variables.product.prodname_vscode_shortname %} Agents-window metrics fields
 
 The dedicated {% data variables.product.prodname_vscode_shortname %} Agents-window fields appear in enterprise, organization, enterprise-user, and organization-user 1-day and 28-day reports. In aggregated 28-day reports, they appear within each applicable `day_totals` entry, and weekly and monthly counts are calculated relative to the `day` of each entry. In per-user 28-day reports, they appear at the top level of each user record.
@@ -441,10 +494,11 @@ The `totals_by_client` array appears at the top level of each record in per-user
 | `totals_by_client[].token_usage.prompt_tokens_sum` | `integer` | No | Total number of prompt tokens sent across the client's requests. |
 | `totals_by_client[].token_usage.output_tokens_sum` | `integer` | No | Total number of output tokens generated across the client's requests. |
 | `totals_by_client[].token_usage.avg_tokens_per_request` | `number` | No | Average number of **output** and **prompt** tokens per request, computed as `(output_tokens_sum + prompt_tokens_sum) ÷ request_count`. |
-| `totals_by_client[].totals_by_model` | `array` | No | Per-model breakdown of the client's requests and token usage. Entries are keyed on `model` and `model_selection_mode`, so the same model can appear more than once with different selection modes. |
-| `totals_by_client[].totals_by_model[].model` | `string` | No | Model used for the requests. For `code_review`, the model is always reported as `unknown`. |
+| `totals_by_client[].totals_by_model` | `array` | No | Per-model breakdown of the client's requests and token usage. Entries are keyed on `model`, `model_selection_mode`, and `is_custom_enterprise_model`, so the same model can appear more than once. For example, a model used both as an enterprise custom model and as a {% data variables.product.prodname_copilot_short %}-hosted model has two entries. |
+| `totals_by_client[].totals_by_model[].model` | `string` | No | Model used for the requests. For `code_review`, the model is always reported as `unknown`. Enterprise custom model names that can't be matched to a known model are also reported as `unknown`. |
 | `totals_by_client[].totals_by_model[].model_selection_mode` | `string` | No | How the model was selected. Possible values are `user_selected` (a specific model was requested rather than Auto), `product_selected` (the product chose the model, used for all {% data variables.copilot.copilot_code-review_short %} and {% data variables.copilot.copilot_cloud_agent %} requests), `auto` (Auto chose the model), `other` (selection modes that are grouped together and not yet reported individually), and `unknown` (a selection mode sent by the client that couldn't be normalized). |
-| `totals_by_client[].totals_by_model[].request_count` | `integer` | No | Number of successful model requests from the client that used this model and selection mode. |
+| `totals_by_client[].totals_by_model[].is_custom_enterprise_model` | `boolean` | Yes | Whether the requests used an enterprise custom model. `true` for custom models that an enterprise or organization owner configured in {% data variables.product.github %} settings. `false` for {% data variables.product.prodname_copilot_short %}-hosted models, including when no custom model signal is available. Determined server-side. Omitted for report days before this field was introduced. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/enable-custom-models). |
+| `totals_by_client[].totals_by_model[].request_count` | `integer` | No | Number of successful model requests from the client that used this model, selection mode, and custom model status. |
 | `totals_by_client[].totals_by_model[].token_usage.prompt_tokens_sum` | `integer` | No | Total number of prompt tokens sent across these requests. |
 | `totals_by_client[].totals_by_model[].token_usage.output_tokens_sum` | `integer` | No | Total number of output tokens generated across these requests. |
 | `totals_by_client[].totals_by_model[].token_usage.avg_tokens_per_request` | `number` | No | Average number of **output** and **prompt** tokens per request, computed as `(output_tokens_sum + prompt_tokens_sum) ÷ request_count`. |
@@ -452,7 +506,7 @@ The `totals_by_client` array appears at the top level of each record in per-user
 ### Pull request activity fields
 
 > [!IMPORTANT]
-> Organization- and enterprise-level reports may show different totals due to differences in user deduplication and attribution timing. For guidance on interpreting pull request metrics across scopes, see [AUTOTITLE](/copilot/concepts/billing-and-usage/copilot-usage-metrics/copilot-metrics#interpreting-pull-request-lifecycle-metrics-across-scopes).
+> Organization- and enterprise-level reports may show different totals due to differences in user deduplication and attribution timing. For guidance on interpreting pull request metrics across scopes, see [AUTOTITLE](/copilot/reference/copilot-usage-metrics/reconciling-usage-metrics#interpreting-pull-request-lifecycle-metrics-across-scopes).
 
 The `pull_requests` object appears in aggregated enterprise and organization reports, and in repository-level reports. It captures daily pull request creation, review, merge, and suggestion activity, including activity performed by {% data variables.copilot.copilot_cloud_agent %} and {% data variables.copilot.copilot_code-review_short %}.
 
@@ -513,6 +567,44 @@ Exclusions are not reported for individual pull requests. Because `pull_requests
 
 Medians and 90th percentiles are exact values calculated with linear interpolation and rounded to two decimal places.
 
+### {% data variables.copilot.copilot_code-review_short %} outcome fields
+
+The `copilot_code_review` object appears only in repository-level reports. It shows whether developers acted on {% data variables.copilot.copilot_code-review_short %} comments, and whether people still requested changes after {% data variables.copilot.copilot_code-review_short %} reviewed a pull request.
+
+#### How comments are counted
+
+* Only comments that {% data variables.copilot.copilot_code-review_short %} posts on pull requests count. Comments from people or other review tools, and {% data variables.copilot.copilot_code-review_short %} reviews in the IDE, are not included.
+* Comments are evaluated when their pull request merges. Each comment counts on the day its pull request merged, not the day {% data variables.copilot.copilot_code-review_short %} posted it.
+* {% data variables.copilot.copilot_code-review_short %} usually does not evaluate comments on pull requests opened by bots, such as {% data variables.copilot.copilot_cloud_agent %}.
+* A comment is addressed when the developer takes any of these actions:
+  * Applies the suggested change
+  * Asks {% data variables.copilot.copilot_code-review_short %} to make the fix
+  * Edits the code by hand
+  * Replies that the fix will come in a later pull request
+
+Comments that were ignored, or that {% data variables.copilot.copilot_code-review_short %} later found to be wrong, count as evaluated but not addressed.
+
+These counts differ from the suggestion counts in `pull_requests`. Suggestion counts include only comments with a ready-to-apply code suggestion. A suggestion counts as applied only when someone applies it. The `copilot_code_review` counts include every evaluated comment, regardless of whether or how the developer acted on it.
+
+#### Breakdown arrays
+
+Each `review_comments_by_*` array splits the evaluated and addressed comments by one attribute. A value gets an entry only if at least one comment with that value was evaluated that day.
+
+* Each comment counts once in the severity, review tier, and comment type arrays. A comment whose severity, review tier, or type was not recorded counts only in the totals, so these arrays can add up to less than the totals.
+* A comment that drew on more than one customization counts once for each, so `review_comments_by_customization` can add up to more than the totals.
+
+To calculate the addressed rate, divide `total_comments_addressed` by `total_comments_evaluated`.
+
+| Field | Type | Nullable | Description |
+|:--|:--|:--|:--|
+| `copilot_code_review.total_comments_evaluated` | `integer` | No | Number of {% data variables.copilot.copilot_code-review_short %} comments on pull requests merged on this day that were checked to see whether the developer acted on them. |
+| `copilot_code_review.total_comments_addressed` | `integer` | No | Number of evaluated comments that the developer acted on. |
+| `copilot_code_review.review_comments_by_severity` | `array` | No | Evaluated and addressed comments by severity. Each entry includes `severity` (`high`, `medium`, or `low`), `total_comments_evaluated`, and `total_comments_addressed`. Always present but can be empty. |
+| `copilot_code_review.review_comments_by_review_tier` | `array` | No | Evaluated and addressed comments by the tier of the review that posted them. Each entry includes `review_tier` (`lite`, `balanced`, or `max`), `total_comments_evaluated`, and `total_comments_addressed`. Always present but can be empty. |
+| `copilot_code_review.review_comments_by_comment_type` | `array` | No | Evaluated and addressed comments by the kind of issue raised, for example `bug`, `security`, `performance`, `accessibility`, or `documentation`. `custom` means the comment is about one of the repository's own coding guidelines. `other` means the comment did not fit any of the predefined types. Each entry includes `comment_type`, `total_comments_evaluated`, and `total_comments_addressed`. New types can appear over time. Unlike `pull_requests.copilot_suggestions_by_comment_type`, this array is not limited to the top 10 types and has no `others` entry. Always present but can be empty. |
+| `copilot_code_review.review_comments_by_customization` | `array` | No | Evaluated and addressed comments by what {% data variables.copilot.copilot_code-review_short %} drew on to write them. Each entry includes `customization` (`custom_instruction`, `skill`, `mcp_server`, or `none`), `total_comments_evaluated`, and `total_comments_addressed`. Always present but can be empty. |
+| `copilot_code_review.total_merged_no_human_change_request_after_review` | `integer` | No | Number of pull requests merged on this day that {% data variables.copilot.copilot_code-review_short %} reviewed, where no person requested changes after {% data variables.copilot.copilot_code-review_short %}'s first review. <br/><br/>A change request after the first review excludes the pull request, even if the request was later dismissed or the pull request was approved. A change request made before {% data variables.copilot.copilot_code-review_short %}'s first review does not. Includes pull requests opened by bots, such as {% data variables.copilot.copilot_cloud_agent %}. Never higher than `pull_requests.total_merged_reviewed_by_copilot`. |
+
 ### AI adoption phase fields
 
 {% data variables.product.prodname_copilot_short %} groups users into AI adoption phases based on their activity. Phase information appears in two places: the per-user `ai_adoption_phase` object, and the aggregated `totals_by_ai_adoption_phase` array. For the phase values, see [Breakdown dimension values](#breakdown-dimension-values).
@@ -523,7 +615,7 @@ A user is classified into a phase based on the {% data variables.product.prodnam
 
 | Phase | Engagement criteria |
 |:--|:--|
-| No Cohort (displayed as "Passive users" in the impact dashboard) | The user isn't engaged with any feature that qualifies for a phase. This doesn't mean the user is inactive. A user in this group can still be using {% data variables.product.prodname_copilot_short %} regularly and consuming premium requests, but hasn't used a qualifying feature on at least two distinct days within the trailing 28-day window. The most common case is conversational use of {% data variables.copilot.copilot_chat_short %} or agent mode, recorded as `chat_panel_agent_mode`, that never produces `code_completion` or `agent_edit` activity. Copying code out of a chat response also doesn't produce either signal. |
+| No Cohort (displayed as "Chat-first users" in the impact dashboard) | The user isn't engaged with any feature that qualifies for a phase. This doesn't mean the user is inactive. A user in this group can still be using {% data variables.product.prodname_copilot_short %} regularly and consuming premium requests, but hasn't used a qualifying feature on at least two distinct days within the trailing 28-day window. The most common case is conversational use of {% data variables.copilot.copilot_chat_short %} or agent mode, recorded as `chat_panel_agent_mode`, that never produces `code_completion` or `agent_edit` activity. Copying code out of a chat response also doesn't produce either signal. |
 | Phase 1: Code first | Engaged with inline code completions (the `code_completion` value of the `feature` dimension) or with agent edits written directly to files (the `agent_edit` value of the `feature` dimension). |
 | Phase 2: Agent first | Engaged with exactly one {% data variables.product.github %}-based agent surface: {% data variables.copilot.copilot_cli_short %} (the `copilot_cli` value of the `feature` dimension), {% data variables.copilot.copilot_cloud_agent %} (`used_copilot_cloud_agent`), or {% data variables.copilot.copilot_code-review_short %} (`used_copilot_code_review_active` or `used_copilot_code_review_passive`). Active and passive {% data variables.copilot.copilot_code-review_short %} count together as a single surface. |
 | Phase 3: Multi-agent | Engaged with the {% data variables.copilot.github_copilot_app_short %} (the `copilot_app` value of the `feature` dimension), or engaged with two or more of the agent surfaces listed for Phase 2. |

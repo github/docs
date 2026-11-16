@@ -151,10 +151,6 @@ If you are using Windows and your computer meets the following prerequisites, yo
 
 {% data reusables.copilot.mai-local-benefits %}
 
-### Installing llama.cpp for Windows
-
-{% data reusables.copilot.llama-cpp-windows-install %}
-
 ### Using the model picker to install a local model
 
 1. In a local interactive session, enter `/model`.

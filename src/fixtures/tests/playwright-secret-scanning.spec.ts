@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test'
 
 const PAGE_PATH = '/code-security/reference/secret-security/supported-secret-scanning-patterns'
 
-test.describe('Secret scanning DataTable accessibility', () => {
+test.describe('Secret scanning table accessibility', () => {
   for (const key of ['Enter', 'Space']) {
     test(`filter menu selects once with ${key}`, async ({ page }) => {
       await page.goto(PAGE_PATH)
@@ -135,8 +135,8 @@ test.describe('Secret scanning DataTable accessibility', () => {
   test('provider column cells are row headers', async ({ page }) => {
     await page.goto(PAGE_PATH)
 
-    // Primer DataTable uses CSS grid, and scope=row cells render as role=rowheader.
-    const rowHeaders = page.locator('[role="rowheader"]')
+    // th scope=row cells have the implicit rowheader role.
+    const rowHeaders = page.getByRole('table').getByRole('rowheader')
     const count = await rowHeaders.count()
     expect(count).toBeGreaterThan(0)
   })
@@ -165,8 +165,52 @@ test.describe('Secret scanning DataTable accessibility', () => {
     await expect(page).toHaveURL(/\/enterprise-server@[\d.]+\//)
     await expect(status).not.toHaveText(fptStatus!)
 
-    await expect(page.locator('[role="rowheader"]').first()).toBeVisible()
+    await expect(page.getByRole('table').getByRole('rowheader').first()).toBeVisible()
     await expect(pagination.locator('[aria-current="page"]')).toHaveCount(1)
+  })
+
+  test('provider header toggles aria-sort and row order', async ({ page }) => {
+    await page.goto(PAGE_PATH)
+
+    const header = page.getByRole('columnheader', { name: /Provider/ })
+    const firstProvider = page.getByRole('table').getByRole('rowheader').first()
+    await expect(header).not.toHaveAttribute('aria-sort')
+
+    await header.getByRole('button').click()
+    await expect(header).toHaveAttribute('aria-sort', 'ascending')
+    const ascendingFirst = await firstProvider.textContent()
+
+    await header.getByRole('button').click()
+    await expect(header).toHaveAttribute('aria-sort', 'descending')
+    await expect(firstProvider).not.toHaveText(ascendingFirst!)
+  })
+
+  test('clear filters resets the sort header', async ({ page }) => {
+    await page.goto(PAGE_PATH)
+
+    const header = page.getByRole('columnheader', { name: /Provider/ })
+    await header.getByRole('button').click()
+    await header.getByRole('button').click()
+    await expect(header).toHaveAttribute('aria-sort', 'descending')
+
+    await page.getByRole('button', { name: 'Clear all filters and search' }).click()
+    await expect(header).not.toHaveAttribute('aria-sort')
+  })
+
+  test('sorting returns to the first page', async ({ page }) => {
+    await page.goto(PAGE_PATH)
+
+    const pages = page
+      .getByRole('navigation', { name: 'Secret scanning patterns pagination' })
+      .locator('[aria-label^="Page "]')
+    await pages.nth(1).click()
+    await expect(pages.nth(1)).toHaveAttribute('aria-current', 'page')
+
+    await page
+      .getByRole('columnheader', { name: /Provider/ })
+      .getByRole('button')
+      .click()
+    await expect(pages.first()).toHaveAttribute('aria-current', 'page')
   })
 
   test.describe('narrow viewport', () => {
@@ -181,7 +225,7 @@ test.describe('Secret scanning DataTable accessibility', () => {
       // At narrow viewports, the table must stay visible even when it overflows horizontally.
       await expect(table).toBeVisible()
 
-      const cells = page.locator('[role="rowheader"], [role="cell"]')
+      const cells = table.getByRole('rowheader').or(table.getByRole('cell'))
       expect(await cells.count()).toBeGreaterThan(0)
 
       // The overflow wrapper must allow horizontal scrolling.

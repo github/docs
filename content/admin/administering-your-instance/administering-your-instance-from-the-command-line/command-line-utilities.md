@@ -190,8 +190,6 @@ Flag | Description
 `--error-checks-only` | Only run high severity checks that should be treated as blocking errors.
 `--warning-checks-only` | Only run low severity checks that can be treated as warnings.
 
-{% ifversion ghes > 3.18 %}
-
 ### ghe-crypto
 
 This utility is used to verify and list {% data variables.enterprise.management_console %} `github-ssl` crypto settings for TLS and SSH connections.
@@ -275,8 +273,6 @@ ghe-crypto check ssh-ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.co
 ```
 
 For more information about configuring cipher suites and cryptographic algorithms, see [AUTOTITLE](/admin/configuring-settings/hardening-security-for-your-enterprise/configuring-tls-and-ssh-ciphers).
-
-{% endif %}
 
 ### ghe-console
 
@@ -991,6 +987,8 @@ Flag | Description
 `-x/--exclude` | Exclude the local host.
 `--no-cache` | Exclude cache replicas.
 
+{% ifversion cluster-ha-replication %}
+
 ### ghe-cluster-repl-bootstrap
 
 This utility configures high availability replication to a secondary set of cluster nodes. For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/configuring-clustering/configuring-high-availability-replication-for-a-cluster).
@@ -1014,6 +1012,8 @@ This utility displays the replication status for a cluster in a high availabilit
 ```shell
 ghe-cluster-repl-status
 ```
+
+{% endif %}
 
 ### ghe-cluster-set-password
 
@@ -1082,6 +1082,8 @@ This utility removes firewall rules from a cluster node that block all traffic t
 ghe-cluster-unblock-ip IP-ADDRESS
 ```
 
+{% ifversion cluster-ha-replication %}
+
 ### ghe-cluster-failover
 
 With the `ghe-cluster-failover` utility, you can fail over to your replica cluster. For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/configuring-clustering/initiating-a-failover-to-your-replica-cluster).
@@ -1089,6 +1091,8 @@ With the `ghe-cluster-failover` utility, you can fail over to your replica clust
 ```shell
 ghe-cluster-failover
 ```
+
+{% endif %}
 
 ### ghe-dpages
 
@@ -1169,6 +1173,8 @@ This utility allows you to evacuate all storage services before evacuating a clu
 ghe-storage evacuate storage-server-UUID
 ```
 
+{% ifversion ghes-node-eligibility-service-available %}
+
 ### nes
 
 {% ifversion ghes > 3.21 %}
@@ -1229,6 +1235,8 @@ To manually update a node's eligibility for re-addition to the cluster:
 ```shell
 nes set-node-eligibility eligible HOSTNAME
 ```
+
+{% endif %}
 
 ## Git
 

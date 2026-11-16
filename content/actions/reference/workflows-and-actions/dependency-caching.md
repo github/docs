@@ -314,6 +314,9 @@ For the trusted-versus-low-trust trigger breakdown, see [Cache access for low-tr
 
 The runner exposes the effective mode in the `ACTIONS_CACHE_MODE` environment variable, and the `actions/cache` action and the `@actions/cache` toolkit honor it. Restore is skipped when the mode does not allow reads (`none` or `write-only`), and save is skipped when the mode does not allow writes (`none` or `read`). When a cache operation is skipped because of the mode, the action logs an informational message and the step and run continue without failing. A skipped restore is treated as a cache miss; a skipped save is simply not performed.
 
+> [!NOTE]
+> `ACTIONS_CACHE_MODE` is only set in the environment of JavaScript and Docker container actions. It is not available to `run` steps, including `run` steps in composite actions.
+
 ### Cache access in reusable workflows
 
 `cache-mode` propagates from a caller workflow to the reusable workflows it calls. An explicit `cache-mode` on the calling job, or inherited from the caller workflow, limits the cache access the called workflow can request.

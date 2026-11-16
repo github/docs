@@ -11,9 +11,9 @@ category:
   - Manage project items and fields
 ---
 
-If your organization uses issue types, you can enable the "Type" field on your projects to see the issue type and how the issue is classified in your organization, such as a bug, task, or feature.
+If your organization or user account uses issue types, you can enable the "Type" field on your projects to see the issue type and how the issue is classified, such as a bug, task, or feature.
 
-For more about issue types, see [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/managing-issue-types-in-an-organization).
+For more about issue types, see [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/managing-issue-types).
 
 ## Enabling the Type field
 

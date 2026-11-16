@@ -6,7 +6,9 @@ allowTitleToDifferFromFilename: true
 product: '{% data reusables.gated-features.security-overview-fpt-cs-only %}'
 permissions: '{% data reusables.permissions.security-org-enable %}'
 versions:
-  feature: dependabot-metrics
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 contentType: tutorials
 redirect_from:
   - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-vulnerabilites/prioritizing-dependabot-alerts-using-metrics

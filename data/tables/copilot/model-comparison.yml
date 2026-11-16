@@ -64,6 +64,11 @@
   excels_at: Substantial, long-running coding tasks, including deep codebase research, feature development, and complex agentic workflows
   further_reading: '[Claude Fable 5.1 model card](https://www-cdn.anthropic.com/0339e6a7c5c7b87f5c07798616dc32c215d14235/Claude%20Fable%205.1%20&%20Claude%20Mythos%205.1%20System%20Card.pdf)'
 
+- name: Claude Fable 5.2
+  task_area: Long-horizon, autonomous coding and knowledge-work
+  excels_at: Substantial, long-running coding tasks, including deep codebase research, feature development, and complex agentic workflows
+  further_reading: '[Claude Fable 5.2 model card](https://assets.claude.com/27d60918d218125e7504bc7354c4b4626ec56b11.pdf)'
+
 - name: Claude Haiku 4.5
   task_area: Fast help with simple or repetitive tasks
   excels_at: Fast, reliable answers to lightweight coding questions
@@ -118,7 +123,17 @@
 - name: Gemini 4 Argon
   task_area: Complex coding, agentic, and reasoning tasks
   excels_at: Thorough work that tests edge cases before finishing
-  further_reading: '[Gemini 4 Argon](https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-4-Argon-Model-Card.pdf)'
+  further_reading: '[Gemini 4 Argon model card](https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-4-Argon-Model-Card.pdf)'
+
+- name: Gemini 4 Carbon
+  task_area: Complex coding, agentic, and reasoning tasks
+  excels_at: Secure code generation and security-focused work
+  further_reading: '[Gemini 4 Carbon model card](https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-4-Carbon-Model-Card.pdf)'
+
+- name: Gemini 4 Hydrogen
+  task_area: Fast, efficient agentic coding and multistep workflows
+  excels_at: Fast tool use with improved instruction following
+  further_reading: '[Gemini 4 Hydrogen model card](https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-4-Hydrogen-Model-Card.pdf)'
 
 # Microsoft
 - name: MAI-Code-1.1-Flash

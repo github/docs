@@ -16,6 +16,10 @@ category:
 
 You can pay for {% data variables.product.github %} use through an Azure subscription by connecting the subscription to {% data variables.product.github %}. See [AUTOTITLE](/billing/how-tos/set-up-payment/connect-azure-sub).
 
+If you pay for {% data variables.product.prodname_copilot %} with a credit card or PayPal, you cannot switch your payment method to an Azure subscription. Newly created enterprise accounts paying through Azure must contact {% data variables.contact.github_support %} to enable {% data variables.product.prodname_copilot_short %}.
+
+If your existing {% data variables.product.prodname_enterprise %} subscription is invoiced and volume-based, connecting an Azure subscription routes metered usage to Azure but does not move existing license charges. To have these charges billed through Azure, work with your account manager to transition your enterprise to fully metered billing. Ask your account manager to confirm when the transition can take effect relative to your renewal and how it will affect your billing.
+
 {% data variables.product.github %} installs a Subscription Permission Validation app (SPV app) on the Azure tenant, which it uses to get a list of available subscriptions from active directory. Installing the SPV app requires tenant-wide admin consent. You must sign into an Azure account that can provide tenant-wide admin consent, or work with an Azure administrator to configure the admin consent workflow.
 
 * [Grant tenant-wide admin consent to an application](https://learn.microsoft.com/azure/active-directory/manage-apps/grant-admin-consent) in Microsoft Docs

@@ -3838,6 +3838,35 @@ Para más información, consulta "[AUTOTITLE](/path)".
     })
   })
 
+  describe('Liquid tags missing a space or with inflected Russian data', () => {
+    test.each([
+      ['ko', '{%ifversion fpt or ghec %}x{% endif %}', '{% ifversion fpt or ghec %}x{% endif %}'],
+      ['fr', '{%ifversion ghec %}x{% endif %}', '{% ifversion ghec %}x{% endif %}'],
+      ['ko', '{%-ifversion ghes %}x{%- endif %}', '{%- ifversion ghes %}x{%- endif %}'],
+      ['ko', '{%data variables.product.github %}', '{% data variables.product.github %}'],
+      ['ko', '{%data reusables.foo.bar %}', '{% data reusables.foo.bar %}'],
+      ['ru', '{% переменными данных.product.github %}', '{% data variables.product.github %}'],
+    ])('fixes %s: %s', (code, before, after) => {
+      expect(fix(before, code)).toBe(after)
+    })
+
+    test('leaves already-correct tags unchanged', () => {
+      const ok = '{% ifversion ghec %}{% data variables.product.github %}{% endif %}'
+      for (const code of ['ko', 'ru']) expect(fix(ok, code)).toBe(ok)
+    })
+  })
+
+  describe('Portuguese mangled endwarning', () => {
+    test('rewrites "{% %} { %de aviso de% }" so the alert pair is stripped cleanly', () => {
+      expect(fix('{% aviso %}x\n\n{% %} { %de aviso de% }\n\ny', 'pt')).toBe('x\n\ny')
+    })
+
+    test('leaves already-correct tags unchanged', () => {
+      const ok = 'x {% data variables.product.github %}'
+      expect(fix(ok, 'pt')).toBe(ok)
+    })
+  })
+
   describe('French translated endwarning', () => {
     test.each(['{% fin avertissement %}', '{%- fin avertissement -%}'])(
       'rewrites %s so the alert pair is stripped cleanly',

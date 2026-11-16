@@ -70,39 +70,30 @@ The following file types are supported for uploads in issue comments, pull reque
 ### Documents
 
 * PDFs (`.pdf`)
-* Microsoft Office documents (`.docx`, `.pptx`, `.xlsx`, `.xls`{% ifversion fpt or ghec or ghes > 3.18 %}, `.xlsm`{% endif %})
-{%- ifversion fpt or ghec or ghes > 3.18 %}
+* Microsoft Office documents (`.docx`, `.pptx`, `.xlsx`, `.xls`, `.xlsm`)
 * OpenDocument formats (`.odt`, `.fodt`, `.ods`, `.fods`, `.odp`, `.fodp`, `.odg`, `.fodg`, `.odf`)
 * Rich text and word processing files (`.rtf`, `.doc`)
-{%- endif %}
 
 ### Text and data files
 
-* Plain text and markup (`.txt`{% ifversion fpt or ghec or ghes > 3.18 %}, `.md`, `.copilotmd`{% endif %})
-* Data and tabular files (`.csv`,{% ifversion fpt or ghec or ghes > 3.18 %} `.tsv`,{% endif %} `.log`, `.json`, `.jsonc`)
+* Plain text and markup (`.txt`, `.md`, `.copilotmd`)
+* Data and tabular files (`.csv`, `.tsv`, `.log`, `.json`, `.jsonc`)
 
 ### Development and code files
 
-{%- ifversion fpt or ghec or ghes > 3.18 %}
 * C files (`.c`)
 * C# files (`.cs`)
 * C++ files (`.cpp`)
 * CSS files (`.css`)
 * Diagrams (`.drawio`)
-{%- endif %}
 * Dump files (`.dmp`)
-{%- ifversion fpt or ghec or ghes > 3.18 %}
 * HTML files (`.html`, `.htm`)
 * Java files (`.java`)
 * JavaScript files (`.js`)
 * Jupyter notebooks (`.ipynb`)
-{%- endif %}
 * Patch files (`.patch`)
-{%- ifversion fpt or ghec or ghes > 3.18 %}
 * PHP files (`.php`)
-{%- endif %}
 * Profiling files (`.cpuprofile`)
-{%- ifversion fpt or ghec or ghes > 3.18 %}
 * Program database files (`.pdb`)
 * Python files (`.py`)
 * Shell scripts (`.sh`)
@@ -110,7 +101,6 @@ The following file types are supported for uploads in issue comments, pull reque
 * TypeScript files (`.ts`, `.tsx`)
 * XML files (`.xml`)
 * YAML files (`.yaml`, `.yml`)
-{%- endif %}
 
 > [!NOTE]
 > If you use Linux and try to upload a `.patch` file, you will receive an error message. This is a known issue.
@@ -118,8 +108,6 @@ The following file types are supported for uploads in issue comments, pull reque
 ### Archive and compressed files
 
 * Archives and packages (`.zip`, `.gz`, `.tgz`)
-
-{% ifversion fpt or ghec or ghes > 3.18 %}
 
 ### Communication and logs
 
@@ -132,4 +120,3 @@ The following file types are supported for uploads in issue comments, pull reque
 ### Audio
 
 * Audio files (`.mp3`, `.wav`)
-{% endif %}

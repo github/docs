@@ -145,6 +145,12 @@ Before you can require a linear commit history, your repository must allow squas
 
 You can require that changes are successfully deployed to specific environments before a branch can be merged. For example, you can use this rule to ensure that changes are successfully deployed to a staging environment before the changes merge to your default branch.
 
+{% ifversion pr-stacks %}
+
+{% data reusables.pull_requests.pr-stack-required-deployments %}
+
+{% endif %}
+
 ### Lock branch
 
 Locking a branch will make the branch read-only and ensures that no commits can be made to the branch. Locked branches can also not be deleted.

@@ -320,6 +320,28 @@
       },
       {
         "category": "enterprise-admin",
+        "slug": "get-copilot-fusion-model-policies-for-an-enterprise",
+        "subcategory": "ai-controls",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/copilot/fusion/model-policies",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "update-copilot-fusion-model-policies-for-an-enterprise",
+        "subcategory": "ai-controls",
+        "verb": "patch",
+        "requestPath": "/enterprises/{enterprise}/copilot/fusion/model-policies",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "enterprise-admin",
         "slug": "get-model-policies-for-an-enterprise",
         "subcategory": "ai-controls",
         "verb": "get",
@@ -335,6 +357,39 @@
         "subcategory": "ai-controls",
         "verb": "patch",
         "requestPath": "/enterprises/{enterprise}/copilot/model-policies",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "copilot",
+        "slug": "set-the-coding-agent-policy-for-an-enterprise",
+        "subcategory": "copilot-coding-agent-management",
+        "verb": "put",
+        "requestPath": "/enterprises/{enterprise}/copilot/policies/coding_agent",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "copilot",
+        "slug": "add-organizations-to-the-enterprise-coding-agent-policy",
+        "subcategory": "copilot-coding-agent-management",
+        "verb": "post",
+        "requestPath": "/enterprises/{enterprise}/copilot/policies/coding_agent/organizations",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "copilot",
+        "slug": "remove-organizations-from-the-enterprise-coding-agent-policy",
+        "subcategory": "copilot-coding-agent-management",
+        "verb": "delete",
+        "requestPath": "/enterprises/{enterprise}/copilot/policies/coding_agent/organizations",
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
@@ -370,6 +425,17 @@
     "permissions": [
       {
         "category": "copilot",
+        "slug": "list-all-copilot-seat-assignments-for-an-enterprise",
+        "subcategory": "copilot-user-management",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/copilot/billing/seats",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "copilot",
         "slug": "add-enterprise-teams-to-the-copilot-subscription-for-an-enterprise",
         "subcategory": "copilot-user-management",
         "verb": "post",
@@ -386,6 +452,39 @@
         "verb": "delete",
         "requestPath": "/enterprises/{enterprise}/copilot/billing/selected_enterprise_teams",
         "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "copilot",
+        "slug": "add-users-to-the-copilot-subscription-for-an-enterprise",
+        "subcategory": "copilot-user-management",
+        "verb": "post",
+        "requestPath": "/enterprises/{enterprise}/copilot/billing/selected_users",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "copilot",
+        "slug": "remove-users-from-the-copilot-subscription-for-an-enterprise",
+        "subcategory": "copilot-user-management",
+        "verb": "delete",
+        "requestPath": "/enterprises/{enterprise}/copilot/billing/selected_users",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "copilot",
+        "slug": "get-copilot-seat-assignment-details-for-an-enterprise-user",
+        "subcategory": "copilot-user-management",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/members/{username}/copilot",
+        "access": "read",
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": true
@@ -840,6 +939,17 @@
         "verb": "post",
         "requestPath": "/enterprises/{enterprise}/settings/billing/cost-centers",
         "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "billing",
+        "slug": "get-cost-center-membership-for-a-resource",
+        "subcategory": "cost-centers",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/settings/billing/cost-centers/memberships",
+        "access": "read",
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": false
@@ -3618,6 +3728,39 @@
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": true
+      },
+      {
+        "category": "copilot",
+        "slug": "get-copilot-customizations-for-a-team",
+        "subcategory": "copilot-team-customizations",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/teams/{team_slug}/copilot/customizations",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "copilot",
+        "slug": "set-copilot-customizations-for-a-team",
+        "subcategory": "copilot-team-customizations",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/teams/{team_slug}/copilot/customizations",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "copilot",
+        "slug": "delete-copilot-customizations-for-a-team",
+        "subcategory": "copilot-team-customizations",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/teams/{team_slug}/copilot/customizations",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
       }
     ]
   },
@@ -8322,6 +8465,50 @@
         "subcategory": "collaborators",
         "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/collaborators/{username}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "copilot",
+        "slug": "get-copilot-code-review-settings-for-a-repository",
+        "subcategory": "copilot-code-review",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/copilot/code-review/settings",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "copilot",
+        "slug": "update-copilot-code-review-settings-for-a-repository",
+        "subcategory": "copilot-code-review",
+        "verb": "patch",
+        "requestPath": "/repos/{owner}/{repo}/copilot/code-review/settings",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "dependabot",
+        "slug": "get-repository-dependabot-runner-settings",
+        "subcategory": "runner-settings",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/dependabot/runner-settings",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "dependabot",
+        "slug": "set-repository-dependabot-runner-settings",
+        "subcategory": "runner-settings",
+        "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/dependabot/runner-settings",
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
@@ -13478,6 +13665,17 @@
       },
       {
         "category": "pulls",
+        "slug": "request-a-copilot-code-review-for-a-pull-request",
+        "subcategory": "copilot-code-review",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/copilot-code-review",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "pulls",
         "slug": "list-pull-requests-files",
         "subcategory": "pulls",
         "verb": "get",
@@ -15053,6 +15251,106 @@
         "subcategory": "user",
         "verb": "delete",
         "requestPath": "/user/interaction-limits",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": false,
+        "additional-permissions": false
+      }
+    ]
+  },
+  "user_issue_fields": {
+    "title": "Issue Fields",
+    "displayTitle": "User permissions for \"Issue Fields\"",
+    "permissions": [
+      {
+        "category": "users",
+        "slug": "list-issue-fields",
+        "subcategory": "issue-fields",
+        "verb": "get",
+        "requestPath": "/user/issue-fields",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": false,
+        "additional-permissions": false
+      },
+      {
+        "category": "users",
+        "slug": "create-an-issue-field",
+        "subcategory": "issue-fields",
+        "verb": "post",
+        "requestPath": "/user/issue-fields",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": false,
+        "additional-permissions": false
+      },
+      {
+        "category": "users",
+        "slug": "update-an-issue-field",
+        "subcategory": "issue-fields",
+        "verb": "patch",
+        "requestPath": "/user/issue-fields/{issue_field_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": false,
+        "additional-permissions": false
+      },
+      {
+        "category": "users",
+        "slug": "delete-an-issue-field",
+        "subcategory": "issue-fields",
+        "verb": "delete",
+        "requestPath": "/user/issue-fields/{issue_field_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": false,
+        "additional-permissions": false
+      }
+    ]
+  },
+  "user_issue_types": {
+    "title": "Issue Types",
+    "displayTitle": "User permissions for \"Issue Types\"",
+    "permissions": [
+      {
+        "category": "users",
+        "slug": "list-issue-types",
+        "subcategory": "issue-types",
+        "verb": "get",
+        "requestPath": "/user/issue-types",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": false,
+        "additional-permissions": false
+      },
+      {
+        "category": "users",
+        "slug": "create-an-issue-type",
+        "subcategory": "issue-types",
+        "verb": "post",
+        "requestPath": "/user/issue-types",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": false,
+        "additional-permissions": false
+      },
+      {
+        "category": "users",
+        "slug": "update-an-issue-type",
+        "subcategory": "issue-types",
+        "verb": "put",
+        "requestPath": "/user/issue-types/{issue_type_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": false,
+        "additional-permissions": false
+      },
+      {
+        "category": "users",
+        "slug": "delete-an-issue-type",
+        "subcategory": "issue-types",
+        "verb": "delete",
+        "requestPath": "/user/issue-types/{issue_type_id}",
         "access": "write",
         "user-to-server": true,
         "server-to-server": false,

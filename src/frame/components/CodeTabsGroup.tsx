@@ -11,11 +11,7 @@ import {
   cloneElement,
   type ReactElement,
   type ReactNode,
-  type MouseEvent as ReactMouseEvent,
-  type KeyboardEvent as ReactKeyboardEvent,
 } from 'react'
-import { useRouter } from 'next/router'
-import { UnderlineNav } from '@primer/react'
 import cx from 'clsx'
 
 import Cookies from '@/frame/components/lib/cookies'
@@ -23,6 +19,7 @@ import { CODE_SAMPLE_LANGUAGE_COOKIE_NAME } from '@/frame/lib/constants'
 import { sendEvent } from '@/events/components/events'
 import { EventType } from '@/events/types'
 import { useTranslation } from '@/languages/components/useTranslation'
+import { UnderlineNav } from '@/frame/components/ui/UnderlineNav'
 
 // CodeTabsGroup avoids DOM scanning, portals, and panel-attribute mutations so
 // React owns the code-tab nodes through client-side navigation.
@@ -92,7 +89,6 @@ type CodeTabsGroupProps = {
 }
 
 export function CodeTabsGroup({ className, children, ...rest }: CodeTabsGroupProps) {
-  const router = useRouter()
   const { t } = useTranslation('code_tabs')
   const { language, setLanguage } = useContext(CodeLanguageContext)
   const baseId = useId()
@@ -123,14 +119,13 @@ export function CodeTabsGroup({ className, children, ...rest }: CodeTabsGroupPro
   return (
     <div className={cx(className, 'ghd-codetabs-enhanced')} {...rest}>
       <div className="ghd-codetabs-nav">
-        {/* key on asPath works around a Primer UnderlineNav re-render bug. */}
-        <UnderlineNav key={router.asPath} aria-label={t('aria_label')} variant="flush">
+        <UnderlineNav aria-label={t('aria_label')} variant="flush">
           {tabs.map((tab) => (
             <UnderlineNav.Item
               key={tab.key}
               href={`#${tab.key}`}
               aria-current={tab.key === activeKey ? 'page' : undefined}
-              onSelect={(event: ReactMouseEvent | ReactKeyboardEvent) => {
+              onSelect={(event) => {
                 event.preventDefault()
                 setLanguage(tab.key)
               }}

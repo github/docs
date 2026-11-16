@@ -13,6 +13,7 @@ versions:
 children:
   - /agent-merge
   - /comments
+  - /copilot-code-review
   - /pulls
   - /review-requests
   - /reviews

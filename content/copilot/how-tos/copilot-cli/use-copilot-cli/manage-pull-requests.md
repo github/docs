@@ -90,7 +90,7 @@ The `/pr` slash command has several subcommands that you can use to perform diff
 <td align="center">Yes</td>
 </tr>
 <tr>
-<td><code>/pr automerge</code></td>
+<td><code>/pr agentmerge</code></td>
 <td>Do the same as <code>/pr auto</code>, then merge the pull request once it is green. <a href="#automatically-merging-the-pull-request">Find out more</a></td>
 <td align="center">No</td>
 <td align="center">Yes</td>
@@ -224,12 +224,12 @@ You can append instructions to guide the pull request creation. For example:
 `/pr auto` deliberately stops when the pull request is green. If you also want {% data variables.product.prodname_copilot_short %} to merge the pull request, enter:
 
 ```copilot copy
-/pr automerge
+/pr agentmerge
 ```
 
 This runs the same loop as `/pr auto`. Once the pull request is no longer a draft, has no unresolved requests for changes, and all required checks are passing, {% data variables.product.prodname_copilot_short %} enables auto-merge rather than merging the pull request itself. {% data variables.product.prodname_dotcom %} then completes the merge as soon as every remaining requirement is satisfied, including any required approvals and merge queue. {% data variables.product.prodname_copilot_short %} keeps the loop running—handling any further review feedback or check failures—until the pull request is merged or closed.
 
-You can use `/pr agentmerge` as an alias for `/pr automerge`.
+You can use `/pr automerge` as an alias for `/pr agentmerge`.
 
 ## Further reading
 

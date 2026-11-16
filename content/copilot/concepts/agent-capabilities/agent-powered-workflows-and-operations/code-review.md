@@ -116,9 +116,9 @@ For requests associated with organization members who have paid {% data variable
 
 ### Reviews requested with an external {% data variables.product.prodname_copilot_short %} license
 
-An external {% data variables.product.prodname_copilot_short %} license is one that is not provided by the organization or enterprise that owns the repository, such as a personal license or a license from another organization. By default, people can use an external license to request a review from {% data variables.product.prodname_copilot_short %}.
+By default, people can use an external {% data variables.product.prodname_copilot_short %} license to request a review from {% data variables.product.prodname_copilot_short %}. An external {% data variables.product.prodname_copilot_short %} license is one that is not provided by the organization or enterprise that owns the repository, such as a personal license or a license from another enterprise. Licenses assigned by another organization in the same enterprise do **not** count as external.
 
-To prevent this, organization owners and repository administrators can enable the **Only allow {% data variables.copilot.copilot_code-review_short %} to be triggered by authorized users** setting for an organization or a single repository. When the setting is enabled:
+To prevent people from using an external {% data variables.product.prodname_copilot_short %} license to request reviews, organization owners and repository administrators can enable the **Block reviews requested with an external {% data variables.product.prodname_copilot_short %} license** setting for an organization or a single repository. When the setting is enabled:
 
 * {% data variables.product.prodname_copilot_short %} is not offered as a reviewer to people who are not authorized, and API review requests from those people do not start a review.
 * In personal repositories, only the repository owner or a direct collaborator can request a review.

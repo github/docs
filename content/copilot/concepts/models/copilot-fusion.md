@@ -60,7 +60,8 @@ When the response is provided, you can hover over the effort level name below th
 | **{% data variables.copilot.copilot_fusion_fast %}** | Only used in scenarios that require fast models. | Not selectable by users. Only available in {% data variables.product.prodname_vscode %} inline chat. |
 
 > [!NOTE]
-> If you have installed either the {% data variables.copilot.mai_code_1_1_flash %} or {% data variables.copilot.qwen3.8-flash-next %} models locally, these are more likely to be used, where appropriate, on the {% data variables.copilot.copilot_fusion_standard %} effort level. See [Selecting local models in {% data variables.copilot.copilot_fusion_short %}](#selecting-local-models-in-copilot-fusion).
+> * If {% data variables.copilot.copilot_fusion_max %} is not available in your model picker, one or more of the models required for {% data variables.copilot.copilot_fusion_max %} may be disabled. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-access-to-ai-models) and [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-availability-of-default-models#configuring-models-available-for-copilot-fusion).
+> * If you have installed either the {% data variables.copilot.mai_code_1_1_flash %} or {% data variables.copilot.qwen3.8-flash-next %} models locally, these are more likely to be used, where appropriate, on the {% data variables.copilot.copilot_fusion_standard %} effort level. See [Selecting local models in {% data variables.copilot.copilot_fusion_short %}](#selecting-local-models-in-copilot-fusion).
 
 ## Selecting local models in {% data variables.copilot.copilot_fusion_short %}
 

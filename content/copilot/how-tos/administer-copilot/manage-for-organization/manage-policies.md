@@ -30,6 +30,9 @@ category:
 
 {% data reusables.organizations.copilot-policy-ent-overrides-org %}
 
+> [!TIP]
+> If your organization belongs to an enterprise, see [AUTOTITLE](/copilot/get-started/enterprise-ai-governance) for guidance on coordinating policies with broader governance and rollout decisions.
+
 ## Enabling {% data variables.product.prodname_copilot_short %} features and models in your organization
 
 {% data reusables.profile.access_org %}

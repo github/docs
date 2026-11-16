@@ -41,7 +41,7 @@ You can add MCP servers in the following ways:
 * [Using the `copilot mcp add` subcommand](#using-the-copilot-mcp-add-subcommand)
 * [Editing the configuration file](#editing-the-configuration-file)
 * [Adding per-repository MCP servers](#adding-per-repository-mcp-servers)
-* [Searching and installing from the registry (experimental)](#searching-and-installing-from-the-registry)
+* [Searching and installing from the registry](#searching-and-installing-from-the-registry)
 
 For installation instructions, available tools, and URLs for specific MCP servers, see the [{% data variables.product.github %} MCP Registry](https://github.com/mcp).
 
@@ -52,12 +52,12 @@ For installation instructions, available tools, and URLs for specific MCP server
 1. Next to **Server Name**, enter a unique name for the MCP server. This is the name you will use to refer to the server.
 1. Next to **Server Type**, select a type by pressing the corresponding number. The following types are available:
 
-   * **Local** or **STDIO**: starts a local process and communicates over standard input/output (`stdin`/`stdout`). Both options work the same way. **STDIO** is the standard MCP protocol type name, so choose this if you want your configuration to be compatible with {% data variables.product.prodname_vscode_shortname %}, the {% data variables.copilot.copilot_cloud_agent %}, and other MCP clients.
+   * **STDIO**: starts a local process and communicates over standard input/output (`stdin`/`stdout`). This is the standard MCP protocol type name, so it's compatible with {% data variables.product.prodname_vscode_shortname %}, the {% data variables.copilot.copilot_cloud_agent %}, and other MCP clients.
    * **HTTP** or **SSE**: connects to a remote MCP server. **HTTP** uses the Streamable HTTP transport. **SSE** uses the legacy HTTP with Server-Sent Events transport, which is deprecated in the MCP specification but still supported for backwards compatibility. <!-- markdownlint-disable-line GHD046 -->
 
 1. The remaining fields depend on the server type you selected:
 
-   * If you chose **Local** or **STDIO**:
+   * If you chose **STDIO**:
 
      * Next to **Command**, enter the command to start the server, including any arguments. For example, `npx @playwright/mcp@latest`. This corresponds to both the `command` and `args` properties in the JSON configuration file.
      * Next to **Environment Variables**, optionally specify environment variables the server needs, such as API keys or tokens, as JSON key-value pairs. For example, `{"API_KEY": "YOUR-API-KEY"}`. The `PATH` variable is automatically inherited from your environment. All other environment variables must be configured here.
@@ -201,9 +201,6 @@ The `.vscode/mcp.json` file for {% data variables.product.prodname_vscode_shortn
 
 ### Searching and installing from the registry
 
-> [!NOTE]
-> The `/mcp search` command is currently an experimental feature. To use it, start {% data variables.copilot.copilot_cli_short %} with the `‑‑experimental` command line option, or enter `/experimental on` during a session.
-
 You can discover and install MCP servers directly from the [{% data variables.product.github %} MCP Registry](https://github.com/mcp) using the `/mcp search` command in interactive mode. This lets you browse available servers, view their details, and install them without manually filling out the configuration form.
 
 If your organization has configured a custom MCP registry URL, `/mcp search` connects to that registry instead of the default {% data variables.product.github %} registry.
@@ -218,13 +215,6 @@ If your organization has configured a custom MCP registry URL, `/mcp search` con
 1. Select a server to open its configuration form. The form is pre-populated with the server's configuration from the registry. Fill in any required fields, such as API keys or tokens.
 1. Press <kbd>Ctrl</kbd>+<kbd>S</kbd> to save. The server is added to your `mcp-config.json` and started immediately.
 
-
-## Using agent finder
-
-Agent finder searches a catalog of capabilities, including MCP servers, tools, agents, and skills. To make it available in the CLI:
-
-1. Download the [agent finder skill](https://github.com/ards-project/connectors/blob/main/skills/github-copilot/SKILL.md).
-1. Add the skill to your `~/.copilot/skills` directory. For skill directory structure and installation guidance, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/add-skills).
 
 ## Managing MCP servers
 

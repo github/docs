@@ -305,15 +305,15 @@ You can list and manage your LSP servers in an interactive CLI session using the
 
 | Slash command             | Description |
 |---------------------------|-------------|
-| `/lsp` or `/lsp show`     | Show the status of all configured LSP servers. |
+| `/lsp list` (or `/lsp show`) | Show the status of all configured LSP servers. |
 | `/lsp test SERVER-NAME`   | Test whether a server starts correctly. |
 | `/lsp reload`             | Reload LSP configurations from disk. |
 | `/lsp logs`               | Open the live LSP services panel to view server logs. |
-| `/lsp help`               | Show `/lsp` command information. |
+| `/lsp` or `/lsp help`     | Show `/lsp` command information. |
 
 ### Listing available LSP servers
 
-1. In {% data variables.copilot.copilot_cli_short %}, confirm that the LSP server you chose is available by using the `/lsp` slash command. You will see output such as:
+1. In {% data variables.copilot.copilot_cli_short %}, confirm that the LSP server you chose is available by using the `/lsp list` slash command. You will see output such as:
 
    ```text
    ● LSP Server Status:

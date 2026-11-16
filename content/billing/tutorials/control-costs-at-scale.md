@@ -242,6 +242,47 @@ The response confirms the successful addition of resources. If any resources wer
 
 If the endpoint responds with `Problems parsing JSON`, use a JSON validator to check that the data specified in the `--input` option is valid.
 
+### Verify a resource's cost center assignment
+
+After adding resources, you can look up a resource directly to check which cost center it belongs to. You don't need to list and search through all cost centers.
+
+In your terminal, run the following command, replacing `ENTERPRISE` with your enterprise slug and `USERNAME` with the login of a user you added.
+
+```shell copy
+gh api \
+  --method GET \
+  -H "Accept: application/vnd.github+json" \
+  -H "X-GitHub-Api-Version: {{ defaultRestApiVersion }}" \
+  /enterprises/ENTERPRISE/settings/billing/cost-centers/memberships \
+  -f resource_type=user \
+  -f name=USERNAME
+```
+
+The response includes the cost center's ID and name. For example, a lookup for `monalisa` assigned to the cost center created earlier returns:
+
+```json
+{
+  "resource": {
+    "type": "user",
+    "identifier": {
+      "login": "monalisa"
+    }
+  },
+  "memberships": [
+    {
+      "cost_center": {
+        "id": "3312fdf2-5950-4f64-913d-e734124059c9",
+        "name": "NAME"
+      }
+    }
+  ]
+}
+```
+
+If the resource is not assigned to a cost center, the `memberships` array is empty.
+
+You can also look up an organization, repository, or enterprise team. Set `resource_type` to `organization`, `repository`, or `team`, and set `name` to the organization slug, `owner/repo`, or enterprise team slug, respectively. See [AUTOTITLE](/rest/billing/cost-centers).
+
 ## 5. Set budgets with the REST API
 
 You can create budgets programmatically to apply spending controls to the cost centers you've created. This is particularly useful for managing usage-based costs like {% data variables.product.prodname_ai_credits_short %} at scale.

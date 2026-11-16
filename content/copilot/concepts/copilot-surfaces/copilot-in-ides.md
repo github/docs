@@ -54,12 +54,12 @@ You can also run {% data variables.copilot.copilot_cli %} in an IDE's integrated
 
 ### Entry points in JetBrains IDEs
 
-In {% data variables.product.prodname_jetbrains_ides %}, there are three primary entry points for accessing {% data variables.product.prodname_copilot_short %} to choose from: the {% data variables.product.prodname_copilot %} plugin, the JetBrains AI Assistant, or {% data variables.copilot.copilot_cli %} in the integrated terminal.
+In {% data variables.product.prodname_jetbrains_ides %}, there are three primary entry points for accessing {% data variables.product.prodname_copilot_short %} to choose from: the {% data variables.product.prodname_copilot %} plugin, JetBrains Air, or {% data variables.copilot.copilot_cli %} in the integrated terminal.
 
 | Entry point | Best for | Main capabilities |
 | --- | --- | --- |
 | **{% data variables.product.prodname_copilot %} plugin** | A complete AI-assisted development workflow | Inline and next edit suggestions, chat, agentic features, inline chat, code review, and commit message generation |
-| **{% data variables.product.prodname_copilot_short %} in JetBrains AI Assistant** | Using chat and an agent without installing a separate {% data variables.product.prodname_copilot_short %} plugin | Chat, agentic tasks, and model selection |
+| **{% data variables.product.prodname_copilot_short %} in JetBrains Air** | Using an agent without installing a separate {% data variables.product.prodname_copilot_short %} plugin | Chat, agentic tasks, and model selection |
 | **{% data variables.copilot.copilot_cli_short %}** | Terminal-first development workflows | Agentic assistance and model selection in the integrated terminal |
 
 The {% data variables.product.prodname_copilot %} plugin also supports
@@ -67,7 +67,7 @@ multiple agent harnesses and OpenTelemetry monitoring. Enterprise administrators
 
 The {% data variables.product.prodname_copilot %} plugin provides the broadest integration with the editor and is the recommended entry point when you want code suggestions and the full set of IDE features.
 
-{% data variables.product.prodname_copilot_short %} is also available as an agent in JetBrains AI Assistant through the Agent Client Protocol (ACP). For more information about ACP, see the [ACP documentation](https://agentclientprotocol.com/get-started/introduction). For technical details on running {% data variables.copilot.copilot_cli_short %} as an ACP server, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/acp-server).
+{% data variables.product.prodname_copilot_short %} is also available as an agent in [JetBrains Air](https://plugins.jetbrains.com/plugin/33314-air) through the Agent Client Protocol (ACP). For more information about ACP, see the [ACP documentation](https://agentclientprotocol.com/get-started/introduction). For technical details on running {% data variables.copilot.copilot_cli_short %} as an ACP server, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/acp-server).
 
 ## References to matching public code
 

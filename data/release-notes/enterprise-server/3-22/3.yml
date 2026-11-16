@@ -1,0 +1,104 @@
+date: '2026-11-03'
+sections:
+  security_fixes:
+    - |
+      **HIGH**: An attacker with an account and SSH access to a GitHub Enterprise Server instance could execute arbitrary commands in the context of the Git service (babeld), including disclosure of its environment secrets, by exploiting a use-after-free in its SSH session handling to obtain a controlled write. Exploitation requires build-specific memory offsets, and unsuccessful attempts terminate the babeld process. GitHub has requested CVE ID [CVE-2026-104608](https://www.cve.org/cverecord?id=CVE-2026-104608) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
+    - |
+      **HIGH**: An attacker with code execution inside a Dependabot updater container could write files to unauthorized repository paths, including GitHub Actions workflow files, if the Dependabot installation had the `workflows: write` permission. Depending on repository permissions and workflow configuration, an injected workflow could execute with access to GitHub Actions secrets. The initial fix for this issue was incomplete, leaving the vulnerability exploitable in some cases. This vulnerability is tracked as [CVE-2026-15343](https://www.cve.org/cverecord?id=CVE-2026-15343) and was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
+    - |
+      **MEDIUM**: An attacker with an account and SSH access to a GitHub Enterprise Server instance could cause the Git service (babeld) to read beyond the end of the session identifier when proving possession of a host key by re-keying the connection to an algorithm with a longer hash. The adjacent memory is incorporated into a signature returned to the client, from which a limited amount of process memory may be recoverable. GitHub has requested CVE ID [CVE-2026-118237](https://www.cve.org/cverecord?id=CVE-2026-118237) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
+    - |
+      **MEDIUM**: On instances with ChatOps configured, an unauthenticated attacker could delete stored Slack and Microsoft Teams ChatOps settings and credentials through cross-site request forgery if a signed-in Management Console operator visited attacker-controlled content. GitHub has requested CVE ID [CVE-2026-110288](https://www.cve.org/cverecord?id=CVE-2026-110288) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
+    - |
+      To mitigate [CVE-2026-98432](https://www.cve.org/CVERecord?id=CVE-2026-98432), a Linux kernel vulnerability in TCP connection handling, the appliance firewall now drops incoming IPv4 TCP SYN packets that carry IP options, and Multipath TCP (MPTCP) is disabled. A fixed kernel will be included in a future release.
+    - |
+      Security updates have been applied to Go, Node.js, Ruby, org-ruby, RDoc, CA certificates, OpenSSL, NSS, zlib, curl, and Ubuntu system packages across targeted main and bundled container images. The Go and certificate updates partially address [CVE-2026-111943](https://www.cve.org/CVERecord?id=CVE-2026-111943); remaining components will be updated in a future release. The Ruby updates include fixes for regular expression compiler issues associated with [CVE-2026-89078](https://www.cve.org/CVERecord?id=CVE-2026-89078), [CVE-2026-93577](https://www.cve.org/CVERecord?id=CVE-2026-93577), [CVE-2026-97229](https://www.cve.org/CVERecord?id=CVE-2026-97229), and [CVE-2026-110264](https://www.cve.org/CVERecord?id=CVE-2026-110264).
+  bugs:
+    - |
+      After a failover, subsequent configuration runs could fail because restored cluster configuration files had incorrect permissions.
+    - |
+      After an upgrade using the universal hotpatch package, some UI assets were not updated and remained at their pre-upgrade versions.
+    - |
+      During hotpatch upgrades, `ghe-upgrade` displayed a harmless `Warning : decompression does not support multi-threading` message.
+    - |
+      On an instance with ELM enabled, `ghe-config-apply` failed on cache replicas and passive replicas outside the primary data center, timing out with `Timed out waiting 500.0s for nomad jobs: elm-exporter`. This blocked upgrades and configuration runs on those nodes.
+    - |
+      On instances using the new metrics stack, metrics collection ran continuously instead of at the configured interval. This used significantly more CPU than necessary, which could noticeably affect performance on smaller instances.
+    - |
+      After a backup completed, {% data variables.product.prodname_enterprise_backup_service %} could leave the `.sync_in_progress` file on disk.
+    - |
+      Ignorable rsync failures could cause backups to exit early, leaving them incomplete.
+    - |
+      Site administrators could create backups that silently omitted custom pre-receive hooks because {% data variables.product.prodname_enterprise_backup_service %} checked an invalid path.
+    - |
+      On instances with GitHub Actions enabled, cluster health checks could report an inaccurate MSSQL replication status. If the status query returned unexpected output, the health check agent could crash.
+    - |
+      Site administrators could see transient MySQL replication-delay warnings in the output of `ghe-cluster-status` and `ghe-repl-status-mysql` because the health checks used the same delay threshold regardless of the instance’s configuration.
+    - |
+      Users found that branches were not automatically deleted after their pull requests merged through a merge queue, even when automatic branch deletion was enabled and a bot had added the pull requests to the queue.
+    - |
+      On instances with slow GitHub Advanced Security license-usage calculations, some security and license settings pages and the security-products statistics API could return errors when requests timed out.
+    - |
+      Users could see a 500 error when viewing a pull request while review requests for a deleted team were being cleaned up.
+    - |
+      The Enterprise Secret Protection count could be populated but have an empty findings table.
+    - |
+      The **Allow local actions only** enterprise policy for {% data variables.product.prodname_actions %} rejected actions hosted within the enterprise.
+    - |
+      On instances with high Git traffic, each Git operation triggered an unnecessary repository metadata lookup during authentication, increasing CPU usage on the primary node. Authentication no longer performs this lookup.
+    - |
+      Users couldn’t revoke OAuth authorizations for GitHub Mobile, and the authorization remained in place.
+    - |
+      When users tried to configure delegated bypass reviewers for push protection using the REST API endpoint to update a repository, the API returned a `500` error.
+    - |
+      Repository network locks could be released unexpectedly when idle connections timed out, while clients continued to report that the locks were held.
+    - |
+      On instances with repositories containing a very large number of references, pushes could cause high CPU usage during reference advertisement. `spokes-receive-pack` now buffers its reference advertisement, and `spokes-receive-pack` and `dgit-update` limit Go runtime parallelism to reduce CPU overhead on hosts with many cores.
+    - |
+      Jupyter notebooks failed to render embedded images on private and internal repositories.
+    - |
+      Users experienced delays publishing or downloading Maven, NuGet, and RubyGems packages using authenticated requests to GitHub Packages.
+    - |
+      Some detailed metrics from the `reposd` and `reposd-gitauth` services were rejected by collectd.
+    - |
+      `ghe-spokesctl lock` could continue to indicate that a repository lock was held after the underlying connection closed and the lock had been released. The command now detects unexpected lock-stream closure and exits with an error.
+    - |
+      On large instances with a license for GitHub Advanced Security, pages that calculate license usage could time out or return a `500` error. Affected pages included the security configuration, license, and unique committers pages for organizations. Upgrading adds a database index, which may lengthen the upgrade on instances with many recent contributions.
+  changes:
+    - |
+      Historical metrics remain available in the Management Console's legacy monitoring dashboards after the legacy metrics stack is disabled.
+    - |
+      Logs from OpenTelemetry-related exporters are written to the `/var/log/otel-stack/` directory.
+    - |
+      Site administrators can mark a user as not deleted if the deletion process fails partway through.
+  known_issues:
+    - |
+      During an upgrade of GitHub Enterprise Server, custom firewall rules are removed. If you use custom firewall rules, you must reapply them after upgrading.
+    - |
+      If the root site administrator is locked out of the Management Console after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-web-ui/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account).
+    - |
+      {% data reusables.release-notes.large-adoc-files-issue %}
+    - |
+      Admin stats REST API endpoints may time out on appliances with many users or repositories. Retrying the request until data is returned is advised.
+    - |
+      When following the steps for [Replacing the primary database node](/admin/monitoring-and-managing-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-the-primary-database-node-mysql-or-mysql-and-mssql), running `ghe-cluster-config-apply` might fail with errors. If this occurs, re-running `ghe-cluster-config-apply` is expected to succeed.
+    - |
+      Running a config apply as part of the steps for [Replacing a node in an emergency](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-a-node-in-an-emergency) may fail with errors if the node being replaced is still reachable. If this occurs, shut down the node and repeat the steps.
+    - |
+      When restoring data originally backed up from a 3.13 or greater appliance version, the Elasticsearch indices need to be reindexed before some of the data will show up. This happens via a scheduled job that runs on the first Saturday of each month. It can also be forced by running `/usr/local/share/enterprise/ghe-es-search-repair`.
+    - |
+      When initializing a new GHES cluster, nodes with the `consul-server` role should be added to the cluster before adding additional nodes. Adding all nodes simultaneously creates a race condition between nomad server registration and nomad client registration.
+    - |
+      In a cluster, the host running restore requires access to the storage nodes via their private IPs.
+    - |
+      After a restore, existing outside collaborators cannot be added to repositories in a new organization. This issue can be resolved by running `/usr/local/share/enterprise/ghe-es-search-repair` on the appliance.
+    - |
+      After a geo-replica is promoted to be a primary by running `ghe-repl-promote`, the actions workflow of a repository does not have any suggested workflows.
+    - |
+      When publishing npm packages in a workflow shortly after restoring from a backup to GitHub Enterprise Server, you may encounter a `401 Unauthorized` error from the GitHub Packages service. This has been confirmed on earlier releases and may also affect later supported versions. Applicability to current releases is still being confirmed. This can happen if the restore is from an N-1 or N-2 version and the workflow targets the npm endpoint on the backup instance. To avoid this issue, ensure the access token used for publishing is valid and includes the correct scopes for the GitHub Packages service. [Updated: 2026-11-10]
+    - |
+      On instances with multiple Git storage nodes in a voting configuration, including cluster and geo-replication high availability topologies, upgrading may fail to correctly install Actions that ship with the new version. In some cases, previous versions of these Actions remain on the instance. To resolve this issue, run the following commands on the primary node: `ghe-config --unset 'app.actions.actions-repos-sha1sum'`, `ghe-config-apply`, and `/usr/local/share/enterprise/ghe-run-init-actions-graph`.
+    - |
+      In some cases, pull requests using auto-merge or merge queue may not merge automatically until mergeability is recalculated.
+    - |
+      On a newly booted {% data variables.product.prodname_ghe_server %} instance, the merge box on a newly created pull request can stay on "Checking for the ability to merge automatically" and not show the merge status. If encountered, refreshing the page shows the correct merge status.

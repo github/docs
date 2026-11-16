@@ -388,7 +388,7 @@ describe(liquidIfversionVersions.names.join(' - '), () => {
   test.each([
     `{% ifversion ghes != ${supported[2]} %}A{% endif %}`,
     `{% ifversion ghes != ${supported[2]} %}A{% else %}B{% endif %}`,
-    `{% ifversion ghes != ${supported[2]} and ghes > ${supported[4]} %}A{% else %}B{% endif %}`,
+    `{% ifversion ghes != ${supported[2]} and ghes > ${supported.at(-1)} %}A{% else %}B{% endif %}`,
     `{% ifversion ghes != ${supported[2]} and ghes != ${supported[1]} %}A{% else %}B{% endif %}`,
   ])('ifversion using != keeps the content: %s', async (liquid) => {
     const markdown = [...placeholderAllVersionsFm, liquid].join('\n')

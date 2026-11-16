@@ -19,14 +19,13 @@ Most {% data variables.product.prodname_copilot_short %} policies only affect us
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.ai-controls-tab %}
-{% data reusables.enterprise-accounts.cca-policies %}
+{% data reusables.enterprise-accounts.copilot-features-and-clients %}
 1. Next to **Block {% data variables.copilot.copilot_cloud_agent %} in all repositories owned by ENTERPRISE-NAME**, click the toggle.
 
 ## Blocking {% data variables.copilot.copilot_code-review_short %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.ai-controls-tab %}
-1. In the sidebar, click {% octicon "copilot" aria-hidden="true" aria-label="copilot" %} **{% data variables.product.prodname_copilot_short %}**.
-1. Under "Features & clients", click **Configure features & clients**.
+{% data reusables.enterprise-accounts.copilot-features-and-clients %}
 1. Find the **{% data variables.copilot.copilot_code-review_short %}** policies.
 1. Next to **Block {% data variables.copilot.copilot_code-review_short %} in all enterprise repositories**, click the toggle.

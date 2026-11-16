@@ -37,14 +37,13 @@ protect your code from vulnerabilities, unauthorized access, and other potential
 
 You can manage a subset of security and analysis features for public repositories.
 
-At a minimum, you should enable the following for your public repository:
+**Dependency graph**, **{% data variables.product.prodname_dependabot_alerts %}**, and **push protection** aren't enabled by default, even for public repositories. At a minimum, you should enable the following for your public repository:
 
+* **Dependency graph** shows you all the libraries and packages that your repository depends upon. {% data variables.product.prodname_dependabot_alerts %} require the dependency graph to be enabled first.
 * **{% data variables.product.prodname_dependabot_alerts %}** notify you of security vulnerabilities in your project's dependency network, so that you can update the affected dependency to a more secure version.
 * **{% data variables.product.prodname_secret_scanning_caps %}** scans your repository for secrets (such as API keys and tokens) and alerts you if a secret is found, so that you can remove the secret from your repository.
 * **Push protection** prevents you (and your collaborators) from introducing secrets to the repository in the first place, by blocking pushes containing supported secrets.
 * **{% data variables.product.prodname_code_scanning_caps %}** identifies vulnerabilities and errors in your repository's code, so that you can fix these issues early and prevent a vulnerability or error being exploited by malicious actors.
-
-Other features are permanently enabled for public repositories, such as the dependency graph, which shows you all the libraries and packages that your repository depends upon.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}

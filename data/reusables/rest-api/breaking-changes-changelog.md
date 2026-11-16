@@ -2680,12 +2680,3 @@ Version `2022-11-28` is the first version of the {% data variables.product.prodn
 
 {% endif %}
 {% endif %}
-
-{% ifversion ghes = 3.18 %}
-{% if query.apiVersion == nil or "2022-11-28" <= query.apiVersion %}
-## Version 2022-11-28
-
-Version `2022-11-28` is the first version of the {% data variables.product.prodname_ghe_server %} REST API after date-based versioning was introduced. This version does not include any breaking changes.
-
-{% endif %}
-{% endif %}

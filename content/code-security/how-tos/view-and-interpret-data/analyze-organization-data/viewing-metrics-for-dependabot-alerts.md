@@ -4,7 +4,9 @@ shortTitle: View Dependabot metrics
 allowTitleToDifferFromFilename: true
 intro: You can use security overview to see how many {% data variables.product.prodname_dependabot_alerts %} are in repositories across your organization, to prioritize the most critical alerts to fix, and to identify repositories where you may need to take action.
 versions:
-  feature: dependabot-metrics
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 permissions: '{% data reusables.permissions.security-overview-dependabot-metrics %}'
 product: '{% data reusables.gated-features.security-overview-fpt-cs-only %}'
 contentType: how-tos

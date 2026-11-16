@@ -8801,6 +8801,13 @@
                     ],
                     "description": "Who can edit the values of the property"
                   },
+                  "regex": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "A regular expression (RE2 syntax) that values of the property must match.\nOnly present for properties with a `value_type` of `string` that define a regular expression."
+                  },
                   "require_explicit_values": {
                     "type": "boolean",
                     "description": "Whether setting properties values is mandatory"
@@ -8874,20 +8881,6 @@
             },
             {
               "type": "string",
-              "name": "url",
-              "description": "<p>The URL that can be used to fetch, update, or delete info about this property via the API.</p>"
-            },
-            {
-              "type": "string",
-              "name": "source_type",
-              "description": "<p>The source type of the property</p>",
-              "enum": [
-                "organization",
-                "enterprise"
-              ]
-            },
-            {
-              "type": "string",
               "name": "value_type",
               "description": "<p>The type of the value for the property</p>",
               "isRequired": true,
@@ -8928,6 +8921,11 @@
                 "org_and_repo_actors",
                 null
               ]
+            },
+            {
+              "type": "string or null",
+              "name": "regex",
+              "description": "<p>A regular expression (RE2 syntax) that values of the property must match.\nOnly supported for properties with a <code>value_type</code> of <code>string</code>.</p>"
             },
             {
               "type": "boolean",
@@ -9093,6 +9091,13 @@
                       null
                     ],
                     "description": "Who can edit the values of the property"
+                  },
+                  "regex": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "A regular expression (RE2 syntax) that values of the property must match.\nOnly present for properties with a `value_type` of `string` that define a regular expression."
                   },
                   "require_explicit_values": {
                     "type": "boolean",
@@ -9275,6 +9280,13 @@
                   ],
                   "description": "Who can edit the values of the property"
                 },
+                "regex": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "A regular expression (RE2 syntax) that values of the property must match.\nOnly present for properties with a `value_type` of `string` that define a regular expression."
+                },
                 "require_explicit_values": {
                   "type": "boolean",
                   "description": "Whether setting properties values is mandatory"
@@ -9384,6 +9396,11 @@
             "org_and_repo_actors",
             null
           ]
+        },
+        {
+          "type": "string or null",
+          "name": "regex",
+          "description": "<p>A regular expression (RE2 syntax) that values of the property must match.\nOnly supported for properties with a <code>value_type</code> of <code>string</code>.</p>"
         },
         {
           "type": "boolean",
@@ -9514,6 +9531,13 @@
                     null
                   ],
                   "description": "Who can edit the values of the property"
+                },
+                "regex": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "A regular expression (RE2 syntax) that values of the property must match.\nOnly present for properties with a `value_type` of `string` that define a regular expression."
                 },
                 "require_explicit_values": {
                   "type": "boolean",
@@ -10016,7 +10040,7 @@
               "type": "array",
               "items": {
                 "title": "Issue Field",
-                "description": "A custom attribute defined at the organization level for attaching structured data to issues.",
+                "description": "A custom attribute defined by a repository owner for attaching structured data to issues.",
                 "type": [
                   "object",
                   "null"
@@ -10054,10 +10078,11 @@
                   },
                   "visibility": {
                     "type": "string",
-                    "description": "The visibility of the issue field. Can be `organization_members_only` (visible only within the organization) or `all` (visible to all users who can see issues).",
+                    "description": "The visibility of the issue field. Organization-owned fields return `organization_members_only` for restricted visibility (visible to organization members and to collaborators on the repository the field is read through), or `all` (visible to all users who can see issues). For create and update requests, use `restricted` instead of the deprecated `organization_members_only` input. Existing REST API versions continue to return `organization_members_only` for restricted organization-owned fields, even when a request uses `restricted`. Any change to this response spelling will be introduced in a future REST API version.",
                     "enum": [
                       "organization_members_only",
-                      "all"
+                      "all",
+                      "restricted"
                     ]
                   },
                   "options": {
@@ -10216,10 +10241,11 @@
         {
           "type": "string",
           "name": "visibility",
-          "description": "<p>The visibility of the issue field. Can be <code>organization_members_only</code> (visible only within the organization) or <code>all</code> (visible to all users who can see issues). Only used when the visibility settings feature is enabled. Defaults to <code>organization_members_only</code>.</p>",
+          "description": "<p>The visibility of the issue field. Can be <code>restricted</code> (visible to organization members and to collaborators on the repository the field is read through) or <code>all</code> (visible to all users who can see issues). <code>organization_members_only</code> is deprecated. Use <code>restricted</code> instead. Removal will be announced for a future REST API version; existing REST API versions will continue to support this value. Only used when the visibility settings feature is enabled. Defaults to <code>organization_members_only</code>.</p>",
           "enum": [
             "organization_members_only",
-            "all"
+            "all",
+            "restricted"
           ]
         },
         {
@@ -10340,7 +10366,7 @@
             },
             "schema": {
               "title": "Issue Field",
-              "description": "A custom attribute defined at the organization level for attaching structured data to issues.",
+              "description": "A custom attribute defined by a repository owner for attaching structured data to issues.",
               "type": [
                 "object",
                 "null"
@@ -10378,10 +10404,11 @@
                 },
                 "visibility": {
                   "type": "string",
-                  "description": "The visibility of the issue field. Can be `organization_members_only` (visible only within the organization) or `all` (visible to all users who can see issues).",
+                  "description": "The visibility of the issue field. Organization-owned fields return `organization_members_only` for restricted visibility (visible to organization members and to collaborators on the repository the field is read through), or `all` (visible to all users who can see issues). For create and update requests, use `restricted` instead of the deprecated `organization_members_only` input. Existing REST API versions continue to return `organization_members_only` for restricted organization-owned fields, even when a request uses `restricted`. Any change to this response spelling will be introduced in a future REST API version.",
                   "enum": [
                     "organization_members_only",
-                    "all"
+                    "all",
+                    "restricted"
                   ]
                 },
                 "options": {
@@ -10538,10 +10565,11 @@
         {
           "type": "string",
           "name": "visibility",
-          "description": "<p>The visibility of the issue field. Can be <code>organization_members_only</code> (visible only within the organization) or <code>all</code> (visible to all users who can see issues). Only used when the visibility settings feature is enabled.</p>",
+          "description": "<p>The visibility of the issue field. Can be <code>restricted</code> (visible to organization members and to collaborators on the repository the field is read through) or <code>all</code> (visible to all users who can see issues). <code>organization_members_only</code> is deprecated. Use <code>restricted</code> instead. Removal will be announced for a future REST API version; existing REST API versions will continue to support this value. Only used when the visibility settings feature is enabled.</p>",
           "enum": [
             "organization_members_only",
-            "all"
+            "all",
+            "restricted"
           ]
         },
         {
@@ -10650,7 +10678,7 @@
             },
             "schema": {
               "title": "Issue Field",
-              "description": "A custom attribute defined at the organization level for attaching structured data to issues.",
+              "description": "A custom attribute defined by a repository owner for attaching structured data to issues.",
               "type": [
                 "object",
                 "null"
@@ -10688,10 +10716,11 @@
                 },
                 "visibility": {
                   "type": "string",
-                  "description": "The visibility of the issue field. Can be `organization_members_only` (visible only within the organization) or `all` (visible to all users who can see issues).",
+                  "description": "The visibility of the issue field. Organization-owned fields return `organization_members_only` for restricted visibility (visible to organization members and to collaborators on the repository the field is read through), or `all` (visible to all users who can see issues). For create and update requests, use `restricted` instead of the deprecated `organization_members_only` input. Existing REST API versions continue to return `organization_members_only` for restricted organization-owned fields, even when a request uses `restricted`. Any change to this response spelling will be introduced in a future REST API version.",
                   "enum": [
                     "organization_members_only",
-                    "all"
+                    "all",
+                    "restricted"
                   ]
                 },
                 "options": {
@@ -11054,7 +11083,7 @@
         {
           "type": "boolean",
           "name": "is_enabled",
-          "description": "<p>Whether or not the issue type is enabled at the organization level.</p>",
+          "description": "<p>Whether or not the issue type is enabled.</p>",
           "isRequired": true
         },
         {
@@ -11241,7 +11270,7 @@
         {
           "type": "boolean",
           "name": "is_enabled",
-          "description": "<p>Whether or not the issue type is enabled at the organization level.</p>",
+          "description": "<p>Whether or not the issue type is enabled.</p>",
           "isRequired": true
         },
         {
@@ -16752,6 +16781,7 @@
                         "enum": [
                           "read",
                           "triage",
+                          "moderate",
                           "write",
                           "maintain",
                           "admin",
@@ -17482,6 +17512,7 @@
                   "enum": [
                     "read",
                     "triage",
+                    "moderate",
                     "write",
                     "maintain",
                     "admin",

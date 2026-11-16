@@ -1813,6 +1813,13 @@
           "href": "/graphql/reference/enterprise-admin#object-enterprisebillinginfo"
         },
         {
+          "name": "copilotCodeReviewPolicy",
+          "description": "<p>The configured Copilot code review policy. Requires enterprise AI controls read permissions.</p>",
+          "type": "EnterpriseCopilotCodeReviewPolicy",
+          "id": "enterprisecopilotcodereviewpolicy",
+          "href": "/graphql/reference/copilot#object-enterprisecopilotcodereviewpolicy"
+        },
+        {
           "name": "createdAt",
           "description": "<p>Identifies the date and time when the object was created.</p>",
           "type": "DateTime!",

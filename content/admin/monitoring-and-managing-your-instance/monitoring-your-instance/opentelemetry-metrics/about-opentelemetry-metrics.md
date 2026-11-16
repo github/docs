@@ -11,12 +11,6 @@ category:
 
 {% data reusables.enterprise.opentelemetry-migration %}
 
-{% ifversion ghes = 3.18 %}
-
-{% data reusables.enterprise.opentelemetry-preview %}
-
-{% endif %}
-
 ## About OpenTelemetry metrics
 
 The OpenTelemetry monitoring stack is based on industry-standard observability tools and includes various components for collecting, processing, and storing metrics. This comprehensive approach provides a complete view of your system's performance and health across all components of your {% data variables.product.prodname_ghe_server %} instance.

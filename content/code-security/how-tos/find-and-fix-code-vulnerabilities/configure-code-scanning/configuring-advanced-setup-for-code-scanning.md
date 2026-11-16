@@ -78,6 +78,12 @@ For information on bulk enablement, see [AUTOTITLE](/code-security/how-tos/secur
 
 {% ifversion fpt or ghec %}
 
+### Keeping the {% data variables.product.prodname_codeql %} action up to date
+
+We recommend referencing the {% data variables.product.prodname_codeql %} action using a major version tag (for example, `v4`) in your workflow file. This ensures your workflow automatically picks up the latest release within that major version, including bug fixes, new features, and updated {% data variables.product.prodname_codeql_cli %} versions.
+
+Some {% data variables.product.prodname_codeql %} action features are enabled by server-side flags that may be removed over time, which can cause old versions to lose functionality. If you pin to a specific commit SHA or patch version tag, keep it updated, for example with {% data variables.product.prodname_dependabot %}. See [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/auto-update-actions).
+
 ## Configuring {% data variables.product.prodname_code_scanning %} using third-party actions
 
 {% data variables.product.github %} includes workflow templates for third-party actions, as well as the {% data variables.product.prodname_codeql %} action. Using a workflow template is much easier than writing a workflow unaided.

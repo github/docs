@@ -126,6 +126,8 @@ If the device was already initialized using `ghe-storage-init-backup`, you can r
 
 1. If using a cluster or high availability (HA) configuration, set the `backup-server` role for the node on which the disk is mounted and apply the configuration.
 
+   This is also required when you add a replica to a standalone instance that already uses the backup service, even if the disk remains mounted. Keep the initialized disk and do not run `ghe-storage-init-backup` again. Only one node can have the `backup-server` role.
+
    Replace `HOSTNAME` with the hostname of the node on which the disk is mounted, as listed in `cluster.conf`.
 
    ```shell

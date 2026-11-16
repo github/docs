@@ -65,6 +65,10 @@
   provider: 'Anthropic'
   release_status: 'GA'
 
+- name: 'Claude Fable 5.2'
+  provider: 'Anthropic'
+  release_status: 'GA'
+
 - name: 'Claude Haiku 4.5'
   provider: 'Anthropic'
   release_status: 'GA'
@@ -108,6 +112,14 @@
   release_status: 'GA'
 
 - name: 'Gemini 4 Argon'
+  provider: 'Google'
+  release_status: 'GA'
+
+- name: 'Gemini 4 Carbon'
+  provider: 'Google'
+  release_status: 'GA'
+
+- name: 'Gemini 4 Hydrogen'
   provider: 'Google'
   release_status: 'GA'
 

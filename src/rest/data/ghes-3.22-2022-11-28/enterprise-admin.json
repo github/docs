@@ -3798,6 +3798,13 @@
                     ],
                     "description": "Who can edit the values of the property"
                   },
+                  "regex": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "A regular expression (RE2 syntax) that values of the property must match.\nOnly present for properties with a `value_type` of `string` that define a regular expression."
+                  },
                   "require_explicit_values": {
                     "type": "boolean",
                     "description": "Whether setting properties values is mandatory"
@@ -3871,20 +3878,6 @@
             },
             {
               "type": "string",
-              "name": "url",
-              "description": "<p>The URL that can be used to fetch, update, or delete info about this property via the API.</p>"
-            },
-            {
-              "type": "string",
-              "name": "source_type",
-              "description": "<p>The source type of the property</p>",
-              "enum": [
-                "organization",
-                "enterprise"
-              ]
-            },
-            {
-              "type": "string",
               "name": "value_type",
               "description": "<p>The type of the value for the property</p>",
               "isRequired": true,
@@ -3925,6 +3918,11 @@
                 "org_and_repo_actors",
                 null
               ]
+            },
+            {
+              "type": "string or null",
+              "name": "regex",
+              "description": "<p>A regular expression (RE2 syntax) that values of the property must match.\nOnly supported for properties with a <code>value_type</code> of <code>string</code>.</p>"
             },
             {
               "type": "boolean",
@@ -4090,6 +4088,13 @@
                       null
                     ],
                     "description": "Who can edit the values of the property"
+                  },
+                  "regex": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "A regular expression (RE2 syntax) that values of the property must match.\nOnly present for properties with a `value_type` of `string` that define a regular expression."
                   },
                   "require_explicit_values": {
                     "type": "boolean",
@@ -4282,6 +4287,13 @@
                   ],
                   "description": "Who can edit the values of the property"
                 },
+                "regex": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "A regular expression (RE2 syntax) that values of the property must match.\nOnly present for properties with a `value_type` of `string` that define a regular expression."
+                },
                 "require_explicit_values": {
                   "type": "boolean",
                   "description": "Whether setting properties values is mandatory"
@@ -4462,6 +4474,13 @@
                   ],
                   "description": "Who can edit the values of the property"
                 },
+                "regex": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "A regular expression (RE2 syntax) that values of the property must match.\nOnly present for properties with a `value_type` of `string` that define a regular expression."
+                },
                 "require_explicit_values": {
                   "type": "boolean",
                   "description": "Whether setting properties values is mandatory"
@@ -4571,6 +4590,11 @@
             "org_and_repo_actors",
             null
           ]
+        },
+        {
+          "type": "string or null",
+          "name": "regex",
+          "description": "<p>A regular expression (RE2 syntax) that values of the property must match.\nOnly supported for properties with a <code>value_type</code> of <code>string</code>.</p>"
         },
         {
           "type": "boolean",
@@ -4701,6 +4725,13 @@
                     null
                   ],
                   "description": "Who can edit the values of the property"
+                },
+                "regex": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "A regular expression (RE2 syntax) that values of the property must match.\nOnly present for properties with a `value_type` of `string` that define a regular expression."
                 },
                 "require_explicit_values": {
                   "type": "boolean",
@@ -24617,7 +24648,7 @@
                 "client_id": "abcde12345fghij67890"
               },
               "note": "optional note",
-              "note_url": "http://optional/note/url",
+              "note_url": "https://example.com/optional/note/url",
               "updated_at": "2011-09-06T20:39:23Z",
               "created_at": "2011-09-06T17:26:27Z",
               "expires_at": "2011-10-06T17:26:27Z",
@@ -25538,7 +25569,7 @@
                 "client_id": "abcde12345fghij67890"
               },
               "note": "optional note",
-              "note_url": "http://optional/note/url",
+              "note_url": "https://example.com/optional/note/url",
               "updated_at": "2011-09-06T20:39:23Z",
               "created_at": "2011-09-06T17:26:27Z",
               "expires_at": "2011-10-06T17:26:27Z",

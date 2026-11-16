@@ -6,7 +6,9 @@
 set -euo pipefail
 
 version=${1:?Pass the GHES version, for example 3.17}
-cd ~/Documents/gh/github
+clone_root=${DOCS_GHES_CLONE_ROOT:-$HOME/Documents/gh/github}
+mkdir -p "$clone_root"
+cd "$clone_root"
 
 # Numeric team IDs survive team renames; slugs do not.
 # Repo creation, CODEOWNERS, and custom properties require slugs, so resolve current slugs.
@@ -15,6 +17,15 @@ docs_team_id=325922
 docs_eng_team_id=3935808
 docs_team=$(gh api "/organizations/$org_id/team/$docs_team_id" --jq .slug)
 docs_eng_team=$(gh api "/organizations/$org_id/team/$docs_eng_team_id" --jq .slug)
+
+# Granting the team access to the new repository requires team maintainer, so fail before creating anything.
+login=$(gh api user --jq .login)
+role=$(gh api "/orgs/github/teams/$docs_eng_team/memberships/$login" --jq .role 2>/dev/null || true)
+if [ "$role" != "maintainer" ]; then
+  echo "Error: $login must be a maintainer of @github/$docs_eng_team to create the archive repository (current role: ${role:-none})." >&2
+  echo "Ask a team maintainer to run this step, or to make you a maintainer." >&2
+  exit 1
+fi
 
 echo "--- Creating repository for github/docs-ghes-$version"
 echo "--- gh repo create"

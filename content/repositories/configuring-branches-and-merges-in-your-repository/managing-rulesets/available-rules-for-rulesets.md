@@ -77,6 +77,12 @@ You can configure various settings for your merge queue rule.
 
 You can require that changes are successfully deployed to specific environments before a branch can be merged. For example, you can use this rule to ensure that changes are successfully deployed to a staging environment before the changes merge to your default branch.
 
+{% ifversion pr-stacks %}
+
+{% data reusables.pull_requests.pr-stack-required-deployments %}
+
+{% endif %}
+
 ## Require signed commits
 
 When you enable required commit signing on a branch, contributors {% ifversion fpt or ghec %}and bots{% endif %} can only push commits that have been signed and verified to the branch. For more information, see [AUTOTITLE](/authentication/managing-commit-signature-verification/about-commit-signature-verification).

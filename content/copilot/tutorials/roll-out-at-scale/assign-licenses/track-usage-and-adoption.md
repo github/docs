@@ -35,7 +35,7 @@ To get a wider view of adoption, you can combine dashboard insights with qualita
 
 {% data reusables.copilot.access-copilot-metrics-dashboard %}
 
-The dashboard displays aggregated telemetry from developer IDEs and updates daily, though data may be up to 3 days behind UTC.
+The dashboard displays aggregated telemetry from developer IDEs and updates daily. Data for a given day is available within two full UTC days after that day closes.
 
 ## Step 2: Track license activation
 

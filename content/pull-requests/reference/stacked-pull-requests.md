@@ -46,6 +46,7 @@ The following are all evaluated as if each pull request targets the stack base, 
 | Required status checks | Evaluated against the stack base. |
 | CODEOWNERS | Evaluated from the stack base. Changes to `CODEOWNERS` in a lower pull request, but does not affect pull requests above it. |
 | Code scanning workflows | Evaluated against the stack base. |
+| Required deployments | Evaluated against the stack base. Deploying a pull request also satisfies this requirement for pull requests below it while the stack has a linear history. |
 
 ## {% data variables.product.prodname_actions %}
 

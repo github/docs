@@ -1,9 +1,9 @@
 
 {% ifversion fpt or ghec %}
 
-The dependency graph is available for the following repository types:
+Not enabled by default. The dependency graph is available for the following repository types:
 
-* Public repositories (on by default)
+* Public repositories
 * Private repositories
 * Forks
 

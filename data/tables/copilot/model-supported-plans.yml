@@ -68,6 +68,13 @@
   business: true
   enterprise: true
 
+- name: Claude Fable 5.2
+  pro: false
+  pro_plus: true
+  max: true
+  business: true
+  enterprise: true
+
 - name: Claude Sonnet 4.6
   pro: true
   pro_plus: true
@@ -98,6 +105,20 @@
 
 - name: Gemini 4 Argon
   pro: false
+  pro_plus: true
+  max: true
+  business: true
+  enterprise: true
+
+- name: Gemini 4 Carbon
+  pro: false
+  pro_plus: true
+  max: true
+  business: true
+  enterprise: true
+
+- name: Gemini 4 Hydrogen
+  pro: true
   pro_plus: true
   max: true
   business: true

@@ -150,7 +150,7 @@ Examples:
 * `field.story-points:>5` -- find issues with a number field value greater than 5
 * `field.priority:high,medium` -- find issues with priority set to "high" or "medium"
 
-For more information about managing issue fields, see [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/managing-issue-fields-in-your-organization).
+For more information about managing issue fields, see [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/managing-issue-fields).
 
 {% endif %}
 

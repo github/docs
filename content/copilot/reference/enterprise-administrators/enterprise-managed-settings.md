@@ -30,6 +30,7 @@ For instructions on creating the file, see [AUTOTITLE](/copilot/how-tos/administ
 | `model` | Sets your preferred model as the default for new conversations |
 | `fusionTier` | Sets the default effort level for new conversations when the selected model is `fusion` |
 | `autoTier` | Sets the default Auto routing tier for new conversations |
+| `communication.support.url` | Sets an absolute `http` or `https` URL of an organization help page. Informational only. {% data variables.copilot.copilot_cli_short %} can link to it wherever it would otherwise tell users to contact their administrator |
 | `enabledPlugins` | Enables or disables specific plugins by key |
 | `extraKnownMarketplaces` | Adds plugin marketplaces that users can access |
 | `strictKnownMarketplaces` | Restricts plugin installation to explicitly listed marketplaces |
@@ -44,10 +45,14 @@ For instructions on creating the file, see [AUTOTITLE](/copilot/how-tos/administ
 
 ## Client support by key
 
+Some keys require a minimum version in certain clients. See the footnotes in the table.
+
+<div class="table-nowrap-first-column" role="region" aria-label="Client support by key" tabindex="0">
+
 {% rowheaders %}
 
 | Key | {% data variables.copilot.copilot_cli_short %} | {% data variables.product.prodname_vscode_shortname %} | The {% data variables.copilot.github_copilot_app %} | {% data variables.copilot.copilot_in_the_cloud_short %} (sandbox) | {% data variables.copilot.copilot_in_the_cloud_short %} ({% data variables.product.prodname_actions %}) | {% data variables.product.prodname_jetbrains_ides %} |
-| --- | --- | --- | --- | --- | --- | --- |
+| --- | :---: | :---: | :---: | :---: | :---: | :---: |
 | `permissions.disableBypassPermissionsMode` | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} |
 | `permissions.deny` | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
 | `permissions.ask` | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
@@ -56,8 +61,9 @@ For instructions on creating the file, see [AUTOTITLE](/copilot/how-tos/administ
 | `permissions.defaultMode` | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
 | `features.computerUse` | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
 | `model` | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
-| `fusionTier` | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
-| `autoTier` | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| `fusionTier` | {% octicon "check" aria-label="Supported" %}[^fusion-tier-cli] | {% octicon "check" aria-label="Supported" %}[^fusion-tier-vscode] | {% octicon "check" aria-label="Supported" %}[^fusion-tier-app] | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| `autoTier` | {% octicon "check" aria-label="Supported" %}[^auto-tier-cli] | {% octicon "check" aria-label="Supported" %}[^auto-tier-vscode] | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| `communication.support.url` | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
 | `enabledPlugins` | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | `extraKnownMarketplaces` | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | `strictKnownMarketplaces` | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
@@ -66,9 +72,27 @@ For instructions on creating the file, see [AUTOTITLE](/copilot/how-tos/administ
 | `forceRemoteSettingsRefresh` | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
 | `allowedMcpServers` | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} |
 | `deniedMcpServers` | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} |
-| `sandbox` | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| `sandbox` | {% octicon "check" aria-label="Supported" %}[^sandbox-cli] | {% octicon "check" aria-label="Supported" %}[^sandbox-vscode] | {% octicon "check" aria-label="Supported" %}[^sandbox-app] | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
 
 {% endrowheaders %}
+
+</div>
+
+[^fusion-tier-cli]: `fusionTier` requires {% data variables.copilot.copilot_cli_short %} 1.0.104-3 or later.
+
+[^fusion-tier-vscode]: `fusionTier` requires {% data variables.product.prodname_vscode_shortname %} 1.144.0 or later.
+
+[^fusion-tier-app]: `fusionTier` requires the {% data variables.copilot.github_copilot_app %} 1.1.33-4 or later.
+
+[^auto-tier-cli]: `autoTier` requires {% data variables.copilot.copilot_cli_short %} 1.0.87-0 or later.
+
+[^auto-tier-vscode]: `autoTier` requires {% data variables.product.prodname_vscode_shortname %} 1.140.0 or later.
+
+[^sandbox-cli]: Adding `sandbox` to managed settings requires {% data variables.copilot.copilot_cli_short %} [1.0.93](https://github.com/github/copilot-cli/releases/tag/v1.0.93) or later. Connections from older clients are blocked.
+
+[^sandbox-vscode]: Adding `sandbox` to managed settings requires {% data variables.product.prodname_vscode_shortname %} [1.141.0](https://github.com/microsoft/vscode/releases/tag/1.141.0) or later. Connections from older clients are blocked. Agent Host's built-in sandbox supports these settings from version 1.138.0. From version 1.140.0, setting `sandbox.enabled` to `true` prevents users from turning sandboxing off with the session's sandbox toggle. For scope and bypass behavior, see [`sandbox`](#sandbox).
+
+[^sandbox-app]: Adding `sandbox` to managed settings requires the {% data variables.copilot.github_copilot_app %} [1.1.26](https://github.com/github/app/releases#release-v1.1.26) or later. Connections from older clients are blocked.
 
 Support for `telemetry` varies by sub-property and harness. See [Capture controls](#capture-controls) for the clients that support fine-grained capture.
 
@@ -267,11 +291,6 @@ This key is overridable by enterprise team mapping. In your `{% data variables.c
 
 Sets the default effort level for new conversations when the selected model is `"fusion"`. Accepted values, from most restrictive to least restrictive, are `"standard"`, `"high"`, `"max"`, and `"unmanaged"`. This setting does not select the model itself.
 
-This settings requires these versions: 
-* In {% data variables.copilot.copilot_cli_short %}, it requires version 1.0.104-3 or later. 
-* In {% data variables.product.prodname_vscode_shortname %}, it requires version 1.144.0 or later.
-* In {% data variables.copilot.github_copilot_app %}, it requires  1.1.33-4 or later.
-
 Set `fusionTier` to a string other than `"unmanaged"` to lock the effort level against user and repository overrides. To provide a default that enterprise teams can override, use `overridable`:
 
 ```json
@@ -286,8 +305,6 @@ For example, a team settings file can set `"fusionTier": "high"`. If the team do
 ## autoTier
 
 Sets the default routing tier for new conversations when the selected model is `"auto"`. Accepted values, from most restrictive to least restrictive, are `"efficiency"`, `"balance"`, `"intelligence"`, and `"unmanaged"`. This setting does not select the model itself.
-
-In {% data variables.copilot.copilot_cli_short %}, this setting requires version 1.0.87-0 or later. In {% data variables.product.prodname_vscode_shortname %}, it requires version 1.140.0 or later.
 
 Set `autoTier` to a string other than `"unmanaged"` to lock the tier against user and repository overrides. To provide a default that enterprise teams can override, use `overridable`:
 
@@ -368,6 +385,8 @@ In {% data variables.copilot.copilot_cli_short %}, this managed default takes pr
 
 Configures OpenTelemetry export, routing {% data variables.product.prodname_copilot_short %} usage data to a collector of your choice.
 
+For the exported signals and attributes, see [AUTOTITLE](/copilot/reference/enterprise-administrators/opentelemetry-reference).
+
 See the [supported keys table](#supported-keys) for client support.
 
 When you set the `telemetry` property, {% data variables.product.prodname_copilot_short %} telemetry is sent to the endpoint you specify. The following sub-properties are supported:
@@ -381,7 +400,7 @@ When you set the `telemetry` property, {% data variables.product.prodname_copilo
 * `serviceName`: A label for the telemetry service name (for example, `"copilot"`).
 * `resourceAttributes`: An object of OpenTelemetry resource attributes to attach to all exported telemetry (for example, `{"deployment.environment": "production"}`).
 * `headers`: An object of literal HTTP headers to include with each telemetry request (for example, an `Authorization` header for your collector). You must configure `endpoint` in the same `telemetry` object. Header values are not included in logs or status output. Use HTTPS when headers contain credentials because HTTP sends values in plaintext.
-* `headersProvider`: An object that runs a command to supply fresh OTLP headers, or `false` to disable dynamic headers. A managed helper overrides a user helper, and managed static `headers` take precedence over user helper output. This property applies to {% data variables.copilot.copilot_cli_short %}. For fields and behavior, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference#dynamic-authentication-headers).
+* `headersProvider`: An object that runs a command to supply fresh OTLP headers, or `false` to disable dynamic headers. A managed helper overrides a user helper, and managed static `headers` take precedence over user helper output. This property applies to {% data variables.copilot.copilot_cli_short %}. For fields and behavior, see [Dynamic authentication headers](/copilot/reference/enterprise-administrators/opentelemetry-reference#dynamic-authentication-headers).
 
 Managed `telemetry` values take precedence over local settings, SDK configuration, and environment variables. If more than one managed source defines `telemetry`, the highest-precedence source supplies the complete managed `telemetry` object. Objects from lower-precedence managed sources are not merged into it.
 
@@ -473,7 +492,7 @@ Enforces minimum local sandbox restrictions for {% data variables.copilot.copilo
 * For capability settings, a managed value of `false` prohibits the capability. `true` or omission leaves the user's configuration unchanged.
 * Managed read/write and read-only path lists restrict user-configured grants, while managed denied paths add to user-configured denials.
 
-In {% data variables.product.prodname_vscode_shortname %} 1.138.0 and later, these settings apply to {% data variables.product.prodname_copilot_short %} sessions that use Agent Host's built-in sandbox. This support does not extend to every type of chat session or terminal in {% data variables.product.prodname_vscode_shortname %}. In {% data variables.product.prodname_vscode_shortname %} 1.140.0 and later, setting `sandbox.enabled` to `true` prevents users from turning sandboxing off with the session's sandbox toggle. If your policy permits bypass, users can still turn it off for the current session when responding to a sandbox-bypass permission prompt. This does not change your organization's policy.
+In {% data variables.product.prodname_vscode_shortname %}, these settings apply to {% data variables.product.prodname_copilot_short %} sessions that use Agent Host's built-in sandbox. This support does not extend to every type of chat session or terminal in {% data variables.product.prodname_vscode_shortname %}. If your policy permits bypass, users can still turn sandboxing off for the current session when responding to a sandbox-bypass permission prompt. This does not change your organization's policy.
 
 For sessions in the {% data variables.copilot.github_copilot_app_short %}, the embedded runtime parses, combines, and enforces the complete managed `sandbox` object, including properties that are not available in the app's repository settings. The app displays the user's repository settings, not the complete effective managed policy, and does not show per-setting managed locks.
 
@@ -484,7 +503,7 @@ The following sub-properties are supported:
 * `allowBypass`: `false` prevents individual commands from running outside the sandbox and prevents users from disabling sandboxing for the rest of the current session from an active sandbox-bypass permission prompt. In {% data variables.copilot.copilot_cli_short %}, it also prevents users from disabling sandboxing with `/sandbox disable`.
 * `addCurrentWorkingDirectory`: `false` prevents the runtime from automatically adding the current working directory to the sandbox's read/write paths.
 * `sandboxMcpServers`: `true` requires local MCP servers started in the session to run in the sandbox. Remote MCP servers do not run in the local sandbox.
-* `sandboxLspServers`: `true` requires language servers started in the session to run in the sandbox.
+* `sandboxLspServers`: `true` requires language servers started in the session to run in the sandbox. In {% data variables.copilot.copilot_cli_short %}, this Boolean defaults to `true` and applies when sandboxing is enabled.
 * `auth.git`: `false` prevents the runtime from injecting a {% data variables.product.github %} token for authenticated Git HTTPS operations in the sandbox.
 * `auth.gh`: `false` prevents the runtime from injecting a {% data variables.product.github %} token for {% data variables.product.prodname_cli %} in the sandbox.
 * `allowDevToolAccess`: `false` prevents automatic access to development-tool configuration, caches, registries, and toolchains. These locations can contain package registry credentials or tokens. Disabling access can cause package restoration, authenticated registry operations, or builds that use shared caches to fail unless you explicitly grant the required paths.
@@ -527,28 +546,18 @@ Configures filesystem access for sandboxed processes. Paths should be absolute. 
 
 ### `sandbox.userPolicy.network`
 
-Configures network access for sandboxed processes.
+Configures network access for sandboxed processes. Server-managed settings support the following properties:
 
 * `allowOutbound`: `false` blocks outbound network access.
 * `allowLocalNetwork`: `false` restricts local network access. Its effect on sandboxed commands differs by operating system. Windows proxying and host rules require local network access, so a policy that combines them with `false` prevents those commands from starting.
-* `allowedHosts`: An array of hostnames or IP addresses that sandboxed processes are allowed to reach. A non-empty list blocks hosts that do not match. Entries can be exact hostnames, exact IP addresses, `*.example.com` for subdomains but not the root domain, or `*` for every host. Do not include URLs or ports. User and managed allowlists are combined restrictively. If they have no overlapping hosts, all hosts are denied.
-* `blockedHosts`: An array of hostnames or IP addresses that sandboxed processes cannot reach. Blocked hosts take precedence over allowed hosts, and blocking a domain also blocks its subdomains.
 * `proxy`: An object that routes sandboxed network traffic through an upstream HTTP proxy. Set `proxy.url` to the proxy URL. Platform support and enforcement vary.
 
-In {% data variables.copilot.copilot_cli_short %}, host rules and upstream proxies use a built-in local proxy. On macOS and Linux, the sandbox prevents programs from bypassing it with direct connections. On Windows, the sandbox relies on programs honoring the proxy settings. As a result, on Windows, these controls do not provide the same protection against direct connections. For platform requirements and limitations, see [Configuring network settings](/copilot/how-tos/cloud-and-local-sandboxes/configuring-local-sandbox-settings#configuring-network-settings).
+In {% data variables.copilot.copilot_cli_short %}, `allowedHosts` and `blockedHosts`, including IPv4 and IPv6 CIDR rules, can be configured through user or device-managed settings. These properties are not supported in the server-managed `{% data variables.copilot.managed_setting_file %}` file. For host-rule configuration, validation, and platform limitations, see [Configuring network settings](/copilot/how-tos/cloud-and-local-sandboxes/configuring-local-sandbox-settings#configuring-network-settings).
+
+In {% data variables.copilot.copilot_cli_short %}, host rules and upstream proxies use a built-in local proxy. On macOS and Linux, the sandbox prevents programs from bypassing it with direct connections. On Windows, the sandbox relies on programs honoring the proxy settings. As a result, on Windows, these controls do not provide the same protection against direct connections.
 
 ### `sandbox.userPolicy.seatbelt`
 
 Configures macOS-specific Seatbelt options.
 
 * `keychainAccess`: `false` prevents sandboxed processes from accessing the macOS Keychain.
-
-### Minimum client version enforcement for `sandbox`
-
-When you add the `sandbox` key to managed settings, {% data variables.product.prodname_copilot_short %} enforces a local sandbox for all users in scope. These users must use a {% data variables.product.prodname_copilot_short %} client version that supports local sandbox. Until a user updates their client to at least the minimum supported version, their connections to {% data variables.product.prodname_copilot_short %} are blocked.
-
-| Supported client | Minimum version |
-| --- | --- |
-| VS Code | [1.141.0](https://github.com/microsoft/vscode/releases/tag/1.141.0) |
-| Copilot CLI | [1.0.93](https://github.com/github/copilot-cli/releases/tag/v1.0.93) |
-| GitHub Copilot App | [1.1.26](https://github.com/github/app/releases#release-v1.1.26) |

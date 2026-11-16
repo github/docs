@@ -32,7 +32,7 @@ For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-c
 
 ## Delegate tasks to {% data variables.copilot.copilot_cloud_agent %}
 
-You can delegate a task to {% data variables.copilot.copilot_cloud_agent %} on {% data variables.product.github %} by using the `/delegate`slash command, followed by a prompt:
+You can delegate a task to {% data variables.copilot.copilot_cloud_agent %} on {% data variables.product.github %} by using the `/delegate` slash command, followed by a prompt:
 
 ```shell
 /delegate complete the API integration tests and fix any failing edge cases
@@ -45,6 +45,12 @@ Alternatively, prefix a prompt with `&` to delegate it:
 ```
 
 {% data variables.product.prodname_copilot_short %} will ask to commit any of your unstaged changes as a checkpoint in a new branch it creates. {% data variables.copilot.copilot_cloud_agent %} will open a draft pull request, make changes in the background, and request a review from you.
+
+By default, the pull request targets your current branch. To target a different branch, add `--base BRANCH-NAME` after `/delegate`. For example:
+
+```shell
+/delegate --base main complete the API integration tests and fix any failing edge cases
+```
 
 {% data variables.product.prodname_copilot_short %} will provide a link to the pull request and agent session on {% data variables.product.github %} once the session begins.
 
