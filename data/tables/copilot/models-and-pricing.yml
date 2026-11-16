@@ -87,28 +87,6 @@
   output: $30.00
   cache_write: $10.00
 
-- model: GPT-5.6 Terra
-  provider: openai
-  release_status: GA
-  category: Versatile
-  threshold: '≤ 272K'
-  tier: Default
-  input: $2.00
-  cached_input: $0.20
-  output: $12.00
-  cache_write: $2.50
-
-- model: GPT-5.6 Terra
-  provider: openai
-  release_status: GA
-  category: Versatile
-  threshold: '> 272K'
-  tier: 'Long context'
-  input: $4.00
-  cached_input: $0.40
-  output: $18.00
-  cache_write: $5.00
-
 - model: GPT-6 Astra
   provider: openai
   release_status: GA
@@ -270,15 +248,6 @@
   cache_write: $3.75
 
 - model: Claude Opus 4.8
-  provider: anthropic
-  release_status: GA
-  category: Powerful
-  input: $5.00
-  cached_input: $0.50
-  output: $25.00
-  cache_write: $6.25
-
-- model: Claude Opus 5
   provider: anthropic
   release_status: GA
   category: Powerful

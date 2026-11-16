@@ -282,9 +282,9 @@
     "generalAvailabilityDate": "2026-09-08"
   },
   "3.23": {
-    "releaseDate": "2026-11-17",
+    "releaseDate": "2026-11-19",
     "deprecationDate": "2027-12-08",
-    "releaseCandidateDate": "2026-11-17",
+    "releaseCandidateDate": "2026-11-19",
     "generalAvailabilityDate": "2026-12-08"
   },
   "3.24": {
