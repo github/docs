@@ -9,5 +9,6 @@ versions:
 children:
     - /slack
     - /teams
+    - /using-github-event-streams
 contentType: how-tos
 ---

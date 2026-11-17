@@ -29,4 +29,5 @@ For more information, see [AUTOTITLE](/repositories/viewing-activity-and-data-fo
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.accessing-repository-graphs %}
+1. In the left sidebar, click **Pulse**.
 1. Optionally, to choose a different time period, select the **Period** dropdown menu in the upper-right corner of the Pulse overview. By default, Pulse shows the last seven days of repository activity.

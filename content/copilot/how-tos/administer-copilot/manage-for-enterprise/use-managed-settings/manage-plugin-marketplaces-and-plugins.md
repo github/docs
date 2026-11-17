@@ -10,6 +10,7 @@ contentType: how-tos
 category:
   - Configure Copilot
   - Manage Copilot for a team
+  - Build agents at enterprise scale
 ---
 
 Use the `{% data variables.copilot.managed_setting_file %}` file to make plugin marketplaces available and require or block specific plugins. For an overview of enterprise managed settings, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/use-managed-settings/get-started).

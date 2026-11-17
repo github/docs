@@ -88,9 +88,13 @@ With review effort levels, you can choose the level of thoroughness of {% data v
 * **Balanced**: Deeper analysis of complex logic, security-sensitive code, and cross-service changes, using a higher-reasoning model.
 * **Max**: The highest-effort review. Uses multiple high-reasoning models for the most intensive review of pull requests that require the most scrutiny.
 
+Alternatively, you can select **Adaptive** to let {% data variables.product.prodname_copilot_short %} choose Lite, Balanced, or Max based on the complexity and risk of your pull request. Adaptive never picks a level above the maximum review effort level set for your enterprise, organization, or repository. Unless you set a different default, the review effort level defaults to Balanced, not Adaptive.
+
+> [!NOTE] Adaptive is currently in {% data variables.release-phases.public_preview %} and subject to change.
+
 Higher effort levels consume more {% data variables.product.prodname_ai_credits_short %}. As a rough guide, a review costs approximately {% data variables.copilot.copilot_code_review_lite_average_cost %} on average with Lite, {% data variables.copilot.copilot_code_review_balanced_average_cost %} with Balanced, and {% data variables.copilot.copilot_code_review_max_average_cost %} with Max. Actual costs vary by review, depending on factors such as pull request size. For estimated ranges, see [AUTOTITLE](/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/code-review#estimated-consumption).
 
-You can select {% data variables.product.prodname_copilot_short %} review effort in the pull request before you request a review from {% data variables.product.prodname_copilot_short %}, under the **Reviewers** section where {% data variables.product.prodname_copilot_short %} appears as a reviewer. You can also set a default {% data variables.product.prodname_copilot_short %} review effort in your settings. Organization owners and repository administrators can set a default {% data variables.product.prodname_copilot_short %} review effort for automatic reviews.
+You can select {% data variables.product.prodname_copilot_short %} review effort in the pull request before you request a review from {% data variables.product.prodname_copilot_short %}, under the **Reviewers** section where {% data variables.product.prodname_copilot_short %} appears as a reviewer. You can also set a default {% data variables.product.prodname_copilot_short %} review effort, or set Adaptive as the default, in your settings. Organization owners and repository administrators can set a default {% data variables.product.prodname_copilot_short %} review effort for automatic reviews.
 
 For more information, see [AUTOTITLE](/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/code-review#review-effort-level).
 
@@ -231,7 +235,7 @@ These instructions explain how to use {% data variables.copilot.copilot_code-rev
 
 ## Prerequisite
 
-To use {% data variables.copilot.copilot_code-review_short %} in Xcode, you must use version 0.41.0 or later of the {% data variables.copilot.copilot_chat %} extension. Download the latest release from the [`github/CopilotForXcode` repository](https://github.com/github/CopilotForXcode/releases/latest).
+To use {% data variables.copilot.copilot_code-review_short %} in Xcode, you must use version 0.41.0 or later of the {% data variables.copilot.copilot_chat %} extension. Download the latest release from the [`github/CopilotForXcode` repository](https://github.com/github/CopilotForXcode/releases/latest?utm_source=docs-cta-xcode-release&utm_medium=docs&utm_campaign=ignite-nov-2026).
 
 ## Using {% data variables.copilot.copilot_code-review_short %}
 

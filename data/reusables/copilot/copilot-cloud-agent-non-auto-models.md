@@ -17,3 +17,5 @@
 * {% data variables.copilot.grok_46 %}
 * {% data variables.copilot.grok_47 %}
 * {% data variables.copilot.mai_code_1_1_flash %}
+* {% data variables.copilot.mai_code_2 %}
+* {% data variables.copilot.mai_code_2_flash %}

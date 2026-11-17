@@ -3532,7 +3532,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Gets the immutable releases policy for repositories in an organization.</p>\n<p>OAuth tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Gets the immutable releases policy for repositories in an organization.</p>\n<p>OAuth tokens and personal access tokens (classic) need the <code>admin:org</code> or <code>repo</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -3629,7 +3629,7 @@
           "description": "<p>An array of repository ids for which immutable releases enforcement should be applied. You can only provide a list of repository ids when the <code>enforced_repositories</code> is set to <code>selected</code>. You can add and remove individual repositories using the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/orgs/orgs#enable-a-selected-repository-for-immutable-releases-in-an-organization\">Enable a selected repository for immutable releases in an organization</a> and <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/orgs/orgs#disable-a-selected-repository-for-immutable-releases-in-an-organization\">Disable a selected repository for immutable releases in an organization</a> endpoints.</p>"
         }
       ],
-      "descriptionHTML": "<p>Sets the immutable releases policy for repositories in an organization.</p>\n<p>OAuth tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Sets the immutable releases policy for repositories in an organization.</p>\n<p>OAuth tokens and personal access tokens (classic) need the <code>admin:org</code> or <code>repo</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -3704,7 +3704,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>List all of the repositories that have been selected for immutable releases enforcement in an organization.</p>\n<p>OAuth tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>List all of the repositories that have been selected for immutable releases enforcement in an organization.</p>\n<p>OAuth tokens and personal access tokens (classic) need the <code>admin:org</code> or <code>repo</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -4576,7 +4576,7 @@
           "isRequired": true
         }
       ],
-      "descriptionHTML": "<p>Replaces all repositories that have been selected for immutable releases enforcement in an organization. To use this endpoint, the organization immutable releases policy for <code>enforced_repositories</code> must be configured to <code>selected</code>.</p>\n<p>OAuth tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Replaces all repositories that have been selected for immutable releases enforcement in an organization. To use this endpoint, the organization immutable releases policy for <code>enforced_repositories</code> must be configured to <code>selected</code>.</p>\n<p>OAuth tokens and personal access tokens (classic) need the <code>admin:org</code> or <code>repo</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -4645,7 +4645,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Adds a repository to the list of selected repositories that are enforced for immutable releases in an organization. To use this endpoint, the organization immutable releases policy for <code>enforced_repositories</code> must be configured to <code>selected</code>.</p>\n<p>OAuth tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Adds a repository to the list of selected repositories that are enforced for immutable releases in an organization. To use this endpoint, the organization immutable releases policy for <code>enforced_repositories</code> must be configured to <code>selected</code>.</p>\n<p>OAuth tokens and personal access tokens (classic) need the <code>admin:org</code> or <code>repo</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -4709,7 +4709,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Removes a repository from the list of selected repositories that are enforced for immutable releases in an organization. To use this endpoint, the organization immutable releases policy for <code>enforced_repositories</code> must be configured to <code>selected</code>.</p>\n<p>OAuth tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Removes a repository from the list of selected repositories that are enforced for immutable releases in an organization. To use this endpoint, the organization immutable releases policy for <code>enforced_repositories</code> must be configured to <code>selected</code>.</p>\n<p>OAuth tokens and personal access tokens (classic) need the <code>admin:org</code> or <code>repo</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -6555,7 +6555,7 @@
           "default": true
         }
       ],
-      "descriptionHTML": "<p>Create or update deployment records for an artifact associated\nwith an organization.\nThis endpoint allows you to record information about a specific\nartifact, such as its name, digest, environments, cluster, and\ndeployment.\nThe deployment name has to be uniqe within a cluster (i.e a\ncombination of logical, physical environment and cluster) as it\nidentifies unique deployment.\nMultiple requests for the same combination of logical, physical\nenvironment, cluster and deployment name will only create one\nrecord, successive request will update the existing record.\nThis allows for a stable tracking of a deployment where the actual\ndeployed artifact can change over time.</p>",
+      "descriptionHTML": "<p>Create or update deployment records for an artifact associated\nwith an organization.\nThis endpoint allows you to record information about a specific\nartifact, such as its name, digest, environments, cluster, and\ndeployment.\nThe deployment name has to be unique within a cluster (i.e a\ncombination of logical, physical environment and cluster) as it\nidentifies unique deployment.\nMultiple requests for the same combination of logical, physical\nenvironment, cluster and deployment name will only create one\nrecord, successive request will update the existing record.\nThis allows for a stable tracking of a deployment where the actual\ndeployed artifact can change over time.</p>",
       "codeExamples": [
         {
           "request": {
@@ -8507,7 +8507,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>List repositories owned by the provided organization that have created at least one attested artifact\nResults will be sorted in ascending order by repository ID</p>",
+      "descriptionHTML": "<p>List repositories owned by the provided organization that have created at least one attested artifact.\nResults will be sorted in ascending order by repository ID.</p>",
       "codeExamples": [
         {
           "request": {
@@ -14410,6 +14410,7 @@
                 "name": "Text field",
                 "description": "DRI",
                 "data_type": "text",
+                "visibility": "all",
                 "created_at": "2024-12-11T14:39:09Z",
                 "updated_at": "2024-12-11T14:39:09Z"
               },
@@ -14419,21 +14420,34 @@
                 "name": "Priority",
                 "description": "Level of importance",
                 "data_type": "single_select",
+                "visibility": "all",
                 "options": [
                   {
                     "id": 1,
                     "name": "High",
-                    "color": "red"
+                    "description": "High priority",
+                    "color": "red",
+                    "priority": 1,
+                    "created_at": "2024-12-11T14:39:09Z",
+                    "updated_at": "2024-12-11T14:39:09Z"
                   },
                   {
                     "id": 2,
                     "name": "Medium",
-                    "color": "yellow"
+                    "description": "Medium priority",
+                    "color": "yellow",
+                    "priority": 2,
+                    "created_at": "2024-12-11T14:39:09Z",
+                    "updated_at": "2024-12-11T14:39:09Z"
                   },
                   {
                     "id": 3,
                     "name": "Low",
-                    "color": "green"
+                    "description": "Low priority",
+                    "color": "green",
+                    "priority": 3,
+                    "created_at": "2024-12-11T14:39:09Z",
+                    "updated_at": "2024-12-11T14:39:09Z"
                   }
                 ],
                 "created_at": "2024-12-11T14:39:09Z",
@@ -14445,21 +14459,34 @@
                 "name": "Categories",
                 "description": "Issue categories",
                 "data_type": "multi_select",
+                "visibility": "all",
                 "options": [
                   {
                     "id": 4,
                     "name": "Frontend",
-                    "color": "blue"
+                    "description": null,
+                    "color": "blue",
+                    "priority": 1,
+                    "created_at": "2024-12-11T14:39:09Z",
+                    "updated_at": "2024-12-11T14:39:09Z"
                   },
                   {
                     "id": 5,
                     "name": "Backend",
-                    "color": "green"
+                    "description": null,
+                    "color": "green",
+                    "priority": 2,
+                    "created_at": "2024-12-11T14:39:09Z",
+                    "updated_at": "2024-12-11T14:39:09Z"
                   },
                   {
                     "id": 6,
                     "name": "Infrastructure",
-                    "color": "purple"
+                    "description": null,
+                    "color": "purple",
+                    "priority": 3,
+                    "created_at": "2024-12-11T14:39:09Z",
+                    "updated_at": "2024-12-11T14:39:09Z"
                   }
                 ],
                 "created_at": "2024-12-11T14:39:09Z",
@@ -14730,21 +14757,25 @@
               "name": "Priority",
               "description": "Level of importance for the issue",
               "data_type": "single_select",
+              "visibility": "all",
               "options": [
                 {
                   "name": "High",
                   "description": "High priority",
-                  "color": "red"
+                  "color": "red",
+                  "priority": 1
                 },
                 {
                   "name": "Medium",
                   "description": "Medium priority",
-                  "color": "yellow"
+                  "color": "yellow",
+                  "priority": 2
                 },
                 {
                   "name": "Low",
                   "description": "Low priority",
-                  "color": "green"
+                  "color": "green",
+                  "priority": 3
                 }
               ]
             },
@@ -14762,6 +14793,7 @@
               "name": "Priority",
               "description": "Level of importance for the issue",
               "data_type": "single_select",
+              "visibility": "all",
               "options": [
                 {
                   "id": 1,
@@ -15074,6 +15106,7 @@
               "name": "Priority",
               "description": "Level of importance for the issue",
               "data_type": "single_select",
+              "visibility": "all",
               "options": [
                 {
                   "id": 1,
@@ -15378,16 +15411,20 @@
                 "node_id": "IT_kwDNAd3NAZo",
                 "name": "Task",
                 "description": "A specific piece of work",
+                "color": "gray",
                 "created_at": "2024-12-11T14:39:09Z",
-                "updated_at": "2024-12-11T14:39:09Z"
+                "updated_at": "2024-12-11T14:39:09Z",
+                "is_enabled": true
               },
               {
                 "id": 411,
                 "node_id": "IT_kwDNAd3NAZs",
                 "name": "Bug",
                 "description": "An unexpected problem or behavior",
+                "color": "red",
                 "created_at": "2024-12-11T14:39:09Z",
-                "updated_at": "2024-12-11T14:39:09Z"
+                "updated_at": "2024-12-11T14:39:09Z",
+                "is_enabled": true
               }
             ],
             "schema": {
@@ -15564,8 +15601,10 @@
               "node_id": "IT_kwDNAd3NAZo",
               "name": "Task",
               "description": "A specific piece of work",
+              "color": "gray",
               "created_at": "2024-12-11T14:39:09Z",
-              "updated_at": "2024-12-11T14:39:09Z"
+              "updated_at": "2024-12-11T14:39:09Z",
+              "is_enabled": true
             },
             "schema": {
               "title": "Issue Type",
@@ -15752,8 +15791,10 @@
               "node_id": "IT_kwDNAd3NAZo",
               "name": "Task",
               "description": "A specific piece of work",
+              "color": "gray",
               "created_at": "2024-12-11T14:39:09Z",
-              "updated_at": "2024-12-11T14:39:09Z"
+              "updated_at": "2024-12-11T14:39:09Z",
+              "is_enabled": true
             },
             "schema": {
               "title": "Issue Type",

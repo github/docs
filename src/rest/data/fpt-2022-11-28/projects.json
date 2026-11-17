@@ -3348,6 +3348,33 @@
                           "description": "State of the issue; either 'open' or 'closed'",
                           "type": "string"
                         },
+                        "status": {
+                          "description": "The status of the issue, or `null` if it has none. Issue statuses are in preview and only available to accounts enrolled in the preview.",
+                          "type": [
+                            "object",
+                            "null"
+                          ],
+                          "properties": {
+                            "id": {
+                              "description": "The stable identifier of the planning status.",
+                              "type": "integer",
+                              "format": "int64"
+                            },
+                            "name": {
+                              "description": "The display name of the planning status, which may change in the future.",
+                              "type": "string"
+                            },
+                            "category": {
+                              "description": "A stable identifier for the category, such as `backlog`, `planned`, `started`, `completed`, `not_planned` or `duplicate`. Clients should expect new keys to be added.",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "name",
+                            "category"
+                          ]
+                        },
                         "state_reason": {
                           "description": "The reason for the current state",
                           "type": [
@@ -9915,6 +9942,33 @@
                         "state": {
                           "description": "State of the issue; either 'open' or 'closed'",
                           "type": "string"
+                        },
+                        "status": {
+                          "description": "The status of the issue, or `null` if it has none. Issue statuses are in preview and only available to accounts enrolled in the preview.",
+                          "type": [
+                            "object",
+                            "null"
+                          ],
+                          "properties": {
+                            "id": {
+                              "description": "The stable identifier of the planning status.",
+                              "type": "integer",
+                              "format": "int64"
+                            },
+                            "name": {
+                              "description": "The display name of the planning status, which may change in the future.",
+                              "type": "string"
+                            },
+                            "category": {
+                              "description": "A stable identifier for the category, such as `backlog`, `planned`, `started`, `completed`, `not_planned` or `duplicate`. Clients should expect new keys to be added.",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "name",
+                            "category"
+                          ]
                         },
                         "state_reason": {
                           "description": "The reason for the current state",
@@ -16559,6 +16613,33 @@
                           "description": "State of the issue; either 'open' or 'closed'",
                           "type": "string"
                         },
+                        "status": {
+                          "description": "The status of the issue, or `null` if it has none. Issue statuses are in preview and only available to accounts enrolled in the preview.",
+                          "type": [
+                            "object",
+                            "null"
+                          ],
+                          "properties": {
+                            "id": {
+                              "description": "The stable identifier of the planning status.",
+                              "type": "integer",
+                              "format": "int64"
+                            },
+                            "name": {
+                              "description": "The display name of the planning status, which may change in the future.",
+                              "type": "string"
+                            },
+                            "category": {
+                              "description": "A stable identifier for the category, such as `backlog`, `planned`, `started`, `completed`, `not_planned` or `duplicate`. Clients should expect new keys to be added.",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "name",
+                            "category"
+                          ]
+                        },
                         "state_reason": {
                           "description": "The reason for the current state",
                           "type": [
@@ -23126,6 +23207,33 @@
                         "state": {
                           "description": "State of the issue; either 'open' or 'closed'",
                           "type": "string"
+                        },
+                        "status": {
+                          "description": "The status of the issue, or `null` if it has none. Issue statuses are in preview and only available to accounts enrolled in the preview.",
+                          "type": [
+                            "object",
+                            "null"
+                          ],
+                          "properties": {
+                            "id": {
+                              "description": "The stable identifier of the planning status.",
+                              "type": "integer",
+                              "format": "int64"
+                            },
+                            "name": {
+                              "description": "The display name of the planning status, which may change in the future.",
+                              "type": "string"
+                            },
+                            "category": {
+                              "description": "A stable identifier for the category, such as `backlog`, `planned`, `started`, `completed`, `not_planned` or `duplicate`. Clients should expect new keys to be added.",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "name",
+                            "category"
+                          ]
                         },
                         "state_reason": {
                           "description": "The reason for the current state",
@@ -35088,6 +35196,33 @@
                           "description": "State of the issue; either 'open' or 'closed'",
                           "type": "string"
                         },
+                        "status": {
+                          "description": "The status of the issue, or `null` if it has none. Issue statuses are in preview and only available to accounts enrolled in the preview.",
+                          "type": [
+                            "object",
+                            "null"
+                          ],
+                          "properties": {
+                            "id": {
+                              "description": "The stable identifier of the planning status.",
+                              "type": "integer",
+                              "format": "int64"
+                            },
+                            "name": {
+                              "description": "The display name of the planning status, which may change in the future.",
+                              "type": "string"
+                            },
+                            "category": {
+                              "description": "A stable identifier for the category, such as `backlog`, `planned`, `started`, `completed`, `not_planned` or `duplicate`. Clients should expect new keys to be added.",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "name",
+                            "category"
+                          ]
+                        },
                         "state_reason": {
                           "description": "The reason for the current state",
                           "type": [
@@ -41725,6 +41860,33 @@
                           "description": "State of the issue; either 'open' or 'closed'",
                           "type": "string"
                         },
+                        "status": {
+                          "description": "The status of the issue, or `null` if it has none. Issue statuses are in preview and only available to accounts enrolled in the preview.",
+                          "type": [
+                            "object",
+                            "null"
+                          ],
+                          "properties": {
+                            "id": {
+                              "description": "The stable identifier of the planning status.",
+                              "type": "integer",
+                              "format": "int64"
+                            },
+                            "name": {
+                              "description": "The display name of the planning status, which may change in the future.",
+                              "type": "string"
+                            },
+                            "category": {
+                              "description": "A stable identifier for the category, such as `backlog`, `planned`, `started`, `completed`, `not_planned` or `duplicate`. Clients should expect new keys to be added.",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "name",
+                            "category"
+                          ]
+                        },
                         "state_reason": {
                           "description": "The reason for the current state",
                           "type": [
@@ -48285,6 +48447,33 @@
                         "state": {
                           "description": "State of the issue; either 'open' or 'closed'",
                           "type": "string"
+                        },
+                        "status": {
+                          "description": "The status of the issue, or `null` if it has none. Issue statuses are in preview and only available to accounts enrolled in the preview.",
+                          "type": [
+                            "object",
+                            "null"
+                          ],
+                          "properties": {
+                            "id": {
+                              "description": "The stable identifier of the planning status.",
+                              "type": "integer",
+                              "format": "int64"
+                            },
+                            "name": {
+                              "description": "The display name of the planning status, which may change in the future.",
+                              "type": "string"
+                            },
+                            "category": {
+                              "description": "A stable identifier for the category, such as `backlog`, `planned`, `started`, `completed`, `not_planned` or `duplicate`. Clients should expect new keys to be added.",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "name",
+                            "category"
+                          ]
                         },
                         "state_reason": {
                           "description": "The reason for the current state",
@@ -54924,6 +55113,33 @@
                         "state": {
                           "description": "State of the issue; either 'open' or 'closed'",
                           "type": "string"
+                        },
+                        "status": {
+                          "description": "The status of the issue, or `null` if it has none. Issue statuses are in preview and only available to accounts enrolled in the preview.",
+                          "type": [
+                            "object",
+                            "null"
+                          ],
+                          "properties": {
+                            "id": {
+                              "description": "The stable identifier of the planning status.",
+                              "type": "integer",
+                              "format": "int64"
+                            },
+                            "name": {
+                              "description": "The display name of the planning status, which may change in the future.",
+                              "type": "string"
+                            },
+                            "category": {
+                              "description": "A stable identifier for the category, such as `backlog`, `planned`, `started`, `completed`, `not_planned` or `duplicate`. Clients should expect new keys to be added.",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "name",
+                            "category"
+                          ]
                         },
                         "state_reason": {
                           "description": "The reason for the current state",
@@ -69765,6 +69981,33 @@
                           "description": "State of the issue; either 'open' or 'closed'",
                           "type": "string"
                         },
+                        "status": {
+                          "description": "The status of the issue, or `null` if it has none. Issue statuses are in preview and only available to accounts enrolled in the preview.",
+                          "type": [
+                            "object",
+                            "null"
+                          ],
+                          "properties": {
+                            "id": {
+                              "description": "The stable identifier of the planning status.",
+                              "type": "integer",
+                              "format": "int64"
+                            },
+                            "name": {
+                              "description": "The display name of the planning status, which may change in the future.",
+                              "type": "string"
+                            },
+                            "category": {
+                              "description": "A stable identifier for the category, such as `backlog`, `planned`, `started`, `completed`, `not_planned` or `duplicate`. Clients should expect new keys to be added.",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "name",
+                            "category"
+                          ]
+                        },
                         "state_reason": {
                           "description": "The reason for the current state",
                           "type": [
@@ -76402,6 +76645,33 @@
                           "description": "State of the issue; either 'open' or 'closed'",
                           "type": "string"
                         },
+                        "status": {
+                          "description": "The status of the issue, or `null` if it has none. Issue statuses are in preview and only available to accounts enrolled in the preview.",
+                          "type": [
+                            "object",
+                            "null"
+                          ],
+                          "properties": {
+                            "id": {
+                              "description": "The stable identifier of the planning status.",
+                              "type": "integer",
+                              "format": "int64"
+                            },
+                            "name": {
+                              "description": "The display name of the planning status, which may change in the future.",
+                              "type": "string"
+                            },
+                            "category": {
+                              "description": "A stable identifier for the category, such as `backlog`, `planned`, `started`, `completed`, `not_planned` or `duplicate`. Clients should expect new keys to be added.",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "name",
+                            "category"
+                          ]
+                        },
                         "state_reason": {
                           "description": "The reason for the current state",
                           "type": [
@@ -82962,6 +83232,33 @@
                         "state": {
                           "description": "State of the issue; either 'open' or 'closed'",
                           "type": "string"
+                        },
+                        "status": {
+                          "description": "The status of the issue, or `null` if it has none. Issue statuses are in preview and only available to accounts enrolled in the preview.",
+                          "type": [
+                            "object",
+                            "null"
+                          ],
+                          "properties": {
+                            "id": {
+                              "description": "The stable identifier of the planning status.",
+                              "type": "integer",
+                              "format": "int64"
+                            },
+                            "name": {
+                              "description": "The display name of the planning status, which may change in the future.",
+                              "type": "string"
+                            },
+                            "category": {
+                              "description": "A stable identifier for the category, such as `backlog`, `planned`, `started`, `completed`, `not_planned` or `duplicate`. Clients should expect new keys to be added.",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "name",
+                            "category"
+                          ]
                         },
                         "state_reason": {
                           "description": "The reason for the current state",
@@ -89601,6 +89898,33 @@
                         "state": {
                           "description": "State of the issue; either 'open' or 'closed'",
                           "type": "string"
+                        },
+                        "status": {
+                          "description": "The status of the issue, or `null` if it has none. Issue statuses are in preview and only available to accounts enrolled in the preview.",
+                          "type": [
+                            "object",
+                            "null"
+                          ],
+                          "properties": {
+                            "id": {
+                              "description": "The stable identifier of the planning status.",
+                              "type": "integer",
+                              "format": "int64"
+                            },
+                            "name": {
+                              "description": "The display name of the planning status, which may change in the future.",
+                              "type": "string"
+                            },
+                            "category": {
+                              "description": "A stable identifier for the category, such as `backlog`, `planned`, `started`, `completed`, `not_planned` or `duplicate`. Clients should expect new keys to be added.",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "name",
+                            "category"
+                          ]
                         },
                         "state_reason": {
                           "description": "The reason for the current state",

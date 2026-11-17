@@ -121,6 +121,13 @@ The following sections provide examples of tasks you can complete with {% data v
 
   `You said: "The application is now running on http://localhost:3002 and is fully functional!" but when I browse to that URL I get "This site can't be reached"`
 
+### Browser use
+
+> [!NOTE]
+> {% data reusables.copilot.browser-use-preview-note %}
+
+You can enable browser use to let {% data variables.product.prodname_copilot_short %} interact with websites as part of a task. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/browser-use).
+
 ### Computer use
 
 In local sessions on macOS and Windows, you can enable computer use to let {% data variables.product.prodname_copilot_short %} interact with desktop applications. This capability is useful for workflows in legacy and GUI-only software that do not provide an API, command-line interface, or MCP integration. For more information, see [AUTOTITLE](/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/computer-use).
@@ -365,6 +372,23 @@ You can configure {% data variables.copilot.copilot_cli_short %} to use your own
 Models used with {% data variables.copilot.copilot_cli_short %} must support **tool calling** (function calling) and **streaming**. If the model does not support these capabilities, {% data variables.copilot.copilot_cli_short %} will return an error. For best results, the model should have a context window of at least 128k tokens.
 
 For details on how to configure your model provider, run `copilot help providers` in your terminal.
+
+### Using Microsoft 365 Copilot models
+
+> [!NOTE]
+> Using Microsoft 365 Copilot models with {% data variables.copilot.copilot_cli_short %} is in {% data variables.release-phases.public_preview %} and subject to change.
+
+You can configure {% data variables.copilot.copilot_cli_short %} to use models available through your Microsoft 365 Copilot license. To access these models, your administrator must enable Microsoft 365 access for {% data variables.copilot.copilot_cli_short %}, and you must sign in with Microsoft Entra ID. See [AUTOTITLE](/copilot/how-tos/copilot-cli/set-up-copilot-cli/authenticate-copilot-cli#authenticating-with-microsoft-entra).
+
+When you select one of these models, prompts and context submitted for AI inference are sent to Microsoft 365 Copilot services instead of {% data variables.product.github %}, and usage is applied to your Microsoft 365 Copilot license. Your organization's Microsoft 365 Copilot policies and governance controls apply, and your use of those services is governed by your organization's applicable Microsoft agreements, including the Microsoft Product Terms and Data Protection Addendum.
+
+{% data variables.copilot.copilot_cli_short %} runs locally on your device. Commands and file operations execute locally, and conversation history and generated files may also be stored on your device. Microsoft 365 service-side retention, legal hold, and eDiscovery policies don't apply to these local copies.
+
+{% data variables.copilot.copilot_cli_short %} keeps Microsoft 365 Copilot and {% data variables.product.prodname_copilot %} inference sessions separate, even when you have access to both services. Each session uses only one inference service at a time. If you switch from Microsoft 365 Copilot to {% data variables.product.prodname_copilot %}, {% data variables.copilot.copilot_cli_short %} starts a new session instead of continuing the Microsoft 365 conversation with a {% data variables.product.prodname_copilot %} model. As a result, the existing Microsoft 365 conversation context isn't carried into {% data variables.product.prodname_copilot %} inference through the switch.
+
+Session separation applies to AI inference context. It doesn't isolate your device or prevent connected tools and commands from accessing files or communicating with other services. Those activities are separate from the inference session and remain subject to the permissions and controls that apply to the device, tool, and destination service.
+
+When you sign in to {% data variables.copilot.copilot_cli_short %} with your Microsoft 365 Copilot account, you also gain access to the [Work IQ MCP server](https://learn.microsoft.com/microsoft-365/copilot/extensibility/work-iq/mcp/overview), which allows Copilot to use your Microsoft 365 work data as context. Your Work IQ usage will be attributed to the Microsoft Copilot **Code** spending policy for [usage-based billing](https://learn.microsoft.com/microsoft-365/copilot/usage-based-billing-overview-copilot-credits).
 
 ## Use {% data variables.copilot.copilot_cli_short %} via ACP
 

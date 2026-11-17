@@ -94,3 +94,10 @@
   chat: true
   cli: true
   app: true
+
+# TODOCS: Confirm the Auto surfaces for MAI Code 2 Flash. The registry has no GitHub Copilot app flag for this model.
+- name: MAI Code 2 Flash
+  cloud_agent: true
+  chat: true
+  cli: true
+  app: true

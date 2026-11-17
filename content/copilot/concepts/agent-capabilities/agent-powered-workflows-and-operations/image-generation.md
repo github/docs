@@ -22,6 +22,7 @@ Image generation is available in:
 * {% data variables.product.prodname_vscode %}
 * {% data variables.copilot.github_copilot_app %}
 * {% data variables.copilot.copilot_cli %}
+* {% data variables.copilot.copilot_in_the_cloud_short %} on {% data variables.product.prodname_dotcom_the_website %}
 
 Image generation is not available with {% data variables.copilot.copilot_free_short %} or {% data variables.copilot.copilot_student_short %}.
 

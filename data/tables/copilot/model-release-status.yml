@@ -120,6 +120,14 @@
   provider: 'Microsoft'
   release_status: 'GA'
 
+- name: 'MAI Code 2'
+  provider: 'Microsoft'
+  release_status: 'GA'
+
+- name: 'MAI Code 2 Flash'
+  provider: 'Microsoft'
+  release_status: 'GA'
+
 # Open-weight models
 - name: 'Kimi K3'
   provider: 'Moonshot AI'

@@ -9,6 +9,7 @@ versions:
 contentType: concepts
 category:
   - Learn about Copilot
+  - Build agents at enterprise scale
 ---
 
 ## Overview
@@ -89,6 +90,7 @@ As an alternative to {% data variables.copilot.copilot_fusion_short %}, you can 
 * {% data variables.copilot.copilot_cli_short %}
 * {% data variables.copilot.github_copilot_app %}
 * JetBrains IDEs
+* {% data variables.copilot.copilot_in_the_cloud_short %} on {% data variables.product.prodname_dotcom_the_website %}
 
 ### {% data variables.copilot.copilot_fusion_short %} effort level availability by {% data variables.product.prodname_copilot_short %} plan
 

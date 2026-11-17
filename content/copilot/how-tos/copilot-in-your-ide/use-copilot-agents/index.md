@@ -9,7 +9,7 @@ children:
   - /use-plan-mode
   - /use-subagents
   - /use-custom-agents
+  - /browser-use
   - /use-cloud-agent-in-your-ide
 contentType: how-tos
 ---
-

@@ -1,48 +1,6 @@
 {
   "actions": [
     {
-      "slug": "get-github-actions-cache-retention-limit-for-an-enterprise",
-      "subcategory": "cache",
-      "verb": "get",
-      "requestPath": "/enterprises/{enterprise}/actions/cache/retention-limit"
-    },
-    {
-      "slug": "set-github-actions-cache-retention-limit-for-an-enterprise",
-      "subcategory": "cache",
-      "verb": "put",
-      "requestPath": "/enterprises/{enterprise}/actions/cache/retention-limit"
-    },
-    {
-      "slug": "get-github-actions-cache-storage-limit-for-an-enterprise",
-      "subcategory": "cache",
-      "verb": "get",
-      "requestPath": "/enterprises/{enterprise}/actions/cache/storage-limit"
-    },
-    {
-      "slug": "set-github-actions-cache-storage-limit-for-an-enterprise",
-      "subcategory": "cache",
-      "verb": "put",
-      "requestPath": "/enterprises/{enterprise}/actions/cache/storage-limit"
-    },
-    {
-      "slug": "list-oidc-custom-property-inclusions-for-an-enterprise",
-      "subcategory": "oidc",
-      "verb": "get",
-      "requestPath": "/enterprises/{enterprise}/actions/oidc/customization/properties/repo"
-    },
-    {
-      "slug": "create-an-oidc-custom-property-inclusion-for-an-enterprise",
-      "subcategory": "oidc",
-      "verb": "post",
-      "requestPath": "/enterprises/{enterprise}/actions/oidc/customization/properties/repo"
-    },
-    {
-      "slug": "delete-an-oidc-custom-property-inclusion-for-an-enterprise",
-      "subcategory": "oidc",
-      "verb": "delete",
-      "requestPath": "/enterprises/{enterprise}/actions/oidc/customization/properties/repo/{custom_property_name}"
-    },
-    {
       "slug": "get-github-actions-cache-retention-limit-for-an-organization",
       "subcategory": "cache",
       "verb": "get",
@@ -5955,6 +5913,12 @@
       "subcategory": "repos",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/languages"
+    },
+    {
+      "slug": "list-planning-statuses-for-a-repository",
+      "subcategory": "planning-statuses",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/planning-statuses"
     },
     {
       "slug": "check-if-private-vulnerability-reporting-is-enabled-for-a-repository",

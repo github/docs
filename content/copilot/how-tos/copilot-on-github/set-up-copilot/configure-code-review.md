@@ -39,7 +39,13 @@ A pull request can qualify for automatic review from several independent sources
 
 ## Configuring your {% data variables.product.prodname_copilot_short %} review effort
 
-You can choose the {% data variables.product.prodname_copilot_short %} review effort that {% data variables.copilot.copilot_code-review_short %} uses for the reviews you request. Your choice applies to automatic reviews and to reviews you request manually. For an overview of the levels and how {% data variables.product.prodname_copilot_short %} decides which to use, see [AUTOTITLE](/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/code-review#review-effort-level).
+You can choose the {% data variables.product.prodname_copilot_short %} review effort (**Lite**, **Balanced**, or **Max**) that {% data variables.copilot.copilot_code-review_short %} uses for the reviews you request. 
+
+Alternatively, you can set **Adaptive** and let {% data variables.product.prodname_copilot_short %} choose the review effort level based on the complexity and risk of your pull request. Adaptive never picks a level above the maximum review effort level set for your enterprise, organization, or repository. Unless you set a different default, the review effort level defaults to Balanced, not Adaptive.
+
+> [!NOTE] Adaptive is currently in {% data variables.release-phases.public_preview %} and subject to change.
+
+Your choice applies to automatic reviews and to reviews you request manually. For an overview of the levels and how {% data variables.product.prodname_copilot_short %} decides which to use, see [AUTOTITLE](/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/code-review#review-effort-level).
 
 {% data reusables.user-settings.copilot-settings %}
 {% data reusables.copilot.code-review.user-settings-sidebar %}
@@ -47,6 +53,7 @@ You can choose the {% data variables.product.prodname_copilot_short %} review ef
    * **Lite**: Standard review.
    * **Balanced**: Deeper analysis of complex logic, security-sensitive code, and cross-service changes.
    * **Max**: The highest-effort review. Uses multiple high-reasoning models for the most intensive review of pull requests that require the most scrutiny.
+   * **Adaptive**: Let {% data variables.product.prodname_copilot_short %} choose the review effort level based on the complexity and risk of your pull request.
 
 To return to the built-in default, select the **Default** option at the top of the menu. Until you choose a specific level, the control shows the built-in default, **Default (Balanced)**.
 
@@ -76,15 +83,22 @@ You can configure how {% data variables.copilot.copilot_code-review_short %} com
    * **Lite**: Standard review.
    * **Balanced**: Deeper analysis of complex logic, security-sensitive code, and cross-service changes.
    * **Max**: The highest-effort review. Uses multiple high-reasoning models for the most intensive review of pull requests that require the most scrutiny.
+   * **Adaptive**: Let {% data variables.product.prodname_copilot_short %} choose the review effort level based on the complexity and risk of your pull request.
 
    Balanced and Max reviews use more {% data variables.product.prodname_ai_credits_short %}, and may consume marginally more {% data variables.product.prodname_actions %} minutes. See [AUTOTITLE](/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/code-review#estimated-consumption).
-1. To limit the review effort available within the repository, next to "Maximum review effort," select **No limit**, **Lite**, **Balanced**, or **Max**.
+1. To limit the review effort available within the repository, next to "Maximum review effort," select **No limit**, **Lite**, **Balanced**, or **Max**. 
+   
+   If Adaptive is the default for the repository, {% data variables.product.prodname_copilot_short %} won't select a review effort level above the configured maximum.
 1. To choose whether {% data variables.product.prodname_copilot_short %} can approve pull requests in your repository, configure the settings under "Auto-approval."
    * **Allow {% data variables.product.prodname_copilot_short %} to approve pull requests**: Toggle on to let {% data variables.product.prodname_copilot_short %} submit approving reviews.
    * **Allow {% data variables.product.prodname_copilot_short %} approvals to count toward merge requirements**: Toggle on so {% data variables.product.prodname_copilot_short %} approvals can satisfy pull request approval requirements.
    * **File paths**: Optionally, limit which pull requests count toward merge requirements. Enter one file glob per line to count approvals only on pull requests where every changed file matches one of the globs. Leave blank to count approvals for all files. Up to 15 globs are supported.
 
 1. To prevent people from using an external {% data variables.product.prodname_copilot_short %} license to request reviews in this repository, enable **Block reviews requested with an external {% data variables.product.prodname_copilot_short %} license**. If this setting is enabled for your organization, you cannot turn it off for the repository. See [AUTOTITLE](/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/code-review#reviews-requested-with-an-external-copilot-license).
+1. To prevent {% data variables.product.prodname_copilot_short %} from searching public repositories for context during reviews, turn off **Search public repositories**. This setting is on by default.
+
+   > [!NOTE]
+   > {% data reusables.copilot.code-review.cross-repo-context-preview-note %}
 
 ## Configuring automatic code review for repositories in an organization
 
@@ -120,9 +134,12 @@ You can configure how {% data variables.copilot.copilot_code-review_short %} com
    * **Lite**: Standard review.
    * **Balanced**: Deeper analysis of complex logic, security-sensitive code, and cross-service changes.
    * **Max**: The highest-effort review. Uses multiple high-reasoning models for the most intensive review of pull requests that require the most scrutiny.
+   * **Adaptive**: Let {% data variables.product.prodname_copilot_short %} choose the review effort level based on the complexity and risk of your pull request.
 
     Balanced and Max reviews use more {% data variables.product.prodname_ai_credits_short %}, and may consume marginally more {% data variables.product.prodname_actions %} minutes. See [AUTOTITLE](/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/code-review#estimated-consumption).
-1. To limit the review effort available across the organization, next to "Maximum review effort," select **No limit**, **Lite**, **Balanced**, or **Max**. This maximum applies to every repository in the organization. Repositories can choose the selected effort level or a lower level, but cannot exceed the maximum.
+1. To limit the review effort available across the organization, next to "Maximum review effort," select **No limit**, **Lite**, **Balanced**, or **Max**. This maximum applies to every repository in the organization. Repositories can choose the selected effort level or a lower level, but cannot exceed the maximum. 
+   
+   If Adaptive is the default, {% data variables.product.prodname_copilot_short %} won't select a review effort level above the configured maximum.
 1. To choose how {% data variables.product.prodname_ai_credits_short %} usage associated with members who have paid {% data variables.product.prodname_copilot_short %} licenses is billed, next to **Choose how members with a {% data variables.product.prodname_copilot_short %} license are billed**, select an option.
    * **Member**: Use the member's {% data variables.product.prodname_copilot_short %} entitlement. If the member's quota is exhausted, the code review fails. This is the default.
    * **Organization**: Bill the organization.
@@ -156,8 +173,10 @@ You can configure how {% data variables.copilot.copilot_code-review_short %} com
 {% data reusables.enterprise-accounts.ai-controls-tab %}
 {% data reusables.enterprise-accounts.copilot-features-and-clients %}
 1. Next to "{% data variables.copilot.copilot_code-review_short %}", select a policy.
-1. To choose the depth of {% data variables.product.prodname_copilot_short %} code reviews, next to "Default review effort level," select the default effort level for your enterprise. Organizations and repositories can override this default.
-1. To limit the review effort available across the enterprise, next to "Maximum review effort," select **No limit**, **Lite**, **Balanced**, or **Max**. Organizations and repositories can choose the selected effort level or a lower level, but cannot exceed the maximum.
+1. To choose the depth of {% data variables.product.prodname_copilot_short %} code reviews, next to "Default review effort level," select the default effort level for your enterprise. Organizations and repositories can override this default. Alternatively, select **Adaptive** to let {% data variables.product.prodname_copilot_short %} choose the review effort level based on the risk and complexity of the pull request.
+1. To limit the review effort available across the enterprise, next to "Maximum review effort," select **No limit**, **Lite**, **Balanced**, or **Max**. Organizations and repositories can choose the selected effort level or a lower level, but cannot exceed the maximum. 
+
+   If Adaptive is the default, {% data variables.product.prodname_copilot_short %} won't select a review effort level above the configured maximum.
 1. To choose who is billed for {% data variables.copilot.copilot_code-review_short %} usage by members with a paid {% data variables.product.prodname_copilot_short %} license, next to "Choose how members with a {% data variables.product.prodname_copilot_short %} license are billed," select a policy.
    * **Member**: Use the member's {% data variables.product.prodname_copilot_short %} entitlement for organizations in the enterprise.
    * **Organization**: Bill the organization that owns the repository.

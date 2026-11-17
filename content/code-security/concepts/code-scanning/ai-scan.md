@@ -7,6 +7,7 @@ versions:
 contentType: concepts
 category:
   - Find and fix code vulnerabilities
+  - Move review earlier and make it smarter
 ---
 
 AI Scan is a set of AI-powered scanning capabilities that complement {% data variables.product.prodname_codeql %}. The capabilities differ in their scope:

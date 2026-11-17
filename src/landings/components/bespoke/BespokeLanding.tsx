@@ -12,11 +12,14 @@ export const BespokeLanding = () => {
     title,
     intro,
     heroImage,
+    heroImageDark,
     heroTheme,
     introLinks,
     tocItems,
     carousels,
     includedCategories,
+    keepArticleOrder,
+    showShareButton,
     landingType,
   } = useLandingContext()
   const { params, updateParams } = useMultiQueryParams({
@@ -32,8 +35,10 @@ export const BespokeLanding = () => {
           title={title}
           intro={intro}
           heroImage={heroImage}
+          heroImageDark={heroImageDark}
           heroTheme={heroTheme}
           introLinks={introLinks}
+          showShareButton={showShareButton}
         />
 
         {carousels &&
@@ -47,6 +52,7 @@ export const BespokeLanding = () => {
           <ArticleGrid
             tocItems={tocItems}
             includedCategories={includedCategories}
+            keepArticleOrder={keepArticleOrder}
             landingType={landingType}
             params={params}
             updateParams={updateParams}

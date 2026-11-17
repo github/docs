@@ -13,6 +13,10 @@ category:
   - Author and optimize with Copilot
 ---
 
+The procedures in this article describe issues and pull requests hosted on {% data variables.product.github %}.
+
+With the Azure DevOps integration enabled, you can also manage Azure DevOps pull requests in the app, address review feedback, and complete pull requests with {% data variables.copilot.agent_merge %}. For setup and the Azure DevOps workflow, see [AUTOTITLE](/copilot/how-tos/github-copilot-app/manage-azure-devops-work).
+
 ## Browsing your issues and pull requests
 
 Click **Issues** or **Pull requests** in the sidebar to browse the corresponding items from your repositories.

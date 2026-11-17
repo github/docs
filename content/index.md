@@ -87,6 +87,7 @@ children:
   - github-models
   - nonprofit
   - mos-diner
+  - ignite26
 childGroups:
   - name: Get started
     octicon: RocketIcon

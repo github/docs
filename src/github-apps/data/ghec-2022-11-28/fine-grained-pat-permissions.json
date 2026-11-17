@@ -8585,6 +8585,15 @@
         "requestPath": "/repos/{owner}/{repo}/milestones/{milestone_number}/labels",
         "additional-permissions": true,
         "access": "read"
+      },
+      {
+        "category": "repos",
+        "slug": "list-planning-statuses-for-a-repository",
+        "subcategory": "planning-statuses",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/planning-statuses",
+        "additional-permissions": false,
+        "access": "read"
       }
     ]
   },

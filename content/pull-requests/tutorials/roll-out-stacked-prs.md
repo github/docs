@@ -8,6 +8,7 @@ contentType: tutorials
 permissions: Enterprise and organization owners
 category:
 - Create pull requests
+- Move review earlier and make it smarter
 ---
 
 Stacked pull requests let developers break large changes into a chain of small, focused pull requests that build on each other. This approach can help your organization maintain review quality as developers produce more code, including with {% data variables.product.prodname_copilot_short %} and other coding agents.

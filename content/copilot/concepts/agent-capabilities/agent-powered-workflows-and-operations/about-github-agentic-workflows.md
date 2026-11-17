@@ -10,6 +10,7 @@ redirect_from:
 contentType: concepts
 category:
   - Learn about Copilot
+  - Build agents at enterprise scale
 ---
 
 ## About {% data variables.copilot.agentic_workflows_short %}

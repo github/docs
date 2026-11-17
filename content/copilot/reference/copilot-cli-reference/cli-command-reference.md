@@ -1207,7 +1207,7 @@ The CLI automatically configures `github-mcp-server` when authentication is avai
 |--------|-------------|------------------------|
 | `github-mcp-server` | {% data variables.product.github %} integration, including repository access and code search. | Enabled by default when authentication is available. The exposed tools depend on your configuration. |
 | `WorkIQ` | Hosted MCP server associated with a Microsoft Entra account. | Discovered after you sign in with a Microsoft Entra account. Disabled by default. See [Account-derived WorkIQ](#account-derived-workiq). |
-| `browser-use` | Browser interaction through a bundled plugin. | Available in CLI versions that include the plugin. Disabled by default. Enable it with `/mcp enable browser-use`, install the matching browser extension and {% data variables.copilot.copilot_cli_npm_version %}, then run `/browser-use:activate` or start a new session. The legacy server name is `github-copilot-browser`. |
+| `browser-use` | Browser interaction through a bundled plugin. | Available in CLI versions that include the plugin. Disabled by default. Install the browser extension, enable the plugin with `/plugin`, and start a new session. The legacy server name is `github-copilot-browser`. See [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/browser-use). |
 | `computer-use` | Desktop application interaction through a bundled plugin. | Available for local sessions on macOS and Windows. Disabled by default. Enable it with `/computer on`. On macOS, Accessibility and Screen Recording permissions are required. See [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/computer-use). |
 
 Managed settings can prevent you from enabling a server or its plugin.

@@ -8,6 +8,7 @@ versions:
 contentType: get-started
 category:
   - Manage Copilot for a team
+  - Build agents at enterprise scale
 ---
 
 "{% data variables.product.prodname_copilot_short %} access" is a new way for eligible enterprises to provide {% data variables.product.prodname_copilot_short %} to their developers. In this model, there is no {% data variables.product.prodname_copilot_short %} seat charge for users with a {% data variables.product.prodname_ghe_cloud %} license. For users without that license, {% data variables.copilot.copilot_standalone_short %} costs {% data variables.copilot.copilot_standalone_price_per_month %} per user per month. In both cases, metered usage is billed separately.
@@ -71,4 +72,4 @@ For an existing enterprise with {% data variables.copilot.copilot_business_short
 
 Transitions take effect on the first day of a month. Confirm the effective date with your account team.
 
-Don't have a dedicated account team? [Contact sales](https://github.com/enterprise/contact).
+Don't have a dedicated account team? [Contact sales](https://github.com/enterprise/contact?utm_source=docs-article-ghec-access-enterprise-contact&utm_medium=docs&utm_campaign=ignite-nov-2026).

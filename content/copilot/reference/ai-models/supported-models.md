@@ -39,7 +39,7 @@ This table lists the AI models available in {% data variables.product.prodname_c
 | Model name                                             | Provider  | Release status             |
 |--------------------------------------------------------|-----------|----------------------------|
 | {% for model in tables.copilot.model-release-status %} |
-| {{ model.name }}{% if model.name == 'GPT-5.4 nano' %}[^gpt54nano]{% endif %}{% if model.name == 'MAI-Code-1.1-Flash' %}[^mai-models]{% endif %}{% if model.name == 'Claude Fable 5' or model.name == 'Claude Fable 5.1' or model.name == 'Claude Fable 5.2' %}[^claude-fable-5]{% endif %}| {{ model.provider }} | {{ model.release_status }} |
+| {{ model.name }}{% if model.name == 'GPT-5.4 nano' %}[^gpt54nano]{% endif %}{% if model.name == 'MAI-Code-1.1-Flash' or model.name == 'MAI Code 2' or model.name == 'MAI Code 2 Flash' %}[^mai-models]{% endif %}{% if model.name == 'Claude Fable 5' or model.name == 'Claude Fable 5.1' or model.name == 'Claude Fable 5.2' %}[^claude-fable-5]{% endif %}| {{ model.provider }} | {{ model.release_status }} |
 | {% endfor %}                                           |
 
 {% endrowheaders %}
@@ -97,6 +97,8 @@ Choosing a larger context window or higher reasoning will impact {% data variabl
 | {% data variables.copilot.gpt_61_sol %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | {% data variables.copilot.gpt_61_terra %} | {% octicon "check" aria-label="Supported" %}  | {% octicon "check" aria-label="Supported" %}  |
 | {% data variables.copilot.kimi_k3 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| {% data variables.copilot.mai_code_2 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| {% data variables.copilot.mai_code_2_flash %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 
 {% endrowheaders %}
 
@@ -146,6 +148,8 @@ Some {% data variables.product.prodname_copilot_short %} models require minimum 
 | {% data variables.copilot.claude_fable_52 %}    | TBD | TBD                    | TBD | TBD | TBD |
 | {% data variables.copilot.kimi_k3 %}     | `v1.131` | TBD            | TBD | TBD | TBD |
 | {% data variables.copilot.mai_code_1_1_flash %}  | `v1.121` | TBD                            | TBD | TBD | TBD |
+| {% data variables.copilot.mai_code_2 %}          | TBD | `17.14.6` | TBD | TBD | TBD |
+| {% data variables.copilot.mai_code_2_flash %}    | TBD | `17.14.6` | TBD | TBD | TBD |
 | {% data variables.copilot.grok_45 %}             | TBD | `17.14.19` | TBD | TBD | TBD |
 | {% data variables.copilot.grok_46 %}             | TBD | TBD | TBD | TBD | TBD |
 | {% data variables.copilot.grok_47 %}             | TBD | `17.14.19` | TBD | TBD | TBD |

@@ -13,6 +13,7 @@ contentType: tutorials
 category:
   - Roll Copilot out at scale
   - Manage Copilot for a team
+  - Move review earlier and make it smarter
 ---
 
 {% data reusables.copilot.essp-intro %}
@@ -37,7 +38,7 @@ The challenge is balancing rapid development with maintaining a secure and stabl
 
 {% data reusables.copilot.evaluate-options-intro %}
 
-<a href="https://github.com/github-copilot/purchase?ref_product=copilot&ref_type=trial&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span>{% octicon "link-external" height:16 aria-label="link-external" %}</a>
+<a href="https://github.com/github-copilot/purchase?ref_product=copilot&ref_type=trial&ref_style=button&utm_source=docs-article-purchase-cta&utm_medium=docs&utm_campaign=ignite-nov-2026" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span>{% octicon "link-external" height:16 aria-label="link-external" %}</a>
 
 ### How {% data variables.product.prodname_copilot_short %} can help
 

@@ -10,6 +10,7 @@ redirect_from:
 contentType: concepts
 category:
   - Learn about Copilot
+  - Build agents at enterprise scale
 ---
 
 ## About cloud sandboxes
@@ -37,7 +38,7 @@ Cloud sandboxes and local sandboxing solve different problems. A cloud sandbox m
 | --- | --- | --- |
 | Where {% data variables.product.prodname_copilot_short %} runs | In an isolated Linux environment that {% data variables.product.github %} hosts | On your machine |
 | What it's for | Running sessions without using your machine | Limiting which resources {% data variables.product.prodname_copilot_short %}'s commands can access on your machine |
-| Where you use it | Cloud sessions that you start with {% data variables.product.prodname_copilot_short %} on the {% data variables.product.github %} website, {% data variables.product.prodname_mobile %}, Slack, Microsoft Teams, the {% data variables.copilot.github_copilot_app %}, {% data variables.product.prodname_vscode %}, and the {% data variables.copilot.copilot_sdk_short %} | {% data variables.copilot.copilot_cli_short %} and the {% data variables.copilot.github_copilot_app %} |
+| Where you use it | Cloud sessions that you start with {% data variables.product.prodname_copilot_short %} on the {% data variables.product.github %} website, {% data variables.product.prodname_mobile %}, Slack, Microsoft Teams, the {% data variables.copilot.github_copilot_app %}, {% data variables.product.prodname_vscode %}, {% data variables.product.prodname_jetbrains_ides %}, and the {% data variables.copilot.copilot_sdk_short %} | {% data variables.copilot.copilot_cli_short %} and the {% data variables.copilot.github_copilot_app %} |
 | How you start using it | No separate setup. It's available when you use the {% data variables.product.prodname_copilot_short %} features that run in it. | Turn it on in {% data variables.copilot.copilot_cli_short %} or the {% data variables.copilot.github_copilot_app %}, or your enterprise can require it. |
 
 For more information about local sandboxing, see [AUTOTITLE](/copilot/concepts/security-governance-and-network-settings/about-cloud-and-local-sandboxes).
@@ -54,6 +55,8 @@ By default, {% data variables.product.prodname_copilot_short %} runs a cloud ses
 * Cloud sessions in the {% data variables.copilot.copilot_sdk_short %}
 
 In {% data variables.copilot.copilot_cli_short %}, sessions run on your machine by default. You can also start a session in a cloud sandbox. See [Starting a cloud session from {% data variables.copilot.copilot_cli_short %}](#starting-a-cloud-session-from-copilot-cli).
+
+In {% data variables.product.prodname_jetbrains_ides %}, you can choose to run a session in a cloud sandbox ({% data variables.release-phases.public_preview %}). See [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/chat-with-copilot/chat-in-ide?tool=jetbrains#running-a-session-in-a-cloud-sandbox).
 
 ## Choosing where {% data variables.product.prodname_copilot_short %} runs
 
