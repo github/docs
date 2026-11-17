@@ -105,7 +105,7 @@ As an alternative to {% data variables.copilot.copilot_fusion_short %}, you can 
 
 ### Policies
 
-When you use {% data variables.copilot.copilot_fusion_short %}, it chooses from a defined list of supported models. See [AUTOTITLE](/copilot/reference/ai-models/supported-models#supported-ai-models-for-copilot-auto-model-selection-and-copilot-fusion). The models available to you depend on your policies and subscription type, and may change over time.
+When you use {% data variables.copilot.copilot_fusion_short %}, it chooses from the models available, subject to your policies and subscription type. Available models may change over time.
 
 {% data variables.copilot.copilot_fusion_short %}, **won't** include these models:
 * Models not available in your plan.

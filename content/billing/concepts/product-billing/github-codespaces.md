@@ -42,7 +42,7 @@ For more information about billing cycles, see [AUTOTITLE](/billing/concepts/bil
 
 ### Storage volume for codespaces
 
-Storage is a time-based measurement of the amount of storage used, reported in GB-months. Usage is measured hourly, and each hour adds a fraction of a GB-month to your total. The storage measured for codespaces includes:
+Storage is a time-based measurement of the amount of storage used in GB-hours. The storage measured for codespaces includes:
 
 * Any files you use in a codespace, such as cloned repositories and configuration files
 * Any data loaded to the codespace (for example, as input or output of the software running in the repository)
