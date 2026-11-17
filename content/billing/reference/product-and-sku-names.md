@@ -89,10 +89,11 @@ For **SkuPricing** budgets or to query usage by SKU, use one of the following va
 
 * `coding_agent_ai_credit` - Copilot Cloud Agent
 * `code_review_premium_request` - {% data variables.copilot.copilot_code-review_short %} {% data variables.product.prodname_ai_credits_short %}
+* `copilot_access_pay_as_you_go` - {% data variables.copilot.copilot_standalone_short %}
 * `copilot_ai_credit` - {% data variables.product.prodname_copilot_short %} {% data variables.product.prodname_ai_credits_short %}
 * `copilot_enterprise` - Copilot Enterprise
 * `copilot_for_business` - Copilot for Business
-* `copilot_standalone` - Copilot standalone
+* `copilot_standalone` - {% data variables.copilot.copilot_business_short %} (legacy SKU)
 
 ### {% data variables.product.prodname_GH_advanced_security %} SKUs
 
