@@ -273,6 +273,8 @@ gpt_6_luna: 'GPT-6 Luna'
 gpt_6_sol: 'GPT-6 Sol'
 gpt_61_sol: 'GPT-6.1 Sol'
 gpt_61_terra: 'GPT-6.1 Terra'
+gpt_62_astra: 'GPT-6.2 Astra'
+gpt_62_sol: 'GPT-6.2 Sol'
 gpt_image_25_flare: 'GPT Image 2.5 Flare'
 # OpenAI 'o' series:
 o3: 'o3'

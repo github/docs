@@ -51,6 +51,14 @@
   provider: 'OpenAI'
   release_status: 'GA'
 
+- name: 'GPT-6.2 Astra'
+  provider: 'OpenAI'
+  release_status: 'GA'
+
+- name: 'GPT-6.2 Sol'
+  provider: 'OpenAI'
+  release_status: 'GA'
+
 # Anthropic models
 
 - name: 'Claude Fable 5'

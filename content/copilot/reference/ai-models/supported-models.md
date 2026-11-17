@@ -96,6 +96,8 @@ Choosing a larger context window or higher reasoning will impact {% data variabl
 | {% data variables.copilot.gpt_6_sol %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | {% data variables.copilot.gpt_61_sol %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | {% data variables.copilot.gpt_61_terra %} | {% octicon "check" aria-label="Supported" %}  | {% octicon "check" aria-label="Supported" %}  |
+| {% data variables.copilot.gpt_62_astra %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| {% data variables.copilot.gpt_62_sol %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | {% data variables.copilot.kimi_k3 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | {% data variables.copilot.mai_code_2 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | {% data variables.copilot.mai_code_2_flash %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
@@ -139,6 +141,8 @@ Some {% data variables.product.prodname_copilot_short %} models require minimum 
 | {% data variables.copilot.gpt_6_sol %}           | TBD | `17.14.19` | TBD | TBD | TBD |
 | {% data variables.copilot.gpt_61_sol %}          | TBD | `17.14.19` | TBD | TBD | TBD |
 | {% data variables.copilot.gpt_61_terra %}        | TBD | TBD | TBD | TBD | TBD |
+| {% data variables.copilot.gpt_62_astra %}        | TBD | TBD | TBD | TBD | TBD |
+| {% data variables.copilot.gpt_62_sol %}          | TBD | TBD | TBD | TBD | TBD |
 | {% data variables.copilot.claude_opus_55 %}      | TBD | `17.14.6` | TBD | TBD | TBD |
 | {% data variables.copilot.claude_sonnet_5 %}  | `v1.124` | `17.14.6` | TBD | TBD | TBD |
 | {% data variables.copilot.claude_sonnet_55 %} | TBD | `17.14.6` | TBD | TBD | TBD |
