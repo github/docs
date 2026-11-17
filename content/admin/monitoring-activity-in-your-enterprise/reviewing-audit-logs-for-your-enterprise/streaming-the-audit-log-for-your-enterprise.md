@@ -152,8 +152,8 @@ From {% data variables.product.prodname_dotcom %}:
 
 #### Setting up streaming to S3 with OpenID Connect
 
-> [!NOTE]
-> Audit log streaming to S3 with OpenID Connect for {% data variables.enterprise.data_residency %} is currently unavailable. See [AUTOTITLE](/admin/data-residency/feature-overview-for-github-enterprise-cloud-with-data-residency#currently-unavailable-features).
+> [!WARNING]
+> Streaming exports audit log data to the AWS bucket and region you choose, which can be outside your enterprise's data residency region. Review the destination against your data residency and compliance requirements before enabling streaming.
 
 From AWS:
 
@@ -179,18 +179,27 @@ From AWS:
       }
       ```
 
+     For {% data variables.enterprise.data_residency %}, replace the `sub` condition with the following, replacing `SUBDOMAIN` with your enterprise's subdomain:
+
+     ```json
+     "oidc-configuration.audit-log.githubusercontent.com:sub": "https://SUBDOMAIN.ghe.com"
+     ```
+
+     The `SUBDOMAIN` value is case-sensitive. Use the lowercase subdomain exactly as it appears in your enterprise's URL, not its display name. Keep the `aud` condition set to `sts.amazonaws.com`.
+
+     If your enterprise's subdomain changes or the enterprise is deleted, remove the old subject from your AWS role trust policies. Creating a new trust policy does not revoke an old one.
+
    * Make note of the Amazon Resource Name (ARN) of the created role.
 
 From {% data variables.product.prodname_dotcom %}:
 {% data reusables.enterprise.navigate-to-log-streaming-tab %}
 {% data reusables.audit_log.streaming-choose-s3 %}
 1. Under "Authentication", click **OpenID Connect**.
-1. Configure the stream settings.
+1. Configure the stream settings.{% ifversion ghec %}
 
-{% ifversion ghec %}
-    - Under "Region", select the bucket's region. For example, `us-east-1`; an option for Auto Discovery is also available.{% endif %}
-    - Under "Bucket", type the name of the bucket you want to stream to. For example, `auditlog-streaming-test`.
-    - Under "ARN Role" type the ARN role you noted earlier. For example, `arn:aws::iam::1234567890:role/github-audit-log-streaming-role`.
+    * Under "Region", select the bucket's region. For example, `us-east-1`. An option for Auto Discovery is also available. If you use Auto Discovery, verify the destination bucket's region and role ARN before enabling streaming.{% endif %}
+    * Under "Bucket", type the name of the bucket you want to stream to. For example, `auditlog-streaming-test`.
+    * Under "ARN Role" type the ARN role you noted earlier. For example, `arn:aws::iam::1234567890:role/github-audit-log-streaming-role`.
 {% data reusables.audit_log.streaming-check-s3-endpoint %}
 {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
 
