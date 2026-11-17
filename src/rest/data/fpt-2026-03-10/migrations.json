@@ -375,6 +375,33 @@
                   "org_metadata_only": {
                     "type": "boolean"
                   },
+                  "url": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "created_at": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "updated_at": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "node_id": {
+                    "type": "string"
+                  },
+                  "archive_url": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "exclude": {
+                    "description": "Exclude related items from being returned in the response in order to improve performance of the request. The array can include any of: `\"repositories\"`.",
+                    "type": "array",
+                    "items": {
+                      "description": "Allowed values that can be passed to the exclude parameter. The array can include any of: `\"repositories\"`.",
+                      "type": "string"
+                    }
+                  },
                   "repositories": {
                     "type": "array",
                     "description": "The repositories included in the migration. Only returned for export migrations.",
@@ -742,33 +769,6 @@
                         "trees_url",
                         "url"
                       ]
-                    }
-                  },
-                  "url": {
-                    "type": "string",
-                    "format": "uri"
-                  },
-                  "created_at": {
-                    "type": "string",
-                    "format": "date-time"
-                  },
-                  "updated_at": {
-                    "type": "string",
-                    "format": "date-time"
-                  },
-                  "node_id": {
-                    "type": "string"
-                  },
-                  "archive_url": {
-                    "type": "string",
-                    "format": "uri"
-                  },
-                  "exclude": {
-                    "description": "Exclude related items from being returned in the response in order to improve performance of the request. The array can include any of: `\"repositories\"`.",
-                    "type": "array",
-                    "items": {
-                      "description": "Allowed values that can be passed to the exclude parameter. The array can include any of: `\"repositories\"`.",
-                      "type": "string"
                     }
                   }
                 },
@@ -1215,6 +1215,33 @@
                 "org_metadata_only": {
                   "type": "boolean"
                 },
+                "url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "created_at": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "updated_at": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "node_id": {
+                  "type": "string"
+                },
+                "archive_url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "exclude": {
+                  "description": "Exclude related items from being returned in the response in order to improve performance of the request. The array can include any of: `\"repositories\"`.",
+                  "type": "array",
+                  "items": {
+                    "description": "Allowed values that can be passed to the exclude parameter. The array can include any of: `\"repositories\"`.",
+                    "type": "string"
+                  }
+                },
                 "repositories": {
                   "type": "array",
                   "description": "The repositories included in the migration. Only returned for export migrations.",
@@ -1582,33 +1609,6 @@
                       "trees_url",
                       "url"
                     ]
-                  }
-                },
-                "url": {
-                  "type": "string",
-                  "format": "uri"
-                },
-                "created_at": {
-                  "type": "string",
-                  "format": "date-time"
-                },
-                "updated_at": {
-                  "type": "string",
-                  "format": "date-time"
-                },
-                "node_id": {
-                  "type": "string"
-                },
-                "archive_url": {
-                  "type": "string",
-                  "format": "uri"
-                },
-                "exclude": {
-                  "description": "Exclude related items from being returned in the response in order to improve performance of the request. The array can include any of: `\"repositories\"`.",
-                  "type": "array",
-                  "items": {
-                    "description": "Allowed values that can be passed to the exclude parameter. The array can include any of: `\"repositories\"`.",
-                    "type": "string"
                   }
                 }
               },
@@ -2019,6 +2019,33 @@
                 "org_metadata_only": {
                   "type": "boolean"
                 },
+                "url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "created_at": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "updated_at": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "node_id": {
+                  "type": "string"
+                },
+                "archive_url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "exclude": {
+                  "description": "Exclude related items from being returned in the response in order to improve performance of the request. The array can include any of: `\"repositories\"`.",
+                  "type": "array",
+                  "items": {
+                    "description": "Allowed values that can be passed to the exclude parameter. The array can include any of: `\"repositories\"`.",
+                    "type": "string"
+                  }
+                },
                 "repositories": {
                   "type": "array",
                   "description": "The repositories included in the migration. Only returned for export migrations.",
@@ -2386,33 +2413,6 @@
                       "trees_url",
                       "url"
                     ]
-                  }
-                },
-                "url": {
-                  "type": "string",
-                  "format": "uri"
-                },
-                "created_at": {
-                  "type": "string",
-                  "format": "date-time"
-                },
-                "updated_at": {
-                  "type": "string",
-                  "format": "date-time"
-                },
-                "node_id": {
-                  "type": "string"
-                },
-                "archive_url": {
-                  "type": "string",
-                  "format": "uri"
-                },
-                "exclude": {
-                  "description": "Exclude related items from being returned in the response in order to improve performance of the request. The array can include any of: `\"repositories\"`.",
-                  "type": "array",
-                  "items": {
-                    "description": "Allowed values that can be passed to the exclude parameter. The array can include any of: `\"repositories\"`.",
-                    "type": "string"
                   }
                 }
               },
@@ -4957,6 +4957,33 @@
                   "org_metadata_only": {
                     "type": "boolean"
                   },
+                  "url": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "created_at": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "updated_at": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "node_id": {
+                    "type": "string"
+                  },
+                  "archive_url": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "exclude": {
+                    "description": "Exclude related items from being returned in the response in order to improve performance of the request. The array can include any of: `\"repositories\"`.",
+                    "type": "array",
+                    "items": {
+                      "description": "Allowed values that can be passed to the exclude parameter. The array can include any of: `\"repositories\"`.",
+                      "type": "string"
+                    }
+                  },
                   "repositories": {
                     "type": "array",
                     "description": "The repositories included in the migration. Only returned for export migrations.",
@@ -5324,33 +5351,6 @@
                         "trees_url",
                         "url"
                       ]
-                    }
-                  },
-                  "url": {
-                    "type": "string",
-                    "format": "uri"
-                  },
-                  "created_at": {
-                    "type": "string",
-                    "format": "date-time"
-                  },
-                  "updated_at": {
-                    "type": "string",
-                    "format": "date-time"
-                  },
-                  "node_id": {
-                    "type": "string"
-                  },
-                  "archive_url": {
-                    "type": "string",
-                    "format": "uri"
-                  },
-                  "exclude": {
-                    "description": "Exclude related items from being returned in the response in order to improve performance of the request. The array can include any of: `\"repositories\"`.",
-                    "type": "array",
-                    "items": {
-                      "description": "Allowed values that can be passed to the exclude parameter. The array can include any of: `\"repositories\"`.",
-                      "type": "string"
                     }
                   }
                 },
@@ -5790,6 +5790,33 @@
                 "org_metadata_only": {
                   "type": "boolean"
                 },
+                "url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "created_at": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "updated_at": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "node_id": {
+                  "type": "string"
+                },
+                "archive_url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "exclude": {
+                  "description": "Exclude related items from being returned in the response in order to improve performance of the request. The array can include any of: `\"repositories\"`.",
+                  "type": "array",
+                  "items": {
+                    "description": "Allowed values that can be passed to the exclude parameter. The array can include any of: `\"repositories\"`.",
+                    "type": "string"
+                  }
+                },
                 "repositories": {
                   "type": "array",
                   "description": "The repositories included in the migration. Only returned for export migrations.",
@@ -6157,33 +6184,6 @@
                       "trees_url",
                       "url"
                     ]
-                  }
-                },
-                "url": {
-                  "type": "string",
-                  "format": "uri"
-                },
-                "created_at": {
-                  "type": "string",
-                  "format": "date-time"
-                },
-                "updated_at": {
-                  "type": "string",
-                  "format": "date-time"
-                },
-                "node_id": {
-                  "type": "string"
-                },
-                "archive_url": {
-                  "type": "string",
-                  "format": "uri"
-                },
-                "exclude": {
-                  "description": "Exclude related items from being returned in the response in order to improve performance of the request. The array can include any of: `\"repositories\"`.",
-                  "type": "array",
-                  "items": {
-                    "description": "Allowed values that can be passed to the exclude parameter. The array can include any of: `\"repositories\"`.",
-                    "type": "string"
                   }
                 }
               },
@@ -6594,6 +6594,33 @@
                 "org_metadata_only": {
                   "type": "boolean"
                 },
+                "url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "created_at": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "updated_at": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "node_id": {
+                  "type": "string"
+                },
+                "archive_url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "exclude": {
+                  "description": "Exclude related items from being returned in the response in order to improve performance of the request. The array can include any of: `\"repositories\"`.",
+                  "type": "array",
+                  "items": {
+                    "description": "Allowed values that can be passed to the exclude parameter. The array can include any of: `\"repositories\"`.",
+                    "type": "string"
+                  }
+                },
                 "repositories": {
                   "type": "array",
                   "description": "The repositories included in the migration. Only returned for export migrations.",
@@ -6961,33 +6988,6 @@
                       "trees_url",
                       "url"
                     ]
-                  }
-                },
-                "url": {
-                  "type": "string",
-                  "format": "uri"
-                },
-                "created_at": {
-                  "type": "string",
-                  "format": "date-time"
-                },
-                "updated_at": {
-                  "type": "string",
-                  "format": "date-time"
-                },
-                "node_id": {
-                  "type": "string"
-                },
-                "archive_url": {
-                  "type": "string",
-                  "format": "uri"
-                },
-                "exclude": {
-                  "description": "Exclude related items from being returned in the response in order to improve performance of the request. The array can include any of: `\"repositories\"`.",
-                  "type": "array",
-                  "items": {
-                    "description": "Allowed values that can be passed to the exclude parameter. The array can include any of: `\"repositories\"`.",
-                    "type": "string"
                   }
                 }
               },

@@ -2882,13 +2882,13 @@
         },
         {
           "name": "status",
-          "description": "<p>A comma-separated list of statuses. If specified, only repositories with these attachment statuses will be returned.</p>\n<p>Can be: <code>all</code>, <code>attached</code>, <code>attaching</code>, <code>removed</code>, <code>enforced</code>, <code>failed</code>, <code>updating</code>, <code>removed_by_enterprise</code></p>",
           "in": "query",
           "required": false,
           "schema": {
             "type": "string",
             "default": "all"
-          }
+          },
+          "description": "<p>A comma-separated list of statuses. If specified, only repositories with these attachment statuses will be returned.</p>\n<p>Can be: <code>all</code>, <code>attached</code>, <code>attaching</code>, <code>removed</code>, <code>enforced</code>, <code>failed</code>, <code>updating</code>, <code>removed_by_enterprise</code></p>"
         }
       ],
       "bodyParameters": [],
@@ -6554,13 +6554,13 @@
         },
         {
           "name": "status",
-          "description": "<p>A comma-separated list of statuses. If specified, only repositories with these attachment statuses will be returned.</p>\n<p>Can be: <code>all</code>, <code>attached</code>, <code>attaching</code>, <code>detached</code>, <code>removed</code>, <code>enforced</code>, <code>failed</code>, <code>updating</code>, <code>removed_by_enterprise</code></p>",
           "in": "query",
           "required": false,
           "schema": {
             "type": "string",
             "default": "all"
-          }
+          },
+          "description": "<p>A comma-separated list of statuses. If specified, only repositories with these attachment statuses will be returned.</p>\n<p>Can be: <code>all</code>, <code>attached</code>, <code>attaching</code>, <code>detached</code>, <code>removed</code>, <code>enforced</code>, <code>failed</code>, <code>updating</code>, <code>removed_by_enterprise</code></p>"
         }
       ],
       "bodyParameters": [],

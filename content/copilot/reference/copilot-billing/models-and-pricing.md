@@ -143,3 +143,11 @@ You can view your current {% data variables.product.prodname_actions %} usage fo
 [^gemini-4-carbon-promo]: {% data variables.copilot.gemini_4_carbon %} is available at the promotional pricing of $2.00 per 1M input tokens, $0.10 per 1M cached input tokens, and $10.00 per 1M output tokens until December 1, 2026. Starting December 1, 2026, pricing is $4.00 per 1M input tokens, $0.20 per 1M cached input tokens, and $20.00 per 1M output tokens.
 
 <!-- end expires 2026-12-01 -->
+
+<!-- expires 2027-05-17 -->
+
+[^mai-code-2-promo]: {% data variables.copilot.mai_code_2 %} is available at the promotional pricing of $0.50 per 1M input tokens, $0.025 per 1M cached input tokens, and $2.50 per 1M output tokens until May 17, 2027. Starting May 17, 2027, pricing is $1.00 per 1M input tokens, $0.05 per 1M cached input tokens, and $5.00 per 1M output tokens.
+
+[^mai-code-2-flash-promo]: {% data variables.copilot.mai_code_2_flash %} is available at the promotional pricing of $0.05 per 1M input tokens, $0.005 per 1M cached input tokens, and $0.25 per 1M output tokens until May 17, 2027. Starting May 17, 2027, pricing is $0.10 per 1M input tokens, $0.01 per 1M cached input tokens, and $0.50 per 1M output tokens.
+
+<!-- end expires 2027-05-17 -->

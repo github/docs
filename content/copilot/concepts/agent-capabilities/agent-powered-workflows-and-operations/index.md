@@ -13,6 +13,7 @@ children:
   - /about-remote-control
   - /autopilot
   - /tool-search
+  - /browser-use
   - /computer-use
   - /image-generation
 contentType: concepts

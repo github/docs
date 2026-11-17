@@ -436,6 +436,22 @@
   cached_input: $0.02
   output: $1.20
 
+- model: 'MAI Code 2[^mai-code-2-promo]'
+  provider: microsoft
+  release_status: GA
+  category: Powerful
+  input: $0.50
+  cached_input: $0.025
+  output: $2.50
+
+- model: 'MAI Code 2 Flash[^mai-code-2-flash-promo]'
+  provider: microsoft
+  release_status: GA
+  category: Lightweight
+  input: $0.05
+  cached_input: $0.005
+  output: $0.25
+
 # Open-weight models
 - model: 'Kimi K3'
   provider: moonshot_ai

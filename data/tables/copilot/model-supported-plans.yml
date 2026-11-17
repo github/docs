@@ -214,3 +214,17 @@
   max: true
   business: true
   enterprise: true
+
+- name: MAI Code 2
+  pro: true
+  pro_plus: true
+  max: true
+  business: true
+  enterprise: true
+
+- name: MAI Code 2 Flash
+  pro: true
+  pro_plus: true
+  max: true
+  business: true
+  enterprise: true

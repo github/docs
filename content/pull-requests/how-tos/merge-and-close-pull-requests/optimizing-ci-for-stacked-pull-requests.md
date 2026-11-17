@@ -7,6 +7,7 @@ versions:
 contentType: how-tos
 category:
   - Merge and close pull requests
+  - Move review earlier and make it smarter
 ---
 
 Every pull request in a stack is evaluated as if it targets the base of the stack, such as `main`. This keeps quality consistent across every layer, but it also means a workflow can run many times for a single stack. This article explains how workflows run for a stack and how to reduce redundant CI usage.

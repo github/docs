@@ -21,6 +21,7 @@ export type LandingContextT = {
   renderedPage: string
   currentLayout: string
   heroImage?: string
+  heroImageDark?: string
   heroTheme?: HeroTheme
   carousels?: Record<
     string,
@@ -30,11 +31,16 @@ export type LandingContextT = {
   journeyTracks?: JourneyTrack[]
   journeyArticlesHeading?: string | null
   includedCategories?: string[]
+  keepArticleOrder?: boolean
+  showShareButton?: boolean
 }
 
 type LandingPage = NonNullable<Context['page']> & {
   includedCategories?: string[]
+  keepArticleOrder?: boolean
+  showShareButton?: boolean
   heroImage?: string
+  heroImageDark?: string
   heroTheme?: HeroTheme
   product?: string
   permissions?: string
@@ -96,11 +102,14 @@ export const getLandingContextFromRequest = async (
     renderedPage: context.renderedPage ?? '',
     currentLayout: context.currentLayoutName ?? '',
     heroImage: page.heroImage || '/assets/images/banner-images/hero-1',
+    ...(page.heroImageDark && { heroImageDark: page.heroImageDark }),
     ...(page.heroTheme && { heroTheme: page.heroTheme }),
     introLinks: page.introLinks || null,
     carousels,
     journeyTracks,
     journeyArticlesHeading: page.journeyArticlesHeading || null,
     includedCategories: page.includedCategories || [],
+    keepArticleOrder: page.keepArticleOrder || false,
+    showShareButton: page.showShareButton || false,
   }
 }

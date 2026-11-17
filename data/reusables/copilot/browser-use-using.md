@@ -1,0 +1,1 @@
+After you enable browser use, {% data variables.product.prodname_copilot_short %} automatically uses it when you ask about a browser-related task. You can also use the `/browser-use` command to tell it to use your browser.

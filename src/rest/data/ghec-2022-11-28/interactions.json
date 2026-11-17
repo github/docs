@@ -304,7 +304,8 @@
             "description": "<p>Response when cap is enabled</p>",
             "example": {
               "enabled": true,
-              "max_open_pull_requests": 1
+              "max_open_pull_requests": 1,
+              "include_drafts": true
             },
             "schema": {
               "type": "object",
@@ -326,7 +327,8 @@
               },
               "required": [
                 "enabled",
-                "max_open_pull_requests"
+                "max_open_pull_requests",
+                "include_drafts"
               ]
             }
           }
@@ -420,7 +422,8 @@
             "description": "<p>Response</p>",
             "example": {
               "enabled": true,
-              "max_open_pull_requests": 1
+              "max_open_pull_requests": 1,
+              "include_drafts": true
             },
             "schema": {
               "type": "object",
@@ -442,7 +445,8 @@
               },
               "required": [
                 "enabled",
-                "max_open_pull_requests"
+                "max_open_pull_requests",
+                "include_drafts"
               ]
             }
           }
@@ -1217,7 +1221,8 @@
             "description": "<p>Response when cap is enabled</p>",
             "example": {
               "enabled": true,
-              "max_open_pull_requests": 1
+              "max_open_pull_requests": 1,
+              "include_drafts": true
             },
             "schema": {
               "type": "object",
@@ -1239,7 +1244,8 @@
               },
               "required": [
                 "enabled",
-                "max_open_pull_requests"
+                "max_open_pull_requests",
+                "include_drafts"
               ]
             }
           }
@@ -1343,7 +1349,8 @@
             "description": "<p>Response</p>",
             "example": {
               "enabled": true,
-              "max_open_pull_requests": 1
+              "max_open_pull_requests": 1,
+              "include_drafts": true
             },
             "schema": {
               "type": "object",
@@ -1365,7 +1372,8 @@
               },
               "required": [
                 "enabled",
-                "max_open_pull_requests"
+                "max_open_pull_requests",
+                "include_drafts"
               ]
             }
           }

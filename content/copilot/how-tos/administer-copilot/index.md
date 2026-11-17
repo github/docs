@@ -11,6 +11,7 @@ children:
   - /manage-mcp-usage
   - /download-activity-report
   - /view-usage-and-adoption
+  - /view-repository-insights
   - /view-code-generation
   - /view-impact-dashboard
 redirect_from:

@@ -20,10 +20,12 @@ children:
   - /agent-sessions
   - /choose-a-model
   - /working-with-projects
+  - /browser-use
   - /computer-use
   - /working-with-canvas-extensions
   - /view-and-fix-security-alerts
   - /managing-issues-and-pull-requests
+  - /manage-azure-devops-work
   - /using-automations
   - /add-llm-models
   - /open-with-deep-links

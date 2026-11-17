@@ -9,6 +9,7 @@ versions:
 contentType: how-tos
 category:
   - Manage Copilot for a team
+  - Build agents at enterprise scale
 ---
 
 {% data reusables.copilot.memory-how-to-intro %}

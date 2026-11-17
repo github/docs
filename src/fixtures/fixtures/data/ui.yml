@@ -334,6 +334,10 @@ journey_landing:
   articles_heading: Articles
 
 product_landing:
+  share_button:
+    label: Share
+    link_copied: Link copied
+    copy_link: Copy link
   article_grid:
     heading: Articles
     all_categories: All categories
@@ -349,6 +353,8 @@ product_landing:
   try_ghec_for_free: Try GitHub's enterprise features
   try_ghas_for_free: Try GitHub Advanced Security for free
   generate_secret_risk_assessment_report_for_free: Assess your organization's security for free
+  get_a_free_risk_assessment: Get a free risk assessment
+  compare_copilot_plans: Compare Copilot plans
   plan_your_migration: Plan your migration
   ado_key_differences: Key differences between Azure DevOps and GitHub
   releases: Releases

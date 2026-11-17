@@ -287,6 +287,8 @@ qwen_25: 'Qwen2.5'
 qwen3.8-flash-next: 'Qwen3.8 Flash Next'
 # Microsoft:
 mai_code_1_1_flash: 'MAI Code 1.1 Flash'
+mai_code_2: 'MAI Code 2'
+mai_code_2_flash: 'MAI Code 2 Flash'
 # Microsoft fine-tuned:
 raptor_mini: 'Raptor mini'
 # Open-weight models:

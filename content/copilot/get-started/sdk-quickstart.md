@@ -16,6 +16,7 @@ category:
   - Quickstarts
   - Integrate Copilot with your tools
   - Mains - Hard code your meal
+  - Build agents at enterprise scale
 ---
 
 **What you'll build:**

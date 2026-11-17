@@ -48,7 +48,7 @@ Canvas extensions can be customized to fit your needs or your team's needs acros
 
 ## Discovering canvases
 
-The **Canvas** view provides a curated list of featured canvases. Some canvases are delivered through plugins, which you must install before you can use the canvas in a session. For example, installing the Azure DevOps plugin gives you access to a canvas for planning and managing Azure DevOps work.
+The **Canvas** view provides a curated list of featured canvases. Some canvases are delivered through plugins, which you must install before you can use the canvas in a session.
 
 The {% data variables.product.github %} security extension provides a canvas for viewing and fixing {% data variables.product.prodname_code_scanning %} alerts alongside your session. See [AUTOTITLE](/copilot/how-tos/github-copilot-app/view-and-fix-security-alerts).
 

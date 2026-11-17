@@ -11,6 +11,9 @@ category:
   - Copilot usage metrics
   - View metrics
   - Track Copilot usage
+  - Build agents at enterprise scale
+  - Bring Copilot into the rest of developers' work
+  - Move review earlier and make it smarter
 ---
 
 Instead of a flat active-user count, the impact dashboard groups users into adoption cohorts based on how they engage with {% data variables.product.prodname_copilot_short %}, and connects that engagement to pull request throughput. This gives you a more meaningful signal of adoption depth than daily or weekly active user counts alone.

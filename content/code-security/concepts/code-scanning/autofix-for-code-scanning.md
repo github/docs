@@ -9,6 +9,7 @@ versions:
 contentType: concepts
 category:
   - Find and fix code vulnerabilities
+  - Move review earlier and make it smarter
 redirect_from:
   - /code-security/concepts/code-scanning/copilot-autofix-for-code-scanning
 ---

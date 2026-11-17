@@ -16,6 +16,7 @@ shortTitle: Trial Advanced Security
 contentType: tutorials
 category:
   - Plan your security strategy
+  - Move review earlier and make it smarter
 ---
 
 ## Prerequisites

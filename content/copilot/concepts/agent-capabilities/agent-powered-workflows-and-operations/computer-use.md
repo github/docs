@@ -34,6 +34,8 @@ Computer use can help you complete tasks such as:
 > [!TIP]
 > Computer use is designed for tasks that require interaction with a visual interface. If an API, MCP server, terminal command, filesystem tool, or dedicated browser tool can complete the task directly, that tool typically provides more structured information and predictable results.
 
+Browser use is a separate capability for browser-based tasks. See [AUTOTITLE](/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/browser-use).
+
 ## Capabilities
 
 When enabled, computer use allows {% data variables.product.prodname_copilot_short %} to:

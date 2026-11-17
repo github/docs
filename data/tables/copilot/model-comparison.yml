@@ -131,6 +131,16 @@
   excels_at: Fast code completions and explanations, instruction following, tool use
   further_reading: '[MAI-Code-1.1-Flash model card](https://microsoft.ai/pdf/MAI-Code-1.1-Flash-Model-Card.PDF)'
 
+- name: MAI Code 2
+  task_area: Deep reasoning and complex coding
+  excels_at: Complex, multi-step coding tasks that require high reasoning
+  further_reading: '[MAI Code 2 model card](https://microsoft.ai/pdf/MAI-Code-2-Model-Card.PDF), [MAI Code 2 data summary](https://microsoft.ai/pdf/MAI-Code-2-Data-Card.PDF)'
+
+- name: MAI Code 2 Flash
+  task_area: General-purpose coding and writing, image understanding
+  excels_at: Fast code completions and explanations, instruction following, tool use
+  further_reading: '[MAI Code 2 model card](https://microsoft.ai/pdf/MAI-Code-2-Model-Card.PDF), [MAI Code 2 Flash data summary](https://microsoft.ai/pdf/MAI-Code-2-Flash-Data-Card.PDF)'
+
 # xAI
 - name: Grok 4.5
   task_area: General-purpose coding and agent tasks

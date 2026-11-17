@@ -15,6 +15,7 @@ shortTitle: Push protection
 contentType: concepts
 category:
   - Protect your secrets
+  - Move review earlier and make it smarter
 ---
 
 ## What is push protection?

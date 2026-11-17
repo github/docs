@@ -1,90 +1,6 @@
 {
   "actions": [
     {
-      "slug": "get-github-actions-cache-retention-limit-for-an-enterprise",
-      "subcategory": "cache",
-      "verb": "get",
-      "requestPath": "/enterprises/{enterprise}/actions/cache/retention-limit"
-    },
-    {
-      "slug": "set-github-actions-cache-retention-limit-for-an-enterprise",
-      "subcategory": "cache",
-      "verb": "put",
-      "requestPath": "/enterprises/{enterprise}/actions/cache/retention-limit"
-    },
-    {
-      "slug": "get-github-actions-cache-storage-limit-for-an-enterprise",
-      "subcategory": "cache",
-      "verb": "get",
-      "requestPath": "/enterprises/{enterprise}/actions/cache/storage-limit"
-    },
-    {
-      "slug": "set-github-actions-cache-storage-limit-for-an-enterprise",
-      "subcategory": "cache",
-      "verb": "put",
-      "requestPath": "/enterprises/{enterprise}/actions/cache/storage-limit"
-    },
-    {
-      "slug": "get-github-actions-cache-usage-for-an-enterprise",
-      "subcategory": "cache",
-      "verb": "get",
-      "requestPath": "/enterprises/{enterprise}/actions/cache/usage"
-    },
-    {
-      "slug": "set-the-github-actions-oidc-custom-issuer-policy-for-an-enterprise",
-      "subcategory": "oidc",
-      "verb": "put",
-      "requestPath": "/enterprises/{enterprise}/actions/oidc/customization/issuer"
-    },
-    {
-      "slug": "list-oidc-custom-property-inclusions-for-an-enterprise",
-      "subcategory": "oidc",
-      "verb": "get",
-      "requestPath": "/enterprises/{enterprise}/actions/oidc/customization/properties/repo"
-    },
-    {
-      "slug": "create-an-oidc-custom-property-inclusion-for-an-enterprise",
-      "subcategory": "oidc",
-      "verb": "post",
-      "requestPath": "/enterprises/{enterprise}/actions/oidc/customization/properties/repo"
-    },
-    {
-      "slug": "delete-an-oidc-custom-property-inclusion-for-an-enterprise",
-      "subcategory": "oidc",
-      "verb": "delete",
-      "requestPath": "/enterprises/{enterprise}/actions/oidc/customization/properties/repo/{custom_property_name}"
-    },
-    {
-      "slug": "list-enterprise-actions-policies",
-      "subcategory": "policies",
-      "verb": "get",
-      "requestPath": "/enterprises/{enterprise}/actions/policies"
-    },
-    {
-      "slug": "create-an-enterprise-actions-policy",
-      "subcategory": "policies",
-      "verb": "post",
-      "requestPath": "/enterprises/{enterprise}/actions/policies"
-    },
-    {
-      "slug": "get-an-enterprise-actions-policy",
-      "subcategory": "policies",
-      "verb": "get",
-      "requestPath": "/enterprises/{enterprise}/actions/policies/{policy_id}"
-    },
-    {
-      "slug": "update-an-enterprise-actions-policy",
-      "subcategory": "policies",
-      "verb": "put",
-      "requestPath": "/enterprises/{enterprise}/actions/policies/{policy_id}"
-    },
-    {
-      "slug": "delete-an-enterprise-actions-policy",
-      "subcategory": "policies",
-      "verb": "delete",
-      "requestPath": "/enterprises/{enterprise}/actions/policies/{policy_id}"
-    },
-    {
       "slug": "get-github-actions-cache-retention-limit-for-an-organization",
       "subcategory": "cache",
       "verb": "get",
@@ -3533,22 +3449,10 @@
       "requestPath": "/enterprises/{enterprise}/apps/organizations/{org}/installations/{installation_id}/repositories/remove"
     },
     {
-      "slug": "get-the-audit-log-for-an-enterprise",
-      "subcategory": "audit-log",
-      "verb": "get",
-      "requestPath": "/enterprises/{enterprise}/audit-log"
-    },
-    {
       "slug": "list-push-rule-bypass-requests-within-an-enterprise",
       "subcategory": "bypass-requests",
       "verb": "get",
       "requestPath": "/enterprises/{enterprise}/bypass-requests/push-rules"
-    },
-    {
-      "slug": "list-enterprise-consumed-licenses",
-      "subcategory": "licensing",
-      "verb": "get",
-      "requestPath": "/enterprises/{enterprise}/consumed-licenses"
     },
     {
       "slug": "get-model-policies-for-agent-apps",
@@ -3731,12 +3635,6 @@
       "requestPath": "/enterprises/{enterprise}/innersource-vulnerabilities/sync/status/{job_id}"
     },
     {
-      "slug": "get-a-license-sync-status",
-      "subcategory": "licensing",
-      "verb": "get",
-      "requestPath": "/enterprises/{enterprise}/license-sync-status"
-    },
-    {
       "slug": "get-organization-custom-properties-schema-for-an-enterprise",
       "subcategory": "custom-properties-for-orgs",
       "verb": "get",
@@ -3849,12 +3747,6 @@
       "subcategory": "rules",
       "verb": "get",
       "requestPath": "/enterprises/{enterprise}/rulesets/{ruleset_id}/history/{version_id}"
-    },
-    {
-      "slug": "get-github-advanced-security-active-committers-for-an-enterprise",
-      "subcategory": "licensing",
-      "verb": "get",
-      "requestPath": "/enterprises/{enterprise}/settings/billing/advanced-security"
     },
     {
       "slug": "get-model-policies-for-an-enterprise-team",
@@ -6647,6 +6539,12 @@
       "subcategory": "repos",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/languages"
+    },
+    {
+      "slug": "list-planning-statuses-for-a-repository",
+      "subcategory": "planning-statuses",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/planning-statuses"
     },
     {
       "slug": "check-if-private-vulnerability-reporting-is-enabled-for-a-repository",

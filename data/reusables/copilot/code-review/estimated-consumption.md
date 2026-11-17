@@ -5,3 +5,5 @@
 | Max | {% data variables.copilot.copilot_code_review_max_cost_range %} | {% data variables.copilot.copilot_code_review_max_average_cost %} |
 
 These figures are estimates only. Consumption generally increases with pull request size and repository custom instructions. Actual costs can fall outside these ranges and may change as models evolve. Estimates exclude {% data variables.product.prodname_actions %} minutes.
+
+If you choose Adaptive as the review effort level, {% data variables.product.prodname_copilot_short %} selects Lite, Balanced, or Max within the configured maximum review effort. Estimated consumption varies depending on the effort level selected.

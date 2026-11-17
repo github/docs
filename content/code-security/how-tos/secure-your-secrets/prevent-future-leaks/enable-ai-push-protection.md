@@ -8,6 +8,7 @@ versions:
 contentType: how-tos
 category:
   - Protect your secrets
+  - Move review earlier and make it smarter
 ---
 
 > [!NOTE]

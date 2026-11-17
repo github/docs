@@ -8,6 +8,7 @@ versions:
   ghec: '*'
 contentType: tutorials
 children:
+  - /secure-code-from-commit-to-production
   - /secret-protection-adoption-path
   - /code-quality-adoption-path
   - /trialing-github-advanced-security

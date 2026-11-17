@@ -8,6 +8,7 @@ versions:
 children:
   - /configuring-saml-single-sign-on-for-enterprise-managed-users
   - /configuring-oidc-for-enterprise-managed-users
+  - /about-enterprise-managed-authorization
   - /configuring-saml-single-sign-on-with-okta-for-enterprise-managed-users
   - /finding-the-object-id-for-your-entra-oidc-application
   - /about-support-for-your-idps-conditional-access-policy

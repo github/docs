@@ -34947,16 +34947,20 @@
                 "node_id": "IT_kwDNAd3NAZo",
                 "name": "Task",
                 "description": "A specific piece of work",
+                "color": "gray",
                 "created_at": "2024-12-11T14:39:09Z",
-                "updated_at": "2024-12-11T14:39:09Z"
+                "updated_at": "2024-12-11T14:39:09Z",
+                "is_enabled": true
               },
               {
                 "id": 411,
                 "node_id": "IT_kwDNAd3NAZs",
                 "name": "Bug",
                 "description": "An unexpected problem or behavior",
+                "color": "red",
                 "created_at": "2024-12-11T14:39:09Z",
-                "updated_at": "2024-12-11T14:39:09Z"
+                "updated_at": "2024-12-11T14:39:09Z",
+                "is_enabled": true
               }
             ],
             "schema": {
@@ -35050,6 +35054,142 @@
         "permissions": [
           {
             "\"Metadata\" repository permissions": "read"
+          }
+        ],
+        "allowsPublicRead": true
+      }
+    }
+  ],
+  "planning-statuses": [
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/planning-statuses",
+      "title": "List planning statuses for a repository",
+      "category": "repos",
+      "subcategory": "planning-statuses",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Lists the selectable planning statuses available.\nPlanning statuses are returned in deterministic display order:\nBacklog, Todo, In progress, In review, Done, Not planned, and Duplicate.\nClients should expect new keys to be added.\nReturns <code>404 Not Found</code> when issue statuses aren't available in the repository.</p>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nIssue statuses are in preview and subject to change. They're only available to accounts enrolled in the preview.</p>\n</div>\n<p>You need read access to the repository's issues to use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope\nto use this endpoint with a private repository.</p>\n<p>Fine-grained access tokens require the \"Issues\" repository permission (read).</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Available planning statuses in display order</p>",
+            "example": [
+              {
+                "id": 2,
+                "name": "Backlog",
+                "category": "backlog"
+              },
+              {
+                "id": 3,
+                "name": "Todo",
+                "category": "planned"
+              },
+              {
+                "id": 4,
+                "name": "In progress",
+                "category": "started"
+              },
+              {
+                "id": 8,
+                "name": "In review",
+                "category": "started"
+              },
+              {
+                "id": 5,
+                "name": "Done",
+                "category": "completed"
+              },
+              {
+                "id": 6,
+                "name": "Not planned",
+                "category": "not_planned"
+              },
+              {
+                "id": 7,
+                "name": "Duplicate",
+                "category": "duplicate"
+              }
+            ],
+            "schema": {
+              "type": "array",
+              "items": {
+                "title": "Planning status",
+                "description": "A planning status and its lifecycle category.",
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "The stable identifier of the planning status."
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "The display name of the planning status, which may change in the future."
+                  },
+                  "category": {
+                    "type": "string",
+                    "description": "A stable identifier for the category, such as `backlog`, `planned`, `started`, `completed`, `not_planned` or `duplicate`. Clients should expect new keys to be added."
+                  }
+                },
+                "required": [
+                  "id",
+                  "name",
+                  "category"
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>Available planning statuses in display order</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Issues\" repository permissions": "read"
           }
         ],
         "allowsPublicRead": true

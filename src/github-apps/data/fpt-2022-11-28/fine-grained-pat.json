@@ -5613,6 +5613,12 @@
       "requestPath": "/repos/{owner}/{repo}/languages"
     },
     {
+      "slug": "list-planning-statuses-for-a-repository",
+      "subcategory": "planning-statuses",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/planning-statuses"
+    },
+    {
       "slug": "check-if-private-vulnerability-reporting-is-enabled-for-a-repository",
       "subcategory": "repos",
       "verb": "get",

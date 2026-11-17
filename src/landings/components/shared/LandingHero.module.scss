@@ -46,6 +46,11 @@
   margin-top: 0.25rem;
 }
 
+// Share drops under the calls to action when the button group is already full.
+.heroShare {
+  margin-top: -0.25rem;
+}
+
 @media (max-width: 865px) {
   // Drop the right-anchored background art; show the image as a band instead.
   .landingHero {
@@ -73,6 +78,24 @@
     button {
       width: 100%;
     }
+  }
+}
+
+// Swap in the dark-mode art (set inline as --hero-image-dark) where a hero
+// provides one. !important beats the inline light image; the width guard keeps
+// the mobile rule above, which hides the art, in charge below 866px. The
+// prefers-color-scheme block covers "sync with system" and the no-JS fallback,
+// matching Banner.module.scss.
+@media (min-width: 866px) {
+  :global([data-color-mode="dark"]) .hasDarkHeroImage {
+    background-image: var(--hero-image-dark) !important;
+  }
+}
+
+@media (min-width: 866px) and (prefers-color-scheme: dark) {
+  :global(html[data-color-mode="auto"][data-dark-theme*="dark"])
+    .hasDarkHeroImage {
+    background-image: var(--hero-image-dark) !important;
   }
 }
 

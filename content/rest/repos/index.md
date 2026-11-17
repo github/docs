@@ -21,6 +21,7 @@ children:
   - /forks
   - /issue-types
   - /lfs
+  - /planning-statuses
   - /repos
   - /rule-suites
   - /rules

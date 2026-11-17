@@ -1,0 +1,1 @@
+Browser use lets {% data variables.product.prodname_copilot_short %} interact with websites in your browser. For example, you can ask it to test a web application or retrieve information from a webpage. For an overview, see [AUTOTITLE](/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/browser-use).
