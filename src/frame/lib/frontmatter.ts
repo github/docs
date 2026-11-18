@@ -64,7 +64,16 @@ export const contentTypesEnum = [
 ]
 
 // docsTeamMetrics groups related articles by feature or subject across directories.
-export const docsTeamMetricsEnum = ['ai-governance', 'copilot-cli', 'enterprise-onboarding']
+export const docsTeamMetricsEnum = [
+  'ado-migration',
+  'ai-governance',
+  'code-quality',
+  'copilot-cli',
+  'copilot-usage-metrics',
+  'enterprise-onboarding',
+  'gitlab-migration',
+  'secret-protection',
+]
 
 export const schema: Schema = {
   type: 'object',

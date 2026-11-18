@@ -5,6 +5,8 @@ intro: 'Understand how your teams adopt {% data variables.product.prodname_copil
 versions:
   feature: copilot
 contentType: concepts
+docsTeamMetrics:
+  - copilot-usage-metrics
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /early-access/copilot-metrics

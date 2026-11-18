@@ -7,6 +7,8 @@ versions:
   fpt: '*'
   ghec: '*'
 contentType: other
+docsTeamMetrics:
+  - gitlab-migration
 ---
 
 ## About migrations from GitLab

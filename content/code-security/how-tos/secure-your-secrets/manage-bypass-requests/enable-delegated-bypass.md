@@ -7,6 +7,8 @@ versions:
   ghec: '*'
   ghes: '*'
 contentType: how-tos
+docsTeamMetrics:
+  - secret-protection
 shortTitle: Enable delegated bypass
 redirect_from:
   - /code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/enabling-delegated-bypass-for-push-protection

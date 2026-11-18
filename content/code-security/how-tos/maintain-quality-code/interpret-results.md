@@ -10,6 +10,8 @@ permissions: '{% data reusables.permissions.code-quality-see-repo-findings %}'
 audience:
   - driver
 contentType: how-tos
+docsTeamMetrics:
+  - code-quality
 redirect_from:
   - /code-security/code-quality/how-tos/interpret-results
 category:

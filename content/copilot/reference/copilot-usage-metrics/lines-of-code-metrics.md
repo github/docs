@@ -9,6 +9,8 @@ redirect_from:
   - /early-access/copilot-metrics/LoC
   - /early-access/copilot-metrics/LoC/about-the-copilot-metrics-LoC
 contentType: reference
+docsTeamMetrics:
+  - copilot-usage-metrics
 allowTitleToDifferFromFilename: true
 category:
   - Copilot usage metrics

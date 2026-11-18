@@ -6,6 +6,8 @@ versions:
   fpt: '*'
   ghec: '*'
 contentType: other
+docsTeamMetrics:
+  - ado-migration
 redirect_from:
   - /migrations/ado/about-migrations-from-azure-devops-to-github-enterprise-cloud
   - /migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/about-migrations-from-azure-devops-to-github-enterprise-cloud

@@ -9,6 +9,8 @@ permissions: '{% data reusables.permissions.code-quality-repo-enable %}'
 audience:
   - driver
 contentType: how-tos
+docsTeamMetrics:
+  - code-quality
 redirect_from:
   - /code-security/code-quality/how-tos/enable-code-quality
 category:

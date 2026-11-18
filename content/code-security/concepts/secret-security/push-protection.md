@@ -13,6 +13,8 @@ redirect_from:
   - /code-security/concepts/secret-security/about-push-protection
 shortTitle: Push protection
 contentType: concepts
+docsTeamMetrics:
+  - secret-protection
 category:
   - Protect your secrets
   - Move review earlier and make it smarter

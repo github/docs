@@ -9,6 +9,8 @@ versions:
   ghec: '*'
   ghes: '*'
 contentType: how-tos
+docsTeamMetrics:
+  - secret-protection
 shortTitle: Enable for generic patterns
 redirect_from:
   - /code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/non-provider-patterns/enabling-secret-scanning-for-non-provider-patterns

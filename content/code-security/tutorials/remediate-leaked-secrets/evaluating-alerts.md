@@ -11,6 +11,8 @@ allowTitleToDifferFromFilename: true
 redirect_from:
   - /code-security/secret-scanning/managing-alerts-from-secret-scanning/evaluating-alerts
 contentType: tutorials
+docsTeamMetrics:
+  - secret-protection
 category:
   - Protect your secrets
 ---

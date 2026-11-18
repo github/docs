@@ -7,6 +7,8 @@ versions:
   fpt: '*'
   ghec: '*'
 contentType: other
+docsTeamMetrics:
+  - gitlab-migration
 ---
 
 For most customers, we recommend storing archives with {% data variables.product.prodname_ghos %}. This is the simplest path and does not require any extra configuration.

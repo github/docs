@@ -7,6 +7,8 @@ versions:
   feature: secret-scanning-public-monitoring
 product: 'Public monitoring is available for enterprises on {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_GH_advanced_security %} or {% data variables.product.prodname_GH_secret_protection %} enabled, including those on {% data variables.enterprise.data_residency %}.'
 contentType: concepts
+docsTeamMetrics:
+  - secret-protection
 category:
   - Protect your secrets
 ---

@@ -7,6 +7,8 @@ versions:
   ghec: '*'
   ghes: '*'
 contentType: concepts
+docsTeamMetrics:
+  - secret-protection
 category:
   - Protect your secrets
 ---

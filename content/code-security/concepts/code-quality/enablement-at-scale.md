@@ -6,6 +6,8 @@ intro: '{% data variables.product.prodname_code_quality %} can cover one reposit
 versions:
   feature: code-quality
 contentType: concepts
+docsTeamMetrics:
+  - code-quality
 product: '{% data reusables.gated-features.code-quality-availability %}'
 audience:
   - driver

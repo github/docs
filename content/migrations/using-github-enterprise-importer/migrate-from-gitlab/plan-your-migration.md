@@ -7,6 +7,8 @@ versions:
   fpt: '*'
   ghec: '*'
 contentType: other
+docsTeamMetrics:
+  - gitlab-migration
 ---
 
 ## Determine how much you have to migrate

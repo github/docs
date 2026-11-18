@@ -5,6 +5,8 @@ intro: Secure your organization's secrets within your budget by enabling {% data
 product: Organizations on {% data variables.product.prodname_team %} or {% data variables.product.prodname_enterprise %}
 allowTitleToDifferFromFilename: true
 contentType: how-tos
+docsTeamMetrics:
+  - secret-protection
 versions:
   fpt: '*'
   ghec: '*'

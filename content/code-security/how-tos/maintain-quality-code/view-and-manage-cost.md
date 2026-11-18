@@ -9,6 +9,8 @@ permissions: '{% data reusables.permissions.enhanced-billing-cloud-all %}'
 audience:
   - driver
 contentType: how-tos
+docsTeamMetrics:
+  - code-quality
 category:
   - Improve code quality
 ---

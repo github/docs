@@ -8,6 +8,8 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: how-tos
+docsTeamMetrics:
+  - secret-protection
 redirect_from:
   - /code-security/secret-scanning/enabling-secret-scanning-features/enabling-push-protection-for-your-repository
   - /code-security/how-tos/secure-your-secrets/prevent-future-leaks/enabling-push-protection-for-your-repository
