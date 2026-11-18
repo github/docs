@@ -77,6 +77,9 @@ Group members with the same ownership share persistent artifact storage, while a
    * **Whether activity from {% data variables.product.prodname_copilot_short %} in the cloud can trigger this {% data variables.copilot.copilot_automation %}**: From the **Can be triggered by** dropdown, pick **Anyone except {% data variables.product.prodname_copilot_short %} in the cloud** to ignore events triggered by {% data variables.product.prodname_copilot_short %}, including {% data variables.copilot.copilot_automations %}. Pick **Anyone** to listen for all events, including events triggered by {% data variables.product.prodname_copilot_short %}.
    * **Whether users with only read access to the repository can trigger this {% data variables.copilot.copilot_automation %}**: By default, {% data variables.copilot.copilot_automations %} ignore activity from users who don't have write access to the repository. Uncheck the **Ignore events triggered by users without write access to this repository** box to listen for these events. Depending on your repository configuration, the **Ignore events triggered by users without write access to this repository** option may be locked in an enabled state.
 
+> [!NOTE]
+> Some events created by {% data variables.product.prodname_github_apps %} cannot trigger automations. An app-authored label, assignment, closure, comment, and review events are filtered out, regardless of the app's repository permissions. Granting the app write access does not allow the event to trigger automations.
+
 1. In the **prompt** field, describe the task you want {% data variables.product.prodname_copilot_short %} to perform each time the {% data variables.copilot.copilot_automation %} runs.
 
    For example, `Label this issue as a bug, an enhancement, or other, based on its content.`
