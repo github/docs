@@ -4,6 +4,28 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Enum value <code>DYNAMIC</code> was removed from enum <code>CopilotCodeReviewEffort</code></p>",
+          "<p>Enum value <code>ADAPTIVE</code> was added to enum <code>CopilotCodeReviewEffort</code></p>",
+          "<p>Enum value <code>DYNAMIC</code> was removed from enum <code>CopilotCodeReviewEffortLevel</code></p>",
+          "<p>Enum value <code>ADAPTIVE</code> was added to enum <code>CopilotCodeReviewEffortLevel</code></p>",
+          "<p>Enum value <code>DYNAMIC</code> was removed from enum <code>OrganizationCopilotCodeReviewEffortSetting</code></p>",
+          "<p>Enum value <code>ADAPTIVE</code> was added to enum <code>OrganizationCopilotCodeReviewEffortSetting</code></p>",
+          "<p>Enum value <code>DYNAMIC</code> was removed from enum <code>RepositoryCopilotCodeReviewEffortSetting</code></p>",
+          "<p>Enum value <code>ADAPTIVE</code> was added to enum <code>RepositoryCopilotCodeReviewEffortSetting</code></p>",
+          "<p>Field <code>crossRepoContextEnabled</code> was added to object type <code>RepositoryCopilotCodeReviewSettings</code></p>",
+          "<p>Input field <code>crossRepoContextEnabled</code> of type <code>Boolean</code> was added to input object type <code>UpdateRepositoryCopilotCodeReviewSettingsInput</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-11-17"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Type <code>PlanningStatus</code> was added</p>",
           "<p><code>PlanningStatus</code> object implements <code>Node</code> interface</p>",
           "<p>Field <code>category</code> was added to object type <code>PlanningStatus</code></p>",
