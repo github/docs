@@ -429,6 +429,13 @@
           "href": "/graphql/reference/copilot#enum-copilotcoderevieweffortlevel"
         },
         {
+          "name": "crossRepoContextEnabled",
+          "description": "<p>Whether reviews can use public repository search.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
           "name": "customInstructionsEnabled",
           "description": "<p>Whether reviews use the repository's custom instructions.</p>",
           "type": "Boolean!",
@@ -509,12 +516,12 @@
       "isDeprecated": false,
       "values": [
         {
-          "name": "BALANCED",
-          "description": "<p>Balanced effort and depth.</p>"
+          "name": "ADAPTIVE",
+          "description": "<p>Copilot picks the effort for each pull request.</p>"
         },
         {
-          "name": "DYNAMIC",
-          "description": "<p>Copilot picks the effort for each pull request.</p>"
+          "name": "BALANCED",
+          "description": "<p>Balanced effort and depth.</p>"
         },
         {
           "name": "LITE",
@@ -535,12 +542,12 @@
       "isDeprecated": false,
       "values": [
         {
-          "name": "BALANCED",
-          "description": "<p>Balanced effort and depth.</p>"
+          "name": "ADAPTIVE",
+          "description": "<p>Copilot picks the effort for each pull request.</p>"
         },
         {
-          "name": "DYNAMIC",
-          "description": "<p>Copilot picks the effort for each pull request.</p>"
+          "name": "BALANCED",
+          "description": "<p>Balanced effort and depth.</p>"
         },
         {
           "name": "LITE",
@@ -675,12 +682,12 @@
       "isDeprecated": false,
       "values": [
         {
-          "name": "BALANCED",
-          "description": "<p>Balanced effort and depth.</p>"
+          "name": "ADAPTIVE",
+          "description": "<p>Copilot picks the effort for each pull request.</p>"
         },
         {
-          "name": "DYNAMIC",
-          "description": "<p>Copilot picks the effort for each pull request.</p>"
+          "name": "BALANCED",
+          "description": "<p>Balanced effort and depth.</p>"
         },
         {
           "name": "INHERIT",
@@ -769,12 +776,12 @@
       "isDeprecated": false,
       "values": [
         {
-          "name": "BALANCED",
-          "description": "<p>Balanced effort and depth.</p>"
+          "name": "ADAPTIVE",
+          "description": "<p>Copilot picks the effort for each pull request.</p>"
         },
         {
-          "name": "DYNAMIC",
-          "description": "<p>Copilot picks the effort for each pull request.</p>"
+          "name": "BALANCED",
+          "description": "<p>Balanced effort and depth.</p>"
         },
         {
           "name": "INHERIT",
@@ -950,6 +957,13 @@
           "type": "String",
           "id": "string",
           "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "crossRepoContextEnabled",
+          "description": "<p>Whether reviews can use public repository search. Can only be set when the\npublic repository search setting is available for the repository.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
         },
         {
           "name": "customInstructionsEnabled",

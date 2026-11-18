@@ -1,0 +1,1 @@
+On instances with SAML authentication enabled, signed-in users who were not members of the organization that owns a repository could not load Issues pages in public or internal repositories, even when they could view the repository's Code tab.

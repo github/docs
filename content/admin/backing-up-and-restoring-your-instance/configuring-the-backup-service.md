@@ -72,6 +72,73 @@ If you're using a dedicated block device as your backup target, you need to init
     * Sets it to mount automatically at `/data/backup` on boot.{% ifversion ghes > 3.19 %}
     * If in a clustered environment, configures the node in `cluster.conf` with the `backup-server` role.{% endif %}
 
+#### Increasing the data partition size
+
+1. Resize the existing backup disk volume mounted at `/data/backup` using your virtualization platform's tools.
+1. Connect via SSH as the `admin` user to the node where the backup disk is mounted. See [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/accessing-the-administrative-shell-ssh).
+1. Put the appliance in maintenance mode. For more information, see [AUTOTITLE](/admin/administering-your-instance/configuring-maintenance-mode/enabling-and-scheduling-maintenance-mode).
+1. Reboot the appliance to detect the new storage allocation:
+
+   ```shell
+   sudo reboot
+   ```
+
+1. Run the `ghe-backup-disk-extend` command to expand the `/data/backup` filesystem:
+
+   ```shell
+   ghe-backup-disk-extend
+   ```
+
+1. Ensure system services are functioning correctly, then release maintenance mode. For more information, see [AUTOTITLE](/admin/administering-your-instance/configuring-maintenance-mode/enabling-and-scheduling-maintenance-mode).
+
+> [!WARNING]
+> If the `ghe-backup-disk-extend` command (or a prior automatic check) reports: `ghe_backup_data contains a file system with errors`, you must repair the filesystem before retrying the resize. Do not rerun `ghe-backup-disk-extend` until the check completes cleanly. For recovery instructions, see below.
+
+
+#### Repairing filesystem errors
+
+If the filesystem check fails during `ghe-backup-disk-extend`, follow these steps to repair it.
+
+1. Ensure the appliance is in maintenance mode and no background jobs are running:
+
+   ```shell copy
+   ghe-maintenance -s
+   ghe-resque-info
+   ```
+
+1. Stop and activate the user volume, then run a forced filesystem check (auto‑answer yes):
+
+   ```shell copy
+   sudo systemctl stop ghe-backup-disk
+   VGNAME=$(sudo lvs --noheadings -o vg_name | grep ghe_backup_ | awk '{ print $1 }')
+   sudo vgchange -ay "$VGNAME"
+   sudo vgscan --mknodes
+   sudo fsck -fy /dev/mapper/${VGNAME}-ghe_backup_data
+   ```
+
+1. Retry the resize:
+
+   ```shell copy
+   ghe-backup-disk-extend
+   ```
+
+1. Remount and verify new size:
+
+   ```shell copy
+   sudo systemctl start ghe-backup-disk
+   df -h /data/backup
+   ```
+
+1. Reboot and verify the new size.
+
+   
+
+1. After the appliance restarts, reconnect via SSH to the node on which the backup disk is mounted, then verify the new size:
+
+   ```shell copy
+   df -h /data/backup
+   ```
+   
 #### Detach a backup disk
 
 > [!WARNING]

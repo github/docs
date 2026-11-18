@@ -1318,7 +1318,8 @@
               ],
               "severity_filter": "no_filter",
               "custom_instructions_enabled": true,
-              "mcp_enabled": true
+              "mcp_enabled": true,
+              "cross_repo_context_enabled": true
             },
             "schema": {
               "title": "Repository Copilot Code Review Settings",
@@ -1369,6 +1370,10 @@
                 "mcp_enabled": {
                   "type": "boolean",
                   "description": "Whether reviews can use MCP servers."
+                },
+                "cross_repo_context_enabled": {
+                  "type": "boolean",
+                  "description": "Whether reviews can use public repository search."
                 }
               },
               "required": [
@@ -1376,7 +1381,8 @@
                 "available_review_efforts",
                 "severity_filter",
                 "custom_instructions_enabled",
-                "mcp_enabled"
+                "mcp_enabled",
+                "cross_repo_context_enabled"
               ]
             }
           }
@@ -1464,6 +1470,11 @@
           "type": "boolean",
           "name": "mcp_enabled",
           "description": "<p>Whether reviews can use MCP servers.</p>"
+        },
+        {
+          "type": "boolean",
+          "name": "cross_repo_context_enabled",
+          "description": "<p>Whether reviews can use public repository search. Can only be set when the public repository search setting is available for the repository.</p>"
         }
       ],
       "descriptionHTML": "<p>Updates the Copilot code review settings for a repository. These settings tune how Copilot code review\nreviews pull requests in the repository. They do not enable Copilot code review, and they can be stored\nwhile an enterprise or organization policy disables Copilot code review.</p>\n<p>Omitted settings are not changed. Set <code>review_effort</code> to <code>inherit</code> to clear the repository's review effort\nso it inherits the effort from the organization, the enterprise, or GitHub's default. The whole request is\nvalidated before any change is made, so invalid input does not change any setting. Changes use the same\naudit logging and telemetry as the repository settings page.</p>\n<p>Repository administrators can use this endpoint.\nOAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint.</p>",
@@ -1497,7 +1508,8 @@
               ],
               "severity_filter": "low",
               "custom_instructions_enabled": true,
-              "mcp_enabled": true
+              "mcp_enabled": true,
+              "cross_repo_context_enabled": true
             },
             "schema": {
               "title": "Repository Copilot Code Review Settings",
@@ -1548,6 +1560,10 @@
                 "mcp_enabled": {
                   "type": "boolean",
                   "description": "Whether reviews can use MCP servers."
+                },
+                "cross_repo_context_enabled": {
+                  "type": "boolean",
+                  "description": "Whether reviews can use public repository search."
                 }
               },
               "required": [
@@ -1555,7 +1571,8 @@
                 "available_review_efforts",
                 "severity_filter",
                 "custom_instructions_enabled",
-                "mcp_enabled"
+                "mcp_enabled",
+                "cross_repo_context_enabled"
               ]
             }
           }

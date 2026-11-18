@@ -213,6 +213,10 @@ sections:
         - |
           YJIT, Ruby's Just-In-Time (JIT) compiler, is enabled by default. Users may experience faster application performance and improved resource efficiency across their instance. [Updated: 2025-12-17]
 
+  bugs:
+    - |
+      {% data reusables.release-notes.2026-11-saml-issues-non-org-members-fixed %} [Updated: 2026-11-17]
+
   known_issues:
     # INCLUDE NOTES FOR RELEASE FROM "GHES Release Note Tracking" PROJECT'S "Known Issues" TAB
     - |
