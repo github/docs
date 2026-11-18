@@ -135,6 +135,11 @@
   excels_at: Fast tool use with improved instruction following
   further_reading: '[Gemini 4 Hydrogen model card](https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-4-Hydrogen-Model-Card.pdf)'
 
+- name: Gemini 4 Neon
+  task_area: Agentic coding, multistep tool use, and knowledge work
+  excels_at: Near Gemini 4 Carbon quality at a lower token cost per task
+  further_reading: 'Coming soon'
+
 # Microsoft
 - name: MAI-Code-1.1-Flash
   task_area: General-purpose coding and writing, image understanding
