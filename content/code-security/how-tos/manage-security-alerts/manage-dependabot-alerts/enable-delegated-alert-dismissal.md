@@ -12,7 +12,10 @@ category:
   - Secure your dependencies
 ---
 
->[!NOTE] {% data reusables.security.delegated-alert-dismissal-capacity %}
+> [!NOTE]
+> {% data reusables.security.delegated-alert-dismissal-capacity %}
+>
+> Alert dismissal requests expire after {% ifversion dependabot-dismissal-request-expiry %}1 year{% else %}1 week{% endif %}, after which they must be resubmitted.
 
 ## Configuring delegated dismissal for a repository
 
