@@ -9,6 +9,8 @@ versions:
   ghec: '*'
   ghes: '*'
 contentType: tutorials
+docsTeamMetrics:
+  - secret-protection
 redirect_from:
   - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/interpreting-secret-risk-assessment-results
   - /code-security/tutorials/secure-your-organization/interpreting-secret-risk-assessment-results

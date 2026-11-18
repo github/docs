@@ -9,6 +9,8 @@ redirect_from:
   - /copilot/get-started/achieve-engineering-goals
   - /copilot/get-started/achieve-company-goals
 contentType: tutorials
+docsTeamMetrics:
+  - copilot-usage-metrics
 category:
   - Manage Copilot for a team
 ---

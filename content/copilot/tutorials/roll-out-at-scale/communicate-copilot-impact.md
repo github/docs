@@ -5,6 +5,8 @@ intro: 'Support renewal, rollout, and training decisions with a clear account of
 versions:
   feature: copilot
 contentType: tutorials
+docsTeamMetrics:
+  - copilot-usage-metrics
 audience:
   - driver
 allowTitleToDifferFromFilename: true

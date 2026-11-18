@@ -16,6 +16,8 @@ versions:
   ghec: '*'
 shortTitle: Secret scanning
 contentType: concepts
+docsTeamMetrics:
+  - secret-protection
 category:
   - Protect your secrets
 ---

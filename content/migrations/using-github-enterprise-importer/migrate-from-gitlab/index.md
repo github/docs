@@ -16,6 +16,8 @@ children:
   - /use-graphql
   - /grant-the-migrator-role
 contentType: tutorials
+docsTeamMetrics:
+  - gitlab-migration
 heroImage: /assets/images/banner-images/hero-2
 introLinks:
   plan_your_migration: /migrations/using-github-enterprise-importer/migrate-from-gitlab/understand-migrations

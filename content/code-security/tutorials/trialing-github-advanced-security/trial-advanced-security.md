@@ -14,6 +14,8 @@ redirect_from:
   - /code-security/trialing-github-advanced-security/trial-advanced-security
 shortTitle: Trial Advanced Security
 contentType: tutorials
+docsTeamMetrics:
+  - secret-protection
 category:
   - Plan your security strategy
   - Move review earlier and make it smarter

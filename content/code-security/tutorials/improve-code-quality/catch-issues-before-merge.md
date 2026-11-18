@@ -7,6 +7,8 @@ versions:
 product: '{% data reusables.gated-features.code-quality-availability %}'
 permissions: '{% data reusables.permissions.code-quality-see-repo-findings %}'
 contentType: tutorials
+docsTeamMetrics:
+  - code-quality
 redirect_from:
   - /code-security/code-quality/tutorials/fix-findings-in-prs
   - /code-security/tutorials/improve-code-quality/fix-findings-in-prs

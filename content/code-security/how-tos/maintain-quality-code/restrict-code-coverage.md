@@ -7,6 +7,8 @@ versions:
   feature: code-quality
 permissions: '{% data reusables.permissions.code-quality-repo-enable %}'
 contentType: how-tos
+docsTeamMetrics:
+  - code-quality
 category:
   - Improve code quality
 ---

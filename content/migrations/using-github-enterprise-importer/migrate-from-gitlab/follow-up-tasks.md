@@ -6,6 +6,8 @@ versions:
   fpt: '*'
   ghec: '*'
 contentType: other
+docsTeamMetrics:
+  - gitlab-migration
 ---
 
 {% data reusables.enterprise-migration-tool.follow-up-tasks-common %}

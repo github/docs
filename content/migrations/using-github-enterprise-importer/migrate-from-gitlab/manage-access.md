@@ -6,6 +6,8 @@ versions:
   fpt: '*'
   ghec: '*'
 contentType: other
+docsTeamMetrics:
+  - gitlab-migration
 allowTitleToDifferFromFilename: true
 ---
 

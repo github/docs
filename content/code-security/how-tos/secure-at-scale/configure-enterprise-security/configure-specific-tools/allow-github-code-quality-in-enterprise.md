@@ -9,6 +9,8 @@ permissions: Enterprise owners
 audience:
   - driver
 contentType: how-tos
+docsTeamMetrics:
+  - code-quality
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /code-security/code-quality/how-tos/allow-in-enterprise

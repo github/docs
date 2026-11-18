@@ -7,6 +7,8 @@ product: '{% data reusables.gated-features.code-quality-availability %}'
 versions:
   feature: code-quality
 contentType: concepts
+docsTeamMetrics:
+  - code-quality
 audience:
   - driver
 redirect_from:

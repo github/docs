@@ -9,6 +9,8 @@ versions:
   ghec: '*'
   ghes: '*'
 contentType: tutorials
+docsTeamMetrics:
+  - secret-protection
 category:
   - Secure at scale
   - Protect your secrets

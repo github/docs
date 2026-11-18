@@ -7,6 +7,8 @@ layout: journey-landing
 versions:
   feature: copilot
 contentType: tutorials
+docsTeamMetrics:
+  - copilot-usage-metrics
 audience:
   - driver
 category:

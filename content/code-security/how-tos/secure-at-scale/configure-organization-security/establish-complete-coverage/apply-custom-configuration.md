@@ -12,6 +12,8 @@ redirect_from:
   - /code-security/securing-your-organization/enabling-security-features-in-your-organization/applying-a-custom-security-configuration
   - /code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/applying-a-custom-security-configuration
 contentType: how-tos
+docsTeamMetrics:
+  - secret-protection
 category:
   - Secure at scale
 ---

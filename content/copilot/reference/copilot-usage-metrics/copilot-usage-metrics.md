@@ -12,6 +12,8 @@ category:
   - Understand available data
   - Track Copilot usage
 contentType: reference
+docsTeamMetrics:
+  - copilot-usage-metrics
 ---
 
 The {% data variables.product.prodname_copilot_short %} usage metrics dashboard and APIs display and export data using a consistent set of fields. This reference lists all available metrics and describes how to interpret their values in both dashboard visuals and NDJSON or API exports.
