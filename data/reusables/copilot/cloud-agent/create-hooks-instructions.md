@@ -41,7 +41,7 @@
          "type": "command",
          "bash": "./scripts/log-prompt.sh",
          "powershell": "./scripts/log-prompt.ps1",
-         "cwd": "scripts",
+         "cwd": ".",
          "env": {
            "LOG_LEVEL": "INFO"
          }

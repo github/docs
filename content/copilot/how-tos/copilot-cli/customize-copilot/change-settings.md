@@ -97,10 +97,10 @@ For example:
 > * **Settings with a fixed set of choices** accept one of those values. For example, `/settings theme dim` or `/settings banner never`.
 > * **Nested settings** use a dotted path. For example, `/settings footer.showBranch off` hides the Git branch in the footer.
 
-You can configure settings that take set values without needing to remember the exact key or value, just by using the navigation and <kbd>Enter</kbd> keys. For example, to prevent the agent from asking clarifying questions:
+You can configure settings that take set values without needing to remember the exact key or value, just by using the navigation and <kbd>Enter</kbd> keys. For example, to prevent the agent from using the `ask_user` question form (it can still ask questions in its replies):
 
 1. Type `/settings`, without pressing <kbd>Enter</kbd>, to display a list of options.
-1. Use the <kbd>↓</kbd> key to move down the list until `❯` points to `/settings askUser  Allow the agent to ask clarifying questions`, then press <kbd>Enter</kbd>.
+1. Use the <kbd>↓</kbd> key to move down the list until `❯` points to `/settings askUser`, then press <kbd>Enter</kbd>.
 1. Use the <kbd>↓</kbd> key to move down the list of options for this setting until `❯` points to `/settings askUser off`, then press <kbd>Enter</kbd>.
 1. Press <kbd>Enter</kbd> again to submit the `/settings askUser off` command.
 
