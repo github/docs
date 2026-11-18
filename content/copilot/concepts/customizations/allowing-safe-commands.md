@@ -21,7 +21,7 @@ Answering approval prompts keeps you in control, but it can slow you down, espec
 {% data variables.copilot.assisted_permissions_caps %} is a middle ground between manual approval and granting broad permissions with an allow-all option. It uses a large language model to review permission requests and automatically approve actions it judges to be safe in the context of your task. In a standard interactive session, requests that still require approval are put to you.
 
 > [!NOTE]
-> {% data variables.copilot.assisted_permissions_caps %} is available in {% data variables.copilot.copilot_cli %}, {% data variables.product.prodname_vscode %}, and the {% data variables.copilot.github_copilot_app %}.
+> {% data variables.copilot.assisted_permissions_caps %} is available in {% data variables.copilot.copilot_cli %}, {% data variables.product.prodname_vscode %}, and the {% data variables.copilot.github_copilot_app %}. For accurate billing of safety reviews, use {% data variables.copilot.copilot_cli %} version 1.0.104 or later, or the {% data variables.copilot.github_copilot_app %} version 1.1.32 or later. In {% data variables.product.prodname_vscode %}, it's generally available in version 1.143 or later.
 
 ## Approval options
 
@@ -53,7 +53,13 @@ If a safety review is unavailable or cannot evaluate a request, the request foll
 > [!NOTE]
 > In autopilot mode and non-interactive runs, requests that still require your approval are denied instead. When the safety review requires approval, its explanation is passed back to {% data variables.product.prodname_copilot_short %} so it can try a different approach. See [AUTOTITLE](/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/autopilot).
 
-{% data variables.product.prodname_copilot_short %} selects the model used for the safety review, which can differ from the model you selected for your conversation. If the selected review model is unavailable, the review can use your session's active model instead. If you use your own model provider, the review uses your session's active model.
+{% data variables.product.prodname_copilot_short %} selects the model used for the safety review, which can differ from the model you selected for your conversation. By default, the safety review uses a GPT Luna model. If the selected model isn't available to you, {% data variables.product.prodname_copilot_short %} uses another model that has been evaluated for safety reviews. If none of these models is available, the request follows the session's normal permission handling. If you use your own model provider, the review uses your session's active model.
+
+Unless you use your own model provider, each safety review is a separate model request that consumes {% data variables.product.prodname_ai_credits_short %}, in addition to the {% data variables.product.prodname_ai_credits_short %} your task uses. If you use your own model provider, each safety review is a separate request to that provider. With your own model provider, reviews don't consume {% data variables.product.prodname_ai_credits_short %}, but your provider may charge you for those requests. Requests that are already resolved by your permissions or rules don't need a safety review.
+
+Each safety review typically uses about 0.1 {% data variables.product.prodname_ai_credits_short %} or less with {% data variables.copilot.gpt_6_luna %}. Your usage depends on how many requests are reviewed and how much context each review evaluates.
+
+For model rates, see [AUTOTITLE](/copilot/reference/copilot-billing/models-and-pricing).
 
 > [!IMPORTANT]
 > {% data variables.copilot.assisted_permissions_caps %} reduces how often you're prompted, but it doesn't remove your responsibility for what {% data variables.product.prodname_copilot_short %} does. The model can make mistakes and approve dangerous or unintended actions. This feature is not a substitute for sandboxing or access restrictions. As with any automatic approval option, you should review the actions {% data variables.product.prodname_copilot_short %} takes, and consider running it in a sandbox or other isolated environment. For more information, see [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-cli#risk-mitigation).
