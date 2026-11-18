@@ -60,7 +60,7 @@ For installation instructions, available tools, and URLs for specific MCP server
    * If you chose **STDIO**:
 
      * Next to **Command**, enter the command to start the server, including any arguments. For example, `npx @playwright/mcp@latest`. This corresponds to both the `command` and `args` properties in the JSON configuration file.
-     * Next to **Environment Variables**, optionally specify environment variables the server needs, such as API keys or tokens, as JSON key-value pairs. For example, `{"API_KEY": "YOUR-API-KEY"}`. The `PATH` variable is automatically inherited from your environment. All other environment variables must be configured here.
+     * Next to **Environment Variables**, optionally specify environment variables the server needs, such as API keys or tokens, as JSON key-value pairs. For example, `{"API_KEY": "YOUR-API-KEY"}`. The `PATH` variable and a small set of platform-specific environment variables are automatically inherited from your environment. Other required environment variables must be configured here.
 
    * If you chose **HTTP** or **SSE**:
 
@@ -193,7 +193,7 @@ The same server can also be configured with the bare top-level format:
 ```
 
 > [!NOTE]
-> Project-level MCP servers are loaded only after you confirm folder trust on first launch. They are silently skipped in untrusted directories. For more information on folder trust, see [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-cli#trusted-directories).
+> Project-level MCP servers are loaded only after you confirm folder trust on first launch. They are skipped in untrusted directories. Prompt mode warns when workspace MCP configuration is skipped because the folder is not trusted. For more information on folder trust, see [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-cli#trusted-directories).
 
 In prompt mode (`copilot -p`), project-level MCP servers are loaded automatically if the current directory is already trusted. If the directory is not trusted, project-level MCP servers are skipped by default. To load them anyway, set the `GITHUB_COPILOT_PROMPT_MODE_WORKSPACE_MCP` environment variable to `true`, since prompt mode cannot show an interactive trust prompt. For more information, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference#environment-variables).
 
@@ -252,7 +252,7 @@ You can also manage MCP servers from the terminal without entering interactive m
   copilot mcp get SERVER-NAME
   ```
 
-  Shows a server's type, status, and available tools. Add `--json` for JSON output.
+  Shows a server's configuration and whether it is enabled. Add `--json` for JSON output.
 
 * **Remove a server:**
 

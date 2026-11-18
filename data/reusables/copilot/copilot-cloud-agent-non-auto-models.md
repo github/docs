@@ -6,6 +6,7 @@
 * {% data variables.copilot.gemini_4_argon %}
 * {% data variables.copilot.gemini_4_carbon %}
 * {% data variables.copilot.gemini_4_hydrogen %}
+* {% data variables.copilot.gemini_4_neon %}
 * {% data variables.copilot.gpt_56_luna %}
 * {% data variables.copilot.gpt_56_sol %}
 * {% data variables.copilot.gpt_6_astra %}

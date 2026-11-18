@@ -190,5 +190,5 @@ To prevent {% data variables.copilot.copilot_cli_short %} from contacting {% dat
 
 * **An Ollama model is missing:** Check that Ollama is running and the model has been downloaded. Open `/model` and press <kbd>Ctrl</kbd>+<kbd>R</kbd> to scan again. For a server on another machine, configure its OpenAI-compatible API URL manually, including `/v1`.
 * **A saved model is missing:** Check that its `provider` matches a provider's `name`, then restart the CLI. If adding a discovered model produced a save warning, follow the warning to fix the file or its permissions.
-* **Environment settings have no effect:** Check whether `providers.json`, or the file selected by `COPILOT_PROVIDERS_CONFIG`, already contains providers or models. That file takes precedence.
+* **Environment settings have no effect:** Check whether `COPILOT_PROVIDERS_CONFIG` selects a file containing providers or models. An explicitly selected file takes precedence over environment settings. Otherwise, an active environment-configured provider takes precedence over the default `providers.json`.
 * **Requests fail:** Check the API URL, credentials, model name, and API choice. For Azure OpenAI, check the deployment name. For errors about request size, set token limits that fit your model.

@@ -55,12 +55,6 @@ GitHub Copilot may not be sold, exported, or re-exported to any embargoed destin
 
 Crimea, the separatist areas of Donetsk and Luhansk, Cuba, Iran, and North Korea. With respect to Iran, however, GitHub now has a license from the U.S. Treasury Department's Office of Foreign Assets Control (OFAC) to provide cloud services to developers located or otherwise resident in that country. GitHub cloud services, both free and paid, are also generally available to developers located in Cuba.
 
-### How is GitHub ensuring that folks not living in and/or having professional links to the sanctioned countries and territories still have access or ability to appeal?
-
-In the rare instance that an account is affected unintentionally or in error, we have an appeal process to address such instances.
-
-If an individual user or organization owner believes that they have been flagged in error, then that user has the opportunity to appeal the flag by providing verification information to GitHub. If GitHub receives sufficient information to verify that the user or organization is not affiliated with a U.S.-sanctioned jurisdiction for which we do not have a license or otherwise restricted by U.S. economic sanctions, then the flag will be removed. Please contact [Support](https://support.github.com/request) for assistance.
-
 ### Will traveling in these regions be impacted?
 
 Travel in these regions may impact your account status, but availability may be reinstated once you are outside of the sanctioned region.
@@ -105,7 +99,7 @@ For example, a developer in Iran may sign up for a Free or Pro plan for their in
 
 Specially Designated Nationals (SDNs), other denied or blocked parties under U.S. and other applicable law, and certain government officials may be restricted from accessing or using GitHub.
 
-If GitHub determines that an individual or organization falls into a restricted category (SDNs, other blocked parties, or certain government officials), their account will be flagged and they will not be able to use any GitHub features. If they believe that they have been flagged in error, then they have the opportunity to appeal the flag by providing verification information to GitHub. Please contact [Support](https://support.github.com/request) for assistance if needed. If GitHub receives sufficient information to verify that the individual is not in a category restricted by U.S. economic sanctions, then the flag will be removed.
+If GitHub determines that an individual or organization falls into a restricted category (SDNs, other blocked parties, or certain government officials), their account will be flagged and they will not be able to use any GitHub features.
 
 ### Will Iranian GitHub users be able to use paid services under the license?
 

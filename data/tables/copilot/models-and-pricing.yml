@@ -410,6 +410,16 @@
   cached_input: $0.075
   output: $7.50
 
+- model: 'Gemini 4 Neon'
+  provider: google
+  release_status: GA
+  category: Versatile
+  threshold: 'Not applicable'
+  tier: 'Default'
+  input: $3.00
+  cached_input: $0.15
+  output: $15.00
+
 # xAI
 - model: 'Grok 4.5'
   provider: xai
