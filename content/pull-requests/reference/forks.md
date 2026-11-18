@@ -46,6 +46,8 @@ Each fork can have its own:
 
 Repository, organization, and enterprise policies can limit whether repositories can be forked and where forks can be created. For private{% ifversion ghec or ghes %} and internal{% endif %} repositories, access to forks also depends on repository visibility, organization membership, and administrator settings.
 
+On {% data variables.product.prodname_dotcom_the_website %}, if you see “You cannot fork this repository at this time” when trying to fork a public repository to your personal account, an account restriction can prevent you from creating a fork, even if you can sign in. The error alone doesn't identify the cause. If you believe your account has been restricted, you can request a review through the [{% data variables.product.github %} Appeal and Reinstatement form](https://support.github.com/contact/reinstatement).
+
 {% ifversion fpt or ghec %}
 
 If you're a member of an {% data variables.enterprise.prodname_emu_enterprise %}, additional restrictions apply to the repositories you can fork. {% ifversion ghec %}{% data reusables.enterprise-accounts.emu-forks %}{% endif %} See [AUTOTITLE](/enterprise-cloud@latest/admin/concepts/identity-and-access-management/enterprise-managed-users){% ifversion fpt %} in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}.{% endif %}
