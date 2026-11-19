@@ -17,6 +17,7 @@ import styles from './LandingArticleGridWithFilter.module.scss'
 type ArticleGridProps = {
   tocItems: TocItem[]
   includedCategories?: string[]
+  keepArticleOrder?: boolean
   landingType: LandingType
   params: QueryParams
   updateParams: (updates: Partial<QueryParams>, shouldPushHistory?: boolean) => void
@@ -56,6 +57,7 @@ const useResponsiveArticlesPerPage = () => {
 export const ArticleGrid = ({
   tocItems,
   includedCategories,
+  keepArticleOrder = false,
   landingType,
   params,
   updateParams,
@@ -72,7 +74,10 @@ export const ArticleGrid = ({
   const selectedCategory = params['articles-category'] || ALL_CATEGORIES
   const currentPage = parseInt(params['articles-page'] || '1', 10)
 
-  const allArticles = useMemo(() => flattenArticles(tocItems, locale), [tocItems, locale])
+  const allArticles = useMemo(
+    () => flattenArticles(tocItems, locale, { sortByTitle: !keepArticleOrder }),
+    [tocItems, locale, keepArticleOrder],
+  )
 
   const stopWords = useMemo(() => deriveStopWords(allArticles), [allArticles])
 

@@ -7,6 +7,8 @@ layout: journey-landing
 versions:
   feature: code-quality
 contentType: tutorials
+docsTeamMetrics:
+  - code-quality
 audience:
   - driver
 category:

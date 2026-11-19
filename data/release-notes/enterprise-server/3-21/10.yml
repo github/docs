@@ -1,0 +1,165 @@
+date: '2026-11-17'
+sections:
+  features:
+    - |
+      Administrators can use `--metrics-days N` with the support bundle utilities to collect metrics for a positive number of days independently of the log collection period. The `--metrics-only` option collects metrics, metrics-related logs, and bundle metadata without other diagnostics. By default, bundles include 10 days of metrics on standalone instances and clusters with up to 20 nodes. For larger clusters, the default decreases based on cluster size, to a minimum of three days.
+  security_fixes:
+    - |
+      Packages have been updated to the latest security versions.
+    - |
+      **HIGH:** Updated Git to include fixes that address [CVE-2026-105437](https://www.cve.org/CVERecord?id=CVE-2026-105437), [CVE-2026-111760](https://www.cve.org/CVERecord?id=CVE-2026-111760), [CVE-2026-113408](https://www.cve.org/CVERecord?id=CVE-2026-113408), [CVE-2026-114466](https://www.cve.org/CVERecord?id=CVE-2026-114466), [CVE-2026-114467](https://www.cve.org/CVERecord?id=CVE-2026-114467), and [CVE-2026-114469](https://www.cve.org/CVERecord?id=CVE-2026-114469). This update was previously communicated in the release notes for the last patch release, but had not been fully resolved.
+    - |
+      **HIGH:** On a GitHub Enterprise Server instance in a cluster configuration, an attacker authenticated as a site administrator could execute arbitrary commands as the host `git` user on peer Git server nodes outside the pre-receive hook sandbox by supplying a crafted download URL for a custom pre-receive hook environment. GitHub has requested CVE ID [CVE-2026-112740](https://www.cve.org/cverecord?id=CVE-2026-112740) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
+    - |
+      **HIGH:** A site administrator could modify host files with root privileges and disclose private repository data due to improper path validation in pre-receive hook environment setup. To mitigate this issue, GitHub has strengthened path validation. GitHub has requested CVE ID [CVE-2026-116637](https://www.cve.org/cverecord?id=CVE-2026-116637) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
+    - |
+      **HIGH:** An organization member could read and modify another user's private repositories due to improper SSH certificate identity validation. Exploitation required an instance using built-in authentication and a valid certificate issued to the attacker by a trusted SSH certificate authority. Access was limited to repositories within that authority's scope. GitHub has requested CVE ID [CVE-2026-116643](https://www.cve.org/cverecord?id=CVE-2026-116643) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
+    - |
+      **HIGH:** An authenticated attacker could read private file paths and available source-code excerpts by supplying another repository's review-thread IDs through a pull request they could access. This authorization bypass required no victim interaction. GitHub has requested CVE ID [CVE-2026-111801](https://www.cve.org/cverecord?id=CVE-2026-111801) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
+    - |
+      **HIGH:** An attacker with a session for a user whose numeric ID matched an enterprise's ID could generate private keys for its GitHub Apps by bypassing ownership checks. Repository access depended on the App's installations and permissions. On standard fresh installations, the collision involved the non-loginable ghost account; the reported reproduction required site administrator impersonation. GitHub has requested CVE ID [CVE-2026-110307](https://www.cve.org/cverecord?id=CVE-2026-110307) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
+    - |
+      **HIGH**: An attacker with permission to manage custom-property definitions and edit values could add an SSH key to another member's personal account through stored HTML in a single-select option. Exploitation required a definition manager in the same organization to attempt to remove the in-use option and save with a valid sudo session. GitHub has requested CVE ID [CVE-2026-131800](https://www.cve.org/cverecord?id=CVE-2026-131800) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/)
+    - |
+      **HIGH:** A user with repository write access could exploit server-side request forgery in Slack webhook validity checks, potentially leading to remote code execution on the appliance. Exploitation required Secret Protection with secret scanning and validity checks for partner patterns enabled. GitHub has requested CVE ID [CVE-2026-131820](https://www.cve.org/cverecord?id=CVE-2026-131820) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
+    - |
+      **HIGH:** An OS command injection vulnerability in the GitHub Pages deployment process could allow arbitrary command execution as the GitHub Pages service user on a GitHub Enterprise Server instance. Exploitation required an authenticated user with permission to deploy a GitHub Pages site. GitHub has requested CVE ID [CVE-2026-130824](https://www.cve.org/cverecord?id=CVE-2026-130824) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
+    - |
+      **MEDIUM:** A user with write access could bypass branch protections through specially crafted input when resolving pull request conflicts. GitHub has requested CVE ID [CVE-2026-131647](https://www.cve.org/cverecord?id=CVE-2026-131647) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
+    - |
+      **LOW:** SAML authentication could match an incorrect account when NameID values differed only in case, accents, or trailing spaces. These mismatches now return a login-conflict error.
+    - |
+      **LOW:** Secret scanning validity checks for Google Cloud service account credentials were hardened to prevent HTTP redirects from sending validation requests to unintended destinations. Redirect responses leave the secret's validity as unknown.
+    - |
+      An attacker with write access to a repository with secret scanning enabled could execute arbitrary code on the instance by committing a crafted Google Cloud service account credential whose token URI pointed to an internal service on the instance. When GitHub Enterprise Server ran a validity check on the detected secret, it sent a request to the attacker-controlled URL. Validity check requests are now blocked from reaching internal services on the instance. This vulnerability was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
+  bugs:
+    - |
+      When users cloned or fetched a repository over SSH with compression enabled, the operation could stall until the connection timed out, especially for repositories with many references. 
+    - |
+      Administrators could not apply SSH cipher configurations containing only CTR ciphers because `ghe-crypto` and the Management Console incorrectly rejected these lists.
+    - |
+      Site administrators could not apply configuration changes when the backup CPU quota (`backup.cpu-quota`) was set to a valid percentage, such as `320%` or `12.5%`, because configuration validation rejected the percent sign. 
+    - |
+      On instances configured with multiple trusted IP addresses or CIDR ranges for the Prometheus metrics endpoint, `ghe-config-check` reported validation errors for valid comma-separated lists. 
+    - |
+      On instances with legacy metrics enabled, the weekly cleanup did not remove metrics files that had not been updated for more than 90 days. These stale files continued to consume space on the root disk. 
+    - |
+      Site administrators could not apply configuration changes when the backup schedule (`backup.schedule`) was set to a valid cron schedule, such as `0 0 * * *`, because configuration validation rejected whitespace and `*`.
+    - |
+      Administrators restoring backups on standalone instances could find that Redis loaded existing append-only file (AOF) data instead of the restored backup. Redis restores could also fail for backups in RDB version 11 format. 
+    - |
+      Site administrators could not apply configuration after upgrading an instance with a custom OpenTelemetry pipeline that referenced the built-in `otlp/ghes` receiver.
+    - |
+      Site administrators whose GitHub Actions storage settings included values such as "github" saw those values incorrectly redacted from hostnames and database names in support bundles, resulting in false diagnostic failures.
+    - |
+      After OpenTelemetry metrics were disabled, collectd could stop receiving application and service metrics until it was restarted. 
+    - |
+      Administrators running `ghe-live-migrations` could see duplicate timestamps and stray formatting characters in the output. Sending SIGTERM to the utility did not always stop the underlying migration container cleanly, and the utility did not reject some invalid options. 
+    - |
+      When an administrator changed `redis.io-threads` and applied the configuration, Redis on the primary could restart with the previous value, so the change did not take effect. 
+    - |
+      After a site administrator applied a hotpatch, some files that the hotpatch installed, such as command-line utilities, could be missing from the instance. 
+    - |
+      On clusters with automatic MySQL failover enabled, upgrades could continue without successfully disabling failover, potentially causing an unexpected promotion of a MySQL replica. Upgrades stop before shutting down MySQL if failover suppression cannot be confirmed. 
+    - |
+      Upgrades and other operations that drain a node could take about 10 seconds longer than necessary because an internal service did not shut down promptly when signaled.
+    - |
+      After an upgrade, `ghe-config-apply` verified the same Docker images more than once, unnecessarily extending the configuration run. 
+    - |
+      Configured appliances reused as replicas in a high availability configuration could come online before replication started.
+    - |
+      On instances configured to forward logs over UDP, a journal message of approximately 64 KiB or larger could stop all subsequent log forwarding until `syslog-ng` was restarted. 
+    - |
+      Site administrators could not trigger an Elasticsearch snapshot backup by setting `backup.es-backup-strategy` in `ghe-config`.
+    - |
+      On standalone or high-availability instances, repository data could be restored even when the corresponding repository metadata was missing from the database backup. Newly created repositories could then be preinitialized with that orphaned data.
+    - |
+      Administrators configuring repository caches on instances with GitHub Actions enabled saw a `mssql-server and mysql-server should have the same value` warning during replication setup or configuration runs. 
+    - |
+      Users with qualifying issue or pull request activity did not see the "Recent activity" section on their personal dashboards. 
+    - |
+      On instances with a large number of committers, enabling security features on a repository, including by applying a security configuration, could time out while calculating remaining GitHub Advanced Security licenses. This calculation is now skipped when enabling the repository uses no additional licenses. 
+    - |
+      If calculating {% data variables.product.prodname_GH_advanced_security %} license usage took too long while an enterprise owner applied a security configuration, the confirmation dialog did not show how many repositories the configuration would apply to.
+    - |
+      When site administrators added or re-added a repository cache replica, repositories could remain unavailable on the cache, causing requests routed to it to return `Repository not found` errors until the background scheduler repaired them. 
+    - |
+      Site administrators could encounter an error when viewing pending {% data variables.product.pat_v2 %} requests associated with a deleted token.
+    - |
+      Organizations could receive email notifications about pending {% data variables.product.pat_v2 %} requests after the associated tokens had been deleted.
+    - |
+      On instances running in private mode with subdomain isolation enabled, users could intermittently encounter broken avatar images and failures when loading content from the media, notebooks, and viewscreen subdomains. 
+    - |
+      Users experienced failed Git pushes when secret scanning evaluated delegated bypass requests configured with an organization custom role. 
+    - |
+      Secret scanning alerts for enterprise-level custom patterns did not include links to the custom pattern settings. 
+    - |
+      For teams linked to SCIM external groups, the site administrator dashboard displayed a **Sync** action that called a service unavailable on GitHub Enterprise Server and a description that incorrectly indicated membership would reconcile automatically. Site administrators can use the **Reconcile** action to reconcile team membership.
+    - |
+      Background processes handling issue and project updates could consume increasing amounts of memory. 
+    - |
+      Updates to organization rulesets targeting many repositories could time out. 
+    - |
+      Users could be incorrectly classified as dormant despite recent activity, such as commenting on issues or pull requests. Last activity timestamps in user reports and the dormant users page could also be outdated. 
+    - |
+      When GraphQL requests timed out, {% data variables.product.prodname_ghe_server %} could include all executed SQL queries in exception diagnostics, causing logs to grow enough to exhaust the root disk. These queries are no longer included in exception diagnostics.
+    - |
+      Users could not upload HTML and other supported file types as attachments to issues, pull requests, discussions, and comments in repositories. 
+    - |
+      On instances with high push activity, users could experience delays before repository-related updates appeared in the UI. {% data variables.product.prodname_ghe_server %} processes repository push events with increased parallelism to reduce these delays.
+  changes:
+    - |
+      For site administrators viewing monitoring dashboards in the Management Console, Grafana tooltips sort values in descending order.
+    - |
+      On AWS, the root volume for new instances launched from the GitHub Enterprise Server Amazon Machine Image (AMI) defaults to the gp3 volume type with 250 MiB/s throughput, instead of gp2. 
+    - |
+      On clustered instances, the `ghe-cluster-balance` utility no longer displays an outdated disclaimer that described it as a preview feature and directed administrators to contact GitHub Support. The utility has been generally available and fully supported since {% data variables.product.prodname_ghe_server %} 3.9. For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/configuring-clustering/rebalancing-cluster-workloads).
+    - |
+      Redis usage diagnostics use more responsive and reliable keyspace scans, including on larger installations. Collection is bounded by a timeout so diagnostics can continue when Redis scans take too long.
+    - |
+      GitHub Enterprise Server saves system, usage, and performance data from each node to `/data/user/common/telemetry-snapshot` before and after upgrades and hotpatches. Uploading the data to GitHub Support requires administrator consent. If no consent choice is saved, interactive installations prompt administrators. To change the setting, run `ghe-config upgrade.telemetry-upload-consent true` to allow uploads, or run `ghe-config upgrade.telemetry-upload-consent false` to keep the data local. 
+    - |
+      The `ghe-backup-disk-extend` command-line utility is available to increase the attached disk volume size used by the backup service. 
+    - |
+      Site administrators can run pre-upgrade live migrations in the background with `ghe-live-migrations --all --background` and check their status with `ghe-live-migrations --status`, which shows whether a migration is running and the latest lines of its log. When run from an interactive terminal, `ghe-live-migrations --all` prompts administrators to choose whether to run in the background.
+    - |
+      Administrators can configure the timeout for GitHub Actions queue-build API requests. The default is 10 seconds. To increase it to 30 seconds, run `ghe-config app.actions.queue-build-timeout 30s`, then `ghe-config-apply`.
+    - |
+      Site administrators can limit log collection when generating support bundles. The `--syslog-only` option collects syslog and MSSQL Server logs, while `--no-logs` skips application log collection. Both options retain metrics and selected diagnostics and cannot be used together.
+    - |
+      The bundled GitHub Actions runner has been updated to version 2.338.2. 
+    - |
+      On instances where calculating GitHub Advanced Security license usage takes too long, applying a security configuration to repositories can fail. With help from GitHub Support, site administrators can skip license seat checks when security features are enabled.
+    - |
+      For users who merge pull requests in repositories that automatically delete head branches, merges complete faster because GitHub Enterprise Server deletes the head branch in the background after the merge, rather than while the merge is in progress. The head branch may remain visible briefly after the pull request is merged. For more information, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-the-automatic-deletion-of-branches).
+  known_issues:
+    - |
+      During an upgrade of GitHub Enterprise Server, custom firewall rules are removed. If you use custom firewall rules, you must reapply them after upgrading.
+    - |
+      If the root site administrator is locked out of the Management Console after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-web-ui/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account).
+    - |
+      {% data reusables.release-notes.large-adoc-files-issue %}
+    - |
+      Admin stats REST API endpoints may time out on appliances with many users or repositories. Retrying the request until data is returned is advised.
+    - |
+      When following the steps for [Replacing the primary database node](/admin/monitoring-and-managing-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-the-primary-database-node-mysql-or-mysql-and-mssql), running `ghe-cluster-config-apply` might fail with errors. If this occurs, re-running `ghe-cluster-config-apply` is expected to succeed.
+    - |
+      Running a config apply as part of the steps for [Replacing a node in an emergency](/admin/monitoring-and-managing-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-a-node-in-an-emergency) may fail with errors if the node being replaced is still reachable. If this occurs, shut down the node and repeat the steps.
+    - |
+      When restoring data originally backed up from a 3.13 or greater appliance version, the Elasticsearch indices need to be reindexed before some of the data will show up. This happens via a scheduled job that runs on the first Saturday of each month. It can also be forced by running `/usr/local/share/enterprise/ghe-es-search-repair`.
+    - |
+      When initializing a new GHES cluster, nodes with the `consul-server` role should be added to the cluster before adding additional nodes. Adding all nodes simultaneously creates a race condition between nomad server registration and nomad client registration.
+    - |
+      In a cluster, the host running restore requires access to the storage nodes via their private IPs.
+    - |
+      After a restore, existing outside collaborators cannot be added to repositories in a new organization. This issue can be resolved by running `/usr/local/share/enterprise/ghe-es-search-repair` on the appliance.
+    - |
+      After a geo-replica is promoted to be a primary by running `ghe-repl-promote`, the actions workflow of a repository does not have any suggested workflows.
+    - |
+      When publishing npm packages in a workflow shortly after restoring from a backup to GitHub Enterprise Server, you may encounter a `401 Unauthorized` error from the GitHub Packages service. This has been confirmed on earlier releases and may also affect later supported versions. Applicability to current releases is still being confirmed. This can happen if the restore is from an N-1 or N-2 version and the workflow targets the npm endpoint on the backup instance. To avoid this issue, ensure the access token used for publishing is valid and includes the correct scopes for the GitHub Packages service.
+    - | 
+      On instances with multiple Git storage nodes in a voting configuration, including cluster and geo-replication high availability topologies, upgrading may fail to correctly install Actions that ship with the new version. In some cases, previous versions of these Actions remain on the instance. To resolve this issue, run the following commands on the primary node: `ghe-config --unset 'app.actions.actions-repos-sha1sum'`, `ghe-config-apply`, and `/usr/local/share/enterprise/ghe-run-init-actions-graph`.
+    - |
+      When an administrator restores a backup with `ghe-restore` to a configured standalone instance with Replication Controller enabled, `ghe-restore` may skip storage data, such as avatars and attachments, and still complete successfully. The restore output includes `Warning: no routes found, skipping storage restore ...`. If you see this warning or storage data is missing after a restore, contact GitHub Support.
+    - |
+      `ghe-storage-extend` will fail for disks with a sector size greater than 1KiB, most notably with Azure Premium SSD v2 disks. This is due to an upstream bug with `resize2fs` when resizing a mounted disk.

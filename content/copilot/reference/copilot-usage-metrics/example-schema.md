@@ -902,7 +902,9 @@ The `copilot_code_review` object is present on every row. Its counts are `0` and
 
 The `pull_request_review_times` array is empty when the repository merged no qualifying pull requests that day. For which pull requests are counted, see [AUTOTITLE](/copilot/reference/copilot-usage-metrics/copilot-usage-metrics#pull-request-review-time-fields).
 
-For the field reference, see [AUTOTITLE](/copilot/reference/copilot-usage-metrics/copilot-usage-metrics#repository-level-fields-api-only).
+For the field reference, see [AUTOTITLE](/copilot/reference/copilot-usage-metrics/copilot-usage-metrics#repository-level-fields).
+
+In `example-service-gamma` below, 2 of 3 evaluated comments were addressed. Its high-severity address rate is 1 of 1, while its count of merged pull requests without {% data variables.product.prodname_copilot_short %} review is `1 - 1 = 0`. These calculations use different populations. For guidance on interpreting the corresponding dashboard signals, see [AUTOTITLE](/copilot/reference/copilot-usage-metrics/repository-insights-metrics).
 
 ```json copy
 [

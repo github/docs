@@ -7,6 +7,9 @@ versions:
 contentType: tutorials
 category:
   - Manage Copilot for a team
+  - Build agents at enterprise scale
+  - Bring Copilot into the rest of developers' work
+  - Move review earlier and make it smarter
 redirect_from:
   - /copilot/get-started/resources-for-approval
 docsTeamMetrics:

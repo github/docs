@@ -1,0 +1,6 @@
+# Reference: #25178
+# Dependabot alert dismissal requests expire after 1 year instead of 1 week
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.24'

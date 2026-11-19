@@ -8,6 +8,7 @@ shortTitle: Monitor agentic activity
 contentType: how-tos
 category:
   - Manage Copilot for a team
+  - Build agents at enterprise scale
 docsTeamMetrics:
   - ai-governance
 ---
@@ -34,6 +35,8 @@ Track agentic activity on {% data variables.product.github %} or through streami
 {% data reusables.copilot.agent-session-streaming-availability-note %}
 
 To enable streaming for {% data variables.product.prodname_copilot_short %} agent session events and configure a streaming destination from your enterprise audit log settings, see [AUTOTITLE](/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise#enabling-audit-log-streaming-of-copilot-agent-session-events).
+
+You can stream to any supported destination, including Microsoft Agent 365, which lets you review {% data variables.product.prodname_copilot_short %} agent activity alongside your other agents in Microsoft Agent 365.
 
 In addition to streaming, you can also retrieve Copilot usage data through the REST API. See [AUTOTITLE](/rest/copilot/copilot-usage-metrics#get-copilot-usage-records-for-an-enterprise).
 

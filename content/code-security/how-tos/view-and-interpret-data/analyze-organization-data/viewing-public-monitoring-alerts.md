@@ -7,6 +7,8 @@ permissions: 'Enterprise owners and enterprise security managers can access the 
 versions:
   feature: secret-scanning-public-monitoring
 contentType: how-tos
+docsTeamMetrics:
+  - secret-protection
 category:
   - Secure at scale
 ---

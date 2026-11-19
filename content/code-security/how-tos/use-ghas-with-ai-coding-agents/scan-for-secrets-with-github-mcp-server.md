@@ -7,6 +7,8 @@ versions:
   feature: copilot
 permissions: 'People with write access to a repository.'
 contentType: how-tos
+docsTeamMetrics:
+  - secret-protection
 category:
   - Protect your secrets
 ---

@@ -10,7 +10,6 @@ redirect_from:
   - /organizations/managing-organization-settings/actions-policies/workflow-execution-protections
   - /admin/enforcing-policies/enforcing-policies-for-your-enterprise/actions-policies/workflow-execution-protections
 permissions: 'Repository administrators, organization owners, and enterprise owners'
-product: 'All public repositories, and private repositories on {% data variables.product.prodname_team %} or {% data variables.product.prodname_enterprise %}.'
 ---
 
 {% data reusables.actions.actions-policies-about-body %} For more information, see [AUTOTITLE](/actions/concepts/about-actions-policies).
@@ -62,7 +61,7 @@ In an enterprise:
 Next, create a new policy.
 
 1. Choose a name for the policy.
-1. Choose an enforcement status. If you select **Evaluate** ({% data variables.product.prodname_ghe_cloud %} only), you will be able to monitor when users would hit the restriction in policy insights.
+1. Choose an enforcement status. If you select **Evaluate**, you will be able to monitor when users would hit the restriction in policy insights.
 1. Target your desired workflows, organizations, or repositories.
 1. Configure the following workflow execution protections.
 

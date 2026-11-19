@@ -2812,7 +2812,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Gets the immutable releases policy for repositories in an organization.</p>\n<p>OAuth tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Gets the immutable releases policy for repositories in an organization.</p>\n<p>OAuth tokens and personal access tokens (classic) need the <code>admin:org</code> or <code>repo</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -2909,7 +2909,7 @@
           "description": "<p>An array of repository ids for which immutable releases enforcement should be applied. You can only provide a list of repository ids when the <code>enforced_repositories</code> is set to <code>selected</code>. You can add and remove individual repositories using the <a href=\"https://docs.github.com/enterprise-server@3.22/rest/orgs/orgs#enable-a-selected-repository-for-immutable-releases-in-an-organization\">Enable a selected repository for immutable releases in an organization</a> and <a href=\"https://docs.github.com/enterprise-server@3.22/rest/orgs/orgs#disable-a-selected-repository-for-immutable-releases-in-an-organization\">Disable a selected repository for immutable releases in an organization</a> endpoints.</p>"
         }
       ],
-      "descriptionHTML": "<p>Sets the immutable releases policy for repositories in an organization.</p>\n<p>OAuth tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Sets the immutable releases policy for repositories in an organization.</p>\n<p>OAuth tokens and personal access tokens (classic) need the <code>admin:org</code> or <code>repo</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -2984,7 +2984,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>List all of the repositories that have been selected for immutable releases enforcement in an organization.</p>\n<p>OAuth tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>List all of the repositories that have been selected for immutable releases enforcement in an organization.</p>\n<p>OAuth tokens and personal access tokens (classic) need the <code>admin:org</code> or <code>repo</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -3832,7 +3832,7 @@
           "isRequired": true
         }
       ],
-      "descriptionHTML": "<p>Replaces all repositories that have been selected for immutable releases enforcement in an organization. To use this endpoint, the organization immutable releases policy for <code>enforced_repositories</code> must be configured to <code>selected</code>.</p>\n<p>OAuth tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Replaces all repositories that have been selected for immutable releases enforcement in an organization. To use this endpoint, the organization immutable releases policy for <code>enforced_repositories</code> must be configured to <code>selected</code>.</p>\n<p>OAuth tokens and personal access tokens (classic) need the <code>admin:org</code> or <code>repo</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -3901,7 +3901,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Adds a repository to the list of selected repositories that are enforced for immutable releases in an organization. To use this endpoint, the organization immutable releases policy for <code>enforced_repositories</code> must be configured to <code>selected</code>.</p>\n<p>OAuth tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Adds a repository to the list of selected repositories that are enforced for immutable releases in an organization. To use this endpoint, the organization immutable releases policy for <code>enforced_repositories</code> must be configured to <code>selected</code>.</p>\n<p>OAuth tokens and personal access tokens (classic) need the <code>admin:org</code> or <code>repo</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -3965,7 +3965,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Removes a repository from the list of selected repositories that are enforced for immutable releases in an organization. To use this endpoint, the organization immutable releases policy for <code>enforced_repositories</code> must be configured to <code>selected</code>.</p>\n<p>OAuth tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Removes a repository from the list of selected repositories that are enforced for immutable releases in an organization. To use this endpoint, the organization immutable releases policy for <code>enforced_repositories</code> must be configured to <code>selected</code>.</p>\n<p>OAuth tokens and personal access tokens (classic) need the <code>admin:org</code> or <code>repo</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {

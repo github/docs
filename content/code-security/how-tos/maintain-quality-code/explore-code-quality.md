@@ -7,6 +7,8 @@ permissions: Organization members
 audience:
   - driver
 contentType: how-tos
+docsTeamMetrics:
+  - code-quality
 versions:
   feature: code-quality
 category:

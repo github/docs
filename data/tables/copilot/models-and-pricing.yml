@@ -87,28 +87,6 @@
   output: $30.00
   cache_write: $10.00
 
-- model: GPT-5.6 Terra
-  provider: openai
-  release_status: GA
-  category: Versatile
-  threshold: '≤ 272K'
-  tier: Default
-  input: $2.00
-  cached_input: $0.20
-  output: $12.00
-  cache_write: $2.50
-
-- model: GPT-5.6 Terra
-  provider: openai
-  release_status: GA
-  category: Versatile
-  threshold: '> 272K'
-  tier: 'Long context'
-  input: $4.00
-  cached_input: $0.40
-  output: $18.00
-  cache_write: $5.00
-
 - model: GPT-6 Astra
   provider: openai
   release_status: GA
@@ -219,6 +197,50 @@
   output: $7.50
   cache_write: $2.50
 
+- model: GPT-6.2 Astra
+  provider: openai
+  release_status: GA
+  category: Powerful
+  threshold: '≤ 272K'
+  tier: Default
+  input: $8.00
+  cached_input: $0.40
+  output: $40.00
+  cache_write: $10.00
+
+- model: GPT-6.2 Astra
+  provider: openai
+  release_status: GA
+  category: Powerful
+  threshold: '> 272K'
+  tier: 'Long context'
+  input: $16.00
+  cached_input: $0.80
+  output: $60.00
+  cache_write: $20.00
+
+- model: GPT-6.2 Sol
+  provider: openai
+  release_status: GA
+  category: Powerful
+  threshold: '≤ 272K'
+  tier: Default
+  input: $2.00
+  cached_input: $0.10
+  output: $10.00
+  cache_write: $2.50
+
+- model: GPT-6.2 Sol
+  provider: openai
+  release_status: GA
+  category: Powerful
+  threshold: '> 272K'
+  tier: 'Long context'
+  input: $4.00
+  cached_input: $0.20
+  output: $15.00
+  cache_write: $5.00
+
 # Anthropic
 - model: Claude Haiku 4.5
   provider: anthropic
@@ -270,15 +292,6 @@
   cache_write: $3.75
 
 - model: Claude Opus 4.8
-  provider: anthropic
-  release_status: GA
-  category: Powerful
-  input: $5.00
-  cached_input: $0.50
-  output: $25.00
-  cache_write: $6.25
-
-- model: Claude Opus 5
   provider: anthropic
   release_status: GA
   category: Powerful
@@ -397,6 +410,16 @@
   cached_input: $0.075
   output: $7.50
 
+- model: 'Gemini 4 Neon'
+  provider: google
+  release_status: GA
+  category: Versatile
+  threshold: 'Not applicable'
+  tier: 'Default'
+  input: $3.00
+  cached_input: $0.15
+  output: $15.00
+
 # xAI
 - model: 'Grok 4.5'
   provider: xai
@@ -466,6 +489,22 @@
   input: $0.20
   cached_input: $0.02
   output: $1.20
+
+- model: 'MAI Code 2[^mai-code-2-promo]'
+  provider: microsoft
+  release_status: GA
+  category: Powerful
+  input: $0.50
+  cached_input: $0.025
+  output: $2.50
+
+- model: 'MAI Code 2 Flash[^mai-code-2-flash-promo]'
+  provider: microsoft
+  release_status: GA
+  category: Lightweight
+  input: $0.05
+  cached_input: $0.005
+  output: $0.25
 
 # Open-weight models
 - model: 'Kimi K3'

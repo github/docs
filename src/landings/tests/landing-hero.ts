@@ -20,7 +20,8 @@ vi.mock('@primer/react-brand', () => {
   return {
     Button: ({ href, children }: { href: string; children?: ReactNode }) =>
       createElement('a', { href }, children),
-    ButtonGroup: passthrough,
+    ButtonGroup: ({ children }: { children?: ReactNode }) =>
+      createElement('div', { 'data-button-group': '' }, children),
     Heading: passthrough,
     Text: passthrough,
   }
@@ -63,7 +64,11 @@ describe('LandingHero introLinks', () => {
 })
 
 describe('LandingHero heroTheme', () => {
-  function renderHero(props: { heroImage?: string; heroTheme?: 'mos-diner' }) {
+  function renderHero(props: {
+    heroImage?: string
+    heroImageDark?: string
+    heroTheme?: 'mos-diner'
+  }) {
     return load(renderToStaticMarkup(createElement(LandingHero, { title: 'Title', ...props })))
   }
 
@@ -84,5 +89,58 @@ describe('LandingHero heroTheme', () => {
     expect($('[style*="background-image"]').length).toBe(0)
     expect($('[data-hero-theme="mos-diner"] > [aria-hidden="true"]').length).toBe(1)
     expect($('.visually-hidden').text()).toBe('Title')
+  })
+
+  // The dark image only shows in dark mode, so a broken swap is easy to miss by eye.
+  test('passes a dark mode hero image to the stylesheet when one is set', () => {
+    const $ = renderHero({
+      heroImage: '/assets/images/banner-images/chez-mona',
+      heroImageDark: '/assets/images/banner-images/chez-mona-dark',
+    })
+    const hero = $('[style*="background-image"]')
+    expect(hero.attr('style')).toContain('--hero-image-dark')
+    expect(hero.attr('style')).toContain('chez-mona-dark')
+    expect(hero.attr('class')).toContain('hasDarkHeroImage')
+  })
+
+  test('leaves pages without a dark mode hero image unchanged', () => {
+    const $ = renderHero({ heroImage: '/assets/images/banner-images/hero-1' })
+    const hero = $('[style*="background-image"]')
+    expect(hero.attr('style')).not.toContain('--hero-image-dark')
+    expect(hero.attr('class') ?? '').not.toContain('hasDarkHeroImage')
+  })
+
+  test('ignores the dark mode hero image when a theme replaces the art', () => {
+    const $ = renderHero({
+      heroImage: '/assets/images/banner-images/chez-mona',
+      heroImageDark: '/assets/images/banner-images/chez-mona-dark',
+      heroTheme: 'mos-diner',
+    })
+    expect($.html()).not.toContain('--hero-image-dark')
+  })
+})
+
+describe('LandingHero share button', () => {
+  function render(showShareButton?: boolean, introLinks?: Record<string, string>) {
+    return load(
+      renderToStaticMarkup(
+        createElement(LandingHero, { title: 'Title', showShareButton, introLinks }),
+      ),
+    )
+  }
+
+  test('is hidden unless the page opts in', () => {
+    expect(render().text()).not.toContain('share_button.label')
+    expect(render(true).text()).toContain('share_button.label')
+  })
+
+  // ButtonGroup silently drops a third button, so Share must leave the group when it's full.
+  test('joins the button group only when the group has room', () => {
+    const oneLink = render(true, { compare: 'https://example.com/a' })
+    expect(oneLink('[data-button-group]').text()).toContain('share_button.label')
+
+    const twoLinks = render(true, { a: 'https://example.com/a', b: 'https://example.com/b' })
+    expect(twoLinks('[data-button-group]').text()).not.toContain('share_button.label')
+    expect(twoLinks.text()).toContain('share_button.label')
   })
 })

@@ -7,6 +7,8 @@ versions:
   ghec: '*'
   ghes: '*'
 contentType: concepts
+docsTeamMetrics:
+  - secret-protection
 category:
   - Secure at scale
 redirect_from:

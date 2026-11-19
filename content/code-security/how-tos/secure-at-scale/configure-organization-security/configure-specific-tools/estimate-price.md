@@ -9,6 +9,8 @@ versions:
   ghes: '*'
 permissions: '{% data reusables.permissions.push-protection-roi-calculator %}'
 contentType: how-tos
+docsTeamMetrics:
+  - secret-protection
 redirect_from:
   - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/estimating-the-price-of-secret-protection
   - /code-security/how-tos/secure-at-scale/configure-organization-security/configure-specific-tools/estimating-the-price-of-secret-protection

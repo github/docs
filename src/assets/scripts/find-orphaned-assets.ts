@@ -81,6 +81,8 @@ const EXCEPTIONS = new Set([
   'assets/images/banner-images/hero-4.png',
   'assets/images/banner-images/hero-5.png',
   'assets/images/banner-images/hero-6.png',
+  'assets/images/banner-images/chez-mona.png',
+  'assets/images/banner-images/chez-mona-dark.png',
 ])
 
 function isExceptionPath(imagePath: string) {

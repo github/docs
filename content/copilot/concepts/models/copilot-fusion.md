@@ -9,6 +9,7 @@ versions:
 contentType: concepts
 category:
   - Learn about Copilot
+  - Build agents at enterprise scale
 ---
 
 ## Overview
@@ -81,6 +82,10 @@ While this is in {% data variables.release-phases.public_preview %}, you must en
 
 As an alternative to {% data variables.copilot.copilot_fusion_short %}, you can configure a {% data variables.copilot.copilot_custom_agent_short %} to use a specific local model, and then, in your prompt, instruct {% data variables.product.prodname_copilot_short %} to use that custom agent for the task, or for a specific part of the task. See [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/create-custom-agents-for-cli#delegating-focused-tasks-to-a-specific-model).
 
+### Extend local coding with custom agents and skills
+
+Explore the [Local Coding plugin in Awesome Copilot](https://github.com/github/awesome-copilot/tree/main/plugins/local-coding) to enable additional on-device coding scenarios through custom agents and skills.
+
 ## Policies and availability
 
 {% data variables.copilot.copilot_fusion_short %} is generally available in:
@@ -89,6 +94,7 @@ As an alternative to {% data variables.copilot.copilot_fusion_short %}, you can 
 * {% data variables.copilot.copilot_cli_short %}
 * {% data variables.copilot.github_copilot_app %}
 * JetBrains IDEs
+* {% data variables.copilot.copilot_in_the_cloud_short %} on {% data variables.product.prodname_dotcom_the_website %}
 
 ### {% data variables.copilot.copilot_fusion_short %} effort level availability by {% data variables.product.prodname_copilot_short %} plan
 
@@ -105,7 +111,7 @@ As an alternative to {% data variables.copilot.copilot_fusion_short %}, you can 
 
 ### Policies
 
-When you use {% data variables.copilot.copilot_fusion_short %}, it chooses from the models available, subject to your policies and subscription type. Available models may change over time.
+When you use {% data variables.copilot.copilot_fusion_short %}, it chooses from a defined list of supported models. See [AUTOTITLE](/copilot/reference/ai-models/supported-models#supported-ai-models-for-copilot-auto-model-selection-and-copilot-fusion). The models available to you depend on your policies and subscription type, and may change over time.
 
 {% data variables.copilot.copilot_fusion_short %}, **won't** include these models:
 * Models not available in your plan.

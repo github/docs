@@ -39,7 +39,7 @@ For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-cop
 
 ## Custom agents
 
-Custom agents let you define specific expertise and behavior for the CLI when it works on a particular type of task. Custom agents are run as subagents—separately to the main agent that responds to a prompt—with their own context window. This allows {% data variables.product.prodname_copilot_short %} to offload work to custom agents without cluttering the main agent's context window, and to use the expertise of a custom agent when it's a good fit for the task at hand.
+Custom agents let you define specific expertise and behavior for the CLI when it works on a particular type of task. Custom agents can run as the main agent for a session or as subagents—separately to the main agent that responds to a prompt—with their own context window. Running them as subagents allows {% data variables.product.prodname_copilot_short %} to offload work to custom agents without cluttering the main agent's context window, and to use the expertise of a custom agent when it's a good fit for the task at hand.
 
 You can define the toolset available to a custom agent, so that the tools the agent can use are appropriate to its role. For example, a custom agent that works as a reviewer would typically not be permitted to make changes to code files.
 

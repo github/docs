@@ -64,7 +64,16 @@ export const contentTypesEnum = [
 ]
 
 // docsTeamMetrics groups related articles by feature or subject across directories.
-export const docsTeamMetricsEnum = ['ai-governance', 'copilot-cli', 'enterprise-onboarding']
+export const docsTeamMetricsEnum = [
+  'ado-migration',
+  'ai-governance',
+  'code-quality',
+  'copilot-cli',
+  'copilot-usage-metrics',
+  'enterprise-onboarding',
+  'gitlab-migration',
+  'secret-protection',
+]
 
 export const schema: Schema = {
   type: 'object',
@@ -255,6 +264,11 @@ export const schema: Schema = {
     heroImage: {
       type: 'string',
     },
+    // Dark-mode hero image for landing pages. Only needed when the art has no
+    // transparent-safe colors, such as a logo whose light version disappears on a dark canvas.
+    heroImageDark: {
+      type: 'string',
+    },
     // Event-specific hero styling that replaces the hero image on landing pages
     heroTheme: {
       type: 'string',
@@ -433,6 +447,18 @@ category:
           },
         },
       },
+    },
+    // Event pages list articles by priority, and later grid pages might not be seen,
+    // so they can opt out of the default alphabetical sort.
+    keepArticleOrder: {
+      type: 'boolean',
+      description: 'Show article grid cards in children order instead of sorting by title',
+    },
+    // Event pages let visitors send the page to themselves from a phone. Opt-in
+    // because most landing pages are reached from docs, where sharing adds noise.
+    showShareButton: {
+      type: 'boolean',
+      description: 'Show a Share button in the landing page hero',
     },
     // Article grids can limit their category filter options.
     includedCategories: {

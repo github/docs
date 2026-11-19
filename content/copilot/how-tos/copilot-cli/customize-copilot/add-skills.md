@@ -45,9 +45,9 @@ Use the /frontend-design skill to create a responsive navigation bar in React.
 
 * **Enable or disable specific skills:** use the command `/skills`, then use the up and down keys on your keyboard to select a skill, press <kbd>Enter</kbd>, and choose **Enable** or **Disable**.
 
-* **Find out more about a skill** (including its location): use the command `/skills info`.
+* **Find out more about a skill** (including its location): use the command `/skills info SKILL-NAME`.
 
-* **Add a skills location:** to add an alternative location in which to store skills, use the command `/skills add`.
+* **Add a skills location:** to add an alternative location in which to store skills, use the command `/skills add SKILL-DIRECTORY`, replacing `SKILL-DIRECTORY` with the directory's path.
 
 * **Reload skills:** if you have added a skill during a CLI session, you can add it using the command `/skills reload` to avoid having to restart the CLI to use it.
 

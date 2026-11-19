@@ -1,0 +1,1 @@
+AI Scan features do not respect the models enabled in the {% data variables.product.prodname_copilot_short %} **Configure models** policy for your enterprise or organization, so AI Scan may use models that the policy doesn't allow. To control whether AI Scan can run, use the AI Scan settings and enterprise policy instead.

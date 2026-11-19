@@ -8,7 +8,5 @@
 * Claude Haiku 5.5
 * Claude Sonnet 5
 * Claude Sonnet 5.5
-* Claude Opus 4.8
-* Claude Opus 5
 * Claude Opus 5.5
 * Gemini 4 Argon

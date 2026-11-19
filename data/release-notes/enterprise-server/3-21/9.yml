@@ -1,16 +1,17 @@
 date: '2026-11-10'
+intro: |
+  > [!WARNING]
+  > The Git security fixes previously listed for this release were incomplete. To receive these fixes, upgrade to {% data variables.product.prodname_ghe_server %} [3.21.10](#3.21.10) or a later patch release of 3.21. [Updated: 2026-11-17]
 sections:
   security_fixes:
     - |
-      **CRITICAL**: The Ruby Active Storage component was updated to address the file-read and remote code execution vulnerability [CVE-2026-66066](https://www.cve.org/CVERecord?id=CVE-2026-66066).
+      Packages have been updated to the latest security versions.
     - |
-      **HIGH**: Updated Git to include fixes that address [CVE-2026-105437](https://www.cve.org/CVERecord?id=CVE-2026-105437), [CVE-2026-111760](https://www.cve.org/CVERecord?id=CVE-2026-111760), [CVE-2026-113408](https://www.cve.org/CVERecord?id=CVE-2026-113408), [CVE-2026-114466](https://www.cve.org/CVERecord?id=CVE-2026-114466), [CVE-2026-114467](https://www.cve.org/CVERecord?id=CVE-2026-114467), and [CVE-2026-114469](https://www.cve.org/CVERecord?id=CVE-2026-114469). 
+      **CRITICAL**: The Ruby Active Storage component was updated to address the file-read and remote code execution vulnerability [CVE-2026-66066](https://www.cve.org/CVERecord?id=CVE-2026-66066).
     - |
       **MODERATE**: The Brotli compression library bundled with the GitHub application was updated to address [CVE-2026-111497](https://www.cve.org/CVERecord?id=CVE-2026-111497).
     - |
       Security updates have been applied to Go, OpenSSL, and Ubuntu system packages, including SQLite, across targeted main and bundled container images. These updates partially address [CVE-2026-111943](https://www.cve.org/CVERecord?id=CVE-2026-111943), [CVE-2025-15467](https://www.cve.org/CVERecord?id=CVE-2025-15467), and [CVE-2025-6965](https://www.cve.org/CVERecord?id=CVE-2025-6965); remaining components will be updated in a future release. 
-    - |
-      Packages have been updated to the latest security versions.
   bugs:
     - |
       On large instances with a license for {% data variables.product.prodname_GHAS %}, applying a security configuration to many repositories could time out while checking license usage, leaving repositories that failed to enable. License usage checks are now faster under concurrent load.
@@ -47,3 +48,6 @@ sections:
       In some cases, pull requests using auto-merge or merge queue may not merge automatically until mergeability is recalculated.
     - |
       On a newly booted GitHub Enterprise Server instance, the merge box on a newly created pull request can stay on "Checking for the ability to merge automatically" and not show the merge status. If encountered, refreshing the page shows the correct merge status.
+  errata:
+    - |
+      The security fix note for [CVE-2026-105437](https://www.cve.org/CVERecord?id=CVE-2026-105437), [CVE-2026-111760](https://www.cve.org/CVERecord?id=CVE-2026-111760), [CVE-2026-113408](https://www.cve.org/CVERecord?id=CVE-2026-113408), [CVE-2026-114466](https://www.cve.org/CVERecord?id=CVE-2026-114466), [CVE-2026-114467](https://www.cve.org/CVERecord?id=CVE-2026-114467), and [CVE-2026-114469](https://www.cve.org/CVERecord?id=CVE-2026-114469) has been removed because the Git security fixes were incomplete in this release. These fixes are included in {% data variables.product.prodname_ghe_server %} 3.21.10. [Updated: 2026-11-17]

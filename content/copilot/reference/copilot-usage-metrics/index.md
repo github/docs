@@ -9,6 +9,7 @@ children:
   - /usage-metrics-coverage
   - /industry-comparisons
   - /interpret-copilot-metrics
+  - /repository-insights-metrics
   - /reconciling-usage-metrics
   - /lines-of-code-metrics
   - /team-level-metrics

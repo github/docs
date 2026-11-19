@@ -22,12 +22,13 @@ Used for:
 * {% data variables.copilot.gpt_54_nano %}
 * {% data variables.copilot.gpt_56_luna %}
 * {% data variables.copilot.gpt_56_sol %}
-* {% data variables.copilot.gpt_56_terra %}
 * {% data variables.copilot.gpt_6_astra %}
 * {% data variables.copilot.gpt_6_luna %}
 * {% data variables.copilot.gpt_6_sol %}
 * {% data variables.copilot.gpt_61_sol %}
 * {% data variables.copilot.gpt_61_terra %}
+* {% data variables.copilot.gpt_62_astra %}
+* {% data variables.copilot.gpt_62_sol %}
 
 These models are hosted by OpenAI and {% data variables.product.github %}'s Azure infrastructure.
 
@@ -48,7 +49,6 @@ Used for:
 * {% data variables.copilot.claude_sonnet_55 %}
 * {% data variables.copilot.claude_opus_48 %}
 * {% data variables.copilot.claude_opus_48_fast %}
-* {% data variables.copilot.claude_opus_5 %}
 * {% data variables.copilot.claude_opus_55 %}
 * {% data variables.copilot.claude_fable_5 %}
 * {% data variables.copilot.claude_fable_51 %}
@@ -85,6 +85,7 @@ Used for:
 * {% data variables.copilot.gemini_4_argon %}
 * {% data variables.copilot.gemini_4_carbon %}
 * {% data variables.copilot.gemini_4_hydrogen %}
+* {% data variables.copilot.gemini_4_neon %}
 
 {% data variables.product.prodname_copilot %} uses {% data variables.copilot.gemini %} models hosted on Google Cloud Platform (GCP). When using {% data variables.copilot.gemini %} models, prompts and metadata are sent to GCP, which makes the [following data commitment](https://cloud.google.com/vertex-ai/generative-ai/docs/data-governance): _{% data variables.copilot.gemini %} doesn't use your prompts, or its responses, as data to train its models._
 
@@ -119,18 +120,21 @@ When using xAI, input prompts and output completions continue to run through {% 
 Used for:
 
 * {% data variables.copilot.mai_code_1_1_flash %}
+* {% data variables.copilot.mai_code_2 %}
+* {% data variables.copilot.mai_code_2_flash %}
 
-{% data variables.copilot.mai_code_1_1_flash %} is a first-party Microsoft model hosted on Azure in {% data variables.product.github %}'s tenant.
 
-This model can also be hosted locally on a user's own machine, if the GPU and memory requirements are met. See [AUTOTITLE](/copilot/how-tos/github-copilot-app/add-llm-models#installing-a-local-model-from-the-model-picker) and [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/add-llm-models#installing-a-local-model-from-the-model-picker).
+These models are first-party Microsoft models hosted on Azure in {% data variables.product.github %}'s tenant.
+
+{% data variables.copilot.mai_code_1_1_flash %} can also be hosted locally on a user's own machine, if the GPU and memory requirements are met. See [AUTOTITLE](/copilot/how-tos/github-copilot-app/add-llm-models#installing-a-local-model-from-the-model-picker) and [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/add-llm-models#installing-a-local-model-from-the-model-picker).
 
 {% data variables.product.github %} does not use {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} customer data to train AI models.
 
-When the model is cloud hosted, {% data variables.product.github %} may use {% data variables.product.prodname_copilot_short %} interaction data for individual subscribers—that is, users on {% data variables.copilot.copilot_free_short %}, {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, and {% data variables.copilot.copilot_max_short %} plans—to train and improve AI models, in accordance with our [AUTOTITLE](/free-pro-team@latest/site-policy/privacy-policies/github-general-privacy-statement) and applicable user settings. This may include prompts (inputs), suggestions (outputs), and code snippets generated during {% data variables.product.prodname_copilot_short %} sessions.{% ifversion fpt %} Individual subscribers can opt out of having their data used for AI model training. To manage this setting, see [AUTOTITLE](/copilot/how-tos/manage-your-account/manage-policies#model-training-and-improvements).{% endif %}
+When these models are cloud hosted, {% data variables.product.github %} may use {% data variables.product.prodname_copilot_short %} interaction data for individual subscribers—that is, users on {% data variables.copilot.copilot_free_short %}, {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, and {% data variables.copilot.copilot_max_short %} plans—to train and improve AI models, in accordance with our [AUTOTITLE](/free-pro-team@latest/site-policy/privacy-policies/github-general-privacy-statement) and applicable user settings. This may include prompts (inputs), suggestions (outputs), and code snippets generated during {% data variables.product.prodname_copilot_short %} sessions.{% ifversion fpt %} Individual subscribers can opt out of having their data used for AI model training. To manage this setting, see [AUTOTITLE](/copilot/how-tos/manage-your-account/manage-policies#model-training-and-improvements).{% endif %}
 
-When cloud hosted, {% data variables.copilot.mai_code_1_1_flash %} is served on Microsoft Azure AI Foundry within {% data variables.product.github %}'s tenant and is subject to {% data variables.product.github %}'s data handling configuration for that deployment. For details about how data is processed, retained, and secured for models served on Azure AI Foundry, see [Data, privacy, and security for Foundry Models sold by Azure](https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy?tabs=azure-portal) in the Microsoft documentation.
+When cloud hosted, these models are served on Microsoft Azure AI Foundry within {% data variables.product.github %}'s tenant and are subject to {% data variables.product.github %}'s data handling configuration for that deployment. For details about how data is processed, retained, and secured for models served on Azure AI Foundry, see [Data, privacy, and security for Foundry Models sold by Azure](https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy?tabs=azure-portal) in the Microsoft documentation.
 
-When {% data variables.copilot.mai_code_1_1_flash %} is cloud hosted, input prompts and output completions continue to run through {% data variables.product.prodname_copilot %}'s content filters for public code matching, when applied, along with those for harmful or offensive content. When {% data variables.copilot.mai_code_1_1_flash %} is locally hosted, the model may not use the same safety filters as {% data variables.product.github %} -provided models and may be more susceptible to malicious instructions, especially when actions are automatically approved.
+When these models are cloud hosted, input prompts and output completions continue to run through {% data variables.product.prodname_copilot %}'s content filters for public code matching, when applied, along with those for harmful or offensive content. When {% data variables.copilot.mai_code_1_1_flash %} is locally hosted, the model may not use the same safety filters as {% data variables.product.github %} -provided models and may be more susceptible to malicious instructions, especially when actions are automatically approved.
 
 ## Open-weight models
 

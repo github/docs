@@ -30,6 +30,8 @@ github_support: 'GitHub Support'
 # The team that provides Premium Support
 premium_support: 'GitHub Premium Support'
 
+partner_support: 'GitHub Partner Support'
+
 # Enterprise Support portal
 enterprise_portal: 'GitHub Support portal'
 contact_enterprise_portal: '[GitHub Support portal](https://support.github.com)'

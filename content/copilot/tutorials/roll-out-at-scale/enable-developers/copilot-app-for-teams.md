@@ -9,6 +9,7 @@ contentType: tutorials
 category:
   - Roll Copilot out at scale
   - Manage Copilot for a team
+  - Bring Copilot into the rest of developers' work
 docsTeamMetrics:
   - ai-governance
 ---
@@ -55,7 +56,7 @@ If your organizations belong to an enterprise, first establish enterprise-level 
 
 After you configure access and policies, ask each developer to:
 
-1. Visit the [download page for the {% data variables.copilot.github_copilot_app %}](https://github.com/features/ai/github-app).
+1. Visit the [download page for the {% data variables.copilot.github_copilot_app %}](https://github.com/features/ai/github-app?utm_source=docs-article-app-marketing&utm_medium=docs&utm_campaign=ignite-nov-2026).
 1. Download and install the app for their operating system.
 1. Open the app and sign in to {% data variables.product.github %}.
 

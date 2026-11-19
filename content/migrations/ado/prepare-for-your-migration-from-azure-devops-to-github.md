@@ -6,6 +6,8 @@ versions:
   fpt: '*'
   ghec: '*'
 contentType: other
+docsTeamMetrics:
+  - ado-migration
 category:
   - Migrate from Azure DevOps
 redirect_from:

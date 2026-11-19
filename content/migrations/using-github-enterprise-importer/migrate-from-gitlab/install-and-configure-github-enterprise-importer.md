@@ -6,6 +6,8 @@ versions:
   fpt: '*'
   ghec: '*'
 contentType: other
+docsTeamMetrics:
+  - gitlab-migration
 ---
 
 ## Step 1: Install the {% data variables.product.prodname_gl2gh_cli %}

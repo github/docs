@@ -6,6 +6,8 @@ versions:
   feature: secret-scanning-public-monitoring
 permissions: Enterprise owners and enterprise security managers can enable public monitoring for their enterprise.
 contentType: how-tos
+docsTeamMetrics:
+  - secret-protection
 category:
   - Secure at scale
 ---

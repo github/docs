@@ -21,6 +21,8 @@ redirect_from:
 introLinks:
   ado_key_differences: /migrations/ado/key-differences-between-azure-devops-and-github
 contentType: tutorials
+docsTeamMetrics:
+  - ado-migration
 heroImage: /assets/images/banner-images/hero-2
 sidebarLink:
   text: Get started

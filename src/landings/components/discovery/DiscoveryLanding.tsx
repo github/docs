@@ -16,10 +16,12 @@ export const DiscoveryLanding = () => {
     title,
     intro,
     heroImage,
+    heroImageDark,
     introLinks,
     tocItems,
     carousels,
     includedCategories,
+    keepArticleOrder,
     landingType,
   } = useLandingContext()
   const { params, updateParams } = useMultiQueryParams({
@@ -32,7 +34,13 @@ export const DiscoveryLanding = () => {
       <UtmPreserver />
       {router.query.productId === 'rest' && <RestRedirect />}
       <div data-search="article-body">
-        <LandingHero title={title} intro={intro} heroImage={heroImage} introLinks={introLinks} />
+        <LandingHero
+          title={title}
+          intro={intro}
+          heroImage={heroImage}
+          heroImageDark={heroImageDark}
+          introLinks={introLinks}
+        />
         {carousels &&
           Object.entries(carousels).map(([carouselKey, articles]) => (
             <LandingSection key={carouselKey}>
@@ -44,6 +52,7 @@ export const DiscoveryLanding = () => {
           <ArticleGrid
             tocItems={tocItems}
             includedCategories={includedCategories}
+            keepArticleOrder={keepArticleOrder}
             landingType={landingType}
             params={params}
             updateParams={updateParams}

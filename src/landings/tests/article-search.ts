@@ -79,6 +79,18 @@ describe('flattenArticles', () => {
     expect(flattenArticles(csItems, 'en').map((a) => a.title)).toEqual(['Choosing', 'Hiding'])
   })
 
+  test('keeps authored order when sortByTitle is false', () => {
+    const items: TocItem[] = [
+      { title: 'Zebra', fullPath: '/z', intro: '' },
+      { title: 'Apple', fullPath: '/a', intro: '' },
+    ]
+    expect(flattenArticles(items, 'en', { sortByTitle: false }).map((a) => a.title)).toEqual([
+      'Zebra',
+      'Apple',
+    ])
+    expect(flattenArticles(items, 'en').map((a) => a.title)).toEqual(['Apple', 'Zebra'])
+  })
+
   test('excludes index pages (parents with children)', () => {
     const items: TocItem[] = [
       {

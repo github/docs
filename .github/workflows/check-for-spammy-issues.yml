@@ -40,12 +40,11 @@ jobs:
             const titleWordCountMin = 3
             const urlRegex = /https?:\/\/\S+/i
             const titleHasUrl = urlRegex.test(issue.title)
-            const titleHasDollarSign = issue.title.includes('$')
             // Text-default symbols need an emoji selector; plain digits, #, and * need a keycap.
             const titleHasEmoji = /\p{Emoji_Presentation}(?!\uFE0E)|\p{Extended_Pictographic}\uFE0F|[#*0-9]\uFE0F?\u20E3/u.test(issue.title)
             // Keep the existing non-emoji heuristics limited to newly opened issues.
             const hasOtherSpam = context.payload.action === 'opened' &&
-              (titleWordCount < titleWordCountMin || titleHasUrl || titleHasDollarSign)
+              (titleWordCount < titleWordCountMin || titleHasUrl)
             if (!titleHasEmoji && !hasOtherSpam) {
               return
             }

@@ -67,7 +67,7 @@ Each {% data variables.copilot.copilot_custom_agent_short %} is defined by a Mar
    * Try again
    * Quit
 
-   If you choose to review the content, the agent file is opened in your default editor. You can review and make changes, if required, before continuing the agent creation process in the CLI.
+   If you choose to review the content, the agent file is opened in your default editor. You can review and make changes before continuing the agent creation process in the CLI.
 
    To complete the creation process, choose **Continue**.
 
@@ -200,7 +200,7 @@ Review the change and flag anything that violates the repository's conventions.
 ```
 
 > [!NOTE]
-> This setting only affects the agent when it runs as a subagent. A {% data variables.copilot.copilot_custom_agent_short %} that you select yourself—with `--agent`, `/agent`, or by inference—already follows your repository's custom instructions, so the setting has no effect in that case.
+|> This setting only affects the agent when it runs as a subagent. A {% data variables.copilot.copilot_custom_agent_short %} that you select yourself—with `--agent` or `/agent`—follows your repository's custom instructions by default, unless you use `--no-custom-instructions`. In that case, no agent receives repository custom instructions.
 
 For more information, including how this setting interacts with the `--no-custom-instructions` option, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference#repository-custom-instructions-for-subagents).
 

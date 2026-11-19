@@ -6,6 +6,8 @@ permissions: '{% data reusables.copilot.usage-metrics-permissions %}'
 versions:
   feature: copilot
 contentType: reference
+docsTeamMetrics:
+  - copilot-usage-metrics
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /early-access/copilot-metrics/dashboards/interpreting-the-metrics
@@ -17,6 +19,8 @@ category:
 ---
 
 Use this article to interpret usage and adoption metrics across the {% data variables.product.prodname_copilot_short %} usage metrics and impact dashboards, and to identify opportunities to increase adoption and engagement.
+
+For repository-level review coverage, comment address rates, and related interpretation limits in Repository insights, see [AUTOTITLE](/copilot/reference/copilot-usage-metrics/repository-insights-metrics).
 
 ## Reviewing overall usage trends
 

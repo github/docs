@@ -19,10 +19,11 @@ const flattenArticlesRecursive = (articles: (TocItem | ChildTocItem)[]): Article
 }
 
 // Pass the page locale so server and browser sort with the same collation and
-// hydrate the same cards.
+// hydrate the same cards. Pass sortByTitle: false to keep the authored children order.
 export const flattenArticles = (
   articles: (TocItem | ChildTocItem)[],
   locale?: string,
+  { sortByTitle = true }: { sortByTitle?: boolean } = {},
 ): ArticleCardItems => {
   const flattened = flattenArticlesRecursive(articles)
   const seen = new Set<string>()
@@ -31,6 +32,7 @@ export const flattenArticles = (
     seen.add(article.fullPath)
     return true
   })
+  if (!sortByTitle) return deduped
   return deduped.sort((a, b) => a.title.localeCompare(b.title, locale))
 }
 

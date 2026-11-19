@@ -29,18 +29,11 @@
 - name: Claude Opus 4.8
   pro: false
   pro_plus: true
-  max: true
-  business: true
-  enterprise: true
+  max: false
+  business: false
+  enterprise: false
 
 - name: Claude Opus 4.8 (fast mode) (preview)
-  pro: false
-  pro_plus: true
-  max: true
-  business: true
-  enterprise: true
-
-- name: Claude Opus 5
   pro: false
   pro_plus: true
   max: true
@@ -124,6 +117,13 @@
   business: true
   enterprise: true
 
+- name: Gemini 4 Neon
+  pro: false
+  pro_plus: true
+  max: true
+  business: true
+  enterprise: true
+
 - name: GPT-5.3-Codex
   pro: true
   pro_plus: true
@@ -147,13 +147,6 @@
 
 - name: GPT-5.6 Sol
   pro: false
-  pro_plus: true
-  max: true
-  business: true
-  enterprise: true
-
-- name: GPT-5.6 Terra
-  pro: true
   pro_plus: true
   max: true
   business: true
@@ -194,6 +187,20 @@
   business: true
   enterprise: true
 
+- name: GPT-6.2 Astra
+  pro: false
+  pro_plus: true
+  max: true
+  business: true
+  enterprise: true
+
+- name: GPT-6.2 Sol
+  pro: false
+  pro_plus: true
+  max: true
+  business: true
+  enterprise: true
+
 - name: Grok 4.5
   pro: true
   pro_plus: true
@@ -223,6 +230,20 @@
   enterprise: true
 
 - name: MAI-Code-1.1-Flash
+  pro: true
+  pro_plus: true
+  max: true
+  business: true
+  enterprise: true
+
+- name: MAI Code 2
+  pro: true
+  pro_plus: true
+  max: true
+  business: true
+  enterprise: true
+
+- name: MAI Code 2 Flash
   pro: true
   pro_plus: true
   max: true

@@ -11,6 +11,18 @@
 # - retirement_date: The official retirement date for the model (YYYY-MM-DD).
 # - suggested_alternative: The model recommended for migration.
 
+- name: 'Claude Opus 4.8'
+  retirement_date: '2026-11-16'
+  suggested_alternative: 'Latest Claude Opus model'
+
+- name: 'Claude Opus 5'
+  retirement_date: '2026-11-16'
+  suggested_alternative: 'Latest Claude Opus model'
+
+- name: 'GPT-5.6 Terra'
+  retirement_date: '2026-11-16'
+  suggested_alternative: 'Latest GPT Terra model'
+
 - name: 'Gemini 3.7 Flash'
   retirement_date: '2026-10-19'
   suggested_alternative: 'Latest Gemini Flash model'

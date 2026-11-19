@@ -1,4 +1,3 @@
-* {% data variables.copilot.claude_opus_5 %}
 * {% data variables.copilot.claude_opus_55 %}
 * {% data variables.copilot.claude_sonnet_55 %}
 * {% data variables.copilot.claude_haiku_45 %}
@@ -7,15 +6,19 @@
 * {% data variables.copilot.gemini_4_argon %}
 * {% data variables.copilot.gemini_4_carbon %}
 * {% data variables.copilot.gemini_4_hydrogen %}
+* {% data variables.copilot.gemini_4_neon %}
 * {% data variables.copilot.gpt_56_luna %}
 * {% data variables.copilot.gpt_56_sol %}
-* {% data variables.copilot.gpt_56_terra %}
 * {% data variables.copilot.gpt_6_astra %}
 * {% data variables.copilot.gpt_6_luna %}
 * {% data variables.copilot.gpt_6_sol %}
 * {% data variables.copilot.gpt_61_sol %}
 * {% data variables.copilot.gpt_61_terra %}
+* {% data variables.copilot.gpt_62_astra %}
+* {% data variables.copilot.gpt_62_sol %}
 * {% data variables.copilot.grok_45 %}
 * {% data variables.copilot.grok_46 %}
 * {% data variables.copilot.grok_47 %}
 * {% data variables.copilot.mai_code_1_1_flash %}
+* {% data variables.copilot.mai_code_2 %}
+* {% data variables.copilot.mai_code_2_flash %}

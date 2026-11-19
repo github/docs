@@ -23,11 +23,6 @@
   excels_at: Complex reasoning over large codebases and long-running agentic work
   further_reading: '[GPT-5.6 model card](https://deploymentsafety.openai.com/gpt-5-6/gpt-5-6.pdf)'
 
-- name: GPT-5.6 Terra
-  task_area: General-purpose coding and agent tasks
-  excels_at: Balanced everyday interactive and agentic coding
-  further_reading: '[GPT-5.6 model card](https://deploymentsafety.openai.com/gpt-5-6/gpt-5-6.pdf)'
-
 - name: GPT-6 Astra
   task_area: Long-horizon, autonomous coding and agentic tasks
   excels_at: Long-horizon coding tasks with continuous planning, batched diagnosis and verification, and independent result confirmation
@@ -51,7 +46,17 @@
 - name: GPT-6.1 Terra
   task_area: General-purpose coding and agent tasks
   excels_at: Everyday agentic coding and terminal work
-  further_reading: TBD
+  further_reading: '[GPT-6.1 Terra model card](https://deploymentsafety.openai.com/gpt-6-1-terra/gpt-6-1-terra.pdf)'
+
+- name: GPT-6.2 Astra
+  task_area: Long-horizon, autonomous coding and agentic tasks
+  excels_at: Long-horizon coding tasks with continuous planning, batched diagnosis and verification, and independent result confirmation
+  further_reading: '[GPT-6.2 Astra model card](https://deploymentsafety.openai.com/gpt-6-2-astra-sol/gpt-6-2-astra-sol.pdf)'
+
+- name: GPT-6.2 Sol
+  task_area: Complex coding tasks
+  excels_at: Advanced, efficient reasoning for complex coding tasks
+  further_reading: '[GPT-6.2 Astra model card](https://deploymentsafety.openai.com/gpt-6-2-astra-sol/gpt-6-2-astra-sol.pdf)'
 
 # Anthropic
 - name: Claude Fable 5
@@ -88,11 +93,6 @@
   task_area: Deep reasoning and debugging
   excels_at: Complex problem-solving challenges, sophisticated reasoning
   further_reading: '[Claude Opus 4.8 model card](https://www-cdn.anthropic.com/0b4915911bb0d19eca5b5ee635c80fef830a37ea.pdf)'
-
-- name: Claude Opus 5
-  task_area: Deep reasoning and debugging
-  excels_at: Complex problem-solving challenges, sophisticated reasoning
-  further_reading: '[Claude Opus 5 model card](https://www-cdn.anthropic.com/c5fbac3f0b1280a933ebd26d3cb8bb9f5bdeaf48/Claude%20Opus%205%20System%20Card.pdf)'
 
 - name: Claude Opus 5.5
   task_area: Long-running agentic coding and knowledge work
@@ -135,11 +135,26 @@
   excels_at: Fast tool use with improved instruction following
   further_reading: '[Gemini 4 Hydrogen model card](https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-4-Hydrogen-Model-Card.pdf)'
 
+- name: Gemini 4 Neon
+  task_area: Agentic coding, multistep tool use, and knowledge work
+  excels_at: Near Gemini 4 Carbon quality at a lower token cost per task
+  further_reading: 'Coming soon'
+
 # Microsoft
 - name: MAI-Code-1.1-Flash
   task_area: General-purpose coding and writing, image understanding
   excels_at: Fast code completions and explanations, instruction following, tool use
   further_reading: '[MAI-Code-1.1-Flash model card](https://microsoft.ai/pdf/MAI-Code-1.1-Flash-Model-Card.PDF)'
+
+- name: MAI Code 2
+  task_area: Deep reasoning and complex coding
+  excels_at: Complex, multi-step coding tasks that require high reasoning
+  further_reading: '[MAI Code 2 model card](https://microsoft.ai/pdf/MAI-Code-2-Model-Card.PDF), [MAI Code 2 data summary](https://microsoft.ai/pdf/MAI-Code-2-Data-Card.PDF)'
+
+- name: MAI Code 2 Flash
+  task_area: General-purpose coding and writing, image understanding
+  excels_at: Fast code completions and explanations, instruction following, tool use
+  further_reading: '[MAI Code 2 model card](https://microsoft.ai/pdf/MAI-Code-2-Model-Card.PDF), [MAI Code 2 Flash data summary](https://microsoft.ai/pdf/MAI-Code-2-Flash-Data-Card.PDF)'
 
 # xAI
 - name: Grok 4.5

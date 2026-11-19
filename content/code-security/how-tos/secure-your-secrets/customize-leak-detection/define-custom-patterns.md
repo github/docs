@@ -15,6 +15,8 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: how-tos
+docsTeamMetrics:
+  - secret-protection
 category:
   - Protect your secrets
 ---

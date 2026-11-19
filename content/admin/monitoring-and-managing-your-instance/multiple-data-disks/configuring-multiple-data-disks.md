@@ -21,7 +21,7 @@ category:
 * Clearer separation between resource allocation and services:
   * Resources can be allocated in a targeted way, preventing critical services from being starved.
 * Scaling:
-  * Customers on both standalone and high-availability topologies can scale out as needed.
+  * Customers on standalone, high-availability, and cluster topologies can scale out as needed.
 {% ifversion ghes > 3.19 %}
 * Resiliency:
   * Isolating logs from the root disk enhances resiliency by preventing the volume of logs from flooding the root disk.
@@ -29,7 +29,8 @@ category:
 
 ## Constraints
 
-* Multi-data disks are only supported on Standalone and High Availability (HA) topologies.
+* Multi-data disks are supported on standalone, high availability (HA), and cluster topologies.
+* On cluster topologies, we recommend using multi-data disks for MySQL only. We do not recommend migrating repositories{% ifversion ghes > 3.19 %} or logs{% endif %} to additional disks on a cluster.
 * Once multiple data disks are configured in a deployment, this change cannot be undone for that deployment.
 * Setting up multi-data disks and migrating data typically requires some downtime.
    * You can minimize this by configuring a replica with multi-data disks, replicating data from the primary, and then failing over to the replica.
@@ -50,6 +51,8 @@ If you add disks that are as fast or faster than your current ones, you should s
 
 In high availability setups, it is best to use multi-data disks on both the primary and all replicas. Mixing configurations, where the primary has multi-data disks but the replica does not, is not recommended.
 
+In cluster setups, we recommend using multi-data disks for MySQL only. Configure the additional disk on every node that runs MySQL. Mixing configurations across nodes of the same role is not recommended.
+
 ## Setting up multiple data disks and data paths
 
 ### Prerequisites
@@ -59,6 +62,8 @@ In high availability setups, it is best to use multi-data disks on both the prim
   * We recommend testing the feature in a non-production environment before using it in production.
 
 ### Instructions
+
+In cluster topologies, repeat these steps on each node that runs MySQL, and migrate MySQL only.
 
 1. You can perform fresh installation of GHES or use an existing GHES instance. It should have the data disk configured at `/data/user`.
 
@@ -100,7 +105,7 @@ In high availability setups, it is best to use multi-data disks on both the prim
 1. Switch to maintenance mode.
 
    ``` shell copy
-   gh es maintenance set --enabled true
+   ghe-maintenance -s
    ```
 
 1. Migrate your desired data paths.
@@ -140,7 +145,7 @@ In high availability setups, it is best to use multi-data disks on both the prim
 1. Exit maintenance mode.
 
    ``` shell copy
-   gh es maintenance set --enabled false
+   ghe-maintenance -u
    ```
 
 1. Test the instance for a period of time to make sure everything works as expected.
@@ -155,7 +160,7 @@ In high availability setups, it is best to use multi-data disks on both the prim
 
 ### Guidance for high availability configurations
 
-The following guidance helps reduce downtime in high availability (HA) topologies. If you are using a standalone topology, we do not have similar additional guidance at this time.
+The following guidance helps reduce downtime in high availability (HA) topologies. If you are using a standalone topology, we do not have similar additional guidance at this time. For cluster topologies, see [Guidance for cluster configurations](#guidance-for-cluster-configurations).
 
 For HA topologies, the best approach is to stand up a new replica with multiple data disks configured, replicate data from the primary, and then promote the replica to primary. Migrating data to additional disks on the current primary is not recommended, as this process can lead to significant downtime.
 
@@ -172,6 +177,65 @@ For HA topologies, the best approach is to stand up a new replica with multiple 
 1. Follow the failover sequence as documented in [AUTOTITLE](/admin/monitoring-and-managing-your-instance/configuring-high-availability/initiating-a-failover-to-your-replica-appliance).
 
 While the replication process can take a long time, the advantage is that it runs in the background, so the actual disruption from maintenance mode is dramatically reduced.
+
+### Guidance for cluster configurations
+
+In a cluster, we recommend using multi-data disks for MySQL only. To minimize downtime, do not migrate MySQL to an additional disk on the current primary MySQL node. Instead, prepare a new node that already has its dedicated disk configured and add it to the cluster as a replica MySQL node. Only the promotion requires a maintenance window.
+To minimize downtime, do not migrate MySQL to an additional disk on the current primary MySQL node directly.
+Instead, prepare a new node to join the cluster as a replica MySQL node and configure the multi-data disk on it first. Then promote the new node to primary. 
+Before you begin, confirm that the new node runs the same patch release as every other node in the cluster, and do not reuse a hostname that was previously assigned to a node in the cluster.
+
+#### Phase 1: Prepare the new node
+
+Complete these steps before the node joins the cluster. Because the node is not yet serving traffic, this phase has no impact on your cluster.
+
+1. To calculate disk space requirements, run `du -sh /data/user/mysql` on the current primary MySQL node.
+
+1. Provision a new node with enough space on its `/data/user` disk for the replicated MySQL data. The additional disk that you attach in Phase 3 must also have enough space for this data.
+
+1. Configure only the IP address of the replacement node. Do not configure any other settings, or `ghe-cluster-config-apply` might not be able to reach it.
+
+#### Phase 2: Add the node to the cluster
+
+This phase does not require maintenance mode, and your cluster continues to serve traffic throughout.
+
+1. Add the new node to `cluster.conf` with the `mysql-server = true` key-value pair. If {% data variables.product.prodname_actions %} is enabled in the cluster, also include the `mssql-server = true` key-value pair.
+
+   If your cluster already has at least one MySQL replica node, you can also include the `skip-data-setup = true` key-value pair to defer database seeding. Deferring seeding allows the configuration run to finish sooner and lets you start the seed manually at a time you choose. For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/configuring-clustering/deferring-database-seeding).
+
+1. To initialize the new node, from the administrative shell of the node where you modified `cluster.conf`, run `ghe-cluster-config-init`.
+
+1. To apply the configuration, run `ghe-cluster-config-apply`.
+
+1. If you deferred database seeding, seed the data manually. From the new node, within a `screen` session, run the following command, replacing `PRIMARY_IP` with the IP address of the primary MySQL node.
+
+   ```shell copy
+   /usr/local/share/enterprise/ghe-mysql-repl-start PRIMARY_IP
+   ```
+
+1. Wait for MySQL replication to finish. To monitor replication from any node in the cluster, run `ghe-cluster-status -v`.
+
+#### Phase 3: Configure multi-disk on the new node
+
+After MySQL replication finishes, enable maintenance mode on the new replica. The rest of the cluster continues to serve traffic while you configure multi-disk and migrate MySQL on the new node. Because `ghe-storage-migrate-mysql` starts MySQL, wait until the node has joined the cluster before migrating. The migration takes longer because the node already has a copy of your data, but it is safer than migrating MySQL on the primary.
+
+1. On the new replica, attach the additional disk for MySQL. Then set up multi-disk and migrate MySQL by following the instructions in [Setting up multiple data disks and data paths](#setting-up-multiple-data-disks-and-data-paths).
+
+1. Exit maintenance mode on the new replica.
+
+1. Run `ghe-cluster-status` to confirm that the cluster is healthy.
+
+#### Phase 4: Promote the new node
+
+Promotion requires a maintenance window and is the only step in this procedure that causes downtime. To promote the new node to the primary MySQL node, follow the procedure in [AUTOTITLE](/admin/monitoring-and-managing-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-the-primary-database-node-mysql-or-mysql-and-mssql), beginning at the step where you enable maintenance mode.
+
+As with HA topologies, replication runs in the background, so the disruption from maintenance mode is limited to the promotion.
+
+#### Phase 5: Replace the remaining MySQL replica nodes
+
+After the promotion is complete and you have disabled maintenance mode, we recommend repeating this procedure for each remaining MySQL replica node, so that every MySQL node in the cluster uses a dedicated disk. Replacing the replica nodes does not require a maintenance window, because you are not promoting a new primary.
+
+We also recommend that each replacement node run the same set of databases as the node it replaces, such as MSSQL and Redis. These databases remain in their replica state on the new nodes.
 
 ## Example: configuring additional disks
 

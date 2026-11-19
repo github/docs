@@ -78,7 +78,6 @@ If your country or region is not on this list, then we aren't currently able to 
 <li>Luxembourg</li>
 <li>Madagascar</li>
 <li>Malawi</li>
-<li>Malaysia</li>
 <li>Maldives</li>
 <li>Mali</li>
 <li>Malta</li>

@@ -27,6 +27,7 @@ For instructions on creating the file, see [AUTOTITLE](/copilot/how-tos/administ
 | `permissions.disableAssistedPermissionsMode` | Prevents users from enabling {% data variables.copilot.assisted_permissions %} |
 | `permissions.defaultMode` | Controls the default permission mode for new sessions |
 | `features.computerUse` | Controls whether users can enable computer use |
+| `features.browserUse` | Controls whether users can enable browser use |
 | `model` | Sets your preferred model as the default for new conversations |
 | `fusionTier` | Sets the default effort level for new conversations when the selected model is `fusion` |
 | `autoTier` | Sets the default Auto routing tier for new conversations |
@@ -60,8 +61,9 @@ Some keys require a minimum version in certain clients. See the footnotes in the
 | `permissions.disableAssistedPermissionsMode` | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
 | `permissions.defaultMode` | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
 | `features.computerUse` | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| `features.browserUse` | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} |
 | `model` | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
-| `fusionTier` | {% octicon "check" aria-label="Supported" %}[^fusion-tier-cli] | {% octicon "check" aria-label="Supported" %}[^fusion-tier-vscode] | {% octicon "check" aria-label="Supported" %}[^fusion-tier-app] | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| `fusionTier` | {% octicon "check" aria-label="Supported" %}[^fusion-tier-cli] | {% octicon "check" aria-label="Supported" %}[^fusion-tier-vscode] | {% octicon "check" aria-label="Supported" %}[^fusion-tier-app] | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %}[^fusion-tier-jetbrains] |
 | `autoTier` | {% octicon "check" aria-label="Supported" %}[^auto-tier-cli] | {% octicon "check" aria-label="Supported" %}[^auto-tier-vscode] | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
 | `communication.support.url` | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
 | `enabledPlugins` | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
@@ -83,6 +85,8 @@ Some keys require a minimum version in certain clients. See the footnotes in the
 [^fusion-tier-vscode]: `fusionTier` requires {% data variables.product.prodname_vscode_shortname %} 1.144.0 or later.
 
 [^fusion-tier-app]: `fusionTier` requires the {% data variables.copilot.github_copilot_app %} 1.1.33-4 or later.
+
+[^fusion-tier-jetbrains]: `fusionTier` requires version 1.21.0 or later of the {% data variables.product.prodname_copilot %} plugin for {% data variables.product.prodname_jetbrains_ides %}.
 
 [^auto-tier-cli]: `autoTier` requires {% data variables.copilot.copilot_cli_short %} 1.0.87-0 or later.
 
@@ -111,7 +115,8 @@ The following example shows these keys in one managed settings file.
 ```json
 {
   "features": {
-    "computerUse": false
+    "computerUse": false,
+    "browserUse": false
   },
   "model": "auto",
   "autoTier": "intelligence",
@@ -206,6 +211,13 @@ The following example shows these keys in one managed settings file.
 ## features.computerUse
 
 Controls whether users can enable computer use in {% data variables.copilot.copilot_cli %} and the {% data variables.copilot.github_copilot_app %}. Set `features.computerUse` to `false` to prevent users from enabling computer use. A local setting cannot override this restriction. Set the value to `true`, or omit the key, to allow users to control computer use through their local settings.
+
+## features.browserUse
+
+> [!NOTE]
+> {% data reusables.copilot.browser-use-preview-note %}
+
+Controls whether users can enable browser use in a Copilot surface. Set `features.browserUse` to `false` to prevent users from enabling browser use. A local setting cannot override this restriction. Set the value to `true`, or omit the key, to allow users to control browser use through their local settings.
 
 ## enabledPlugins
 

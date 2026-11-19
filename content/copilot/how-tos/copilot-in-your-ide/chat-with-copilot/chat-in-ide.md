@@ -333,6 +333,46 @@ The following agents are available:
 1. Submit a prompt. In response to your prompt, {% data variables.copilot.copilot_edits_short %} determines which files in your _working set_ to change and adds a short description of the change.
 1. Review the changes and **Accept** or **Discard** the edits for each file.
 
+## Running a session in a cloud sandbox
+
+> [!NOTE]
+> Cloud sandboxes in {% data variables.product.prodname_jetbrains_ides %} are in {% data variables.release-phases.public_preview %} and subject to change.
+
+You can run a {% data variables.product.prodname_copilot_short %} session in a cloud sandbox, an isolated environment that {% data variables.product.github %} hosts, instead of on your machine. {% data variables.product.prodname_copilot_short %} makes code changes and runs commands and tests in the sandbox, so you can run several sessions in parallel without using local resources.
+
+To run a session in a cloud sandbox, select **Cloud sandbox** from the environment dropdown in the {% data variables.copilot.copilot_chat_short %} panel, then submit your prompt.
+
+For more information, see [AUTOTITLE](/copilot/concepts/security-governance-and-network-settings/about-cloud-sandboxes).
+
+## Accessing sessions from other clients
+
+> [!NOTE]
+> Remote access in {% data variables.product.prodname_jetbrains_ides %} is in {% data variables.release-phases.public_preview %} and subject to change.
+
+You can opt in to remote access to make your {% data variables.product.prodname_copilot_short %} chats in your JetBrains IDE available in other {% data variables.product.prodname_copilot_short %} clients, such as {% data variables.product.prodname_vscode %} and the {% data variables.copilot.github_copilot_app %}. Your chats are available remotely while your JetBrains IDE is open.
+
+To turn on remote access, in your JetBrains IDE settings, go to **{% data variables.product.prodname_copilot %}** > **Chat**, then select **Enable Copilot Remote**.
+
+If your organization or enterprise disables remote access through enterprise-managed settings, the option is unavailable. Contact your administrator for more information.
+
+With remote access, you can also:
+
+* Discover sessions that are shared from your other remotely accessible computers.
+* Reopen a remote session from your session history to continue the conversation.
+
+## Dictating prompts
+
+> [!NOTE]
+> Voice dictation in {% data variables.product.prodname_jetbrains_ides %} is in {% data variables.release-phases.public_preview %} and subject to change.
+
+You can dictate chat messages instead of typing them. Dictation runs on your device. Voice dictation is available in supported native plugin packages when **Editor Preview** is enabled.
+
+## Using {% data variables.product.prodname_copilot_short %} with split mode remote development
+
+{% data variables.product.prodname_copilot_short %} agent sessions support JetBrains split mode remote development in JetBrains IDE 2026.1 or later. In split mode, the chat and editor UI run on your local client, and {% data variables.product.prodname_copilot_short %} operations run on the remote backend.
+
+To use {% data variables.product.prodname_copilot_short %} in split mode, install the {% data variables.product.prodname_copilot %} plugin both on your local client and on the remote backend.
+
 ## Submitting prompts
 
 You can ask {% data variables.copilot.copilot_chat_short %} to give you code suggestions, explain code, generate unit tests, and suggest code fixes.

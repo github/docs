@@ -16,6 +16,7 @@ contentType: concepts
 category:
   - Learn about Copilot
   - All day breakfast - Review your way to a sunny day
+  - Move review earlier and make it smarter
 ---
 
 ## Introduction
@@ -35,7 +36,7 @@ This article provides an overview of {% data variables.copilot.copilot_code-revi
 * {% data variables.product.prodname_vs %}
 * Xcode
 * JetBrains IDEs
-* Azure DevOps ({% data variables.release-phases.public_preview %})
+* Azure DevOps
 
 > [!NOTE]
 > If you receive {% data variables.product.prodname_copilot_short %} from an organization, your organization must enable the **{% data variables.copilot.copilot_code-review_short %}** option in the {% data variables.product.prodname_copilot_short %} policy settings. This applies to reviews on {% data variables.product.prodname_dotcom_the_website %} or in {% data variables.product.prodname_mobile %}. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/manage-policies).
@@ -71,6 +72,11 @@ In repositories where automatic code review is enabled, {% data variables.produc
 {% data variables.copilot.copilot_code-review_short %} utilizes agentic capabilities to extend its functionality.
 
 * **Full project context gathering**. This provides more specific, accurate, and contextually aware code reviews. This capability analyzes your entire repository to better understand the context of code changes.
+* **Cross-repository context**. On {% data variables.product.prodname_dotcom_the_website %}, {% data variables.product.prodname_copilot_short %} can search the default branch of related public repositories during a review to find code that depends on your change and related context, such as documentation. Repository administrators can manage this with the **Search public repositories** setting. If you receive {% data variables.product.prodname_copilot_short %} from an organization or enterprise, the **Opt in to preview features** policy must be enabled. See [Opting in to previews or feedback](/copilot/how-tos/administer-copilot/manage-for-organization/manage-policies#opting-in-to-previews-or-feedback).
+
+  > [!NOTE]
+  > {% data reusables.copilot.code-review.cross-repo-context-preview-note %}
+
 * **The ability to pass suggestions to {% data variables.copilot.copilot_cloud_agent %}**. This automates creating a new pull request against your branch with the suggested fixes applied. Passing suggestions to {% data variables.copilot.copilot_cloud_agent %} is in public preview and subject to change.
 
 These capabilities are enabled automatically for all plans that include {% data variables.copilot.copilot_code-review_short %}. See [Review effort level](#review-effort-level) later in this article for information about choosing between Lite, Balanced, and Max analysis levels.
@@ -178,19 +184,27 @@ For full instructions, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up
 
 ## Review effort level
 
-{% data variables.copilot.copilot_code-review_short %} supports multiple {% data variables.product.prodname_copilot_short %} review effort levels, so you can choose the level of thoroughness that matches the criticality of your code.
+{% data variables.copilot.copilot_code-review_short %} offers several review effort levels:
 
 * **Lite**: Standard review. Provides fast, targeted feedback on common issues such as bugs, security vulnerabilities, and style inconsistencies.
 * **Balanced**: Routes pull requests to a higher-reasoning model for longer analysis of complex logic, security-sensitive code, and cross-service changes (default). Balanced reviews use more {% data variables.product.prodname_ai_credits_short %}, and may consume marginally more {% data variables.product.prodname_actions %} minutes, than Lite reviews.
 * **Max**: The highest-effort review. Uses multiple high-reasoning models for the most intensive review of pull requests that require the most scrutiny.
 
->[!NOTE] Max review effort level is currently in {% data variables.release-phases.public_preview %} and subject to change.
+You can select **Adaptive** to let {% data variables.product.prodname_copilot_short %} choose Lite, Balanced, or Max based on the complexity and risk of your pull request. Adaptive never picks a level above the maximum review effort level set for your enterprise, organization, or repository. Unless you set a different default, the review effort level defaults to Balanced, not Adaptive.
 
-Use Max for high-risk or release-critical pull requests that need the most thorough review. Use Balanced for security-sensitive code, multi-service pull requests, or repositories with strict quality standards. Use Lite for routine changes where fast feedback is more important than exhaustive analysis.
+> [!NOTE] Max review effort level and Adaptive are currently in {% data variables.release-phases.public_preview %} and subject to change.
+
+Alternatively, you can choose an effort level yourself: 
+
+* Use Max for high-risk or release-critical pull requests that need the most thorough review. 
+* Use Balanced for security-sensitive code, multi-service pull requests, or repositories with strict quality standards. 
+* Use Lite for routine changes where fast feedback is more important than exhaustive analysis.
 
 Higher effort levels consume more {% data variables.product.prodname_ai_credits_short %}. On average, a review costs an estimated {% data variables.copilot.copilot_code_review_lite_average_cost %} with Lite, {% data variables.copilot.copilot_code_review_balanced_average_cost %} with Balanced, and {% data variables.copilot.copilot_code_review_max_average_cost %} with Max. For typical ranges, see [Estimated consumption](#estimated-consumption).
 
-You can select {% data variables.product.prodname_copilot_short %} review effort when requesting a review in the pull request, under the **Reviewers** section where {% data variables.product.prodname_copilot_short %} appears as a reviewer. You can also set a default {% data variables.product.prodname_copilot_short %} review effort in your {% data variables.copilot.copilot_code-review_short %} settings. Organization owners can set a default {% data variables.product.prodname_copilot_short %} review effort for automatic code reviews in their organization. Repository administrators can override the organization default for a specific repository.
+You can select an effort level or Adaptive when requesting a review in the pull request, under the **Reviewers** section where {% data variables.product.prodname_copilot_short %} appears as a reviewer. 
+
+You can also set an effort level or set Adaptive as the default {% data variables.product.prodname_copilot_short %} review effort in your {% data variables.copilot.copilot_code-review_short %} settings. Organization owners can set a default {% data variables.product.prodname_copilot_short %} review effort for automatic code reviews in their organization. Repository administrators can override the organization default for a specific repository.
 
 When {% data variables.product.prodname_copilot_short %} determines which review effort to use, it checks the following options in order and uses the first one that applies:
 
@@ -199,7 +213,8 @@ When {% data variables.product.prodname_copilot_short %} determines which review
 1. The requestor's {% data variables.product.prodname_copilot_short %} review effort. For a new pull request, the requestor is the author. When someone marks a draft ready for review, that person is the requestor.
 1. A {% data variables.product.prodname_copilot_short %} review effort set for the repository
 1. A {% data variables.product.prodname_copilot_short %} review effort set for the organization, or the repository owner's {% data variables.product.prodname_copilot_short %} review effort on a user-owned repository
-1. {% data variables.product.github %}'s built-in default, which is Balanced.
+1. A {% data variables.product.prodname_copilot_short %} review effort set for the enterprise
+1. {% data variables.product.github %}'s built-in default, which is Balanced
 
 After {% data variables.copilot.copilot_code-review_short %} reviews a pull request, the pull request overview comment shows the effort level used for each review run.
 

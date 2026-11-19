@@ -19,6 +19,8 @@ You can start a session from a repository to tackle work in that repository, or 
 
 You can run sessions in separate worktrees to make progress on several tasks in parallel, or work in an existing checkout.
 
+You can also start sessions in Azure DevOps repositories after setting up the Azure DevOps integration. See [AUTOTITLE](/copilot/how-tos/github-copilot-app/manage-azure-devops-work).
+
 1. In the sidebar, next to **Sessions**, click {% octicon "plus" aria-label="New" %}.
 1. Under "Start session in," select a connected repository or folder. To connect one first, choose **Add {% data variables.product.github %} repository**, **Clone repository**, or **Open local folder**.
 1. Below the prompt box, open the "Environment" dropdown menu and select **This computer** or **Cloud**. Cloud sessions run in isolated sandboxes hosted by {% data variables.product.github %}. See [Using cloud and local sandboxes](#using-cloud-and-local-sandboxes).

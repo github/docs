@@ -71,6 +71,9 @@ AI Scan for repositories supports all languages, including languages already sup
 
 ## Enabling AI Scan for repositories
 
+> [!NOTE]
+> {% data reusables.code-scanning.ai-scan-model-policies %}
+
 Before enabling AI Scan for repositories, confirm repository eligibility, review the billing account's included {% data variables.product.prodname_ai_credits_short %}, and configure budgets for metered usage.
 
 * **Enterprise**: Enterprise owners can allow or prevent organizations from enabling AI Scan for repositories. This policy controls both AI Scan on pull requests and AI Scan for a repository's backlog. The policy is set to "Not allowed" by default. Allowing AI Scan does not enable it automatically. See [AUTOTITLE](/enterprise-cloud@latest/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise#enforcing-a-policy-to-manage-ai-scan-in-your-enterprises-repositories).

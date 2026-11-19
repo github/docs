@@ -62,6 +62,31 @@
         "isRequired": true
       },
       {
+        "type": "object or null",
+        "name": "status",
+        "description": "<p>The status of the issue, or <code>null</code> if it has none. Issue statuses are in preview and only available to accounts enrolled in the preview.</p>",
+        "childParamsGroups": [
+          {
+            "type": "integer",
+            "name": "id",
+            "description": "<p>The stable identifier of the planning status.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "description": "<p>The display name of the planning status, which may change in the future.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "category",
+            "description": "<p>A stable identifier for the category, such as <code>backlog</code>, <code>planned</code>, <code>started</code>, <code>completed</code>, <code>not_planned</code> or <code>duplicate</code>. Clients should expect new keys to be added.</p>",
+            "isRequired": true
+          }
+        ]
+      },
+      {
         "type": "string or null",
         "name": "state_reason",
         "description": "<p>The reason for the current state</p>",
@@ -2594,6 +2619,31 @@
         "name": "state",
         "description": "<p>State of the issue; either 'open' or 'closed'</p>",
         "isRequired": true
+      },
+      {
+        "type": "object or null",
+        "name": "status",
+        "description": "<p>The status of the issue, or <code>null</code> if it has none. Issue statuses are in preview and only available to accounts enrolled in the preview.</p>",
+        "childParamsGroups": [
+          {
+            "type": "integer",
+            "name": "id",
+            "description": "<p>The stable identifier of the planning status.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "description": "<p>The display name of the planning status, which may change in the future.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "category",
+            "description": "<p>A stable identifier for the category, such as <code>backlog</code>, <code>planned</code>, <code>started</code>, <code>completed</code>, <code>not_planned</code> or <code>duplicate</code>. Clients should expect new keys to be added.</p>",
+            "isRequired": true
+          }
+        ]
       },
       {
         "type": "string or null",
@@ -5132,6 +5182,31 @@
         "isRequired": true
       },
       {
+        "type": "object or null",
+        "name": "status",
+        "description": "<p>The status of the issue, or <code>null</code> if it has none. Issue statuses are in preview and only available to accounts enrolled in the preview.</p>",
+        "childParamsGroups": [
+          {
+            "type": "integer",
+            "name": "id",
+            "description": "<p>The stable identifier of the planning status.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "description": "<p>The display name of the planning status, which may change in the future.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "category",
+            "description": "<p>A stable identifier for the category, such as <code>backlog</code>, <code>planned</code>, <code>started</code>, <code>completed</code>, <code>not_planned</code> or <code>duplicate</code>. Clients should expect new keys to be added.</p>",
+            "isRequired": true
+          }
+        ]
+      },
+      {
         "type": "string or null",
         "name": "state_reason",
         "description": "<p>The reason for the current state</p>",
@@ -7664,6 +7739,31 @@
         "name": "state",
         "description": "<p>State of the issue; either 'open' or 'closed'</p>",
         "isRequired": true
+      },
+      {
+        "type": "object or null",
+        "name": "status",
+        "description": "<p>The status of the issue, or <code>null</code> if it has none. Issue statuses are in preview and only available to accounts enrolled in the preview.</p>",
+        "childParamsGroups": [
+          {
+            "type": "integer",
+            "name": "id",
+            "description": "<p>The stable identifier of the planning status.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "description": "<p>The display name of the planning status, which may change in the future.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "category",
+            "description": "<p>A stable identifier for the category, such as <code>backlog</code>, <code>planned</code>, <code>started</code>, <code>completed</code>, <code>not_planned</code> or <code>duplicate</code>. Clients should expect new keys to be added.</p>",
+            "isRequired": true
+          }
+        ]
       },
       {
         "type": "string or null",
