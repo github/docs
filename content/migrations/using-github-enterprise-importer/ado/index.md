@@ -18,15 +18,16 @@ children:
   - /granting-the-migrator-role
 redirect_from:
   - /migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud
+  - /migrations/ado
 introLinks:
-  ado_key_differences: /migrations/ado/key-differences-between-azure-devops-and-github
+  ado_key_differences: /migrations/using-github-enterprise-importer/ado/key-differences-between-azure-devops-and-github
 contentType: tutorials
 docsTeamMetrics:
   - ado-migration
 heroImage: /assets/images/banner-images/hero-2
 sidebarLink:
   text: Get started
-  href: /migrations/ado
+  href: /migrations/using-github-enterprise-importer/ado
 layout: journey-landing
 journeyArticlesHeading: "Steps to completing your migration"
 journeyTracks:
@@ -34,11 +35,11 @@ journeyTracks:
     title: Run your migration
     description: Migrate your repositories from Azure DevOps to GitHub.
     guides:
-      - href: /migrations/ado/understand-migrations-from-azure-devops-to-github
-      - href: /migrations/ado/manage-access
-      - href: /migrations/ado/install-and-configure-github-enterprise-importer
-      - href: /migrations/ado/prepare-for-your-migration-from-azure-devops-to-github
-      - href: /migrations/ado/migrate-your-repositories-from-azure-devops-to-github
-      - href: /migrations/ado/follow-up-tasks
+      - href: /migrations/using-github-enterprise-importer/ado/understand-migrations-from-azure-devops-to-github
+      - href: /migrations/using-github-enterprise-importer/ado/manage-access
+      - href: /migrations/using-github-enterprise-importer/ado/install-and-configure-github-enterprise-importer
+      - href: /migrations/using-github-enterprise-importer/ado/prepare-for-your-migration-from-azure-devops-to-github
+      - href: /migrations/using-github-enterprise-importer/ado/migrate-your-repositories-from-azure-devops-to-github
+      - href: /migrations/using-github-enterprise-importer/ado/follow-up-tasks
 ---
 

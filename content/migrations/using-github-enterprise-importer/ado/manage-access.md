@@ -1,7 +1,7 @@
 ---
-title: "Manage access"
-shortTitle: "2. Manage access"
-intro: "Set up the required access for migrating from Azure DevOps to {% data variables.product.github %}."
+title: Manage access
+shortTitle: 2. Manage access
+intro: Set up the required access for migrating from Azure DevOps to {% data variables.product.github %}.
 versions:
   fpt: '*'
   ghec: '*'
@@ -12,6 +12,7 @@ redirect_from:
   - /migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/managing-access-for-a-migration-from-azure-devops
   - /migrations/ado/managing-access-for-a-migration-from-azure-devops
   - /migrations/ado/phase-2-manage-access
+  - /migrations/ado/manage-access
 category:
   - Migrate from Azure DevOps
 ---
@@ -23,7 +24,7 @@ To migrate repositories from Azure DevOps to {% data variables.product.github %}
 If the person who will perform the migration is **not** a {% data variables.product.github %} organization owner, a {% data variables.product.github %} organization owner must first grant them the migrator role.
 
 * If you're a {% data variables.product.github %} organization owner, and intend to perform the migration yourself, you can continue reading this guide.
-* If you wish to assign the migrator role to someone else, do that now. Then, the migrator should perform the rest of the steps in these guides. See [AUTOTITLE](/migrations/ado/granting-the-migrator-role).
+* If you wish to assign the migrator role to someone else, do that now. Then, the migrator should perform the rest of the steps in these guides. See [AUTOTITLE](/migrations/using-github-enterprise-importer/ado/granting-the-migrator-role).
 
 ## Create a {% data variables.product.pat_v1 %} on {% data variables.product.github %}
 

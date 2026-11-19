@@ -1,6 +1,6 @@
 ---
-title: "Migrate your repositories from Azure DevOps to GitHub"
-shortTitle: "5. Migrate repositories"
+title: Migrate your repositories from Azure DevOps to GitHub
+shortTitle: 5. Migrate repositories
 intro: Perform a trial run and then migrate your repositories from Azure DevOps to {% data variables.product.github %}.
 versions:
   fpt: '*'
@@ -15,6 +15,7 @@ redirect_from:
   - /migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/migrating-repositories-from-azure-devops-to-github-enterprise-cloud
   - /migrations/ado/migrating-repositories-from-azure-devops-to-github-enterprise-cloud
   - /migrations/ado/phase-5-migrate-your-repositories-from-azure-devops-to-github
+  - /migrations/ado/migrate-your-repositories-from-azure-devops-to-github
 category:
   - Migrate from Azure DevOps
 ---
@@ -22,7 +23,7 @@ category:
 ## Prerequisites
 
 * You must have completed all previous phases of this guide.
-* {% data reusables.enterprise-migration-tool.link-to-support-limitations %} For more information, see [AUTOTITLE](/migrations/ado/understand-migrations-from-azure-devops-to-github).
+* {% data reusables.enterprise-migration-tool.link-to-support-limitations %} For more information, see [AUTOTITLE](/migrations/using-github-enterprise-importer/ado/understand-migrations-from-azure-devops-to-github).
 * {% data reusables.enterprise-migration-tool.delta-migrations-not-supported %}
 
 ## Generate a migration script
@@ -61,7 +62,7 @@ gh ado2gh generate-script --ado-org SOURCE --github-org DESTINATION --output FIL
    You can use a single organization for all trial runs, or you can create one test organization for each intended destination organization. Consider including `-sandbox` at the end of the organization names, to clarify that the organizations are intended only for migration validation and not for production. You can delete the test organizations after you're done.
 
 1. Run the trial migrations.
-1. Confirm that you are able to complete the follow-up tasks in [AUTOTITLE](/migrations/ado/follow-up-tasks).
+1. Confirm that you are able to complete the follow-up tasks in [AUTOTITLE](/migrations/using-github-enterprise-importer/ado/follow-up-tasks).
 1. Ask users to validate the results of the migrations.
 1. Resolve any issues uncovered by your trial migrations.
 {% data reusables.enterprise-migration-tool.delete-test-organization %}

@@ -1,7 +1,7 @@
 ---
 title: Key differences between Azure DevOps and GitHub
 shortTitle: Key differences
-intro: "Core workflows like repository access, authentication, and pull requests differ after moving from Azure DevOps to {% data variables.product.prodname_dotcom %}."
+intro: Core workflows like repository access, authentication, and pull requests differ after moving from Azure DevOps to {% data variables.product.prodname_dotcom %}.
 versions:
   fpt: '*'
   ghec: '*'
@@ -9,6 +9,8 @@ defaultTool: cli
 contentType: other
 category:
   - Migrate from Azure DevOps
+redirect_from:
+  - /migrations/ado/key-differences-between-azure-devops-and-github
 ---
 
 If you're a member of an organization that has migrated from Azure DevOps to {% data variables.product.github %}, this guide will explain the changes in your workflows to make the migration as smooth as possible.

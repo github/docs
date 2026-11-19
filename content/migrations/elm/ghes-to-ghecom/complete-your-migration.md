@@ -1,13 +1,15 @@
 ---
 title: Completing your live migration from GitHub Enterprise Server to GHE.com
 shortTitle: Complete your migration
-intro: 'Complete follow-up tasks so users can start using the migrated repository.'
+intro: Complete follow-up tasks so users can start using the migrated repository.
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
 contentType: how-tos
-permissions: 'Organization owners on {% data variables.enterprise.data_residency_site %}'
+permissions: Organization owners on {% data variables.enterprise.data_residency_site %}
+redirect_from:
+  - /migrations/elm/complete-your-migration
 ---
 
 After you have run a migration with the {% data variables.product.prodname_elm_cli %} tool, there are some follow-up tasks to complete.
@@ -56,7 +58,7 @@ You can use the {% data variables.product.prodname_elm_cli %} to reclaim mannequ
    gh target mannequin reclaim ORGANIZATION_NAME --csv MANNEQUINS.csv
    ```
    
-For a full reference of the reclaim command, including options to control invitations and prompting, see [AUTOTITLE](/migrations/elm/elm-cli-reference).
+For a full reference of the reclaim command, including options to control invitations and prompting, see [AUTOTITLE](/migrations/elm/ghes-to-ghecom/elm-cli-reference).
 
 ### Reclaiming mannequins in the browser
 

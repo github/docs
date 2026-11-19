@@ -9,9 +9,11 @@ defaultTool: cli
 contentType: other
 category:
   - Migrate from Azure DevOps
+redirect_from:
+  - /migrations/ado/use-graphql-to-migrate-repositories-from-azure-devops-to-github-enterprise-cloud
 ---
 
-> [!NOTE] You can also use {% data variables.product.prodname_ado2gh_cli %} to perform your migration. See [AUTOTITLE](/migrations/ado/understand-migrations-from-azure-devops-to-github).
+> [!NOTE] You can also use {% data variables.product.prodname_ado2gh_cli %} to perform your migration. See [AUTOTITLE](/migrations/using-github-enterprise-importer/ado/understand-migrations-from-azure-devops-to-github).
 
 ## Step 0: Get ready to use the {% data variables.product.prodname_dotcom %} GraphQL API
 
@@ -110,7 +112,7 @@ mutation startRepositoryMigration (
 {% data reusables.enterprise-migration-tool.startRepositoryMigration-table-ec %}
 | `sourceRepositoryUrl` | The URL of your source repository, using the format `https://dev.azure.com/{organization}/{project}/_git/{repository}`.
 
-For {% data variables.product.pat_generic %} requirements, see [AUTOTITLE](/migrations/ado/manage-access).
+For {% data variables.product.pat_generic %} requirements, see [AUTOTITLE](/migrations/using-github-enterprise-importer/ado/manage-access).
 
 {% data reusables.enterprise-migration-tool.next-check-status %}
 
@@ -124,5 +126,5 @@ For {% data variables.product.pat_generic %} requirements, see [AUTOTITLE](/migr
 
 ## Further reading
 
-* [AUTOTITLE](/migrations/ado/follow-up-tasks)
-* [AUTOTITLE](/migrations/ado/key-differences-between-azure-devops-and-github)
+* [AUTOTITLE](/migrations/using-github-enterprise-importer/ado/follow-up-tasks)
+* [AUTOTITLE](/migrations/using-github-enterprise-importer/ado/key-differences-between-azure-devops-and-github)

@@ -413,7 +413,7 @@ ghe-org-admin-promote -a
 
 ### ghe-reactivate-admin-login
 
-Use this command to immediately unlock the {% data variables.enterprise.management_console %} after an account lockout. To configure authentication policies for {% data variables.location.product_location %}, see [AUTOTITLE](/admin/configuring-settings/configuring-user-applications-for-your-enterprise/configuring-rate-limits#configuring-authentication-policy-rate-limits).
+Use this command to immediately unlock the {% data variables.enterprise.management_console %} after an account lockout. To configure authentication policies for {% data variables.location.product_location %}, see [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-web-ui/managing-access-to-the-management-console#configuring-rate-limits-for-authentication-to-the-management-console).
 
 ```shell
 ghe-reactivate-admin-login
@@ -1690,7 +1690,7 @@ GHE_LICENSE_FILE=/path/license ghe-license import
 
 ### elm
 
-`elm` is the command-line tool for {% data variables.product.prodname_elm %}, a tool for live migrations to {% data variables.enterprise.data_residency_site %}. See [AUTOTITLE](/migrations/elm/elm-cli-reference).
+`elm` is the command-line tool for {% data variables.product.prodname_elm %}, a tool for live migrations to {% data variables.enterprise.data_residency_site %}. See [AUTOTITLE](/migrations/elm/ghes-to-ghecom/elm-cli-reference).
 
 ## Security
 

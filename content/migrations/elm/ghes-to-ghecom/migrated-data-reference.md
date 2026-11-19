@@ -1,12 +1,14 @@
 ---
 title: Migrated data for live migrations from GitHub Enterprise Server to GHE.com
 shortTitle: Migrated data reference
-intro: 'Which data and live updates are included in a live migration?'
+intro: Which data and live updates are included in a live migration?
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
 contentType: reference
+redirect_from:
+  - /migrations/elm/migrated-data-reference
 ---
 
 ## Data that is migrated

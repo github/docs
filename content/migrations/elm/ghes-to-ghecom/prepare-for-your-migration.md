@@ -1,12 +1,14 @@
 ---
 title: Preparing for your live migration from GitHub Enterprise Server to GHE.com
 shortTitle: Prepare for your migration
-intro: 'Key questions to consider before getting started with {% data variables.product.prodname_elm %}.'
+intro: Key questions to consider before getting started with {% data variables.product.prodname_elm %}.
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
 contentType: concepts
+redirect_from:
+  - /migrations/elm/prepare-for-your-migration
 ---
 
 ## Is our {% data variables.product.prodname_ghe_server %} instance ready?
@@ -33,7 +35,7 @@ Your {% data variables.product.prodname_ghe_server %} instance must also:
 
 You can migrate repositories to a new or existing organization on {% data variables.enterprise.data_residency_site %}. ELM creates the target organization if it doesn't already exist.
 
-A platform migration is a good opportunity to reconsider your organization and team structure. See [AUTOTITLE](/admin/concepts/enterprise-best-practices/organize-work).
+A platform migration is a good opportunity to reconsider your organization and team structure. See [AUTOTITLE](/enterprise-cloud@latest/admin/concepts/enterprise-best-practices/organize-work).
 
 ## Which repositories will we migrate?
 
@@ -47,6 +49,8 @@ Plan which repositories you will migrate with {% data variables.product.prodname
 Public repositories are not available on {% data variables.enterprise.data_residency_site %}, and these will be rejected by {% data variables.product.prodname_elm_short %}. You can change the visibility of these repositories on {% data variables.product.prodname_ghe_server %} before you start.
 
 You should check that the repositories you choose don't contain release assets that are over 2GB, as this is the limit for {% data variables.product.prodname_elm_short %}.
+
+Organization-level data, such as organization settings, teams, and projects, is **not** included in the migration and must be reconfigured manually on {% data variables.enterprise.data_residency_site %}.
 
 ## Who will run the migration?
 
@@ -70,8 +74,8 @@ Before you start, communicate with developers that:
 
 * The repository is moving to a new location. Users can continue to use the source repository during the migration until the operator begins the final cutover to the new location. After cutover, the source repository will be archived, so it will be read-only unless it is unarchived by a repository administrator.
 * While the migration is in progress, developers should avoid force pushes to the repository, because these will disrupt the Git history in a way that {% data variables.product.prodname_elm_short %} cannot resolve.
-* Certain actions that developers perform during the migration process may not be reflected in the migrated repository. For details, see the unsupported actions in [AUTOTITLE](/migrations/elm/migrated-data-reference#events-included-in-live-updates).
+* Certain actions that developers perform during the migration process may not be reflected in the migrated repository. For details, see the unsupported actions in [AUTOTITLE](/migrations/elm/ghes-to-ghecom/migrated-data-reference#events-included-in-live-updates).
 
 ## Next steps
 
-When you're ready to run a migration, see [AUTOTITLE](/migrations/elm/migrate-your-repository).
+When you're ready to run a migration, see [AUTOTITLE](/migrations/elm/ghes-to-ghecom/migrate-your-repository).

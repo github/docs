@@ -1,12 +1,14 @@
 ---
 title: Enterprise Live Migrations CLI reference
 shortTitle: ELM CLI reference
-intro: 'Detailed usage information for the {% data variables.product.prodname_elm_cli %} tool.'
+intro: Detailed usage information for the {% data variables.product.prodname_elm_cli %} tool.
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
 contentType: reference
+redirect_from:
+  - /migrations/elm/elm-cli-reference
 ---
 
 ## Installation

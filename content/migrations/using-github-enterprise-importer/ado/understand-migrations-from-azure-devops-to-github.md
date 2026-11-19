@@ -17,6 +17,7 @@ redirect_from:
   - /migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/overview-of-a-migration-from-azure-devops-to-github-enterprise-cloud
   - /migrations/ado/overview-of-a-migration-from-azure-devops-to-github-enterprise-cloud
   - /migrations/ado/phase-1-understand-migrations-from-azure-devops-to-github
+  - /migrations/ado/understand-migrations-from-azure-devops-to-github
 category:
   - Migrate from Azure DevOps
 ---
@@ -29,7 +30,13 @@ You can only use {% data variables.product.prodname_importer_proper_name %} to m
 
 Before you create your enterprise account on {% data variables.product.prodname_dotcom %}, decide whether your enterprise will use {% data variables.product.prodname_emus %}. This affects how your members authenticate and how you manage identities and access. See [AUTOTITLE](/enterprise-cloud@latest/admin/concepts/enterprise-fundamentals/choose-an-enterprise-type).
 
-To learn more about the differences between {% data variables.product.prodname_dotcom %} and Azure DevOps, see [AUTOTITLE](/migrations/ado/key-differences-between-azure-devops-and-github).
+To learn more about the differences between {% data variables.product.prodname_dotcom %} and Azure DevOps, see [AUTOTITLE](/migrations/using-github-enterprise-importer/ado/key-differences-between-azure-devops-and-github).
+
+### Alternative tooling for migrations to {% data variables.enterprise.data_residency_site %}
+
+This journey describes migrations with {% data variables.product.prodname_importer_proper_name %}. If downtime is a concern, {% data variables.product.prodname_elm %} is an alternative tool that keeps repositories available to developers for most of the migration. See [AUTOTITLE](/migrations/elm/about-live-migrations).
+
+{% data variables.product.prodname_elm_short %} for Azure DevOps is in {% data variables.release-phases.public_preview %} and only supports migrations to {% data variables.enterprise.data_residency_site %}, not {% data variables.product.prodname_dotcom_the_website %}. For more information, see [Enterprise live migrations overview](https://learn.microsoft.com/azure/devops/repos/enterprise-live-migrations/overview) in the Microsoft Learn documentation.
 
 ## Support for Azure Pipelines and Azure Boards
 

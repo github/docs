@@ -206,16 +206,19 @@ Follow a link below to review the scope and tooling for your migration to {% dat
 ### Azure DevOps Services (Azure DevOps Cloud) to {% data variables.enterprise.data_residency_site %}
 
 * **Scope:** Source, history, and metadata
-* **Tooling:** {% data variables.product.prodname_importer_proper_name %}
-* **More information:** [AUTOTITLE](/migrations/using-github-enterprise-importer)
+* **Tooling:** {% data variables.product.prodname_importer_proper_name %} or {% data variables.product.prodname_elm %}
+* **More information:**
+  * [AUTOTITLE](/migrations/using-github-enterprise-importer)
+  * [Enterprise live migrations overview](https://learn.microsoft.com/azure/devops/repos/enterprise-live-migrations/overview) in the Microsoft Learn documentation
 
 ### Azure DevOps Server to {% data variables.enterprise.data_residency_site %}
 
 * **Scope:** Source, history, and metadata
-* **Tooling:** Migration to Azure DevOps Services, then {% data variables.product.prodname_importer_proper_name %}
+* **Tooling:** Migration to Azure DevOps Services, then {% data variables.product.prodname_importer_proper_name %} or {% data variables.product.prodname_elm_short %}
 * **More information:**
   * [Migrate data from Azure DevOps Server to Azure DevOps Services](https://learn.microsoft.com/en-us/azure/devops/migrate/migration-overview?view=azure-devops) in the Microsoft Docs
   * [AUTOTITLE](/migrations/using-github-enterprise-importer)
+  * [Enterprise live migrations overview](https://learn.microsoft.com/azure/devops/repos/enterprise-live-migrations/overview) in the Microsoft Learn documentation
 * **Caveats:** If you can't migrate to Azure DevOps Services first, you must perform a "source and history" migration instead. For more information, see [Migrations from any Git repository to {% data variables.enterprise.data_residency_site %}](#any-git-repository-to-githubcom).
 
 ### Bitbucket Cloud (Bitbucket.org) to {% data variables.enterprise.data_residency_site %}

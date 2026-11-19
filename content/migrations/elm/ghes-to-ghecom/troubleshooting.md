@@ -1,12 +1,14 @@
 ---
 title: Troubleshooting live migrations from GitHub Enterprise Server to GHE.com
 shortTitle: Troubleshooting
-intro: 'Advice for problems you may encounter with your migration.'
+intro: Advice for problems you may encounter with your migration.
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
 contentType: other
+redirect_from:
+  - /migrations/elm/troubleshooting
 ---
 
 If your migration encounters a problem, check the migration status with `gh elm migration status --migration-id MIGRATION-ID` and review the error information.
@@ -109,7 +111,7 @@ If your migration fails with an authentication error, check that:
 
 * Both the source and destination tokens are {% data variables.product.pat_v1_plural %}. {% data variables.product.pat_v2_caps_plural %} are not supported.
 * If the destination organization enforces SAML single sign-on, the token must be authorized for SSO.
-* Both tokens have the scopes specified in [AUTOTITLE](/migrations/elm/migrate-your-repository#4-configure-the-live-migration-secrets).
+* Both tokens have the scopes specified in [AUTOTITLE](/migrations/elm/ghes-to-ghecom/migrate-your-repository#4-configure-the-live-migration-secrets).
 
 If you recently rotated a token, the migration picks up new credentials automatically. You do not need to run `ghe-config-apply` or restart the migration service.
 
@@ -121,7 +123,7 @@ The operator must use a {% data variables.product.pat_v1 %} for each endpoint:
 
 * The **source operator token** must be created on {% data variables.product.prodname_ghe_server %}.
 * The **target operator token** must be created on {% data variables.enterprise.data_residency_site %}.
-* Both tokens have the scopes specified in [AUTOTITLE](/migrations/elm/migrate-your-repository#2-create-operator-tokens-with-enterprise-access).
+* Both tokens have the scopes specified in [AUTOTITLE](/migrations/elm/ghes-to-ghecom/migrate-your-repository#2-create-operator-tokens-with-enterprise-access).
 * The token owner must be an administrator of the corresponding enterprise. Selecting a scope does not grant the user administrative access.
 * {% data variables.product.pat_v2_caps_plural %} are not supported.
 
