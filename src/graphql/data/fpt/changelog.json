@@ -4,6 +4,19 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Field <code>resolutionReason</code> was added to object type <code>PullRequestReviewThread</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-11-19"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Enum value <code>DYNAMIC</code> was removed from enum <code>CopilotCodeReviewEffort</code></p>",
           "<p>Enum value <code>ADAPTIVE</code> was added to enum <code>CopilotCodeReviewEffort</code></p>",
           "<p>Enum value <code>DYNAMIC</code> was removed from enum <code>CopilotCodeReviewEffortLevel</code></p>",
