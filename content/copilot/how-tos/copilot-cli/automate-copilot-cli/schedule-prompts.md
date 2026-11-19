@@ -13,9 +13,6 @@ category:
   - Build with Copilot CLI # Copilot CLI bespoke page
 ---
 
-> [!NOTE]
-> The `/every` and `/after` commands are currently experimental features and are only available if you have used the `/experimental on` slash command, or the `‑‑experimental` command line option.
-
 In an interactive {% data variables.copilot.copilot_cli_short %} session you can schedule a prompt to be submitted automatically. This is useful when you want {% data variables.product.prodname_copilot_short %} to repeat a task at a regular cadence or to perform a one-off task after a delay, without you having to remember to submit the prompt manually.
 
 There are two slash commands for this:
@@ -127,7 +124,7 @@ Scheduled prompts are scoped to the session they were created in, and they are o
 
 When you reopen the session (using the `--continue` or `--resume` command line options) the schedules are restored. For a recurring schedule created with a fixed interval, the wait before the next run is measured from the moment you reopen the session.
 
-An `/after` schedule that had not been triggered before you closed the session keeps its original target time, rather than restarting the delay. If that time passed while the session was closed, the prompt is submitted as soon as you reopen the session.
+An `/after` schedule created with a delay restarts that delay when you reopen the session. A schedule created for an absolute time keeps its original target time. If that time passed while the session was closed, the prompt is submitted as soon as you reopen the session.
 
 ## Running a prompt from an external scheduler
 
