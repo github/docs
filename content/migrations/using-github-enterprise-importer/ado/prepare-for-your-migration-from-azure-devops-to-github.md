@@ -1,6 +1,6 @@
 ---
-title: "Prepare for your migration from Azure DevOps to GitHub"
-shortTitle: "4. Prepare to migrate"
+title: Prepare for your migration from Azure DevOps to GitHub
+shortTitle: 4. Prepare to migrate
 intro: Plan your migration by understanding your timeline, what data will be migrated, and your organizational structure.
 versions:
   fpt: '*'
@@ -12,6 +12,7 @@ category:
   - Migrate from Azure DevOps
 redirect_from:
   - /migrations/ado/phase-4-prepare-for-your-migration-from-azure-devops-to-github
+  - /migrations/ado/prepare-for-your-migration-from-azure-devops-to-github
 ---
 
 ## Determine how much you have to migrate

@@ -503,12 +503,35 @@ The `totals_by_client` array appears at the top level of each record in per-user
 | `totals_by_client[].token_usage.avg_tokens_per_request` | `number` | No | Average number of **output** and **prompt** tokens per request, computed as `(output_tokens_sum + prompt_tokens_sum) ÷ request_count`. |
 | `totals_by_client[].totals_by_model` | `array` | No | Per-model breakdown of the client's requests and token usage. Entries are keyed on `model`, `model_selection_mode`, and `is_custom_enterprise_model`, so the same model can appear more than once. For example, a model used both as an enterprise custom model and as a {% data variables.product.prodname_copilot_short %}-hosted model has two entries. |
 | `totals_by_client[].totals_by_model[].model` | `string` | No | Model used for the requests. For `code_review`, the model is always reported as `unknown`. Enterprise custom model names that can't be matched to a known model are also reported as `unknown`. |
-| `totals_by_client[].totals_by_model[].model_selection_mode` | `string` | No | How the model was selected. Possible values are `user_selected` (a specific model was requested rather than Auto), `product_selected` (the product chose the model, used for all {% data variables.copilot.copilot_code-review_short %} and {% data variables.copilot.copilot_cloud_agent %} requests), `auto` (Auto chose the model), `other` (selection modes that are grouped together and not yet reported individually), and `unknown` (a selection mode sent by the client that couldn't be normalized). |
+| `totals_by_client[].totals_by_model[].model_selection_mode` | `string` | No | How the model was selected. See [Model selection mode values](#model-selection-mode-values). |
 | `totals_by_client[].totals_by_model[].is_custom_enterprise_model` | `boolean` | Yes | Whether the requests used an enterprise custom model. `true` for custom models that an enterprise or organization owner configured in {% data variables.product.github %} settings. `false` for {% data variables.product.prodname_copilot_short %}-hosted models, including when no custom model signal is available. Determined server-side. Omitted for report days before this field was introduced. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/enable-custom-models). |
 | `totals_by_client[].totals_by_model[].request_count` | `integer` | No | Number of successful model requests from the client that used this model, selection mode, and custom model status. |
 | `totals_by_client[].totals_by_model[].token_usage.prompt_tokens_sum` | `integer` | No | Total number of prompt tokens sent across these requests. |
 | `totals_by_client[].totals_by_model[].token_usage.output_tokens_sum` | `integer` | No | Total number of output tokens generated across these requests. |
 | `totals_by_client[].totals_by_model[].token_usage.avg_tokens_per_request` | `number` | No | Average number of **output** and **prompt** tokens per request, computed as `(output_tokens_sum + prompt_tokens_sum) ÷ request_count`. |
+
+#### Model selection mode values
+
+The `model_selection_mode` field reports the following values.
+
+| Value | Description |
+|:--|:--|
+| `user_selected` | A specific model was requested rather than Auto or {% data variables.copilot.copilot_fusion_short %}. |
+| `product_selected` | The product chose the model. Used for all {% data variables.copilot.copilot_code-review_short %} and {% data variables.copilot.copilot_cloud_agent %} requests. |
+| `auto` | Auto chose the model, including requests using the Efficiency or Intelligence tier. |
+| `fusion_standard` | Requests using the {% data variables.copilot.copilot_fusion_standard %} effort level. Can also include Auto Balance requests. |
+| `fusion_high` | Requests using the {% data variables.copilot.copilot_fusion_high %} effort level. |
+| `fusion_max` | Requests using the {% data variables.copilot.copilot_fusion_max %} effort level. |
+| `fusion_fast` | Requests using the {% data variables.copilot.copilot_fusion_fast %} effort level. This level is used only in {% data variables.product.prodname_vscode %} inline chat. Users can't select it. |
+| `unknown` | The selection mode was missing, empty, or couldn't be normalized. |
+
+Earlier reports can contain `other` for selection modes that were grouped together rather than reported individually.
+
+For details about the effort levels, see [AUTOTITLE](/copilot/concepts/models/copilot-fusion#copilot-fusion-effort-levels).
+
+Currently, `fusion_standard` can include Auto Balance requests from clients that don't support {% data variables.copilot.copilot_fusion_short %}. Don't use this value alone to measure {% data variables.copilot.copilot_fusion_short %} adoption. These Auto Balance requests can appear as Auto in billing reports.
+
+Usage metrics measure activity, not charges. Use billing usage reports to determine billable amounts. Don't infer charges from `model_selection_mode`. See [AUTOTITLE](/billing/reference/billing-reports).
 
 ### Pull request activity fields
 

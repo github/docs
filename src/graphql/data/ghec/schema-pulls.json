@@ -6728,6 +6728,13 @@
           "href": "/graphql/reference/repos#object-repository"
         },
         {
+          "name": "resolutionReason",
+          "description": "<p>The reason this thread was resolved, if one was recorded. Currently only Copilot code review threads record a reason.</p>",
+          "type": "PullRequestReviewThreadResolutionReason",
+          "id": "pullrequestreviewthreadresolutionreason",
+          "href": "/graphql/reference/pulls#enum-pullrequestreviewthreadresolutionreason"
+        },
+        {
           "name": "resolvedBy",
           "description": "<p>The user who resolved this thread.</p>",
           "type": "User",

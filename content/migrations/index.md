@@ -12,7 +12,6 @@ versions:
   ghes: '*'
 children:
   - /overview
-  - /ado
   - /importing-source-code
   - /using-github-enterprise-importer
   - /elm
@@ -29,7 +28,7 @@ carousels:
     - /migrations/overview/planning-your-migration-to-github
     - /migrations/overview/about-githubs-migration-tooling
     - /migrations/overview/migration-paths-to-github
-    - /migrations/ado
+    - /migrations/using-github-enterprise-importer/ado
     - /migrations/importing-source-code/using-github-importer/importing-a-repository-with-github-importer
     - /migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github
     - /migrations/using-github-enterprise-importer/understanding-github-enterprise-importer/about-github-enterprise-importer

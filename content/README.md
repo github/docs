@@ -276,7 +276,7 @@ journeyTracks:
   - id: ado_migration
     title: Run your migration
     guides:
-      - href: /migrations/ado/understand-migrations-from-azure-devops-to-github
+      - href: /migrations/using-github-enterprise-importer/ado/understand-migrations-from-azure-devops-to-github
 ```
 
 ### `contentType`

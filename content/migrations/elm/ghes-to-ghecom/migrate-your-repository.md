@@ -1,20 +1,22 @@
 ---
 title: Migrating your repository with Enterprise Live Migrations
 shortTitle: Migrate your repository
-intro: 'Migrate from {% data variables.product.prodname_ghe_server %} to {% data variables.enterprise.data_residency_site %} with minimal downtime.'
+intro: Migrate from {% data variables.product.prodname_ghe_server %} to {% data variables.enterprise.data_residency_site %} with minimal downtime.
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
 contentType: how-tos
-permissions: 'Site administrators on {% data variables.product.prodname_ghe_server %} who are also enterprise owners on {% data variables.enterprise.data_residency_site %}.'
+permissions: Site administrators on {% data variables.product.prodname_ghe_server %} who are also enterprise owners on {% data variables.enterprise.data_residency_site %}.
+redirect_from:
+  - /migrations/elm/migrate-your-repository
 ---
 
->[!TIP] As you follow this guide, you can refer to the [AUTOTITLE](/migrations/elm/elm-cli-reference) for more detailed usage information. If you encounter errors, see [AUTOTITLE](/migrations/elm/troubleshooting).
+>[!TIP] As you follow this guide, you can refer to the [AUTOTITLE](/migrations/elm/ghes-to-ghecom/elm-cli-reference) for more detailed usage information. If you encounter errors, see [AUTOTITLE](/migrations/elm/ghes-to-ghecom/troubleshooting).
 
 ## Prerequisites
 
-Make sure your environments and developers are ready for the migration. See [AUTOTITLE](/migrations/elm/prepare-for-your-migration).
+Make sure your environments and developers are ready for the migration. See [AUTOTITLE](/migrations/elm/ghes-to-ghecom/prepare-for-your-migration).
 
 ## 1. Configure {% data variables.product.prodname_ghe_server %}
 
@@ -236,7 +238,7 @@ For example:
 Tips:
 
 * If you're running multiple migrations, you can check the status of all of them with `gh elm migration list`. This command shows in-progress migrations by default, but you can also filter by `--status`.
-* If you encounter failure statuses that require attention, see [AUTOTITLE](/migrations/elm/troubleshooting#statuses-and-recommended-actions).
+* If you encounter failure statuses that require attention, see [AUTOTITLE](/migrations/elm/ghes-to-ghecom/troubleshooting#statuses-and-recommended-actions).
 
 ## 8. Complete the migration
 
@@ -250,4 +252,4 @@ Continue to monitor the migration. When you see the `MIGRATION_STATUS_COMPLETED`
 
 ## Next steps
 
-Give users access to the new repository and reconcile activity with user accounts. See [AUTOTITLE](/migrations/elm/complete-your-migration).
+Give users access to the new repository and reconcile activity with user accounts. See [AUTOTITLE](/migrations/elm/ghes-to-ghecom/complete-your-migration).

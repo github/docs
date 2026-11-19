@@ -1,13 +1,15 @@
 ---
-title: "Granting the migrator role"
+title: Granting the migrator role
 shortTitle: Migrator role
-intro: "The migrator role gives a user or team the ability to run migrations on behalf of an organization."
+intro: The migrator role gives a user or team the ability to run migrations on behalf of an organization.
 versions:
   fpt: '*'
   ghec: '*'
 contentType: other
 category:
   - Migrate from Azure DevOps
+redirect_from:
+  - /migrations/ado/granting-the-migrator-role
 ---
 
 To allow someone other than an organization owner to run a migration or download migration logs, you can grant the migrator role to a user or team.

@@ -30,8 +30,6 @@ After you make your repository a template, anyone with access to the repository 
 
 {% ifversion fpt %}
 
-> [!NOTE]
-> You can use a template repository as starter code for an assignment on {% data variables.product.prodname_classroom %}. For more information, see [AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-an-assignment-from-a-template-repository).
 
 {% endif %}
 
