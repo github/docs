@@ -1,0 +1,185 @@
+{
+  "queries": [
+    {
+      "name": "license",
+      "type": "License",
+      "id": "license",
+      "href": "/graphql/reference/licenses#object-license",
+      "description": "<p>Look up an open source license by its key.</p>",
+      "args": [
+        {
+          "name": "key",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>The license's downcased SPDX ID.</p>"
+        }
+      ],
+      "category": "licenses"
+    },
+    {
+      "name": "licenses",
+      "type": "[License]!",
+      "id": "license",
+      "href": "/graphql/reference/licenses#object-license",
+      "description": "<p>Return a list of known open source licenses.</p>",
+      "args": [],
+      "category": "licenses"
+    }
+  ],
+  "objects": [
+    {
+      "name": "License",
+      "id": "license",
+      "href": "/graphql/reference/licenses#object-license",
+      "description": "<p>A repository's open source license.</p>",
+      "isDeprecated": false,
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "body",
+          "description": "<p>The full text of the license.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "conditions",
+          "description": "<p>The conditions set by the license.</p>",
+          "type": "[LicenseRule]!",
+          "id": "licenserule",
+          "href": "/graphql/reference/licenses#object-licenserule"
+        },
+        {
+          "name": "description",
+          "description": "<p>A human-readable description of the license.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "featured",
+          "description": "<p>Whether the license should be featured.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "hidden",
+          "description": "<p>Whether the license should be displayed in license pickers.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the License object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "implementation",
+          "description": "<p>Instructions on how to implement the license.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "key",
+          "description": "<p>The lowercased SPDX ID of the license.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "limitations",
+          "description": "<p>The limitations set by the license.</p>",
+          "type": "[LicenseRule]!",
+          "id": "licenserule",
+          "href": "/graphql/reference/licenses#object-licenserule"
+        },
+        {
+          "name": "name",
+          "description": "<p>The license full name specified by <a href=\"https://spdx.org/licenses\">https://spdx.org/licenses</a>.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "nickname",
+          "description": "<p>Customary short name if applicable (e.g, GPLv3).</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "permissions",
+          "description": "<p>The permissions set by the license.</p>",
+          "type": "[LicenseRule]!",
+          "id": "licenserule",
+          "href": "/graphql/reference/licenses#object-licenserule"
+        },
+        {
+          "name": "pseudoLicense",
+          "description": "<p>Whether the license is a pseudo-license placeholder (e.g., other, no-license).</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "spdxId",
+          "description": "<p>Short identifier specified by <a href=\"https://spdx.org/licenses\">https://spdx.org/licenses</a>.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "url",
+          "description": "<p>URL to the license on <a href=\"https://choosealicense.com\">https://choosealicense.com</a>.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        }
+      ],
+      "category": "licenses"
+    },
+    {
+      "name": "LicenseRule",
+      "id": "licenserule",
+      "href": "/graphql/reference/licenses#object-licenserule",
+      "description": "<p>Describes a License's conditions, permissions, and limitations.</p>",
+      "isDeprecated": false,
+      "fields": [
+        {
+          "name": "description",
+          "description": "<p>A description of the rule.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "key",
+          "description": "<p>The machine-readable rule key.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "label",
+          "description": "<p>The human-readable rule label.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "licenses"
+    }
+  ]
+}

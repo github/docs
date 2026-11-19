@@ -56,5 +56,9 @@ The following example demonstrates a minimal cluster configuration, which includ
 
 Clustering allows services that make up {% data variables.product.prodname_ghe_server %} to be scaled out independently of each other. This flexibility can be used to design and implement a cluster that fits organizations with different scalability requirements. For example, some organizations may need more storage throughput for large or frequent fetches, but web server usage may be relatively low. Another organization may have good performance with fewer storage resources, but need many nodes running `pages-server` or `elasticsearch-server`. Many different combinations are possible. Work with your account representative to determine the best cluster configuration for your specific needs.
 
+{% ifversion dedicated-redis-cluster-node %}
+To separate the Redis primary's resources and data volume from other services, you can move the primary to a dedicated cluster node while retaining Redis replicas on existing nodes. See [AUTOTITLE](/admin/monitoring-and-managing-your-instance/configuring-clustering/moving-redis-to-a-dedicated-cluster-node).
+{% endif %}
+
 * Spread redundant nodes across independent hardware. If you share CPU, memory, or storage devices, you'll reduce performance and introduce single points of failure. Shared networking components can also reduce throughput and increase risk of loss of connectivity in the event of an outage.
 * Use fast storage. Storage area networks (SAN) are often optimized for maximum space utilization, availability and fault tolerance, not absolute throughput. {% data variables.product.prodname_ghe_server %} clustering provides redundancy and availability, and will perform best on the fastest storage available. Local SSD storage is recommended.

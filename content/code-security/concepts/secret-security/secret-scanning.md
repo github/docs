@@ -80,7 +80,7 @@ Beyond the default detection of partner and provider secrets, you can expand and
 * **Validity checks.** Prioritize remediation by checking whether detected secrets are still active.
 {% endif %}
 {% ifversion secret-scanning-ai-generic-secret-detection %}
-* **{% data variables.secret-scanning.ai-detected-secrets-caps %}.** Use AI to detect unstructured secrets like passwords.
+* **{% data variables.secret-scanning.ai-detected-secrets-caps %}.** Use AI to detect unstructured secrets like passwords.{% ifversion ghes %} On {% data variables.product.prodname_ghe_server %}, classification runs locally on your appliance, so it works in air-gapped and network-isolated environments.{% endif %}
 {% endif %}
 {% ifversion secret-scanning-custom-pattern-ai-generated %}
 * **AI-generated regular expressions.** Use AI to generate regular expressions for custom patterns.

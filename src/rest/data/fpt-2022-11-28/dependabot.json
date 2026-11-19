@@ -7740,6 +7740,10 @@
         {
           "httpStatusCode": "422",
           "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
+        },
+        {
+          "httpStatusCode": "503",
+          "description": "<p>Service unavailable</p>"
         }
       ],
       "previews": [],
