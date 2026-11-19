@@ -9,5 +9,6 @@ children:
   - /troubleshooting-upgrades-and-migrations
   - /troubleshooting-storage-and-disks
   - /troubleshooting-github-actions-data-and-database-health
+  - /troubleshooting-search-webhooks-and-background-jobs
 shortTitle: Troubleshoot your instance
 ---

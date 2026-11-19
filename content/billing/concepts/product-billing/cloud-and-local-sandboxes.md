@@ -24,7 +24,7 @@ Usage is measured from the moment a session starts until it is stopped or delete
 
 ### Compute
 
-The compute meter tracks the time a cloud sandbox is running. Compute is not metered while a sandbox is stopped.
+The compute meter tracks the time a cloud sandbox is running, measured in vCPU seconds. A vCPU second is one virtual CPU running for one second, so a sandbox with 2 vCPUs uses 2 vCPU seconds for each second it runs. Compute is not metered while a sandbox is stopped.
 
 ### Memory
 
@@ -40,13 +40,13 @@ For more information about cloud and local sandboxes, see [AUTOTITLE](/copilot/c
 
 {% data reusables.billing.compute-allowance-model %}
 
-For example, suppose a cloud sandbox runs for 600 seconds with 4 GiB of memory. At the published rates below:
+For example, suppose a cloud sandbox with 2 vCPUs and 4 GiB of memory runs for 600 seconds. At the published rates below:
 
-* The compute cost is 600 compute seconds × $0.000024 USD, or $0.0144 USD.
-* The memory cost is 2,400 GiB-seconds (4 GiB × 600 seconds) × $0.000003 USD, or $0.0072 USD.
-* A total of $0.0216 USD is deducted from the account's included compute usage.
+* The compute cost is 1,200 vCPU seconds (2 vCPUs × 600 seconds) × $0.000024 USD, or $0.0288 USD.
+* The memory cost is 2,400 GiB seconds (4 GiB × 600 seconds) × $0.000003 USD, or $0.0072 USD.
+* A total of $0.036 USD is deducted from the account's included compute usage.
 
-This example shows how usage measured in seconds and GiB-seconds draws from the same monetary value as runner usage measured in minutes. For the amount included with each plan, see [AUTOTITLE](/billing/reference/product-usage-included).
+This example shows how usage measured in vCPU seconds and GiB seconds draws from the same monetary value as runner usage measured in minutes. For the amount included with each plan, see [AUTOTITLE](/billing/reference/product-usage-included).
 
 ## Paying for use
 
@@ -56,7 +56,7 @@ You pay for cloud sandboxes using the payment method set up for your {% data var
 
 | Meter | Description | Unit | Price (USD) |
 | --- | --- | --- |------------|
-| Compute | Time that a cloud sandbox session is running. | Compute second | $0.000024 |
+| Compute | Time that a cloud sandbox session is running. | vCPU second | $0.000024 |
 | Memory | Memory allocated to a cloud sandbox session while it is running. | GiB second | $0.000003 |
 | Storage | Snapshot storage for stopped sessions. | GiB month | $0.005  |
 
