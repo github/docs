@@ -44,10 +44,9 @@ Once you are a verified {% data variables.product.prodname_global_campus %} stud
 * **{% data variables.product.prodname_github_codespaces %}:** {% data reusables.education.student-codespaces-benefit %} For more information on getting started with {% data variables.product.prodname_github_codespaces %}, see [AUTOTITLE](/codespaces/quickstart).
 
 > [!NOTE]
-> {% data reusables.education.note-on-student-codespaces-usage %} For more information, see [AUTOTITLE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/using-github-codespaces-with-github-classroom).
+> {% data reusables.education.note-on-student-codespaces-usage %} For more information, see [AUTOTITLE](/education/manage-coursework-with-github-classroom).
 
 ## Further reading
 
 * [AUTOTITLE](/education/about-github-education/github-education-for-teachers/about-github-education-for-teachers)
 * [AUTOTITLE](/education/about-github-education/github-education-for-students/about-github-community-exchange)
-* [AUTOTITLE](/education/manage-coursework-with-github-classroom/get-started-with-github-classroom/about-github-classroom)
