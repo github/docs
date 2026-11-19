@@ -37,7 +37,7 @@ Event Streams is only available on {% data variables.product.prodname_dotcom_the
 
 ## Quickstart
 
-These examples use the [{% data variables.product.prodname_cli %}](https://cli.github.com/) (`gh`) for the API calls and `curl` for the stream.
+These examples use the [{% data variables.product.prodname_cli %}](https://cli.github.com/) (`gh`) for the API calls and `curl` for the stream, so you can see each step of the API. If you use {% data variables.product.prodname_cli %} 2.105.0 or later, the `gh event` commands handle subscribing, streaming, and reconnecting for you. See [Using {% data variables.product.prodname_cli %} commands](#using-github-cli-commands).
 
 ### 1. Create a subscription
 
@@ -76,6 +76,32 @@ When you've finished, close the stream. Deleting a subscription doesn't close it
 ```shell
 gh api -X DELETE /event-subscriptions/ID
 ```
+
+## Using {% data variables.product.prodname_cli %} commands
+
+{% data variables.product.prodname_cli %} 2.105.0 and later include `gh event` commands for Event Streams. These commands are also in {% data variables.release-phases.public_preview %} and subject to change.
+
+To wait for an event on a pull request, run `gh event listen` with the pull request's URL and one or more event types:
+
+```shell
+gh event listen --resource https://github.com/OWNER/REPO/pull/NUMBER \
+  --event com.github.pull_request.review.submitted.v1,com.github.pull_request.state.changed.v1
+```
+
+`gh event listen` creates a subscription, or reuses your existing one for the same pull request and event types. It then opens the stream and prints each event as one line of JSON. It reconnects when the stream drops, and creates the subscription again if it expires.
+
+* By default, the command exits after the first event. This suits agents, which usually wait for a command to finish before they continue.
+* `--count N` exits after N events, and `--follow` keeps listening until you stop it.
+* `--timeout` stops waiting after a duration such as `30m`, and exits with status `8`.
+* `--jq` and `--template` format each event, as with `gh api`. For example, `--jq .data.conclusion` prints only a check suite's conclusion.
+
+The command prints `Listening for events.` to stderr once the stream is open. Changes made before then aren't reported, so read the pull request's current state after you see this line.
+
+To manage subscriptions directly, use `gh event subscription list`, `create`, `view`, and `delete`. `gh event listen` doesn't delete its subscription when it exits. Subscriptions expire after 24 hours.
+
+When `gh` detects that an agent is calling it, commands such as `gh pr create`, `gh pr view`, `gh run view`, `gh run watch`, and `gh api` suggest `gh event listen` instead of polling.
+
+For all options, run `gh event listen --help`.
 
 ## API reference
 
@@ -173,6 +199,7 @@ Error responses include `message`, `documentation_url`, and `status`.
 * **No "all checks completed" event:** you get one event per check suite. To know whether all checks are done, fetch the pull request's check suites after each event.
 * **Pull request conversation comments:** comments on the pull request's conversation tab don't produce events yet. Review comments do, as review events.
 * **Open streams after deletion:** deleting a subscription doesn't close its open streams yet. Close the stream yourself before you delete the subscription.
+* **Commit statuses:** check suite events don't cover commit statuses created with the REST API. If a pull request's required checks include commit statuses, fetch them separately.
 * **No replay:** see [Handling the stream](#handling-the-stream).
 
 ## Giving feedback

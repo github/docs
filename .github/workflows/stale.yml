@@ -27,7 +27,7 @@ jobs:
           days-before-stale: 30
           days-before-close: 14
           stale-pr-label: 'stale'
-          exempt-pr-labels: 'never-stale'
+          exempt-pr-labels: 'never-stale,localization'
           close-pr-label: 'Closed as inactive'
 
           operations-per-run: 150
