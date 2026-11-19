@@ -30,7 +30,7 @@ jobs:
           stale-issue-label: 'Inactive'
           close-issue-label: 'Closed as inactive'
 
-          exempt-pr-labels: 'never-stale,ready to merge,waiting for review,needs SME'
+          exempt-pr-labels: 'never-stale,localization,ready to merge,waiting for review,needs SME'
           stale-pr-message: 'A stale label has been added to this pull request because it has been open 30 days with no activity. If you think this pull request should remain open, please add a new comment.'
           stale-pr-label: 'Inactive'
           close-pr-label: 'Closed as inactive'
