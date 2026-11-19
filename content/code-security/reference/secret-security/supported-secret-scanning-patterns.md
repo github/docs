@@ -99,7 +99,7 @@ Precision levels are estimated based on the pattern type's typical false positiv
 
 ## Supported AI-detected patterns
 
-{% data variables.product.prodname_secret_scanning_caps %} uses {% data variables.product.prodname_copilot_short %} to detect generic secrets using AI.{% ifversion fpt or ghec %} See [AUTOTITLE](/code-security/responsible-use/security-and-quality-ai-features).{% endif %}
+{% data variables.product.github %} uses an AI model to detect unstructured secrets, such as passwords.{% ifversion ghes %} On {% data variables.product.prodname_ghe_server %}, this model runs locally on your appliance and requires no hosted LLM or outbound network connection.{% endif %}{% ifversion fpt or ghec %} See [AUTOTITLE](/code-security/responsible-use/security-and-quality-ai-features).{% endif %}
 
 | Provider | Token |
 |----------|:--------------------|

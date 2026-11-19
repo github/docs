@@ -40,7 +40,8 @@ The generic alerts list displays alerts that relate to generic secrets detected 
 In addition, alerts that fall into this category:
 * Are limited in quantity to 5000 alerts per repository (this includes open and closed alerts).
 * Are not shown in the summary views for security overview, only in the "{% data variables.product.prodname_secret_scanning_caps %}" view.
-* Only have the first five detected locations shown on {% data variables.product.prodname_dotcom %} for generic patterns{% ifversion secret-scanning-ai-generic-secret-detection %}, and only the first detected location shown for AI-detected secrets{% endif %}.
+* Only have the first five detected locations shown on {% data variables.product.prodname_dotcom %} for generic patterns{% ifversion secret-scanning-ai-generic-secret-detection %}, and only the first detected location shown for AI-detected secrets{% endif %}.{% ifversion secret-scanning-ai-generic-secret-detection %}
+* Can appear after a delay for existing secrets, because enabling {% data variables.secret-scanning.ai-detected-secrets %} for a repository queues a historical scan of existing code.{% endif %}
 
 For {% data variables.product.company_short %} to scan for generic patterns{% ifversion secret-scanning-ai-generic-secret-detection %} and AI-detected secrets{% endif %}, you must first enable the feature{% ifversion secret-scanning-ai-generic-secret-detection %}s{% endif %} for your repository or organization. For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-secrets/detect-secret-leaks/enabling-secret-scanning-for-generic-patterns){% ifversion secret-scanning-ai-generic-secret-detection %} and [AUTOTITLE](/code-security/how-tos/secure-your-secrets/detect-secret-leaks/enabling-secret-scanning-for-ai-detected-secrets){% endif %}.
 
