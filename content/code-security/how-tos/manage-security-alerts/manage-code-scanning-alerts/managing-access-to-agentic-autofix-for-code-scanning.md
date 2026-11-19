@@ -22,6 +22,8 @@ Access controls for {% data variables.copilot.agentic_autofix %} cascade from th
 
 {% data variables.copilot.agentic_autofix_caps %} is not available for user-owned repositories in an enterprise that uses {% data variables.product.prodname_emus %}.
 
+Enabling {% data variables.copilot.agentic_autofix %} does not change the authentication requirements for assigning alerts through the REST API. GitHub App installation access tokens cannot be used to assign an alert to {% data variables.product.prodname_copilot_short %} or start an agentic autofix session. For information about assigning an alert to {% data variables.product.prodname_copilot_short %}, see [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-code-scanning-alerts/resolve-alerts#fixing-alerts-with-copilot).
+
 If your organization used {% data variables.copilot.agentic_autofix %} during the public preview, you must enable it again.
 
 Before you enable the feature, review how the use of {% data variables.product.prodname_ai_credits_short %} and {% data variables.product.prodname_actions %} minutes affects your costs.
