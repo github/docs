@@ -4,6 +4,23 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Type <code>CopilotCodeReviewSeverity</code> was added</p>",
+          "<p>Enum value <code>HIGH</code> was added to enum <code>CopilotCodeReviewSeverity</code></p>",
+          "<p>Enum value <code>LOW</code> was added to enum <code>CopilotCodeReviewSeverity</code></p>",
+          "<p>Enum value <code>MEDIUM</code> was added to enum <code>CopilotCodeReviewSeverity</code></p>",
+          "<p>Field <code>copilotCodeReviewSeverity</code> was added to object type <code>PullRequestReviewComment</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-11-20"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Field <code>resolutionReason</code> was added to object type <code>PullRequestReviewThread</code></p>"
         ]
       }

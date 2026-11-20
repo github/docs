@@ -5987,6 +5987,13 @@
           "href": "/graphql/reference/commits#object-commit"
         },
         {
+          "name": "copilotCodeReviewSeverity",
+          "description": "<p>The Copilot code review severity of this comment, or null if unavailable.</p>",
+          "type": "CopilotCodeReviewSeverity",
+          "id": "copilotcodereviewseverity",
+          "href": "/graphql/reference/pulls#enum-copilotcodereviewseverity"
+        },
+        {
           "name": "copilotCodeReviewSources",
           "description": "<p>Sources reported as contributing to this comment; may be incomplete.</p>",
           "type": "[CopilotCodeReviewSource!]!",
@@ -8237,6 +8244,28 @@
     }
   ],
   "enums": [
+    {
+      "name": "CopilotCodeReviewSeverity",
+      "id": "copilotcodereviewseverity",
+      "href": "/graphql/reference/pulls#enum-copilotcodereviewseverity",
+      "description": "<p>The severity Copilot code review assigned to a review comment.</p>",
+      "isDeprecated": false,
+      "values": [
+        {
+          "name": "HIGH",
+          "description": "<p>High severity.</p>"
+        },
+        {
+          "name": "LOW",
+          "description": "<p>Low severity.</p>"
+        },
+        {
+          "name": "MEDIUM",
+          "description": "<p>Medium severity.</p>"
+        }
+      ],
+      "category": "pulls"
+    },
     {
       "name": "CopilotCodeReviewSourceKind",
       "id": "copilotcodereviewsourcekind",

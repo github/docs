@@ -1316,6 +1316,7 @@
     "projectv2viewlayout": "projects",
     "projectv2vieworderfield": "projects",
     "projectv2workflowsorderfield": "projects",
+    "copilotcodereviewseverity": "pulls",
     "copilotcodereviewsourcekind": "pulls",
     "diffside": "pulls",
     "fileviewedstate": "pulls",

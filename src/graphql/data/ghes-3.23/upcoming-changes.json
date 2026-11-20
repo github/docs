@@ -25,6 +25,14 @@
       "date": "2026-10-01",
       "criticality": "breaking",
       "owner": "github/client-apps-platform"
+    },
+    {
+      "location": "CopilotAgentTask.type",
+      "description": "<p><code>type</code> will be removed. Use <code>codingAgentFilter</code> and <code>codingAgentTypeFilter</code> instead.</p>",
+      "reason": "<p><code>type</code> will be removed.</p>",
+      "date": "2026-10-01",
+      "criticality": "breaking",
+      "owner": "github/copilot-mission-control"
     }
   ],
   "2026-07-01": [

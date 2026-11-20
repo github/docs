@@ -6747,6 +6747,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: CREATED_AT, direction: DESC}",
               "description": "<p>Ordering options for the returned audit log entries.</p>",
               "type": {
                 "name": "AuditLogOrder",
@@ -6876,6 +6877,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: DOMAIN, direction: ASC}",
               "description": "<p>Ordering options for verifiable domains returned.</p>",
               "type": {
                 "name": "VerifiableDomainOrder",
@@ -6937,6 +6939,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: LOGIN, direction: ASC}",
               "description": "<p>Ordering options for enterprise owners returned from the connection.</p>",
               "type": {
                 "name": "OrgEnterpriseOwnerOrder",
@@ -6970,6 +6973,78 @@
           "type": "ID!",
           "id": "id",
           "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "innersourceVulnerabilities",
+          "description": "<p>Innersource security vulnerabilities scoped to this organization.</p>",
+          "type": "SecurityVulnerabilityConnection!",
+          "id": "securityvulnerabilityconnection",
+          "href": "/graphql/reference/security-advisories#object-securityvulnerabilityconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "ecosystem",
+              "description": "<p>An ecosystem to filter vulnerabilities by.</p>",
+              "type": {
+                "name": "SecurityAdvisoryEcosystem",
+                "id": "securityadvisoryecosystem",
+                "href": "/graphql/reference/security-advisories#enum-securityadvisoryecosystem"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "package",
+              "description": "<p>A package name to filter vulnerabilities by.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "severities",
+              "description": "<p>A list of severities to filter vulnerabilities by.</p>",
+              "type": {
+                "name": "[SecurityAdvisorySeverity!]",
+                "id": "securityadvisoryseverity",
+                "href": "/graphql/reference/security-advisories#enum-securityadvisoryseverity"
+              }
+            }
+          ]
         },
         {
           "name": "ipAllowListEnabledSetting",
@@ -7023,6 +7098,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: ALLOW_LIST_VALUE, direction: ASC}",
               "description": "<p>Ordering options for IP allow list entries returned.</p>",
               "type": {
                 "name": "IpAllowListEntryOrder",
@@ -7091,6 +7167,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: CREATED_AT, direction: ASC}",
               "description": "<p>Ordering options for issue fields returned from the connection.</p>",
               "type": {
                 "name": "IssueFieldOrder",
@@ -7145,6 +7222,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: CREATED_AT, direction: ASC}",
               "description": "<p>Ordering options for issue types returned from the connection.</p>",
               "type": {
                 "name": "IssueTypeOrder",
@@ -7229,6 +7307,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: CREATED_AT, direction: ASC}",
               "description": "<p>Ordering options for mannequins returned from the connection.</p>",
               "type": {
                 "name": "MannequinOrder",
@@ -7283,6 +7362,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: UPDATED_AT, direction: DESC}",
               "description": "<p>Ordering options for user statuses returned from the connection.</p>",
               "type": {
                 "name": "UserStatusOrder",
@@ -7433,6 +7513,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: CREATED_AT, direction: DESC}",
               "description": "<p>Ordering of the returned packages.</p>",
               "type": {
                 "name": "PackageOrder",
@@ -7555,6 +7636,51 @@
                 "name": "[PinnableItemType!]",
                 "id": "pinnableitemtype",
                 "href": "/graphql/reference/users#enum-pinnableitemtype"
+              }
+            }
+          ]
+        },
+        {
+          "name": "pinnedIssueFields",
+          "description": "<p>An ordered list of issue fields pinned to issues when no type is selected.</p>",
+          "type": "IssueFieldsConnection",
+          "id": "issuefieldsconnection",
+          "href": "/graphql/reference/issues#object-issuefieldsconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
               }
             }
           ]
@@ -7801,6 +7927,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: NUMBER, direction: DESC}",
               "description": "<p>How to order the returned projects.</p>",
               "type": {
                 "name": "ProjectV2Order",
@@ -7963,6 +8090,7 @@
             },
             {
               "name": "ownerAffiliations",
+              "defaultValue": "[OWNER, COLLABORATOR]",
               "description": "<p>Array of owner's affiliation options for repositories returned from the\nconnection. For example, OWNER will include only repositories that the\norganization or user being viewed owns.</p>",
               "type": {
                 "name": "[RepositoryAffiliation]",
@@ -8199,6 +8327,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: CREATED_AT, direction: DESC}",
               "description": "<p>Ordering options for discussions returned from the connection.</p>",
               "type": {
                 "name": "DiscussionOrder",
@@ -8217,6 +8346,7 @@
             },
             {
               "name": "states",
+              "defaultValue": "[]",
               "description": "<p>A list of states to filter the discussions by.</p>",
               "type": {
                 "name": "[DiscussionState!]",
@@ -8271,6 +8401,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: CREATED_AT, direction: ASC}",
               "description": "<p>Ordering options for repository migrations returned.</p>",
               "type": {
                 "name": "RepositoryMigrationOrder",
