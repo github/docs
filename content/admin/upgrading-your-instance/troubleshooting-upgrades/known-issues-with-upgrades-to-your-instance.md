@@ -21,6 +21,27 @@ If you see the error `The file provided is not a valid GitHub Enterprise Server 
 
 {% data variables.product.company_short %} strongly recommends regular backups of your instance's configuration and data. Before you proceed with any upgrade, back up your instance, then validate the backup in a staging environment. For more information, see [AUTOTITLE](/admin/backing-up-and-restoring-your-instance/configuring-backups-on-your-instance) and [AUTOTITLE](/admin/installing-your-enterprise-server/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance).
 
+{% ifversion saml-nameid-case-sensitive-upgrade %}
+
+## SAML NameID matching is case-sensitive
+
+This change applies to {% data variables.product.prodname_ghe_server %} **3.19.16, 3.20.12, 3.21.10, and 3.22.5**, released on November 17, 2026. It does not apply to {% data variables.product.prodname_ghe_cloud %} or to {% data variables.product.prodname_ghe_server %} instances with SCIM provisioning enabled.
+
+A security fix changes how SAML `NameID` values are matched to existing accounts. Differences in capitalization, accents, or trailing spaces are rejected rather than ignored. This helps prevent a SAML sign-in from selecting the wrong {% data variables.product.github %} account.
+
+If the `NameID` sent by your identity provider (IdP) during SAML authentication does not exactly match the user's stored SAML mapping on {% data variables.product.prodname_ghe_server %}, authentication fails. For example, an incoming `NameID` of `Mona` no longer matches a stored `NameID` of `mona`. The user sees the error `Another user already owns the account. Please have your administrator check the authentication log.`
+
+Before upgrading, verify that the SAML `NameID` values sent by your IdP match the stored SAML mapping `NameID` values exactly, including the same uppercase and lowercase letters.
+
+1. Check the user's stored SAML `NameID` on the **Security** tab in the site admin dashboard. For more information, see [AUTOTITLE](/admin/managing-iam/using-saml-for-enterprise-iam/updating-a-users-saml-nameid). You can also export mappings using `ghe-saml-mapping-csv --dump`. This utility does not support instances using SCIM provisioning.
+1. Check the incoming SAML `NameID` for the user. Temporarily enable SAML debugging, reproduce the user's SAML sign-in attempt, and inspect the SAML response's `NameID` in the `systemd` journal logs for `github-unicorn`. Disable debugging immediately afterward to avoid excessive logging and potential performance impact. For more information, see [AUTOTITLE](/admin/managing-iam/using-saml-for-enterprise-iam/troubleshooting-saml-authentication#configuring-saml-debugging).
+
+If the values differ, update the user's stored SAML `NameID` mapping to match the value sent by your IdP.
+
+We are working to restore the previous case-insensitive SAML `NameID` matching behavior. The release notes will announce when this update is available.
+
+{% endif %}
+
 ## Lifting the pause on upgrades to version 3.15 and above
 
 We have lifted the pause on upgrades to versions 3.15, 3.16, and 3.17. You can now upgrade to 3.15.12, 3.16.8, 3.17.5, or later. We do not recommend upgrading to earlier releases of 3.15, 3.16, or 3.17. As an additional step, it is recommended to check system capacity before upgrading. See [AUTOTITLE](/admin/upgrading-your-instance/preparing-to-upgrade/check-system-capacity-before-upgrading).

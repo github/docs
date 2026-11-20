@@ -76,6 +76,8 @@ sections:
       On instances with high push activity, users could experience delays before repository-related updates appeared in the UI. {% data variables.product.prodname_ghe_server %} processes repository push events with increased parallelism to reduce these delays.
   changes:
     - |
+      On instances that use SAML authentication without SCIM provisioning, SAML `NameID` values must exactly match the stored SAML mapping, including capitalization, accents, and trailing spaces. Previously, these differences were ignored. Users whose values do not match cannot authenticate. Before upgrading, administrators should verify that the `NameID` values sent by their identity provider match the stored mappings exactly. We are working to restore the previous matching behavior. The release notes will announce when this update is available. For pre-upgrade checks and steps to resolve mismatches, see [SAML NameID matching is case-sensitive](/admin/upgrading-your-instance/troubleshooting-upgrades/known-issues-with-upgrades-to-your-instance#saml-nameid-matching-is-case-sensitive). [Updated: 2026-11-19]
+    - |
       On AWS, the root volume for new instances launched from the GitHub Enterprise Server Amazon Machine Image (AMI) defaults to the gp3 volume type with 250 MiB/s throughput, instead of gp2. 
     - |
       On clustered instances, the `ghe-cluster-balance` utility no longer displays an outdated disclaimer that described it as a preview feature and directed administrators to contact GitHub Support. The utility has been generally available and fully supported since {% data variables.product.prodname_ghe_server %} 3.9. For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/configuring-clustering/rebalancing-cluster-workloads).
@@ -126,3 +128,6 @@ sections:
       After a restart, an instance can remain unavailable with "Starting..." displayed in the web interface. To recover, an administrator can connect using administrative SSH and rerun `ghe-config-apply`. This provides temporary recovery but does not prevent the issue from recurring. This issue is resolved in {% data variables.product.prodname_ghe_server %} 3.21.0 and later.
     - |
       `ghe-storage-extend` will fail for disks with a sector size greater than 1KiB, most notably with Azure Premium SSD v2 disks. This is due to an upstream bug with `resize2fs` when resizing a mounted disk.
+  errata:
+    - |
+      The release notes did not describe the impact of case-sensitive SAML `NameID` matching on existing users or the required pre-upgrade checks. The Changes section now includes this guidance and links to steps to resolve mismatches. [Updated: 2026-11-19]
