@@ -29,6 +29,8 @@ You can create a `.github-private` repository using a template or from scratch.
 
 > [!NOTE]
 > Settings in this repository apply to all users on your enterprise's {% data variables.product.prodname_copilot_short %} plan who use a supported client.
+>
+>If you plan to use this repository for a [AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/customizing-your-organizations-profile#adding-a-member-only-organization-profile-readme), you must choose Private visibility. Member-only profile READMEs don't load from internal repositories.
 
 ## Selecting your repository as your source of governance
 
