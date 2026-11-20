@@ -465,6 +465,8 @@ Omit this key entirely to allow all servers, subject to any entries in `deniedMc
 
 When multiple settings sources define `allowedMcpServers`, the effective allowlist is the intersection of all sources. A server must be permitted by every source to run.
 
+In {% data variables.copilot.copilot_cli_short %}, set the `allowManagedMcpServersOnly` key in MDM managed settings to `true` to restrict server eligibility to the managed `allowedMcpServers` allowlist, servers from managed or force-enabled plugins, and any fixed managed-MCP deployment. Lower-precedence user or workspace allowlist entries cannot broaden this policy. `deniedMcpServers` still applies, and trusted first-party servers remain exempt.
+
 Each entry must contain exactly one matcher property.
 
 | Property | Matching behavior | Applicable servers |
@@ -490,7 +492,9 @@ Before comparing a `serverUrl` pattern with a server URL, the client normalizes 
 
 Defines MCP servers that are unconditionally blocked. A server matching any entry is blocked even if it also matches an entry in `allowedMcpServers`. Deny rules always take precedence over allow rules.
 
-First-party {% data variables.product.prodname_copilot_short %} servers, such as the built-in {% data variables.product.github %} MCP server, are exempt from deny rules and cannot be blocked.
+First-party {% data variables.product.prodname_copilot_short %} servers, such as the built-in {% data variables.product.github %} MCP server, are exempt from these deny rules.
+
+In {% data variables.copilot.copilot_cli_short %}, the account's {% data variables.product.prodname_copilot_short %} MCP policy still applies to trusted first-party servers despite their exemption from `allowedMcpServers` and `deniedMcpServers`. If that policy disables MCP, the built-in {% data variables.product.github %} MCP server does not start.
 
 When multiple settings sources define `deniedMcpServers`, the effective denylist is the union of all sources. A server blocked by any source is blocked for all.
 
