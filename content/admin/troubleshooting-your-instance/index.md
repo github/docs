@@ -8,6 +8,7 @@ children:
   - /troubleshooting-tls-and-certificates
   - /troubleshooting-upgrades-and-migrations
   - /troubleshooting-storage-and-disks
+  - /troubleshooting-github-actions-configuration-and-services
   - /troubleshooting-github-actions-data-and-database-health
   - /troubleshooting-search-webhooks-and-background-jobs
 shortTitle: Troubleshoot your instance
