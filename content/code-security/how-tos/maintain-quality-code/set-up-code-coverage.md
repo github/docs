@@ -106,6 +106,9 @@ After your tests generate a Cobertura XML report, upload it to {% data variables
    * **`LABEL`**: A label to identify this coverage report (for example, `code-coverage/pytest`).
 1. Commit and push the workflow change.
 
+> [!NOTE]
+> The upload action checks that your file is a Cobertura XML report. If it isn't, for example because your test tool produced an LCOV report, the upload step fails with the error `This file is not a Cobertura XML report. Upload a Cobertura XML report.` To fix this, configure your test framework to output Cobertura XML, or convert your report to Cobertura XML before the upload step.
+
 ### Full workflow example
 
 This example runs Python tests with `pytest-cov` and uploads the coverage report:
