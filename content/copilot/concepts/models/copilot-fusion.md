@@ -16,7 +16,7 @@ category:
 
 {% data variables.copilot.copilot_fusion_short %} is an intelligent runtime model router and orchestrator. It chooses models and execution patterns for your task, then returns a single response. For example, it can choose one model to draft a solution and a separate model for review.
 
-You select {% data variables.copilot.copilot_fusion_short %} in the model picker, but you aren't selecting a specific model. You're choosing a system that routes and orchestrates models at runtime. You don't need to switch models during a task or decide which model suits each step. For each request, {% data variables.copilot.copilot_fusion_short %} selects the right execution pattern, the right level of reasoning effort, and the models that run it.
+You select {% data variables.copilot.copilot_fusion_short %} in the model picker, but you aren't selecting a specific model. You're choosing a system that routes and orchestrates models at runtime. You don't need to switch models during a task or decide which model suits each step. For each request, {% data variables.copilot.copilot_fusion_short %} selects the right execution pattern and the models that run it.
 
 {% data variables.copilot.copilot_fusion_short %} also considers real-time system health and availability when choosing models. Routing occurs along natural cache boundaries and large changes in conversation complexity to avoid additional cache-related costs without quality improvements.
 

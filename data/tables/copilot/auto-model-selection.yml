@@ -56,6 +56,24 @@
   cli: true
   app: true
 
+- name: GPT-6.1 Terra
+  cloud_agent: true
+  chat: true
+  cli: true
+  app: true
+
+- name: GPT-6.2 Astra
+  cloud_agent: true
+  chat: true
+  cli: true
+  app: true
+
+- name: GPT-6.2 Sol
+  cloud_agent: true
+  chat: true
+  cli: true
+  app: true
+
 # Anthropic
 - name: Claude Haiku 4.5
   cloud_agent: true
@@ -95,7 +113,12 @@
   cli: true
   app: true
 
-# TODOCS: Confirm the Auto surfaces for MAI Code 2 Flash. The registry has no GitHub Copilot app flag for this model.
+- name: MAI Code 2
+  cloud_agent: true
+  chat: true
+  cli: true
+  app: true
+
 - name: MAI Code 2 Flash
   cloud_agent: true
   chat: true
