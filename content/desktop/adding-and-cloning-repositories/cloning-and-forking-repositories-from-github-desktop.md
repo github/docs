@@ -26,6 +26,8 @@ When you use {% data variables.product.prodname_desktop %} to push a change to a
 
 You can also clone a repository directly from {% data variables.product.prodname_dotcom %} or {% data variables.product.prodname_enterprise %}. For more information, see [AUTOTITLE](/desktop/adding-and-cloning-repositories/cloning-a-repository-from-github-to-github-desktop).
 
+If you're signed in to more than one account, {% data variables.product.prodname_desktop %} assigns each cloned repository to one of your accounts. For more information, see [AUTOTITLE](/desktop/installing-and-authenticating-to-github-desktop/using-multiple-accounts-in-github-desktop).
+
 ## Cloning a repository
 
 {% data reusables.desktop.choose-clone-repository %}

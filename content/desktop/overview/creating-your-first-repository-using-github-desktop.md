@@ -86,6 +86,7 @@ When you create a new repository, it only exists on your computer and you are th
 1. In the repository bar, click **Publish repository**.
     ![Screenshot of the repository bar. A button, labeled "Publish repository", is highlighted with an orange outline.](/assets/images/help/desktop/publish-repository.png)
 1. In the "Publish Repository" window, enter details for your new repository.
+   * The **Account** dropdown shows the account that {% data variables.product.prodname_desktop %} will publish the repository with. If you're signed in to more than one account, you can choose a different one.
    * {% data variables.product.prodname_desktop %} automatically fills the "Name" and "Description" fields with the information you entered when you created the repository.
    * **Keep this code private** lets you control who can view your project. If you leave this option unselected, other users on {% data variables.product.github %} will be able to view your code. If you select this option, your code will not be publicly available.
    * The **Organization** drop-down menu, if present, lets you publish your repository to a specific organization that you belong to on {% data variables.product.github %}.

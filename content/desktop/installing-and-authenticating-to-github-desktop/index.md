@@ -10,6 +10,7 @@ children:
   - /setting-up-github-desktop
   - /installing-github-desktop
   - /authenticating-to-github-in-github-desktop
+  - /using-multiple-accounts-in-github-desktop
   - /about-connections-to-github-in-github-desktop
   - /updating-github-desktop
   - /uninstalling-github-desktop
