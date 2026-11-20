@@ -31,7 +31,7 @@ Rewind works in any directory, including folders that aren't Git repositories. I
 
 Use <kbd>Esc</kbd> when you want gradual, targeted control. While {% data variables.product.prodname_copilot_short %} is working, the first press displays a reminder and a second press interrupts the operation. A single press also closes an open dialog or denies a pending permission request.
 
-Use <kbd>Ctrl</kbd>+<kbd>C</kbd> when you want to cancel without the confirming second press that <kbd>Esc</kbd> requires. A single <kbd>Ctrl</kbd>+<kbd>C</kbd> immediately cancels the active operation and clears any queued prompts. Any file write that is already in progress will complete—files are not left corrupted mid-write—but any remaining planned changes are abandoned. Pressing <kbd>Ctrl</kbd>+<kbd>C</kbd> a second time within two seconds, when the input area is empty, exits the session entirely.
+Use <kbd>Ctrl</kbd>+<kbd>C</kbd> when you want to cancel without the confirming second press that <kbd>Esc</kbd> requires. A single <kbd>Ctrl</kbd>+<kbd>C</kbd> immediately cancels the active operation and clears any queued prompts. Any file write that is already in progress will complete—files are not left corrupted mid-write—but any remaining planned changes are abandoned. Once no work is running and the input area is empty, press <kbd>Ctrl</kbd>+<kbd>C</kbd> twice within two seconds to exit. 
 
 ### What pressing Esc does in different situations
 

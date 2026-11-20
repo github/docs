@@ -58,6 +58,8 @@ copilot -p "YOUR PROMPT" --max-ai-credits NUMBER
 
 ## What happens when the limit is reached
 
+When usage reaches 90% of the limit but remains below it, the next model call is a final response without tools unless you remove the limit or raise it enough to bring usage below 90%. In interactive mode, you are prompted to make this choice before that call.
+
 When the limit is hit, the agent stops cleanly and lets you know.
 
 * **In interactive mode**, you are prompted to reset the limit. You can use `/limits set` to raise the limit and continue your session from where the agent stopped.
