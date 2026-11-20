@@ -34,7 +34,7 @@ category:
 ## `description`
 
 **Required** A short description of the action.
-
+Note: This is not required for composite actions.
 ## `inputs`
 
 **Optional** Input parameters allow you to specify data that the action expects to use during runtime. {% data variables.product.prodname_dotcom %} stores input parameters as environment variables. We recommend using lowercase input ids.
