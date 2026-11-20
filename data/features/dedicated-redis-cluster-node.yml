@@ -1,0 +1,3 @@
+# Moving the Redis primary to a dedicated node in a cluster
+versions:
+  ghes: '>=3.23'

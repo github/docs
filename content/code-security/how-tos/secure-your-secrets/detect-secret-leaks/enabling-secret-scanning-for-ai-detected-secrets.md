@@ -22,7 +22,11 @@ category:
 
 {% data reusables.secret-scanning.generic-secret-detection-policy-note %}
 
-You can enable {% data variables.secret-scanning.generic-secret-detection %} in the security settings page of your repository or organization.
+{% ifversion ghes %}
+For {% data variables.product.prodname_ghe_server %}, a site administrator must first enable {% data variables.secret-scanning.ai-detected-secrets %} for the instance so that repository and security-configuration controls are available. If you don't have site administrator access, ask your {% data variables.product.prodname_ghe_server %} administrator to enable this setting first. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-enterprise-security/configure-specific-tools/configure-secret-scanning#enabling-ai-detected-secrets).
+
+{% endif %}
+Enabling {% data variables.secret-scanning.generic-secret-detection %} queues a historical scan of existing code. Findings appear in the **Generic** alerts list. Disabling {% data variables.secret-scanning.ai-detected-secrets %} doesn't disable standard {% data variables.product.prodname_secret_scanning %}.
 
 {% data reusables.secret-scanning.copilot-secret-scanning-generic-secrets-subscription-note %}
 

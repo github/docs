@@ -1,0 +1,301 @@
+date: '2026-11-19'
+release_candidate: true
+deprecated: false
+intro: |
+  > [!NOTE] Release candidate (RC) builds are intended solely for use in a test environment. Do not install an RC in a production environment.
+  >
+  > Do not upgrade to an RC from a supported, earlier version.
+  >
+  > If {% data variables.location.product_location %} is running an RC, you cannot upgrade to the general availability (GA) release. You also cannot upgrade with a hotpatch.
+  >
+  > This RC does not include all of the security fixes that will be in the GA release, including some fixes that ship in patch releases for earlier versions of {% data variables.product.prodname_ghe_server %}.
+
+  For upgrade instructions, see [AUTOTITLE](/admin/upgrading-your-instance/preparing-to-upgrade/overview-of-the-upgrade-process).
+sections:
+
+  features:
+
+    - heading: Instance administration
+      notes:
+        # https://github.com/github/releases/issues/11241
+        - |
+          During a new installation of {% data variables.product.prodname_ghe_server %}, you can optionally configure a dedicated disk for MySQL.
+        # https://github.com/github/releases/issues/11713
+        - |
+          In your {% data variables.product.prodname_ghe_server %} cluster, you can now move the Redis primary from a node that also runs other services, such as MySQL, to a dedicated node. Redis then uses the dedicated node's resources and data volume rather than sharing them with those services. This procedure does not attach a new disk to an existing node or use an external Redis service. For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/configuring-clustering/moving-redis-to-a-dedicated-cluster-node).
+        # https://github.com/github/releases/issues/11715
+        - |
+          In your {% data variables.product.prodname_ghe_server %} cluster, you can now configure a separate, dedicated data disk to host MySQL. For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/multiple-data-disks/configuring-multiple-data-disks#guidance-for-cluster-configurations).
+
+    - heading: Copilot
+      notes:
+        # https://github.com/github/releases/issues/11553
+        - |
+          {% data variables.copilot.copilot_cli_short %} can be configured to work with {% data variables.product.prodname_ghe_server %} for enterprises that operate in disconnected or air-gapped environments without connectivity to {% data variables.product.prodname_ghe_cloud %}. An administrator can configure a model provider once in {% data variables.product.prodname_ghe_server %}, and end users across the enterprise can use {% data variables.copilot.copilot_cli_short %} with their {% data variables.product.prodname_ghe_server %} credentials. This capability is now generally available. See [AUTOTITLE](/copilot/copilot-on-ghes/set-up-copilot-cli).
+
+    - heading: Identity and access management
+      notes:
+        # https://github.com/github/releases/issues/10231
+        - |
+          OAuth app developers can limit token lifetimes by using access tokens that expire after 8 hours and refresh tokens to obtain new access tokens. Token expiration is opt-in for existing OAuth apps and the default for newly created apps.
+
+          Developers can request expiring tokens with `scope=offline_access` during authorization for testing and gradual rollout, or require expiration in their app registration. Before requiring expiration, developers must update all clients to request, store, and use refresh tokens to avoid breaking sign-in for clients that do not support them. This feature is in public preview and subject to change.
+
+    - heading: GitHub Advanced Security
+      notes:
+        # https://github.com/github/releases/issues/9592
+        - |
+          Developers can detect unstructured secrets entirely within their network using AI secret detection on {% data variables.product.prodname_ghe_server %}, including in air-gapped environments. A self-contained, fine-tuned model runs on the appliance's CPU without a GPU, hosted LLM, or outbound connection. This feature is in public preview and subject to change.
+        # https://github.com/github/releases/issues/10999
+        - |
+          The version of {% data variables.product.prodname_codeql_cli %} included with this release has been upgraded to 2.27.0. Significant changes since the previous {% data variables.product.prodname_ghe_server %} release include support for Go 1.27, Kotlin 2.4.10, Swift 6.3.3 and native Linux ARM64 support for {% data variables.product.prodname_codeql_cli %}. For details of {% data variables.product.prodname_codeql %} changes since the previous {% data variables.product.prodname_ghe_server %} release, see the details in these changelogs:      
+          * [CodeQL 2.26.0](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.26.0/)
+          * [CodeQL 2.26.1](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.26.1/)
+          * [CodeQL 2.26.2](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.26.2/)
+          * [CodeQL 2.26.3](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.26.3/)
+          * [CodeQL 2.26.4](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.26.4/)
+          * [CodeQL 2.27.0](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.27.0/)
+        # https://github.com/github/releases/issues/10320
+        - |
+          Users can detect leaked Lovable Labs secrets with {% data variables.product.prodname_secret_scanning %}. Push protection blocks APIclub, Mistral AI, PostHog, and Resend secrets by default. Extended metadata for Cohere, GoCardless, and Square secrets provides richer context to help users prioritize remediation. [Changelog](https://github.blog/changelog/2026-08-06-secret-scanning-coverage-updates)
+        # https://github.com/github/releases/issues/10212
+        - |
+          Users can select the "Mitigated" dismissal reason for {% data variables.product.prodname_code_scanning %} alerts when compensating controls or other external factors address the risk. This reason helps users accurately report their security posture to auditors and filter out mitigated alerts to prioritize issues that require code changes. [Changelog](https://github.blog/changelog/2026-08-20-code-scanning-adds-a-mitigated-alert-dismissal-reason)
+        # https://github.com/github/releases/issues/10115
+        - |
+          Users can detect leaked APIclub and Resend secrets with {% data variables.product.prodname_secret_scanning %}. Push protection blocks VolcEngine secrets by default. Developers can filter `secret_scanning_alert` webhook events by category using the new `secret_category` field, which identifies secrets as `default` or `generic`. [Changelog](https://github.blog/changelog/2026-07-16-improvements-to-secret-scanning-and-public-monitoring)
+        # https://github.com/github/releases/issues/10039
+        - |
+          Users can customize {% data variables.product.prodname_codeql %} scans at scale with custom configurations in {% data variables.product.prodname_code_scanning %} default setup. This allows users to tailor scans and adopt queries while continuing to deploy with default setup. [Changelog](https://github.blog/changelog/2026-08-04-customize-code-scanning-default-setup-at-scale)
+        # https://github.com/github/releases/issues/9941
+        - |
+          Users can prioritize remediation of leaked Asana, IBM, and MessageBird secrets with validity checks in {% data variables.product.prodname_secret_scanning %} that indicate whether the credentials are still active. [Changelog](https://github.blog/changelog/2026-07-03-secret-scanning-adds-validators-for-asana-ibm-and-messagebird)
+        # https://github.com/github/releases/issues/9827
+        - |
+          Users can prioritize remediation of leaked Replicate secrets with extended metadata from {% data variables.product.prodname_secret_scanning %}, which provides richer context for the credentials. [Changelog](https://github.blog/changelog/2026-06-25-secret-scanning-adds-extended-metadata-for-replicate-secrets)
+        # https://github.com/github/releases/issues/9694
+        - |
+          Developers can detect more types of secrets with new patterns and validators in {% data variables.product.prodname_secret_scanning %}. [Changelog](https://github.blog/changelog/2026-06-16-secret-scanning-updates-june-2026)
+        # https://github.com/github/releases/issues/9588
+        - |
+          Users can manage custom patterns for {% data variables.product.prodname_secret_scanning %} programmatically by using the REST API to create, import, update, delete, and list patterns. Users must still use the web UI to initiate and review dry runs and publish patterns. [Changelog](https://github.blog/changelog/2026-07-09-create-and-manage-secret-scanning-custom-patterns-via-rest-api)
+        # https://github.com/github/releases/issues/8594
+        - |
+          Users can simplify secret scanning integrations and track delegated dismissal requests with new API filters, response fields, and email notifications.
+
+          * The repository, organization, and enterprise alert list endpoints accept `exclude_secret_types`, a comma-separated list of secret type slugs to exclude from results. Using it with `secret_type` in the same request returns a 422 error.
+          * Alert locations in the REST API and webhook payloads include `html_url` in the `details` object for commit, issue, pull request, and review locations. Integrators can link directly to these locations without additional API calls. Existing URL fields remain unchanged.
+          * Alert payloads in the API and webhooks include `closure_request_comment`, `closure_request_reviewer_comment`, and `closure_request_reviewer` for delegated dismissal requests. Alerts closed through an approved dismissal request also correctly include the requester's comment in `resolution_comment`.
+          * Email notifications for bypass and dismissal requests include the request's expiration period. Developers also receive a confirmation email when they submit an alert dismissal request.
+
+          [Changelog](https://github.blog/changelog/2026-04-07-secret-scanning-improvements-to-alert-apis-webhooks-and-delegated-workflows)
+        # https://github.com/github/releases/issues/6754
+        - |
+          Users can triage and remediate leaked secrets more effectively with metadata checks in {% data variables.product.prodname_secret_scanning %} alerts that identify who owns a secret and what it can access, for supported providers. This feature is in public preview and subject to change.
+        # https://github.com/github/releases/issues/3962
+        - |
+          Users with the new enterprise security manager role can centrally access security data and manage security settings and alerts across all organizations in an enterprise and at the enterprise level.
+
+    - heading: Dependabot
+      notes:
+        # https://github.com/github/releases/issues/10188
+        - |
+          Users can customize the format and length of branch names that {% data variables.product.prodname_dependabot %} creates for pull requests to meet CI naming requirements and avoid branch name length limits in monorepos. [Changelog](https://github.blog/changelog/2026-08-04-customize-dependabot-pull-request-branch-names)
+        # https://github.com/github/releases/issues/9767
+        - |
+          By default, {% data variables.product.prodname_dependabot %} waits until a package version has been available on its registry for at least 3 days before opening a version update pull request. This cooldown gives maintainers and the community more time to detect and report compromised or buggy releases before users merge updates. [Changelog](https://github.blog/changelog/2026-07-14-dependabot-version-updates-introduce-default-package-cooldown)
+        # https://github.com/github/releases/issues/8604
+        - |
+          Users can explicitly configure npm private registry scopes for {% data variables.product.prodname_dependabot %} with the new `scope` property in `dependabot.yml`. {% data variables.product.prodname_dependabot %} uses these scopes to generate `.npmrc` configuration instead of attempting to infer it, avoiding registry configuration errors caused by unreliable inference. [Changelog](https://github.blog/changelog/2026-06-30-dependabot-no-longer-infers-npmrc)
+
+    - heading: Secure coding features
+      notes:
+        # https://github.com/github/releases/issues/9862
+        - |
+          Developers can identify known malicious packages in PyPI, Maven, RubyGems, NuGet, Go, Rust, and Composer through the {% data variables.product.prodname_advisory_database %}, in addition to npm. The database automatically ingests malware advisories from OpenSSF's malicious-packages repository to expand coverage across these ecosystems. [Changelog](https://github.blog/changelog/2026-06-25-dependabot-alerts-on-malicious-packages-across-more-ecosystems)
+
+    - heading: GitHub Actions
+      notes:
+        # Required Actions Runner version
+        - |
+          {% data reusables.actions.actions-runner-release-note %}
+        # https://github.com/github/releases/issues/9154
+        - |
+          Users with workflow approval permissions can run CI/CD workflows for pull requests created by `github-actions[bot]` by selecting **Approve workflows to run**. After approval, these pull requests trigger workflow runs just like user-created pull requests. [Changelog](https://github.blog/changelog/2026-05-21-bot-created-pull-requests-can-run-workflows-if-approved)
+        # https://github.com/github/releases/issues/7636
+        - |
+          Administrators can control which {% data variables.product.prodname_actions %} workflows run across repositories by configuring workflow execution protection rulesets. These rulesets define allowed actors, such as individual users, repository roles, and trusted automations, and allowed events, such as `push`, `pull_request`, and `workflow_dispatch`. The protections block unauthorized actors and events before workflow execution begins, rather than relying on the workflow file in the triggering commit. [Changelog](https://github.blog/changelog/2026-09-17-workflow-execution-protections-in-github-actions-generally-available)
+
+    - heading: Organizations
+      notes:
+        # https://github.com/github/releases/issues/10380
+        - |
+          Governance and compliance teams can monitor repository rule evaluation and adherence across an organization with the organization-level Rule Insights dashboard. The dashboard aggregates insights across all repositories and supports custom property filtering, aggregated metrics, CSV export, and REST API access. [Changelog](https://github.blog/changelog/2026-08-04-rule-insights-for-organizations-in-public-preview)
+
+          This feature is in public preview and subject to change.
+        # https://github.com/github/releases/issues/9897
+        - |
+          Organization administrators can identify why a member has access to a repository by viewing the access sources in the member's repository access view. The view shows granting paths, such as team membership, direct assignment, and organization-level grants, to help administrators audit permissions and troubleshoot access.
+
+    - heading: Repositories
+      notes:
+        # https://github.com/github/releases/issues/10214
+        - |
+          Developers can work on multiple tasks concurrently in the same repository by using {% data variables.product.prodname_cli %} to create Git worktrees when checking out issues or pull requests and remove worktrees when finished.
+        # https://github.com/github/releases/issues/9689
+        - |
+          Users can quickly navigate between repositories in an organization with the repository switcher in the global navigation. Clicking the chevron next to the repository name opens a dialog where users can search for or select another repository. [Changelog](https://github.blog/changelog/2026-06-18-repository-switcher-generally-available-in-global-navigation)
+
+    - heading: Issues
+      notes:
+        # https://github.com/github/releases/issues/10322
+        - |
+          Users with the triage role can create issues in repositories that restrict issue creation to collaborators. Previously, this required the write, maintain, or admin role. [Changelog](https://github.blog/changelog/2026-08-03-triage-role-can-bypass-issue-creation-restrictions)
+        # https://github.com/github/releases/issues/10110
+        - |
+          Users can access frequently used projects, saved views, and milestones with one click by pinning up to 25 items total to the repository sidebar. Users can pin and unpin items from the projects, saved views, and milestones listing pages. [Changelog](https://github.blog/changelog/2026-08-19-pin-projects-views-and-milestones-to-the-repository-sidebar)
+        # https://github.com/github/releases/issues/10108
+        - |
+          Users can find and apply relevant labels more quickly on issues, pull requests, and the new-issue form with a "Suggested labels" group at the top of the label picker. The group prioritizes labels recently used by the user, then fills remaining suggestions with popular labels in the repository. The alphabetical list remains below the suggestions, and searching hides the suggested group to show matching labels.
+        # https://github.com/github/releases/issues/10106
+        - |
+          Maintainers can reduce label clutter without losing history by archiving labels from the Labels page or through the API. Archived labels disappear from pickers, autocomplete, and suggestions and cannot be newly applied, but remain on existing issues, pull requests, and discussions and stay searchable and filterable. Maintainers can review archived labels in a separate view on the Labels page and unarchive them at any time using the page or API. [Changelog](https://github.blog/changelog/2026-08-27-label-archiving-is-generally-available)
+        # https://github.com/github/releases/issues/10102
+        - |
+          Users can focus on open work by selecting **Hide closed issues** from the menu in the top-right corner of an issue's sub-issues pane. Users can show closed sub-issues again at any time, and the setting applies only to the current session.
+        # https://github.com/github/releases/issues/10098
+        - |
+          Users can connect related issues with the "Relates to" relationship without implying blocking, hierarchy, or duplication, or changing either issue's open or closed state. The relationship appears in both issues' sidebars with each linked issue's current state and is available through APIs and webhooks. This feature is in public preview and subject to change. [Changelog](https://github.blog/changelog/2026-08-06-connecting-issues-and-multi-select-field-support)
+        # https://github.com/github/releases/issues/9643
+        - |
+          Repository administrators can manage issue volume by restricting issue creation to collaborators only, without disabling issues entirely. [Changelog](https://github.blog/changelog/2026-06-29-restrict-issue-creation-to-collaborators-only)
+        # https://github.com/github/releases/issues/5246
+        - |
+          Users can capture and search consistent, structured information across their team's issues with issue fields, such as priority and status. Issue fields keep this information in sync across projects without relying on labels or copying details into issue descriptions.
+
+    - heading: Projects
+      notes:
+        # https://github.com/github/releases/issues/10100
+        - |
+          Users can create more precise project views by combining filters with logical `OR`, explicit `AND`, and parentheses for grouping. For example, `(status:Done OR status:Todo) is:issue` shows issues with either status. [Changelog](https://github.blog/changelog/2026-07-14-advanced-search-for-projects-is-generally-available)
+        # https://github.com/github/releases/issues/9476
+        - |
+          Organizations can create multi-select fields in both issue fields and projects, allowing users to assign multiple values to a single field, such as affected teams, modules, or categories. This feature is in public preview and subject to change. [Changelog](https://github.blog/changelog/2026-07-23-multi-select-fields-for-projects-and-issues-in-public-preview)
+
+    - heading: Pull requests
+      notes:
+        # https://github.com/github/releases/issues/10090
+        - |
+          Maintainers can manage pull request limits centrally across all repositories in an organization, instead of configuring each repository individually. [Changelog](https://github.blog/changelog/2026-08-06-set-pull-request-limits-at-the-organization-level)
+        # https://github.com/github/releases/issues/8830
+        - |
+          Repository maintainers can manage contribution volume by setting a maximum number of pull requests each non-collaborator can have open at the same time. Contributors who reach the limit must close an existing pull request or have one merged before opening another. Maintainers can add trusted contributors to an allowlist to bypass the limit without granting collaborator access. [Changelog](https://github.blog/changelog/2026-06-17-limit-open-pull-requests-for-users-without-write-access)
+        # https://github.com/github/releases/issues/7391
+        - |
+          Repository administrators can hide closed pull requests from public view without permanently deleting them by archiving them. Maintainers can still preview archived content to retain records for legal, policy, or moderation needs. Archiving does not make pull requests private or replace access controls or repository visibility settings. [Changelog](https://github.blog/changelog/2026-07-16-repository-admins-can-archive-pull-requests)
+
+    - heading: Releases
+      notes:
+        # https://github.com/github/releases/issues/8242
+        - |
+          Users can jump between releases on a repository's releases page using a table of contents in the left sidebar, reducing the need to scroll through lengthy release notes. Release metadata appears below each release title, matching the layout of individual release pages. [Changelog](https://github.blog/changelog/2026-06-30-releases-sidebar-navigation-and-per-asset-download-counts)
+
+    - heading: Integrations and extensions
+      notes:
+        # https://github.com/github/releases/issues/10567
+        - |
+          Developers of {% data variables.product.prodname_github_apps %} with token expiration disabled can use `offline_access` support to test and gradually roll out token expiration without enabling it for the entire app at once. [Changelog](https://github.blog/changelog/2026-10-13-github-app-improvements-for-least-privilege-and-management)
+        # https://github.com/github/releases/issues/6373
+        - |
+          OAuth apps and GitHub Apps can enable wildcard matching for their redirect URIs, and OAuth apps can now register multiple redirect URIs. [Changelog](https://github.blog/changelog/2026-08-14-multiple-redirect-uris-and-token-refresh-for-oauth-apps)
+
+  changes:
+    # https://github.com/github/releases/issues/9722
+    - |
+      To reduce misuse of subscriber, stargazer, and watcher lists to send unsolicited notifications, only administrators and collaborators can access these API endpoints:
+
+      * `/repositories/:repository_id/stargazers`
+      * `/repositories/:repository_id/watchers`
+      * `/repositories/:repository_id/subscribers`
+      * `/user/:user_id/subscriptions`
+
+      These restrictions also apply to the `/stargazers` and `/stargazers/you_know` views. Users without access receive empty responses or a forbidden status from the affected endpoints.
+    # https://github.com/github/monolith-platform/issues/2185
+    - |
+      In {% data variables.product.prodname_ghe_server %} 3.23, some log attribute names have changed. Administrators should review their log analysis configurations and any integrations that depend on specific attribute names. For example, `gh.enduser.id` and `gh.enduser.login` are now both named `enduser.id`.
+
+  known_issues:
+    # Known issues from "GHES Release Note Tracking" project: https://github.com/orgs/github/projects/7908/views/15?filterQuery=type%3A%22Known+Issue%22+affected-versions%3A*3.23*
+    # https://github.com/github/ghes/issues/5872
+    - |
+      During an upgrade of {% data variables.product.prodname_ghe_server %}, custom firewall rules are removed. If you use custom firewall rules, you must reapply them after upgrading.
+    # https://github.com/github/ghes/issues/5900
+    - |
+      If the root site administrator is locked out of the {% data variables.enterprise.management_console %} after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see [Troubleshooting access to the {% data variables.enterprise.management_console %}](/admin/administering-your-instance/administering-your-instance-from-the-web-ui/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account).
+    # https://github.com/github/html_pipeline/issues/50
+    - |
+      {% data reusables.release-notes.large-adoc-files-issue %}
+    # https://github.com/github/ghes/issues/8452
+    - |
+      Admin stats REST API endpoints may timeout on appliances with many users or repositories. Retrying the request until data is returned is advised.
+    # https://github.com/github/ghes/issues/9167
+    - |
+      When following the steps for [Replacing the primary MySQL node](/admin/monitoring-and-managing-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-the-primary-database-node-mysql-or-mysql-and-mssql), step 14 (running `ghe-cluster-config-apply`) might fail with errors. If this occurs, re-running `ghe-cluster-config-apply` is expected to succeed.
+    # https://github.com/github/ghes/issues/9246
+    - |
+      Running a config apply as part of the steps for [Replacing a node in an emergency](/admin/monitoring-and-managing-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-a-node-in-an-emergency) may fail with errors if the node being replaced is still reachable. If this occurs, shut down the node and repeat the steps.
+    # https://github.com/github/ghes/issues/9451
+    - |
+      When restoring data originally backed up from a 3.13 or greater appliance version, the Elasticsearch indices need to be reindexed before some of the data will show up. This happens via a scheduled job that runs on the first Saturday of each month. It can also be forced by running `/usr/local/share/enterprise/ghe-es-search-repair`.
+    # https://github.com/github/ghes/issues/9993
+    - |
+      When initializing a new {% data variables.product.prodname_ghe_server %} cluster, nodes with the `consul-server` role should be added to the cluster before adding additional nodes. Adding all nodes simultaneously creates a race condition between nomad server registration and nomad client registration.
+    # https://github.com/github/ghes/issues/8711
+    - |
+      In cluster HA environments, `ghe-cluster-repl-status` may report inconsistent Spokes or Storage status after running `ghe-cluster-repl-bootstrap` or `ghe-cluster-repl-teardown`.
+    # https://github.com/github/actions-fusion/issues/2068
+    - |
+      In a cluster, the host running restore requires access the storage nodes via their private IPs.
+    # https://github.com/github/ghes/issues/8516
+    - |
+      On an instance hosted on Azure, commenting on an issue via email meant the comment was not added to the issue.
+    # https://github.com/github/ghes/issues/11461
+    - |
+      After a restore, existing outside collaborators cannot be added to repositories in a new organization. This issue can be resolved by running `/usr/local/share/enterprise/ghe-es-search-repair` on the appliance.
+    # https://github.com/github/ghes/issues/11474
+    - |
+      After a geo-replica is promoted to be a primary by running `ghe-repl-promote`, the actions workflow of a repository does not have any suggested workflows.
+    # https://github.com/github/ghes/issues/10209
+    - |
+      When publishing npm packages in a workflow after restoring from a backup to {% data variables.product.prodname_ghe_server %}, you may encounter a `401 Unauthorized` error from the {% data variables.product.prodname_registry %} service. This can happen if the restore is from an N-1 or N-2 version and the workflow targets the npm endpoint on the backup instance. To avoid this issue, ensure the access token is valid and includes the correct scopes for publishing to {% data variables.product.prodname_registry %}.
+    # https://github.com/github/ghes/issues/15466 - redirected to https://github.com/github/ghes-actions/issues/760
+    - |
+      On instances with multiple Git storage nodes in a voting configuration, including cluster and geo-replication high availability topologies, upgrading may fail to correctly install Actions that ship with the new version. In some cases, previous versions of these Actions remain on the instance. To resolve this issue, run the following commands on the primary node: `ghe-config --unset 'app.actions.actions-repos-sha1sum'`, `ghe-config-apply`, and `/usr/local/share/enterprise/ghe-run-init-actions-graph`.  
+    # https://github.com/github/ghes/issues/19918
+    - | 
+      When an administrator restores a backup with `ghe-restore` to a configured standalone instance with Replication Controller enabled, `ghe-restore` may skip storage data, such as avatars and attachments, and still complete successfully. The restore output includes `Warning: no routes found, skipping storage restore ...`. If you see this warning or storage data is missing after a restore, contact {% data variables.product.github %} Support.
+    # https://github.com/github/github-ui/issues/39879
+    - |
+      On a newly booted {% data variables.product.prodname_ghe_server %} instance, the merge box on a newly created pull request can stay on "Checking for the ability to merge automatically" and not show the merge status. If encountered, refreshing the page shows the correct merge status.
+    # https://github.com/github/lifecycle/issues/8564
+    - |
+      The dormant users report may incorrectly classify users as dormant despite recent activity, such as commenting on issues or pull requests. Last activity timestamps in user reports and the dormant users page may also be outdated. Administrators should verify a user's recent activity before suspending an account based on the dormant users report.
+    
+  closing_down:
+    # https://github.com/github/ghes/issues/18667
+    - |
+      Closing down: With the release of the `2026-03-10` {% data variables.product.github %} REST API, the `2022-11-28` version has entered its closing down period and will be retired in the next enterprise server release after `2028-03-10`. We recommend planning your migration ahead of this date to avoid any disruption. For more information, see [AUTOTITLE](/rest/about-the-rest-api/api-versions).
+      
+  retired:
+    # https://github.com/github/releases/issues/7068
+    - |
+      Retired: With the release of {% data variables.product.prodname_actions_runner_controller %} (ARC) 0.14.0, legacy ARC versions have been retired in {% data variables.product.prodname_ghe_server %} 3.23. Users still running legacy ARC versions should migrate to the latest ARC release to continue receiving critical improvements and observability features. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-actions-runner-controller).
+    # https://github.com/github/releases/issues/8875
+    - |
+      Retired: Collectd metrics have been retired in {% data variables.product.prodname_ghe_server %} 3.23. There is no Collectd metrics stack in 3.23.
+    # https://github.com/github/releases/issues/9775
+    - |
+      Retired: {% data variables.product.prodname_nes %}, introduced for cluster topologies and gated by the `app.nes.enabled` feature flag, is has been removed in {% data variables.product.prodname_ghe_server %} 3.23. There is no replacement. If you previously enabled the `app.nes.enabled` flag, we recommend you stop using it before upgrading to 3.23.      
+    # https://github.com/github/releases/issues/9250
+    - |
+      Retired: {% data variables.product.prodname_dependabot %} no longer supports Python version 3.9, which reached end of life on October 31, 2025. If you continue to use Python 3.9, there’s a risk that Dependabot will not create pull requests to update dependencies. If this affects you, please update to a supported release of Python. [Changelog](https://github.blog/changelog/2026-06-23-deprecation-of-python-3-9-for-dependabot)
