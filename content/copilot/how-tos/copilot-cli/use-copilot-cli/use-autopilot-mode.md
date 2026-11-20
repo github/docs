@@ -26,7 +26,7 @@ You can start Autopilot mode from an interactive {% data variables.copilot.copil
    ```
 
 1. Press <kbd>Shift</kbd>+<kbd>Tab</kbd> until the status line shows Autopilot mode.
-1. If the CLI asks how to handle permissions, choose whether to enable all permissions, use manual approval for the session, or cancel.
+1. If the CLI asks how to handle permissions, choose whether to enable all permissions, use {% data variables.copilot.assisted_permissions %} or manual approval for the session, or cancel.
 1. Enter a specific prompt that includes the outcome and checks you expect. For example:
 
    ```copilot
@@ -64,13 +64,12 @@ This command moves from planning to Autopilot mode automatically when the plan i
 
 ## Configuring permissions
 
-When entering autopilot mode, if you have not already granted {% data variables.product.prodname_copilot_short %} all permissions, a message is displayed prompting you to choose between three options:
+When entering autopilot mode, if you have not already granted {% data variables.product.prodname_copilot_short %} all permissions, the CLI may prompt you to choose a permission mode:
 
-```text
-1. Enable all permissions (recommended)
-2. Use Manual Approval for this session
-3. Cancel (Esc)
-```
+1. **Use Allow All for this session** grants broad permissions without reviewing individual actions. If the option also says **disable sandbox for this session**, selecting it disables local sandboxing for the current session. The sandbox remains enabled when organization policy requires it or sandbox bypass is disabled.
+1. **Use {% data variables.copilot.assisted_permissions_caps %} for this session** keeps the current sandbox setting and automatically approves requests an AI judges safe. Other requests that need approval are denied in Autopilot mode. This option is not offered when administrator policy disables it.
+1. **Use Manual Approval for this session** automatically denies tool requests that require approval.
+1. **Cancel** cancels the switch to Autopilot mode.
 
 You will get the best results from Autopilot mode if you enable all permissions. If you choose manual approval, {% data variables.product.prodname_copilot_short %} will automatically deny any tool requests that require approval, which may prevent it from completing certain tasks. You can change your mind later and grant full permissions, during an Autopilot session, by using the `/allow-all` command (or its alias `/yolo`).
 

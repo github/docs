@@ -33,7 +33,7 @@ Typically, you'll use the `/fleet` slash command after creating an implementatio
 1. Once the plan is complete, select one of the following options:
 
    * **Accept plan and continue in Autopilot execution mode + /fleet** to allow {% data variables.product.prodname_copilot_short %} to use subagents and work autonomously to implement the plan without any further input.
-   * **Exit plan mode and I will prompt myself** and then enter a prompt such as `/fleet implement the plan`. {% data variables.product.prodname_copilot_short %} will start working on the plan, using subagents to run parts of the work in parallel where possible. It may ask you to answer questions or make decisions as it works through the plan.
+   * **Exit to Interactive execution mode without running the plan** and then enter a prompt such as `/fleet implement the plan`. {% data variables.product.prodname_copilot_short %} will start working on the plan, using subagents to run parts of the work in parallel where possible. It may ask you to answer questions or make decisions as it works through the plan.
 
 ### Assigning specialized subagents
 

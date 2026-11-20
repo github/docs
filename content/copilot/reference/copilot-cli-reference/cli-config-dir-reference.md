@@ -736,6 +736,8 @@ Repository defaults are optional: set `enabledPlugins` entries to `false` in rep
 
 These settings apply across all your sessions and repositories. You can use the `/settings` slash command to run an interactive dialog, or use specific slash commands to update individual values, or edit this file directly.
 
+Only settings with a public description can be changed with `/settings KEY VALUE`. Array and record settings, and some security-sensitive keys such as `statusLine.command`, must be edited through the dialog or directly in `settings.json`.
+
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | `allowedUrls` | `string[]` | `[]` | URLs or domains allowed without prompting. Supports exact URLs, domain patterns, and wildcard subdomains (for example, `"*.github.com"`). |
@@ -752,7 +754,7 @@ These settings apply across all your sessions and repositories. You can use the 
 | `compactPaste` | `boolean` | `true` | Collapse large pastes (more than 10 lines) into compact tokens. In shell mode or after a leading slash command, pastes are inserted in full. |
 | `companyAnnouncements` | `string[]` | `[]` | Custom messages shown randomly on startup. One message is randomly selected each time the CLI starts. Useful for team announcements or reminders. |
 | `connectors` | `boolean` | `true` | Enable {% data variables.product.prodname_copilot_short %} Connectors when available. Set to `false` to disable. |
-| `continueOnAutoMode` | `boolean` | `false` | Automatically switch to auto mode when rate-limited. When `true`, eligible rate limit errors trigger an automatic switch to auto mode and retry. Does not apply to global rate limits or BYOK providers. |
+| `continueOnAutoMode` | `boolean` | `false` | Automatically switch to auto mode and retry when a per-model, weekly, or integration rate limit is reached. Also applies to {% data variables.product.prodname_copilot_short %} rate limit errors without a specific code. Does not apply to global rate limits or BYOK providers. |
 | `copyOnSelect` | `boolean` | `true` (macOS), `false` (other) | Automatically copy mouse-selected text to the system clipboard. |
 | `customAgents.defaultLocalOnly` | `boolean` | `false` | Only use local custom agents (no remote organization or enterprise agents). |
 | `defaultMode` | `"interactive"` \| `"plan"` \| `"autopilot"` | `"interactive"` | The agent mode that new interactive sessions start in. The `--mode`, `--autopilot`, and `--plan` options take precedence. Resumed sessions keep their own mode, and the setting is ignored for `-p`/`--prompt`, `--server`, and `--acp` runs. |
@@ -861,6 +863,40 @@ On macOS, sandboxed commands can open direct TCP connections to local ports, suc
 Sandbox settings are user-level or enterprise-managed. They are not repository-overridable. For configuration steps and network limitations, see [AUTOTITLE](/copilot/how-tos/cloud-and-local-sandboxes/configuring-local-sandbox-settings).
 
 Sandboxing is powered by [Microsoft eXecution Container (MXC)](https://github.com/microsoft/mxc?utm_source=cli-config-directory-reference-article-microsoft-mxc&utm_medium=docs&utm_campaign=universe-2026), which provides platform-specific containment backends. {% data variables.copilot.copilot_cli_short %} uses Seatbelt on macOS, Bubblewrap on Linux, and ProcessContainer on Windows.
+
+#### Proxy client certificates
+
+When an `https://` proxy configured through `proxyUrl`, `HTTPS_PROXY`, or `HTTP_PROXY` requests a client certificate, the CLI automatically selects an operating-system-managed identity for mutual TLS (mTLS). No certificate path, private key, or passphrase setting is required, and private keys remain in the platform store.
+
+| Platform | Identity source |
+|----------|-----------------|
+| Windows | Current user's `MY` certificate store |
+| macOS | User Keychain search list, including a preferred identity for the proxy host |
+| Linux (glibc) | Chromium-compatible NSS database and its configured PKCS#11 modules |
+| Linux (musl) and other platforms | Unsupported. Ordinary proxy behavior is unchanged. |
+
+Client identity selection applies only to `https://` proxies, not direct requests, `NO_PROXY` matches, or `http://` proxies. The CLI reads the platform store on every request, so certificate rotation or smart-card insertion does not require a restart.
+
+#### PowerShell startup flags
+
+The `powershellFlags` setting controls flags passed before the runtime's own flags. Removing `-NoProfile`, for example by setting `["-NoLogo"]`, loads your PowerShell profile, including its aliases, modules, and functions. This can slow startup, produce unexpected output, or change shell behavior.
+
+An empty array loads the profile and shows the PowerShell version banner. You can also add `-Sta` for single-threaded apartment mode for COM interoperability, or `-ExecutionPolicy`, followed by `Bypass`, to change the execution policy.
+
+Do not include flags that conflict with the runtime's command execution, lifecycle, or output handling:
+
+| Flags | Conflict |
+|-------|----------|
+| `-Command`, `-c`, `-CommandWithArgs`, `-cwa` | Replace or conflict with the runtime's command |
+| `-File`, `-f` | Execute a script file instead of the runtime's command |
+| `-EncodedCommand`, `-e` | Replace the command source with Base64-encoded input |
+| `-NoExit`, `-noe` | Prevent runtime-managed shutdown |
+| `-NonInteractive`, `-noni` | Suppress runtime-managed prompts |
+| `-InputFormat`, `-OutputFormat` | Change serialization and break text-based output parsing |
+| `-ServerMode`, `-SSHServerMode` | Start a remoting endpoint instead of a shell |
+| `-Help`, `-?`, `-Version` | Print information and exit instead of running commands |
+
+The runtime uses `-NoExit -Command` for interactive sessions and `-Command` for one-shot execution.
 
 ### Repository settings (`.github/copilot/settings.json`)
 
@@ -989,6 +1025,8 @@ Only the following keys are supported in MDM managed settings.
 | `sandbox.sandboxLspServers` | Boolean, defaults to `true`. When sandboxing is enabled, language servers start under the session's sandbox policy. Set to `false` to run language servers outside the sandbox, subject to the managed sandbox policy floor. |
 | `shellShortcut` | Force-enable or force-disable the `$` interactive shell shortcut for all users. A managed value always overrides the user's own `shellShortcut` setting. |
 | `strictKnownMarketplaces` | Restrict plugins to an allowlist of known marketplaces (a JSON array of marketplace specs). The allowlist also governs built-in marketplaces once set—an empty array (`[]`) hides and blocks every marketplace, including built-ins, not just user- or repository-added ones. |
+| `strictPluginOnlyCustomization` | Block standalone user and repository customizations. Set to `true` for skills, agents, hooks, and MCP servers, or an array such as `["skills", "mcp"]` to restrict only the named surfaces. Plugin-provided and managed customizations remain eligible. Omit to preserve existing behavior. For hook-specific restrictions, see [AUTOTITLE](/copilot/reference/hooks-reference#managed-hook-restrictions). |
+| `allowManagedHooksOnly` | Restrict hook sources to enterprise-managed hooks and hooks from plugins required by managed policy. Hook-specific behavior is described in the hooks reference linked above. |
 | `telemetry` | Push baseline OpenTelemetry export configuration: `enabled`, `endpoint`, `protocol`, `headers`, `resourceAttributes`, `captureContent`, `lockCaptureContent`, `serviceName`, and `headersProvider`. See [AUTOTITLE](/copilot/reference/enterprise-administrators/opentelemetry-reference). |
 
 > [!NOTE]

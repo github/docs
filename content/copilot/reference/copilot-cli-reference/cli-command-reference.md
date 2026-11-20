@@ -1685,6 +1685,12 @@ When a shell command needs tool approval and access to paths outside the allowed
 
 Use `/reset-allowed-tools` to clear session approvals for the current session.
 
+### Session approvals on resume
+
+When you resume a session with `copilot --resume`, the CLI restores approvals you granted for the rest of that session for commands, tools, URLs, parent-domain scopes, and file paths. It also restores session denials, so requests covered by these decisions do not prompt again.
+
+Directory approvals and approvals granted automatically by the safety review or a policy are not restored. Current managed policy still applies.
+
 ### Parent-domain URL approvals
 
 URL approval prompts can offer a parent-domain scope, such as `https://*.example.com`, in addition to the exact origin. This approves every subdomain of the registrable domain, such as `api.example.com` and `flow.example.com`, for the rest of the session.
@@ -1721,6 +1727,8 @@ Shell commands are analyzed before execution to identify potentially dangerous p
 
 High-risk commands can trigger additional warnings and approval prompts. Whether a request needs your approval depends on the permissions in effect.
 
+The Bash tool identifies executables, file write redirections, and possible URLs in command arguments. Read-only commands such as `cat` and `ls` are automatically approved, subject to applicable restrictions. If a script cannot be parsed, the CLI shows a warning and always prompts for approval of the full script. Allow rules and session approvals do not apply to that request.
+
 When sandboxing is enabled and the **Allow sandbox bypass** setting is on (the default), a synchronous shell command that's blocked by the sandbox's filesystem or network policy prompts you to re-run it outside the sandbox—no model round-trip is required. Approving the prompt re-runs the command and returns its output. Declining keeps the sandboxed (blocked) result.
 
 A sandbox bypass prompt also offers a **Yes, and disable the sandbox for the rest of this session** option. Choosing it turns off sandboxing for every remaining command in the current session, not just the command being approved. This only applies to the current session—starting a new session with `/new` sandboxes commands again, and the option has no effect on the saved `sandbox` configuration setting or on other running sessions.
@@ -1734,6 +1742,14 @@ A command that fails with an `EPERM` or `EACCES` diagnostic naming a sandbox-blo
 When a denial is caused by a symlink whose target escapes what the sandbox policy grants, the denial explains that the granted path's link points outside the grant and names the real target, so you know exactly which path to add to your sandbox policy.
 
 For more information, see [AUTOTITLE](/copilot/how-tos/cloud-and-local-sandboxes/configuring-local-sandbox-settings#allowing-sandbox-bypass).
+
+#### File and subagent permissions
+
+By default, file access is limited to the current working directory and its subdirectories, and the system temporary directory. File edits require `write` permission or explicit approval, except for session workspace files such as plans and checkpoints, which are automatically approved. A file edit that also needs access to a path outside the allowed directories can request both approvals in a single prompt.
+
+When sandboxing is enabled and bypass is allowed, `apply_patch` and the `view`, `create`, `str_replace`, and `insert` operations of `str_replace_editor` prompt to run outside the sandbox if its filesystem policy denies the path. Approval applies once, and the timeline marks the operation as a sandbox bypass.
+
+Subagents inherit permissions from the parent session and cannot escalate them.
 
 #### Environment variable denylist
 
