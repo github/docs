@@ -94,6 +94,7 @@
             },
             {
               "name": "orderBy",
+              "defaultValue": "{field: ALLOW_LIST_VALUE, direction: ASC}",
               "description": "<p>Ordering options for IP allow list entries returned.</p>",
               "type": {
                 "name": "IpAllowListEntryOrder",

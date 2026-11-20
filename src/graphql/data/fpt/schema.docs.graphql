@@ -7962,6 +7962,26 @@ enum CopilotCodeReviewRunnerType @docsCategory(name: "copilot") {
 }
 
 """
+The severity Copilot code review assigned to a review comment.
+"""
+enum CopilotCodeReviewSeverity @docsCategory(name: "pulls") {
+  """
+  High severity.
+  """
+  HIGH
+
+  """
+  Low severity.
+  """
+  LOW
+
+  """
+  Medium severity.
+  """
+  MEDIUM
+}
+
+"""
 Which review comment severities Copilot code review leaves out.
 """
 enum CopilotCodeReviewSeverityFilter @docsCategory(name: "copilot") {
@@ -47187,6 +47207,11 @@ type PullRequestReviewComment implements Comment &
   Identifies the commit associated with the comment.
   """
   commit: Commit
+
+  """
+  The Copilot code review severity of this comment, or null if unavailable.
+  """
+  copilotCodeReviewSeverity: CopilotCodeReviewSeverity
 
   """
   Sources reported as contributing to this comment; may be incomplete.
