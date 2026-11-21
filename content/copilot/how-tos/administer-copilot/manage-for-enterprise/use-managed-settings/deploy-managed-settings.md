@@ -112,3 +112,6 @@ As an exception, the following keys are composed in the most restrictive directi
 
 * `sandbox`
 * `permissions.deny`, `permissions.ask`, and `permissions.allow`
+* `strictPluginOnlyCustomization`
+
+For `strictPluginOnlyCustomization`, a category restricted by any managed source stays restricted. For example, an MDM value of `false` cannot remove a server-managed or file-based restriction. Device-managed settings include both native MDM policies and administrator-deployed files. For server-side delegation and composition details, see [`strictPluginOnlyCustomization`](/copilot/reference/enterprise-administrators/enterprise-managed-settings#strictpluginonlycustomization).
