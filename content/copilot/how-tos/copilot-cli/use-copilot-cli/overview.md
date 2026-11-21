@@ -63,11 +63,11 @@ Install {% data variables.copilot.copilot_cli_short %}. See [AUTOTITLE](/copilot
 
    Allow {% data variables.product.prodname_copilot_short %} to use this tool. The next time {% data variables.product.prodname_copilot_short %} wants to use this tool, it will ask you to approve it again.
 
-   **2. Yes, and approve TOOL for the rest of the running session**:
+   **2. Allow the tool for this location or session**:
 
-   Allow {% data variables.product.prodname_copilot_short %} to use this tool—with any options—without asking again, for the rest of the currently running session. Any pending parallel permission requests of the same type will be auto-approved. You will have to approve the command again in future sessions.
+   The wording and scope depend on the request. An option that says "don't ask again" in this repository or directory saves the approval for that location, including future sessions. An option that says "for the rest of the running session" applies only to the current session.
 
-   Choosing this option is useful for many tools—such as `chmod`—as it avoids you having to approve similar commands repeatedly in the same session. However, be aware of the security implications of this option. For example, choosing this option for the command `rm` would allow {% data variables.product.prodname_copilot_short %} to delete any file in the current directory or its subdirectories without asking for your approval.
+   Saving an approval is useful for many tools—such as `chmod`—as it avoids you having to approve similar commands repeatedly. However, be aware of the security implications of this option. For example, saving an approval for the command `rm` would allow {% data variables.product.prodname_copilot_short %} to delete any file in the current directory or its subdirectories without asking for your approval.
 
    **3. No, and tell Copilot what to do differently (Esc)**:
 

@@ -45,31 +45,9 @@ Once you are a verified {% data variables.product.prodname_global_campus %} educ
 
 ## Set up {% data variables.product.prodname_classroom %}
 
-With your personal account and organization account, you're ready to get started with {% data variables.product.prodname_classroom %}. {% data variables.product.prodname_classroom %} is free to use. You can track and manage assignments, grade work automatically, and provide feedback to your students.
-
-{% data reusables.classroom.sign-into-github-classroom %}
-1. To authorize {% data variables.product.prodname_classroom %} to access your personal account on {% data variables.product.prodname_dotcom %}, review the information, then click **Authorize {% data variables.product.prodname_classroom %}**.
-1. Review the information. To authorize {% data variables.product.prodname_classroom %} to access your organization account on {% data variables.product.prodname_dotcom %}, click **Grant**.
-
-   > [!TIP]
-   > If you see a **Request** button instead of a **Grant** button, you are a member of the organization, not an owner. An owner must approve your request for {% data variables.product.prodname_classroom %}. You must be an organization owner to create and manage classrooms and assignments in {% data variables.product.prodname_classroom %}. For more information, see [AUTOTITLE](/apps/oauth-apps/using-oauth-apps/authorizing-oauth-apps#oauth-apps-and-organizations).
-
-1. Click **Authorize github**.
-
-## Create your classroom
-
-{% data reusables.classroom.about-classrooms %}
-
-{% data reusables.classroom.sign-into-github-classroom %}
-1. Click **Create your first classroom** or **New classroom**.
-{% data reusables.classroom.guide-create-new-classroom %}
+> [!NOTE]
+> As of August 28, 2026, GitHub Classroom has been closed down in favor of partner solutions. For more information on this transition, please refer to the [GitHub Educator Community Discussion](https://gh.io/classroom-sunset).
 
 ## Next steps
 
-You've created a classroom, and you're ready to enrich your course with {% data variables.product.github %} and {% data variables.product.prodname_classroom %}! 🎉
-
-* Manage your classrooms and classroom admins, and create a roster of students for your classroom. For more information, see [AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/manage-classrooms).
-* Use the Git and {% data variables.product.company_short %} starter assignment to give students an overview of Git and {% data variables.product.github %} fundamentals. For more information, see [AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/use-the-git-and-github-starter-assignment).
-* Create an assignment for individual students or teams. {% data reusables.classroom.for-more-information-about-assignment-creation %}
-* Write and implement automated tests to provide immediate feedback to students directly in assignment repositories. For more information, see [AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/use-autograding).
 * Participate in {% data variables.product.prodname_education_community_with_url %}.

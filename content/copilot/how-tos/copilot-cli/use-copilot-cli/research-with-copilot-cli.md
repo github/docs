@@ -97,7 +97,7 @@ Below are some example research prompts and explanations of why they work well.
 
 ## Viewing and sharing a research report
 
-When the research completes, use the displayed link to open the full report in your default Markdown editor. Alternatively, press <kbd>Ctrl</kbd>+<kbd>Y</kbd> to open the most recent research report from the current session.
+When the research completes, use the displayed link to open the full report in your default Markdown editor. Alternatively, if the session has no non-empty plan, press <kbd>Ctrl</kbd>+<kbd>Y</kbd> to open the most recent research report from the current session. If a non-empty plan exists, this shortcut opens the plan instead.
 
 > [!NOTE]
 > The editor used by <kbd>Ctrl</kbd>+<kbd>Y</kbd> is determined by the `COPILOT_EDITOR`, `VISUAL`, or `EDITOR` environment variables, in that order. On Linux and macOS, if none of these variables are set, {% data variables.copilot.copilot_cli_short %} uses vi.

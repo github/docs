@@ -65,6 +65,15 @@ For more information, see [AUTOTITLE](/repositories/configuring-branches-and-mer
 * Dismiss or reopen {% data variables.product.prodname_dependabot_alerts %}
 * View {% data variables.product.prodname_secret_scanning %} alerts
 * Dismiss, reopen, or assign {% data variables.product.prodname_secret_scanning %} alerts
+{%- ifversion ghec %}
+* View security advisories
+* Create, edit, and manage security advisories
+  * Includes "View security advisories"
+* Accept private vulnerability reports and close or reopen security advisories
+  * Requires "View security advisories" or "Create, edit, and manage security advisories"
+* Publish security advisories and request CVEs
+  * Requires "View security advisories" or "Create, edit, and manage security advisories"
+{%- endif %}
 
 {%- ifversion ghec %}
 ### Actions

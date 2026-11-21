@@ -249,7 +249,7 @@ jobs:
                 type: 'section',
                 text: {
                   type: 'mrkdwn',
-                  text: `*${title}*\nComment and review bodies omitted. Follow the links to read them on GitHub.` +
+                  text: `*${title}*\nCovers the 24 hours up to the most recent 16:20 UTC.` +
                     (shortened ? '\n_Digest shortened to fit one Slack table. Some authors or links are omitted._' : ''),
                 },
               },

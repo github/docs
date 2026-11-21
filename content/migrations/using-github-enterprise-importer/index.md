@@ -8,6 +8,7 @@ versions:
   ghec: '*'
 children:
   - /understanding-github-enterprise-importer
+  - /ado
   - /migrating-from-bitbucket-server-to-github-enterprise-cloud
   - /migrating-between-github-products
   - /migrate-from-gitlab

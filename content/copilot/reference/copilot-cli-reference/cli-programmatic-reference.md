@@ -28,7 +28,7 @@ There are a number of command-line options that are particularly useful when run
 
 | Option | Description |
 |--------|-------------|
-| `-p PROMPT`                   | Execute a prompt in non-interactive mode. The CLI runs the prompt and exits when done. |
+| `-p PROMPT`, `--prompt=PROMPT` | Execute a prompt in non-interactive mode. The CLI exits after completion, with a nonzero status if the run is interrupted or the model returns a completely empty final response. The exit summary includes a `copilot --resume=SESSION-ID` hint for continuing the session. Use `@` followed by a file or directory path in the prompt to include it as context, for example `copilot -p "Explain @src/app.js"`. |
 | `-s`                          | Suppress stats and decoration, outputting only the agent's response. Ideal for piping output in scripts. |
 | `--add-dir=DIRECTORY`         | Add a directory to the allowed-paths list. This can be used multiple times to add multiple directories. Useful when the agent needs to read/write outside the current working directory. |
 | `--agent=AGENT`               | Specify a {% data variables.copilot.copilot_custom_agent_short %} to use. |
@@ -147,8 +147,10 @@ You can use environment variables to configure various aspects of the CLI's beha
 | `COPILOT_HOME`        | Set the directory for the CLI configuration file (`~/.copilot` by default) |
 | `COPILOT_AUTO_UPDATE` | Set to `false` to disable automatic updates and prevent a newer cached CLI version from running instead of the installed version. Useful in CI and other automated environments where you want to pin the CLI version. |
 | `COPILOT_GITHUB_TOKEN`| Authentication token (highest precedence) |
+| `COPILOT_GH_HOST`     | {% data variables.product.github %} hostname for {% data variables.copilot.copilot_cli_short %} only. Overrides `GH_HOST` and supplies the default host for `copilot login` when `--host` is omitted. |
+| `GH_HOST`            | {% data variables.product.github %} hostname for both {% data variables.product.prodname_cli %} and {% data variables.copilot.copilot_cli_short %}. Used by `copilot login` when `--host` and `COPILOT_GH_HOST` are not set. If `GH_HOST` is also unset, sign-in defaults to `https://github.com`. |
 | `GH_TOKEN`            | Authentication token (second precedence) |
-| `GITHUB_TOKEN`        | Authentication token (third precedence) |
+| `GITHUB_TOKEN`        | Authentication token (third precedence). In {% data variables.product.prodname_github_codespaces %}, the automatically injected token does not take precedence over an account authenticated with `/login`. An explicitly exported token retains its usual precedence. |
 | `GITHUB_COPILOT_PROMPT_MODE_EXTENSIONS` | Set to `true` to allow project extensions to load for a prompt or direct workflow run. Only use this for repository code you trust. This does not grant tool permissions. |
 
 For full details of environment variables for {% data variables.copilot.copilot_cli_short %}, use the command `copilot help environment` in your terminal.
@@ -221,7 +223,7 @@ To persist a model selection across shell sessions, you can set the `model` key 
 ```
 
 > [!TIP]
-> The easiest way to set a model persistently in the configuration file is with the `/model` slash command in an interactive session. The choice you make with this command is written to the configuration file.
+> Use `/model --global` in an interactive session to save a default model for future sessions. Without a scope option, `/model` changes only the current session.
 
 ### Model precedence
 

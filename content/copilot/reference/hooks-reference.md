@@ -61,6 +61,19 @@ Policy hook files use the same hook configuration format as user and project hoo
 
 Policy hooks are intended for use by enterprise IT administrators and require elevated privileges to install. End users cannot modify them. Policy hooks always run on the host, even when the session sandbox is enabled—see [Sandboxed sessions](#sandboxed-sessions).
 
+### Managed hook restrictions
+
+These restrictions apply to **{% data variables.copilot.copilot_cli_short %} only**.
+
+Managed settings can restrict which hook sources are eligible:
+
+| Setting | Effect |
+|---------|--------|
+| `strictPluginOnlyCustomization: true`, or an array containing `"hooks"` | Blocks standalone user and repository hooks. Hooks from plugins or managed settings remain eligible. |
+| `allowManagedHooksOnly: true` | Allows only enterprise-managed hooks and hooks from plugins required by managed `enabledPlugins`. Blocks user hooks, repository hooks, and hooks from otherwise user-enabled plugins. |
+
+These restrictions use the most restrictive value across managed sources. A hook restriction or a managed-only setting of `true` cannot be relaxed by another source. Normal managed permission and sandbox policies still apply.
+
 ### Agent-scoped hooks
 
 > [!NOTE]

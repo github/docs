@@ -1305,6 +1305,15 @@ Version `2022-11-28` is the first version of the GitHub Enterprise Cloud REST AP
 {% endif %}
 {% endif %}
 
+{% ifversion ghes = 3.23 %}
+{% if query.apiVersion == nil or "2022-11-28" <= query.apiVersion %}
+## Version 2022-11-28
+
+Version `2022-11-28` is the first version of the {% data variables.product.prodname_ghe_server %} REST API after date-based versioning was introduced. This version does not include any breaking changes.
+
+{% endif %}
+{% endif %}
+
 {% ifversion ghes = 3.22 %}
 {% if query.apiVersion == nil or "2026-03-10" <= query.apiVersion %}
 ## Version 2026-03-10

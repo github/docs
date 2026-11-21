@@ -33,15 +33,6 @@ For teachers:
 Administer a classroom, assign and review work from your students, and teach the new generation of software developers with {% data variables.product.prodname_classroom %}.
 
 * [About {% data variables.product.prodname_global_campus %} for teachers](/education/about-github-education/github-education-for-teachers/about-github-education-for-teachers)
-* [Manage classrooms](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/manage-classrooms)
-* [About assignments](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/about-assignments)
-* [Use the Git and {% data variables.product.company_short %} starter assignment](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/use-the-git-and-github-starter-assignment)
-* [Create an individual assignment](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-an-individual-assignment)
-* [Create a group assignment](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-a-group-assignment)
-* [Create an assignment from a template repository](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-an-assignment-from-a-template-repository)
-* [Monitor students' progress with the assignment overview page](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/monitor-students-progress-with-the-assignment-overview-page)
-* [Leave feedback with pull requests](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/leave-feedback-with-pull-requests)
-* [Use autograding](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/use-autograding)
 
 ## Learn to develop software
 

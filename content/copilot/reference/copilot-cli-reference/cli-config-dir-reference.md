@@ -88,6 +88,28 @@ Store additional personal instruction files here as `*.instructions.md` files. T
 
 Defines MCP (Model Context Protocol) servers available at the user level. These servers are available in all your sessions, regardless of which project directory you're in. Project-level MCP configurations (in `.mcp.json` or `.github/mcp.json`) take precedence over user-level definitions when server names conflict.
 
+Server definitions are keyed by server name inside a top-level `mcpServers` object:
+
+```json
+{
+  "mcpServers": {
+    "my-server": {
+      "command": "npx",
+      "args": ["-y", "@example/mcp-server"],
+      "tools": ["*"]
+    }
+  }
+}
+```
+
+Configuration values support shell-style environment variable expansion.
+
+| Syntax | Description |
+|--------|-------------|
+| `$VAR` | Expands to the value of the `VAR` environment variable. |
+| `${VAR}` | Expands to the value of the `VAR` environment variable. |
+| `${VAR:-default}` | Expands to the value of `VAR`, or `default` if the variable is undefined. |
+
 For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/add-mcp-servers).
 
 ### `lsp-config.json`
@@ -714,6 +736,8 @@ Repository defaults are optional: set `enabledPlugins` entries to `false` in rep
 
 These settings apply across all your sessions and repositories. You can use the `/settings` slash command to run an interactive dialog, or use specific slash commands to update individual values, or edit this file directly.
 
+Only settings with a public description can be changed with `/settings KEY VALUE`. Array and record settings, and some security-sensitive keys such as `statusLine.command`, must be edited through the dialog or directly in `settings.json`.
+
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | `allowedUrls` | `string[]` | `[]` | URLs or domains allowed without prompting. Supports exact URLs, domain patterns, and wildcard subdomains (for example, `"*.github.com"`). |
@@ -727,10 +751,10 @@ These settings apply across all your sessions and repositories. You can use the 
 | `beepOnSchedule` | `boolean` | `true` | Play an audible beep when a scheduled `/every` or `/after` run finishes. |
 | `colorMode` | `"default"` \| `"github"` \| `"dim"` \| `"high-contrast"` \| `"colorblind"` | `"github"` | Deprecated alias for `theme`. Prefer `theme`. | <!-- markdownlint-disable-line GHD046 -->
 | `commandHistoryMaxSize` | `number` | `50` | Maximum number of recent commands retained for input history and reverse search. Must be an integer between `1` and `1000`. |
-| `compactPaste` | `boolean` | `true` | Collapse large pastes (more than 10 lines) into compact tokens. |
+| `compactPaste` | `boolean` | `true` | Collapse large pastes (more than 10 lines) into compact tokens. In shell mode or after a leading slash command, pastes are inserted in full. |
 | `companyAnnouncements` | `string[]` | `[]` | Custom messages shown randomly on startup. One message is randomly selected each time the CLI starts. Useful for team announcements or reminders. |
 | `connectors` | `boolean` | `true` | Enable {% data variables.product.prodname_copilot_short %} Connectors when available. Set to `false` to disable. |
-| `continueOnAutoMode` | `boolean` | `false` | Automatically switch to auto mode when rate-limited. When `true`, eligible rate limit errors trigger an automatic switch to auto mode and retry. Does not apply to global rate limits or BYOK providers. |
+| `continueOnAutoMode` | `boolean` | `false` | Automatically switch to auto mode and retry when a per-model, weekly, or integration rate limit is reached. Also applies to {% data variables.product.prodname_copilot_short %} rate limit errors without a specific code. Does not apply to global rate limits or BYOK providers. |
 | `copyOnSelect` | `boolean` | `true` (macOS), `false` (other) | Automatically copy mouse-selected text to the system clipboard. |
 | `customAgents.defaultLocalOnly` | `boolean` | `false` | Only use local custom agents (no remote organization or enterprise agents). |
 | `defaultMode` | `"interactive"` \| `"plan"` \| `"autopilot"` | `"interactive"` | The agent mode that new interactive sessions start in. The `--mode`, `--autopilot`, and `--plan` options take precedence. Resumed sessions keep their own mode, and the setting is ignored for `-p`/`--prompt`, `--server`, and `--acp` runs. |
@@ -834,9 +858,45 @@ Destinations matching the host's `NO_PROXY` bypass only this inherited upstream 
 
 On macOS and Linux, the sandbox restricts direct connections so programs cannot avoid the proxy. On Windows, the sandbox relies on programs honoring the proxy settings. As a result, programs that ignore the proxy settings on Windows can connect directly and get around your host rules. Windows proxying and host rules also require a supported host and `allowLocalNetwork: true`, which permits private-network access. On Linux, proxy settings reject IPv6 address literals other than the `[::]` dual-stack wildcard. Use an IPv4 endpoint or a hostname with IPv4 support.
 
+On macOS, sandboxed commands can open direct TCP connections to local ports, such as a build daemon or test server they started, only when outbound connections are allowed and no host rules (`allowedHosts` or `blockedHosts`) apply. When host rules apply, localhost is reachable only through the local proxy as an HTTP request. Direct TCP connections to localhost are blocked.
+
 Sandbox settings are user-level or enterprise-managed. They are not repository-overridable. For configuration steps and network limitations, see [AUTOTITLE](/copilot/how-tos/cloud-and-local-sandboxes/configuring-local-sandbox-settings).
 
 Sandboxing is powered by [Microsoft eXecution Container (MXC)](https://github.com/microsoft/mxc?utm_source=cli-config-directory-reference-article-microsoft-mxc&utm_medium=docs&utm_campaign=universe-2026), which provides platform-specific containment backends. {% data variables.copilot.copilot_cli_short %} uses Seatbelt on macOS, Bubblewrap on Linux, and ProcessContainer on Windows.
+
+#### Proxy client certificates
+
+When an `https://` proxy configured through `proxyUrl`, `HTTPS_PROXY`, or `HTTP_PROXY` requests a client certificate, the CLI automatically selects an operating-system-managed identity for mutual TLS (mTLS). No certificate path, private key, or passphrase setting is required, and private keys remain in the platform store.
+
+| Platform | Identity source |
+|----------|-----------------|
+| Windows | Current user's `MY` certificate store |
+| macOS | User Keychain search list, including a preferred identity for the proxy host |
+| Linux (glibc) | Chromium-compatible NSS database and its configured PKCS#11 modules |
+| Linux (musl) and other platforms | Unsupported. Ordinary proxy behavior is unchanged. |
+
+Client identity selection applies only to `https://` proxies, not direct requests, `NO_PROXY` matches, or `http://` proxies. The CLI reads the platform store on every request, so certificate rotation or smart-card insertion does not require a restart.
+
+#### PowerShell startup flags
+
+The `powershellFlags` setting controls flags passed before the runtime's own flags. Removing `-NoProfile`, for example by setting `["-NoLogo"]`, loads your PowerShell profile, including its aliases, modules, and functions. This can slow startup, produce unexpected output, or change shell behavior.
+
+An empty array loads the profile and shows the PowerShell version banner. You can also add `-Sta` for single-threaded apartment mode for COM interoperability, or `-ExecutionPolicy`, followed by `Bypass`, to change the execution policy.
+
+Do not include flags that conflict with the runtime's command execution, lifecycle, or output handling:
+
+| Flags | Conflict |
+|-------|----------|
+| `-Command`, `-c`, `-CommandWithArgs`, `-cwa` | Replace or conflict with the runtime's command |
+| `-File`, `-f` | Execute a script file instead of the runtime's command |
+| `-EncodedCommand`, `-e` | Replace the command source with Base64-encoded input |
+| `-NoExit`, `-noe` | Prevent runtime-managed shutdown |
+| `-NonInteractive`, `-noni` | Suppress runtime-managed prompts |
+| `-InputFormat`, `-OutputFormat` | Change serialization and break text-based output parsing |
+| `-ServerMode`, `-SSHServerMode` | Start a remoting endpoint instead of a shell |
+| `-Help`, `-?`, `-Version` | Print information and exit instead of running commands |
+
+The runtime uses `-NoExit -Command` for interactive sessions and `-Command` for one-shot execution.
 
 ### Repository settings (`.github/copilot/settings.json`)
 
@@ -948,6 +1008,7 @@ Only the following keys are supported in MDM managed settings.
 | Key | Description |
 |-----|-------------|
 | `allowedMcpServers` | Allowlist of MCP servers users may load, matched by `serverUrl`, `serverCommand`, or `serverName`. Trusted first-party servers (for example, the built-in {% data variables.product.github %} MCP server) are always exempt. Leaving this key unset allows all non-default servers; an empty array denies all of them. See [Managed MCP server allow/deny list](#managed-mcp-server-allowdeny-list). |
+| `allowManagedMcpServersOnly` | Set to `true` to prevent user or workspace allowlists from broadening the managed MCP server allowlist. Servers from managed or force-enabled plugins and any fixed managed-MCP deployment remain eligible. Deny rules still apply, and trusted first-party servers remain exempt. |
 | `autoTier` | Set a default Auto routing tier (`"efficiency"`, `"balance"`, or `"intelligence"`) for sessions with `model` set to `auto`. A bare string strictly locks the tier, overriding user and repository settings and hiding it from `/settings`. Use `{"overridable": "TIER"}` instead to set an organization default that users and repositories may still override. `"fast"` is no longer selectable and falls back to `"balance"` with a warning. |
 | `communication.support.url` | Absolute `http` or `https` URL of an organization help page. Informational only. Clients can link to it wherever they would otherwise tell users to contact their administrator. The whole `communication` block is taken from the highest-priority channel that supplies it. |
 | `deniedMcpServers` | Denylist of MCP servers that must never load, matched the same way as `allowedMcpServers`. A matching non-default server is blocked regardless of the allowlist—deny always wins. See [Managed MCP server allow/deny list](#managed-mcp-server-allowdeny-list). |
@@ -964,6 +1025,8 @@ Only the following keys are supported in MDM managed settings.
 | `sandbox.sandboxLspServers` | Boolean, defaults to `true`. When sandboxing is enabled, language servers start under the session's sandbox policy. Set to `false` to run language servers outside the sandbox, subject to the managed sandbox policy floor. |
 | `shellShortcut` | Force-enable or force-disable the `$` interactive shell shortcut for all users. A managed value always overrides the user's own `shellShortcut` setting. |
 | `strictKnownMarketplaces` | Restrict plugins to an allowlist of known marketplaces (a JSON array of marketplace specs). The allowlist also governs built-in marketplaces once set—an empty array (`[]`) hides and blocks every marketplace, including built-ins, not just user- or repository-added ones. |
+| `strictPluginOnlyCustomization` | Block standalone user and repository customizations. Set to `true` for skills, agents, hooks, and MCP servers, or an array such as `["skills", "mcp"]` to restrict only the named surfaces. Plugin-provided and managed customizations remain eligible. Omit to preserve existing behavior. For hook-specific restrictions, see [AUTOTITLE](/copilot/reference/hooks-reference#managed-hook-restrictions). |
+| `allowManagedHooksOnly` | Restrict hook sources to enterprise-managed hooks and hooks from plugins required by managed policy. Hook-specific behavior is described in the hooks reference linked above. |
 | `telemetry` | Push baseline OpenTelemetry export configuration: `enabled`, `endpoint`, `protocol`, `headers`, `resourceAttributes`, `captureContent`, `lockCaptureContent`, `serviceName`, and `headersProvider`. See [AUTOTITLE](/copilot/reference/enterprise-administrators/opentelemetry-reference). |
 
 > [!NOTE]
@@ -1045,7 +1108,7 @@ Each entry identifies a server by exactly one of the following matchers.
 
 Rules:
 
-* **Trusted first-party servers** (for example, the built-in {% data variables.product.github %} MCP server) are always exempt from both lists.
+* **Trusted first-party servers** (for example, the built-in {% data variables.product.github %} MCP server) are always exempt from both lists. Your account's {% data variables.product.prodname_copilot_short %} MCP policy still applies. If that policy disables MCP, the built-in {% data variables.product.github %} MCP server does not start.
 * **Unset `allowedMcpServers`** allows all non-default servers; an **empty array** blocks all of them (deny-all).
 * **Unset or empty `deniedMcpServers`** blocks nothing.
 * **Deny always wins**—a server matching `deniedMcpServers` is blocked even if it also matches `allowedMcpServers`.

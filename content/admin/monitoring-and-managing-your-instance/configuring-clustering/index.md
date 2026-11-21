@@ -23,6 +23,7 @@ children:
   - /monitoring-the-health-of-your-cluster-nodes-with-node-eligibility-service
   - /rebalancing-cluster-workloads
   - /replacing-a-cluster-node
+  - /moving-redis-to-a-dedicated-cluster-node
   - /configuring-high-availability-replication-for-a-cluster
   - /initiating-a-failover-to-your-replica-cluster
 ---

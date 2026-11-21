@@ -74,10 +74,10 @@ When you restart a codespace you can choose to open it in {% data variables.prod
   gh codespace code
   ```
 
-* To restart a codespace and open it in your browser, use the `gh codespace open --web` subcommand and then choose the codespace you want to restart from the list that's displayed.
+* To restart a codespace and open it in your browser, use the `gh codespace code --web` subcommand and then choose the codespace you want to restart from the list that's displayed.
 
   ```shell copy
-  gh codespace open --web
+  gh codespace code --web
   ```
 
 {% endcli %}

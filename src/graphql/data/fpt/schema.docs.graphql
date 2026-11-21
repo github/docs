@@ -7962,6 +7962,26 @@ enum CopilotCodeReviewRunnerType @docsCategory(name: "copilot") {
 }
 
 """
+The severity Copilot code review assigned to a review comment.
+"""
+enum CopilotCodeReviewSeverity @docsCategory(name: "pulls") {
+  """
+  High severity.
+  """
+  HIGH
+
+  """
+  Low severity.
+  """
+  LOW
+
+  """
+  Medium severity.
+  """
+  MEDIUM
+}
+
+"""
 Which review comment severities Copilot code review leaves out.
 """
 enum CopilotCodeReviewSeverityFilter @docsCategory(name: "copilot") {
@@ -47189,6 +47209,11 @@ type PullRequestReviewComment implements Comment &
   commit: Commit
 
   """
+  The Copilot code review severity of this comment, or null if unavailable.
+  """
+  copilotCodeReviewSeverity: CopilotCodeReviewSeverity
+
+  """
   Sources reported as contributing to this comment; may be incomplete.
   """
   copilotCodeReviewSources: [CopilotCodeReviewSource!]!
@@ -47762,6 +47787,11 @@ type PullRequestReviewThread implements Node @docsCategory(name: "pulls") {
   Identifies the repository associated with this thread.
   """
   repository: Repository!
+
+  """
+  The reason this thread was resolved, if one was recorded. Currently only Copilot code review threads record a reason.
+  """
+  resolutionReason: PullRequestReviewThreadResolutionReason
 
   """
   The user who resolved this thread

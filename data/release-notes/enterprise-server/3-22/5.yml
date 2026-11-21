@@ -109,6 +109,8 @@ sections:
       On instances with high push activity, users could experience delays before repository-related updates appeared in the UI. {% data variables.product.prodname_ghe_server %} processes repository push events with increased parallelism to reduce these delays.
   changes:
     - |
+      On instances that use SAML authentication without SCIM provisioning, SAML `NameID` values must exactly match the stored SAML mapping, including capitalization, accents, and trailing spaces. Previously, these differences were ignored. Users whose values do not match cannot authenticate. Before upgrading, administrators should verify that the `NameID` values sent by their identity provider match the stored mappings exactly. We are working to restore the previous matching behavior. The release notes will announce when this update is available. For pre-upgrade checks and steps to resolve mismatches, see [SAML NameID matching is case-sensitive](/admin/upgrading-your-instance/troubleshooting-upgrades/known-issues-with-upgrades-to-your-instance#saml-nameid-matching-is-case-sensitive). [Updated: 2026-11-19]
+    - |
       For site administrators viewing monitoring dashboards in the Management Console, Grafana tooltips sort values in descending order.
     - |
       On AWS, the root volume for new instances launched from the GitHub Enterprise Server Amazon Machine Image (AMI) defaults to the gp3 volume type with 250 MiB/s throughput, instead of gp2. 
@@ -157,3 +159,6 @@ sections:
       On instances with multiple Git storage nodes in a voting configuration, including cluster and geo-replication high availability topologies, upgrading may fail to correctly install Actions that ship with the new version. In some cases, previous versions of these Actions remain on the instance. To resolve this issue, run the following commands on the primary node: `ghe-config --unset 'app.actions.actions-repos-sha1sum'`, `ghe-config-apply`, and `/usr/local/share/enterprise/ghe-run-init-actions-graph`.
     - |
       `ghe-storage-extend` will fail for disks with a sector size greater than 1KiB, most notably with Azure Premium SSD v2 disks. This is due to an upstream bug with `resize2fs` when resizing a mounted disk.
+  errata:
+    - |
+      The release notes did not describe the impact of case-sensitive SAML `NameID` matching on existing users or the required pre-upgrade checks. The Changes section now includes this guidance and links to steps to resolve mismatches. [Updated: 2026-11-19]

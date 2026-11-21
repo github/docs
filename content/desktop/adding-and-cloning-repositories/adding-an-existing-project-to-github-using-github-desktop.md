@@ -17,7 +17,8 @@ category:
 {% data reusables.git.remove-git-remote %}
 1. [Add the repository to GitHub Desktop](/desktop/adding-and-cloning-repositories/adding-a-repository-from-your-local-computer-to-github-desktop).
 {% data reusables.desktop.publish-repository %}
-1. In the "Publish Repository" window, in the "Name" field, type the desired name of the repository or use the default current local repository name.
+1. In the "Publish Repository" window, select the **Account** dropdown menu, then click the account you want to publish the repository with. If the repository is assigned to an account that's signed in, that account is selected. For more information, see [AUTOTITLE](/desktop/installing-and-authenticating-to-github-desktop/using-multiple-accounts-in-github-desktop).
+1. In the "Name" field, type the desired name of the repository or use the default current local repository name.
 1. Optionally, add a description for the repository.
 1. Optionally, to publish a public repository, deselect **Keep this code private**.
 1. Select the "Organization" dropdown menu, then either click the organization where you want to publish the repository, or, to publish the repository to your personal account, click **None**.

@@ -23,6 +23,8 @@ To keep your account secure, you must authenticate before you can use {% data va
 
 Before you authenticate, {% data reusables.desktop.get-an-account %}
 
+You can sign in to more than one account on the same host, such as a personal account and a work account on {% data variables.product.prodname_dotcom_the_website %}. For more information, see [AUTOTITLE](/desktop/installing-and-authenticating-to-github-desktop/using-multiple-accounts-in-github-desktop).
+
 {% mac %}
 
 ## Authenticating to your {% data variables.product.github %} account

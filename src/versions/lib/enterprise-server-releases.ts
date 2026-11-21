@@ -25,14 +25,14 @@ const rawDates: RawDatesData = JSON.parse(
 )
 
 // Frontmatter and release planning use the next two GHES release numbers.
-export const next = '3.23'
-export const nextNext = '3.24'
+export const next = '3.24'
+export const nextNext = '3.25'
 
 // Keep supported GHES versions in descending order, latest first.
-export const supported = ['3.22', '3.21', '3.20', '3.19']
+export const supported = ['3.23', '3.22', '3.21', '3.20', '3.19']
 
 // Use the release number during an active RC; use null outside RC.
-export const releaseCandidate = null
+export const releaseCandidate = '3.23'
 
 // Deprecated releases from 3.0 onward use functional redirects.
 // Add a newly archived release here and update the archival process.

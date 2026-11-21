@@ -5987,6 +5987,13 @@
           "href": "/graphql/reference/commits#object-commit"
         },
         {
+          "name": "copilotCodeReviewSeverity",
+          "description": "<p>The Copilot code review severity of this comment, or null if unavailable.</p>",
+          "type": "CopilotCodeReviewSeverity",
+          "id": "copilotcodereviewseverity",
+          "href": "/graphql/reference/pulls#enum-copilotcodereviewseverity"
+        },
+        {
           "name": "copilotCodeReviewSources",
           "description": "<p>Sources reported as contributing to this comment; may be incomplete.</p>",
           "type": "[CopilotCodeReviewSource!]!",
@@ -6726,6 +6733,13 @@
           "type": "Repository!",
           "id": "repository",
           "href": "/graphql/reference/repos#object-repository"
+        },
+        {
+          "name": "resolutionReason",
+          "description": "<p>The reason this thread was resolved, if one was recorded. Currently only Copilot code review threads record a reason.</p>",
+          "type": "PullRequestReviewThreadResolutionReason",
+          "id": "pullrequestreviewthreadresolutionreason",
+          "href": "/graphql/reference/pulls#enum-pullrequestreviewthreadresolutionreason"
         },
         {
           "name": "resolvedBy",
@@ -8230,6 +8244,28 @@
     }
   ],
   "enums": [
+    {
+      "name": "CopilotCodeReviewSeverity",
+      "id": "copilotcodereviewseverity",
+      "href": "/graphql/reference/pulls#enum-copilotcodereviewseverity",
+      "description": "<p>The severity Copilot code review assigned to a review comment.</p>",
+      "isDeprecated": false,
+      "values": [
+        {
+          "name": "HIGH",
+          "description": "<p>High severity.</p>"
+        },
+        {
+          "name": "LOW",
+          "description": "<p>Low severity.</p>"
+        },
+        {
+          "name": "MEDIUM",
+          "description": "<p>Medium severity.</p>"
+        }
+      ],
+      "category": "pulls"
+    },
     {
       "name": "CopilotCodeReviewSourceKind",
       "id": "copilotcodereviewsourcekind",
