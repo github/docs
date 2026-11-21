@@ -23,8 +23,11 @@ You can create a `.github-private` repository using a template or from scratch.
 1. Choose an organization in your enterprise to own the repository containing your enterprise-level {% data variables.copilot.custom_agents_short %} and governance settings.
 1. Navigate to the [governance template repository](https://github.com/docs/custom-agents-template?ref_product=copilot&ref_type=engagement&ref_style=text&ref_plan=enterprise).
 1. In the top-right corner, click "Use this template" and create a new repository in your chosen organization named `.github-private`. Settings will apply to members regardless of whether they can access the repository, so choose the visibility based on who should be able to suggest changes:
-     * To grant **read access to all members** of your enterprise, choose {% octicon "organization" aria-hidden="true" aria-label="organization" %} **Internal**.
+     * To grant **read access to all members** of your enterprise, choose {% octicon "organization" aria-hidden="true" aria-label="organization" %} 
+     **Internal**.
      * To **manually grant access after creation**, choose {% octicon "lock" aria-hidden="true" aria-label="lock" %} **Private**.
+
+   To use this repository for a member-only organization profile README, you must choose **Private** visibility. See [AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/customizing-your-organizations-profile#adding-a-member-only-organization-profile-readme). Member-only profile READMEs don't load from internal repositories.
 1. Update the template README as needed. Consider including creation guidelines for {% data variables.copilot.custom_agents_short %} or compliance considerations specific to your enterprise.
 
 > [!NOTE]
