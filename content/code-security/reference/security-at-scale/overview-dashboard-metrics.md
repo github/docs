@@ -48,7 +48,7 @@ The dashboard is divided into three tabs, each focused around a different securi
 * **Prevention:** Shows metrics about how vulnerabilities have been prevented and fixed in pull requests.
 
 > [!NOTE]
-> Unlike the **Detection** and **Remediation** tabs which report alerts on the default branch, the **Prevention** tab gives you insights for {% data variables.product.prodname_codeql %} alerts found in merged pull requests{% ifversion ai-powered-security-detections %} and AI Scan findings from pull requests{% endif %}.
+> Unlike the **Detection** and **Remediation** tabs which report alerts on the default branch, the **Prevention** tab gives you insights for {% data variables.product.prodname_codeql %} alerts found in merged pull requests{% ifversion ai-powered-security-detections %} and {% data variables.product.prodname_ai_scan %} findings from pull requests{% endif %}.
 
 ## Detection metrics
 
@@ -164,16 +164,16 @@ Shows the ratio of accepted {% data variables.copilot.copilot_autofix_short %} s
 
 {% ifversion ai-powered-security-detections %}
 
-### AI Scan findings
+### {% data variables.product.prodname_ai_scan %} findings
 
 Shows trends for **Total findings**, **Fix applied**, and **Dismissed** over the time period you have chosen. A finding is resolved when a fix is applied or the finding is dismissed.
 
-### AI Scan findings resolved
+### {% data variables.product.prodname_ai_scan %} findings resolved
 
-Shows the number of resolved AI Scan findings out of the total number of findings, and the percentage resolved. A finding is resolved when a fix is applied or the finding is dismissed.
+Shows the number of resolved {% data variables.product.prodname_ai_scan %} findings out of the total number of findings, and the percentage resolved. A finding is resolved when a fix is applied or the finding is dismissed.
 
-### AI Scan findings with accepted autofix
+### {% data variables.product.prodname_ai_scan %} findings with accepted autofix
 
-Shows the number of AI Scan findings with an accepted {% data variables.copilot.copilot_autofix_short %} suggestion out of all findings that had a suggested autofix, and the acceptance percentage.
+Shows the number of {% data variables.product.prodname_ai_scan %} findings with an accepted {% data variables.copilot.copilot_autofix_short %} suggestion out of all findings that had a suggested autofix, and the acceptance percentage.
 
 {% endif %}

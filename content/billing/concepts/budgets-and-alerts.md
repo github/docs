@@ -21,11 +21,11 @@ For metered products such as {% data variables.product.prodname_actions %}, {% d
 
 {% ifversion fpt or ghec %}
 
-The bundled {% data variables.product.prodname_ai_credits_short %} budget controls metered spending across all AI-credit SKUs. You can also create a SKU-level budget for **Code Security AI Credits** to control spending on AI Scan and agentic autofix.
+The bundled {% data variables.product.prodname_ai_credits_short %} budget controls metered spending across all AI-credit SKUs. You can also create a SKU-level budget for **Code Security AI Credits** to control spending on {% data variables.product.prodname_ai_scan %} and agentic autofix.
 
-When no Code Security AI Credits quota remains because of a hard budget, AI Scan cannot produce findings and agentic autofix cannot start a session. Usage resumes when the limiting budget is increased or a new billing cycle begins.
+When no Code Security AI Credits quota remains because of a hard budget, {% data variables.product.prodname_ai_scan %} cannot produce findings and agentic autofix cannot start a session. Usage resumes when the limiting budget is increased or a new billing cycle begins.
 
-Hard budgets for Code Security AI Credits limit AI feature usage, not enablement. Reaching a budget limit does not prevent administrators from enabling AI Scan or agentic autofix.
+Hard budgets for Code Security AI Credits limit AI feature usage, not enablement. Reaching a budget limit does not prevent administrators from enabling {% data variables.product.prodname_ai_scan %} or agentic autofix.
 
 By contrast, a hard budget for active-committer licenses prevents enabling {% data variables.product.prodname_code_security %} or {% data variables.product.prodname_secret_protection %} on additional repositories. It does not disable these products in repositories where they are already enabled.
 

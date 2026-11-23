@@ -20,9 +20,9 @@ category:
 The CSV file you download will contain data corresponding to the filters you have applied to security overview. For example, if you add the filter `dependabot-alerts:enabled`, your file will only contain data for repositories that have enabled {% data variables.product.prodname_dependabot_alerts %}.
 
 {% ifversion ai-powered-security-detections %}
-CSV files exported from the "Coverage" view include a `Code Scanning AI Scan for pull requests` column. The value for each repository is `enabled` or `not-enabled`.
+CSV files exported from the "Coverage" view include a `Code Scanning {% data variables.product.prodname_ai_scan_for_pull_requests %}` column. The value for each repository is `enabled` or `not-enabled`.
 
-In the "Code scanning on pull requests" report, CSV export is available on the **{% data variables.product.prodname_codeql %}** tab. CSV export is not yet available on the **AI Scan** tab.
+In the "Code scanning on pull requests" report, CSV export is available on the **{% data variables.product.prodname_codeql %}** tab. CSV export is not yet available on the **{% data variables.product.prodname_ai_scan %}** tab.
 {% endif %}
 
 > [!NOTE]

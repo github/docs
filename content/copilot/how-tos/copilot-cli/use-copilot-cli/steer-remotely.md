@@ -37,16 +37,20 @@ This article explains how to enable and use remote control. For more conceptual 
 You can enable remote control in several ways:
 
 * With a slash command during an interactive session.
-* By configuring the CLI to enable remote control by default for all interactive sessions.
+* By configuring the CLI to enable remote control by default for new interactive sessions.
 * From JetBrains IDE settings before you start a session.
 
 ### Using the `/remote` slash command
 
-If you are already in an interactive session and want to enable remote control, enter:
+If you are already in an interactive session and want to enable remote control:
 
-```copilot copy
-/remote on
-```
+1. Enter `/environments` and select **Incoming connections**.
+1. Set **Accept remote connections** to **On** and wait for the remote access status to show **On**.
+1. Return to your session and enter:
+
+   ```copilot copy
+   /remote on
+   ```
 
 The CLI connects to {% data variables.product.prodname_dotcom_the_website %} and displays details for accessing the session remotely—see [Accessing a session from {% data variables.product.prodname_dotcom_the_website %}](#accessing-a-session-from-githubcom) and [Accessing a session from {% data variables.product.prodname_mobile %}](#accessing-a-session-from-github-mobile) later in this article.
 
@@ -54,13 +58,13 @@ You can use the `/remote` slash command without an argument to check the current
 
 ### Configuring remote control to always be enabled
 
-If you always want your interactive CLI sessions to be remotely accessible, add the following to your {% data variables.product.prodname_copilot_short %} settings file (typically located at `~/.copilot/settings.json`):
+To make new interactive CLI sessions remotely accessible by default:
 
-```json copy
-{
-  "remoteSessions": true
-}
-```
+1. Enter `/environments` and select **Incoming connections**.
+1. Set **Accept remote connections** to **On**.
+1. Set **Publish new sessions by default** to **On**.
+
+These preferences are saved for future CLI runs. To enable remote control for an existing session, use `/remote on`.
 
 ### Using JetBrains IDE settings
 
@@ -143,7 +147,7 @@ On {% data variables.product.prodname_dotcom_the_website %}, a message tells you
 
 ## Preventing remote control
 
-Remote control is disabled by default, but may be enabled in your {% data variables.product.prodname_copilot_short %} settings file (typically `~/.copilot/settings.json`). You can ensure a session is not remotely controllable by removing the `"remoteSessions": true` setting from `~/.copilot/settings.json`, or setting it to `false`.
+Remote control is disabled by default. To stop sharing the current session, enter `/remote off`. To disable incoming account connections on this machine, enter `/environments`, select **Incoming connections**, and set **Accept remote connections** to **Off**. Set **Publish new sessions by default** to **Off** to stop automatically sharing new sessions.
 
 Enterprise owners can also restrict remote control of sessions hosted on your device using enterprise managed settings, regardless of your personal settings. Depending on the configured policy, remote control of sessions on your device may be disabled entirely, or only available to a controlling client that is SSO-authorized for specific organizations. This doesn't affect your ability to remotely control your own sessions hosted on other devices. See [AUTOTITLE](/copilot/reference/enterprise-administrators/enterprise-managed-settings).
 
