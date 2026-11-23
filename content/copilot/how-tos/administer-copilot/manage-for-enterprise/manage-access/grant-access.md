@@ -35,7 +35,7 @@ The available assignment methods depend on your enterprise's plan or billing mod
 
 With {% data variables.product.prodname_copilot_short %} access or {% data variables.copilot.copilot_business_short %}, enterprise owners can assign seats directly to individual members or enterprise teams. With {% data variables.product.prodname_copilot_short %} access, you can also assign seats to all members of an organization. For guidance on organizing members before assignment, see [AUTOTITLE](/enterprise-cloud@latest/admin/concepts/enterprise-best-practices/organize-work).
 
-When you assign seats to an enterprise team, each member receives a seat. Users receive or lose access when they are added or removed from the team. If you use {% data variables.product.prodname_emus %}, you can sync the team with an identity provider (IdP) group and manage licensing from your IdP.
+When you assign seats to an enterprise team, each member receives a seat. Users gain access immediately when they are added to the team. When they are removed, their seat is unassigned, but they can continue to use {% data variables.product.prodname_copilot_short %} until the end of the billing cycle. If you use {% data variables.product.prodname_emus %}, you can sync the team with an identity provider (IdP) group and manage licensing from your IdP.
 
 ### Prerequisites
 
