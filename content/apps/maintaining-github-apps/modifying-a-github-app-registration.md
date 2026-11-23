@@ -120,7 +120,7 @@ You can change the webhook events that a {% data variables.product.prodname_gith
 You can change the visibility settings of your {% data variables.product.prodname_github_app %} to control who can install it. Public apps cannot be made private if they're installed on other accounts. See [AUTOTITLE](/apps/creating-github-apps/registering-a-github-app/making-a-github-app-public-or-private).
 
 {% ifversion enterprise-apps-public-beta %}
-You can't change the visibility of an {% data variables.product.prodname_github_app %} owned by an enterprise. {% data variables.product.prodname_github_apps %} owned by an enterprise can only be installed on organizations within the enterprise{% ifversion enterprise-installed-apps %} or the enterprise itself{% endif %}.
+You can't change the visibility of a {% data variables.product.prodname_github_app %} owned by an enterprise. {% data variables.product.prodname_github_apps %} owned by an enterprise can only be installed on organizations within the enterprise{% ifversion enterprise-installed-apps %} or the enterprise itself{% endif %}.
 {% endif %}
 
 {% data reusables.apps.navigate-to-app-settings-this-article %}
