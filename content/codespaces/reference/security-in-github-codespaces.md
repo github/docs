@@ -45,6 +45,8 @@ The token's scope will vary depending on the access you have to the repository w
 * **If you only have read access to the repository:** The token will only allow the code to be cloned from the source repository. If you make a commit in the codespace, or push a new branch, {% data variables.product.prodname_github_codespaces %} automatically creates a fork of the repository, or links the codespace to an existing fork if you already have one for the upstream repository. The token is updated to have read and write access to the fork. For more information, see [AUTOTITLE](/codespaces/developing-in-a-codespace/using-source-control-in-your-codespace#about-automatic-forking).
 * **If you've authorized your codespace to access other repositories:** The token will be scoped for read or read/write access to the source repository and to any other repositories to which you've authorized access. For more information, see [AUTOTITLE](/codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces#authorizing-requested-permissions).
 
+The token doesn't allow you to manage your account-specific {% data variables.product.prodname_codespaces %} secrets. To manage these secrets from a codespace, you must use a credential that you authorize separately. See [AUTOTITLE](/codespaces/managing-your-codespaces/managing-your-account-specific-secrets-for-github-codespaces#managing-secrets-from-inside-a-codespace).
+
 ### Codespace connections
 
 You can connect to your codespace using the TLS encrypted tunnel provided by the {% data variables.product.prodname_github_codespaces %} service. Only the creator of a codespace can connect to a codespace. Connections are authenticated with {% data variables.product.github %}.
