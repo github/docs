@@ -46,17 +46,7 @@
 - name: GPT-6.1 Terra
   task_area: General-purpose coding and agent tasks
   excels_at: Everyday agentic coding and terminal work
-  further_reading: '[GPT-6.1 Terra model card](https://deploymentsafety.openai.com/gpt-6-1-terra/gpt-6-1-terra.pdf)'
-
-- name: GPT-6.2 Astra
-  task_area: Long-horizon, autonomous coding and agentic tasks
-  excels_at: Long-horizon coding tasks with continuous planning, batched diagnosis and verification, and independent result confirmation
-  further_reading: '[GPT-6.2 Astra model card](https://deploymentsafety.openai.com/gpt-6-2-astra-sol/gpt-6-2-astra-sol.pdf)'
-
-- name: GPT-6.2 Sol
-  task_area: Complex coding tasks
-  excels_at: Advanced, efficient reasoning for complex coding tasks
-  further_reading: '[GPT-6.2 Astra model card](https://deploymentsafety.openai.com/gpt-6-2-astra-sol/gpt-6-2-astra-sol.pdf)'
+  further_reading: TBD
 
 # Anthropic
 - name: Claude Fable 5

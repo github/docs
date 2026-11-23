@@ -82,10 +82,6 @@ While this is in {% data variables.release-phases.public_preview %}, you must en
 
 As an alternative to {% data variables.copilot.copilot_fusion_short %}, you can configure a {% data variables.copilot.copilot_custom_agent_short %} to use a specific local model, and then, in your prompt, instruct {% data variables.product.prodname_copilot_short %} to use that custom agent for the task, or for a specific part of the task. See [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/create-custom-agents-for-cli#delegating-focused-tasks-to-a-specific-model).
 
-### Extend local coding with custom agents and skills
-
-Explore the [Local Coding plugin in Awesome Copilot](https://github.com/github/awesome-copilot/tree/main/plugins/local-coding) to enable additional on-device coding scenarios through custom agents and skills.
-
 ## Policies and availability
 
 {% data variables.copilot.copilot_fusion_short %} is generally available in:
