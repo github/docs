@@ -68,17 +68,17 @@ Some {% data variables.product.prodname_AS %} features consume {% data variables
 
 ### Code Security AI Credits
 
-AI Scan and agentic autofix consume the **{% data variables.product.prodname_code_security %} {% data variables.product.prodname_ai_credits_short %}** SKU, even in public repositories that don't require active-committer licenses.
+{% data variables.product.prodname_ai_scan %} and agentic autofix consume the **{% data variables.product.prodname_code_security %} {% data variables.product.prodname_ai_credits_short %}** SKU, even in public repositories that don't require active-committer licenses.
 
 If the account being billed has included {% data variables.product.prodname_ai_credits_short %} from a {% data variables.product.prodname_copilot %} entitlement, eligible usage draws from that allowance first. After the included allowance is exhausted, further usage is metered. If the account doesn't have included {% data variables.product.prodname_ai_credits_short %}, all usage is metered.
 
 For an organization-owned repository, usage is attributed to the account that pays for the organization's usage: the standalone organization account or its enterprise account.
 
-AI Scan and agentic autofix are not currently available for repositories in the personal namespace of a {% data variables.enterprise.prodname_managed_user %}, so they don't consume {% data variables.product.prodname_code_security %} {% data variables.product.prodname_ai_credits_short %} there. Purchasing {% data variables.product.prodname_code_security %}, having included {% data variables.product.prodname_ai_credits_short %}, or configuring a {% data variables.product.prodname_code_security %} {% data variables.product.prodname_ai_credits_short %} budget does not make these features available.
+{% data variables.product.prodname_ai_scan %} and agentic autofix are not currently available for repositories in the personal namespace of a {% data variables.enterprise.prodname_managed_user %}, so they don't consume {% data variables.product.prodname_code_security %} {% data variables.product.prodname_ai_credits_short %} there. Purchasing {% data variables.product.prodname_code_security %}, having included {% data variables.product.prodname_ai_credits_short %}, or configuring a {% data variables.product.prodname_code_security %} {% data variables.product.prodname_ai_credits_short %} budget does not make these features available.
 
 This limitation does not affect classic {% data variables.copilot.copilot_autofix_short %}, which is distinct from agentic autofix and does not consume {% data variables.product.prodname_ai_credits_short %}.
 
-Before security administrators enable AI Scan or agentic autofix broadly, billing administrators should review the account's included {% data variables.product.prodname_ai_credits_short %} and set a hard budget to cap metered usage. For more information, see [AUTOTITLE](/billing/concepts/budgets-and-alerts).
+Before security administrators enable {% data variables.product.prodname_ai_scan %} or agentic autofix broadly, billing administrators should review the account's included {% data variables.product.prodname_ai_credits_short %} and set a hard budget to cap metered usage. For more information, see [AUTOTITLE](/billing/concepts/budgets-and-alerts).
 
 For information about features that consume {% data variables.product.prodname_code_security %} {% data variables.product.prodname_ai_credits_short %}, see [AUTOTITLE](/code-security/concepts/code-scanning/ai-powered-security-detections) and [AUTOTITLE](/code-security/concepts/code-scanning/autofix-for-code-scanning).
 

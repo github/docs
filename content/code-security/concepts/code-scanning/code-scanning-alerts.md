@@ -27,7 +27,7 @@ By default, {% data variables.product.prodname_code_scanning %} analyzes your co
 
 {% ifversion ai-scan-for-repositories %}
 
-AI Scan for repositories adds alerts from on-demand scans of your default branch to the same alert list as {% data variables.product.prodname_codeql %}. You can use existing alert assignment, remediation, security campaign, and issue-linking workflows with these alerts. See [AUTOTITLE](/code-security/concepts/code-scanning/ai-scan-for-repositories).
+{% data variables.product.prodname_ai_scan_for_repositories %} adds alerts from on-demand scans of your default branch to the same alert list as {% data variables.product.prodname_codeql %}. You can use existing alert assignment, remediation, security campaign, and issue-linking workflows with these alerts. See [AUTOTITLE](/code-security/concepts/code-scanning/ai-scan-for-repositories).
 
 {% endif %}
 

@@ -21,7 +21,7 @@ category:
 
 ## About linked issues and pull requests
 
-You can link an issue to a pull request manually or using a supported keyword in the pull request description, that is, the summary text added by the author when they created the pull request.
+You can link up to 10 issues to a pull request and up to 10 pull requests to an issue manually or using a supported keyword in the pull request description, that is, the summary text added by the author when they created the pull request.
 
 When you link a pull request to the issue the pull request addresses, collaborators can see that someone is working on the issue.
 

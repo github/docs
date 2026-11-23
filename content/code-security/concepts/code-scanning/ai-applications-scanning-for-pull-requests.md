@@ -22,7 +22,7 @@ category:
 * **Sensitive information disclosure:** When an AI application can expose sensitive information, such as credentials, personal data, or confidential business data.
 * **Excessive agency:** When an AI application or agent has excessive functionality, permissions, or autonomy that could allow it to perform unintended or harmful actions.
 
-This detector is separate from {% data variables.product.prodname_codeql %}-based code scanning and from AI Scan for pull requests, {% data variables.product.github %}'s other AI-based code scanning detector on pull requests. AI Scan for pull requests focuses on traditional code security vulnerabilities, while {% data variables.product.prodname_ai_applications_scanning %} focuses on vulnerabilities specific to AI applications and agents, such as prompt injection and excessive agency. If your organization builds AI applications or agents, evaluate both. For more information about AI Scan for pull requests, see [AUTOTITLE](/code-security/concepts/code-scanning/ai-powered-security-detections).
+This detector is separate from {% data variables.product.prodname_codeql %}-based code scanning and from {% data variables.product.prodname_ai_scan_for_pull_requests %}, {% data variables.product.github %}'s other AI-based code scanning detector on pull requests. {% data variables.product.prodname_ai_scan_for_pull_requests %} focuses on traditional code security vulnerabilities, while {% data variables.product.prodname_ai_applications_scanning %} focuses on vulnerabilities specific to AI applications and agents, such as prompt injection and excessive agency. If your organization builds AI applications or agents, evaluate both. For more information about {% data variables.product.prodname_ai_scan_for_pull_requests %}, see [AUTOTITLE](/code-security/concepts/code-scanning/ai-powered-security-detections).
 
 ## How it works
 
@@ -39,7 +39,7 @@ Findings from {% data variables.product.prodname_ai_applications_scanning %} app
 * "AI app" label and thumbs up/down feedback control
 * A dismiss button
 
-As with AI Scan, these findings are advisory. They don't block a pull request from being merged.
+As with {% data variables.product.prodname_ai_scan_for_pull_requests %}, these findings are advisory. They don't block a pull request from being merged.
 
 {% data variables.copilot.copilot_autofix_short %} suggestions are generated automatically for findings from this detector. This behavior is independent of the Code Scanning Autofix setting, which controls {% data variables.copilot.copilot_autofix_short %} for {% data variables.product.prodname_codeql %} results.
 
@@ -49,17 +49,17 @@ During {% data variables.release-phases.public_preview %}, {% data variables.pro
 
 This detector covers pull requests only. It doesn't scan your full repository or existing backlog for AI application risks.
 
-As with AI Scan for pull requests, this detector doesn't run on pull requests from forks or pull requests created by {% data variables.product.prodname_dependabot %}, and its findings can't be used in rulesets to enforce merge requirements.
+As with {% data variables.product.prodname_ai_scan_for_pull_requests %}, this detector doesn't run on pull requests from forks or pull requests created by {% data variables.product.prodname_dependabot %}, and its findings can't be used in rulesets to enforce merge requirements.
 
 ## How to enable {% data variables.product.prodname_ai_applications_scanning %}
 
 {% data variables.product.prodname_ai_applications_scanning %} is off by default at the enterprise, organization, and repository level.
 
-* **Enterprise**: Enablement is controlled by the shared **AI Scan** enterprise policy. Enterprise owners can allow organizations to enable AI-powered code scanning features, including {% data variables.product.prodname_ai_applications_scanning %}. See [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise#enforcing-a-policy-to-manage-ai-scan-in-your-enterprises-repositories).
+* **Enterprise**: Enablement is controlled by the shared **{% data variables.product.prodname_ai_scan %}** enterprise policy. Enterprise owners can allow organizations to enable AI-powered code scanning features, including {% data variables.product.prodname_ai_applications_scanning %}. See [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise#enforcing-a-policy-to-manage-ai-scan-in-your-enterprises-repositories).
 * **Organization**: Organization owners can enable **Scan for AI applications** for eligible repositories where it's allowed. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/configure-global-settings#enabling-ai-applications-scanning).
 * **Repository**: Repository administrators can opt out for individual repositories once their organization allows it.
 
-If your organization already has AI Scan for pull requests enabled, or you're moving from the private preview of {% data variables.product.prodname_ai_applications_scanning %}, you still need to separately enable **Scan for AI applications** at the organization level. Enabling AI Scan for pull requests doesn't enable {% data variables.product.prodname_ai_applications_scanning %}, and the reverse is also true. Both features share the same enterprise-level policy, but organizations must enable each one separately.
+If your organization already has {% data variables.product.prodname_ai_scan_for_pull_requests %} enabled, or you're moving from the private preview of {% data variables.product.prodname_ai_applications_scanning %}, you still need to separately enable **Scan for AI applications** at the organization level. Enabling {% data variables.product.prodname_ai_scan_for_pull_requests %} doesn't enable {% data variables.product.prodname_ai_applications_scanning %}, and the reverse is also true. Both features share the same enterprise-level policy, but organizations must enable each one separately.
 
 ## Billing
 

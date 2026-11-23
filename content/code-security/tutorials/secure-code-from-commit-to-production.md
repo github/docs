@@ -32,7 +32,7 @@ journeyTracks:
       - href: '/code-security/how-tos/secure-your-secrets/prevent-future-leaks/enable-ai-push-protection'
   - id: 'hybrid-detection'
     title: 'Detect vulnerabilities at scale with hybrid detection'
-    description: 'Combine {% data variables.product.prodname_codeql %} with AI-powered scanning for layered coverage. Qualifying pull requests get an extra AI review in languages {% data variables.product.prodname_codeql %} doesn''t support, and you can manually trigger an AI scan of your repository''s default branch to catch more vulnerabilities.'
+    description: 'Combine {% data variables.product.prodname_codeql %} with AI-powered scanning for layered coverage. Qualifying pull requests get an extra AI review in languages {% data variables.product.prodname_codeql %} doesn''t support, and you can manually trigger an {% data variables.product.prodname_ai_scan %} of your repository''s default branch to catch more vulnerabilities.'
     timeCommitment: '1–2 hours'
     guides:
       - href: '/code-security/concepts/code-scanning/code-scanning'
