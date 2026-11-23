@@ -64,7 +64,7 @@ These instructions explain how to use {% data variables.copilot.copilot_code-rev
 
    Any comments you add to {% data variables.product.prodname_copilot_short %}'s review comments will be visible to humans, but they won't be visible to {% data variables.product.prodname_copilot_short %}, and {% data variables.product.prodname_copilot_short %} won't reply.
 
-You can also use the {% data variables.product.github %} REST API to request reviews from {% data variables.product.prodname_copilot_short %} and to identify reviews and comments from {% data variables.copilot.copilot_code-review_short %}. For more information, see [AUTOTITLE](/rest/pulls/copilot-code-review#request-a-copilot-code-review-for-a-pull-request), [AUTOTITLE](/rest/pulls/reviews), and [AUTOTITLE](/rest/pulls/comments).
+You can also use the {% data variables.product.github %} REST API to request reviews from {% data variables.product.prodname_copilot_short %} and to identify reviews and comments from {% data variables.copilot.copilot_code-review_short %}. The API includes the review effort level of each review, the agent skills, MCP servers, and custom instructions that informed each comment, and the severity level of each comment when one is available. For more information, see [AUTOTITLE](/rest/pulls/copilot-code-review#request-a-copilot-code-review-for-a-pull-request), [AUTOTITLE](/rest/pulls/reviews), and [AUTOTITLE](/rest/pulls/comments).
 
 ## Enabling automatic reviews
 
