@@ -19,7 +19,7 @@ manual_build_support: 'C/C++, C#, Go, Java, Kotlin, and Swift'
 compiled_languages: 'C/C++, C#, Go, Java, Kotlin, {% ifversion codeql-rust-available %}Rust, {% else ifversion codeql-rust-public-preview %}Rust (public preview), {% endif %}and Swift'
 
 # List of languages where the libraries support expansion using CodeQL model packs at the repository level.
-codeql_model_packs_support: 'C/C++, C#, Java/Kotlin, Python, {% ifversion codeql-rust-available %}Ruby, and Rust{% else %}and Ruby{% endif %}'
+codeql_model_packs_support: '{% data variables.product.prodname_actions %}, C/C++, C#, Java/Kotlin, Python, {% ifversion codeql-rust-available %}Ruby, and Rust{% else %}and Ruby{% endif %}'
 
 # List of languages that the model editor in the CodeQL extension for VS Code supports
 codeql_model_editor_support: 'C#, Java/Kotlin, Python, and Ruby'
