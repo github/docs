@@ -39,6 +39,8 @@ The **Industry comparison** widget shows how your agentic adoption and leverage 
 
 Participation is controlled by the **Copilot metrics industry comparison** policy, which is disabled by default. When the policy is enabled, your enterprise or organization contributes aggregated {% data variables.product.prodname_copilot_short %} metrics to peer cohorts and can view comparisons. When it's disabled, you don't contribute data or see comparisons.
 
+Only your agentic adoption and leverage scores are contributed, not usernames, user-level activity, code, repository content, or pull request content. Other participants can't see your enterprise or organization name. For details about what data is shared and how it's protected, see [AUTOTITLE](/copilot/reference/copilot-usage-metrics/industry-comparisons#how-industry-comparisons-protect-your-data).
+
 Enterprise owners, and owners of organizations that aren't owned by an enterprise, can opt in from the widget or by enabling the policy. The widget and the policy use the same setting.
 
 1. In the **Industry comparison** widget, click **Opt-in for industry comparison** and review the information about how your data is used.
@@ -56,8 +58,6 @@ Enterprise owners, and owners of organizations that aren't owned by an enterpris
 Rankings appear only after enough enterprises and organizations have opted in to form a peer cohort. The median comparison is shown first, and the top-decile comparison is added when the cohort grows larger. If your selected industry doesn't have enough participants yet, the dashboard compares you with peers of the same company size across all industries. If that cohort doesn't have enough participants either, the dashboard doesn't show a ranking. Especially soon after launch, you might see only the median, all industries instead of your selected industry, or no ranking until more peers opt in.
 
 A ranking also isn't shown when your own score can't be calculated for the reporting period. For example, there might be no active users, or all active users might already be agent-first or multi-agent users, leaving no non-agentic users to compare leverage with.
-
-For details about what data is shared and how it's protected, see [AUTOTITLE](/copilot/reference/copilot-usage-metrics/industry-comparisons#how-industry-comparisons-protect-your-data).
 
 ### Changing your peer cohort or opting out
 
