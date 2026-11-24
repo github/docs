@@ -1,1 +1,0 @@
-Optionally, to make the deadline a cutoff date, select **This is a cutoff date**. If you use a cutoff date, students will lose write access to their assignment repositories after the cutoff date has passed unless they receive an extension. For more information, see [AUTOTITLE](/education/manage-coursework-with-github-classroom).

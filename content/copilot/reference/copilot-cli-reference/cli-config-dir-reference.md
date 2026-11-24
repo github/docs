@@ -722,6 +722,8 @@ Settings are applied in this order (later overrides earlier):
 
 MDM managed settings load at startup and merge with user settings as a policy baseline. For most keys, user settings can override that baseline. For `permissions.disableBypassPermissionsMode`, an MDM value of `"disable"` always wins. Managed `sandbox` settings are another exception. Instead of being overridable, each managed `sandbox` value sets a floor that you cannot relax. If your own setting is more permissive, the managed value wins. The `sandbox.failIfUnavailable` setting can only be set by an administrator. For more information, see [MDM managed settings](#mdm-managed-settings).
 
+Managed `strictPluginOnlyCustomization` restrictions also cannot be relaxed by user, repository, or local settings.
+
 | Scope | Location | Purpose |
 |-------|----------|---------|
 | User | `~/.copilot/settings.json` | Global defaults for all repositories. Use the `COPILOT_HOME` environment variable to specify an alternative path. |
@@ -966,7 +968,9 @@ IT administrators can push baseline policy using Mobile Device Management (MDM) 
 
 Managed settings apply uniformly across every session-hosting mode—interactive, `-p`, `--acp`, `--ahp-host`, and `--server`—so enterprise MCP, permission, and plugin policy can't be bypassed by starting a session through a different entry point.
 
-{% data variables.copilot.copilot_cli_short %} also loads server-managed settings at startup, in addition to MDM. Device-managed (MDM) and server-managed settings are resolved **per key**: MDM's value wins for any key it sets, and the server's value fills in keys MDM leaves unset. This lets an organization set some policy via MDM (for example, `permissions`) while still receiving other managed defaults (for example, `model`) from the server.
+{% data variables.copilot.copilot_cli_short %} also loads server-managed settings at startup, in addition to MDM. Except for keys with restrictive composition rules, MDM and server-managed settings are resolved **per key**: MDM's value wins for any key it sets, and the server's value fills in keys MDM leaves unset. This lets an organization set some policy via MDM while still receiving other managed defaults, such as `model`, from the server.
+
+For `strictPluginOnlyCustomization`, restrictions are combined across native MDM, administrator-deployed `managed-settings.json` files, server-managed settings, and policy-helper settings. A category restricted by any source stays restricted. Setting the key to `false` or a narrower array in another source cannot remove that restriction.
 
 Long-running sessions re-fetch and re-apply managed settings hourly, so policy changes—for example, an organization enabling `permissions.disableBypassPermissionsMode`—take effect without restarting the session.
 
@@ -1025,8 +1029,8 @@ Only the following keys are supported in MDM managed settings.
 | `sandbox.sandboxLspServers` | Boolean, defaults to `true`. When sandboxing is enabled, language servers start under the session's sandbox policy. Set to `false` to run language servers outside the sandbox, subject to the managed sandbox policy floor. |
 | `shellShortcut` | Force-enable or force-disable the `$` interactive shell shortcut for all users. A managed value always overrides the user's own `shellShortcut` setting. |
 | `strictKnownMarketplaces` | Restrict plugins to an allowlist of known marketplaces (a JSON array of marketplace specs). The allowlist also governs built-in marketplaces once set—an empty array (`[]`) hides and blocks every marketplace, including built-ins, not just user- or repository-added ones. |
-| `strictPluginOnlyCustomization` | Block standalone user and repository customizations. Set to `true` for skills, agents, hooks, and MCP servers, or an array such as `["skills", "mcp"]` to restrict only the named surfaces. Plugin-provided and managed customizations remain eligible. Omit to preserve existing behavior. For hook-specific restrictions, see [AUTOTITLE](/copilot/reference/hooks-reference#managed-hook-restrictions). |
-| `allowManagedHooksOnly` | Restrict hook sources to enterprise-managed hooks and hooks from plugins required by managed policy. Hook-specific behavior is described in the hooks reference linked above. |
+| `strictPluginOnlyCustomization` | Require selected customization categories to come from eligible plugins or managed settings. Restrictions combine across managed sources and cannot be relaxed by user or repository settings. See [`strictPluginOnlyCustomization`](/copilot/reference/enterprise-administrators/enterprise-managed-settings#strictpluginonlycustomization). |
+| `allowManagedHooksOnly` | Restrict hook sources to enterprise-managed hooks and hooks from plugins required by managed policy. For hook-specific restrictions, see [AUTOTITLE](/copilot/reference/hooks-reference#managed-hook-restrictions). |
 | `telemetry` | Push baseline OpenTelemetry export configuration: `enabled`, `endpoint`, `protocol`, `headers`, `resourceAttributes`, `captureContent`, `lockCaptureContent`, `serviceName`, and `headersProvider`. See [AUTOTITLE](/copilot/reference/enterprise-administrators/opentelemetry-reference). |
 
 > [!NOTE]

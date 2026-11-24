@@ -49,14 +49,14 @@ For {% data variables.product.prodname_copilot_short %} under usage-based billin
 
 For {% data variables.product.prodname_AS %} AI features, choose the budget that matches the spending you want to control:
 
-* Use a **Bundled {% data variables.product.prodname_ai_credits_short %} budget** to set one spending limit across all features that use {% data variables.product.prodname_ai_credits_short %}. If **Stop usage when budget limit is reached** is enabled, usage by another product can exhaust this budget and stop AI Scan and agentic autofix.
-* Use a **Code Security AI Credits** SKU-level budget to set an independent spending limit for AI Scan and agentic autofix.
+* Use a **Bundled {% data variables.product.prodname_ai_credits_short %} budget** to set one spending limit across all features that use {% data variables.product.prodname_ai_credits_short %}. If **Stop usage when budget limit is reached** is enabled, usage by another product can exhaust this budget and stop {% data variables.product.prodname_ai_scan %} and agentic autofix.
+* Use a **Code Security AI Credits** SKU-level budget to set an independent spending limit for {% data variables.product.prodname_ai_scan %} and agentic autofix.
 
 Usually, choose one of these budgets as your primary control. If both hard budgets apply, exhausting either budget blocks further Code Security AI Credits usage.
 
-When no Code Security AI Credits quota remains because of a hard budget, AI Scan fails and agentic autofix cannot start a session. Usage resumes when the limiting budget is increased or a new billing cycle begins.
+When no Code Security AI Credits quota remains because of a hard budget, {% data variables.product.prodname_ai_scan %} fails and agentic autofix cannot start a session. Usage resumes when the limiting budget is increased or a new billing cycle begins.
 
-For more information about AI Scan, see [AUTOTITLE](/code-security/concepts/code-scanning/ai-powered-security-detections).
+For more information about {% data variables.product.prodname_ai_scan %}, see [AUTOTITLE](/code-security/concepts/code-scanning/ai-powered-security-detections).
 
 {% endif %}
 
@@ -129,7 +129,7 @@ As the owner of an enterprise or organization account, or as a billing manager, 
 1. Under "Budget Type" select **Product-level budget**, **SKU-level budget**, or **Bundled {% data variables.product.prodname_ai_credits_short %} budget**.
 
    * **Product-level budget**: Limits spending on a single product (for example, {% data variables.product.prodname_codespaces %}).
-   * **SKU-level budget**: Limits spending on a specific SKU within a product, such as {% data variables.copilot.copilot_code-review_short %}, {% data variables.product.prodname_secret_protection %} {% data variables.product.prodname_ai_credits_short %}, or {% data variables.product.prodname_GH_secret_protection %} within {% data variables.product.prodname_GHAS %}. For AI Scan and agentic autofix, select {% data variables.product.prodname_AS %} and the **Code Security AI Credits** SKU.
+   * **SKU-level budget**: Limits spending on a specific SKU within a product, such as {% data variables.copilot.copilot_code-review_short %}, {% data variables.product.prodname_secret_protection %} {% data variables.product.prodname_ai_credits_short %}, or {% data variables.product.prodname_GH_secret_protection %} within {% data variables.product.prodname_GHAS %}. For {% data variables.product.prodname_ai_scan %} and agentic autofix, select {% data variables.product.prodname_AS %} and the **Code Security AI Credits** SKU.
    * **Bundled {% data variables.product.prodname_ai_credits_short %} budget**: Limits total overage spending across all SKUs that consume {% data variables.product.prodname_ai_credits_short %}, including {% data variables.product.prodname_copilot_short %}, {% data variables.copilot.copilot_cloud_agent %}, {% data variables.product.prodname_spark_short %}, and {% data variables.product.prodname_AS %} AI features. Each SKU uses the shared {% data variables.product.prodname_ai_credits_short %} allowance before generating overage. After the allowance is exhausted, overage from every SKU counts toward the applicable **All {% data variables.product.prodname_ai_credits_short %}** budget. To also limit overage for a specific SKU, create a SKU-level budget for that SKU. Available where overage spend is enabled.
 
 1. Under "Budget scope", set the scope of spending for this budget.

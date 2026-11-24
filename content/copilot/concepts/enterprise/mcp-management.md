@@ -38,6 +38,19 @@ Alternatively, you can host your own MCP registry and restrict access to servers
 
 {% endrowheaders %}
 
+## Distribute MCP servers through a plugin marketplace
+
+If your enterprise already uses a plugin marketplace, you can distribute approved MCP server configurations alongside skills in the same plugins. This lets you maintain one catalog of customizations instead of hosting a separate MCP registry for discovery.
+
+On supported clients, combine the following settings:
+
+* `strictKnownMarketplaces` restricts eligible marketplace sources.
+* `strictPluginOnlyCustomization` with `mcp` blocks standalone user and project MCP configurations while allowing eligible plugin and managed sources.
+
+These source restrictions do not replace MCP server allowlists and denylists. Keep those rules if you also need to restrict server URLs or commands.
+
+Before retiring a registry policy, verify that the replacement controls cover every affected client and session type. For setup and migration steps, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/use-managed-settings/manage-plugin-marketplaces-and-plugins#move-mcp-distribution-from-a-registry-to-a-marketplace).
+
 ## Next steps
 
 To configure an allowlist on {% data variables.product.github %}, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-mcp-usage/configure-enterprise-allowlist).

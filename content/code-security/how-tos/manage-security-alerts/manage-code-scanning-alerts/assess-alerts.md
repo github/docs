@@ -76,7 +76,7 @@ When you select a keyword from either a drop-down list, or as you enter a keywor
 
 {% ifversion ai-scan-for-repositories %}
 
-To focus on findings from AI Scan for repositories, filter the alert list by the **AI Scan** tool. See [AUTOTITLE](/code-security/concepts/code-scanning/ai-scan-for-repositories).
+To focus on findings from {% data variables.product.prodname_ai_scan_for_repositories %}, filter the alert list by the **{% data variables.product.prodname_ai_scan %}** tool. See [AUTOTITLE](/code-security/concepts/code-scanning/ai-scan-for-repositories).
 
 {% endif %}
 

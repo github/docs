@@ -129,7 +129,7 @@ As an alternative to default setup, you can use advanced setup, which generates 
 
 {% ifversion ai-powered-security-detections %}
 
-You can separately enable AI Scan to extend {% data variables.product.prodname_code_scanning %} coverage to supported languages and frameworks that {% data variables.product.prodname_codeql %} does not cover. AI Scan requires {% data variables.product.prodname_code_scanning %}, but does not require {% data variables.product.prodname_codeql %} default setup. See [AUTOTITLE](/code-security/concepts/code-scanning/ai-powered-security-detections).
+You can separately enable {% data variables.product.prodname_ai_scan %} to extend {% data variables.product.prodname_code_scanning %} coverage to supported languages and frameworks that {% data variables.product.prodname_codeql %} does not cover. {% data variables.product.prodname_ai_scan %} requires {% data variables.product.prodname_code_scanning %}, but does not require {% data variables.product.prodname_codeql %} default setup. See [AUTOTITLE](/code-security/concepts/code-scanning/ai-powered-security-detections).
 
 {% endif %}
 

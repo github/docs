@@ -66,7 +66,7 @@ Rather than holding down the space bar, you can toggle voice recording on and of
    > In some terminals, you can use <kbd>Ctrl</kbd>+<kbd>Space</kbd> as an alternative. This shortcut only works if your terminal and OS pass it through. You may also need to free it in your terminal or OS key bindings.
 
 1. Speak your prompt.
-1. Press any key to stop recording and insert the transcription.
+1. Press a letter key to stop recording and insert the transcription. Pressing <kbd>Esc</kbd> cancels the recording instead.
 
 ### Cleaning up voice-entered prompts
 

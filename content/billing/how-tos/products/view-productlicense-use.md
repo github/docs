@@ -96,7 +96,7 @@ The metered usage chart and usage break down table both show your current choice
 
 If your account uses {% data variables.product.prodname_ai_credits_short %}, an additional **AI usage** view is listed under **Usage**. You can use this view to understand included and metered usage across products, including {% data variables.product.prodname_copilot_short %} and {% data variables.product.prodname_AS %}.
 
-To review combined AI Scan and agentic autofix usage, open the **AI usage** view, under "Group by," select **Products**, then review **{% data variables.product.prodname_AS %}**. These features share the Code Security AI Credits SKU, so their usage is reported together within the product total, not as separate totals for each feature.
+To review combined {% data variables.product.prodname_ai_scan %} and agentic autofix usage, open the **AI usage** view, under "Group by," select **Products**, then review **{% data variables.product.prodname_AS %}**. These features share the Code Security AI Credits SKU, so their usage is reported together within the product total, not as separate totals for each feature.
 
 You can use the view to answer questions such as:
 
