@@ -27,8 +27,8 @@ To find out about {% data variables.copilot.copilot_cli_short %} before you inst
 
 ## Prerequisites
 
-* **An active {% data variables.product.prodname_copilot %} subscription**. See [{% data variables.product.prodname_copilot_short %} plans](https://github.com/features/copilot/plans?ref_product=copilot&ref_type=engagement&ref_style=text&utm_source=docs-article-installing-cli-plans&utm_medium=docs&utm_campaign=ignite-nov-2026).
-* (On Windows) **PowerShell** v6 or higher
+* **An active {% data variables.product.prodname_copilot %} subscription**, unless you use your own model provider or sign in with an eligible Microsoft Entra account. Your model provider may charge separately for usage. Microsoft Entra sign-in is currently supported only on Windows and macOS. For account requirements, see [AUTOTITLE](/copilot/how-tos/copilot-cli/set-up-copilot-cli/authenticate-copilot-cli).
+* (On Windows) **PowerShell**. {% data variables.copilot.copilot_cli_short %} can also use Windows PowerShell 5.1.
 
 If you have access to {% data variables.product.prodname_copilot %} via your organization or enterprise, you cannot use {% data variables.copilot.copilot_cli_short %} if your organization owner or enterprise administrator has disabled it in the organization or enterprise settings. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/manage-policies).
 
@@ -113,7 +113,7 @@ Download the executable for your platform, unpack it, and run.
 
 ## Authenticating with {% data variables.copilot.copilot_cli_short %}
 
-On first launch, if you're not currently logged in, you'll be prompted to use the `/login` slash command. Enter this command and follow the on-screen instructions to authenticate with your {% data variables.product.github %} account or your Microsoft Entra account. For more information on the authentication process, see [AUTOTITLE](/copilot/how-tos/copilot-cli/set-up-copilot-cli/authenticate-copilot-cli).
+On first launch, if you're not currently logged in and no custom model provider is configured, you'll be prompted to use the `/login` slash command. Enter this command and follow the on-screen instructions to authenticate with your {% data variables.product.github %} account or your Microsoft Entra account. For more information on the authentication process, see [AUTOTITLE](/copilot/how-tos/copilot-cli/set-up-copilot-cli/authenticate-copilot-cli).
 
 ### Authenticating with a {% data variables.product.pat_generic %}
 

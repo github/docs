@@ -43,13 +43,13 @@ You can combine BYOK or Microsoft Entra authentication with {% data variables.pr
 
 ### Offline mode
 
- If you set the `COPILOT_OFFLINE` environment variable to `true`, {% data variables.copilot.copilot_cli_short %} runs without contacting {% data variables.product.github %}'s servers. In offline mode:
+If you set the `COPILOT_OFFLINE` environment variable to `true`, {% data variables.copilot.copilot_cli_short %} runs in offline mode:
 
 * No {% data variables.product.github %} authentication is attempted.
-* The CLI only makes network requests to your configured BYOK provider.
-* Telemetry is fully disabled.
+* Model requests use your configured provider.
+* First-party client-side telemetry is disabled. OpenTelemetry exports configured by you or your enterprise can still be sent.
 
-Offline mode is **only fully air-gapped** if your BYOK provider is local or otherwise within the same isolated environment (for example, a model running on-premises with no external network access). If `COPILOT_PROVIDER_BASE_URL` points to a remote or internet-accessible endpoint, prompts and code context will still be sent over the network to that provider. Without offline mode, even when using BYOK without {% data variables.product.github %} authentication, telemetry is still sent normally.
+Offline mode does not enforce network isolation. For an air-gapped setup, your model provider and any configured MCP servers, telemetry exporters, and shell commands must remain within the isolated environment. If `COPILOT_PROVIDER_BASE_URL` points to a remote or internet-accessible endpoint, prompts and code context will still be sent over the network to that provider. Without offline mode, even when using BYOK without {% data variables.product.github %} authentication, telemetry is still sent normally.
 
 ### Supported token types
 
@@ -70,7 +70,7 @@ By default, the CLI stores your OAuth token in your operating system's keychain 
 | Windows | Credential Manager |
 | Linux | libsecret (GNOME Keyring, KWallet) |
 
-If the system keychain is unavailable—for example, on a headless Linux server without `libsecret` installed—the CLI prompts you to store the token in a plaintext configuration file at `~/.copilot/config.json`.
+If the system keychain is unavailable—for example, on a headless Linux server without `libsecret` installed—the CLI prompts you to store the token in a plaintext configuration file, by default at `~/.copilot/config.json`.
 
 When you run a command, {% data variables.copilot.copilot_cli_short %} checks for credentials in the following order:
 
@@ -81,7 +81,7 @@ When you run a command, {% data variables.copilot.copilot_cli_short %} checks fo
 1. GitHub CLI (`gh auth token`) fallback
 
 > [!NOTE]
-> * An environment variable silently overrides a stored OAuth token. If you set `GH_TOKEN` for another tool, the CLI uses that token instead of the OAuth token from `copilot login`. To avoid unexpected behavior, unset environment variables you do not intend the CLI to use. There is one exception: in {% data variables.product.prodname_github_codespaces %}, the `GITHUB_TOKEN` that is injected automatically does not take precedence over an account you signed in with using `/login`. A `GITHUB_TOKEN`, `COPILOT_GITHUB_TOKEN`, or `GH_TOKEN` that you export explicitly still does.
+> * An environment variable silently overrides a stored OAuth token. If you set `GH_TOKEN` for another tool, the CLI uses that token instead of the OAuth token from `copilot login`. To avoid unexpected behavior, unset environment variables you do not intend the CLI to use. There is one exception: in {% data variables.product.prodname_github_codespaces %}, when `GITHUB_TOKEN` has a `ghu_` or `ghs_` prefix and neither `COPILOT_GITHUB_TOKEN` nor `GH_TOKEN` has a nonempty value, a stored `/login` account takes precedence. This applies even if you set `GITHUB_TOKEN` yourself.
 > * When you configure BYOK provider environment variables (for example, `COPILOT_PROVIDER_BASE_URL`, `COPILOT_PROVIDER_API_KEY`), {% data variables.copilot.copilot_cli_short %} uses these for AI model requests regardless of your {% data variables.product.github %} authentication status. {% data variables.product.github %} tokens are only needed for {% data variables.product.github %}-hosted features.
 
 ## Authenticating with OAuth
@@ -96,7 +96,7 @@ OAuth is the default authentication method for interactive use. You can authenti
    /login
    ```
 
-1. Select the account you want to authenticate with. For {% data variables.product.prodname_ghe_cloud %} with data residency, enter the hostname of your instance. If you select **Your organization (Microsoft Entra)**, {% data variables.copilot.copilot_cli_short %} automatically signs you in with your existing Microsoft Entra account.
+1. Select the account you want to authenticate with. For {% data variables.product.prodname_ghe_cloud %} with data residency, enter the hostname of your instance when prompted. If you select **Your organization (Microsoft Entra)**, follow the prompts to sign in, then skip the remaining steps.
 
    ```text
    What account do you want to log into?
@@ -125,7 +125,7 @@ OAuth is the default authentication method for interactive use. You can authenti
      Press any key to copy to clipboard and open browser...
      ```
 
-     Navigate to the verification URL at `https://github.com/login/device` if your browser did not open automatically, then paste the one-time code in the field on the page.
+     Navigate to the verification URL displayed in the CLI if your browser did not open automatically, then paste the one-time code in the field on the page.
 
 1. If your organization uses SAML SSO, click **Authorize** next to each organization you want to grant access to.
 1. Review the requested permissions and click **Authorize GitHub Copilot CLI**.
@@ -202,7 +202,7 @@ Your Microsoft Entra tenant must use OIDC to connect to {% data variables.produc
 ### Signing in with your organization
 
 1. Run `/login` in {% data variables.copilot.copilot_cli_short %}.
-1. Select **Your organization (Microsoft Entra)**. {% data variables.copilot.copilot_cli_short %} automatically signs you in with your existing Microsoft Entra account.
+1. Select **Your organization (Microsoft Entra)** and follow the prompts to select an account or sign in.
 
 After you sign in, models permitted by your entitlements appear in the `/model` picker. For more information on how this works with Microsoft 365 Copilot, see [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-cli#using-microsoft-365-copilot-models).
 
@@ -241,7 +241,7 @@ To add another account, run `copilot login` from a new terminal session, or run 
 
 ## Signing out and removing credentials
 
-To sign out, type `/logout` at the {% data variables.copilot.copilot_cli_short %} prompt. This removes the locally stored token but does not revoke it on {% data variables.product.github %}.
+To sign out of an account you added with `/login` or `copilot login`, type `/logout` at the {% data variables.copilot.copilot_cli_short %} prompt. This removes the locally stored token but does not revoke it on {% data variables.product.github %}. The command does not remove environment-variable tokens or sign out of {% data variables.product.prodname_cli %}. These credential sources can be configured at the same time, so signing out of one may leave another available when you restart the CLI. To stop the CLI from using those sources, exit the CLI, unset every configured `COPILOT_GITHUB_TOKEN`, `GH_TOKEN`, or `GITHUB_TOKEN` environment variable, and run `gh auth logout` if you also use a {% data variables.product.prodname_cli %} account.
 
 To revoke the OAuth app authorization on {% data variables.product.github %} and prevent it from being used elsewhere, follow these steps.
 

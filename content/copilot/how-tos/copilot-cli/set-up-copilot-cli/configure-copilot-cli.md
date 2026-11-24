@@ -75,19 +75,19 @@ In manual approval mode, {% data variables.product.prodname_copilot_short %} ask
    Create a new file called README.md with a project description
    ```
 
-1. If the tool is not already allowed, choose from the approval options:
+1. If the tool is not already allowed, choose from the available approval options:
 
-   * `1. Yes`
+   * `Yes`
 
       Choose this option to allow {% data variables.product.prodname_copilot_short %} to run this particular command, this time only. The next time it needs to use this tool, it will ask you again.
 
-   * `2. Yes, and approve TOOL for the rest of the running session`
+   * `Yes, and don't ask again ...`
 
-      Choose this option to allow {% data variables.product.prodname_copilot_short %} to use this tool for the duration of the currently running session. It will ask for your approval again in new sessions, or if you resume the current session in the future. If you choose this option, you are allowing {% data variables.product.prodname_copilot_short %} to use this tool in any way it thinks is appropriate.
+      Choose this option to allow the specified commands, MCP tool, or file operations in the current repository or directory without asking again, including in future sessions. Depending on the request, you may instead see an option to approve the tool for the rest of the running session.
 
-      For example, if {% data variables.product.prodname_copilot_short %} asks you to allow it to run the command `rm ./this-file.txt`, and you choose option 2, then {% data variables.product.prodname_copilot_short %} can run any `rm` command (for example, `rm -rf ./*`) during the current run of this session, without asking for your approval.
+      For example, if {% data variables.product.prodname_copilot_short %} asks you to allow it to run the command `rm ./this-file.txt`, and you approve `rm` for the repository, then {% data variables.product.prodname_copilot_short %} can run any `rm` command (for example, `rm -rf ./*`) while working in that repository, without asking for your approval.
 
-   * `3. No, and tell Copilot what to do differently (Esc)`
+   * `No, and tell Copilot what to do differently (Esc)`
 
       Choose this option to cancel the proposed command and instruct {% data variables.product.prodname_copilot_short %} to try a different approach.
 
@@ -169,7 +169,7 @@ Use `'write'` to allow or deny tools—other than shell commands—permission to
 
 #### Allowing or denying MCP server tools
 
-Use `'MCP_SERVER_NAME'` to allow or deny a specific tool from the specified MCP server.
+Use `'MCP_SERVER_NAME(TOOL_NAME)'` to allow or deny a specific tool from the specified MCP server.
 
 * For example, to prevent {% data variables.product.prodname_copilot_short %} from using the tool called `tool_name` from the MCP server called `My-MCP-Server`, use:
 
