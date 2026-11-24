@@ -15,27 +15,21 @@ category:
 
 You can also use the `gh es` {% data variables.product.prodname_cli %} extension to manage the root site administrator password, which controls access to the Management Console. For more information, see the [GH ES CLI usage documentation](https://github.com/github/gh-es/blob/main/USAGE.md#gh-es-access-set-password) and [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/administering-your-instance-using-the-github-cli).
 
-## Types of {% data variables.enterprise.management_console %} accounts
 
-There are two types of user accounts for the {% data variables.enterprise.management_console %} on a {% data variables.product.prodname_ghe_server %} instance. The root site administrator account authenticates with a password established during the initial setup of {% data variables.location.product_location %}.
+## Root site administrator
 
-The root site administrator can create additional accounts.
+The root site administrator account authenticates with a password established during the initial setup of {% data variables.location.product_location %}.
+The root site administrator password should be used for initial setup and recovery only, along with creating the first {% data variables.enterprise.management_console %} user account. Day-to-day administration should be performed with named {% data variables.enterprise.management_console %} accounts for proper attribution.
 
-### Root site administrator
+## {% data variables.enterprise.management_console %} user
 
-Root site administrators have complete control over the {% data variables.enterprise.management_console %}. They can take every action in the {% data variables.enterprise.management_console %}, including creating and deleting {% data variables.enterprise.management_console %} user accounts.
+{% data variables.enterprise.management_console %} users can perform all administrative tasks for {% data variables.location.product_location %} including the creation or deletion of {% data variables.enterprise.management_console %} user accounts.
 
-Only the root site administrator can create and delete {% data variables.enterprise.management_console %} user accounts.
-
-### {% data variables.enterprise.management_console %} user
-
-{% data variables.enterprise.management_console %} users can perform most administrative tasks for {% data variables.location.product_location %}. For heightened security, {% data variables.enterprise.management_console %} users cannot create or delete {% data variables.enterprise.management_console %} user accounts.
-
-{% data variables.enterprise.management_console %} users, sometimes called operators, can perform basic administrative tasks for {% data variables.location.product_location %} in the {% data variables.enterprise.management_console %} and can add SSH keys to the {% data variables.enterprise.management_console %} to grant administrative access to the instance via SSH.
+These users, sometimes called operators, can also add SSH keys to the {% data variables.enterprise.management_console %} to grant administrative access to the instance via SSH.
 
 ## Creating or deleting a user account for the {% data variables.enterprise.management_console %}
 
-While signed into the {% data variables.enterprise.management_console %} as the root site administrator, you can create new {% data variables.enterprise.management_console %} user accounts.
+While signed into the {% data variables.enterprise.management_console %}, you can create new {% data variables.enterprise.management_console %} user accounts.
 
 {% data reusables.enterprise_site_admin_settings.click-user-management %}
 1. Click **Create user**.
@@ -49,7 +43,6 @@ If you have configured email for notifications for {% data variables.location.pr
 
 If you have not configured email notifications for {% data variables.location.product_location %}, you must manually copy the {% data variables.enterprise.management_console %} invitation link and send it to the user. The user must set a password using the link before the user can access the {% data variables.enterprise.management_console %}.
 
-{% data reusables.enterprise_site_admin_settings.sign-in-as-root-administrator %}
 {% data reusables.enterprise_site_admin_settings.click-user-management %}
 1. To copy the invitation link, click {% octicon "link" aria-label="Copy invitation link" %} on any {% data variables.enterprise.management_console %} user account.
 1. Send the invitation link to the {% data variables.enterprise.management_console %} user. The invitation link will lead the user through the final account setup steps.

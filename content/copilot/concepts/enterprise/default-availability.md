@@ -69,7 +69,7 @@ Policy state | Outcome
 ------------ | --------
 **Enabled** | Any model labeled **Delegate to Default Policy** is automatically enabled for all your {% data variables.product.prodname_copilot_short %} users, and organizations or teams cannot disable it.
 **Disabled** | Any model labeled **Delegate to Default Policy** is automatically disabled for all your {% data variables.product.prodname_copilot_short %} users, and organizations or teams cannot enable it.
-**Let organizations decide** | (Not available in enterprise teams mode.) Any model labeled **Delegate to Default Policy** is automatically available for organizations to enable or disable. In each organization, an eligible model follows the organization-level **Default availability for released models** policy if the organization has not explicitly configured it.
+**Let organizations decide** | (Not available in enterprise teams mode.) An eligible model labeled **Delegate to Default Policy** at the enterprise level follows the organization-level **Default availability for released models** policy. Organization owners cannot configure that model individually unless the enterprise owner changes the model's status to **Delegate to organizations**.
 
 #### Policy states for models
 

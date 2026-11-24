@@ -53,13 +53,19 @@ If you see a message indicating that you’re not logged in, log in with `gh aut
 
 #### Check whether an authentication environment variable is set
 
-If you are using an environment variable, check whether the `COPILOT_GITHUB_TOKEN`, `GH_TOKEN`, or `GITHUB_TOKEN` environment variable is set:
+If you are using an environment variable, check whether `COPILOT_GITHUB_TOKEN`, `GH_TOKEN`, or `GITHUB_TOKEN` is set without displaying the token:
 
- ```bash copy
- echo $COPILOT_GITHUB_TOKEN
- ```
+```bash copy
+for name in COPILOT_GITHUB_TOKEN GH_TOKEN GITHUB_TOKEN; do
+  if printenv "$name" | grep -q .; then
+    echo "$name is set"
+  else
+    echo "$name is unset or empty"
+  fi
+done
+```
   
-If the command prints nothing, the variable is not set. Set the variable to a valid token. To generate a token, see [AUTOTITLE](/copilot/how-tos/copilot-cli/set-up-copilot-cli/authenticate-copilot-cli#authenticating-with-environment-variables).
+If the variable you intend to use is unset or empty, set it to a valid token. To generate a token, see [AUTOTITLE](/copilot/how-tos/copilot-cli/set-up-copilot-cli/authenticate-copilot-cli#authenticating-with-environment-variables). For example:
   
 ```bash copy
  export COPILOT_GITHUB_TOKEN=PERSONAL_ACCESS_TOKEN
@@ -102,7 +108,7 @@ The token was revoked, has expired, or was created without the required permissi
 
 ### Fix
 
-Review the token's status and permissions on {% data variables.product.prodname_dotcom %}. The token must be a {% data variables.product.pat_v2 %} owned by your **personal account** (not an organization) with the **{% data variables.product.prodname_copilot_short %} Requests** permission. Generate a new token with the required permissions if necessary.  
+Review the token's status and permissions on {% data variables.product.prodname_dotcom %}. If you use a {% data variables.product.pat_generic %}, it must be a {% data variables.product.pat_v2 %} owned by your **personal account** (not an organization) with the **{% data variables.product.prodname_copilot_short %} Requests** permission. Generate a new token with the required permissions if necessary. If the failed token comes from `COPILOT_GITHUB_TOKEN`, `GH_TOKEN`, or `GITHUB_TOKEN`, replace or unset that environment variable and restart the CLI before trying another authentication method. An environment token can continue to take precedence over a saved `/login` account. For other authentication methods, sign in again using the method you originally used.
 
 ## {% data variables.product.pat_classic_caps %} rejected
 
@@ -183,7 +189,7 @@ Follow the steps for your operating system to restore secure credential storage.
 
 On macOS, confirm Keychain Access app is available, and you can unlock your login keychain.
 On Windows, confirm Credential Manager is available, and you can access the Windows Vault.
-If you can’t access the system credential manager, use plaintext storage (if prompted) or authenticate using an environment variable token, then rerun `/login` or `copilot login`.
+If you can’t access the system credential manager, use plaintext storage if prompted. Alternatively, set an environment variable token before starting the CLI.
 
 #### Linux
 
@@ -219,4 +225,4 @@ Multiple accounts are stored, or an environment variable is overriding the store
 
 ### Fix
 
-To switch accounts, use `/user switch` at the CLI prompt, or sign out with `/logout` and run `/login` with the correct account.
+To switch accounts, use `/user switch` at the CLI prompt, or sign out with `/logout` and run `/login` with the correct account. If an environment variable is overriding the account you want to use, exit the CLI, update or unset the variable, and restart the CLI.
