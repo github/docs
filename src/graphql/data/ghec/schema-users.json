@@ -4646,7 +4646,7 @@
         },
         {
           "name": "planningStatuses",
-          "description": "<p>The planning statuses issues in the user's repositories can be in, or null\nwhen issue statuses aren't available. Planning statuses are returned in\ndisplay order. Issue statuses are in preview and only available to accounts\nenrolled in the preview.</p>",
+          "description": "<p>The planning statuses issues in the user's repositories can be in, or null\nwhen issue statuses aren't available. Planning statuses are returned in\ndisplay order. Issue statuses are in public preview and subject to change.\nThey're rolling out gradually, so they might not be available in your\nrepositories yet.</p>",
           "type": "PlanningStatusConnection",
           "id": "planningstatusconnection",
           "href": "/graphql/reference/issues#object-planningstatusconnection",
