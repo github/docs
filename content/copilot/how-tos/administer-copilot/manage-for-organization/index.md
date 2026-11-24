@@ -15,6 +15,7 @@ children:
   - /manage-access
   - /manage-policies
   - /manage-copilot-in-the-cloud
+  - /enable-copilot-code-review
   - /manage-app-copilot-access
   - /configure-runner-for-coding-agent
   - /prepare-for-custom-agents

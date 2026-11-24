@@ -43,7 +43,7 @@ This article provides an overview of {% data variables.copilot.copilot_code-revi
 
 ## {% data variables.copilot.copilot_code-review_short %} without a {% data variables.product.prodname_copilot_short %} license
 
-Organization members **without a {% data variables.product.prodname_copilot_short %} license** can use {% data variables.copilot.copilot_code-review_short %} on {% data variables.product.prodname_dotcom_the_website %}. An enterprise administrator or organization owner must enable it. This capability is available to organizations on **{% data variables.copilot.copilot_business_short %}** and **{% data variables.copilot.copilot_enterprise_short %}** plans.
+Organization members **without a {% data variables.product.prodname_copilot_short %} license** can use {% data variables.copilot.copilot_code-review_short %} on {% data variables.product.prodname_dotcom_the_website %}. An enterprise administrator or organization owner must enable it. This capability is available to organizations on **{% data variables.copilot.copilot_business_short %}** and **{% data variables.copilot.copilot_enterprise_short %}** plans, and to organizations in enterprises that use **{% data variables.product.prodname_copilot_short %} access**. The organization doesn't need to assign any {% data variables.product.prodname_copilot_short %} licenses. For steps, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/enable-copilot-code-review) or [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/enable-copilot-code-review#allowing-reviews-without-a-copilot-license).
 
 ### Enabling code review for users without a license
 

@@ -30,6 +30,18 @@ The policy for {% data variables.copilot.copilot_code-review_short %} allows you
 
 {% data reusables.enterprise-accounts.policy-enablement-next-steps %}
 
+## Allowing reviews without a {% data variables.product.prodname_copilot_short %} license
+
+Members can get reviews on {% data variables.product.prodname_dotcom_the_website %} without a {% data variables.product.prodname_copilot_short %} license, including in enterprises that use {% data variables.product.prodname_copilot_short %} access, so you don't need to assign seats for code review. The {% data variables.product.prodname_ai_credits_short %} these reviews use are billed to your enterprise or a cost center.
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.ai-controls-tab %}
+1. In the sidebar, click {% octicon "copilot" aria-hidden="true" aria-label="copilot" %} **{% data variables.product.prodname_copilot_short %}**.
+1. Under "Billing & usage", make sure "{% data variables.product.prodname_ai_credit_singular %} paid usage" is enabled.
+1. Under "Features & clients", click **Configure features & clients**.
+1. Make sure "{% data variables.copilot.copilot_code-review_short %}" is enabled.
+1. Next to "Allow members without a {% data variables.product.prodname_copilot_short %} license to use {% data variables.copilot.copilot_code-review_short %} in {% data variables.product.prodname_dotcom_the_website %}", turn it on for every organization, or select **Let organizations decide**. If organizations decide, their owners follow [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/enable-copilot-code-review).
+
 ## Configuring automatic code review
 
 To apply standards consistently, you can configure {% data variables.copilot.copilot_code-review_short %} to run automatically on all pull requests opened across your enterprise or in specific repositories.
