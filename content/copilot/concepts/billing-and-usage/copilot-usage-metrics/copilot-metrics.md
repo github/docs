@@ -75,3 +75,5 @@ Usage metrics measure activity, not license assignments. Use the {% data variabl
 ## Analyze your metrics in more detail
 
 When you need to explain or validate your findings, use the reference articles to check metric coverage and adoption phase definitions, reconcile dashboard and API reports, and interpret industry comparisons. See [AUTOTITLE](/copilot/reference/copilot-usage-metrics).
+
+For guidance on presenting your findings and recommendations to leadership, see [AUTOTITLE](/copilot/tutorials/roll-out-at-scale/communicate-copilot-impact).

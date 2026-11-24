@@ -51,6 +51,7 @@ There are three types of {% data variables.product.prodname_codeql %} packs: que
 
 The standard {% data variables.product.prodname_codeql %} packs for all supported languages are published in the [{% data variables.product.prodname_container_registry %}](https://github.com/orgs/codeql/packages). If you installed the {% data variables.product.prodname_codeql_cli %} in the standard way, using the {% data variables.product.prodname_codeql_cli %} bundle, the core query packs are already downloaded and available to you. They are:
 
+  * `codeql/actions-queries`
   * `codeql/cpp-queries`
   * `codeql/csharp-queries`
   * `codeql/go-queries`

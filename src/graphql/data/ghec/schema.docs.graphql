@@ -8993,7 +8993,8 @@ input CreateIssueInput {
   The Node ID of the planning status the issue starts in. It must be an open one
   listed in the owner's planningStatuses. If you don't have permission to set
   the status, it's ignored and the issue starts in Backlog. Issue statuses are
-  in preview and only available to accounts enrolled in the preview.
+  in public preview and subject to change. They're rolling out gradually, so
+  they might not be available in your repositories yet.
   """
   statusId: ID @possibleTypes(concreteTypes: ["PlanningStatus"])
 
@@ -21114,8 +21115,9 @@ type Issue implements Assignable &
 
   """
   The status of this issue, or null when it has none or issue statuses aren't
-  available in the repository. Issue statuses are in preview and only available
-  to accounts enrolled in the preview.
+  available in the repository. Issue statuses are in public preview and subject
+  to change. They're rolling out gradually, so they might not be available in
+  your repositories yet.
   """
   status: PlanningStatus
 
@@ -21396,8 +21398,9 @@ type Issue implements Assignable &
   viewerCanSetMilestone: Boolean!
 
   """
-  Whether the viewer can set this issue's status. Issue statuses are in preview
-  and only available to accounts enrolled in the preview.
+  Whether the viewer can set this issue's status. Issue statuses are in public
+  preview and subject to change. They're rolling out gradually, so they might
+  not be available in your repositories yet.
   """
   viewerCanSetStatus: Boolean!
 
@@ -29577,7 +29580,8 @@ type Mutation @docsCategory(name: "meta") {
 
   """
   Sets the status of an issue, closing or reopening it when the status calls for
-  it. Issue statuses are in preview and only available to accounts enrolled in the preview.
+  it. Issue statuses are in public preview and subject to change. They're
+  rolling out gradually, so they might not be available in your repositories yet.
   """
   setIssueStatus(
     """
@@ -36647,8 +36651,9 @@ type Organization implements Actor &
   """
   The planning statuses issues in the organization's repositories can be in, or
   null when issue statuses aren't available. Planning statuses are returned in
-  display order. Issue statuses are in preview and only available to accounts
-  enrolled in the preview.
+  display order. Issue statuses are in public preview and subject to change.
+  They're rolling out gradually, so they might not be available in your
+  repositories yet.
   """
   planningStatuses(
     """
@@ -40233,7 +40238,9 @@ enum PinnedIssueFieldOrderField @docsCategory(name: "issues") {
 }
 
 """
-A planning status an issue can be in. Issue statuses are in preview and only available to accounts enrolled in the preview.
+A planning status an issue can be in. Issue statuses are in public preview and
+subject to change. They're rolling out gradually, so they might not be available
+in your repositories yet.
 """
 type PlanningStatus implements Node @docsCategory(name: "issues") {
   """
@@ -40254,13 +40261,13 @@ type PlanningStatus implements Node @docsCategory(name: "issues") {
 
 """
 The category of a planning status, which decides whether the issue is open or
-closed. Issue statuses are in preview and only available to accounts enrolled in the preview.
+closed. Issue statuses are in public preview and subject to change. They're
+rolling out gradually, so they might not be available in your repositories yet.
 """
 type PlanningStatusCategory @docsCategory(name: "issues") {
   """
-  A stable identifier for the category, such as `new`, `backlog`, `planned`,
-  `started`, `completed`, `not_planned` or `duplicate`. Clients should expect
-  new keys to be added.
+  A stable identifier for the category, such as `backlog`, `planned`, `started`,
+  `completed`, `not_planned` or `duplicate`. Clients should expect new keys to be added.
   """
   key: String!
 
@@ -56582,8 +56589,9 @@ type Repository implements Node &
   """
   The planning statuses issues in this repository can be in, or null when issue
   statuses aren't available for this repository or viewer. Planning statuses are
-  returned in display order. Issue statuses are in preview and only available to
-  accounts enrolled in the preview.
+  returned in display order. Issue statuses are in public preview and subject to
+  change. They're rolling out gradually, so they might not be available in your
+  repositories yet.
   """
   planningStatuses(
     """
@@ -71570,7 +71578,8 @@ input UpdateIssueInput {
   planning status closes the issue, `stateInput.rationale` is used as the close
   rationale, and a Duplicate planning status takes the issue it duplicates from
   `stateInput.duplicateIssueId`. The issue's status can't be cleared. Issue
-  statuses are in preview and only available to accounts enrolled in the preview.
+  statuses are in public preview and subject to change. They're rolling out
+  gradually, so they might not be available in your repositories yet.
   """
   statusId: ID @possibleTypes(concreteTypes: ["PlanningStatus"])
 
@@ -74299,8 +74308,9 @@ type User implements Actor &
   """
   The planning statuses issues in the user's repositories can be in, or null
   when issue statuses aren't available. Planning statuses are returned in
-  display order. Issue statuses are in preview and only available to accounts
-  enrolled in the preview.
+  display order. Issue statuses are in public preview and subject to change.
+  They're rolling out gradually, so they might not be available in your
+  repositories yet.
   """
   planningStatuses(
     """

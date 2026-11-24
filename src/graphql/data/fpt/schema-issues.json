@@ -1297,7 +1297,7 @@
       "name": "setIssueStatus",
       "id": "setissuestatus",
       "href": "/graphql/reference/issues#mutation-setissuestatus",
-      "description": "<p>Sets the status of an issue, closing or reopening it when the status calls for\nit. Issue statuses are in preview and only available to accounts enrolled in the preview.</p>",
+      "description": "<p>Sets the status of an issue, closing or reopening it when the status calls for\nit. Issue statuses are in public preview and subject to change. They're\nrolling out gradually, so they might not be available in your repositories yet.</p>",
       "isDeprecated": false,
       "inputFields": [
         {
@@ -3813,7 +3813,7 @@
         },
         {
           "name": "status",
-          "description": "<p>The status of this issue, or null when it has none or issue statuses aren't\navailable in the repository. Issue statuses are in preview and only available\nto accounts enrolled in the preview.</p>",
+          "description": "<p>The status of this issue, or null when it has none or issue statuses aren't\navailable in the repository. Issue statuses are in public preview and subject\nto change. They're rolling out gradually, so they might not be available in\nyour repositories yet.</p>",
           "type": "PlanningStatus",
           "id": "planningstatus",
           "href": "/graphql/reference/issues#object-planningstatus"
@@ -4291,7 +4291,7 @@
         },
         {
           "name": "viewerCanSetStatus",
-          "description": "<p>Whether the viewer can set this issue's status. Issue statuses are in preview\nand only available to accounts enrolled in the preview.</p>",
+          "description": "<p>Whether the viewer can set this issue's status. Issue statuses are in public\npreview and subject to change. They're rolling out gradually, so they might\nnot be available in your repositories yet.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "href": "/graphql/reference/other#scalar-boolean"
@@ -8566,7 +8566,7 @@
       "name": "PlanningStatus",
       "id": "planningstatus",
       "href": "/graphql/reference/issues#object-planningstatus",
-      "description": "<p>A planning status an issue can be in. Issue statuses are in preview and only available to accounts enrolled in the preview.</p>",
+      "description": "<p>A planning status an issue can be in. Issue statuses are in public preview and\nsubject to change. They're rolling out gradually, so they might not be available\nin your repositories yet.</p>",
       "isDeprecated": false,
       "implements": [
         {
@@ -8604,12 +8604,12 @@
       "name": "PlanningStatusCategory",
       "id": "planningstatuscategory",
       "href": "/graphql/reference/issues#object-planningstatuscategory",
-      "description": "<p>The category of a planning status, which decides whether the issue is open or\nclosed. Issue statuses are in preview and only available to accounts enrolled in the preview.</p>",
+      "description": "<p>The category of a planning status, which decides whether the issue is open or\nclosed. Issue statuses are in public preview and subject to change. They're\nrolling out gradually, so they might not be available in your repositories yet.</p>",
       "isDeprecated": false,
       "fields": [
         {
           "name": "key",
-          "description": "<p>A stable identifier for the category, such as <code>new</code>, <code>backlog</code>, <code>planned</code>,\n<code>started</code>, <code>completed</code>, <code>not_planned</code> or <code>duplicate</code>. Clients should expect\nnew keys to be added.</p>",
+          "description": "<p>A stable identifier for the category, such as <code>backlog</code>, <code>planned</code>, <code>started</code>,\n<code>completed</code>, <code>not_planned</code> or <code>duplicate</code>. Clients should expect new keys to be added.</p>",
           "type": "String!",
           "id": "string",
           "href": "/graphql/reference/other#scalar-string"
@@ -12101,7 +12101,7 @@
         },
         {
           "name": "statusId",
-          "description": "<p>The Node ID of the planning status the issue starts in. It must be an open one\nlisted in the owner's planningStatuses. If you don't have permission to set\nthe status, it's ignored and the issue starts in Backlog. Issue statuses are\nin preview and only available to accounts enrolled in the preview.</p>",
+          "description": "<p>The Node ID of the planning status the issue starts in. It must be an open one\nlisted in the owner's planningStatuses. If you don't have permission to set\nthe status, it's ignored and the issue starts in Backlog. Issue statuses are\nin public preview and subject to change. They're rolling out gradually, so\nthey might not be available in your repositories yet.</p>",
           "type": "ID",
           "id": "id",
           "href": "/graphql/reference/other#scalar-id",
@@ -14069,7 +14069,7 @@
         },
         {
           "name": "statusId",
-          "description": "<p>The Node ID of the planning status to move the issue into. It must be one\nlisted in the owner's planningStatuses. The planning status decides whether\nthe issue is open or closed and why, so the issue is closed or reopened if\nneeded. <code>state</code> or <code>stateInput</code> can also be sent, but only with the same state\nand close reason as the planning status, and without <code>suggest: true</code>. When the\nplanning status closes the issue, <code>stateInput.rationale</code> is used as the close\nrationale, and a Duplicate planning status takes the issue it duplicates from\n<code>stateInput.duplicateIssueId</code>. The issue's status can't be cleared. Issue\nstatuses are in preview and only available to accounts enrolled in the preview.</p>",
+          "description": "<p>The Node ID of the planning status to move the issue into. It must be one\nlisted in the owner's planningStatuses. The planning status decides whether\nthe issue is open or closed and why, so the issue is closed or reopened if\nneeded. <code>state</code> or <code>stateInput</code> can also be sent, but only with the same state\nand close reason as the planning status, and without <code>suggest: true</code>. When the\nplanning status closes the issue, <code>stateInput.rationale</code> is used as the close\nrationale, and a Duplicate planning status takes the issue it duplicates from\n<code>stateInput.duplicateIssueId</code>. The issue's status can't be cleared. Issue\nstatuses are in public preview and subject to change. They're rolling out\ngradually, so they might not be available in your repositories yet.</p>",
           "type": "ID",
           "id": "id",
           "href": "/graphql/reference/other#scalar-id",
