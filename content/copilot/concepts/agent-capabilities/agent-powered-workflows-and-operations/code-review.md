@@ -112,13 +112,21 @@ Each time {% data variables.product.prodname_copilot_short %} reviews a pull req
 
 Code reviews have two cost components: {% data variables.product.prodname_ai_credits_short %} for the model interaction (the review itself), and {% data variables.product.prodname_actions %} minutes for the agentic capabilities (context gathering and tool use). For more information on {% data variables.product.prodname_actions %} usage, see [Usage of {% data variables.product.prodname_actions %} runners for agentic capabilities in code review](#usage-of-github-actions-runners-for-agentic-capabilities-in-code-review).
 
-By default, when a repository automatically requests a code review, {% data variables.product.prodname_ai_credits_short %} consumption is attributed to the pull request author. If another user manually requests a review, consumption is attributed to that user instead.
+When a repository automatically requests a review billed to a member, {% data variables.product.prodname_ai_credits_short %} consumption is attributed to the pull request author. If another user manually requests a review, consumption is attributed to that user instead.
 
 For pull requests authored by {% data variables.copilot.copilot_cloud_agent %}, usage is attributed first to the human co-author associated with the change. If the co-author cannot be billed, usage is billed directly to the organization.
 
 For pull requests authored by other bots, or when a bot requests the review, usage is billed directly to the organization. These pull requests are eligible for agentic review.
 
-For requests associated with organization members who have paid {% data variables.product.prodname_copilot_short %} licenses, the member's entitlement is billed by default. An enterprise or organization owner can instead choose to bill the organization. Billing the organization requires {% data variables.product.prodname_ai_credits_short %} paid usage, but a budget is optional. This choice applies to both manually requested and automatic code reviews, and changes billing only. On its own, it does not grant access to {% data variables.copilot.copilot_code-review_short %}.
+Enterprise or organization owners can choose the billing source for requests associated with organization members who have paid {% data variables.product.prodname_copilot_short %} licenses. They can bill the member's entitlement or the organization that owns the repository. Billing the organization requires {% data variables.product.prodname_ai_credits_short %} paid usage, but a budget is optional. This choice applies to both manually requested and automatic code reviews, and changes billing only. On its own, it does not grant access to {% data variables.copilot.copilot_code-review_short %}.
+
+### Default billing for licensed members
+
+If an administrator has not saved a billing choice, eligible reviews associated with members who have paid {% data variables.product.prodname_copilot_short %} licenses are billed to the organization that owns the repository. Organization settings respect inherited enterprise policies.
+
+To bill members' entitlements instead, select **Member** in your enterprise or organization settings. Organization-funded reviews can increase your organization's spending.
+
+The separate setting for members without a {% data variables.product.prodname_copilot_short %} license is off by default. Choosing a billing source for licensed members does not enable access for members without a license or change {% data variables.product.prodname_actions %} billing.
 
 ### Users without a {% data variables.product.prodname_copilot_short %} license or plan that includes {% data variables.copilot.copilot_code-review_short %}
 
