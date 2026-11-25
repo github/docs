@@ -185,12 +185,12 @@ You can manage sessions with slash commands from inside any session:
 | `/session` | Open the **Sessions** tab. |
 | `/session info` | Show details about the current session. |
 | `/session id` | Show the current session ID and copy it to the clipboard. |
-| `/session files` | List the files changed in this session. |
+| `/session files` | List the files {% data variables.product.prodname_copilot_short %} has saved for this session that are not part of your project, such as notes, diagrams, or task lists. These files are stored in the session's `files` folder, at `~/.copilot/session-state/SESSION-ID/files`. |
 | `/session plan` | Show the current plan. |
 | `/session checkpoints [N]` | Show the session's checkpoints. |
 | `/session cleanup`, `/session prune` | Housekeeping for old or stale session data. |
 | `/session delete [ID]`, `/session delete-all` | Delete a session, or all of them. |
-| `/exit`, `/quit` | Close the current session. If others are open, the nearest remaining one in the sidebar order comes to the foreground. The CLI quits only when you close the last session. |
+| `/exit`, `/quit` | Close the current session or quit the CLI, as described in [Stopping a session](#stopping-a-session). When only the current session closes, the nearest remaining one in the sidebar order comes to the foreground. |
 
 ## Customizing the sidebar
 
