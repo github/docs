@@ -162,7 +162,7 @@ shortTitle: Contributing to projects
 
 - Purpose: Renders children into groups on the homepage. See [Homepage](#homepage) for more info.
 - Type: `Array`. Default is `false`.
-- Require on the homepage `index.md`.
+- Required on the homepage `index.md`.
 
 ### `featuredLinks`
 
