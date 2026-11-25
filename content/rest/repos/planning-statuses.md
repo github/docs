@@ -1,7 +1,7 @@
 ---
 title: REST API endpoints for planning statuses
 shortTitle: Planning statuses
-intro: 'Use the REST API to list the planning statuses that issues in a repository can have. Issue statuses are in {% data variables.release-phases.preview %} and only available to accounts enrolled in the preview.'
+intro: 'Use the REST API to list the planning statuses that issues in a repository can have. {% data reusables.issues.issue-statuses-preview %}'
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghec: '*'

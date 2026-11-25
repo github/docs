@@ -1,1 +1,0 @@
-During the {% data variables.release-phases.preview %}, editors that validate workflow files, such as the workflow editor on {% data variables.product.github %}, may report `status_changed` as an invalid activity type. You can ignore this error.

@@ -1,0 +1,5 @@
+# Reference: github/issues#25084
+# The About issue statuses article and links to it from other issue articles, in public preview.
+versions:
+  fpt: '*'
+  ghec: '*'

@@ -97,6 +97,63 @@ You can filter issues based on the reason given when the issue was closed, using
 | `reason:completed` | [**libraries is:closed reason:completed**](https://github.com/search?q=libraries+is%3Aclosed+reason%3Acompleted&type=Issues&ref_product=github&ref_type=engagement&ref_style=text) matches issues with the word "libraries" that were closed as "completed."
 | `reason:"not planned"` | [**libraries is:closed reason:"not planned"**](https://github.com/search?q=libraries+is%3Aclosed+reason%3A%22not+planned%22&type=Issues&ref_product=github&ref_type=engagement&ref_style=text) matches issues with the word "libraries" that were closed as "not planned."
 
+{% ifversion issue-status-search %}
+
+## Search by issue status
+
+> [!NOTE]
+> {% data reusables.issues.issue-statuses-preview %}
+
+You can filter issues by their status with the `status` qualifier, or by the category of their status with the `category` qualifier. Searches for issue statuses only match issues, not pull requests.
+
+If you aren't signed in, you can only search by issue status in public repositories owned by an organization. Limit your search to those repositories, for example with `repo:` or `org:`, or search from the repository's **Issues** tab.
+
+| Qualifier | Example |
+| ------------- | ------------- |
+| <code>status:<em>STATUS</em></code> | **repo:octo-org/octo-repo is:issue status:"In progress"** matches issues in the `octo-org/octo-repo` repository with the In progress status. |
+| <code>category:<em>CATEGORY</em></code> | **org:octo-org is:issue category:started** matches issues in repositories owned by the `octo-org` organization with a status in the `started` category, such as In progress or In review. |
+| <code>-status:<em>STATUS</em></code> | **org:octo-org is:issue is:open -status:Backlog** matches open issues in repositories owned by `octo-org` that don't have the Backlog status, including issues without a status. |
+| `has:status` | **repo:octo-org/octo-repo is:issue has:status** matches issues in the `octo-org/octo-repo` repository that have a status. |
+| `no:status` | **repo:octo-org/octo-repo is:issue no:status** matches open issues in the `octo-org/octo-repo` repository that don't have a status. |
+
+Each status belongs to a category. The category keys are `backlog` for Backlog, `planned` for Todo, `started` for In progress and In review, `completed` for Done, `not-planned` for Not planned, and `duplicate` for Duplicate.
+
+### Writing status values
+
+Status names and category keys aren't case sensitive, but they must otherwise match exactly.
+
+* Put quotation marks around status names that contain a space, for example `status:"In progress"` or `status:"Not planned"`.
+* Use a category key, not a status name, with the `category` qualifier. For example, use `category:not-planned`, not `category:"Not planned"`. The `category` qualifier also accepts `not_planned`, the spelling that the API and webhook payloads use.
+
+If a `status` or `category` value isn't recognized, your search returns an error instead of results. For example, `status:InProgress`, `status:In progress` without quotation marks, and comma-separated lists such as `status:Todo,Backlog` all return an error. For pull requests, values such as `status:success` remain valid. See [Issue statuses and commit statuses](#issue-statuses-and-commit-statuses).
+
+### Combining status qualifiers
+
+In advanced search, you can combine status qualifiers with other qualifiers using `AND`, `OR`, and parentheses. You can use advanced search on a repository's **Issues** tab and on the issues dashboard. In the REST API, set the `advanced_search` parameter to `true`. In the GraphQL API, use the `ISSUE_ADVANCED` search type.
+
+In advanced search, repeating `status:` matches only issues that have every value. To match any of several statuses, use `OR` in parentheses: `(status:Todo OR status:"In progress")`.
+
+The following query finds issues in two repositories that have a status in the `started` category and don't have the `blocked` label. Replace `octo-org/api` and `octo-org/web` with the repositories you want to search.
+
+```text
+(repo:octo-org/api OR repo:octo-org/web) is:issue category:started -label:blocked
+```
+
+### Issues without a status
+
+Issues that were created before their repository used issue statuses might not have a status. Search handles these issues differently depending on whether they're open or closed.
+
+* **Open issues** without a status match `no:status`. They don't match `status:Backlog` or `category:backlog`.
+* **Closed issues** always match the status for the reason they were closed: Done for issues closed as completed, Not planned for issues closed as not planned, and Duplicate for issues closed as a duplicate. Closed issues never match `no:status`.
+
+### Issue statuses and commit statuses
+
+The `status` qualifier also filters pull requests by the status of their commits, as described in [Search by commit status](#search-by-commit-status). Values such as `success`, `failure`, and `pending` keep that meaning.
+
+`status:in_progress` is the pull request checks status, not the In progress issue status. To find issues with the In progress status, put the name in quotation marks: `status:"In progress"`.
+
+{% endif %}
+
 ## Filter by repository visibility
 
 You can filter by the visibility of the repository containing the issues and pull requests using the `is` qualifier. For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility).

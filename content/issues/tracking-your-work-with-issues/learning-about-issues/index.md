@@ -7,6 +7,7 @@ versions:
   ghec: '*'
 children:
   - /about-issues
+  - /about-issue-statuses
   - /quickstart
   - /planning-and-tracking-work-for-your-team-or-project
 ---

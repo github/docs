@@ -154,6 +154,19 @@ For more information about managing issue fields, see [AUTOTITLE](/issues/tracki
 
 {% endif %}
 
+{% ifversion issue-statuses %}
+
+## Filtering by issue status
+
+> [!NOTE]
+> {% data reusables.issues.issue-statuses-preview %}
+
+To show active issues, above the list of issues, next to **Open** and **Closed**, select **Active**. Active issues have the Todo, In progress, or In review status. Issues with the Backlog status, open issues without a status, and closed issues aren't active.
+
+The Active filter adds `(category:planned OR category:started)` to your filter. You can also type `status:` or `category:` in your filter to choose a status or category. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/learning-about-issues/about-issue-statuses).
+
+{% endif %}
+
 ## Filtering pull requests by review status
 
 You can use filters to list pull requests by review status and to find pull requests that you've reviewed or other people have asked you to review.
@@ -233,7 +246,8 @@ For issues, you can also use search to:
 * Filter for issues that are linked to a pull request by a closing reference: `linked:pr`
 * Filter issues by the reason they were closed: `is:closed reason:completed` or `is:closed reason:"not planned"`
 * Filter for issues with a particular type: `is:open type:"Bug"`{% ifversion issue-fields %}
-* Filter for issues by field value: `is:open field.priority:high`{% endif %}
+* Filter for issues by field value: `is:open field.priority:high`{% endif %}{% ifversion issue-status-search %}
+* Filter for issues by status ({% data variables.release-phases.public_preview %}): `status:"In progress"` or `category:started`{% endif %}
 * Filter for issues that have metadata: `has:label`
 * Filter for issues that are missing metadata: `no:project`
 * Filter for issues from repositories [**owned**](/search-github/searching-on-github/searching-issues-and-pull-requests#search-within-a-users-or-organizations-repositories) by a certain user or organization, limited to up to 16 `user` and `org` qualifiers with no limit on `repo` qualifiers: `state:open is:issue org:github OR user:octocat`
