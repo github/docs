@@ -141,10 +141,13 @@ You can configure how {% data variables.copilot.copilot_code-review_short %} com
    
    If Adaptive is the default, {% data variables.product.prodname_copilot_short %} won't select a review effort level above the configured maximum.
 1. To choose how {% data variables.product.prodname_ai_credits_short %} usage associated with members who have paid {% data variables.product.prodname_copilot_short %} licenses is billed, next to **Choose how members with a {% data variables.product.prodname_copilot_short %} license are billed**, select an option.
-   * **Member**: Use the member's {% data variables.product.prodname_copilot_short %} entitlement. If the member's quota is exhausted, the code review fails. This is the default.
-   * **Organization**: Bill the organization.
+   * **Default**: Bill the organization that owns the repository. This option appears when an administrator has not saved a billing choice.
+   * **Member**: Use the member's {% data variables.product.prodname_copilot_short %} entitlement. If the member's quota is exhausted, the code review fails.
+   * **Organization**: Bill the organization that owns the repository.
 
-   This choice applies to both manually requested and automatic code reviews, and changes billing only. It does not grant access to {% data variables.copilot.copilot_code-review_short %}. To use **Organization**, {% data variables.product.prodname_ai_credits_short %} paid usage must be enabled for the organization. Setting a budget is optional. See [AUTOTITLE](/copilot/concepts/billing/organizations-and-enterprises/usage-based-billing#what-happens-if-i-exceed-my-included-ai-credits).
+   If your enterprise enforces a billing choice, you cannot override it at the organization level.
+
+   This choice applies to both manually requested and automatic code reviews, and changes billing only. It does not grant access to {% data variables.copilot.copilot_code-review_short %} or enable reviews for members without a license. To use **Organization**, {% data variables.product.prodname_ai_credits_short %} paid usage must be enabled for the organization. Setting a budget is optional. See [AUTOTITLE](/copilot/concepts/billing/organizations-and-enterprises/usage-based-billing#what-happens-if-i-exceed-my-included-ai-credits).
 1. To choose whether {% data variables.product.prodname_copilot_short %} can approve pull requests in your repositories, select an option under "Approvals," next to "Count {% data variables.product.prodname_copilot_short %} approvals toward merge requirements."
    * **Enabled everywhere**: {% data variables.product.prodname_copilot_short %} approvals can count toward merge requirements in every repository in the organization.
    * **Let repositories decide**: Repository admins can decide this in repository settings.
@@ -178,9 +181,12 @@ You can configure how {% data variables.copilot.copilot_code-review_short %} com
 
    If Adaptive is the default, {% data variables.product.prodname_copilot_short %} won't select a review effort level above the configured maximum.
 1. To choose who is billed for {% data variables.copilot.copilot_code-review_short %} usage by members with a paid {% data variables.product.prodname_copilot_short %} license, next to "Choose how members with a {% data variables.product.prodname_copilot_short %} license are billed," select a policy.
+   * **Default**: Bill the organization that owns the repository. This option appears when an administrator has not saved a billing choice.
    * **Member**: Use the member's {% data variables.product.prodname_copilot_short %} entitlement for organizations in the enterprise.
    * **Organization**: Bill the organization that owns the repository.
    * **Let organizations decide**: Organization owners can choose how to bill usage associated with members who have paid {% data variables.product.prodname_copilot_short %} licenses.
+
+   This policy changes billing only and does not enable reviews for members without a license.
 
    Organizations billed must have {% data variables.product.prodname_ai_credits_short %} paid usage enabled. Setting a budget is optional.
 1. To choose whether {% data variables.product.prodname_copilot_short %} can approve pull requests in your organizations, next to "Allow {% data variables.product.prodname_copilot_short %} to approve pull requests," select a policy.
