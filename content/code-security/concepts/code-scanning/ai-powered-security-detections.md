@@ -44,7 +44,7 @@ For details about the billing model, see [AUTOTITLE](/billing/concepts/product-b
 
 * {% data variables.product.prodname_code_scanning_caps %} is enabled for the repository.
 * The repository's {% data variables.product.prodname_ai_scan %} on pull requests setting is enabled.
-* A pull request that is not from a fork or created by {% data variables.product.prodname_dependabot %} contains changes in a supported language or framework that {% data variables.product.prodname_codeql %} does not cover.
+* A pull request that is not from a fork or created by {% data variables.product.prodname_dependabot %} targets the repository's default branch or a protected branch, and contains changes in a supported language or framework that {% data variables.product.prodname_codeql %} does not cover. For more information, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches) and [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets).
 
 Scans run when a pull request is created and after each new commit, as they do for {% data variables.product.prodname_codeql %}.
 
@@ -68,6 +68,7 @@ You can use the thumbs up or thumbs down control to provide feedback and help im
 
 * {% data variables.product.prodname_ai_scan %} findings cannot yet be used in rulesets to enforce merge requirements.
 * {% data variables.product.prodname_ai_scan %} does not run on pull requests from forks or pull requests created by {% data variables.product.prodname_dependabot %}.
+* {% data variables.product.prodname_ai_scan %} only runs on pull requests that target the repository's default branch or a protected branch.
 * Self-hosted runners are not supported.
 * Detection categories and supported languages may change as the feature evolves.
 * As with any AI-based tool, {% data variables.product.prodname_ai_scan %} findings may include false positives. Use the feedback mechanism to report inaccurate results.

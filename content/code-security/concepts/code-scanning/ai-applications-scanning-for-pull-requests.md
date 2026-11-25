@@ -30,7 +30,7 @@ This detector is separate from {% data variables.product.prodname_codeql %}-base
 
 The detector analyzes pull requests for code patterns and data flows that can expose AI applications to indirect prompt injection, sensitive information disclosure, or excessive agency.
 
-Scans run when a pull request is created and after each new commit.
+Scans run when a pull request that targets the repository's default branch or a protected branch is created, and after each new push to those branches. For more information, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches) and [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets).
 
 ## How findings appear on pull requests
 
@@ -49,7 +49,7 @@ During {% data variables.release-phases.public_preview %}, {% data variables.pro
 
 This detector covers pull requests only. It doesn't scan your full repository or existing backlog for AI application risks.
 
-As with {% data variables.product.prodname_ai_scan_for_pull_requests %}, this detector doesn't run on pull requests from forks or pull requests created by {% data variables.product.prodname_dependabot %}, and its findings can't be used in rulesets to enforce merge requirements.
+As with {% data variables.product.prodname_ai_scan_for_pull_requests %}, this detector only runs on pull requests that target the default branch or a protected branch. It doesn't run on pull requests from forks or pull requests created by {% data variables.product.prodname_dependabot %}, and its findings can't be used in rulesets to enforce merge requirements.
 
 ## How to enable {% data variables.product.prodname_ai_applications_scanning %}
 
