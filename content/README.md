@@ -319,7 +319,7 @@ A content file can have **two** types of versioning:
 - Liquid statements in content (**optional**)
     - Conditionally render content depending on the current version being viewed. See [Versioning documentation](https://docs.github.com/en/contributing/writing-for-github-docs/versioning-documentation#versioning-with-liquid-conditional-operators) for more info. Note Liquid conditionals can also appear in `data` and `include` files.
 
-**Note**: As of early 2021, the `free-pro-team@latest` version is not included URLs. A helper function called `src/versions/lib/remove-fpt-from-path.ts` removes the version from URLs.
+**Note**: As of early 2021, the `free-pro-team@latest` version is not included in URLs. A helper function called `src/versions/lib/remove-fpt-from-path.ts` removes the version from URLs.
 
 ## Filenames
 
