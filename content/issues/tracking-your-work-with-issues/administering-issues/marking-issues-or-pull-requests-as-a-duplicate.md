@@ -24,6 +24,12 @@ You can also use the {% data variables.product.company_short %}-provided saved r
 
 ![Screenshot of an issue timeline, with a comment by octocat, "Duplicate of #97", and a timeline event "octocat marked this as a duplicate of #97."](/assets/images/help/issues/duplicate-issue-syntax.png)
 
+{% ifversion issue-statuses %}
+
+You can also close an issue as a duplicate by choosing the Duplicate status and the issue it duplicates. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/learning-about-issues/about-issue-statuses).
+
+{% endif %}
+
 ## Unmarking duplicates
 
 You can unmark duplicate issues and pull requests by clicking **Undo** in the timeline. This will add a new timeline event, indicating that the issue or pull request was unmarked.

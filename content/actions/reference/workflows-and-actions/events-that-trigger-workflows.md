@@ -352,9 +352,9 @@ on:
 {% ifversion issue-status-webhooks %}
 
 > [!NOTE]
-> {% data reusables.issues.issue-statuses-preview %}
+> {% data reusables.issues.issue-status-webhooks-preview %}
 
-You can also run a workflow when the status of an issue changes. A workflow that uses the `status_changed` activity type runs whenever an issue's status changes, including when an issue is created, closed, or reopened. In the workflow, the following properties of the `github.event` context describe the change.
+You can also run a workflow when the status of an issue changes. A workflow that uses the `status_changed` activity type runs whenever an issue's status changes. This includes status changes caused by creating, closing, reopening, or assigning an issue, or by changes to a linked pull request. In the workflow, the following properties of the `github.event` context describe the change.
 
 * `github.event.status` contains the status the issue changed to.
 * `github.event.changes.status.from` contains the previous status, or `null` if the issue didn't have one.
@@ -364,8 +364,6 @@ For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/usi
 
 > [!IMPORTANT]
 > {% data reusables.issues.status-changed-workflows-without-types %}
-
-{% data reusables.issues.status-changed-editor-validation %}
 
 To match one status, use its ID. You can find the ID of a status in the `status` object of a `status_changed` payload. For example, if the ID of the In review status is `8`, the following workflow runs when an issue moves to In review.
 

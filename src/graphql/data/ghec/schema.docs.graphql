@@ -59243,6 +59243,11 @@ enum RepositoryRuleType {
   TAG_NAME_PATTERN
 
   """
+  The rule type is unavailable in the current schema. This value cannot be used to create or update a rule.
+  """
+  UNKNOWN
+
+  """
   Only allow users with bypass permission to update matching refs.
   """
   UPDATE

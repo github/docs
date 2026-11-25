@@ -9646,6 +9646,10 @@
           "description": "<p>Tag name pattern.</p>"
         },
         {
+          "name": "UNKNOWN",
+          "description": "<p>The rule type is unavailable in the current schema. This value cannot be used to create or update a rule.</p>"
+        },
+        {
           "name": "UPDATE",
           "description": "<p>Only allow users with bypass permission to update matching refs.</p>"
         },

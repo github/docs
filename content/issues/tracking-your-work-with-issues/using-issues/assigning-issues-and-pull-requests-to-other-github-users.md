@@ -29,6 +29,12 @@ You may also be able to assign {% data variables.product.prodname_copilot_short 
 
 Both issues and pull requests support up to 10 assignees.
 
+{% ifversion issue-statuses %}
+
+Assigning someone to an issue can also change its status, for example from Backlog to Todo. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/learning-about-issues/about-issue-statuses#automatic-status-changes).
+
+{% endif %}
+
 ## Assigning an individual issue or pull request
 
 {% data reusables.repositories.navigate-to-repo %}

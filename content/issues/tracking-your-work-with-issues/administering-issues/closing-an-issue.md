@@ -16,6 +16,12 @@ category:
 > [!NOTE]
 > You can also close issues automatically with keywords in pull requests and commit messages. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword).
 
+{% ifversion issue-statuses %}
+
+Closing an issue also sets its status to Done, Not planned, or Duplicate, depending on the reason you choose. You can also close an issue by choosing one of these statuses. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/learning-about-issues/about-issue-statuses).
+
+{% endif %}
+
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issues %}
 1. In the list of issues, click the issue you'd like to close.

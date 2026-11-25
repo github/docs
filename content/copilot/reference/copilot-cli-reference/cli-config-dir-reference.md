@@ -414,6 +414,8 @@ For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-cop
 
 Store user-level extension files here. Extensions in this directory are available across sessions.
 
+The `extensions.enabled` setting controls whether extensions are enabled or disabled. Enabling extensions loads them and lets the agent manage them, subject to activation, trust, and permission requirements. Previous **Load Only** settings migrate to disabled, and the CLI displays a one-time notice.
+
 You can create files in this directory manually, or scaffold an extension and then edit the generated file.
 
 ## Automatically managed files

@@ -1,0 +1,5 @@
+# Reference: github/issues#25084
+# Searching issues by status with the `status`, `category`, `has:status`, and `no:status` qualifiers, in preview.
+versions:
+  fpt: '*'
+  ghec: '*'
