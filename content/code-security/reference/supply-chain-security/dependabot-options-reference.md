@@ -932,7 +932,7 @@ In this example, {% data variables.product.prodname_dependabot %} will ignore th
 
 ## `vendor` {% octicon "versions" aria-label="Version updates" height="24" %} {% octicon "shield-check" aria-label="Security updates" height="24" %}
 
-Supported by: `bundler` and `gomod` only.
+Supported by: `bundler` only. Vendored modules are automatically detected for `gomod`.
 
 Tell {% data variables.product.prodname_dependabot %} to maintain your vendored dependencies as well as the dependencies defined by manifest files. A dependency is described as "vendored" or "cached" when you store the code within your repository, see [`bundle cache` documentation](https://bundler.io/man/bundle-cache.1.html) and [`go mod vendor` documentation](https://golang.org/ref/mod#go-mod-vendor).
 

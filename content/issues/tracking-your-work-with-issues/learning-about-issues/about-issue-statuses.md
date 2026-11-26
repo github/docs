@@ -40,7 +40,7 @@ In search, use `not-planned` for the `not_planned` category.
 
 You can set an issue's status in any of these ways:
 
-* **When creating an issue**: Next to the title field, select the status dropdown, then choose a status.
+* **When creating an issue**: Next to the title field, select the status dropdown, then choose a status. In the "Create new issue" dialog, the status dropdown is below the description.
 * **On an existing issue**: Below the issue's title, select the status dropdown, then choose a status.
 * **In a project**: Move the issue's item to a different **Status** option. For example, in a board view grouped by **Status**, drag the item to the column for the status you want. The option's name must match an issue status, and status sync must be enabled for the project. For more information, see [Syncing statuses with projects](#syncing-statuses-with-projects), later in this article.
 

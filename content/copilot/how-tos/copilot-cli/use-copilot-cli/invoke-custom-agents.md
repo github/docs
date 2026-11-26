@@ -18,7 +18,7 @@ docsTeamMetrics:
 
 A {% data variables.copilot.copilot_custom_agent_short %} is a specialized version of {% data variables.product.prodname_copilot_short %}. {% data variables.copilot.custom_agents_caps_short %} help {% data variables.product.prodname_copilot_short %} handle unique workflows, particular coding conventions, and specialist use cases.
 
-{% data variables.copilot.copilot_cli_short %} includes a default group of {% data variables.copilot.custom_agents_short %} for common tasks:
+{% data variables.copilot.copilot_cli_short %} includes built-in agents for common tasks, such as:
 
 <table>
   <thead>
@@ -47,7 +47,7 @@ A {% data variables.copilot.copilot_custom_agent_short %} is a specialized versi
   </tbody>
 </table>
 
-The AI model being used by the CLI can choose to delegate a task to a subsidiary subagent process, that operates using a {% data variables.copilot.copilot_custom_agent_short %} with specific expertise, if it judges that this would result in the work being completed more effectively. The model may equally choose to handle the work directly in the main agent.
+The AI model being used by the CLI can choose to delegate a task to a subsidiary subagent process that uses an agent with specific expertise, if it judges that this would result in the work being completed more effectively. The model may equally choose to handle the work directly in the main agent.
 
 You can define your own {% data variables.copilot.custom_agents_short %} using Markdown files, called {% data variables.copilot.agent_profiles %}, that specify what expertise the agent should have, what tools it can use, and any specific instructions for how it should respond.
 
@@ -60,7 +60,7 @@ You can define {% data variables.copilot.custom_agents_short %} at the user, rep
 | Organization-level {% data variables.copilot.copilot_custom_agent_short %} | `/agents` directory in the organization's `.github` or `.github-private` repository | All projects within the organization |
 | Enterprise-level {% data variables.copilot.copilot_custom_agent_short %} | `/agents` directory in the `.github-private` repository of an organization designated in enterprise settings. For more information, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/prepare-for-custom-agents). | All projects under the enterprise account |
 
-In the case of naming conflicts (where agents share the same filename), a user-level agent overrides a repository-level agent, a repository-level agent overrides an organization-level agent, and an organization-level agent overrides an enterprise-level agent.
+In the case of naming conflicts (where agents share the same ID), a user-level agent overrides a repository-level agent, a repository-level agent overrides an organization-level agent, and an organization-level agent overrides an enterprise-level agent.
 
 {% data variables.copilot.custom_agents_caps_short %} can be used in three ways:
 
@@ -76,7 +76,7 @@ In the case of naming conflicts (where agents share the same filename), a user-l
   Use the refactoring agent to refactor this code block
   ```
 
-  {% data variables.product.prodname_copilot_short %} will automatically infer the agent you want to use.
+  {% data variables.product.prodname_copilot_short %} will typically infer and use the agent you want.
 
 * Specifying the {% data variables.copilot.copilot_custom_agent_short %} you want to use with the command-line option. For example:
 
@@ -94,7 +94,7 @@ For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-cop
 
 ## Add an MCP server
 
-{% data variables.copilot.copilot_cli_short %} comes with the {% data variables.product.github %} MCP server already configured. This MCP server allows you to interact with resources on {% data variables.product.prodname_dotcom_the_website %}—for example, allowing you to merge pull requests from the CLI.
+{% data variables.copilot.copilot_cli_short %} comes with the {% data variables.product.github %} MCP server already configured. By default, this server provides read-only access to resources on {% data variables.product.prodname_dotcom_the_website %}, such as file contents in a repository.
 
 To extend the functionality available to you in {% data variables.copilot.copilot_cli_short %}, you can add more MCP servers:
 
