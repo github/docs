@@ -140,7 +140,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["pypy3.10", "3.9", "3.10", "3.11", "3.12", "3.13"]
+        python-version: ["pypy3.10", "3.10", "3.11", "3.12", "3.13", "3.14"]
 
     steps:
       - uses: {% data reusables.actions.action-checkout %}
@@ -184,7 +184,7 @@ jobs:
 
 ### Excluding a version
 
-If you specify a version of Python that is not available, `setup-python` fails with an error such as: `##[error]Version 3.7 with arch x64 not found`. The error message includes the available versions.
+If you specify a version of Python that is not available, `setup-python` fails with an error such as `The version '3.9' with architecture 'x64' was not found for Ubuntu 26.04.` The error message includes a link to the list of available versions.
 
 You can also use the `exclude` keyword in your workflow if there is a configuration of Python that you do not wish to run. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idstrategy).
 
@@ -200,7 +200,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        python-version: ["3.9", "3.11", "3.13", "pypy3.10"]
+        python-version: ["3.11", "3.13", "3.14", "pypy3.10"]
         exclude:
           - os: macos-latest
             python-version: "3.11"
@@ -342,7 +342,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python: ["3.9", "3.11", "3.13"]
+        python: ["3.11", "3.13", "3.14"]
 
     steps:
       - uses: {% data reusables.actions.action-checkout %}
@@ -374,7 +374,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["3.9", "3.10", "3.11", "3.12", "3.13"]
+        python-version: ["3.10", "3.11", "3.12", "3.13", "3.14"]
 
     steps:
       - uses: {% data reusables.actions.action-checkout %}
