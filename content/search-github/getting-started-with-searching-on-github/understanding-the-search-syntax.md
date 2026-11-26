@@ -1,4 +1,4 @@
----
+content/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax.md---
 title: Understanding the search syntax
 intro: 'When searching {% data variables.product.github %}, you can construct queries that match specific numbers and words.'
 redirect_from:
