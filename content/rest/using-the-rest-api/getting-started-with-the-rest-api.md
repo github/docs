@@ -624,7 +624,7 @@ try {
     per_page: 2,
   });
 
-  const titleAndAuthor = result.data.map(issue => {title: issue.title, authorID: issue.user.id})
+  const titleAndAuthor = result.data.map(issue => ({ title: issue.title, authorID: issue.user.id }))
 
   console.log(titleAndAuthor)
 
