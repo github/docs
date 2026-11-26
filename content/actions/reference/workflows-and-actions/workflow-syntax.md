@@ -305,6 +305,10 @@ jobs:
 
 A string identifier to associate with the secret.
 
+## `on.workflow_call.secrets.<secret_id>.description`
+
+A string description of the secret parameter.
+
 ## `on.workflow_call.secrets.<secret_id>.required`
 
 A boolean specifying whether the secret must be supplied.
