@@ -1,7 +1,7 @@
 name: Add persona-labeled issues and PRs to Docs Content Review Board
 
 # When the builder persona or driver persona label is added to an issue or PR
-# in github/docs, add it to the Docs Content Review Board project.
+# in github/docs, add it to the Docs Content Review Board project and thank the contributor.
 
 on:
   issues:
@@ -19,6 +19,13 @@ jobs:
     if: >-
       github.repository == 'github/docs' &&
       (github.event.label.name == 'builder persona' || github.event.label.name == 'driver persona')
+    permissions:
+      issues: write
+      pull-requests: write
+    # Serialize runs per item so adding both persona labels posts only one comment.
+    concurrency:
+      group: persona-review-board-${{ github.event.issue.number || github.event.pull_request.number }}
+      cancel-in-progress: false
     steps:
       - name: Add item to project
         env:
@@ -28,3 +35,19 @@ jobs:
         run: |
           echo "Adding $ITEM_URL to project $PROJECT_NUMBER..."
           gh project item-add "$PROJECT_NUMBER" --owner github --url "$ITEM_URL"
+
+      - name: Thank the contributor
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          NUMBER: ${{ github.event.issue.number || github.event.pull_request.number }}
+          AUTHOR: ${{ github.event.issue.user.login || github.event.pull_request.user.login }}
+        run: |
+          existing=$(gh api --paginate "repos/$REPO/issues/$NUMBER/comments" \
+            --jq '.[] | select(.user.login == "github-actions[bot]" and (.body | startswith("Thanks for your submission,"))) | .id')
+          if [ -n "$existing" ]; then
+            echo "Thank-you comment already posted, skipping."
+            exit 0
+          fi
+          gh api "repos/$REPO/issues/$NUMBER/comments" \
+            -f body="Thanks for your submission, @$AUTHOR! We've marked this for review by the appropriate team."

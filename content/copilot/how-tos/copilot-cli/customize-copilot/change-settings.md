@@ -17,11 +17,11 @@ You can use the `/settings` slash command to view and change your settings from 
 
 Use `/settings` to:
 
-* **Browse and edit settings interactively** — Run `/settings` on its own to open a searchable editor that lists every setting with a description and its current value.
+* **Browse and edit settings interactively** — Run `/settings` on its own to open a searchable editor that lists settings with a description and their current values.
 * **Change a setting with a single command** — Run `/settings KEY VALUE` to change a particular setting without opening the editor.
 * **Check a setting's value** — Run `/settings show KEY` to display the current value of a setting.
 
-Changes you make with `/settings`, `/config KEY VALUE`, or `/config unset KEY` are written to your personal settings file (by default, `~/.copilot/settings.json`) and persist across sessions.
+By default, changes you make with `/settings`, `/config KEY VALUE`, or `/config unset KEY` are written to your personal settings file and persist across sessions. The default file is `~/.copilot/settings.json`.
 
 ## Opening the settings editor
 
@@ -31,7 +31,7 @@ To browse and edit settings interactively, enter the slash command with no argum
 /settings
 ```
 
-The editor lists every setting you can change, and the setting's current value. As you move up or down through the list, a short description of the highlighted setting is shown at the bottom of the editor. This allows you to browse and edit settings without needing to know their exact names.
+The editor lists settings and their current values. As you move up or down through the list, a short description of the highlighted setting is shown at the bottom of the editor. This allows you to browse and edit settings without needing to know their exact names.
 
 For more information about the available settings, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-config-dir-reference#user-settings-copilotsettingsjson).
 
@@ -128,15 +128,13 @@ This outputs a line such as `theme = high-contrast`. The `show` form is useful f
 
 Most settings apply right away, but a few only take full effect after {% data variables.copilot.copilot_cli_short %} restarts—for example, `experimental` and the proxy settings. When you change one of these, {% data variables.product.prodname_copilot_short %} tells you a restart is needed, and may restart the session for you.
 
-## Settings you can't change from the command line
+## Restrictions when changing settings from the command line
 
-Not every setting is editable through the inline `/settings KEY VALUE` method:
+The inline `/settings KEY VALUE` method has the following restrictions:
 
 * **Security-sensitive settings**—such as those that change how credentials are stored or that run a shell command—are deliberately excluded, because flipping them in a single line with no confirmation is risky.
 * **List and structured settings** can't be set inline. Enter `/settings` then press <kbd>Ctrl</kbd>+<kbd>E</kbd> to open `settings.json` in your configured terminal editor, then edit the setting there.
-* **Settings managed by your repository or organization** are shown for reference, but their values come from those sources and override your personal value. Changing them in your user settings has no effect.
-
-In each of these cases, {% data variables.product.prodname_copilot_short %} explains why the change wasn't applied and points you to the right place to make it.
+* **Settings set by your repository or organization** can override or combine with your personal values, depending on the setting.
 
 ## Commands replaced by `/settings`
 

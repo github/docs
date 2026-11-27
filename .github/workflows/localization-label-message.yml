@@ -1,0 +1,39 @@
+name: Localization label message
+
+# When the localization label is added to an issue or PR in github/docs,
+# explain that we don't accept changes to translated files.
+
+on:
+  issues:
+    types: [labeled]
+  pull_request_target:
+    types: [labeled]
+
+permissions:
+  contents: read
+
+jobs:
+  comment:
+    concurrency:
+      group: localization-label-message-${{ github.repository }}-${{ github.event.issue.number || github.event.pull_request.number }}
+      cancel-in-progress: false
+    name: Comment with localization message
+    runs-on: ubuntu-latest
+    if: github.repository == 'github/docs' && github.event.label.name == 'localization'
+    permissions:
+      issues: write
+    steps:
+      - name: Comment on issue or PR
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          NUMBER: ${{ github.event.issue.number || github.event.pull_request.number }}
+        run: |
+          existing=$(gh api --paginate "repos/$REPO/issues/$NUMBER/comments" \
+            --jq '.[] | select(.user.login == "github-actions[bot]" and (.body | contains("changes to our translated files"))) | .id')
+          if [ -n "$existing" ]; then
+            echo "Localization comment already posted, skipping."
+            exit 0
+          fi
+          gh api "repos/$REPO/issues/$NUMBER/comments" \
+            -f body="Thanks for reaching out! We don't accept changes to our translated files as we use an internal, automated solution for translations. We will flag your request for our team. :yellow_heart:"

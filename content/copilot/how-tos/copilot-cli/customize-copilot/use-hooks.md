@@ -22,15 +22,21 @@ docsTeamMetrics:
 
 ## Creating a repository-level hook
 
+If you use the `sessionStart` example below, create a `logs` directory in the root of the repository.
+
 1. Create a new `NAME.json` file (where `NAME` describes the purpose of the file) in the `.github/hooks/` folder of your repository.
 
 {% data reusables.copilot.cloud-agent.create-hooks-instructions %}
+
+1. Start or restart {% data variables.copilot.copilot_cli_short %} in a trusted repository to load the hook. You don't need to commit or merge the file for the hook to run locally.
 
 ## Creating a user-level hook
 
 User-level hooks are configured just like repository-level hooks, but the hook files are stored locally, below your home directory.
 
 The following examples for macOS and Windows show how to configure hooks that will play a sound and display a message box when the CLI finishes responding to a prompt, and when you quit {% data variables.copilot.copilot_cli_short %}. Hooks for Linux would be similar to the macOS example, but would use Linux tools for playing sounds and displaying messages.
+
+When you quit the CLI, the `sessionEnd` hooks for a session share a 1.5-second limit, even if `timeoutSec` is longer. After deleting a user-level hook file, restart the CLI. Hooks can continue to run in sessions that loaded the file, including as the session ends.
 
 ### User-level example for macOS
 
@@ -100,7 +106,23 @@ The following examples for macOS and Windows show how to configure hooks that wi
 
 ## Troubleshooting
 
+> [!WARNING]
+> The debugging example below logs the full hook input, which can include sensitive data. Remove `set -x` and `echo "$INPUT" >&2` before using it with sensitive input.
+
 {% data reusables.copilot.cloud-agent.troubleshoot-hooks %}
+
+* **Test hooks locally** by piping test input into your hook to validate its behavior:
+
+  ```shell copy
+  # Create test input
+  echo '{"timestamp":1704614400000,"cwd":"/tmp","toolName":"bash","toolArgs":{"command":"ls"}}' | ./my-hook.sh
+
+  # Check exit code
+  echo $?
+
+  # Validate output is valid JSON
+  ./my-hook.sh | jq .
+  ```
 
 ## Troubleshooting sandboxed hooks
 

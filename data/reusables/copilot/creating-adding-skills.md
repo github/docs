@@ -64,7 +64,7 @@ To create a skill that runs a script:
    └── convert-svg-to-png.sh
    ```
 
-1. **Optionally pre-approve the tools the skill needs.** In your `SKILL.md` frontmatter, you can use the `allowed-tools` field to list the tools {% data variables.product.prodname_copilot_short %} may use without asking for confirmation each time. If a tool is not listed in the `allowed-tools` field, {% data variables.product.prodname_copilot_short %} will prompt you for permission before using it.
+1. **Optionally pre-approve the tools the skill needs.** In your `SKILL.md` frontmatter, you can use the `allowed-tools` field to list the tools {% data variables.product.prodname_copilot_short %} may use without asking for confirmation each time. If a tool is not listed in the `allowed-tools` field, {% data variables.product.prodname_copilot_short %} will prompt you for permission before using it, except in {% data variables.copilot.copilot_cli_short %}, where existing permission settings or approvals can allow the tool without a prompt.
 
    ```markdown
    ---
@@ -75,7 +75,7 @@ To create a skill that runs a script:
    ```
 
    > [!WARNING]
-   > Only pre-approve the `shell` or `bash` tools if you have reviewed this skill and any referenced scripts, and you fully trust their source. Pre-approving `shell` or `bash` removes the confirmation step for running terminal commands and can allow attacker-controlled skills or prompt injections to execute arbitrary commands in your environment. When in doubt, omit `shell` and `bash` from `allowed-tools` so that {% data variables.product.prodname_copilot_short %} must ask for your explicit confirmation before running terminal commands.
+   > Only pre-approve the `shell` or `bash` tools if you have reviewed this skill and any referenced scripts, and you fully trust their source. Pre-approving `shell` or `bash` removes the confirmation step for running terminal commands and can allow attacker-controlled skills or prompt injections to execute arbitrary commands in your environment. When in doubt, omit `shell` and `bash` from `allowed-tools`. In {% data variables.copilot.copilot_cli_short %}, existing permission settings or approvals can still allow these tools without a prompt.
 
 1. **Write instructions that tell {% data variables.product.prodname_copilot_short %} how to use the script.** In the Markdown body of `SKILL.md`, describe when and how to run the script.
 
