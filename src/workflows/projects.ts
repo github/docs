@@ -253,106 +253,61 @@ export function generateUpdateProjectV2ItemFieldMutation({
   const datePosted = new Date()
   const dueDate = calculateDueDate(datePosted, turnaround)
 
-  // Build the mutation to update a single project field
-  // Specify literal=true to indicate that the value should be used as a string, not a variable
-  function generateMutationToUpdateField({
-    item: itemId,
-    fieldID,
-    value,
-    fieldType,
-    literal = false,
-  }: {
-    item: string
-    fieldID: string
-    value: string
-    fieldType: string
-    literal?: boolean
-  }) {
-    const parsedValue = literal ? `${fieldType}: "${value}"` : `${fieldType}: ${value}`
-
-    // Strip all non-alphanumeric out of the item ID when creating the mutation ID to avoid a GraphQL parsing error
-    // (statistically, this should still give us a unique mutation ID)
+  // Only fixed field names and variable references belong in the mutation document.
+  function generateMutationToUpdateField(fieldID: string, fieldType: string, value: string) {
     return `
-      set_${fieldID.slice(1)}_item_${itemId.replaceAll(
-        /[^a-z0-9]/g,
-        '',
-      )}: updateProjectV2ItemFieldValue(input: {
+      set_${fieldID}: updateProjectV2ItemFieldValue(input: {
         projectId: $project
-        itemId: "${itemId}"
-        fieldId: ${fieldID}
-        value: { ${parsedValue} }
+        itemId: $item
+        fieldId: $${fieldID}
+        value: { ${fieldType}: $${value} }
       }) {
-      projectV2Item {
-        id
+        projectV2Item {
+          id
+        }
       }
-    }
     `
   }
 
   const mutation = `
     mutation(
       $project: ID!
+      $item: ID!
       $statusID: ID!
       $statusValueID: String!
       $datePostedID: ID!
+      $datePosted: Date!
       $reviewDueDateID: ID!
+      $reviewDueDate: Date!
       $contributorTypeID: ID!
       $contributorType: String!
       $sizeTypeID: ID!
       $sizeType: String!
       $featureID: ID!
+      $feature: String!
       $authorID: ID!
+      $author: String!
     ) {
-      ${generateMutationToUpdateField({
-        item,
-        fieldID: '$statusID',
-        value: '$statusValueID',
-        fieldType: 'singleSelectOptionId',
-      })}
-      ${generateMutationToUpdateField({
-        item,
-        fieldID: '$datePostedID',
-        value: formatDateForProject(datePosted),
-        fieldType: 'date',
-        literal: true,
-      })}
-      ${generateMutationToUpdateField({
-        item,
-        fieldID: '$reviewDueDateID',
-        value: formatDateForProject(dueDate),
-        fieldType: 'date',
-        literal: true,
-      })}
-      ${generateMutationToUpdateField({
-        item,
-        fieldID: '$contributorTypeID',
-        value: '$contributorType',
-        fieldType: 'singleSelectOptionId',
-      })}
-      ${generateMutationToUpdateField({
-        item,
-        fieldID: '$sizeTypeID',
-        value: '$sizeType',
-        fieldType: 'singleSelectOptionId',
-      })}
-      ${generateMutationToUpdateField({
-        item,
-        fieldID: '$featureID',
-        value: feature,
-        fieldType: 'text',
-        literal: true,
-      })}
-      ${generateMutationToUpdateField({
-        item,
-        fieldID: '$authorID',
-        value: author,
-        fieldType: 'text',
-        literal: true,
-      })}
-      }
-    `
+      ${generateMutationToUpdateField('statusID', 'singleSelectOptionId', 'statusValueID')}
+      ${generateMutationToUpdateField('datePostedID', 'date', 'datePosted')}
+      ${generateMutationToUpdateField('reviewDueDateID', 'date', 'reviewDueDate')}
+      ${generateMutationToUpdateField('contributorTypeID', 'singleSelectOptionId', 'contributorType')}
+      ${generateMutationToUpdateField('sizeTypeID', 'singleSelectOptionId', 'sizeType')}
+      ${generateMutationToUpdateField('featureID', 'text', 'feature')}
+      ${generateMutationToUpdateField('authorID', 'text', 'author')}
+    }
+  `
 
-  return mutation
+  return {
+    mutation,
+    variables: {
+      item,
+      datePosted: formatDateForProject(datePosted),
+      reviewDueDate: formatDateForProject(dueDate),
+      feature,
+      author,
+    },
+  }
 }
 
 // Guess the affected docs sets based on the files that the PR changed

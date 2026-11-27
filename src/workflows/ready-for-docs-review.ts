@@ -236,7 +236,7 @@ async function run() {
   )
 
   // Generate a mutation to populate fields for the new project item
-  const updateProjectV2ItemMutation = generateUpdateProjectV2ItemFieldMutation({
+  const { mutation, variables } = generateUpdateProjectV2ItemFieldMutation({
     item: newItemID,
     author: authorFieldValue,
     turnaround,
@@ -261,7 +261,8 @@ async function run() {
 
   console.log(`Populating fields for item: ${newItemID}`)
 
-  await graphql(updateProjectV2ItemMutation, {
+  await graphql(mutation, {
+    ...variables,
     project: projectID,
     statusID,
     statusValueID: readyForReviewID,

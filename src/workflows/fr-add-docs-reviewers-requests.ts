@@ -228,7 +228,7 @@ async function run() {
   // Populate fields for the new project items
   // (Using for...of instead of forEach since the function uses await)
   for (const [index, itemID] of newItemIDs.entries()) {
-    const updateProjectV2ItemMutation = generateUpdateProjectV2ItemFieldMutation({
+    const { mutation, variables } = generateUpdateProjectV2ItemFieldMutation({
       item: itemID,
       author: newItemAuthors[index],
       turnaround: 2,
@@ -239,7 +239,8 @@ async function run() {
       : hubberTypeID
     console.log(`Populating fields for item: ${itemID} with author ${newItemAuthors[index]}`)
 
-    await graphql(updateProjectV2ItemMutation, {
+    await graphql(mutation, {
+      ...variables,
       project: projectID,
       statusID,
       statusValueID: readyForReviewID,
