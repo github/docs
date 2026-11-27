@@ -31,7 +31,7 @@ To access the list of community contributors, visit `https://github.com/REPO-OWN
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.accessing-repository-graphs %}
 1. In the left sidebar, click **Contributors**.
-1. Optionally, to view contributors during a specific time period, to the right of "Contributors," click **Period: All**. Then select a time period.
+1. Optionally, to view contributors during a specific time period, to the right of "Contributors," click the **Period** button (for example, **Period: Last 3 months**). Then select a time period.
 {% data reusables.repositories.repositories-insights-graphs-download-steps %}
 
 ## Troubleshooting contributors
