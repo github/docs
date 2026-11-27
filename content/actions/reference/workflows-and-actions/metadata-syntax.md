@@ -162,7 +162,6 @@ runs:
 
 **Required** The runtime used to execute the code specified in [`main`](#runsmain).
 
-* Use `node20` for Node.js v20.
 * Use `node24` for Node.js v24.
 
 ### `runs.main`
