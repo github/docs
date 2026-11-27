@@ -69,6 +69,22 @@ This restriction applies only to checks created by workflow jobs, not to checks 
 
 Merge queues require the separate `merge_group` event. See [Status checks with {% data variables.product.prodname_actions %} and a Merge queue](#status-checks-with-github-actions-and-a-merge-queue).
 
+## Check runs created with `GITHUB_TOKEN` stay "Expected"
+
+A required check can show as "Expected" and "Waiting for status to be reported" in the merge box, even though the check run completed successfully on the head commit. This can happen when the `GITHUB_TOKEN` is used in a workflow to make an explicit call to the REST API to create a check run. See [AUTOTITLE](/rest/checks/runs).
+
+{% data variables.product.prodname_actions %} creates a separate check suite for each workflow run, and you can't choose a check suite when you create a check run. A check run created this way can be added to any existing {% data variables.product.prodname_actions %} check suite on the commit, not necessarily the one for the workflow run that created it.
+
+This matters because required status checks only evaluate the latest check suite for each workflow. If the check run is attached to an older workflow run, and the same workflow has a newer run on the commit, the check run doesn't count toward the requirement. It can still appear as successful when you list check runs for the commit with the REST API.
+
+We recommend that you don't use the `GITHUB_TOKEN` to create check runs manually with the API. Instead, use one of these approaches:
+
+* Report the result as a commit status. Commit statuses aren't part of a check suite, and you can create them with the `GITHUB_TOKEN` when the workflow has the `statuses: write` permission. See [AUTOTITLE](/rest/commits/statuses).
+* Create the check run with a {% data variables.product.prodname_github_app %} token instead of the `GITHUB_TOKEN`. See [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/making-authenticated-api-requests-with-a-github-app-in-a-github-actions-workflow).
+* Create the check run through a job. Every job in a workflow run creates its own check run automatically, in the correct check suite. Put the logic for your check in a dedicated job, and require that job's check.
+
+If you change the source of a required check, make sure your ruleset or branch protection rule expects the new source. See [Required status checks from unexpected sources](#required-status-checks-from-unexpected-sources).
+
 ## Handling skipped but required checks
 
 | Cause | Result | How to fix or check |

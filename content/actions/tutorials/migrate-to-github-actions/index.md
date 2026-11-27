@@ -12,6 +12,7 @@ redirect_from:
   - /actions/how-tos/migrating-to-github-actions
   - /actions/tutorials/migrating-to-github-actions
 children:
+  - /migrate-an-enterprise
   - /automated-migrations
   - /manual-migrations
 contentType: tutorials

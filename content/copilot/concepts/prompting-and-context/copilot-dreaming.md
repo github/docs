@@ -56,8 +56,7 @@ Code review customization does not currently support self-hosted runners.
 
 All capabilities require an eligible {% data variables.product.prodname_copilot_short %} subscription and permission under applicable enterprise and organization policies. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/copilot-memory/manage-as-administrator#enabling-copilot-dreaming).
 
-> [!IMPORTANT]
-> Before enabling {% data variables.copilot.copilot_dreaming %}, complete the prerequisites shown in the table for the capabilities you want to use. If {% data variables.copilot.copilot_dreaming_short %} is already enabled when you complete additional prerequisites, turn {% data variables.copilot.copilot_dreaming %} off and on again using the setting that controls the affected personal memories or repositories. Completing the prerequisites alone does not activate additional capabilities.
+For organization-owned repositories with {% data variables.copilot.copilot_dreaming_short %} enabled, {% data variables.product.github %} rechecks eligibility when you enable a policy for cloud session storage, {% data variables.copilot.copilot_code-review_short %}, or its preview features, or grant repository access to {% data variables.copilot.copilot_memory_short %}.
 
 Each {% data variables.copilot.copilot_dreaming_short %} setting enables the capabilities whose prerequisites are met within its scope. For repositories, this can include both repository customization and code review customization. You cannot switch these capabilities on or off individually.
 
