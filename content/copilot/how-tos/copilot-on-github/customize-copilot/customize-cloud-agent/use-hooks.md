@@ -23,9 +23,27 @@ redirect_from:
 
 {% data reusables.copilot.cloud-agent.create-hooks-instructions %}
 
+1. Commit the file to the repository and merge it into the default branch. Your hooks will now run during agent sessions.
+
 ## Troubleshooting
 
 {% data reusables.copilot.cloud-agent.troubleshoot-hooks %}
+
+* **Test hooks locally** by piping test input into your hook to validate its behavior:
+
+  > [!WARNING]
+  > Hook input can include sensitive data (for example, prompts, tool arguments, or credentials). Use sanitized test payloads, avoid real secrets, and remove or redact any temporary full-input logging after debugging.
+
+  ```shell copy
+  # Create test input
+  echo '{"timestamp":1704614400000,"cwd":"/tmp","toolName":"bash","toolArgs":"{\"command\":\"ls\"}"}' | ./my-hook.sh
+
+  # Check exit code
+  echo $?
+
+  # Validate output is valid JSON
+  ./my-hook.sh | jq .
+  ```
 
 ## Further reading
 

@@ -20,16 +20,3 @@ You can debug hooks using the following methods:
   echo "$INPUT" >&2
   # ... rest of script
   ```
-
-* **Test hooks locally** by piping test input into your hook to validate its behavior:
-
-  ```shell copy
-  # Create test input
-  echo '{"timestamp":1704614400000,"cwd":"/tmp","toolName":"bash","toolArgs":"{\"command\":\"ls\"}"}' | ./my-hook.sh
-
-  # Check exit code
-  echo $?
-
-  # Validate output is valid JSON
-  ./my-hook.sh | jq .
-  ```

@@ -50,5 +50,3 @@
      ```
 
      For a full reference on the input JSON from agent sessions along with sample scripts, see [AUTOTITLE](/copilot/reference/hooks-reference).
-
-1. Commit the file to the repository and merge it into the default branch. Your hooks will now run during agent sessions.

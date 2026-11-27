@@ -66,6 +66,9 @@ Referenced files must remain within the repository, or within the custom instruc
 
 {% data reusables.copilot.custom-instructions-path %}
 
+> [!NOTE]
+> Path-specific instruction files with `excludeAgent: "cloud-agent"` are also ignored by {% data variables.copilot.copilot_cli_short %}.
+
 ## Custom instructions in use
 
 Changes you make to custom instructions files are not immediately available for use in active CLI sessions. To apply your changes, exit the current session and then either resume it (for example, run `copilot --continue`), or start a new session (for example, use `/new` from within an interactive session).

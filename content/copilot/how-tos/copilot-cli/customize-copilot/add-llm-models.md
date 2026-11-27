@@ -57,7 +57,7 @@ The CLI saves the model details to the `providers.json` file so it is available 
 
 ## Manually adding a model provider configuration
 
-To use a model provider other than Ollama, you need to manually add the provider details to the `providers.json` file.
+To use a model provider other than Ollama, you can manually add the provider details to the `providers.json` file.
 
 ### Prerequisite
 

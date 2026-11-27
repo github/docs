@@ -125,7 +125,7 @@ copilot mcp add --transport http \
 
 ### Editing the configuration file
 
-You can also add MCP servers by editing the configuration file at `~/.copilot/mcp-config.json`. This is useful if you want to share configurations or add multiple servers at once.
+You can also add MCP servers by editing the configuration file at `~/.copilot/mcp-config.json`. This is useful if you want to share configurations or add multiple servers at once. Remove credentials entered directly in the file before sharing it.
 
 The following example shows a configuration file with a local server and a remote HTTP server:
 
@@ -156,6 +156,9 @@ For more information on MCP server configuration, see [AUTOTITLE](/copilot/how-t
 ### Adding per-repository MCP servers
 
 You can configure MCP servers for a specific project by adding a JSON file to the repository. This is useful when you want servers to be available only when working in that project, or when you want to share an MCP setup with collaborators by committing it to the repository.
+
+> [!WARNING]
+> Do not commit credentials in a project-level MCP configuration. Set credentials as environment variables and reference them in the configuration, for example `${VAR}`.
 
 {% data variables.copilot.copilot_cli_short %} looks for project-level configuration in the following locations:
 
@@ -224,11 +227,11 @@ You can manage your configured MCP servers using the `/mcp` commands in interact
 
 * **List configured MCP servers:** Use the command `/mcp`. This opens the plugins dashboard showing all configured MCP servers and their current status. Use `/mcp list` to print the same information as plain text.
 
-* **View details about a specific server:** Use the command `/mcp show SERVER-NAME`. This displays the status of the specified server and the list of tools it provides.
+* **View details about a specific server:** Use the command `/mcp get SERVER-NAME`. This displays the status of the specified server and the list of tools it provides.
 
 * **Edit a server's configuration:** Use the command `/mcp edit SERVER-NAME`.
 
-* **Delete a server:** Use the command `/mcp delete SERVER-NAME`.
+* **Delete a server:** Use the command `/mcp remove SERVER-NAME`.
 
 * **Disable a server:** Use the command `/mcp disable SERVER-NAME`. A disabled server remains configured but is not used by {% data variables.product.prodname_copilot_short %}. This setting persists across sessions.
 
