@@ -30,6 +30,9 @@ category:
 
 ## Configuring content exclusion for your repository
 
+> [!NOTE]
+> Repository-level content exclusion is available only for repositories owned by an organization with {% data variables.product.prodname_copilot_short %} enabled—not personal repositories, even if their owner has an organization-provided {% data variables.product.prodname_copilot_short %} seat.
+
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 
