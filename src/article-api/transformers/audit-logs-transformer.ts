@@ -3,7 +3,6 @@ import type { PageTransformer } from './types'
 import type { CategorizedEvents } from '@/audit-logs/types'
 import { renderContent } from '@/content-render/index'
 import { loadTemplate } from '@/article-api/lib/load-template'
-import matter from '@gr2m/gray-matter'
 
 /**
  * Transformer for Audit Logs pages
@@ -46,18 +45,12 @@ export class AuditLogsTransformer implements PageTransformer {
         '<!-- Content after this section is automatically generated -->',
       )
       if (markerIndex > 0) {
-        const { content } = matter(page.markdown)
-        const manualContentMarkerIndex = content.indexOf(
-          '<!-- Content after this section is automatically generated -->',
-        )
-        if (manualContentMarkerIndex > 0) {
-          const rawManualContent = content.substring(0, manualContentMarkerIndex).trim()
-          if (rawManualContent) {
-            manualContent = await renderContent(rawManualContent, {
-              ...context,
-              markdownRequested: true,
-            })
-          }
+        const rawManualContent = page.markdown.substring(0, markerIndex).trim()
+        if (rawManualContent) {
+          manualContent = await renderContent(rawManualContent, {
+            ...context,
+            markdownRequested: true,
+          })
         }
       }
     }
