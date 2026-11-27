@@ -32,6 +32,37 @@ describe('frontmatter', () => {
     test('is exported', () => {
       expect(typeof parse.stringify).toBe('function')
     })
+
+    test('rejects JavaScript frontmatter when given a string', () => {
+      expect(() => parse.stringify('---js\n{"title":"Example"}\n---\nBody', {})).toThrow(
+        'JavaScript frontmatter is not supported',
+      )
+    })
+  })
+
+  test.each(['javascript', 'js', ' JAVASCRIPT ', ' Js '])(
+    'rejects the %j frontmatter language',
+    (language) => {
+      const { data, errors } = parse(`\uFEFF---${language}\r\n{"title":"Example"}\r\n---\r\nBody`, {
+        filepath,
+      })
+      expect(data).toBeUndefined()
+      expect(errors).toEqual([
+        {
+          filepath,
+          message: 'YML parsing error!',
+          reason: 'JavaScript frontmatter is not supported',
+        },
+      ])
+    },
+  )
+
+  test.each(['yaml', 'yml', 'json'])('still parses explicit %s frontmatter', (language) => {
+    expect(parse(`---${language}\n{"title":"Example"}\n---\nBody`)).toEqual({
+      data: { title: 'Example' },
+      content: 'Body',
+      errors: [],
+    })
   })
 
   describe('YML parsing errors', () => {

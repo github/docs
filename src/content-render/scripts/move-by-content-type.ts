@@ -127,7 +127,8 @@ program
 
         // Read and validate contentType
         const fileContent = await fs.readFile(filePath, 'utf-8')
-        const { data } = readFrontmatter(fileContent)
+        const { data, errors } = readFrontmatter(fileContent)
+        if (!data && errors.length) throw new Error(errors[0].reason)
 
         if (!data?.contentType) {
           skipped.push({ file: relativePath, reason: 'No contentType property found' })

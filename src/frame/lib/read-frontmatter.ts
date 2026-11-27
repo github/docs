@@ -15,6 +15,15 @@ interface FrontmatterError {
   property?: string
 }
 
+// Gray-matter lets the document override the default language. The js alias
+// and case variants also resolve to this engine.
+const safeEngines = {
+  javascript() {
+    const reason = 'JavaScript frontmatter is not supported'
+    throw Object.assign(new Error(reason), { reason })
+  },
+}
+
 function readFrontmatter(markdown: string, opts: ReadFrontmatterOptions = {}) {
   const schema: SchemaObject = opts.schema || { type: 'object', properties: {} }
   const filepath = opts.filepath || null
@@ -23,7 +32,7 @@ function readFrontmatter(markdown: string, opts: ReadFrontmatterOptions = {}) {
   let data
 
   try {
-    ;({ content, data } = matter(markdown))
+    ;({ content, data } = matter(markdown, { engines: safeEngines }))
   } catch (e: unknown) {
     const defaultReason = 'invalid frontmatter entry'
 
@@ -96,10 +105,13 @@ function readFrontmatter(markdown: string, opts: ReadFrontmatterOptions = {}) {
   return { content, data, errors }
 }
 
-// Expose gray-matter's underlying stringify method for joining a parsed
-// frontmatter object and a markdown string back into a unified string
-//
-// stringify('some string', {some: 'frontmatter'})
-readFrontmatter.stringify = matter.stringify
+// Gray-matter reparses string input during stringify, so disable the same engine here.
+const stringify: typeof matter.stringify = (file, data, options) =>
+  matter.stringify(file, data, {
+    ...options,
+    engines: { ...options?.engines, ...safeEngines },
+  })
+
+readFrontmatter.stringify = stringify
 
 export default readFrontmatter
