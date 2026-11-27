@@ -81,7 +81,7 @@ Only pull requests in the same repository as the issue, or in a public repositor
 
 ## Syncing statuses with projects
 
-{% data variables.product.github %} keeps an issue's status and the **Status** field of its project items in sync when the project is owned by the same organization or personal account as the issue's repository. Projects owned by other accounts aren't affected.
+When status sync is enabled for a project, {% data variables.product.github %} keeps an issue's status and the **Status** field of its project items in sync. The project must be owned by the same organization or personal account as the issue's repository. Projects owned by other accounts aren't affected.
 
 * **Issue to project**: When an issue's status changes, its item moves to the project's **Status** option with the same name. Names match regardless of case, extra spaces, and emoji, so a new project's **In Progress** option matches In progress. If no option matches, the item's **Status** doesn't change.
 * **Project to issue**: Moving an issue's item to a **Status** option with the same name as a status sets the issue's status, which can close or reopen the issue. Adding an issue to a project with a **Status**, for example in a board column, counts as a move. Options that don't match a status don't change the issue's status. A project's **Duplicate** option also doesn't change the status because closing an issue as a duplicate requires identifying the issue it duplicates. If you can't set the issue's status, the item moves back to the option that matches it.
@@ -89,7 +89,7 @@ Only pull requests in the same repository as the issue, or in a public repositor
 
 If a project's **Item added to project** workflow is turned off, issues added to the project without a **Status** don't get one. Their item gets a **Status** the next time the issue's status changes or someone moves the item.
 
-To keep a project's **Status** field separate from issue statuses, you can turn off the sync for that project. For more information, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/automating-your-project/using-the-built-in-automations#turning-off-the-issue-status-sync).
+Sync is off by default for existing and new projects that don't have a saved setting. To enable sync, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/automating-your-project/using-the-built-in-automations#enabling-issue-status-sync).
 
 ## Using statuses with other tools
 

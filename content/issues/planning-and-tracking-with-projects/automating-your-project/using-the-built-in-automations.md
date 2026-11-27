@@ -45,16 +45,23 @@ You can enable or disable the built-in workflows for your project.
 
 {% ifversion issue-statuses %}
 
-## Turning off the issue status sync
+<!-- Anchor to preserve links to the previous section title. -->
+<a name="turning-off-the-issue-status-sync"></a>
 
-By default, a project's **Status** field syncs with issue statuses. You can turn off the sync for one project. Built-in workflows still run with their configured options, so **Item closed** can still set **Status** when an issue closes, and **Auto-close issue** can still close an issue when its item's **Status** changes.
+## Enabling issue status sync
+
+Issue status sync is off by default for existing and new projects that don't have a saved setting.
 
 People with write access to the project can change the setting. Copies of the project, and projects created from it as a template, keep the setting.
 
 {% data reusables.projects.access-workflows %}
-1. In the list of workflows, click **Sync with issue status**.
-1. Click the toggle to turn the sync off or on.
+1. In the left sidebar, under "Statuses," click **Sync with issue status**.
+1. On the right side of the page, click the toggle to turn the sync on.
 
-When you turn the sync back on, items don't change right away. For each issue and its project item, syncing resumes the next time the issue's status changes, someone moves the item, or a built-in workflow sets its **Status**. Depending on the change, the issue's status can update the item, or the item's **Status** can update the issue's status.
+You can also open this setting from the project's **Status** field settings. Above the options list, click **Sync with issue status**.
+
+When you turn the sync on, items don't change right away. For each issue and its project item, syncing starts or resumes the next time the issue's status changes, someone moves the item, or a built-in workflow sets its **Status**. Depending on the change, the issue's status can update the item, or the item's **Status** can update the issue's status.
+
+To keep a project's **Status** field separate from issue statuses, turn the sync off from the same setting. Built-in workflows still run with their configured options, so **Item closed** can still set **Status** when an issue closes, and **Auto-close issue** can still close an issue when its item's **Status** changes.
 
 {% endif %}
