@@ -6,7 +6,6 @@ import { engine } from '@/content-render/liquid/engine'
 import { apiTransformerTags } from '@/article-api/liquid-renderers'
 import { loadTemplate } from '@/article-api/lib/load-template'
 import { summarizeSchema } from '@/article-api/lib/summarize-schema'
-import matter from '@gr2m/gray-matter'
 import { fastTextOnly } from '@/content-render/unified/text-only'
 import GithubSlugger from 'github-slugger'
 
@@ -86,18 +85,12 @@ export class RestTransformer implements PageTransformer {
         '<!-- Content after this section is automatically generated -->',
       )
       if (markerIndex > 0) {
-        const { content } = matter(page.markdown)
-        const manualContentMarkerIndex = content.indexOf(
-          '<!-- Content after this section is automatically generated -->',
-        )
-        if (manualContentMarkerIndex > 0) {
-          const rawManualContent = content.substring(0, manualContentMarkerIndex).trim()
-          if (rawManualContent) {
-            manualContent = await renderContent(rawManualContent, {
-              ...context,
-              markdownRequested: true,
-            })
-          }
+        const rawManualContent = page.markdown.substring(0, markerIndex).trim()
+        if (rawManualContent) {
+          manualContent = await renderContent(rawManualContent, {
+            ...context,
+            markdownRequested: true,
+          })
         }
       }
     }

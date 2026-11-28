@@ -5,7 +5,7 @@ import walk from 'walk-sync'
 import yaml from 'js-yaml'
 import { isRegExp, setWith } from 'lodash-es'
 import filenameToKey from './filename-to-key'
-import matter from '@gr2m/gray-matter'
+import { parseYamlFrontmatter } from '@/frame/lib/parse-yaml-frontmatter'
 
 interface DataDirectoryOptions {
   preprocess?: (content: string) => string
@@ -78,10 +78,10 @@ export default function dataDirectory(
         break
       case '.md':
       case '.markdown':
-        // Use `matter` to drop frontmatter, since localized reusable Markdown files
+        // Drop frontmatter, since localized reusable Markdown files
         // can potentially have frontmatter, but we want to prevent the frontmatter
         // from being rendered.
-        setWith(data, key, matter(processedContent).content, Object)
+        setWith(data, key, parseYamlFrontmatter(processedContent).content, Object)
         break
     }
   }

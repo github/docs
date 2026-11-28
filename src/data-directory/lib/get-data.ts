@@ -2,9 +2,9 @@ import fs from 'fs'
 import path from 'path'
 
 import yaml from 'js-yaml'
-import matter from '@gr2m/gray-matter'
 import { merge, get } from 'lodash-es'
 
+import { parseYamlFrontmatter } from '@/frame/lib/parse-yaml-frontmatter'
 import languages from '@/languages/lib/languages-server'
 import { correctTranslatedContentStrings } from '@/languages/lib/correct-translation-content'
 import { createLogger } from '@/observability/logger'
@@ -190,13 +190,13 @@ function getDataByDir(
     if (allData && key) {
       const value = allData[key]
       if (value) {
-        let content = matter(value).content
+        let content = parseYamlFrontmatter(value).content
         if (dir !== englishRoot) {
           let englishContent = content
           try {
             const englishData = getYamlContent(englishRoot, fullPath.join(path.sep), englishRoot)
             if (englishData?.[key]) {
-              englishContent = matter(englishData[key]).content
+              englishContent = parseYamlFrontmatter(englishData[key]).content
             }
           } catch (error) {
             if ((error as FileSystemError).code !== 'ENOENT') {
@@ -220,8 +220,7 @@ function getDataByDir(
     const nakedname = split.pop()!
     fullPath.push(...split)
     fullPath.push(`${nakedname}.md`)
-    const markdown = getMarkdownContent(dir, fullPath.join(path.sep), englishRoot)
-    let { content } = matter(markdown)
+    let content = getMarkdownContent(dir, fullPath.join(path.sep), englishRoot)
     if (dir !== englishRoot) {
       // If we're reading a translation, we need to replace the possible
       // corruptions. For example `[AUTOTITLE"을](/foo/bar)`.
@@ -340,7 +339,7 @@ const getMarkdownContent = memoize(
     }
 
     const fileContent = getFileContent(root, relPath, englishRoot)
-    return matter(fileContent).content.trimEnd()
+    return parseYamlFrontmatter(fileContent).content.trimEnd()
   },
 )
 

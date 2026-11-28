@@ -3,7 +3,6 @@ import type { PageTransformer } from './types'
 import { renderContent } from '@/content-render/index'
 import { fastTextOnly } from '@/content-render/unified/text-only'
 import { loadTemplate } from '@/article-api/lib/load-template'
-import matter from '@gr2m/gray-matter'
 
 /**
  * Transformer for Webhooks pages.
@@ -32,7 +31,7 @@ export class WebhooksTransformer implements PageTransformer {
     // Prepare manual content
     let manualContent = ''
     if (page.markdown) {
-      const { content } = matter(page.markdown)
+      const content = page.markdown
       const markerIndex = content.indexOf(
         '<!-- Content after this section is automatically generated -->',
       )

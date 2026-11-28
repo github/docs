@@ -2,7 +2,6 @@ import type { Context, Page } from '@/types'
 import type { PageTransformer } from './types'
 import { renderContent } from '@/content-render/index'
 import { loadTemplate } from '@/article-api/lib/load-template'
-import matter from '@gr2m/gray-matter'
 
 const DEBUG = process.env.RUNNER_DEBUG === '1' || process.env.DEBUG === '1'
 
@@ -131,7 +130,7 @@ export class GithubAppsTransformer implements PageTransformer {
     // Prepare manual content
     let manualContent = ''
     if (page.markdown) {
-      const { content } = matter(page.markdown)
+      const content = page.markdown
       // GitHub Apps pages don't have the automated marker, so we render all markdown content
       if (content.trim()) {
         manualContent = await renderContent(content, {

@@ -1,6 +1,7 @@
-import matter from '@gr2m/gray-matter'
 import type { SchemaObject, ErrorObject } from 'ajv'
+import { dump, type DumpOptions } from 'js-yaml'
 
+import { parseYamlFrontmatter } from '@/frame/lib/parse-yaml-frontmatter'
 import { validateJson } from '@/tests/lib/validate-json-schema'
 
 interface ReadFrontmatterOptions {
@@ -23,7 +24,7 @@ function readFrontmatter(markdown: string, opts: ReadFrontmatterOptions = {}) {
   let data
 
   try {
-    ;({ content, data } = matter(markdown))
+    ;({ content, data } = parseYamlFrontmatter(markdown))
   } catch (e: unknown) {
     const defaultReason = 'invalid frontmatter entry'
 
@@ -96,10 +97,12 @@ function readFrontmatter(markdown: string, opts: ReadFrontmatterOptions = {}) {
   return { content, data, errors }
 }
 
-// Expose gray-matter's underlying stringify method for joining a parsed
-// frontmatter object and a markdown string back into a unified string
-//
-// stringify('some string', {some: 'frontmatter'})
-readFrontmatter.stringify = matter.stringify
+// Merge existing YAML frontmatter when a tooling caller supplies a full document.
+readFrontmatter.stringify = (markdown: string, data: object, options?: DumpOptions) => {
+  const parsed = parseYamlFrontmatter(markdown)
+  const yaml = dump({ ...parsed.data, ...data }, options).trim()
+  const frontmatter = yaml === '{}' ? '' : `---\n${yaml}\n---\n`
+  return frontmatter + (parsed.content.endsWith('\n') ? parsed.content : `${parsed.content}\n`)
+}
 
 export default readFrontmatter
