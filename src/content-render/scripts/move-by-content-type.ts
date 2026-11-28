@@ -80,6 +80,21 @@ interface FileMove {
   contentType: string
 }
 
+// Only remove directories. A skipped or unselected file must survive cleanup.
+async function removeEmptyDirectoryTree(dir: string): Promise<boolean> {
+  for (const entry of await fs.readdir(dir, { withFileTypes: true })) {
+    if (entry.isDirectory()) await removeEmptyDirectoryTree(path.join(dir, entry.name))
+  }
+
+  try {
+    await fs.rmdir(dir)
+    return true
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException).code === 'ENOTEMPTY') return false
+    throw error
+  }
+}
+
 program
   .name('content-type-based-move')
   .description('Reorganize content files into subdirectories based on their contentType property')
@@ -369,7 +384,8 @@ contentType: ${placeholderContentType}
         await fs.mkdir(file.targetDir, { recursive: true })
 
         const content = await fs.readFile(file.filePath, 'utf-8')
-        const { data, content: body } = readFrontmatter(content)
+        const { data, content: body, errors } = readFrontmatter(content)
+        if (!data && errors.length) throw new Error(errors[0].reason)
         // Clear children array because paths will be invalid in the new content-type directory structure
         if (data?.children) data.children = []
 
@@ -474,6 +490,7 @@ contentType: ${placeholderContentType}
 
     for (const productDir of productDirs) {
       const productName = path.basename(productDir)
+      const retainedDirs = new Set<string>()
 
       try {
         const entries = await fs.readdir(productDir, { withFileTypes: true })
@@ -483,7 +500,15 @@ contentType: ${placeholderContentType}
             const oldDirPath = path.join(productDir, entry.name)
 
             try {
-              await fs.rm(oldDirPath, { recursive: true, force: true })
+              if (!(await removeEmptyDirectoryTree(oldDirPath))) {
+                retainedDirs.add(entry.name)
+                console.log(
+                  chalk.yellow(
+                    `⚠ Keeping ${path.relative(process.cwd(), oldDirPath)}: files remain`,
+                  ),
+                )
+                continue
+              }
               console.log(
                 chalk.gray(`✓ Deleted old directory: ${path.relative(process.cwd(), oldDirPath)}`),
               )
@@ -491,6 +516,7 @@ contentType: ${placeholderContentType}
               if (!deletedByProduct.has(productName)) deletedByProduct.set(productName, [])
               deletedByProduct.get(productName)!.push(`/${productName}/${entry.name}`)
             } catch (error) {
+              retainedDirs.add(entry.name)
               console.log(chalk.yellow(`⚠ Could not delete ${oldDirPath}: ${error}`))
             }
           }
@@ -517,6 +543,13 @@ contentType: ${placeholderContentType}
           }
 
           if (newChildren.length > 0) {
+            if (Array.isArray(data.children)) {
+              for (const child of data.children) {
+                if (typeof child === 'string' && retainedDirs.has(child.split('/')[1])) {
+                  newChildren.push(child)
+                }
+              }
+            }
             data.children = newChildren
             updated = true
           }
