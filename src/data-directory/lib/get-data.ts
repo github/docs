@@ -11,10 +11,6 @@ import { createLogger } from '@/observability/logger'
 
 const logger = createLogger(import.meta.url)
 
-interface YAMLException extends Error {
-  mark?: any
-}
-
 interface FileSystemError extends Error {
   code?: string
 }
@@ -124,20 +120,16 @@ export const getDataByLanguage = memoize((dottedPath: string, langCode: string):
     }
     return value
   } catch (error) {
-    if (error instanceof Error && (error as YAMLException).mark && error.message) {
-      // It's a yaml.load() generated error!
-      // Remember, the file that we read might have been a .yml or a .md
-      // file. If it was a .md file, with corrupt front-matter that too
-      // would have caused a YAMLException
+    if (error instanceof yaml.YAMLException) {
+      // Fall back when YAML data or Markdown frontmatter in a translation is invalid.
       if (langCode !== 'en') {
         if (DEBUG_JIT_DATA_READS) {
-          logger.warn('Unable to parse Yaml in translation', { langCode, dottedPath, error })
+          logger.warn('Unable to parse data in translation', { langCode, dottedPath, error })
         }
         // Give it one more chance, but use English this time
         return getDataByDir(dottedPath, languages.en.dir)
       }
-      // Always throw English Yaml reading errors. Staff writers
-      // need to know early and explicitly that they are corrupt.
+      // Surface invalid English data so writers can fix it.
       throw error
     }
 
@@ -339,7 +331,10 @@ const getMarkdownContent = memoize(
     }
 
     const fileContent = getFileContent(root, relPath, englishRoot)
-    return parseYamlFrontmatter(fileContent).content.trimEnd()
+    return parseYamlFrontmatter(fileContent, {
+      allowFormatLabels: true,
+      filename: relPath,
+    }).content.trimEnd()
   },
 )
 
