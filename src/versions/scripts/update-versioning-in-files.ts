@@ -56,7 +56,6 @@ for (const file of contentFiles) {
     }
   }
 
-  // @ts-expect-error lineWidth is a valid js-yaml option not included in gray-matter's type definitions
   fs.writeFileSync(file, frontmatter.stringify(newContent, data || {}, { lineWidth: 10000 }))
 }
 

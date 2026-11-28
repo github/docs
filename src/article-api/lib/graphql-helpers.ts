@@ -1,6 +1,5 @@
 import type { Context, Page } from '@/types'
 import { renderContent } from '@/content-render/index'
-import matter from '@gr2m/gray-matter'
 
 /**
  * Extract manual content from page markdown
@@ -15,14 +14,7 @@ export async function extractManualContent(page: Page, context: Context): Promis
 
   if (markerIndex <= 0) return ''
 
-  const { content } = matter(page.markdown)
-  const manualContentMarkerIndex = content.indexOf(
-    '<!-- Content after this section is automatically generated -->',
-  )
-
-  if (manualContentMarkerIndex <= 0) return ''
-
-  const rawManualContent = content.substring(0, manualContentMarkerIndex).trim()
+  const rawManualContent = page.markdown.substring(0, markerIndex).trim()
   if (!rawManualContent) return ''
 
   return await renderContent(rawManualContent, {

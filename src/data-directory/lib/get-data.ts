@@ -2,18 +2,14 @@ import fs from 'fs'
 import path from 'path'
 
 import yaml from 'js-yaml'
-import matter from '@gr2m/gray-matter'
 import { merge, get } from 'lodash-es'
 
+import { parseYamlFrontmatter } from '@/frame/lib/parse-yaml-frontmatter'
 import languages from '@/languages/lib/languages-server'
 import { correctTranslatedContentStrings } from '@/languages/lib/correct-translation-content'
 import { createLogger } from '@/observability/logger'
 
 const logger = createLogger(import.meta.url)
-
-interface YAMLException extends Error {
-  mark?: any
-}
 
 interface FileSystemError extends Error {
   code?: string
@@ -124,20 +120,16 @@ export const getDataByLanguage = memoize((dottedPath: string, langCode: string):
     }
     return value
   } catch (error) {
-    if (error instanceof Error && (error as YAMLException).mark && error.message) {
-      // It's a yaml.load() generated error!
-      // Remember, the file that we read might have been a .yml or a .md
-      // file. If it was a .md file, with corrupt front-matter that too
-      // would have caused a YAMLException
+    if (error instanceof yaml.YAMLException) {
+      // Fall back when YAML data or Markdown frontmatter in a translation is invalid.
       if (langCode !== 'en') {
         if (DEBUG_JIT_DATA_READS) {
-          logger.warn('Unable to parse Yaml in translation', { langCode, dottedPath, error })
+          logger.warn('Unable to parse data in translation', { langCode, dottedPath, error })
         }
         // Give it one more chance, but use English this time
         return getDataByDir(dottedPath, languages.en.dir)
       }
-      // Always throw English Yaml reading errors. Staff writers
-      // need to know early and explicitly that they are corrupt.
+      // Surface invalid English data so writers can fix it.
       throw error
     }
 
@@ -190,13 +182,13 @@ function getDataByDir(
     if (allData && key) {
       const value = allData[key]
       if (value) {
-        let content = matter(value).content
+        let content = parseYamlFrontmatter(value).content
         if (dir !== englishRoot) {
           let englishContent = content
           try {
             const englishData = getYamlContent(englishRoot, fullPath.join(path.sep), englishRoot)
             if (englishData?.[key]) {
-              englishContent = matter(englishData[key]).content
+              englishContent = parseYamlFrontmatter(englishData[key]).content
             }
           } catch (error) {
             if ((error as FileSystemError).code !== 'ENOENT') {
@@ -220,8 +212,7 @@ function getDataByDir(
     const nakedname = split.pop()!
     fullPath.push(...split)
     fullPath.push(`${nakedname}.md`)
-    const markdown = getMarkdownContent(dir, fullPath.join(path.sep), englishRoot)
-    let { content } = matter(markdown)
+    let content = getMarkdownContent(dir, fullPath.join(path.sep), englishRoot)
     if (dir !== englishRoot) {
       // If we're reading a translation, we need to replace the possible
       // corruptions. For example `[AUTOTITLE"을](/foo/bar)`.
@@ -340,7 +331,10 @@ const getMarkdownContent = memoize(
     }
 
     const fileContent = getFileContent(root, relPath, englishRoot)
-    return matter(fileContent).content.trimEnd()
+    return parseYamlFrontmatter(fileContent, {
+      allowFormatLabels: true,
+      filename: relPath,
+    }).content.trimEnd()
   },
 )
 

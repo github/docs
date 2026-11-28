@@ -2,6 +2,7 @@ import { describe, expect, test } from 'vitest'
 
 import parse from '@/frame/lib/read-frontmatter'
 import { schema as frontmatterSchema } from '@/frame/lib/frontmatter'
+import { getFrontmatter } from '@/content-linter/lib/helpers/utils'
 
 const filepath = 'path/to/file.md'
 const fixture1 = `---
@@ -28,40 +29,44 @@ describe('frontmatter', () => {
     expect(errors.length).toBe(0)
   })
 
-  describe('frontmatter.stringify', () => {
-    test('is exported', () => {
-      expect(typeof parse.stringify).toBe('function')
+  test('preserves Markdown after plain YAML with a BOM, CRLF, and fence whitespace', () => {
+    const markdown = '\uFEFF--- \r\ntitle: Example\r\n---\t\r\n\r\n---\r\nBody'
+    expect(parse(markdown)).toEqual({
+      data: { title: 'Example' },
+      content: '\r\n---\r\nBody',
+      errors: [],
     })
-
-    test('rejects JavaScript frontmatter when given a string', () => {
-      expect(() => parse.stringify('---js\n{"title":"Example"}\n---\nBody', {})).toThrow(
-        'JavaScript frontmatter is not supported',
-      )
-    })
+    expect(getFrontmatter(markdown.split('\r\n'))).toEqual({ title: 'Example' })
   })
 
-  test.each(['javascript', 'js', ' JAVASCRIPT ', ' Js '])(
-    'rejects the %j frontmatter language',
-    (language) => {
-      const { data, errors } = parse(`\uFEFF---${language}\r\n{"title":"Example"}\r\n---\r\nBody`, {
-        filepath,
+  test.each(['javascript', 'js', ' JAVASCRIPT ', ' Js ', ' JS ', 'json', 'yaml', 'yml'])(
+    'rejects a frontmatter fence labeled %j in both readers and the writer',
+    (label) => {
+      const markdown = `\uFEFF---${label}\r\n---\r\nBody`
+      const reason = 'expected a plain YAML frontmatter opening fence'
+      expect(parse(markdown, { filepath })).toEqual({
+        errors: [{ filepath, message: 'YML parsing error!', reason }],
       })
-      expect(data).toBeUndefined()
-      expect(errors).toEqual([
-        {
-          filepath,
-          message: 'YML parsing error!',
-          reason: 'JavaScript frontmatter is not supported',
-        },
-      ])
+      expect(() => getFrontmatter(markdown.split('\r\n'))).toThrow(reason)
+      expect(() => parse.stringify(markdown, { title: 'Example' })).toThrow(reason)
     },
   )
 
-  test.each(['yaml', 'yml', 'json'])('still parses explicit %s frontmatter', (language) => {
-    expect(parse(`---${language}\n{"title":"Example"}\n---\nBody`)).toEqual({
-      data: { title: 'Example' },
-      content: 'Body',
-      errors: [],
+  test('reports a missing closing fence', () => {
+    expect(parse('---\ntitle: Example').errors[0].reason).toBe(
+      'missing YAML frontmatter closing fence',
+    )
+  })
+
+  describe('frontmatter.stringify', () => {
+    test('merges existing YAML frontmatter and keeps the Markdown body', () => {
+      const markdown = '---\ntitle: Original\nshortTitle: Short\n---\nBody'
+      const output = parse.stringify(markdown, { title: 'Updated' })
+      expect(parse(output)).toEqual({
+        content: 'Body\n',
+        data: { title: 'Updated', shortTitle: 'Short' },
+        errors: [],
+      })
     })
   })
 

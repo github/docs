@@ -4,6 +4,7 @@
  */
 
 import { program } from 'commander'
+import { constants } from 'fs'
 import fs from 'fs/promises'
 import path from 'path'
 import chalk from 'chalk'
@@ -25,6 +26,32 @@ const contentTypeToDir = (contentType: string): string => {
 }
 
 const validContentTypeDirs = new Set(CONTENT_TYPES.map(contentTypeToDir))
+const contentRoot = path.resolve('content')
+
+// The move helper also updates links in other products. Check the entire tree
+// before any migration writes, including when the user selects only one file.
+async function checkContentTree() {
+  if (!(await fs.lstat(contentRoot)).isDirectory()) {
+    throw new Error('Expected content to be a directory, not a symbolic link')
+  }
+  const entries = await fs.readdir(contentRoot, { recursive: true, withFileTypes: true })
+  const link = entries.find((entry) => entry.isSymbolicLink())
+  if (link) {
+    throw new Error(`Symbolic links are not supported: ${path.join(link.parentPath, link.name)}`)
+  }
+}
+
+function resolveContentPath(input: string): string {
+  const absolutePath = path.resolve(input)
+  const relative = path.relative(contentRoot, absolutePath)
+  if (relative === '..' || relative.startsWith(`..${path.sep}`) || path.isAbsolute(relative)) {
+    throw new Error(`Expected a path inside content: ${input}`)
+  }
+  return absolutePath
+}
+
+// Rewrites should neither create a missing index nor follow a replacement link.
+const indexWriteFlags = constants.O_WRONLY | constants.O_TRUNC | (constants.O_NOFOLLOW ?? 0)
 
 // Helper: Should we skip this index.md file from processing?
 function shouldSkipIndexFile(filePath: string): boolean {
@@ -100,13 +127,21 @@ program
   .description('Reorganize content files into subdirectories based on their contentType property')
   .argument('[paths...]', 'Content paths to process')
   .action(async (paths: string[]) => {
+    const inputPaths = paths.map(resolveContentPath)
+    // Run in a checkout without concurrent writers; Node's path-based
+    // operations and the child scripts cannot pin directory ancestors.
+    await checkContentTree()
+
     // ====================
     // 1. GATHER FILES
     // ====================
     const filesToProcess: string[] = []
-    if (paths?.length > 0) {
-      for (const p of paths) {
+    const requestedProducts = new Set<string>()
+    if (inputPaths.length > 0) {
+      for (const p of inputPaths) {
         const stats = await fs.stat(p)
+        const [product, child] = path.relative(contentRoot, p).split(path.sep)
+        if (product && (stats.isDirectory() || child)) requestedProducts.add(product)
         if (stats.isDirectory()) {
           filesToProcess.push(...(await walkFiles(p, ['.md'])))
         } else if (p.endsWith('.md')) {
@@ -114,7 +149,7 @@ program
         }
       }
     } else {
-      filesToProcess.push(...(await walkFiles(path.join(process.cwd(), 'content'), ['.md'])))
+      filesToProcess.push(...(await walkFiles(contentRoot, ['.md'])))
     }
 
     console.log(chalk.white(`Processing ${filesToProcess.length} files...\n`))
@@ -171,7 +206,7 @@ program
         }
 
         // Get product directory
-        if (contentIndex === -1 || contentIndex + 1 >= parts.length) {
+        if (contentIndex === -1 || contentIndex + 2 >= parts.length) {
           console.log(
             chalk.yellow(`⚠ Skipping ${relativePath}: Cannot determine product directory`),
           )
@@ -231,24 +266,12 @@ program
     console.log(chalk.white('Ensuring standard content-type directories exist...\n'))
 
     // Add standard content-type directories for each affected product
-    if (paths?.length > 0) {
-      for (const p of paths) {
-        const fullPath = path.resolve(process.cwd(), p)
-        const relativePath = path.relative(process.cwd(), fullPath)
-        const parts = relativePath.split(path.sep)
-        const contentIndex = parts.indexOf('content')
-
-        if (contentIndex !== -1 && contentIndex + 1 < parts.length) {
-          const productName = parts[contentIndex + 1]
-
-          for (const ct of CONTENT_TYPES.filter((t) => t !== 'rai' && t !== 'landing')) {
-            targetDirs.add(path.join('content', productName, contentTypeToDir(ct)))
-          }
-
-          if (productsWithRai.has(productName)) {
-            targetDirs.add(path.join('content', productName, 'responsible-use'))
-          }
-        }
+    for (const productName of requestedProducts) {
+      for (const ct of CONTENT_TYPES.filter((t) => t !== 'rai' && t !== 'landing')) {
+        targetDirs.add(path.join('content', productName, contentTypeToDir(ct)))
+      }
+      if (productsWithRai.has(productName)) {
+        targetDirs.add(path.join('content', productName, 'responsible-use'))
       }
     }
 
@@ -304,7 +327,7 @@ contentType: ${placeholderContentType}
 `
 
         await fs.mkdir(absoluteDirPath, { recursive: true })
-        await fs.writeFile(indexPath, content, 'utf-8')
+        await fs.writeFile(indexPath, content, { flag: 'wx' })
         newPlaceholders.push(indexPath)
 
         console.log(chalk.green(`✓ Created ${dirPath}/index.md`))
@@ -389,11 +412,9 @@ contentType: ${placeholderContentType}
         // Clear children array because paths will be invalid in the new content-type directory structure
         if (data?.children) data.children = []
 
-        await fs.writeFile(
-          file.targetPath,
-          readFrontmatter.stringify(body || '', data || {}),
-          'utf-8',
-        )
+        await fs.writeFile(file.targetPath, readFrontmatter.stringify(body || '', data || {}), {
+          flag: 'wx',
+        })
         indexFilesToDeleteLater.push(file.filePath)
 
         moved.push({
@@ -427,6 +448,7 @@ contentType: ${placeholderContentType}
           ['run', 'move-content', '--', relativeFilePath, relativeTargetPath, '--no-git'],
           {
             cwd: process.cwd(),
+            env: { ...process.env, ROOT: '.' },
             stdio: 'inherit',
           },
         )
@@ -569,7 +591,9 @@ contentType: ${placeholderContentType}
           }
 
           if (updated) {
-            await fs.writeFile(productIndexPath, readFrontmatter.stringify(body, data), 'utf-8')
+            await fs.writeFile(productIndexPath, readFrontmatter.stringify(body, data), {
+              flag: indexWriteFlags,
+            })
             const changes = []
             if (newChildren.length > 0) changes.push(`${newChildren.length} children`)
             if (deletedPaths.length > 0) changes.push(`${deletedPaths.length} redirects`)
@@ -610,7 +634,9 @@ contentType: ${placeholderContentType}
 
           if (subdirs.length > 0) {
             data.children = subdirs
-            await fs.writeFile(indexPath, readFrontmatter.stringify(body, data), 'utf-8')
+            await fs.writeFile(indexPath, readFrontmatter.stringify(body, data), {
+              flag: indexWriteFlags,
+            })
             console.log(
               chalk.green(
                 `✓ Added children to ${path.relative(process.cwd(), indexPath)} (${subdirs.length} subdirectories)`,
@@ -633,7 +659,9 @@ contentType: ${placeholderContentType}
 
           if (JSON.stringify(sorted) !== JSON.stringify(data.children)) {
             data.children = sorted
-            await fs.writeFile(indexPath, readFrontmatter.stringify(body, data), 'utf-8')
+            await fs.writeFile(indexPath, readFrontmatter.stringify(body, data), {
+              flag: indexWriteFlags,
+            })
             console.log(
               chalk.green(`✓ Sorted children in ${path.relative(process.cwd(), indexPath)}`),
             )
@@ -673,4 +701,9 @@ contentType: ${placeholderContentType}
     }
   })
 
-program.parse()
+try {
+  await program.parseAsync()
+} catch (error) {
+  console.error(chalk.red(error instanceof Error ? error.message : String(error)))
+  process.exitCode = 1
+}
