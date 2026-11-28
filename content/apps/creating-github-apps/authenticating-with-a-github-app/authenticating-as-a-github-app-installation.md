@@ -129,7 +129,7 @@ The Octokit.js SDK also passes a pre-authenticated `octokit` instance to webhook
 1. Use an `app.webhooks.*` method to handle webhook events. For more information, see [the Octokit.js README's Webhooks section](https://github.com/octokit/octokit.js#webhooks). For example, to create a comment on an issue when the issue is opened:
 
    ```javascript
-   app.webhooks.on("issues.opened", ({ octokit, payload }) => {
+   app.webhooks.on("issues.opened", async ({ octokit, payload }) => {
      await octokit.request("POST /repos/{owner}/{repo}/issues/{issue_number}/comments", {
          owner: payload.repository.owner.login,
          repo: payload.repository.name,
