@@ -56,7 +56,7 @@ If you want to use the API on behalf of an organization or another user, {% data
 Instead of importing `Octokit` from `octokit`, import `App`. In the following example, replace `APP_ID` with a reference to your app's ID. Replace `PRIVATE_KEY` with a reference to your app's private key. Replace `INSTALLATION_ID` with the ID of the installation of your app that you want to authenticate on behalf of. You can find your app's ID and generate a private key on the settings page for your app. For more information, see [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/managing-private-keys-for-github-apps). You can get an installation ID with the `GET /users/{username}/installation`, `GET /repos/{owner}/{repo}/installation`, or `GET /orgs/{org}/installation` endpoints. For more information, see [AUTOTITLE](/rest/apps/apps).{% ifversion ghes %} Replace `HOSTNAME` with the name of {% data variables.location.product_location %}.{% endif %}
 
 ```javascript copy
-import { App } from "octokit";
+import { App{% ifversion ghes %}, Octokit{% endif %} } from "octokit";
 
 const app = new App({
   appId: APP_ID,
